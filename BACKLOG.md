@@ -283,61 +283,49 @@ Epic 2 — YouTube Transcript Fetcher.
 
 ## W-0020
 
-status: needing_refinement
+status: done
 created: 2026-02-27
-updated: 2026-02-27
+updated: 2026-02-28
 
 ### Outcome
 
-`docs/adr/0002-*.md` documents the chosen indexing and tracking approach with rationale for the decision.
+`docs/adr/0003-indexing-and-tracking-approach.md` documents the chosen indexing and tracking approach: JSON state file (`state/index.json`) for URL-based deduplication + YAML front-matter in research item `.md` files for item metadata. ADR includes rationale, rejected alternatives (SQLite, YAML index, vector store), and migration trigger criteria.
 
 ### Context
 
-Epic 3 — Indexing and Tracking. Depends on research item `Research/backlog/2026-02-27-indexing-and-tracking-method.md` being completed first.
-
-### Notes
-
-Cannot fully refine until the indexing research item is completed and a technology is chosen.
+Epic 3 — Indexing and Tracking. Research item `Research/completed/2026-02-27-indexing-and-tracking-method.md` was completed first; findings directly informed the ADR.
 
 ---
 
 ## W-0021
 
-status: needing_refinement
+status: done
 created: 2026-02-27
-updated: 2026-02-27
+updated: 2026-02-28
 
 ### Outcome
 
-The chosen indexing approach is implemented; `python -m src.main` can read and write the index without errors.
+`src/state.py` implements `StateStore`: `is_processed(url)`, `record(item)`, `processed_urls()`. Writes are atomic (temp file + `os.replace`). Default path is `state/index.json`. Schema matches ADR-0003.
 
 ### Context
 
-Epic 3 — Indexing and Tracking. Depends on W-0020.
-
-### Notes
-
-Scope depends on the chosen technology (JSON, SQLite, or vector store).
+Epic 3 — Indexing and Tracking. Depends on W-0020 (ADR-0003 accepted).
 
 ---
 
 ## W-0022
 
-status: needing_refinement
+status: done
 created: 2026-02-27
-updated: 2026-02-27
+updated: 2026-02-28
 
 ### Outcome
 
-`state/index.json` (or equivalent) persists processed item metadata across runs; running the pipeline twice does not reprocess already-indexed items.
+`state/index.json` persists processed item metadata across runs; running the pipeline twice does not reprocess already-indexed items. `_fetch_youtube` in `src/main.py` skips already-processed URLs and prints `[skip]` for each. `tests/test_state.py` has 12 tests covering all `StateStore` behaviour.
 
 ### Context
 
 Epic 3 — Indexing and Tracking. Depends on W-0021.
-
-### Notes
-
-File format and schema depend on chosen technology from W-0020.
 
 ---
 

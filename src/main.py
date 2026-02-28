@@ -75,6 +75,7 @@ def _dispatch_fetch(args: argparse.Namespace) -> None:
 def _fetch_youtube(args: argparse.Namespace) -> None:
     """Run the YouTube fetcher and print results to stdout."""
     from src.fetchers.youtube import YouTubeFetcher
+    from src.state import StateStore
 
     channel_id = getattr(args, "channel", None)
     video_url = getattr(args, "video", None)
@@ -83,6 +84,8 @@ def _fetch_youtube(args: argparse.Namespace) -> None:
     if not channel_id and not video_url:
         print("Provide --channel CHANNEL_ID or --video VIDEO_URL", file=sys.stderr)
         sys.exit(1)
+
+    store = StateStore()
 
     fetcher = YouTubeFetcher(
         channel_id=channel_id,
@@ -95,12 +98,22 @@ def _fetch_youtube(args: argparse.Namespace) -> None:
         print("No items fetched.", file=sys.stderr)
         sys.exit(1)
 
+    new_count = 0
     for item in items:
+        if store.is_processed(item.url):
+            logger.info("Skipping already-processed: %s", item.url)
+            print(f"[skip] {item.title} — already processed")
+            continue
+        store.record(item)
+        new_count += 1
         print(f"=== {item.title} ===")
         print(f"URL: {item.url}")
         print()
         print(item.content)
         print()
+
+    if new_count == 0:
+        print("All items already processed — nothing new.", file=sys.stderr)
 
 
 if __name__ == "__main__":

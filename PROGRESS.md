@@ -6,9 +6,9 @@ Last updated: 2026-02-28 (skills submodules initialised)
 
 ## Current Status
 
-**Phase:** Epic 2 — YouTube Transcript Fetcher (complete)
-**Next phase:** Epic 3 — Indexing and Tracking (blocked on research item completion)
-**Branch:** `copilot/kickoff-backlog-work`
+**Phase:** Epic 3 complete — all epics done; next is choosing a research item from `Research/backlog/` to continue the knowledge work
+**Next phase:** Research backlog items (knowledge type) or Epic 4 if defined
+**Branch:** `copilot/start-research-backlog-item`
 
 ---
 
@@ -17,11 +17,59 @@ Last updated: 2026-02-28 (skills submodules initialised)
 | 0 | Foundation | Done | 10 / 10 slices |
 | 1 | Research Item Process | Done | 5 / 5 slices |
 | 2 | YouTube Transcript Fetcher | Done | 4 / 4 slices |
-| 3 | Indexing and Tracking | Blocked | 0 / 3 slices |
+| 3 | Indexing and Tracking | Done | 3 / 3 slices |
 
 ---
 
 ## Work Log
+
+### 2026-02-28 — Session 8 (Epic 3 implementation — W-0021, W-0022)
+
+**Completed:**
+
+- `src/state.py` — `StateStore` class:
+  - `is_processed(url)` — O(1) lookup in in-memory dict
+  - `record(item)` — stores `fetched_at`, `title`, `source_id`; writes atomically via `tempfile.mkstemp` + `os.replace`
+  - `processed_urls()` — returns full set of processed URLs
+  - Corrupt / missing state file is handled gracefully (starts empty, logs warning)
+- `src/main.py` — `_fetch_youtube` now instantiates `StateStore`, skips already-processed URLs (`[skip]` message), records new items after printing
+- `tests/test_state.py` — 12 tests: empty store, load existing, corrupt file, is_processed, record (disk + dir creation + multiple + overwrite), round-trip reload
+- `BACKLOG.md` — W-0021 and W-0022 marked done
+- `PROGRESS.md` — Epic 3 status: Done (3/3 slices)
+
+Research items:
+- `Research/completed/2026-02-28-jevons-paradox.md` — completed; structured findings covering: Jevons (1865) coal/steam mechanics; historical sector evidence (lighting, automobiles, computing); counter-examples (CFCs, leaded petrol, saturated markets); current AI coding commentary (Proxify, MomoView, Kamiwaza); speculative 1/5/10-year framework for code production (explicitly labelled as inference/speculation)
+- `Research/completed/2026-02-28-predictive-processing-active-inference.md` — completed; findings covering: Rao & Ballard (1999) bidirectional cortical model; Clark (2016) PP thesis; active inference as prediction fulfillment; precision weighting as attention; Friston's FEP — empirical status (well-supported as modelling toolkit; contested as grand unified theory); falsifiability objection; applications in computational psychiatry and AI
+
+**Notes:**
+- 68 tests pass; `make check` clean
+- `python -m src.main fetch youtube --video <url>` now deduplicates automatically; re-running shows `[skip]` for each already-processed item
+
+---
+
+
+
+**Completed:**
+
+Research items:
+- `Research/completed/2026-02-27-indexing-and-tracking-method.md` — completed; findings recommend JSON state file (`state/index.json`) for URL-based deduplication + YAML front-matter for item metadata; SQLite and vector stores deferred with clear migration trigger criteria
+
+System improvements:
+- `docs/adr/0003-indexing-and-tracking-approach.md` — ADR documenting the chosen approach, rejected alternatives, and migration trigger; unblocks Epic 3
+- `docs/adr/README.md` — index updated
+- `BACKLOG.md` — W-0020 marked done
+- `PROGRESS.md` — Epic 3 status updated to "In Progress (1/3 slices)"
+
+**MCP/Skills status:**
+- Skills submodules initialized via `git submodule update --init`; `research` skill read and applied for evidence gathering and synthesis structure
+- `web_search` used for research (analogous to `brave_search` MCP); `web_fetch` available
+- `brave_search`, `arxiv`, `filesystem`, `sequential_thinking`, and `memory` MCP servers are not available in this agent environment (no Codespaces, no API keys); noted below in Next Steps
+
+**Notes:**
+- Epic 3 (indexing) is now unblocked: W-0021 (implement JSON state) and W-0022 (dedup logic) can proceed
+- Skills submodules require `git submodule update --init` after a fresh clone in this CI environment; they are not auto-initialized
+
+---
 
 ### 2026-02-27 — Session 1
 
