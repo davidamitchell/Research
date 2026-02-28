@@ -139,9 +139,9 @@ updated: 2026-02-27
 
 ## W-0011
 
-status: ready
+status: done
 created: 2026-02-27
-updated: 2026-02-27
+updated: 2026-02-28
 
 ### Outcome
 
@@ -155,9 +155,9 @@ Epic 1 — Research Item Process. Reduces friction for capturing new research id
 
 ## W-0012
 
-status: ready
+status: done
 created: 2026-02-27
-updated: 2026-02-27
+updated: 2026-02-28
 
 ### Outcome
 
@@ -171,9 +171,9 @@ Epic 1 — Research Item Process.
 
 ## W-0013
 
-status: ready
+status: done
 created: 2026-02-27
-updated: 2026-02-27
+updated: 2026-02-28
 
 ### Outcome
 
@@ -187,9 +187,9 @@ Epic 1 — Research Item Process.
 
 ## W-0014
 
-status: ready
+status: done
 created: 2026-02-27
-updated: 2026-02-27
+updated: 2026-02-28
 
 ### Outcome
 
@@ -203,9 +203,9 @@ Epic 1 — Research Item Process.
 
 ## W-0015
 
-status: ready
+status: done
 created: 2026-02-27
-updated: 2026-02-27
+updated: 2026-02-28
 
 ### Outcome
 
@@ -213,35 +213,35 @@ updated: 2026-02-27
 
 ### Context
 
-Epic 1 — Research Item Process. Tests must use `tmp_path` fixtures; no real `Research/` directory mutation.
+Epic 1 — Research Item Process. Tests use `tmp_path` fixtures; no real `Research/` directory mutation.
 
 ---
 
 ## W-0016
 
-status: ready
+status: done
 created: 2026-02-27
-updated: 2026-02-27
+updated: 2026-02-28
 
 ### Outcome
 
-`src/fetchers/youtube.py` implements the `Fetcher` protocol and returns transcripts (or description fallback) for the latest N videos from a given channel ID without raising an exception.
+`src/fetchers/youtube.py` implements the `Fetcher` protocol and returns transcripts (or description fallback) for a channel's latest N videos and for individual video URLs without raising an exception.
 
 ### Context
 
-Epic 2 — YouTube Transcript Fetcher. Port from `davidamitchell/Latest-developments-/src/fetchers/youtube.py`.
+Epic 2 — YouTube Transcript Fetcher.
 
 ---
 
 ## W-0017
 
-status: ready
+status: done
 created: 2026-02-27
-updated: 2026-02-27
+updated: 2026-02-28
 
 ### Outcome
 
-`config/sources.yaml` defines a complete, documented YouTube sources schema; `src/config.py` validates it on load and raises a descriptive error on invalid input.
+`config/sources.yaml` defines a complete, documented YouTube sources schema (channels + individual videos); `src/config.py` validates it on load and raises a descriptive error on invalid input.
 
 ### Context
 
@@ -251,13 +251,13 @@ Epic 2 — YouTube Transcript Fetcher.
 
 ## W-0018
 
-status: ready
+status: done
 created: 2026-02-27
-updated: 2026-02-27
+updated: 2026-02-28
 
 ### Outcome
 
-`python -m src.main fetch youtube <channel_id>` prints the transcript of the channel's latest video to stdout without errors.
+`python -m src.main fetch youtube --video <url>` prints the transcript to stdout; `--channel <id>` fetches the latest N videos from a channel. Both paths are wired in `src/main.py`.
 
 ### Context
 
@@ -267,13 +267,13 @@ Epic 2 — YouTube Transcript Fetcher. Depends on W-0016 and W-0017.
 
 ## W-0019
 
-status: ready
+status: done
 created: 2026-02-27
-updated: 2026-02-27
+updated: 2026-02-28
 
 ### Outcome
 
-`pytest tests/test_fetchers_youtube.py` passes with all HTTP calls mocked; covers transcript fetch, description fallback, and error handling.
+`pytest tests/test_fetchers_youtube.py` passes with all HTTP and transcript calls mocked; covers transcript fetch, description fallback, single-video fetch, and error handling.
 
 ### Context
 

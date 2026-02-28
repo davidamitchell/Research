@@ -1,0 +1,186 @@
+name: Fetch YouTube Transcript
+
+# Manually triggered from the GitHub Actions tab (website or iOS GitHub app).
+# Enter a YouTube URL and this workflow will:
+#   1. Try to download auto-generated captions with yt-dlp (may be blocked by YouTube)
+#   2. Convert the result to a plain-text file at Research/transcripts/<video-id>.txt
+#   3. Commit the file back to the branch you select when triggering the workflow
+#
+# If automatic fetching fails (YouTube blocks cloud IPs), the workflow commits a
+# README with step-by-step instructions for adding the transcript manually via
+# the GitHub website.
+
+on:
+  workflow_dispatch:
+    inputs:
+      video_url:
+        description: "YouTube video URL (e.g. https://youtu.be/HYUoS0GkGCs)"
+        required: true
+        type: string
+
+jobs:
+  fetch:
+    name: Fetch Transcript
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install yt-dlp
+        run: pip install yt-dlp
+
+      # ── Extract video ID ────────────────────────────────────────────────────
+      - name: Extract video ID
+        id: video
+        env:
+          VIDEO_URL: ${{ inputs.video_url }}
+        run: |
+          python3 << 'EOF'
+          import re, os, sys
+          url = os.environ["VIDEO_URL"]
+          m = re.search(r"(?:v=|youtu\.be/)([A-Za-z0-9_-]{11})", url)
+          if not m:
+              print(f"::error::Cannot extract video ID from: {url}")
+              sys.exit(1)
+          vid = m.group(1)
+          with open(os.environ["GITHUB_OUTPUT"], "a") as fh:
+              fh.write(f"id={vid}\n")
+          print(f"Video ID: {vid}")
+          EOF
+
+      # ── Attempt automated transcript fetch ──────────────────────────────────
+      - name: Fetch auto-generated captions via yt-dlp
+        id: fetch
+        continue-on-error: true
+        run: |
+          mkdir -p Research/transcripts
+          if yt-dlp \
+            --write-auto-sub \
+            --sub-lang "en,en-US,en-GB,en-orig" \
+            --skip-download \
+            --sub-format vtt \
+            --no-warnings \
+            --output "Research/transcripts/${{ steps.video.outputs.id }}" \
+            "${{ inputs.video_url }}"; then
+            echo "fetch_ok=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "fetch_ok=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      # ── Convert VTT to plain text ────────────────────────────────────────────
+      - name: Convert VTT to plain text
+        if: steps.fetch.outputs.fetch_ok == 'true'
+        env:
+          VIDEO_ID: ${{ steps.video.outputs.id }}
+        run: |
+          python3 << 'EOF'
+          import re, os, glob, sys
+          vid = os.environ["VIDEO_ID"]
+          base = f"Research/transcripts/{vid}"
+          vtts = glob.glob(f"{base}*.vtt")
+          if not vtts:
+              print("::warning::No VTT file found after yt-dlp succeeded")
+              sys.exit(1)
+          vtt_path = vtts[0]
+          txt_path = f"{base}.txt"
+          with open(vtt_path) as f:
+              raw = f.read()
+          lines, seen = [], set()
+          for line in raw.split("\n"):
+              line = line.strip()
+              if (not line
+                      or line.startswith("WEBVTT")
+                      or re.match(r"^\d{2}:\d{2}", line)
+                      or re.match(r"^\d+$", line)
+                      or line.startswith("align:")
+                      or line.startswith("position:")):
+                  continue
+              clean = re.sub(r"<[^>]+>", "", line).strip()
+              if clean and clean not in seen:
+                  seen.add(clean)
+                  lines.append(clean)
+          with open(txt_path, "w") as f:
+              f.write("\n".join(lines) + "\n")
+          os.remove(vtt_path)
+          print(f"Transcript: {txt_path} ({len(lines)} lines)")
+          EOF
+
+      # ── Write manual-fetch instructions when automated fetch fails ───────────
+      - name: Write manual-fetch instructions
+        if: steps.fetch.outputs.fetch_ok != 'true'
+        env:
+          VIDEO_ID: ${{ steps.video.outputs.id }}
+          REPO: ${{ github.repository }}
+          BRANCH: ${{ github.ref_name }}
+        run: |
+          mkdir -p Research/transcripts
+          python3 - << 'PYEOF'
+          import os
+          vid    = os.environ["VIDEO_ID"]
+          repo   = os.environ["REPO"]
+          branch = os.environ["BRANCH"]
+          url    = f"https://www.youtube.com/watch?v={vid}"
+          new_file_url = f"https://github.com/{repo}/new/{branch}"
+          lines = [
+              f"# Transcript unavailable — {vid}",
+              "",
+              "Automated fetching failed. YouTube blocks transcript requests from GitHub Actions",
+              "IP ranges (AWS/GCP). This is a hard network-level restriction with no reliable",
+              "workaround from a cloud runner.",
+              "",
+              "## How to add the transcript manually (GitHub website only — no IDE needed)",
+              "",
+              "### Step 1 — Copy the transcript from YouTube",
+              f"1. Open the video: <{url}>",
+              "2. Click the **\"⋮\"** (three-dot) menu **below** the video player",
+              "3. Click **\"Open transcript\"**",
+              "4. In the transcript panel that opens on the right, click its own **\"⋮\"** →",
+              "   **\"Toggle timestamps\"** to remove the timestamps",
+              "5. Select all the text in the transcript panel and copy it",
+              "",
+              "### Step 2 — Create the transcript file on GitHub",
+              f"1. Go to: <{new_file_url}>",
+              "2. In the \"Name your file…\" box, type exactly:",
+              f"   `Research/transcripts/{vid}.txt`",
+              "3. Paste the copied transcript text into the editor",
+              f"4. Scroll down, choose **\"Commit directly to the `{branch}` branch\"**,",
+              "   and click **\"Commit new file\"**",
+              "",
+              "### Step 3 — Ask @copilot to process it",
+              "Comment on the open pull request:",
+              "",
+              "```",
+              f"@copilot The transcript for {vid} is now at Research/transcripts/{vid}.txt —",
+              "please re-run the research synthesis using it.",
+              "```",
+          ]
+          path = f"Research/transcripts/{vid}-README.md"
+          with open(path, "w") as f:
+              f.write("\n".join(lines) + "\n")
+          print(f"Instructions written to {path}")
+          PYEOF
+
+      # ── Commit result back to the branch ───────────────────────────────────
+      - name: Commit result
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VIDEO_ID: ${{ steps.video.outputs.id }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add Research/transcripts/
+          if git diff --cached --quiet; then
+            echo "Nothing new to commit"
+          else
+            git commit -m "transcripts: fetch ${VIDEO_ID}"
+            git push
+          fi

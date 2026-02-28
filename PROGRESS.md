@@ -1,23 +1,23 @@
 # Progress
 
-Last updated: 2026-02-27
+Last updated: 2026-02-28 (Epic 1 & 2 complete)
 
 ---
 
 ## Current Status
 
-**Phase:** Epic 0 — Foundation (in progress)
-**Active slice:** 0.1–0.10 (initial scaffold)
-**Branch:** `copilot/create-research-backlog-structure`
+**Phase:** Epic 2 — YouTube Transcript Fetcher (complete)
+**Next phase:** Epic 3 — Indexing and Tracking (blocked on research item completion)
+**Branch:** `copilot/kickoff-backlog-work`
 
 ---
 
 | Epic | Title | Status | Complete |
 |---|---|---|---|
-| 0 | Foundation | In Progress | 10 / 10 slices |
-| 1 | Research Item Process | Not started | 0 / 5 slices |
-| 2 | YouTube Transcript Fetcher | Not started | 0 / 4 slices |
-| 3 | Indexing and Tracking | Not started | 0 / 3 slices |
+| 0 | Foundation | Done | 10 / 10 slices |
+| 1 | Research Item Process | Done | 5 / 5 slices |
+| 2 | YouTube Transcript Fetcher | Done | 4 / 4 slices |
+| 3 | Indexing and Tracking | Blocked | 0 / 3 slices |
 
 ---
 
@@ -51,17 +51,35 @@ Last updated: 2026-02-27
 - `tests/conftest.py` — test skeleton
 - `config/sources.yaml` — sources config stub
 
+### 2026-02-28 — Session 2 (kickoff backlog work)
+
+**Completed:**
+
+Epic 1 — Research Item Process (W-0011 to W-0015):
+- `src/research/cli.py` — `add`, `list`, `start`, `complete` commands
+- `src/main.py` — wired research and fetch sub-commands
+- `tests/test_research_cli.py` — full test coverage of all CLI commands
+
+Epic 2 — YouTube Transcript Fetcher (W-0016 to W-0019):
+- `src/fetchers/youtube.py` — `YouTubeFetcher` implementing the `Fetcher` protocol; supports channel feeds and individual video URLs; transcript fallback to description
+- `src/config.py` — `load_config()` with schema validation for all sections
+- `config/sources.yaml` — updated schema: `youtube.channels` + `youtube.videos`; added `https://youtu.be/HYUoS0GkGCs` as first video to process
+- `tests/test_fetchers_youtube.py` — 15 tests with all network calls mocked
+- `tests/test_config.py` — 9 tests for config loading and validation
+
+Research items:
+- `Research/backlog/2026-02-28-youtube-video-HYUoS0GkGCs-concepts.md` — research item for the video
+
 **Notes:**
-- Research backlog and repo improvement backlog are intentionally separate:
-  - `Research/backlog/` = what to research
-  - `BACKLOG.md` = how to improve this repo
-- Submodules (`.github/skills/`, `.claude/skills/`) are declared in `.gitmodules` but must be initialised manually: `git submodule update --init --recursive`
-- YouTube transcript fetcher will be ported from `davidamitchell/Latest-developments-` in Epic 2
+- 52 tests pass, `make check` clean
+- `python -m src.main fetch youtube --video https://youtu.be/HYUoS0GkGCs` is the command to pull the transcript (requires network access to YouTube)
+- Epic 3 (indexing) is blocked until `Research/backlog/2026-02-27-indexing-and-tracking-method.md` is completed
 
 ---
 
 ## Next Steps
 
-1. Epic 1 — research item CLI commands (`add`, `list`, `start`, `complete`)
-2. Epic 2 — port YouTube transcript fetcher
-3. Epic 3 — decide on indexing approach (research item in `Research/backlog/`)
+1. Run `python -m src.main fetch youtube --video https://youtu.be/HYUoS0GkGCs` in a networked environment to pull the transcript
+2. Extract concepts from the transcript and create per-concept deep-dive research items
+3. Complete each concept research item, then synthesise findings back in `2026-02-28-youtube-video-HYUoS0GkGCs-concepts.md`
+4. Epic 3 — decide on indexing approach once the indexing research item is completed
