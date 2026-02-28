@@ -39,10 +39,9 @@ New backlog items added:
 - `Research/backlog/2026-02-28-exploit-explore-ai-portfolio-framework.md` — practical decision framework for exploit vs explore AI portfolio classification
 
 GitHub issues raised:
-- Research skill retro and improvement suggestions
-- Strategy-author skill improvement suggestions
-
-**MCP/Skills status:**
+- Issue #8: Research skill retro and improvement suggestions (post AI strategy research)
+- Issue #9: Strategy-author skill improvement suggestions
+- Issue #10: MCP servers unavailable in agent environment (brave_search, arxiv, filesystem, memory, sequential_thinking)
 - Skills submodules re-initialised (`git submodule update --init`); research, strategy-author, and remove-ai-slop skills applied
 - MCP servers (brave_search, arxiv, filesystem, sequential_thinking, memory) not available in this agent environment; web_search used as substitute
 - Raised GitHub issues for MCP availability gaps

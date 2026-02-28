@@ -39,7 +39,7 @@ What do leading global AI strategies look like, how does New Zealand's regulator
 
 Organisations and regulators are racing to develop coherent AI strategies. In New Zealand, multiple agencies are developing policy positions with varying degrees of coordination. At the same time, global best-practice frameworks (EU AI Act, DORA, NIST AI RMF, Singapore's Model AI Governance Framework, etc.) are maturing. Understanding this landscape — and mapping it against a clear typology of AI use cases — gives a foundation for evaluating where NZ organisations and policymakers are positioned and where the most consequential decisions lie.
 
-The exploit/explore framing from March & Simon is particularly important here: AI strategy in an exploit mode looks very different from AI strategy in an explore mode, and conflating them leads to poor investment allocation and risk mis-assessment.
+The exploit/explore framing from March (1991) is particularly important here: AI strategy in an exploit mode looks very different from AI strategy in an explore mode, and conflating them leads to poor investment allocation and risk mis-assessment.
 
 ## Approach
 
