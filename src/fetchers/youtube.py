@@ -5,8 +5,11 @@ Supports:
 - Fetching a single video by URL or video ID
 
 Transcripts are retrieved via ``youtube-transcript-api``.  When transcripts are
-blocked (common on cloud CI IPs) the fetcher falls back to the video description
-sourced from the Atom feed entry.
+blocked (common on cloud CI IPs) the fetcher falls back to:
+
+1. The video description fetched from the YouTube Data API v3 (if
+   ``YOUTUBE_DATA_API`` / ``api_key`` is provided).
+2. The ``og:description`` meta tag scraped from the watch page.
 """
 
 from __future__ import annotations
@@ -30,6 +33,7 @@ logger = get_logger(__name__)
 
 _CHANNEL_FEED_URL = "https://www.youtube.com/feeds/videos.xml?channel_id={channel_id}"
 _VIDEO_WATCH_URL = "https://www.youtube.com/watch?v={video_id}"
+_YT_API_BASE = "https://www.googleapis.com/youtube/v3"
 
 _RETRY_ATTEMPTS = 3
 _RETRY_BACKOFF = 2.0  # seconds; doubles on each retry
@@ -93,6 +97,33 @@ def _fetch_transcript(video_id: str) -> str | None:
         return None
 
 
+def _fetch_video_metadata_api(
+    video_id: str, api_key: str, client: httpx.Client
+) -> dict[str, str] | None:
+    """Fetch video metadata from the YouTube Data API v3.
+
+    Returns a dict with ``title``, ``description``, and ``channel_title`` keys,
+    or ``None`` on any error.
+    """
+    url = f"{_YT_API_BASE}/videos?id={video_id}&part=snippet&key={api_key}"
+    try:
+        resp = _fetch_with_retry(url, client)
+        data = resp.json()
+        items = data.get("items") or []
+        if not items:
+            logger.warning("YouTube API returned no items for video %s", video_id)
+            return None
+        snippet = items[0].get("snippet", {})
+        return {
+            "title": snippet.get("title") or video_id,
+            "description": snippet.get("description") or "",
+            "channel_title": snippet.get("channelTitle") or "",
+        }
+    except Exception as exc:  # noqa: BLE001
+        logger.warning("YouTube API metadata fetch failed for %s: %s", video_id, exc)
+        return None
+
+
 def _parse_channel_feed(xml_text: str, max_videos: int) -> list[dict[str, Any]]:
     """Parse a YouTube channel Atom feed and return up to *max_videos* entries."""
     root = ET.fromstring(xml_text)
@@ -129,11 +160,13 @@ class YouTubeFetcher:
         channel_id: str | None = None,
         max_videos: int = 5,
         video_urls: list[str] | None = None,
+        api_key: str | None = None,
         http_client: httpx.Client | None = None,
     ) -> None:
         self.channel_id = channel_id
         self.max_videos = max_videos
         self.video_urls = video_urls or []
+        self.api_key = api_key
         self._client = http_client or httpx.Client()
 
     def fetch(self) -> list[FetchedItem]:
@@ -184,25 +217,39 @@ class YouTubeFetcher:
     def _fetch_video(self, url: str) -> FetchedItem | None:
         """Fetch transcript for a single video URL."""
         video_id = _video_id_from_url(url)
+
+        # Fetch metadata via YouTube Data API if key is available
+        metadata: dict[str, str] | None = None
+        if self.api_key:
+            metadata = _fetch_video_metadata_api(video_id, self.api_key, self._client)
+
         content = _fetch_transcript(video_id)
         if not content:
-            # Fall back: try fetching the watch page description
-            try:
-                resp = _fetch_with_retry(_VIDEO_WATCH_URL.format(video_id=video_id), self._client)
-                # Extract og:description meta tag as a rough description fallback
-                m = re.search(r'<meta name="description" content="([^"]+)"', resp.text)
-                content = m.group(1) if m else ""
-            except Exception as exc:  # noqa: BLE001
-                logger.warning("Description fallback failed for %s: %s", video_id, exc)
-                content = ""
+            if metadata and metadata.get("description"):
+                # Use the API-sourced description as the first fallback
+                content = metadata["description"]
+                logger.info("Using YouTube API description for %s", video_id)
+            else:
+                # Last resort: scrape og:description from the watch page
+                try:
+                    resp = _fetch_with_retry(
+                        _VIDEO_WATCH_URL.format(video_id=video_id), self._client
+                    )
+                    m = re.search(r'<meta name="description" content="([^"]+)"', resp.text)
+                    content = m.group(1) if m else ""
+                except Exception as exc:  # noqa: BLE001
+                    logger.warning("Description fallback failed for %s: %s", video_id, exc)
+                    content = ""
 
         if not content:
             logger.warning("No content for video %s — skipping", video_id)
             return None
 
+        title = metadata["title"] if metadata else video_id
+
         return FetchedItem(
             url=url,
-            title=video_id,  # title not known without an API call
+            title=title,
             content=content,
             source_id=video_id,
         )

@@ -211,3 +211,118 @@ def test_fetch_video_returns_empty_on_no_content() -> None:
         items = fetcher.fetch()
 
     assert items == []
+
+
+# ---------------------------------------------------------------------------
+# YouTubeFetcher — YouTube Data API v3 integration
+# ---------------------------------------------------------------------------
+
+SAMPLE_API_RESPONSE = {
+    "items": [
+        {
+            "snippet": {
+                "title": "Reality Is A Controlled Hallucination | Anil Seth",
+                "description": "Full video description from the API.",
+                "channelTitle": "Essentia Foundation",
+            }
+        }
+    ]
+}
+
+
+def test_fetch_video_uses_api_title_when_key_set() -> None:
+    """With an API key, the video title comes from the YouTube Data API."""
+    api_response = MagicMock(spec=httpx.Response)
+    api_response.json.return_value = SAMPLE_API_RESPONSE
+    api_response.raise_for_status = MagicMock()
+
+    mock_client = MagicMock(spec=httpx.Client)
+    mock_client.get.return_value = api_response
+
+    with patch("src.fetchers.youtube.YouTubeTranscriptApi") as mock_cls:
+        instance = mock_cls.return_value
+        snippet = MagicMock()
+        snippet.text = "transcript text"
+        instance.fetch.return_value = [snippet]
+
+        fetcher = YouTubeFetcher(
+            video_urls=["https://youtu.be/HYUoS0GkGCs"],
+            api_key="test_api_key",
+            http_client=mock_client,
+        )
+        items = fetcher.fetch()
+
+    assert len(items) == 1
+    assert items[0].title == "Reality Is A Controlled Hallucination | Anil Seth"
+
+
+def test_fetch_video_uses_api_description_fallback_when_transcript_blocked() -> None:
+    """With an API key, the API description is used when the transcript is unavailable."""
+    api_response = MagicMock(spec=httpx.Response)
+    api_response.json.return_value = SAMPLE_API_RESPONSE
+    api_response.raise_for_status = MagicMock()
+
+    mock_client = MagicMock(spec=httpx.Client)
+    mock_client.get.return_value = api_response
+
+    with patch("src.fetchers.youtube.YouTubeTranscriptApi") as mock_cls:
+        instance = mock_cls.return_value
+        instance.fetch.side_effect = Exception("transcript blocked")
+
+        fetcher = YouTubeFetcher(
+            video_urls=["https://youtu.be/HYUoS0GkGCs"],
+            api_key="test_api_key",
+            http_client=mock_client,
+        )
+        items = fetcher.fetch()
+
+    assert len(items) == 1
+    assert "Full video description from the API." in items[0].content
+
+
+def test_fetch_video_no_api_key_uses_video_id_as_title() -> None:
+    """Without an API key, the video ID is used as the title (existing behaviour)."""
+    mock_client = MagicMock(spec=httpx.Client)
+
+    with patch("src.fetchers.youtube.YouTubeTranscriptApi") as mock_cls:
+        instance = mock_cls.return_value
+        snippet = MagicMock()
+        snippet.text = "transcript"
+        instance.fetch.return_value = [snippet]
+
+        fetcher = YouTubeFetcher(
+            video_urls=["https://youtu.be/HYUoS0GkGCs"],
+            api_key="",
+            http_client=mock_client,
+        )
+        items = fetcher.fetch()
+
+    assert len(items) == 1
+    assert items[0].title == "HYUoS0GkGCs"
+
+
+def test_fetch_video_api_failure_falls_through_to_watch_page() -> None:
+    """When the API call fails, the fetcher falls through to the watch-page scrape."""
+    watch_response = MagicMock(spec=httpx.Response)
+    watch_response.text = '<meta name="description" content="Watch page fallback">'
+    watch_response.raise_for_status = MagicMock()
+
+    mock_client = MagicMock(spec=httpx.Client)
+    mock_client.get.return_value = watch_response
+
+    with (
+        patch("src.fetchers.youtube._fetch_video_metadata_api", return_value=None),
+        patch("src.fetchers.youtube.YouTubeTranscriptApi") as mock_cls,
+    ):
+        instance = mock_cls.return_value
+        instance.fetch.side_effect = Exception("transcript blocked")
+
+        fetcher = YouTubeFetcher(
+            video_urls=["https://youtu.be/HYUoS0GkGCs"],
+            api_key="bad_key",
+            http_client=mock_client,
+        )
+        items = fetcher.fetch()
+
+    assert len(items) == 1
+    assert "Watch page fallback" in items[0].content

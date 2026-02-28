@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import os
 import sys
 
 from src.logger import get_logger
@@ -87,6 +88,7 @@ def _fetch_youtube(args: argparse.Namespace) -> None:
         channel_id=channel_id,
         max_videos=max_videos,
         video_urls=[video_url] if video_url else [],
+        api_key=os.environ.get("YOUTUBE_DATA_API"),
     )
     items = fetcher.fetch()
     if not items:
