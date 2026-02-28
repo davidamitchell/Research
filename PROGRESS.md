@@ -77,6 +77,15 @@ Research items:
 
 ---
 
+### 2026-02-28 — Session 5 (AI Strategy backlog item — government/opposition coverage)
+
+**Completed:**
+
+Research items:
+- `Research/backlog/2026-02-28-ai-strategy.md` — enhanced to explicitly cover NZ current government (National-led coalition) and opposition (Labour, Green Party) AI policy positions; added Approach step 3 and corresponding source entry
+
+---
+
 ### 2026-02-28 — Session 4 (AI Strategy backlog item)
 
 **Completed:**
