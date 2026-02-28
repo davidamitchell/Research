@@ -1,0 +1,28 @@
+# Sources configuration
+# Add research sources here. Each source is fetched when running `python -m src.main fetch`.
+
+youtube:
+  # YouTube channel sources
+  # Format: channel_id, name, max_videos (optional, default 5)
+  sources: []
+  # Example:
+  # sources:
+  #   - id: UC0C-17n9iuUQPylguM1d-lQ
+  #     name: Nate Jones
+  #     max_videos: 3
+
+rss:
+  # RSS/Atom feed sources
+  sources: []
+  # Example:
+  # sources:
+  #   - url: https://example.com/feed.xml
+  #     name: Example Blog
+
+arxiv:
+  # arXiv search terms (fetched via arxiv MCP server or API)
+  queries: []
+  # Example:
+  # queries:
+  #   - "large language models"
+  #   - "information theory compression"
