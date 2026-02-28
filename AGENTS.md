@@ -32,12 +32,12 @@ These constraints are fixed. Every agent working on this repository **must** res
 - **The owner interacts exclusively via the GitHub website or iOS GitHub app.** There is no local IDE, no `git clone`, and no terminal.
 - **All coding is done by the agent.** The owner does not write or edit code directly.
 - **Codespaces is not in use.** Do not rely on Codespaces features, devcontainers, or `$CODESPACE_*` environment variables.
-- **The owner would like to use GitHub Copilot Spaces or a GitHub Project** as the primary interaction surface — keep this in mind when suggesting workflow improvements.
-- **All agent interactions happen via PR comments** (or issue comments). Design workflows accordingly: the owner triggers things by commenting `@copilot ...` on a PR or by clicking buttons on the GitHub website (e.g., the Actions tab "Run workflow" button).
+- **GitHub Copilot Spaces and GitHub Projects are fine to use if helpful**, but are not a requirement. Suggest them only when they add clear value.
+- **Agent interactions happen via PR comments, issue comments, or by starting a new agent task/session.** The owner may also trigger operations by clicking buttons on the GitHub website (e.g., the Actions tab "Run workflow" button).
 
 ### Consequences for tooling design
 
-- Prefer **`workflow_dispatch`** GitHub Actions workflows for any operation the owner needs to trigger manually (e.g., fetching a transcript). These appear as a "Run workflow" button on the Actions tab, accessible from both the website and the iOS app.
+- **Prefer fully automated pipelines** (scheduled or event-triggered workflows) over requiring the owner to manually trigger anything. If a manual trigger is unavoidable, `workflow_dispatch` is the acceptable fallback — it surfaces as a "Run workflow" button on the Actions tab, accessible from the website and iOS app.
 - Do not require Codespaces secrets for production workflows — use repository secrets (Settings → Secrets and variables → Actions) instead.
 - Any manual step in a process should be achievable entirely through the GitHub website: creating files, triggering workflows, commenting on PRs.
 
