@@ -21,6 +21,7 @@ What do leading global AI strategies look like, how does New Zealand's regulator
 - Global AI strategy examples: national strategies, corporate frameworks, and academic frameworks from major jurisdictions (USA, EU, UK, Singapore, Canada, Australia, etc.)
 - New Zealand-specific examples: government strategies, agency policies, and private-sector case studies
 - NZ regulatory and policy landscape: RBNZ (financial stability and prudential perspectives), DIA (digital government, privacy, trust), MBIE (economic policy, workforce, digital industry), PNZ, and any other relevant agencies or statutory bodies
+- NZ political positions on AI: current government (National-led coalition with ACT and NZ First) — any AI-specific policies, budget commitments, or regulatory intentions; and the opposition (Labour, Green Party) — their stated AI policy positions and any commitments made in or since the 2023 election
 - New Zealand case law relevant to AI: liability, intellectual property, privacy, employment, and contractual questions raised by automated or AI-assisted decisions
 - Published policy frameworks and categorisation schemas: how regulators and standards bodies are defining, classifying, and governing AI systems
 - DORA (EU Digital Operational Resilience Act) AI capability model: what it defines, who it applies to, what compliance looks like
@@ -44,16 +45,18 @@ The exploit/explore framing from March & Simon is particularly important here: A
 
 1. **Global AI strategy survey** — Identify 6–10 exemplary national or corporate AI strategies and characterise what makes them distinctive or effective. Note which frameworks are being cited by NZ agencies.
 2. **NZ regulatory mapping** — For each relevant NZ agency (RBNZ, DIA, MBIE, PNZ, and others surfaced in research), document: the agency's AI policy or strategy statement (if any), the regulatory instruments that could apply to AI deployment, and any active consultations or upcoming changes.
-3. **NZ case law review** — Search for any NZ cases or tribunal decisions involving AI, algorithmic decision-making, or automated systems. Note analogous cases from Australian courts that may be persuasive in NZ.
-4. **Policy frameworks and categorisation schemas** — Survey how the EU AI Act, NIST AI RMF, ISO/IEC 42001, DORA, and any NZ-specific frameworks categorise AI risk and capability. Identify common threads and conflicts.
-5. **DORA AI capability model** — Locate and summarise the specific DORA provisions and guidance on AI capability assessment. Note implications for NZ financial institutions with EU exposure.
-6. **Use-case typology** — Synthesise a clear, usable typology with the four types specified plus any additional distinctions warranted by evidence. For each type: definition, indicators, example organisations, key risks, and key success conditions.
-7. **Exploit vs explore** — Apply the exploit/explore lens to the typology and the NZ context. When is each mode appropriate? What signals should shift an organisation from one to the other?
+3. **NZ government and opposition positions** — Document the current National-led coalition's AI-related policy commitments (budget, regulatory signals, any AI-specific legislation or consultation), and the stated positions of Labour and the Greens. Note areas of bipartisan consensus vs contested ground.
+4. **NZ case law review** — Search for any NZ cases or tribunal decisions involving AI, algorithmic decision-making, or automated systems. Note analogous cases from Australian courts that may be persuasive in NZ.
+5. **Policy frameworks and categorisation schemas** — Survey how the EU AI Act, NIST AI RMF, ISO/IEC 42001, DORA, and any NZ-specific frameworks categorise AI risk and capability. Identify common threads and conflicts.
+6. **DORA AI capability model** — Locate and summarise the specific DORA provisions and guidance on AI capability assessment. Note implications for NZ financial institutions with EU exposure.
+7. **Use-case typology** — Synthesise a clear, usable typology with the four types specified plus any additional distinctions warranted by evidence. For each type: definition, indicators, example organisations, key risks, and key success conditions.
+8. **Exploit vs explore** — Apply the exploit/explore lens to the typology and the NZ context. When is each mode appropriate? What signals should shift an organisation from one to the other?
 
 ## Sources
 
 - [ ] OECD AI Policy Observatory — country policy notes for NZ and comparator countries (oecd.ai)
 - [ ] NZ Government "Algorithm Charter" and associated agency attestations (data.govt.nz)
+- [ ] NZ political party AI policy documents: National, ACT, NZ First coalition agreement AI-relevant clauses; Labour and Green party policy statements (parliament.nz, party websites)
 - [ ] RBNZ — any publications or speeches on AI in financial services regulation
 - [ ] DIA — "Digital Strategy for Aotearoa" and related AI-specific guidance
 - [ ] MBIE — "Digital Technologies Industry Transformation Plan" and related workforce/AI material
