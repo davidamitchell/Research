@@ -122,20 +122,23 @@ tests/
 
 1. Copy `Research/_template.md` to `Research/backlog/YYYY-MM-DD-short-title.md`
 2. Fill in: title, added date, priority, tags, question/hypothesis, and any initial context
-3. Commit with message: `research: add backlog item - <short title>`
+3. Update `PROGRESS.md` — add an entry to the Work Log noting the new backlog item
+4. Commit with message: `research: add backlog item - <short title>`
 
 ### Starting Research
 
 1. Move the file from `Research/backlog/` to `Research/in-progress/`
 2. Update the `status` field to `in-progress` and set `started` date
-3. Commit with message: `research: start - <short title>`
+3. Update `PROGRESS.md` — note the item has moved to in-progress
+4. Commit with message: `research: start - <short title>`
 
 ### Completing Research
 
 1. Move the file from `Research/in-progress/` to `Research/completed/`
 2. Fill in the `## Findings` and `## Output` sections
 3. Update `status` to `completed` and set `completed` date
-4. Commit with message: `research: complete - <short title>`
+4. Update `PROGRESS.md` — record findings summary and any outputs produced
+5. Commit with message: `research: complete - <short title>`
 
 ### Output Types
 

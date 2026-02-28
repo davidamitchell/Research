@@ -23,7 +23,8 @@ Research/
 ```bash
 cp Research/_template.md Research/backlog/$(date +%Y-%m-%d)-short-title.md
 # Edit the file, fill in title, question, context
-git add Research/backlog/ && git commit -m "research: add backlog item - <short title>"
+# Update PROGRESS.md Work Log with a one-line entry for the new item
+git add Research/backlog/ PROGRESS.md && git commit -m "research: add backlog item - <short title>"
 ```
 
 ### Starting an item
@@ -31,7 +32,8 @@ git add Research/backlog/ && git commit -m "research: add backlog item - <short 
 ```bash
 mv Research/backlog/YYYY-MM-DD-title.md Research/in-progress/
 # Update status: field to in-progress and set started: date
-git add Research/ && git commit -m "research: start - <short title>"
+# Update PROGRESS.md Work Log
+git add Research/ PROGRESS.md && git commit -m "research: start - <short title>"
 ```
 
 ### Completing an item
@@ -40,7 +42,8 @@ git add Research/ && git commit -m "research: start - <short title>"
 mv Research/in-progress/YYYY-MM-DD-title.md Research/completed/
 # Fill in ## Findings and ## Output sections
 # Update status: to completed and set completed: date
-git add Research/ && git commit -m "research: complete - <short title>"
+# Update PROGRESS.md Work Log with findings summary
+git add Research/ PROGRESS.md && git commit -m "research: complete - <short title>"
 ```
 
 ---
