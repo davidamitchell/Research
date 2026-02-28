@@ -2,54 +2,51 @@
   "mcpServers": {
     "fetch": {
       "type": "stdio",
-      "command": "npx",
-      "args": [
-        "-y",
-        "@modelcontextprotocol/server-fetch"
-      ]
+      "command": "python",
+      "args": ["-m", "mcp_server_fetch"]
     },
     "sequential_thinking": {
       "type": "stdio",
       "command": "npx",
-      "args": [
-        "-y",
-        "@modelcontextprotocol/server-sequential-thinking"
-      ]
+      "args": ["-y", "@modelcontextprotocol/server-sequential-thinking"]
     },
     "time": {
       "type": "stdio",
+      "command": "python",
+      "args": ["-m", "mcp_server_time"]
+    },
+    "memory": {
+      "type": "stdio",
       "command": "npx",
-      "args": [
-        "-y",
-        "@modelcontextprotocol/server-time"
-      ]
+      "args": ["-y", "@modelcontextprotocol/server-memory"]
+    },
+    "git": {
+      "type": "stdio",
+      "command": "python",
+      "args": ["-m", "mcp_server_git"]
+    },
+    "filesystem": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "/workspaces/Research"]
     },
     "brave_search": {
       "type": "stdio",
       "command": "npx",
-      "args": [
-        "-y",
-        "@modelcontextprotocol/server-brave-search"
-      ],
+      "args": ["-y", "@modelcontextprotocol/server-brave-search"],
       "env": {
         "BRAVE_API_KEY": "${BRAVE_API_KEY}"
       }
     },
     "arxiv": {
       "type": "stdio",
-      "command": "npx",
-      "args": [
-        "-y",
-        "@blazickjp/arxiv-mcp-server"
-      ]
+      "command": "python",
+      "args": ["-m", "arxiv_mcp_server"]
     },
     "github": {
       "type": "stdio",
       "command": "npx",
-      "args": [
-        "-y",
-        "@modelcontextprotocol/server-github"
-      ],
+      "args": ["-y", "@modelcontextprotocol/server-github"],
       "env": {
         "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_PERSONAL_ACCESS_TOKEN}"
       }

@@ -178,10 +178,46 @@ To add a new skill: add it to the Skills repo first; it will be picked up on the
 ## MCP Configuration
 
 MCP server configs are defined in:
-- `.github/mcp.json` — GitHub Copilot Agent
+- `.github/mcp.json` — GitHub Copilot Agent (requires `type: "stdio"` on each entry)
 - `.mcp.json` — Claude Code and other agents
 
-Servers available: `fetch`, `sequential_thinking`, `time`, `memory`, `git`, `filesystem`, `brave_search`, `arxiv`, `github`
+Both files must stay in sync. The following 9 servers are configured in both files.
+
+### Server Reference
+
+| Server | Runtime | Purpose | Secrets required |
+|---|---|---|---|
+| `fetch` | `python -m mcp_server_fetch` | Fetch web pages and URLs for research sourcing | none |
+| `sequential_thinking` | `npx @modelcontextprotocol/server-sequential-thinking` | Step-by-step reasoning for complex research synthesis | none |
+| `time` | `python -m mcp_server_time` | Current date/time for timestamping research items | none |
+| `memory` | `npx @modelcontextprotocol/server-memory` | Persistent knowledge graph across sessions | none |
+| `git` | `python -m mcp_server_git` | Read git history, diffs, and commit context | none |
+| `filesystem` | `npx @modelcontextprotocol/server-filesystem` | Read/write research files in `/workspaces/Research` | none |
+| `brave_search` | `npx @modelcontextprotocol/server-brave-search` | Web search for research sourcing and fact-checking | `BRAVE_API_KEY` (Codespaces secret) |
+| `arxiv` | `python -m arxiv_mcp_server` | Search and fetch arXiv papers for academic sourcing | none |
+| `github` | `npx @modelcontextprotocol/server-github` | Read GitHub issues, PRs, and repo data | `GITHUB_PERSONAL_ACCESS_TOKEN` (Codespaces secret) |
+
+### Python MCP servers — installation
+
+`fetch`, `time`, `git`, and `arxiv` are Python packages (the npm packages were removed from the registry). Install them in the project virtualenv or Codespaces environment:
+
+```bash
+pip install mcp-server-fetch mcp-server-time mcp-server-git arxiv-mcp-server
+```
+
+### Using MCP in research tasks
+
+When executing the `research` skill or conducting a research item end-to-end:
+
+- Use **`fetch`** to retrieve web pages for source content (replaces manual `web_fetch` calls when running inside a Codespace).
+- Use **`brave_search`** to discover sources (requires `BRAVE_API_KEY` Codespaces secret).
+- Use **`arxiv`** to locate and fetch academic papers referenced by a research item.
+- Use **`sequential_thinking`** to plan multi-step research synthesis before writing findings.
+- Use **`memory`** to persist cross-session state about ongoing research threads.
+- Use **`filesystem`** to read/write research Markdown files directly in `/workspaces/Research`.
+- Use **`git`** to inspect commit history when reviewing what has already been processed.
+- Use **`time`** to stamp `added`, `started`, and `completed` dates correctly.
+- Use **`github`** to read issue/PR context when a research item was spawned from an issue.
 
 ---
 
