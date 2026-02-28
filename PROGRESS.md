@@ -77,6 +77,15 @@ Research items:
 
 ---
 
+### 2026-02-28 — Session 4 (AI Strategy backlog item)
+
+**Completed:**
+
+Research items:
+- `Research/backlog/2026-02-28-ai-strategy.md` — AI strategy research item covering global/NZ examples, NZ regulatory and policy landscape (RBNZ, DIA, MBIE, PNZ), relevant case law, policy frameworks and categorisation schemas, DORA AI capability model, use-case typology (augmentation → agentic BUs), and the exploit vs explore distinction
+
+---
+
 ### 2026-02-28 — Session 3 (Jevons Paradox backlog item)
 
 **Completed:**
