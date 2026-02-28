@@ -2,17 +2,27 @@
 # Add research sources here. Each source is fetched when running `python -m src.main fetch`.
 
 youtube:
-  # YouTube channel sources
-  # Format: channel_id, name, max_videos (optional, default 5)
-  sources: []
+  # Individual videos — fetch transcript for a specific URL.
+  # Required: url
+  # Optional: title (human label; used in log output only)
+  videos:
+    - url: https://youtu.be/HYUoS0GkGCs
+      title: "HYUoS0GkGCs"
+
+  # Channel sources — fetch the latest N videos from a channel.
+  # Required: id (YouTube channel ID)
+  # Optional: name (human label), max_videos (default: 5)
+  channels: []
   # Example:
-  # sources:
+  # channels:
   #   - id: UC0C-17n9iuUQPylguM1d-lQ
   #     name: Nate Jones
   #     max_videos: 3
 
 rss:
   # RSS/Atom feed sources
+  # Required: url
+  # Optional: name (human label)
   sources: []
   # Example:
   # sources:
@@ -21,6 +31,7 @@ rss:
 
 arxiv:
   # arXiv search terms (fetched via arxiv MCP server or API)
+  # Each entry must be a string query.
   queries: []
   # Example:
   # queries:
