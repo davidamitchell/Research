@@ -25,6 +25,24 @@ These two concerns are intentionally separate. Research items in `Research/` are
 
 ---
 
+## Working Environment
+
+These constraints are fixed. Every agent working on this repository **must** respect them.
+
+- **The owner interacts exclusively via the GitHub website or iOS GitHub app.** There is no local IDE, no `git clone`, and no terminal.
+- **All coding is done by the agent.** The owner does not write or edit code directly.
+- **Codespaces is not in use.** Do not rely on Codespaces features, devcontainers, or `$CODESPACE_*` environment variables.
+- **The owner would like to use GitHub Copilot Spaces or a GitHub Project** as the primary interaction surface — keep this in mind when suggesting workflow improvements.
+- **All agent interactions happen via PR comments** (or issue comments). Design workflows accordingly: the owner triggers things by commenting `@copilot ...` on a PR or by clicking buttons on the GitHub website (e.g., the Actions tab "Run workflow" button).
+
+### Consequences for tooling design
+
+- Prefer **`workflow_dispatch`** GitHub Actions workflows for any operation the owner needs to trigger manually (e.g., fetching a transcript). These appear as a "Run workflow" button on the Actions tab, accessible from both the website and the iOS app.
+- Do not require Codespaces secrets for production workflows — use repository secrets (Settings → Secrets and variables → Actions) instead.
+- Any manual step in a process should be achievable entirely through the GitHub website: creating files, triggering workflows, commenting on PRs.
+
+---
+
 ## Coding Standards
 
 ### Language & Runtime
@@ -225,6 +243,16 @@ When executing the `research` skill or conducting a research item end-to-end:
 
 - CI: `.github/workflows/ci.yml` — lint + test on every push/PR
 - Skills sync: `.github/workflows/sync-skills.yml` — weekly Monday 06:00 UTC
+- **Transcript fetch: `.github/workflows/fetch-transcript.yml`** — manually triggered (`workflow_dispatch`); fetches YouTube auto-generated captions via `yt-dlp` and commits a plain-text file to `Research/transcripts/<video-id>.txt`. If YouTube blocks the request (cloud IP restriction), the workflow commits step-by-step instructions for adding the transcript manually via the GitHub website.
+
+### How to trigger the transcript workflow (no IDE required)
+
+1. Go to the repository on GitHub
+2. Click the **Actions** tab
+3. Click **"Fetch YouTube Transcript"** in the left sidebar
+4. Click **"Run workflow"** → select the branch → paste the video URL → click **"Run workflow"**
+5. If `yt-dlp` succeeds, the transcript is committed automatically
+6. If it fails (YouTube blocks the cloud IP), open `Research/transcripts/<video-id>-README.md` for manual instructions
 
 ---
 
