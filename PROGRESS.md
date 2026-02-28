@@ -37,6 +37,8 @@ New backlog items added:
 - `Research/backlog/2026-02-28-ai-strategy-security-focus.md` — AI strategies focused on security (AI-enhanced threats + AI system security)
 - `Research/backlog/2026-02-28-rbnz-ai-supervisory-expectations.md` — RBNZ's specific AI supervisory stance and gap analysis vs comparators
 - `Research/backlog/2026-02-28-exploit-explore-ai-portfolio-framework.md` — practical decision framework for exploit vs explore AI portfolio classification
+- `Research/backlog/2026-02-28-ai-control-testing-and-assurance.md` — AI automating control testing, control gap identification, and policies/standards reviews; vendor and regulatory landscape
+- `Research/backlog/2026-02-28-ai-line-1-line-2-risk-agents.md` — who is building line 1 and line 2 risk agents; architecture, governance, and accountability patterns
 
 GitHub issues raised:
 - Issue #8: Research skill retro and improvement suggestions (post AI strategy research)
