@@ -77,6 +77,28 @@ Research items:
 
 ---
 
+### 2026-02-28 — Session 4 (AI Strategy backlog item)
+
+**Completed:**
+
+Research items:
+- `Research/backlog/2026-02-28-ai-strategy.md` — AI strategy research item covering global/NZ examples, NZ regulatory and policy landscape (RBNZ, DIA, MBIE, PNZ), relevant case law, policy frameworks and categorisation schemas, DORA AI capability model, use-case typology (augmentation → agentic BUs), and the exploit vs explore distinction
+
+---
+
+### 2026-02-28 — Session 3 (Jevons Paradox backlog item)
+
+**Completed:**
+
+Research items:
+- `Research/backlog/2026-02-28-jevons-paradox.md` — deep-dive on Jevons Paradox mechanics, historical sector examples, counter-examples, current SWE/code-cost commentary, and a 1/5/10-year speculative framework
+
+System improvements:
+- `AGENTS.md` — added explicit "Update PROGRESS.md" step to the Research Item Workflow (add/start/complete) so agents cannot skip it
+- `Research/README.md` — same update to the quick-command workflow section
+
+---
+
 ## Next Steps
 
 1. Run `python -m src.main fetch youtube --video https://youtu.be/HYUoS0GkGCs` in a networked environment to pull the transcript
