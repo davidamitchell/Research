@@ -1,6 +1,6 @@
 # Progress
 
-Last updated: 2026-02-28 (Epic 1 & 2 complete)
+Last updated: 2026-02-28 (skills submodules initialised)
 
 ---
 
@@ -74,6 +74,26 @@ Research items:
 - 52 tests pass, `make check` clean
 - `python -m src.main fetch youtube --video https://youtu.be/HYUoS0GkGCs` is the command to pull the transcript (requires network access to YouTube)
 - Epic 3 (indexing) is blocked until `Research/backlog/2026-02-27-indexing-and-tracking-method.md` is completed
+
+---
+
+### 2026-02-28 — Session 6 (skills submodules — W-0026)
+
+**Completed:**
+
+- `.github/skills` — git submodule properly initialised, pointing to `davidamitchell/Skills` at `7095c41e842f036e2241ad9ae3aa1360db04be83` (latest)
+- `.claude/skills` — same submodule added for Claude Code
+- `.claude/CLAUDE.md` — thin stub pointing to `AGENTS.md` (matches `Latest-developments-` pattern)
+- `docs/adr/0002-agent-skills-submodule.md` — ADR documenting the submodule decision
+- `docs/adr/README.md` — index updated
+- `BACKLOG.md` — W-0026 added and marked done
+
+**Root cause of the gap:** The `.gitmodules` file was created manually in Session 1 (the entries were written as plain text) but `git submodule add` was never run, so no gitlink entries were committed into the tree. The skill directories did not exist and agents had no access to the skill files.
+
+**Notes:**
+- `sync-skills.yml` already handles both submodule paths — no changes needed there
+- `AGENTS.md` already documents both submodule paths and the skills table correctly — no changes needed
+- Weekly Monday sync will keep both pointers current without manual intervention
 
 ---
 
