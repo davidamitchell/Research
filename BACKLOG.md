@@ -283,21 +283,17 @@ Epic 2 — YouTube Transcript Fetcher.
 
 ## W-0020
 
-status: needing_refinement
+status: done
 created: 2026-02-27
-updated: 2026-02-27
+updated: 2026-02-28
 
 ### Outcome
 
-`docs/adr/0002-*.md` documents the chosen indexing and tracking approach with rationale for the decision.
+`docs/adr/0003-indexing-and-tracking-approach.md` documents the chosen indexing and tracking approach: JSON state file (`state/index.json`) for URL-based deduplication + YAML front-matter in research item `.md` files for item metadata. ADR includes rationale, rejected alternatives (SQLite, YAML index, vector store), and migration trigger criteria.
 
 ### Context
 
-Epic 3 — Indexing and Tracking. Depends on research item `Research/backlog/2026-02-27-indexing-and-tracking-method.md` being completed first.
-
-### Notes
-
-Cannot fully refine until the indexing research item is completed and a technology is chosen.
+Epic 3 — Indexing and Tracking. Research item `Research/completed/2026-02-27-indexing-and-tracking-method.md` was completed first; findings directly informed the ADR.
 
 ---
 

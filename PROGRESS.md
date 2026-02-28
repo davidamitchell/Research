@@ -6,9 +6,9 @@ Last updated: 2026-02-28 (skills submodules initialised)
 
 ## Current Status
 
-**Phase:** Epic 2 — YouTube Transcript Fetcher (complete)
-**Next phase:** Epic 3 — Indexing and Tracking (blocked on research item completion)
-**Branch:** `copilot/kickoff-backlog-work`
+**Phase:** Epic 3 — Indexing and Tracking (W-0020 done; W-0021 and W-0022 have defined scope from ADR-0003 but retain `needing_refinement` status until implementation is started)
+**Next phase:** Epic 3 — Implement JSON state file (W-0021) and dedup logic (W-0022)
+**Branch:** `copilot/start-research-backlog-item`
 
 ---
 
@@ -17,11 +17,35 @@ Last updated: 2026-02-28 (skills submodules initialised)
 | 0 | Foundation | Done | 10 / 10 slices |
 | 1 | Research Item Process | Done | 5 / 5 slices |
 | 2 | YouTube Transcript Fetcher | Done | 4 / 4 slices |
-| 3 | Indexing and Tracking | Blocked | 0 / 3 slices |
+| 3 | Indexing and Tracking | In Progress | 1 / 3 slices |
 
 ---
 
 ## Work Log
+
+### 2026-02-28 — Session 7 (research item: indexing and tracking method)
+
+**Completed:**
+
+Research items:
+- `Research/completed/2026-02-27-indexing-and-tracking-method.md` — completed; findings recommend JSON state file (`state/index.json`) for URL-based deduplication + YAML front-matter for item metadata; SQLite and vector stores deferred with clear migration trigger criteria
+
+System improvements:
+- `docs/adr/0003-indexing-and-tracking-approach.md` — ADR documenting the chosen approach, rejected alternatives, and migration trigger; unblocks Epic 3
+- `docs/adr/README.md` — index updated
+- `BACKLOG.md` — W-0020 marked done
+- `PROGRESS.md` — Epic 3 status updated to "In Progress (1/3 slices)"
+
+**MCP/Skills status:**
+- Skills submodules initialized via `git submodule update --init`; `research` skill read and applied for evidence gathering and synthesis structure
+- `web_search` used for research (analogous to `brave_search` MCP); `web_fetch` available
+- `brave_search`, `arxiv`, `filesystem`, `sequential_thinking`, and `memory` MCP servers are not available in this agent environment (no Codespaces, no API keys); noted below in Next Steps
+
+**Notes:**
+- Epic 3 (indexing) is now unblocked: W-0021 (implement JSON state) and W-0022 (dedup logic) can proceed
+- Skills submodules require `git submodule update --init` after a fresh clone in this CI environment; they are not auto-initialized
+
+---
 
 ### 2026-02-27 — Session 1
 
