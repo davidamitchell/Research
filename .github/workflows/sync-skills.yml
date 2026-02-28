@@ -1,0 +1,41 @@
+name: Update Skills Submodule
+
+on:
+  # Run weekly to pick up updates from the Skills repo
+  schedule:
+    - cron: "0 6 * * 1"  # Every Monday at 06:00 UTC
+
+  # Allow manual runs from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  update:
+    name: Update .github/skills submodule to latest
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout this repository (with submodules)
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+          fetch-depth: 1
+
+      - name: Update submodules to latest upstream commit
+        run: |
+          git submodule update --remote .github/skills
+          git submodule update --remote .claude/skills
+
+      - name: Commit updated submodule pointers
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .github/skills .claude/skills
+          if git diff --cached --quiet; then
+            echo "Skills submodules already up to date"
+          else
+            git commit -m "chore: update skills submodules to latest [skip ci]"
+            git push origin ${{ github.ref_name }}
+          fi
