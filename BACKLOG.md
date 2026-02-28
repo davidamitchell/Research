@@ -386,3 +386,21 @@ updated: 2026-02-27
 ### Notes
 
 Deferred — requires a vector index; useful once `Research/completed/` has enough items.
+
+---
+
+## W-0026
+
+status: done
+created: 2026-02-28
+updated: 2026-02-28
+
+### Outcome
+
+`.github/skills/` and `.claude/skills/` are properly initialised git submodules pointing to `davidamitchell/Skills`; `.claude/CLAUDE.md` exists as a thin stub pointing to `AGENTS.md`; `docs/adr/0002-agent-skills-submodule.md` documents the decision; `sync-skills.yml` advances both submodule pointers weekly.
+
+### Context
+
+Skills were declared in `.gitmodules` but never registered as actual git submodules (no gitlink entries in the tree). This slice completes the setup end-to-end, matching the pattern used in `davidamitchell/Latest-developments-`.
+
+---

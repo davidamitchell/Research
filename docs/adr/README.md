@@ -13,6 +13,7 @@ Format: [MADR (Markdown Architectural Decision Records)](https://adr.github.io/m
 | ADR | Title | Status | Date |
 |---|---|---|---|
 | [0001](0001-use-python-as-primary-language.md) | Use Python as primary language | Accepted | 2026-02-27 |
+| [0002](0002-agent-skills-submodule.md) | Agent skills as a git submodule | Accepted | 2026-02-28 |
 
 ---
 
