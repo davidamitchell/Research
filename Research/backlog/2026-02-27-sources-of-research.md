@@ -53,7 +53,48 @@ Each source type has different access patterns, freshness, signal/noise ratios, 
 
 ## Findings
 
-*(to be filled in)*
+*(Fill in when completing. Follow the research skill synthesis structure.)*
+
+### Executive Summary
+
+3–5 sentences. What is the answer to the research question? State the key conclusion directly.
+
+### Key Findings
+
+Ordered list. Each finding is a specific, evidence-backed claim.
+
+1.
+2.
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| | | high / medium / low | |
+
+### Assumptions
+
+Explicit assumptions made during the investigation and the justification for each.
+
+- **Assumption:** ... **Justification:** ...
+
+### Analysis
+
+How the evidence was weighed, what trade-offs were identified, and how competing interpretations were resolved.
+
+### Risks, Gaps, and Uncertainties
+
+What is still unknown? Where does the evidence fall short? What could change the conclusion?
+
+-
+
+### Open Questions
+
+Questions that surfaced during research but are out of scope for this item. Each may become a new backlog item.
+
+-
+
+---
 
 ## Output
 

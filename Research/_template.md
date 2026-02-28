@@ -11,44 +11,84 @@ output: []  # skill | tool | agent | knowledge | backlog-item
 
 # TITLE
 
-## Question / Hypothesis
+## Research Question
 
-What are we trying to find out? State the question or hypothesis clearly.
-
-## Context
-
-Why is this worth researching now? What problem does it solve or what decision does it inform?
+State the specific, answerable question this research addresses. Avoid vague topics; prefer "What is the best X for Y given Z constraints?" over "Investigate X."
 
 ## Scope
 
-What is in scope? What is explicitly out of scope?
+**In scope:**
+-
+
+**Out of scope:**
+-
+
+**Constraints:** (time, source types, access)
+
+## Context
+
+Why is this question worth answering now? What decision or problem does the answer inform?
 
 ## Approach
 
-How will this be researched? (e.g. literature review, experiment, prototype, interview)
+Decompose the question into sub-questions and describe how each will be investigated (literature review, experiment, prototype, expert interview, etc.).
+
+1.
+2.
 
 ## Sources
 
-Links to papers, articles, videos, repos, or other starting points.
+Starting points — papers, articles, videos, repos, docs.
 
 - [ ] Source 1
 - [ ] Source 2
 
+---
+
 ## Findings
 
-*(Fill in when completing)*
+*(Fill in when completing. Follow the research skill synthesis structure.)*
 
-### Key insights
+### Executive Summary
+
+3–5 sentences. What is the answer to the research question? State the key conclusion directly.
+
+### Key Findings
+
+Ordered list. Each finding is a specific, evidence-backed claim.
+
+1.
+2.
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| | | high / medium / low | |
+
+### Assumptions
+
+Explicit assumptions made during the investigation and the justification for each.
+
+- **Assumption:** ... **Justification:** ...
+
+### Analysis
+
+How the evidence was weighed, what trade-offs were identified, and how competing interpretations were resolved.
+
+### Risks, Gaps, and Uncertainties
+
+What is still unknown? Where does the evidence fall short? What could change the conclusion?
 
 -
 
-### Evidence
+### Open Questions
+
+Questions that surfaced during research but are out of scope for this item. Each may become a new backlog item.
 
 -
 
-### Open questions
-
--
+---
 
 ## Output
 
