@@ -299,41 +299,33 @@ Epic 3 — Indexing and Tracking. Research item `Research/completed/2026-02-27-i
 
 ## W-0021
 
-status: needing_refinement
+status: done
 created: 2026-02-27
-updated: 2026-02-27
+updated: 2026-02-28
 
 ### Outcome
 
-The chosen indexing approach is implemented; `python -m src.main` can read and write the index without errors.
+`src/state.py` implements `StateStore`: `is_processed(url)`, `record(item)`, `processed_urls()`. Writes are atomic (temp file + `os.replace`). Default path is `state/index.json`. Schema matches ADR-0003.
 
 ### Context
 
-Epic 3 — Indexing and Tracking. Depends on W-0020.
-
-### Notes
-
-Scope depends on the chosen technology (JSON, SQLite, or vector store).
+Epic 3 — Indexing and Tracking. Depends on W-0020 (ADR-0003 accepted).
 
 ---
 
 ## W-0022
 
-status: needing_refinement
+status: done
 created: 2026-02-27
-updated: 2026-02-27
+updated: 2026-02-28
 
 ### Outcome
 
-`state/index.json` (or equivalent) persists processed item metadata across runs; running the pipeline twice does not reprocess already-indexed items.
+`state/index.json` persists processed item metadata across runs; running the pipeline twice does not reprocess already-indexed items. `_fetch_youtube` in `src/main.py` skips already-processed URLs and prints `[skip]` for each. `tests/test_state.py` has 12 tests covering all `StateStore` behaviour.
 
 ### Context
 
 Epic 3 — Indexing and Tracking. Depends on W-0021.
-
-### Notes
-
-File format and schema depend on chosen technology from W-0020.
 
 ---
 
