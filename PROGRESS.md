@@ -1,6 +1,6 @@
 # Progress
 
-Last updated: 2026-03-01 (Tavily MCP integration)
+Last updated: 2026-03-01 (GitHub wiki backlog item)
 
 ---
 
@@ -22,6 +22,14 @@ Last updated: 2026-03-01 (Tavily MCP integration)
 ---
 
 ## Work Log
+
+### 2026-03-01 — Session 12 (GitHub wiki backlog item)
+
+**Completed:**
+
+- `Research/backlog/2026-03-01-github-wiki-research-content.md` — new backlog item: researching how to publish completed research items to the GitHub wiki for easier reading on the GitHub website and iOS app. Covers: GitHub wiki constraints, publish pipeline design (Actions workflow, front-matter stripping, index generation), incremental vs full-rebuild approach, and navigation structure (tag index, date-sorted, topic groups). Priority: medium. Output types: tool, knowledge, backlog-item.
+
+---
 
 ### 2026-03-01 — Session 11 (Tavily MCP integration)
 
