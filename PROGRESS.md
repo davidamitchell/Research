@@ -1,14 +1,14 @@
 # Progress
 
-Last updated: 2026-02-28 (skills submodules initialised)
+Last updated: 2026-02-28 (AI strategy research completed)
 
 ---
 
 ## Current Status
 
-**Phase:** Epic 3 complete — all epics done; next is choosing a research item from `Research/backlog/` to continue the knowledge work
-**Next phase:** Research backlog items (knowledge type) or Epic 4 if defined
-**Branch:** `copilot/start-research-backlog-item`
+**Phase:** AI strategy research complete; backlog expanded with 6 new items
+**Next phase:** Progress through new backlog items or deeper NZ regulatory research
+**Branch:** `copilot/start-ai-strategy-research`
 
 ---
 
@@ -22,6 +22,35 @@ Last updated: 2026-02-28 (skills submodules initialised)
 ---
 
 ## Work Log
+
+### 2026-02-28 — Session 9 (AI Strategy research)
+
+**Completed:**
+
+Research items:
+- `Research/completed/2026-02-28-ai-strategy.md` — completed; structured findings covering: global AI strategy survey (8 common pillars, six jurisdictions); NZ "Investing with Confidence" strategy (July 2025, MBIE-led, light-touch, $76B GDP estimate); NZ agency landscape (MBIE, DIA, RBNZ, Privacy Commissioner — fragmented, no single AI regulator); NZ political positions (National-led: pro-growth light-touch; Labour: cautious rights-based; Greens: strong safeguards); NZ case law status (thin — Wikeley v Kea Investments [2024] NZCA 609; no binding case on automated government decisions); policy framework comparison (EU AI Act / NIST AI RMF / ISO 42001 / DORA); use-case typology (4 types: augmentation → fully agentic BUs); exploit/explore strategic framing
+
+New backlog items added:
+- `Research/backlog/2026-02-28-ai-strategy-business-efficiency-examples.md` — examples of AI strategies focused on business efficiency outcomes
+- `Research/backlog/2026-02-28-ai-strategy-swe-focus.md` — AI strategies targeting software engineering productivity
+- `Research/backlog/2026-02-28-ai-strategy-risk-reduction-focus.md` — AI strategies with risk reduction as primary objective
+- `Research/backlog/2026-02-28-ai-strategy-security-focus.md` — AI strategies focused on security (AI-enhanced threats + AI system security)
+- `Research/backlog/2026-02-28-rbnz-ai-supervisory-expectations.md` — RBNZ's specific AI supervisory stance and gap analysis vs comparators
+- `Research/backlog/2026-02-28-exploit-explore-ai-portfolio-framework.md` — practical decision framework for exploit vs explore AI portfolio classification
+- `Research/backlog/2026-02-28-ai-control-testing-and-assurance.md` — AI automating control testing, control gap identification, and policies/standards reviews; vendor and regulatory landscape
+- `Research/backlog/2026-02-28-ai-line-1-line-2-risk-agents.md` — who is building line 1 and line 2 risk agents; architecture, governance, and accountability patterns
+
+GitHub issues raised:
+- Issue #8: Research skill retro and improvement suggestions (post AI strategy research)
+- Issue #9: Strategy-author skill improvement suggestions
+- Issue #10: MCP servers unavailable in agent environment (brave_search, arxiv, filesystem, memory, sequential_thinking)
+- Skills submodules re-initialised (`git submodule update --init`); research, strategy-author, and remove-ai-slop skills applied
+- MCP servers (brave_search, arxiv, filesystem, sequential_thinking, memory) not available in this agent environment; web_search used as substitute
+- Raised GitHub issues for MCP availability gaps
+
+**Notes:**
+- All outputs reviewed against remove-ai-slop skill: predictable transitions removed, structural variety applied, alignment padding eliminated, direct declarative language used throughout
+- Research skill methodology applied: recursive decomposition, evidence sufficiency check, consistency loop, multi-lens analysis (technical, regulatory, economic, political, behavioural)
 
 ### 2026-02-28 — Session 8 (Epic 3 implementation — W-0021, W-0022)
 
