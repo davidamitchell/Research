@@ -1,14 +1,14 @@
 # Progress
 
-Last updated: 2026-02-28 (AI strategy research completed)
+Last updated: 2026-03-01 (issue consolidation — #11, #12, #13)
 
 ---
 
 ## Current Status
 
-**Phase:** AI strategy research complete; backlog expanded with 6 new items
-**Next phase:** Progress through new backlog items or deeper NZ regulatory research
-**Branch:** `copilot/start-ai-strategy-research`
+**Phase:** Issue consolidation (AGENTS.md + config improvements)
+**Next phase:** Group B — Skills repo improvements (#8, #9) via PR to `davidamitchell/Skills`
+**Branch:** `copilot/update-backlog-documentation`
 
 ---
 
@@ -22,6 +22,35 @@ Last updated: 2026-02-28 (AI strategy research completed)
 ---
 
 ## Work Log
+
+### 2026-03-01 — Session 10 (Issue consolidation — Group A: #11, #12, #13)
+
+**Completed:**
+
+Group A — AGENTS.md + config improvements (all changes in one PR per consolidation recommendation):
+
+- `.mcp.json` and `.github/mcp.json` — replaced hardcoded `/workspaces/Research` filesystem path with `"."` (current working directory); works across Codespaces, agent runners, and local dev without env var config (#11, Bug 1)
+- `AGENTS.md` — Repository Layout section: added `Research/transcripts/` (fetch-transcript workflow output) and `state/` (StateStore JSON file) entries (#13, Gap 4)
+- `AGENTS.md` — Agent Skills section: expanded table to include per-agent invocation column (Claude Code slash commands vs Copilot by-reference); added submodule setup note (`git submodule update --init`); added Skills Invocation section covering Claude Code, Copilot, and fallback behaviour (#12)
+- `AGENTS.md` — MCP server table: replaced "Codespaces secret" with "repository secret or `.env`" for `brave_search` and `github` (#11, Bug 2)
+- `AGENTS.md` — MCP section: added Session-start MCP availability check section with per-environment availability table and substitution guide (#11, Bug 3)
+- `AGENTS.md` — MCP "Using MCP in research tasks": removed Codespaces-specific language; updated filesystem note to reflect `"."` path (#11)
+- `AGENTS.md` — Mini-Retro section: added feedback loop steps — update AGENTS.md, add BACKLOG.md item, record in PROGRESS.md (#13, Gap 1)
+- `AGENTS.md` — Added "When to Update AGENTS.md" section (new) (#13, Gap 3)
+- `AGENTS.md` — Added "When the Backlog Is Empty" section (new) (#13, Gap 2)
+- `README.md` — added `git submodule update --init` to Quick Start (#12)
+
+Issues closed or addressed:
+- #10 — already closed (incorporated into #11); confirmed
+- #11 — all three bugs fixed
+- #12 — all four problems addressed (README setup step, invocation section, agent-specific notes, fallback instruction)
+- #13 — all four gaps addressed (Mini-Retro loop, empty-backlog protocol, update trigger, directory layout)
+
+**Remaining (Group B — separate PR to `davidamitchell/Skills`):**
+- #8 — Research skill improvements (7 gaps identified post AI strategy research)
+- #9 — Strategy-author skill improvements (7 gaps identified)
+
+These require changes to the `davidamitchell/Skills` repository and cannot be addressed in this repo's PR.
 
 ### 2026-02-28 — Session 9 (AI Strategy research)
 

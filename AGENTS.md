@@ -79,7 +79,8 @@ Research/
 ├── _template.md        # Template for a new research item
 ├── backlog/            # Items not yet started
 ├── in-progress/        # Items actively being researched
-└── completed/          # Finished research with findings
+├── completed/          # Finished research with findings
+└── transcripts/        # Plain-text transcripts committed by fetch-transcript workflow
 
 src/
 ├── main.py             # CLI entry point
@@ -110,6 +111,9 @@ docs/
 
 .claude/
 └── skills/             # Agent skills for Claude Code (same submodule)
+
+state/
+└── index.json          # URL deduplication state (written by StateStore; gitignored content)
 
 tests/
 ```
@@ -182,15 +186,25 @@ An ADR **must** be written any time a change involves:
 
 A weekly workflow (`.github/workflows/sync-skills.yml`) advances both submodule pointers to the latest commit.
 
-| Skill | When it applies |
-|---|---|
-| `backlog-manager` | Adding, prioritising, or reviewing backlog items |
-| `citation-discipline` | Ensuring claims are sourced and referenced |
-| `remove-ai-slop` | Reviewing output for hollow filler language |
-| `research` | Conducting structured research on a topic |
-| `speculation-control` | Flagging uncertain claims vs established facts |
-| `strategic-persuasion` | Building audience-targeted persuasive content |
-| `strategy-author` | Producing or reviewing strategy documents |
+> **Setup required:** After a standard `git clone`, skill directories are empty. Run `git submodule update --init` from the repository root to populate them before using any skill.
+
+| Skill | When it applies | Claude Code | GitHub Copilot |
+|---|---|---|---|
+| `backlog-manager` | Adding, prioritising, or reviewing backlog items | `/backlog-manager` | read `SKILL.md` and apply manually |
+| `citation-discipline` | Ensuring claims are sourced and referenced | `/citation-discipline` | read `SKILL.md` and apply manually |
+| `remove-ai-slop` | Reviewing output for hollow filler language | `/remove-ai-slop` | read `SKILL.md` and apply manually |
+| `research` | Conducting structured research on a topic | `/research` | read `SKILL.md` and apply manually |
+| `speculation-control` | Flagging uncertain claims vs established facts | `/speculation-control` | read `SKILL.md` and apply manually |
+| `strategic-persuasion` | Building audience-targeted persuasive content | `/strategic-persuasion` | read `SKILL.md` and apply manually |
+| `strategy-author` | Producing or reviewing strategy documents | `/strategy-author` | read `SKILL.md` and apply manually |
+
+### Invoking skills
+
+**Claude Code:** Skills in `.claude/skills/` are available as `/skill-name` slash commands once the submodule is initialised. Example: `/research` to start a structured research session.
+
+**GitHub Copilot:** Skills in `.github/skills/` are readable as context files but are not invokable as slash commands. Read the relevant `SKILL.md` directly (e.g., open `.github/skills/research/SKILL.md` in your context window) and follow its process step by step as the agent — no user action required.
+
+**Fallback (any agent, submodule not initialised):** Note the gap in the session log. Proceed with equivalent inline behaviour — apply the skill's logic from memory or from the issue context. Do not halt work because a skill file is unavailable.
 
 To add a new skill: add it to the Skills repo first; it will be picked up on the next sync.
 
@@ -213,10 +227,27 @@ Both files must stay in sync. The following 9 servers are configured in both fil
 | `time` | `python -m mcp_server_time` | Current date/time for timestamping research items | none |
 | `memory` | `npx @modelcontextprotocol/server-memory` | Persistent knowledge graph across sessions | none |
 | `git` | `python -m mcp_server_git` | Read git history, diffs, and commit context | none |
-| `filesystem` | `npx @modelcontextprotocol/server-filesystem` | Read/write research files in `/workspaces/Research` | none |
-| `brave_search` | `npx @modelcontextprotocol/server-brave-search` | Web search for research sourcing and fact-checking | `BRAVE_API_KEY` (Codespaces secret) |
+| `filesystem` | `npx @modelcontextprotocol/server-filesystem` | Read/write research files in the current working directory (repo root) | none |
+| `brave_search` | `npx @modelcontextprotocol/server-brave-search` | Web search for research sourcing and fact-checking | `BRAVE_API_KEY` (repository secret or `.env`) |
 | `arxiv` | `python -m arxiv_mcp_server` | Search and fetch arXiv papers for academic sourcing | none |
-| `github` | `npx @modelcontextprotocol/server-github` | Read GitHub issues, PRs, and repo data | `GITHUB_PERSONAL_ACCESS_TOKEN` (Codespaces secret) |
+| `github` | `npx @modelcontextprotocol/server-github` | Read GitHub issues, PRs, and repo data | `GITHUB_PERSONAL_ACCESS_TOKEN` (repository secret or `.env`) |
+
+### Session-start MCP availability check
+
+At the start of each session, note which configured MCP servers are actually running. If a configured server is unavailable, log it and fall back to built-in equivalents rather than attempting tool calls that will fail silently.
+
+| Environment | Typically available | Typically unavailable |
+|---|---|---|
+| GitHub Copilot agent (cloud runner) | `fetch`, `git`, `github` (built-in) | `brave_search`, `arxiv`, `filesystem`, `memory`, `sequential_thinking` |
+| Claude Code (local / Codespaces) | all 9 servers (if pip/npm packages installed) | any server whose package is missing |
+| Local dev | all 9 servers (if packages installed and secrets set) | servers with missing secrets (`brave_search`, `github`) |
+
+Substitutions when MCP servers are unavailable (use whatever equivalent capability your runtime provides):
+- `brave_search` → built-in web search (e.g., `web_search` tool in Copilot/Claude)
+- `arxiv` → fetch arxiv.org URLs directly using available HTTP/fetch tools
+- `filesystem` → built-in file read/write tools (bash, view, edit, create tools)
+- `memory` → session notes; record key facts in `PROGRESS.md`
+- `sequential_thinking` → inline chain-of-thought reasoning
 
 ### Python MCP servers — installation
 
@@ -230,12 +261,12 @@ pip install mcp-server-fetch mcp-server-time mcp-server-git arxiv-mcp-server
 
 When executing the `research` skill or conducting a research item end-to-end:
 
-- Use **`fetch`** to retrieve web pages for source content (replaces manual `web_fetch` calls when running inside a Codespace).
-- Use **`brave_search`** to discover sources (requires `BRAVE_API_KEY` Codespaces secret).
+- Use **`fetch`** to retrieve web pages for source content (replaces manual `web_fetch` calls when the MCP server is running).
+- Use **`brave_search`** to discover sources (requires `BRAVE_API_KEY` repository secret or `.env`).
 - Use **`arxiv`** to locate and fetch academic papers referenced by a research item.
 - Use **`sequential_thinking`** to plan multi-step research synthesis before writing findings.
 - Use **`memory`** to persist cross-session state about ongoing research threads.
-- Use **`filesystem`** to read/write research Markdown files directly in `/workspaces/Research`.
+- Use **`filesystem`** to read/write research Markdown files directly (serves the current working directory).
 - Use **`git`** to inspect commit history when reviewing what has already been processed.
 - Use **`time`** to stamp `added`, `started`, and `completed` dates correctly.
 - Use **`github`** to read issue/PR context when a research item was spawned from an issue.
@@ -314,3 +345,32 @@ Update documentation before context degrades, not after.
 4. **Is this a pattern?** Has this class of issue appeared before?
 
 The goal: the next agent should not be able to make the same class of mistake.
+
+After answering these questions, close the loop:
+- If a new convention would have prevented this problem, **add it to `AGENTS.md` now**.
+- If a systemic fix is needed (code, tooling, or infrastructure), **add a `BACKLOG.md` item**.
+- **Record the outcome in `PROGRESS.md`** so the next session sees the learning.
+
+---
+
+## When to Update AGENTS.md
+
+Update `AGENTS.md` when:
+- A new MCP server, skill, or tool is added or removed.
+- A new convention is established (via Mini-Retro or otherwise).
+- The project structure changes materially (new top-level directories, new workflows, new external integrations).
+- A documented process is found to be wrong or incomplete.
+
+Do not wait until the end of a session — update it at the point of discovery.
+
+---
+
+## When the Backlog Is Empty
+
+When `BACKLOG.md` has no pending items (all are `done` or `archived`):
+
+1. Review `Research/backlog/` — pick up a research item that hasn't been started.
+2. Review open GitHub issues — propose a new Epic based on project state and issue content.
+3. If neither applies, surface the question to the owner: describe the current state and ask what to prioritise next.
+
+Do not invent work. Do not silently loop. Surface the state and ask.

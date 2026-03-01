@@ -377,6 +377,38 @@ Deferred — requires a vector index; useful once `Research/completed/` has enou
 
 ---
 
+## W-0027
+
+status: open
+created: 2026-03-01
+updated: 2026-03-01
+
+### Outcome
+
+`research/SKILL.md` in `davidamitchell/Skills` is updated with: citation-discipline and speculation-control composability instructions; confidence calibration table (high/medium/low); constraint parameter (full/bounded/rapid) with per-mode evidence sufficiency criteria; source prioritisation heuristic; output calibration guidance; tool-awareness note referencing AGENTS.md § MCP Configuration.
+
+### Context
+
+Retro findings from the AI strategy research session (2026-02-28) — issue #8. Requires a PR to `davidamitchell/Skills` (not this repo). Once merged, `sync-skills.yml` will pull in the updated submodule pointer, or trigger manually.
+
+---
+
+## W-0028
+
+status: open
+created: 2026-03-01
+updated: 2026-03-01
+
+### Outcome
+
+`strategy-author/SKILL.md` in `davidamitchell/Skills` is updated with: research-to-diagnosis translation process; contextual adaptation notes for non-commercial settings (government, NZ SME, regulated financial); required time horizon statement in Metrics and Milestones; structured trade-offs format (alternative → rejection reason → re-evaluation signal); two diagnostic precision tests (falsifiability + constraint test); review triggers section (time-based and event-based); "symptom vs cause" added to Behavioral Constraints.
+
+### Context
+
+Review findings from post AI strategy research (2026-02-28) — issue #9. Requires a PR to `davidamitchell/Skills` (not this repo). Once merged, `sync-skills.yml` will pull in the updated submodule pointer.
+
+---
+
 ## W-0026
 
 status: done
