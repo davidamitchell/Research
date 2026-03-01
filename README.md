@@ -25,6 +25,7 @@ A place to hold a backlog of research to be done, research underway, and complet
 # Set up development environment
 pip install -e ".[dev]"
 cp .env.example .env   # fill in real values
+git submodule update --init  # populate agent skills
 
 # Run checks
 make check

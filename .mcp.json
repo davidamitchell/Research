@@ -22,7 +22,7 @@
     },
     "filesystem": {
       "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-filesystem", "/workspaces/Research"]
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "."]
     },
     "brave_search": {
       "command": "npx",
