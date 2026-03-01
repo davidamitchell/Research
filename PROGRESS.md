@@ -1,6 +1,6 @@
 # Progress
 
-Last updated: 2026-03-01 (Tavily MCP integration)
+Last updated: 2026-03-01 (Context Mode research)
 
 ---
 
@@ -22,6 +22,23 @@ Last updated: 2026-03-01 (Tavily MCP integration)
 ---
 
 ## Work Log
+
+### 2026-03-01 — Session 12 (Context Mode research)
+
+**Completed:**
+
+Research item:
+- `Research/completed/2026-03-01-context-mode-llm-context-compression.md` — completed; structured findings covering: the two-sided context consumption problem (Cloudflare Code Mode for definitions vs Context Mode for outputs); Context Mode's architecture (sandboxed subprocess execution, SQLite FTS5 + BM25 knowledge base, subagent routing, progressive search throttling); quantified compression ratios (315 KB → 5.4 KB, 98% reduction; sessions from ~30 min to ~3 hours); the hard architectural boundary — Context Mode cannot intercept MCP tool responses (JSON-RPC bypass, no PostToolUse hook, empirically confirmed by HN commenter); BM25 limitation for structured tool output and hybrid retrieval improvement (Model2Vec + sqlite-vec + FTS5 + RRF); prompt cache preservation argument; broader context management frontier (backtracking, context trees, subprocess isolation, agentic self-management)
+
+Sources consulted:
+- https://mksg.lu/blog/context-mode (primary article)
+- https://news.ycombinator.com/item?id=47193064 (HN discussion, empirical MCP interception test)
+- https://github.com/mksglu/claude-context-mode (GitHub README, architecture detail)
+- https://blog.cloudflare.com/code-mode-mcp/ (Code Mode input-side compression reference)
+
+**Key insight for this repo:** This repo uses 10 MCP servers. Context Mode cannot intercept any of their outputs — MCP responses (filesystem, memory, git, arxiv, etc.) go directly to model context via JSON-RPC. For Claude Code sessions on this repo, output compression requires server-side implementation in each MCP server or reliance on built-in tool compression only.
+
+---
 
 ### 2026-03-01 — Session 11 (Tavily MCP integration)
 
