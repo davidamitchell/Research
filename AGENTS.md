@@ -258,6 +258,17 @@ Substitutions when MCP servers are unavailable (use whatever equivalent capabili
 pip install mcp-server-fetch mcp-server-time mcp-server-git arxiv-mcp-server
 ```
 
+### npx MCP servers — Node.js requirement
+
+`sequential_thinking`, `memory`, `filesystem`, `brave_search`, `github`, and `tavily` use `npx` to run. **Node.js (v18 or higher) must be installed.** It is pre-installed on:
+
+- GitHub Actions runners (all standard runner images)
+- The devcontainer base image (`mcr.microsoft.com/devcontainers/python:3.11`)
+
+For local dev outside these environments, install Node.js from [nodejs.org](https://nodejs.org/) if `npx --version` returns an error.
+
+The `-y` flag in each config entry (`npx -y <package>`) auto-accepts the one-time package download — no separate `npm install` step is needed.
+
 ### Using MCP in research tasks
 
 When executing the `research` skill or conducting a research item end-to-end:
