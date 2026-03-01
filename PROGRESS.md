@@ -1,6 +1,6 @@
 # Progress
 
-Last updated: 2026-03-01 (issue consolidation — #11, #12, #13)
+Last updated: 2026-03-01 (Tavily MCP integration)
 
 ---
 
@@ -22,6 +22,19 @@ Last updated: 2026-03-01 (issue consolidation — #11, #12, #13)
 ---
 
 ## Work Log
+
+### 2026-03-01 — Session 11 (Tavily MCP integration)
+
+**Completed:**
+
+- `.mcp.json` — added `tavily` server entry (`npx -y tavily-mcp@latest`, `TAVILY_API_KEY` env var)
+- `.github/mcp.json` — added `tavily` server entry (same, with `type: "stdio"`)
+- `.env.example` — added `TAVILY_API_KEY=tvly-...` entry under Search section
+- `AGENTS.md` — Server Reference table: added `tavily` row (10 servers now); updated session-start availability table to include `tavily` in unavailable list for cloud/Copilot runner and in "missing secrets" list for local dev; updated substitutions note (`brave_search` / `tavily` → built-in web search); added `tavily` to "Using MCP in research tasks" section with guidance on when to prefer it over `brave_search` (extracted content vs links)
+
+Tavily MCP provides: `tavily-search` (real-time web search), `tavily-extract` (content extraction from URLs), `tavily-map` (structured site map), `tavily-crawl` (systematic site crawl). Requires `TAVILY_API_KEY` repository secret.
+
+---
 
 ### 2026-03-01 — Session 10 (Issue consolidation — Group A: #11, #12, #13)
 

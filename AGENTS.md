@@ -216,7 +216,7 @@ MCP server configs are defined in:
 - `.github/mcp.json` — GitHub Copilot Agent (requires `type: "stdio"` on each entry)
 - `.mcp.json` — Claude Code and other agents
 
-Both files must stay in sync. The following 9 servers are configured in both files.
+Both files must stay in sync. The following 10 servers are configured in both files.
 
 ### Server Reference
 
@@ -231,6 +231,7 @@ Both files must stay in sync. The following 9 servers are configured in both fil
 | `brave_search` | `npx @modelcontextprotocol/server-brave-search` | Web search for research sourcing and fact-checking | `BRAVE_API_KEY` (repository secret or `.env`) |
 | `arxiv` | `python -m arxiv_mcp_server` | Search and fetch arXiv papers for academic sourcing | none |
 | `github` | `npx @modelcontextprotocol/server-github` | Read GitHub issues, PRs, and repo data | `GITHUB_PERSONAL_ACCESS_TOKEN` (repository secret or `.env`) |
+| `tavily` | `npx tavily-mcp@latest` | Real-time web search, extraction, mapping, and crawl via Tavily API | `TAVILY_API_KEY` (repository secret or `.env`) |
 
 ### Session-start MCP availability check
 
@@ -238,12 +239,12 @@ At the start of each session, note which configured MCP servers are actually run
 
 | Environment | Typically available | Typically unavailable |
 |---|---|---|
-| GitHub Copilot agent (cloud runner) | `fetch`, `git`, `github` (built-in) | `brave_search`, `arxiv`, `filesystem`, `memory`, `sequential_thinking` |
-| Claude Code (local / Codespaces) | all 9 servers (if pip/npm packages installed) | any server whose package is missing |
-| Local dev | all 9 servers (if packages installed and secrets set) | servers with missing secrets (`brave_search`, `github`) |
+| GitHub Copilot agent (cloud runner) | `fetch`, `git`, `github` (built-in) | `brave_search`, `arxiv`, `filesystem`, `memory`, `sequential_thinking`, `tavily` |
+| Claude Code (local / Codespaces) | all 10 servers (if pip/npm packages installed) | any server whose package is missing |
+| Local dev | all 10 servers (if packages installed and secrets set) | servers with missing secrets (`brave_search`, `github`, `tavily`) |
 
 Substitutions when MCP servers are unavailable (use whatever equivalent capability your runtime provides):
-- `brave_search` → built-in web search (e.g., `web_search` tool in Copilot/Claude)
+- `brave_search` / `tavily` → built-in web search (e.g., `web_search` tool in Copilot/Claude)
 - `arxiv` → fetch arxiv.org URLs directly using available HTTP/fetch tools
 - `filesystem` → built-in file read/write tools (bash, view, edit, create tools)
 - `memory` → session notes; record key facts in `PROGRESS.md`
@@ -262,7 +263,8 @@ pip install mcp-server-fetch mcp-server-time mcp-server-git arxiv-mcp-server
 When executing the `research` skill or conducting a research item end-to-end:
 
 - Use **`fetch`** to retrieve web pages for source content (replaces manual `web_fetch` calls when the MCP server is running).
-- Use **`brave_search`** to discover sources (requires `BRAVE_API_KEY` repository secret or `.env`).
+- Use **`brave_search`** to discover sources and links (requires `BRAVE_API_KEY` repository secret or `.env`).
+- Use **`tavily`** when you need actual page content rather than links — for content extraction, site mapping, and crawl (requires `TAVILY_API_KEY`). Also usable for general web search via `tavily-search`.
 - Use **`arxiv`** to locate and fetch academic papers referenced by a research item.
 - Use **`sequential_thinking`** to plan multi-step research synthesis before writing findings.
 - Use **`memory`** to persist cross-session state about ongoing research threads.
