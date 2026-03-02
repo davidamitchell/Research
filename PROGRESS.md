@@ -23,6 +23,11 @@ Last updated: 2026-03-01 (GitHub wiki backlog item)
 
 ## Work Log
 
+### 2026-03-01 — Session 12 (new backlog item — agent LSP policy enforcement)
+
+**Completed:**
+
+- `Research/backlog/2026-03-01-agent-lsp-policy-enforcement.md` — research item on guiding headless autonomous agents via LSP-like mechanisms for org policy conformance (security, architectural, engineering standards); key focus: identifying the "LSAP"/"LASP" acronym and protocol, surveying whether headless agents can act as LSP clients, mapping the gap between CI/pre-commit gates and in-loop real-time feedback; priority high
 ### 2026-03-01 — Session 12 (GitHub wiki backlog item)
 
 **Completed:**
