@@ -1,5 +1,6 @@
 # Progress
 
+Last updated: 2026-03-02 (search-interaction-distribution backlog items)
 Last updated: 2026-03-02 (transaction-costs)
 
 ---
@@ -23,6 +24,24 @@ Last updated: 2026-03-02 (transaction-costs)
 
 ## Work Log
 
+### 2026-03-02 — New backlog items (search, interaction, and distribution)
+
+**Added:**
+
+Four new backlog items covering the gaps in indexing/search improvements, interaction methods, and distribution of research results:
+
+- `Research/backlog/2026-03-02-semantic-full-text-search.md` — **high priority**. Semantic and full-text search over the research corpus. Covers: SQLite FTS5 (BM25), hybrid BM25 + Model2Vec + sqlite-vec + RRF (following the pattern identified in `2026-03-01-context-mode-llm-context-compression.md`), CLI `research search` command, chunking strategy for research items, incremental hash-based re-indexing. Cross-references: `2026-02-27-indexing-and-tracking-method.md` (prior indexing decision; vector search explicitly deferred), `2026-02-27-local-database.md` (database options), `2026-03-01-context-mode-llm-context-compression.md` (hybrid retrieval pattern Key Finding 6).
+
+- `Research/backlog/2026-03-02-chat-conversational-interface.md` — **high priority**. Conversational/chat interface for querying the research corpus. Covers: MCP server with `search_research` + `get_research_item` tools, GitHub Copilot extension approach, CLI chatbot wrapping the search layer, grounding and hallucination prevention, cross-reference navigation. Depends on: `2026-03-02-semantic-full-text-search.md` (search layer). Cross-references: `2026-02-27-interface-and-delivery.md` (upstream item; MCP mentioned but not designed), `2026-03-01-context-mode-llm-context-compression.md` (MCP server design pattern: compact summary + queryable store + drill-down tools).
+
+- `Research/backlog/2026-03-02-slack-msteams-research-integration.md` — **medium priority**. Slack and MS Teams integration for research delivery and capture. Covers: outbound delivery via Incoming Webhooks (GitHub Actions step triggered by `Research/completed/**` push), digest mode (weekly summary), inbound capture via slash commands or Power Automate flows, query integration with the conversational interface. Note: new secrets (`SLACK_WEBHOOK_URL` or `TEAMS_WEBHOOK_URL`) will require owner approval per AGENTS.md constraints. Cross-references: `2026-02-27-interface-and-delivery.md`, `2026-03-01-github-wiki-research-content.md` (same trigger pattern to reuse).
+
+- `Research/backlog/2026-03-02-ios-shortcuts-research.md` — **medium priority**. iOS Shortcuts for research capture and query. Covers: Share Sheet shortcut to add a URL or title to the backlog (GitHub API direct file creation vs. issue creation), Siri hands-free dictation, wiki quick-access shortcut, search/query shortcut via `workflow_dispatch`. Authentication via fine-grained PAT in iOS Keychain. Cross-references: `2026-02-27-simple-process-for-adding-research-item.md` (existing capture paths; iOS Shortcuts is the missing third path), `2026-03-01-github-wiki-research-content.md` (wiki as readable iOS delivery channel).
+
+**Existing items cross-referenced (not duplicated):**
+- `Research/backlog/2026-02-27-interface-and-delivery.md` — broader interface question; new items are focused sub-topics
+- `Research/backlog/2026-02-27-local-database.md` — database technology choice; `semantic-full-text-search` is the search UX layer on top
+- `Research/backlog/2026-02-27-local-index-vs-reference.md` — storage policy; upstream of search
 ### 2026-03-02 — New research item (transaction-costs)
 
 **Completed:**
