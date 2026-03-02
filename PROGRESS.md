@@ -1,6 +1,6 @@
 # Progress
 
-Last updated: 2026-03-02 (agent-memory-management-context-injection — self-initiated deep dives: KGoT/MindMap, Smart Connections, governance gap update, XAI+DIKW)
+Last updated: 2026-03-02 (agent-memory-management-context-injection — outcome-based utility ranking, Memory-R1, human memory anti-patterns, model-version drift)
 Last updated: 2026-03-02 (wiki publishing implementation — W-0030)
 
 ---
@@ -23,6 +23,20 @@ Last updated: 2026-03-02 (wiki publishing implementation — W-0030)
 ---
 
 ## Work Log
+
+### 2026-03-02 — Extend research item with four threads from owner feedback on wiki rot / memory ranking (agent-memory-management-context-injection)
+
+**Owner raised four threads in PR comment: (1) outcome-based utility over temporal decay, (2) goal-achievement and transaction-cost as memory signals, (3) human memory as flawed blueprint, (4) model-version-aware re-assessment. All four researched and added as Findings 27–30.**
+
+1. **Outcome-based utility ranking over temporal decay (Finding 27)** — TTL/last-accessed are weak proxies. Strong signals: Goal Completion Rate (GCR), transaction cost reduction, task success. EMG-RAG (EMNLP 2024, arXiv:2409.19401) uses RL on Editable Memory Graph; AssoMem (arXiv:2510.10397) fuses importance + recency + similarity. No production memory system closes this feedback loop by default.
+
+2. **Memory-R1 — RL-trained outcome-driven memory (Finding 28)** — arXiv:2508.19828 (Aug 2025): dual-agent RL (Memory Manager + Answer Agent) trained end-to-end on answer correctness using PPO/GRPO. Memory Manager learns ADD/UPDATE/DELETE/NOOP based on downstream task success. First production-adjacent implementation of "did this memory help my goal?" as the training signal.
+
+3. **Human memory anti-patterns for AI design (Finding 29)** — arXiv:2503.10248: LLM agents display human biases (recency, availability) but via different mechanisms and without compensatory corrections. Anti-patterns to avoid: availability bias (frequency ≠ relevance), maladaptive forgetting, recency over-weighting. Design principle: test human memory heuristics against outcome signals rather than copying them.
+
+4. **Model-version-aware memory re-assessment (Finding 30)** — arXiv:2512.13564, Yodaplus 2025, dev.to drift framework: memory staleness has two dimensions — world-state change AND model interpretation shift. When base models update, stored memories may be interpreted differently. Solution: tag entries with model version at write time; run re-assessment diff on model updates. No production system implements this.
+
+Sources added: 11 new (Memory-R1 arXiv, EMG-RAG arXiv, AssoMem arXiv, Outcome-Oriented Evaluation arXiv, LLM Biases arXiv, AI Biases Frontiers, Memory in AI Agents survey arXiv:2512.13564, Memory Refresh Cycles Yodaplus, Model Drift framework dev.to, M-RAG ACL 2024, utility_weighted_memory GitHub).
 
 ### 2026-03-02 — Extend research item with four self-initiated deep-dive threads (agent-memory-management-context-injection)
 
