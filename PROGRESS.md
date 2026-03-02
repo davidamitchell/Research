@@ -1,6 +1,6 @@
 # Progress
 
-Last updated: 2026-03-02 (simple-process-for-adding-research-item)
+Last updated: 2026-03-02 (agent-memory-management-context-injection)
 
 ---
 
@@ -22,6 +22,12 @@ Last updated: 2026-03-02 (simple-process-for-adding-research-item)
 ---
 
 ## Work Log
+
+### 2026-03-02 — New backlog item (agent-memory-management-context-injection)
+
+**Added:**
+
+- `Research/backlog/2026-03-02-agent-memory-management-context-injection.md` — new high-priority backlog item. Covers the full landscape of agent memory architectures beyond RAG: latency trade-offs, knowledge scoping (session/team/repo/role/task), governance and provenance, quality testing, distribution of recall tooling, and the "ungardened wiki" failure mode. Systems surveyed include MemGPT/Letta, Zep, Mem0, LangMem, Cognee/Graphiti, and GraphRAG.
 
 ### 2026-03-02 — Research Loop (simple-process-for-adding-research-item)
 
