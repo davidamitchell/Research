@@ -1,6 +1,7 @@
 # Progress
 
 Last updated: 2026-03-02 (search-interaction-distribution backlog items)
+Last updated: 2026-03-02 (transaction-costs)
 
 ---
 
@@ -41,6 +42,11 @@ Four new backlog items covering the gaps in indexing/search improvements, intera
 - `Research/backlog/2026-02-27-interface-and-delivery.md` — broader interface question; new items are focused sub-topics
 - `Research/backlog/2026-02-27-local-database.md` — database technology choice; `semantic-full-text-search` is the search UX layer on top
 - `Research/backlog/2026-02-27-local-index-vs-reference.md` — storage policy; upstream of search
+### 2026-03-02 — New research item (transaction-costs)
+
+**Completed:**
+
+- `Research/completed/2026-03-02-transaction-costs.md` — completed; structured findings covering: Coase (1937, 1960) — firm as transaction-cost-minimising institution, the Coase Theorem; Williamson (1975, 1985) — asset specificity, uncertainty, frequency as transaction dimensions, governance-structure choice (market / hybrid / hierarchy), bounded rationality and opportunism; North (1990) — institutions as "rules of the game", path dependence in institutional change; Ostrom (1990) — 8 design principles for commons governance, polycentric governance; Munger — politics as a transaction-cost environment. Speculative integration: SWE (make-vs-buy as Williamson governance choice, code review transaction costs, specification as incomplete contract), AI agent design (single-agent firm vs multi-agent market, Ostrom's principles for agent memory, North's path dependence in training distributions), knowledge management (documentation as commons, Ostrom design principles for wikis, informal vs formal institutions), context engineering (Coase Theorem restated for context construction, asset specificity of session context, RAG/memory/full-context as market/hybrid/hierarchy governance choice, Munger political lens on system-prompt control).
 
 ### 2026-03-02 — New backlog item (agent-memory-management-context-injection)
 
