@@ -1,6 +1,6 @@
 # Progress
 
-Last updated: 2026-03-02 (agent-memory-management-context-injection — completed)
+Last updated: 2026-03-02 (agent-memory-management-context-injection — extended with video threads)
 Last updated: 2026-03-02 (wiki publishing implementation — W-0030)
 
 ---
@@ -23,6 +23,21 @@ Last updated: 2026-03-02 (wiki publishing implementation — W-0030)
 ---
 
 ## Work Log
+
+### 2026-03-02 — Extend research item with video threads (agent-memory-management-context-injection)
+
+**Extended findings from Apoorva Joshi (MongoDB) "Building Agents That Learn" video (https://youtu.be/2JiMmye2ezg) and related sources:**
+
+New threads followed and integrated:
+1. **"Memory is context engineering" reframe** — Letta + Anthropic independently reach the same conclusion: memory design is not about database selection but about which tokens are in the context window at each inference step. The design question is: Write/Select/Compress/Isolate strategies.
+2. **LangChain's four context engineering operations** (Write/Select/Compress/Isolate) — a practical taxonomy that unifies all memory techniques and maps to four failure modes: context poisoning, context distraction, context confusion, context clash.
+3. **Context rot (Chroma Research 2025)** — LLM accuracy degrades non-uniformly as context length increases, even before the window limit. All major model families affected. Larger context windows are not a substitute for good context engineering.
+4. **Cognition "Don't Build Multi-Agents" vs Anthropic multi-agent** — Both camps independently identified memory/context management as the #1 agent reliability challenge. Cognition: context engineering is #1 job for agent engineers. MongoDB synthesis: both are right for different use cases (deep research vs coding/dialogue).
+5. **Sleep-time compute (Letta + UC Berkeley, arXiv:2504.13171)** — asynchronous background memory consolidation, 5x cost reduction, 18% accuracy improvement on stateful benchmarks. Most architecturally novel 2025 advance.
+6. **MemoryOS (BAI-LAB, EMNLP 2025 Oral, arXiv:2506.06326)** — three-tier OS-inspired hierarchy, +49.11% F1 / +46.18% BLEU-1 on LoCoMo vs GPT-4o-mini. Largest absolute improvement of any evaluated system.
+7. **Claude Code's hybrid production pattern** — CLAUDE.md up-front (procedural memory) + just-in-time grep/glob retrieval + auto-compact at 95% context. Current production gold standard for coding agents.
+
+Sources added: 9 new sources including the MongoDB article, Letta blog, Anthropic context engineering article, LangChain context engineering blog, Cognition blog, Chroma context rot paper, sleep-time compute arXiv paper, MemoryOS arXiv paper, and the video itself.
 
 ### 2026-03-02 — Complete research item (agent-memory-management-context-injection)
 
