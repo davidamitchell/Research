@@ -1,0 +1,209 @@
+name: Research Loop
+
+# Autonomous research backlog worker.
+#
+# Each run processes one or more backlog items by feeding research-prompt.md to
+# the GitHub Copilot CLI. Each Copilot invocation is a fresh session (new context
+# window), matching the Ralph Wiggum pattern.
+#
+# Commits go directly to main — no pull requests.
+#
+# Required repository secret: COPILOT_GITHUB_TOKEN
+#   A GitHub Personal Access Token (classic or fine-grained) with Copilot access.
+#   Settings → Secrets and variables → Actions → New repository secret
+#   Name: COPILOT_GITHUB_TOKEN  Value: your PAT
+#
+# Safety controls (see ADR-0004):
+#   - Job-level timeout: 90 minutes hard ceiling per run.
+#   - Per-run cap: scheduled runs process at most 3 items; dispatch default is 1.
+#   - Absolute iteration ceiling: HARD_MAX_ITERATIONS (10) — stops regardless of
+#     MAX_ITEMS to prevent runaway loops from configuration errors.
+#   - Failure limit: 2 consecutive Copilot failures abort the run immediately.
+#   - Inter-iteration sleep: 30 s between iterations; gives GitHub API rate limits
+#     time to recover and makes runaway loops visible in timing logs.
+#   - No cancel-in-progress: a running loop is never killed by a new trigger.
+#
+# Trigger options:
+#   1. Manual: Actions tab → "Research Loop" → Run workflow → set max_items
+#   2. Scheduled: runs automatically on weekday mornings (processes 3 items)
+
+on:
+  workflow_dispatch:
+    inputs:
+      max_items:
+        description: "Max items to process (1–5). Defaults to 1 for safety."
+        required: false
+        default: "1"
+        type: choice
+        options:
+          - "1"
+          - "2"
+          - "3"
+          - "4"
+          - "5"
+
+  schedule:
+    # Weekdays at 07:00 UTC — runs after the skills sync (Monday 06:00 UTC)
+    - cron: "0 7 * * 1-5"
+
+# Only one research loop runs at a time. Don't cancel in-progress runs.
+concurrency:
+  group: research-loop
+  cancel-in-progress: false
+
+jobs:
+  research:
+    name: Work research backlog
+    runs-on: ubuntu-latest
+
+    # Hard ceiling: no single run may exceed 90 minutes regardless of backlog size.
+    # Each Copilot session should complete a single research item well within 30 min.
+    timeout-minutes: 90
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          token: ${{ secrets.COPILOT_GITHUB_TOKEN }}
+          # Submodules not needed for research loop; skip for speed
+          submodules: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install project dependencies
+        run: pip install -e ".[dev]"
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install GitHub Copilot CLI
+        run: npm install -g @github/copilot
+
+      - name: Configure git identity
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Run research loop
+        env:
+          GH_TOKEN: ${{ secrets.COPILOT_GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+
+          # ------------------------------------------------------------------ #
+          # Safety constants                                                     #
+          # ------------------------------------------------------------------ #
+          # Absolute ceiling: stop after this many iterations regardless of     #
+          # MAX_ITEMS. Prevents runaway loops from configuration errors.        #
+          HARD_MAX_ITERATIONS=10
+          # Consecutive-failure threshold: abort if Copilot fails this many    #
+          # times in a row without making progress.                             #
+          FAILURE_THRESHOLD=2
+          # Sleep between iterations (seconds). Provides rate-limit breathing  #
+          # room and makes runaway loops detectable by timing.                 #
+          INTER_ITERATION_SLEEP=30
+
+          # ------------------------------------------------------------------ #
+          # Determine per-run item cap                                          #
+          # ------------------------------------------------------------------ #
+          # workflow_dispatch: use the dropdown input (already constrained to 1–5).
+          # schedule: conservative default of 3.
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            MAX_ITEMS="${{ inputs.max_items }}"
+          else
+            MAX_ITEMS="3"
+          fi
+
+          echo "Configuration: MAX_ITEMS=$MAX_ITEMS, HARD_MAX_ITERATIONS=$HARD_MAX_ITERATIONS, FAILURE_THRESHOLD=$FAILURE_THRESHOLD"
+
+          ITERATION=0
+          CONSECUTIVE_FAILURES=0
+
+          while true; do
+            # ---------------------------------------------------------------- #
+            # Hard ceiling guard                                                #
+            # ---------------------------------------------------------------- #
+            if [ "$ITERATION" -ge "$HARD_MAX_ITERATIONS" ]; then
+              echo "::warning::Hard iteration ceiling ($HARD_MAX_ITERATIONS) reached. Stopping as a safety measure."
+              break
+            fi
+
+            # ---------------------------------------------------------------- #
+            # Max-items guard                                                   #
+            # ---------------------------------------------------------------- #
+            if [ "$ITERATION" -ge "$MAX_ITEMS" ]; then
+              echo "Reached max_items=$MAX_ITEMS. Stopping."
+              break
+            fi
+
+            # ---------------------------------------------------------------- #
+            # Sync with remote                                                  #
+            # ---------------------------------------------------------------- #
+            # Pull latest main before each iteration so concurrent commits
+            # (e.g. from a manual trigger) don't cause push conflicts.
+            if ! git pull --rebase origin main; then
+              echo "::error::git pull --rebase failed — possible conflict or network issue. Stopping loop."
+              exit 1
+            fi
+
+            # ---------------------------------------------------------------- #
+            # Backlog check                                                     #
+            # ---------------------------------------------------------------- #
+            BACKLOG_COUNT=$(find Research/backlog -name '*.md' -not -name 'README.md' | wc -l | tr -d ' ')
+
+            if [ "$BACKLOG_COUNT" -eq 0 ]; then
+              echo "Backlog is empty. Nothing more to do."
+              break
+            fi
+
+            echo "Backlog items remaining: $BACKLOG_COUNT"
+            echo ""
+            echo "========================================"
+            echo "  Research iteration $((ITERATION + 1)) of $MAX_ITEMS"
+            echo "========================================"
+            echo ""
+
+            # ---------------------------------------------------------------- #
+            # Run Copilot session                                               #
+            # ---------------------------------------------------------------- #
+            # Each invocation is a fresh session — one context window per item.
+            if copilot -p "$(cat research-prompt.md)" \
+                --autopilot \
+                --allow-all; then
+              CONSECUTIVE_FAILURES=0
+            else
+              CONSECUTIVE_FAILURES=$((CONSECUTIVE_FAILURES + 1))
+              echo "::warning::Copilot session failed (consecutive failures: $CONSECUTIVE_FAILURES/$FAILURE_THRESHOLD)"
+              if [ "$CONSECUTIVE_FAILURES" -ge "$FAILURE_THRESHOLD" ]; then
+                echo "::error::Consecutive failure threshold reached. Aborting to prevent runaway behaviour."
+                exit 1
+              fi
+            fi
+
+            # Push any commits the agent made.
+            # (The agent commits inside its session; this is a safety-net push.)
+            git push origin main || true
+
+            ITERATION=$((ITERATION + 1))
+
+            # ---------------------------------------------------------------- #
+            # Inter-iteration sleep                                             #
+            # ---------------------------------------------------------------- #
+            if [ "$ITERATION" -lt "$MAX_ITEMS" ] && [ "$BACKLOG_COUNT" -gt 1 ]; then
+              echo "Sleeping ${INTER_ITERATION_SLEEP}s before next iteration..."
+              sleep "$INTER_ITERATION_SLEEP"
+            fi
+          done
+
+          echo ""
+          echo "Research loop finished. Processed $ITERATION item(s)."

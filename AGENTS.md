@@ -22,6 +22,8 @@ These two concerns are intentionally separate. Research items in `Research/` are
 - **No breaking changes to research item format** without updating `Research/_template.md` and the ADR that documents the format choice.
 - **Every code slice must be end-to-end runnable** before being marked complete in `BACKLOG.md`.
 - **Keep PROGRESS.md updated** after every meaningful commit.
+- **DO NOT ASSUME OR GUESS facts about the environment.** If you do not know whether a credential exists, whether a service is available, or whether a tool is capable of something — **STOP. Ask the owner before proceeding.** Guessing and being wrong wastes cycles and breaks trust. The cost of asking is zero. The cost of guessing wrong is not.
+- **DO NOT introduce new external services or credentials without explicit owner approval.** If your design requires something not already listed in the "Available credentials and services" table below, that is a hard stop — surface the gap and ask, do not proceed.
 
 ---
 
@@ -34,6 +36,19 @@ These constraints are fixed. Every agent working on this repository **must** res
 - **Codespaces is not in use.** Do not rely on Codespaces features, devcontainers, or `$CODESPACE_*` environment variables.
 - **GitHub Copilot Spaces and GitHub Projects are fine to use if helpful**, but are not a requirement. Suggest them only when they add clear value.
 - **Agent interactions happen via PR comments, issue comments, or by starting a new agent task/session.** The owner may also trigger operations by clicking buttons on the GitHub website (e.g., the Actions tab "Run workflow" button).
+
+### Available credentials and services
+
+The following table is the ground truth. Do not guess what exists outside this table.
+
+| Credential / Service | Available | Notes |
+|---|---|---|
+| `GITHUB_TOKEN` | ✅ Yes | Auto-provided by GitHub Actions |
+| `COPILOT_GITHUB_TOKEN` | ✅ Yes (add once) | GitHub PAT; required for Copilot CLI and direct `main` pushes |
+| `YOUTUBE_DATA_API` | ✅ Yes | YouTube video metadata |
+| Any other credential | ❓ Unknown | **STOP. Ask the owner before designing anything that requires it.** |
+
+If a workflow you are designing requires a credential not in this table, **ask before building**. Do not proceed on the assumption it exists or can be easily added.
 
 ### Consequences for tooling design
 
@@ -290,7 +305,32 @@ When executing the `research` skill or conducting a research item end-to-end:
 
 - CI: `.github/workflows/ci.yml` — lint + test on every push/PR
 - Skills sync: `.github/workflows/sync-skills.yml` — weekly Monday 06:00 UTC
+- **Research loop: `.github/workflows/research-loop.yml`** — autonomous research backlog worker; feeds `research-prompt.md` to the GitHub Copilot CLI in a loop, one fresh session per item, commits directly to `main`. Runs automatically on weekday mornings (3 items/day) and on demand via `workflow_dispatch`. Requires `COPILOT_GITHUB_TOKEN` repository secret (GitHub PAT with Copilot access). See ADR-0004 for safety controls.
 - **Transcript fetch: `.github/workflows/fetch-transcript.yml`** — manually triggered (`workflow_dispatch`); fetches YouTube auto-generated captions via `yt-dlp` and commits a plain-text file to `Research/transcripts/<video-id>.txt`. If YouTube blocks the request (cloud IP restriction), the workflow commits step-by-step instructions for adding the transcript manually via the GitHub website.
+
+### Research loop — setup and usage (no IDE required)
+
+**One-time setup:** Add a GitHub PAT as a repository secret:
+1. Create a Personal Access Token at [github.com/settings/tokens](https://github.com/settings/tokens) with `repo` scope and Copilot access enabled
+2. Settings → Secrets and variables → Actions → New repository secret → name: `COPILOT_GITHUB_TOKEN`, value: your PAT
+
+**How the loop works:**
+- Each run processes one or more backlog items.
+- Each item gets a **fresh Copilot session** (new context window) — matching the Ralph Wiggum pattern.
+- Copilot reads `research-prompt.md`, picks the highest-priority backlog item, researches it, fills in the Findings section, and commits the completed item + PROGRESS.md update directly to `main`.
+- The outer `while` loop restarts Copilot for the next item until `max_items` is reached or the backlog is empty.
+
+**Automatic schedule:** Runs weekdays at 07:00 UTC, processes 3 items per day.
+
+**Manual trigger:**
+1. Go to the repository on GitHub
+2. Click the **Actions** tab
+3. Click **"Research Loop"** in the left sidebar
+4. Click **"Run workflow"** → select `max_items` from the dropdown (default `1`) → click **"Run workflow"**
+
+**Safety controls:** The loop has multiple runaway-loop guards — see ADR-0004 for full details. Conservative defaults: max 1 item per manual run, max 3 per scheduled run, 90-minute job timeout, 10-iteration hard ceiling, 30-second inter-iteration sleep, abort after 2 consecutive Copilot failures.
+
+**Tuning:** Edit `research-prompt.md` to adjust what Copilot looks for, how findings are structured, or which items to prioritise. The prompt is the only lever — no code changes needed.
 
 ### How to trigger the transcript workflow (no IDE required)
 
