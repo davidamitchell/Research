@@ -1,0 +1,136 @@
+name: Research Loop
+
+# Autonomous research backlog worker.
+#
+# Each run processes one or more backlog items by feeding research-prompt.md to
+# the Claude Code CLI. Each Claude invocation is a fresh session (new context
+# window), matching the Ralph Wiggum pattern.
+#
+# Commits go directly to main — no pull requests.
+#
+# Required repository secret: ANTHROPIC_API_KEY
+#   Settings → Secrets and variables → Actions → New repository secret
+#
+# Trigger options:
+#   1. Manual: Actions tab → "Research Loop" → Run workflow → set max_items
+#   2. Scheduled: runs automatically on weekday mornings (processes 3 items)
+
+on:
+  workflow_dispatch:
+    inputs:
+      max_items:
+        description: "Max items to process per run (0 = entire backlog — use with caution)"
+        required: false
+        default: "1"
+        type: string
+
+  schedule:
+    # Weekdays at 07:00 UTC — runs after the skills sync (Monday 06:00 UTC)
+    - cron: "0 7 * * 1-5"
+
+# Only one research loop runs at a time. Don't cancel in-progress runs.
+concurrency:
+  group: research-loop
+  cancel-in-progress: false
+
+jobs:
+  research:
+    name: Work research backlog
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          token: ${{ secrets.GITHUB_TOKEN }}
+          # Submodules not needed for research loop; skip for speed
+          submodules: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install project dependencies
+        run: pip install -e ".[dev]"
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install Claude Code CLI
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Configure git identity
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Run research loop
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          # Determine how many items to process.
+          # workflow_dispatch: use the input value.
+          # schedule: process 3 items per run.
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            MAX_ITEMS="${{ inputs.max_items }}"
+          else
+            MAX_ITEMS="3"
+          fi
+
+          ITERATION=0
+
+          while true; do
+            # Pull latest main before each iteration so concurrent commits
+            # (e.g. from a manual trigger) don't cause push conflicts.
+            # Fail on rebase conflicts; log other pull issues as warnings.
+            if ! git pull --rebase origin main; then
+              echo "::warning::git pull --rebase failed — possible conflict or network issue. Stopping loop."
+              exit 1
+            fi
+
+            # Count backlog items (excluding the README placeholder).
+            BACKLOG_COUNT=$(find Research/backlog -name '*.md' -not -name 'README.md' | wc -l)
+
+            if [ "$BACKLOG_COUNT" -eq 0 ]; then
+              echo "Backlog is empty. Nothing more to do."
+              break
+            fi
+
+            echo "Backlog items remaining: $BACKLOG_COUNT"
+
+            # Enforce max_items limit (0 = unlimited).
+            if [ "$MAX_ITEMS" -gt 0 ] && [ "$ITERATION" -ge "$MAX_ITEMS" ]; then
+              echo "Reached max_items=$MAX_ITEMS. Stopping."
+              break
+            fi
+
+            echo ""
+            echo "========================================"
+            echo "  Research iteration $((ITERATION + 1))"
+            echo "========================================"
+            echo ""
+
+            # Each claude invocation is a fresh session — one context window
+            # per research item.  This is the Ralph Wiggum pattern.
+            claude -p \
+              --dangerously-skip-permissions \
+              --output-format text \
+              < research-prompt.md
+
+            # Push any commits the agent made.
+            # (The agent commits inside its session; this is a safety-net push.)
+            git push origin main
+
+            ITERATION=$((ITERATION + 1))
+          done
+
+          echo ""
+          echo "Research loop finished. Processed $ITERATION item(s)."
