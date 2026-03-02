@@ -1,6 +1,6 @@
 # Progress
 
-Last updated: 2026-03-02 (information-synthesis-entropy)
+Last updated: 2026-03-02 (research-backlog-vs-repo-improvement-backlog)
 
 ---
 
@@ -22,6 +22,18 @@ Last updated: 2026-03-02 (information-synthesis-entropy)
 ---
 
 ## Work Log
+
+### 2026-03-02 — Research Loop (research-backlog-vs-repo-improvement-backlog)
+
+**Completed:**
+
+Research item:
+- `Research/completed/2026-02-27-research-backlog-vs-repo-improvement-backlog.md` — completed; two-location file system separation (`Research/backlog/` + `BACKLOG.md`) confirmed as the correct design for keeping research questions separate from repo improvement work. Convention is documented at three levels: file system location, header notes in each file, and AGENTS.md Non-Negotiable Constraints. Cross-reference mechanism flows one-way via the `output: [backlog-item]` field.
+
+Sources consulted:
+- https://github.com/davidamitchell/Research/blob/main/BACKLOG.md (repo improvement backlog format and header note)
+- https://github.com/davidamitchell/Research/blob/main/Research/README.md (research workflow and separation documentation)
+- https://github.com/davidamitchell/Latest-developments-/blob/main/BACKLOG.md (comparison: single-type backlog in a pipeline repo)
 
 ### 2026-03-02 — Research Loop (information-synthesis-entropy)
 
