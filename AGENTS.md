@@ -43,8 +43,8 @@ The following table is the ground truth. Do not guess what exists outside this t
 
 | Credential / Service | Available | Notes |
 |---|---|---|
-| `GITHUB_TOKEN` | ✅ Yes | Auto-provided by GitHub Actions |
-| `COPILOT_GITHUB_TOKEN` | ✅ Yes (add once) | GitHub PAT; required for Copilot CLI and direct `main` pushes |
+| `GITHUB_TOKEN` | ✅ Yes | Auto-provided by GitHub Actions; **scoped to the current repo only** — cannot push to other repos (e.g. the wiki) |
+| `COPILOT_GITHUB_TOKEN` | ✅ Yes (add once) | GitHub PAT; required for Copilot CLI, direct `main` pushes, and any cross-repo git operation (e.g. wiki push) |
 | `YOUTUBE_DATA_API` | ✅ Yes | YouTube video metadata |
 | Any other credential | ❓ Unknown | **STOP. Ask the owner before designing anything that requires it.** |
 
@@ -55,6 +55,7 @@ If a workflow you are designing requires a credential not in this table, **ask b
 - **Prefer fully automated pipelines** (scheduled or event-triggered workflows) over requiring the owner to manually trigger anything. If a manual trigger is unavoidable, `workflow_dispatch` is the acceptable fallback — it surfaces as a "Run workflow" button on the Actions tab, accessible from the website and iOS app.
 - Do not require Codespaces secrets for production workflows — use repository secrets (Settings → Secrets and variables → Actions) instead.
 - Any manual step in a process should be achievable entirely through the GitHub website: creating files, triggering workflows, commenting on PRs.
+- **Use `COPILOT_GITHUB_TOKEN` (not `GITHUB_TOKEN`) for any git operation that pushes to a repository other than the one the workflow is running in.** `GITHUB_TOKEN` is automatically scoped to the current repo and will fail with an authentication error against any other repo URL (including `*.wiki.git`).
 
 ---
 
