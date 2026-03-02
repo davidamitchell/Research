@@ -1,6 +1,6 @@
 # Progress
 
-Last updated: 2026-03-02 (Research loop safety controls + COPILOT_GITHUB_TOKEN)
+Last updated: 2026-03-02 (information-synthesis-entropy)
 
 ---
 
@@ -22,6 +22,18 @@ Last updated: 2026-03-02 (Research loop safety controls + COPILOT_GITHUB_TOKEN)
 ---
 
 ## Work Log
+
+### 2026-03-02 — Research Loop (information-synthesis-entropy)
+
+**Completed:**
+
+Research item:
+- `Research/completed/2026-02-27-information-synthesis-entropy.md` — completed; three-stage synthesis pipeline recommended: entropy-guided extraction → semantic deduplication → Chain of Density prompting. Shannon entropy, Information Bottleneck, and MDL all converge on the same principle: discard the predictable, preserve the novel. GraphRAG is the right architecture for multi-source synthesis at scale; CoD prompting is the immediately implementable technique.
+
+Sources consulted:
+- https://arxiv.org/abs/2309.04269 (Adams et al. 2023 — Chain of Density prompting paper)
+- https://en.wikipedia.org/wiki/Information_bottleneck_method (Information Bottleneck method overview)
+- https://www.microsoft.com/en-us/research/blog/graphrag-unlocking-llm-discovery-on-narrative-private-data/ (GraphRAG — Microsoft Research)
 
 ### 2026-03-02 — Session 14 (Research loop safety controls + COPILOT_GITHUB_TOKEN)
 
