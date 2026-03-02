@@ -187,11 +187,32 @@ ADRs follow the [MADR format](https://adr.github.io/madr/). File naming: `docs/a
 
 Status values: `proposed` → `accepted` → `superseded` / `deprecated`
 
-An ADR **must** be written any time a change involves:
-- Introducing a new external dependency or third-party API
-- Changing the research item format or tracking method
-- Choosing an indexing or storage approach
-- Any decision that would be hard to reverse
+### When to write an ADR (required)
+
+An ADR **must** be written any time a change involves one or more of the following:
+
+| Trigger | Examples |
+|---|---|
+| New external dependency or third-party API | Adding a new pip/npm package to production code; integrating a new cloud API |
+| New GitHub Actions workflow with autonomous side-effects | Workflows that commit to `main`, modify issues/PRs, or call external APIs |
+| Delivery or publication channel for research content | How completed items are published (wiki, Pages, email, MCP); index format choices |
+| Storage or indexing approach | How processed-item state is persisted; choice of DB vs flat file vs YAML index |
+| Research item format or schema change | Adding or renaming YAML front-matter fields; changing the directory layout |
+| Reversal cost > 1 hour | Any architectural decision where undoing the choice requires significant rework |
+
+### When NOT to write an ADR
+
+Do not write an ADR for routine work:
+
+- Bug fixes that don't change the architecture
+- Adding a new Python module or test file within an existing pattern
+- Updating a workflow that already exists (e.g., changing a schedule or dropdown value)
+- Completing or moving a research item through the `backlog → in-progress → completed` lifecycle
+- Updating documentation, comments, or PROGRESS.md
+
+### Checklist before closing a slice
+
+If your change touches any "when to write" trigger above, the slice is not done until the ADR exists, is `accepted`, and is linked in `docs/adr/README.md`.
 
 ---
 
