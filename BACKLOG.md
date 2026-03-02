@@ -424,3 +424,19 @@ updated: 2026-02-28
 Skills were declared in `.gitmodules` but never registered as actual git submodules (no gitlink entries in the tree). This slice completes the setup end-to-end, matching the pattern used in `davidamitchell/Latest-developments-`.
 
 ---
+
+## W-0029
+
+status: done
+created: 2026-03-02
+updated: 2026-03-02
+
+### Outcome
+
+`.github/workflows/research-loop.yml` has safety controls preventing runaway autonomous loops: `timeout-minutes: 90` hard ceiling, constrained `max_items` dropdown (1–5), `HARD_MAX_ITERATIONS=10` shell guard, consecutive-failure abort at threshold 2, and 30-second inter-iteration sleep. Secret renamed to `COPILOT_GITHUB_TOKEN`. `tests/test_research_loop.py` proves all controls are in place. `docs/adr/0004-autonomous-research-loop.md` documents design decisions and rejected alternatives.
+
+### Context
+
+Owner confirmed the `COPILOT_GITHUB_TOKEN` secret is set. Original workflow had no timeout, accepted free-text `max_items` including `0` (unlimited), and had no consecutive-failure guard. ADR-0004 captures the full design rationale.
+
+---

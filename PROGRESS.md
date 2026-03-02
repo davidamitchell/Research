@@ -1,8 +1,6 @@
 # Progress
 
-Last updated: 2026-03-02 (GitHub Specify / Ralph loop / Lisa planning research)
-Last updated: 2026-03-01 (Context Mode research)
-Last updated: 2026-03-01 (GitHub wiki backlog item)
+Last updated: 2026-03-02 (Research loop safety controls + COPILOT_GITHUB_TOKEN)
 
 ---
 
@@ -24,6 +22,24 @@ Last updated: 2026-03-01 (GitHub wiki backlog item)
 ---
 
 ## Work Log
+
+### 2026-03-02 — Session 14 (Research loop safety controls + COPILOT_GITHUB_TOKEN)
+
+**Completed:**
+
+- W-0029: Added runaway loop safety controls to `.github/workflows/research-loop.yml`:
+  - Renamed secret `GH_TOKEN` → `COPILOT_GITHUB_TOKEN` (owner confirmed secret is set with this name)
+  - Added `timeout-minutes: 90` hard ceiling on the job
+  - Changed `max_items` from free-text to constrained dropdown (choices 1–5)
+  - Added `HARD_MAX_ITERATIONS=10` shell guard (independent of `max_items`)
+  - Added consecutive-failure abort (`FAILURE_THRESHOLD=2`)
+  - Added 30-second inter-iteration sleep (`INTER_ITERATION_SLEEP=30`)
+  - Added `set -euo pipefail` for fail-fast shell behaviour
+- `tests/test_research_loop.py`: 25 tests proving workflow structure, safety controls, prompt content, backlog counting logic, and end-to-end loop cycle
+- `docs/adr/0004-autonomous-research-loop.md`: ADR documenting design decisions, safety controls, and rejected alternatives (Claude Code CLI, unlimited `max_items`, PR-per-item model)
+- `docs/adr/README.md`: ADR index updated with ADR-0004
+- `AGENTS.md`: Updated credentials table (`COPILOT_GITHUB_TOKEN`), research loop docs, safety controls summary
+- `BACKLOG.md`: W-0029 added as done
 
 ### 2026-03-02 — Session 13 (GitHub Specify / Ralph loop / Lisa planning research)
 
