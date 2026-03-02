@@ -441,6 +441,26 @@ Owner confirmed the `COPILOT_GITHUB_TOKEN` secret is set. Original workflow had 
 
 ---
 
+## W-0031
+
+status: open
+created: 2026-03-02
+updated: 2026-03-02
+
+### Outcome
+
+A research review CI step runs automatically when a research item is moved to `Research/completed/`. The step applies the existing agent skills in sequence — `citation-discipline` (claims are sourced), `speculation-control` (uncertain claims are marked), `remove-ai-slop` (writing is direct and precise) — and fails the check if any skill reports violations. The design is informed by the findings of `Research/backlog/2026-03-02-research-quality-assurance-methodology.md`, which maps which review dimensions are automatable and in what order.
+
+### Context
+
+The existing CI pipeline (`.github/workflows/ci.yml`) runs linting and Python tests only. Research content quality is not checked. The skills already exist in `.github/skills/` (citation-discipline, speculation-control, remove-ai-slop) but are not wired into any automated gate.
+
+This item is blocked until `Research/backlog/2026-03-02-research-quality-assurance-methodology.md` is completed: the CI step design depends on knowing which checks are automatable, which require agent reasoning, and in what order they should run. Once the research findings are available, this item can be scoped precisely. At minimum the CI step should be a `workflow_dispatch`-triggered GitHub Actions workflow that accepts a completed item path and runs each automatable skill check in sequence.
+
+**Dependency:** `Research/backlog/2026-03-02-research-quality-assurance-methodology.md` (research on knowledge QA methodology — defines what is automatable and what design the CI step should follow)
+
+---
+
 ## W-0030
 
 status: done
