@@ -1,6 +1,6 @@
 # Progress
 
-Last updated: 2026-03-02 (research-backlog-vs-repo-improvement-backlog)
+Last updated: 2026-03-02 (simple-process-for-adding-research-item)
 
 ---
 
@@ -22,6 +22,18 @@ Last updated: 2026-03-02 (research-backlog-vs-repo-improvement-backlog)
 ---
 
 ## Work Log
+
+### 2026-03-02 — Research Loop (simple-process-for-adding-research-item)
+
+**Completed:**
+
+Research item:
+- `Research/completed/2026-02-27-simple-process-for-adding-research-item.md` — completed; two capture paths identified: `python -m src.main research add "<title>"` (already implemented) for agents, and a GitHub issue form + Actions workflow for the owner who operates via GitHub website/iOS app only. The Zettelkasten capture-first principle validates deferring all metadata except title to the start step.
+
+Sources consulted:
+- https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms (GitHub issue form syntax for mobile-friendly capture)
+- https://deepread.com/the-simple-zettelkasten/ (Zettelkasten inbox and minimum-friction capture principles)
+- https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository (GitHub issue template configuration)
 
 ### 2026-03-02 — Research Loop (research-backlog-vs-repo-improvement-backlog)
 
