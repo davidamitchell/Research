@@ -29,11 +29,21 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Checkout wiki
-        uses: actions/checkout@v4
-        with:
-          repository: ${{ github.repository }}.wiki
-          path: wiki
-          token: ${{ secrets.GITHUB_TOKEN }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config --global credential.helper '!f() { echo "username=x-access-token"; echo "password=${GH_TOKEN}"; }; f'
+          WIKI_URL="https://github.com/${{ github.repository }}.wiki.git"
+          if git clone "$WIKI_URL" wiki; then
+            echo "Wiki cloned successfully"
+          else
+            echo "Wiki repository not found — initializing empty local repo"
+            mkdir wiki
+            cd wiki
+            git init
+            git checkout -b master
+            git remote add origin "$WIKI_URL"
+          fi
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -56,5 +66,5 @@ jobs:
             echo "No wiki changes to commit"
           else
             git commit -m "wiki: update from Research/completed"
-            git push
+            git push origin HEAD:master
           fi
