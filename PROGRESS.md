@@ -1,6 +1,6 @@
 # Progress
 
-Last updated: 2026-03-02 (agent-memory-management-context-injection — started)
+Last updated: 2026-03-02 (agent-memory-management-context-injection — completed)
 Last updated: 2026-03-02 (wiki publishing implementation — W-0030)
 
 ---
@@ -23,6 +23,25 @@ Last updated: 2026-03-02 (wiki publishing implementation — W-0030)
 ---
 
 ## Work Log
+
+### 2026-03-02 — Complete research item (agent-memory-management-context-injection)
+
+**Completed:**
+
+Research item:
+- `Research/completed/2026-03-02-agent-memory-management-context-injection.md` — completed; structured findings covering: full taxonomy of five memory architecture tiers (in-context, vector/RAG, episodic/temporal graph, hybrid, structured paging); RAG gap analysis — statelessness, staleness, conflicting knowledge, absent write-path governance; survey of six major systems (Zep/Graphiti, Mem0, LangMem, MemGPT/Letta, Cognee, GraphRAG) with maturity, scoping, and governance assessment; latency/cost profiles (in-context linear growth vs vector 1–50ms vs graph 10–100ms); scoping mechanisms (isolation vs namespace filtering, trade-offs); the wiki rot failure mode and TTL/temporal validity as countermeasures; governance gap — no open-source system has write-path access control or audit trails; production deployment patterns (GitHub Copilot repo-scoped opt-in memory, Cursor memory-bank markdown files, Devin structured memory folders); quality benchmark landscape (LOCOMO, LongMemEval, EverMemOS 92.3%, Zep 94.8% DMR).
+
+Sources consulted:
+- https://arxiv.org/abs/2310.08560 (MemGPT/Letta paging model paper)
+- https://arxiv.org/abs/2501.13956 (Zep temporal knowledge graph paper, Jan 2025)
+- https://arxiv.org/abs/2504.19413 (Mem0 paper, Apr 2025)
+- https://arxiv.org/abs/2410.10813 (LongMemEval benchmark)
+- https://github.com/snap-research/LoCoMo (LoCoMo benchmark)
+- https://github.blog/ai-and-ml/github-copilot/building-an-agentic-memory-system-for-github-copilot/ (GitHub Copilot agentic memory)
+- https://aws.amazon.com/blogs/security/the-agentic-ai-security-scoping-matrix-a-framework-for-securing-autonomous-ai-systems/ (AWS governance framework)
+- https://microsoft.github.io/graphrag/ (GraphRAG)
+- https://langchain-ai.github.io/langmem/ (LangMem SDK)
+- Atlassian Confluence lifecycle management and knowledge rot community sources
 
 ### 2026-03-02 — Start research item (agent-memory-management-context-injection)
 
