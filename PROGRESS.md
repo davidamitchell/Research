@@ -1,6 +1,6 @@
 # Progress
 
-Last updated: 2026-03-02 (agent-memory-management-context-injection — extended with video threads)
+Last updated: 2026-03-02 (agent-memory-management-context-injection — extended with portability, DIKW, Obsidian/PKM, GoT threads)
 Last updated: 2026-03-02 (wiki publishing implementation — W-0030)
 
 ---
@@ -23,6 +23,20 @@ Last updated: 2026-03-02 (wiki publishing implementation — W-0030)
 ---
 
 ## Work Log
+
+### 2026-03-02 — Extend research item with four additional threads (agent-memory-management-context-injection)
+
+**Extended findings from comment feedback requesting four additional research threads:**
+
+1. **Memory portability** — MCP RFC #2043 (Memory Interchange Format / MIF) proposes portable JSON/JSONL/YAML export including embeddings and KG snapshots; Google A2A protocol addresses cross-vendor agent context handoff; GDPR Article 20 establishes legal expectation for memory portability in EU. No production-ready open standard exists as of 2025.
+
+2. **DIKW progression (Data → Information → Knowledge → Wisdom)** — applied as an evaluative lens for agent memory design. Current systems optimise for data→information transition (vector retrieval) and partially for information→knowledge (KGs). The knowledge→wisdom gap is the hardest: wisdom requires value-aligned judgment in novel contexts. Design implication: prefer knowledge-form storage (distilled insights, rules, verified inferences) over log-form (raw conversation history). Maps to progressive summarisation (Forte) and evergreen note principles (Matuschak).
+
+3. **Obsidian/PKM principles** — atomic notes, bi-directional linking, evergreen notes (Matuschak), progressive summarisation (Forte), Maps of Content — all map structurally to agent memory architecture. Obsidian's storage model (local Markdown + Git) is exactly what GitHub Copilot and Claude Code use in production. Key insight: knowledge value comes from connection density, not entry volume — same insight behind KG retrieval outperforming flat vector search on multi-hop tasks.
+
+4. **Word embeddings + knowledge graphs + Graph of Thoughts (GoT)** — convergent architecture: embeddings provide semantic retrieval index into the KG; KG provides relational structure embeddings lack; GoT (ETH Zurich, AAAI 2024, arXiv:2308.09687) provides reasoning framework for traversing and synthesising KG paths, with reasoning traces becoming storable memory artefacts. 62% quality improvement, 31% cost reduction over Tree of Thoughts. No documented production deployment of full convergent architecture yet.
+
+Sources added: 12 new sources covering MCP RFC #2043, A2A protocol, New America OTI brief, Springer DIKW in AI (2024), MDPI Digital Twin DIKW, Andy Matuschak Evergreen Notes, Obsidian PKM forum, PKM at scale analysis, GoT arXiv paper, Springer KGE survey, Milvus KG/embedding explainer.
 
 ### 2026-03-02 — Extend research item with video threads (agent-memory-management-context-injection)
 
