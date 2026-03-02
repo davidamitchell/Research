@@ -22,6 +22,8 @@ These two concerns are intentionally separate. Research items in `Research/` are
 - **No breaking changes to research item format** without updating `Research/_template.md` and the ADR that documents the format choice.
 - **Every code slice must be end-to-end runnable** before being marked complete in `BACKLOG.md`.
 - **Keep PROGRESS.md updated** after every meaningful commit.
+- **DO NOT ASSUME OR GUESS facts about the environment.** If you do not know whether a credential exists, whether a service is available, or whether a tool is capable of something — **STOP. Ask the owner before proceeding.** Guessing and being wrong wastes cycles and breaks trust. The cost of asking is zero. The cost of guessing wrong is not.
+- **DO NOT introduce new external services or credentials without explicit owner approval.** If your design requires something not already listed in the "Available credentials and services" table below, that is a hard stop — surface the gap and ask, do not proceed.
 
 ---
 
@@ -34,6 +36,19 @@ These constraints are fixed. Every agent working on this repository **must** res
 - **Codespaces is not in use.** Do not rely on Codespaces features, devcontainers, or `$CODESPACE_*` environment variables.
 - **GitHub Copilot Spaces and GitHub Projects are fine to use if helpful**, but are not a requirement. Suggest them only when they add clear value.
 - **Agent interactions happen via PR comments, issue comments, or by starting a new agent task/session.** The owner may also trigger operations by clicking buttons on the GitHub website (e.g., the Actions tab "Run workflow" button).
+
+### Available credentials and services
+
+The following table is the ground truth. Do not guess what exists outside this table.
+
+| Credential / Service | Available | Notes |
+|---|---|---|
+| `GITHUB_TOKEN` | ✅ Yes | Auto-provided by GitHub Actions |
+| `GH_TOKEN` | ✅ Yes (add once) | GitHub PAT; required for Copilot CLI and direct `main` pushes |
+| `YOUTUBE_DATA_API` | ✅ Yes | YouTube video metadata |
+| Any other credential | ❓ Unknown | **STOP. Ask the owner before designing anything that requires it.** |
+
+If a workflow you are designing requires a credential not in this table, **ask before building**. Do not proceed on the assumption it exists or can be easily added.
 
 ### Consequences for tooling design
 
