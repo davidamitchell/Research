@@ -440,3 +440,19 @@ updated: 2026-03-02
 Owner confirmed the `COPILOT_GITHUB_TOKEN` secret is set. Original workflow had no timeout, accepted free-text `max_items` including `0` (unlimited), and had no consecutive-failure guard. ADR-0004 captures the full design rationale.
 
 ---
+
+## W-0030
+
+status: done
+created: 2026-03-02
+updated: 2026-03-02
+
+### Outcome
+
+`src/wiki/publish.py` converts completed research items to GitHub wiki pages (strips YAML front-matter, generates `Home.md` date-sorted index, generates `_Sidebar.md` tag navigation, full-rebuild on each run). `.github/workflows/publish-wiki.yml` triggers on push to `main` touching `Research/completed/**` and on `workflow_dispatch`; uses `GITHUB_TOKEN` with `contents: write` — no PAT required. `tests/test_wiki.py` has 24 tests covering all module functions. Research item `Research/completed/2026-03-01-github-wiki-research-content.md` is completed with full findings.
+
+### Context
+
+Spawned from `Research/backlog/2026-03-01-github-wiki-research-content.md`. Owner must enable the wiki once in repository Settings → Features → Wikis before the first workflow run can push to it.
+
+---
