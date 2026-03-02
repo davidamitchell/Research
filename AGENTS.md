@@ -44,8 +44,8 @@ The following table is the ground truth. Do not guess what exists outside this t
 
 | Credential / Service | Available | Notes |
 |---|---|---|
-| `GITHUB_TOKEN` | ✅ Yes | Auto-provided by GitHub Actions; **scoped to the current repo only** — cannot push to other repos (e.g. the wiki) |
-| `COPILOT_GITHUB_TOKEN` | ✅ Yes (add once) | GitHub PAT; required for Copilot CLI, direct `main` pushes, and any cross-repo git operation (e.g. wiki push) |
+| `GITHUB_TOKEN` | ✅ Yes | Auto-provided by GitHub Actions; scoped to the current repo and its wiki (requires `permissions: contents: write`); cannot push to other repos |
+| `COPILOT_GITHUB_TOKEN` | ✅ Yes (add once) | GitHub PAT; required for Copilot CLI and direct `main` pushes |
 | `YOUTUBE_DATA_API` | ✅ Yes | YouTube video metadata |
 | Any other credential | ❓ Unknown | **STOP. Ask the owner before designing anything that requires it.** |
 
