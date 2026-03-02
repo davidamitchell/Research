@@ -37,9 +37,7 @@ Read `Research/in-progress/<filename>` in full. Understand:
 
 Investigate all sub-questions in the Approach section. Use available web tools
 (`WebSearch`, `WebFetch`, or `Bash` with curl) to check every source listed and
-follow any leads they produce. Note: MCP servers (brave_search, tavily, fetch)
-are not available in the GitHub Actions environment — use Claude's built-in web
-tools instead.
+follow any leads they produce.
 
 **Evidence discipline:**
 - Every claim you write must map to a source.

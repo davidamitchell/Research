@@ -290,19 +290,20 @@ When executing the `research` skill or conducting a research item end-to-end:
 
 - CI: `.github/workflows/ci.yml` — lint + test on every push/PR
 - Skills sync: `.github/workflows/sync-skills.yml` — weekly Monday 06:00 UTC
-- **Research loop: `.github/workflows/research-loop.yml`** — autonomous research backlog worker; feeds `research-prompt.md` to Claude Code CLI in a loop, one fresh session per item, commits directly to `main`. Runs automatically on weekday mornings (3 items/day) and on demand via `workflow_dispatch`. Requires `ANTHROPIC_API_KEY` repository secret.
+- **Research loop: `.github/workflows/research-loop.yml`** — autonomous research backlog worker; feeds `research-prompt.md` to the GitHub Copilot CLI in a loop, one fresh session per item, commits directly to `main`. Runs automatically on weekday mornings (3 items/day) and on demand via `workflow_dispatch`. Requires `GH_TOKEN` repository secret (GitHub PAT with Copilot access).
 - **Transcript fetch: `.github/workflows/fetch-transcript.yml`** — manually triggered (`workflow_dispatch`); fetches YouTube auto-generated captions via `yt-dlp` and commits a plain-text file to `Research/transcripts/<video-id>.txt`. If YouTube blocks the request (cloud IP restriction), the workflow commits step-by-step instructions for adding the transcript manually via the GitHub website.
 
 ### Research loop — setup and usage (no IDE required)
 
-**One-time setup:** Add `ANTHROPIC_API_KEY` as a repository secret:
-Settings → Secrets and variables → Actions → New repository secret → name: `ANTHROPIC_API_KEY`
+**One-time setup:** Add a GitHub PAT as a repository secret:
+1. Create a Personal Access Token at [github.com/settings/tokens](https://github.com/settings/tokens) with `repo` scope and Copilot access enabled
+2. Settings → Secrets and variables → Actions → New repository secret → name: `GH_TOKEN`, value: your PAT
 
 **How the loop works:**
 - Each run processes one or more backlog items.
-- Each item gets a **fresh Claude session** (new context window) — matching the Ralph Wiggum pattern.
-- Claude reads `research-prompt.md`, picks the highest-priority backlog item, researches it, fills in the Findings section, and commits the completed item + PROGRESS.md update directly to `main`.
-- The outer `while` loop restarts Claude for the next item until `max_items` is reached or the backlog is empty.
+- Each item gets a **fresh Copilot session** (new context window) — matching the Ralph Wiggum pattern.
+- Copilot reads `research-prompt.md`, picks the highest-priority backlog item, researches it, fills in the Findings section, and commits the completed item + PROGRESS.md update directly to `main`.
+- The outer `while` loop restarts Copilot for the next item until `max_items` is reached or the backlog is empty.
 
 **Automatic schedule:** Runs weekdays at 07:00 UTC, processes 3 items per day.
 
@@ -312,7 +313,7 @@ Settings → Secrets and variables → Actions → New repository secret → nam
 3. Click **"Research Loop"** in the left sidebar
 4. Click **"Run workflow"** → set `max_items` (default `1`) → click **"Run workflow"**
 
-**Tuning:** Edit `research-prompt.md` to adjust what Claude looks for, how findings are structured, or which items to prioritise. The prompt is the only lever — no code changes needed.
+**Tuning:** Edit `research-prompt.md` to adjust what Copilot looks for, how findings are structured, or which items to prioritise. The prompt is the only lever — no code changes needed.
 
 ### How to trigger the transcript workflow (no IDE required)
 
