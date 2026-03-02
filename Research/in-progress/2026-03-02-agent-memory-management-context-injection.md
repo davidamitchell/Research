@@ -1,10 +1,10 @@
 ---
 title: "Agent Memory Management and Context Injection"
 added: 2026-03-02
-status: backlog
+status: in-progress
 priority: high
 tags: [memory, context-injection, rag, agents, knowledge-management, architecture, governance]
-started: ~
+started: 2026-03-02
 completed: ~
 output: [knowledge]
 ---
