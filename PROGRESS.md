@@ -1,6 +1,6 @@
 # Progress
 
-Last updated: 2026-03-02 (agent-memory-management-context-injection — extended with portability, DIKW, Obsidian/PKM, GoT threads)
+Last updated: 2026-03-02 (agent-memory-management-context-injection — self-initiated deep dives: KGoT/MindMap, Smart Connections, governance gap update, XAI+DIKW)
 Last updated: 2026-03-02 (wiki publishing implementation — W-0030)
 
 ---
@@ -23,6 +23,20 @@ Last updated: 2026-03-02 (wiki publishing implementation — W-0030)
 ---
 
 ## Work Log
+
+### 2026-03-02 — Extend research item with four self-initiated deep-dive threads (agent-memory-management-context-injection)
+
+**Extended findings from four open threads identified as most valuable from the current research:**
+
+1. **KGoT + MindMap: convergent architecture has concrete implementations (Finding 23)** — Knowledge Graph of Thoughts (ETH Zurich thesis) maintains a live KG that the GoT controller reads/writes during reasoning; MindMap (ACL 2024) induces GoT-style reasoning through KG-aware prompting. Minimum viable stack: Neo4j + text-embedding-3-small + PyPI graph-of-thoughts + frontier LLM.
+
+2. **Obsidian Smart Connections as production PKM→agent memory bridge (Finding 24)** — Open-source plugin (brianpetro/obsidian-smart-connections) converts Obsidian vault to a live agent memory system using local AI embeddings (bge-micro-v2), semantic retrieval sidebar, Smart Chat, and Smart Context. Local-first, zero vendor lock-in, user-as-curator solves wiki rot.
+
+3. **Write-path governance gap beginning to close (Finding 25)** — Three emerging approaches: Constitutional Memory (GitHub open-source, explicit write policy rules + GDPR right-to-erasure), OpenPort Protocol (arXiv:2602.20196, policy-gated writes + immutable SHA-256 audit logs + human-in-the-loop for high-risk writes), Agentic Trust Framework (CSA Feb 2026, Zero Trust staged autonomy tiers). None yet integrated into Zep/Mem0/LangMem.
+
+4. **XAI as knowledge→wisdom bridge, closing the DIKW loop (Finding 26)** — Springer 2025 chapter identifies XAI as the mechanism enabling the knowledge→wisdom transition. Key insight: auditable reasoning graph (from GoT+KG) satisfies both governance requirements (Finding 25) AND wisdom-level memory requirements (Finding 26) — one data structure, two payoffs.
+
+Sources added: 11 new sources covering KGoT, MindMap ACL 2024, text+KG embeddings in RAG, Constitutional Memory, OpenPort Protocol, Agentic Trust Framework, Smart Connections, DIKW+XAI Springer 2025, IEEE DIKW 2025.
 
 ### 2026-03-02 — Extend research item with four additional threads (agent-memory-management-context-injection)
 
