@@ -24,6 +24,7 @@ These two concerns are intentionally separate. Research items in `Research/` are
 - **Keep PROGRESS.md updated** after every meaningful commit.
 - **DO NOT ASSUME OR GUESS facts about the environment.** If you do not know whether a credential exists, whether a service is available, or whether a tool is capable of something — **STOP. Ask the owner before proceeding.** Guessing and being wrong wastes cycles and breaks trust. The cost of asking is zero. The cost of guessing wrong is not.
 - **DO NOT introduce new external services or credentials without explicit owner approval.** If your design requires something not already listed in the "Available credentials and services" table below, that is a hard stop — surface the gap and ask, do not proceed.
+- **Treat undocumented capabilities as unknown.** If a credential, service, or tool is in the approved table but its Notes column does not explicitly state it can do what your design requires, apply the same hard stop as for an unlisted item — do not assume, do not proceed, ask first.
 
 ---
 
@@ -55,7 +56,6 @@ If a workflow you are designing requires a credential not in this table, **ask b
 - **Prefer fully automated pipelines** (scheduled or event-triggered workflows) over requiring the owner to manually trigger anything. If a manual trigger is unavoidable, `workflow_dispatch` is the acceptable fallback — it surfaces as a "Run workflow" button on the Actions tab, accessible from the website and iOS app.
 - Do not require Codespaces secrets for production workflows — use repository secrets (Settings → Secrets and variables → Actions) instead.
 - Any manual step in a process should be achievable entirely through the GitHub website: creating files, triggering workflows, commenting on PRs.
-- **Use `COPILOT_GITHUB_TOKEN` (not `GITHUB_TOKEN`) for any git operation that pushes to a repository other than the one the workflow is running in.** `GITHUB_TOKEN` is automatically scoped to the current repo and will fail with an authentication error against any other repo URL (including `*.wiki.git`).
 
 ---
 
