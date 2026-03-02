@@ -16,6 +16,7 @@ Format: [MADR (Markdown Architectural Decision Records)](https://adr.github.io/m
 | [0002](0002-agent-skills-submodule.md) | Agent skills as a git submodule | Accepted | 2026-02-28 |
 | [0003](0003-indexing-and-tracking-approach.md) | JSON state file + YAML front-matter for indexing and tracking | Accepted | 2026-02-28 |
 | [0004](0004-autonomous-research-loop.md) | Autonomous research loop design and safety controls | Accepted | 2026-03-02 |
+| [0005](0005-github-wiki-publishing-approach.md) | GitHub wiki as the research content delivery channel | Accepted | 2026-03-02 |
 
 ---
 

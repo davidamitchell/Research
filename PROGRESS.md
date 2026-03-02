@@ -1,6 +1,7 @@
 # Progress
 
 Last updated: 2026-03-02 (agent-memory-management-context-injection)
+Last updated: 2026-03-02 (wiki publishing implementation — W-0030)
 
 ---
 
@@ -28,6 +29,22 @@ Last updated: 2026-03-02 (agent-memory-management-context-injection)
 **Added:**
 
 - `Research/backlog/2026-03-02-agent-memory-management-context-injection.md` — new high-priority backlog item. Covers the full landscape of agent memory architectures beyond RAG: latency trade-offs, knowledge scoping (session/team/repo/role/task), governance and provenance, quality testing, distribution of recall tooling, and the "ungardened wiki" failure mode. Systems surveyed include MemGPT/Letta, Zep, Mem0, LangMem, Cognee/Graphiti, and GraphRAG.
+### 2026-03-02 — Session 15 (GitHub wiki publishing — W-0030)
+
+**Completed:**
+
+Research item:
+- `Research/completed/2026-03-01-github-wiki-research-content.md` — completed; findings establish: GitHub wiki is a separate git repo (`{repo}.wiki.git`); `GITHUB_TOKEN` with `contents: write` is sufficient (no PAT); pages are flat (no subdirectories); `Home.md`, `_Sidebar.md`, `_Footer.md` are the navigation primitives; full-rebuild approach (delete all pages, regenerate) is correct at current volume; YAML front-matter must be stripped before publishing.
+
+Implementation (W-0030):
+- `src/wiki/__init__.py` — wiki module init
+- `src/wiki/publish.py` — `load_frontmatter`, `strip_frontmatter`, `page_name`, `generate_home`, `generate_sidebar`, `publish`; full-rebuild approach; callable as `python -m src.wiki.publish <completed_dir> <wiki_dir>`
+- `.github/workflows/publish-wiki.yml` — triggers on push to `main` (paths: `Research/completed/**`) and `workflow_dispatch`; checks out wiki with `GITHUB_TOKEN`; runs publish script; commits and pushes
+- `tests/test_wiki.py` — 24 tests covering all functions and integration
+- `BACKLOG.md` — W-0030 added as done
+- `PROGRESS.md` — updated
+
+**Setup required:** Owner must enable the wiki once via repository Settings → Features → Wikis before the first workflow push will succeed.
 
 ### 2026-03-02 — Research Loop (simple-process-for-adding-research-item)
 
