@@ -1,5 +1,6 @@
 # Progress
 
+Last updated: 2026-03-02 (GitHub Specify / Ralph loop / Lisa planning research)
 Last updated: 2026-03-01 (Context Mode research)
 Last updated: 2026-03-01 (GitHub wiki backlog item)
 
@@ -23,6 +24,25 @@ Last updated: 2026-03-01 (GitHub wiki backlog item)
 ---
 
 ## Work Log
+
+### 2026-03-02 — Session 13 (GitHub Specify / Ralph loop / Lisa planning research)
+
+**Completed:**
+
+Research item:
+- `Research/completed/2026-03-01-github-specify-ralph-loop-lisa-planning.md` — completed; structured findings covering: Ralph Wiggum Technique origin (Geoffrey Huntley, July 2025, viral Dec 2025); three-phase workflow (Specify→Plan→Build); spec format (one Markdown per Topic of Concern, "one sentence without and" test); context management discipline (one task per loop, 40-60% smart zone, main agent as scheduler + subagents for expensive work); back-pressure as proof (tests/lint must pass before commit; dual-condition exit gate in frankbria implementation); Lisa as planning + persistent memory archetype solving the Groundhog Day Problem (knowledge graph via Graphiti + MCP + Neo4j, Claude Code hooks for session-start/stop extraction); GitHub Copilot Agent mode as the practical entry point for this repo's owner (issue assignment → draft PR, no local shell needed); evolutionary framing (Ralph = (1,1) evolutionary strategy, LLM mutation, tests as fitness); active inference structural equivalence (spec = prior, test result = observation, loop = action until surprise = 0)
+
+Sources consulted:
+- https://ghuntley.com/ralph/ (primary source — Geoffrey Huntley's original article)
+- https://github.com/ClaytonFarr/ralph-playbook (community playbook with detailed loop mechanics)
+- https://github.com/frankbria/ralph-claude-code (Claude Code implementation with dual-condition exit gate, v0.11.5)
+- https://aibit.im/blog/post/deploying-the-ralph-wiggum-technique-a-step-by-step-tutorial (step-by-step tutorial with prompt templates)
+- https://dev.to/tonycasey/why-ralph-wiggum-needs-lisa-23nm (Lisa motivation: Groundhog Day Problem + knowledge graph architecture)
+- https://ianreppel.org/ralph-wiggum-as-a-degenerate-evolutionary-search/ (evolutionary framing; (1,1) strategy analysis)
+- https://github.blog/changelog/2025-12-18-github-copilot-now-supports-agent-skills/ (GitHub Agent Skills announcement)
+- https://github.blog/news-insights/product-news/github-copilot-meet-the-new-coding-agent/ (Copilot coding agent announcement)
+
+**Key insight for this repo:** This repo's `AGENTS.md` + `.github/skills/` + `tests/` + `pyproject.toml` already satisfies the Ralph prerequisites. The only gaps are `specs/` folder (specs per JTBD topic), `IMPLEMENTATION_PLAN.md` (task list), and `loop.sh` (outer bash loop). For the GitHub-only owner, Copilot Agent mode (assign detailed issue → Copilot opens draft PR) is the practical entry point — no local shell or `--dangerously-skip-permissions` required.
 
 ### 2026-03-01 — Session 12 (Context Mode research)
 
