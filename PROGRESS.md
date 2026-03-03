@@ -1,5 +1,7 @@
 # Progress
 
+Last updated: 2026-03-02 (agent-memory-management-context-injection — outcome-based utility ranking, Memory-R1, human memory anti-patterns, model-version drift)
+Last updated: 2026-03-02 (wiki publishing implementation — W-0030)
 Last updated: 2026-03-02 (research-review-ci-step)
 Last updated: 2026-03-02 (ai-not-a-data-problem backlog item)
 Last updated: 2026-03-02 (search-interaction-distribution backlog items)
@@ -28,6 +30,87 @@ Last updated: 2026-03-03 (ai-control-testing-and-assurance)
 
 ## Work Log
 
+### 2026-03-02 — Extend research item with four threads from owner feedback on wiki rot / memory ranking (agent-memory-management-context-injection)
+
+**Owner raised four threads in PR comment: (1) outcome-based utility over temporal decay, (2) goal-achievement and transaction-cost as memory signals, (3) human memory as flawed blueprint, (4) model-version-aware re-assessment. All four researched and added as Findings 27–30.**
+
+1. **Outcome-based utility ranking over temporal decay (Finding 27)** — TTL/last-accessed are weak proxies. Strong signals: Goal Completion Rate (GCR), transaction cost reduction, task success. EMG-RAG (EMNLP 2024, arXiv:2409.19401) uses RL on Editable Memory Graph; AssoMem (arXiv:2510.10397) fuses importance + recency + similarity. No production memory system closes this feedback loop by default.
+
+2. **Memory-R1 — RL-trained outcome-driven memory (Finding 28)** — arXiv:2508.19828 (Aug 2025): dual-agent RL (Memory Manager + Answer Agent) trained end-to-end on answer correctness using PPO/GRPO. Memory Manager learns ADD/UPDATE/DELETE/NOOP based on downstream task success. First production-adjacent implementation of "did this memory help my goal?" as the training signal.
+
+3. **Human memory anti-patterns for AI design (Finding 29)** — arXiv:2503.10248: LLM agents display human biases (recency, availability) but via different mechanisms and without compensatory corrections. Anti-patterns to avoid: availability bias (frequency ≠ relevance), maladaptive forgetting, recency over-weighting. Design principle: test human memory heuristics against outcome signals rather than copying them.
+
+4. **Model-version-aware memory re-assessment (Finding 30)** — arXiv:2512.13564, Yodaplus 2025, dev.to drift framework: memory staleness has two dimensions — world-state change AND model interpretation shift. When base models update, stored memories may be interpreted differently. Solution: tag entries with model version at write time; run re-assessment diff on model updates. No production system implements this.
+
+Sources added: 11 new (Memory-R1 arXiv, EMG-RAG arXiv, AssoMem arXiv, Outcome-Oriented Evaluation arXiv, LLM Biases arXiv, AI Biases Frontiers, Memory in AI Agents survey arXiv:2512.13564, Memory Refresh Cycles Yodaplus, Model Drift framework dev.to, M-RAG ACL 2024, utility_weighted_memory GitHub).
+
+### 2026-03-02 — Extend research item with four self-initiated deep-dive threads (agent-memory-management-context-injection)
+
+**Extended findings from four open threads identified as most valuable from the current research:**
+
+1. **KGoT + MindMap: convergent architecture has concrete implementations (Finding 23)** — Knowledge Graph of Thoughts (ETH Zurich thesis) maintains a live KG that the GoT controller reads/writes during reasoning; MindMap (ACL 2024) induces GoT-style reasoning through KG-aware prompting. Minimum viable stack: Neo4j + text-embedding-3-small + PyPI graph-of-thoughts + frontier LLM.
+
+2. **Obsidian Smart Connections as production PKM→agent memory bridge (Finding 24)** — Open-source plugin (brianpetro/obsidian-smart-connections) converts Obsidian vault to a live agent memory system using local AI embeddings (bge-micro-v2), semantic retrieval sidebar, Smart Chat, and Smart Context. Local-first, zero vendor lock-in, user-as-curator solves wiki rot.
+
+3. **Write-path governance gap beginning to close (Finding 25)** — Three emerging approaches: Constitutional Memory (GitHub open-source, explicit write policy rules + GDPR right-to-erasure), OpenPort Protocol (arXiv:2602.20196, policy-gated writes + immutable SHA-256 audit logs + human-in-the-loop for high-risk writes), Agentic Trust Framework (CSA Feb 2026, Zero Trust staged autonomy tiers). None yet integrated into Zep/Mem0/LangMem.
+
+4. **XAI as knowledge→wisdom bridge, closing the DIKW loop (Finding 26)** — Springer 2025 chapter identifies XAI as the mechanism enabling the knowledge→wisdom transition. Key insight: auditable reasoning graph (from GoT+KG) satisfies both governance requirements (Finding 25) AND wisdom-level memory requirements (Finding 26) — one data structure, two payoffs.
+
+Sources added: 11 new sources covering KGoT, MindMap ACL 2024, text+KG embeddings in RAG, Constitutional Memory, OpenPort Protocol, Agentic Trust Framework, Smart Connections, DIKW+XAI Springer 2025, IEEE DIKW 2025.
+
+### 2026-03-02 — Extend research item with four additional threads (agent-memory-management-context-injection)
+
+**Extended findings from comment feedback requesting four additional research threads:**
+
+1. **Memory portability** — MCP RFC #2043 (Memory Interchange Format / MIF) proposes portable JSON/JSONL/YAML export including embeddings and KG snapshots; Google A2A protocol addresses cross-vendor agent context handoff; GDPR Article 20 establishes legal expectation for memory portability in EU. No production-ready open standard exists as of 2025.
+
+2. **DIKW progression (Data → Information → Knowledge → Wisdom)** — applied as an evaluative lens for agent memory design. Current systems optimise for data→information transition (vector retrieval) and partially for information→knowledge (KGs). The knowledge→wisdom gap is the hardest: wisdom requires value-aligned judgment in novel contexts. Design implication: prefer knowledge-form storage (distilled insights, rules, verified inferences) over log-form (raw conversation history). Maps to progressive summarisation (Forte) and evergreen note principles (Matuschak).
+
+3. **Obsidian/PKM principles** — atomic notes, bi-directional linking, evergreen notes (Matuschak), progressive summarisation (Forte), Maps of Content — all map structurally to agent memory architecture. Obsidian's storage model (local Markdown + Git) is exactly what GitHub Copilot and Claude Code use in production. Key insight: knowledge value comes from connection density, not entry volume — same insight behind KG retrieval outperforming flat vector search on multi-hop tasks.
+
+4. **Word embeddings + knowledge graphs + Graph of Thoughts (GoT)** — convergent architecture: embeddings provide semantic retrieval index into the KG; KG provides relational structure embeddings lack; GoT (ETH Zurich, AAAI 2024, arXiv:2308.09687) provides reasoning framework for traversing and synthesising KG paths, with reasoning traces becoming storable memory artefacts. 62% quality improvement, 31% cost reduction over Tree of Thoughts. No documented production deployment of full convergent architecture yet.
+
+Sources added: 12 new sources covering MCP RFC #2043, A2A protocol, New America OTI brief, Springer DIKW in AI (2024), MDPI Digital Twin DIKW, Andy Matuschak Evergreen Notes, Obsidian PKM forum, PKM at scale analysis, GoT arXiv paper, Springer KGE survey, Milvus KG/embedding explainer.
+
+### 2026-03-02 — Extend research item with video threads (agent-memory-management-context-injection)
+
+**Extended findings from Apoorva Joshi (MongoDB) "Building Agents That Learn" video (https://youtu.be/2JiMmye2ezg) and related sources:**
+
+New threads followed and integrated:
+1. **"Memory is context engineering" reframe** — Letta + Anthropic independently reach the same conclusion: memory design is not about database selection but about which tokens are in the context window at each inference step. The design question is: Write/Select/Compress/Isolate strategies.
+2. **LangChain's four context engineering operations** (Write/Select/Compress/Isolate) — a practical taxonomy that unifies all memory techniques and maps to four failure modes: context poisoning, context distraction, context confusion, context clash.
+3. **Context rot (Chroma Research 2025)** — LLM accuracy degrades non-uniformly as context length increases, even before the window limit. All major model families affected. Larger context windows are not a substitute for good context engineering.
+4. **Cognition "Don't Build Multi-Agents" vs Anthropic multi-agent** — Both camps independently identified memory/context management as the #1 agent reliability challenge. Cognition: context engineering is #1 job for agent engineers. MongoDB synthesis: both are right for different use cases (deep research vs coding/dialogue).
+5. **Sleep-time compute (Letta + UC Berkeley, arXiv:2504.13171)** — asynchronous background memory consolidation, 5x cost reduction, 18% accuracy improvement on stateful benchmarks. Most architecturally novel 2025 advance.
+6. **MemoryOS (BAI-LAB, EMNLP 2025 Oral, arXiv:2506.06326)** — three-tier OS-inspired hierarchy, +49.11% F1 / +46.18% BLEU-1 on LoCoMo vs GPT-4o-mini. Largest absolute improvement of any evaluated system.
+7. **Claude Code's hybrid production pattern** — CLAUDE.md up-front (procedural memory) + just-in-time grep/glob retrieval + auto-compact at 95% context. Current production gold standard for coding agents.
+
+Sources added: 9 new sources including the MongoDB article, Letta blog, Anthropic context engineering article, LangChain context engineering blog, Cognition blog, Chroma context rot paper, sleep-time compute arXiv paper, MemoryOS arXiv paper, and the video itself.
+
+### 2026-03-02 — Complete research item (agent-memory-management-context-injection)
+
+**Completed:**
+
+Research item:
+- `Research/completed/2026-03-02-agent-memory-management-context-injection.md` — completed; structured findings covering: full taxonomy of five memory architecture tiers (in-context, vector/RAG, episodic/temporal graph, hybrid, structured paging); RAG gap analysis — statelessness, staleness, conflicting knowledge, absent write-path governance; survey of six major systems (Zep/Graphiti, Mem0, LangMem, MemGPT/Letta, Cognee, GraphRAG) with maturity, scoping, and governance assessment; latency/cost profiles (in-context linear growth vs vector 1–50ms vs graph 10–100ms); scoping mechanisms (isolation vs namespace filtering, trade-offs); the wiki rot failure mode and TTL/temporal validity as countermeasures; governance gap — no open-source system has write-path access control or audit trails; production deployment patterns (GitHub Copilot repo-scoped opt-in memory, Cursor memory-bank markdown files, Devin structured memory folders); quality benchmark landscape (LOCOMO, LongMemEval, EverMemOS 92.3%, Zep 94.8% DMR).
+
+Sources consulted:
+- https://arxiv.org/abs/2310.08560 (MemGPT/Letta paging model paper)
+- https://arxiv.org/abs/2501.13956 (Zep temporal knowledge graph paper, Jan 2025)
+- https://arxiv.org/abs/2504.19413 (Mem0 paper, Apr 2025)
+- https://arxiv.org/abs/2410.10813 (LongMemEval benchmark)
+- https://github.com/snap-research/LoCoMo (LoCoMo benchmark)
+- https://github.blog/ai-and-ml/github-copilot/building-an-agentic-memory-system-for-github-copilot/ (GitHub Copilot agentic memory)
+- https://aws.amazon.com/blogs/security/the-agentic-ai-security-scoping-matrix-a-framework-for-securing-autonomous-ai-systems/ (AWS governance framework)
+- https://microsoft.github.io/graphrag/ (GraphRAG)
+- https://langchain-ai.github.io/langmem/ (LangMem SDK)
+- Atlassian Confluence lifecycle management and knowledge rot community sources
+
+### 2026-03-02 — Start research item (agent-memory-management-context-injection)
+
+**Started:**
+
+- `Research/in-progress/2026-03-02-agent-memory-management-context-injection.md` — moved from backlog to in-progress. Covers the full landscape of agent memory architectures beyond RAG: latency trade-offs, knowledge scoping (session/team/repo/role/task), governance and provenance, quality testing, distribution of recall tooling, and the "ungardened wiki" failure mode. Systems to survey: MemGPT/Letta, Zep, Mem0, LangMem, Cognee/Graphiti, and GraphRAG.
 ### 2026-03-02 — New backlog item (research-review-ci-step) and new research item (research-quality-assurance-methodology)
 
 **Added:**
