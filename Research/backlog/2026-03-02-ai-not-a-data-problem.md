@@ -2,7 +2,7 @@
 title: "AI capability is not a data problem — why the data/analytics department is the wrong home for organisational AI"
 added: 2026-03-02
 status: backlog
-priority: high
+priority: medium
 tags: [ai-strategy, architecture, data-platform, api-layer, agents, organisational-design, governance, mcp, zero-trust, identity]
 started: ~
 completed: ~

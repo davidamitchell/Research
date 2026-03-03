@@ -2,7 +2,7 @@
 title: "AI Strategy Examples: Security Focus"
 added: 2026-02-28
 status: backlog
-priority: high
+priority: medium
 tags: [ai-strategy, security, cybersecurity, threat-detection, adversarial-ai, ai-governance]
 started: ~
 completed: ~

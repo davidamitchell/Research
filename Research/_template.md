@@ -3,6 +3,7 @@ title: "TITLE"
 added: YYYY-MM-DD
 status: backlog  # backlog | in-progress | completed
 priority: medium  # low | medium | high
+blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
 tags: []  # e.g. [youtube, transcripts, tooling]
 started: ~
 completed: ~
@@ -45,9 +46,75 @@ Starting points — papers, articles, videos, repos, docs.
 
 ---
 
+## Research Skill Output
+
+*(Full output from running the research skill — retained verbatim in the completed item. §§0–5 are the investigation; §6 seeds the Findings section below.)*
+
+### §0 Initialise
+
+Restate the research question. Confirm scope, constraints, and output format.
+
+-
+
+### §1 Question Decomposition
+
+Approach sub-questions broken into atomic questions — each answerable with a single evidence-based claim.
+
+-
+
+### §2 Investigation
+
+Evidence gathered per atomic question. Label each claim: **[fact]**, **[inference]**, or **[assumption]** with source.
+
+-
+
+### §3 Reasoning
+
+Facts, inferences, and assumptions explicitly separated. No unsupported generalisations or narrative leaps.
+
+-
+
+### §4 Consistency Check
+
+Internal contradictions identified and resolved (or explicitly flagged where unresolvable).
+
+-
+
+### §5 Depth and Breadth Expansion
+
+Findings re-examined through relevant lenses (technical, regulatory, economic, historical, behavioural).
+
+-
+
+### §6 Synthesis
+
+*(This section seeds the Findings below.)*
+
+**Executive summary:**
+
+**Key findings:**
+
+**Evidence map:**
+
+**Assumptions:**
+
+**Analysis:**
+
+**Risks, gaps, uncertainties:**
+
+**Open questions:**
+
+### §7 Recursive Review
+
+Final pass: every section justified, all threads synthesised, every claim sourced or labelled, all uncertainties explicit.
+
+-
+
+---
+
 ## Findings
 
-*(Fill in when completing. Follow the research skill synthesis structure.)*
+*(Populated from §6 Synthesis above.)*
 
 ### Executive Summary
 

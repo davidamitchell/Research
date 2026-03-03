@@ -147,18 +147,55 @@ tests/
 
 ### Starting Research
 
-1. Move the file from `Research/backlog/` to `Research/in-progress/`
-2. Update the `status` field to `in-progress` and set `started` date
-3. Update `PROGRESS.md` — note the item has moved to in-progress
-4. Commit with message: `research: start - <short title>`
+1. Run the CLI command to move the item and stamp the `started` date automatically:
+   ```bash
+   python -m src.main research start <filename>
+   ```
+2. Update `PROGRESS.md` — note the item has moved to in-progress
+3. Commit with message: `research: start - <short title>`
+
+### Conducting Research
+
+Once the item is in `Research/in-progress/`, run the **`research` skill** in full and use available **MCP tools**.
+
+**Invoke the research skill:**
+- **Claude Code:** Run `/research` (requires submodule — `git submodule update --init` first)
+- **GitHub Copilot / other agent:** Open `.github/skills/research/SKILL.md` and follow its process step by step as the agent
+- **Fallback (submodule not initialised):** Follow the equivalent steps in `research-prompt.md` §4, which mirrors the skill in full
+
+**Write the full skill output into `## Research Skill Output` as you work through each section:**
+- **§0** — restate the question, confirm scope and constraints
+- **§1** — decompose Approach sub-questions into atomic questions
+- **§2** — gather evidence iteratively; label each claim **[fact]**, **[inference]**, or **[assumption]** with source
+- **§3** — separate facts from inferences and assumptions explicitly
+- **§4** — identify and resolve internal contradictions
+- **§5** — re-examine findings through relevant lenses (technical, regulatory, economic, historical, behavioural)
+- **§6** — write the synthesis (executive summary, key findings, evidence map, assumptions, analysis, risks, open questions)
+- **§7** — validate the full output; confirm every claim is sourced or labelled
+
+The `## Research Skill Output` section is **retained verbatim** in the completed item.
+
+**Use MCP tools throughout the investigation** (full reference: [Using MCP in research tasks](#using-mcp-in-research-tasks)):
+- `brave_search` or `tavily` — discover sources, verify claims, and find current information
+- `fetch` — retrieve full page content from each source URL
+- `arxiv` — locate and fetch academic papers referenced in Sources
+- `sequential_thinking` — plan the synthesis structure before writing Findings
+- `time` — get today's date for `started` and `completed` timestamps
+- `filesystem` — read the item file and write Research Skill Output and Findings directly
+- `memory` — persist state if the investigation spans multiple sessions
+- `github` — read issue or PR context when the item was spawned from one
+
+**Seed `## Findings` from `## Research Skill Output §6`:** Once §6 Synthesis is written, copy and expand it into the structured Findings subsections (Executive Summary, Key Findings, Evidence Map, Assumptions, Analysis, Risks/Gaps, Open Questions, Output). No new claims may appear in Findings that are not already in the Research Skill Output.
 
 ### Completing Research
 
-1. Move the file from `Research/in-progress/` to `Research/completed/`
-2. Fill in the `## Findings` and `## Output` sections
-3. Update `status` to `completed` and set `completed` date
-4. Update `PROGRESS.md` — record findings summary and any outputs produced
-5. Commit with message: `research: complete - <short title>`
+1. Run the CLI command to move the item and stamp the `completed` date automatically:
+   ```bash
+   python -m src.main research complete <filename>
+   ```
+2. Fill in the `## Findings` and `## Output` sections (if not already done during Conducting Research)
+3. Update `PROGRESS.md` — record findings summary and any outputs produced
+4. Commit with message: `research: complete - <short title>`
 
 ### Output Types
 

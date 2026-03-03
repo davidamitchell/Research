@@ -2,7 +2,7 @@
 title: "An Integrative Framework for Agent Decision-Making: Aligning Knowledge Management, Intent Understanding, and Contextual Decision Frameworks"
 added: 2026-03-02
 status: backlog
-priority: high
+priority: medium
 tags: [agents, decision-making, dikw, knowledge-management, intent, memory, context, alignment, governance, wisdom]
 started: ~
 completed: ~
