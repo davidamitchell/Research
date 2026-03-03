@@ -1,6 +1,6 @@
 # Progress
 
-Last updated: 2026-03-03 (knowledge-representation-agent-context)
+Last updated: 2026-03-03 (knowledge-retention-active-recall)
 Last updated: 2026-03-03 (research system: add Research Notes section, follow skill in full)
 Last updated: 2026-03-03 (meta-research backlog items — improve research and knowledge integration)
 Last updated: 2026-03-03 (ai-strategy-risk-reduction-focus)
@@ -34,6 +34,18 @@ Last updated: 2026-03-03 (ai-control-testing-and-assurance)
 ---
 
 ## Work Log
+
+### 2026-03-03 — Research Loop (knowledge-retention-active-recall)
+
+**Completed:**
+
+Research item:
+- `Research/completed/2026-03-03-knowledge-retention-active-recall.md` — completed; knowledge from completed research items decays without re-engagement even given the deeper encoding that research-writing provides; the highest-priority fix is adding a "Prior Research" step to `research-prompt.md` (zero infrastructure cost); a weekly GitHub Actions digest workflow posting 3–5 items as a GitHub issue is the lowest-friction passive delivery mechanism; spaced repetition principles (7/30/90 day intervals) apply at research item level using fixed intervals as a pragmatic SM-2 adaptation.
+
+Sources consulted:
+- https://en.wikipedia.org/wiki/Testing_effect (retrieval practice evidence base — Roediger, Pashler et al.)
+- https://en.wikipedia.org/wiki/Levels_of_processing_effect (Craik & Lockhart 1972 — encoding depth and knowledge durability)
+- https://en.wikipedia.org/wiki/Spaced_repetition (spacing effect and SM-2 applicability)
 
 ### 2026-03-03 — Research Loop (knowledge-representation-agent-context)
 
