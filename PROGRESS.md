@@ -1,5 +1,8 @@
 # Progress
 
+Last updated: 2026-03-02 (ai-not-a-data-problem backlog item)
+Last updated: 2026-03-02 (search-interaction-distribution backlog items)
+Last updated: 2026-03-02 (transaction-costs)
 Last updated: 2026-03-02 (integrative-framework-agent-decision-making backlog item)
 Last updated: 2026-03-03 (ai-control-testing-and-assurance)
 
@@ -24,6 +27,11 @@ Last updated: 2026-03-03 (ai-control-testing-and-assurance)
 
 ## Work Log
 
+### 2026-03-02 — New backlog item: AI capability is not a data problem
+
+**Added:**
+
+- `Research/backlog/2026-03-02-ai-not-a-data-problem.md` — High-priority research item making the case that organisational AI capability should not be owned by or coupled to the data/analytics department or data platform. Covers: technical NFR mismatch (HADR, fine-grained authz, operational SLAs), API layer as the correct agent integration point (MCP, API gateways, STS token exchange, DID, zero-trust), knowledge vs. data distinction, organisational design (cross-functional AI capability spanning IT/business/HR/legal/regulatory), skills gap between data/analytics and API/platform engineering disciplines, and a structured tradeoff analysis of coupled vs. decoupled models. Sources span Martin Fowler/Data Mesh, NIST AI RMF, RBNZ, OAuth 2.0 RFC 8693, W3C DID spec, CNCF Zero Trust, OWASP API Security, and McKinsey/Gartner organisational AI research.
 ### 2026-03-02 — New backlog item (integrative-framework-agent-decision-making)
 
 **Added:**
