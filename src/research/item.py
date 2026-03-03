@@ -17,6 +17,7 @@ class ResearchItem:
     status: str  # backlog | in-progress | completed
     priority: str  # low | medium | high
     tags: list[str] = field(default_factory=list)
+    blocks: list[str] = field(default_factory=list)
     output: list[str] = field(default_factory=list)
 
     @classmethod
@@ -41,6 +42,7 @@ class ResearchItem:
             status=meta.get("status", "backlog"),
             priority=meta.get("priority", "medium"),
             tags=meta.get("tags") or [],
+            blocks=meta.get("blocks") or [],
             output=meta.get("output") or [],
         )
 

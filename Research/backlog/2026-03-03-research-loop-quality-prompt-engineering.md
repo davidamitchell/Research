@@ -3,6 +3,7 @@ title: "Evaluating and improving autonomous research loop quality: prompt engine
 added: 2026-03-03
 status: backlog
 priority: high
+blocks: []
 tags: [research-loop, prompt-engineering, quality, autonomous-research, evaluation, research-prompt, github-actions]
 started: ~
 completed: ~

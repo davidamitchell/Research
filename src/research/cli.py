@@ -20,6 +20,7 @@ title: "{title}"
 added: {added}
 status: backlog
 priority: medium
+blocks: []
 tags: []
 started: ~
 completed: ~

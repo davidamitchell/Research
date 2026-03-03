@@ -3,6 +3,7 @@ title: "Knowledge linking: building a connected research corpus via explicit cro
 added: 2026-03-03
 status: backlog
 priority: high
+blocks: [2026-03-03-cross-item-synthesis-meta-insights]
 tags: [knowledge-graph, zettelkasten, cross-references, linking, synthesis, backlinks, corpus]
 started: ~
 completed: ~

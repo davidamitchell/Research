@@ -3,6 +3,7 @@ title: "Research agenda curation: prioritisation, coverage analysis, and avoidin
 added: 2026-03-03
 status: backlog
 priority: medium
+blocks: []
 tags: [research-agenda, prioritisation, coverage, curation, strategy, backlog-management, research-drift]
 started: ~
 completed: ~

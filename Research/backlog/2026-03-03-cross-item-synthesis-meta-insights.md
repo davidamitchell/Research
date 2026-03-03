@@ -3,6 +3,7 @@ title: "Cross-item synthesis: methodology and tooling for extracting meta-insigh
 added: 2026-03-03
 status: backlog
 priority: high
+blocks: []
 tags: [synthesis, meta-analysis, cross-item, insights, knowledge-integration, aggregation, thematic-analysis]
 started: ~
 completed: ~

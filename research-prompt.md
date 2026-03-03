@@ -11,9 +11,10 @@ Your task: complete **exactly one** research item from `Research/backlog/`.
 ### 1. Pick the next item
 
 List `Research/backlog/` and read the front matter of each `.md` file.
-Select the **highest-priority** item by:
+Select the **highest-priority** item by applying these rules in order:
 1. `priority: high` before `priority: medium` before `priority: low`
-2. For equal priority, pick the **oldest** item (earliest date in filename).
+2. For equal priority, prefer items with a non-empty `blocks` list — these unblock other work and should be done first.
+3. For remaining ties, pick the **oldest** item (earliest date in filename).
 
 Note the filename (e.g. `2026-02-28-ai-strategy-swe-focus.md`).
 
@@ -110,3 +111,8 @@ portion of the filename (e.g. `research: complete - ai-strategy-swe-focus`).
 - The PROGRESS.md update is **mandatory**. It must be in the same commit as the completed item.
 - Do not skip the Evidence Map. Every Key Finding needs a row.
 - If the backlog is empty, print "Backlog is empty." and exit without committing.
+- **When creating new backlog items** from Open Questions, assign `priority` using this heuristic:
+  - `high` — the item answers a question that directly unblocks tooling, infrastructure, or other research (set `blocks` to list what it unblocks); or the item is strategically urgent and has clear downstream impact.
+  - `medium` — useful, advances understanding, but does not immediately block other work.
+  - `low` — exploratory, no clear downstream dependency, nice-to-have.
+  Set `blocks: []` unless the new item is a clear prerequisite for one or more other backlog items, in which case list their slugs (filename without `.md`).
