@@ -1,5 +1,6 @@
 # Progress
 
+Last updated: 2026-03-03 (knowledge-representation-agent-context backlog item)
 Last updated: 2026-03-03 (ai-line-1-line-2-risk-agents)
 Last updated: 2026-03-03 (ai-control-testing-and-assurance)
 Last updated: 2026-03-02 (wiki publishing implementation — W-0030)
@@ -30,6 +31,14 @@ Last updated: 2026-03-03 (ai-control-testing-and-assurance)
 ---
 
 ## Work Log
+
+### 2026-03-03 — New backlog item: knowledge-representation-agent-context
+
+**Completed:**
+
+Research items:
+- `Research/backlog/2026-03-03-knowledge-representation-agent-context.md` — new high-priority backlog item covering latent semantic extraction (LSE/LSA), knowledge graphs (GraphRAG), concept maps, document compression, and knowledge layering as techniques for managing large knowledge corpora under agent context-window constraints. Directly addresses the "1000s of files of context" problem: how to represent, compress, and prioritise knowledge so agents retrieve the right level of abstraction for a given intent.
+- `Research/backlog/2026-03-02-integrative-framework-agent-decision-making.md` — extended Context section and Sources list to reference the new knowledge-representation item as a dependency; the knowledge-layer foundation must be established before the DIKW integration and conflict-resolution mechanisms in that item can be fully operationalised.
 
 ### 2026-03-03 — Research Loop (ai-line-1-line-2-risk-agents)
 
