@@ -477,6 +477,14 @@ updated: 2026-03-03
 
 The Tavily MCP server (`tavily-mcp@latest`) is currently configured with `TAVILY_API_KEY` but the server may expect a different env var name (e.g. `TAVILY_API_KEY` vs `tvly-...` token format). Investigate the correct variable name required by `tavily-mcp@latest`, update both MCP config files accordingly, and confirm the server starts cleanly. If a `TAVILY_API_KEY` repo secret does not yet exist, document what value is needed.
 
+### Notes
+
+Follow the e2e testing patterns in [`davidamitchell/Latest-developments-`](https://github.com/davidamitchell/Latest-developments-): apply the full testing pyramid (unit tests on business logic **plus** smoke/integration tests that exercise the pipeline end-to-end with mocked network calls, as in `tests/test_smoke.py`). Unit tests alone are not sufficient — see the Testing section and Slice Completion Checklist in that repo's `AGENTS.md` for the full pattern. In particular:
+
+- Write unit tests that assert the MCP config JSON is valid, does not contain `brave_search`, and references the correct Tavily env var after the changes.
+- Add a smoke-level check that loads both config files end-to-end (parse → validate → assert expected server list) to catch integration-level regressions that unit tests miss.
+- Slice is not done until `make check` and `make test` both pass and the checklist item "Full testing pyramid applied" is satisfied.
+
 ---
 
 ## W-0030
