@@ -147,18 +147,43 @@ tests/
 
 ### Starting Research
 
-1. Move the file from `Research/backlog/` to `Research/in-progress/`
-2. Update the `status` field to `in-progress` and set `started` date
-3. Update `PROGRESS.md` — note the item has moved to in-progress
-4. Commit with message: `research: start - <short title>`
+1. Run the CLI command to move the item and stamp the `started` date automatically:
+   ```bash
+   python -m src.main research start <filename>
+   ```
+2. Update `PROGRESS.md` — note the item has moved to in-progress
+3. Commit with message: `research: start - <short title>`
+
+### Conducting Research
+
+Once the item is in `Research/in-progress/`, investigate using the **`research` skill** and the available **MCP tools**.
+
+**Invoke the research skill:**
+- **Claude Code:** Run `/research` (requires submodule — `git submodule update --init` first)
+- **GitHub Copilot / other agent:** Open `.github/skills/research/SKILL.md` and follow its process step by step as the agent
+- **Fallback (submodule not initialised):** Apply the skill logic inline — work through every sub-question in the Approach section, map every claim to a source, and complete all Findings subsections before marking complete
+
+**Use MCP tools throughout the investigation** (full reference: [Using MCP in research tasks](#using-mcp-in-research-tasks)):
+- `brave_search` or `tavily` — discover sources, verify claims, and find current information
+- `fetch` — retrieve full page content from each source URL
+- `arxiv` — locate and fetch academic papers referenced in Sources
+- `sequential_thinking` — plan the synthesis structure before writing Findings
+- `time` — get today's date for `started` and `completed` timestamps
+- `filesystem` — read the item file and write Findings directly
+- `memory` — persist state if the investigation spans multiple sessions
+- `github` — read issue or PR context when the item was spawned from one
+
+**Complete all Findings subsections** before moving to the complete step: Executive Summary, Key Findings, Evidence Map, Assumptions, Analysis, Risks/Gaps, Open Questions, and Output.
 
 ### Completing Research
 
-1. Move the file from `Research/in-progress/` to `Research/completed/`
-2. Fill in the `## Findings` and `## Output` sections
-3. Update `status` to `completed` and set `completed` date
-4. Update `PROGRESS.md` — record findings summary and any outputs produced
-5. Commit with message: `research: complete - <short title>`
+1. Run the CLI command to move the item and stamp the `completed` date automatically:
+   ```bash
+   python -m src.main research complete <filename>
+   ```
+2. Fill in the `## Findings` and `## Output` sections (if not already done during Conducting Research)
+3. Update `PROGRESS.md` — record findings summary and any outputs produced
+4. Commit with message: `research: complete - <short title>`
 
 ### Output Types
 
