@@ -1,6 +1,6 @@
 # Progress
 
-Last updated: 2026-03-03 (research-loop-quality-prompt-engineering)
+Last updated: 2026-03-03 (local-database)
 Last updated: 2026-03-03 (research system: add Research Notes section, follow skill in full)
 Last updated: 2026-03-03 (meta-research backlog items — improve research and knowledge integration)
 Last updated: 2026-03-03 (ai-strategy-risk-reduction-focus)
@@ -34,6 +34,20 @@ Last updated: 2026-03-03 (ai-control-testing-and-assurance)
 ---
 
 ## Work Log
+
+### 2026-03-03 — Research Loop (local-database)
+
+**Completed:**
+
+Research item:
+- `Research/completed/2026-02-27-local-database.md` — completed; SQLite + FTS5 (Phase 1) and sqlite-vec (Phase 2) is the correct local database technology; five-table schema (`items`, `tags`, `sources`, `processed`, `transcripts`) with FTS5 virtual table supports all required query patterns; migration is triggered by observable signals (≥500 state entries, cross-item query need, semantic search backlog, or concurrent writes) rather than a fixed item count.
+
+Sources consulted:
+- https://sqlite.org/fts5.html (SQLite FTS5 extension documentation — BM25, phrase search, prefix search)
+- https://github.com/asg017/sqlite-vec (sqlite-vec KNN vector search extension — pure C, pip install, pre-v1)
+- https://duckdb.org/why_duckdb (DuckDB design rationale — OLAP-optimised, columnar, no built-in vector search)
+
+---
 
 ### 2026-03-03 — Research Loop (research-loop-quality-prompt-engineering)
 
