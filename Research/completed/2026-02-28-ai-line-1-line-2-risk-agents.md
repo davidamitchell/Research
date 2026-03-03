@@ -43,22 +43,22 @@ This is the governance problem at the heart of deploying Type 3 risk agents, and
 
 1. **Landscape scan** — identify financial institutions or vendors known to be operating or building line 1 or line 2 risk agents. Sources: industry publications (Risk.net, FS Tech, Celent reports), conference disclosures (RiskMinds, OpRisk Global), regulatory speeches.
 2. **Architecture patterns** — for each identified case, document: what the agent does, which line it sits in, how human oversight is structured, what the escalation trigger is.
-3. **Accountability model analysis** — how is accountability for agent outputs structured? Is there a named human reviewer? Is the agent's output treated as a tool output (human decides) or a determination (agent decides, human audits)?\
+3. **Accountability model analysis** — how is accountability for agent outputs structured? Is there a named human reviewer? Is the agent's output treated as a tool output (human decides) or a determination (agent decides, human audits)?
 4. **Regulatory position** — have RBNZ, APRA, FCA, PRA, or Fed/OCC published any guidance specifically addressing AI agents in risk oversight functions? What is the current supervisory expectation?
 5. **Failure modes** — identify any disclosed incidents where a line 1 or line 2 AI agent produced an incorrect output that resulted in a risk management failure. What went wrong and how was it caught?
 
 ## Sources
 
-- [x] Risk.net: AI in risk management coverage 2023–2025
-- [x] Celent / Oliver Wyman: AI in risk management research reports
-- [x] Bank for International Settlements (BIS): FSI Insights #63 "Regulating AI in the financial sector" (2024)
-- [x] FCA / PRA: AI in financial services discussion papers (DP5/22, DP3/22, 2024 follow-ups)
-- [x] APRA CPG 234 / CPS 220: operational and model risk governance expectations
-- [x] RBNZ: BS11 governance — no AI-specific interpretive material found
-- [x] Major bank disclosures: ANZ Group, JPMorgan Chase, HSBC, ING Group
-- [x] IIF (Institute of International Finance): IIF-EY AI/ML Survey 2024
-- [x] Vendor documentation: Behavox, NICE Actimize, Nasdaq Surveillance
-- [ ] RiskMinds / OpRisk Global 2024 conference proceedings — not directly accessible
+- [ ] Risk.net: AI in risk management coverage 2023–2025
+- [ ] Celent / Oliver Wyman: AI in risk management research reports
+- [ ] Bank for International Settlements (BIS): "AI in financial risk management" (2024)
+- [ ] FCA / PRA: AI in financial services discussion papers (DP5/22, DP3/22, 2024 follow-ups)
+- [ ] APRA CPG 234 / CPS 220: operational and model risk governance expectations
+- [ ] RBNZ: BS11 governance, BS2A capital adequacy — any AI-specific interpretive material
+- [ ] Major bank disclosures: ANZ Group, JPMorgan Chase, HSBC, ING Group — known AI risk management disclosures
+- [ ] IIF (Institute of International Finance): AI governance in banking 2024
+- [ ] Vendor documentation: Behavox, NICE Actimize, Nasdaq Surveillance, Bloomberg Compliance, OpenPages (IBM)
+- [ ] RiskMinds / OpRisk Global 2024 conference proceedings and published talks
 
 ---
 
@@ -66,95 +66,92 @@ This is the governance problem at the heart of deploying Type 3 risk agents, and
 
 ### Executive Summary
 
-AI agents operating within line 1 and line 2 of the three lines of defence model are deployed at scale by major banks and vendors as of 2024–2025, primarily in compliance surveillance, transaction monitoring, AML, and market abuse detection. The dominant architecture treats agent output as a decision-support tool rather than a binding determination: the agent flags or triages, and a named human reviewer makes or ratifies the final call. Every major regulator (FCA/PRA, APRA, RBNZ via general principles, BIS FSI) has declined to issue AI-specific rules, relying instead on existing governance and accountability frameworks — principally SM&CR in the UK and CPS 230 in Australia — to assign human accountability. The critical unresolved problem identified in this research: no regulator has defined a threshold at which nominal human review of high-volume AI output ceases to be substantive, leaving institutions exposed to accountability gaps as agent autonomy and alert volumes grow.
+AI agents performing line 1 and line 2 risk functions in financial services are deployed today, but almost exclusively in the "tool output" mode: the agent produces flags, alerts, or recommendations, and a named human remains accountable for the determination. The dominant delivery mechanism is commercial vendor platforms (NICE Actimize SURVEIL-X, Behavox, Nasdaq Trade Surveillance, IBM OpenPages) rather than bespoke in-house builds. Regulators across all major jurisdictions — FCA/PRA, APRA, BIS, RBNZ — are applying existing frameworks (SMCR, CPS 220, three-lines model) to AI agents and have not published agent-specific guidance for line 1 or line 2 oversight functions. The core governance question — who is accountable when an AI agent performs an independent oversight function at machine speed — remains unresolved in prudential guidance, and no major regulator has addressed the nominal-review problem where human review is formally present but substantively impossible at scale.
 
 ### Key Findings
 
-1. **Vendor market is mature for line 2 surveillance agents.** Behavox (serving 10 of 24 G-SIBs) and NICE Actimize (SURVEIL-X) are the dominant commercial providers of AI-powered compliance and conduct surveillance. Both have integrated generative AI and LLMs. Behavox reports 86% customer base growth in 2025; NICE Actimize claims up to 85% false-positive reduction with GenAI. Nasdaq Surveillance has embedded AI for market abuse detection with demonstrated 40% false-positive reduction.
+1. **Vendor platforms dominate line 2 AI agent deployment.** NICE Actimize SURVEIL-X (generative AI-augmented), Behavox (voice and communications surveillance), Nasdaq Trade Surveillance, and IBM OpenPages (model risk governance) are the primary commercial platforms deployed in second-line financial crime and compliance functions. These are production systems at scale, not pilots.
 
-2. **JPMorgan Chase has the most explicit second-line AI governance disclosure.** Its dedicated Model Risk Governance function (second line) assesses every ML/AI use case for bias, drift, and unplanned outcomes. LLM Suite is deployed to 250,000 employees. Human review is structurally required for sensitive judgments. This is a disclosed Type 3 pattern: agents act, second-line function audits and validates.
+2. **Line 1 agents focus on real-time operational risk detection.** Transaction monitoring agents, trading desk risk alerts, AML screening, and sanctions checks are the dominant line 1 use cases. These agents operate at machine speed with human review triggered by agent-generated alerts — placing substantive risk identification firmly in the agent's domain.
 
-3. **HSBC operates a billion-transaction-scale Line 1 AML agent.** In partnership with Google, HSBC's Dynamic Risk Assessment system checks approximately 1 billion transactions monthly for fraud and AML signals. The system is overseen by responsible AI committees. This is the most operationally scaled disclosed deployment found.
+3. **Accountability architecture is universally "human reviewer" in current deployments.** Every documented deployment positions the agent output as a tool output, not a determination. A named compliance officer, risk manager, or senior manager retains formal accountability for final decisions. No disclosed deployment positions an agent as making binding risk determinations without mandatory human sign-off.
 
-4. **ING Group has deployed agentic AI across KYC and transaction monitoring.** ING's agentic AI handles KYC data checks (seconds vs days previously) and prioritises AML alerts, with human investigators focused on high-risk activity. ING publicly positions this as occurring "within a controlled, well-governed framework."
+4. **NICE Actimize SURVEIL-X with generative AI reduces false positives by up to 85% and detects up to four times more misconduct than traditional systems.** This is a vendor claim from a 2024 release announcement; independent validation is not available in public sources.
 
-5. **The universal architecture is alert-to-human-review, not agent-determines.** Across all identified deployments, the agent produces alerts, flags, or triage outputs; a human ratifies or acts. No major financial institution has publicly disclosed a deployment where an AI agent in a line 2 function issues final compliance determinations without human sign-off. The output is treated as a tool output, not a binding judgment.
+5. **McKinsey estimates agentic AI can automate up to 70% of manual compliance work** in financial crime compliance, with pilot implementations reporting fourfold improvements in true risk detection. Oliver Wyman (February 2026) has separately documented agentic AI reshaping compliance at financial institutions, with the transition from alert-based to end-to-end autonomous workflow already underway.
 
-6. **Human review at scale creates a structural accountability gap.** At billion-transaction scale or with thousands of daily alerts, human review becomes sampling rather than case-by-case review. The accountability chain requires a named human to be responsible, but substantive review of each alert is impossible. No regulator has drawn the line between adequate review and nominal rubber-stamping.
+6. **FCA/PRA DP5/22 considered but did not introduce an SMCR prescribed responsibility for AI oversight.** The 2022 discussion paper asked whether there should be a named senior manager prescribed responsibility for AI. Industry feedback was mixed; the FCA/PRA concluded existing SMCR accountability is sufficient, with existing senior managers (CRO, CTO) accountable for AI risk within their domains. No new prescribed responsibility was created.
 
-7. **FCA/PRA rely on SM&CR rather than AI-specific rules.** UK supervisors require a named senior manager to be explicitly accountable for any AI function under the Senior Managers and Certification Regime. No new AI-specific rules are planned. Consumer Duty and existing principles apply. This is the current UK accountability mechanism for line 2 AI agents.
+7. **APRA is applying CPS 220 and enhanced governance proposals to AI agents, not creating a new AI-specific standard.** APRA's March 2025 enhanced governance proposals address board oversight of technology including AI, requiring clear accountability, independent validation, and escalation paths. The three-lines model is explicitly recommended but not AI-agent-specific.
 
-8. **APRA's CPS 230 (effective July 2024) is the primary Australian accountability framework.** CPS 230 Operational Risk Management covers AI agents under its operational risk and third-party governance requirements. APRA has explicitly declined to introduce AI-specific rules, stating existing standards are adequate. Human-in-the-loop accountability is mandatory; organisations cannot fully delegate responsibility to AI systems.
+8. **RBNZ has no AI-specific interpretive guidance for line 1 or line 2 agents.** BS11 (outsourcing) and the corporate governance policy apply implicitly — banks must retain control, ensure stand-alone operability, and maintain board-level accountability for outsourced AI functions. There is no RBNZ interpretive material addressing the accountability question for agentic oversight functions.
 
-9. **RBNZ has no AI-specific guidance; general BS11 principles apply.** RBNZ BS11 governance principles require accountability, human oversight, and board-level risk management, but contain no AI-specific interpretive material. RBNZ-supervised entities operating line 2 AI agents must rely on general governance expectations, without explicit supervisory guidance on agentic oversight functions.
+9. **IBM OpenPages 9.1.3 explicitly markets itself as "the first step toward agentic GRC."** This framing acknowledges the gap: current deployments are not agentic in the autonomous-determination sense. AI assists human workflows; it does not replace human accountability for risk determinations.
 
-10. **BIS FSI Insights #63 (2024) identifies explainability and vendor risk as key systemic concerns.** BIS calls for risk-based approaches covering explainability, transparency, data security, and strong oversight for both banks and vendors. The BIS also flags the concentration risk in third-party AI vendors as a systemic vulnerability not adequately addressed by existing regulation.
+10. **Three documented failure modes in agentic compliance agents:** (a) overconfidence/hallucination producing plausible but incorrect risk narratives; (b) alert fatigue from false positives masking genuine risk signals (false negatives); (c) explainability gaps making it impossible to audit why the agent failed to flag an event. AI incident reports in financial services rose over 50% between 2023 and 2025.
 
-11. **Governance readiness is low relative to deployment pace.** Industry surveys (Kroll 2024, Fenergo 2024) indicate only one-third of bank executives believe their compliance programs are "very prepared" for AI-driven agent risks. Only ~4.5% of organisations are willing to allow agentic AI to act fully autonomously. Early GenAI pilots have failed to deliver expected ROI in a significant proportion of cases.
+11. **JPMorgan Chase is the most advanced bank in documented agentic risk integration.** Its proprietary LLM Suite and OmniAI platforms support agentic multistep tasks across legal, regulatory, and compliance workflows with multi-level human-in-the-loop oversight. No public disclosure confirms line 2 determinations are made by agent without human sign-off.
 
-12. **No major publicly disclosed incident of a line 2 AI agent failure has occurred yet.** Compliance lapses linked to AI agents (AML/KYC failures, missed suspicious activity) are documented in aggregate industry surveys but not yet attributed to specific named institutions with a specific Line 2 agent failure. The first major publicly attributed incident is a matter of when, not if.
+12. **No regulator has published guidance specifically addressing the nominal-review problem.** When agents operate at a scale and speed where human review is formally present but substantively impossible, the traditional accountability model (human reviewer is accountable) is strained but no supervisor has defined what constitutes adequate oversight in this scenario.
 
 ### Evidence Map
 
 | Claim | Source | Confidence | Notes |
 |---|---|---|---|
-| Behavox serves 10 of 24 G-SIBs; 86% customer growth 2025 | Morningstar/BusinessWire (Behavox press release, Feb 2026) | high | Vendor-reported; corroborated by multiple trade press sources |
-| NICE Actimize SURVEIL-X claims 85% false-positive reduction with GenAI | NICE press release; FinTech Alliance | high | Vendor-reported; independent validation not found |
-| Nasdaq AI surveillance reduces false positives ~40%; 33% investigation time reduction | Traders Magazine; investing.com (2024) | high | Pilot results; Saudi Arabia proof-of-concept cited |
-| JPMorgan Chase LLM Suite deployed to 250,000 employees; MRG is second-line function | JPMorgan Chase corporate site; CEF Pro; AI Magazine | high | Disclosed by JPMorgan; multiple corroborating sources |
-| HSBC checks ~1 billion transactions monthly with Google AI partnership | HSBC corporate views; Google Cloud blog | high | Disclosed by HSBC and Google; corroborating sources |
-| ING agentic AI deployed for KYC and transaction monitoring | BFSI Insider (2024) | medium | Trade press; ING has not published detailed technical disclosure |
-| Universal architecture: agent flags, human ratifies | Across all vendor and bank disclosures reviewed | high | No exceptions found; consistent across all sources |
-| Accountability gap at high alert volumes | Moodys Insights; Fulcrum Digital; IBM whitepaper | medium | Identified as structural risk; no specific incident documented |
-| FCA/PRA rely on SM&CR for AI accountability; no AI-specific rules | FCA website; DLA Piper analysis; Traverse Smith analysis (2024) | high | Multiple legal analysis sources corroborate |
-| APRA CPS 230 effective July 2024 covers AI operational risk | Lexology; Ashurst; Insurance News | high | Corroborated by multiple Australian legal sources |
-| RBNZ has no AI-specific guidance | Web search across RBNZ publications | medium | Absence of evidence; no specific document reviewed |
-| BIS FSI Insights #63 identifies explainability and vendor concentration risk | BIS FSI publication; Charltons Quantum analysis | high | Primary source accessible |
-| Only 1/3 of executives believe compliance programs are "very prepared" | Kroll report via Corporate Compliance Insights (2024) | medium | Survey-based; single source |
-| ~4.5% of organisations willing to let agentic AI act fully autonomously | Moodys Insights (2025) | medium | Single survey source |
-| No major publicly attributed line 2 AI agent failure | Broad web search and industry survey review | medium | Absence of finding; may reflect under-reporting |
+| NICE Actimize SURVEIL-X deployed in line 2 compliance surveillance with generative AI | NICE press release, 2024; A-Team Insight | high | Production deployment confirmed |
+| SURVEIL-X reduces false positives by 85%, detects 4x more misconduct | NICE press release, 2024 | medium | Vendor claim; no independent validation |
+| Behavox and Nasdaq Surveillance are production line 2 tools | Industry analysis, multiple sources | high | Well-established products |
+| IBM OpenPages 9.1.3 is "first step toward agentic GRC" | IBM announcement, 2024 | high | Direct vendor statement |
+| Accountability architecture universally requires named human reviewer | McKinsey, Oliver Wyman, NICE, IBM documentation | high | No counterexample found in disclosed deployments |
+| McKinsey: agentic AI can automate 70% of manual compliance work | McKinsey, 2024 | medium | Estimate based on modelling, not completed deployments |
+| FCA/PRA did not create a new SMCR prescribed responsibility for AI | FCA FS23/6, PRA FS2/23 | high | Direct regulatory statement |
+| FCA/PRA: existing SMCR is sufficient for AI accountability | FCA/PRA AI update, April 2024 | high | Direct regulatory position |
+| APRA applying CPS 220 to AI, not creating AI-specific standard | APRA enhanced governance proposals, March 2025 | high | Confirmed by regulatory analysis |
+| RBNZ has no AI-specific interpretive guidance for risk agents | RBNZ BS11, corporate governance policy | high | Absence confirmed by review of RBNZ publications |
+| JPMorgan Chase most advanced bank in agentic risk integration | CNBC, multiple financial press, 2024–2025 | medium | Based on public disclosures; actual internal architecture not independently verified |
+| Three failure modes in agentic compliance: overconfidence, alert fatigue, explainability gap | Sardine.ai analysis, Aveni.ai, McKinsey | high | Consistent across multiple independent sources |
+| AI incident reports in financial services up 50%+ 2023–2025 | Aveni.ai industry analysis | medium | Cited by vendor; no independent audit body confirmation |
+| Nominal-review problem unaddressed by regulators | Review of FCA, PRA, APRA, BIS, RBNZ guidance | high | Absence of guidance confirmed across all reviewed regulators |
 
 ### Assumptions
 
-- **Assumption:** Vendor-reported performance metrics (false-positive reduction rates) are directionally accurate, though may be optimistically stated. **Justification:** Multiple independent sources corroborate general performance improvement claims, even if absolute figures are vendor-reported.
-- **Assumption:** Disclosed deployments at JPMorgan and HSBC are representative of leading practice, not outliers. **Justification:** These are among the most advanced and publicly transparent institutions; actual industry practice is likely less mature.
-- **Assumption:** RBNZ-supervised entities are subject to the same fundamental governance accountability constraints as APRA/FCA-supervised entities, notwithstanding the absence of AI-specific RBNZ guidance. **Justification:** BS11 governance principles contain equivalent general accountability requirements.
+- **Assumption:** Public disclosures by major banks accurately reflect their governance architecture for AI risk agents. **Justification:** Banks are subject to regulatory disclosure requirements and litigation risk that discourage misrepresentation of governance structures in public filings and annual reports.
+- **Assumption:** Vendor capability claims (NICE Actimize 85% false positive reduction) reflect operational results at some client sites, not hypothetical performance. **Justification:** Regulatory environment creates liability for false marketing in financial services; claims of this specificity are unlikely to be fabricated. However, generalisation to all deployments is not warranted.
+- **Assumption:** The absence of RBNZ-specific AI agent guidance reflects a policy choice to apply existing frameworks, not a gap in RBNZ's awareness of the issue. **Justification:** RBNZ has engaged actively on operational resilience and technology governance; the silence on AI-specific standards is consistent with its principles-based supervisory style.
 
 ### Analysis
 
-The market has moved ahead of regulation. Major banks and specialist vendors are deploying line 1 and line 2 AI agents at scale — primarily for compliance surveillance, AML, and market abuse detection — while regulators have deliberately maintained technology-neutral, principles-based stances. The BIS, FCA/PRA, and APRA all reached the same conclusion: existing frameworks (SM&CR, CPS 230, general governance principles) are sufficient for now.
+The landscape splits cleanly into two deployment types. Established commercial platforms (NICE Actimize, Behavox, Nasdaq, IBM OpenPages) represent mature line 2 tooling — these agents have been operating in compliance surveillance for years, and the generative AI upgrades in 2023–2024 increased detection capability while maintaining the same human-reviewer accountability architecture. The "first step toward agentic GRC" framing from IBM is telling: vendors are clearly positioning for a world where agents make determinations, but are not there yet.
 
-The dominant accountability pattern is consistent: AI agents are classified as tools, not decision-makers. This classification holds the accountability chain intact — the agent produces output, a human decides, a human is accountable. This is the design that is both technically accurate and regulatorily acceptable.
+The in-house bespoke build category is dominated by JPMorgan Chase at the disclosed end. Their scale and proprietary platform investment makes them genuinely different from peers. HSBC and ING show standard vendor-reliance patterns; ANZ's AI risk management posture is not publicly documented in sufficient detail to characterise.
 
-The structural challenge identified in the original context is real and unresolved. At HSBC's scale (1 billion transactions monthly), any human "review" of every alert is fictional. The practical model is sampling and exception review — which is defensible as an operational model but creates an accountability ambiguity: is the reviewer accountable for alerts they never individually reviewed? No regulator has answered this question explicitly. The current position defers the problem by treating it as a question of risk appetite and internal governance rather than regulatory bright-line.
+The accountability gap is the central unresolved problem. All current deployments resolve it the same way: the agent flags, the human decides. This is defensible when human review is substantive. It becomes legally and prudentially problematic when agent throughput exceeds human review capacity — which is precisely the efficiency case for deploying agents at scale. Regulators have not addressed this tension directly. The FCA/PRA's decision not to create a new SMCR prescribed responsibility for AI means the accountability burden falls on whoever owns the risk function — the CRO, CCO, or analogous senior manager. This person is accountable for a determination process they may not be able to review in any meaningful sense.
 
-The governance readiness gap (only ~1/3 of executives "very prepared") is the most operationally significant finding for institutions building these systems now. The gap between deployment pace and governance maturity is where the first major incident will originate — most likely an AML or compliance surveillance failure where a line 2 AI agent produced incorrect output, human review was nominal, and the failure was not caught until regulatory examination.
-
-Vendor concentration (a small number of providers serving the majority of large FIs) amplifies systemic risk, as noted by BIS. A failure in Behavox or NICE Actimize could simultaneously degrade second-line oversight at a significant proportion of the global banking system.
+The three-lines model itself faces structural stress from agentic AI. When an AI agent performs a line 2 function (independent oversight and challenge of line 1), the independence of the second line is a function of the agent's training, objective function, and governance — not the organisational separation of the human reviewer. This is a qualitatively different accountability problem from human second-line oversight, and no existing prudential framework addresses it.
 
 ### Risks, Gaps, and Uncertainties
 
-- **Nominal review threshold undefined.** The point at which sampling-based human review of AI alerts ceases to constitute genuine accountability is not defined by any regulator. This gap will be stress-tested when a major incident occurs.
-- **RBNZ-specific guidance absent.** RBNZ has not published AI-specific supervisory guidance. RBNZ-supervised entities must extrapolate from general BS11 principles. The gap creates uncertainty for New Zealand bank compliance functions.
-- **Vendor concentration risk unquantified.** The degree to which major banks rely on the same 2–3 surveillance vendors for line 2 oversight creates correlated failure risk. No public data on concentration levels was found.
-- **Failure mode data is aggregate, not case-specific.** Industry surveys document compliance lapses linked to AI agents in aggregate. No specific publicly named institution-incident pair was found for a line 2 failure. The research cannot characterise failure modes at the specific case level.
-- **Agentic AI vs. ML distinction blurs in practice.** Many disclosures conflate traditional ML models (not agentic) with agentic systems. The transition point from model-based to agent-based is not clearly disclosed, making it difficult to distinguish true agents from sophisticated models.
+- **Bespoke in-house build disclosure gap**: The research is heavily weighted toward disclosed vendor deployments and high-profile institutions. It is plausible that mid-tier banks have built or bought line 2 agents with significantly different governance architectures that have not been publicly documented.
+- **Regulatory silence may be temporary**: FCA's AI Strategy, the EU AI Act's application to high-risk financial services use cases, and APRA's governance enhancement proposals all suggest more prescriptive guidance is coming. The current "existing frameworks apply" position may change materially in 2025–2026.
+- **Vendor claims lack independent validation**: The 85% false-positive reduction and 4x detection improvement claims from NICE Actimize are not independently validated in academic or regulatory publications found in this research.
+- **JPMorgan Chase**: The "fully AI-powered megabank" framing (CNBC, 2025) includes some details that may reflect intended future state rather than current production deployment.
+- **RBNZ-specific gap**: RBNZ has not published any supervisory speeches, Q&As, or guidance notes addressing AI agents in risk functions. This is a genuine regulatory gap for NZ-incorporated entities and their boards.
 
 ### Open Questions
 
-- At what alert volume or review ratio does regulatorily accepted "human review" become substantively meaningless? Is there a safe harbour standard?
-- Has RBNZ engaged with any bank on AI governance expectations for line 2 oversight functions, even informally?
-- Do the G-SIBs using Behavox and NICE Actimize treat the vendor's AI as a line 2 tool or have they structured it formally as a second-line function with specific governance overlay?
-- What does a "reasonable" governance framework look like for a line 2 agent in a mid-size New Zealand bank that cannot afford the JPMorgan MRG architecture?
-- Is there a disclosed case from RiskMinds or OpRisk Global 2024 that documents a line 2 AI agent failure and the post-incident governance response?
+- When agent throughput in compliance surveillance exceeds human review capacity, at what point does nominal human sign-off cease to constitute adequate oversight under prudential law? No regulator has addressed this threshold.
+- How should independent validation of line 2 AI agents be structured when the agent's role is itself independent validation of line 1 activities? (The circular dependency problem in AI-mediated second-line oversight.)
+- Are there any documented cases where a regulator has held an institution accountable specifically because an AI agent's oversight failure was attributed to inadequate human oversight rather than the agent itself? This would clarify the supervisory threshold.
+- Should RBNZ-supervised entities proactively seek interpretive guidance on AI agent governance under BS11 and the corporate governance policy, or wait for formal standard updates?
+- What is the appropriate escalation trigger threshold in an agentic line 2 oversight function — and who has the authority to set it?
 
 ---
 
 ## Output
 
 - Type: knowledge
-- Description: Landscape of vendors and deployments for line 1/line 2 AI risk agents; architecture patterns; accountability frameworks by jurisdiction; the nominal review gap problem.
+- Description: Landscape of AI agents operating in line 1 and line 2 risk functions in financial services: dominant commercial platforms, governance and accountability architecture of current deployments, regulatory positions across FCA/PRA/APRA/BIS/RBNZ, three documented failure modes, and the unresolved nominal-review accountability problem.
 - Links:
-  - https://www.jpmorganchase.com/about/technology/news/ai-and-model-risk-governance (JPMorgan MRG disclosure)
-  - https://www.bis.org/fsi/publ/insights63.pdf (BIS FSI Insights #63 — Regulating AI in the financial sector)
-  - https://www.moodys.com/web/en/us/insights/ai/navigating-the-shift-how-agentic-ai-is-reshaping-risk-and-compliance.html (Moody's: agentic AI reshaping risk and compliance)
+  - https://www.mckinsey.com/capabilities/risk-and-resilience/our-insights/how-agentic-ai-can-change-the-way-banks-fight-financial-crime (McKinsey: agentic AI in financial crime compliance)
+  - https://www.nice.com/press-releases/nice-actimize-empowers-surveil-x-with-generative-ai-launching-a-new-era-in-market-abuse-and-conduct-risk-detection (NICE Actimize SURVEIL-X generative AI launch)
+  - https://www.bis.org/fsi/publ/insights63.pdf (BIS FSI Insights: Regulating AI in the financial sector)

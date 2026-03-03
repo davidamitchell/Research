@@ -1,6 +1,6 @@
 # Progress
 
-Last updated: 2026-03-03 (knowledge-representation-agent-context backlog item)
+Last updated: 2026-03-03 (ai-line-1-line-2-risk-agents)
 Last updated: 2026-03-03 (ai-line-1-line-2-risk-agents)
 Last updated: 2026-03-03 (ai-control-testing-and-assurance)
 Last updated: 2026-03-02 (wiki publishing implementation — W-0030)
@@ -31,6 +31,18 @@ Last updated: 2026-03-03 (ai-control-testing-and-assurance)
 ---
 
 ## Work Log
+
+### 2026-03-03 — Research Loop (ai-line-1-line-2-risk-agents)
+
+**Completed:**
+
+Research item:
+- `Research/completed/2026-02-28-ai-line-1-line-2-risk-agents.md` — completed; commercial vendor platforms (NICE Actimize SURVEIL-X, Behavox, Nasdaq, IBM OpenPages) dominate line 2 AI agent deployment in financial services; all current deployments use a "human reviewer accountable" architecture where agents produce flags and humans retain final accountability; no regulator (FCA/PRA, APRA, BIS, RBNZ) has published agent-specific guidance for line 1/line 2 oversight functions, and the nominal-review accountability problem remains unaddressed.
+
+Sources consulted:
+- https://www.mckinsey.com/capabilities/risk-and-resilience/our-insights/how-agentic-ai-can-change-the-way-banks-fight-financial-crime (McKinsey: agentic AI in financial crime compliance)
+- https://www.nice.com/press-releases/nice-actimize-empowers-surveil-x-with-generative-ai-launching-a-new-era-in-market-abuse-and-conduct-risk-detection (NICE Actimize SURVEIL-X generative AI launch, 2024)
+- https://www.bis.org/fsi/publ/insights63.pdf (BIS FSI Insights: Regulating AI in the financial sector)
 
 ### 2026-03-03 — New backlog item: knowledge-representation-agent-context
 
