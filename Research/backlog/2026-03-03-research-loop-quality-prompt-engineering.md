@@ -79,6 +79,7 @@ There is no current mechanism to detect when the loop has produced a shallow ite
 - [ ] `research-prompt.md` — current prompt; the primary artefact to evaluate and revise
 - [ ] `.github/workflows/research-loop.yml` — loop implementation; understand item selection and session invocation
 - [ ] `Research/completed/` — existing loop-produced items; corpus for the quality audit
+- [ ] `Research/completed/2026-03-01-github-specify-ralph-loop-lisa-planning.md` — completed research on the Ralph Wiggum Technique, loop phases (Specify → Plan → Build), and proof-driven development; covers loop *design* (this item covers loop output *quality* and prompt improvement)
 - [ ] `Research/backlog/2026-03-02-research-quality-assurance-methodology.md` — complement to this item: quality review methodology (downstream quality checks vs. this item's upstream prompt improvements)
 - [ ] Anthropic Prompt Engineering Guide: https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview — chain-of-thought, role prompting, negative constraints
 - [ ] OpenAI Prompt Engineering Guide: https://platform.openai.com/docs/guides/prompt-engineering — structured output, decomposition patterns
