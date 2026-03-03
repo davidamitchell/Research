@@ -2,7 +2,7 @@
 title: "Knowledge retention: mechanisms for ensuring completed research is recalled and applied over time"
 added: 2026-03-03
 status: backlog
-priority: medium
+priority: high
 blocks: []
 tags: [retention, recall, spaced-repetition, knowledge-decay, application, active-recall, knowledge-management]
 started: ~

@@ -1,5 +1,6 @@
 # Progress
 
+Last updated: 2026-03-03 (reprioritise backlog — 5 new meta-research items set to high, others lowered to medium)
 Last updated: 2026-03-03 (meta-research backlog items — improve research and knowledge integration)
 Last updated: 2026-03-03 (ai-line-1-line-2-risk-agents)
 Last updated: 2026-03-03 (ai-control-testing-and-assurance)
@@ -31,6 +32,10 @@ Last updated: 2026-03-03 (ai-control-testing-and-assurance)
 ---
 
 ## Work Log
+
+### 2026-03-03 — Reprioritise backlog so 5 new meta-research items are picked up next
+
+Lowered the 15 existing `high`-priority backlog items to `medium`. Raised the 2 new `medium` items (`research-agenda-curation`, `knowledge-retention`) to `high`. Result: the 5 new meta-research items are now the only `high`-priority items in the backlog and will be the first 5 items the research loop picks up.
 
 ### 2026-03-03 — Meta-research backlog items (improve research and knowledge integration)
 

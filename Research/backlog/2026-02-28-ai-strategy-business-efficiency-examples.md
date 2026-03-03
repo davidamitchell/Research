@@ -2,7 +2,7 @@
 title: "AI Strategy Examples: Business Efficiency Focus"
 added: 2026-02-28
 status: backlog
-priority: high
+priority: medium
 tags: [ai-strategy, business-efficiency, productivity, operations, case-studies]
 started: ~
 completed: ~

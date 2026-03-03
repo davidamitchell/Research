@@ -2,7 +2,7 @@
 title: "RBNZ AI Supervisory Expectations: What Do Regulated Entities Need to Know?"
 added: 2026-02-28
 status: backlog
-priority: high
+priority: medium
 tags: [rbnz, ai-strategy, financial-services, prudential-regulation, model-risk, nz-specific]
 started: ~
 completed: ~

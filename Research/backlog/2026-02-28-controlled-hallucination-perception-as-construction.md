@@ -2,7 +2,7 @@
 title: "Controlled hallucination: perception as active brain construction"
 added: 2026-02-28
 status: backlog
-priority: high
+priority: medium
 tags: [consciousness, perception, controlled-hallucination, anil-seth, neuroscience]
 started: ~
 completed: ~

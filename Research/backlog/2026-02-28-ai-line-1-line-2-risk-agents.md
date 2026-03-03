@@ -2,7 +2,7 @@
 title: "AI Line 1 and Line 2 Risk Agents: Who Is Building Them?"
 added: 2026-02-28
 status: backlog
-priority: high
+priority: medium
 tags: [ai-strategy, risk-agents, line-1, line-2, three-lines-model, agentic-ai, financial-services, risk-management]
 started: ~
 completed: ~

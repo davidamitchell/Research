@@ -2,7 +2,7 @@
 title: "AI Strategy Examples: Risk Reduction Focus"
 added: 2026-02-28
 status: backlog
-priority: high
+priority: medium
 tags: [ai-strategy, risk-management, operational-risk, model-risk, ai-governance, financial-services]
 started: ~
 completed: ~

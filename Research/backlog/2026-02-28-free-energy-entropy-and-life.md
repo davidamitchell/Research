@@ -2,7 +2,7 @@
 title: "Free energy, entropy, and life: why organisms predict — from Schrödinger to Friston to Seth"
 added: 2026-02-28
 status: backlog
-priority: high
+priority: medium
 tags: [free-energy-principle, entropy, predictive-processing, active-inference, karl-friston, anil-seth, consciousness, thermodynamics, life]
 spawned-from: Research/completed/2026-02-28-youtube-video-HYUoS0GkGCs-concepts.md
 ---
