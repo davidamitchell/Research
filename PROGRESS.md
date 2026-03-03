@@ -1,5 +1,6 @@
 # Progress
 
+Last updated: 2026-03-02 (integrative-framework-agent-decision-making backlog item)
 Last updated: 2026-03-03 (ai-control-testing-and-assurance)
 
 ---
@@ -23,6 +24,15 @@ Last updated: 2026-03-03 (ai-control-testing-and-assurance)
 
 ## Work Log
 
+### 2026-03-02 — New backlog item (integrative-framework-agent-decision-making)
+
+**Added:**
+
+- `Research/backlog/2026-03-02-integrative-framework-agent-decision-making.md` — **high priority**. Integrative framework for agent decision-making. Covers: operationalising the DIKW (Data → Information → Knowledge → Wisdom) hierarchy in agentic systems; intent as a structured construct (goals, objectives, constraints, desired outcomes) and mechanisms for prioritising conflicting intents; catalogue of enterprise knowledge domains agents must integrate (regulations, government policy, organisational mission and values, BU strategy, technical/financial constraints, risk tolerance, policies, standards, guardrails, processes); conflict resolution mechanisms (precedence hierarchies, confidence-weighted arbitration, explainable justification traces); integration with memory architecture findings; alignment principles ensuring components reinforce intent-driven decisions; practical playbook for operationalising agents as decision-support systems. Depends on: `2026-03-02-agent-memory-management-context-injection.md` (memory architecture) and `2026-03-01-agent-lsp-policy-enforcement.md` (policy guardrails). Cross-references: DIKW literature (Ackoff 1989, Rowley 2007), Nonaka & Takeuchi SECI model, Simon bounded rationality, NIST AI RMF, EU AI Act, Constitutional AI, GraphRAG.
+
+**Existing items cross-referenced (not duplicated):**
+- `Research/backlog/2026-03-02-agent-memory-management-context-injection.md` — memory architecture dependency; findings to be integrated when complete
+- `Research/completed/2026-03-01-agent-lsp-policy-enforcement.md` — prior findings on policy guardrails and governance enforcement
 ### 2026-03-03 — Research Loop (ai-control-testing-and-assurance)
 
 **Completed:**
