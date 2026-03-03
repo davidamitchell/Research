@@ -1,6 +1,6 @@
 # Progress
 
-Last updated: 2026-03-03 (youtube-transcript-fetcher)
+Last updated: 2026-03-03 (ai-control-testing-and-assurance)
 
 ---
 
@@ -22,6 +22,20 @@ Last updated: 2026-03-03 (youtube-transcript-fetcher)
 ---
 
 ## Work Log
+
+### 2026-03-03 — Research Loop (ai-control-testing-and-assurance)
+
+**Completed:**
+
+Research item:
+- `Research/completed/2026-02-28-ai-control-testing-and-assurance.md` — completed; AI-assisted control testing is commercially active in 2024–2025 with a tiered vendor landscape (AuditBoard, ServiceNow, KPMG Clara, EY.ai). Disclosed outcomes include 60% faster audit cycles and 90% documentation burden reductions. Regulatory standard-setters (IAASB, PCAOB, IIA) are updating frameworks but have not yet unconditionally accepted AI-generated assurance evidence as sufficient; human oversight remains mandatory. The RBNZ has flagged AI financial stability risks but published no AI-specific assurance guidance, leaving existing BS11 outsourcing and operational risk frameworks as the applicable NZ regime.
+
+Sources consulted:
+- https://www.iaasb.org/publications/technology-position-statement (IAASB Technology Position Statement, October 2024)
+- https://auditboard.com/blog/auditboard-launches-accelerate-delivering-enterprise-grade-ai-automation-for-grc-teams (AuditBoard Accelerate GRC AI launch)
+- https://www.rbnz.govt.nz/hub/publications/financial-stability-report/2025/may/ai-pre-release/rise-of-the-machines (RBNZ FSR AI pre-release, May 2025)
+
+---
 
 ### 2026-03-03 — Research Loop (youtube-transcript-fetcher)
 
