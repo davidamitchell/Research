@@ -24,6 +24,7 @@ These two concerns are intentionally separate. Research items in `Research/` are
 - **Keep PROGRESS.md updated** after every meaningful commit.
 - **DO NOT ASSUME OR GUESS facts about the environment.** If you do not know whether a credential exists, whether a service is available, or whether a tool is capable of something — **STOP. Ask the owner before proceeding.** Guessing and being wrong wastes cycles and breaks trust. The cost of asking is zero. The cost of guessing wrong is not.
 - **DO NOT introduce new external services or credentials without explicit owner approval.** If your design requires something not already listed in the "Available credentials and services" table below, that is a hard stop — surface the gap and ask, do not proceed.
+- **Treat undocumented capabilities as unknown.** If a credential, service, or tool is in the approved table but its Notes column does not explicitly state it can do what your design requires, apply the same hard stop as for an unlisted item — do not assume, do not proceed, ask first.
 
 ---
 
@@ -43,7 +44,7 @@ The following table is the ground truth. Do not guess what exists outside this t
 
 | Credential / Service | Available | Notes |
 |---|---|---|
-| `GITHUB_TOKEN` | ✅ Yes | Auto-provided by GitHub Actions |
+| `GITHUB_TOKEN` | ✅ Yes | Auto-provided by GitHub Actions; scoped to the current repo and its wiki (requires `permissions: contents: write`); cannot push to other repos |
 | `COPILOT_GITHUB_TOKEN` | ✅ Yes (add once) | GitHub PAT; required for Copilot CLI and direct `main` pushes |
 | `YOUTUBE_DATA_API` | ✅ Yes | YouTube video metadata |
 | Any other credential | ❓ Unknown | **STOP. Ask the owner before designing anything that requires it.** |
