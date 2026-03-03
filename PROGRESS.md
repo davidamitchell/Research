@@ -1,6 +1,6 @@
 # Progress
 
-Last updated: 2026-03-03 (research-agenda-curation-coverage)
+Last updated: 2026-03-03 (research-loop-quality-prompt-engineering)
 Last updated: 2026-03-03 (research system: add Research Notes section, follow skill in full)
 Last updated: 2026-03-03 (meta-research backlog items — improve research and knowledge integration)
 Last updated: 2026-03-03 (ai-strategy-risk-reduction-focus)
@@ -35,7 +35,19 @@ Last updated: 2026-03-03 (ai-control-testing-and-assurance)
 
 ## Work Log
 
-### 2026-03-03 — Research Loop (research-agenda-curation-coverage)
+### 2026-03-03 — Research Loop (research-loop-quality-prompt-engineering)
+
+**Completed:**
+
+Research item:
+- `Research/completed/2026-03-03-research-loop-quality-prompt-engineering.md` — completed; corpus audit of 20 items shows quality variation is prompt-caused (Research Skill Output section lifted source engagement from avg 3.1 to 12.8 per item); five targeted additions made to `research-prompt.md` addressing prior-research cross-referencing, explicit source-marking discipline, executive summary specificity, anti-formulaic constraints, and minimum finding size; four-check shell quality gate designed.
+
+Sources consulted:
+- `Research/completed/` corpus (primary — 20 items audited directly)
+- https://arxiv.org/abs/2406.06608 (The Prompt Report: systematic survey of 58+ LLM prompting techniques)
+- https://github.com/danielmiessler/fabric (Fabric extract_wisdom pattern — structured output and minimum output count approach)
+
+
 
 **Completed:**
 

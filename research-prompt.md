@@ -34,6 +34,8 @@ Read `Research/in-progress/<filename>` in full. Understand:
 - The **Approach** (sub-questions to investigate)
 - The **Sources** (starting points — check all of them)
 
+**Prior research cross-reference (mandatory):** Before beginning §2 Investigation, list `Research/completed/` and search for items related to the current research question by tag overlap, title similarity, or explicit references in the item's Sources or Context sections. If any are found, read their Executive Summary and Key Findings. Then add a "Prior research" paragraph at the end of the item's `## Context` section noting what is already known from prior items and what this item must add that is new. If no related items exist, write "Prior research: none" in the Context section and proceed.
+
 ### 4. Research the item — follow the research skill in full
 
 Open `.github/skills/research/SKILL.md` and run every section. Write the complete output into the `## Research Skill Output` section of the item as you go. **This output is retained verbatim in the completed item.**
@@ -42,7 +44,7 @@ Open `.github/skills/research/SKILL.md` and run every section. Write the complet
 
 **§1 Question Decomposition:** Recursively break the Approach sub-questions into atomic questions — each answerable with a single evidence-based claim. Write the decomposition tree into `### §1 Question Decomposition`.
 
-**§2 Investigation:** For each atomic question, run an iterative evidence-gathering loop: gather sources, classify them (primary / secondary / tertiary), extract claims, cross-verify across independent sources, identify contradictions, update the evidence map. Use available web tools (`WebSearch`, `WebFetch`, or `Bash` with curl) to check every source listed in the item and follow leads they produce. Mark each source in the `## Sources` checklist when consulted. Write into `### §2 Investigation`.
+**§2 Investigation:** For each atomic question, run an iterative evidence-gathering loop: gather sources, classify them (primary / secondary / tertiary), extract claims, cross-verify across independent sources, identify contradictions, update the evidence map. Use available web tools (`WebSearch`, `WebFetch`, or `Bash` with curl) to check every source listed in the item and follow leads they produce. **Source marking discipline:** When you consult a source from the `## Sources` checklist, change its `[ ]` to `[x]`. If a source is inaccessible (paywalled, URL broken, or not reachable), leave it `[ ]` and note it in Risks/Gaps as "inaccessible." Do not mark a source `[x]` unless you have read its content or accessed its URL — listing a source's title does not count. Write into `### §2 Investigation`.
 
 **Evidence discipline:**
 - Label every claim as **[fact]**, **[inference]**, or **[assumption]**.
@@ -50,7 +52,9 @@ Open `.github/skills/research/SKILL.md` and run every section. Write the complet
 - **[inference]** = derived from evidence; **[assumption]** = not verified, state the justification.
 - Evidence sufficiency: at least two independent credible sources agree, or a primary source is definitive.
 
-**§3 Reasoning:** Explicitly separate facts, inferences, and assumptions. Remove narrative glue and unsupported generalisations. Write into `### §3 Reasoning`.
+**Quality constraints for Research Skill Output sections:** Do not reproduce section headings from the template without substantive content below them. A section that consists only of a heading and a placeholder or a single sentence of fewer than 30 words is a quality failure. Every section in the Research Skill Output must contain substantive prose that would be defensible to a knowledgeable reader. If a section genuinely has no content (e.g. §4 finds no contradictions), write a one-sentence statement confirming that and why.
+
+ Remove narrative glue and unsupported generalisations. Write into `### §3 Reasoning`.
 
 **§4 Consistency Check:** Scan for internal contradictions and unsupported leaps. Resolve or explicitly flag unresolvable contradictions. Write into `### §4 Consistency Check`.
 
@@ -64,8 +68,8 @@ Open `.github/skills/research/SKILL.md` and run every section. Write the complet
 
 With `## Research Skill Output` complete, copy the §6 Synthesis content into `## Findings` — expanding each component into the full structured subsections. No new claims may appear in Findings that are not already in the Research Skill Output.
 
-- **Executive Summary** — 3–5 sentences. Direct answer to the research question. State the key conclusion first.
-- **Key Findings** — ordered list, 6–12 items. Each is a specific, evidence-backed claim with confidence label (high / medium / low).
+- **Executive Summary** — 3–5 sentences. Direct answer to the research question. **The first sentence must state the answer as a specific, falsifiable claim — not a restatement of the question, not a description of what the item covers, not a hedged "it depends." If the answer is genuinely uncertain, state the best-supported conclusion followed by the primary uncertainty.** State the key conclusion first.
+- **Key Findings** — ordered list, 6–12 items. Each is a specific, evidence-backed claim with confidence label (high / medium / low). **Each Key Finding must be a complete sentence of at least 20 words containing a subject, a verb, and a specific object or complement.** Do not include findings that are reformulations of the research question, findings that apply generically to all research items, or findings that consist only of a label without a claim.
 - **Evidence Map** — table: claim | source | confidence | notes. Every Key Finding must appear here.
 - **Assumptions** — each assumption and its justification. Must match **[assumption]** labels in §2 Investigation.
 - **Analysis** — how evidence was weighed, trade-offs identified, competing interpretations resolved.
