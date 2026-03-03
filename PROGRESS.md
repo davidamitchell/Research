@@ -1,5 +1,6 @@
 # Progress
 
+Last updated: 2026-03-03 (meta-research backlog items — improve research and knowledge integration)
 Last updated: 2026-03-03 (ai-line-1-line-2-risk-agents)
 Last updated: 2026-03-03 (ai-control-testing-and-assurance)
 Last updated: 2026-03-02 (wiki publishing implementation — W-0030)
@@ -30,6 +31,21 @@ Last updated: 2026-03-03 (ai-control-testing-and-assurance)
 ---
 
 ## Work Log
+
+### 2026-03-03 — Meta-research backlog items (improve research and knowledge integration)
+
+**Completed:**
+
+Research items added to `Research/backlog/`:
+- `2026-03-03-knowledge-linking-connected-corpus.md` — How to make the research corpus a connected knowledge network via explicit cross-references, a backlink index, and Zettelkasten-style linking. Prerequisite for cross-item synthesis and the conversational interface's cross-reference navigation.
+- `2026-03-03-research-loop-quality-prompt-engineering.md` — How to systematically evaluate and improve the quality of items produced by the autonomous research loop, including a corpus audit, prompt engineering techniques, and a lightweight CI quality gate design.
+- `2026-03-03-cross-item-synthesis-meta-insights.md` — Methodology and tooling for synthesising across multiple completed items into thematic reports, contradiction maps, and actionable insight summaries. Includes design for a `synthesis` skill and a `synthesise.yml` workflow.
+- `2026-03-03-research-agenda-curation-coverage.md` — How to maintain a balanced research agenda: domain map, coverage metrics, drift detection, prioritisation framework, and a `research agenda` CLI command.
+- `2026-03-03-knowledge-retention-active-recall.md` — Mechanisms for ensuring completed research is recalled and applied: spaced repetition applicability, contextual recall, periodic digest workflow, retention state tracking, and an agent recall instruction for `research-prompt.md`.
+
+These five items form a coherent set addressing both meta-research process improvement (loop quality, agenda curation) and knowledge integration (linking, synthesis, retention).
+
+---
 
 ### 2026-03-03 — Research Loop (ai-line-1-line-2-risk-agents)
 
