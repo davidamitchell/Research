@@ -1,6 +1,6 @@
 # Progress
 
-Last updated: 2026-03-02 (agent-memory-management-context-injection — outcome-based utility ranking, Memory-R1, human memory anti-patterns, model-version drift)
+Last updated: 2026-03-03 (ai-control-testing-and-assurance)
 Last updated: 2026-03-02 (wiki publishing implementation — W-0030)
 Last updated: 2026-03-02 (research-review-ci-step)
 Last updated: 2026-03-02 (ai-not-a-data-problem backlog item)
@@ -29,6 +29,18 @@ Last updated: 2026-03-03 (ai-control-testing-and-assurance)
 ---
 
 ## Work Log
+
+### 2026-03-03 — Research Loop (ai-control-testing-and-assurance)
+
+**Completed:**
+
+Research item:
+- `Research/completed/2026-02-28-ai-control-testing-and-assurance.md` — completed; AI-assisted control testing is production-ready across all major GRC platforms and Big-4 audit firms; AI-generated evidence is acceptable under IAASB/PCAOB standards provided it is validated and subject to human professional judgment; the primary open governance question is Type 3 agents making final control effectiveness determinations without human review.
+
+Sources consulted:
+- https://www.iaasb.org/news-events/2024-10/iaasb-unveils-new-technology-position-shape-future-audit-and-assurance-standards (IAASB Technology Position October 2024)
+- https://www.rbnz.govt.nz/hub/publications/financial-stability-report/2025/may/ai-pre-release/rise-of-the-machines (RBNZ May 2025 Financial Stability Report — AI systemic risk)
+- https://www.theiia.org/globalassets/site/content/tools/professional/aiframework-sept-2024-update.pdf (IIA AI Auditing Framework September 2024)
 
 ### 2026-03-02 — Extend research item with four threads from owner feedback on wiki rot / memory ranking (agent-memory-management-context-injection)
 

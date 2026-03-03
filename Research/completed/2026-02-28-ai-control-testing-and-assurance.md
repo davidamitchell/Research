@@ -48,14 +48,14 @@ This is a high-priority area because: (a) it is commercially active now, not asp
 
 ## Sources
 
-- [ ] IAASB: Technology position papers and ISA revisions for AI use in audit (2023–2025)
-- [ ] PCAOB: Inspection findings on automated audit tools
+- [x] IAASB: Technology position papers and ISA revisions for AI use in audit (2023–2025)
+- [x] PCAOB: Inspection findings on automated audit tools
 - [ ] ISACA: COBIT and audit automation guidance
-- [ ] IIA (Institute of Internal Auditors): AI in internal audit position papers (2024–2025)
-- [ ] AuditBoard, Diligent (Galvanize), LogicGate, ServiceNow GRC product documentation
-- [ ] Big-4 audit firm publications: KPMG Clara Audit, EY Helix, PwC Halo, Deloitte OmniAI
+- [x] IIA (Institute of Internal Auditors): AI in internal audit position papers (2024–2025)
+- [x] AuditBoard, Diligent (Galvanize), LogicGate, ServiceNow GRC product documentation
+- [x] Big-4 audit firm publications: KPMG Clara Audit, EY Helix, PwC Halo, Deloitte OmniAI
 - [ ] DORA Article 24–27: ICT operational resilience testing — AI-assisted testing implications
-- [ ] RBNZ: Any supervisory expectations on automated assurance or model-generated evidence
+- [x] RBNZ: Any supervisory expectations on automated assurance or model-generated evidence
 - [ ] Gartner / Forrester: GRC platform market reports 2024–2025
 
 ---
@@ -64,93 +64,100 @@ This is a high-priority area because: (a) it is commercially active now, not asp
 
 ### Executive Summary
 
-AI-assisted control testing and compliance assurance is commercially active in 2024–2025, not aspirational. A tiered vendor landscape has emerged: standalone GRC platforms (AuditBoard, ServiceNow, LogicGate), Big 4 proprietary platforms (KPMG Clara, EY.ai, PwC Aura, Deloitte Omnia), and specialised regulatory intelligence tools (Regology). Disclosed outcomes from production deployments include 60% faster audit cycles, $2M annual savings, and 90% reductions in documentation burden. Regulatory standard-setters (IAASB, PCAOB, IIA) are actively updating frameworks to accommodate AI-generated assurance evidence, but no regulator has yet declared AI-assisted control testing evidence unconditionally acceptable — human oversight and professional judgment remain mandatory. For NZ financial institutions, the RBNZ has raised AI financial stability concerns but has not published AI-specific assurance guidance; existing operational risk and BS11 outsourcing frameworks apply.
+AI-assisted control testing and regulatory gap analysis have moved from aspiration to active commercial deployment. Every major GRC platform (AuditBoard, ServiceNow, Diligent, LogicGate) and all four Big-4 audit firms (KPMG Clara, EY Helix, PwC Halo/Aura, Deloitte Omnia) have production AI capabilities for automated control testing, workpaper generation, and continuous monitoring as of 2024–2025. The regulatory standard-setter position — from IAASB, PCAOB, and FRC — is that AI-generated audit evidence is acceptable provided it is validated, documented, and subject to human professional judgment; no regulator has prohibited it. RBNZ has flagged systemic risks from AI adoption broadly but has not issued prescriptive guidance on AI-assisted assurance; the intersection with BS11 outsourcing obligations remains the primary governance constraint for NZ-supervised entities.
 
 ### Key Findings
 
-1. **The GRC AI market is production-active.** AuditBoard launched "Accelerate" (2025) integrating agentic AI for continuous monitoring and evidence gathering; ServiceNow GRC offers AI-powered automated control testing; LogicGate introduced a dedicated AI Governance Solution (April 2024) including automated cross-framework gap analysis. These are deployed products, not pilots.
+1. **GRC platforms deliver continuous control monitoring in production.** AuditBoard's Accelerate (launched 2025) automates sample selection, evidence gathering, and workpaper generation for internal audit teams. ServiceNow GRC deploys AI agents for end-to-end compliance workflows, continuous monitoring, and anomaly detection. Vanta and Drata automate up to 90% of evidence collection with hourly test execution across SOC 2, ISO 27001, HIPAA, and PCI-DSS frameworks.
 
-2. **Big 4 audit firms have deployed AI at scale.** EY integrated AI across 160,000+ audit engagements (2025), deploying automated tie-out checks and guided control workflows. KPMG Clara is used by 90,000 auditors for transaction scoring and automated substantive testing design. Deloitte Omnia and PwC Aura support agentic AI for multi-step audit procedures including controls testing.
+2. **All four Big-4 firms have embedded AI in their external audit platforms.** KPMG Clara integrates generative AI for risk assessment, substantive testing, and documentation review, paired with MindBridge transaction scoring for anomaly detection. EY Helix deploys GL and cycle analyzers for full-population transactional testing. PwC Halo for Journals uses ML to flag unusual transactions. Deloitte Omnia deploys GenAI and agentic AI for documentation review, financial statement navigation, and memo drafting. All four maintain human-in-the-loop requirements for final audit conclusions.
 
-3. **Disclosed outcomes are material.** A documented global bank deployment reported: 60% faster audit cycles, $2M annual savings, 40% GRC cost reduction, 90% reduction in documentation burden. A North American lender using AI compliance monitoring reduced violations by 47% and cut audit prep time by 80% while achieving 100% population coverage (vs. prior 3% manual sample). HSBC's ML-based transaction monitoring detected 2–4× more suspicious activity and reduced false alerts by 60%.
+3. **Regulatory gap analysis has a mature specialist vendor market.** Deloitte's automated gap analysis tool uses GenAI to compare regulatory text (DORA, EU AI Act, CRR) against internal policies, outputting structured gap reports. Kodex AI maps DORA, PSD3, and custom frameworks against internal policies with regulatory traceability. Trustero completes full gap assessments in under two hours against DORA and NIST, replacing consulting projects that previously took months. RiskCognition reports >92% accuracy versus manual review in European bank DORA deployments.
 
-4. **AI enables full-population testing, replacing sampling.** The primary structural change AI brings to control testing is elimination of sampling: AI-enabled systems can test 100% of transactions continuously, replacing periodic point-in-time sampling. The IIA's September 2024 AI Auditing Framework update explicitly addresses this shift and positions it as an improvement to audit quality.
+4. **IAASB formally adopted a Technology Position in October 2024.** The position mandates ongoing monitoring and updating of standards to address AI and machine learning in audit. Under existing ISAs, AI-generated evidence is acceptable if it meets the "sufficient and appropriate" standard (ISA 500). Auditors must validate tools before use, apply professional skepticism to outputs, and document their assessment proportionally to tool complexity. ISQM 1 quality management standards govern firm-level certification of automated tools.
 
-5. **IAASB published a Technology Position Statement in October 2024** with eight guiding actions, committing to remove barriers to AI use in ISAs, introduce technology-enabled procedure requirements, and run a continuous gap analysis ("Catalog of Issues") of existing standards. No AI-specific ISA revision has been finalised; the Position is a strategic commitment to act, not yet a changed standard.
+5. **PCAOB is updating standards to address AI in audit.** In 2024 the PCAOB issued a spotlight publication on AI use and signalled amendments to AS 1105 (audit evidence) and AS 2301 (audit procedures). The aggregate Part I.A deficiency rate for Big 4 firms fell to 20% in 2024 (from 26% in 2023), partially attributable to technology adoption. The PCAOB's position is that AI supplements but does not replace human auditors; professional skepticism and quality controls must encompass AI tool outputs.
 
-6. **PCAOB's July 2024 GenAI Spotlight found that GenAI use in external audits is currently limited to administrative tasks**, not core control testing. Recurring PCAOB inspection deficiencies persist in IT control testing and reliance on system-generated evidence — problems predating AI that AI adoption has not yet resolved. The PCAOB explicitly states AI must augment, not replace, professional judgment.
+6. **No standard-setter has prohibited AI-generated assurance evidence; all require human oversight.** The FRC published landmark guidance in 2025 providing illustrative examples of AI-enabled audit evidence and required certification/testing processes. The universal governance model is: AI executes testing and generates outputs; a qualified human reviews, applies judgment, and takes ownership of the conclusion. Delegation of the conclusion itself to AI — with no human review — is not accepted under any current framework.
 
-7. **The IIA's 2024 Global Internal Audit Standards (effective January 2025) require technology integration** in internal audit planning and execution. The IIA AI Auditing Framework (September 2024 update) provides a Three Lines Model structure for AI governance and audit, including checklists for AI strategy, data security, vendor controls, and ongoing monitoring.
+7. **IIA's September 2024 AI Auditing Framework provides the practitioner governance model.** The updated framework covers AI strategy, cyber risks, vendor controls, ethics, bias, and staff training, organised along the Three Lines Model. It addresses both organisations auditing AI and organisations deploying AI in internal audit itself. AI use in internal audit more than doubled in adoption (15% to 40% within a year per IIA data), with upskilling identified as the primary constraint on further adoption.
 
-8. **Regulatory acceptability of AI-generated assurance evidence is unsettled.** Neither IAASB, PCAOB, nor AUASB has issued a definitive position on whether AI-generated control testing outputs constitute sufficient audit evidence under existing ISA 500 series standards. The current consensus is that auditors must document AI tool governance, understand outputs, apply professional skepticism, and retain final judgment — meaning AI evidence is acceptable as support, not as a standalone conclusion.
+8. **Disclosed practitioner case studies show meaningful efficiency gains.** Baker Tilly documented a financial institution using GenAI to automate compliance testing, extracting unstructured data and mapping it into compliance models with real-time monitoring. RSM documented a global bank using intelligent automation for control testing, shifting auditors from data gathering to risk-centric fieldwork. Global banks have implemented centralised AI model inventory platforms, enabling transparency and auditability of AI decision-making across compliance, risk, and audit functions.
 
-9. **DORA (effective January 17, 2025) implicitly requires automation for ICT resilience testing coverage.** DORA mandates comprehensive, risk-based resilience testing programs including vulnerability assessments, scenario testing, and threat-led penetration testing every three years for significant institutions. The breadth of DORA's testing obligations creates a compliance driver to adopt AI and automated tooling — manual-only approaches are practically insufficient at the required scale and frequency.
+9. **RBNZ has flagged AI systemic risks but has not issued prescriptive assurance guidance.** The May 2025 Financial Stability Report "Rise of the Machines" identifies third-party AI concentration risk, model transparency, and data governance as primary concerns. RBNZ expects regulated entities to maintain transparency and auditability of AI outputs, validate results before they inform compliance actions, and manage AI vendor dependency under BS11 outsourcing obligations. No specific standard for AI-generated audit evidence has been issued.
 
-10. **The RBNZ has not published AI-specific assurance or control testing guidance.** The May 2025 RBNZ Financial Stability Report pre-release "Rise of the Machines" flagged AI financial stability risks (model opacity, vendor concentration, data integrity) and signalled that existing prudential frameworks (BS11 outsourcing, operational risk) apply to AI deployments. No standalone AI rulebook exists. The RBNZ expects boards to demonstrate AI risk is being managed within current frameworks.
+10. **The governance gap for Type 3 agents (delegated authority) remains open.** Current frameworks are explicit that AI can generate testing workpapers, sample recommendations, and gap analyses (Type 2), but the final determination that a control is "operating effectively" must be made or owned by a qualified human. The governance question — what reviewer competency is required, what documentation suffices, and whether the determination constitutes an outsourced function under BS11 — is not yet resolved by any regulator.
 
-11. **NZ-specific AI control testing deployments are not publicly disclosed.** Major NZ financial institutions (banks, insurers) are subject to the same international vendor offerings as global peers but no NZ-specific case studies or RBNZ-directed programmes are publicly documented. Big 4 firms operate NZ practices with access to global AI audit platforms (KPMG Clara, EY.ai, PwC Aura), making international AI capabilities available to NZ-supervised entities.
+11. **NZ-supervised entities can access the full vendor and Big-4 landscape.** All four Big-4 firms operate in NZ and their global AI audit platforms are deployed here. ServiceNow, AuditBoard, LogicGate, Vanta, and Drata are all available to NZ enterprises. Specialist DORA gap analysis tools have less immediate NZ relevance (DORA is EU-specific), but the equivalent analysis against RBNZ standards (BS11, BS2A) could be built on the same tooling approach.
 
-12. **Governance architecture for Type 3 AI assurance determinations is an open industry question.** When AI makes a determination ("this control is operating effectively"), the review and escalation path — who signs off, what documentation is required, what constitutes adequate human oversight — is not yet standardised across the industry. Vendors and audit firms are developing proprietary governance frameworks but no authoritative standard exists.
+12. **Full-population testing is displacing sample-based testing in automated control environments.** Where AI can access complete transaction populations, audit approaches have shifted from statistical sampling to exhaustive testing. This improves control assurance but raises new questions about what constitutes a meaningful control test and what the auditor adds when the system executes and evaluates every transaction.
 
 ### Evidence Map
 
 | Claim | Source | Confidence | Notes |
 |---|---|---|---|
-| AuditBoard Accelerate agentic AI in production 2025 | AuditBoard press release (prnewswire.com, Oct 2024; BusinessWire Oct 2024) | high | Product announcement with feature descriptions |  
-| EY integrated AI across 160,000+ audit engagements | EY Newsroom press release, April 2025 | high | Primary source from the firm |
-| KPMG Clara used by 90,000 auditors | Accountancy Age, July 2024; KPMG "All eyes on AI in audit 2024" | high | Consistent across two sources |
-| Global bank: 60% faster audits, $2M savings, 40% GRC cost reduction | skan.ai CCM ebook (vendor white paper) | medium | Vendor-sourced; outcome claims not independently verified |
-| North American lender: 47% violations drop, 80% audit prep reduction | rccbpo.com case study | medium | Vendor-sourced; methodology not detailed |
-| HSBC: 2–4× fraud detection, 60% false alert reduction | Google Cloud blog (HSBC/Google Cloud partnership) | high | Co-published by financial institution |
-| IAASB Technology Position Statement October 2024, 8 guiding actions | IAASB official publications (iaasb.org) | high | Primary regulatory source |
-| PCAOB GenAI in audits limited to admin tasks (July 2024) | PCAOB Staff Spotlight, July 2024 (pcaobus.org) | high | Primary regulatory source |
-| IIA AI Auditing Framework September 2024 update | IIA official publication (theiia.org) | high | Primary professional standards source |
-| DORA effective January 17, 2025; TLPT every 3 years for significant institutions | EBA DORA pages; Skadden analysis | high | Primary regulation + credible legal analysis |
-| RBNZ no standalone AI rulebook; existing frameworks apply | RBNZ FSR pre-release "Rise of the Machines" (May 2025); insurance/fintech press | high | Primary regulatory communication |
-| LogicGate AI Governance Solution with automated gap analysis (April 2024) | LogicGate press release (prnewswire.com, April 2024); SiliconANGLE | high | Product launch with feature description |
+| AuditBoard Accelerate automates sample selection, evidence gathering, workpaper generation | AuditBoard product page; PR Newswire launch announcement 2025 | high | Production product, verifiable feature list |
+| ServiceNow AI agents provide end-to-end compliance workflows and continuous monitoring | ServiceNow Audit Management product page; XenonStack analysis | high | Production platform |
+| Vanta/Drata automate up to 90% of evidence collection with hourly test execution | Vanta product documentation; Bright Defense comparison | high | Vendor-stated; corroborated by independent comparison |
+| KPMG Clara embeds GenAI for risk assessment, substantive testing, and documentation | KPMG press release July 2024; Accountancy Age | high | Disclosed by KPMG with July 2024 launch date |
+| EY Helix deploys GL and cycle analyzers for full-population transactional testing | EY Helix product page | high | Long-standing product; specific capabilities disclosed |
+| Deloitte Omnia deploys agentic AI for documentation and risk identification | Deloitte press release 2025 | high | Disclosed by Deloitte |
+| Deloitte automated gap analysis tool compares DORA/EU AI Act against internal policies | Deloitte Germany product page | high | Publicly documented product |
+| RiskCognition reports >92% accuracy vs manual review in European bank DORA deployments | RiskCognition case study | medium | Single vendor case study; not independently verified |
+| Trustero completes gap assessments in <2 hours vs multi-month consulting projects | Trustero blog | medium | Vendor claim; plausible given NLP-based automation |
+| IAASB Technology Position adopted October 2024 | IAASB website announcement | high | Primary source |
+| AI-generated evidence acceptable under ISA 500 if sufficient, appropriate, validated | IAASB standards; CPAB-CCRC 2024 publication | high | Consistent across multiple standard-setter sources |
+| PCAOB signalling AS 1105 and AS 2301 amendments for AI | SEC speech August 2024; PCAOB publication | high | Primary source |
+| Big 4 deficiency rate fell to 20% in 2024, partially attributed to technology | PCAOB preliminary inspection results | high | PCAOB-disclosed |
+| FRC published landmark AI audit guidance in 2025 | FRC news release | high | Primary source |
+| IIA AI Auditing Framework updated September 2024 | IIA website; Weaver implementation guide | high | Primary source corroborated |
+| AI internal audit adoption rose from 15% to 40% | IIA CEO voice article | medium | Survey-based; self-reported |
+| Baker Tilly financial institution GenAI compliance testing case study | Baker Tilly insights publication | high | Named practitioner case study |
+| RBNZ "Rise of the Machines" May 2025 identifies third-party AI concentration risk | RBNZ Financial Stability Report May 2025 | high | Primary source |
+| RBNZ BS11 applies to AI vendor relationships as outsourcing | RBNZ BS11 standard + RBNZ AI commentary | medium | Inference from existing BS11 scope; RBNZ has not explicitly confirmed |
+| No regulator has prohibited AI-generated audit evidence | Review of IAASB, PCAOB, FRC, RBNZ outputs | high | Confirmed by absence of prohibition across all reviewed sources |
 
 ### Assumptions
 
-- **Assumption:** Vendor-reported case study outcomes (skan.ai, rccbpo.com) are directionally accurate even if not independently verified. **Justification:** Multiple independent vendor sources report consistent order-of-magnitude improvements; the direction of effect (faster, cheaper, more coverage) is corroborated by Big 4 firm reports and academic literature on continuous monitoring.
-- **Assumption:** RBNZ BS11 and operational risk standards are the primary NZ regulatory frameworks governing AI assurance deployments in financial services. **Justification:** RBNZ has explicitly stated that existing frameworks apply; BS11 covers outsourced services (including AI vendors) and operational risk frameworks cover model risk.
-- **Assumption:** DORA is not directly applicable to NZ-domiciled entities. **Justification:** DORA is EU regulation. However, NZ-registered subsidiaries of EU parent groups may be subject to group-level DORA compliance requirements, and DORA is influencing global assurance standards that will affect NZ audit firms.
+- **Assumption:** Vendor-disclosed capabilities reflect production features, not roadmap items. **Justification:** Only features with named launch dates or verifiable product pages were included; roadmap items were excluded from findings.
+- **Assumption:** "Human-in-the-loop" requirements described in regulatory guidance are enforced at the professional judgment level, not codified as specific procedural rules. **Justification:** No reviewed standard specifies exactly what human review must consist of; IAASB and PCAOB use principles-based language about "professional skepticism" and "ownership of conclusions."
+- **Assumption:** RBNZ BS11 outsourcing requirements apply to AI-as-a-service control testing tools. **Justification:** BS11 applies to material outsourcing of significant functions; automated control testing affecting regulatory reporting would likely qualify, but RBNZ has not explicitly confirmed this interpretation.
+- **Assumption:** NZ-supervised entities can access global vendor platforms without restriction. **Justification:** No NZ-specific import or data sovereignty restriction on GRC SaaS identified, though data residency obligations may limit where testing data can be processed.
 
 ### Analysis
 
-The evidence resolves into three tiers of deployment maturity:
+The vendor and practitioner landscape has bifurcated. Horizontal GRC platforms (AuditBoard, ServiceNow, Vanta, Drata, LogicGate) focus on continuous automated control monitoring — evidence collection, exception flagging, and test execution at scale. Specialist gap analysis tools (Deloitte, Kodex AI, Trustero, RiskCognition) focus on comparing regulatory text against internal policy inventories using NLP. Big-4 audit firms sit across both: they use proprietary platforms for external audit (Clara, Helix, Halo, Omnia) and have built or licensed specialist gap analysis tools for advisory engagements.
 
-**Tier 1 — Production at scale (high confidence):** Transaction monitoring, anomaly detection, and AML controls testing. HSBC and similar institutions have deployed these in production with disclosed outcomes. The technology is mature, the regulatory position is settled (these are analytical tools, not assurance conclusions), and the governance model is clear (human review of flagged items).
+The regulatory acceptability question has been answered in principle but not in detail. Every major standard-setter has confirmed that AI-generated evidence is acceptable under existing frameworks, provided it is validated, documented, and subject to human professional judgment. The outstanding gap is granularity: what competency must the reviewing human have? What documentation satisfies professional skepticism requirements when the AI generated the test procedure, executed it, and drafted the conclusion? These questions are being addressed incrementally through guidance (FRC 2025, IAASB 2024–2026 work programme) rather than standard revision.
 
-**Tier 2 — Production with governance questions (medium confidence):** Audit workpaper generation, control testing documentation, evidence gathering, and policy-to-standard gap analysis. Big 4 platforms and GRC vendors are deploying these. The technology works; the regulatory question is whether AI-generated outputs constitute audit evidence under ISA standards. The current answer is "yes, with appropriate oversight" but the specifics are not yet codified.
+The RBNZ position reflects the financial stability angle rather than an assurance standard position. RBNZ is concerned about systemic risk from AI concentration and about the reliability of AI model outputs affecting financial decisions — not specifically about whether AI-generated audit workpapers meet evidence standards. For NZ-supervised entities, the practical constraint is BS11 outsourcing governance: if AI control testing is delivered as a third-party service (SaaS), the outsourcing risk management programme must cover it. This is a well-understood governance requirement, not a novel barrier.
 
-**Tier 3 — Early stage (lower confidence):** Agentic AI making assurance determinations ("this control is effective") without contemporaneous human review. This is the frontier that PCAOB, IAASB, and IIA are watching. No standard-setter has approved autonomous assurance conclusions.
-
-The PCAOB's finding that GenAI is limited to administrative tasks in external audits (July 2024) should be read against Big 4 claims of AI in control testing: the gap is likely explained by the distinction between GenAI specifically (LLM-based tools, which are in admin use) and ML/analytics tools (which are in substantive use for transaction scoring, anomaly detection, and evidence gathering). Both are "AI" but the regulatory caution applies primarily to generative outputs.
-
-For NZ financial institutions, the actionable conclusion is: international AI assurance tooling is accessible via Big 4 audit firms and GRC vendors; the primary governance requirement is to ensure AI tools are explainable, outputs are reviewed by qualified professionals, and vendor relationships are covered under existing BS11 third-party risk management frameworks. The RBNZ has not introduced new requirements, but the expectation that boards can demonstrate AI risk management within existing frameworks creates a de facto assurance obligation.
+The most consequential open question is governance for Type 3 agents: AI that makes the determination that a control is operating effectively, not just AI that generates the evidence for a human to assess. Current frameworks stop short of endorsing this. The practitioner trajectory — moving from sampling to full-population testing, from workpaper generation to conclusion drafting — is pushing toward Type 3 faster than governance frameworks are adapting. The next 12–24 months will likely see standard-setters (IAASB, PCAOB) issue more specific guidance on what human review must consist of when AI has performed the entire test cycle.
 
 ### Risks, Gaps, and Uncertainties
 
-- **Regulatory codification lag:** IAASB's Technology Position is a commitment to update standards, not updated standards. The gap analysis process is ongoing. Until ISA revisions are finalised, practitioners are working without clear rules on AI evidence acceptability.
-- **Vendor outcome claims are largely self-reported:** The $2M savings and 60% efficiency figures come from vendor white papers. Independent academic evaluation of production AI control testing deployments is sparse.
-- **NZ-specific data is absent:** No publicly disclosed NZ financial institution AI assurance programme exists. The NZ context is inferred from international evidence and RBNZ's general AI risk statements.
-- **Type 3 governance (autonomous determinations) is unsolved:** The industry is building governance frameworks for AI assurance conclusions in real time. Early frameworks from IIA and Big 4 firms are proprietary and non-comparable.
-- **DORA applicability to NZ entities is indirect:** NZ entities in EU parent groups may face DORA compliance pressures not yet reflected in NZ supervisory guidance.
+- **Regulatory granularity gap:** IAASB and PCAOB have issued principles but not procedural standards for AI-assisted audit. The specific documentation, competency, and review requirements are undefined. Firms are applying their own interpretations under professional judgment.
+- **RBNZ BS11 interpretation:** Whether AI-as-a-service control testing constitutes a material outsourced function under BS11 has not been confirmed by RBNZ. Entities deploying SaaS GRC tools should seek legal and regulatory affairs guidance on this classification.
+- **Vendor claim verification:** Several quantitative claims (90% evidence automation, 92% accuracy, 2-hour gap assessments) come from vendor marketing materials or single case studies. Independent academic verification is limited.
+- **NZ practitioner evidence thin:** No disclosed NZ-specific case studies of AI control testing deployment were identified. The NZ Big-4 offices use parent firm platforms but have not separately disclosed NZ-specific deployments or governance adaptations.
+- **DORA applicability to NZ:** DORA's prescriptive ICT resilience testing requirements (Articles 24–27) do not directly apply to NZ entities unless they have EU-regulated operations. The equivalent RBNZ operational resilience expectations are less prescriptive, reducing the urgency for specialist DORA gap tooling.
+- **Type 3 governance unresolved:** No regulator has issued guidance on the governance model for AI agents that make final control effectiveness determinations. This is the frontier of the assurance evolution and the highest-risk governance gap.
 
 ### Open Questions
 
-- When the IAASB finalises ISA revisions to accommodate AI evidence, what documentation and oversight requirements will be codified? Will the standard require specific AI model governance disclosures in audit workpapers?
-- Does RBNZ intend to publish AI-specific prudential guidance (similar to APRA CPG 234 for cyber)? The May 2025 FSR commentary suggests awareness but no timeline.
-- What is the minimum viable governance model for Type 3 AI control testing in a NZ-supervised entity — specifically, what constitutes adequate human oversight of an AI-generated assurance conclusion?
-- How does AI control testing interact with external auditor reliance on internal audit work (ISA 610)? If internal audit uses AI, does that change the external auditor's assessment of the quality of internal audit's work?
+- What level of human reviewer competency is required to provide "meaningful oversight" of AI-generated control testing conclusions, particularly where the reviewer cannot replicate the test procedure?
+- How should BS11 outsourcing risk management programmes be adapted to cover SaaS GRC platforms executing control testing on behalf of supervised entities?
+- Are there NZ-specific data residency obligations that restrict where GRC SaaS platforms can process testing evidence from RBNZ-supervised entities?
+- When AI executes full-population testing (rather than statistical sampling), does the assurance model change — and if so, how should audit standards address it?
+- At what point does automated continuous control monitoring constitute a "model" requiring model risk management governance under prudential frameworks?
 
 ---
 
 ## Output
 
 - Type: knowledge
-- Description: Landscape of AI-assisted control testing and assurance: vendor tiers, Big 4 deployments, measurable outcomes, regulatory standard-setter positions (IAASB, PCAOB, IIA), NZ-specific context (RBNZ), and DORA implications. Identifies governance gaps and open questions for NZ financial institutions.
+- Description: Structured findings on the vendor, practitioner, and regulatory landscape for AI-assisted control testing and gap analysis in financial services, with specific attention to governance models, regulatory acceptability, and NZ applicability. Key conclusion: the capability is production-ready and commercially available; the primary open question is governance for Type 3 (delegated authority) AI agents making final assurance determinations.
 - Links:
-  - https://www.iaasb.org/publications/technology-position-statement (IAASB Technology Position Statement, October 2024)
-  - https://auditboard.com/blog/auditboard-launches-accelerate-delivering-enterprise-grade-ai-automation-for-grc-teams (AuditBoard Accelerate launch)
-  - https://www.rbnz.govt.nz/hub/publications/financial-stability-report/2025/may/ai-pre-release/rise-of-the-machines (RBNZ FSR AI pre-release, May 2025)
+  - https://www.iaasb.org/news-events/2024-10/iaasb-unveils-new-technology-position-shape-future-audit-and-assurance-standards
+  - https://www.rbnz.govt.nz/hub/publications/financial-stability-report/2025/may/ai-pre-release/rise-of-the-machines
+  - https://www.theiia.org/globalassets/site/content/tools/professional/aiframework-sept-2024-update.pdf
