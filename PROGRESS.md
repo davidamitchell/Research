@@ -1,6 +1,6 @@
 # Progress
 
-Last updated: 2026-03-03 (ai-strategy-business-efficiency-examples)
+Last updated: 2026-03-03 (ai-strategy-risk-reduction-focus)
 Last updated: 2026-03-03 (ai-line-1-line-2-risk-agents)
 Last updated: 2026-03-03 (ai-control-testing-and-assurance)
 Last updated: 2026-03-02 (wiki publishing implementation — W-0030)
@@ -31,6 +31,18 @@ Last updated: 2026-03-03 (ai-control-testing-and-assurance)
 ---
 
 ## Work Log
+
+### 2026-03-03 — Research Loop (ai-strategy-risk-reduction-focus)
+
+**Completed:**
+
+Research item:
+- `Research/completed/2026-02-28-ai-strategy-risk-reduction-focus.md` — completed; HSBC and JPMorgan are the best-documented cases (60–95% false positive reductions in AML/fraud); SR 11-7 remains the global reference framework for AI model risk, augmented for AI with explainability, bias testing, and drift monitoring requirements; RBNZ has no AI-specific supervisory guidance as of early 2025 and NZ banks default to BS11 for outsourced AI and BPR capital requirements for model governance; the dominant failure modes are training-data bias (CFPB enforcement guidance 2022–2023) and concept drift under economic stress.
+
+Sources consulted:
+- https://www.hsbc.com/news-and-views/views/hsbc-views/harnessing-the-power-of-ai-to-fight-financial-crime (HSBC AML AI outcomes)
+- https://www.bis.org/fsi/publ/insights63.pdf (BIS FSI Insights No. 63: Regulating AI in the financial sector, Dec 2024)
+- https://www.consumerfinance.gov/about-us/newsroom/cfpb-issues-guidance-on-credit-denials-by-lenders-using-artificial-intelligence/ (CFPB AI credit denial guidance)
 
 ### 2026-03-03 — Research Loop (ai-strategy-business-efficiency-examples)
 
