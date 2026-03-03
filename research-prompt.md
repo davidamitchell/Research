@@ -34,15 +34,15 @@ Read `Research/in-progress/<filename>` in full. Understand:
 - The **Approach** (sub-questions to investigate)
 - The **Sources** (starting points — check all of them)
 
-### 4. Research the item — follow the research skill
+### 4. Research the item — follow the research skill in full
 
-Open `.github/skills/research/SKILL.md` and apply its process in full. The steps below map to the skill's sections.
+Open `.github/skills/research/SKILL.md` and run every section. Write the complete output into the `## Research Skill Output` section of the item as you go. **This output is retained verbatim in the completed item.**
 
-**4a. Initialise (Skill §0):** Restate the research question. Confirm scope and constraints. Identify the output format required.
+**§0 Initialise:** Restate the research question. Confirm scope, constraints, and output format. Write into `### §0 Initialise`.
 
-**4b. Decompose (Skill §1):** Recursively break the Approach sub-questions into atomic questions — questions answerable with a single evidence-based claim. Write these into the `## Research Notes → Question Decomposition` section.
+**§1 Question Decomposition:** Recursively break the Approach sub-questions into atomic questions — each answerable with a single evidence-based claim. Write the decomposition tree into `### §1 Question Decomposition`.
 
-**4c. Investigate (Skill §2):** For each atomic question, run an iterative evidence-gathering loop: gather sources, classify them (primary / secondary / tertiary), extract claims, cross-verify across independent sources, identify contradictions, update the evidence map. Use available web tools (`WebSearch`, `WebFetch`, or `Bash` with curl) to check every source listed in the item and follow leads they produce. Mark each source in the `## Sources` checklist when consulted.
+**§2 Investigation:** For each atomic question, run an iterative evidence-gathering loop: gather sources, classify them (primary / secondary / tertiary), extract claims, cross-verify across independent sources, identify contradictions, update the evidence map. Use available web tools (`WebSearch`, `WebFetch`, or `Bash` with curl) to check every source listed in the item and follow leads they produce. Mark each source in the `## Sources` checklist when consulted. Write into `### §2 Investigation`.
 
 **Evidence discipline:**
 - Label every claim as **[fact]**, **[inference]**, or **[assumption]**.
@@ -50,24 +50,28 @@ Open `.github/skills/research/SKILL.md` and apply its process in full. The steps
 - **[inference]** = derived from evidence; **[assumption]** = not verified, state the justification.
 - Evidence sufficiency: at least two independent credible sources agree, or a primary source is definitive.
 
-**4d. Consistency and lens check (Skill §§3–5):** Scan for internal contradictions and unsupported leaps. Re-evaluate findings through relevant lenses (technical, regulatory, economic, historical, behavioural). Resolve or explicitly flag contradictions.
+**§3 Reasoning:** Explicitly separate facts, inferences, and assumptions. Remove narrative glue and unsupported generalisations. Write into `### §3 Reasoning`.
 
-Write all investigation output — decomposition, evidence, consistency notes — into the `## Research Notes` section of the item. **These notes are retained verbatim in the completed item.**
+**§4 Consistency Check:** Scan for internal contradictions and unsupported leaps. Resolve or explicitly flag unresolvable contradictions. Write into `### §4 Consistency Check`.
 
-### 5. Fill in the Findings section
+**§5 Depth and Breadth Expansion:** Re-evaluate findings through relevant lenses (technical, regulatory, economic, historical, behavioural). Add any new insights. Write into `### §5 Depth and Breadth Expansion`.
 
-With the `## Research Notes` section complete, produce the Section 6 Synthesis (Skill §6) and write it into `## Findings`. Every subsection must be derived from the Research Notes above — no new claims.
+**§6 Synthesis:** Produce the structured synthesis output and write it into `### §6 Synthesis` in the Research Skill Output section.
+
+**§7 Recursive Review:** Validate that every section is justified, all threads synthesised, every claim sourced or labelled, all uncertainties explicit. Record the outcome in `### §7 Recursive Review`.
+
+### 5. Seed the Findings section from §6
+
+With `## Research Skill Output` complete, copy the §6 Synthesis content into `## Findings` — expanding each component into the full structured subsections. No new claims may appear in Findings that are not already in the Research Skill Output.
 
 - **Executive Summary** — 3–5 sentences. Direct answer to the research question. State the key conclusion first.
 - **Key Findings** — ordered list, 6–12 items. Each is a specific, evidence-backed claim with confidence label (high / medium / low).
 - **Evidence Map** — table: claim | source | confidence | notes. Every Key Finding must appear here.
-- **Assumptions** — each assumption and its justification. Must match **[assumption]** labels in Research Notes.
+- **Assumptions** — each assumption and its justification. Must match **[assumption]** labels in §2 Investigation.
 - **Analysis** — how evidence was weighed, trade-offs identified, competing interpretations resolved.
 - **Risks, Gaps, and Uncertainties** — what is still unknown; where evidence is thin.
 - **Open Questions** — questions that surfaced but are out of scope; may become new backlog items.
 - **Output section** — type (`knowledge`), description, and links to the three most important sources.
-
-Run the recursive review (Skill §7): every section must be justified, all threads synthesised, every claim sourced or labelled inference, all uncertainties explicit.
 
 **Writing style:**
 - Direct, declarative prose. State findings as facts or clearly labelled inferences.

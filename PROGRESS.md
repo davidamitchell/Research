@@ -1,7 +1,7 @@
 # Progress
 
+Last updated: 2026-03-03 (research system: full skill output in completed items, seeds Findings)
 Last updated: 2026-03-03 (research system: add Research Notes section, follow skill in full)
-Last updated: 2026-03-03 (reprioritise backlog — 5 new meta-research items set to high, others lowered to medium)
 Last updated: 2026-03-03 (meta-research backlog items — improve research and knowledge integration)
 Last updated: 2026-03-03 (ai-line-1-line-2-risk-agents)
 Last updated: 2026-03-03 (ai-control-testing-and-assurance)
@@ -33,6 +33,10 @@ Last updated: 2026-03-03 (ai-control-testing-and-assurance)
 ---
 
 ## Work Log
+
+### 2026-03-03 — Research system: full skill output retained, seeds Findings
+
+Replaced `## Research Notes` with `## Research Skill Output` in `Research/_template.md`. The new section has explicit subsections for every research skill step (§§0–7): §0 Initialise, §1 Question Decomposition, §2 Investigation, §3 Reasoning, §4 Consistency Check, §5 Depth and Breadth Expansion, §6 Synthesis, §7 Recursive Review. The full output is retained verbatim in the completed item. §6 Synthesis seeds the `## Findings` section (which keeps the existing structured subsections). Updated `research-prompt.md` steps 4–5 and `AGENTS.md` Conducting Research to match.
 
 ### 2026-03-03 — Research system: add Research Notes section and explicit skill follow-through
 

@@ -46,25 +46,67 @@ Starting points — papers, articles, videos, repos, docs.
 
 ---
 
-## Research Notes
+## Research Skill Output
 
-*(Fill in during investigation — step 4 of the research loop. Follow the research SKILL.md process: decompose the Approach sub-questions into atomic questions, gather evidence iteratively with sufficiency checks, apply consistency and multi-lens review. These notes are the raw output of running the skill and are retained verbatim in the completed item.)*
+*(Full output from running the research skill — retained verbatim in the completed item. §§0–5 are the investigation; §6 seeds the Findings section below.)*
 
-### Question Decomposition
+### §0 Initialise
 
-Sub-questions from the Approach broken into atomic answerable questions.
-
--
-
-### Evidence and Observations
-
-Key evidence, claims, and observations gathered per sub-question. Label each **[fact]**, **[inference]**, or **[assumption]**.
+Restate the research question. Confirm scope, constraints, and output format.
 
 -
 
-### Consistency and Lens Check
+### §1 Question Decomposition
 
-Contradictions found and resolved. Findings re-examined through relevant lenses (technical, regulatory, economic, historical, behavioural).
+Approach sub-questions broken into atomic questions — each answerable with a single evidence-based claim.
+
+-
+
+### §2 Investigation
+
+Evidence gathered per atomic question. Label each claim: **[fact]**, **[inference]**, or **[assumption]** with source.
+
+-
+
+### §3 Reasoning
+
+Facts, inferences, and assumptions explicitly separated. No unsupported generalisations or narrative leaps.
+
+-
+
+### §4 Consistency Check
+
+Internal contradictions identified and resolved (or explicitly flagged where unresolvable).
+
+-
+
+### §5 Depth and Breadth Expansion
+
+Findings re-examined through relevant lenses (technical, regulatory, economic, historical, behavioural).
+
+-
+
+### §6 Synthesis
+
+*(This section seeds the Findings below.)*
+
+**Executive summary:**
+
+**Key findings:**
+
+**Evidence map:**
+
+**Assumptions:**
+
+**Analysis:**
+
+**Risks, gaps, uncertainties:**
+
+**Open questions:**
+
+### §7 Recursive Review
+
+Final pass: every section justified, all threads synthesised, every claim sourced or labelled, all uncertainties explicit.
 
 -
 
@@ -72,7 +114,7 @@ Contradictions found and resolved. Findings re-examined through relevant lenses 
 
 ## Findings
 
-*(Section 6 Synthesis from the research skill — derived from Research Notes above.)*
+*(Populated from §6 Synthesis above.)*
 
 ### Executive Summary
 
