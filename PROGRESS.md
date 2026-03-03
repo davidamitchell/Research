@@ -1,6 +1,6 @@
 # Progress
 
-Last updated: 2026-03-03 (ai-line-1-line-2-risk-agents)
+Last updated: 2026-03-03 (ai-strategy-business-efficiency-examples)
 Last updated: 2026-03-03 (ai-line-1-line-2-risk-agents)
 Last updated: 2026-03-03 (ai-control-testing-and-assurance)
 Last updated: 2026-03-02 (wiki publishing implementation — W-0030)
@@ -31,6 +31,18 @@ Last updated: 2026-03-03 (ai-control-testing-and-assurance)
 ---
 
 ## Work Log
+
+### 2026-03-03 — Research Loop (ai-strategy-business-efficiency-examples)
+
+**Completed:**
+
+Research item:
+- `Research/completed/2026-02-28-ai-strategy-business-efficiency-examples.md` — completed; only 26% of organisations globally have scaled AI to visible business value; the dominant failure modes are data poverty, absence of change management, and pilot-itis (failure to scale beyond proof-of-concept); ANZ Bank is the best-documented near-peer case study in the region with $1.9B productivity savings since 2019; NZ-specific data shows 91% of businesses report efficiency improvements but 68% of SMEs have no AI plans, representing structural risk to NZ's $76B GDP projection.
+
+Sources consulted:
+- https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai-2024 (McKinsey State of AI 2024 — adoption rates, productivity outcomes)
+- https://www.bcg.com/press/24october2024-ai-adoption-in-2024-74-of-companies-struggle-to-achieve-and-scale-value (BCG AI Adoption 2024 — 74% struggle to scale; AI leaders benchmarks)
+- https://aiforum.org.nz/reports/ai-in-action-key-findings-from-new-zealands-third-ai-productivity-report/ (AI Forum NZ Third AI Productivity Report — NZ-specific efficiency data)
 
 ### 2026-03-03 — Research Loop (ai-line-1-line-2-risk-agents)
 
