@@ -161,7 +161,14 @@ Once the item is in `Research/in-progress/`, investigate using the **`research` 
 **Invoke the research skill:**
 - **Claude Code:** Run `/research` (requires submodule — `git submodule update --init` first)
 - **GitHub Copilot / other agent:** Open `.github/skills/research/SKILL.md` and follow its process step by step as the agent
-- **Fallback (submodule not initialised):** Apply the skill logic inline — work through every sub-question in the Approach section, map every claim to a source, and complete all Findings subsections before marking complete
+- **Fallback (submodule not initialised):** Follow the equivalent steps in `research-prompt.md` §4, which mirrors the skill in full
+
+**Follow the skill's full process and write investigation output into `## Research Notes`:**
+1. **Decompose** (Skill §1) — break Approach sub-questions into atomic questions; record in `## Research Notes → Question Decomposition`
+2. **Investigate** (Skill §2) — gather evidence iteratively; label each claim **[fact]**, **[inference]**, or **[assumption]**; record in `## Research Notes → Evidence and Observations`
+3. **Consistency and lens check** (Skill §§3–5) — resolve contradictions; re-examine through relevant lenses; record in `## Research Notes → Consistency and Lens Check`
+
+The `## Research Notes` section is **retained verbatim** in the completed item. It is the raw output of running the skill.
 
 **Use MCP tools throughout the investigation** (full reference: [Using MCP in research tasks](#using-mcp-in-research-tasks)):
 - `brave_search` or `tavily` — discover sources, verify claims, and find current information
@@ -169,11 +176,11 @@ Once the item is in `Research/in-progress/`, investigate using the **`research` 
 - `arxiv` — locate and fetch academic papers referenced in Sources
 - `sequential_thinking` — plan the synthesis structure before writing Findings
 - `time` — get today's date for `started` and `completed` timestamps
-- `filesystem` — read the item file and write Findings directly
+- `filesystem` — read the item file and write Research Notes and Findings directly
 - `memory` — persist state if the investigation spans multiple sessions
 - `github` — read issue or PR context when the item was spawned from one
 
-**Complete all Findings subsections** before moving to the complete step: Executive Summary, Key Findings, Evidence Map, Assumptions, Analysis, Risks/Gaps, Open Questions, and Output.
+**Derive `## Findings` from `## Research Notes`:** Once the Research Notes are complete, write the Section 6 Synthesis (Skill §6) into the Findings section — Executive Summary, Key Findings, Evidence Map, Assumptions, Analysis, Risks/Gaps, Open Questions, and Output. Every claim in Findings must trace back to the Research Notes above it.
 
 ### Completing Research
 

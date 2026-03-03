@@ -46,9 +46,33 @@ Starting points — papers, articles, videos, repos, docs.
 
 ---
 
+## Research Notes
+
+*(Fill in during investigation — step 4 of the research loop. Follow the research SKILL.md process: decompose the Approach sub-questions into atomic questions, gather evidence iteratively with sufficiency checks, apply consistency and multi-lens review. These notes are the raw output of running the skill and are retained verbatim in the completed item.)*
+
+### Question Decomposition
+
+Sub-questions from the Approach broken into atomic answerable questions.
+
+-
+
+### Evidence and Observations
+
+Key evidence, claims, and observations gathered per sub-question. Label each **[fact]**, **[inference]**, or **[assumption]**.
+
+-
+
+### Consistency and Lens Check
+
+Contradictions found and resolved. Findings re-examined through relevant lenses (technical, regulatory, economic, historical, behavioural).
+
+-
+
+---
+
 ## Findings
 
-*(Fill in when completing. Follow the research skill synthesis structure.)*
+*(Section 6 Synthesis from the research skill — derived from Research Notes above.)*
 
 ### Executive Summary
 

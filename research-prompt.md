@@ -34,30 +34,40 @@ Read `Research/in-progress/<filename>` in full. Understand:
 - The **Approach** (sub-questions to investigate)
 - The **Sources** (starting points — check all of them)
 
-### 4. Research the item
+### 4. Research the item — follow the research skill
 
-Investigate all sub-questions in the Approach section. Use available web tools
-(`WebSearch`, `WebFetch`, or `Bash` with curl) to check every source listed and
-follow any leads they produce.
+Open `.github/skills/research/SKILL.md` and apply its process in full. The steps below map to the skill's sections.
+
+**4a. Initialise (Skill §0):** Restate the research question. Confirm scope and constraints. Identify the output format required.
+
+**4b. Decompose (Skill §1):** Recursively break the Approach sub-questions into atomic questions — questions answerable with a single evidence-based claim. Write these into the `## Research Notes → Question Decomposition` section.
+
+**4c. Investigate (Skill §2):** For each atomic question, run an iterative evidence-gathering loop: gather sources, classify them (primary / secondary / tertiary), extract claims, cross-verify across independent sources, identify contradictions, update the evidence map. Use available web tools (`WebSearch`, `WebFetch`, or `Bash` with curl) to check every source listed in the item and follow leads they produce. Mark each source in the `## Sources` checklist when consulted.
 
 **Evidence discipline:**
-- Every claim you write must map to a source.
-- If a source is inaccessible, note it in Risks/Gaps.
-- Label derived or inferred claims as `low` confidence in the Evidence Map.
-- Do not state things you cannot support.
+- Label every claim as **[fact]**, **[inference]**, or **[assumption]**.
+- Every **[fact]** must map to a source. If a source is inaccessible, note it in Risks/Gaps.
+- **[inference]** = derived from evidence; **[assumption]** = not verified, state the justification.
+- Evidence sufficiency: at least two independent credible sources agree, or a primary source is definitive.
+
+**4d. Consistency and lens check (Skill §§3–5):** Scan for internal contradictions and unsupported leaps. Re-evaluate findings through relevant lenses (technical, regulatory, economic, historical, behavioural). Resolve or explicitly flag contradictions.
+
+Write all investigation output — decomposition, evidence, consistency notes — into the `## Research Notes` section of the item. **These notes are retained verbatim in the completed item.**
 
 ### 5. Fill in the Findings section
 
-Edit `Research/in-progress/<filename>` and fill in **all** subsections under `## Findings`:
+With the `## Research Notes` section complete, produce the Section 6 Synthesis (Skill §6) and write it into `## Findings`. Every subsection must be derived from the Research Notes above — no new claims.
 
 - **Executive Summary** — 3–5 sentences. Direct answer to the research question. State the key conclusion first.
-- **Key Findings** — ordered list, 6–12 items. Each is a specific, evidence-backed claim.
-- **Evidence Map** — table: claim | source | confidence (high/medium/low) | notes. Every Key Finding must appear here.
-- **Assumptions** — each assumption and its justification.
+- **Key Findings** — ordered list, 6–12 items. Each is a specific, evidence-backed claim with confidence label (high / medium / low).
+- **Evidence Map** — table: claim | source | confidence | notes. Every Key Finding must appear here.
+- **Assumptions** — each assumption and its justification. Must match **[assumption]** labels in Research Notes.
 - **Analysis** — how evidence was weighed, trade-offs identified, competing interpretations resolved.
 - **Risks, Gaps, and Uncertainties** — what is still unknown; where evidence is thin.
 - **Open Questions** — questions that surfaced but are out of scope; may become new backlog items.
 - **Output section** — type (`knowledge`), description, and links to the three most important sources.
+
+Run the recursive review (Skill §7): every section must be justified, all threads synthesised, every claim sourced or labelled inference, all uncertainties explicit.
 
 **Writing style:**
 - Direct, declarative prose. State findings as facts or clearly labelled inferences.
