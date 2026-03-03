@@ -79,6 +79,7 @@ The `2026-03-02-research-quality-assurance-methodology.md` backlog item identifi
 - [ ] Roam Research / Logseq — bidirectional linking in file-based note systems; relevant prior art for Markdown-native cross-referencing
 - [ ] `src/wiki/publish.py` — current wiki generation code; assess extension points for cross-item link rendering
 - [ ] `state/index.json` and `src/state.py` — existing state model; assess whether the link graph can extend this schema or needs a separate file
+- [ ] `Research/backlog/2026-03-02-semantic-full-text-search.md` — the search layer is the interactive navigation mechanism for the link graph; both items together constitute a "connected, queryable corpus"; should be prioritised in tandem
 
 ---
 

@@ -86,6 +86,8 @@ The `2026-02-27-information-synthesis-entropy.md` completed item provides a theo
 - [ ] `Research/completed/2026-02-27-information-synthesis-entropy.md` — theoretical grounding: synthesis as entropy reduction; connections as value
 - [ ] `Research/backlog/2026-03-02-research-quality-assurance-methodology.md` — integration as a quality dimension; DIKW progression; Nonaka SECI model as synthesis framework
 - [ ] `Research/backlog/2026-03-03-knowledge-linking-connected-corpus.md` — link graph as input to synthesis; relationship types (`confirms`, `contradicts`, `extends`)
+- [ ] `Research/backlog/2026-03-02-semantic-full-text-search.md` — finding candidate items for a synthesis pass requires searching the corpus by tag, keyword, or semantic similarity; the thematic clustering approach in step 2 of this item's Approach IS the search layer applied to synthesis discovery
+- [ ] `Research/backlog/2026-03-02-chat-conversational-interface.md` — synthesis outputs are a primary product of the conversational interface; the interface should be able to surface and explain synthesis documents alongside individual items
 - [ ] Systematic review methodology (Cochrane Handbook): https://training.cochrane.org/handbook — structured synthesis approach from academic meta-analysis
 - [ ] Scoping review methodology (Arksey & O'Malley, 2005): framework for mapping a research area without full meta-analysis
 - [ ] Obsidian Maps of Content (MOC): https://notes.nicolevanderhoeven.com/Maps+of+Content — non-hierarchical synthesis in file-based note systems

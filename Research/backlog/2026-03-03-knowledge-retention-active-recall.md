@@ -87,6 +87,9 @@ The `2026-03-03-cross-item-synthesis-meta-insights.md` item produces synthesis o
 - [ ] `Research/backlog/2026-03-02-research-quality-assurance-methodology.md` — wisdom dimension: accumulated body of completed research forming decision-relevant understanding; retention is the prerequisite
 - [ ] `Research/backlog/2026-03-03-cross-item-synthesis-meta-insights.md` — synthesis as a higher-retention output; digest and recall should prioritise synthesis items
 - [ ] `Research/backlog/2026-03-02-chat-conversational-interface.md` — conversational recall ("what do I know about X?") as an active recall mechanism
+- [ ] `Research/backlog/2026-03-02-semantic-full-text-search.md` — contextual recall requires finding the right prior item at the right moment; the search layer is the technical mechanism for contextual and agent-initiated recall; should be prioritised before retention tooling is built
+- [ ] `Research/backlog/2026-03-02-ios-shortcuts-research.md` — the iOS query shortcut (Option A: `workflow_dispatch` search; Option C: wiki quick-access) is a mobile-native active recall trigger; convergent with the periodic digest delivery design in this item
+- [ ] `Research/backlog/2026-03-02-slack-msteams-research-integration.md` — the digest delivery mode (weekly summary of completed items pushed to a channel) is structurally identical to the periodic digest workflow this item designs; the two items should be implemented as one workflow, not two
 - [ ] Obsidian Spaced Repetition plugin: https://www.stephenmwangi.com/obsidian-spaced-repetition/ — community implementation of SR for Markdown notes; patterns to adapt for this corpus
 - [ ] `research-prompt.md` — agent recall instruction target: where to add the "check completed items before starting" instruction
 - [ ] `state/index.json` and `src/state.py` — extension point for `last_reviewed` tracking
