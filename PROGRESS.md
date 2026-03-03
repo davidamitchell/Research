@@ -1,5 +1,6 @@
 # Progress
 
+Last updated: 2026-03-02 (research-review-ci-step)
 Last updated: 2026-03-02 (ai-not-a-data-problem backlog item)
 Last updated: 2026-03-02 (search-interaction-distribution backlog items)
 Last updated: 2026-03-02 (transaction-costs)
@@ -12,7 +13,7 @@ Last updated: 2026-03-03 (ai-control-testing-and-assurance)
 
 **Phase:** Issue consolidation (AGENTS.md + config improvements)
 **Next phase:** Group B — Skills repo improvements (#8, #9) via PR to `davidamitchell/Skills`
-**Branch:** `copilot/update-backlog-documentation`
+**Branch:** `copilot/add-research-review-ci-step`
 
 ---
 
@@ -26,6 +27,13 @@ Last updated: 2026-03-03 (ai-control-testing-and-assurance)
 ---
 
 ## Work Log
+
+### 2026-03-02 — New backlog item (research-review-ci-step) and new research item (research-quality-assurance-methodology)
+
+**Added:**
+
+- `BACKLOG.md` W-0031 — open item for a research review CI step. The step will apply citation-discipline, speculation-control, and remove-ai-slop skills as automated gates on completed research items. Blocked on the research item below providing the automatable-vs-agent-reasoning split and design guidance.
+- `Research/backlog/2026-03-02-research-quality-assurance-methodology.md` — high-priority research item. Question: what methodology moves research reliably from information gathering through to applied knowledge and wisdom, and which steps can be automated in CI? Covers: skills gap analysis (what existing skills miss), peer review as a distinct quality dimension, integration skill (cross-item synthesis), the information→knowledge→wisdom pipeline (DIKW, Nonaka SECI, Bloom's taxonomy), applicability testing, CI pipeline design (automatable vs agent-reasoning vs human-only), and whether `peer-review` and `integration` skills should be added to `davidamitchell/Skills`. The two items reference each other: W-0031 depends on findings from this research item; this item calls out W-0031 as the downstream consumer.
 
 ### 2026-03-02 — New backlog item: AI capability is not a data problem
 
