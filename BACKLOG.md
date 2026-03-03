@@ -461,6 +461,24 @@ This item is blocked until `Research/backlog/2026-03-02-research-quality-assuran
 
 ---
 
+## W-0032
+
+status: open
+created: 2026-03-03
+updated: 2026-03-03
+
+### Outcome
+
+`brave_search` is removed from both `.github/mcp.json` and `.mcp.json`; the Tavily MCP entry uses the correct API key environment variable name so that `tavily-mcp` starts without error. `AGENTS.md` MCP Configuration section is updated to reflect the new server list.
+
+### Context
+
+`brave_search` is not actively used and requires a `BRAVE_API_KEY` credential that is not listed in the approved credentials table in `AGENTS.md`. Removing it reduces the attack surface and removes an unneeded external dependency.
+
+The Tavily MCP server (`tavily-mcp@latest`) is currently configured with `TAVILY_API_KEY` but the server may expect a different env var name (e.g. `TAVILY_API_KEY` vs `tvly-...` token format). Investigate the correct variable name required by `tavily-mcp@latest`, update both MCP config files accordingly, and confirm the server starts cleanly. If a `TAVILY_API_KEY` repo secret does not yet exist, document what value is needed.
+
+---
+
 ## W-0030
 
 status: done
