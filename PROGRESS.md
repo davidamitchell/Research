@@ -1,6 +1,6 @@
 # Progress
 
-Last updated: 2026-03-03 (local-database)
+Last updated: 2026-03-03 (local-index-vs-reference)
 Last updated: 2026-03-03 (research system: add Research Notes section, follow skill in full)
 Last updated: 2026-03-03 (meta-research backlog items — improve research and knowledge integration)
 Last updated: 2026-03-03 (ai-strategy-risk-reduction-focus)
@@ -34,6 +34,20 @@ Last updated: 2026-03-03 (ai-control-testing-and-assurance)
 ---
 
 ## Work Log
+
+### 2026-03-03 — Research Loop (local-index-vs-reference)
+
+**Completed:**
+
+Research item:
+- `Research/completed/2026-02-27-local-index-vs-reference.md` — completed; derived a three-criteria decision framework (re-fetchability, link rot risk, file format) to determine per-content-type storage policy. YouTube transcripts store as local text files, arXiv papers remain reference-only, web page key passages are pasted inline, and notes are always local. Git LFS is not warranted at current scale.
+
+Sources consulted:
+- https://en.wikipedia.org/wiki/Link_rot (link rot statistics — 38% of 2013 pages gone by 2023, Pew Research)
+- https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-large-files-on-github (GitHub file size limits: 50 MiB warning, 100 MiB block)
+- https://arxiv.org/help/arxiv_identifier (arXiv permanent URL scheme documentation)
+
+---
 
 ### 2026-03-03 — Research Loop (local-database)
 
