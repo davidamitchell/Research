@@ -42,6 +42,7 @@ The DIKW model provides a useful conceptual scaffold: raw data becomes informati
 This research is a direct continuation of the findings from:
 - `2026-03-02-agent-memory-management-context-injection.md` — memory architecture and context recall
 - `2026-03-01-agent-lsp-policy-enforcement.md` — policy guardrails and governance enforcement
+- `2026-03-03-knowledge-representation-agent-context.md` — LSE, knowledge graphs, concept maps, and document compression for large-scale knowledge corpora; this item provides the knowledge-layer foundation (how organisational knowledge is structured and compressed) that the DIKW integration and conflict-resolution mechanisms in this item build upon
 
 It depends on those items being completed before it can be fully operationalised.
 
@@ -73,6 +74,7 @@ It depends on those items being completed before it can be fully operationalised
 - [ ] `Research/completed/2026-03-01-agent-lsp-policy-enforcement.md` — prior findings on policy guardrails
 - [ ] `Research/backlog/2026-03-02-agent-memory-management-context-injection.md` — dependency; integrate findings when complete
 - [ ] Knowledge graphs for context: Microsoft GraphRAG, Neo4j knowledge graph + LLM integration patterns
+- [ ] `Research/backlog/2026-03-03-knowledge-representation-agent-context.md` — dependency; LSE, knowledge graphs, concept maps, and document compression for large-scale knowledge corpora; defines the knowledge-layer foundation this framework builds upon
 
 ---
 

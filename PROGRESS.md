@@ -3,6 +3,7 @@
 Last updated: 2026-03-03 (research system: full skill output in completed items, seeds Findings)
 Last updated: 2026-03-03 (research system: add Research Notes section, follow skill in full)
 Last updated: 2026-03-03 (meta-research backlog items — improve research and knowledge integration)
+Last updated: 2026-03-03 (ai-strategy-risk-reduction-focus)
 Last updated: 2026-03-03 (ai-line-1-line-2-risk-agents)
 Last updated: 2026-03-03 (ai-control-testing-and-assurance)
 Last updated: 2026-03-02 (wiki publishing implementation — W-0030)
@@ -60,6 +61,49 @@ Research items added to `Research/backlog/`:
 These five items form a coherent set addressing both meta-research process improvement (loop quality, agenda curation) and knowledge integration (linking, synthesis, retention).
 
 ---
+### 2026-03-03 — Research Loop (ai-strategy-risk-reduction-focus)
+
+**Completed:**
+
+Research item:
+- `Research/completed/2026-02-28-ai-strategy-risk-reduction-focus.md` — completed; HSBC and JPMorgan are the best-documented cases (60–95% false positive reductions in AML/fraud); SR 11-7 remains the global reference framework for AI model risk, augmented for AI with explainability, bias testing, and drift monitoring requirements; RBNZ has no AI-specific supervisory guidance as of early 2025 and NZ banks default to BS11 for outsourced AI and BPR capital requirements for model governance; the dominant failure modes are training-data bias (CFPB enforcement guidance 2022–2023) and concept drift under economic stress.
+
+Sources consulted:
+- https://www.hsbc.com/news-and-views/views/hsbc-views/harnessing-the-power-of-ai-to-fight-financial-crime (HSBC AML AI outcomes)
+- https://www.bis.org/fsi/publ/insights63.pdf (BIS FSI Insights No. 63: Regulating AI in the financial sector, Dec 2024)
+- https://www.consumerfinance.gov/about-us/newsroom/cfpb-issues-guidance-on-credit-denials-by-lenders-using-artificial-intelligence/ (CFPB AI credit denial guidance)
+
+### 2026-03-03 — Research Loop (ai-strategy-business-efficiency-examples)
+
+**Completed:**
+
+Research item:
+- `Research/completed/2026-02-28-ai-strategy-business-efficiency-examples.md` — completed; only 26% of organisations globally have scaled AI to visible business value; the dominant failure modes are data poverty, absence of change management, and pilot-itis (failure to scale beyond proof-of-concept); ANZ Bank is the best-documented near-peer case study in the region with $1.9B productivity savings since 2019; NZ-specific data shows 91% of businesses report efficiency improvements but 68% of SMEs have no AI plans, representing structural risk to NZ's $76B GDP projection.
+
+Sources consulted:
+- https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai-2024 (McKinsey State of AI 2024 — adoption rates, productivity outcomes)
+- https://www.bcg.com/press/24october2024-ai-adoption-in-2024-74-of-companies-struggle-to-achieve-and-scale-value (BCG AI Adoption 2024 — 74% struggle to scale; AI leaders benchmarks)
+- https://aiforum.org.nz/reports/ai-in-action-key-findings-from-new-zealands-third-ai-productivity-report/ (AI Forum NZ Third AI Productivity Report — NZ-specific efficiency data)
+
+### 2026-03-03 — Research Loop (ai-line-1-line-2-risk-agents)
+
+**Completed:**
+
+Research item:
+- `Research/completed/2026-02-28-ai-line-1-line-2-risk-agents.md` — completed; commercial vendor platforms (NICE Actimize SURVEIL-X, Behavox, Nasdaq, IBM OpenPages) dominate line 2 AI agent deployment in financial services; all current deployments use a "human reviewer accountable" architecture where agents produce flags and humans retain final accountability; no regulator (FCA/PRA, APRA, BIS, RBNZ) has published agent-specific guidance for line 1/line 2 oversight functions, and the nominal-review accountability problem remains unaddressed.
+
+Sources consulted:
+- https://www.mckinsey.com/capabilities/risk-and-resilience/our-insights/how-agentic-ai-can-change-the-way-banks-fight-financial-crime (McKinsey: agentic AI in financial crime compliance)
+- https://www.nice.com/press-releases/nice-actimize-empowers-surveil-x-with-generative-ai-launching-a-new-era-in-market-abuse-and-conduct-risk-detection (NICE Actimize SURVEIL-X generative AI launch, 2024)
+- https://www.bis.org/fsi/publ/insights63.pdf (BIS FSI Insights: Regulating AI in the financial sector)
+
+### 2026-03-03 — New backlog item: knowledge-representation-agent-context
+
+**Completed:**
+
+Research items:
+- `Research/backlog/2026-03-03-knowledge-representation-agent-context.md` — new high-priority backlog item covering latent semantic extraction (LSE/LSA), knowledge graphs (GraphRAG), concept maps, document compression, and knowledge layering as techniques for managing large knowledge corpora under agent context-window constraints. Directly addresses the "1000s of files of context" problem: how to represent, compress, and prioritise knowledge so agents retrieve the right level of abstraction for a given intent.
+- `Research/backlog/2026-03-02-integrative-framework-agent-decision-making.md` — extended Context section and Sources list to reference the new knowledge-representation item as a dependency; the knowledge-layer foundation must be established before the DIKW integration and conflict-resolution mechanisms in that item can be fully operationalised.
 
 ### 2026-03-03 — Research Loop (ai-line-1-line-2-risk-agents)
 
