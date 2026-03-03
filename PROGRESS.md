@@ -1,6 +1,6 @@
 # Progress
 
-Last updated: 2026-03-03 (research system: full skill output in completed items, seeds Findings)
+Last updated: 2026-03-03 (knowledge-linking-connected-corpus)
 Last updated: 2026-03-03 (research system: add Research Notes section, follow skill in full)
 Last updated: 2026-03-03 (meta-research backlog items — improve research and knowledge integration)
 Last updated: 2026-03-03 (ai-strategy-risk-reduction-focus)
@@ -34,6 +34,18 @@ Last updated: 2026-03-03 (ai-control-testing-and-assurance)
 ---
 
 ## Work Log
+
+### 2026-03-03 — Research Loop (knowledge-linking-connected-corpus)
+
+**Completed:**
+
+Research item:
+- `Research/completed/2026-03-03-knowledge-linking-connected-corpus.md` — completed; the minimum viable approach to a connected corpus is a `## Related Items` section with typed relative Markdown links, a committed JSON edge store at `state/links.json` auto-generated from those sections, and a Python tool that regenerates the index and suggests unlinked relationships via tag overlap and shared source URLs. Backlinks must be derived by file scanning (never written into referenced files), following the Obsidian/Logseq pattern. Five relationship types (`extends`, `contradicts`, `depends-on`, `spawned-from`, `see-also`) cover observed corpus usage.
+
+Sources consulted:
+- https://zettelkasten.de/introduction/ (Zettelkasten core principles — connection over collection, fixed addresses)
+- https://jackiexiao.github.io/obsidian-docs/en/How%20to/Working%20with%20backlinks/ (Obsidian backlinks — non-intrusive scan-to-derive pattern)
+- https://bellingcat.gitbook.io/toolkit/more/all-tools/logseq (Logseq bidirectional linking — independent confirmation of non-intrusive backlink pattern)
 
 ### 2026-03-03 — Research system: full skill output retained, seeds Findings
 
