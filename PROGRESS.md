@@ -1,6 +1,6 @@
 # Progress
 
-Last updated: 2026-03-03 (knowledge-retention-active-recall)
+Last updated: 2026-03-03 (research-agenda-curation-coverage)
 Last updated: 2026-03-03 (research system: add Research Notes section, follow skill in full)
 Last updated: 2026-03-03 (meta-research backlog items — improve research and knowledge integration)
 Last updated: 2026-03-03 (ai-strategy-risk-reduction-focus)
@@ -34,6 +34,18 @@ Last updated: 2026-03-03 (ai-control-testing-and-assurance)
 ---
 
 ## Work Log
+
+### 2026-03-03 — Research Loop (research-agenda-curation-coverage)
+
+**Completed:**
+
+Research item:
+- `Research/completed/2026-03-03-research-agenda-curation-coverage.md` — completed; the research backlog suffers from priority inflation (88% rated medium) and domain drift (44% of backlog in Research Tooling); the remedy is a five-domain taxonomy, a four-dimension prioritisation rubric (decision dependency, dependency unblocking, gap severity, input availability; scored 1–3 each; 10–12 = high), a 40%-concentration drift detection threshold, and a monthly agenda review triggered by workflow_dispatch; a `research agenda` CLI command can be implemented without new dependencies by extending src/research/cli.py.
+
+Sources consulted:
+- https://fortelabs.com/blog/para/ (PARA method — actionability-based prioritisation principle)
+- https://mrx.sivoinsights.com/blog/how-jobs-to-be-done-connects-research-strategy-and-execution (JTBD — outcome-based priority framework)
+- https://www.rand.org/content/dam/rand/pubs/research_briefs/RB10000/RB10036/RAND_RB10036.pdf (RAND research portfolio evaluation — drift detection and coverage balance)
 
 ### 2026-03-03 — Research Loop (knowledge-retention-active-recall)
 
