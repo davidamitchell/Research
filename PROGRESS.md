@@ -1,6 +1,6 @@
 # Progress
 
-Last updated: 2026-03-03 (knowledge-linking-connected-corpus)
+Last updated: 2026-03-03 (cross-item-synthesis-meta-insights)
 Last updated: 2026-03-03 (research system: add Research Notes section, follow skill in full)
 Last updated: 2026-03-03 (meta-research backlog items — improve research and knowledge integration)
 Last updated: 2026-03-03 (ai-strategy-risk-reduction-focus)
@@ -34,6 +34,18 @@ Last updated: 2026-03-03 (ai-control-testing-and-assurance)
 ---
 
 ## Work Log
+
+### 2026-03-03 — Research Loop (cross-item-synthesis-meta-insights)
+
+**Completed:**
+
+Research item:
+- `Research/completed/2026-03-03-cross-item-synthesis-meta-insights.md` — completed; cross-item synthesis requires: a methodology distinguishing synthesis (claims crossing document boundaries) from summary (concatenation), a three-tier thematic clustering method (tags → edge store → manual), a `Research/synthesis/` directory with ADR, and a `synthesise.yml` `workflow_dispatch` workflow following the research-loop pattern. The false-consensus failure mode (LLM generating conclusions not supported by source items) is guarded by requiring explicit source-item citations for every synthesis claim. The 19-item corpus already has 4 identifiable clusters; the AI strategy/governance cluster (6 items) is the highest-value initial synthesis target.
+
+Sources consulted:
+- https://en.wikipedia.org/wiki/Systematic_review (narrative synthesis vs. meta-analysis — academic methodology grounding)
+- https://github.com/danielmiessler/fabric (extract_wisdom and extract_insights patterns — single-source synthesis pipeline design)
+- `Research/completed/2026-03-03-knowledge-linking-connected-corpus.md` (edge store design and tag-overlap clustering signal)
 
 ### 2026-03-03 — Research Loop (knowledge-linking-connected-corpus)
 
