@@ -1,5 +1,6 @@
 # Progress
 
+Last updated: 2026-03-03 (ai-line-1-line-2-risk-agents)
 Last updated: 2026-03-03 (ai-control-testing-and-assurance)
 Last updated: 2026-03-02 (wiki publishing implementation — W-0030)
 Last updated: 2026-03-02 (research-review-ci-step)
@@ -29,6 +30,18 @@ Last updated: 2026-03-03 (ai-control-testing-and-assurance)
 ---
 
 ## Work Log
+
+### 2026-03-03 — Research Loop (ai-line-1-line-2-risk-agents)
+
+**Completed:**
+
+Research item:
+- `Research/completed/2026-02-28-ai-line-1-line-2-risk-agents.md` — completed; Behavox and NICE Actimize dominate the commercial line 2 surveillance market, serving most G-SIBs; JPMorgan, HSBC, and ING are the most publicly disclosed deployers of scale AI agents in line 1/2 functions; the universal architecture treats agent output as a tool (human reviews) not a determination, but at billion-transaction scale human review becomes nominal, and no regulator has defined when nominally compliant review becomes meaningless accountability.
+
+Sources consulted:
+- https://www.jpmorganchase.com/about/technology/news/ai-and-model-risk-governance (JPMorgan Model Risk Governance disclosure)
+- https://www.bis.org/fsi/publ/insights63.pdf (BIS FSI Insights #63 — Regulating AI in the financial sector)
+- https://www.moodys.com/web/en/us/insights/ai/navigating-the-shift-how-agentic-ai-is-reshaping-risk-and-compliance.html (Moody's: agentic AI reshaping risk and compliance)
 
 ### 2026-03-03 — Research Loop (ai-control-testing-and-assurance)
 
