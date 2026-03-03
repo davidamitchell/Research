@@ -1,7 +1,6 @@
 # Progress
 
-Last updated: 2026-03-02 (search-interaction-distribution backlog items)
-Last updated: 2026-03-02 (transaction-costs)
+Last updated: 2026-03-03 (youtube-transcript-fetcher)
 
 ---
 
@@ -23,6 +22,20 @@ Last updated: 2026-03-02 (transaction-costs)
 ---
 
 ## Work Log
+
+### 2026-03-03 — Research Loop (youtube-transcript-fetcher)
+
+**Completed:**
+
+Research item:
+- `Research/completed/2026-02-27-youtube-transcript-fetcher.md` — completed; the YouTube transcript fetcher port is fully operational with Atom-feed-based channel discovery (no API key required), a three-tier transcript fallback chain, and 18 passing unit tests. The `fetch-transcript.yml` workflow handles disk persistence for the owner's web-only access pattern. Bulk historical backlog fetch beyond the Atom feed's ~15-video window remains an open gap addressed by separate backlog items.
+
+Sources consulted:
+- https://github.com/jdepoix/youtube-transcript-api (library documentation)
+- https://github.com/davidamitchell/Research/blob/main/src/fetchers/youtube.py (ported implementation)
+- https://github.com/davidamitchell/Research/blob/main/.github/workflows/fetch-transcript.yml (workflow for disk persistence)
+
+---
 
 ### 2026-03-02 — New backlog items (search, interaction, and distribution)
 
