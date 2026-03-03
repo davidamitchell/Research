@@ -1,6 +1,6 @@
 # Progress
 
-Last updated: 2026-03-03 (local-index-vs-reference)
+Last updated: 2026-03-03 (research-output-types)
 Last updated: 2026-03-03 (research system: add Research Notes section, follow skill in full)
 Last updated: 2026-03-03 (meta-research backlog items — improve research and knowledge integration)
 Last updated: 2026-03-03 (ai-strategy-risk-reduction-focus)
@@ -34,6 +34,20 @@ Last updated: 2026-03-03 (ai-control-testing-and-assurance)
 ---
 
 ## Work Log
+
+### 2026-03-03 — Research Loop (research-output-types)
+
+**Completed:**
+
+Research item:
+- `Research/completed/2026-02-27-research-output-types.md` — completed; confirmed the five-type output taxonomy (skill, tool, agent, knowledge, backlog-item) is sufficient and consistently defined across AGENTS.md, Research/README.md, and the template; identified that `tool`, `knowledge`, and `backlog-item` have well-documented handling procedures while `skill` and `agent` are under-specified; no additional types warranted.
+
+Sources consulted:
+- `AGENTS.md` § Output Types (primary definition source)
+- `Research/README.md` § Output Types (secondary enumeration)
+- https://github.com/davidamitchell/Skills (Skills repo — directory structure for skill outputs)
+
+---
 
 ### 2026-03-03 — Research Loop (local-index-vs-reference)
 
