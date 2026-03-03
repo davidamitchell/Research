@@ -1,0 +1,3 @@
+# Use union merge for PROGRESS.md to avoid conflicts when parallel branches
+# both append work log entries. Git will include all lines from both sides.
+PROGRESS.md merge=union
