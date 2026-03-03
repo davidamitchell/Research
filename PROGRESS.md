@@ -1,5 +1,6 @@
 # Progress
 
+Last updated: 2026-03-03 (ml-techniques-and-algorithms backlog item)
 Last updated: 2026-03-03 (research-output-types)
 Last updated: 2026-03-03 (research system: add Research Notes section, follow skill in full)
 Last updated: 2026-03-03 (meta-research backlog items — improve research and knowledge integration)
