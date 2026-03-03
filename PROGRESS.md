@@ -1,6 +1,6 @@
 # Progress
 
-Last updated: 2026-03-03 (cross-item-synthesis-meta-insights)
+Last updated: 2026-03-03 (knowledge-representation-agent-context)
 Last updated: 2026-03-03 (research system: add Research Notes section, follow skill in full)
 Last updated: 2026-03-03 (meta-research backlog items — improve research and knowledge integration)
 Last updated: 2026-03-03 (ai-strategy-risk-reduction-focus)
@@ -34,6 +34,18 @@ Last updated: 2026-03-03 (ai-control-testing-and-assurance)
 ---
 
 ## Work Log
+
+### 2026-03-03 — Research Loop (knowledge-representation-agent-context)
+
+**Completed:**
+
+Research item:
+- `Research/completed/2026-03-03-knowledge-representation-agent-context.md` — completed; LSA is superseded by dense embeddings for agent retrieval; a five-layer knowledge architecture (raw → extractive → abstractive → graph nodes → domain schema) maps onto the Letta context-engineering framework; for dynamic corpora, LightRAG is preferred over GraphRAG due to incremental update support; RAPTOR hierarchical summarisation (+20pp on QuALITY benchmark) has the highest immediate value for this research corpus because Layers 0–2 already exist in every completed item; concept maps do not constitute a separate agent-accessible layer.
+
+Sources consulted:
+- https://arxiv.org/abs/2404.16130 (GraphRAG — Edge et al. 2024, Microsoft Research)
+- https://arxiv.org/abs/2410.05779 (LightRAG — Guo et al. 2024, EMNLP 2025)
+- https://arxiv.org/abs/2401.18059 (RAPTOR — Sarthi et al. 2024, ICLR 2024)
 
 ### 2026-03-03 — Research Loop (cross-item-synthesis-meta-insights)
 
