@@ -1,5 +1,6 @@
 # Progress
 
+Last updated: 2026-03-04 (sdlc-ai-prompt-patterns: add backlog item and start research)
 Last updated: 2026-03-04 (W-0032: remove brave_search, fix Tavily env var, add MCP config tests)
 Last updated: 2026-03-03 (research-agenda-curation-coverage)
 Last updated: 2026-03-03 (ml-techniques-and-algorithms backlog item)
@@ -37,6 +38,13 @@ Last updated: 2026-03-03 (ai-control-testing-and-assurance)
 ---
 
 ## Work Log
+
+### 2026-03-04 — Session (sdlc-ai-prompt-patterns: add and start research item)
+
+**Completed:**
+
+Research item:
+- `Research/in-progress/2026-03-04-sdlc-ai-prompt-patterns.md` — added and immediately moved to in-progress; item covers emergent patterns in AI agent prompting across all eight SDLC phases (Discovery, Requirements, Design, Planning, Building, Testing, Reviewing, Iteration), best practices for phase-aware prompt engineering, emergent strategies from production tooling (GitHub Copilot Workspace, Cursor, Claude Code, Aider), and a framework for structured prompt templates.
 
 ### 2026-03-04 — Session (W-0032: MCP config cleanup)
 
