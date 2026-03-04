@@ -1,6 +1,6 @@
 # Progress
 
-Last updated: 2026-03-03 (mcp-config-cleanup — W-0032 backlog item)
+Last updated: 2026-03-04 (W-0032: remove brave_search, fix Tavily env var, add MCP config tests)
 Last updated: 2026-03-03 (research-agenda-curation-coverage)
 Last updated: 2026-03-03 (ml-techniques-and-algorithms backlog item)
 Last updated: 2026-03-03 (research-output-types)
@@ -37,6 +37,17 @@ Last updated: 2026-03-03 (ai-control-testing-and-assurance)
 ---
 
 ## Work Log
+
+### 2026-03-04 — Session (W-0032: MCP config cleanup)
+
+**Completed:**
+
+Repo improvement:
+- `.github/mcp.json` — removed `brave_search` entry (no `BRAVE_API_KEY` in approved credentials table)
+- `.mcp.json` — removed `brave_search` entry (same reason)
+- `AGENTS.md` — updated MCP Configuration section: server count 10→9, removed `brave_search` from Server Reference table, availability check table, npx server list, and research task instructions; confirmed `TAVILY_API_KEY` is the correct env var for `tavily-mcp@latest`; `tavily` is now the sole web search MCP server
+- `tests/test_mcp_config.py` — 15 new tests: JSON validity, brave_search absent, TAVILY_API_KEY correct, both files in sync, smoke test for expected server list
+- `BACKLOG.md` — W-0032 marked done
 
 ### 2026-03-03 — Session (MCP config cleanup backlog — W-0032)
 
