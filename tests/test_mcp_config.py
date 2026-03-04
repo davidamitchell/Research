@@ -187,8 +187,7 @@ def test_tavily_live_search() -> None:
     """Make a real HTTP call to the Tavily API to prove the key is valid and the service works."""
     response = httpx.post(
         "https://api.tavily.com/search",
-        json={"query": "test", "max_results": 1},
-        headers={"Authorization": f"Bearer {_TAVILY_KEY}"},
+        json={"api_key": _TAVILY_KEY, "query": "test", "max_results": 1},
         timeout=30.0,
     )
     assert response.status_code == 200, (
