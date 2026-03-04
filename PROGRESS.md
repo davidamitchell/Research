@@ -2,6 +2,8 @@
 
 Last updated: 2026-03-03 (mcp-config-cleanup — W-0032 backlog item)
 Last updated: 2026-03-03 (research-agenda-curation-coverage)
+Last updated: 2026-03-03 (ml-techniques-and-algorithms backlog item)
+Last updated: 2026-03-03 (research-output-types)
 Last updated: 2026-03-03 (research system: add Research Notes section, follow skill in full)
 Last updated: 2026-03-03 (meta-research backlog items — improve research and knowledge integration)
 Last updated: 2026-03-03 (ai-strategy-risk-reduction-focus)
@@ -44,6 +46,61 @@ Repo improvement:
 - `BACKLOG.md` — added W-0032: remove `brave_search` MCP from both `.github/mcp.json` and `.mcp.json`, and investigate/fix the Tavily API key env var name so `tavily-mcp@latest` starts cleanly.
 
 ### 2026-03-03 — Research Loop (research-agenda-curation-coverage)
+### 2026-03-03 — Research Loop (research-output-types)
+
+**Completed:**
+
+Research item:
+- `Research/completed/2026-02-27-research-output-types.md` — completed; confirmed the five-type output taxonomy (skill, tool, agent, knowledge, backlog-item) is sufficient and consistently defined across AGENTS.md, Research/README.md, and the template; identified that `tool`, `knowledge`, and `backlog-item` have well-documented handling procedures while `skill` and `agent` are under-specified; no additional types warranted.
+
+Sources consulted:
+- `AGENTS.md` § Output Types (primary definition source)
+- `Research/README.md` § Output Types (secondary enumeration)
+- https://github.com/davidamitchell/Skills (Skills repo — directory structure for skill outputs)
+
+---
+
+### 2026-03-03 — Research Loop (local-index-vs-reference)
+
+**Completed:**
+
+Research item:
+- `Research/completed/2026-02-27-local-index-vs-reference.md` — completed; derived a three-criteria decision framework (re-fetchability, link rot risk, file format) to determine per-content-type storage policy. YouTube transcripts store as local text files, arXiv papers remain reference-only, web page key passages are pasted inline, and notes are always local. Git LFS is not warranted at current scale.
+
+Sources consulted:
+- https://en.wikipedia.org/wiki/Link_rot (link rot statistics — 38% of 2013 pages gone by 2023, Pew Research)
+- https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-large-files-on-github (GitHub file size limits: 50 MiB warning, 100 MiB block)
+- https://arxiv.org/help/arxiv_identifier (arXiv permanent URL scheme documentation)
+
+---
+
+### 2026-03-03 — Research Loop (local-database)
+
+**Completed:**
+
+Research item:
+- `Research/completed/2026-02-27-local-database.md` — completed; SQLite + FTS5 (Phase 1) and sqlite-vec (Phase 2) is the correct local database technology; five-table schema (`items`, `tags`, `sources`, `processed`, `transcripts`) with FTS5 virtual table supports all required query patterns; migration is triggered by observable signals (≥500 state entries, cross-item query need, semantic search backlog, or concurrent writes) rather than a fixed item count.
+
+Sources consulted:
+- https://sqlite.org/fts5.html (SQLite FTS5 extension documentation — BM25, phrase search, prefix search)
+- https://github.com/asg017/sqlite-vec (sqlite-vec KNN vector search extension — pure C, pip install, pre-v1)
+- https://duckdb.org/why_duckdb (DuckDB design rationale — OLAP-optimised, columnar, no built-in vector search)
+
+---
+
+### 2026-03-03 — Research Loop (research-loop-quality-prompt-engineering)
+
+**Completed:**
+
+Research item:
+- `Research/completed/2026-03-03-research-loop-quality-prompt-engineering.md` — completed; corpus audit of 20 items shows quality variation is prompt-caused (Research Skill Output section lifted source engagement from avg 3.1 to 12.8 per item); five targeted additions made to `research-prompt.md` addressing prior-research cross-referencing, explicit source-marking discipline, executive summary specificity, anti-formulaic constraints, and minimum finding size; four-check shell quality gate designed.
+
+Sources consulted:
+- `Research/completed/` corpus (primary — 20 items audited directly)
+- https://arxiv.org/abs/2406.06608 (The Prompt Report: systematic survey of 58+ LLM prompting techniques)
+- https://github.com/danielmiessler/fabric (Fabric extract_wisdom pattern — structured output and minimum output count approach)
+
+
 
 **Completed:**
 
