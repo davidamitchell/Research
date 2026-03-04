@@ -85,7 +85,10 @@ If a workflow you are designing requires a credential not in this table, **ask b
 - Mock all network calls
 - Unit tests on all business logic
 - **Bug fixes must start with a failing test.** Write the test first, confirm it fails, then fix and confirm it passes.
-- **Credential-dependent services must have a live integration test.** Any test that uses a credential (API key, token) to call an external service MUST make a real network call — not just check that the env var name is listed in a config file. Structural tests (JSON validity, env var name presence) are useful but explicitly do NOT verify the service works. Mark live tests with `pytest.mark.skipif(not os.getenv("KEY"), reason="KEY not set")` so they are skipped when the secret is absent, and expose the secret in `ci.yml` so they run in CI.
+- **Apply the testing pyramid to external service configuration.** Configuration that wires up an external service (MCP servers, API clients, credentials) is production code and must be proven to work at each relevant layer:
+  - **Unit** — verify config file well-formedness (JSON validity, required fields, correct env var names). These tests prove the *file is correct*; they do NOT prove the *service works*.
+  - **Integration** — call the actual service with the actual credential. This is the only test that proves the configuration works end-to-end. Mark with `pytest.mark.skipif(not os.getenv("KEY"), reason="KEY not set")` so they skip when credentials are absent, and expose the secret in `ci.yml` so they run in CI.
+  - A config change that adds or modifies an external service entry is **not done** until the integration test exists and passes in CI. The absence of a credential is a blocker on shipping the change, not a reason to fall back to unit tests alone.
 
 ---
 

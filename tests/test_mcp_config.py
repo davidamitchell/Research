@@ -1,20 +1,23 @@
-"""Tests proving both MCP config files are valid and consistently configured.
+"""Tests for MCP server configuration files (.github/mcp.json and .mcp.json).
 
-STRUCTURAL TESTS (sections 1-5 below)
---------------------------------------
-These tests verify the *config files* only — they do NOT verify that any server
-actually works at runtime. Specifically they check:
-1. Both config files parse as valid JSON.
-2. Neither file contains the removed `brave_search` server.
-3. The Tavily entry references the correct env var (`TAVILY_API_KEY`).
-4. Both files declare the same set of server keys (in sync check).
-5. Smoke test: load each file end-to-end (parse → validate → assert server list).
+UNIT TESTS — config file well-formedness (sections 1-5)
+---------------------------------------------------------
+These tests prove the *config files are well-formed and structurally valid*
+(valid JSON, required fields, correct env var names). They do NOT prove that
+any server actually starts or that any service responds. Per the testing
+pyramid, these are unit-layer checks:
+  1. Both config files parse as valid JSON.
+  2. Neither file contains the removed `brave_search` server.
+  3. The Tavily entry references the correct env var (`TAVILY_API_KEY`).
+  4. Both files declare the same set of server keys (in-sync check).
+  5. Each file declares exactly the expected server set with required fields.
 
-INTEGRATION TEST (section 6)
-------------------------------
+INTEGRATION TEST — service functionality (section 6)
+-----------------------------------------------------
 test_tavily_live_search — makes a real HTTP call to the Tavily API using
-`TAVILY_API_KEY` to prove the key is valid and the service responds.  Skipped
-when `TAVILY_API_KEY` is not in the environment.
+`TAVILY_API_KEY` to prove the credential is valid and the service responds.
+This is the only test that proves the Tavily configuration *works end-to-end*.
+Skipped when `TAVILY_API_KEY` is not in the environment.
 """
 
 from __future__ import annotations
@@ -44,7 +47,7 @@ EXPECTED_SERVERS = {
 
 
 # ---------------------------------------------------------------------------
-# File existence
+# Unit: file existence
 # ---------------------------------------------------------------------------
 
 
@@ -57,7 +60,7 @@ def test_claude_mcp_file_exists() -> None:
 
 
 # ---------------------------------------------------------------------------
-# Valid JSON
+# Unit: valid JSON
 # ---------------------------------------------------------------------------
 
 
@@ -76,7 +79,7 @@ def test_claude_mcp_is_valid_json() -> None:
 
 
 # ---------------------------------------------------------------------------
-# brave_search removed
+# Unit: brave_search removed
 # ---------------------------------------------------------------------------
 
 
@@ -105,7 +108,7 @@ def test_claude_mcp_text_does_not_reference_brave_api_key() -> None:
 
 
 # ---------------------------------------------------------------------------
-# Tavily env var is correct
+# Unit: Tavily env var is correct
 # ---------------------------------------------------------------------------
 
 
@@ -126,7 +129,7 @@ def test_claude_mcp_tavily_uses_correct_env_var() -> None:
 
 
 # ---------------------------------------------------------------------------
-# Both files declare the same server set (in-sync check)
+# Unit: both files declare the same server set (in-sync check)
 # ---------------------------------------------------------------------------
 
 
@@ -141,13 +144,13 @@ def test_both_mcp_files_have_same_server_keys() -> None:
 
 
 # ---------------------------------------------------------------------------
-# Smoke test: load end-to-end and assert expected server list
+# Unit: parse end-to-end and assert expected server list
 # ---------------------------------------------------------------------------
 
 
 @pytest.mark.parametrize("config_path", [COPILOT_MCP, CLAUDE_MCP], ids=["copilot", "claude"])
-def test_mcp_config_smoke_expected_server_list(config_path: Path) -> None:
-    """End-to-end: parse → validate structure → assert exact server set."""
+def test_mcp_config_expected_server_list(config_path: Path) -> None:
+    """Unit: parse → validate structure → assert exact server set."""
     data = _load_json(config_path)
 
     # Top-level key must be mcpServers
@@ -166,7 +169,7 @@ def test_mcp_config_smoke_expected_server_list(config_path: Path) -> None:
 
 @pytest.mark.parametrize("config_path", [COPILOT_MCP, CLAUDE_MCP], ids=["copilot", "claude"])
 def test_mcp_config_each_server_has_command(config_path: Path) -> None:
-    """Every server entry must declare a command (or 'command' key for Claude, 'command'/'type' for Copilot)."""
+    """Unit: every server entry must declare a 'command' key."""
     data = _load_json(config_path)
     for name, entry in data["mcpServers"].items():
         assert "command" in entry, (
@@ -175,8 +178,8 @@ def test_mcp_config_each_server_has_command(config_path: Path) -> None:
 
 
 # ---------------------------------------------------------------------------
-# Live integration test: verify TAVILY_API_KEY is valid and service responds
-# NOTE: structural tests above do NOT verify the service works — this one does.
+# Integration: verify TAVILY_API_KEY is valid and the service responds
+# Unit tests above prove config file well-formedness only — this proves it works.
 # ---------------------------------------------------------------------------
 
 _TAVILY_KEY = os.getenv("TAVILY_API_KEY", "")
