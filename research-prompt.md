@@ -88,13 +88,14 @@ Open `.github/skills/remove-ai-slop/SKILL.md` and run it in full against the ite
 
 ### 7. Sense check
 
-Re-read the completed item from top to bottom. Verify:
-- The Executive Summary answers the research question directly with a specific, falsifiable first sentence.
-- Every Key Finding is a complete sentence (≥ 20 words) backed by a source in the Evidence Map.
-- The remove-AI-slop pass has not introduced semantic drift or lost any evidence.
-- No section is a placeholder or stub.
+Re-read the completed item as a critical reader, not as its author. Apply all four checks:
 
-If any check fails, fix it before proceeding.
+- **Logic** — Are the conclusions actually supported by the evidence gathered? Could an informed reader challenge any causal link or inference?
+- **Consistency** — Do the numbers, dates, claims, and confidence levels agree across sections (§2, Key Findings, Evidence Map)? Do the conclusions align with what the sources actually say?
+- **Reality** — Does the overall picture match how the domain works in practice? Are there obvious real-world constraints, counterexamples, or mainstream positions that the item ignores or contradicts without explanation?
+- **Clarity** — Would a knowledgeable non-specialist understand the argument and reach the same conclusion? Are there unstated assumptions that a reader would need to fill in themselves?
+
+If any check surfaces a problem, fix it before proceeding.
 
 ### 8. Complete the item
 
