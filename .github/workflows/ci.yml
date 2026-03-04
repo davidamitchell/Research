@@ -36,4 +36,5 @@ jobs:
       - name: Run tests
         env:
           YOUTUBE_DATA_API: ${{ secrets.YOUTUBE_DATA_API }}
+          TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
         run: python -m pytest tests/ -q

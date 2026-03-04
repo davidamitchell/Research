@@ -47,6 +47,7 @@ The following table is the ground truth. Do not guess what exists outside this t
 | `GITHUB_TOKEN` | ✅ Yes | Auto-provided by GitHub Actions; scoped to the current repo and its wiki (requires `permissions: contents: write`); cannot push to other repos |
 | `COPILOT_GITHUB_TOKEN` | ✅ Yes (add once) | GitHub PAT; required for Copilot CLI and direct `main` pushes |
 | `YOUTUBE_DATA_API` | ✅ Yes | YouTube video metadata |
+| `TAVILY_API_KEY` | ✅ Yes | Web search via Tavily API and `tavily-mcp` MCP server |
 | Any other credential | ❓ Unknown | **STOP. Ask the owner before designing anything that requires it.** |
 
 If a workflow you are designing requires a credential not in this table, **ask before building**. Do not proceed on the assumption it exists or can be easily added.
@@ -84,6 +85,10 @@ If a workflow you are designing requires a credential not in this table, **ask b
 - Mock all network calls
 - Unit tests on all business logic
 - **Bug fixes must start with a failing test.** Write the test first, confirm it fails, then fix and confirm it passes.
+- **Apply the testing pyramid to external service configuration.** Configuration that wires up an external service (MCP servers, API clients, credentials) is production code and must be proven to work at each relevant layer:
+  - **Unit** — verify config file well-formedness (JSON validity, required fields, correct env var names). These tests prove the *file is correct*; they do NOT prove the *service works*.
+  - **Integration** — call the actual service with the actual credential. This is the only test that proves the configuration works end-to-end. Mark with `pytest.mark.skipif(not os.getenv("KEY"), reason="KEY not set")` so they skip when credentials are absent, and expose the secret in `ci.yml` so they run in CI.
+  - A config change that adds or modifies an external service entry is **not done** until the integration test exists and passes in CI. The absence of a credential is a blocker on shipping the change, not a reason to fall back to unit tests alone.
 
 ---
 
@@ -176,7 +181,7 @@ Once the item is in `Research/in-progress/`, run the **`research` skill** in ful
 The `## Research Skill Output` section is **retained verbatim** in the completed item.
 
 **Use MCP tools throughout the investigation** (full reference: [Using MCP in research tasks](#using-mcp-in-research-tasks)):
-- `brave_search` or `tavily` — discover sources, verify claims, and find current information
+- `tavily` — discover sources, verify claims, and find current information
 - `fetch` — retrieve full page content from each source URL
 - `arxiv` — locate and fetch academic papers referenced in Sources
 - `sequential_thinking` — plan the synthesis structure before writing Findings
@@ -290,7 +295,7 @@ MCP server configs are defined in:
 - `.github/mcp.json` — GitHub Copilot Agent (requires `type: "stdio"` on each entry)
 - `.mcp.json` — Claude Code and other agents
 
-Both files must stay in sync. The following 10 servers are configured in both files.
+Both files must stay in sync. The following 9 servers are configured in both files.
 
 ### Server Reference
 
@@ -302,7 +307,6 @@ Both files must stay in sync. The following 10 servers are configured in both fi
 | `memory` | `npx @modelcontextprotocol/server-memory` | Persistent knowledge graph across sessions | none |
 | `git` | `python -m mcp_server_git` | Read git history, diffs, and commit context | none |
 | `filesystem` | `npx @modelcontextprotocol/server-filesystem` | Read/write research files in the current working directory (repo root) | none |
-| `brave_search` | `npx @modelcontextprotocol/server-brave-search` | Web search for research sourcing and fact-checking | `BRAVE_API_KEY` (repository secret or `.env`) |
 | `arxiv` | `python -m arxiv_mcp_server` | Search and fetch arXiv papers for academic sourcing | none |
 | `github` | `npx @modelcontextprotocol/server-github` | Read GitHub issues, PRs, and repo data | `GITHUB_PERSONAL_ACCESS_TOKEN` (repository secret or `.env`) |
 | `tavily` | `npx tavily-mcp@latest` | Real-time web search, extraction, mapping, and crawl via Tavily API | `TAVILY_API_KEY` (repository secret or `.env`) |
@@ -313,12 +317,12 @@ At the start of each session, note which configured MCP servers are actually run
 
 | Environment | Typically available | Typically unavailable |
 |---|---|---|
-| GitHub Copilot agent (cloud runner) | `fetch`, `git`, `github` (built-in) | `brave_search`, `arxiv`, `filesystem`, `memory`, `sequential_thinking`, `tavily` |
-| Claude Code (local / Codespaces) | all 10 servers (if pip/npm packages installed) | any server whose package is missing |
-| Local dev | all 10 servers (if packages installed and secrets set) | servers with missing secrets (`brave_search`, `github`, `tavily`) |
+| GitHub Copilot agent (cloud runner) | `fetch`, `git`, `github` (built-in) | `arxiv`, `filesystem`, `memory`, `sequential_thinking`, `tavily` |
+| Claude Code (local / Codespaces) | all 9 servers (if pip/npm packages installed) | any server whose package is missing |
+| Local dev | all 9 servers (if packages installed and secrets set) | servers with missing secrets (`github`, `tavily`) |
 
 Substitutions when MCP servers are unavailable (use whatever equivalent capability your runtime provides):
-- `brave_search` / `tavily` → built-in web search (e.g., `web_search` tool in Copilot/Claude)
+- `tavily` → built-in web search (e.g., `web_search` tool in Copilot/Claude)
 - `arxiv` → fetch arxiv.org URLs directly using available HTTP/fetch tools
 - `filesystem` → built-in file read/write tools (bash, view, edit, create tools)
 - `memory` → session notes; record key facts in `PROGRESS.md`
@@ -334,7 +338,7 @@ pip install mcp-server-fetch mcp-server-time mcp-server-git arxiv-mcp-server
 
 ### npx MCP servers — Node.js requirement
 
-`sequential_thinking`, `memory`, `filesystem`, `brave_search`, `github`, and `tavily` use `npx` to run. **Node.js (v18 or higher) must be installed.** It is pre-installed on:
+`sequential_thinking`, `memory`, `filesystem`, `github`, and `tavily` use `npx` to run. **Node.js (v18 or higher) must be installed.** It is pre-installed on:
 
 - GitHub Actions runners (all standard runner images)
 - The devcontainer base image (`mcr.microsoft.com/devcontainers/python:3.11`)
@@ -347,9 +351,8 @@ The `-y` flag in each config entry (`npx -y <package>`) auto-accepts the one-tim
 
 When executing the `research` skill or conducting a research item end-to-end:
 
-- Use **`fetch`** to retrieve web pages for source content (replaces manual `web_fetch` calls when the MCP server is running).
-- Use **`brave_search`** to discover sources and links (requires `BRAVE_API_KEY` repository secret or `.env`).
-- Use **`tavily`** when you need actual page content rather than links — for content extraction, site mapping, and crawl (requires `TAVILY_API_KEY`). Also usable for general web search via `tavily-search`.
+- Use **`fetch`** to retrieve raw web page content from a known URL (replaces manual `web_fetch` calls when the MCP server is running).
+- Use **`tavily`** for web discovery and structured content extraction (requires `TAVILY_API_KEY`). Use `tavily-search` to find relevant sources and links; use `tavily-extract` to get clean, structured text from a URL (higher fidelity than `fetch` for content-heavy pages).
 - Use **`arxiv`** to locate and fetch academic papers referenced by a research item.
 - Use **`sequential_thinking`** to plan multi-step research synthesis before writing findings.
 - Use **`memory`** to persist cross-session state about ongoing research threads.

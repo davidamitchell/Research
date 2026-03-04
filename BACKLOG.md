@@ -463,9 +463,9 @@ This item is blocked until `Research/backlog/2026-03-02-research-quality-assuran
 
 ## W-0032
 
-status: open
+status: done
 created: 2026-03-03
-updated: 2026-03-03
+updated: 2026-03-04
 
 ### Outcome
 
