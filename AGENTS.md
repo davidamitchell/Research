@@ -47,6 +47,7 @@ The following table is the ground truth. Do not guess what exists outside this t
 | `GITHUB_TOKEN` | ✅ Yes | Auto-provided by GitHub Actions; scoped to the current repo and its wiki (requires `permissions: contents: write`); cannot push to other repos |
 | `COPILOT_GITHUB_TOKEN` | ✅ Yes (add once) | GitHub PAT; required for Copilot CLI and direct `main` pushes |
 | `YOUTUBE_DATA_API` | ✅ Yes | YouTube video metadata |
+| `TAVILY_API_KEY` | ✅ Yes | Web search via Tavily API and `tavily-mcp` MCP server |
 | Any other credential | ❓ Unknown | **STOP. Ask the owner before designing anything that requires it.** |
 
 If a workflow you are designing requires a credential not in this table, **ask before building**. Do not proceed on the assumption it exists or can be easily added.
@@ -84,6 +85,7 @@ If a workflow you are designing requires a credential not in this table, **ask b
 - Mock all network calls
 - Unit tests on all business logic
 - **Bug fixes must start with a failing test.** Write the test first, confirm it fails, then fix and confirm it passes.
+- **Credential-dependent services must have a live integration test.** Any test that uses a credential (API key, token) to call an external service MUST make a real network call — not just check that the env var name is listed in a config file. Structural tests (JSON validity, env var name presence) are useful but explicitly do NOT verify the service works. Mark live tests with `pytest.mark.skipif(not os.getenv("KEY"), reason="KEY not set")` so they are skipped when the secret is absent, and expose the secret in `ci.yml` so they run in CI.
 
 ---
 

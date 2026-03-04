@@ -1,18 +1,29 @@
 """Tests proving both MCP config files are valid and consistently configured.
 
-These tests verify:
+STRUCTURAL TESTS (sections 1-5 below)
+--------------------------------------
+These tests verify the *config files* only — they do NOT verify that any server
+actually works at runtime. Specifically they check:
 1. Both config files parse as valid JSON.
 2. Neither file contains the removed `brave_search` server.
 3. The Tavily entry references the correct env var (`TAVILY_API_KEY`).
 4. Both files declare the same set of server keys (in sync check).
 5. Smoke test: load each file end-to-end (parse → validate → assert server list).
+
+INTEGRATION TEST (section 6)
+------------------------------
+test_tavily_live_search — makes a real HTTP call to the Tavily API using
+`TAVILY_API_KEY` to prove the key is valid and the service responds.  Skipped
+when `TAVILY_API_KEY` is not in the environment.
 """
 
 from __future__ import annotations
 
 import json
+import os
 from pathlib import Path
 
+import httpx
 import pytest
 
 REPO_ROOT = Path(__file__).parent.parent
@@ -161,3 +172,28 @@ def test_mcp_config_each_server_has_command(config_path: Path) -> None:
         assert "command" in entry, (
             f"Server '{name}' in {config_path.name} is missing required 'command' key"
         )
+
+
+# ---------------------------------------------------------------------------
+# Live integration test: verify TAVILY_API_KEY is valid and service responds
+# NOTE: structural tests above do NOT verify the service works — this one does.
+# ---------------------------------------------------------------------------
+
+_TAVILY_KEY = os.getenv("TAVILY_API_KEY", "")
+
+
+@pytest.mark.skipif(not _TAVILY_KEY, reason="TAVILY_API_KEY not set — skipping live API call")
+def test_tavily_live_search() -> None:
+    """Make a real HTTP call to the Tavily API to prove the key is valid and the service works."""
+    response = httpx.post(
+        "https://api.tavily.com/search",
+        json={"query": "test", "max_results": 1},
+        headers={"Authorization": f"Bearer {_TAVILY_KEY}"},
+        timeout=30.0,
+    )
+    assert response.status_code == 200, (
+        f"Tavily API returned HTTP {response.status_code}: {response.text[:200]}"
+    )
+    body = response.json()
+    assert "results" in body, f"Tavily response missing 'results' key: {list(body.keys())}"
+    assert isinstance(body["results"], list), "'results' must be a list"
