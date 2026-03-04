@@ -82,7 +82,21 @@ With `## Research Skill Output` complete, copy the §6 Synthesis content into `#
 - No filler phrases ("it is worth noting", "importantly", "it should be said", "in conclusion").
 - No sycophantic transitions. Each section earns its content.
 
-### 6. Complete the item
+### 6. Remove AI slop
+
+Open `.github/skills/remove-ai-slop/SKILL.md` and run it in full against the item's `## Findings` section (and the Research Skill Output if it contains prose). Rewrite any formulaic transitions, symmetrical padding, alignment artifacts, and hedged phrasing in-place. Do not alter claims, evidence, or structure that is required by the research format. Save the file.
+
+### 7. Sense check
+
+Re-read the completed item from top to bottom. Verify:
+- The Executive Summary answers the research question directly with a specific, falsifiable first sentence.
+- Every Key Finding is a complete sentence (≥ 20 words) backed by a source in the Evidence Map.
+- The remove-AI-slop pass has not introduced semantic drift or lost any evidence.
+- No section is a placeholder or stub.
+
+If any check fails, fix it before proceeding.
+
+### 8. Complete the item
 
 ```bash
 python -m src.main research complete <filename>
@@ -90,7 +104,7 @@ python -m src.main research complete <filename>
 
 This moves the file to `Research/completed/<filename>` and updates `status` and `completed` fields.
 
-### 7. Update PROGRESS.md
+### 9. Update PROGRESS.md
 
 1. Change the `Last updated:` line **immediately after** the `# Progress` heading (the topmost one in the file) to: `Last updated: YYYY-MM-DD (<short title>)` using today's date.
 2. Insert a new Work Log entry **at the top** of the `## Work Log` section (above the existing most-recent entry):
@@ -109,7 +123,7 @@ Sources consulted:
 - <url 3> (<description>)
 ```
 
-### 8. Commit to main
+### 10. Commit to main
 
 ```bash
 git add .
