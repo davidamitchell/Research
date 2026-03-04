@@ -1,5 +1,7 @@
 # Progress
 
+Last updated: 2026-03-03 (mcp-config-cleanup — W-0032 backlog item)
+Last updated: 2026-03-03 (research-agenda-curation-coverage)
 Last updated: 2026-03-03 (ml-techniques-and-algorithms backlog item)
 Last updated: 2026-03-03 (research-output-types)
 Last updated: 2026-03-03 (research system: add Research Notes section, follow skill in full)
@@ -36,6 +38,14 @@ Last updated: 2026-03-03 (ai-control-testing-and-assurance)
 
 ## Work Log
 
+### 2026-03-03 — Session (MCP config cleanup backlog — W-0032)
+
+**Completed:**
+
+Repo improvement:
+- `BACKLOG.md` — added W-0032: remove `brave_search` MCP from both `.github/mcp.json` and `.mcp.json`, and investigate/fix the Tavily API key env var name so `tavily-mcp@latest` starts cleanly.
+
+### 2026-03-03 — Research Loop (research-agenda-curation-coverage)
 ### 2026-03-03 — Research Loop (research-output-types)
 
 **Completed:**
