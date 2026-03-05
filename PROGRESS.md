@@ -1,6 +1,6 @@
 # Progress
 
-Last updated: 2026-03-05 (sources-of-research)
+Last updated: 2026-03-05 (ai-strategy-security-focus)
 Last updated: 2026-03-04 (W-0032: remove brave_search, fix Tavily env var, add MCP config tests)
 Last updated: 2026-03-03 (research-agenda-curation-coverage)
 Last updated: 2026-03-03 (ml-techniques-and-algorithms backlog item)
@@ -38,6 +38,18 @@ Last updated: 2026-03-03 (ai-control-testing-and-assurance)
 ---
 
 ## Work Log
+
+### 2026-03-05 — Research Loop (ai-strategy-security-focus)
+
+**Completed:**
+
+Research item:
+- `Research/completed/2026-02-28-ai-strategy-security-focus.md` — completed; AI security strategy requires parallel governance for two distinct vectors: AI-enhanced attacks (1,265% phishing volume increase, $2.7B BEC losses in 2024, 82% of phishing AI-generated in 2025) and AI systems as attack surfaces (prompt injection the highest-severity risk, no complete architectural fix); NZ NCSC published joint guidance with 14 international agencies in January 2024 and October 2025 minimum standards apply to AI systems; FMA and RBNZ flag AI security risks but have issued no mandatory AI-specific controls.
+
+Sources consulted:
+- https://atlas.mitre.org/ (MITRE ATLAS — adversarial threat landscape for AI systems, 66+ techniques)
+- https://www.ncsc.govt.nz/protect-your-organisation/engaging-with-artificial-intelligence/ (NZ NCSC Engaging with AI, January 2024)
+- https://csrc.nist.gov/pubs/ai/100/2/e2023/final (NIST AI 100-2e2023 adversarial ML taxonomy)
 
 ### 2026-03-05 — Research Loop (sources-of-research)
 
