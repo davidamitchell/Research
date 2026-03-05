@@ -2,6 +2,8 @@
 
 Last updated: 2026-03-05 (swarm-pca-genetic-reinforcement-learning backlog item)
 Last updated: 2026-03-05 (controlled-hallucination-perception-as-construction)
+Last updated: 2026-03-05 (general-agent-optimization-framework backlog item)
+Last updated: 2026-03-05 (hard-problem-vs-real-problem-consciousness)
 Last updated: 2026-03-04 (W-0032: remove brave_search, fix Tavily env var, add MCP config tests)
 Last updated: 2026-03-03 (research-agenda-curation-coverage)
 Last updated: 2026-03-03 (ml-techniques-and-algorithms backlog item)
@@ -41,11 +43,48 @@ Last updated: 2026-03-03 (ai-control-testing-and-assurance)
 ## Work Log
 
 ### 2026-03-05 — New backlog item (swarm-pca-genetic-reinforcement-learning)
+### 2026-03-05 — New backlog item (general-agent-optimization-framework)
+
+**Added:**
+
+- `Research/backlog/2026-03-05-general-agent-optimization-framework.md` — new high-priority backlog item for designing a Self-Improving AI Agent Evaluation Loop with a nested inner/outer loop architecture, Meta-Optimizer prompt rewriting, benchmark mapping (GPQA, HLE, GAIA, FinBen, LegalBench, SWE-bench), DSPy integration, synthetic data generation, and instruction-drift mitigation.
+
+### 2026-03-05 — Research Loop (hard-problem-vs-real-problem-consciousness)
+
+**Completed:**
+
+Research item:
+- `Research/completed/2026-02-28-hard-problem-vs-real-problem-consciousness.md` — completed; Seth's "real problem" is a principled deferment of Chalmers' "hard problem," not a dissolution — it asks which brain patterns correlate with which specific experiences, whereas the hard problem asks why any physical process gives rise to experience at all; Frankish's illusionism (denying robust qualia) and Goff's panpsychism (treating consciousness as fundamental) are the two positions that engage the hard problem more directly, and no current position closes Chalmers' explanatory gap.
+
+Sources consulted:
+- https://en.wikipedia.org/wiki/Hard_problem_of_consciousness (Chalmers' formulation, PhilPapers survey data)
+- https://en.wikipedia.org/wiki/Being_You (Seth's real problem and reviews)
+- https://en.wikipedia.org/wiki/Keith_Frankish (illusionism)
+
+### 2026-03-05 — Research Loop (free-energy-entropy-and-life)
+
+**Completed:**
+
+Research item:
+- `Research/completed/2026-02-28-free-energy-entropy-and-life.md` — completed; the three-layer chain from Schrödinger's negentropy (1944) through Friston's variational free energy (FEP) to Seth's beast machine thesis is logically coherent but transitions between layers are motivated conjectures not deductive entailments; the mathematical bridge between Shannon/Boltzmann entropy and Friston's VFE is formal (structural identity via information geometry), not merely analogical; Seth explicitly frames FEP as not a theory of consciousness — it explains why brains predict, while his extra condition (biological, interoceptive, survival-oriented prediction) is what localises consciousness.
+
+Sources consulted:
+- https://www.quantamagazine.org/anil-seth-finds-consciousness-in-lifes-push-against-entropy-20210930/ (Seth, Quanta Magazine 2021 — primary source, direct quotes)
+- https://arxiv.org/abs/2201.06387 (Friston et al. 2022 — "The free energy principle made simpler but not too simple")
+- https://en.wikipedia.org/wiki/Free_energy_principle (Wikipedia FEP — VFE formulation and Markov blanket argument)
+
+### 2026-03-05 — Research Loop (exploit-explore-ai-portfolio-framework)
 
 **Completed:**
 
 Research item:
 - `Research/backlog/2026-03-05-swarm-pca-genetic-reinforcement-learning.md` — new high-priority backlog item created; expands on four technique families not covered in detail in `2026-03-03-ml-techniques-and-algorithms.md`: Swarm Intelligence (PSO, ACO, ABC), PCA and its modern extensions (Kernel PCA, Sparse PCA, Incremental PCA), Genetic Algorithms and Evolutionary Computation (GA, GP, DE, NSGA-II), and Reinforcement Learning (DQN, PPO, SAC, offline RL via CQL/IQL); includes full decision guides, best practices, latest 2023–2025 advancements, and synthesis decision table across all four families and the reference item's methods.
+- `Research/completed/2026-02-28-exploit-explore-ai-portfolio-framework.md` — completed; five observable dimensions (solution maturity, market novelty, evidence basis, milestone horizon, capability requirement) form the STEM-C diagnostic instrument for classifying AI investments as exploit, adjacent explore, or transformational explore at investment review; the 70/20/10 portfolio benchmark (exploit/adjacent/transformational) is confirmed by two independent sources (McKinsey Three Horizons, Nagji & Tuff HBR 2012) with Nagji & Tuff's counterintuitive finding that the 10% transformational investment generates ~70% of long-run innovation value; BCG's 2024 finding that 74% of organisations fail to scale AI value is consistent with the theoretical prediction that exploitation-only portfolios hit a value ceiling.
+
+Sources consulted:
+- https://umbrex.com/resources/frameworks/organization-frameworks/ambidextrous-innovation-portfolio-explore-exploit-matrix/ (Ambidextrous Portfolio Matrix — scoring rubric and governance model)
+- https://hbr.org/2012/05/managing-your-innovation-portfolio (Nagji & Tuff Innovation Ambition Matrix, 70/20/10 benchmark)
+- https://www.bcg.com/publications/2024/wheres-value-in-ai (BCG "Where's the Value in AI?" 2024 — 74% scaling failure statistic)
 
 ### 2026-03-05 — Research Loop (controlled-hallucination-perception-as-construction)
 
