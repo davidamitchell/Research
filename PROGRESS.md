@@ -1,7 +1,7 @@
 # Progress
 
+Last updated: 2026-03-05 (h-neurons-in-llms)
 Last updated: 2026-03-05 (llm-hallucination-mechanisms)
-Last updated: 2026-03-05 (swarm-pca-genetic-reinforcement-learning backlog item)
 Last updated: 2026-03-05 (controlled-hallucination-perception-as-construction)
 Last updated: 2026-03-05 (general-agent-optimization-framework backlog item)
 Last updated: 2026-03-05 (hard-problem-vs-real-problem-consciousness)
@@ -42,6 +42,18 @@ Last updated: 2026-03-03 (ai-control-testing-and-assurance)
 ---
 
 ## Work Log
+
+### 2026-03-05 — Research Loop (h-neurons-in-llms)
+
+**Completed:**
+
+Research item:
+- `Research/completed/2026-03-05-h-neurons-in-llms.md` — completed; Gao et al. (arXiv:2512.01797) identify fewer than 1‰ of FFN neurons as H-Neurons using the CETT metric and L1-sparse linear probing; controlled activation perturbation shows these neurons causally drive over-compliance across four independent benchmarks (false premises, misleading context, sycophantic capitulation, jailbreak); and cross-model transfer experiments confirm H-Neurons originate during pre-training and survive SFT with minimal parameter change, meaning standard alignment does not address the root cause.
+
+Sources consulted:
+- https://arxiv.org/abs/2512.01797 (Gao et al. 2025 — H-Neurons: On the Existence, Impact, and Origin of Hallucination-Associated Neurons in LLMs)
+- https://arxiv.org/abs/2202.05262 (Meng et al. 2022 — Locating and Editing Factual Associations in GPT / ROME)
+- https://transformer-circuits.pub/2022/toy_model/index.html (Elhage et al. 2022 — Toy Models of Superposition)
 
 ### 2026-03-05 — Research Loop (llm-hallucination-mechanisms)
 
