@@ -1,5 +1,6 @@
 # Progress
 
+Last updated: 2026-03-05 (llm-hallucination-mechanisms)
 Last updated: 2026-03-05 (swarm-pca-genetic-reinforcement-learning backlog item)
 Last updated: 2026-03-05 (controlled-hallucination-perception-as-construction)
 Last updated: 2026-03-05 (general-agent-optimization-framework backlog item)
@@ -41,6 +42,18 @@ Last updated: 2026-03-03 (ai-control-testing-and-assurance)
 ---
 
 ## Work Log
+
+### 2026-03-05 — Research Loop (llm-hallucination-mechanisms)
+
+**Completed:**
+
+Research item:
+- `Research/completed/2026-03-05-llm-hallucination-mechanisms.md` — completed; established the factuality/faithfulness taxonomy (Huang et al. 2023) as the operationally correct framework for LLM hallucination, with root causes spanning data (noisy pretraining, knowledge gaps), training (next-token fluency objective, RLHF-induced sycophancy), and inference (decoding randomness); all mainstream mitigations (RAG, RLHF, CoT, Constitutional AI) operate pre- or post-generation, leaving a gap at the during-generation level that neuron-level approaches (H-Neurons paper) are positioned to fill.
+
+Sources consulted:
+- https://arxiv.org/abs/2311.05232 (Huang et al. 2023 — A Survey on Hallucination in Large Language Models)
+- https://arxiv.org/abs/2202.03629 (Ji et al. 2023 — Survey of Hallucination in Natural Language Generation)
+- https://lilianweng.github.io/posts/2024-07-07-hallucination/ (Weng 2024 — Extrinsic Hallucinations in LLMs)
 
 ### 2026-03-05 — New backlog item (swarm-pca-genetic-reinforcement-learning)
 ### 2026-03-05 — New backlog item (general-agent-optimization-framework)
