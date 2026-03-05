@@ -1,6 +1,6 @@
 # Progress
 
-Last updated: 2026-03-05 (exploit-explore-ai-portfolio-framework)
+Last updated: 2026-03-05 (free-energy-entropy-and-life)
 Last updated: 2026-03-04 (W-0032: remove brave_search, fix Tavily env var, add MCP config tests)
 Last updated: 2026-03-03 (research-agenda-curation-coverage)
 Last updated: 2026-03-03 (ml-techniques-and-algorithms backlog item)
@@ -38,6 +38,18 @@ Last updated: 2026-03-03 (ai-control-testing-and-assurance)
 ---
 
 ## Work Log
+
+### 2026-03-05 — Research Loop (free-energy-entropy-and-life)
+
+**Completed:**
+
+Research item:
+- `Research/completed/2026-02-28-free-energy-entropy-and-life.md` — completed; the three-layer chain from Schrödinger's negentropy (1944) through Friston's variational free energy (FEP) to Seth's beast machine thesis is logically coherent but transitions between layers are motivated conjectures not deductive entailments; the mathematical bridge between Shannon/Boltzmann entropy and Friston's VFE is formal (structural identity via information geometry), not merely analogical; Seth explicitly frames FEP as not a theory of consciousness — it explains why brains predict, while his extra condition (biological, interoceptive, survival-oriented prediction) is what localises consciousness.
+
+Sources consulted:
+- https://www.quantamagazine.org/anil-seth-finds-consciousness-in-lifes-push-against-entropy-20210930/ (Seth, Quanta Magazine 2021 — primary source, direct quotes)
+- https://arxiv.org/abs/2201.06387 (Friston et al. 2022 — "The free energy principle made simpler but not too simple")
+- https://en.wikipedia.org/wiki/Free_energy_principle (Wikipedia FEP — VFE formulation and Markov blanket argument)
 
 ### 2026-03-05 — Research Loop (exploit-explore-ai-portfolio-framework)
 
