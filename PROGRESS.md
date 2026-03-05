@@ -1,6 +1,6 @@
 # Progress
 
-Last updated: 2026-03-05 (general-agent-optimization-framework)
+Last updated: 2026-03-05 (swarm-pca-genetic-reinforcement-learning)
 Last updated: 2026-03-05 (llm-hallucination-mechanisms)
 Last updated: 2026-03-05 (controlled-hallucination-perception-as-construction)
 Last updated: 2026-03-05 (general-agent-optimization-framework backlog item)
@@ -42,6 +42,20 @@ Last updated: 2026-03-03 (ai-control-testing-and-assurance)
 ---
 
 ## Work Log
+
+### 2026-03-05 — Research Loop (swarm-pca-genetic-reinforcement-learning)
+
+**Completed:**
+
+Research item:
+- `Research/completed/2026-03-05-swarm-pca-genetic-reinforcement-learning.md` — completed; PCA is the correct dimensionality reduction step for collinearity-sensitive models but unnecessary for GBDTs; contextual bandits are the correct default for one-shot explore/exploit analytics problems with full RL reserved for sequential state-transition problems; offline RL (CQL/IQL via d3rlpy) is the appropriate regulated-industry RL entry point; NSGA-II is the benchmark for multi-objective portfolio optimisation; GA/PSO outperform Bayesian optimisation on combinatorial/discrete search spaces.
+
+Sources consulted:
+- https://scikit-learn.org/stable/modules/decomposition.html (scikit-learn PCA, KernelPCA, SparsePCA, IncrementalPCA documentation)
+- https://arxiv.org/abs/2110.06169 (Kostrikov et al., Implicit Q-Learning offline RL)
+- https://stable-baselines3.readthedocs.io (Stable Baselines3 RL algorithms)
+
+---
 
 ### 2026-03-05 — Research Loop (general-agent-optimization-framework)
 
