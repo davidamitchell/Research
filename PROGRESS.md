@@ -1,6 +1,6 @@
 # Progress
 
-Last updated: 2026-03-04 (sdlc-ai-prompt-patterns: add backlog item and start research)
+Last updated: 2026-03-05 (ml-techniques-and-algorithms)
 Last updated: 2026-03-04 (W-0032: remove brave_search, fix Tavily env var, add MCP config tests)
 Last updated: 2026-03-03 (research-agenda-curation-coverage)
 Last updated: 2026-03-03 (ml-techniques-and-algorithms backlog item)
@@ -38,6 +38,20 @@ Last updated: 2026-03-03 (ai-control-testing-and-assurance)
 ---
 
 ## Work Log
+
+### 2026-03-05 — Research Loop (ml-techniques-and-algorithms)
+
+**Completed:**
+
+Research item:
+- `Research/completed/2026-03-03-ml-techniques-and-algorithms.md` — completed; gradient-boosted decision trees (XGBoost, LightGBM, CatBoost) are confirmed as the correct default for tabular analytics; the single most diagnostic gap between normal and advanced practice is out-of-time validation; conformal prediction, causal ML (DoWhy/EconML/CausalML), AutoML (AutoGluon/H2O/FLAML), and TabPFN-2.5 are all production-ready in 2024; RBNZ's principles-based model risk management expectations are satisfiable with SHAP + MLflow + Evidently AI.
+
+Sources consulted:
+- https://arxiv.org/abs/2408.14817 (Lazebnik et al. 2024 — comprehensive 111-dataset tabular ML benchmark)
+- https://www.kaggle.com/AI-Report-2023 (Kaggle AI Report 2023 — practitioner tabular data survey)
+- https://proceedings.neurips.cc/paper/2015/file/86df7dcfd896fcaf2674f757a2463eba-Paper.pdf (Sculley et al. 2015 — hidden technical debt in ML systems)
+- https://arxiv.org/abs/2511.08667 (TabPFN-2.5 — tabular foundation model report 2024)
+- https://www.rbnz.govt.nz/hub/publications/financial-stability-report/2025/may/ai-pre-release/rise-of-the-machines (RBNZ Rise of the Machines — May 2025 AI supervisory expectations)
 
 ### 2026-03-04 — Session (sdlc-ai-prompt-patterns: add and start research item)
 
