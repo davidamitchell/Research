@@ -20,20 +20,31 @@ youtube:
   #     max_videos: 3
 
 rss:
-  # RSS/Atom feed sources
+  # RSS/Atom feed sources — all confirmed accessible from GitHub Actions runner IPs (2026-03-05)
   # Required: url
   # Optional: name (human label)
-  sources: []
-  # Example:
-  # sources:
-  #   - url: https://example.com/feed.xml
-  #     name: Example Blog
+  sources:
+    # Practitioner blogs and lab announcements — low-to-medium frequency, high signal
+    - url: https://huggingface.co/blog/feed.xml
+      name: "Hugging Face Blog"
+    - url: https://lilianweng.github.io/index.xml
+      name: "Lil'Log (Lilian Weng)"
+    - url: https://deepmind.google/blog/rss.xml
+      name: "Google DeepMind Blog"
+    - url: https://thegradient.pub/rss/
+      name: "The Gradient"
+    - url: https://bair.berkeley.edu/blog/feed.xml
+      name: "BAIR Blog"
+    - url: https://magazine.sebastianraschka.com/feed
+      name: "Ahead of AI (Sebastian Raschka)"
+    - url: https://simonwillison.net/atom/everything/
+      name: "Simon Willison"
 
 arxiv:
-  # arXiv search terms (fetched via arxiv MCP server or API)
-  # Each entry must be a string query.
-  queries: []
-  # Example:
-  # queries:
-  #   - "large language models"
-  #   - "information theory compression"
+  # arXiv search terms for agent-driven discovery (via arxiv-mcp-server, not bulk RSS)
+  # Use narrow, topic-specific queries; broad category feeds (~300-400 papers/day) require
+  # a keyword-filter step before automated ingestion is practical.
+  queries:
+    - "large language models agents"
+    - "agentic AI systems"
+    - "predictive processing active inference"

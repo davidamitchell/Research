@@ -1,6 +1,6 @@
 # Progress
 
-Last updated: 2026-03-05 (ml-techniques-and-algorithms)
+Last updated: 2026-03-05 (sources-of-research)
 Last updated: 2026-03-04 (W-0032: remove brave_search, fix Tavily env var, add MCP config tests)
 Last updated: 2026-03-03 (research-agenda-curation-coverage)
 Last updated: 2026-03-03 (ml-techniques-and-algorithms backlog item)
@@ -38,6 +38,18 @@ Last updated: 2026-03-03 (ai-control-testing-and-assurance)
 ---
 
 ## Work Log
+
+### 2026-03-05 — Research Loop (sources-of-research)
+
+**Completed:**
+
+Research item:
+- `Research/completed/2026-02-27-sources-of-research.md` — completed; seven RSS feeds confirmed accessible from GitHub Actions runner IPs and added to `config/sources.yaml` (HF Blog, Lil'Log, DeepMind Blog, The Gradient, BAIR Blog, Sebastian Raschka, Simon Willison); YouTube channel Atom feeds are blocked from runner IPs and `youtube.channels` remains empty pending a fix; arXiv RSS works but requires keyword filtering before automated ingestion is practical — the existing arxiv-mcp-server is the right tool for targeted paper queries.
+
+Sources consulted:
+- https://export.arxiv.org/rss/cs.AI (arXiv RSS feed — confirmed accessible, 348 papers/day)
+- https://huggingface.co/blog/feed.xml (Hugging Face Blog RSS — confirmed accessible)
+- https://lilianweng.github.io/index.xml (Lil'Log — confirmed accessible)
 
 ### 2026-03-05 — Research Loop (ml-techniques-and-algorithms)
 
