@@ -1,6 +1,6 @@
 # Progress
 
-Last updated: 2026-03-05 (swarm-pca-genetic-reinforcement-learning)
+Last updated: 2026-03-05 (h-neurons-synthesis)
 Last updated: 2026-03-05 (llm-hallucination-mechanisms)
 Last updated: 2026-03-05 (controlled-hallucination-perception-as-construction)
 Last updated: 2026-03-05 (general-agent-optimization-framework backlog item)
@@ -42,6 +42,20 @@ Last updated: 2026-03-03 (ai-control-testing-and-assurance)
 ---
 
 ## Work Log
+
+### 2026-03-05 — Research Loop (h-neurons-synthesis)
+
+**Completed:**
+
+Research item:
+- `Research/completed/2026-03-05-h-neurons-synthesis.md` — completed; LLM hallucinations are three expressions (factual confabulation, sycophancy, jailbreak) of a single over-compliance mechanism encoded in sparse FFN neurons (< 1‰) that form during pre-training via the NTP objective and survive SFT/RLHF via parameter inertia; interventions span four access tiers from RAG (any API) to pre-training data curation (model developers only), with inference-time H-Neuron monitoring the key near-term opportunity for open-weight deployments.
+
+Sources consulted:
+- https://arxiv.org/abs/2512.01797 (Gao et al. 2025 — H-Neurons: identification, causal mechanism, pre-training origin)
+- Research/completed/2026-03-05-h-neurons-in-llms.md (H-Neurons paper detailed findings)
+- Research/completed/2026-03-05-llm-hallucination-mechanisms.md (macroscopic hallucination taxonomy and mitigation landscape)
+
+---
 
 ### 2026-03-05 — Research Loop (swarm-pca-genetic-reinforcement-learning)
 
