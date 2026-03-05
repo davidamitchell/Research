@@ -881,13 +881,14 @@ System improvements:
 
 **Completed:**
 
-Research items — 4-item progressive cluster branching from Gao et al. (2025) "Hallucination-Associated Neurons in LLMs":
+Research items — 5-item progressive cluster branching from Gao et al. (2025) "Hallucination-Associated Neurons in LLMs":
 - `Research/backlog/2026-03-05-llm-hallucination-mechanisms.md` — **foundation**: LLM hallucination types, causes, and current mitigations; must be researched before the core paper item; blocks `2026-03-05-h-neurons-in-llms`
-- `Research/backlog/2026-03-05-h-neurons-in-llms.md` — **core**: the paper itself — H-Neuron identification methodology, behavioural impact (over-compliance pathway), and pre-training origins; blocks the two branch items
-- `Research/backlog/2026-03-05-h-neuron-over-compliance.md` — **branch A**: over-compliance behaviour, activation steering, inference-time monitoring, and training-time interventions
-- `Research/backlog/2026-03-05-h-neuron-pretraining-origins.md` — **branch B**: why H-Neurons emerge during pre-training, limits of post-training alignment, and candidate pre-training-time mitigations
+- `Research/backlog/2026-03-05-h-neurons-in-llms.md` — **core**: the paper itself — H-Neuron identification methodology, behavioural impact (over-compliance pathway), and pre-training origins; blocks the two branch items; source list includes YouTube explainer "They solved AI hallucinations!" (https://youtu.be/1ONwQzauqkc)
+- `Research/backlog/2026-03-05-h-neuron-over-compliance.md` — **branch A**: over-compliance behaviour, activation steering, inference-time monitoring, and training-time interventions; blocks `2026-03-05-h-neurons-synthesis`
+- `Research/backlog/2026-03-05-h-neuron-pretraining-origins.md` — **branch B**: why H-Neurons emerge during pre-training, limits of post-training alignment, and candidate pre-training-time mitigations; blocks `2026-03-05-h-neurons-synthesis`
+- `Research/backlog/2026-03-05-h-neurons-synthesis.md` — **synthesis**: unified causal chain, layered intervention map, confidence-calibrated findings, and prioritised action list for LLM reliability engineering
 
-Dependency chain (research in this order): hallucination-mechanisms → h-neurons-in-llms → [over-compliance | pretraining-origins]
+Dependency chain (research in this order): hallucination-mechanisms → h-neurons-in-llms → [over-compliance | pretraining-origins] → synthesis
 
 ---
 

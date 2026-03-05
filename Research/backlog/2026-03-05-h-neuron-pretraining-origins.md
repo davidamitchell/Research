@@ -3,7 +3,7 @@ title: "Pre-Training Origins of Hallucination-Associated Neurons — Implication
 added: 2026-03-05
 status: backlog
 priority: medium
-blocks: []
+blocks: [2026-03-05-h-neurons-synthesis]
 tags: [llm, hallucinations, h-neurons, pre-training, alignment, rlhf, training-dynamics, mechanistic-interpretability, reliability]
 started: ~
 completed: ~

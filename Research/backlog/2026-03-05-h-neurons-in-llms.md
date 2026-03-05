@@ -59,6 +59,7 @@ This combination of findings — sparsity, causal role, generality, and pre-trai
 ## Sources
 
 - [ ] Gao et al. (2025) — "Hallucination-Associated Neurons in LLMs": https://arxiv.org/abs/2512.01797 ← **primary source**
+- [ ] "They solved AI hallucinations!" (YouTube explainer) — accessible walkthrough of the H-Neurons paper: the liar circuit concept, L1-regularised sparse probe methodology, intervention challenges, and implications for real-time hallucination detection: https://youtu.be/1ONwQzauqkc
 - [ ] Elhage et al. (2022) — "Toy Models of Superposition" (Anthropic) — background on how neurons encode features: https://transformer-circuits.pub/2022/toy_model/index.html
 - [ ] Meng et al. (2022) — "Locating and Editing Factual Associations in GPT" (ROME) — neuron-level causal tracing in GPT-family decoder models: https://arxiv.org/abs/2202.05262
 - [ ] Bereska & Gavves (2024) — "Mechanistic Interpretability for AI Safety — A Review": https://arxiv.org/abs/2404.14082
