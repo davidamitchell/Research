@@ -1,5 +1,6 @@
 # Progress
 
+Last updated: 2026-03-05 (general-agent-optimization-framework backlog item)
 Last updated: 2026-03-05 (hard-problem-vs-real-problem-consciousness)
 Last updated: 2026-03-04 (W-0032: remove brave_search, fix Tavily env var, add MCP config tests)
 Last updated: 2026-03-03 (research-agenda-curation-coverage)
@@ -38,6 +39,12 @@ Last updated: 2026-03-03 (ai-control-testing-and-assurance)
 ---
 
 ## Work Log
+
+### 2026-03-05 — New backlog item (general-agent-optimization-framework)
+
+**Added:**
+
+- `Research/backlog/2026-03-05-general-agent-optimization-framework.md` — new high-priority backlog item for designing a Self-Improving AI Agent Evaluation Loop with a nested inner/outer loop architecture, Meta-Optimizer prompt rewriting, benchmark mapping (GPQA, HLE, GAIA, FinBen, LegalBench, SWE-bench), DSPy integration, synthetic data generation, and instruction-drift mitigation.
 
 ### 2026-03-05 — Research Loop (hard-problem-vs-real-problem-consciousness)
 
