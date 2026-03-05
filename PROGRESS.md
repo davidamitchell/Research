@@ -1,6 +1,6 @@
 # Progress
 
-Last updated: 2026-03-05 (free-energy-entropy-and-life)
+Last updated: 2026-03-05 (hard-problem-vs-real-problem-consciousness)
 Last updated: 2026-03-04 (W-0032: remove brave_search, fix Tavily env var, add MCP config tests)
 Last updated: 2026-03-03 (research-agenda-curation-coverage)
 Last updated: 2026-03-03 (ml-techniques-and-algorithms backlog item)
@@ -38,6 +38,18 @@ Last updated: 2026-03-03 (ai-control-testing-and-assurance)
 ---
 
 ## Work Log
+
+### 2026-03-05 — Research Loop (hard-problem-vs-real-problem-consciousness)
+
+**Completed:**
+
+Research item:
+- `Research/completed/2026-02-28-hard-problem-vs-real-problem-consciousness.md` — completed; Seth's "real problem" is a principled deferment of Chalmers' "hard problem," not a dissolution — it asks which brain patterns correlate with which specific experiences, whereas the hard problem asks why any physical process gives rise to experience at all; Frankish's illusionism (denying robust qualia) and Goff's panpsychism (treating consciousness as fundamental) are the two positions that engage the hard problem more directly, and no current position closes Chalmers' explanatory gap.
+
+Sources consulted:
+- https://en.wikipedia.org/wiki/Hard_problem_of_consciousness (Chalmers' formulation, PhilPapers survey data)
+- https://en.wikipedia.org/wiki/Being_You (Seth's real problem and reviews)
+- https://en.wikipedia.org/wiki/Keith_Frankish (illusionism)
 
 ### 2026-03-05 — Research Loop (free-energy-entropy-and-life)
 
