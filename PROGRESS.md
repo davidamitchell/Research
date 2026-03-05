@@ -1,5 +1,6 @@
 # Progress
 
+Last updated: 2026-03-05 (swarm-pca-genetic-reinforcement-learning backlog item)
 Last updated: 2026-03-05 (controlled-hallucination-perception-as-construction)
 Last updated: 2026-03-04 (W-0032: remove brave_search, fix Tavily env var, add MCP config tests)
 Last updated: 2026-03-03 (research-agenda-curation-coverage)
@@ -38,6 +39,13 @@ Last updated: 2026-03-03 (ai-control-testing-and-assurance)
 ---
 
 ## Work Log
+
+### 2026-03-05 — New backlog item (swarm-pca-genetic-reinforcement-learning)
+
+**Completed:**
+
+Research item:
+- `Research/backlog/2026-03-05-swarm-pca-genetic-reinforcement-learning.md` — new high-priority backlog item created; expands on four technique families not covered in detail in `2026-03-03-ml-techniques-and-algorithms.md`: Swarm Intelligence (PSO, ACO, ABC), PCA and its modern extensions (Kernel PCA, Sparse PCA, Incremental PCA), Genetic Algorithms and Evolutionary Computation (GA, GP, DE, NSGA-II), and Reinforcement Learning (DQN, PPO, SAC, offline RL via CQL/IQL); includes full decision guides, best practices, latest 2023–2025 advancements, and synthesis decision table across all four families and the reference item's methods.
 
 ### 2026-03-05 — Research Loop (controlled-hallucination-perception-as-construction)
 
