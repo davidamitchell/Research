@@ -1,6 +1,6 @@
 # Progress
 
-Last updated: 2026-03-05 (controlled-hallucination-perception-as-construction)
+Last updated: 2026-03-05 (exploit-explore-ai-portfolio-framework)
 Last updated: 2026-03-04 (W-0032: remove brave_search, fix Tavily env var, add MCP config tests)
 Last updated: 2026-03-03 (research-agenda-curation-coverage)
 Last updated: 2026-03-03 (ml-techniques-and-algorithms backlog item)
@@ -38,6 +38,18 @@ Last updated: 2026-03-03 (ai-control-testing-and-assurance)
 ---
 
 ## Work Log
+
+### 2026-03-05 — Research Loop (exploit-explore-ai-portfolio-framework)
+
+**Completed:**
+
+Research item:
+- `Research/completed/2026-02-28-exploit-explore-ai-portfolio-framework.md` — completed; five observable dimensions (solution maturity, market novelty, evidence basis, milestone horizon, capability requirement) form the STEM-C diagnostic instrument for classifying AI investments as exploit, adjacent explore, or transformational explore at investment review; the 70/20/10 portfolio benchmark (exploit/adjacent/transformational) is confirmed by two independent sources (McKinsey Three Horizons, Nagji & Tuff HBR 2012) with Nagji & Tuff's counterintuitive finding that the 10% transformational investment generates ~70% of long-run innovation value; BCG's 2024 finding that 74% of organisations fail to scale AI value is consistent with the theoretical prediction that exploitation-only portfolios hit a value ceiling.
+
+Sources consulted:
+- https://umbrex.com/resources/frameworks/organization-frameworks/ambidextrous-innovation-portfolio-explore-exploit-matrix/ (Ambidextrous Portfolio Matrix — scoring rubric and governance model)
+- https://hbr.org/2012/05/managing-your-innovation-portfolio (Nagji & Tuff Innovation Ambition Matrix, 70/20/10 benchmark)
+- https://www.bcg.com/publications/2024/wheres-value-in-ai (BCG "Where's the Value in AI?" 2024 — 74% scaling failure statistic)
 
 ### 2026-03-05 — Research Loop (controlled-hallucination-perception-as-construction)
 
