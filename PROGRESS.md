@@ -1,6 +1,6 @@
 # Progress
 
-Last updated: 2026-03-05 (h-neurons-in-llms)
+Last updated: 2026-03-05 (general-agent-optimization-framework)
 Last updated: 2026-03-05 (llm-hallucination-mechanisms)
 Last updated: 2026-03-05 (controlled-hallucination-perception-as-construction)
 Last updated: 2026-03-05 (general-agent-optimization-framework backlog item)
@@ -42,6 +42,18 @@ Last updated: 2026-03-03 (ai-control-testing-and-assurance)
 ---
 
 ## Work Log
+
+### 2026-03-05 — Research Loop (general-agent-optimization-framework)
+
+**Completed:**
+
+Research item:
+- `Research/completed/2026-03-05-general-agent-optimization-framework.md` — completed; DSPy (Khattab et al. 2023) identified as the only surveyed framework providing native inner-loop (MIPRO instruction optimization, ~370 LLM calls per run) and outer-loop (evaluation harness) support; Chambers & Partners Golden Set path closed by copyright; open stack recommended as AgentBench → GAIA → FinBen/LegalBench; instruction drift mitigated via Brevity Penalty + LLMLingua compression.
+
+Sources consulted:
+- https://arxiv.org/abs/2310.03714 (Khattab et al. 2023 — DSPy: Compiling Declarative Language Model Calls into Self-Improving Pipelines)
+- https://arxiv.org/abs/2406.07496 (Yuksekgonul et al. 2024 — TextGrad: Automatic Differentiation via Text)
+- https://dspy.ai/ (DSPy documentation — optimizers, cost profile, integration)
 
 ### 2026-03-05 — Research Loop (h-neurons-in-llms)
 
