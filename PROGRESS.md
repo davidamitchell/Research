@@ -1,6 +1,6 @@
 # Progress
 
-Last updated: 2026-03-05 (ai-strategy-security-focus)
+Last updated: 2026-03-05 (ai-strategy-swe-focus)
 Last updated: 2026-03-04 (W-0032: remove brave_search, fix Tavily env var, add MCP config tests)
 Last updated: 2026-03-03 (research-agenda-curation-coverage)
 Last updated: 2026-03-03 (ml-techniques-and-algorithms backlog item)
@@ -38,6 +38,18 @@ Last updated: 2026-03-03 (ai-control-testing-and-assurance)
 ---
 
 ## Work Log
+
+### 2026-03-05 — Research Loop (ai-strategy-swe-focus)
+
+**Completed:**
+
+Research item:
+- `Research/completed/2026-02-28-ai-strategy-swe-focus.md` — completed; individual productivity gains of 40–55% on bounded coding tasks are real and consistent across RCT and enterprise deployments (GitHub Copilot RCT, ANZ Bank), but DORA 2024 shows higher AI adoption associates with worse delivery stability (–7.2%) unless workflows are redesigned; the enterprise state is Type 2 (agentic builder, human-gated) not Type 3 (autonomous deployment), and autonomous coding agent benchmarks (SWE-bench: 14% in 2024 → ~80% curated by 2026) overstate generalised capability due to clustering on solved problems.
+
+Sources consulted:
+- https://arxiv.org/abs/2302.06590 (GitHub/MIT/Microsoft controlled experiment — 55.8% faster task completion)
+- https://cloud.google.com/blog/products/devops-sre/announcing-the-2024-dora-report (Google DORA 2024 — delivery stability decline with AI adoption)
+- https://www.swebench.com/ (SWE-bench leaderboard — autonomous coding agent benchmark trajectory)
 
 ### 2026-03-05 — Research Loop (ai-strategy-security-focus)
 
