@@ -1,6 +1,6 @@
 # Progress
 
-Last updated: 2026-03-05 (ai-strategy-swe-focus)
+Last updated: 2026-03-05 (controlled-hallucination-perception-as-construction)
 Last updated: 2026-03-04 (W-0032: remove brave_search, fix Tavily env var, add MCP config tests)
 Last updated: 2026-03-03 (research-agenda-curation-coverage)
 Last updated: 2026-03-03 (ml-techniques-and-algorithms backlog item)
@@ -38,6 +38,18 @@ Last updated: 2026-03-03 (ai-control-testing-and-assurance)
 ---
 
 ## Work Log
+
+### 2026-03-05 — Research Loop (controlled-hallucination-perception-as-construction)
+
+**Completed:**
+
+Research item:
+- `Research/completed/2026-02-28-controlled-hallucination-perception-as-construction.md` — completed; perception is a generative, top-down process established across four independent paradigms (rubber hand illusion, binocular rivalry, mismatch negativity, observer-relative colour illusions), mechanistically grounded in Rao & Ballard's (1999) predictive coding architecture; Seth's "controlled hallucination" framing is accurate — ordinary perception and pathological hallucination share the same computational mechanism and differ only in degree of sensory constraint; the strongest philosophical objections (naive realism, Gibson's direct perception) are coherent but empirically costly when forced to account for the full evidence base.
+
+Sources consulted:
+- https://www.nature.com/articles/nn0199_79.pdf (Rao & Ballard 1999 — predictive coding in visual cortex, foundational paper)
+- https://www.nature.com/articles/35784.pdf (Botvinick & Cohen 1998 — rubber hand illusion original Nature paper)
+- https://www.technologyreview.com/2021/08/25/1032121/brains-controlled-hallucination/ (MIT Technology Review — Seth's controlled hallucination, 2021)
 
 ### 2026-03-05 — Research Loop (ai-strategy-swe-focus)
 
