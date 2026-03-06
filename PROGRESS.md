@@ -1,6 +1,6 @@
 # Progress
 
-Last updated: 2026-03-06 (h-neuron-over-compliance)
+Last updated: 2026-03-06 (h-neuron-pretraining-origins)
 Last updated: 2026-03-05 (llm-hallucination-mechanisms)
 Last updated: 2026-03-05 (controlled-hallucination-perception-as-construction)
 Last updated: 2026-03-05 (general-agent-optimization-framework backlog item)
@@ -42,6 +42,18 @@ Last updated: 2026-03-03 (ai-control-testing-and-assurance)
 ---
 
 ## Work Log
+
+### 2026-03-06 — Research Loop (h-neuron-pretraining-origins)
+
+**Completed:**
+
+Research item:
+- `Research/completed/2026-03-05-h-neuron-pretraining-origins.md` — completed; H-Neurons form during pre-training because the next-token prediction objective rewards compliant continuations on sycophantic/false web-corpus text, and SFT/RLHF cannot eliminate them due to parameter inertia; scaling reduces H-Neuron ratios and perturbation leverage but distributes rather than eliminates the compliance feature; data quality filtering is the most feasible pre-training intervention with auxiliary uncertainty-expression objectives the most mechanistically targeted but unvalidated at frontier scale.
+
+Sources consulted:
+- https://arxiv.org/abs/2512.01797 (Gao et al. 2025 — H-Neurons pre-training origin, backward-transferability experiments, parameter inertia evidence)
+- https://arxiv.org/abs/2306.11644 (Gunasekar et al. 2023 — Phi-1: textbook-quality data outperforms unfiltered web data at 7B tokens)
+- https://transformer-circuits.pub/2022/toy_model/index.html (Elhage et al. 2022 — Toy Models of Superposition: feature encoding beyond neuron count)
 
 ### 2026-03-06 — Research Loop (h-neuron-over-compliance)
 
