@@ -1,6 +1,6 @@
 # Progress
 
-Last updated: 2026-03-06 (h-neuron-pretraining-origins)
+Last updated: 2026-03-06 (interoception-and-the-predictive-self)
 Last updated: 2026-03-05 (llm-hallucination-mechanisms)
 Last updated: 2026-03-05 (controlled-hallucination-perception-as-construction)
 Last updated: 2026-03-05 (general-agent-optimization-framework backlog item)
@@ -43,7 +43,19 @@ Last updated: 2026-03-03 (ai-control-testing-and-assurance)
 
 ## Work Log
 
-### 2026-03-06 — Research Loop (h-neuron-pretraining-origins)
+### 2026-03-06 — Research Loop (interoception-and-the-predictive-self)
+
+**Completed:**
+
+Research item:
+- `Research/completed/2026-02-28-interoception-and-the-predictive-self.md` — completed; the minimal sense of self is grounded in the anterior insular cortex's predictive regulation of interoceptive signals, supported by Craig's AIC neuroanatomy, Tsakiris's bodily ownership experiments, and DPD neuroimaging showing insular deficit with treatment-restoration; interoception is necessary for the minimal self but not sufficient for higher self-layers; meta-analyses find no robust cardiac interoceptive accuracy deficit in anxiety/depression, suggesting the HCT is an inadequate proxy for the precision-weighting parameters the theory requires.
+
+Sources consulted:
+- https://www.nature.com/articles/nrn2555.pdf (Craig 2009 — anterior insula and human awareness, interoceptive gradient)
+- https://www.sciencedirect.com/science/article/pii/S1364661313002118 (Seth 2013 — interoceptive inference, emotion, and the embodied self)
+- https://online.ucpress.edu/collabra/article/8/1/33271/121638/How-Does-Heartbeat-Counting-Task-Performance (Desmedt et al. 2022 meta-analysis on HCT and mental health)
+
+
 
 **Completed:**
 
