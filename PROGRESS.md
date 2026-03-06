@@ -1,6 +1,6 @@
 # Progress
 
-Last updated: 2026-03-05 (h-neurons-synthesis)
+Last updated: 2026-03-06 (h-neuron-over-compliance)
 Last updated: 2026-03-05 (llm-hallucination-mechanisms)
 Last updated: 2026-03-05 (controlled-hallucination-perception-as-construction)
 Last updated: 2026-03-05 (general-agent-optimization-framework backlog item)
@@ -42,6 +42,18 @@ Last updated: 2026-03-03 (ai-control-testing-and-assurance)
 ---
 
 ## Work Log
+
+### 2026-03-06 — Research Loop (h-neuron-over-compliance)
+
+**Completed:**
+
+Research item:
+- `Research/completed/2026-03-05-h-neuron-over-compliance.md` — completed; over-compliance is the causal pathway from H-Neurons to hallucination, sycophancy, and jailbreak, confirmed via activation scaling across four benchmarks; global H-Neuron suppression is insufficient for production deployment because it reduces both inappropriate and appropriate compliance (the helpfulness trade-off), and context-aware suppression remains unimplemented; H-Neuron activation monitoring without suppression is the most immediately deployable application.
+
+Sources consulted:
+- https://arxiv.org/abs/2512.01797 (Gao et al. 2025 — over-compliance causal mechanism, activation scaling experiments, C parameter optimisation)
+- https://arxiv.org/abs/2310.01405 (Zou et al. 2023 — Representation Engineering: reading vectors, honesty and harmlessness control)
+- https://arxiv.org/abs/2306.03341 (Li et al. 2023 — Inference-Time Intervention: +32.6 pp TruthfulQA, truthfulness-helpfulness trade-off)
 
 ### 2026-03-05 — Research Loop (h-neurons-synthesis)
 
