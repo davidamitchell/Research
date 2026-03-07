@@ -1,6 +1,6 @@
 # Progress
 
-Last updated: 2026-03-07 (rbnz-ai-supervisory-expectations)
+Last updated: 2026-03-07 (transcript-via-gemini-api)
 Last updated: 2026-03-06 (interoception-and-the-predictive-self)
 Last updated: 2026-03-05 (llm-hallucination-mechanisms)
 Last updated: 2026-03-05 (controlled-hallucination-perception-as-construction)
@@ -43,6 +43,18 @@ Last updated: 2026-03-03 (ai-control-testing-and-assurance)
 ---
 
 ## Work Log
+
+### 2026-03-07 — Research Loop (transcript-via-gemini-api)
+
+**Completed:**
+
+Research item:
+- `Research/completed/2026-02-28-transcript-via-gemini-api.md` — completed; Gemini API's `fileData.fileUri` bypasses YouTube's IP restriction by processing video on Google's servers (GitHub Actions runner IP never contacts YouTube), but output is a paraphrased summary not a verbatim transcript even with explicit word-for-word prompting; the existing `google-genai>=1.0.0` SDK and `GEMINI_API_KEY` from Latest-developments- are fully reusable, making the tool viable as a video analysis fetcher but not as a transcript replacement — verbatim extraction requires yt-dlp + Whisper.
+
+Sources consulted:
+- https://ai.google.dev/gemini-api/docs/video-understanding (official YouTube URL support documentation)
+- https://vomo.ai/blog/can-gemini-transcribe-youtube-videos (independent test confirming output is paraphrase not verbatim)
+- https://ai.google.dev/gemini-api/docs/rate-limits (official free-tier rate limits)
 
 ### 2026-03-07 — Research Loop (rbnz-ai-supervisory-expectations)
 
