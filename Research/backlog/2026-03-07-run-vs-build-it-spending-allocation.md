@@ -1,61 +1,69 @@
 ---
-title: "RUN vs BUILD IT spending allocation in non-IT primary businesses"
+title: "How organisations practically implement IT RUN vs BUILD cost allocation"
 added: 2026-03-07
 status: backlog
 priority: medium
 blocks: []
-tags: [it-finance, run-build, cost-allocation, gartner, activity-based-costing, flow-metrics, tbc-framework]
+tags: [it-finance, run-build, cost-allocation, application-portfolio, change-management, organisational-design, tbm]
 started: ~
 completed: ~
 output: [knowledge]
 ---
 
-# RUN vs BUILD IT spending allocation in non-IT primary businesses
+# How organisations practically implement IT RUN vs BUILD cost allocation
 
 ## Research Question
 
-How do non-IT primary businesses (manufacturing, retail, finance) calculate and apportion IT spending between RUN (nondiscretionary operational sustainment) and BUILD (discretionary strategic enhancement) activities, using documented industry frameworks and real-world productionised examples with quantitative outcomes?
+How have organisations actually implemented a working RUN vs BUILD IT cost allocation — specifically: how did they agree on what counts as an "application", how did they get consistent work-item tagging across teams, how did they establish a shared team taxonomy, and who drove the change and made the business case for the investment required?
 
 ## Scope
 
 **In scope:**
-- Standardised definitions of RUN vs BUILD from industry frameworks (Gartner Run-Grow-Transform, McKinsey project-based categorisations, TBC framework)
-- Methods for including vendor, licensing, and overhead costs in the allocation calculation
-- Activity-based costing (ABC) techniques for apportioning indirect/shared costs (security, architecture, management, coaching)
-- Real-world case studies (post-2015, named organisations or named sectors) with specific metrics and outcomes
-- Flow metric methods as applied to RUN/BUILD categorisation
-- Proxy measures (FTEs, transaction volume, time logs) used for allocation drivers
+- How organisations define "application" in practice — the governance process, who decides, how edge cases (shared platforms, vendor bundles, middleware) are resolved, and how the definition is maintained over time
+- How teams are defined and kept consistent — the challenge of a shared team taxonomy when org structures change, when work cuts across teams, and when contracts don't align with internal team boundaries
+- How work-item (ticket) tagging is enforced or incentivised — tooling choices, training, gamification, automation, and what happens when tagging breaks down
+- How contracts and vendor agreements are mapped to applications — the data model and the operational process for keeping that mapping current
+- Who sponsors these programmes, how the initial investment is justified, and what the change management approach looks like
+- The sequence and dependencies of the implementation — what has to be true before each step can work
+- Failure modes: what breaks first, what is harder than expected, and how organisations recover
 
 **Out of scope:**
-- IT-primary businesses (software companies, SaaS vendors, tech firms) where IT is the primary product
-- Capital expenditure vs operating expenditure accounting distinctions (CapEx/OpEx) unless directly tied to RUN/BUILD categorisation
-- Detailed financial accounting standards (IFRS, GAAP) except where they constrain the allocation methodology
+- The theoretical definitions of RUN vs BUILD from Gartner, McKinsey, or TBM (treat these as known background)
+- Benchmark ratios and industry averages (the "what" of RUN/BUILD split targets)
+- Financial accounting standards (IFRS, GAAP, CapEx/OpEx) except where they directly constrain the implementation
 
-**Constraints:** Evidence must be from post-2015 implementations; all examples must include quantitative data; sources must be from reputable organisations (Gartner, McKinsey, Forrester, peer-reviewed journals, named case studies).
+**Constraints:** Focus on implementation experience — practitioner accounts, post-implementation reviews, and case studies that describe what was hard, not just the outcomes achieved. Vendor case studies are acceptable as seeds but must be read critically for what they omit.
 
 ## Context
 
-IT departments in non-IT primary businesses face pressure to demonstrate the value of technology spend by showing what proportion of the budget "keeps the lights on" versus what proportion advances strategic capability. The RUN/BUILD split is a key input to IT portfolio management, funding conversations with the C-suite, and continuous improvement initiatives (e.g., automation programmes aimed at reducing the RUN ratio). Without a disciplined, evidence-based methodology, organisations risk misclassifying spend, overstating transformation investment, or under-funding operational stability. This research will establish a defensible, framework-aligned approach to the calculation.
+The RUN vs BUILD split is a recurring conversation in IT leadership, but the gap between "we should measure this" and "we do measure this reliably" is enormous in practice. The obstacles are not conceptual — they are organisational and operational:
+
+- **Application definition:** There is no agreed boundary for what constitutes a single "application". A CRM might be one application or twenty, depending on who you ask. Shared infrastructure (identity, messaging, monitoring) does not fit cleanly into any application. Vendor SaaS bundles span multiple capabilities. Without a governed definition that people actually follow, the cost allocation is built on sand.
+- **Team taxonomy:** Agile transformations, reorganisations, and matrix structures mean that "team" is not a stable concept. The same people appear in different team structures in different systems. Contracts are often signed at a supplier or capability level that does not match the internal team model. Cost allocation requires a team model that is consistent across HR, finance, and delivery tooling — which is almost never the case at the start.
+- **Ticket annotation:** RUN/BUILD categorisation depends on work items being tagged correctly and consistently. This requires people who are not naturally incentivised to do it, using systems that do not make it easy. The failure mode is silent — bad tagging produces plausible-looking numbers that are wrong.
+- **Investment and sponsorship:** TBM and similar programmes are themselves significant BUILD investments with 12–18 month implementation timelines and no immediate payoff. Getting the budget approved, and keeping it approved through the messy middle, requires a specific type of executive sponsor with both finance and technology credibility.
+
+The seed material for this research item includes case studies from National Grid, Liberty Mutual, UPMC, and Hermes Parcel (via Apptio/TBM), plus the Gartner RGT and Kersten Flow Metrics frameworks. These describe *what* was achieved. This research asks *how* — the implementation mechanics, the organisational prerequisites, and the change management required to make the numbers trustworthy.
 
 ## Approach
 
-1. **Definitions and frameworks:** Identify agreed-upon operational definitions of RUN and BUILD from Gartner's Run-Grow-Transform (RGT) model, McKinsey's project-based taxonomy, the TBC (Team, Budget, Capacity) framework, and any other recognised industry frameworks. Document variations and cite primary sources.
-2. **Cost inclusion methods:** Research how vendor costs, software licensing (recurring vs one-time), and implementation fees are classified under each category. Identify proxy measures (FTE allocation, transaction volume, time-logging) used as allocation drivers.
-3. **Overhead apportionment:** Investigate how indirect costs — management/leadership time, security, enterprise architecture, and coaching — are apportioned using ABC or equivalent techniques. Find documented assumptions and driver ratios (e.g., percentage of security team time allocated to RUN vs BUILD).
-4. **Flow metrics integration:** Examine how flow metric methods (e.g., Flow Distribution from the Flow Framework®) map to RUN/BUILD categorisation, including how flow items are tagged and measured.
-5. **Case studies:** Source at least three productionised examples from named organisations or named sectors. For each: record business context, calculation methodology, specific metrics (e.g., 65% RUN / 35% BUILD split), and documented challenges and outcomes.
-6. **Synthesis:** Identify a recommended methodology that is consistent across frameworks, operationally practical for a non-IT primary business, and supported by the evidence.
+1. **Application definition governance:** How do organisations draw the boundary around an "application"? What criteria are used (business capability, deployment unit, support contract, cost centre)? Who owns the definition, and what is the process for resolving disputes? How is the application register kept current as systems evolve?
+2. **Team and contract alignment:** How is the internal team model aligned with vendor contracts and finance cost centres? What data model sits underneath, and what is the operational process for keeping it current? How are shared services and platform teams handled?
+3. **Work-item tagging in practice:** What tooling and process are used to tag tickets as RUN or BUILD? How is compliance enforced or incentivised? What does the degradation pattern look like, and how is it detected and corrected? Are there automated classification approaches, and what are their limits?
+4. **Sponsorship and investment case:** Who typically sponsors these programmes (CIO, CFO, CTO)? What argument lands with the board or executive committee? What does the phased investment look like, and how is the ROI tracked before the full model is mature?
+5. **Change management and sequencing:** What organisational changes are prerequisites? What is the typical sequence — does the application register have to exist before work-item tagging can start, or can they proceed in parallel? Who resists, and why?
+6. **Failure modes and recovery:** What breaks in practice? What does a degraded or gamed RUN/BUILD model look like, and how is it detected? Are there documented examples of programmes that stalled or failed, and what caused it?
 
 ## Sources
 
-- [ ] Gartner — Run-Grow-Transform (RGT) IT spending model (search Gartner research library for RGT framework documentation)
-- [ ] McKinsey — IT cost transparency and project-based categorisation reports (McKinsey Technology/Digital practice publications)
-- [ ] Forrester — IT financial management and TBM (Technology Business Management) research
-- [ ] TBM Council / ATUM (Apptio TBM Unified Model) — official TBM framework documentation at tbmcouncil.org
-- [ ] Scaled Agile / Mik Kersten "Project to Product" — Flow Framework® and Flow Distribution metrics
-- [ ] Gartner IT Key Metrics Data (annual benchmark report on RUN/BUILD/TRANSFORM ratios by industry)
-- [ ] Peer-reviewed case studies via Google Scholar: search "IT run build split allocation" + manufacturing/retail/finance, filtered post-2015
-- [ ] Forrester "TechRadar: IT Financial Management" or equivalent cost transparency reports
+- [ ] TBM Council practitioner community — implementation experience, not vendor materials (tbmcouncil.org forums/publications)
+- [ ] Apptio case studies for National Grid, Liberty Mutual, UPMC, Hermes Parcel — read specifically for implementation mechanics and challenges, not outcomes
+- [ ] Gartner "Run-Grow-Transform" framework (G00308477) — application definition criteria and governance guidance
+- [ ] Mik Kersten "Project to Product" (2018) — Flow Framework® value stream and team definition, and the practical challenge of mapping work to value streams
+- [ ] IT Financial Management (ITFM) practitioner blogs, conference talks (HDI, itSMF, FinOps Foundation) — implementation war stories
+- [ ] "Application portfolio management" literature — how APM programmes define and govern the application register (Gartner, Forrester)
+- [ ] Google Scholar: "IT cost allocation implementation challenges", "application portfolio rationalization governance", "TBM implementation lessons learned" — filtered post-2018
+- [ ] LinkedIn / practitioner accounts of TBM, FinOps, or ITFM programme implementations — specifically seeking accounts of what did not work as expected
 
 ---
 

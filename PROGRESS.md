@@ -1144,6 +1144,10 @@ Removed contradictions between `.github/copilot-instructions.md` and owner's per
 
 Added `Research/backlog/2026-03-07-run-vs-build-it-spending-allocation.md`.
 
-Research question: How do non-IT primary businesses calculate and apportion IT spending between RUN (nondiscretionary operational sustainment) and BUILD (discretionary strategic enhancement) activities?
+Research question: How have organisations actually implemented a working RUN vs BUILD IT cost allocation — specifically: how did they agree on what counts as an "application", how did they get consistent work-item tagging across teams, how did they establish a shared team taxonomy, and who drove the change and made the business case for the investment required?
 
-Covers: Gartner RGT model, McKinsey project-based categorisations, TBC/TBM framework, activity-based costing for overhead apportionment, flow metric methods (Flow Distribution), and post-2015 case studies from named organisations with quantitative metrics.
+Covers: practical implementation mechanics (application definition governance, team taxonomy alignment, ticket annotation enforcement, contract-to-application mapping), investment case and sponsorship patterns, implementation sequencing and prerequisites, and failure modes. Seed material includes Apptio/TBM case studies from National Grid, Liberty Mutual, UPMC, and Hermes Parcel.
+
+## 2026-03-07 — Rewrote RUN vs BUILD backlog item to focus on implementation HOW
+
+Rewrote `Research/backlog/2026-03-07-run-vs-build-it-spending-allocation.md` to shift focus from framework definitions and outcome benchmarks (which read as vendor advertising) to the practical implementation questions: how organisations define "application", get consistent ticket tagging, establish a shared team taxonomy, map contracts to applications, make the investment case, and drive the organisational change. The seed material from the original item is retained as background context and sources, but is no longer the research subject.
