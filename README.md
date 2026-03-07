@@ -13,9 +13,10 @@ A place to hold a backlog of research to be done, research underway, and complet
 | `tests/` | Tests for `src/` |
 | `config/` | Configuration for sources and tooling |
 | `docs/adr/` | Architecture Decision Records |
-| `AGENTS.md` | Instructions for all AI coding agents |
+| `.github/copilot-instructions.md` | Instructions for all AI coding agents |
 | `BACKLOG.md` | Repo improvement backlog (separate from research item backlog) |
 | `PROGRESS.md` | Session-by-session progress log |
+| `CHANGELOG.md` | User-facing change history (Keep-a-Changelog format) |
 
 ---
 
@@ -54,7 +55,7 @@ Tracked in `BACKLOG.md`. This is distinct from the research item backlog in `Res
 
 ## Agent Instructions
 
-All coding conventions, standards, and working methodology are in `AGENTS.md`. Every AI agent (GitHub Copilot, Claude Code, etc.) reads that file first.
+All coding conventions, standards, and working methodology are in `.github/copilot-instructions.md`. Every AI agent (GitHub Copilot, Claude Code, etc.) reads that file first.
 
 ---
 

@@ -1,3 +1,0 @@
-# Working Instructions
-
-@AGENTS.md

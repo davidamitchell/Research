@@ -502,3 +502,19 @@ updated: 2026-03-02
 Spawned from `Research/backlog/2026-03-01-github-wiki-research-content.md`. Owner must enable the wiki once in repository Settings → Features → Wikis before the first workflow run can push to it.
 
 ---
+
+## W-0033
+
+status: done
+created: 2026-03-07
+updated: 2026-03-07
+
+### Outcome
+
+Repository structure is standardised: single `.github/copilot-instructions.md` source of truth, `.github/skills` submodule, `sync-skills.yml` workflow, `BACKLOG.md`, `PROGRESS.md`, `CHANGELOG.md`, and `docs/adr/` all present and consistent.
+
+### Context
+
+Standardisation pass to remove AGENTS.md/.claude/ and align with all other repos in the davidamitchell organisation.
+
+---
