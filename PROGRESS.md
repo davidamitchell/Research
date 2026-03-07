@@ -1,6 +1,6 @@
 # Progress
 
-Last updated: 2026-03-07 (agent-lsp-policy-enforcement)
+Last updated: 2026-03-07 (ai-not-a-data-problem)
 Last updated: 2026-03-06 (interoception-and-the-predictive-self)
 Last updated: 2026-03-05 (llm-hallucination-mechanisms)
 Last updated: 2026-03-05 (controlled-hallucination-perception-as-construction)
@@ -43,6 +43,18 @@ Last updated: 2026-03-03 (ai-control-testing-and-assurance)
 ---
 
 ## Work Log
+
+### 2026-03-07 — Research Loop (ai-not-a-data-problem)
+
+**Completed:**
+
+Research item:
+- `Research/completed/2026-03-02-ai-not-a-data-problem.md` — completed; establishes that coupling AI capability to the data/analytics department is a structural category error: analytics platforms fail production agent NFRs by design (latency, HADR, STS delegation, mutation auditability), the API layer with MCP and RFC 8693 token exchange is the correct integration point, and regulatory frameworks (NIST AI RMF, APRA CPS 230, FCA/PRA) require cross-functional accountability that no data/analytics team holds. Includes a full tradeoff table and recommends the hybrid model (data platform as API-mediated read-only knowledge substrate) as the target architecture.
+
+Sources consulted:
+- https://martinfowler.com/articles/data-mesh-principles.html (Fowler data mesh — operational vs. analytical plane separation)
+- https://www.rfc-editor.org/rfc/rfc8693.html (RFC 8693 — OAuth 2.0 Token Exchange STS delegation for agents)
+- https://www.ibm.com/thought-leadership/institute-business-value/en-us/report/2025-cdo (IBM 2025 CDO Study — 74% AI failure rate, 26% CDO readiness)
 
 ### 2026-03-07 — Research Loop (agent-lsp-policy-enforcement)
 
