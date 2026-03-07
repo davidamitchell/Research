@@ -443,9 +443,9 @@ Owner confirmed the `COPILOT_GITHUB_TOKEN` secret is set. Original workflow had 
 
 ## W-0031
 
-status: open
+status: done
 created: 2026-03-02
-updated: 2026-03-02
+updated: 2026-03-07
 
 ### Outcome
 
@@ -458,6 +458,28 @@ The existing CI pipeline (`.github/workflows/ci.yml`) runs linting and Python te
 This item is blocked until `Research/backlog/2026-03-02-research-quality-assurance-methodology.md` is completed: the CI step design depends on knowing which checks are automatable, which require agent reasoning, and in what order they should run. Once the research findings are available, this item can be scoped precisely. At minimum the CI step should be a `workflow_dispatch`-triggered GitHub Actions workflow that accepts a completed item path and runs each automatable skill check in sequence.
 
 **Dependency:** `Research/backlog/2026-03-02-research-quality-assurance-methodology.md` (research on knowledge QA methodology — defines what is automatable and what design the CI step should follow)
+
+### Notes
+
+Implemented the "at minimum" path: the dependency research item has not yet been
+completed, but the minimum viable outcome is fully specified and has been built:
+
+- `.github/workflows/research-review.yml` — triggers on `push` to main when
+  `Research/completed/**.md` changes, and on `workflow_dispatch` with an
+  `item_path` input. Initialises `.github/skills` submodule, invokes the Copilot
+  CLI with `research-review-prompt.md`, and fails the job if the agent writes
+  `OVERALL: FAIL` to `/tmp/research-review-report.txt`. Uses `contents: read`
+  permissions so no accidental commits are possible.
+- `research-review-prompt.md` — audit-only prompt: tells the agent to read each
+  SKILL.md, check the item for violations, write a structured PASS/FAIL report,
+  and explicitly not modify or commit anything.
+- `tests/test_research_review.py` — 29 structural tests proving workflow
+  attributes (trigger, permissions, submodule, COPILOT_GITHUB_TOKEN, timeout) and
+  prompt content (placeholder, skill references, output format, prohibitions).
+
+When `Research/backlog/2026-03-02-research-quality-assurance-methodology.md` is
+completed, revisit this workflow to refine which checks are LLM-automatable vs
+heuristic-automatable and adjust the ordering accordingly.
 
 ---
 

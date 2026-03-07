@@ -1,0 +1,160 @@
+name: Research Review
+
+# Quality gate for completed research items.
+#
+# Applies three agent skills in sequence to every item moved to
+# Research/completed/:
+#   1. citation-discipline  — all factual claims are sourced
+#   2. speculation-control  — uncertain claims are explicitly labeled
+#   3. remove-ai-slop       — prose is direct and free of formulaic AI patterns
+#
+# The review is performed by the GitHub Copilot CLI reading
+# research-review-prompt.md.  The agent writes a structured report to
+# /tmp/research-review-report.txt; the workflow fails if it contains
+# "OVERALL: FAIL".
+#
+# Required repository secret: COPILOT_GITHUB_TOKEN
+#   A GitHub Personal Access Token (classic or fine-grained) with Copilot access.
+#   Settings → Secrets and variables → Actions → New repository secret
+#   Name: COPILOT_GITHUB_TOKEN  Value: your PAT
+#
+# Trigger options:
+#   1. Automatic: fires on every push to main that adds or modifies a file in
+#      Research/completed/
+#   2. Manual: Actions tab → "Research Review" → Run workflow → supply item path
+
+on:
+  workflow_dispatch:
+    inputs:
+      item_path:
+        description: >
+          Path to the completed research item to review,
+          e.g. Research/completed/2026-03-01-topic.md
+        required: true
+        type: string
+
+  push:
+    branches: [main]
+    paths:
+      - "Research/completed/**.md"
+
+# Reviews are independent; allow concurrent runs for different items.
+concurrency:
+  group: research-review-${{ github.sha }}
+  cancel-in-progress: false
+
+jobs:
+  review:
+    name: Research quality review
+    runs-on: ubuntu-latest
+
+    # A single item review should complete well within 30 minutes.
+    timeout-minutes: 30
+
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          # fetch-depth 2 is required so the push trigger can diff HEAD~1..HEAD
+          # to discover which completed items changed.
+          fetch-depth: 2
+
+      - name: Initialize skills submodule
+        run: git submodule update --init .github/skills
+
+      - name: Determine items to review
+        id: items
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "${{ inputs.item_path }}" > /tmp/items-to-review.txt
+          else
+            git diff --name-only HEAD~1 HEAD \
+              | grep -E '^Research/completed/.*\.md$' \
+              > /tmp/items-to-review.txt || true
+          fi
+
+          if [ ! -s /tmp/items-to-review.txt ]; then
+            echo "No completed research items to review."
+            echo "has_items=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          echo "Items to review:"
+          cat /tmp/items-to-review.txt
+          echo "has_items=true" >> "$GITHUB_OUTPUT"
+
+      - name: Set up Node.js
+        if: steps.items.outputs.has_items == 'true'
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install GitHub Copilot CLI
+        if: steps.items.outputs.has_items == 'true'
+        run: npm install -g @github/copilot
+
+      - name: Run quality review
+        if: steps.items.outputs.has_items == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.COPILOT_GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+
+          FAILED=0
+
+          while IFS= read -r ITEM; do
+            [ -z "$ITEM" ] && continue
+
+            if [ ! -f "$ITEM" ]; then
+              echo "::error::Item not found: $ITEM"
+              FAILED=1
+              continue
+            fi
+
+            echo ""
+            echo "========================================"
+            echo "  Reviewing: $ITEM"
+            echo "========================================"
+            echo ""
+
+            # Inject the item path into the prompt template.
+            sed "s|{{ITEM_PATH}}|${ITEM}|g" research-review-prompt.md \
+              > /tmp/review-prompt.md
+
+            rm -f /tmp/research-review-report.txt
+
+            if copilot -p "$(cat /tmp/review-prompt.md)" \
+                --autopilot \
+                --allow-all; then
+              if [ -f /tmp/research-review-report.txt ]; then
+                echo ""
+                echo "=== Review Report ==="
+                cat /tmp/research-review-report.txt
+                echo "====================="
+                echo ""
+                if grep -q "^OVERALL: FAIL" /tmp/research-review-report.txt; then
+                  echo "::error::Research quality review FAILED for: $ITEM"
+                  FAILED=1
+                else
+                  echo "Research quality review PASSED for: $ITEM"
+                fi
+              else
+                echo "::error::Review report was not generated for: $ITEM"
+                FAILED=1
+              fi
+            else
+              echo "::error::Copilot review agent failed for: $ITEM"
+              FAILED=1
+            fi
+
+          done < /tmp/items-to-review.txt
+
+          if [ "$FAILED" -ne 0 ]; then
+            exit 1
+          fi
+
+          echo ""
+          echo "All research quality reviews passed."
