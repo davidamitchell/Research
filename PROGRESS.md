@@ -1119,3 +1119,21 @@ Inserted unified self-improvement framework and chain-of-thought reasoning secti
 2. **What slowed down or went wrong?** Stray `___BEGIN___COMMAND_DONE_MARKER___0` markers were present in the file from a previous session — needed cleaning alongside the main task.
 3. **What single change would prevent this next time?** Nothing new to prevent; the stray markers are a known artefact class to look out for.
 4. **Is this a pattern?** The stray markers have appeared before. Worth checking for them at the top of any session that edits this file.
+
+---
+
+## 2026-03-07
+
+Removed contradictions between `.github/copilot-instructions.md` and owner's personal Copilot instructions (cross-repo standard sections only). Changes:
+- Signal table: added "Missing skill" row.
+- "Done" checklist: added `CHANGELOG.md` updated and `remove-ai-slop` items.
+- Mini-retro: added action mandate after the four questions.
+- "Continuous Improvement" opener: replaced hollow motivational quote with direct instruction.
+- Skills fallback: corrected to log gap in `BACKLOG.md` and not synthesise a substitute.
+- Removed duplicate stub sections (`## Skills`, `## Backlog Mandate`, `## ADR Mandate`, `## PROGRESS.md Mandate`, `## CHANGELOG.md Mandate`) from end of file.
+
+**Mini-Retro:**
+1. **Did the process work?** Yes — all six targeted edits applied cleanly.
+2. **What slowed down or went wrong?** Nothing significant.
+3. **What single change would prevent this next time?** N/A.
+4. **Is this a pattern?** Instruction file drift is a recurring risk when personal and repo instructions diverge; periodic sync passes are the fix.
