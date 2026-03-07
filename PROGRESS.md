@@ -1137,3 +1137,13 @@ Removed contradictions between `.github/copilot-instructions.md` and owner's per
 2. **What slowed down or went wrong?** Nothing significant.
 3. **What single change would prevent this next time?** N/A.
 4. **Is this a pattern?** Instruction file drift is a recurring risk when personal and repo instructions diverge; periodic sync passes are the fix.
+
+---
+
+## 2026-03-07 — New backlog item: RUN vs BUILD IT spending allocation
+
+Added `Research/backlog/2026-03-07-run-vs-build-it-spending-allocation.md`.
+
+Research question: How do non-IT primary businesses calculate and apportion IT spending between RUN (nondiscretionary operational sustainment) and BUILD (discretionary strategic enhancement) activities?
+
+Covers: Gartner RGT model, McKinsey project-based categorisations, TBC/TBM framework, activity-based costing for overhead apportionment, flow metric methods (Flow Distribution), and post-2015 case studies from named organisations with quantitative metrics.
