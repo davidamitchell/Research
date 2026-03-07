@@ -1,6 +1,6 @@
 # Progress
 
-Last updated: 2026-03-07 (transcript-via-gemini-api)
+Last updated: 2026-03-07 (transcript-via-yt-dlp-whisper)
 Last updated: 2026-03-06 (interoception-and-the-predictive-self)
 Last updated: 2026-03-05 (llm-hallucination-mechanisms)
 Last updated: 2026-03-05 (controlled-hallucination-perception-as-construction)
@@ -43,6 +43,18 @@ Last updated: 2026-03-03 (ai-control-testing-and-assurance)
 ---
 
 ## Work Log
+
+### 2026-03-07 — Research Loop (transcript-via-yt-dlp-whisper)
+
+**Completed:**
+
+Research item:
+- `Research/completed/2026-02-28-transcript-via-yt-dlp-whisper.md` — completed; the hypothesis that yt-dlp audio CDN downloads bypass YouTube's cloud IP block is false — audio and video share the same CDN and are subject to identical restrictions from GitHub Actions. If audio download is unblocked via cookies, `faster-whisper` int8 small (~7–15 min per 60-min talk) is the viable transcription path; Option B (Whisper API) requires `OPENAI_API_KEY` owner approval.
+
+Sources consulted:
+- https://github.com/yt-dlp/yt-dlp/issues/9890 (empirical reports of cloud IP blocking for yt-dlp)
+- https://pypi.org/project/faster-whisper/ (faster-whisper CPU benchmarks: 4–7x speedup over vanilla Whisper)
+- https://openwhispr.com/blog/whisper-model-sizes-explained (Whisper model sizes and WER comparison)
 
 ### 2026-03-07 — Research Loop (transcript-via-gemini-api)
 
