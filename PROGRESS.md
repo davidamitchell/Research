@@ -1109,3 +1109,13 @@ System improvements:
 ## 2026-03-07
 
 Standardisation pass (W-0033): expanded `.github/copilot-instructions.md` from stub to full (content from `AGENTS.md`). Deleted `AGENTS.md` and `.claude/`. Updated `.gitmodules` and `sync-skills.yml` to remove `.claude/skills`. Created `CHANGELOG.md`, added `docs/adr/0006-standardise-agent-instructions.md`. Updated `README.md`, `BACKLOG.md`, `docs/adr/README.md`.
+
+### Continuous Improvement & Learning framework
+
+Inserted unified self-improvement framework and chain-of-thought reasoning section into `.github/copilot-instructions.md`. Superseded the previous `## Mini-Retro — After Each Piece of Work` and `## When to Update These Instructions` sections. Also removed stray `___BEGIN___COMMAND_DONE_MARKER___0` artifacts.
+
+**Mini-Retro:**
+1. **Did the process work?** Yes — straightforward text replacement of superseded sections with the new unified framework.
+2. **What slowed down or went wrong?** Stray `___BEGIN___COMMAND_DONE_MARKER___0` markers were present in the file from a previous session — needed cleaning alongside the main task.
+3. **What single change would prevent this next time?** Nothing new to prevent; the stray markers are a known artefact class to look out for.
+4. **Is this a pattern?** The stray markers have appeared before. Worth checking for them at the top of any session that edits this file.
