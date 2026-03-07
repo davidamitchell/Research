@@ -1,6 +1,6 @@
 # Progress
 
-Last updated: 2026-03-07 (transcript-via-yt-dlp-whisper)
+Last updated: 2026-03-07 (agent-lsp-policy-enforcement)
 Last updated: 2026-03-06 (interoception-and-the-predictive-self)
 Last updated: 2026-03-05 (llm-hallucination-mechanisms)
 Last updated: 2026-03-05 (controlled-hallucination-perception-as-construction)
@@ -43,6 +43,18 @@ Last updated: 2026-03-03 (ai-control-testing-and-assurance)
 ---
 
 ## Work Log
+
+### 2026-03-07 — Research Loop (agent-lsp-policy-enforcement)
+
+**Completed:**
+
+Research item:
+- `Research/completed/2026-03-01-agent-lsp-policy-enforcement.md` — completed; identifies LSAP (Language Server Agent Protocol, github.com/lsp-client/LSAP) as the v1.0.0-alpha open protocol the user was likely referring to, which wraps LSP atomic operations into agent-native cognitive capabilities. Establishes that headless LSP clients are technically feasible (JSON-RPC over stdio requires no IDE host), that Semgrep's LSP server mode is the closest policy-as-code component, and that no production-ready pipeline connecting headless agents to LSP-based policy enforcement currently exists — the gap is one integration layer.
+
+Sources consulted:
+- https://github.com/lsp-client/LSAP/ (LSAP protocol specification and Python SDK)
+- https://arxiv.org/abs/2510.22907 (Lanser-CLI paper: headless LSP for coding agents with process rewards)
+- https://lsp-client.github.io/blog/designing-lsap/ (LSAP design rationale: cognitive capabilities, Markdown-first, semantic anchoring)
 
 ### 2026-03-07 — Research Loop (transcript-via-yt-dlp-whisper)
 
