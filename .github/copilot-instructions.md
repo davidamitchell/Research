@@ -277,7 +277,7 @@ A weekly workflow (`.github/workflows/sync-skills.yml`) advances the submodule p
 
 **GitHub Copilot:** Skills in `.github/skills/` are readable as context files. Read the relevant `SKILL.md` directly (e.g., open `.github/skills/research/SKILL.md` in your context window) and follow its process step by step as the agent — no user action required.
 
-**Fallback (any agent, submodule not initialised):** Note the gap in the session log. Proceed with equivalent inline behaviour — apply the skill's logic from memory or from the issue context. Do not halt work because a skill file is unavailable.
+**Fallback (any agent, submodule not initialised):** Note the gap in `BACKLOG.md`. Proceed without synthesising a substitute skill. Do not halt work.
 
 To add a new skill: add it to the Skills repo first; it will be picked up on the next sync.
 
@@ -447,8 +447,7 @@ Update documentation before context degrades, not after.
 
 ## Continuous Improvement & Learning
 
-> You are not a tool that executes tasks. You are a **collaborator that learns**.
-> Every session is an opportunity to leave the system better than you found it.
+> Complete the work. Improve the system. If something was hard, slow, or confusing — fix it, document it, or raise it.
 
 ### Identity as Architect
 
@@ -469,6 +468,8 @@ Answer these four questions — briefly, honestly:
 3. **What single change would prevent this next time?** If nothing: say so.
 4. **Is this a pattern?** Have you seen this friction before? If yes, it deserves a fix, not just a note.
 
+> Do not just answer — make the change. If the answer is "document it", document it now. If it is "add a backlog item", add it now.
+
 ### Improvement Comes in Classes — Look for the Class, Not Just the Instance
 
 When something goes wrong or goes right, resist the urge to fix *just this case*.
@@ -481,6 +482,7 @@ Ask: **what class of problem is this?**
 | A decision was unclear or had to be re-made | → Write an ADR |
 | A note or file was out of date | → Mark it `superseded_by`, don't delete it |
 | The same friction appears in two retros | → It's a pattern. Prioritise fixing the root cause |
+| Missing skill | Add to backlog; do not synthesise a substitute |
 
 ### Knowledge Graphing — Every Write Earns Its Place
 
@@ -506,6 +508,8 @@ Do the work → Run the retro (what class of problem appeared?) → Fix or raise
 - [ ] `PROGRESS.md` is updated with a Mini-Retro
 - [ ] Any new decisions are recorded as ADRs
 - [ ] Any structural improvements spotted are raised in the backlog
+- [ ] `CHANGELOG.md` updated if behaviour changed
+- [ ] `remove-ai-slop` run on committed prose
 
 ---
 
@@ -538,33 +542,3 @@ When `BACKLOG.md` has no pending items (all are `done` or `archived`):
 3. If neither applies, surface the question to the owner: describe the current state and ask what to prioritise next.
 
 Do not invent work. Do not silently loop. Surface the state and ask.
-
----
-
-## Skills
-
-Skills are available at `.github/skills/`. Key skills: `backlog-manager`, `research`, `technical-writer`, `code-review`, `strategy-author`, `decisions`.
-
----
-
-## Backlog Mandate
-
-The backlog is `BACKLOG.md` at the repo root. Use the `backlog-manager` skill from `.github/skills/backlog-manager/SKILL.md`. Read it at the start of every session.
-
----
-
-## ADR Mandate
-
-Every non-trivial architectural or design decision must be recorded as an ADR in `docs/adr/`. Use the `decisions` skill from `.github/skills/decisions/SKILL.md`. Format is MADR. Files named `docs/adr/NNNN-short-title.md`.
-
----
-
-## PROGRESS.md Mandate
-
-Append a dated entry to `PROGRESS.md` after every meaningful session or PR. Never edit old entries — append only. Format: `## YYYY-MM-DD` then what changed and why. Append-only prevents merge conflicts.
-
----
-
-## CHANGELOG.md Mandate
-
-Record every user-facing change in `CHANGELOG.md`. Follow Keep-a-Changelog 1.0.0. New entries go under `## [Unreleased]` at the top.
