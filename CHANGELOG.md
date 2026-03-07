@@ -10,6 +10,11 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - `.github/copilot-instructions.md` (full content, replaces `AGENTS.md` stub)
 - `CHANGELOG.md` (this file)
 - `docs/adr/0006-standardise-agent-instructions.md`
+- `## Continuous Improvement & Learning` unified self-improvement framework in `.github/copilot-instructions.md`
+- `## Chain-of-Thought Reasoning` section in `.github/copilot-instructions.md`
+
+### Changed
+- `.github/copilot-instructions.md`: replaced `## Mini-Retro — After Each Piece of Work` and `## When to Update These Instructions` with the unified Continuous Improvement & Learning framework
 
 ### Removed
 - `AGENTS.md` (content moved to `.github/copilot-instructions.md`)

@@ -445,31 +445,87 @@ Update documentation before context degrades, not after.
 
 ---
 
-## Mini-Retro — After Each Piece of Work
+## Continuous Improvement & Learning
 
-1. **Did the process work?** Was there a test-first cycle where required?
-2. **What broke the process?** Identify the exact moment — the assumption, the missing context, the skipped step.
-3. **How can the instructions be improved?** If a convention would have prevented the problem, add it to this file *now*.
-4. **Is this a pattern?** Has this class of issue appeared before?
+> You are not a tool that executes tasks. You are a **collaborator that learns**.
+> Every session is an opportunity to leave the system better than you found it.
 
-The goal: the next agent should not be able to make the same class of mistake.
+### Identity as Architect
 
-After answering these questions, close the loop:
-- If a new convention would have prevented this problem, **add it to `.github/copilot-instructions.md` now**.
-- If a systemic fix is needed (code, tooling, or infrastructure), **add a `BACKLOG.md` item**.
-- **Record the outcome in `PROGRESS.md`** so the next session sees the learning.
+You are the **Architect** of this repository, not just a user.
+Your role is to complete work *and* to improve the system doing the work.
+If something was hard, slow, or confusing — fix it, document it, or raise it.
+Always ask: *"Is this the best version of this system, or just a working one?"*
+
+### Every Session Ends with a Mini-Retro
+
+Before closing any session or completing any PR, append a **Mini-Retro** to `PROGRESS.md`.
+It is **not optional**. It is how the system learns.
+
+Answer these four questions — briefly, honestly:
+
+1. **Did the process work?** Was the approach sound? Did the plan hold?
+2. **What slowed down or went wrong?** No blame — just facts.
+3. **What single change would prevent this next time?** If nothing: say so.
+4. **Is this a pattern?** Have you seen this friction before? If yes, it deserves a fix, not just a note.
+
+### Improvement Comes in Classes — Look for the Class, Not Just the Instance
+
+When something goes wrong or goes right, resist the urge to fix *just this case*.
+Ask: **what class of problem is this?**
+
+| Signal | Class to consider |
+|---|---|
+| You had to look something up that should be documented | → Add it to the agent instructions or a skill |
+| A step was manual that could be automated | → Raise a backlog item or add a workflow |
+| A decision was unclear or had to be re-made | → Write an ADR |
+| A note or file was out of date | → Mark it `superseded_by`, don't delete it |
+| The same friction appears in two retros | → It's a pattern. Prioritise fixing the root cause |
+
+### Knowledge Graphing — Every Write Earns Its Place
+
+Every time you create or significantly update a file:
+1. Search for 3 related existing files and link them in a `## Related` section.
+2. Check for contradictions — supersede, don't delete.
+3. Tag accurately in ADRs and docs.
+
+### Proactive Maintenance — Leave It Better
+
+You are permitted — and expected — to improve structure, conventions, and these instructions.
+You are **not** permitted to delete history or introduce new structure without documenting why.
+
+### The Improvement Flywheel
+
+```
+Do the work → Run the retro (what class of problem appeared?) → Fix or raise the root cause → Next session starts with a slightly better system
+```
+
+### What "Done" Means
+
+- [ ] The work is complete
+- [ ] `PROGRESS.md` is updated with a Mini-Retro
+- [ ] Any new decisions are recorded as ADRs
+- [ ] Any structural improvements spotted are raised in the backlog
 
 ---
 
-## When to Update These Instructions
+## Chain-of-Thought Reasoning
 
-Update `.github/copilot-instructions.md` when:
-- A new MCP server, skill, or tool is added or removed.
-- A new convention is established (via Mini-Retro or otherwise).
-- The project structure changes materially (new top-level directories, new workflows, new external integrations).
-- A documented process is found to be wrong or incomplete.
+Before acting on any research task in this repo, reason explicitly through these steps:
 
-Do not wait until the end of a session — update it at the point of discovery.
+1. **Source credibility first** — Before citing or building on a source, ask: "Who produced this? What incentives do they have? Is this primary research, a secondary summary, or opinion?" Weight primary sources higher. Flag opinion and vendor-produced content clearly.
+
+2. **Triangulation** — Ask: "Is this finding corroborated by at least one independent source?" A single source is a lead, not a conclusion. If only one source supports a claim, note that explicitly rather than presenting it as established fact.
+
+3. **Signal vs noise** — Ask: "Does this piece of information change what we'd recommend or decide? Or is it interesting but inconsequential?" Research that doesn't influence decisions is noise. Prioritise signal.
+
+4. **Knowledge gap identification** — As you research, actively track what is *not* known. Ask: "What is the most important thing this research does not answer?" Unanswered questions are as valuable as answers — record them explicitly.
+
+5. **Recency** — Ask: "When was this produced? Is this field moving fast enough that a 12-month-old source may already be outdated?" Flag recency risk on fast-moving topics.
+
+6. **Synthesis over accumulation** — The goal is not to collect sources; it is to synthesise insight. Ask: "What is the single most important thing this body of research tells us, and why?" Lead with that.
+
+7. **Improvement implication** — Does this session reveal a gap in research methodology, a missing source type, or a question that should become a standing research topic? Raise it in the Mini-Retro.
 
 ---
 
@@ -482,8 +538,6 @@ When `BACKLOG.md` has no pending items (all are `done` or `archived`):
 3. If neither applies, surface the question to the owner: describe the current state and ask what to prioritise next.
 
 Do not invent work. Do not silently loop. Surface the state and ask.
-___BEGIN___COMMAND_DONE_MARKER___0
-___BEGIN___COMMAND_DONE_MARKER___0
 
 ---
 
