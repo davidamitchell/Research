@@ -17,6 +17,17 @@ Format: [MADR (Markdown Architectural Decision Records)](https://adr.github.io/m
 | [0003](0003-indexing-and-tracking-approach.md) | JSON state file + YAML front-matter for indexing and tracking | Accepted | 2026-02-28 |
 | [0004](0004-autonomous-research-loop.md) | Autonomous research loop design and safety controls | Accepted | 2026-03-02 |
 | [0005](0005-github-wiki-publishing-approach.md) | GitHub wiki as the research content delivery channel | Accepted | 2026-03-02 |
+| [0006](0006-standardise-agent-instructions.md) | Standardise agent instruction files | Accepted | 2026-03-07 |
+
+---
+
+## When to write an ADR
+
+- A new tool, dependency, or external service is adopted
+- A file format, naming convention, or workflow is established
+- A non-trivial architectural choice is made that would be costly to reverse
+
+Use the `decisions` skill in `.github/skills/decisions/SKILL.md` when writing ADRs.
 
 ---
 
