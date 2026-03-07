@@ -1,5 +1,6 @@
 # Progress
 
+Last updated: 2026-03-07 (rbnz-ai-supervisory-expectations)
 Last updated: 2026-03-06 (interoception-and-the-predictive-self)
 Last updated: 2026-03-05 (llm-hallucination-mechanisms)
 Last updated: 2026-03-05 (controlled-hallucination-perception-as-construction)
@@ -42,6 +43,18 @@ Last updated: 2026-03-03 (ai-control-testing-and-assurance)
 ---
 
 ## Work Log
+
+### 2026-03-07 — Research Loop (rbnz-ai-supervisory-expectations)
+
+**Completed:**
+
+Research item:
+- `Research/completed/2026-02-28-rbnz-ai-supervisory-expectations.md` — completed; RBNZ has no standalone AI supervisory framework as of March 2026, with the May 2025 "Rise of the Machines" FSR article being its first substantive AI publication (monitoring analysis, no new obligations); AI risk is governed through existing BS11/BPR operational risk and outsourcing requirements and April 2024 mandatory cyber incident reporting; APRA CPS 230 (effective July 2025) is the highest-value comparator, and NZ-only entities without APRA-group alignment face the sharpest governance gap.
+
+Sources consulted:
+- https://www.rbnz.govt.nz/hub/publications/financial-stability-report/2025/may/ai-pre-release/rise-of-the-machines (RBNZ "Rise of the Machines" article, May 2025 FSR)
+- https://www.fsb.org/2024/11/the-financial-stability-implications-of-artificial-intelligence/ (FSB AI financial stability report, November 2024)
+- https://www.eba.europa.eu/publications-and-media/press-releases/eba-publishes-follow-report-use-machine-learning-internal (EBA ML for IRB Models follow-up report, August 2023)
 
 ### 2026-03-06 — Research Loop (interoception-and-the-predictive-self)
 
