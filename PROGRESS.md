@@ -1071,3 +1071,9 @@ Dependency chain (research in this order): hallucination-mechanisms → h-neuron
 2. Extract concepts from the transcript and create per-concept deep-dive research items
 3. Complete each concept research item, then synthesise findings back in `2026-02-28-youtube-video-HYUoS0GkGCs-concepts.md`
 4. Epic 3 — decide on indexing approach once the indexing research item is completed
+
+---
+
+## 2026-03-07
+
+Standardisation pass (W-0033): expanded `.github/copilot-instructions.md` from stub to full (content from `AGENTS.md`). Deleted `AGENTS.md` and `.claude/`. Updated `.gitmodules` and `sync-skills.yml` to remove `.claude/skills`. Created `CHANGELOG.md`, added `docs/adr/0006-standardise-agent-instructions.md`. Updated `README.md`, `BACKLOG.md`, `docs/adr/README.md`.
