@@ -1065,12 +1065,44 @@ Dependency chain (research in this order): hallucination-mechanisms → h-neuron
 
 ---
 
+### 2026-03-07 — W-0031: Research quality review CI step
+
+**Completed:**
+
+System improvements:
+- `.github/workflows/research-review.yml` — research quality gate. Triggers on
+  push to main when `Research/completed/**.md` changes, and on `workflow_dispatch`
+  with an `item_path` input. Initialises `.github/skills`, installs Copilot CLI,
+  injects the item path into `research-review-prompt.md`, runs the review agent,
+  and fails the job if the report contains `OVERALL: FAIL`. Job permissions are
+  `contents: read` so accidental commits are impossible.
+- `research-review-prompt.md` — audit-only review prompt for the three skills:
+  citation-discipline, speculation-control, remove-ai-slop. Instructs the agent
+  to read each SKILL.md, check the item for violations, write a structured
+  PASS/FAIL report to `/tmp/research-review-report.txt`, and explicitly not
+  modify or commit anything. Handles missing skill files gracefully.
+- `tests/test_research_review.py` — 29 tests covering workflow attributes
+  (triggers, permissions, submodule init, secrets, timeout, shell flags) and
+  prompt correctness (placeholder, skill refs, output format, prohibitions), plus
+  unit tests for the PASS/FAIL detection logic.
+- `BACKLOG.md` — W-0031 marked done with implementation notes.
+
+**Notes:**
+- Built the "at minimum" path defined in W-0031. The blocking dependency
+  (`Research/backlog/2026-03-02-research-quality-assurance-methodology.md`)
+  remains in backlog; once that research is completed, revisit the workflow to
+  refine which checks are LLM-automatable vs heuristic-automatable.
+- 165 tests pass, `make check` clean.
+
+---
+
 ## Next Steps
 
 1. Run `python -m src.main fetch youtube --video https://youtu.be/HYUoS0GkGCs` in a networked environment to pull the transcript
 2. Extract concepts from the transcript and create per-concept deep-dive research items
 3. Complete each concept research item, then synthesise findings back in `2026-02-28-youtube-video-HYUoS0GkGCs-concepts.md`
 4. Epic 3 — decide on indexing approach once the indexing research item is completed
+5. Complete `Research/backlog/2026-03-02-research-quality-assurance-methodology.md` to refine the research review CI step (W-0031 follow-up)
 
 ---
 
