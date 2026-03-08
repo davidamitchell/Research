@@ -45,6 +45,14 @@ Last updated: 2026-03-03 (ai-control-testing-and-assurance)
 
 ## Work Log
 
+### 2026-03-08 — Fix wiki link order (issue #28)
+
+**Completed:**
+
+Bug fix:
+- `src/wiki/publish.py` — fixed `wiki_link()`: GitHub wiki `[[A|B]]` uses A as display text and B as the page URL target; the function was generating `[[slug|title]]` (wrong order) causing every wiki link to show an ugly slug as text and resolve to a non-existent title-based URL (404). Swapped to `[[title|slug]]` so display is human-readable and the link target hits the actual page. Updated docstring to document correct syntax.
+- `tests/test_wiki.py` — updated two test assertions (`test_wiki_link_plain`, `test_wiki_link_in_table_escapes_pipe`) to match the corrected link format; added assertion in `test_generate_home_contains_item_link` that the title (not slug) appears at the start of the `[[...]]` link.
+
 ### 2026-03-08 — Research Loop (research-quality-assurance-methodology)
 
 **Completed:**
