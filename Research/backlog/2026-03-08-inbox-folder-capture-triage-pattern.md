@@ -39,6 +39,10 @@ The current `add_memory` MCP tool requires a `folder` parameter. Forcing a decis
 
 Cross-reference: `Research/completed/2026-03-02-agent-memory-management-context-injection.md` cites Matuschak's Evergreen Notes as a reference architecture for memory systems and notes that capture friction is a primary reason memory systems fail in practice. The `research-loop.yml` workflow in this repo provides an existing autonomous agent loop pattern (GitHub Actions + Copilot CLI + commit to main) that could be adapted directly for inbox triage without building new infrastructure.
 
+## Related
+
+**Memory-System backlog:** [W-0012 — Inbox folder pattern: frictionless capture without forced structure](https://github.com/davidamitchell/Memory-System/blob/main/BACKLOG.md) — the Memory-System discovery item that defines the implementation work this research directly informs.
+
 ## Approach
 
 1. Review the Getting Things Done inbox pattern and Andy Matuschak's capture-then-link approach — map to the Memory-System context
@@ -59,6 +63,7 @@ Cross-reference: `Research/completed/2026-03-02-agent-memory-management-context-
 - [ ] GitHub Actions schedule trigger docs: https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule
 - [ ] `2026-03-08-ios-shortcuts-github-api-memory-capture.md` — capture tool that would write to inbox
 - [ ] `2026-03-08-telegram-bot-memory-capture-retrieval.md` — capture tool that would write to inbox
+- [ ] `davidamitchell/Memory-System` BACKLOG.md W-0012 — the corresponding discovery item that this research informs
 
 ---
 
