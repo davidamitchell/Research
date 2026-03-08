@@ -42,6 +42,10 @@ The Memory-System repo (`davidamitchell/Memory-System`) uses `.md` files as the 
 
 Cross-reference: `Research/completed/2026-03-02-agent-memory-management-context-injection.md` confirms that production systems (Cursor, Devin) use exactly this markdown-file pattern as the memory storage layer.
 
+## Related
+
+**Memory-System backlog:** [W-0008 — iOS Shortcuts + GitHub API: zero-infrastructure mobile capture](https://github.com/davidamitchell/Memory-System/blob/main/BACKLOG.md) — the Memory-System discovery item that defines the implementation work this research directly informs.
+
 ## Approach
 
 1. Prototype a Shortcut that accepts text input (typed or dictated) and writes to `inbox/YYYY-MM-DD-HH-MM-title.md` via the GitHub Contents API
@@ -62,6 +66,7 @@ Cross-reference: `Research/completed/2026-03-02-agent-memory-management-context-
 - [ ] Apple iOS Shortcuts User Guide: https://support.apple.com/guide/shortcuts/welcome/ios
 - [ ] iOS Shortcuts HTTP action docs (Get Contents of URL / Set Variable)
 - [ ] GitHub REST API rate limits: https://docs.github.com/en/rest/using-the-rest-api/rate-limits-for-the-rest-api
+- [ ] `davidamitchell/Memory-System` BACKLOG.md W-0008 — the corresponding discovery item that this research informs
 
 ---
 

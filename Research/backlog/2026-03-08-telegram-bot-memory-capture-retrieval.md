@@ -40,6 +40,10 @@ Telegram bots have a simple, well-documented API. The UX is identical to messagi
 
 Cross-reference: `Research/completed/2026-03-02-agent-memory-management-context-injection.md` notes that no production memory system has retrieval + write governance in a single surface. This item explores whether a Telegram bot can provide both in one chat-based interface, which is a novel combination not covered by the existing agent memory research. The completed `2026-03-02-ios-shortcuts-research.md` covers iOS-native capture; this item covers a different architecture (bot + hosted service) that is platform-agnostic.
 
+## Related
+
+**Memory-System backlog:** [W-0011 — Telegram bot as mobile memory capture and retrieval channel](https://github.com/davidamitchell/Memory-System/blob/main/BACKLOG.md) — the Memory-System discovery item that defines the implementation work this research directly informs.
+
 ## Approach
 
 1. Survey Telegram Bot API: long-polling vs webhook, message handling, rate limits
@@ -60,6 +64,7 @@ Cross-reference: `Research/completed/2026-03-02-agent-memory-management-context-
 - [ ] Fly.io free tier docs: https://fly.io/docs/about/pricing/
 - [ ] Render free tier docs: https://render.com/docs/free
 - [ ] Tailscale docs (for Raspberry Pi home server): https://tailscale.com/kb/1017/install
+- [ ] `davidamitchell/Memory-System` BACKLOG.md W-0011 — the corresponding discovery item that this research informs
 
 ---
 

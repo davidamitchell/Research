@@ -40,6 +40,10 @@ The local `mcp_server.py` uses stdio transport and requires LanceDB on local dis
 
 Cross-reference: `Research/completed/2026-03-02-agent-memory-management-context-injection.md` notes that "no open-source memory system has governance features" — a self-hosted deployment must not weaken the security posture of personal memory data. The completed research also notes that production systems use the markdown-file pattern, which aligns with the stateless Cloudflare Worker write path.
 
+## Related
+
+**Memory-System backlog:** [W-0014 — Self-hosted MCP server options: enabling mobile AI app integration](https://github.com/davidamitchell/Memory-System/blob/main/BACKLOG.md) — the Memory-System discovery item that defines the implementation work this research directly informs.
+
 ## Approach
 
 1. Map the deployment requirements: write path (GitHub API), read/search path (LanceDB + embeddings), and MCP protocol (HTTP/SSE)
@@ -63,6 +67,7 @@ Cross-reference: `Research/completed/2026-03-02-agent-memory-management-context-
 - [ ] GitHub Actions `repository_dispatch` event docs: https://docs.github.com/en/rest/repos/repos#create-a-repository-dispatch-event
 - [ ] LanceDB docs: https://lancedb.github.io/lancedb/
 - [ ] `2026-03-08-lancedb-index-rebuild-from-git.md` — related item on rebuild speed as deployment constraint
+- [ ] `davidamitchell/Memory-System` BACKLOG.md W-0014 — the corresponding discovery item that this research informs
 
 ---
 

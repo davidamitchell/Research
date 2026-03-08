@@ -40,6 +40,10 @@ ChatGPT is the most widely used AI app on iOS. Custom GPT Actions support OpenAP
 
 Cross-reference: `Research/completed/2026-03-02-agent-memory-management-context-injection.md` explicitly notes that "ChatGPT memories don't export to Claude, Cursor rules don't transfer to Windsurf" — this item explores whether that silo can be broken via a custom GPT that writes to the shared Memory-System repo. This would make memories portable across AI tools. Lower priority than Claude iOS because the owner's primary tool stack uses Claude, but the portability angle is strategically important.
 
+## Related
+
+**Memory-System backlog:** [W-0005 — ChatGPT Actions and custom GPTs: external memory integration options](https://github.com/davidamitchell/Memory-System/blob/main/BACKLOG.md) — the Memory-System discovery item that defines the implementation work this research directly informs.
+
 ## Approach
 
 1. Review OpenAI's custom GPT Actions documentation and OpenAPI spec requirements
@@ -59,6 +63,7 @@ Cross-reference: `Research/completed/2026-03-02-agent-memory-management-context-
 - [ ] OpenAPI specification (for Actions schema): https://swagger.io/specification/
 - [ ] `2026-03-08-self-hosted-mcp-server-options.md` — prerequisite infrastructure item
 - [ ] `2026-03-08-claude-ios-mcp-remote-integration.md` — comparison item
+- [ ] `davidamitchell/Memory-System` BACKLOG.md W-0005 — the corresponding discovery item that this research informs
 
 ---
 

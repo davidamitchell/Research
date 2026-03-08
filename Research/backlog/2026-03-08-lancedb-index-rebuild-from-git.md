@@ -38,6 +38,10 @@ Currently `.lancedb` is excluded from git and must persist on the local machine.
 
 Cross-reference: `Research/completed/2026-03-02-agent-memory-management-context-injection.md` notes that MemoryOS achieves +49% F1 with an OS-inspired three-tier memory hierarchy — startup rebuild latency is a direct design constraint on which tier model is viable for a self-hosted deployment. The completed `2026-03-02-semantic-full-text-search.md` may also have relevant findings on embedding model selection for semantic search.
 
+## Related
+
+**Memory-System backlog:** [W-0015 — LanceDB index rebuild speed from git: enabling stateless deployment](https://github.com/davidamitchell/Memory-System/blob/main/BACKLOG.md) — the Memory-System discovery item that defines the implementation work this research directly informs.
+
 ## Approach
 
 1. Instrument the current `add_memory` / index-build path in `mcp_server.py` to measure: model load time, per-file embedding time, LanceDB write time
@@ -58,6 +62,7 @@ Cross-reference: `Research/completed/2026-03-02-agent-memory-management-context-
 - [ ] `sentence-transformers/all-MiniLM-L6-v2` model card: https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2
 - [ ] GitHub code search API (as zero-rebuild alternative): https://docs.github.com/en/rest/search/search
 - [ ] `2026-03-08-self-hosted-mcp-server-options.md` — deployment options that depend on this benchmark
+- [ ] `davidamitchell/Memory-System` BACKLOG.md W-0015 — the corresponding discovery item that this research informs
 
 ---
 

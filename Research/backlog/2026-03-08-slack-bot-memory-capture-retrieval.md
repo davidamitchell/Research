@@ -40,6 +40,10 @@ A completed research item already exists for Slack/MS Teams as a *research deliv
 
 Cross-reference: `Research/completed/2026-03-02-agent-memory-management-context-injection.md` confirms the value of memory being accessible from wherever you already are — Slack on mobile is exactly this "ambient" surface.
 
+## Related
+
+**Memory-System backlog:** [W-0003 — Slack as a mobile memory capture and retrieval channel](https://github.com/davidamitchell/Memory-System/blob/main/BACKLOG.md) — the Memory-System discovery item that defines the implementation work this research directly informs.
+
 ## Approach
 
 1. Survey free Slack workspace API capabilities: which features are available without a paid plan
@@ -60,6 +64,7 @@ Cross-reference: `Research/completed/2026-03-02-agent-memory-management-context-
 - [ ] GitHub Contents API docs: https://docs.github.com/en/rest/repos/contents
 - [ ] Fly.io free tier docs: https://fly.io/docs/about/pricing/
 - [ ] Railway free tier docs: https://docs.railway.app/reference/pricing
+- [ ] `davidamitchell/Memory-System` BACKLOG.md W-0003 — the corresponding discovery item that this research informs
 
 ---
 

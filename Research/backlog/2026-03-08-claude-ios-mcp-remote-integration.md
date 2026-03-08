@@ -39,6 +39,10 @@ Claude Desktop already works with the local `mcp_server.py` via stdio transport.
 
 Cross-reference: `Research/completed/2026-03-02-agent-memory-management-context-injection.md` covers MCP RFC #2043 (Memory Interchange Format) and notes that memory portability is an emerging first-class concern — Anthropic's roadmap decisions here will have significant implications. Also cross-reference `2026-03-08-self-hosted-mcp-server-options.md` (the prerequisite infrastructure item).
 
+## Related
+
+**Memory-System backlog:** [W-0004 — Claude for iOS: MCP remote integration for memory capture and retrieval](https://github.com/davidamitchell/Memory-System/blob/main/BACKLOG.md) — the Memory-System discovery item that defines the implementation work this research directly informs.
+
 ## Approach
 
 1. Document current Claude iOS app capabilities: does the app show any MCP or integrations UI?
@@ -59,6 +63,7 @@ Cross-reference: `Research/completed/2026-03-02-agent-memory-management-context-
 - [ ] Anthropic developer docs: https://docs.anthropic.com/
 - [ ] MCP GitHub repository (issues and discussions on remote transport): https://github.com/modelcontextprotocol/modelcontextprotocol
 - [ ] `2026-03-08-self-hosted-mcp-server-options.md` — prerequisite infrastructure research
+- [ ] `davidamitchell/Memory-System` BACKLOG.md W-0004 — the corresponding discovery item that this research informs
 
 ---
 
