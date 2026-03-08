@@ -540,3 +540,34 @@ Repository structure is standardised: single `.github/copilot-instructions.md` s
 Standardisation pass to remove AGENTS.md/.claude/ and align with all other repos in the davidamitchell organisation.
 
 ---
+
+## W-0034
+
+status: open
+created: 2026-03-08
+updated: 2026-03-08
+
+### Outcome
+
+The completed research corpus is more than a flat collection of files: (1) a **meta-distillation layer** periodically aggregates findings across items into higher-order themes, categories, and emergent ideas not visible in any single item; (2) a **knowledge map** renders the relationships between items, concepts, and tags as a connected, navigable structure; (3) a **search and synthesis interface** lets the owner query the corpus in natural language and receive a synthesised answer with provenance links — not just a ranked list of matching files.
+
+### Context
+
+Three distinct but related needs identified by the owner:
+
+1. **Meta distillation / categorisation** — as `Research/completed/` grows, cross-item patterns and new hypotheses become invisible. An aggregation step is needed to surface what multiple items, taken together, imply. This is distinct from reading items individually.
+
+2. **Knowledge map** — the existing wiki (`W-0030`) produces a flat date-sorted index and a tag sidebar. A map goes further: it shows how items relate to one another (shared tags, concept overlap, dependency chains, thematic clusters). Could be a static graph rendered in the wiki, a Mermaid diagram, or a separate page.
+
+3. **Search and synthesis** — `W-0025` (deferred semantic search) covers retrieval; this slice adds the synthesis step: given a query, return a distilled answer drawn from multiple relevant items, not just matching file paths. Useful once the corpus has enough items to make synthesis non-trivial.
+
+All three share the goal of making the research corpus navigable, connected, and insight-generating — more than the sum of its parts.
+
+**Suggested implementation order:**
+- Start with a research item in `Research/backlog/` to define the approach (tool choices, index format, LLM-vs-heuristic trade-offs) before building.
+- Knowledge map (static Mermaid/tag-graph via `publish.py` extension) is the lowest-effort first step.
+- Meta-distillation and synthesis require either a vector index or a context-window pass over all completed items — scope after the map is working.
+
+**Related items:** W-0025 (deferred semantic search — can be revived as part of this slice), W-0030 (wiki publish pipeline — the map likely extends this).
+
+---
