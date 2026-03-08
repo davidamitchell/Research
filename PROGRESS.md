@@ -1196,3 +1196,11 @@ Added `Research/backlog/2026-03-07-run-vs-build-it-spending-allocation.md`.
 Research question: How do non-IT primary businesses calculate and apportion IT spending between RUN (nondiscretionary operational sustainment) and BUILD (discretionary strategic enhancement) activities?
 
 Covers: Gartner RGT model, McKinsey project-based categorisations, TBC/TBM framework, activity-based costing for overhead apportionment, flow metric methods (Flow Distribution), and post-2015 case studies from named organisations with quantitative metrics.
+
+Updated `blocks` field to reference the follow-on implementation item.
+
+## 2026-03-07 — New backlog item: RUN vs BUILD implementation HOW
+
+Added `Research/backlog/2026-03-07-run-build-it-allocation-implementation-how.md`.
+
+Depends on the preceding item (2026-03-07-run-vs-build-it-spending-allocation). Research question: How have organisations actually implemented a working RUN vs BUILD IT cost allocation — the application definition governance, team taxonomy alignment, ticket tagging enforcement, contract-to-application mapping, investment case and sponsorship, implementation sequencing, and failure modes?

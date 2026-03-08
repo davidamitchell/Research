@@ -3,7 +3,7 @@ title: "RUN vs BUILD IT spending allocation in non-IT primary businesses"
 added: 2026-03-07
 status: backlog
 priority: medium
-blocks: []
+blocks: [2026-03-07-run-build-it-allocation-implementation-how]
 tags: [it-finance, run-build, cost-allocation, gartner, activity-based-costing, flow-metrics, tbc-framework]
 started: ~
 completed: ~
