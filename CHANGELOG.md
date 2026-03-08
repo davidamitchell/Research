@@ -14,6 +14,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 - Research backlog items for mobile memory capture and retrieval (8 items covering iOS Shortcuts, Telegram, Slack, Claude iOS MCP, self-hosted MCP, LanceDB index rebuild, ChatGPT Actions, inbox pattern)
+- `Research/completed/2026-03-04-sdlc-ai-prompt-patterns.md`: completed research on emergent AI prompt patterns for SDLC phases; key findings: 55.8% Build-phase speed gain (Peng et al. 2023), SCoT +13.79% Pass@1 over CoT (Li et al. 2023), DORA 2024 AI adoption correlation (+3.4% code quality, -7.2% delivery stability); phase taxonomy, evidence map, and tooling alignment framework including MCP prompts primitive
 - `.github/copilot-instructions.md` (full content, replaces `AGENTS.md` stub)
 - `CHANGELOG.md` (this file)
 - `docs/adr/0006-standardise-agent-instructions.md`
