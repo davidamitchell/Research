@@ -1,6 +1,6 @@
 # Progress
 
-Last updated: 2026-03-08 (integrative-framework-agent-decision-making)
+Last updated: 2026-03-08 (ios-shortcuts-research)
 Last updated: 2026-03-07 (ai-not-a-data-problem)
 Last updated: 2026-03-06 (interoception-and-the-predictive-self)
 Last updated: 2026-03-05 (llm-hallucination-mechanisms)
@@ -44,6 +44,18 @@ Last updated: 2026-03-03 (ai-control-testing-and-assurance)
 ---
 
 ## Work Log
+
+### 2026-03-08 — Research Loop (ios-shortcuts-research)
+
+**Completed:**
+
+Research item:
+- `Research/completed/2026-03-02-ios-shortcuts-research.md` — completed; iOS Shortcuts calling the GitHub Issues API via "Get Contents of URL" is the correct capture path (3–5 actions, no base64 encoding, leverages existing issue-to-backlog workflow); the wiki quick-access shortcut is a single "Open URLs" action; a search query shortcut is deferred pending a `workflow_dispatch`-triggered search workflow; authentication requires a fine-grained PAT (Issues: write) hardcoded in the Shortcut definition — the only viable on-device storage given iOS Shortcuts' lack of native Keychain access.
+
+Sources consulted:
+- https://island94.org/2024/01/trigger-github-actions-workflows-from-apple-shortcuts (GitHub employee working example of iOS Shortcuts + GitHub API)
+- https://docs.github.com/en/rest/issues/issues (GitHub Issues creation API)
+- https://support.apple.com/guide/shortcuts/input-types-apd7644168e1/ios (iOS Shortcuts Share Sheet input types)
 
 ### 2026-03-08 — Research Loop (integrative-framework-agent-decision-making)
 
