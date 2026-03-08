@@ -1,6 +1,6 @@
 # Progress
 
-Last updated: 2026-03-08 (ios-shortcuts-research)
+Last updated: 2026-03-08 (research-quality-assurance-methodology)
 Last updated: 2026-03-07 (ai-not-a-data-problem)
 Last updated: 2026-03-06 (interoception-and-the-predictive-self)
 Last updated: 2026-03-05 (llm-hallucination-mechanisms)
@@ -44,6 +44,18 @@ Last updated: 2026-03-03 (ai-control-testing-and-assurance)
 ---
 
 ## Work Log
+
+### 2026-03-08 — Research Loop (research-quality-assurance-methodology)
+
+**Completed:**
+
+Research item:
+- `Research/completed/2026-03-02-research-quality-assurance-methodology.md` — completed; the three existing skills (citation-discipline, speculation-control, remove-ai-slop) leave logical coherence, alternative explanations, and cross-item integration uncovered; a four-tier quality pipeline (structural checks → single-item agent review → cross-item agent review → human domain review) closes these gaps; a new `peer-review` skill is warranted for `davidamitchell/Skills`; the DIKW/SECI frameworks confirm that Wisdom requires cross-item synthesis and real-decision application, not just individual item quality.
+
+Sources consulted:
+- https://www.springernature.com/gp/authors/campaigns/how-to-peer-review-3 (Springer Nature peer review guidelines)
+- https://arxiv.org/html/2505.11718v1 (REMOR: LLM peer review matching human quality on coherence)
+- https://zettelkasten.de/introduction/ (Zettelkasten integration methodology)
 
 ### 2026-03-08 — Research Loop (ios-shortcuts-research)
 
