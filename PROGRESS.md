@@ -1,6 +1,6 @@
 # Progress
 
-Last updated: 2026-03-08 (chat-conversational-interface)
+Last updated: 2026-03-08 (integrative-framework-agent-decision-making)
 Last updated: 2026-03-07 (ai-not-a-data-problem)
 Last updated: 2026-03-06 (interoception-and-the-predictive-self)
 Last updated: 2026-03-05 (llm-hallucination-mechanisms)
@@ -44,6 +44,18 @@ Last updated: 2026-03-03 (ai-control-testing-and-assurance)
 ---
 
 ## Work Log
+
+### 2026-03-08 — Research Loop (integrative-framework-agent-decision-making)
+
+**Completed:**
+
+Research item:
+- `Research/completed/2026-03-02-integrative-framework-agent-decision-making.md` — completed; DIKW operationalisation for enterprise agents requires a five-component architecture (multi-domain knowledge graph, formal intent model, precedence-rule engine, temporal-authority arbitration, three-tier memory governance); the precedence hierarchy Regulation > Policy > BU Strategy > Task Intent is confirmed by four independent sources; no single open-source framework assembles all five components, making integration complexity the primary practitioner barrier.
+
+Sources consulted:
+- https://link.springer.com/chapter/10.1007/978-1-4614-1785-9_12 (Wognin et al. 2012 — DIKW for agent-based knowledge management systems)
+- https://arxiv.org/abs/2501.13956 (Zep temporal knowledge graph — temporal-authority arbitration for within-tier conflicts)
+- https://aclanthology.org/2024.naacl-long.78/ (IterAlign NAACL 2024 — automated enterprise constitutional alignment)
 
 ### 2026-03-08 — Research Loop (chat-conversational-interface)
 
