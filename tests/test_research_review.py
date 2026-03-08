@@ -221,6 +221,67 @@ def test_prompt_prohibits_modifying_research_item() -> None:
     )
 
 
+def test_citation_discipline_has_context_scope_note() -> None:
+    """Step 1 (citation-discipline) must have a scope note scoping it off ## Context."""
+    content = PROMPT_PATH.read_text(encoding="utf-8")
+    # Find Step 1 section and verify it contains both "Scope note" and "## Context"
+    step1_start = content.find("### Step 1 — citation-discipline")
+    step2_start = content.find("### Step 2 — speculation-control")
+    assert step1_start != -1, "Step 1 section must exist"
+    assert step2_start != -1, "Step 2 section must exist"
+    assert step1_start < step2_start, "Step 1 must appear before Step 2"
+    step1_text = content[step1_start:step2_start]
+    assert "Scope note" in step1_text, (
+        "Step 1 (citation-discipline) must contain a 'Scope note' for ## Context"
+    )
+    assert "## Context" in step1_text, "Step 1 scope note must reference '## Context'"
+
+
+def test_speculation_control_has_context_scope_note() -> None:
+    """Step 2 (speculation-control) must have a scope note scoping it off ## Context."""
+    content = PROMPT_PATH.read_text(encoding="utf-8")
+    step2_start = content.find("### Step 2 — speculation-control")
+    step3_start = content.find("### Step 3 — remove-ai-slop")
+    assert step2_start != -1, "Step 2 section must exist"
+    assert step3_start != -1, "Step 3 section must exist"
+    assert step2_start < step3_start, "Step 2 must appear before Step 3"
+    step2_text = content[step2_start:step3_start]
+    assert "Scope note" in step2_text, (
+        "Step 2 (speculation-control) must contain a 'Scope note' for ## Context"
+    )
+    assert "## Context" in step2_text, "Step 2 scope note must reference '## Context'"
+
+
+def test_workflow_has_issues_write_permission() -> None:
+    """The review job must have issues: write permission to create failure issues."""
+    wf = _load_workflow()
+    job = wf["jobs"]["review"]
+    perms = job.get("permissions", {})
+    assert perms.get("issues") == "write", (
+        "Review job must have issues: write to create GitHub issues on failure"
+    )
+
+
+def test_workflow_references_gh_issue_create() -> None:
+    """The workflow must reference gh issue or gh issue create to report failures."""
+    content = WORKFLOW_PATH.read_text(encoding="utf-8")
+    assert "gh issue" in content, (
+        "Workflow must use 'gh issue' to create or comment on failure issues"
+    )
+
+
+def test_workflow_creates_research_review_label() -> None:
+    """The workflow must create the research-review label (idempotently)."""
+    content = WORKFLOW_PATH.read_text(encoding="utf-8")
+    assert "research-review" in content, "Workflow must reference the 'research-review' label"
+    assert "gh label create" in content, (
+        "Workflow must use 'gh label create' to ensure the label exists"
+    )
+    assert "2>/dev/null || true" in content, (
+        "Label creation must be idempotent using '2>/dev/null || true'"
+    )
+
+
 # ---------------------------------------------------------------------------
 # PASS/FAIL detection logic tests (unit-level)
 # ---------------------------------------------------------------------------
