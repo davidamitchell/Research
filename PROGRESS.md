@@ -1,6 +1,6 @@
 # Progress
 
-Last updated: 2026-03-08 (research-quality-assurance-methodology)
+Last updated: 2026-03-08 (run-vs-build-it-spending-allocation)
 Last updated: 2026-03-07 (ai-not-a-data-problem)
 Last updated: 2026-03-06 (interoception-and-the-predictive-self)
 Last updated: 2026-03-05 (llm-hallucination-mechanisms)
@@ -44,6 +44,18 @@ Last updated: 2026-03-03 (ai-control-testing-and-assurance)
 ---
 
 ## Work Log
+
+### 2026-03-08 — Research Loop (run-vs-build-it-spending-allocation)
+
+**Completed:**
+
+Research item:
+- `Research/completed/2026-03-07-run-vs-build-it-spending-allocation.md` — completed; TBM Council ATUM is the standard operational methodology for RUN/BUILD classification; benchmarks are 65–70% RUN for manufacturing/retail and 75–80% for financial services by total cost, with FTE-based ratios up to 90% at legacy-heavy institutions; National Grid achieved $47M first-year savings and MassMutual eliminated $75M in costs using TBM-sourced data.
+
+Sources consulted:
+- https://www.tbmcouncil.org/framework/tbm-model/ (TBM Council ATUM framework documentation)
+- https://www.tbmcouncil.org/case-studies/investment-transparency-with-tbm-leads-to-optimized-spend-at-national-grid/ (National Grid $47M savings case study)
+- https://www.apptio.com/case-study/massmutual-uses-cost-transparency-and-consumption-driven-metrics-to-accelerate-digital-transformation/ (MassMutual $75M cost elimination case study)
 
 ### 2026-03-08 — Research Loop (research-quality-assurance-methodology)
 
