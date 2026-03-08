@@ -1,5 +1,6 @@
 # Progress
 
+Last updated: 2026-03-08 (chat-conversational-interface)
 Last updated: 2026-03-07 (ai-not-a-data-problem)
 Last updated: 2026-03-06 (interoception-and-the-predictive-self)
 Last updated: 2026-03-05 (llm-hallucination-mechanisms)
@@ -43,6 +44,18 @@ Last updated: 2026-03-03 (ai-control-testing-and-assurance)
 ---
 
 ## Work Log
+
+### 2026-03-08 — Research Loop (chat-conversational-interface)
+
+**Completed:**
+
+Research item:
+- `Research/completed/2026-03-02-chat-conversational-interface.md` — completed; an MCP server with stdio transport registered in `.github/mcp.json` is the only viable approach given the no-persistent-server and no-new-credential constraints; GitHub Copilot Extension (OAuth) requires hosted infrastructure; CLI chatbot requires an unapproved LLM API key. The server exposes three tools (`search_research`, `get_research_item`, `get_related_items`), grounding is structural (tool-scoped retrieval) plus instructional (cite-the-slug prompt pattern), and implementation splits into Phase 1 (grep-backed, ships immediately) and Phase 2 (BM25/FTS5 after the search layer item is complete).
+
+Sources consulted:
+- https://modelcontextprotocol.io/docs/concepts/tools (MCP tools protocol specification)
+- https://github.com/modelcontextprotocol/python-sdk (MCP Python SDK — FastMCP)
+- https://docs.github.com/en/copilot/building-copilot-extensions/about-building-copilot-extensions (GitHub Copilot Extensions overview — confirms MCP as primary extension path)
 
 ### 2026-03-07 — Research Loop (ai-not-a-data-problem)
 
