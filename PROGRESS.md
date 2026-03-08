@@ -1,6 +1,6 @@
 # Progress
 
-Last updated: 2026-03-08 (run-vs-build-it-spending-allocation)
+Last updated: 2026-03-08 (semantic-full-text-search)
 Last updated: 2026-03-07 (ai-not-a-data-problem)
 Last updated: 2026-03-06 (interoception-and-the-predictive-self)
 Last updated: 2026-03-05 (llm-hallucination-mechanisms)
@@ -44,6 +44,18 @@ Last updated: 2026-03-03 (ai-control-testing-and-assurance)
 ---
 
 ## Work Log
+
+### 2026-03-08 — Research Loop (semantic-full-text-search)
+
+**Completed:**
+
+Research item:
+- `Research/completed/2026-03-02-semantic-full-text-search.md` — completed; SQLite FTS5 alone is sufficient for the current corpus (12–100 items), requiring zero new dependencies; hybrid FTS5 + Model2Vec (potion-base-8M) + sqlite-vec + Reciprocal Rank Fusion should be introduced when the corpus reaches 100 items; Model2Vec is preferred over sentence-transformers for CI constraints (no PyTorch, ~30–50 MB model, ~200x faster on CPU).
+
+Sources consulted:
+- https://github.com/asg017/sqlite-vec (sqlite-vec: pre-v1 SQLite vector search extension, Python install)
+- https://huggingface.co/minishlab/potion-base-8M (Model2Vec potion-base-8M model card and benchmarks)
+- https://github.com/MinishLab/model2vec (Model2Vec: static sentence embeddings, benchmark results)
 
 ### 2026-03-08 — Research Loop (run-vs-build-it-spending-allocation)
 
