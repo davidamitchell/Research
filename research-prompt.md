@@ -105,13 +105,12 @@ python -m src.main research complete <filename>
 
 This moves the file to `Research/completed/<filename>` and updates `status` and `completed` fields.
 
-### 9. Update PROGRESS.md
+### 9. Create session log
 
-1. Change the `Last updated:` line **immediately after** the `# Progress` heading (the topmost one in the file) to: `Last updated: YYYY-MM-DD (<short title>)` using today's date.
-2. Insert a new Work Log entry **at the top** of the `## Work Log` section (above the existing most-recent entry):
+Create a new file `progress/YYYY-MM-DD-{slug}.md` where `{slug}` is the short-title portion of the research item filename (e.g. `slack-msteams-research-integration` from `2026-03-02-slack-msteams-research-integration.md`) with this content:
 
 ```markdown
-### YYYY-MM-DD — Research Loop (<short title>)
+# YYYY-MM-DD — Research Loop ({slug})
 
 **Completed:**
 
@@ -141,7 +140,8 @@ portion of the filename (e.g. `research: complete - ai-strategy-swe-focus`).
 
 - Do **one item** only. Stop after the commit.
 - Commit **directly to `main`**. Do not open a pull request.
-- The PROGRESS.md update is **mandatory**. It must be in the same commit as the completed item.
+- Do **not** edit `PROGRESS.md` — it is now static and conflict-free by design. Session logs go in `progress/` only.
+- The session log in `progress/` is **mandatory**. It must be in the same commit as the completed item.
 - Do not skip the Evidence Map. Every Key Finding needs a row.
 - If the backlog is empty, print "Backlog is empty." and exit without committing.
 - **When creating new backlog items** from Open Questions, assign `priority` using this heuristic:

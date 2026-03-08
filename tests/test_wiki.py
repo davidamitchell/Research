@@ -56,12 +56,12 @@ def _write_item(directory: Path, filename: str, content: str) -> Path:
 
 
 def test_wiki_link_plain() -> None:
-    assert wiki_link("my-page", "My Page") == "[[my-page|My Page]]"
+    assert wiki_link("my-page", "My Page") == "[[My Page|my-page]]"
 
 
 def test_wiki_link_in_table_escapes_pipe() -> None:
     # Pipe must be escaped as \| inside a Markdown table cell.
-    assert wiki_link("my-page", "My Page", in_table=True) == "[[my-page\\|My Page]]"
+    assert wiki_link("my-page", "My Page", in_table=True) == "[[My Page\\|my-page]]"
 
 
 # ---------------------------------------------------------------------------
@@ -140,8 +140,9 @@ def test_generate_home_contains_item_link() -> None:
         }
     ]
     home = generate_home(items)
-    assert "[[2026-02-28-ai-strategy" in home
-    assert "AI Strategy Research" in home
+    # Link should use title as display text and page slug as the URL target.
+    assert "[[AI Strategy Research" in home
+    assert "2026-02-28-ai-strategy" in home
 
 
 def test_generate_home_sorted_most_recent_first() -> None:

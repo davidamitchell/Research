@@ -1,62 +1,6 @@
-# Progress
+# Work Log Archive
 
-> Session logs live in [`progress/`](progress/) — one file per session, no edits to this file required.
-Last updated: 2026-03-08 (run-build-it-allocation-implementation-how)
-Last updated: 2026-03-07 (ai-not-a-data-problem)
-Last updated: 2026-03-06 (interoception-and-the-predictive-self)
-Last updated: 2026-03-05 (llm-hallucination-mechanisms)
-Last updated: 2026-03-05 (controlled-hallucination-perception-as-construction)
-Last updated: 2026-03-05 (general-agent-optimization-framework backlog item)
-Last updated: 2026-03-05 (hard-problem-vs-real-problem-consciousness)
-Last updated: 2026-03-04 (W-0032: remove brave_search, fix Tavily env var, add MCP config tests)
-Last updated: 2026-03-03 (research-agenda-curation-coverage)
-Last updated: 2026-03-03 (ml-techniques-and-algorithms backlog item)
-Last updated: 2026-03-03 (research-output-types)
-Last updated: 2026-03-03 (research system: add Research Notes section, follow skill in full)
-Last updated: 2026-03-03 (meta-research backlog items — improve research and knowledge integration)
-Last updated: 2026-03-03 (ai-strategy-risk-reduction-focus)
-Last updated: 2026-03-03 (ai-line-1-line-2-risk-agents)
-Last updated: 2026-03-03 (ai-control-testing-and-assurance)
-Last updated: 2026-03-02 (wiki publishing implementation — W-0030)
-Last updated: 2026-03-02 (research-review-ci-step)
-Last updated: 2026-03-02 (ai-not-a-data-problem backlog item)
-Last updated: 2026-03-02 (search-interaction-distribution backlog items)
-Last updated: 2026-03-02 (transaction-costs)
-Last updated: 2026-03-02 (integrative-framework-agent-decision-making backlog item)
-Last updated: 2026-03-03 (ai-control-testing-and-assurance)
-
----
-
-## Current Status
-
-**Phase:** Issue consolidation (AGENTS.md + config improvements)
-**Next phase:** Group B — Skills repo improvements (#8, #9) via PR to `davidamitchell/Skills`
-**Branch:** `copilot/add-research-review-ci-step`
-
----
-
-| Epic | Title | Status | Complete |
-|---|---|---|---|
-| 0 | Foundation | Done | 10 / 10 slices |
-| 1 | Research Item Process | Done | 5 / 5 slices |
-| 2 | YouTube Transcript Fetcher | Done | 4 / 4 slices |
-| 3 | Indexing and Tracking | Done | 3 / 3 slices |
-
----
-
-## Work Log
-
-### 2026-03-08 — Research Loop (run-build-it-allocation-implementation-how)
-
-**Completed:**
-
-Research item:
-- `Research/completed/2026-03-07-run-build-it-allocation-implementation-how.md` — completed; three artefacts must be built in strict sequence (application register → team taxonomy → work-item tagging) and cannot be parallelised; joint CIO+CFO sponsorship is a structural requirement not a preference; GAO-25-106488 found 69% of federal agencies failed to achieve reliable cost allocation after 8 years under mandate, confirming that governance commitment — not tooling — is the determining factor.
-
-Sources consulted:
-- https://www.gao.gov/products/gao-25-106488 (GAO audit: federal TBM implementation results across 26 agencies, 2025)
-- https://regoconsulting.com/6-steps-for-a-successful-apptio-tbm-project-plan/ (Rego Consulting: practical Apptio TBM project plan and business case)
-- https://community.leanix.net/application-portfolio-management-42/application-classification-how-to-decide-723 (LeanIX: application boundary criteria practitioner discussion)
+Entries prior to the move to per-session files (see [progress/](../progress/)).
 
 ### 2026-03-08 — Research Loop (slack-msteams-research-integration)
 
@@ -303,6 +247,7 @@ Sources consulted:
 - https://lilianweng.github.io/posts/2024-07-07-hallucination/ (Weng 2024 — Extrinsic Hallucinations in LLMs)
 
 ### 2026-03-05 — New backlog item (swarm-pca-genetic-reinforcement-learning)
+
 ### 2026-03-05 — New backlog item (general-agent-optimization-framework)
 
 **Added:**
@@ -434,6 +379,7 @@ Repo improvement:
 - `BACKLOG.md` — added W-0032: remove `brave_search` MCP from both `.github/mcp.json` and `.mcp.json`, and investigate/fix the Tavily API key env var name so `tavily-mcp@latest` starts cleanly.
 
 ### 2026-03-03 — Research Loop (research-agenda-curation-coverage)
+
 ### 2026-03-03 — Research Loop (research-output-types)
 
 **Completed:**
@@ -574,6 +520,7 @@ Research items added to `Research/backlog/`:
 These five items form a coherent set addressing both meta-research process improvement (loop quality, agenda curation) and knowledge integration (linking, synthesis, retention).
 
 ---
+
 ### 2026-03-03 — Research Loop (ai-strategy-risk-reduction-focus)
 
 **Completed:**
@@ -723,6 +670,7 @@ Sources consulted:
 **Started:**
 
 - `Research/in-progress/2026-03-02-agent-memory-management-context-injection.md` — moved from backlog to in-progress. Covers the full landscape of agent memory architectures beyond RAG: latency trade-offs, knowledge scoping (session/team/repo/role/task), governance and provenance, quality testing, distribution of recall tooling, and the "ungardened wiki" failure mode. Systems to survey: MemGPT/Letta, Zep, Mem0, LangMem, Cognee/Graphiti, and GraphRAG.
+
 ### 2026-03-02 — New backlog item (research-review-ci-step) and new research item (research-quality-assurance-methodology)
 
 **Added:**
@@ -735,6 +683,7 @@ Sources consulted:
 **Added:**
 
 - `Research/backlog/2026-03-02-ai-not-a-data-problem.md` — High-priority research item making the case that organisational AI capability should not be owned by or coupled to the data/analytics department or data platform. Covers: technical NFR mismatch (HADR, fine-grained authz, operational SLAs), API layer as the correct agent integration point (MCP, API gateways, STS token exchange, DID, zero-trust), knowledge vs. data distinction, organisational design (cross-functional AI capability spanning IT/business/HR/legal/regulatory), skills gap between data/analytics and API/platform engineering disciplines, and a structured tradeoff analysis of coupled vs. decoupled models. Sources span Martin Fowler/Data Mesh, NIST AI RMF, RBNZ, OAuth 2.0 RFC 8693, W3C DID spec, CNCF Zero Trust, OWASP API Security, and McKinsey/Gartner organisational AI research.
+
 ### 2026-03-02 — New backlog item (integrative-framework-agent-decision-making)
 
 **Added:**
@@ -744,6 +693,7 @@ Sources consulted:
 **Existing items cross-referenced (not duplicated):**
 - `Research/backlog/2026-03-02-agent-memory-management-context-injection.md` — memory architecture dependency; findings to be integrated when complete
 - `Research/completed/2026-03-01-agent-lsp-policy-enforcement.md` — prior findings on policy guardrails and governance enforcement
+
 ### 2026-03-03 — Research Loop (ai-control-testing-and-assurance)
 
 **Completed:**
@@ -790,6 +740,7 @@ Four new backlog items covering the gaps in indexing/search improvements, intera
 - `Research/backlog/2026-02-27-interface-and-delivery.md` — broader interface question; new items are focused sub-topics
 - `Research/backlog/2026-02-27-local-database.md` — database technology choice; `semantic-full-text-search` is the search UX layer on top
 - `Research/backlog/2026-02-27-local-index-vs-reference.md` — storage policy; upstream of search
+
 ### 2026-03-02 — New research item (transaction-costs)
 
 **Completed:**
@@ -801,6 +752,7 @@ Four new backlog items covering the gaps in indexing/search improvements, intera
 **Added:**
 
 - `Research/backlog/2026-03-02-agent-memory-management-context-injection.md` — new high-priority backlog item. Covers the full landscape of agent memory architectures beyond RAG: latency trade-offs, knowledge scoping (session/team/repo/role/task), governance and provenance, quality testing, distribution of recall tooling, and the "ungardened wiki" failure mode. Systems surveyed include MemGPT/Letta, Zep, Mem0, LangMem, Cognee/Graphiti, and GraphRAG.
+
 ### 2026-03-02 — Session 15 (GitHub wiki publishing — W-0030)
 
 **Completed:**
@@ -905,16 +857,19 @@ Sources consulted:
 - https://blog.cloudflare.com/code-mode-mcp/ (Code Mode input-side compression reference)
 
 **Key insight for this repo:** This repo uses 10 MCP servers. Context Mode cannot intercept any of their outputs — MCP responses (filesystem, memory, git, arxiv, etc.) go directly to model context via JSON-RPC. For Claude Code sessions on this repo, output compression requires server-side implementation in each MCP server or reliance on built-in tool compression only.
+
 ### 2026-03-01 — Session 12 (new backlog item — agent LSP policy enforcement)
 
 **Completed:**
 
 - `Research/backlog/2026-03-01-agent-lsp-policy-enforcement.md` — research item on guiding headless autonomous agents via LSP-like mechanisms for org policy conformance (security, architectural, engineering standards); key focus: identifying the "LSAP"/"LASP" acronym and protocol, surveying whether headless agents can act as LSP clients, mapping the gap between CI/pre-commit gates and in-loop real-time feedback; priority high
+
 ### 2026-03-01 — Session 12 (GitHub wiki backlog item)
 
 **Completed:**
 
 - `Research/backlog/2026-03-01-github-wiki-research-content.md` — new backlog item: researching how to publish completed research items to the GitHub wiki for easier reading on the GitHub website and iOS app. Covers: GitHub wiki constraints, publish pipeline design (Actions workflow, front-matter stripping, index generation), incremental vs full-rebuild approach, and navigation structure (tag index, date-sorted, topic groups). Priority: medium. Output types: tool, knowledge, backlog-item.
+
 ### 2026-03-01 — Session 12 (Research backlog item — GitHub Specify / Ralph loops / Lisa planning)
 
 **Completed:**

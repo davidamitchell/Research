@@ -76,17 +76,18 @@ def page_name(filename: str) -> str:
 def wiki_link(page: str, title: str, *, in_table: bool = False) -> str:
     """Format a GitHub wiki internal link.
 
-    GitHub wiki links use ``[[Page-Name|Display Text]]`` syntax.  When the
-    link appears inside a Markdown table cell the pipe must be written as
-    ``\\|`` so that it is not treated as a column delimiter.
+    GitHub wiki links use ``[[Display Text|Page-Name]]`` syntax — the display
+    text comes *first* and the page name (used for the URL) comes *second*.
+    When the link appears inside a Markdown table cell the pipe must be written
+    as ``\\|`` so that it is not treated as a column delimiter.
 
     Args:
-        page:     Wiki page name (filename without .md).
-        title:    Display text shown to the reader.
+        page:     Wiki page name (filename without .md) — used as the URL target.
+        title:    Display text shown to the reader — appears before the pipe.
         in_table: Pass True when the link is inside a Markdown table cell.
     """
     sep = "\\|" if in_table else "|"
-    return f"[[{page}{sep}{title}]]"
+    return f"[[{title}{sep}{page}]]"
 
 
 # ---------------------------------------------------------------------------
