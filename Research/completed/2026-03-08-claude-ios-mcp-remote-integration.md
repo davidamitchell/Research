@@ -80,7 +80,7 @@ Cross-reference: `Research/completed/2026-03-02-agent-memory-management-context-
 
 ### §0 Initialise
 
-**Research question (restated):** Does the Claude iOS app support connecting to a remote MCP server? If so: (a) what transport protocol is used (HTTP/SSE or Streamable HTTP vs stdio); (b) is the configuration mechanism the same `.mcp.json` file as Claude Desktop, or a different UI; (c) what is the minimum self-hosted deployment needed to expose an existing Python MCP server (`mcp_server.py`) over HTTP to the iOS app; and (d) what has Anthropic publicly stated about their roadmap for remote MCP and personal memory/context features?
+**Research question (restated):** Does the Claude iOS app support connecting to a remote Model Context Protocol (MCP) server? If so: (a) what transport protocol is used (HTTP/SSE or Streamable HTTP vs stdio); (b) is the configuration mechanism the same `.mcp.json` file as Claude Desktop, or a different UI; (c) what is the minimum self-hosted deployment needed to expose an existing Python MCP server (`mcp_server.py`) over HTTP to the iOS app; and (d) what has Anthropic publicly stated about their roadmap for remote MCP and personal memory/context features?
 
 **Scope confirmed:** Claude iOS app only (not Desktop). HTTP-based transports only (stdio is Desktop-only). Personal/self-hosted servers (not enterprise directory submissions). Public documentation and stable features only.
 
@@ -97,7 +97,7 @@ Cross-reference: `Research/completed/2026-03-02-agent-memory-management-context-
 **Q2. What transport protocol does remote MCP use?**
 - Q2a. What transports does the MCP specification define?
 - Q2b. Which transport does the claude.ai / iOS app use for remote connectors?
-- Q2c. Is the legacy HTTP+SSE transport still supported alongside Streamable HTTP?
+- Q2c. Is the legacy HTTP+Server-Sent Events (SSE) transport still supported alongside Streamable HTTP?
 
 **Q3. What is the configuration mechanism for iOS (vs. Claude Desktop's `.mcp.json`)?**
 - Q3a. How does a user add a custom connector on claude.ai (web)?
@@ -119,7 +119,7 @@ Cross-reference: `Research/completed/2026-03-02-agent-memory-management-context-
 
 **Q7. What is Anthropic's roadmap for remote MCP and personal memory?**
 - Q7a. Is there a public roadmap for first-party persistent memory in Claude?
-- Q7b. What is the status of MCP RFC #2043 (Memory Interchange Format)?
+- Q7b. What is the status of MCP Request for Comments (RFC) #2043 (Memory Interchange Format)?
 
 ### §2 Investigation
 
@@ -205,7 +205,7 @@ Cross-reference: `Research/completed/2026-03-02-agent-memory-management-context-
 
 **[fact]** MCP RFC #2043 ("Memory Interchange Format") is a community-submitted GitHub issue proposing standard MCP tools for memory export/import. It was submitted by external contributors; it has no Anthropic commitment or timeline. Source: https://github.com/modelcontextprotocol/modelcontextprotocol/issues/2043
 
-**[fact]** Anthropic's public direction is to use the MCP connector ecosystem as the extensibility layer for personal context and memory — self-hosted or third-party MCP memory servers (such as those from the `Research/completed/2026-03-02-agent-memory-management-context-injection.md` survey: Mem0, Zep, etc.) rather than a built-in memory feature. The Connectors Directory already includes third-party memory MCP servers.
+**[fact]** Anthropic's public direction is to use the MCP connector ecosystem as the extensibility layer for personal context and memory — self-hosted or third-party MCP memory servers (such as those from the `Research/completed/2026-03-02-agent-memory-management-context-injection.md` survey: Mem0, Zep, etc.) rather than a built-in memory feature. The Connectors Directory already includes third-party memory MCP servers. Source: Anthropic Connectors Directory (https://www.anthropic.com/mcp); `Research/completed/2026-03-02-agent-memory-management-context-injection.md`.
 
 **[inference]** Anthropic is not building first-party persistent memory into Claude; they are providing the connector infrastructure for developers and users to wire in their own memory systems. This is consistent with Anthropic's approach to MCP as an open ecosystem play.
 
@@ -235,15 +235,15 @@ One potential ambiguity: whether the iOS app has its own connector management UI
 
 ### §5 Depth and Breadth Expansion
 
-**Technical lens:** The Streamable HTTP transport is architecturally sound for a mobile client because it uses standard HTTP POST/GET (compatible with any iOS network stack) and does not require a persistent TCP connection. The MCP Python SDK version 1.x supports Streamable HTTP; migrating `mcp_server.py` from stdio to Streamable HTTP requires changing the transport configuration from `stdio_server()` to `streamable_http_app()` (or equivalent). The server then becomes an ASGI/WSGI app deployable with uvicorn, gunicorn, or directly on Cloudflare Workers via the Python Workers runtime (experimental) or a Node.js wrapper.
+**Technical lens:** The Streamable HTTP transport is architecturally sound for a mobile client because it uses standard HTTP POST/GET (compatible with any iOS network stack) and does not require a persistent TCP connection. The MCP Python SDK version 1.x supports Streamable HTTP; migrating `mcp_server.py` from stdio to Streamable HTTP requires changing the transport configuration from `stdio_server()` to `streamable_http_app()` (or equivalent). The server then becomes an Asynchronous Server Gateway Interface (ASGI) / Web Server Gateway Interface (WSGI) app deployable with uvicorn, gunicorn, or directly on Cloudflare Workers via the Python Workers runtime (experimental) or a Node.js wrapper.
 
 **Security lens:** Anthropic's servers act as intermediary between the iOS app and the remote MCP server — the iOS client never connects directly to the self-hosted server. This means: (1) the server's HTTPS certificate only needs to be trusted by Anthropic's infrastructure, not the iOS device directly; (2) the IP allowlisting approach (permitting only Anthropic's published IP ranges) is viable as a lightweight access control without OAuth; (3) if Anthropic's infrastructure is compromised, it becomes a vector to the memory server — but this is an acceptable risk for personal non-sensitive data.
 
-**Economic lens:** Cloudflare Workers free tier (100,000 requests/day, 10ms CPU per invocation) is sufficient for a personal memory server with low request frequency. Railway and Render both offer free tiers sufficient for a low-traffic personal server. A VPS (e.g., Hetzner CX11, ~€4/month) with a free HTTPS certificate via Let's Encrypt is the most flexible option for Python deployments.
+**Economic lens:** [inference] Cloudflare Workers free tier (100,000 requests/day, 10ms CPU per invocation) is sufficient for a personal memory server with low request frequency. Source: Cloudflare Workers pricing documentation (https://developers.cloudflare.com/workers/platform/pricing/). Railway and Render both offer free tiers sufficient for a low-traffic personal server. A VPS (e.g., Hetzner CX11, ~€4/month) with a free HTTPS certificate via Let's Encrypt is the most flexible option for Python deployments.
 
 **Adoption lens:** The connector system is live and functioning. Several memory MCP servers (Mem0, Zep) already appear in the Connectors Directory. The path from `mcp_server.py` to an iOS-accessible memory tool is technically straightforward — the blocking constraint is (a) Pro plan requirement and (b) OAuth vs. no-auth security decision.
 
-**Comparison with alternative paths:** The iOS Shortcuts path (from `2026-03-02-ios-shortcuts-research.md`) requires a PAT and calls GitHub API directly — it can only create backlog items, not do semantic retrieval. The remote MCP connector path enables both `add_memory` and `search_brain` from within Claude iOS conversations, with no additional shortcuts required. This makes the remote MCP path significantly more capable than the Shortcuts path for the memory retrieval use case.
+**Comparison with alternative paths:** The iOS Shortcuts path (from `2026-03-02-ios-shortcuts-research.md`) requires a Personal Access Token (PAT) and calls GitHub API directly — it can only create backlog items, not do semantic retrieval. The remote MCP connector path enables both `add_memory` and `search_brain` from within Claude iOS conversations, with no additional shortcuts required. This makes the remote MCP path significantly more capable than the Shortcuts path for the memory retrieval use case.
 
 ### §6 Synthesis
 
@@ -290,7 +290,7 @@ The evidence resolves the research question completely. The Claude iOS app does 
 
 The primary non-technical barrier is the Pro plan requirement ($20/month) — the free plan cannot add custom connectors. If the owner already has Pro, this is a non-issue.
 
-The security question is the main design decision: no-auth (fast to deploy, URL secrecy is the only protection) vs. OAuth 2.1 (proper security, significant implementation effort). For a personal memory system containing potentially sensitive context, OAuth 2.1 is the right long-term choice, but no-auth with a hard-to-guess URL path is a viable MVP.
+The security question is the main design decision: no-auth (fast to deploy, URL secrecy is the only protection) vs. OAuth 2.1 (proper security, significant implementation effort). Opinion: For a personal memory system containing potentially sensitive context, OAuth 2.1 is the right long-term choice, but no-auth with a hard-to-guess URL path is a viable MVP.
 
 **Risks, gaps, uncertainties:**
 
@@ -359,9 +359,9 @@ The Claude iOS app supports remote MCP connections via Anthropic's Connectors sy
 
 The research question is resolved with high confidence for the first three sub-questions (iOS support: yes; transport: Streamable HTTP over HTTPS; configuration: web UI not `.mcp.json`). The minimum deployment question is answered at the architecture level; specific hosting options are out of scope and covered by the sibling item `2026-03-08-self-hosted-mcp-server-options.md`.
 
-The auth question has one remaining uncertainty: whether a static bearer token (not OAuth) can be configured through the claude.ai web UI. All documentation describes OAuth 2.1 as the auth path for authenticated custom connectors, and static bearer tokens appear in the Messages API documentation only. This means a practical personal deployment faces a binary choice: no-auth (with URL obscurity as the only protection) or a full OAuth 2.1 implementation. For a first iteration, no-auth with IP allowlisting to Anthropic's server ranges is the most pragmatic option.
+The auth question has one remaining uncertainty: whether a static bearer token (not OAuth) can be configured through the claude.ai web UI. All documentation describes OAuth 2.1 as the auth path for authenticated custom connectors, and static bearer tokens appear in the Messages API documentation only. This means a practical personal deployment faces a binary choice: no-auth (with URL obscurity as the only protection) or a full OAuth 2.1 implementation. Opinion: For a first iteration, no-auth with IP allowlisting to Anthropic's server ranges is the most pragmatic option.
 
-The remote MCP connector path is superior to all other iOS memory access options identified in prior research (Shortcuts via GitHub API, Telegram bot, iOS Shortcuts calling workflow_dispatch): it enables both memory capture (`add_memory`) and semantic retrieval (`search_brain`) within a Claude conversation on iOS, without a custom app, a bespoke bot, or a separate interface.
+[inference] The remote MCP connector path is superior to all other iOS memory access options identified in prior research (Shortcuts via GitHub API, Telegram bot, iOS Shortcuts calling workflow_dispatch): it enables both memory capture (`add_memory`) and semantic retrieval (`search_brain`) within a Claude conversation on iOS, without a custom app, a bespoke bot, or a separate interface.
 
 ### Risks, Gaps, and Uncertainties
 

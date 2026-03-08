@@ -14,7 +14,7 @@ output: [tool, knowledge]
 
 ## Research Question
 
-Can an iOS Shortcut write a timestamped `.md` file directly to a GitHub repo via the Contents API (`PUT /repos/{owner}/{repo}/contents/{path}`) with a stored PAT, with enough reliability and speed to serve as the primary mobile capture path? What are the limits: file naming, front-matter templating, base64 encoding within Shortcuts, rate limits, PAT security model, and can the same Shortcut call GitHub code search for keyword retrieval?
+Can an iOS Shortcut write a timestamped `.md` file directly to a GitHub repo via the Contents API (`PUT /repos/{owner}/{repo}/contents/{path}`) with a stored Personal Access Token (PAT), with enough reliability and speed to serve as the primary mobile capture path? What are the limits: file naming, front-matter templating, base64 encoding within Shortcuts, rate limits, PAT security model, and can the same Shortcut call GitHub code search for keyword retrieval?
 
 ## Scope
 
@@ -135,7 +135,7 @@ Decomposed into atomic questions:
 
 **A3 — Base64 encoding in iOS Shortcuts:**
 
-[fact] iOS Shortcuts includes an "Encode" action that supports Base64 encoding. The action has a configurable "Line Wrap" option. The default behaviour inserts line breaks every 76 characters (MIME-style wrapping). The GitHub Contents API requires a single-line base64 string with no newlines — submitting MIME-wrapped base64 causes the API to return a 422 Unprocessable Entity error. The required configuration is: Encode action → Base64 → Line Wrap: None. This is a non-obvious setting that must be explicitly configured. Source: Apple Community discussion (https://discussions.apple.com/thread/251563782) — multiple users confirmed the fix; prior research `2026-03-02-ios-shortcuts-research.md` Key Finding (A1c); web search cross-confirmation (2024 working examples).
+[fact] iOS Shortcuts includes an "Encode" action that supports Base64 encoding. The action has a configurable "Line Wrap" option. The default behaviour inserts line breaks every 76 characters (Multipurpose Internet Mail Extensions (MIME)-style wrapping). The GitHub Contents API requires a single-line base64 string with no newlines — submitting MIME-wrapped base64 causes the API to return a 422 Unprocessable Entity error. The required configuration is: Encode action → Base64 → Line Wrap: None. This is a non-obvious setting that must be explicitly configured. Source: Apple Community discussion (https://discussions.apple.com/thread/251563782) — multiple users confirmed the fix; prior research `2026-03-02-ios-shortcuts-research.md` Key Finding (A1c); web search cross-confirmation (2024 working examples).
 
 **A4 — Filename construction in iOS Shortcuts:**
 
@@ -157,7 +157,7 @@ Decomposed into atomic questions:
 
 **B2 — Secondary rate limits:**
 
-[fact] GitHub imposes secondary rate limits on content-generating API endpoints to prevent abuse. For content creation (e.g., file writes), the secondary limit is approximately 80 content-generating requests per minute and 500 per hour, in addition to the primary 5,000/hour cap. These secondary limits are not a concern for human-pace memory capture (one file at a time). Source: GitHub Docs — secondary rate limits section (https://docs.github.com/en/enterprise-server@3.16/rest/using-the-rest-api/rate-limits-for-the-rest-api); web search cross-confirmation.
+[fact] GitHub imposes secondary rate limits on content-generating API endpoints to prevent abuse. For content creation (e.g., file writes), the secondary limit is approximately 80 content-generating requests per minute and 500 per hour, in addition to the primary 5,000/hour cap. These secondary limits are not a concern for human-pace memory capture (one file at a time). Source: GitHub Docs — secondary rate limits section (https://docs.github.com/en/rest/using-the-rest-api/rate-limits-for-the-rest-api#about-secondary-rate-limits); web search cross-confirmation.
 
 **C1 — iOS Shortcuts and the Keychain:**
 
@@ -209,7 +209,7 @@ Decomposed into atomic questions:
 
 **F1 — Round-trip latency:**
 
-[inference] The round-trip latency from Shortcut invocation (dictation start) to file committed on GitHub is the sum of: (a) dictation/speech-recognition time (device + Siri servers; typically 2–5 seconds for a short phrase); (b) Shortcuts action execution time (Format Date, Text composition, Encode — all sub-second on modern iPhones); (c) network round-trip for the GitHub Contents API PUT request (typically 200–800 ms on a good Wi-Fi connection; 500–2000 ms on LTE, depending on network conditions). Total expected latency from dictation end to API confirmation: 1–3 seconds on Wi-Fi, 2–5 seconds on LTE. No published benchmark exists for this specific flow; these values are inferred from known Shortcuts execution overhead and GitHub API response times. Source: [assumption — latency figures are inferences based on general network characteristics and API response time patterns; no specific benchmark was found].
+[inference] The round-trip latency from Shortcut invocation (dictation start) to file committed on GitHub is the sum of: (a) dictation/speech-recognition time (device + Siri servers; typically 2–5 seconds for a short phrase); (b) Shortcuts action execution time (Format Date, Text composition, Encode — all sub-second on modern iPhones); (c) network round-trip for the GitHub Contents API PUT request (typically 200–800 ms on a good Wi-Fi connection; 500–2000 ms on Long-Term Evolution (LTE), depending on network conditions). Total expected latency from dictation end to API confirmation: 1–3 seconds on Wi-Fi, 2–5 seconds on LTE. No published benchmark exists for this specific flow; these values are inferred from known Shortcuts execution overhead and GitHub API response times. Source: [assumption — latency figures are inferences based on general network characteristics and API response time patterns; no specific benchmark was found].
 
 ### §3 Reasoning
 
@@ -227,7 +227,7 @@ The prior research item `2026-03-02-ios-shortcuts-research.md` concluded that is
 
 **On PAT security:**
 
-The absence of native Keychain access in iOS Shortcuts is a platform limitation with no good workaround in the zero-infrastructure constraint. The correct mitigation is: (a) use a fine-grained PAT scoped to `davidamitchell/Memory-System` with `Contents: write` only; (b) set a 365-day expiry and calendar-reminder rotation; (c) keep the Shortcut private (never share via iCloud link). This is adequate for personal notes on a biometric-locked device.
+The absence of native Keychain access in iOS Shortcuts is a platform limitation with no good workaround in the zero-infrastructure constraint. The correct mitigation is: (a) use a fine-grained PAT scoped to `davidamitchell/Memory-System` with `Contents: write` only; (b) set a 365-day expiry and calendar-reminder rotation; (c) keep the Shortcut private (never share via iCloud link). [inference] This is adequate for personal notes on a biometric-locked device.
 
 **On code search retrieval:**
 
@@ -273,7 +273,7 @@ The Shortcut is a one-time build (estimated 30–60 minutes) with periodic PAT r
 
 **Behavioural lens — capture friction:**
 
-Memory capture is habit-sensitive. A shortcut accessible via Apple Watch complication reduces friction to the minimum viable interaction: raise wrist, tap, dictate, lower wrist. The fewer taps between "thought occurs" and "thought captured", the higher the capture rate. The watch complication path achieves this minimum-friction design.
+[inference] Memory capture is habit-sensitive. A shortcut accessible via Apple Watch complication reduces friction to the minimum viable interaction: raise wrist, tap, dictate, lower wrist. [inference] The fewer taps between "thought occurs" and "thought captured", the higher the capture rate. The watch complication path achieves this minimum-friction design.
 
 **Regulatory lens:**
 
@@ -328,7 +328,7 @@ An iOS Shortcut can reliably write timestamped `.md` files directly to a GitHub 
 
 1. **The GitHub Contents API `PUT /repos/{owner}/{repo}/contents/{path}` is callable from iOS Shortcuts via "Get Contents of URL" with method PUT, and requires `message` and `content` (base64-encoded, single-line) fields in the JSON body; a 201 response confirms the file is committed.** The complete direct-write Shortcut requires approximately 8–11 actions: Format Date (timestamp), Ask for Input or Dictate Text (note text), Text (assemble Markdown content with front matter), Encode (base64, Line Wrap: None), Dictionary (build API request body), Get Contents of URL (PUT), Show Notification (confirm).
 
-2. **The Encode action's Line Wrap setting must be set to None; the default MIME-style wrapping inserts newlines every 76 characters, which causes the GitHub API to return HTTP 422 Unprocessable Entity.** This is a non-obvious, single-tap configuration change that is the most common failure mode when building GitHub Contents API Shortcuts.
+2. **The Encode action's Line Wrap setting must be set to None; the default MIME-style wrapping inserts newlines every 76 characters, which causes the GitHub API to return HTTP 422 Unprocessable Entity.** This is a non-obvious, single-tap configuration change that is a likely failure mode when building GitHub Contents API Shortcuts.
 
 3. **Filename collisions in an inbox pattern are prevented by using second-precision timestamps (`yyyy-MM-dd-HH-mm-ss`); without seconds, two captures in the same minute with identical slugs would attempt to create the same file, returning HTTP 422 since no `sha` is provided for an update.** The Format Date action in Shortcuts supports arbitrary date format strings, making second precision a trivial change.
 
@@ -373,7 +373,7 @@ The central question — whether the direct file write path is viable as primary
 
 The recommendation differs from the prior research item's preference for issue creation. That preference was grounded in the Research repo's context (an existing issue-to-backlog Actions workflow makes issues a valid capture path). The Memory-System context removes that workflow, making issue creation a half-step that adds infrastructure. The direct-write path is the complete path.
 
-The PAT security posture is the weakest point of the design. iOS Shortcuts' lack of Keychain access is a platform-level constraint. The recommended mitigation (fine-grained PAT, minimal scope, private Shortcut, calendar-reminder rotation) is the best available option within the zero-infrastructure constraint. The security trade-off is acceptable for personal notes on a biometric-locked device, not for shared or professional contexts.
+The PAT security posture is the weakest point of the design. iOS Shortcuts' lack of Keychain access is a platform-level constraint. [inference] The recommended mitigation (fine-grained PAT, minimal scope, private Shortcut, calendar-reminder rotation) is the best available option within the zero-infrastructure constraint. The security trade-off is acceptable for personal notes on a biometric-locked device, not for shared or professional contexts.
 
 Code search as retrieval is a functional but limited path. It answers "find notes containing this keyword" but not "find notes semantically related to this concept." For personal memory capture where the user tends to use consistent terminology, keyword search is sufficient for most retrieval needs. Semantic retrieval (vector embeddings, LanceDB or similar) is out of scope for this item and would require local or server-side infrastructure.
 
