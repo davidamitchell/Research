@@ -1,6 +1,6 @@
 # Progress
 
-Last updated: 2026-03-08 (semantic-full-text-search)
+Last updated: 2026-03-08 (slack-msteams-research-integration)
 Last updated: 2026-03-07 (ai-not-a-data-problem)
 Last updated: 2026-03-06 (interoception-and-the-predictive-self)
 Last updated: 2026-03-05 (llm-hallucination-mechanisms)
@@ -44,6 +44,18 @@ Last updated: 2026-03-03 (ai-control-testing-and-assurance)
 ---
 
 ## Work Log
+
+### 2026-03-08 — Research Loop (slack-msteams-research-integration)
+
+**Completed:**
+
+Research item:
+- `Research/completed/2026-03-02-slack-msteams-research-integration.md` — completed; outbound Slack/Teams delivery is viable via a single new workflow + one new secret per platform using `slackapi/slack-github-action@v2.1.1`; MS Teams connectors are deprecated and replaced by Power Automate webhooks; inbound capture via Slack slash commands is blocked by the no-server constraint and is best solved with a GitHub-issues-as-proxy workflow requiring zero new secrets.
+
+Sources consulted:
+- https://api.slack.com/messaging/webhooks (Slack Incoming Webhooks documentation)
+- https://learn.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook (MS Teams webhook deprecation and Power Automate replacement)
+- https://github.com/slackapi/slack-github-action (official Slack GitHub Action)
 
 ### 2026-03-08 — Research Loop (semantic-full-text-search)
 
