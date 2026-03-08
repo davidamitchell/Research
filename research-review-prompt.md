@@ -35,6 +35,8 @@ Check the research item for:
 If the `## Research Skill Output` or `## Findings` sections are empty or marked
 "TBD", that is acceptable — do not flag a stub as a citation violation.
 
+**Scope note:** Apply full citation-discipline to `## Research Skill Output` and `## Findings`. In the `## Context` section, flag only hard factual claims (specific statistics, dates, named studies without sources). Do not flag framing prose, motivating rationale, or working hypotheses in `## Context` — treat that section as pre-investigation scaffolding.
+
 ### Step 2 — speculation-control
 
 Read `.github/skills/speculation-control/SKILL.md` for the full criteria.
@@ -51,6 +53,8 @@ Check the research item for:
 The labels `[inference]` and `[assumption]` in the Research Skill Output section
 are the accepted convention for this repo — treat them as compliant with
 speculation-control.
+
+**Scope note:** Apply full speculation-control to `## Research Skill Output` and `## Findings`. In the `## Context` section, apply a lighter standard: flag overconfident assertions presented as settled fact, but allow unlabelled framing assumptions and working hypotheses. The `## Context` section is intentionally a framing device, not an evidence-grounded section.
 
 ### Step 3 — remove-ai-slop
 

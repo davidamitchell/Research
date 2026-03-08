@@ -28,7 +28,7 @@ State the specific, answerable question this research addresses. Avoid vague top
 
 ## Context
 
-Why is this question worth answering now? What decision or problem does the answer inform?
+Why is this question worth answering now? What decision or problem does the answer inform? This section is a framing device — write plainly and motivate the work. Hard factual claims (statistics, named studies) should still be sourced; working hypotheses and motivating rationale do not need labels.
 
 ## Approach
 
