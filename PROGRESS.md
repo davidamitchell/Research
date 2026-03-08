@@ -1,6 +1,6 @@
 # Progress
 
-Last updated: 2026-03-08 (slack-msteams-research-integration)
+Last updated: 2026-03-08 (run-build-it-allocation-implementation-how)
 Last updated: 2026-03-07 (ai-not-a-data-problem)
 Last updated: 2026-03-06 (interoception-and-the-predictive-self)
 Last updated: 2026-03-05 (llm-hallucination-mechanisms)
@@ -44,6 +44,18 @@ Last updated: 2026-03-03 (ai-control-testing-and-assurance)
 ---
 
 ## Work Log
+
+### 2026-03-08 — Research Loop (run-build-it-allocation-implementation-how)
+
+**Completed:**
+
+Research item:
+- `Research/completed/2026-03-07-run-build-it-allocation-implementation-how.md` — completed; three artefacts must be built in strict sequence (application register → team taxonomy → work-item tagging) and cannot be parallelised; joint CIO+CFO sponsorship is a structural requirement not a preference; GAO-25-106488 found 69% of federal agencies failed to achieve reliable cost allocation after 8 years under mandate, confirming that governance commitment — not tooling — is the determining factor.
+
+Sources consulted:
+- https://www.gao.gov/products/gao-25-106488 (GAO audit: federal TBM implementation results across 26 agencies, 2025)
+- https://regoconsulting.com/6-steps-for-a-successful-apptio-tbm-project-plan/ (Rego Consulting: practical Apptio TBM project plan and business case)
+- https://community.leanix.net/application-portfolio-management-42/application-classification-how-to-decide-723 (LeanIX: application boundary criteria practitioner discussion)
 
 ### 2026-03-08 — Research Loop (slack-msteams-research-integration)
 
