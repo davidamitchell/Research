@@ -21,7 +21,7 @@ These two concerns are intentionally separate. Research items in `Research/` are
 - **Keep research backlog (`Research/backlog/`) separate from repo improvement backlog (`BACKLOG.md`).** One is about *what to research*; the other is about *improvements to this repo's code and structure*.
 - **No breaking changes to research item format** without updating `Research/_template.md` and the ADR that documents the format choice.
 - **Every code slice must be end-to-end runnable** before being marked complete in `BACKLOG.md`.
-- **Keep PROGRESS.md updated** after every meaningful commit.
+- **Log every meaningful session** by creating a file in `progress/YYYY-MM-DD-{slug}.md` where `{slug}` is a short hyphenated identifier for the session (e.g. `fix-wiki-links`, `w-0032-mcp-cleanup`, `ai-strategy`). Do not edit `PROGRESS.md` — it is now static by design.
 - **DO NOT ASSUME OR GUESS facts about the environment.** If you do not know whether a credential exists, whether a service is available, or whether a tool is capable of something — **STOP. Ask the owner before proceeding.** Guessing and being wrong wastes cycles and breaks trust. The cost of asking is zero. The cost of guessing wrong is not.
 - **DO NOT introduce new external services or credentials without explicit owner approval.** If your design requires something not already listed in the "Available credentials and services" table below, that is a hard stop — surface the gap and ask, do not proceed.
 - **Treat undocumented capabilities as unknown.** If a credential, service, or tool is in the approved table but its Notes column does not explicitly state it can do what your design requires, apply the same hard stop as for an unlisted item — do not assume, do not proceed, ask first.
@@ -133,6 +133,9 @@ docs/
 state/
 └── index.json          # URL deduplication state (written by StateStore; gitignored content)
 
+progress/               # Per-session logs (one file per session; no conflicts)
+└── YYYY-MM-DD-{slug}.md
+
 tests/
 ```
 
@@ -144,7 +147,7 @@ tests/
 
 1. Copy `Research/_template.md` to `Research/backlog/YYYY-MM-DD-short-title.md`
 2. Fill in: title, added date, priority, tags, question/hypothesis, and any initial context
-3. Update `PROGRESS.md` — add an entry to the Work Log noting the new backlog item
+3. Create `progress/YYYY-MM-DD-{slug}.md` — note the new backlog item
 4. Commit with message: `research: add backlog item - <short title>`
 
 ### Starting Research
@@ -153,7 +156,7 @@ tests/
    ```bash
    python -m src.main research start <filename>
    ```
-2. Update `PROGRESS.md` — note the item has moved to in-progress
+2. Add an entry to `progress/YYYY-MM-DD-{slug}.md` — note the item has moved to in-progress
 3. Commit with message: `research: start - <short title>`
 
 ### Conducting Research
@@ -195,7 +198,7 @@ The `## Research Skill Output` section is **retained verbatim** in the completed
    python -m src.main research complete <filename>
    ```
 2. Fill in the `## Findings` and `## Output` sections (if not already done during Conducting Research)
-3. Update `PROGRESS.md` — record findings summary and any outputs produced
+3. Create `progress/YYYY-MM-DD-{slug}.md` — record findings summary and any outputs produced
 4. Commit with message: `research: complete - <short title>`
 
 ### Output Types
@@ -216,7 +219,7 @@ Research can produce one or more of the following outputs (record in the `output
 3. Register in `src/main.py`
 4. Write unit tests in `tests/test_fetchers_<source>.py`
 5. Write an ADR in `docs/adr/` if the approach involves a significant design decision
-6. Update `BACKLOG.md` (mark slice done) and `PROGRESS.md`
+6. Update `BACKLOG.md` (mark slice done) and create `progress/YYYY-MM-DD-{slug}.md`
 
 ---
 
@@ -247,7 +250,7 @@ Do not write an ADR for routine work:
 - Adding a new Python module or test file within an existing pattern
 - Updating a workflow that already exists (e.g., changing a schedule or dropdown value)
 - Completing or moving a research item through the `backlog → in-progress → completed` lifecycle
-- Updating documentation, comments, or PROGRESS.md
+- Updating documentation, comments, or session logs in `progress/`
 
 ### Checklist before closing a slice
 
@@ -318,7 +321,7 @@ Substitutions when MCP servers are unavailable (use whatever equivalent capabili
 - `tavily` → built-in web search (e.g., `web_search` tool in Copilot/Claude)
 - `arxiv` → fetch arxiv.org URLs directly using available HTTP/fetch tools
 - `filesystem` → built-in file read/write tools (bash, view, edit, create tools)
-- `memory` → session notes; record key facts in `PROGRESS.md`
+- `memory` → session notes; record key facts in a `progress/` session log
 - `sequential_thinking` → inline chain-of-thought reasoning
 
 ### Python MCP servers — installation
@@ -372,7 +375,7 @@ When executing the `research` skill or conducting a research item end-to-end:
 **How the loop works:**
 - Each run processes one or more backlog items.
 - Each item gets a **fresh Copilot session** (new context window) — matching the Ralph Wiggum pattern.
-- Copilot reads `research-prompt.md`, picks the highest-priority backlog item, researches it, fills in the Findings section, and commits the completed item + PROGRESS.md update directly to `main`.
+- Copilot reads `research-prompt.md`, picks the highest-priority backlog item, researches it, fills in the Findings section, and commits the completed item + a new `progress/` session log directly to `main`.
 - The outer `while` loop restarts Copilot for the next item until `max_items` is reached or the backlog is empty.
 
 **Automatic schedule:** Runs weekdays at 07:00 UTC, processes 3 items per day.
@@ -405,7 +408,7 @@ Before marking a backlog slice as done:
 - [ ] Code merged to the development branch
 - [ ] `make check` passes (ruff lint + format)
 - [ ] `make test` passes
-- [ ] `PROGRESS.md` updated
+- [ ] Session log created in `progress/YYYY-MM-DD-{slug}.md`
 - [ ] Any new ADRs written and indexed
 - [ ] README updated if user-facing behaviour changed
 
@@ -441,7 +444,7 @@ Most problems fall into one of three categories:
 Update documentation before context degrades, not after.
 
 - After each meaningful unit of work: commit, update status, note what changed and why.
-- `PROGRESS.md` is the handoff document. A new session reading it should know exactly where to pick up.
+- `progress/` is the handoff document. A new session reading the latest file there should know exactly where to pick up.
 
 ---
 
@@ -458,7 +461,7 @@ Always ask: *"Is this the best version of this system, or just a working one?"*
 
 ### Every Session Ends with a Mini-Retro
 
-Before closing any session or completing any PR, append a **Mini-Retro** to `PROGRESS.md`.
+Before closing any session or completing any PR, add a **Mini-Retro** to the session log in `progress/YYYY-MM-DD-{slug}.md`.
 It is **not optional**. It is how the system learns.
 
 Answer these four questions — briefly, honestly:
@@ -505,7 +508,7 @@ Do the work → Run the retro (what class of problem appeared?) → Fix or raise
 ### What "Done" Means
 
 - [ ] The work is complete
-- [ ] `PROGRESS.md` is updated with a Mini-Retro
+- [ ] Session log in `progress/` is updated with a Mini-Retro
 - [ ] Any new decisions are recorded as ADRs
 - [ ] Any structural improvements spotted are raised in the backlog
 - [ ] `CHANGELOG.md` updated if behaviour changed
