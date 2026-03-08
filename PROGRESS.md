@@ -1,6 +1,6 @@
 # Progress
 
-Last updated: 2026-03-08 (research-quality-assurance-methodology)
+Last updated: 2026-03-08 (slack-msteams-research-integration)
 Last updated: 2026-03-07 (ai-not-a-data-problem)
 Last updated: 2026-03-06 (interoception-and-the-predictive-self)
 Last updated: 2026-03-05 (llm-hallucination-mechanisms)
@@ -52,6 +52,41 @@ Last updated: 2026-03-03 (ai-control-testing-and-assurance)
 Bug fix:
 - `src/wiki/publish.py` — fixed `wiki_link()`: GitHub wiki `[[A|B]]` uses A as display text and B as the page URL target; the function was generating `[[slug|title]]` (wrong order) causing every wiki link to show an ugly slug as text and resolve to a non-existent title-based URL (404). Swapped to `[[title|slug]]` so display is human-readable and the link target hits the actual page. Updated docstring to document correct syntax.
 - `tests/test_wiki.py` — updated two test assertions (`test_wiki_link_plain`, `test_wiki_link_in_table_escapes_pipe`) to match the corrected link format; added assertion in `test_generate_home_contains_item_link` that the title (not slug) appears at the start of the `[[...]]` link.
+### 2026-03-08 — Research Loop (slack-msteams-research-integration)
+
+**Completed:**
+
+Research item:
+- `Research/completed/2026-03-02-slack-msteams-research-integration.md` — completed; outbound Slack/Teams delivery is viable via a single new workflow + one new secret per platform using `slackapi/slack-github-action@v2.1.1`; MS Teams connectors are deprecated and replaced by Power Automate webhooks; inbound capture via Slack slash commands is blocked by the no-server constraint and is best solved with a GitHub-issues-as-proxy workflow requiring zero new secrets.
+
+Sources consulted:
+- https://api.slack.com/messaging/webhooks (Slack Incoming Webhooks documentation)
+- https://learn.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook (MS Teams webhook deprecation and Power Automate replacement)
+- https://github.com/slackapi/slack-github-action (official Slack GitHub Action)
+
+### 2026-03-08 — Research Loop (semantic-full-text-search)
+
+**Completed:**
+
+Research item:
+- `Research/completed/2026-03-02-semantic-full-text-search.md` — completed; SQLite FTS5 alone is sufficient for the current corpus (12–100 items), requiring zero new dependencies; hybrid FTS5 + Model2Vec (potion-base-8M) + sqlite-vec + Reciprocal Rank Fusion should be introduced when the corpus reaches 100 items; Model2Vec is preferred over sentence-transformers for CI constraints (no PyTorch, ~30–50 MB model, ~200x faster on CPU).
+
+Sources consulted:
+- https://github.com/asg017/sqlite-vec (sqlite-vec: pre-v1 SQLite vector search extension, Python install)
+- https://huggingface.co/minishlab/potion-base-8M (Model2Vec potion-base-8M model card and benchmarks)
+- https://github.com/MinishLab/model2vec (Model2Vec: static sentence embeddings, benchmark results)
+
+### 2026-03-08 — Research Loop (run-vs-build-it-spending-allocation)
+
+**Completed:**
+
+Research item:
+- `Research/completed/2026-03-07-run-vs-build-it-spending-allocation.md` — completed; TBM Council ATUM is the standard operational methodology for RUN/BUILD classification; benchmarks are 65–70% RUN for manufacturing/retail and 75–80% for financial services by total cost, with FTE-based ratios up to 90% at legacy-heavy institutions; National Grid achieved $47M first-year savings and MassMutual eliminated $75M in costs using TBM-sourced data.
+
+Sources consulted:
+- https://www.tbmcouncil.org/framework/tbm-model/ (TBM Council ATUM framework documentation)
+- https://www.tbmcouncil.org/case-studies/investment-transparency-with-tbm-leads-to-optimized-spend-at-national-grid/ (National Grid $47M savings case study)
+- https://www.apptio.com/case-study/massmutual-uses-cost-transparency-and-consumption-driven-metrics-to-accelerate-digital-transformation/ (MassMutual $75M cost elimination case study)
 
 ### 2026-03-08 — Research Loop (research-quality-assurance-methodology)
 
