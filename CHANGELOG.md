@@ -6,6 +6,10 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Changed
+- `.github/skills/research/SKILL.md`: bumped to v1.1; added Prior Work Check to §0 Initialise, Source Marking Discipline subsection to §2 Investigation Loop, Output Quality Requirements to §6 Synthesis; replaced §8 Output Finalisation with explicit per-companion-skill pre-output checklists (§8.1 citation-discipline, §8.2 speculation-control, §8.3 remove-ai-slop)
+- `research-prompt.md`: DRY refactor — collapsed source-marking rules, output-quality constraints, prior-work-check, and companion-skill checks into references to the canonical skill definitions; removed redundant Step 8 self-review; renumbered affected steps
+
 ### Fixed
 - `Research/completed/2026-03-08-ios-shortcuts-github-api-memory-capture.md`: expanded PAT, MIME, LTE acronyms; fixed secondary rate limit citation URL; corrected "most common failure mode" to "a likely failure mode"; added `[inference]` labels to unattributed claims (issues #66)
 - `Research/completed/2026-03-08-inbox-folder-capture-triage-pattern.md`: expanded PKM, HCI, ULID acronyms; corrected `[fact]`→`[inference]` on YAML front-matter claim; removed unverifiable AAAI ICWSM citation; added `Opinion:` and `[inference]` labels; rewrote AI-slop patterns in Findings Analysis (issue #65)
