@@ -1,6 +1,6 @@
 ---
 name: research
-version: "1.0"
+version: "1.1"
 description: Performs rigorous, evidence-driven research using recursive decomposition,
   iterative verification loops, and disciplined reasoning. Use when asked to research
   a topic, investigate a question, or gather and synthesize evidence into structured
@@ -104,6 +104,7 @@ In all modes: label inferences, state confidence levels, and surface unresolved 
 
 - Restate the research question.
 - Identify scope, constraints, definitions, and required outputs.
+- Search completed research items for prior related work. If a completed item is directly relevant, cite it as prior art in the evidence map and note where its findings apply or conflict with the current investigation.
 
 ---
 
@@ -152,6 +153,15 @@ Apply the criteria for the active constraint mode (see Constraint Parameter tabl
 
 - At least two independent credible sources agree, **or**
 - A primary source is definitive.
+
+### Source Marking
+
+Every source in the evidence map must carry one of two marks:
+
+- `[x]` — consulted: the source was accessed, read, and a specific claim was extracted from it
+- `[ ]` — identified but not consulted: the source was found but not accessed
+
+Never mark a source `[x]` unless it was actually read and its claim explicitly extracted. List all `[ ]` sources in a separate "Identified but not consulted" section in the evidence map. Do not cite an unconsulted source as evidence for any claim.
 
 ---
 
@@ -210,6 +220,16 @@ Produce a structured output containing:
 - Risks, gaps, uncertainties
 - Open questions
 
+### Output Quality
+
+Every section in the synthesis output must contain substantive content. Apply these constraints without exception:
+
+- No placeholder headings with empty or deferred content
+- No "not applicable" entries unless the absence is itself a finding requiring explanation
+- The executive summary must state the core finding — not describe the structure of the report
+- Every key finding must include its confidence level label (High / Medium / Low) per the Confidence Calibration table
+- Risks and open questions must be specific and bounded; generic uncertainty statements are not acceptable
+
 ---
 
 ## 7. Recursive Review
@@ -238,8 +258,32 @@ Stop only when:
 
 ## 8. Output Finalisation
 
-Before marking output complete, run each of the following in order. Do not output until all three pass.
+Before marking output complete, run all three companion skill pre-output checks in order. Do not output until all three pass.
 
-1. **Citation-discipline pre-output checklist** — acronym scan, citation URL/DOI check, web-search-synthesis prohibition, primary-source requirement, scope-match check, and epistemic label audit (see `citation-discipline/SKILL.md`).
-2. **Speculation-control pre-output scan** — evaluative/comparative terms scan and causal claims scan (see `speculation-control/SKILL.md`).
-3. **Remove-ai-slop pre-commit scan** — enumeration-and-convergence check, symmetrical contrast check, near-verbatim repetition check, over-explained causality check, and repeated sentence-opening pattern check (see `remove-ai-slop/SKILL.md`).
+### 8.1 Citation-discipline pre-output checklist
+
+Apply the full pre-output checklist from `citation-discipline/SKILL.md`:
+
+- **Acronym scan** — every acronym and initialism expanded on first use
+- **Citation check** — every factual claim has a URL or DOI; no bare assertions
+- **Web-search-synthesis prohibition** — no claim attributed to "multiple sources" without naming each source explicitly
+- **Primary-source requirement** — secondary sources traced to their primary source where accessible
+- **Scope-match check** — no source cited for a claim outside its stated scope
+- **Epistemic label audit** — every inference labelled as inference; every assumption labelled as assumption
+
+### 8.2 Speculation-control pre-output scan
+
+Apply the full pre-output scan from `speculation-control/SKILL.md`:
+
+- **Evaluative/comparative terms scan** — terms such as "better", "worse", "significant", "major", "leading", "important" must be anchored to a stated criterion or removed
+- **Causal claims scan** — every "X causes Y" or "X leads to Y" statement must cite a source or be explicitly labelled as inference
+
+### 8.3 Remove-ai-slop pre-commit scan
+
+Apply the mandatory pre-commit scan from `remove-ai-slop/SKILL.md`. All five checks must pass:
+
+1. **Enumeration-and-convergence** — no sentence matching "N independent [sources/fields] — X, Y, Z — converge on..." (or close variants); rewrite to state the point directly
+2. **Symmetrical contrast** — no "Higher X requires... Lower X requires... The design sits at..." scaffolding; state the design choice directly
+3. **Near-verbatim repetition** — no claim restated in substance across multiple sections with only surface word substitution
+4. **Over-explained causality** — no narration of the obvious ("directly supporting the claim", "which demonstrates the point"); let evidence speak
+5. **Repeated sentence-opening pattern** — no three or more consecutive paragraphs opening with the same syntactic structure
