@@ -34,7 +34,7 @@ Read `Research/in-progress/<filename>` in full. Understand:
 - The **Approach** (sub-questions to investigate)
 - The **Sources** (starting points — check all of them)
 
-**Prior research cross-reference (mandatory):** Before beginning §2 Investigation, list `Research/completed/` and search for items related to the current research question by tag overlap, title similarity, or explicit references in the item's Sources or Context sections. If any are found, read their Executive Summary and Key Findings. Then add a "Prior research" paragraph at the end of the item's `## Context` section noting what is already known from prior items and what this item must add that is new. If no related items exist, write "Prior research: none" in the Context section and proceed.
+**Prior research cross-reference (mandatory):** Apply the prior work check defined in `.github/skills/research/SKILL.md §0`. Search `Research/completed/` for related items before beginning §2 Investigation.
 
 ### 4. Research the item — follow the research skill in full
 
@@ -44,7 +44,7 @@ Open `.github/skills/research/SKILL.md` and run every section. Write the complet
 
 **§1 Question Decomposition:** Recursively break the Approach sub-questions into atomic questions — each answerable with a single evidence-based claim. Write the decomposition tree into `### §1 Question Decomposition`.
 
-**§2 Investigation:** For each atomic question, run an iterative evidence-gathering loop: gather sources, classify them (primary / secondary / tertiary), extract claims, cross-verify across independent sources, identify contradictions, update the evidence map. Use available web tools (`WebSearch`, `WebFetch`, or `Bash` with curl) to check every source listed in the item and follow leads they produce. **Source marking discipline:** When you consult a source from the `## Sources` checklist, change its `[ ]` to `[x]`. If a source is inaccessible (paywalled, URL broken, or not reachable), leave it `[ ]` and note it in Risks/Gaps as "inaccessible." Do not mark a source `[x]` unless you have read its content or accessed its URL — listing a source's title does not count. Write into `### §2 Investigation`.
+**§2 Investigation:** For each atomic question, run an iterative evidence-gathering loop: gather sources, classify them (primary / secondary / tertiary), extract claims, cross-verify across independent sources, identify contradictions, update the evidence map. Use available web tools (`WebSearch`, `WebFetch`, or `Bash` with curl) to check every source listed in the item and follow leads they produce. Apply source-marking discipline as defined in `.github/skills/research/SKILL.md §2 Source Marking`. Write into `### §2 Investigation`.
 
 **Evidence discipline:**
 - Label every claim as **[fact]**, **[inference]**, or **[assumption]**.
@@ -52,7 +52,7 @@ Open `.github/skills/research/SKILL.md` and run every section. Write the complet
 - **[inference]** = derived from evidence; **[assumption]** = not verified, state the justification.
 - Evidence sufficiency: at least two independent credible sources agree, or a primary source is definitive.
 
-Apply output quality rules as defined in `research/SKILL.md §6`. Do not reproduce section headings from the template without substantive content below them. A section that consists only of a heading and a placeholder or a single sentence of fewer than 30 words is a quality failure. Every section in the Research Skill Output must contain substantive prose that would be defensible to a knowledgeable reader. If a section genuinely has no content (e.g. §4 finds no contradictions), write a one-sentence statement confirming that and why.
+**Output quality:** Apply the output quality rules defined in `.github/skills/research/SKILL.md §6 Output Quality`.
 
 **§3 Reasoning:** Remove narrative glue and unsupported generalisations. Write into `### §3 Reasoning`.
 
@@ -82,9 +82,9 @@ With `## Research Skill Output` complete, copy the §6 Synthesis content into `#
 - No filler phrases ("it is worth noting", "importantly", "it should be said", "in conclusion").
 - No sycophantic transitions. Each section earns its content.
 
-### 6. Apply companion skill checks
+### 6. Companion skill checks
 
-Apply the companion skill checks defined in `research/SKILL.md §8 Output Finalisation`. All three must pass before output.
+Apply all three companion skill pre-output checks defined in `.github/skills/research/SKILL.md §8 Output Finalisation`. All three must pass before proceeding. Fix any violations in the item before moving on.
 
 ### 7. Sense check
 

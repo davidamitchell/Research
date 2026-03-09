@@ -7,6 +7,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [Unreleased]
 
 ### Changed
+- `research-prompt.md`: collapsed duplicated source-marking, output-quality, prior-work-check, and companion-skill-check rules to single-line deferrals to `research/SKILL.md §0`, `§2`, `§6`, and `§8`
 - `research-prompt.md`: DRY refactor — collapsed duplicate remove-ai-slop and self-review steps (old Steps 6 and 8) into a single step referencing `research/SKILL.md §8 Output Finalisation`; renumbered affected steps; retained inline source-marking, output-quality, and prior-work-check content (to be referenced from skill once submodule is updated)
 
 ### Fixed
