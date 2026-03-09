@@ -379,9 +379,9 @@ Deferred — requires a vector index; useful once `Research/completed/` has enou
 
 ## W-0027
 
-status: open
+status: done
 created: 2026-03-01
-updated: 2026-03-01
+updated: 2026-03-09
 
 ### Outcome
 
@@ -390,6 +390,10 @@ updated: 2026-03-01
 ### Context
 
 Retro findings from the AI strategy research session (2026-02-28) — issue #8. Requires a PR to `davidamitchell/Skills` (not this repo). Once merged, `sync-skills.yml` will pull in the updated submodule pointer, or trigger manually.
+
+### Notes
+
+Delivered by Skills v1.1 PR — research/SKILL.md now contains citation-discipline and speculation-control composability, confidence calibration table, constraint parameter with per-mode evidence sufficiency, source prioritisation heuristic, output calibration guidance, and tool-awareness note.
 
 ---
 
