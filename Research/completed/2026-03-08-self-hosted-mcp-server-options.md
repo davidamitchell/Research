@@ -153,7 +153,7 @@ Decomposed into atomic questions:
 
 **3b. JavaScript GitHub API proxy viability:**
 
-**[fact]** Cloudflare Workers can implement a full `add_memory` tool as a JavaScript/TypeScript `fetch()` call to the GitHub Contents API, with the GitHub Personal Access Token (PAT) stored as a Worker secret (environment variable). The `workers-mcp` npm package (officially maintained by Cloudflare) exposes Worker methods as MCP tools, including Streamable HTTP transport. Source: `workers-mcp` npm package (https://github.com/cloudflare/workers-mcp); official Cloudflare Agents Software Development Kit (SDK) [SOURCE NEEDED].
+**[fact]** Cloudflare Workers can implement a full `add_memory` tool as a JavaScript/TypeScript `fetch()` call to the GitHub Contents API, with the GitHub Personal Access Token (PAT) stored as a Worker secret (environment variable). The `workers-mcp` npm package (officially maintained by Cloudflare) exposes Worker methods as MCP tools, including Streamable HTTP transport. Source: `workers-mcp` npm package (https://github.com/cloudflare/workers-mcp); Cloudflare Agents SDK [SOURCE NEEDED].
 
 **[fact]** A stateless Cloudflare MCP Worker for `add_memory` requires no persistent storage, no Python, and no LanceDB. The implementation is approximately 30–50 lines of TypeScript.
 
@@ -337,7 +337,7 @@ All sections contain substantive evidence-grounded content. Claims are labelled 
 
 ### Executive Summary
 
-Self-hosting a Python MCP server for mobile AI integration resolves to a split architecture. The write path — a stateless GitHub Contents API proxy — fits naturally on Cloudflare Workers ($0/month, zero cold start). The read path — embedding inference plus LanceDB vector search — requires either a persistent container on Fly.io or Railway ($5/month) or an existing home server exposed via Tailscale Funnel at no additional cost. GitHub Actions `repository_dispatch` cannot serve synchronous MCP tool calls and is limited to fire-and-forget write capture. Authentication for Claude iOS is constrained to no-auth or OAuth 2.1 — the simplest viable approach is a high-entropy URL component as a shared secret, with OAuth 2.1 as the hardening path.
+Self-hosting a Python MCP server for mobile AI integration resolves to a split architecture. The write path — a stateless GitHub Contents API proxy — fits naturally on Cloudflare Workers ($0/month, zero cold start). The read path — embedding inference plus LanceDB vector search — requires either a persistent container on Fly.io or Railway ($5/month) or an existing home server exposed via Tailscale Funnel at no additional cost. GitHub Actions `repository_dispatch` cannot serve synchronous MCP tool calls and is limited to fire-and-forget write capture. Authentication for Claude iOS is constrained to no-auth or OAuth 2.1 — static bearer tokens are not configurable via the claude.ai connector UI — making a high-entropy URL component the simplest viable approach, with OAuth 2.1 as the hardening path.
 
 ### Key Findings
 
