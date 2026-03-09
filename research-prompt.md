@@ -52,9 +52,9 @@ Open `.github/skills/research/SKILL.md` and run every section. Write the complet
 - **[inference]** = derived from evidence; **[assumption]** = not verified, state the justification.
 - Evidence sufficiency: at least two independent credible sources agree, or a primary source is definitive.
 
-**Quality constraints for Research Skill Output sections:** Do not reproduce section headings from the template without substantive content below them. A section that consists only of a heading and a placeholder or a single sentence of fewer than 30 words is a quality failure. Every section in the Research Skill Output must contain substantive prose that would be defensible to a knowledgeable reader. If a section genuinely has no content (e.g. §4 finds no contradictions), write a one-sentence statement confirming that and why.
+Apply output quality rules as defined in `research/SKILL.md §6`. Do not reproduce section headings from the template without substantive content below them. A section that consists only of a heading and a placeholder or a single sentence of fewer than 30 words is a quality failure. Every section in the Research Skill Output must contain substantive prose that would be defensible to a knowledgeable reader. If a section genuinely has no content (e.g. §4 finds no contradictions), write a one-sentence statement confirming that and why.
 
- Remove narrative glue and unsupported generalisations. Write into `### §3 Reasoning`.
+**§3 Reasoning:** Remove narrative glue and unsupported generalisations. Write into `### §3 Reasoning`.
 
 **§4 Consistency Check:** Scan for internal contradictions and unsupported leaps. Resolve or explicitly flag unresolvable contradictions. Write into `### §4 Consistency Check`.
 
@@ -82,9 +82,9 @@ With `## Research Skill Output` complete, copy the §6 Synthesis content into `#
 - No filler phrases ("it is worth noting", "importantly", "it should be said", "in conclusion").
 - No sycophantic transitions. Each section earns its content.
 
-### 6. Remove AI slop
+### 6. Apply companion skill checks
 
-Open `.github/skills/remove-ai-slop/SKILL.md` and run it in full against the item's `## Findings` section (and the Research Skill Output if it contains prose). Rewrite any formulaic transitions, symmetrical padding, alignment artifacts, and hedged phrasing in-place. Do not alter claims, evidence, or structure that is required by the research format. Save the file.
+Apply the companion skill checks defined in `research/SKILL.md §8 Output Finalisation`. All three must pass before output.
 
 ### 7. Sense check
 
@@ -97,21 +97,7 @@ Re-read the completed item as a critical reader, not as its author. Apply all fo
 
 If any check surfaces a problem, fix it before proceeding.
 
-### 8. Self-review
-
-Apply the three quality checks from `research-review-prompt.md` to the current item at `Research/in-progress/<filename>`. Run each check in audit-only mode:
-
-1. **citation-discipline** — check `## Research Skill Output` and `## Findings` for unsourced factual claims, vague quantifiers, and unexpanded acronyms. In `## Context`, flag only hard factual claims (specific statistics, dates, named studies) — framing prose and working hypotheses do not require labels.
-2. **speculation-control** — check `## Research Skill Output` and `## Findings` for unlabelled speculation and overconfident language. In `## Context`, flag only assertions presented as settled fact — framing assumptions and motivating rationale are permitted without labels.
-3. **remove-ai-slop** — check the `## Findings` prose for formulaic transitions, alignment artifacts, and lexical monotony.
-
-For each violation found: fix it in the item file before proceeding. Re-read the affected section after each fix to confirm the violation is resolved.
-
-If all three checks pass (or after all violations are fixed), proceed to step 9.
-
-**Do not proceed to step 9 if any violation remains unfixed.**
-
-### 9. Complete the item
+### 8. Complete the item
 
 ```bash
 python -m src.main research complete <filename>
@@ -119,7 +105,7 @@ python -m src.main research complete <filename>
 
 This moves the file to `Research/completed/<filename>` and updates `status` and `completed` fields.
 
-### 10. Create session log
+### 9. Create session log
 
 Create a new file `progress/YYYY-MM-DD-{slug}.md` where `{slug}` is the short-title portion of the research item filename (e.g. `slack-msteams-research-integration` from `2026-03-02-slack-msteams-research-integration.md`) with this content:
 
@@ -137,7 +123,7 @@ Sources consulted:
 - <url 3> (<description>)
 ```
 
-### 11. Commit to main
+### 10. Commit to main
 
 ```bash
 git add .
