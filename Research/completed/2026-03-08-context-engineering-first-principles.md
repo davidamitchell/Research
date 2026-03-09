@@ -21,14 +21,14 @@ What are the first principles of context engineering — and what novel approach
 **In scope:**
 - First-principles decomposition of context engineering: what it is, what it is not, and how it differs from prompt engineering as commonly understood
 - The two-mechanism model: token-level steering (compliance, coherence, truthfulness) vs goal-level steering (outcome alignment)
-- All modalities of context that can be engineered: system prompts, user instructions, agent instructions, tool definitions, RAG retrieval, examples (few-shot), conversation history, structured output constraints, and memory injection
-- The "steering without control" analogy: parallels between influencing LLM behaviour and influencing human behaviour through framing, priming, and context-setting — without direct coercive control
+- All modalities of context that can be engineered: system prompts, user instructions, agent instructions, tool definitions, Retrieval-Augmented Generation (RAG) retrieval, examples (few-shot), conversation history, structured output constraints, and memory injection
+- The "steering without control" analogy: parallels between influencing Large Language Model (LLM) behaviour and influencing human behaviour through framing, priming, and context-setting — without direct coercive control
 - First-principles frameworks from adjacent fields: information theory (entropy reduction), control theory (open-loop vs closed-loop steering), cognitive science (priming, framing), and linguistics (pragmatics, presupposition)
 - Novel approaches: under-explored or non-obvious context engineering techniques not yet mainstream in practitioner literature
 - Failure modes: when context engineering produces compliance without goal achievement, or goal achievement without reliable compliance
 
 **Out of scope:**
-- Fine-tuning, RLHF, or model weights modification (these change the model, not the context)
+- Fine-tuning, Reinforcement Learning from Human Feedback (RLHF), or model weights modification (these change the model, not the context)
 - Prompt injection attacks (adversarial context manipulation is a separate concern)
 - Cost or latency optimisation of context (covered in `2026-03-01-context-mode-llm-context-compression.md`)
 - Tool or agent orchestration frameworks (implementation detail, not first principles)
@@ -198,7 +198,7 @@ Breaking Approach sub-questions into atomic, independently answerable questions:
 
 **[inference]** Context engineering is, in information-theoretic terms, the discipline of entropy reduction over the output space. Each context element that narrows the desired behavior reduces per-step entropy. This framing explains why few-shot examples are powerful: they provide high-information signals that sharply constrain the model's output distribution. It also explains why context rot is harmful: irrelevant tokens add entropy-neutral or entropy-increasing noise, diluting the signal.
 
-**[fact]** From control theory: a single-turn prompt is an open-loop control system — the context engineer specifies inputs once and accepts whatever output the system produces, with no feedback correction. A multi-turn conversation is a closed-loop control system — the context engineer observes the output, computes an error signal (deviation from desired behavior), and issues a corrective input. Source: control theory sources (x-engineer.org, electronics-tutorials.ws) confirmed by web research.
+**[fact]** From control theory: a single-turn prompt is an open-loop control system — the context engineer specifies inputs once and accepts whatever output the system produces, with no feedback correction. A multi-turn conversation is a closed-loop control system — the context engineer observes the output, computes an error signal (deviation from desired behavior), and issues a corrective input. Source: x-engineer.org (https://x-engineer.org); electronics-tutorials.ws (https://electronics-tutorials.ws).
 
 **[inference]** Open-loop context engineering (single-turn) is inherently limited for complex goal-level objectives because it cannot correct for model errors or misinterpretations. Closed-loop context engineering (multi-turn, agentic loops) enables progressive refinement. The DSPy MIPRO approach is a meta-level closed-loop: it optimizes the context (instructions + examples) iteratively using an external evaluator as the feedback signal. The research-loop quality work (2026-03-03) established that the Research Skill Output template functions as a closed-loop forcing function — it constrains the model's context at each section, producing feedback-driven corrections across the document.
 
@@ -238,7 +238,7 @@ The separation has a deep structural explanation: token-level steering operates 
 
 **On the steering-without-control analogy:**
 
-The empirical evidence (WildFrame framing effects; ACL 2024 structural priming; PLOS ONE presupposition effects) confirms the structural parallel is not merely metaphorical. LLMs exhibit exactly the same framing, priming, and presupposition dynamics as humans because they were trained on human-generated text that reflects those dynamics. This is both a capability and a vulnerability: the same mechanisms that make LLMs steerable via context also make them susceptible to framing biases that distort goal-level accuracy.
+The empirical evidence (WildFrame framing effects; ACL 2024 structural priming; PLOS ONE presupposition effects) confirms the structural parallel is not merely metaphorical. [inference] LLMs exhibit exactly the same framing, priming, and presupposition dynamics as humans because they were trained on human-generated text that reflects those dynamics. This is both a capability and a vulnerability: the same mechanisms that make LLMs steerable via context also make them susceptible to framing biases that distort goal-level accuracy.
 
 **On adjacent field frameworks:**
 
@@ -278,7 +278,7 @@ A 2024–2025 technique (arXiv:2405.01768) formalises token-level context steeri
 
 **Economic lens: The cost of bad context engineering**
 
-DORA 2024 found that AI adoption improves code quality (+3.4%) but degrades delivery stability (−7.2%) simultaneously. **[inference]** This is the empirical signature of token-level optimization (code quality) without goal-level optimization (delivery stability). Engineers prompt for correct code (token-level), but the larger batch sizes produced by AI-assisted building create delivery instability (goal-level failure). This is a real-world manifestation of the two-mechanism gap in a high-stakes engineering setting. Source: 2026-03-04-sdlc-ai-prompt-patterns.md (DORA 2024 reference).
+DevOps Research and Assessment (DORA) 2024 found that AI adoption improves code quality (+3.4%) but degrades delivery stability (−7.2%) simultaneously. **[inference]** This is the empirical signature of token-level optimization (code quality) without goal-level optimization (delivery stability). Engineers prompt for correct code (token-level), but the larger batch sizes produced by AI-assisted building create delivery instability (goal-level failure). This is a real-world manifestation of the two-mechanism gap in a high-stakes engineering setting. Source: 2026-03-04-sdlc-ai-prompt-patterns.md (DORA 2024 reference).
 
 **Historical lens: The arc from prompt engineering to context engineering**
 
@@ -304,7 +304,7 @@ Context engineering is the discipline of shaping the token probability distribut
 
 1. Context engineering is technically distinct from prompt engineering: prompts are one context modality; context engineering governs the entire token sequence the model conditions on at inference, including tools, RAG output, memory, and history, not just instruction text.
 2. The two mechanisms — token-level and goal-level steering — are empirically separable: sycophancy research (SycEval 2025, Anthropic reward-tampering 2024) demonstrates high token-level compliance with systematic goal-level failure at 56–62% rates in leading models.
-3. Context engineering is structurally identical to human influence without control: both operate on a probability distribution over possible responses via framing, priming, and presupposition, and empirical evidence confirms LLMs exhibit human-like framing effects (WildFrame, 2025) and structural priming effects (ACL 2024) because these dynamics are embedded in training data.
+3. Context engineering is structurally identical to human influence without control: both operate on a probability distribution over possible responses via framing, priming, and presupposition, and empirical evidence confirms LLMs exhibit human-like framing effects (WildFrame, 2025) and structural priming effects (ACL 2024).
 4. Information theory provides the unifying first-principles frame: context engineering is entropy reduction over the output space, and every context element should be evaluated by how much it reduces per-step entropy over the desired output token distribution.
 5. Context rot (Chroma research, 2024) establishes that the attention budget is finite and degrading — the practical implication is that context engineering must actively minimize irrelevant tokens, not merely add relevant ones.
 6. Open-loop (single-turn) context engineering cannot reliably achieve complex goal-level objectives because the model cannot self-verify or self-correct; closed-loop designs (multi-turn, DSPy optimization, agentic verification loops) are the reliable path for goal-level reliability.
@@ -360,7 +360,7 @@ The entropy-reduction lens resolves several practitioner debates. "Should I be m
 1. **Can goal-level steering be formalized and measured independently of token-level steering?** A metric for goal-level achievement that is separable from output quality metrics would enable systematic optimization of the two mechanisms independently.
 2. **What is the optimal entropy budget allocation across context modalities?** Given a fixed context window, how should entropy-reduction be allocated across system prompt, few-shot examples, RAG content, and memory? Is there an empirically derivable optimal ratio?
 3. **Does the presupposition injection advantage hold across model families?** The effect is predicted from cognitive-linguistic transfer; empirical measurement is needed across Claude, GPT, and open models.
-4. **How does goal-level context engineering interact with reinforcement learning from human feedback?** RLHF already encodes some goal-level preferences into the model weights. Does this reduce the gap, or does the learned preference model itself introduce its own token-goal separability problem (as the reward-tampering research suggests)?
+4. **How does goal-level context engineering interact with RLHF?** RLHF already encodes some goal-level preferences into the model weights. Does this reduce the gap, or does the learned preference model itself introduce its own token-goal separability problem (as the reward-tampering research suggests)?
 
 ---
 
@@ -427,9 +427,9 @@ Context engineering is the discipline of shaping the token probability distribut
 
 ### Analysis
 
-Practitioner prompt engineering almost entirely optimises token-level quality — because it is immediately observable — while leaving goal-level reliability unaddressed. Sycophancy, specification gaming, and the DORA delivery gap are all cases where token-level quality masked goal-level failure. The fix is not better prompts but a different design: explicitly encode the intended outcome in context (not just the desired output format), and build closed-loop feedback to detect and correct goal-level drift.
+[inference] Practitioner prompt engineering almost entirely optimises token-level quality — because it is immediately observable — while leaving goal-level reliability unaddressed. [inference] Sycophancy, specification gaming, and the DORA delivery gap are all cases where token-level quality masked goal-level failure. The fix is not better prompts but a different design: explicitly encode the intended outcome in context (not just the desired output format), and build closed-loop feedback to detect and correct goal-level drift.
 
-The entropy-reduction framing settles several practitioner debates without A/B tests. How specific should the system prompt be? — specific enough to reduce entropy in high-variance output regions, no further (diminishing returns, context rot risk). How many examples? — enough to cover high-entropy output regions; more wastes attention budget. Positive or negative constraints? — negative constraints are more efficient when the excluded space is smaller than the desired space.
+The entropy-reduction framing resolves several practitioner debates. System prompt specificity should target high-entropy output regions and stop there — over-specification imposes diminishing returns and risks context rot. For few-shot examples, coverage of the high-variance output space matters more than raw count; additional examples beyond that threshold consume attention budget without narrowing the distribution further. Whether to use positive or negative constraints depends on the shape of the desired space: negative constraints are more entropy-efficient when the excluded space is compact and well-defined, because they place probability mass precisely where it is needed.
 
 The steering-without-control framing sets a ceiling on what context engineering can achieve: it cannot guarantee outcomes, only increase their probability. This is not a bug — it is a precise characterisation of the design problem. The practical corollary is that reliability for high-stakes goal-level objectives requires closed-loop verification, not ever-better single-turn prompting.
 
