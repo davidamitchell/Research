@@ -24,7 +24,7 @@ What is the minimum viable self-hosted deployment of `mcp_server.py` (or a write
 - Railway free tier: similar to Fly.io, persistent container
 - Home server + Tailscale VPN: private network, no public internet exposure
 - GitHub Actions `repository_dispatch` as serverless compute for capture-only path
-- Auth models for each option: API key, OAuth, shared secret
+- Auth models for each option: API key, OAuth (Open Authorisation), shared secret
 - LanceDB persistence options in serverless environments (ephemeral disk vs rebuild on startup)
 
 **Out of scope:**
@@ -32,11 +32,11 @@ What is the minimum viable self-hosted deployment of `mcp_server.py` (or a write
 - SaaS memory providers (Mem0, Zep, etc.)
 - Kubernetes or complex orchestration
 
-**Constraints:** Zero or near-zero ongoing cost is a hard constraint. Any deployment must handle personal memory data securely — encryption in transit (TLS) is required; encryption at rest is preferred.
+**Constraints:** Zero or near-zero ongoing cost is a hard constraint. Any deployment must handle personal memory data securely — Transport Layer Security (TLS) in transit is required; encryption at rest is preferred.
 
 ## Context
 
-The local `mcp_server.py` uses stdio transport and requires LanceDB on local disk. Neither characteristic works for mobile. A self-hosted deployment is the prerequisite for: Claude iOS MCP integration (`2026-03-08-claude-ios-mcp-remote-integration.md`), ChatGPT Actions integration (`2026-03-08-chatgpt-actions-memory-integration.md`), and any other cloud AI app that needs a callable HTTP endpoint. The LanceDB index rebuild speed also determines which deployment models are viable for retrieval (see `2026-03-08-lancedb-index-rebuild-from-git.md`).
+The local `mcp_server.py` uses stdio transport and requires LanceDB on local disk. Neither characteristic works for mobile. A self-hosted deployment is the prerequisite for: Claude iOS Model Context Protocol (MCP) integration (`2026-03-08-claude-ios-mcp-remote-integration.md`), ChatGPT Actions integration (`2026-03-08-chatgpt-actions-memory-integration.md`), and any other cloud AI app that needs a callable HTTP endpoint. The LanceDB index rebuild speed also determines which deployment models are viable for retrieval (see `2026-03-08-lancedb-index-rebuild-from-git.md`).
 
 Cross-reference: `Research/completed/2026-03-02-agent-memory-management-context-injection.md` notes that "no open-source memory system has governance features" — a self-hosted deployment must not weaken the security posture of personal memory data. The completed research also notes that production systems use the markdown-file pattern, which aligns with the stateless Cloudflare Worker write path.
 
@@ -153,25 +153,25 @@ Decomposed into atomic questions:
 
 **3b. JavaScript GitHub API proxy viability:**
 
-**[fact]** Cloudflare Workers can implement a full `add_memory` tool as a JavaScript/TypeScript `fetch()` call to the GitHub Contents API, with the GitHub PAT stored as a Worker secret (environment variable). The `workers-mcp` npm package (officially maintained by Cloudflare) exposes Worker methods as MCP tools, including Streamable HTTP transport. Source: GitHub Cloudflare workers-mcp repo and official Cloudflare Agents SDK (`createMcpHandler`).
+**[fact]** Cloudflare Workers can implement a full `add_memory` tool as a JavaScript/TypeScript `fetch()` call to the GitHub Contents API, with the GitHub Personal Access Token (PAT) stored as a Worker secret (environment variable). The `workers-mcp` npm package (officially maintained by Cloudflare) exposes Worker methods as MCP tools, including Streamable HTTP transport. Source: `workers-mcp` npm package (https://github.com/cloudflare/workers-mcp); official Cloudflare Agents Software Development Kit (SDK) [SOURCE NEEDED].
 
 **[fact]** A stateless Cloudflare MCP Worker for `add_memory` requires no persistent storage, no Python, and no LanceDB. The implementation is approximately 30–50 lines of TypeScript.
 
 **3c. Python + LanceDB on Cloudflare Workers:**
 
-**[fact]** Python on Cloudflare Workers runs via Pyodide (Python compiled to WebAssembly), which is in open beta as of 2025. Key libraries removed from Pyodide include polars, pyarrow, geopandas, and duckdb — the package ecosystem is constrained. Source: byteiota.com Cloudflare Python Workers article. LanceDB has C++ dependencies and does not run in a WebAssembly context; it is not in the Pyodide package list. **[fact]** Even if LanceDB were available, the 10ms CPU limit per request on the free tier would make embedding inference (which takes 34–177ms per document on native hardware) impossible. Source: `lancedb-index-rebuild-from-git.md` Key Finding 3.
+**[fact]** Python on Cloudflare Workers runs via Pyodide (https://pyodide.org) (Python compiled to WebAssembly), which is in open beta as of 2025. Key libraries removed from Pyodide include polars, pyarrow, geopandas, and duckdb — the package ecosystem is constrained. Source: byteiota.com Cloudflare Python Workers article. LanceDB has C++ dependencies and does not run in a WebAssembly context; it is not in the Pyodide package list. **[fact]** Even if LanceDB were available, the 10ms CPU limit per request on the free tier would make embedding inference (which takes 34–177ms per document on native hardware) impossible. Source: `lancedb-index-rebuild-from-git.md` Key Finding 3.
 
 **[inference]** Cloudflare Workers is viable for the write-only path only. The read/search path is architecturally impossible on Workers free tier due to: LanceDB not supported in Pyodide, embedding model CPU time exceeding the 10ms limit by 3–17×.
 
 **3d. MCP Streamable HTTP on Workers:**
 
-**[fact]** Cloudflare's `workers-mcp` package and the `createMcpHandler` API in the official Cloudflare Agents SDK both implement MCP Streamable HTTP transport natively. The MCP Python SDK (from v1.8.0, May 2025) also supports Streamable HTTP via FastMCP. Source: blog.cloudflare.com "Bringing streamable HTTP transport and Python language support to MCP servers."
+**[fact]** Cloudflare's `workers-mcp` package and the `createMcpHandler` API in the official Cloudflare Agents SDK both implement MCP Streamable HTTP transport natively. The MCP Python SDK (from v1.8.0, May 2025) also supports Streamable HTTP via FastMCP. Source: [SOURCE NEEDED] (blog.cloudflare.com "Bringing streamable HTTP transport and Python language support to MCP servers").
 
 **4a–4b. Fly.io cost and persistence:**
 
 **[fact]** Fly.io's pricing as of 2025: new users receive a $5 one-time trial credit, then roll onto a $5/month Hobby plan. The Hobby plan includes free resource allowances for up to three 256 MB shared-cpu-1x VMs, 3 GB persistent storage, and 160 GB outbound transfer — sufficient to run a small Python container with a LanceDB index for a personal corpus. Source: fly.io/docs/about/pricing/ and community confirmation.
 
-**[fact]** Fly.io supports persistent NVMe volumes ("Fly Volumes") mounted as local disk. A LanceDB index stored at `/data/lancedb` persists across restarts. The deployment pattern requires a `fly.toml` mount configuration and `fly volumes create`. Source: fly.io/docs/database-storage-guides/ and independent deployment guide (vibecodingwithfred.com).
+**[fact]** Fly.io supports persistent Non-Volatile Memory Express (NVMe) volumes ("Fly Volumes") mounted as local disk. A LanceDB index stored at `/data/lancedb` persists across restarts. The deployment pattern requires a `fly.toml` mount configuration and `fly volumes create`. Source: fly.io/docs/database-storage-guides/ and independent deployment guide (vibecodingwithfred.com).
 
 **[inference]** The Fly.io Hobby plan is effectively $0/month for a single small Python container within the included free allowance, provided usage stays within the 256 MB RAM and shared vCPU envelope. This is adequate for a personal MCP server handling infrequent queries.
 
@@ -179,7 +179,7 @@ Decomposed into atomic questions:
 
 **4c. Fly.io with Streamable HTTP transport:**
 
-**[fact]** The MCP Python SDK v1.8.0+ supports Streamable HTTP via FastMCP: `mcp.run(transport="streamable-http", host="0.0.0.0", port=8000)`. Fly.io runs standard Docker containers with a public HTTPS endpoint assigned at `<app>.fly.dev`. The transport change is a two-line code modification. Source: dev.to article on Python MCP Remote Server, ferrants/mcp-streamable-http-python-server GitHub repo.
+**[fact]** The MCP Python SDK v1.8.0+ supports Streamable HTTP via FastMCP: `mcp.run(transport="streamable-http", host="0.0.0.0", port=8000)`. Fly.io runs standard Docker containers with a public HTTPS endpoint assigned at `<app>.fly.dev`. The transport change is a two-line code modification. Source: [SOURCE NEEDED] (dev.to article on Python MCP Remote Server); https://github.com/ferrants/mcp-streamable-http-python-server.
 
 **5a–5b. Railway cost and persistence:**
 
@@ -195,13 +195,13 @@ Decomposed into atomic questions:
 
 **6c. Home server reliability and maintenance:**
 
-**[inference]** A home server deployment requires: (a) always-on hardware consuming electricity, (b) OS and software updates, (c) ISP-dependent uptime (power outages, broadband interruptions), (d) router NAT/firewall management (mitigated by Tailscale Funnel). For a personal low-frequency use case with acceptable downtime, this is viable. The maintenance burden is higher than cloud PaaS options but the ongoing cost is lower (existing hardware, ISP already paid).
+**[inference]** A home server deployment requires: (a) always-on hardware consuming electricity, (b) OS and software updates, (c) ISP-dependent uptime (power outages, broadband interruptions), (d) router NAT/firewall management (mitigated by Tailscale Funnel). For a personal low-frequency use case with acceptable downtime, this is viable. The maintenance burden is higher than cloud Platform as a Service (PaaS) options but the ongoing cost is lower (existing hardware, ISP already paid).
 
 **7a–7b. GitHub Actions `repository_dispatch` as synchronous compute:**
 
-**[fact]** `repository_dispatch` triggers a GitHub Actions workflow via an authenticated REST API call. Workflow startup latency is variable — typically near-real-time but with no sub-second guarantee; during peak GitHub load, queueing may add unpredictable delay. Source: GitHub Actions limits docs and community analysis.
+**[fact]** `repository_dispatch` triggers a GitHub Actions workflow via an authenticated REST API call. Workflow startup latency is variable — typically near-real-time but with no sub-second guarantee; during peak GitHub load, queueing may add unpredictable delay. Source: [SOURCE NEEDED] (GitHub Actions limits docs).
 
-**[fact]** GitHub Actions workflows are fire-and-forget: the API call returns 204 immediately; there is no synchronous response channel back to the caller. Source: GitHub REST API docs.
+**[fact]** GitHub Actions workflows are fire-and-forget: the API call returns 204 immediately; there is no synchronous response channel back to the caller. Source: https://docs.github.com/en/rest/repos/repos#create-a-repository-dispatch-event.
 
 **[inference]** `repository_dispatch` cannot serve as a synchronous MCP tool response mechanism. MCP requires a synchronous request-response exchange; a workflow that runs and then pushes results somewhere (e.g., a file commit) cannot send a JSON response back to the MCP client within the same HTTP connection. `repository_dispatch` is viable only for write-only capture with a "fire and forget" acknowledgement, not for `search_brain`.
 
@@ -211,7 +211,7 @@ Decomposed into atomic questions:
 
 **[fact]** Claude iOS's Connectors system (established by `claude-ios-mcp-remote-integration.md` Key Finding 6) supports no-auth (open endpoint) or OAuth 2.1 only; static bearer tokens are available only through the Messages API and do not apply to the claude.ai/iOS connector path.
 
-**[inference]** For a personal single-tenant deployment where the only client is Claude iOS via Anthropic's Connectors system, the practical auth options are: (a) no-auth with obscurity (URL as secret), or (b) OAuth 2.1. A static shared secret in a header is not directly supported by the Claude iOS connector UI. The no-auth option with IP allowlisting (restricting to Anthropic's published IP ranges) is the simplest viable approach. OAuth 2.1 is more secure but adds implementation complexity.
+**[inference]** For a personal single-tenant deployment where the only client is Claude iOS via Anthropic's Connectors system, the practical auth options are: (a) no-auth with obscurity (URL as secret), or (b) OAuth 2.1. A static shared secret in a header is not directly supported by the Claude iOS connector UI. The no-auth option with IP allowlisting (restricting to Anthropic's published IP ranges [SOURCE NEEDED: Anthropic published connector IP ranges]) is the simplest viable approach. OAuth 2.1 is more secure but adds implementation complexity.
 
 ### §3 Reasoning
 
@@ -225,9 +225,9 @@ The research question resolves to a split architecture: the write path and read 
 
 **GitHub Actions `repository_dispatch`** is disqualified for the read path (no synchronous response) and adds latency even for the write path. It is only useful as a fallback capture mechanism when no always-on server exists.
 
-**Railway** is equivalent to Fly.io in cost and capability for this use case. Fly.io has a slight operational edge (more established persistent volume support for stateful apps based on community evidence). Both are valid.
+**Railway** is equivalent to Fly.io in cost and capability for this use case. [inference] Fly.io has a slight operational edge (more established persistent volume support for stateful apps based on community evidence). Both are valid.
 
-**Auth:** For a personal MCP server, a static shared secret is the correct first implementation. The Claude iOS Connector constraint (OAuth 2.1 or no-auth only) means the bearer token approach in the header is not directly usable with Claude iOS. The recommended approach is a randomly generated high-entropy path component (URL-as-secret) plus IP allowlisting to Anthropic's published IP ranges for the Claude iOS connector, with a proper OAuth 2.1 implementation as a later hardening step.
+**Auth:** For a personal MCP server, [inference] a static shared secret is the correct first implementation. The Claude iOS Connector constraint (OAuth 2.1 or no-auth only) means the bearer token approach in the header is not directly usable with Claude iOS. The recommended approach is a randomly generated high-entropy path component (URL-as-secret) plus IP allowlisting to Anthropic's published IP ranges [SOURCE NEEDED: Anthropic published connector IP ranges] for the Claude iOS connector, with a proper OAuth 2.1 implementation as a later hardening step.
 
 ### §4 Consistency Check
 
@@ -264,7 +264,7 @@ The write-only Cloudflare Worker can be deployed independently and immediately, 
 Personal memory data (notes, tasks, thoughts) has medium sensitivity — not medical or financial, but private. The minimum security requirements are: (a) TLS in transit (all options provide this), (b) authentication preventing unauthenticated access, (c) ideally encryption at rest. Cloudflare Workers store secrets as encrypted environment variables. Fly.io volumes are not encrypted at rest by default, but the data is personal notes committed to a GitHub repo anyway, so the main risk is the endpoint being called without authentication. A high-entropy URL (token in path) is adequate for personal use.
 
 **Historical lens — serverless for AI tools:**  
-The pattern of a stateless write-only proxy on a CDN edge worker, with a separate stateful read service on a container host, is the same pattern used by major AI memory systems (Anthropic's own MCP connector infrastructure routes through their relay). This is a well-validated architecture.
+The pattern of a stateless write-only proxy on a Content Delivery Network (CDN) edge worker, with a separate stateful read service on a container host, is the same pattern used by major AI memory systems (Anthropic's own MCP connector infrastructure routes through their relay). [inference] This is a well-validated architecture.
 
 **Behavioural lens — maintenance as a real cost:**  
 The home server option introduces a class of maintenance events that cloud PaaS eliminates: OS security patches, hardware failure, power outage, ISP change. For a solo developer who already runs a home server (Raspberry Pi, NAS, etc.), the marginal cost is near-zero and the maintenance events are routine. For someone who would need to acquire and set up hardware specifically for this purpose, the setup cost is substantial.
@@ -292,16 +292,16 @@ The minimum viable deployment is a **two-component architecture**: a Cloudflare 
 |---|---|---|---|
 | `add_memory` requires only GitHub Contents API, no LanceDB | ios-shortcuts research (Key Finding 1) | high | Pattern consistent across all write-path research |
 | Cloudflare Workers free: 100k req/day, 10ms CPU | developers.cloudflare.com/workers/platform/limits/ | high | Primary source; confirmed independently |
-| LanceDB not in Pyodide (no Workers support) | byteiota.com Cloudflare Python Workers article | high | Secondary; Pyodide package list confirms |
+| LanceDB not in Pyodide (no Workers support) | [SOURCE NEEDED] | high | Secondary; Pyodide package list confirms |
 | Embedding CPU exceeds 10ms Workers limit by 3–17× | lancedb-index-rebuild-from-git.md Key Finding 3 | high | Primary: 34–177ms per doc on native hardware |
 | Fly.io Hobby $5/month includes free VM allowance | fly.io/docs/about/pricing/ | high | Primary source confirmed by community |
 | Fly.io persistent NVMe volumes survive restarts | fly.io/docs/database-storage-guides/ | high | Primary documentation |
 | Pre-computed embeddings: startup under 0.2s | lancedb-index-rebuild-from-git.md Key Finding 5 | high | Direct measurement |
 | Railway Hobby $5/month with $5 included credits | docs.railway.com/pricing/plans | high | Primary source |
 | Tailscale Funnel available on free plan | tailscale.com/docs/features/tailscale-funnel | high | Primary Tailscale documentation |
-| `repository_dispatch` returns 204, no synchronous response | GitHub REST API docs | high | Architectural fact, not ambiguous |
+| `repository_dispatch` returns 204, no synchronous response | https://docs.github.com/en/rest/repos/repos#create-a-repository-dispatch-event | high | Architectural fact, not ambiguous |
 | Claude iOS Connector supports no-auth or OAuth 2.1 only | claude-ios-mcp-remote-integration.md Key Finding 6 | high | Prior research, primary-sourced |
-| MCP Python SDK v1.8.0+ supports Streamable HTTP | blog.cloudflare.com Streamable HTTP MCP post | high | Primary; SDK changelog confirms |
+| MCP Python SDK v1.8.0+ supports Streamable HTTP | [SOURCE NEEDED] | high | Primary; SDK changelog confirms |
 
 **Assumptions:**
 
@@ -337,7 +337,7 @@ All sections contain substantive evidence-grounded content. Claims are labelled 
 
 ### Executive Summary
 
-The minimum viable deployment is a split architecture: a Cloudflare Worker (JavaScript, stateless, $0/month) handles `add_memory` via the GitHub Contents API, while a Fly.io Hobby container ($5/month) running the full Python `mcp_server.py` handles `search_brain` with LanceDB on a persistent mounted volume. The write path can be deployed immediately and independently; the read path requires either Fly.io/Railway at $5/month or a home server with Tailscale Funnel at zero infrastructure cost for existing hardware owners. GitHub Actions `repository_dispatch` is disqualified for MCP use — it returns 204 with no synchronous response channel, making it architecturally incompatible with MCP tool calls. The Claude iOS Connector system supports only no-auth or OAuth 2.1, not static bearer tokens in headers, which constrains the auth design.
+Self-hosting a Python MCP server for mobile AI integration resolves to a split architecture. The write path — a stateless GitHub Contents API proxy — fits naturally on Cloudflare Workers ($0/month, zero cold start). The read path — embedding inference plus LanceDB vector search — requires either a persistent container on Fly.io or Railway ($5/month) or an existing home server exposed via Tailscale Funnel at no additional cost. GitHub Actions `repository_dispatch` cannot serve synchronous MCP tool calls and is limited to fire-and-forget write capture. Authentication for Claude iOS is constrained to no-auth or OAuth 2.1 — the simplest viable approach is a high-entropy URL component as a shared secret, with OAuth 2.1 as the hardening path.
 
 ### Key Findings
 
@@ -363,16 +363,16 @@ The minimum viable deployment is a split architecture: a Cloudflare Worker (Java
 |---|---|---|---|
 | `add_memory` requires only GitHub Contents API, no LanceDB | ios-shortcuts-github-api-memory-capture.md Key Finding 1 | high | Write path pattern consistent across all research |
 | Cloudflare Workers free: 100k req/day, 10ms CPU | developers.cloudflare.com/workers/platform/limits/ | high | Primary source; multi-source confirmed |
-| LanceDB not available in Pyodide package set | byteiota.com Cloudflare Python Workers 2025 | high | Pyodide package list; LanceDB has C++ deps |
+| LanceDB not available in Pyodide package set | [SOURCE NEEDED] | high | Pyodide package list; LanceDB has C++ deps |
 | Embedding inference 34–177ms exceeds 10ms Workers CPU limit | lancedb-index-rebuild-from-git.md Key Finding 3 | high | Direct measurement on native hardware |
 | Fly.io Hobby $5/month, free VM allowance covers single 256 MB container | fly.io/docs/about/pricing/ | high | Primary documentation |
 | Fly.io persistent NVMe volumes survive container restarts | fly.io/docs/database-storage-guides/ | high | Primary documentation |
 | Pre-computed embeddings: LanceDB startup under 0.2s | lancedb-index-rebuild-from-git.md Key Finding 5 | high | Direct measurement at 1000 documents |
 | Railway Hobby $5/month with $5 included usage credits | docs.railway.com/pricing/plans | high | Primary source |
 | Tailscale Funnel available on free plan with auto-TLS | tailscale.com/docs/features/tailscale-funnel | high | Primary Tailscale documentation |
-| `repository_dispatch` returns 204, no synchronous result channel | docs.github.com REST API | high | Architectural fact |
+| `repository_dispatch` returns 204, no synchronous result channel | https://docs.github.com/en/rest/repos/repos#create-a-repository-dispatch-event | high | Architectural fact |
 | Claude iOS Connector supports no-auth or OAuth 2.1 only | claude-ios-mcp-remote-integration.md Key Finding 6 | high | Prior research, primary-sourced |
-| MCP Python SDK v1.8.0+ supports Streamable HTTP via FastMCP | blog.cloudflare.com Streamable HTTP MCP post (May 2025) | high | Primary; SDK changelog confirms |
+| MCP Python SDK v1.8.0+ supports Streamable HTTP via FastMCP | [SOURCE NEEDED] | high | Primary; SDK changelog confirms |
 
 ### Assumptions
 
@@ -381,13 +381,13 @@ The minimum viable deployment is a split architecture: a Cloudflare Worker (Java
 
 ### Analysis
 
-The central insight is that `add_memory` and `search_brain` have different resource profiles that map cleanly to different deployment tiers. A write path that only calls an external API needs no persistent state and fits the serverless edge model perfectly. A read path that requires loading a vector index and running embedding inference needs persistent disk and more than 10ms of compute — the exact characteristics that make containers appropriate and edge workers inappropriate.
+The resource asymmetry between write and read is the key architectural driver: the write path requires nothing more than an HTTPS call, while the read path requires persistent disk, embedding inference, and milliseconds of CPU — making containers the only viable option for the latter and serverless edge the only practical option for the former.
 
-The pre-computed embeddings finding is load-bearing for the Fly.io recommendation. Without it, Fly.io machines that auto-sleep (to stay within the free resource allowance) would incur cold-start rebuild times of 11.5s — degrading search latency unacceptably. With pre-computed embeddings stored in the git repository and loaded at startup, even a cold container serves a search in under 1s.
+The pre-computed embeddings finding from `lancedb-index-rebuild-from-git.md` is what makes the Fly.io option viable without paying for always-on capacity: cold-start loading takes under 0.2s, keeping search latency below 1s even for containers that auto-slept. This directly addresses the 11.5s rebuild penalty that would otherwise make auto-scaling [inference] unacceptably slow.
 
 Home server + Tailscale Funnel is genuinely competitive on cost and capability for users with existing hardware. The trade-off is operational reliability: home hardware introduces failure modes (ISP outage, power cut, hardware failure) that Fly.io eliminates. For a high-availability requirement, Fly.io is preferable. For a personal assistant with acceptable occasional downtime, home server is a legitimate choice.
 
-Railway and Fly.io are equivalent in cost and capability. Fly.io is selected as the primary recommendation based on wider community evidence for stateful Python deployments and a more mature persistent volume feature.
+Railway and Fly.io are equivalent in cost and capability. Fly.io is selected as the primary recommendation based on wider community evidence for stateful Python deployments and a [inference] more mature persistent volume feature.
 
 ### Risks, Gaps, and Uncertainties
 

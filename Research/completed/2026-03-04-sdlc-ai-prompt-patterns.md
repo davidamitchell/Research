@@ -122,7 +122,7 @@ This item directly supports the `davidamitchell/Skills` submodule, which provide
 - A3. What evidence exists that phase-aware prompting outperforms ad hoc prompting?
 
 **Cluster B: Core prompt patterns and their software engineering applicability**
-- B1. What prompt patterns has the research literature formalised (role, CoT, few-shot, constraint-framing)?
+- B1. What prompt patterns has the research literature formalised (role, chain-of-thought (CoT), few-shot, constraint-framing)?
 - B2. What is Structured CoT (SCoT) and how does it improve over standard CoT for code generation?
 - B3. How should few-shot examples be selected for code generation vs. test generation vs. review tasks?
 - B4. What patterns are specific to software engineering vs. general LLM use?
@@ -167,7 +167,7 @@ This item directly supports the `davidamitchell/Skills` submodule, which provide
 
 **B2 — Structured CoT for code generation:**
 
-[fact] Li et al. (2023) proposed SCoT (Structured Chain-of-Thought) prompting for code generation. Standard CoT asks LLMs to produce natural-language reasoning before generating code; SCoT asks LLMs to express intermediate reasoning steps using program structures — sequence, branch, and loop — before writing the final code. SCoT outperforms CoT by up to 13.79% on the Pass@1 metric (percentage of problems solved on first attempt) across HumanEval, MBPP (Mostly Basic Programming Problems), and MBCPP benchmarks. Human evaluators preferred SCoT-generated programs. SCoT is robust to variation in exemplar choice. Source: arXiv:2305.06599 (https://doi.org/10.48550/arXiv.2305.06599).
+[fact] Li et al. (2023) proposed SCoT (Structured Chain-of-Thought) prompting for code generation. Standard CoT asks LLMs to produce natural-language reasoning before generating code; SCoT asks LLMs to express intermediate reasoning steps using program structures — sequence, branch, and loop — before writing the final code. SCoT outperforms CoT by up to 13.79% on the Pass@1 metric (percentage of problems solved on first attempt) across HumanEval, MBPP (Mostly Basic Programming Problems), and MBCPP (Mostly Basic C++ Programming Problems) benchmarks. Human evaluators preferred SCoT-generated programs. SCoT is robust to variation in exemplar choice. Source: arXiv:2305.06599 (https://doi.org/10.48550/arXiv.2305.06599).
 
 [fact] Wei et al. (2022) demonstrated that CoT prompting — providing a series of intermediate reasoning steps as exemplars — significantly improves LLM performance on arithmetic, commonsense, and symbolic reasoning tasks. The effect is emergent: it is absent in models below ~100B parameters and strong in models of 540B parameters. Few-shot CoT with eight exemplars achieves state-of-the-art accuracy on the GSM8K benchmark (grade-school math word problems), surpassing fine-tuned GPT-3 with a verifier. Source: arXiv:2201.11903 (https://doi.org/10.48550/arXiv.2201.11903).
 
@@ -238,7 +238,7 @@ The evidence supports a two-tier picture of AI-assisted SDLC efficiency:
 Three converging mechanisms explain how phase-aware tooling improves outcomes:
 1. **Context selection** — providing only phase-relevant context reduces noise; Aider's "minimal files" principle and White et al.'s context manager pattern both express this.
 2. **Reasoning structure** — using code-native intermediate steps (SCoT) rather than narrative steps when the output is code.
-3. **Mode matching** — designing prompts for acceleration or exploration depending on phase ambiguity; Barke et al.'s bimodal finding predicts failure when acceleration-mode prompts are applied to exploration-mode tasks.
+3. **Mode matching** — designing prompts for acceleration or exploration depending on phase ambiguity; [inference] Barke et al.'s bimodal finding predicts failure when acceleration-mode prompts are applied to exploration-mode tasks.
 
 The DORA throughput and stability trade-off is a warning against interpreting productivity gains as net delivery gains. Larger code batches — a natural consequence of AI-assisted Building — require compensating changes in Planning (smaller task decomposition) and Reviewing (more thorough review prompts) to maintain delivery stability.
 
@@ -266,7 +266,7 @@ White et al.'s pattern catalog and Li et al.'s SCoT paper both point to structur
 
 **Tooling lens:** The MCP `prompts` primitive creates the possibility of mode-aware tooling: an MCP server could detect whether the current task is ambiguous (exploration) or well-defined (acceleration) based on the presence of a spec, test file, or PR description, and deliver the appropriate prompt template automatically. This is not yet a documented practice but is a natural extension of the current MCP capability.
 
-**Economic lens:** The DORA batch-size finding connects to a classic DevOps principle: deploy small, deploy often. AI-assisted coding naturally produces larger batches because it reduces the marginal cost of producing code. Phase-aware prompting should include explicit batch-size constraints in Planning prompts ("decompose into tasks that can be completed in a single PR") to counteract this tendency.
+**Economic lens:** The DORA batch-size finding connects to a classic DevOps principle: deploy small, deploy often. [inference] AI-assisted coding naturally produces larger batches because it reduces the marginal cost of producing code. Phase-aware prompting should include explicit batch-size constraints in Planning prompts ("decompose into tasks that can be completed in a single PR") to counteract this tendency.
 
 **Regulatory / governance lens:** No regulatory frameworks specific to AI-assisted coding prompts exist as of 2025. However, persistent context files that encode quality gates (as this repository's `.github/copilot-instructions.md` does) are an informal governance mechanism — they encode review standards, test requirements, and security constraints as prompt-level instructions rather than post-hoc audit steps.
 
@@ -369,13 +369,13 @@ Phase-aware prompting produces measurable gains in the Build phase — Peng et a
 
 ### Analysis
 
-The evidence is strongest where tasks are well-scoped and structurally defined: Build phase code generation and Testing phase test generation. SCoT's +13.79% gain over CoT is consistent with the structural alignment hypothesis — code is composed of sequences, branches, and loops, and asking the LLM to reason in those terms reduces the cognitive translation gap. Peng et al.'s 55.8% speed gain, while large, is from a single task type; the DORA whole-workflow picture (+2.1%) is more conservative and likely more representative of aggregate gains.
+Build-phase and Testing-phase tasks show the strongest evidence: SCoT's +13.79% gain over CoT is consistent with the structural alignment hypothesis — code is composed of sequences, branches, and loops, and asking the LLM to reason in those terms reduces the cognitive translation gap. Peng et al.'s 55.8% speed gain, while large, is from a single task type; the DORA whole-workflow picture (+2.1%) is more conservative and likely more representative of aggregate gains.
 
-The Barke et al. bimodal finding is the most practically actionable result for prompt framework design. Acceleration-mode prompts (precise, output-specification, minimal context) work when the developer has a clear mental model of the desired output. Exploration-mode prompts (open-ended, persona-grounded, structured output templates) work when the developer is navigating ambiguity. The SDLC phase largely determines which mode is appropriate: Building and Testing are predominantly acceleration; Discovery and Requirements are predominantly exploration; Design and Planning are mixed, depending on the maturity of the specification.
+[inference] The Barke et al. bimodal finding is the most practically actionable result for prompt framework design. The practical design rule is to match prompt style to the developer's cognitive mode: precise output-specification prompts for well-defined tasks; open-ended, persona-grounded prompts for exploratory or ambiguous tasks. Applying acceleration-mode prompts to exploration tasks constrains the AI's generative range precisely when breadth is needed. The SDLC phase largely determines which mode is appropriate: Building and Testing are predominantly acceleration; Discovery and Requirements are predominantly exploration; Design and Planning are mixed, depending on the maturity of the specification.
 
-The DORA throughput/stability trade-off is a consequence of AI's Build-phase efficiency advantage: if Building accelerates without corresponding changes to Planning (smaller task scope) and Reviewing (more rigorous prompts), batch sizes grow and deployment risk increases. Opinion: this makes the Reviewing phase the highest-leverage under-invested phase for phase-aware prompt design — most practitioner discussion focuses on Build and Test, while Review prompts receive less attention.
+DORA's throughput-stability gap is a consequence of AI's Build-phase efficiency advantage: if Building accelerates without corresponding changes to Planning (smaller task scope) and Reviewing (more rigorous prompts), batch sizes grow and deployment risk increases. Opinion: this makes the Reviewing phase the highest-leverage under-invested phase for phase-aware prompt design — most practitioner discussion focuses on Build and Test, while Review prompts receive less attention.
 
-The context file fragmentation problem is structural, not temporary. Each tool (GitHub Copilot, Cursor, Claude Code, Aider) has developed its own format because each has different context-loading architecture. MCP's standardised `prompts` primitive is the most plausible long-term resolution, but adoption requires tooling vendors to implement the primitive consistently — which had not happened uniformly as of early 2025.
+The context file fragmentation problem is structural, not temporary. Each tool (GitHub Copilot, Cursor, Claude Code, Aider) has developed its own format because each has different context-loading architecture. [inference] MCP's standardised `prompts` primitive is the most plausible long-term resolution, but adoption requires tooling vendors to implement the primitive consistently — which had not happened uniformly as of early 2025.
 
 ### Risks, Gaps, and Uncertainties
 
