@@ -27,6 +27,7 @@ Why do organisations (firms and business units) exist when markets are theoretic
 - The purpose of **business units (BUs)** as internal coordination structures: when is a BU the right abstraction vs. a market contract, a centre of excellence, or a platform team?
 - Team Topologies as a software-domain restatement of Coase's governance modes: stream-aligned, platform, enabling, complicated-subsystem teams as governance choices under transaction cost constraints
 - How culture and intent alignment function as informal institutions (North's framing) that reduce coordination costs without contracts
+- The **adversarial-agents pattern** as an operational instantiation of multi-perspective coverage within a firm: agents with a shared goal but different competency domains and time horizons (Designers, SREs, Testers, Security, Performance×3, Strategic alignment, Insight capture, Researcher, Architecture×2, Values alignment, Change impact, Risk assessment) — why each agent type represents an internalised function under Williamson's asset specificity logic
 
 **Out of scope:**
 - Detailed legal/regulatory frameworks for corporate structure
@@ -82,6 +83,7 @@ The K→W gap in the DIKW pyramid (see `2026-03-10-dikw-transformation-functions
 - `2026-03-10-dikw-transformation-functions.md` — transformation functions (organisational K→W)
 - `2026-03-08-ai-coding-harnesses-agent-philosophy.md` — agent execution and team coordination analogues
 - `2026-03-08-bbc-five-case-model.md` — UK HM Treasury BBC five-case model for organisational decisions (complements fitness function framing)
+- `2026-03-10-adversarial-agents-shared-goals-multi-perspective.md` — the adversarial-agents pattern as the operational layer of this item: why the 15 agent types (Designer, SRE, Tester, Security, Performance×3, Strategic alignment, Insight capture, Researcher, Architecture×2, Values alignment, Change impact, Risk) exist inside the boundary and how their interaction protocol instantiates North's informal institutions
 
 ## Approach
 
@@ -118,6 +120,7 @@ The K→W gap in the DIKW pyramid (see `2026-03-10-dikw-transformation-functions
 - [ ] `Research/completed/2026-03-10-formal-spec-intent-alignment-agentic-coding.md` — intent alignment as organisational coordination problem
 - [ ] `Research/backlog/2026-03-10-dikw-transformation-functions.md` — K→W transformation in organisations
 - [ ] `Research/completed/2026-03-08-bbc-five-case-model.md` — structured case for organisational decisions
+- [ ] `Research/backlog/2026-03-10-adversarial-agents-shared-goals-multi-perspective.md` — adversarial-agents pattern: competency taxonomy, time horizons, interaction protocol
 
 ---
 

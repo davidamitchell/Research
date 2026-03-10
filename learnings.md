@@ -82,4 +82,38 @@ Entries here should be *denser* than any individual research item because they s
 
 ---
 
+## Thread 6 — Adversarial collaboration: agents with a shared goal but different competencies and time horizons
+
+**The learning:** A system of agents — human or AI — that share a goal but deliberately occupy different competency domains and time horizons produces better outcomes than a single generalist. Each agent type covers a different DIKW transformation and a different time horizon. The adversarial element is not opposition but deliberate perspective diversity: each agent challenges the others' blind spots rather than agreeing toward local optima. The 15 agent types below are a working taxonomy — each occupies a distinct position in the competency × time-horizon space, and each corresponds to a different layer of the DIKW pyramid.
+
+| Agent | Primary concern | Time horizon | DIKW layer |
+|---|---|---|---|
+| Designer | User experience, systemic coherence | Sprint → quarter | Information → Knowledge |
+| SRE | Reliability, availability, observability | Operational (hours–weeks) | Data → Information |
+| Tester | Correctness, edge cases, coverage | Sprint | Data → Information |
+| Security | Threat surface, vulnerabilities, compliance | Immediate + long (architectural) | Knowledge |
+| Performance — speed/resource | Latency, throughput, resource cost | Sprint → quarter | Data → Information |
+| Performance — ROI | Return on investment, cost/benefit | Quarterly → annual | Information → Knowledge |
+| Performance — goal achievement | OKR delivery, outcomes vs. outputs | Quarterly → annual | Knowledge → Wisdom |
+| Strategic alignment | Are we building the right thing? | Multi-year | Wisdom |
+| Insight capture | What have we learned? Retain the signal. | Continuous / retrospective | Knowledge |
+| Researcher | What don't we know? Unknown unknowns. | Long / pre-competitive | Knowledge → Wisdom |
+| Architecture | Technical structure, coupling, evolution | Medium → long | Knowledge |
+| Architecture alignment | Is the tech consistent with strategic direction? | Long | Knowledge → Wisdom |
+| Values alignment | Is this consistent with our principles? | Permanent | Wisdom |
+| Change impact assessment | What breaks? What changes for users and systems? | Immediate | Data → Information |
+| Risk assessment | What could go wrong? Probability and severity? | Variable (sprint → long) | Knowledge |
+
+Values alignment and strategic alignment agents are the explicit K→W gatekeepers — their role is to ensure that what the collective *knows how to build* is aligned with what it *genuinely should build*. Their absence is not a neutral omission; it is a structural guarantee that wisdom-layer decisions will be made by whoever happens to be loudest or fastest.
+
+**Evidence:**
+- `Research/backlog/2026-03-10-adversarial-agents-shared-goals-multi-perspective.md` — the full research item for this pattern, including the agent taxonomy, time-horizon mapping, and DIKW layer mapping
+- `Research/completed/2026-03-08-bbc-five-case-model.md` — the BBC Five Case Model as a formalised adversarial-perspectives framework (five mandated lenses: strategic, economic, commercial, financial, management)
+- `Research/backlog/2026-03-10-nature-of-the-firm-coase-organisations.md` — Williamson's asset specificity explains why each agent type is internalised; North's informal institutions explain how their interaction protocol reduces coordination costs
+- `Research/completed/2026-03-10-formal-spec-intent-alignment-agentic-coding.md` — formal specification covers the K layer; adversarial agents supply the informal W layer that formal methods cannot
+
+**Open thread:** What is the minimal viable interaction protocol for a set of adversarial agents? The BBC Five Case Model mandates five cases but does not specify a resolution mechanism. How do you prevent the values alignment agent from becoming a permanent veto? What is the right quorum rule, and who holds the casting decision?
+
+---
+
 *Last updated: 2026-03-10*
