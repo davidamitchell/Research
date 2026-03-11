@@ -1,4 +1,4 @@
-"""Tests for the research item CLI commands (add, list, start, complete)."""
+"""Tests for the research item CLI commands (add, list, start, draft, complete)."""
 
 from __future__ import annotations
 
