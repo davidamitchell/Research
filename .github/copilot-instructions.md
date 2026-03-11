@@ -25,6 +25,7 @@ These two concerns are intentionally separate. Research items in `Research/` are
 - **DO NOT ASSUME OR GUESS facts about the environment.** If you do not know whether a credential exists, whether a service is available, or whether a tool is capable of something — **STOP. Ask the owner before proceeding.** Guessing and being wrong wastes cycles and breaks trust. The cost of asking is zero. The cost of guessing wrong is not.
 - **DO NOT introduce new external services or credentials without explicit owner approval.** If your design requires something not already listed in the "Available credentials and services" table below, that is a hard stop — surface the gap and ask, do not proceed.
 - **Treat undocumented capabilities as unknown.** If a credential, service, or tool is in the approved table but its Notes column does not explicitly state it can do what your design requires, apply the same hard stop as for an unlisted item — do not assume, do not proceed, ask first.
+- **`.github/skills/` is a read-only submodule.** Never edit files inside `.github/skills/`. It is overwritten on every sync. All skill changes go to `davidamitchell/Skills` (open a PR there). Then advance the submodule pointer in this repo after the Skills PR merges.
 
 ---
 
