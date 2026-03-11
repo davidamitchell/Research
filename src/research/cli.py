@@ -166,6 +166,27 @@ def cmd_start(filename: str, research_root: Path | None = None) -> Path:
     return dest
 
 
+def cmd_draft(filename: str, research_root: Path | None = None) -> Path:
+    """Mark an in-progress item as ready for review (status: reviewing).
+
+    The file stays in ``in-progress/`` — no file move occurs. The research
+    loop should call ``gh workflow run research-review.yml`` after this
+    command to trigger the automated review.
+    """
+    root = _research_root(research_root)
+    src = root / "in-progress" / filename
+    if not src.exists():
+        print(f"Not found in in-progress: {filename}", file=sys.stderr)
+        sys.exit(1)
+
+    text = src.read_text(encoding="utf-8")
+    text = _set_frontmatter_field(text, "status", "reviewing")
+    src.write_text(text, encoding="utf-8")
+    logger.info("Marked for review: %s", src)
+    print(f"Ready for review: {src}")
+    return src
+
+
 def cmd_complete(filename: str, research_root: Path | None = None) -> Path:
     """Move an in-progress item to completed and update its status."""
     root = _research_root(research_root)
@@ -176,6 +197,15 @@ def cmd_complete(filename: str, research_root: Path | None = None) -> Path:
 
     dest = root / "completed" / filename
     text = src.read_text(encoding="utf-8")
+    current_status = _get_frontmatter_field(text, "status")
+    if current_status != "reviewing":
+        logger.warning(
+            "Completing item without review step (status was %r)", current_status
+        )
+        print(
+            f"Warning: completing {filename} without review (status: {current_status})",
+            file=sys.stderr,
+        )
     text = _set_frontmatter_field(text, "status", "completed")
     text = _set_frontmatter_field(text, "completed", date.today().isoformat())
     dest.write_text(text, encoding="utf-8")
@@ -193,6 +223,15 @@ def _set_frontmatter_field(text: str, key: str, value: str) -> str:
     if n == 0:
         logger.warning("Field '%s' not found in front matter", key)
     return updated
+
+
+def _get_frontmatter_field(text: str, key: str) -> str:
+    """Read a single YAML front-matter field value."""
+    pattern = re.compile(rf"^{re.escape(key)}:\s*(.*)$", re.MULTILINE)
+    match = pattern.search(text)
+    if not match:
+        return ""
+    return match.group(1).strip()
 
 
 def register_subparser(subparsers: object) -> None:  # type: ignore[type-arg]
@@ -215,6 +254,10 @@ def register_subparser(subparsers: object) -> None:  # type: ignore[type-arg]
     start_p = sub.add_parser("start", help="Move a backlog item to in-progress")
     start_p.add_argument("filename", help="Filename of the research item to start")
 
+    # draft
+    draft_p = sub.add_parser("draft", help="Mark an in-progress item as ready for review")
+    draft_p.add_argument("filename", help="Filename of the research item to mark for review")
+
     # complete
     complete_p = sub.add_parser("complete", help="Move an in-progress item to completed")
     complete_p.add_argument("filename", help="Filename of the research item to complete")
@@ -232,8 +275,10 @@ def dispatch(args: object) -> None:  # type: ignore[type-arg]
         cmd_list()
     elif cmd == "start":
         cmd_start(a.filename)
+    elif cmd == "draft":
+        cmd_draft(a.filename)
     elif cmd == "complete":
         cmd_complete(a.filename)
     else:
-        print("Usage: research research <add|list|start|complete>", file=sys.stderr)
+        print("Usage: research research <add|list|start|draft|complete>", file=sys.stderr)
         sys.exit(1)

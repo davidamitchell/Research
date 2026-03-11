@@ -14,7 +14,7 @@ class ResearchItem:
     path: Path
     title: str
     added: date
-    status: str  # backlog | in-progress | completed
+    status: str  # backlog | in-progress | reviewing | completed
     priority: str  # low | medium | high
     tags: list[str] = field(default_factory=list)
     blocks: list[str] = field(default_factory=list)
@@ -51,6 +51,7 @@ class ResearchItem:
         mapping = {
             "backlog": "backlog",
             "in-progress": "in-progress",
+            "reviewing": "in-progress",
             "completed": "completed",
         }
         return mapping.get(self.status, "backlog")

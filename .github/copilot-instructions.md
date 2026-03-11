@@ -8,7 +8,7 @@ For AI coding agents working on this repository.
 
 A research tracking and tooling repository. It has two distinct purposes:
 
-1. **Research tracking** — `Research/` holds individual research items in three states (`backlog/`, `in-progress/`, `completed/`). This is a file-based Kanban board for research.
+1. **Research tracking** — `Research/` holds individual research items in four states (`backlog/`, `in-progress/`, `completed/`). Items in `reviewing` status stay in `in-progress/` — the status field in frontmatter is the state machine; directory moves happen only on `start` (backlog → in-progress) and `complete` (in-progress → completed). This is a file-based Kanban board for research.
 2. **Research tooling** — `src/` contains Python code for fetching, processing, and indexing research content (YouTube transcripts, papers, web pages, etc.).
 
 These two concerns are intentionally separate. Research items in `Research/` are not code; they are structured Markdown notes. The code in `src/` is the machinery that helps produce and process those notes.
@@ -193,13 +193,25 @@ The `## Research Skill Output` section is **retained verbatim** in the completed
 
 ### Completing Research
 
-1. Run the CLI command to move the item and stamp the `completed` date automatically:
+1. Run the CLI command to mark the item as ready for automated review:
+   ```bash
+   python -m src.main research draft <filename>
+   ```
+   This updates `status: reviewing` in frontmatter but **does not move the file** — it stays in `Research/in-progress/`.
+2. Commit and trigger the automated review workflow:
+   ```bash
+   git add Research/in-progress/<filename>
+   git commit -m "research: draft - <short title>"
+   git push origin main
+   gh workflow run research-review.yml --field item_path=Research/in-progress/<filename>
+   ```
+3. If the review fails (a GitHub issue labelled `research-review` is opened), address the violations and loop back to Conducting Research, then re-run `research draft`.
+4. Once the review passes, run the CLI command to move the item to completed:
    ```bash
    python -m src.main research complete <filename>
    ```
-2. Fill in the `## Findings` and `## Output` sections (if not already done during Conducting Research)
-3. Create `progress/YYYY-MM-DD-{slug}.md` — record findings summary and any outputs produced
-4. Commit with message: `research: complete - <short title>`
+5. Create `progress/YYYY-MM-DD-{slug}.md` — record findings summary and any outputs produced
+6. Commit with message: `research: complete - <short title>`
 
 ### Output Types
 
@@ -249,7 +261,7 @@ Do not write an ADR for routine work:
 - Bug fixes that don't change the architecture
 - Adding a new Python module or test file within an existing pattern
 - Updating a workflow that already exists (e.g., changing a schedule or dropdown value)
-- Completing or moving a research item through the `backlog → in-progress → completed` lifecycle
+- Completing or moving a research item through the `backlog → in-progress → reviewing → completed` lifecycle
 - Updating documentation, comments, or session logs in `progress/`
 
 ### Checklist before closing a slice
