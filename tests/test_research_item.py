@@ -103,3 +103,15 @@ def test_state_dir_name_completed() -> None:
         priority="medium",
     )
     assert item.state_dir_name() == "completed"
+
+
+def test_state_dir_name_reviewing_maps_to_in_progress() -> None:
+    """state_dir_name returns 'in-progress' for reviewing status (file stays in place)."""
+    item = ResearchItem(
+        path=Path("dummy.md"),
+        title="t",
+        added=date.today(),
+        status="reviewing",
+        priority="medium",
+    )
+    assert item.state_dir_name() == "in-progress"

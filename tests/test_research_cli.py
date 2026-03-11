@@ -8,10 +8,12 @@ from pathlib import Path
 import pytest
 
 from src.research.cli import (
+    _get_frontmatter_field,
     _set_frontmatter_field,
     _slug,
     cmd_add,
     cmd_complete,
+    cmd_draft,
     cmd_list,
     cmd_start,
 )
@@ -214,3 +216,79 @@ def test_cmd_complete_sets_completed_date(research_dir: Path) -> None:
 def test_cmd_complete_exits_on_missing(research_dir: Path) -> None:
     with pytest.raises(SystemExit):
         cmd_complete("nonexistent.md", research_root=research_dir)
+
+
+# ---------------------------------------------------------------------------
+# _get_frontmatter_field
+# ---------------------------------------------------------------------------
+
+
+def test_get_frontmatter_field_returns_value() -> None:
+    assert _get_frontmatter_field(SAMPLE_FRONTMATTER, "status") == "backlog"
+
+
+def test_get_frontmatter_field_returns_none_for_missing_key() -> None:
+    assert _get_frontmatter_field(SAMPLE_FRONTMATTER, "nonexistent") is None
+
+
+def test_get_frontmatter_field_returns_tilde_as_string() -> None:
+    assert _get_frontmatter_field(SAMPLE_FRONTMATTER, "started") == "~"
+
+
+# ---------------------------------------------------------------------------
+# cmd_draft
+# ---------------------------------------------------------------------------
+
+
+def test_cmd_draft_updates_status_to_reviewing(research_dir: Path) -> None:
+    content = SAMPLE_FRONTMATTER.replace("status: backlog", "status: in-progress")
+    _make_item(research_dir, "in-progress", "2026-02-28-test.md", content)
+    path = cmd_draft("2026-02-28-test.md", research_root=research_dir)
+    assert "status: reviewing" in path.read_text()
+
+
+def test_cmd_draft_does_not_move_file(research_dir: Path) -> None:
+    content = SAMPLE_FRONTMATTER.replace("status: backlog", "status: in-progress")
+    _make_item(research_dir, "in-progress", "2026-02-28-test.md", content)
+    path = cmd_draft("2026-02-28-test.md", research_root=research_dir)
+    assert path.parent.name == "in-progress"
+
+
+def test_cmd_draft_file_remains_in_in_progress(research_dir: Path) -> None:
+    content = SAMPLE_FRONTMATTER.replace("status: backlog", "status: in-progress")
+    _make_item(research_dir, "in-progress", "2026-02-28-test.md", content)
+    cmd_draft("2026-02-28-test.md", research_root=research_dir)
+    assert (research_dir / "in-progress" / "2026-02-28-test.md").exists()
+    assert not (research_dir / "completed" / "2026-02-28-test.md").exists()
+    assert not (research_dir / "backlog" / "2026-02-28-test.md").exists()
+
+
+def test_cmd_draft_exits_on_missing(research_dir: Path) -> None:
+    with pytest.raises(SystemExit):
+        cmd_draft("nonexistent.md", research_root=research_dir)
+
+
+# ---------------------------------------------------------------------------
+# cmd_complete — soft guard for reviewing status
+# ---------------------------------------------------------------------------
+
+
+def test_cmd_complete_warns_if_status_not_reviewing(
+    research_dir: Path, capsys: pytest.CaptureFixture[str]
+) -> None:
+    content = SAMPLE_FRONTMATTER.replace("status: backlog", "status: in-progress")
+    _make_item(research_dir, "in-progress", "2026-02-28-test.md", content)
+    cmd_complete("2026-02-28-test.md", research_root=research_dir)
+    err = capsys.readouterr().err
+    assert "Warning" in err
+    assert "reviewing" in err
+
+
+def test_cmd_complete_still_completes_despite_warning(
+    research_dir: Path, capsys: pytest.CaptureFixture[str]
+) -> None:
+    content = SAMPLE_FRONTMATTER.replace("status: backlog", "status: in-progress")
+    _make_item(research_dir, "in-progress", "2026-02-28-test.md", content)
+    dest = cmd_complete("2026-02-28-test.md", research_root=research_dir)
+    assert dest.parent.name == "completed"
+    assert "status: completed" in dest.read_text()
