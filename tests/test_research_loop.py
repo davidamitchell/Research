@@ -179,6 +179,7 @@ def test_prompt_has_required_sections() -> None:
     required = [
         "## Steps",
         "research start",
+        "research draft",
         "research complete",
         "PROGRESS.md",
         "git commit",

@@ -72,24 +72,20 @@ def test_workflow_dispatch_requires_item_path_input() -> None:
 
 
 def test_workflow_has_push_trigger_for_completed_items() -> None:
-    """The workflow must fire automatically when Research/completed/ items are pushed."""
+    """The push trigger on Research/completed/ must be absent — review is dispatch-only."""
     wf = _load_workflow()
     # PyYAML parses the `on:` key as boolean True
     triggers = wf[True]
-    assert "push" in triggers, "push trigger is required for automatic reviews"
-    paths = triggers["push"]["paths"]
-    assert any("Research/completed" in p for p in paths), (
-        "push trigger must watch Research/completed/**"
+    assert "push" not in triggers, (
+        "push trigger must be removed; review is triggered via workflow_dispatch only"
     )
 
 
 def test_workflow_push_trigger_restricted_to_main() -> None:
-    """The push trigger must only fire on the main branch."""
+    """No push trigger exists; this test verifies workflow_dispatch is the sole trigger."""
     wf = _load_workflow()
-    # PyYAML parses the `on:` key as boolean True
     triggers = wf[True]
-    branches = triggers["push"].get("branches", [])
-    assert "main" in branches, "push trigger must be restricted to main branch"
+    assert "push" not in triggers, "push trigger must not be present after migration to dispatch"
 
 
 def test_workflow_uses_copilot_github_token_secret() -> None:
@@ -150,6 +146,18 @@ def test_workflow_handles_missing_item_gracefully() -> None:
     """The workflow must emit an error and fail if a specified item does not exist."""
     content = WORKFLOW_PATH.read_text(encoding="utf-8")
     assert "not found" in content.lower(), "Workflow must handle missing item paths"
+
+
+def test_workflow_accepts_in_progress_item_paths() -> None:
+    """The workflow must not restrict item_path to Research/completed/; in-progress is valid."""
+    wf = _load_workflow()
+    triggers = wf[True]
+    inputs = triggers["workflow_dispatch"]["inputs"]
+    description = inputs["item_path"].get("description", "")
+    # The description should reference in-progress (not only completed/)
+    assert "in-progress" in description, (
+        "item_path description must accept Research/in-progress/ paths"
+    )
 
 
 def test_workflow_runs_copilot_autopilot() -> None:

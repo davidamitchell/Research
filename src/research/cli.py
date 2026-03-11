@@ -1,4 +1,4 @@
-"""Research item CLI commands: add, list, start, complete."""
+"""Research item CLI commands: add, list, start, draft, complete."""
 
 from __future__ import annotations
 
@@ -166,6 +166,22 @@ def cmd_start(filename: str, research_root: Path | None = None) -> Path:
     return dest
 
 
+def cmd_draft(filename: str, research_root: Path | None = None) -> Path:
+    """Mark an in-progress item as reviewing (status update only, no file move)."""
+    root = _research_root(research_root)
+    path = root / "in-progress" / filename
+    if not path.exists():
+        print(f"Not found in in-progress: {filename}", file=sys.stderr)
+        sys.exit(1)
+
+    text = path.read_text(encoding="utf-8")
+    text = _set_frontmatter_field(text, "status", "reviewing")
+    path.write_text(text, encoding="utf-8")
+    logger.info("Draft (reviewing): %s", path)
+    print(f"Reviewing: {path}")
+    return path
+
+
 def cmd_complete(filename: str, research_root: Path | None = None) -> Path:
     """Move an in-progress item to completed and update its status."""
     root = _research_root(research_root)
@@ -174,8 +190,17 @@ def cmd_complete(filename: str, research_root: Path | None = None) -> Path:
         print(f"Not found in in-progress: {filename}", file=sys.stderr)
         sys.exit(1)
 
-    dest = root / "completed" / filename
     text = src.read_text(encoding="utf-8")
+    current_status = _get_frontmatter_field(text, "status")
+    if current_status != "reviewing":
+        msg = (
+            f"Warning: completing item with status '{current_status}' "
+            "(expected 'reviewing'). Proceeding anyway."
+        )
+        print(msg, file=sys.stderr)
+        logger.warning(msg)
+
+    dest = root / "completed" / filename
     text = _set_frontmatter_field(text, "status", "completed")
     text = _set_frontmatter_field(text, "completed", date.today().isoformat())
     dest.write_text(text, encoding="utf-8")
@@ -193,6 +218,16 @@ def _set_frontmatter_field(text: str, key: str, value: str) -> str:
     if n == 0:
         logger.warning("Field '%s' not found in front matter", key)
     return updated
+
+
+def _get_frontmatter_field(text: str, key: str) -> str | None:
+    """Return the value of a single YAML front-matter field, or None if absent."""
+    pattern = re.compile(rf"^{re.escape(key)}:\s*(.*)$", re.MULTILINE)
+    match = pattern.search(text)
+    if match is None:
+        return None
+    value = match.group(1).strip()
+    return value if value else None
 
 
 def register_subparser(subparsers: object) -> None:  # type: ignore[type-arg]
@@ -219,6 +254,10 @@ def register_subparser(subparsers: object) -> None:  # type: ignore[type-arg]
     complete_p = sub.add_parser("complete", help="Move an in-progress item to completed")
     complete_p.add_argument("filename", help="Filename of the research item to complete")
 
+    # draft
+    draft_p = sub.add_parser("draft", help="Mark an in-progress item as reviewing")
+    draft_p.add_argument("filename", help="Filename of the research item to mark for review")
+
 
 def dispatch(args: object) -> None:  # type: ignore[type-arg]
     """Dispatch parsed args to the appropriate research command."""
@@ -232,8 +271,10 @@ def dispatch(args: object) -> None:  # type: ignore[type-arg]
         cmd_list()
     elif cmd == "start":
         cmd_start(a.filename)
+    elif cmd == "draft":
+        cmd_draft(a.filename)
     elif cmd == "complete":
         cmd_complete(a.filename)
     else:
-        print("Usage: research research <add|list|start|complete>", file=sys.stderr)
+        print("Usage: research research <add|list|start|draft|complete>", file=sys.stderr)
         sys.exit(1)

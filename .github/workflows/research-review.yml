@@ -1,9 +1,8 @@
 name: Research Review
 
-# Quality gate for completed research items.
+# Quality gate for research items under review.
 #
-# Applies three agent skills in sequence to every item moved to
-# Research/completed/:
+# Applies three agent skills in sequence to an item marked as 'reviewing':
 #   1. citation-discipline  — all factual claims are sourced
 #   2. speculation-control  — uncertain claims are explicitly labeled
 #   3. remove-ai-slop       — prose is direct and free of formulaic AI patterns
@@ -18,25 +17,19 @@ name: Research Review
 #   Settings → Secrets and variables → Actions → New repository secret
 #   Name: COPILOT_GITHUB_TOKEN  Value: your PAT
 #
-# Trigger options:
-#   1. Automatic: fires on every push to main that adds or modifies a file in
-#      Research/completed/
-#   2. Manual: Actions tab → "Research Review" → Run workflow → supply item path
+# Trigger: Manual workflow_dispatch only.
+#   The research loop calls `gh workflow run` after drafting (marking status: reviewing).
+#   Actions tab → "Research Review" → Run workflow → supply item path
 
 on:
   workflow_dispatch:
     inputs:
       item_path:
         description: >
-          Path to the completed research item to review,
-          e.g. Research/completed/2026-03-01-topic.md
+          Path to the research item to review,
+          e.g. Research/in-progress/2026-03-01-topic.md
         required: true
         type: string
-
-  push:
-    branches: [main]
-    paths:
-      - "Research/completed/**.md"
 
 # Reviews are independent; allow concurrent runs for different items.
 concurrency:
@@ -59,9 +52,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          # fetch-depth 2 is required so the push trigger can diff HEAD~1..HEAD
-          # to discover which completed items changed.
-          fetch-depth: 2
+          fetch-depth: 1
 
       - name: Initialize skills submodule
         run: git submodule update --init .github/skills
@@ -69,16 +60,10 @@ jobs:
       - name: Determine items to review
         id: items
         run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            echo "${{ inputs.item_path }}" > /tmp/items-to-review.txt
-          else
-            git diff --name-only HEAD~1 HEAD \
-              | grep -E '^Research/completed/.*\.md$' \
-              > /tmp/items-to-review.txt || true
-          fi
+          echo "${{ inputs.item_path }}" > /tmp/items-to-review.txt
 
           if [ ! -s /tmp/items-to-review.txt ]; then
-            echo "No completed research items to review."
+            echo "No research items to review."
             echo "has_items=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
