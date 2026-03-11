@@ -1,0 +1,73 @@
+name: Create Skills PR — research reviewing status
+
+on:
+  workflow_dispatch:
+
+jobs:
+  create-skills-pr:
+    name: Open PR in davidamitchell/Skills
+    runs-on: ubuntu-latest
+    permissions: {}
+    steps:
+      - name: Clone Skills repo
+        run: |
+          git clone "https://x-access-token:${{ secrets.COPILOT_GITHUB_TOKEN }}@github.com/davidamitchell/Skills.git" /tmp/skills
+          cd /tmp/skills
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -b update-research-skill-reviewing-status
+
+      - name: Apply SKILL.md change
+        run: |
+          if grep -q "8.4 Research item lifecycle transition" /tmp/skills/research/SKILL.md; then
+            echo "Section 8.4 already present — skipping patch"
+            exit 0
+          fi
+          cat >> /tmp/skills/research/SKILL.md << 'PATCH'
+
+### 8.4 Research item lifecycle transition
+
+After all three pre-output checks pass, advance the research item through the lifecycle:
+
+1. Run `python -m src.main research draft <filename>` — sets the item's status to `reviewing`. Commit: `research: draft - <slug>`. Valid lifecycle states: `backlog` → `in-progress` → `reviewing` → `completed`.
+2. Await the review workflow result. If violations are reported, address them and repeat from step 1.
+3. Once the review passes, run `python -m src.main research complete <filename>`. Commit: `research: complete - <slug>`.
+PATCH
+
+      - name: Commit and push
+        run: |
+          cd /tmp/skills
+          git add research/SKILL.md
+          if git diff --cached --quiet; then
+            echo "No changes to commit — SKILL.md already up to date"
+            exit 0
+          fi
+          git commit -m "research skill: add reviewing lifecycle status and research draft command"
+          git push origin update-research-skill-reviewing-status
+
+      - name: Open PR
+        env:
+          GH_TOKEN: ${{ secrets.COPILOT_GITHUB_TOKEN }}
+        run: |
+          gh pr create \
+            --repo davidamitchell/Skills \
+            --base main \
+            --head update-research-skill-reviewing-status \
+            --title "research skill: add reviewing lifecycle status and research draft command" \
+            --body "## Summary
+
+The research lifecycle now includes a \`reviewing\` status and a \`research draft\` CLI command. This PR updates \`research/SKILL.md\` to reflect the new step that sits between completing research and marking an item complete.
+
+## Changes
+
+Added Section 8.4 (Research item lifecycle transition) at the end of the existing Section 8 (Output Finalisation). This is the minimum necessary change — no existing sections were modified.
+
+The addition:
+- Lists \`reviewing\` as a valid lifecycle state (\`backlog\` → \`in-progress\` → \`reviewing\` → \`completed\`)
+- References the \`research draft\` CLI command (\`python -m src.main research draft <filename>\`)
+- References the \`research: draft - <slug>\` commit message convention
+- Inserts the draft + review step between completing research (section 8.3 checks) and marking the item complete
+
+## Companion change
+
+Paired with [Research PR](https://github.com/davidamitchell/Research/pulls) that adds a Non-Negotiable Constraint to \`.github/copilot-instructions.md\` stating that \`.github/skills/\` is read-only and all skill changes must go through this repo first."
