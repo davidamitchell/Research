@@ -104,7 +104,7 @@ In all modes: label inferences, state confidence levels, and surface unresolved 
 
 - Restate the research question.
 - Identify scope, constraints, definitions, and required outputs.
-- Search completed research items for prior related work. If a completed item is directly relevant, cite it as prior art in the evidence map and note where its findings apply or conflict with the current investigation.
+- Search `completed` and `reviewing` research items for prior related work. If a completed or reviewing item is directly relevant, cite it as prior art in the evidence map and note where its findings apply or conflict with the current investigation.
 
 ---
 
