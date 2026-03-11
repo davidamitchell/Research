@@ -1,6 +1,6 @@
 # Research
 
-This directory holds all research items in three states.
+This directory holds all research items in four states.
 
 ---
 
@@ -10,7 +10,7 @@ This directory holds all research items in three states.
 Research/
 ├── _template.md        # Copy this to create a new item
 ├── backlog/            # Items not yet started
-├── in-progress/        # Items actively being researched
+├── in-progress/        # Items actively being researched or under review
 └── completed/          # Finished research with findings
 ```
 
@@ -23,28 +23,47 @@ Research/
 ```bash
 cp Research/_template.md Research/backlog/$(date +%Y-%m-%d)-short-title.md
 # Edit the file, fill in title, question, context
-# Update PROGRESS.md Work Log with a one-line entry for the new item
-git add Research/backlog/ PROGRESS.md && git commit -m "research: add backlog item - <short title>"
+git add Research/backlog/ && git commit -m "research: add backlog item - <short title>"
 ```
 
 ### Starting an item
 
 ```bash
+python -m src.main research start <filename>
+# or manually:
 mv Research/backlog/YYYY-MM-DD-title.md Research/in-progress/
 # Update status: field to in-progress and set started: date
-# Update PROGRESS.md Work Log
-git add Research/ PROGRESS.md && git commit -m "research: start - <short title>"
+git add Research/ && git commit -m "research: start - <short title>"
 ```
 
-### Completing an item
+### Marking an item for review (draft)
+
+When research is complete, mark the item for review. The file **stays in `in-progress/`**:
 
 ```bash
-mv Research/in-progress/YYYY-MM-DD-title.md Research/completed/
-# Fill in ## Findings and ## Output sections
-# Update status: to completed and set completed: date
-# Update PROGRESS.md Work Log with findings summary
-git add Research/ PROGRESS.md && git commit -m "research: complete - <short title>"
+python -m src.main research draft <filename>
+git add Research/in-progress/<filename>
+git commit -m "research: draft - <filename>"
+gh workflow run research-review.yml -f item_path=Research/in-progress/<filename>
 ```
+
+### Completing an item (after review passes)
+
+```bash
+python -m src.main research complete <filename>
+# Moves the file to Research/completed/ and updates status and completed fields
+git add Research/ && git commit -m "research: complete - <short title>"
+```
+
+### Lifecycle
+
+```
+backlog → in-progress → reviewing → completed
+               ↑_____________|
+        (review fail: fix violations, run draft again)
+```
+
+`reviewing` items stay in `in-progress/`. The only directory move is the final `complete` step.
 
 ---
 

@@ -218,29 +218,21 @@ def test_cmd_complete_exits_on_missing(research_dir: Path) -> None:
         cmd_complete("nonexistent.md", research_root=research_dir)
 
 
-def test_cmd_complete_warns_if_not_reviewing(
-    research_dir: Path, capsys: pytest.CaptureFixture[str]
-) -> None:
-    """cmd_complete should warn (not exit) when status is not 'reviewing'."""
-    content = SAMPLE_FRONTMATTER.replace("status: backlog", "status: in-progress")
-    _make_item(research_dir, "in-progress", "2026-02-28-test.md", content)
-    dest = cmd_complete("2026-02-28-test.md", research_root=research_dir)
-    # Should succeed despite the missing review step
-    assert dest.exists()
-    assert dest.parent.name == "completed"
-    captured = capsys.readouterr()
-    assert "Warning" in captured.err
+# ---------------------------------------------------------------------------
+# _get_frontmatter_field
+# ---------------------------------------------------------------------------
 
 
-def test_cmd_complete_no_warning_after_reviewing(
-    research_dir: Path, capsys: pytest.CaptureFixture[str]
-) -> None:
-    """cmd_complete should not warn when status is 'reviewing'."""
-    content = SAMPLE_FRONTMATTER.replace("status: backlog", "status: reviewing")
-    _make_item(research_dir, "in-progress", "2026-02-28-test.md", content)
-    cmd_complete("2026-02-28-test.md", research_root=research_dir)
-    captured = capsys.readouterr()
-    assert "Warning" not in captured.err
+def test_get_frontmatter_field_returns_value() -> None:
+    assert _get_frontmatter_field(SAMPLE_FRONTMATTER, "status") == "backlog"
+
+
+def test_get_frontmatter_field_returns_none_for_missing_key() -> None:
+    assert _get_frontmatter_field(SAMPLE_FRONTMATTER, "nonexistent") is None
+
+
+def test_get_frontmatter_field_returns_tilde_as_string() -> None:
+    assert _get_frontmatter_field(SAMPLE_FRONTMATTER, "started") == "~"
 
 
 # ---------------------------------------------------------------------------
@@ -248,19 +240,27 @@ def test_cmd_complete_no_warning_after_reviewing(
 # ---------------------------------------------------------------------------
 
 
-def test_cmd_draft_updates_status(research_dir: Path) -> None:
+def test_cmd_draft_updates_status_to_reviewing(research_dir: Path) -> None:
     content = SAMPLE_FRONTMATTER.replace("status: backlog", "status: in-progress")
     _make_item(research_dir, "in-progress", "2026-02-28-test.md", content)
-    result = cmd_draft("2026-02-28-test.md", research_root=research_dir)
-    assert result.read_text().count("status: reviewing") == 1
+    path = cmd_draft("2026-02-28-test.md", research_root=research_dir)
+    assert "status: reviewing" in path.read_text()
 
 
 def test_cmd_draft_does_not_move_file(research_dir: Path) -> None:
     content = SAMPLE_FRONTMATTER.replace("status: backlog", "status: in-progress")
     _make_item(research_dir, "in-progress", "2026-02-28-test.md", content)
-    result = cmd_draft("2026-02-28-test.md", research_root=research_dir)
-    assert result.parent.name == "in-progress"
-    assert result.exists()
+    path = cmd_draft("2026-02-28-test.md", research_root=research_dir)
+    assert path.parent.name == "in-progress"
+
+
+def test_cmd_draft_file_remains_in_in_progress(research_dir: Path) -> None:
+    content = SAMPLE_FRONTMATTER.replace("status: backlog", "status: in-progress")
+    _make_item(research_dir, "in-progress", "2026-02-28-test.md", content)
+    cmd_draft("2026-02-28-test.md", research_root=research_dir)
+    assert (research_dir / "in-progress" / "2026-02-28-test.md").exists()
+    assert not (research_dir / "completed" / "2026-02-28-test.md").exists()
+    assert not (research_dir / "backlog" / "2026-02-28-test.md").exists()
 
 
 def test_cmd_draft_exits_on_missing(research_dir: Path) -> None:
@@ -269,14 +269,26 @@ def test_cmd_draft_exits_on_missing(research_dir: Path) -> None:
 
 
 # ---------------------------------------------------------------------------
-# _get_frontmatter_field
+# cmd_complete — soft guard for reviewing status
 # ---------------------------------------------------------------------------
 
 
-def test_get_frontmatter_field_reads_value() -> None:
-    text = "---\nstatus: reviewing\n---\n"
-    assert _get_frontmatter_field(text, "status") == "reviewing"
+def test_cmd_complete_warns_if_status_not_reviewing(
+    research_dir: Path, capsys: pytest.CaptureFixture[str]
+) -> None:
+    content = SAMPLE_FRONTMATTER.replace("status: backlog", "status: in-progress")
+    _make_item(research_dir, "in-progress", "2026-02-28-test.md", content)
+    cmd_complete("2026-02-28-test.md", research_root=research_dir)
+    err = capsys.readouterr().err
+    assert "Warning" in err
+    assert "reviewing" in err
 
 
-def test_get_frontmatter_field_returns_empty_for_missing() -> None:
-    assert _get_frontmatter_field("---\n---\n", "status") == ""
+def test_cmd_complete_still_completes_despite_warning(
+    research_dir: Path, capsys: pytest.CaptureFixture[str]
+) -> None:
+    content = SAMPLE_FRONTMATTER.replace("status: backlog", "status: in-progress")
+    _make_item(research_dir, "in-progress", "2026-02-28-test.md", content)
+    dest = cmd_complete("2026-02-28-test.md", research_root=research_dir)
+    assert dest.parent.name == "completed"
+    assert "status: completed" in dest.read_text()

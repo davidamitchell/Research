@@ -97,23 +97,31 @@ Re-read the completed item as a critical reader, not as its author. Apply all fo
 
 If any check surfaces a problem, fix it before proceeding.
 
-### 8. Mark for review and trigger the reviewer
+### 8. Mark as draft and trigger review
 
 ```bash
 python -m src.main research draft <filename>
 git add Research/in-progress/<filename>
-git commit -m "research: draft - <short-title-from-filename>"
+git commit -m "research: draft - <filename>"
 git push origin main
-gh workflow run research-review.yml --field item_path=Research/in-progress/<filename>
 ```
 
-This updates the item's `status` to `reviewing` without moving the file. The `gh workflow run` call triggers the automated review workflow against the committed item.
+This updates the item's `status` to `reviewing` in place (no file move). The file remains in `Research/in-progress/`.
 
-Wait for the `research-review` workflow run to complete (use `gh run watch` or check the Actions tab). If the review **fails**, a GitHub issue labelled `research-review` is created with the violations. Address every violation, then loop back to step 4 (re-run the relevant research skill sections) and repeat from step 8.
+Then trigger the review workflow:
 
-If the review **passes** (no issue created or issue closed), proceed to step 9.
+```bash
+gh workflow run research-review.yml -f item_path=Research/in-progress/<filename>
+```
 
-### 9. Complete the item
+### 9. Handle review outcome
+
+Check the GitHub issue labelled `research-review` created by the review workflow:
+
+- **If `OVERALL: FAIL`:** read the violations from the issue body, fix them in the item file, then loop back to Step 8.
+- **If `OVERALL: PASS`:** proceed to Step 10.
+
+### 10. Complete the item
 
 ```bash
 python -m src.main research complete <filename>
@@ -121,7 +129,7 @@ python -m src.main research complete <filename>
 
 This moves the file to `Research/completed/<filename>` and updates `status` and `completed` fields.
 
-### 10. Create session log
+### 11. Create session log
 
 Create a new file `progress/YYYY-MM-DD-{slug}.md` where `{slug}` is the short-title portion of the research item filename (e.g. `slack-msteams-research-integration` from `2026-03-02-slack-msteams-research-integration.md`) with this content:
 
@@ -139,7 +147,7 @@ Sources consulted:
 - <url 3> (<description>)
 ```
 
-### 11. Commit to main
+### 12. Commit to main
 
 ```bash
 git add .
