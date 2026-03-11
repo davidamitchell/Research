@@ -459,6 +459,8 @@ Your role is to complete work *and* to improve the system doing the work.
 If something was hard, slow, or confusing — fix it, document it, or raise it.
 Always ask: *"Is this the best version of this system, or just a working one?"*
 
+These standards are self-applied. The owner should not need to request a mini-retro, an ADR, a CHANGELOG entry, or a progress log. If you are waiting to be asked — the process has failed.
+
 ### Every Session Ends with a Mini-Retro
 
 Before closing any session or completing any PR, add a **Mini-Retro** to the session log in `progress/YYYY-MM-DD-{slug}.md`.
