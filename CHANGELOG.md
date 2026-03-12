@@ -10,6 +10,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - `reviewing` status to the research item lifecycle (`backlog → in-progress → reviewing → completed`); `reviewing` maps to `in-progress/` so no file moves during review
 - `research draft` CLI command (`python -m src.main research draft <filename>`) — updates `status` to `reviewing` in-place; does not move the file
 - ADR-0007: Reviewing state and workflow_dispatch trigger for research review
+- **Known Recurring Failure Patterns** table in `.github/copilot-instructions.md` Continuous Improvement section — persistent registry of patterns observed 3+ times with root fix documented; future sessions add new rows during Mini-Retro
 
 ### Changed
 - `research-review.yml`: removed `push` trigger on `Research/completed/**`; review is now triggered exclusively via `workflow_dispatch` with `item_path` input; `item_path` description updated to accept `Research/in-progress/` paths
@@ -17,6 +18,10 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - `research-prompt.md`: replaced single "Complete the item" step with three steps — draft (mark as reviewing), handle review outcome, then complete
 - `Research/in-progress/README.md`: documents `reviewing` status and that files stay here during review
 - `Research/README.md`: updated lifecycle section to show four-state flow and the new `research draft` command
+- `research-prompt.md` Step 6: added inline acronym expansion audit with 13-entry table of high-frequency failures (LLM, CLI, SDK, PAT, MCP, RAG, CoT, SRE, ITSM, PaaS, MECE, PR, API) — addresses root cause of 19+ research review failures; audit is now self-contained and does not depend on the skills submodule being available
+- `research-prompt.md`: added Step 11 (Update `learnings.md`) between Complete and Create session log; Steps 11–12 renumbered to 12–13
+- `research-prompt.md` Step 12 (session log): added Mini-Retro format to session log template so automated research loop sessions produce retros
+- `.github/copilot-instructions.md` Completing Research: added `learnings.md` update as step 5; renumbered steps 5–6 to 6–7
 
 ### Changed
 - `research-prompt.md`: collapsed duplicated source-marking, output-quality, prior-work-check, and companion-skill-check rules to single-line deferrals to `research/SKILL.md §0`, `§2`, `§6`, and `§8`

@@ -211,8 +211,9 @@ The `## Research Skill Output` section is **retained verbatim** in the completed
    ```bash
    python -m src.main research complete <filename>
    ```
-5. Create `progress/YYYY-MM-DD-{slug}.md` — record findings summary and any outputs produced
-6. Commit with message: `research: complete - <short title>`
+5. Check `learnings.md` — if any key finding from this item adds signal to an existing cross-cutting thread, update that thread now. If the item establishes a genuinely new cross-cutting theme, add a new numbered thread entry.
+6. Create `progress/YYYY-MM-DD-{slug}.md` — record findings summary and any outputs produced
+7. Commit with message: `research: complete - <short title>`
 
 ### Output Types
 
@@ -501,6 +502,18 @@ Ask: **what class of problem is this?**
 | A note or file was out of date | → Mark it `superseded_by`, don't delete it |
 | The same friction appears in two retros | → It's a pattern. Prioritise fixing the root cause |
 | Missing skill | Add to backlog; do not synthesise a substitute |
+
+### Known Recurring Failure Patterns
+
+The following patterns have appeared **three or more times** across sessions. If you see one occurring again, treat it as a class problem — not a one-off — and fix it at the root.
+
+| Pattern | Impact | Root fix in place |
+|---|---|---|
+| Acronym not expanded on first use (LLM, CLI, SDK, PAT, MCP, RAG, etc.) | Every automated research review fails citation-discipline for this reason | Inline acronym audit added to `research-prompt.md` Step 6 |
+| Editing `.github/skills/` files directly | Submodule content is overwritten on every `sync-skills.yml` run; edits are silently lost | "Read-only submodule" rule added to Non-Negotiable Constraints |
+| `web search synthesis` used as a citation | Not a verifiable source; fails citation-discipline pre-output check | Explicitly prohibited in `research-prompt.md` Step 6 companion skill checks |
+
+When you identify a **new** recurring pattern (same friction in two or more sessions), add it to this table as part of the Mini-Retro for that session.
 
 ### Knowledge Graphing — Every Write Earns Its Place
 
