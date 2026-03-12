@@ -258,10 +258,6 @@ def register_subparser(subparsers: object) -> None:  # type: ignore[type-arg]
     complete_p = sub.add_parser("complete", help="Move an in-progress item to completed")
     complete_p.add_argument("filename", help="Filename of the research item to complete")
 
-    # draft
-    draft_p = sub.add_parser("draft", help="Mark an in-progress item as reviewing")
-    draft_p.add_argument("filename", help="Filename of the research item to mark for review")
-
 
 def dispatch(args: object) -> None:  # type: ignore[type-arg]
     """Dispatch parsed args to the appropriate research command."""
