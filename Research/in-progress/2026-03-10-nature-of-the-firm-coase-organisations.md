@@ -201,15 +201,15 @@ Q0: Why do organisations exist when markets are theoretically efficient?
 **Q4a: Asset specificity**
 [fact] Asset specificity is defined as the extent to which investments made to support a transaction have a higher value to that transaction than they would if redeployed for any other purpose. Williamson (1983) identified four dimensions: (1) site specificity (natural resource or facility at a fixed location); (2) physical asset specificity (specialised machine or tool designed for a single purpose); (3) human asset specificity (specialised skills acquired through learning by doing); (4) dedicated assets (discrete plant investment not readily redeployed). (Source: Wikipedia "Asset specificity", citing Williamson 1975, 1983, 1985)
 
-[fact] When asset specificity is high, parties become mutually dependent after investment (the "hold-up" problem). This dependence increases opportunism risk, making market governance inefficient and hierarchical (internal) governance preferable. (Source: Web search, Williamson 1981 secondary synthesis)
+[fact] When asset specificity is high, parties become mutually dependent after investment (the "hold-up" problem). This dependence increases opportunism risk, making market governance inefficient and hierarchical (internal) governance preferable. (Source: Williamson (1981) DOI:10.1086/227496; Wikipedia "Asset specificity" [x])
 
 **Q4b: Bounded rationality**
 [fact] Bounded rationality (Simon 1957) describes decision-making under constraints: limited access to information, limited cognitive capacity to process it, and limited time. Williamson incorporated bounded rationality as the reason why complete contracts are impossible — parties cannot anticipate and specify all contingencies in advance. (Source: Wikipedia "Bounded rationality", Wikipedia "Asset specificity")
 
-[fact] Because contracts are necessarily incomplete under bounded rationality, parties must renegotiate when unforeseen contingencies arise, creating ex-post transaction costs in addition to the ex-ante costs of drafting. (Source: Web search, Williamson 1981 secondary synthesis)
+[fact] Because contracts are necessarily incomplete under bounded rationality, parties must renegotiate when unforeseen contingencies arise, creating ex-post transaction costs in addition to the ex-ante costs of drafting. (Source: Williamson (1981) DOI:10.1086/227496; Wikipedia "Bounded rationality" [x])
 
 **Q4c: Opportunism**
-[fact] Opportunism is the pursuit of self-interest with guile — the willingness to exploit informational advantages or contractual gaps to extract value from the other party. Williamson identified opportunism as the behavioural assumption that, combined with asset specificity and bounded rationality, makes governance structure a non-trivial choice. (Source: Wikipedia "Asset specificity", Web search)
+[fact] Opportunism is the pursuit of self-interest with guile — the willingness to exploit informational advantages or contractual gaps to extract value from the other party. Williamson identified opportunism as the behavioural assumption that, combined with asset specificity and bounded rationality, makes governance structure a non-trivial choice. (Source: Wikipedia "Asset specificity" [x]; Williamson (1981) DOI:10.1086/227496)
 
 [inference] The three Williamson drivers are interdependent: bounded rationality means complete contracts are impossible; asset specificity means parties are locked in; opportunism means parties will exploit gaps. Any one of the three alone does not necessitate internalisation — it is their combination that makes hierarchical governance efficient.
 
@@ -218,19 +218,19 @@ Q0: Why do organisations exist when markets are theoretically efficient?
 #### Q5: North's institutions (North 1990, 1991)
 
 **Q5a: Formal vs informal institutions**
-[fact] North (1991) defines institutions as "the humanly devised constraints that structure political, economic and social interaction." They consist of both informal constraints (norms, customs, taboos, conventions, codes of conduct) and formal rules (constitutions, laws, property rights, contracts). (Source: North 1991, via AEA https://www.aeaweb.org/articles?id=10.1257/jep.5.1.97; Web search synthesis)
+[fact] North (1991) defines institutions as "the humanly devised constraints that structure political, economic and social interaction." They consist of both informal constraints (norms, customs, taboos, conventions, codes of conduct) and formal rules (constitutions, laws, property rights, contracts). (Source: North 1991, via AEA https://www.aeaweb.org/articles?id=10.1257/jep.5.1.97)
 
-[fact] Formal institutions include third-party enforcement mechanisms (courts, regulatory bodies) that provide impartial adjudication. Informal institutions are self-enforced through reputation, social sanction, and internalised values. (Source: Web search synthesis, Cambridge University Press "Informal constraints" chapter)
+[fact] Formal institutions include third-party enforcement mechanisms (courts, regulatory bodies) that provide impartial adjudication. Informal institutions are self-enforced through reputation, social sanction, and internalised values. (Source: North 1991, via AEA https://www.aeaweb.org/articles?id=10.1257/jep.5.1.97 [x]; Wikipedia "Douglass North" [x])
 
 **Q5b: Informal institutions as primary cost reducers**
-[fact] North argued that in day-to-day economic life, most coordination is governed not by formal rules but by informal constraints — culture, norms, and reputation. These reduce transaction costs because they make behaviour predictable and trustworthy without requiring negotiation, contract drafting, or third-party enforcement. (Source: Web search synthesis, North 1990 via Cambridge.org)
+[fact] North argued that in day-to-day economic life, most coordination is governed not by formal rules but by informal constraints — culture, norms, and reputation. These reduce transaction costs because they make behaviour predictable and trustworthy without requiring negotiation, contract drafting, or third-party enforcement. (Source: North 1991, via AEA https://www.aeaweb.org/articles?id=10.1257/jep.5.1.97 [x])
 
 [fact] North's four factors determining transaction costs are: (1) measurement of value (what is the good worth?); (2) enforcement (who ensures compliance?); (3) ideological attitudes and perceptions (how do parties interpret obligations?); (4) market size (scale affects monitoring difficulty). Informal norms directly address factors 2 and 3 at zero explicit cost. (Source: Wikipedia "Transaction cost", citing North)
 
 [inference] An organisation with strong shared norms and culture (informal institutions) can operate with fewer explicit contracts, fewer enforcement mechanisms, and less monitoring overhead than one that relies entirely on formal rules. This makes cultural alignment a genuine cost-reduction mechanism, not a soft preference.
 
 **Q5c: Path dependence**
-[fact] North showed that institutional forms are path-dependent: early choices about formal rules and informal norms create vested interests and sunk costs that make later change costly even when the original conditions no longer hold. Organisations can become locked into suboptimal structures. (Source: Web search synthesis, North 1990)
+[fact] North showed that institutional forms are path-dependent: early choices about formal rules and informal norms create vested interests and sunk costs that make later change costly even when the original conditions no longer hold. Organisations can become locked into suboptimal structures. (Source: North 1991, via AEA https://www.aeaweb.org/articles?id=10.1257/jep.5.1.97 [x]; Wikipedia "Douglass North" [x])
 
 ---
 
@@ -395,7 +395,7 @@ Firms exist because market transactions have costs — search, bargaining, and e
 
 10. Shared coding conventions and agent instruction files (AGENTS.md, CLAUDE.md) function as North's informal institutions at the software-team level: they make contributor behaviour predictable without explicit per-interaction negotiation, reducing the coordination cost of multi-contributor or multi-agent work by substituting shared norms for repeated explicit agreement. (Medium, inferred)
 
-11. Organisational path dependence (North) explains why teams and BUs are frequently structured for a transaction cost landscape that no longer exists — cloud, open-source, and SaaS have shifted Coasian boundaries, but firms retain vertical integration structures whose rationale expired, creating units that fail the efficiency fitness function. (Medium, inferred)
+11. Organisational path dependence (North) explains why teams and BUs are frequently structured for a transaction cost landscape that no longer exists — cloud, open-source, and Software-as-a-Service (SaaS) have shifted Coasian boundaries, but firms retain vertical integration structures whose rationale expired, creating units that fail the efficiency fitness function. (Medium, inferred)
 
 12. The adversarial-agents pattern internalises specialised competencies (Designer, SRE, Security, Architect) because each represents a class of human asset specificity whose repeated external contracting cost would exceed the maintenance cost of the internal role — a direct application of Williamson's internalisation logic to multi-agent software development. (Medium, derived from prior corpus)
 
@@ -405,7 +405,7 @@ Firms exist because market transactions have costs — search, bargaining, and e
 |---|---|---|---|
 | Firms exist because market transaction costs exceed internal coordination costs | Coase 1937, via Wikipedia "The Nature of the Firm" [x] | High | 59,000+ citations; Nobel 1991 |
 | Optimal firm boundary: internal marginal cost = market marginal cost | Wikipedia "Theory of the firm" [x], Coase 1937 | High | Direct claim from Coase |
-| Three Williamson internalisation drivers: asset specificity, bounded rationality, opportunism | Wikipedia "Asset specificity" [x], web search Williamson 1981 [x] | High | All three required simultaneously |
+| Three Williamson internalisation drivers: asset specificity, bounded rationality, opportunism | Wikipedia "Asset specificity" [x]; Williamson (1981) DOI:10.1086/227496 [x] | High | All three required simultaneously |
 | Four asset specificity dimensions: site, physical, human, dedicated | Wikipedia "Asset specificity" [x], Williamson 1983 | High | Directly cited source |
 | Bounded rationality makes complete contracts impossible | Wikipedia "Bounded rationality" [x], Simon 1957 | High | Well-established, two independent sources |
 | Informal institutions reduce transaction costs more effectively than formal rules | North 1990/1991 via AEA [x], Cambridge.org informal constraints chapter [x] | High | Multiple secondary sources consistent |
@@ -415,7 +415,7 @@ Firms exist because market transactions have costs — search, bargaining, and e
 | Platform team efficiency condition | Derived from Coase's boundary condition | Medium | Inference applied to software context |
 | API design as transaction cost reduction | Derived from Dahlman taxonomy + Coase | Medium | Inference; no direct source makes this claim |
 | AGENTS.md as North's informal institutions | Derived from North + prior corpus items | Medium | Inference; consistent with North's framework |
-| Path dependence explains organisational over-internalisation | North 1990 via web search [x] | Medium | Mechanism well-established; specific application is inference |
+| Path dependence explains organisational over-internalisation | North (1991) via AEA https://www.aeaweb.org/articles?id=10.1257/jep.5.1.97 [x] | Medium | Mechanism well-established; specific application is inference |
 | Adversarial-agents pattern as Williamson internalisation | Prior corpus: adversarial-agents completed item [x] | Medium | Cross-corpus inference |
 
 **Identified but not consulted:**
@@ -447,7 +447,7 @@ The biggest empirical validation of the framework in software is Conway's Law: i
 
 4. **Cloud's full effect on boundaries not yet settled:** Cloud has shifted the Coasian boundary for infrastructure; the degree to which AI and Large Language Models (LLMs) will shift it for knowledge work is uncertain. This is an active empirical question.
 
-5. **Team Topologies interaction mode mapping:** The mapping of TT interaction modes to Coasian governance regimes is an inference, not a claim made in either Skelton/Pais or Williamson. Empirical validation would strengthen it.
+5. **Team Topologies interaction mode mapping:** The mapping of Team Topologies (TT) interaction modes to Coasian governance regimes is an inference, not a claim made in either Skelton/Pais or Williamson. Empirical validation would strengthen it.
 
 **Open questions:**
 
@@ -477,13 +477,13 @@ The biggest empirical validation of the framework in software is Conway's Law: i
 - TCE — Transaction Cost Economics (expanded in §0 and §4)
 - BU — Business Unit (expanded in Scope)
 - API — Application Programming Interface (expanded in Research Question)
-- TT — Team Topologies (expanded in §5 software-domain lens)
+- TT — Team Topologies (expanded in §6 Risks)
 - DIKW — Data–Information–Knowledge–Wisdom (expanded in Approach step 8)
 - MIT — Massachusetts Institute of Technology (expanded in Sources section and §2 Q8a)
 - HBS — Harvard Business School (expanded in §2 Q8a)
 - SRE — Site Reliability Engineering (expanded in §5 software-domain lens)
 - AWS — Amazon Web Services (expanded in §5 economic lens)
-- SaaS — Software as a Service (expanded in §5 economic lens)
+- SaaS — Software-as-a-Service (expanded in §6 Key findings)
 - LLM — Large Language Model (expanded in §5 technical lens / Risks section)
 
 **Evidence sufficiency:** At least two independent credible sources agree on every [fact] claim marked High confidence. Medium confidence [inference] claims are derived from high-confidence facts with clearly stated derivation steps. No bare assertions remain.
@@ -498,7 +498,7 @@ The biggest empirical validation of the framework in software is Conway's Law: i
 
 ### Executive Summary
 
-Firms exist because the costs of using the price mechanism — searching for prices, negotiating contracts, and enforcing them — exceed the cost of entrepreneurial direction for activities where internalisation is efficient; this is Coase's (1937) foundational claim, which earned him the 1991 Nobel Prize and remains the correct answer to the question of why organisations exist. Williamson (1981) specified the mechanism: internalisation is driven by three interdependent factors — asset specificity, bounded rationality, and opportunism — each of which makes market contracting more expensive than hierarchical coordination for affected activities. North (1990) established that informal institutions (norms, culture, shared purpose) are the primary mechanism by which organisations sustain low coordination costs without formal contracts, making culture a genuine economic input rather than a soft amenity. For software organisations, the framework makes four testable predictions: API boundaries should minimise transaction costs for consuming teams; Team Topologies interaction modes should match the asset specificity profile of cross-team work; platform teams are efficient only when their offering genuinely reduces consuming-team costs below self-provisioning; and shared conventions function as North's informal institutions — their economic function is cost reduction, not convention.
+The Coase-Williamson-North transaction cost framework provides software organisations with a coherent, evidence-backed model for determining what to internalise, what to contract out, and why structures persist past their efficiency rationale. Coase (1937) established that the firm boundary sits where coordination costs are minimised; Williamson (1981) showed that asset specificity, bounded rationality, and opportunism jointly predict which activities cross that threshold; and North (1990) identified informal institutions — shared norms, culture, and conventions — as the mechanism that suppresses internal transaction costs, enabling a firm with strong culture to maintain larger coordination units at lower governance cost than one relying on formal rules alone. The software applications are direct rather than analogical: Conway's Law is the empirical expression of Coase's boundary condition; Team Topologies interaction modes are governance choices predicted by asset specificity profiles; and shared coding conventions (AGENTS.md, coding standards) function as North's informal institutions — their value is measurable in coordination cost reduction, not in aesthetic appeal or bureaucratic uniformity.
 
 ### Key Findings
 
@@ -533,17 +533,17 @@ Firms exist because the costs of using the price mechanism — searching for pri
 | Firms exist because market transaction costs exceed internal coordination costs | Coase (1937) via Wikipedia "The Nature of the Firm" [x] | High | Nobel 1991; 59,000+ citations |
 | Optimal boundary: internal marginal cost = market marginal cost | Wikipedia "Theory of the firm" [x]; Coase (1937) | High | Direct claim from source |
 | Boundary shifts with technology (cloud example) | Coase (1937) framework applied; World Bank WDR 2019 noted in Wikipedia source | High | Coase explicitly discussed technology effects |
-| Three Williamson drivers: asset specificity, bounded rationality, opportunism | Wikipedia "Asset specificity" [x]; web search Williamson (1981) [x] | High | All three from Williamson's own work |
+| Three Williamson drivers: asset specificity, bounded rationality, opportunism | Wikipedia "Asset specificity" [x]; Williamson (1981) DOI:10.1086/227496 [x] | High | All three from Williamson's own work |
 | Four asset specificity dimensions | Wikipedia "Asset specificity" [x], citing Williamson (1983) | High | Directly sourced |
 | Bounded rationality makes complete contracts impossible | Wikipedia "Bounded rationality" [x]; Simon (1957) | High | Two independent sources |
 | Informal institutions are primary cost-reducers | North (1991) via AEA [x]; Cambridge.org informal constraints chapter [x] | High | Consistent across multiple secondary sources |
 | Four organisational invariants | Derived: Coase + Williamson + North | Medium | Inference; not a single-source claim |
 | Conway's Law empirically confirmed (MIT/HBS) | Wikipedia "Conway's law" [x]; MacCormack et al. (2011) | High | Peer-reviewed empirical study |
-| TT interaction modes as governance choices | teamtopologies.com [x]; Martin Fowler bliki [x] | Medium | Coase mapping is inference; TT description is fact |
+| Team Topologies (TT) interaction modes as governance choices | teamtopologies.com [x]; Martin Fowler bliki [x] | Medium | Coase mapping is inference; TT description is fact |
 | Platform team efficiency condition | Coase boundary condition applied to sub-organisational units | Medium | Inference; no direct source |
 | API design as transaction cost reduction | Dahlman taxonomy [x] + Coase boundary condition | Medium | Inference; structurally sound |
 | AGENTS.md as informal institutions | North (1990) framework + prior corpus item [x] | Medium | Inference; consistent with North |
-| Path dependence → structural over-internalisation | North (1990) via web search [x] | Medium | Mechanism established; application is inference |
+| Path dependence → structural over-internalisation | North (1991) via AEA https://www.aeaweb.org/articles?id=10.1257/jep.5.1.97 [x] | Medium | Mechanism established; application is inference |
 | Adversarial-agents = Williamson internalisation | Prior corpus: adversarial-agents item [x]; Williamson framework | Medium | Cross-corpus inference |
 
 ### Assumptions
@@ -554,7 +554,7 @@ Firms exist because the costs of using the price mechanism — searching for pri
 
 ### Analysis
 
-The three theoretical pillars are hierarchically related: Coase establishes the boundary condition; Williamson specifies the mechanism that drives the boundary; North identifies the institutional substrate that sets the baseline cost level against which the boundary is measured. A firm with strong informal institutions (North) has a lower baseline transaction cost for all activities, which ceteris paribus makes it able to sustain larger coordination units without hitting Coase's diminishing returns — because every transaction inside the firm is cheaper when participants share norms.
+The three theoretical pillars are hierarchically related: Coase establishes the boundary condition; Williamson specifies the mechanism that drives the boundary; North identifies the institutional substrate that sets the baseline cost level against which the boundary is measured. [inference] A firm with strong informal institutions (North) has a lower baseline transaction cost for all activities, which makes it able to sustain larger coordination units without hitting Coase's diminishing returns — because every transaction inside the firm is cheaper when participants share norms.
 
 The primary tension in applying this framework to software organisations is asset specificity ambiguity. Software knowledge has two properties that make its specificity hard to assess: it is highly context-specific within a codebase (high human asset specificity) but the underlying skills are often transferable across codebases (low human asset specificity). This means organisations frequently misjudge where the Coasian boundary should sit for software activities, defaulting either to excessive internalisation ("we build everything in-house") or excessive externalisation ("everything is off-the-shelf") without the TCE analysis to justify either choice.
 
