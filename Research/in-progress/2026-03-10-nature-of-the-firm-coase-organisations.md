@@ -271,7 +271,7 @@ Q0: Why do organisations exist when markets are theoretically efficient?
 #### Q8: Implications for software organisations
 
 **Q8a: Conway's Law as Coase restated**
-[fact] Conway's Law (Melvin Conway, 1967): "organisations which design systems (in the broad sense used here) are constrained to produce designs which are copies of the communication structures of these organizations." MIT and Harvard Business School (HBS) researchers published empirical evidence supporting "the mirroring hypothesis" — products developed by loosely-coupled organisations are significantly more modular. (Source: Wikipedia "Conway's law", citing MacCormack et al. 2011)
+[fact] Conway's Law (Melvin Conway, 1967): "organisations which design systems (in the broad sense used here) are constrained to produce designs which are copies of the communication structures of these organizations." MIT and Harvard Business School (HBS) researchers published empirical evidence supporting "the mirroring hypothesis" — products developed by loosely-coupled organisations are significantly more modular. (Source: Wikipedia "Conway's law" [x], citing MacCormack et al. (2011) DOI:10.1287/mnsc.1110.1418)
 
 [inference] Conway's Law is the software instantiation of Coase's boundary condition: each API boundary is a transaction interface. When transaction costs between teams (coordination, synchronisation, dependency negotiation) are high, teams internalise functionality rather than contracting through an API. When a platform team reduces those costs sufficiently, stream-aligned teams can use the platform as a market service.
 
@@ -311,7 +311,7 @@ Q0: Why do organisations exist when markets are theoretically efficient?
 3. Williamson's TCE identifies three drivers of internalisation: asset specificity, bounded rationality, opportunism. Asset specificity has four dimensions: site, physical, human, dedicated. (Williamson 1975, 1983, 1985, via Wikipedia "Asset specificity")
 4. Bounded rationality (Simon 1957) means complete contracts are impossible, generating ex-post renegotiation costs. (Wikipedia "Bounded rationality")
 5. North (1990, 1991) defines institutions as the humanly devised constraints structuring interaction. Informal institutions (norms, culture) reduce transaction costs by making behaviour predictable without formal enforcement. (North 1991 via AEA; Cambridge.org)
-6. Conway's Law is empirically supported: MIT/HBS research found loosely-coupled organisations produce significantly more modular products. (Wikipedia "Conway's law", MacCormack et al. 2011)
+6. Conway's Law is empirically supported: MIT/HBS research found loosely-coupled organisations produce significantly more modular products. (Wikipedia "Conway's law" [x], MacCormack et al. (2011) DOI:10.1287/mnsc.1110.1418)
 7. Team Topologies defines three interaction modes — Collaboration, X-as-a-Service, Facilitating — each representing a different cost regime for cross-team transactions. (teamtopologies.com)
 
 **Inferences derived from facts:**
@@ -371,7 +371,7 @@ The adversarial-agents pattern (`2026-03-10-adversarial-agents-shared-goals-mult
 
 **Executive summary:**
 
-Firms exist because market transactions have costs — search, bargaining, and enforcement — and internal coordination is cheaper than market contracting for activities below the threshold where diminishing returns to management set in; this is Coase's (1937) foundational claim, which has accumulated over 59,000 scholarly citations and contributed to his 1991 Nobel Prize. Williamson (1981) formalised the mechanism: internalisation is driven by three interdependent factors — asset specificity (investments locked into one relationship), bounded rationality (complete contracts are impossible), and opportunism (parties exploit contractual gaps) — with each raising the transaction cost of market governance for affected activities. North (1990) extended the framework: institutions, particularly informal ones (norms, culture, shared purpose), are the primary mechanism by which organisations reduce coordination costs without formal contracts, making culture a genuine economic input, not a soft amenity. For software organisations, this framework produces four testable predictions: (1) API boundaries should minimise the sum of search, bargaining, and enforcement costs for consuming teams; (2) Team Topologies interaction modes (Collaboration, X-as-a-Service, Facilitating) are governance choices that should match the asset specificity and frequency of cross-team transactions; (3) platform teams are efficient only when their internal market reduces consuming-team coordination costs below self-provisioning costs; and (4) shared conventions (AGENTS.md, coding standards) are North's informal institutions — their economic function is transaction cost reduction, not aesthetic preference.
+Firms exist because market transactions have costs — search, bargaining, and enforcement — and internal coordination is cheaper than market contracting for activities below the threshold where diminishing returns to management set in; this is Coase's (1937) foundational claim, which has accumulated over 59,000 scholarly citations (Source: Wikipedia "The Nature of the Firm" [x]) and contributed to his 1991 Nobel Prize. Williamson (1981) formalised the mechanism: internalisation is driven by three interdependent factors — asset specificity (investments locked into one relationship), bounded rationality (complete contracts are impossible), and opportunism (parties exploit contractual gaps) — with each raising the transaction cost of market governance for affected activities. North (1990) extended the framework: institutions, particularly informal ones (norms, culture, shared purpose), are the primary mechanism by which organisations reduce coordination costs without formal contracts, making culture a genuine economic input, not a soft amenity. For software organisations, this framework produces four testable predictions: (1) API boundaries should minimise the sum of search, bargaining, and enforcement costs for consuming teams; (2) Team Topologies interaction modes (Collaboration, X-as-a-Service, Facilitating) are governance choices that should match the asset specificity and frequency of cross-team transactions; (3) platform teams are efficient only when their internal market reduces consuming-team coordination costs below self-provisioning costs; and (4) shared conventions (AGENTS.md, coding standards) are North's informal institutions — their economic function is transaction cost reduction, not aesthetic preference.
 
 **Key findings:**
 
@@ -403,14 +403,14 @@ Firms exist because market transactions have costs — search, bargaining, and e
 
 | Claim | Source | Confidence | Notes |
 |---|---|---|---|
-| Firms exist because market transaction costs exceed internal coordination costs | Coase 1937, via Wikipedia "The Nature of the Firm" [x] | High | 59,000+ citations; Nobel 1991 |
+| Firms exist because market transaction costs exceed internal coordination costs | Coase 1937, via Wikipedia "The Nature of the Firm" [x] | High | 59,000+ citations (Wikipedia); Nobel 1991 |
 | Optimal firm boundary: internal marginal cost = market marginal cost | Wikipedia "Theory of the firm" [x], Coase 1937 | High | Direct claim from Coase |
 | Three Williamson internalisation drivers: asset specificity, bounded rationality, opportunism | Wikipedia "Asset specificity" [x]; Williamson (1981) DOI:10.1086/227496 [x] | High | All three required simultaneously |
 | Four asset specificity dimensions: site, physical, human, dedicated | Wikipedia "Asset specificity" [x], Williamson 1983 | High | Directly cited source |
 | Bounded rationality makes complete contracts impossible | Wikipedia "Bounded rationality" [x], Simon 1957 | High | Well-established, two independent sources |
 | Informal institutions reduce transaction costs more effectively than formal rules | North 1990/1991 via AEA [x], Cambridge.org informal constraints chapter [x] | High | Multiple secondary sources consistent |
 | Four organisational invariants (claimancy, authority, information, shared purpose) | Derived from Coase + Williamson + North | Medium | Inference, not a direct source claim |
-| Conway's Law empirically supported by MIT/HBS research | Wikipedia "Conway's law" [x], MacCormack et al. 2011 | High | Peer-reviewed; "strong evidence" |
+| Conway's Law empirically supported by MIT/HBS research | Wikipedia "Conway's law" [x]; MacCormack et al. (2011) DOI:10.1287/mnsc.1110.1418 [x] | High | Peer-reviewed; "strong evidence" |
 | Team Topologies interaction modes as governance choices | teamtopologies.com [x], Martin Fowler bliki [x] | Medium | Coase mapping is an inference |
 | Platform team efficiency condition | Derived from Coase's boundary condition | Medium | Inference applied to software context |
 | API design as transaction cost reduction | Derived from Dahlman taxonomy + Coase | Medium | Inference; no direct source makes this claim |
@@ -435,7 +435,7 @@ The Coase–Williamson–North framework is internally consistent and mutually r
 
 The primary gap in applying this framework to software organisations is that software work involves non-standard asset specificity: unlike physical manufacturing, software knowledge is often highly human-specific (an engineer deeply familiar with a codebase has high human asset specificity to that project) but also potentially low-specific (commodity programming skills). This ambiguity means the Coasian boundary in software organisations is fuzzier than in manufacturing, and the optimal boundary is more sensitive to learning curves and knowledge-transfer costs than to physical asset lock-in.
 
-The biggest empirical validation of the framework in software is Conway's Law: if teams structure their systems around their communication structure rather than an optimal architecture, this is precisely the behaviour Coase predicts — teams minimise their internal transaction costs (coordination effort) even at the cost of a sub-optimal system structure. Team Topologies is a prescriptive response: choose your desired system architecture first, then structure your teams to match it (the "inverse Conway manoeuvre"), deliberately using Conway's Law rather than being used by it.
+[inference] The most prominent empirical validation of the Coasian boundary condition in software is Conway's Law: if teams structure their systems around their communication structure rather than an optimal architecture, this is precisely the behaviour Coase predicts — teams minimise their internal transaction costs (coordination effort) even at the cost of a sub-optimal system structure. Team Topologies is a prescriptive response: choose your desired system architecture first, then structure your teams to match it (the "inverse Conway manoeuvre"), deliberately using Conway's Law rather than being used by it.
 
 **Risks, gaps, uncertainties:**
 
@@ -502,7 +502,7 @@ The Coase-Williamson-North transaction cost framework provides software organisa
 
 ### Key Findings
 
-1. Firms exist because market transactions have costs — searching for prices, negotiating contracts, and enforcing compliance — and internal coordination is cheaper for activities where the entrepreneur's direction replaces per-transaction contracting; this is Coase's (1937) boundary condition, supported by over 59,000 scholarly citations and a Nobel Prize. (High)
+1. Firms exist because market transactions have costs — searching for prices, negotiating contracts, and enforcing compliance — and internal coordination is cheaper for activities where the entrepreneur's direction replaces per-transaction contracting; this is Coase's (1937) boundary condition, supported by over 59,000 scholarly citations (Wikipedia "The Nature of the Firm" [x]) and a Nobel Prize. (High)
 
 2. Coase's optimal firm boundary is dynamic: it sits where the marginal cost of internalising one more transaction equals the marginal market contracting cost, and shifts whenever technology changes either side — cloud computing has materially shifted it outward for infrastructure activities by reducing asset specificity. (High)
 
@@ -530,7 +530,7 @@ The Coase-Williamson-North transaction cost framework provides software organisa
 
 | Claim | Source | Confidence | Notes |
 |---|---|---|---|
-| Firms exist because market transaction costs exceed internal coordination costs | Coase (1937) via Wikipedia "The Nature of the Firm" [x] | High | Nobel 1991; 59,000+ citations |
+| Firms exist because market transaction costs exceed internal coordination costs | Coase (1937) via Wikipedia "The Nature of the Firm" [x] | High | Nobel 1991; 59,000+ citations (Wikipedia) |
 | Optimal boundary: internal marginal cost = market marginal cost | Wikipedia "Theory of the firm" [x]; Coase (1937) | High | Direct claim from source |
 | Boundary shifts with technology (cloud example) | Coase (1937) framework applied; World Bank WDR 2019 noted in Wikipedia source | High | Coase explicitly discussed technology effects |
 | Three Williamson drivers: asset specificity, bounded rationality, opportunism | Wikipedia "Asset specificity" [x]; Williamson (1981) DOI:10.1086/227496 [x] | High | All three from Williamson's own work |
@@ -538,7 +538,7 @@ The Coase-Williamson-North transaction cost framework provides software organisa
 | Bounded rationality makes complete contracts impossible | Wikipedia "Bounded rationality" [x]; Simon (1957) | High | Two independent sources |
 | Informal institutions are primary cost-reducers | North (1991) via AEA [x]; Cambridge.org informal constraints chapter [x] | High | Consistent across multiple secondary sources |
 | Four organisational invariants | Derived: Coase + Williamson + North | Medium | Inference; not a single-source claim |
-| Conway's Law empirically confirmed (MIT/HBS) | Wikipedia "Conway's law" [x]; MacCormack et al. (2011) | High | Peer-reviewed empirical study |
+| Conway's Law empirically confirmed (MIT/HBS) | Wikipedia "Conway's law" [x]; MacCormack et al. (2011) DOI:10.1287/mnsc.1110.1418 [x] | High | Peer-reviewed empirical study |
 | Team Topologies (TT) interaction modes as governance choices | teamtopologies.com [x]; Martin Fowler bliki [x] | Medium | Coase mapping is inference; TT description is fact |
 | Platform team efficiency condition | Coase boundary condition applied to sub-organisational units | Medium | Inference; no direct source |
 | API design as transaction cost reduction | Dahlman taxonomy [x] + Coase boundary condition | Medium | Inference; structurally sound |
@@ -558,7 +558,7 @@ The three theoretical pillars are hierarchically related: Coase establishes the 
 
 The primary tension in applying this framework to software organisations is asset specificity ambiguity. Software knowledge has two properties that make its specificity hard to assess: it is highly context-specific within a codebase (high human asset specificity) but the underlying skills are often transferable across codebases (low human asset specificity). [inference] This means organisations frequently misjudge where the Coasian boundary should sit for software activities, defaulting either to excessive internalisation ("we build everything in-house") or excessive externalisation ("everything is off-the-shelf") without the TCE analysis to justify either choice.
 
-Conway's Law and Team Topologies together constitute the software industry's empirical validation and prescriptive response to Coase. Team Topologies adds: choose your desired system architecture, then engineer your team structure to make that architecture's coordination costs the lowest available option. This is Coase applied deliberately.
+[inference] Conway's Law and Team Topologies together constitute the software industry's empirical validation and prescriptive response to Coase. Team Topologies adds: choose your desired system architecture, then engineer your team structure to make that architecture's coordination costs the lowest available option. This is Coase applied deliberately.
 
 ### Risks, Gaps, and Uncertainties
 
