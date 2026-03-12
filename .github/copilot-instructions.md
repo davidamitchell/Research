@@ -2,6 +2,13 @@
 
 For AI coding agents working on this repository.
 
+> **Quick Reference — most frequently missed rules:**
+> 1. Every session ends with a Mini-Retro in `progress/YYYY-MM-DD-{slug}.md` — not optional.
+> 2. Expand ALL acronyms on first use in research items: `Full Name (ABBR)`. This is the #1 cause of review failures.
+> 3. Never edit `.github/skills/` — it is a read-only submodule. All skill changes go to `davidamitchell/Skills`.
+> 4. Never assume credentials or capabilities exist — STOP and ask if not listed in the credentials table.
+> 5. When something goes wrong twice: name the class, fix the root cause, update the Known Recurring Patterns table.
+
 ---
 
 ## Project Overview
@@ -166,7 +173,7 @@ Once the item is in `Research/in-progress/`, run the **`research` skill** in ful
 
 **Invoke the research skill:**
 - **GitHub Copilot Agent:** Open `.github/skills/research/SKILL.md` and follow its process step by step as the agent
-- **Fallback (submodule not initialised):** Follow the equivalent steps in `research-prompt.md` §4, which mirrors the skill in full
+- **Fallback (submodule not initialised):** Follow Steps 3–7 of `research-prompt.md`, which mirrors the skill process in full
 
 **Write the full skill output into `## Research Skill Output` as you work through each section:**
 - **§0** — restate the question, confirm scope and constraints
@@ -207,7 +214,7 @@ The `## Research Skill Output` section is **retained verbatim** in the completed
    gh workflow run research-review.yml --field item_path=Research/in-progress/<filename>
    ```
 3. If the review fails (a GitHub issue labelled `research-review` is opened), address the violations and loop back to Conducting Research, then re-run `research draft`.
-4. Once the review passes, run the CLI command to move the item to completed:
+4. Once the review passes, close the review issue if one was opened, then move the item to completed:
    ```bash
    python -m src.main research complete <filename>
    ```
@@ -389,7 +396,7 @@ When executing the `research` skill or conducting a research item end-to-end:
 **How the loop works:**
 - Each run processes one or more backlog items.
 - Each item gets a **fresh Copilot session** (new context window) — matching the Ralph Wiggum pattern.
-- Copilot reads `research-prompt.md`, picks the highest-priority backlog item, researches it, fills in the Findings section, and commits the completed item + a new `progress/` session log directly to `main`.
+- Copilot reads `research-prompt.md`, picks the highest-priority backlog item, researches it, marks it as a draft, triggers the quality review workflow (and waits for it), then completes the item and commits it + a new `progress/` session log directly to `main`.
 - The outer `while` loop restarts Copilot for the next item until `max_items` is reached or the backlog is empty.
 
 **Automatic schedule:** Runs weekdays at 07:00 UTC, processes 3 items per day.
@@ -512,6 +519,7 @@ The following patterns have appeared **three or more times** across sessions. If
 | Acronym not expanded on first use (LLM, CLI, SDK, PAT, MCP, RAG, etc.) | Every automated research review fails citation-discipline for this reason | Inline acronym audit added to `research-prompt.md` Step 6 |
 | Editing `.github/skills/` files directly | Submodule content is overwritten on every `sync-skills.yml` run; edits are silently lost | "Read-only submodule" rule added to Non-Negotiable Constraints |
 | `web search synthesis` used as a citation | Not a verifiable source; fails citation-discipline pre-output check | Explicitly prohibited in `research-prompt.md` Step 6 companion skill checks |
+| Surface evaluation (self-inspection only, no external benchmarking) | Misses factual errors, architectural flaws, and gaps that are only visible when compared to published best practices or observable system behaviour | Evaluation protocol: always (1) search external best practices, (2) audit facts against actual files, (3) use open issues as evidence |
 
 When you identify a **new** recurring pattern (same friction in two or more sessions), add it to this table as part of the Mini-Retro for that session.
 
@@ -532,6 +540,11 @@ You are **not** permitted to delete history or introduce new structure without d
 ```
 Do the work → Run the retro (what class of problem appeared?) → Fix or raise the root cause → Next session starts with a slightly better system
 ```
+
+**When evaluating the system itself**, follow this protocol — do not self-inspect only:
+1. Search for published best practices on the relevant topic (agent instructions, workflow design, etc.)
+2. Audit factual claims in the instructions against the actual file contents and workflow behavior
+3. Use open GitHub issues and repository state as evidence of what is not working in practice
 
 ### What "Done" Means
 

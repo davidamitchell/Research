@@ -126,26 +126,41 @@ If any check surfaces a problem, fix it before proceeding.
 ### 8. Mark as draft and trigger review
 
 ```bash
+SLUG=$(basename <filename> .md)
 python -m src.main research draft <filename>
 git add Research/in-progress/<filename>
-git commit -m "research: draft - <filename>"
+git commit -m "research: draft - ${SLUG}"
 git push origin main
 ```
 
 This updates the item's `status` to `reviewing` in place (no file move). The file remains in `Research/in-progress/`.
 
-Then trigger the review workflow:
+Then trigger the review workflow and **wait for it to complete**:
 
 ```bash
 gh workflow run research-review.yml -f item_path=Research/in-progress/<filename>
+# Allow ~20 s for the run to register before querying its ID
+sleep 20
+RUN_ID=$(gh run list --workflow=research-review.yml --branch=main --limit=1 --json databaseId --jq '.[0].databaseId')
+gh run watch "$RUN_ID" --exit-status || true
 ```
 
 ### 9. Handle review outcome
 
-Check the GitHub issue labelled `research-review` created by the review workflow:
+Check for an open GitHub issue labelled `research-review` for this item (`SLUG` set in Step 8):
 
-- **If `OVERALL: FAIL`:** read the violations from the issue body, fix them in the item file, then loop back to Step 8.
-- **If `OVERALL: PASS`:** proceed to Step 10.
+```bash
+OPEN_ISSUE=$(gh issue list --label research-review --state open --search "$SLUG" \
+  --json number --jq '.[0].number // empty')
+```
+
+- **If `OPEN_ISSUE` is non-empty (OVERALL: FAIL):** read the violations listed in the issue body, fix them in the item file, then loop back to Step 8.
+- **If `OPEN_ISSUE` is empty (OVERALL: PASS):** close any previously opened issue for this item and proceed to Step 10:
+  ```bash
+  STALE=$(gh issue list --label research-review --state open --search "$SLUG" \
+    --json number --jq '.[0].number // empty')
+  [ -n "$STALE" ] && gh issue close "$STALE" --comment "All violations resolved. OVERALL: PASS."
+  ```
 
 ### 10. Complete the item
 

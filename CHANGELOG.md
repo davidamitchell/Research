@@ -11,6 +11,16 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - `research draft` CLI command (`python -m src.main research draft <filename>`) — updates `status` to `reviewing` in-place; does not move the file
 - ADR-0007: Reviewing state and workflow_dispatch trigger for research review
 - **Known Recurring Failure Patterns** table in `.github/copilot-instructions.md` Continuous Improvement section — persistent registry of patterns observed 3+ times with root fix documented; future sessions add new rows during Mini-Retro
+- **Quick Reference block** at top of `.github/copilot-instructions.md` — 5-item summary of most-missed rules, visible before Project Overview; addresses "lost in the middle" effect for large instruction files
+- **Evaluation protocol** in `.github/copilot-instructions.md` Improvement Flywheel section — mandates external benchmarking (not self-inspection) when evaluating the system
+
+### Fixed
+- `Research/_template.md`: `reviewing` added to status comment (`backlog | in-progress | reviewing | completed`); previously missing despite being a valid status since PR #104
+- `research-prompt.md` Step 8: commit message format corrected from `<filename>` to `${SLUG}` variable, matching Step 13 convention
+- `research-prompt.md` Steps 8–9: review workflow is now a genuine blocking gate — added `gh run list` + `gh run watch` to wait for completion; Step 9 now uses `gh issue list` for programmatic outcome detection; added `gh issue close` when review passes
+- `.github/copilot-instructions.md` line 176: stale section reference corrected from "research-prompt.md §4" to "Steps 3–7 of research-prompt.md"
+- `.github/copilot-instructions.md` line 399: research loop description corrected from "commits the completed item" to accurately describe draft → review → complete sequence
+- `.github/copilot-instructions.md` Completing Research step 4: added "close the review issue" before completing the item
 
 ### Changed
 - `research-review.yml`: removed `push` trigger on `Research/completed/**`; review is now triggered exclusively via `workflow_dispatch` with `item_path` input; `item_path` description updated to accept `Research/in-progress/` paths
@@ -19,9 +29,10 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - `Research/in-progress/README.md`: documents `reviewing` status and that files stay here during review
 - `Research/README.md`: updated lifecycle section to show four-state flow and the new `research draft` command
 - `research-prompt.md` Step 6: added inline acronym expansion audit with 13-entry table of high-frequency failures (LLM, CLI, SDK, PAT, MCP, RAG, CoT, SRE, ITSM, PaaS, MECE, PR, API) — addresses root cause of 19+ research review failures; audit is now self-contained and does not depend on the skills submodule being available
-- `research-prompt.md`: added Step 11 (Update `learnings.md`) between Complete and Create session log; Steps 11–12 renumbered to 12–13
+- `research-prompt.md`: added Step 11 (Update `learnings.md`) between Complete and Create session log; Steps 11-12 renumbered to 12-13
 - `research-prompt.md` Step 12 (session log): added Mini-Retro format to session log template so automated research loop sessions produce retros
-- `.github/copilot-instructions.md` Completing Research: added `learnings.md` update as step 5; renumbered steps 5–6 to 6–7
+- `.github/copilot-instructions.md` Completing Research: added `learnings.md` update as step 5; renumbered steps 5-6 to 6-7
+- `.github/copilot-instructions.md` Known Recurring Patterns: added "surface evaluation" pattern entry
 
 ### Changed
 - `research-prompt.md`: collapsed duplicated source-marking, output-quality, prior-work-check, and companion-skill-check rules to single-line deferrals to `research/SKILL.md §0`, `§2`, `§6`, and `§8`
