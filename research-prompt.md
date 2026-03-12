@@ -86,6 +86,32 @@ With `## Research Skill Output` complete, copy the §6 Synthesis content into `#
 
 Apply all three companion skill pre-output checks defined in `.github/skills/research/SKILL.md §8 Output Finalisation`. All three must pass before proceeding. Fix any violations in the item before moving on.
 
+**Critical: acronym expansion audit (run inline — do not defer to the skill file).**
+This is the most common citation-discipline failure. 19+ research reviews have failed for this reason alone. Run it now, before Step 7:
+
+1. List every acronym, initialism, and abbreviation used in `## Research Skill Output` and `## Findings`.
+2. For **each one**, confirm it is expanded on its **first use in the entire document** — not just in each section.
+3. Format: `Full Name (ABBR)` at first use; `ABBR` alone thereafter.
+4. These abbreviations have failed review most often — check each one explicitly:
+
+| Abbreviation | Required expansion on first use |
+|---|---|
+| LLM | Large Language Model (LLM) |
+| API | Application Programming Interface (API) |
+| CLI | Command Line Interface (CLI) |
+| SDK | Software Development Kit (SDK) |
+| PAT | Personal Access Token (PAT) |
+| MCP | Model Context Protocol (MCP) |
+| RAG | Retrieval-Augmented Generation (RAG) |
+| CoT | chain-of-thought (CoT) |
+| SRE | Site Reliability Engineering (SRE) |
+| ITSM | IT Service Management (ITSM) |
+| PaaS | Platform as a Service (PaaS) |
+| MECE | Mutually Exclusive, Collectively Exhaustive (MECE) |
+| PR | pull request (PR) |
+
+Also expand any domain-specific abbreviation introduced in this item's topic area. Fix every violation before moving on.
+
 ### 7. Sense check
 
 Re-read the completed item as a critical reader, not as its author. Apply all four checks:
@@ -100,26 +126,41 @@ If any check surfaces a problem, fix it before proceeding.
 ### 8. Mark as draft and trigger review
 
 ```bash
+SLUG=$(basename <filename> .md)
 python -m src.main research draft <filename>
 git add Research/in-progress/<filename>
-git commit -m "research: draft - <filename>"
+git commit -m "research: draft - ${SLUG}"
 git push origin main
 ```
 
 This updates the item's `status` to `reviewing` in place (no file move). The file remains in `Research/in-progress/`.
 
-Then trigger the review workflow:
+Then trigger the review workflow and **wait for it to complete**:
 
 ```bash
 gh workflow run research-review.yml -f item_path=Research/in-progress/<filename>
+# Allow ~20 s for the run to register before querying its ID
+sleep 20
+RUN_ID=$(gh run list --workflow=research-review.yml --branch=main --limit=1 --json databaseId --jq '.[0].databaseId')
+gh run watch "$RUN_ID" --exit-status || true
 ```
 
 ### 9. Handle review outcome
 
-Check the GitHub issue labelled `research-review` created by the review workflow:
+Check for an open GitHub issue labelled `research-review` for this item (`SLUG` set in Step 8):
 
-- **If `OVERALL: FAIL`:** read the violations from the issue body, fix them in the item file, then loop back to Step 8.
-- **If `OVERALL: PASS`:** proceed to Step 10.
+```bash
+OPEN_ISSUE=$(gh issue list --label research-review --state open --search "$SLUG" \
+  --json number --jq '.[0].number // empty')
+```
+
+- **If `OPEN_ISSUE` is non-empty (OVERALL: FAIL):** read the violations listed in the issue body, fix them in the item file, then loop back to Step 8.
+- **If `OPEN_ISSUE` is empty (OVERALL: PASS):** close any previously opened issue for this item and proceed to Step 10:
+  ```bash
+  STALE=$(gh issue list --label research-review --state open --search "$SLUG" \
+    --json number --jq '.[0].number // empty')
+  [ -n "$STALE" ] && gh issue close "$STALE" --comment "All violations resolved. OVERALL: PASS."
+  ```
 
 ### 10. Complete the item
 
@@ -129,7 +170,17 @@ python -m src.main research complete <filename>
 
 This moves the file to `Research/completed/<filename>` and updates `status` and `completed` fields.
 
-### 11. Create session log
+### 11. Update learnings.md
+
+Read `learnings.md`. Check whether any finding from this item adds signal to an existing cross-cutting thread:
+
+- If a finding **strengthens, extends, or contradicts** an existing thread → update that thread's **The learning** claim and add the item to its **Evidence** list.
+- If the item establishes a **genuinely new cross-cutting theme** → add a new numbered thread entry.
+- If no findings are cross-cutting → skip this step (no update needed).
+
+Do not add findings that are already captured or that apply only to this item. `learnings.md` is a synthesis layer across items, not a per-item summary.
+
+### 12. Create session log
 
 Create a new file `progress/YYYY-MM-DD-{slug}.md` where `{slug}` is the short-title portion of the research item filename (e.g. `slack-msteams-research-integration` from `2026-03-02-slack-msteams-research-integration.md`) with this content:
 
@@ -145,9 +196,16 @@ Sources consulted:
 - <url 1> (<description>)
 - <url 2> (<description>)
 - <url 3> (<description>)
+
+## Mini-Retro
+
+1. **Did the process work?** <answer>
+2. **What slowed down or went wrong?** <answer>
+3. **What single change would prevent this next time?** <answer — if nothing, say so>
+4. **Is this a pattern?** <answer — if yes, note whether it matches a known pattern in the instructions or warrants adding a new one>
 ```
 
-### 12. Commit to main
+### 13. Commit to main
 
 ```bash
 git add .

@@ -1,7 +1,7 @@
 ---
 title: "TITLE"
 added: YYYY-MM-DD
-status: backlog  # backlog | in-progress | completed
+status: backlog  # backlog | in-progress | reviewing | completed
 priority: medium  # low | medium | high
 blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
 tags: []  # e.g. [youtube, transcripts, tooling]
