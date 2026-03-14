@@ -545,6 +545,36 @@ Standardisation pass to remove AGENTS.md/.claude/ and align with all other repos
 
 ---
 
+## W-0035
+
+status: open
+created: 2026-03-14
+updated: 2026-03-14
+
+### Outcome
+
+- Root cause of skills submodule/sync inconsistency confirmed with evidence (commit hash or log excerpt).
+- `research-loop.yml` and `research-review.yml` each produce at least one successful end-to-end run after the fix.
+- `create-skills-pr.yml` failures resolved or explicitly deferred with written rationale.
+- A `git stash` guard added before `git pull --rebase` in `research-loop.yml`.
+
+### Context
+
+Raised as [issue #134](https://github.com/davidamitchell/Research/issues/134). Three workflows have contradictory assumptions about `.github/skills`:
+
+- `sync-skills.yml` — treats `.github/skills` as a plain tracked directory (clone upstream Skills repo, copy `SKILL.md` files in, commit).
+- `research-review.yml` — runs `git submodule update --init .github/skills` (expects a git submodule / gitlink).
+- `research-loop.yml` — checks out with `submodules: false` and runs bare `git pull --rebase origin main` each iteration.
+
+**Observed failures:**
+- Research Loop `git pull --rebase` crashing with `unstaged changes` — confirmed in run `23071272774` (2026-03-13).
+- Research Review consistently failing since ≥ 2026-03-10.
+- `create-skills-pr.yml` failing on every push to main since ≥ 2026-03-11.
+
+**Per ADR-0002**, the intent is for `.github/skills` to be a git submodule. Investigation must confirm current `.gitmodules` state, identify the introducing commit (regression window: last-good loop run 2026-03-10 → first-failing 2026-03-11), inventory any local-only skills, then choose and implement Option A (restore submodule) or Option B (commit to directory).
+
+---
+
 ## W-0034
 
 status: open
