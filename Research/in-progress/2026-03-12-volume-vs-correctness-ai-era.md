@@ -80,7 +80,7 @@ Additional context: https://github.com/davidamitchell/Latest-developments-/blob/
 
 ## Approach
 
-1. Locate the HBS / P&G field experiment (2025) and assess: publication status, sample size
+1. Locate the Harvard Business School (HBS) / P&G field experiment (2025) and assess: publication status, sample size
    validity, task design, how "top 10% quality" was operationalised, and whether the 3x claim
    is robust
 2. Examine the claim that AI breaks functional silos: what mechanism does the study propose?
@@ -144,7 +144,7 @@ Root: Is correctness now the primary scarce resource in AI-augmented knowledge w
 │   └── A2. Does increased volume translate to increased organisational throughput?
 │
 ├── B. Does the quality (correctness) of AI output require human verification?
-│   ├── B1. What does the P&G/HBS field experiment show about AI and output quality?
+│   ├── B1. What does the P&G/Harvard Business School (HBS) field experiment show about AI and output quality?
 │   │   ├── B1a. Is the "3x more likely in top 10%" claim methodologically valid?
 │   │   └── B1b. Does AI break functional silos? What is the mechanism?
 │   ├── B2. What is the "verification bottleneck"? Does it operate at human speed?
@@ -173,7 +173,7 @@ Root: Is correctness now the primary scarce resource in AI-augmented knowledge w
 
 The Faros AI 2025 "AI Productivity Paradox" study tracked over 10,000 developers across 1,255 teams using telemetry from source control, task trackers, and Continuous Integration / Continuous Delivery (CI/CD) pipelines. Teams with high AI adoption completed 21% more tasks and merged 98% more pull requests (PRs) compared to low-adoption teams. Developers on AI-heavy teams touched 9% more tasks and 47% more PRs per day. **[fact — source: Faros AI, faros.ai/blog/ai-software-engineering, 2025]**
 
-The Uplevel study of approximately 800 developers showed a 41% increase in bugs within PRs for GitHub Copilot users. GitClear analysed 211 million changed lines of code from 2020–2024 and found AI-generated code had 41% higher churn (revised within two weeks) and an eightfold increase in duplicated code blocks. **[fact — source: paddo.dev citing Uplevel and GitClear, 2025]**
+The Uplevel study of approximately 800 developers showed a 41% increase in bugs within PRs for GitHub Copilot users. GitClear analysed 211 million changed lines of code from 2020–2024 and found AI-generated code had 41% higher churn (revised within two weeks) and an eightfold increase in duplicated code blocks. **[inference — sourced via paddo.dev (secondary blog) citing Uplevel and GitClear 2025; primary reports not directly accessed]**
 
 **A2. Does increased volume translate to increased organisational throughput?** [secondary: DORA 2025]
 
@@ -243,7 +243,7 @@ No direct empirical study of AI impact on strategic-decision correctness was fou
 
 **C3. Content: accuracy, completeness** [secondary: Microsoft New Future of Work Report 2025]
 
-The Microsoft New Future of Work Report 2025 (Niederhoffer et al., 2025) found that 40% of workers report receiving "workslop" in the past month — AI-generated content that "looks good but lacks substance." Estimated at 15% of total content volume. The report identifies "information utility, information quality, and style quality" as three distinct dimensions of content correctness; accuracy checks (MAD-Fact framework) would need to be combined with utility and style assessments. **[fact — source: Microsoft New Future of Work Report 2025]**
+The Microsoft New Future of Work Report 2025 (Niederhoffer et al., 2025) found that 40% of workers report receiving "workslop" in the past month — AI-generated content that "looks good but lacks substance." Estimated at 15% of total content volume. The report identifies "information utility, information quality, and style quality" as three distinct dimensions of content correctness; accuracy checks (Multi-Agent Debate for Factuality (MAD-Fact) framework, Ning et al., 2025) would need to be combined with utility and style assessments. **[fact — source: Microsoft New Future of Work Report 2025]**
 
 **Cross-domain synthesis for C:** No single universal metric for "correctness" exists across domains. **[fact — conclusion from search; gap noted]** Per domain, proxies are: bug rate and code churn (code), quality-judge ratings (innovation/strategy), and accuracy + utility + style (content). The absence of a cross-domain correctness index is itself a finding — organisations lack standard tooling to measure what is now the primary constraint. **[inference — derived from evidence review]**
 
@@ -290,7 +290,7 @@ No AI tool has yet automated high-quality verification of judgment-intensive out
 
 1. The 3x top-10% quality claim is specific: it is a relative probability of reaching the top decile, not a claim about average quality improvement. The pre-registered RCT design and expert judging give it high credibility within its domain (P&G consumer goods innovation). It cannot be assumed to generalise to all knowledge work without qualification.
 
-2. The Faros AI "AI Productivity Paradox" (individual output up, organisational metrics flat) is the strongest industry-level signal that volume and correctness have decoupled. The study covers code, but the mechanism (verification bottleneck, review queue as the constraint) generalises to any domain where output requires expert review before deployment.
+2. The Faros AI "AI Productivity Paradox" (individual output up, organisational metrics flat) is a strong industry-level signal that volume and correctness have decoupled. [inference] The study covers code, but the mechanism (verification bottleneck, review queue as the constraint) generalises to any domain where output requires expert review before deployment.
 
 3. The workslop phenomenon and the METR RCT finding together confirm that the volume-correctness gap is real and experienced across domains (general workplace content, complex software tasks). These are independent evidence streams that converge on the same conclusion.
 
@@ -442,17 +442,17 @@ Competing interpretation: one might argue that the flat organisational metrics r
 
 ### Executive Summary
 
-The evidence strongly supports the thesis that correctness, not volume, is now the primary scarce resource in AI-augmented knowledge work. AI has made generating output cheap at the individual level — Faros AI's 2025 telemetry study of 10,000+ developers shows individual task completion up 21% and pull request (PR) merges up 98% — but this has not translated into improved organisational delivery; DORA metrics remain flat or deteriorate. The Dell'Acqua et al. (2025) pre-registered randomised controlled trial (RCT) at Procter & Gamble (P&G) established that Artificial Intelligence (AI)-assisted teams were approximately three times more likely to produce top-10% quality outputs — but only inside a structured environment with training, guided prompting, and expert judging, demonstrating that the quality improvement is conditional on human judgment being structurally embedded, not an automatic outcome of AI access. Wes McKinney's "agentic tarpit" and the industry "workslop" phenomenon independently confirm that AI generates volume at machine speed while verification remains constrained by human attention, which does not scale with compute. The practices that increase correctness — small batches, explicit taste standards, domain expertise as a verification requirement — are not new, but are now the decisive differentiator between teams that capture AI's potential and teams that generate AI-amplified noise.
+Correctness — whether output is production-ready, strategically coherent, or factually accurate — has become the primary constraint in AI-augmented knowledge work; volume generation is no longer the limiting factor. Faros AI's 2025 telemetry study of 10,000+ developers recorded individual task completion up 21% and PR merges up 98%, yet organisational delivery metrics remained flat — the "AI Productivity Paradox." The Dell'Acqua et al. (2025) pre-registered RCT at P&G explains why: AI-assisted teams were approximately three times more likely to produce top-10% quality outputs, but only when human judgment was structurally embedded through training, guided prompting, and expert evaluation; without that structure, AI generates volume at machine speed while verification remains bottlenecked by human attention. Wes McKinney named this the "agentic tarpit" — parallel AI sessions produce contradictory, bloated outputs faster than human judgment can triage them — and industry researchers documented its organisational expression as "workslop": AI-generated content that looks professional but lacks substance, received by approximately 40% of workers in the past month. Increasing correctness requires the same disciplined practices that always mattered — small batches, explicit quality standards, domain expertise — which have moved from good hygiene to decisive competitive advantage.
 
 ### Key Findings
 
-1. **Volume up, delivery flat:** AI coding assistants increased individual task completion by 21% and PR merges by 98% across 10,000+ developers in the Faros AI 2025 telemetry study, yet organisational delivery metrics — throughput, stability, change failure rate — remained flat, confirming that volume and correctness have decoupled at scale. [high confidence]
+1. **Volume up, delivery flat:** AI coding assistants increased individual task completion by 21% and PR merges by 98% across 10,000+ developers in the Faros AI 2025 telemetry study, yet organisational delivery metrics — throughput, stability, change failure rate — remained flat. [high confidence]
 
 2. **3x top-decile quality with structured AI use:** In the Dell'Acqua et al. (2025) pre-registered RCT at P&G, teams using AI were 9.2 percentage points more likely to produce solutions rated in the top decile by expert judges, compared to a control mean of 5.8%, corresponding to approximately three times more chances of reaching top-decile quality. [high confidence]
 
-3. **AI substitutes for average collaboration, not peak collaboration:** AI-enabled individuals in the P&G RCT matched the average quality of two-person human teams working without AI, but the highest quality outputs still came from human teams augmented by AI, confirming that AI substitutes for average peer benefits while leaving peak collaborative judgment as the differentiating constraint. [high confidence]
+3. **AI substitutes for average collaboration, not peak collaboration:** AI-enabled individuals in the P&G RCT matched the average quality of two-person human teams working without AI, but the highest quality outputs still came from human teams augmented by AI; peak collaborative judgment, not average competence, is the differentiating constraint. [high confidence]
 
-4. **The verification bottleneck is empirically measured:** Faros AI 2025 data shows PR review time increased 91% and PR size grew 154% alongside high AI adoption, confirming that the human verification step, unchanged in speed, becomes the bottleneck as AI accelerates the generation step. [high confidence]
+4. **The verification bottleneck is empirically measured:** Faros AI 2025 data shows PR review time increased 91% and PR size grew 154% alongside high AI adoption; the human review step did not accelerate to match AI generation speed. [high confidence]
 
 5. **The agentic tarpit names the multi-agent correctness failure mode:** Wes McKinney's 2025 blog post "The Mythical Agent-Month" identified that parallel AI agent sessions produce contradictory and bloated outputs at machine speed, requiring human reconciliation that cannot be accelerated by adding more agents, creating a hard bottleneck at human conceptual integrity. [high confidence]
 
@@ -474,7 +474,7 @@ The evidence strongly supports the thesis that correctness, not volume, is now t
 | Teams with AI 3x more likely in top-10% quality | Dell'Acqua et al., 2025 NBER w33641 | High | Pre-registered RCT; 776 P&G professionals; expert judging |
 | AI individuals match average team quality | Dell'Acqua et al., 2025 | High | Same study |
 | Review time +91%, PR size +154% | Faros AI 2025 | High | Telemetry data |
-| Agentic tarpit: contradictory/bloated agent output | McKinney, "Mythical Agent-Month" 2025 | High | Primary source; draws on Brooks 1975 TMMM |
+| Agentic tarpit: contradictory/bloated agent output | McKinney, "Mythical Agent-Month" 2025 | High | Primary source; draws on Brooks 1975 The Mythical Man-Month (TMMM) |
 | Workslop: 40% workers received poor AI content | BetterUp Labs / Microsoft New Future of Work 2025 | Medium | Survey data; estimation methodology not detailed |
 | AI breaks functional silos in innovation | Dell'Acqua et al., 2025 NBER w33641 | High | Pre-registered RCT |
 | Prototype-to-production gap | O'Brien (Medium 2025), METR RCT 2025, mindstudio.ai 2025 | High | Multiple independent converging sources |
@@ -493,13 +493,13 @@ The evidence strongly supports the thesis that correctness, not volume, is now t
 
 ### Analysis
 
-The volume-correctness inversion is supported by three independent evidence streams — experimental (P&G RCT), telemetric (Faros AI / DORA), and mechanistic (McKinney / verification bottleneck literature) — that converge on the same structural conclusion: AI accelerates the generation phase of knowledge work without equivalently accelerating the verification phase. Because verification is the binding constraint, organisational throughput does not improve commensurately with volume.
+AI accelerates the generation phase of knowledge work without equivalently accelerating the verification phase. Because verification is the binding constraint, organisational throughput does not improve commensurately with volume. The P&G RCT establishes this experimentally; Faros AI and DORA data measure it at scale; McKinney's agentic tarpit explains the mechanism.
 
-The most analytically important distinction from the P&G study: AI substitutes for *average* peer collaboration, not peak collaborative quality. This matters for two reasons: (1) solo practitioners using AI can now compete with unaugmented teams on typical tasks, meaning the baseline of acceptable output has been raised for everyone; and (2) the organisations and teams that will differentiate on quality are those that combine strong human judgment with AI, not those that substitute AI for human judgment.
+A critical distinction emerges from the P&G study: AI substitutes for *average* peer collaboration, not peak collaborative quality. Solo practitioners using AI can compete with unaugmented teams on typical tasks, meaning the baseline of acceptable output has been raised for everyone. Organisations and teams that differentiate on quality are those that combine strong human judgment with AI — not those that substitute AI for human judgment.
 
-The competing interpretation — that flat organisational metrics reflect adoption friction rather than a structural constraint — is not supported by the evidence. The DORA 2024 data shows *degradation* under high adoption, not improvement. The verification bottleneck is cognitive, not technical: no amount of faster AI makes domain expertise faster to acquire or contextual judgment faster to exercise.
+The competing interpretation — that flat organisational metrics reflect adoption friction rather than a structural constraint — is not supported by the evidence. DORA 2024 data shows *degradation* under high adoption, not improvement. The verification bottleneck is cognitive, not technical: no amount of faster AI makes domain expertise faster to acquire or contextual judgment faster to exercise. [inference]
 
-The practical implication is direct: the scarce resource to invest in is human judgment capacity — particularly the judgment required for verification, architectural decision-making, and domain expertise. Practices, hiring, and tooling should be calibrated to this constraint, not to maximising AI-generated volume.
+Investing in human judgment capacity is therefore the practical priority — particularly the judgment required for verification, architectural decision-making, and domain expertise. Practices, hiring, and tooling should be calibrated to this constraint, not to maximising AI-generated volume.
 
 ### Risks, Gaps, and Uncertainties
 
