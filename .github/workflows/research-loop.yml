@@ -97,6 +97,7 @@ jobs:
       - name: Run research loop
         env:
           GH_TOKEN: ${{ secrets.COPILOT_GITHUB_TOKEN }}
+          TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
         run: |
           set -euo pipefail
 

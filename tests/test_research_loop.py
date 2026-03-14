@@ -109,6 +109,19 @@ def test_workflow_uses_copilot_github_token_secret() -> None:
     assert "secrets.GH_TOKEN" not in content, "Workflow must not reference old GH_TOKEN secret"
 
 
+def test_workflow_research_step_sets_tavily_api_key() -> None:
+    """The research loop step must pass TAVILY_API_KEY so the Tavily MCP server can authenticate."""
+    wf = _load_workflow()
+    steps = wf["jobs"]["research"]["steps"]
+    run_step = next((s for s in steps if s.get("name") == "Run research loop"), None)
+    assert run_step is not None, "Could not find 'Run research loop' step"
+    step_env = run_step.get("env", {})
+    assert "TAVILY_API_KEY" in step_env, (
+        "'Run research loop' step must declare TAVILY_API_KEY in env; "
+        "without it the Tavily MCP server silently fails to authenticate"
+    )
+
+
 def test_workflow_dispatch_max_items_is_choice_type() -> None:
     """max_items must be a dropdown (choice) to prevent unbounded free-text input."""
     wf = _load_workflow()
