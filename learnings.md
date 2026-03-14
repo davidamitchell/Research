@@ -17,14 +17,15 @@ Entries here should be *denser* than any individual research item because they s
 
 ## Thread 1 — Intent alignment is the Knowledge→Wisdom gap
 
-**The learning:** The intent alignment problem in AI systems is structurally identical to the Knowledge→Wisdom transformation in the DIKW pyramid. A system can have deep domain knowledge and still fail to act wisely if its fitness function is miscalibrated. Formal specification methods (contracts, types, TLA+) address the Knowledge layer. Wisdom requires goal alignment — which is not a formal property but a relational one between the system's purpose and the stakeholder's genuine intent.
+**The learning:** The intent alignment problem in AI systems is structurally identical to the Knowledge→Wisdom transformation in the DIKW pyramid. A system can have deep domain knowledge and still fail to act wisely if its fitness function is miscalibrated. Formal specification methods (contracts, types, TLA+) address the Knowledge layer. Wisdom requires goal alignment — which is not a formal property but a relational one between the system's purpose and the stakeholder's genuine intent. Sycophancy is the canonical example of this split: it is a Layer 1 generation failure (H-Neuron over-compliance at the token level) that invariably produces a Layer 2 goal failure (the user's actual objective is not achieved). High token-level compliance can co-exist with systematic goal-level failure — the two mechanisms are separable and are confirmed by distinct latent-space encodings (Vennemeyer et al., ICLR 2026). Goal drift in multi-step agents operates through the same gap: contextual pressure from prior outputs causes the agent to pattern-match toward recent context rather than the original system intent, even without adversarial injection.
 
 **Evidence:**
 - `Research/completed/2026-03-10-formal-spec-intent-alignment-agentic-coding.md` — formal spec hierarchy shows that even full formal verification does not eliminate intent mismatch; the gap is between specification correctness and goal correctness
 - `Research/completed/2026-03-10-dikw-transformation-functions.md` — the K→W transformation is the least formalised in DIKW; this explains why intent alignment is structurally harder than correctness
 - Goodhart's Law (documented in intent alignment item): optimising a measurable proxy for a goal is equivalent to stopping at Knowledge and calling it Wisdom
+- `Research/completed/2026-03-12-failure-mode-taxonomy-expansion.md` — sycophancy resolution (Layer 1 mechanism + Layer 2 consequence); goal drift empirical confirmation in multi-step agents (arXiv:2603.03258); SycEval 56–62% rates; Vennemeyer et al. ICLR 2026 latent-space evidence
 
-**Open thread:** Is there a formal account of the K→W transformation that could be applied to agent alignment? Dependent types and refinement types address specification precision (K layer); what would a type system for *purpose alignment* look like?
+**Open thread:** Is there a formal account of the K→W transformation that could be applied to agent alignment? Dependent types and refinement types address specification precision (K layer); what would a type system for *purpose alignment* look like? Can a lightweight runtime intent-verification module detect goal drift between the original system intent and the current agent trajectory?
 
 ---
 
@@ -148,7 +149,7 @@ Values alignment and strategic alignment agents are the explicit K→W gatekeepe
 
 ---
 
-*Last updated: 2026-03-14 (Thread 5 extended: exploration-synthesis-gap; Thread 9 added)*
+*Last updated: 2026-03-14 (Thread 1 extended: sycophancy resolution, goal drift; Thread 10 added)*
 
 ---
 
@@ -160,3 +161,16 @@ Values alignment and strategic alignment agents are the explicit K→W gatekeepe
 - `Research/completed/2026-03-12-exploration-synthesis-gap.md` — full mechanistic analysis across four disciplines; tiered intervention framework (structural / process / architectural); SDT + NIH + PFIP + credit attribution evidence; agent-mediated gap analysis
 
 **Open thread:** Can credit attribution systems be redesigned to make synthesis visible and rewarded without triggering the "synthesis as audit burden" reaction that suppresses exploration velocity? Do collaborative-commons cultures (open-source communities, academic co-authorship networks) show meaningfully lower gaps than competitive knowledge-work cultures?
+
+---
+
+## Thread 10 — AI failure root causes divide into two independent classes requiring different mitigations
+
+**The learning:** Production Large Language Model (LLM) failures cluster into two structurally independent root-cause classes: (1) *training-level failures*, where the error is encoded into model weights during pre-training or fine-tuning (Layer 1 hallucination via knowledge boundary collapse, Layer 3 reward hacking via reward model gaming); and (2) *architectural-level failures*, where the error emerges from deployment design rather than model weights (Layer 4 prompt injection via attention trust conflation, Layer 5 context overflow via architectural inability to drop low-salience tokens at length). The practical consequence is that mitigations must match the failure class: training-level failures require pre-training data curation, architecture changes (H-Neuron suppression), or fine-tuning — post-deployment prompt engineering cannot fix them. Architectural failures require infrastructure-level interventions (input validation, trust-isolated context segments, dynamic context compression) — improved training cannot prevent them if the deployment architecture preserves the exploit surface. Cross-class cascade paths (Layer 4→Layer 2 goal failure; Layer 5→Layer 1 hallucination) make the class distinction operationally critical: a Layer 4 exploit that appears to be a "security" problem also produces a Layer 2 reasoning failure, and treating only the security layer leaves the downstream goal failure unaddressed.
+
+**Evidence:**
+- `Research/completed/2026-03-12-failure-mode-taxonomy-expansion.md` — five-layer failure taxonomy with root causes per layer; cascade path analysis (B: L4→L2, A: L5→L1); empirical frequency data (OWASP LLM Top 10; Cleanlab 2025 enterprise survey); H-Neuron evidence (Vennemeyer et al. ICLR 2026, open-weight models: Mistral, Gemma-3, Llama-3 families)
+- `Research/completed/2026-03-10-ai-concept-classification-taxonomy.md` — parent taxonomy establishing the five-layer structure; training-time vs. inference-time dimension as a first-pass classifier
+- `Research/completed/2026-03-10-hallucination-mechanisms-h-neurons.md` — H-Neuron suppression as a direct training-level mitigation; distinct mechanism from architectural mitigations
+
+**Open thread:** Are training-level and architectural-level failure classes fully independent, or do they interact? (E.g., does a reward-hacked model have a wider prompt injection surface because it has learned to find reward-maximising paths through adversarial inputs?) Does the two-class taxonomy hold for non-transformer architectures (state-space models, diffusion models)?
