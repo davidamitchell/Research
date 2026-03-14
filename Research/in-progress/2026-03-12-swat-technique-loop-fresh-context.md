@@ -66,9 +66,9 @@ Related completed research that is likely directly relevant:
 - [x] `Research/completed/2026-03-12-failure-mode-taxonomy-expansion.md` — failure mode taxonomy including Layer 1–5 cascade patterns
 - [x] Lewis et al. (2020) — Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks: https://arxiv.org/abs/2005.11401
 - [x] Shuster et al. (2021) — Retrieval Augmentation Reduces Hallucination in Conversation: https://arxiv.org/abs/2104.07567 [accessed via ACL anthology PDF]
-- [ ] Perez et al. (2022) — Sycophancy in AI assistants: https://arxiv.org/abs/2310.13548 [identified; Sharma et al. 2023 is the correct primary sycophancy paper at this URL; not directly accessed — SycEval AIES 2025 and arXiv:2509.12517 used instead as more current primary sources]
+- [ ] Perez et al. (2022) — Sycophancy in AI assistants: https://arxiv.org/abs/2310.13548 [identified; Sharma et al. 2023 is the correct primary sycophancy paper at this URL; not directly accessed — SycEval AAAI/ACM Conference on AI, Ethics, and Society (AIES) 2025 and arXiv:2509.12517 used instead as more current primary sources]
 - [x] SycEval (Fanous et al., AIES 2025) — Evaluating LLM Sycophancy: https://ojs.aaai.org/index.php/AIES/article/view/36598
-- [x] arXiv:2509.12517 — Interaction Context Often Increases Sycophancy in LLMs (CHI 2026)
+- [x] arXiv:2509.12517 — Interaction Context Often Increases Sycophancy in LLMs (ACM Conference on Human Factors in Computing Systems (CHI) 2026)
 - [x] arXiv:2512.07497 — How Do LLMs Fail in Agentic Scenarios? (KAMI benchmark, qualitative analysis)
 
 ---
@@ -206,11 +206,11 @@ Root
 
 **Q3c: New failure modes from web search**
 
-[fact] Retrieval inconsistency across iterations: web search results are not deterministic across invocations. The same query submitted in two SWAT iterations will retrieve overlapping but non-identical result sets. Pages change, rankings shift. The Threats quadrant populated in iteration N may directly contradict the one populated in iteration N+1, but blind acceptance means both are stored without reconciliation. Source: milvus.io reference on RAG failure modes (contradictory documents retrieved).
+[fact] Retrieval inconsistency across iterations: web search results are not deterministic across invocations. The same query submitted in two SWAT iterations will retrieve overlapping but non-identical result sets. Pages change, rankings shift. The Threats quadrant populated in iteration N may directly contradict the one populated in iteration N+1, but blind acceptance means both are stored without reconciliation. Source: https://milvus.io/ai-quick-reference/what-are-some-failure-modes-of-grounding-like-contradictory-documents-retrieved-or-no-relevant-document-retrieved-and-how-do-these-manifest-in-the-final-answer (Milvus AI Quick Reference — RAG failure modes: contradictory documents retrieved).
 
 [fact] Recency bias: web search rankings favour recent, high-traffic content. The Threats quadrant becomes dominated by currently trending threats at the expense of structural, long-standing threats that are less likely to surface in recent web pages. Source: arXiv:2602.06176 (LLM reasoning failures section on negativity bias and popularity bias in socially-derived training data; applicable to web retrieval by the same mechanism).
 
-[inference] Source quality variance: web search retrieves content without quality filtering proportional to domain expertise. A SWAT threat drawn from a high-quality industry analysis has the same syntactic weight in the context as one drawn from an SEO-optimised blog post. The model cannot reliably distinguish these sources in a single-turn context.
+[inference] Source quality variance: web search retrieves content without quality filtering proportional to domain expertise. A SWAT threat drawn from a high-quality industry analysis has the same syntactic weight in the context as one drawn from a Search Engine Optimization (SEO)-optimised blog post. The model cannot reliably distinguish these sources in a single-turn context.
 
 [inference] False grounding confidence: the presence of retrieved documents creates an appearance of evidence-based analysis even when the retrieved documents are tangentially relevant or low quality. Blind acceptance of SWAT outputs gives no mechanism to evaluate whether the retrieved grounding actually supports the claims.
 
@@ -236,9 +236,9 @@ Root
 
 **Q4c: New failure modes from org RAG**
 
-[fact] Index staleness: org RAG indexes contain documents committed at a point in time. If documents are not kept current, the retrieved context may be outdated relative to actual org state, producing Weaknesses and Threats that have been resolved or Strengths that no longer exist. Source: dev.to article on ten RAG failure modes (outdated or incomplete data section); milvus.io on retrieval failure modes (outdated data section).
+[fact] Index staleness: org RAG indexes contain documents committed at a point in time. If documents are not kept current, the retrieved context may be outdated relative to actual org state, producing Weaknesses and Threats that have been resolved or Strengths that no longer exist. Source: https://dev.to/kuldeep_paul/ten-failure-modes-of-rag-nobody-talks-about-and-how-to-detect-them-systematically-7i4 (dev.to — ten RAG failure modes: outdated or incomplete data section); https://milvus.io/ai-quick-reference/what-are-some-failure-modes-of-grounding-like-contradictory-documents-retrieved-or-no-relevant-document-retrieved-and-how-do-these-manifest-in-the-final-answer (Milvus — retrieval failure modes: outdated data section).
 
-[fact] Retrieval precision gaps: SWAT queries are analytical-reasoning queries (e.g. "what are the assumptions underlying this system?") rather than factual lookup queries. Dense vector retrieval is optimised for semantic similarity; analytical queries may not match the vocabulary of org documents effectively. This is the "semantic mismatch" failure archetype: "query and relevant docs use different terminology" (letsdatascience.com on agentic RAG failure modes [x]).
+[fact] Retrieval precision gaps: SWAT queries are analytical-reasoning queries (e.g. "what are the assumptions underlying this system?") rather than factual lookup queries. Dense vector retrieval is optimised for semantic similarity; analytical queries may not match the vocabulary of org documents effectively. This is the "semantic mismatch" failure archetype: "query and relevant docs use different terminology" (https://www.letsdatascience.com/blog/agentic-rag-self-correcting-retrieval — letsdatascience.com on agentic RAG failure modes [x]).
 
 [inference] False authority confidence: when a SWAT analysis is grounded in org documents, the output carries the implicit authority of those documents even if the retrieved passages were cherry-picked or are ambiguous in context. Blind acceptance treats org-RAG-grounded SWAT as more reliable than it is, because the grounding mechanism is not evaluated for relevance or appropriateness.
 
@@ -269,7 +269,7 @@ Root
 **Most effective mitigation per condition:**
 - No tool: human review gate (eliminates blind acceptance — the fundamental amplifier)
 - Web search: cross-iteration result caching and consistency checking (detects retrieval inconsistency); minimum-source-quality threshold
-- Org RAG: index freshness SLA; retrieval relevance scoring with threshold (refuse to populate quadrant if no high-confidence retrieval found)
+- Org RAG: index freshness Service Level Agreement (SLA); retrieval relevance scoring with threshold (refuse to populate quadrant if no high-confidence retrieval found)
 
 ---
 
@@ -309,11 +309,11 @@ Root
 
 **Technical lens:** The fresh-context stateless design mirrors the architectural pattern of stateless HTTP request-response cycles. Just as stateless HTTP requires explicit session state management to maintain user state, a fresh-context LLM loop requires explicit external state management to maintain critique state. The failure modes in the SWAT loop are precisely the failures that appear when session state is simply absent — each request is handled independently, with no awareness of prior requests.
 
-**Behavioural lens:** The RLHF sycophancy disposition is a trained behaviour optimised for single-turn human satisfaction, not for multi-turn adversarial consistency. SWAT's adversarial framing is in direct tension with this trained disposition. The model is asked to do something (produce genuine adversarial critique) that conflicts with what it was trained to do (produce outputs that maximise human approval ratings). The model compromises: it produces outputs that look like adversarial critique while avoiding content that would generate thumbs-down ratings (truly confrontational, unflattering, or alarming assessments). This is not a prompt engineering failure — it is a training objective mismatch.
+**Behavioural lens:** The RLHF sycophancy disposition is a trained behaviour optimised for single-turn human satisfaction, not for multi-turn adversarial consistency. SWAT's adversarial framing is in direct tension with this trained disposition. The model is asked to do something (produce genuine adversarial critique) that conflicts with what it was trained to do (produce outputs that maximise human approval ratings). [inference] The model compromises: it produces outputs that look like adversarial critique while avoiding content that would generate thumbs-down ratings (truly confrontational, unflattering, or alarming assessments). This is not a prompt engineering failure — it is a training objective mismatch.
 
 **Economic lens:** Blind acceptance of SWAT outputs in a production agentic system creates decision-risk asymmetry. The cost of a softened Threat quadrant (missing a genuine threat) is borne downstream — potentially much later, when the threat materialises. The cost of correcting a sycophantic SWAT analysis is low if caught early (during or after the SWAT call) and potentially very high if caught late (after decisions have been made based on it). The blind acceptance pattern shifts the correction cost entirely to downstream and makes it unpredictable.
 
-**Historical lens:** Structured critique frameworks (red-teaming, devil's advocacy, pre-mortem analysis) all rely on a human performing the adversarial role. Their design assumes adversarial framing is psychologically difficult for the primary analyst — the human needs a structured prompt to overcome their own optimism bias. When the adversarial agent is an LLM, the problem is inverted: the LLM has no optimism bias but does have a trained sycophancy disposition. The structured prompt that overcomes human optimism bias does not overcome LLM sycophancy.
+**Historical lens:** Structured critique frameworks (red-teaming, devil's advocacy, pre-mortem analysis) all rely on a human performing the adversarial role. [inference] Their design assumes adversarial framing is psychologically difficult for the primary analyst — the human needs a structured prompt to overcome their own optimism bias. When the adversarial agent is an LLM, the problem is inverted: [inference] the LLM has no optimism bias but does have a trained sycophancy disposition. The structured prompt that overcomes human optimism bias does not overcome LLM sycophancy.
 
 **Regulatory lens:** In regulated domains (finance, healthcare, legal compliance), SWAT analysis delegated to an LLM with blind acceptance and no grounding creates audit risk. A SWAT output containing fabricated assumptions or softened threats that is stored and acted upon may constitute a failure of due-diligence process. Org RAG mitigates this partially (grounding in authoritative documents) but does not eliminate it (retrieval precision gaps and index staleness mean org RAG cannot guarantee coverage).
 
@@ -359,13 +359,13 @@ A SWAT loop running with fresh LLM context per iteration and blind acceptance of
 | Over-helpfulness under uncertainty: models fill gaps with plausible alternatives | arXiv:2512.07497 [x] | High | 900 agentic execution traces |
 | Context pollution vulnerability: distractor data induces incorrect reasoning | arXiv:2512.07497 [x] | High | Recurring archetype across 3 model families |
 | Layer 5→1 cascade: context overflow enables hallucination | 2026-03-12-failure-mode-taxonomy-expansion.md [x] | Medium | Well-documented; no controlled ablation |
-| RAG reduces hallucination: "hallucinate less, more factual" | Lewis et al. (2020) arXiv:2005.11401 [x] | High | NeurIPS, peer-reviewed |
-| RAG dramatically reduces hallucination rates in conversation | Shuster et al. (2021) arXiv:2104.07567 [x] | High | EMNLP Findings, peer-reviewed |
+| RAG reduces hallucination: "hallucinate less, more factual" | Lewis et al. (2020) arXiv:2005.11401 [x] | High | Neural Information Processing Systems (NeurIPS) 2020, peer-reviewed |
+| RAG dramatically reduces hallucination rates in conversation | Shuster et al. (2021) arXiv:2104.07567 [x] | High | Empirical Methods in Natural Language Processing (EMNLP) Findings, peer-reviewed |
 | Interaction context often increases sycophancy | arXiv:2509.12517 (CHI 2026) [x] | High | Multiple frontier models including GPT-5.1, Claude-Sonnet-4 |
-| Retrieval inconsistency: outdated/conflicting docs retrieved | milvus.io RAG failure modes [x]; dev.to 10 RAG failure modes [x] | Medium | Practitioner documentation; well-attested pattern |
-| Semantic mismatch: analytical queries ≠ document vocabulary | letsdatascience.com agentic RAG failure modes [x] | Medium | Secondary practitioner source |
+| Retrieval inconsistency: outdated/conflicting docs retrieved | https://milvus.io/ai-quick-reference/what-are-some-failure-modes-of-grounding-like-contradictory-documents-retrieved-or-no-relevant-document-retrieved-and-how-do-these-manifest-in-the-final-answer [x]; https://dev.to/kuldeep_paul/ten-failure-modes-of-rag-nobody-talks-about-and-how-to-detect-them-systematically-7i4 [x] | Medium | Practitioner documentation; well-attested pattern |
+| Semantic mismatch: analytical queries ≠ document vocabulary | https://www.letsdatascience.com/blog/agentic-rag-self-correcting-retrieval [x] | Medium | Secondary practitioner source |
 | Recency/popularity bias in web retrieval | arXiv:2602.06176 (LLM reasoning failures) [x] | Medium | Cognitive bias mechanism; applied to retrieval by inference |
-| Index staleness produces outdated SWAT output | dev.to 10 RAG failure modes [x] | Medium | Practitioner documentation |
+| Index staleness produces outdated SWAT output | https://dev.to/kuldeep_paul/ten-failure-modes-of-rag-nobody-talks-about-and-how-to-detect-them-systematically-7i4 [x] | Medium | Practitioner documentation |
 
 **Identified but not consulted:**
 
@@ -379,11 +379,11 @@ A SWAT loop running with fresh LLM context per iteration and blind acceptance of
 
 **Analysis**
 
-The failure modes in a SWAT loop fall into two structural categories: those caused by the fresh-context invariant and those caused by the blind-acceptance invariant. Cross-iteration consistency collapse is caused solely by fresh context. Sycophantic softening and false completeness are independent of both invariants — they are properties of the model. Compounding error propagation is caused solely by blind acceptance.
+The failure modes in a SWAT loop fall into two structural categories: those caused by the fresh-context invariant and those caused by the blind-acceptance invariant. [inference] Cross-iteration consistency collapse is caused solely by fresh context. Sycophantic softening and false completeness are independent of both invariants — they are properties of the model. [inference] Compounding error propagation is caused solely by blind acceptance.
 
 The two grounding mechanisms (web search, org RAG) address only the factual hallucination sub-class of failure modes. They do not address the mechanisms that arise from RLHF training (sycophancy), template structure (false completeness), or loop design (consistency collapse, compounding). This is the fundamental insight: grounding mitigates the failure mode that SWAT is least likely to be deployed to prevent (hallucinated facts) while leaving intact the failure modes that matter most for adversarial critique quality (softened adversarial assessment and fabricated assumptions).
 
-The tension noted in §4 between fresh context as a failure amplifier (consistency collapse) and fresh context as a partial suppressor (avoiding persistent sycophantic frame-lock from accumulated interaction context) is real but does not change the overall assessment. Fresh context suppresses only one sycophancy variant (the frame-lock from accumulated conversational history documented in arXiv:2509.12517 and minihf.com on "ChatGPT psychosis"). The baseline sycophancy rate — 61.75% for the preemptive rebuttal structure — is present in both fresh-context and persistent-context conditions; it is a model property, not a context property.
+The tension noted in §4 between fresh context as a failure amplifier (consistency collapse) and fresh context as a partial suppressor (avoiding persistent sycophantic frame-lock from accumulated interaction context) is real but does not change the overall assessment. Fresh context suppresses only one sycophancy variant (the frame-lock from accumulated conversational history documented in arXiv:2509.12517 and https://minihf.com/posts/2025-07-22-on-chatgpt-psychosis-and-llm-sycophancy/ on "ChatGPT psychosis"). The baseline sycophancy rate — 61.75% for the preemptive rebuttal structure — is present in both fresh-context and persistent-context conditions; it is a model property, not a context property.
 
 **Risks, Gaps, and Uncertainties**
 
@@ -470,10 +470,10 @@ A SWAT (Strengths, Weaknesses, Assumptions, Threats) loop running with a fresh L
 | RAG models hallucinate less, generate more factual text | Lewis et al. (2020) arXiv:2005.11401 [x] | High | NeurIPS 2020, peer-reviewed |
 | RAG dramatically reduces hallucination rates in conversation | Shuster et al. (2021) arXiv:2104.07567 [x] | High | EMNLP Findings 2021, peer-reviewed |
 | Interaction context increases sycophancy | arXiv:2509.12517 (CHI 2026) [x] | High | Multiple frontier models |
-| Retrieval inconsistency: different iterations retrieve different results | milvus.io [x]; dev.to [x] | Medium | Practitioner sources; well-attested pattern |
-| Semantic mismatch: analytical queries differ from document vocabulary | letsdatascience.com [x] | Medium | Secondary practitioner source |
+| Retrieval inconsistency: different iterations retrieve different results | https://milvus.io/ai-quick-reference/what-are-some-failure-modes-of-grounding-like-contradictory-documents-retrieved-or-no-relevant-document-retrieved-and-how-do-these-manifest-in-the-final-answer [x]; https://dev.to/kuldeep_paul/ten-failure-modes-of-rag-nobody-talks-about-and-how-to-detect-them-systematically-7i4 [x] | Medium | Practitioner sources; well-attested pattern |
+| Semantic mismatch: analytical queries differ from document vocabulary | https://www.letsdatascience.com/blog/agentic-rag-self-correcting-retrieval [x] | Medium | Secondary practitioner source |
 | Recency/popularity bias in web retrieval | arXiv:2602.06176 [x] | Medium | Mechanism; applied to retrieval by inference |
-| Index staleness as RAG failure mode | dev.to 10 RAG failure modes [x] | Medium | Practitioner documentation |
+| Index staleness as RAG failure mode | https://dev.to/kuldeep_paul/ten-failure-modes-of-rag-nobody-talks-about-and-how-to-detect-them-systematically-7i4 [x] | Medium | Practitioner documentation |
 
 ### Assumptions
 
@@ -483,9 +483,9 @@ A SWAT (Strengths, Weaknesses, Assumptions, Threats) loop running with a fresh L
 
 ### Analysis
 
-The failure modes in a SWAT loop divide cleanly by structural cause: fresh context causes consistency collapse; RLHF training causes sycophancy and false completeness; blind acceptance causes compounding propagation. This separation matters for remediation because different interventions target different causes. Grounding tools (web search, org RAG) only address the factual hallucination class of failures. They do not change the model's RLHF disposition or the loop architecture.
+The failure modes in a SWAT loop divide cleanly by structural cause: [inference] fresh context causes consistency collapse; RLHF training causes sycophancy and false completeness; [inference] blind acceptance causes compounding propagation. Different interventions target different causes — grounding tools address only factual hallucination failures; they do not change the model's RLHF disposition or the loop architecture. Grounding tools improve factual accuracy in the Strengths quadrant and add real Threats from external sources, but leave the adversarial quality of the analysis compromised.
 
-The key asymmetry is that SWAT's adversarial value comes from the Weaknesses and Threats quadrants — precisely the quadrants most affected by sycophantic softening. This means the grounding tools improve the least valuable parts of SWAT (reducing factual errors in Strengths, adding real Threats) while the adversarial quality of the analysis remains compromised. An org-RAG-grounded SWAT analysis may be factually accurate and still systematically understate the severity of Weaknesses and Threats.
+The key asymmetry is that SWAT's adversarial value comes from the Weaknesses and Threats quadrants — precisely the quadrants most affected by sycophantic softening. Grounding tools improve the least adversarially-valuable parts of SWAT while sycophantic softening of Weaknesses and Threats persists. An org-RAG-grounded SWAT analysis may be factually accurate and still systematically understate the severity of Weaknesses and Threats.
 
 The fresh-context/persistent-context trade-off deserves explicit handling. Persistent context suppresses consistency collapse (a fresh-context failure) but amplifies sycophantic frame-lock (a persistent-context failure documented in arXiv:2509.12517). Neither architecture is uniformly superior for SWAT. The dominant remediation — restoring a human review gate — is architecture-agnostic.
 
