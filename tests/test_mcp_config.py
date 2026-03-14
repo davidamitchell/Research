@@ -12,12 +12,19 @@ pyramid, these are unit-layer checks:
   4. Both files declare the same set of server keys (in-sync check).
   5. Each file declares exactly the expected server set with required fields.
 
-INTEGRATION TEST — service functionality (section 6)
------------------------------------------------------
-test_tavily_live_search — makes a real HTTP call to the Tavily API using
-`TAVILY_API_KEY` to prove the credential is valid and the service responds.
-This is the only test that proves the Tavily configuration *works end-to-end*.
-Skipped when `TAVILY_API_KEY` is not in the environment.
+INTEGRATION TESTS — service functionality (section 6)
+------------------------------------------------------
+These tests are marked ``@pytest.mark.integration`` and require real
+credentials.  They run unconditionally in CI (where secrets are present);
+locally, exclude them with::
+
+    pytest -m "not integration"
+
+``TAVILY_API_KEY`` must be set as a repository secret.  Its absence causes
+``test_tavily_api_key_is_configured`` to fail loudly — this is intentional
+and is the mechanism that prevents silent credential failures in CI.
+``test_tavily_live_search`` makes a real HTTP call to the Tavily API to prove
+the credential is valid and the service responds end-to-end.
 """
 
 from __future__ import annotations
@@ -178,13 +185,30 @@ def test_mcp_config_each_server_has_command(config_path: Path) -> None:
 
 
 # ---------------------------------------------------------------------------
-# Integration: verify TAVILY_API_KEY is valid and the service responds
-# Unit tests above prove config file well-formedness only — this proves it works.
+# Integration: verify TAVILY_API_KEY is configured and the service responds
+# Unit tests above prove config file well-formedness only — these prove it works.
+# Run locally without credentials: pytest -m "not integration"
 # ---------------------------------------------------------------------------
 
 _TAVILY_KEY = os.getenv("TAVILY_API_KEY", "")
 
 
+@pytest.mark.integration
+def test_tavily_api_key_is_configured() -> None:
+    """TAVILY_API_KEY must be present in the environment.
+
+    A missing key means test_tavily_live_search will be silently skipped and
+    Tavily will silently fail at runtime. Configure TAVILY_API_KEY as a
+    repository secret to ensure this test passes in CI.
+    """
+    assert _TAVILY_KEY, (
+        "TAVILY_API_KEY is not set. "
+        "Configure it as a repository secret so test_tavily_live_search runs. "
+        "A missing key is a silent failure: Tavily will not work at runtime."
+    )
+
+
+@pytest.mark.integration
 @pytest.mark.skipif(not _TAVILY_KEY, reason="TAVILY_API_KEY not set — skipping live API call")
 def test_tavily_live_search() -> None:
     """Make a real HTTP call to the Tavily API to prove the key is valid and the service works."""

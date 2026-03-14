@@ -7,6 +7,9 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [Unreleased]
 
 ### Added
+- `@pytest.mark.integration` marker registered in `pyproject.toml`; run `pytest -m "not integration"` locally to skip credential-gated tests
+- `test_tavily_api_key_is_configured` — unconditional integration test that asserts `TAVILY_API_KEY` is set; fails loudly in CI when the secret is absent or misconfigured, closing the silent-skip gap
+- `@pytest.mark.integration` applied to both `test_tavily_api_key_is_configured` and `test_tavily_live_search` for consistent grouping
 - `reviewing` status to the research item lifecycle (`backlog → in-progress → reviewing → completed`); `reviewing` maps to `in-progress/` so no file moves during review
 - `research draft` CLI command (`python -m src.main research draft <filename>`) — updates `status` to `reviewing` in-place; does not move the file
 - ADR-0007: Reviewing state and workflow_dispatch trigger for research review
