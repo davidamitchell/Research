@@ -149,17 +149,14 @@ jobs:
             # ---------------------------------------------------------------- #
             # Sync with remote                                                  #
             # ---------------------------------------------------------------- #
-            # The agent session (above) writes files and is supposed to commit
-            # them via 'git add . && git commit && git push' at the end of the
-            # prompt. If the session hit an error before its commit step it may
-            # have left research work uncommitted. Commit anything pending now
-            # so it is not lost, then pull to get any remote-only commits.
-            git add -A
-            if ! git diff --cached --quiet; then
-              git commit -m "chore: auto-commit agent work from previous iteration [skip ci]"
-            fi
             # Pull latest main before each iteration so concurrent commits
             # (e.g. from a manual trigger) don't cause push conflicts.
+            # The agent is responsible for committing its own work (the
+            # research-prompt defines commit points at start, findings, draft,
+            # and complete). If uncommitted changes remain here it means the
+            # agent session failed mid-run; treat that as a session failure and
+            # let the caller observe the dirty state rather than silently hiding
+            # it.
             if ! git pull --rebase origin main; then
               echo "::error::git pull --rebase failed — possible conflict or network issue. Stopping loop."
               exit 1

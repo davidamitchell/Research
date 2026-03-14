@@ -22,9 +22,12 @@ Note the filename (e.g. `2026-02-28-ai-strategy-swe-focus.md`).
 
 ```bash
 python -m src.main research start <filename>
+git add Research/backlog/<filename> Research/in-progress/<filename>
+git commit -m "research: start - $(basename <filename> .md)"
+git push origin main
 ```
 
-This moves the file from `Research/backlog/<filename>` to `Research/in-progress/<filename>` and updates its `status` and `started` fields.
+This moves the file from `Research/backlog/<filename>` to `Research/in-progress/<filename>` and updates its `status` and `started` fields. Committing immediately ensures the file move is never left as an uncommitted change.
 
 ### 3. Read the item
 
@@ -81,6 +84,14 @@ With `## Research Skill Output` complete, copy the §6 Synthesis content into `#
 - Direct, declarative prose. State findings as facts or clearly labelled inferences.
 - No filler phrases ("it is worth noting", "importantly", "it should be said", "in conclusion").
 - No sycophantic transitions. Each section earns its content.
+
+After completing this step, commit the findings to preserve the work in case the session is interrupted before the draft commit:
+
+```bash
+git add Research/in-progress/<filename>
+git commit -m "research: findings - $(basename <filename> .md)"
+git push origin main
+```
 
 ### 6. Companion skill checks
 

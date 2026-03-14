@@ -45,11 +45,11 @@ PR #110 is the top suspect — it included a large research-superpowers session 
 ### Root cause (concrete statement)
 
 **Root cause 1 — Research Loop dirty tree:**
-The research prompt (steps 8 and 13) tells the agent to commit everything via `git add . && git commit && git push`. If the agent's Copilot session hit transient API errors and terminated before those commit steps, it leaves real research work uncommitted in the working tree (written research items in `Research/in-progress/`, progress notes in `progress/`, `learnings.md` updates). On the next loop iteration, `git pull --rebase origin main` aborts because git cannot rebase over a dirty tree.
+The research prompt only had commit checkpoints at step 8 (draft) and step 13 (complete). The file move from `Research/backlog/` → `Research/in-progress/` at step 2, and all research content written during steps 3–7, were never committed until step 8. If the agent's Copilot session hit transient API errors and terminated before step 8's draft commit, the working tree was left dirty. On the next loop iteration, `git pull --rebase origin main` aborted because git cannot rebase over uncommitted changes.
 
-The failing run (`23071272774`) showed multiple "Request failed due to a transient API error. Retrying..." messages — the agent completed substantial work but likely failed before its commit step.
+The failing run (`23071272774`) showed multiple "Request failed due to a transient API error. Retrying..." messages — the agent completed substantial work but likely failed before its draft commit.
 
-Fix: **commit any pending work before pulling** using `git add -A` + conditional commit. This preserves all agent output and cleans the tree so the rebase can proceed. (The initial approach of `git reset --hard` was wrong — it would have discarded completed-but-uncommitted research work.)
+Fix: **add commit checkpoints in research-prompt.md** at the right milestones. Commit the file move immediately after step 2 (`research start`), and commit the in-progress findings after step 5 (findings seeded). These are the two largest windows without a commit. This means even if the session dies mid-investigation, the tree is clean for the next loop iteration. The loop itself does not need to handle uncommitted work.
 
 **Root cause 2 — Research Review submodule step:**
 On 2026-03-08, `.github/skills/` was converted from a git submodule to a regular tracked directory (commit `b3a122b` introduced `create-skills-pr.yml`, and `progress/2026-03-08-bbc-skill.md` documents the conversion). The `research-review.yml` workflow still had `git submodule update --init .github/skills`, which no longer matches the repo state. This step was a no-op in practice (git has no submodule entry for that path) but caused confusion and would silently fail if `.gitmodules` were ever cleaned up.
@@ -71,7 +71,8 @@ The workflow has `on: workflow_dispatch` as its only trigger. The GitHub Actions
 
 | File | Change |
 |---|---|
-| `.github/workflows/research-loop.yml` | Added `git add -A` + conditional commit before `git pull --rebase` — preserves any uncommitted agent work rather than discarding it |
+| `research-prompt.md` | Added commit + push immediately after step 2 (`research start`) and after step 5 (findings seeded) — ensures the working tree is never dirty mid-loop |
+| `.github/workflows/research-loop.yml` | Removed auto-commit side-effect; loop no longer needs to handle uncommitted work |
 | `.github/workflows/research-review.yml` | Replaced `git submodule update --init .github/skills` with a plain `ls .github/skills/` (verifies skill files are present as regular tracked files) |
 | `tests/test_research_review.py` | Replaced `test_workflow_initializes_skills_submodule` with `test_workflow_has_skills_available` — now asserts skills are accessible as regular files and that no submodule call is present |
 | `docs/adr/0002-agent-skills-submodule.md` | Marked Status: superseded (2026-03-08), added note explaining the conversion |
