@@ -1,12 +1,12 @@
 ---
 title: "Can organisational intent be expressed as a formally structured specification from which artefacts are derived and consistency is machine-checked?"
 added: 2026-03-14
-status: reviewing
+status: completed
 priority: high
 blocks: []
 tags: [formal-methods, strategy, okrs, goal-modelling, normative-systems, hoshin-kanri, resource-allocation, consistency-checking, funding, intent]
 started: 2026-03-14
-completed: ~
+completed: 2026-03-14
 output: [knowledge]
 ---
 
