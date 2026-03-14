@@ -6,7 +6,7 @@ priority: high
 blocks: []
 tags: [organisational-theory, transaction-costs, coase, williamson, north, institutions, team-topologies, fitness-functions, invariants, platform-strategy]
 started: 2026-03-13
-completed: 2026-03-13
+completed: 2026-03-14
 output: [knowledge]
 ---
 
