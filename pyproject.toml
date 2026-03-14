@@ -41,6 +41,9 @@ ignore = ["E501"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = "-v --tb=short"
+markers = [
+    "integration: marks tests as integration tests that require external credentials (deselect with '-m not integration')",
+]
 
 [tool.mypy]
 python_version = "3.11"
