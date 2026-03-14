@@ -1,12 +1,12 @@
 ---
 title: "AI inverted the knowledge-work scarcity equation: volume is free, correctness is the scarce resource"
 added: 2026-03-12
-status: reviewing
+status: completed
 priority: high
 blocks: []
 tags: [correctness, quality, throughput, volume, ai, productivity, verification, shared-context, agentic-tarpit, procter-and-gamble-study]
 started: 2026-03-14
-completed: ~
+completed: 2026-03-14
 output: [knowledge]
 ---
 
