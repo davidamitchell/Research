@@ -1,7 +1,7 @@
 # ADR-0002: Agent Skills as a Git Submodule
 
 Date: 2026-02-28
-Status: accepted
+Status: superseded by [ADR-0008](0008-skills-copy-based-sync.md)
 
 ## Context
 

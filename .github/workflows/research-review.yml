@@ -54,9 +54,6 @@ jobs:
         with:
           fetch-depth: 1
 
-      - name: Initialize skills submodule
-        run: git submodule update --init .github/skills
-
       - name: Determine items to review
         id: items
         run: |
@@ -93,6 +90,7 @@ jobs:
         if: steps.items.outputs.has_items == 'true'
         env:
           GH_TOKEN: ${{ secrets.COPILOT_GITHUB_TOKEN }}
+          TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
         run: |
           set -euo pipefail
 

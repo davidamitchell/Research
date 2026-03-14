@@ -13,12 +13,13 @@ Format: [MADR (Markdown Architectural Decision Records)](https://adr.github.io/m
 | ADR | Title | Status | Date |
 |---|---|---|---|
 | [0001](0001-use-python-as-primary-language.md) | Use Python as primary language | Accepted | 2026-02-27 |
-| [0002](0002-agent-skills-submodule.md) | Agent skills as a git submodule | Accepted | 2026-02-28 |
+| [0002](0002-agent-skills-submodule.md) | Agent skills as a git submodule | Superseded by ADR-0008 | 2026-02-28 |
 | [0003](0003-indexing-and-tracking-approach.md) | JSON state file + YAML front-matter for indexing and tracking | Accepted | 2026-02-28 |
 | [0004](0004-autonomous-research-loop.md) | Autonomous research loop design and safety controls | Accepted | 2026-03-02 |
 | [0005](0005-github-wiki-publishing-approach.md) | GitHub wiki as the research content delivery channel | Accepted | 2026-03-02 |
 | [0006](0006-standardise-agent-instructions.md) | Standardise agent instruction files | Accepted | 2026-03-07 |
 | [0007](0007-reviewing-state-and-dispatch-trigger.md) | Reviewing state and workflow_dispatch trigger for research review | Accepted | 2026-03-11 |
+| [0008](0008-skills-copy-based-sync.md) | Agent skills via clone-and-copy sync | Accepted | 2026-03-14 |
 
 ---
 

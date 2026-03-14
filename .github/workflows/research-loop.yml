@@ -69,8 +69,6 @@ jobs:
         with:
           ref: main
           token: ${{ secrets.COPILOT_GITHUB_TOKEN }}
-          # Submodules not needed for research loop; skip for speed
-          submodules: false
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -97,6 +95,7 @@ jobs:
       - name: Run research loop
         env:
           GH_TOKEN: ${{ secrets.COPILOT_GITHUB_TOKEN }}
+          TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
         run: |
           set -euo pipefail
 
@@ -149,6 +148,17 @@ jobs:
             # ---------------------------------------------------------------- #
             # Sync with remote                                                  #
             # ---------------------------------------------------------------- #
+            # If the previous Copilot session left uncommitted files (e.g. due
+            # to a transient API error mid-session), commit them now so that
+            # git pull --rebase doesn't abort with "unstaged changes".
+            # Never discard with reset --hard: uncommitted files are completed
+            # research that must be preserved.
+            if [ -n "$(git status --porcelain)" ]; then
+              git add -A
+              git commit -m "chore: commit agent residuals from iteration $ITERATION [skip ci]"
+              echo "::warning::Agent session left uncommitted files — committed as residuals."
+            fi
+
             # Pull latest main before each iteration so concurrent commits
             # (e.g. from a manual trigger) don't cause push conflicts.
             if ! git pull --rebase origin main; then
