@@ -105,11 +105,20 @@ def test_workflow_permissions_are_read_only() -> None:
     )
 
 
-def test_workflow_initializes_skills_submodule() -> None:
-    """The workflow must initialize .github/skills to access skill files."""
+def test_workflow_has_skills_available() -> None:
+    """The workflow must verify skill files are accessible.
+
+    .github/skills/ is a regular tracked directory — not a git submodule.
+    The checkout step already materialises all skill files, so no submodule
+    init is required.  The workflow must list .github/skills/ to confirm the
+    directory is present.
+    """
     content = WORKFLOW_PATH.read_text(encoding="utf-8")
-    assert "submodule" in content, "Workflow must initialize the skills submodule"
-    assert ".github/skills" in content, "Workflow must initialize .github/skills specifically"
+    assert ".github/skills" in content, "Workflow must reference .github/skills"
+    assert "git submodule update" not in content, (
+        ".github/skills is a regular tracked directory, not a submodule — "
+        "the workflow must not call 'git submodule update'"
+    )
 
 
 def test_workflow_references_review_prompt() -> None:

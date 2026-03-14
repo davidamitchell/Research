@@ -149,6 +149,12 @@ jobs:
             # ---------------------------------------------------------------- #
             # Sync with remote                                                  #
             # ---------------------------------------------------------------- #
+            # Discard any uncommitted changes the agent left in the working tree
+            # before rebasing. A previous iteration may have written files it
+            # didn't commit; git pull --rebase aborts with "unstaged changes" if
+            # the tree is dirty, so we reset/clean first.
+            git reset --hard HEAD
+            git clean -fd
             # Pull latest main before each iteration so concurrent commits
             # (e.g. from a manual trigger) don't cause push conflicts.
             if ! git pull --rebase origin main; then

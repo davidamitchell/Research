@@ -54,8 +54,10 @@ jobs:
         with:
           fetch-depth: 1
 
-      - name: Initialize skills submodule
-        run: git submodule update --init .github/skills
+      - name: Skills files available
+        # .github/skills/ is a regular tracked directory (not a submodule).
+        # The checkout action above already materialises all skill files.
+        run: ls .github/skills/
 
       - name: Determine items to review
         id: items

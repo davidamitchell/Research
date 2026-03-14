@@ -1,7 +1,17 @@
 # ADR-0002: Agent Skills as a Git Submodule
 
 Date: 2026-02-28
-Status: accepted
+Status: superseded (2026-03-08 — see note below)
+
+> **Note (2026-03-08):** `.github/skills/` was converted from a git submodule
+> to a regular tracked directory. The submodule was never properly initialized
+> (no skill files were available to agents), and local-only skills (e.g.
+> `bbc-author`) needed to be preserved across syncs. `sync-skills.yml` now
+> uses clone-and-copy semantics: it clones `davidamitchell/Skills` into a
+> temp directory and copies each upstream `SKILL.md` into `.github/skills/`,
+> preserving any locally-added skill directories.  `.gitmodules` no longer
+> lists `.github/skills`.  The `research-review.yml` workflow step that called
+> `git submodule update --init` has been removed accordingly.
 
 ## Context
 
