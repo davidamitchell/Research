@@ -81,6 +81,11 @@ Entries here should be *denser* than any individual research item because they s
 
 **Open thread:** Is there a unified memory architecture that works for both agents and human knowledge management? The distinction between "agent memory" (milliseconds–weeks) and "organisational memory" (months–decades) is one of timescale and fidelity, not structure.
 
+One specific new failure mode with no prior equivalent: when an AI agent performs the exploratory work, the human supervisor holds only the *outcome* — not the process knowledge (what was tried, why choices were made, what was discarded). The agent's process knowledge is transient — it lives in the context window and disappears when the session ends. This makes human-to-human knowledge transfer logically impossible, not merely difficult. The correct response is architectural: require agents to produce structured, persisted decision logs as a standard output, enabling downstream agent synthesis. This is not a harder version of the tacit knowledge problem; it is a structurally different problem requiring a different class of solution.
+
+**Evidence (extended):**
+- `Research/completed/2026-03-12-exploration-synthesis-gap.md` — the agent-mediated knowledge gap; context window transience as the mechanism; structured decision logs as the required artefact; agent synthesis pipeline as the architectural intervention
+
 ---
 
 ## Thread 6 — Adversarial collaboration: agents with a shared goal but different competencies and time horizons
@@ -143,4 +148,15 @@ Values alignment and strategic alignment agents are the explicit K→W gatekeepe
 
 ---
 
-*Last updated: 2026-03-14 (Thread 8 updated: ai-team-size-strike-team-thesis)*
+*Last updated: 2026-03-14 (Thread 5 extended: exploration-synthesis-gap; Thread 9 added)*
+
+---
+
+## Thread 9 — The exploration-synthesis gap is structural, not cultural: four independent mechanisms explain it
+
+**The learning:** In any organisation running a fast-moving innovation programme (AI adoption, R&D, technology transformation), individuals systematically fail to synthesise colleagues' prior work. This is not a cultural or personality problem — it is produced by four independent, reinforcing structural mechanisms: (1) *neurological asymmetry*: exploration activates dopaminergic novelty-reward circuits; synthesis does not — making exploration intrinsically more rewarding than synthesis regardless of attitude; (2) *Self-Determination Theory (SDT) misalignment*: exploration satisfies all three basic psychological needs (autonomy, competence, novelty contribution); synthesis satisfies none under standard organisational conditions; (3) *incentive system failure*: high pay-for-individual-performance empirically reduces knowledge sharing (Jin et al. 2025); credit attribution accrues to originators, not synthesisers, because synthesis produces no named, attributable artefact; (4) *NIH syndrome*: active attitude-level resistance to external knowledge (Katz & Allen 1982), amplified by group tenure and competitive incentive environments. Because these mechanisms are independent and reinforcing, removing any one leaves the other three intact. Structural interventions (credit redesign, synthesis checkpoints) are more durable than cultural persuasion. For AI-agent-mediated work, human-to-human synthesis is logically impossible (see Thread 5), requiring architectural delegation to agent synthesis pipelines.
+
+**Evidence:**
+- `Research/completed/2026-03-12-exploration-synthesis-gap.md` — full mechanistic analysis across four disciplines; tiered intervention framework (structural / process / architectural); SDT + NIH + PFIP + credit attribution evidence; agent-mediated gap analysis
+
+**Open thread:** Can credit attribution systems be redesigned to make synthesis visible and rewarded without triggering the "synthesis as audit burden" reaction that suppresses exploration velocity? Do collaborative-commons cultures (open-source communities, academic co-authorship networks) show meaningfully lower gaps than competitive knowledge-work cultures?

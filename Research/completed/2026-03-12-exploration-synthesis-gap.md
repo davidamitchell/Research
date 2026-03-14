@@ -1,12 +1,12 @@
 ---
 title: "Exploration-synthesis gap: why people in explore mode fail to synthesise others' work, and whether agent synthesis can close the gap"
 added: 2026-03-12
-status: reviewing
+status: completed
 priority: high
 blocks: []
 tags: [cognition, exploration, synthesis, knowledge-sharing, incentives, ego, agentic-systems, organisational-behaviour, psychology]
 started: 2026-03-14
-completed: ~
+completed: 2026-03-14
 output: [knowledge]
 ---
 
