@@ -149,12 +149,15 @@ jobs:
             # ---------------------------------------------------------------- #
             # Sync with remote                                                  #
             # ---------------------------------------------------------------- #
-            # Discard any uncommitted changes the agent left in the working tree
-            # before rebasing. A previous iteration may have written files it
-            # didn't commit; git pull --rebase aborts with "unstaged changes" if
-            # the tree is dirty, so we reset/clean first.
-            git reset --hard HEAD
-            git clean -fd
+            # The agent session (above) writes files and is supposed to commit
+            # them via 'git add . && git commit && git push' at the end of the
+            # prompt. If the session hit an error before its commit step it may
+            # have left research work uncommitted. Commit anything pending now
+            # so it is not lost, then pull to get any remote-only commits.
+            git add -A
+            if ! git diff --cached --quiet; then
+              git commit -m "chore: auto-commit agent work from previous iteration [skip ci]"
+            fi
             # Pull latest main before each iteration so concurrent commits
             # (e.g. from a manual trigger) don't cause push conflicts.
             if ! git pull --rebase origin main; then
