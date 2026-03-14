@@ -6,6 +6,11 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Fixed
+- `research-loop.yml` Run research loop step: replaced `GH_TOKEN` with `GITHUB_TOKEN` (the env var the Copilot CLI actually reads); added `TAVILY_API_KEY` and `YOUTUBE_DATA_API` to the env block so the Tavily MCP server and YouTube fetcher no longer fail silently
+- `research-loop.yml` header comment: updated required-secrets documentation to list all three secrets (`COPILOT_GITHUB_TOKEN`, `TAVILY_API_KEY`, `YOUTUBE_DATA_API`) with their purposes
+- `test_research_loop.py`: added three new tests asserting `GITHUB_TOKEN` (not `GH_TOKEN`) and both `TAVILY_API_KEY` / `YOUTUBE_DATA_API` are present in the loop step env block
+
 ### Added
 - `@pytest.mark.integration` marker registered in `pyproject.toml`; run `pytest -m "not integration"` locally to skip credential-gated tests
 - `test_tavily_api_key_is_configured` — unconditional integration test that asserts `TAVILY_API_KEY` is set; fails loudly in CI when the secret is absent or misconfigured, closing the silent-skip gap

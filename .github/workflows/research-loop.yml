@@ -8,10 +8,13 @@ name: Research Loop
 #
 # Commits go directly to main — no pull requests.
 #
-# Required repository secret: COPILOT_GITHUB_TOKEN
-#   A GitHub Personal Access Token (classic or fine-grained) with Copilot access.
-#   Settings → Secrets and variables → Actions → New repository secret
-#   Name: COPILOT_GITHUB_TOKEN  Value: your PAT
+# Required repository secrets:
+#   COPILOT_GITHUB_TOKEN — PAT with Copilot access; mapped to GITHUB_TOKEN so the
+#     Copilot CLI can authenticate. Settings → Secrets → New repository secret.
+#   TAVILY_API_KEY — Tavily web search API key; used by the tavily-mcp MCP server
+#     (see .github/mcp.json). Without this, all Tavily searches fail silently.
+#   YOUTUBE_DATA_API — YouTube Data API key; used by src/fetchers/youtube.py to
+#     fetch transcripts and metadata. Without this, YouTube fetches fail silently.
 #
 # Safety controls (see ADR-0004):
 #   - Job-level timeout: 90 minutes hard ceiling per run.
@@ -96,7 +99,9 @@ jobs:
 
       - name: Run research loop
         env:
-          GH_TOKEN: ${{ secrets.COPILOT_GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.COPILOT_GITHUB_TOKEN }}
+          TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
+          YOUTUBE_DATA_API: ${{ secrets.YOUTUBE_DATA_API }}
         run: |
           set -euo pipefail
 
