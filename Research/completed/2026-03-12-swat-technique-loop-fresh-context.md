@@ -1,12 +1,12 @@
 ---
 title: "SWAT technique in a fresh-context loop: reliability, drift, and the effect of web search and org RAG on blind-acceptance outcomes"
 added: 2026-03-12
-status: reviewing
+status: completed
 priority: medium
 blocks: []
 tags: [swat, prompting-techniques, agentic-systems, rag, web-search, hallucination, context-window, loop-reliability, grounding]
 started: 2026-03-14
-completed: ~
+completed: 2026-03-14
 output: [knowledge]
 ---
 
