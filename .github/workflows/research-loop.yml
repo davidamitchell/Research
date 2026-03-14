@@ -152,6 +152,20 @@ jobs:
             fi
 
             # ---------------------------------------------------------------- #
+            # Debugging: git state before rebase                               #
+            # Helps diagnose ghost-dirty-tree issues (e.g. autocrlf/fileMode  #
+            # causing the working tree to appear dirty after a clean checkout) #
+            # ---------------------------------------------------------------- #
+            echo "--- [DEBUG] git state before rebase (iteration $((ITERATION + 1))) ---"
+            echo "core.autocrlf: $(git config core.autocrlf 2>/dev/null || echo 'not set')"
+            echo "core.fileMode: $(git config core.fileMode 2>/dev/null || echo 'not set')"
+            echo "--- git diff --stat ---"
+            git diff --stat
+            echo "--- git diff ---"
+            git diff
+            echo "--- [DEBUG] end pre-rebase state ---"
+
+            # ---------------------------------------------------------------- #
             # Sync with remote                                                  #
             # ---------------------------------------------------------------- #
             # Pull latest main before each iteration so concurrent commits
@@ -198,6 +212,18 @@ jobs:
             # Push any commits the agent made.
             # (The agent commits inside its session; this is a safety-net push.)
             git push origin main || true
+
+            # ---------------------------------------------------------------- #
+            # Debugging: git state at end of iteration                         #
+            # ---------------------------------------------------------------- #
+            echo "--- [DEBUG] git state at end of iteration $((ITERATION + 1)) ---"
+            echo "core.autocrlf: $(git config core.autocrlf 2>/dev/null || echo 'not set')"
+            echo "core.fileMode: $(git config core.fileMode 2>/dev/null || echo 'not set')"
+            echo "--- git diff --stat ---"
+            git diff --stat
+            echo "--- git diff ---"
+            git diff
+            echo "--- [DEBUG] end post-iteration state ---"
 
             ITERATION=$((ITERATION + 1))
 

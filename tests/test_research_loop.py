@@ -364,3 +364,65 @@ def test_adr_0004_indexed() -> None:
     index_path = REPO_ROOT / "docs" / "adr" / "README.md"
     content = index_path.read_text(encoding="utf-8")
     assert "0004" in content, "ADR-0004 must be added to the ADR index"
+
+
+# ---------------------------------------------------------------------------
+# Ghost-dirty-tree debugging (see issue: Add debugging to the research loop)
+# ---------------------------------------------------------------------------
+
+
+def test_workflow_logs_git_config_autocrlf_before_rebase() -> None:
+    """The loop must log core.autocrlf before each git pull --rebase."""
+    content = WORKFLOW_PATH.read_text(encoding="utf-8")
+    assert "core.autocrlf" in content, (
+        "Workflow must log git config core.autocrlf to diagnose ghost-dirty-tree issues"
+    )
+
+
+def test_workflow_logs_git_config_filemode_before_rebase() -> None:
+    """The loop must log core.fileMode before each git pull --rebase."""
+    content = WORKFLOW_PATH.read_text(encoding="utf-8")
+    assert "core.fileMode" in content, (
+        "Workflow must log git config core.fileMode to diagnose ghost-dirty-tree issues"
+    )
+
+
+def test_workflow_logs_git_diff_stat_before_rebase() -> None:
+    """The loop must log git diff --stat before each git pull --rebase."""
+    content = WORKFLOW_PATH.read_text(encoding="utf-8")
+    assert "git diff --stat" in content, (
+        "Workflow must log git diff --stat to diagnose ghost-dirty-tree issues"
+    )
+
+
+def test_workflow_logs_git_diff_before_rebase() -> None:
+    """The loop must log git diff (full diff, not just stat) before each git pull --rebase."""
+    content = WORKFLOW_PATH.read_text(encoding="utf-8")
+    # Check for the echo marker to distinguish `git diff` from `git diff --stat`
+    assert 'echo "--- git diff ---"' in content, (
+        "Workflow must log git diff (full diff) to diagnose ghost-dirty-tree issues"
+    )
+
+
+def test_workflow_debug_appears_before_rebase() -> None:
+    """The debug block must appear before git pull --rebase in the workflow."""
+    content = WORKFLOW_PATH.read_text(encoding="utf-8")
+    autocrlf_pos = content.find("core.autocrlf")
+    rebase_pos = content.find("git pull --rebase")
+    assert autocrlf_pos != -1, "core.autocrlf debug line must be present"
+    assert rebase_pos != -1, "git pull --rebase must be present"
+    assert autocrlf_pos < rebase_pos, (
+        "Debugging (core.autocrlf) must appear before git pull --rebase"
+    )
+
+
+def test_workflow_debug_appears_after_push() -> None:
+    """A debug block must appear after git push to capture post-iteration state."""
+    content = WORKFLOW_PATH.read_text(encoding="utf-8")
+    push_pos = content.find("git push origin main || true")
+    post_debug_pos = content.find("[DEBUG] end post-iteration state")
+    assert push_pos != -1, "git push origin main || true must be present"
+    assert post_debug_pos != -1, "Post-iteration debug marker must be present in workflow"
+    assert post_debug_pos > push_pos, (
+        "Post-iteration debug block must appear after git push"
+    )
