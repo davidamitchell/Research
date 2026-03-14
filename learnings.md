@@ -117,4 +117,17 @@ Values alignment and strategic alignment agents are the explicit K→W gatekeepe
 
 ---
 
-*Last updated: 2026-03-13*
+## Thread 7 — Automated quality gates for agentic pipelines require observable, dimension-specific rubrics
+
+**The learning:** Holistic LLM-as-judge scores are unreliable for evaluating long-form agentic research outputs. Effective automated quality gates decompose quality into dimension-specific, observable criteria — each scored on an explicit 1–5 scale with unambiguous level descriptions. The nine dimensions that matter for this repository's research loop (claim sourcing, acronym expansion, hedge control, finding completeness, finding quality, evidence map coverage, assumption labeling, cross-section consistency, AI slop absence) each correspond to a distinct failure mode that emerges from incomplete execution of the research protocol. Framing each dimension as a binary pass/fail gate at a defined threshold (e.g., ≥3/5) produces a reproducible CI signal. The credential constraint in restricted CI environments (no OpenAI/Anthropic keys) forces the tooling decision: the only feasible LLM-as-judge implementation uses the model already available via the existing infrastructure (GitHub Copilot CLI, COPILOT_GITHUB_TOKEN) — adopting a named evaluation framework (DeepEval, Pydantic Evals, agentevals) solely for its CI runner is not justified when those frameworks require credentials that are not approved. This generalises: **tooling selection for agentic eval gates must be driven first by credential and infrastructure constraints, then by framework features.**
+
+**Evidence:**
+- `Research/completed/2026-03-10-research-loop-evaluation-rubric.md` — 9-dimension rubric specification; tooling comparison against credential constraints; CI workflow design; gold dataset requirements
+- `Research/completed/2026-03-10-agent-evaluation-cross-repo-analysis.md` — 5-component minimal viable evaluation framework; LLM-as-judge with structured rubrics preferred over open-ended prompts for long-form research
+- `Research/completed/2026-03-08-ai-coding-harnesses-agent-philosophy.md` — agent harness architectures include quality gates as first-class concerns; evaluation as a continuous feedback mechanism
+
+**Open thread:** What is the minimum viable gold calibration dataset size and diversity for the 9-dimension rubric to be well-calibrated? At what point do rubric dimensions become contradictory (e.g., hedge control vs. epistemic honesty requires acknowledging uncertainty)? How do the rubric scores trend over successive research loop iterations — is quality improving?
+
+---
+
+*Last updated: 2026-03-14*
