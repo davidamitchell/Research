@@ -109,6 +109,44 @@ def test_workflow_uses_copilot_github_token_secret() -> None:
     assert "secrets.GH_TOKEN" not in content, "Workflow must not reference old GH_TOKEN secret"
 
 
+def _get_run_research_loop_step(wf: dict) -> dict:
+    """Return the 'Run research loop' step from the workflow."""
+    steps = wf["jobs"]["research"]["steps"]
+    for step in steps:
+        if step.get("name") == "Run research loop":
+            return step
+    raise AssertionError("'Run research loop' step not found in workflow")
+
+
+def test_workflow_run_loop_step_uses_github_token_not_gh_token() -> None:
+    """The loop step env must use GITHUB_TOKEN (Copilot CLI name), not GH_TOKEN."""
+    wf = _load_workflow()
+    step = _get_run_research_loop_step(wf)
+    env = step.get("env", {})
+    assert "GITHUB_TOKEN" in env, "Loop step must set GITHUB_TOKEN for Copilot CLI auth"
+    assert "GH_TOKEN" not in env, "Loop step must not use GH_TOKEN — Copilot CLI reads GITHUB_TOKEN"
+
+
+def test_workflow_run_loop_step_sets_tavily_api_key() -> None:
+    """The loop step must expose TAVILY_API_KEY so the Tavily MCP server can authenticate."""
+    wf = _load_workflow()
+    step = _get_run_research_loop_step(wf)
+    env = step.get("env", {})
+    assert "TAVILY_API_KEY" in env, (
+        "Loop step must set TAVILY_API_KEY — without it the Tavily MCP server fails silently"
+    )
+
+
+def test_workflow_run_loop_step_sets_youtube_data_api() -> None:
+    """The loop step must expose YOUTUBE_DATA_API so the YouTube fetcher can authenticate."""
+    wf = _load_workflow()
+    step = _get_run_research_loop_step(wf)
+    env = step.get("env", {})
+    assert "YOUTUBE_DATA_API" in env, (
+        "Loop step must set YOUTUBE_DATA_API — without it the YouTube fetcher fails silently"
+    )
+
+
 def test_workflow_dispatch_max_items_is_choice_type() -> None:
     """max_items must be a dropdown (choice) to prevent unbounded free-text input."""
     wf = _load_workflow()
