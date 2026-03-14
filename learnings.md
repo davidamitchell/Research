@@ -38,7 +38,7 @@ Entries here should be *denser* than any individual research item because they s
 - `Research/completed/2026-03-08-ai-coding-harnesses-agent-philosophy.md` — agent harness architectures mirror team coordination patterns; tool access, memory, and context management are internal coordination mechanisms
 - Team Topologies interaction modes — three interaction modes map directly to Coase's three governance modes (confirmed by Amazon two-pizza teams and Spotify squads-tribes evidence)
 
-**Open thread:** The dynamic version of Coase's boundary model (when and how to restructure as the cost landscape changes) is under-specified. The "institutional adaptability" fitness function is named but no decision-trigger framework exists. Measuring transaction costs in software development contexts (cost per PR review cycle, specification uncertainty costs) remains an open empirical gap.
+**Open thread:** Measuring transaction costs in software development contexts (cost per pull request (PR) review cycle, specification uncertainty costs) remains an open empirical gap. See Thread 8 for empirical evidence on the new organisational equilibrium when AI dramatically reduces coordination costs.
 
 ---
 
@@ -127,6 +127,18 @@ Values alignment and strategic alignment agents are the explicit K→W gatekeepe
 - `Research/completed/2026-03-08-ai-coding-harnesses-agent-philosophy.md` — agent harness architectures include quality gates as first-class concerns; evaluation as a continuous feedback mechanism
 
 **Open thread:** What is the minimum viable gold calibration dataset size and diversity for the 9-dimension rubric to be well-calibrated? At what point do rubric dimensions become contradictory (e.g., hedge control vs. epistemic honesty requires acknowledging uncertainty)? How do the rubric scores trend over successive research loop iterations — is quality improving?
+
+---
+
+## Thread 8 — AI force multiplication shifts the organisational optimum toward ambition expansion, not cost reduction
+
+**The learning:** When AI multiplies per-person productive capacity by 5–10x, the economically rational response for an organisation with strategic ambition is to expand the mission — not to reduce headcount. The empirical evidence from AI-native companies is unambiguous: Lovable ($2.74M ARR per employee), Midjourney (~$4.7M), ElevenLabs ($825K–$1M), Anthropic ($3.6M–$7.5M), and OpenAI (~$5M) operate at 4–36x the private SaaS median of $130K — not by cutting costs but by attacking large markets with very small teams. However, incumbents face a structural bias toward cost reduction: public market incentives reward visible headcount cuts faster than they reward operating model redesign; annual planning cycles treat capacity as a fixed resource to be allocated, not a multiplier to be compounded. The practical framework for incumbents has three components: (i) identify the "cannot do now" list — strategic initiatives blocked on headcount or cost in the past 3 years; (ii) gate new headcount through a mandatory AI-substitution test (as Shopify operationalised in March 2025); (iii) restructure freed capacity into federated strike teams, each pursuing an independent mission. This is the dynamic version of Coase's boundary model: when AI reduces coordination costs dramatically, the optimal firm boundary shifts toward smaller, self-coordinating units pursuing previously unaffordable ambitions. The model is most constrained in regulated industries where headcount substitution requires regulatory engagement.
+
+**Evidence:**
+- `Research/completed/2026-03-12-ai-force-multiplier-ambition-expansion.md` — revenue-per-employee evidence for five AI-native companies; Shopify mandate analysis; "cannot do now" list framework; coordination-artifact vs judgment-role taxonomy; organisational inertia mechanisms
+- `Research/completed/2026-03-10-nature-of-the-firm-coase-organisations.md` — Coase's transaction cost argument explains why smaller, AI-augmented units become viable as coordination costs fall; Thread 2 provides the theoretical underpinning
+
+**Open thread:** Do incumbents that implement the Shopify-style AI-before-headcount mandate measurably outperform on revenue growth or margin expansion? How do regulated industries (financial services, healthcare, utilities) implement AI-first mandate models while satisfying prudential requirements? What is the empirical breakdown of roles in large organisations by coordination-artifact vs judgment-role type?
 
 ---
 
