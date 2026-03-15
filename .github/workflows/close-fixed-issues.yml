@@ -26,10 +26,16 @@ jobs:
             local issue="$1"
             local pr="$2"
             echo "Closing #$issue (Fixed by #$pr)..."
-            gh api -X POST "/repos/$REPO/issues/$issue/comments" \
-              -f body="Fixed by #$pr"
-            gh api -X PATCH "/repos/$REPO/issues/$issue" \
-              -f state="closed"
+            if ! gh api -X POST "/repos/$REPO/issues/$issue/comments" \
+              -f body="Fixed by #$pr"; then
+              echo "  ✗ Failed to comment on #$issue" >&2
+              exit 1
+            fi
+            if ! gh api -X PATCH "/repos/$REPO/issues/$issue" \
+              -f state="closed"; then
+              echo "  ✗ Failed to close #$issue" >&2
+              exit 1
+            fi
             echo "  ✓ Closed #$issue"
           }
 
