@@ -69,7 +69,7 @@ The right answer depends on who the consumers are (human researcher, AI agent, o
 2. *AI agent* — Claude Code, GitHub Copilot Agent, or other agents with MCP tool access.
 
 **Definitions:**
-- MCP (Model Context Protocol): an open protocol enabling AI assistants to invoke typed tools via JSON-RPC over stdio or HTTP/SSE transport.
+- MCP (Model Context Protocol): an open protocol enabling AI assistants to invoke typed tools via JavaScript Object Notation–Remote Procedure Call (JSON-RPC) over stdio or HyperText Transfer Protocol (HTTP)/SSE transport.
 - FTS5: SQLite's Full-Text Search version 5 extension.
 - SSE (Server-Sent Events): a one-directional HTTP streaming mechanism used by the MCP HTTP transport.
 
@@ -197,7 +197,7 @@ As established in Q2c: the email digest is blocked by missing credentials. The w
 
 ### §3 Reasoning
 
-**Consumer separation drives interface design.** The human researcher and the AI agent have structurally different access patterns. The human reads via GitHub web/iOS; the agent queries programmatically. No single interface serves both optimally. The wiki serves the human; the MCP server serves the agent; the CLI search command serves the agent session where it runs.
+**[inference] Consumer separation drives interface design.** The human researcher and the AI agent have structurally different access patterns. The human reads via GitHub web/iOS; the agent queries programmatically. No single interface serves both optimally. The wiki serves the human; the MCP server serves the agent; the CLI search command serves the agent session where it runs.
 
 **Prior research has already resolved the core sub-questions.** Five completed items (wiki, conversational interface, Slack/Teams, iOS Shortcuts, semantic search) collectively answer every aspect of this item's research question. This item's function is synthesis: assembling the unified strategy from those findings.
 
@@ -220,7 +220,7 @@ As established in Q2c: the email digest is blocked by missing credentials. The w
 
 ### §5 Depth and Breadth Expansion
 
-**Technical lens:** The MCP stdio transport invokes a subprocess per session — cold-start latency for a Python MCP server is 30–300ms (per `2026-03-02-chat-conversational-interface.md` Key Finding #2). At corpus size < 200 items, a grep-based Phase 1 backend adds < 50ms per search. The wiki full-rebuild pipeline at current volume completes in under 1 second. No performance concern at these scales.
+**Technical lens:** The MCP stdio transport invokes a subprocess per session — cold-start latency for a Python MCP server is 30–300ms (per `2026-03-02-chat-conversational-interface.md` Key Finding #2). At corpus size < 200 items, [inference] a grep-based Phase 1 backend adds < 50ms per search. [inference] The wiki full-rebuild pipeline at current volume completes in under 1 second. No performance concern at these scales.
 
 **Behavioural lens:** The human researcher's consumption pattern is primarily *discovery* (what have I researched recently? what is in a given area?) rather than *retrieval* (give me this specific item). The wiki's date-sorted `Home.md` and tag-sorted `_Sidebar.md` serve discovery. The MCP `search_research` tool serves retrieval. The two channels are complementary and target different consumption modes.
 
@@ -323,9 +323,9 @@ The research corpus requires two parallel delivery channels, one per consumer ty
 
 ### Analysis
 
-The interface strategy is architecturally complete, with two channels live or fully designed and two channels blocked by credential constraints. The key trade-off evaluated was human-browsing vs agent-query vs push-notification: they are not competing designs but complementary layers targeting distinct consumer modes. Prioritising the MCP server over the CLI search command is correct because it serves agent-to-corpus queries, which is the higher-frequency use case during research loop sessions. The CLI search command is a useful supplement that shares the FTS5 backend and should be implemented in the same slice. Push notifications (Slack/email) add value but are optional and blocked — delaying them costs nothing.
+The interface strategy is architecturally complete, with two channels live or fully designed and two channels blocked by credential constraints. The key trade-off evaluated was human-browsing vs agent-query vs push-notification: they are not competing designs but complementary layers targeting distinct consumer modes. [inference] Prioritising the MCP server over the CLI search command is correct because it serves agent-to-corpus queries, which is the higher-frequency use case during research loop sessions. The CLI search command is a useful supplement that shares the FTS5 backend and should be implemented in the same slice. Push notifications (Slack/email) add value but are optional and blocked — delaying them costs nothing.
 
-The email digest pattern from `Latest-developments-` is well-established but architecturally heavier than needed: that project watches external feeds and produces AI summaries, whereas a research digest only needs to list recently completed items. If credentials are approved, the digest workflow would be simpler than the `Latest-developments-` pipeline — a `schedule`-triggered workflow that reads `completed` dates from `Research/completed/` YAML front-matter and posts a summary.
+The email digest pattern from `Latest-developments-` is well-established but architecturally heavier than needed: that project watches external feeds and produces AI summaries, whereas a research digest only needs to list recently completed items. If credentials are approved, the digest workflow would be simpler than the `Latest-developments-` pipeline — a `schedule`-triggered workflow that reads `completed` dates from `Research/completed/` YAML Ain't Markup Language (YAML) front-matter and posts a summary.
 
 ### Risks, Gaps, and Uncertainties
 
