@@ -297,7 +297,7 @@ Informal Systems' Quint-based approach is the most fully-elaborated published me
 
 The cognitive debt framing names a structural risk of LLM-assisted coding that previously lacked a clean label. Technical debt was already understood; cognitive debt is new. The distinction matters because it changes what the remediation looks like — you cannot pay off cognitive debt by refactoring code, you need a process that builds understanding.
 
-Spectacle is a minor data point: evidence that the temporal logic of actions community extends beyond Informal Systems into the Haskell ecosystem, but not a practical recommendation given its adoption and maintenance status.
+[inference] Spectacle is a minor data point: evidence that the temporal logic of actions community extends beyond Informal Systems into the Haskell ecosystem, but not a practical recommendation given its adoption and maintenance status.
 
 **Risks, gaps, uncertainties:**
 
@@ -391,13 +391,13 @@ Informal Systems' Quint-based approach is the most fully-elaborated published me
 
 ### Analysis
 
-[inference] Among sources consulted, the Informal Systems proposal is the most fully-elaborated answer to the LLM-era reliability problem. By placing Quint as the human-owned, machine-validated layer between English intent and LLM-generated implementation, [inference] the architecture preserves the reasoning and understanding that LLM code generation would otherwise eliminate. The cognitive debt framing names a structural risk that previously lacked a clean label, distinguishes it from technical debt, and prescribes a class of solutions (spec-first workflows) rather than a specific vendor tool.
+[inference] Among sources consulted, the Informal Systems proposal is the most fully-elaborated answer to the LLM-era reliability problem. By placing Quint as the human-owned, machine-validated layer between English intent and LLM-generated implementation, [inference] the architecture preserves the reasoning and understanding that LLM code generation would otherwise eliminate. [inference] The cognitive debt framing names a structural risk that previously lacked a clean label, distinguishes it from technical debt, and prescribes a class of solutions (spec-first workflows) rather than a specific vendor tool.
 
-The critical question is adoption friction. Quint requires learning a new language, maintaining an additional artefact, and restructuring the development process. The quint-llm-kit reduces this friction by (a) enabling LLMs to generate Quint specs from English requirements, and (b) integrating Quint tooling into the LLM agent's Model Context Protocol tool context so that checking happens during generation rather than after. However, the kit is explicitly not production-ready, and the dominant evidence for the workflow's effectiveness is a single self-reported case study from the tool's own developers.
+[inference] The critical question is adoption friction. Quint requires learning a new language, maintaining an additional artefact, and restructuring the development process. The quint-llm-kit reduces this friction by (a) enabling LLMs to generate Quint specs from English requirements, and (b) integrating Quint tooling into the LLM agent's Model Context Protocol tool context so that checking happens during generation rather than after. However, the kit is explicitly not production-ready, and the dominant evidence for the workflow's effectiveness is a single self-reported case study from the tool's own developers.
 
-Spectacle warrants mention as confirmation that the temporal logic of actions approach to embedded specification is not unique to Informal Systems, but its dormancy and narrow Haskell-ecosystem target make it a historical data point rather than a current alternative.
+[inference] Spectacle warrants mention as evidence that the temporal logic of actions approach to embedded specification is not unique to Informal Systems, but its dormancy and narrow Haskell-ecosystem target make it a historical data point rather than a current alternative.
 
-The FM 2026 and FormaliSE 2026 programmes confirm that the academic community has independently converged on the same problem space, without yet providing independent empirical validation of the specific Quint LLM workflow claims.
+[inference] The FM 2026 and FormaliSE 2026 programmes indicate that the academic community has independently converged on the same problem space, without yet providing independent empirical validation of the specific Quint LLM workflow claims.
 
 ### Risks, Gaps, and Uncertainties
 
