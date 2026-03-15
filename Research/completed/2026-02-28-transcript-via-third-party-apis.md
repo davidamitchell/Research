@@ -112,7 +112,7 @@ infrastructure specific to the research workflow.
 **Prior work cross-reference:** Three directly relevant completed items inform this investigation:
 - `2026-02-27-youtube-transcript-fetcher.md` — established that YouTube's block on `youtube-transcript-api` from cloud IP ranges is a hard network restriction, not a library or protocol problem. The three-tier fallback chain in `src/fetchers/youtube.py` cannot produce full transcripts from cloud runners.
 - `2026-02-28-transcript-via-gemini-api.md` — established that Gemini's `fileData.fileUri` mechanism does bypass the IP block (Google fetches the video server-side), but output is paraphrased summary, not verbatim text.
-- `2026-02-28-transcript-via-yt-dlp-whisper.md` — investigated yt-dlp audio download + local Whisper; the key risk identified was whether YouTube CDN audio endpoints are also blocked from cloud runners.
+- `2026-02-28-transcript-via-yt-dlp-whisper.md` — investigated yt-dlp audio download + local Whisper; the key risk identified was whether YouTube Content Delivery Network (CDN) audio endpoints are also blocked from cloud runners.
 
 This item evaluates third-party APIs as a fourth pathway, distinct from the above three.
 
@@ -140,7 +140,7 @@ This item evaluates third-party APIs as a fourth pathway, distinct from the abov
    - 3c. Kagi pricing: per-call cost for a typical academic talk
 
 4. **Implementation complexity** — What new credentials and code are required for each candidate?
-   - 4a. Supadata: SDK, API shape, required secret
+   - 4a. Supadata: Software Development Kit (SDK), API shape, required secret
    - 4b. AssemblyAI: whether a YouTube URL is directly accepted or audio must be pre-downloaded
    - 4c. Kagi: API shape, account requirement
 
@@ -156,7 +156,7 @@ This item evaluates third-party APIs as a fourth pathway, distinct from the abov
 - [x] Supadata blog — "Best YouTube Transcript API": https://supadata.ai/blog/best-youtube-transcript-api (accessed 2026-03-10)
 - [x] Supadata Python SDK: https://github.com/supadata-ai/py (referenced in search results, accessed 2026-03-10)
 - [x] Supadata transcript service deep-wiki: https://deepwiki.com/supadata-ai/supadata-docs/4.1.1-transcript-service (accessed 2026-03-10)
-- [x] AssemblyAI FAQ — YouTube transcription: https://www.assemblyai.com/docs/faq/how-can-i-transcribe-youtube-videos (accessed 2026-03-10)
+- [x] AssemblyAI Frequently Asked Questions (FAQ) — YouTube transcription: https://www.assemblyai.com/docs/faq/how-can-i-transcribe-youtube-videos (accessed 2026-03-10)
 - [x] AssemblyAI pricing: https://www.assemblyai.com/pricing (referenced via web search, accessed 2026-03-10)
 - [x] Kagi Universal Summarizer docs: https://help.kagi.com/kagi/api/summarizer.html (accessed 2026-03-10)
 - [x] DEV Community — "Best YouTube Transcript APIs in 2025": https://dev.to/geiger01/best-youtube-transcript-apis-in-2025-45d6 (accessed 2026-03-10)
@@ -206,7 +206,7 @@ This item evaluates third-party APIs as a fourth pathway, distinct from the abov
 
 [fact] In Native and Auto modes, Supadata returns YouTube's own caption data — the same timestamped text that YouTube's auto-generated or creator-uploaded captions contain. This is verbatim in the sense that it reproduces the caption text word-for-word (source: https://deepwiki.com/supadata-ai/supadata-docs/4.1.1-transcript-service, accessed 2026-03-10).
 
-[fact] In Generate and Auto-fallback modes, Supadata uses AI models described as "similar to OpenAI Whisper" for transcription when native captions are unavailable. Whisper-class models produce forced-alignment ASR (automatic speech recognition) output — phoneme-level transcription — which is substantively more verbatim than language-model paraphrase (source: web search synthesis citing deepwiki.com/supadata-ai, accessed 2026-03-10).
+[inference] In Generate and Auto-fallback modes, Supadata uses AI models described as "similar to OpenAI Whisper" for transcription when native captions are unavailable. Whisper-class models produce forced-alignment ASR (automatic speech recognition) output — phoneme-level transcription — which is substantively more verbatim than language-model paraphrase (source: web search synthesis citing deepwiki.com/supadata-ai, accessed 2026-03-10).
 
 [fact] Supadata's transcript response includes timestamped segments, enabling precise per-segment attribution (source: https://supadata.ai/blog/best-youtube-transcript-api, accessed 2026-03-10).
 
@@ -216,7 +216,7 @@ This item evaluates third-party APIs as a fourth pathway, distinct from the abov
 
 **Atomic question 2b: AssemblyAI output type**
 
-[fact] AssemblyAI uses its "Universal speech-to-text" model, a deep neural network ASR model (not a language model). It produces a forced-alignment transcript — verbatim text of what was spoken, with optional speaker labels, punctuation, and timestamps (source: https://www.assemblyai.com/pricing, referenced via web search, accessed 2026-03-10).
+[inference] AssemblyAI uses its "Universal speech-to-text" model, a deep neural network ASR model (not a language model). It produces a forced-alignment transcript — verbatim text of what was spoken, with optional speaker labels, punctuation, and timestamps (source: https://www.assemblyai.com/pricing, referenced via web search, accessed 2026-03-10).
 
 [inference] AssemblyAI's transcript quality is high — it is a dedicated ASR system rather than a multimodal LLM, so its output does not suffer from the paraphrasing artefact identified in the Gemini research item. However, because it requires a prior `yt-dlp` download step, it is only usable on GitHub Actions if `yt-dlp` audio downloads succeed from that IP range, which is the unresolved key risk from the yt-dlp/Whisper research item.
 
@@ -240,7 +240,7 @@ This item evaluates third-party APIs as a fourth pathway, distinct from the abov
 
 [inference] For a research use case of "a few videos per month" (estimated 5–20 videos/month based on the research workflow described in this repo), 100 free credits/month is more than sufficient. The free tier covers this volume comfortably with credits to spare.
 
-**Conclusion 3a:** Supadata's free tier (100 credits/month) is adequate for the research volume described in this item.
+**Conclusion 3a:** [inference] Supadata's free tier (100 credits/month) is adequate for the research volume described in this item.
 
 ---
 
@@ -343,7 +343,7 @@ The research question asked whether third-party APIs can bypass YouTube's IP blo
 
 **Technical lens:** Supadata's three-mode design mirrors the three-tier fallback already implemented in `src/fetchers/youtube.py`, but at the API level rather than the client level. The "Auto" mode is functionally equivalent to the existing fallback chain: try YouTube captions first, fall back to AI generation. The key difference is that Supadata's fallback executes on its own servers, not on the GitHub Actions runner, so the IP block is never encountered.
 
-**Economic lens:** At the research volume described (a few videos per month), Supadata's free tier is cost-free and self-sustaining. The $17/3,000 credits paid tier becomes relevant only if the workflow is expanded to bulk channel fetching or multi-repository use. The Gemini free tier is also cost-free at this volume, but produces paraphrased output — the economic comparison is therefore Supadata (free, verbatim) vs. paid ASR services (paid, verbatim). Supadata wins on both dimensions for this use case.
+**Economic lens:** At the research volume described (a few videos per month), Supadata's free tier is cost-free and self-sustaining. The $17/3,000 credits paid tier becomes relevant only if the workflow is expanded to bulk channel fetching or multi-repository use. The Gemini free tier is also cost-free at this volume, but produces paraphrased output — the economic comparison is therefore Supadata (free, verbatim) vs. paid ASR services (paid, verbatim). Opinion: Supadata wins on both dimensions for this use case.
 
 **Dependency risk lens:** Adding `SUPADATA_API_KEY` as a repository secret introduces a dependency on a commercial third-party service. If Supadata is discontinued or changes pricing, the workflow breaks. However, the alternative (Gemini) is also a third-party dependency; the risk is similar. Mitigation: retain the existing three-tier fallback in `src/fetchers/youtube.py` as a fallback for when the Supadata call fails, and document the dependency in the workflow.
 
@@ -364,7 +364,7 @@ The research question asked whether third-party APIs can bypass YouTube's IP blo
 
 ### §6 Synthesis
 
-**Executive summary:** Supadata is the only third-party transcript API among the evaluated candidates that both bypasses YouTube's IP block and returns verbatim transcript text, making it the correct implementation path for the research workflow. AssemblyAI does not bypass the IP block — it requires prior audio download via `yt-dlp`, which reintroduces the same cloud-IP restriction — and the original item's premise that AssemblyAI accepts YouTube URLs directly is factually incorrect. Kagi bypasses the IP block but produces summaries, not verbatim transcripts, making it a video-analysis tool rather than a transcript fetcher. Supadata's free tier (100 credits/month) is sufficient for the research use case, and integration requires only one new repository secret (`SUPADATA_API_KEY`) and one new fetcher function.
+**Executive summary:** Supadata is the only third-party transcript API among the evaluated candidates that both bypasses YouTube's IP block and returns verbatim transcript text, [inference] making it the correct implementation path for the research workflow. AssemblyAI does not bypass the IP block — it requires prior audio download via `yt-dlp`, which reintroduces the same cloud-IP restriction — and the original item's premise that AssemblyAI accepts YouTube URLs directly is factually incorrect. Kagi bypasses the IP block but produces summaries, not verbatim transcripts, making it a video-analysis tool rather than a transcript fetcher. Supadata's free tier (100 credits/month) is sufficient for the research use case, and integration requires only one new repository secret (`SUPADATA_API_KEY`) and one new fetcher function.
 
 **Key findings:**
 
@@ -378,7 +378,7 @@ The research question asked whether third-party APIs can bypass YouTube's IP blo
 
 5. Kagi's Universal Summarizer accepts YouTube URLs and handles YouTube access server-side (bypassing the IP block), but returns structured summaries rather than verbatim transcripts; YouTube URL support is marked "Experimental" in Kagi's documentation. [High confidence — confirmed by Kagi's official API documentation at https://help.kagi.com/kagi/api/summarizer.html.]
 
-6. Supadata's free tier provides 100 credits per month (one credit = one transcript request) with no credit card required; at a research volume of a few videos per month, this free tier is sufficient indefinitely. [High confidence — confirmed by Supadata blog, coldiq.com review, and DEV community analysis.]
+6. Supadata's free tier provides 100 credits per month (one credit = one transcript request) with no credit card required; at a research volume of a few videos per month, [inference] this free tier is sufficient indefinitely. [High confidence — confirmed by Supadata blog, coldiq.com review, and DEV community analysis.]
 
 7. Supadata's "Auto" mode is the recommended mode for the research workflow: it attempts to fetch YouTube's native captions first and falls back to AI (ASR-class) transcription if native captions are unavailable or blocked, providing reliability without requiring explicit mode management in client code. [Medium confidence — inference from mode documentation; no live test has been run to confirm Auto-mode behaviour from a cloud IP.]
 
@@ -453,7 +453,7 @@ The recommended implementation is: add `SUPADATA_API_KEY` as a repository secret
 
 ### Executive Summary
 
-Supadata is the only third-party transcript API among the evaluated candidates that both bypasses YouTube's cloud IP block and returns verbatim transcript text, making it the correct implementation path for the research workflow. AssemblyAI does not bypass the IP block — it requires prior audio download via `yt-dlp`, which reintroduces the same cloud-IP restriction that blocks `youtube-transcript-api` — and the original premise that AssemblyAI accepts YouTube URLs directly is factually incorrect. Kagi's Universal Summarizer bypasses the IP block via server-side processing but produces summaries, not verbatim transcripts, making it a video-analysis tool rather than a transcript fetcher. Supadata's free tier (100 credits/month) covers the research volume comfortably, and integration requires only one new repository secret and one new fetcher function.
+Supadata is the only third-party transcript API among the evaluated candidates that both bypasses YouTube's cloud IP block and returns verbatim transcript text, [inference] making it the correct implementation path for the research workflow. AssemblyAI does not bypass the IP block — it requires prior audio download via `yt-dlp`, which reintroduces the same cloud-IP restriction that blocks `youtube-transcript-api` — and the original premise that AssemblyAI accepts YouTube URLs directly is factually incorrect. Kagi's Universal Summarizer bypasses the IP block via server-side processing but produces summaries, not verbatim transcripts, making it a video-analysis tool rather than a transcript fetcher. Supadata's free tier (100 credits/month) covers the research volume comfortably, and integration requires only one new repository secret and one new fetcher function.
 
 ### Key Findings
 
@@ -467,7 +467,7 @@ Supadata is the only third-party transcript API among the evaluated candidates t
 
 5. Kagi's Universal Summarizer accepts YouTube URLs directly and processes them server-side, bypassing the IP block, but its output is a structured summary rather than a verbatim transcript, and YouTube URL support is marked "Experimental" in Kagi's documentation. [High confidence]
 
-6. Supadata's free tier provides 100 credits per month with no credit card required, and at a research use case volume of a few videos per month, this free allocation is sufficient indefinitely without any paid upgrade. [High confidence]
+6. Supadata's free tier provides 100 credits per month with no credit card required, and at a research use case volume of a few videos per month, [inference] this free allocation is sufficient indefinitely without any paid upgrade. [High confidence]
 
 7. Supadata's "Auto" mode is the recommended operational mode for the research workflow because it attempts to retrieve YouTube's native captions first and transparently falls back to AI (ASR-class) transcription when native captions are unavailable or blocked. [Medium confidence]
 
@@ -500,11 +500,11 @@ Supadata is the only third-party transcript API among the evaluated candidates t
 
 ### Analysis
 
-The research question resolves to a service-selection decision with a clear winner. Supadata is the only candidate that satisfies both the IP-bypass requirement (runner never contacts YouTube) and the output-quality requirement (verbatim or ASR-class near-verbatim text). The two other candidates fail on one criterion each: AssemblyAI fails on IP-bypass (because it requires a prior `yt-dlp` step), and Kagi fails on output type (summary, not verbatim).
+Supadata is the only candidate that satisfies both the IP-bypass requirement (runner never contacts YouTube) and the output-quality requirement (verbatim or ASR-class near-verbatim text). The two other candidates fail on one criterion each: AssemblyAI fails on IP-bypass (because it requires a prior `yt-dlp` step), and Kagi fails on output type (summary, not verbatim).
 
-The AssemblyAI finding is worth noting explicitly: the original item's premise was that AssemblyAI "transcribes via their own AI models" from a YouTube URL passed as `audio_url`. This was incorrect — AssemblyAI's API cannot accept a YouTube watch-page URL. This is not a minor detail; it means AssemblyAI provides no architectural advantage over the existing three-tier fallback when used from GitHub Actions.
+The AssemblyAI finding is worth noting explicitly: the original item's premise was that AssemblyAI "transcribes via their own AI models" from a YouTube URL passed as `audio_url`. This was incorrect — AssemblyAI's API cannot accept a YouTube watch-page URL. Opinion: This is not a minor detail; it means AssemblyAI provides no architectural advantage over the existing three-tier fallback when used from GitHub Actions.
 
-The Gemini comparison is instructive: Gemini (completed item) and Kagi (this item) share the same architectural pattern — server-side YouTube retrieval, language-model output — and the same limitation: the output is not verbatim text. Supadata differs from both by using ASR (not LLM) for its fallback, which preserves verbatim fidelity.
+Gemini (completed item) and Kagi (this item) share the same architectural pattern — server-side YouTube retrieval, language-model output — and the same limitation: the output is not verbatim text. Supadata differs from both by using ASR (not LLM) for its fallback, which preserves verbatim fidelity.
 
 ### Risks, Gaps, and Uncertainties
 
