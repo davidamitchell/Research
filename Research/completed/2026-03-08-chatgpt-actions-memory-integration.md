@@ -14,7 +14,7 @@ output: [knowledge]
 
 ## Research Question
 
-Can a ChatGPT custom GPT be configured with Actions that: (a) call a self-hosted HTTP endpoint to add a memory, (b) call `search_brain` before responding to surface relevant context? What is OpenAI's native Memory Application Programming Interface (API) — is there any export/import hook to sync ChatGPT's built-in memories into this repo? What are the auth and hosting requirements?
+Can a ChatGPT custom Generative Pre-trained Transformer (GPT) be configured with Actions that: (a) call a self-hosted HTTP endpoint to add a memory, (b) call `search_brain` before responding to surface relevant context? What is OpenAI's native Memory Application Programming Interface (API) — is there any export/import hook to sync ChatGPT's built-in memories into this repo? What are the auth and hosting requirements?
 
 ## Scope
 
@@ -92,7 +92,7 @@ Cross-reference: `Research/completed/2026-03-02-agent-memory-management-context-
 
 **Root question decomposed:**
 
-1. **Can a custom GPT Action call a self-hosted HTTPS endpoint?**
+1. **Can a custom GPT Action call a self-hosted Hypertext Transfer Protocol Secure (HTTPS) endpoint?**
    - 1a. What format is required (OpenAPI schema)?
    - 1b. What hosting constraints apply (HTTPS, public IP, Cross-Origin Resource Sharing (CORS))?
    - 1c. Are Actions called server-side (from OpenAI infrastructure) or client-side (from the browser/app)?
@@ -107,7 +107,7 @@ Cross-reference: `Research/completed/2026-03-02-agent-memory-management-context-
    - 3c. What does the ChatGPT data export include for memories, and is it machine-readable?
 
 4. **What authentication options exist for GPT Actions?**
-   - 4a. Is a static API key (custom header) supported in the GPT editor UI?
+   - 4a. Is a static API key (custom header) supported in the GPT editor User Interface (UI)?
    - 4b. Is OAuth required, and does OAuth work reliably on the ChatGPT iOS mobile app?
    - 4c. Is no-auth viable for personal memory endpoints?
 
@@ -141,7 +141,7 @@ Cross-reference: `Research/completed/2026-03-02-agent-memory-management-context-
 
 **Q2: Does the retrieval pattern work reliably?**
 
-**[fact]** Custom GPT system prompts can instruct the GPT to call a specific Action before answering any message. The standard pattern is: "Before responding to any user message, call the search_brain action with a query derived from the user's input. Use the results as context for your response." (Source: OpenAI RAG for GPTs documentation: https://help.openai.com/en/articles/8868588-retrieval-augmented-generation-rag-and-semantic-search-for-gpts)
+**[fact]** Custom GPT system prompts can instruct the GPT to call a specific Action before answering any message. The standard pattern is: "Before responding to any user message, call the search_brain action with a query derived from the user's input. Use the results as context for your response." (Source: OpenAI Retrieval-Augmented Generation (RAG) for GPTs documentation: https://help.openai.com/en/articles/8868588-retrieval-augmented-generation-rag-and-semantic-search-for-gpts)
 
 **[inference]** Forced function calling via system prompt instruction is probabilistic, not guaranteed. GPT-4o follows system prompt instructions reliably for simple conditional patterns ("always call X before Y"), but the model retains discretion to skip the call if it judges the query irrelevant or if the context window becomes saturated. This is architecturally different from MCP, where the tool call is part of the protocol flow. For personal use where the GPT is configured specifically for memory retrieval, the system prompt approach is sufficient.
 
@@ -241,7 +241,7 @@ No unresolvable contradictions found.
 
 **Technical lens:** The OpenAPI schema requirement for GPT Actions is a solved problem — LLMs including GPT-4o can auto-generate OpenAPI schemas from natural language descriptions of endpoints. The implementation complexity for writing the schema is low. The `add_memory` endpoint schema is trivial (POST with a `content` string body); `search_brain` is slightly more complex (POST with a `query` string, returns an array of results). The primary complexity is deployment, not schema authoring.
 
-**Security lens:** API key authentication (custom header) stored in the GPT configuration is held by OpenAI's servers. This means OpenAI has access to the key. For a personal memory endpoint containing notes about the owner, this is an acceptable risk — the same content is already visible to OpenAI through the ChatGPT conversation. For enterprise use cases with sensitive data, this would require OAuth. The security posture is comparable to storing a personal access token (PAT) in a third-party app's settings.
+**Security lens:** API key authentication (custom header) stored in the GPT configuration is held by OpenAI's servers. This means OpenAI has access to the key. For a personal memory endpoint containing notes about the owner, this is an acceptable risk [inference] — the same content is already visible to OpenAI through the ChatGPT conversation. For enterprise use cases with sensitive data, this would require OAuth. The security posture is comparable to storing a personal access token (PAT) in a third-party app's settings.
 
 **Behavioural lens:** The "forced retrieval before responding" pattern requires the user to use the custom GPT consistently instead of the default ChatGPT interface. Behaviour change risk: users may open ChatGPT and start a new chat (bypassing the custom GPT), losing the retrieval benefit. Mitigation: set the custom GPT as the default interface, or use ChatGPT Projects which maintain the custom GPT context. This is a real adoption friction that the Claude iOS MCP path does not have — Claude Connectors apply to every Claude conversation automatically once configured.
 
@@ -359,7 +359,7 @@ A custom GPT can be configured with Actions that call a self-hosted HTTPS endpoi
 
 ### Assumptions
 
-- **Assumption:** A system prompt instruction ("before every response, call search_brain") achieves ≥95% retrieval invocation for standard conversational queries. **Justification:** Community implementations of Retrieval-Augmented Generation (RAG) via Actions report reliable trigger behaviour for explicit, unambiguous instructions; the failure mode is ambiguous instructions, not the underlying mechanism. This rate is sufficient for personal use but has not been empirically measured.
+- **Assumption:** A system prompt instruction ("before every response, call search_brain") achieves ≥95% retrieval invocation for standard conversational queries. **Justification:** Community implementations of RAG via Actions report reliable trigger behaviour for explicit, unambiguous instructions; the failure mode is ambiguous instructions, not the underlying mechanism. This rate is sufficient for personal use but has not been empirically measured.
 
 - **Assumption:** A single FastAPI backend can expose both MCP Streamable HTTP routes and plain REST/JSON routes on different paths without conflict. **Justification:** FastAPI's routing system supports arbitrary path definitions; MCP and REST share the HTTP transport layer and can coexist in the same process. This is a standard web application architecture pattern.
 
@@ -369,9 +369,9 @@ A custom GPT can be configured with Actions that call a self-hosted HTTPS endpoi
 
 The investigation resolves the build/no-build question with high confidence: the ChatGPT Actions path is viable and simpler to implement than the Claude iOS MCP path in three respects. First, no MCP SDK is required — any HTTP server with a valid OpenAPI schema works, and the existing Cloudflare Workers and Fly.io endpoints are already REST/JSON compatible. Second, API key authentication (custom header) is both simpler to configure and more iOS-reliable than OAuth 2.1. Third, OpenAPI schemas for two endpoints (`add_memory`, `search_brain`) are trivial to author, and LLMs including GPT-4o can generate them from a description.
 
-The one structural limitation — retrieval fires only when the user opens the specific custom GPT — is a real friction. Claude Connectors apply universally to every Claude conversation, making retrieval ambient rather than opt-in. This makes the Claude iOS MCP path strategically superior as the primary memory integration, with the ChatGPT Actions path as a complementary capture surface.
+Retrieval scope is the key structural constraint: custom GPT retrieval fires only when the user opens that specific GPT, making the ChatGPT path a complementary capture surface rather than the primary memory integration [inference].
 
-The discovery that OAuth Actions are unreliable on iOS while API key Actions are not is the key finding for implementation design. Any personal deployment should avoid OAuth and use the custom header API key approach, accepting the security posture that OpenAI's servers hold the key. For a personal memory endpoint containing the owner's own notes, this risk is acceptable.
+OAuth unreliability on iOS — while API key Actions remain stable — is the key finding for implementation design. Any personal deployment should avoid OAuth and use the custom header API key approach, accepting the security posture that OpenAI's servers hold the key. For a personal memory endpoint containing the owner's own notes, this risk is acceptable [inference].
 
 ### Risks, Gaps, and Uncertainties
 
