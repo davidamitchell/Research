@@ -103,7 +103,7 @@ Decomposed into six sub-questions:
 - Q1c: Are there meaningful performance or reliability differences at this traffic scale (personal/small-team, low traffic)?
 
 **Q2: SSG selection**
-- Q2a: Which SSGs render Markdown with YAML frontmatter (tags, title, date) to HTML with minimal configuration?
+- Q2a: Which SSGs render Markdown with YAML Ain't Markup Language (YAML) frontmatter (tags, title, date) to HTML with minimal configuration?
 - Q2b: Which SSGs have built-in or first-class support for tag navigation and date-sorted indexes?
 - Q2c: Which SSGs have a proven, documented GitHub Actions deploy path?
 
@@ -135,12 +135,12 @@ Decomposed into six sub-questions:
 
 | Platform | Bandwidth | Builds | Cost | Extras |
 |---|---|---|---|---|
-| GitHub Pages | 100 GB/month (soft limit) | 10/hour via branch; unlimited via custom Actions | $0 | 1 GB repo/site size limit; SSL included |
+| GitHub Pages | 100 GB/month (soft limit) | 10/hour via branch; unlimited via custom Actions | $0 | 1 GB repo/site size limit; Secure Sockets Layer (SSL) included |
 | Cloudflare Pages | Unlimited (unmetered) | 500 builds/month (native Git integration) | $0 | 200+ CDN locations; 20,000 files/deployment; 25 MB max file |
 | Netlify free | 100 GB/month | 300 build minutes/month | $0 | Deploy previews; serverless functions (125K req/month) |
 | Vercel hobby | 100 GB/month | Included | $0 | Best for Next.js; 10s function timeout |
 
-Sources: `[x]` https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits; `[x]` https://www.netlify.com/guides/cloudflare-pages-vs-netlify/; `[x]` https://www.digitalapplied.com/blog/vercel-vs-netlify-vs-cloudflare-pages-comparison
+Sources: `[x]` https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits; `[x]` https://www.netlify.com/guides/cloudflare-pages-vs-netlify/ [PRIMARY SOURCE NEEDED for Cloudflare Pages limits: use Cloudflare Pages pricing documentation at https://pages.cloudflare.com/ rather than netlify.com (a direct competitor source)]; `[x]` https://www.digitalapplied.com/blog/vercel-vs-netlify-vs-cloudflare-pages-comparison
 
 For a personal research site with low traffic, all four platforms are functionally equivalent in practice. At this traffic scale the bandwidth limits of GitHub Pages and Netlify are not binding. Cloudflare Pages has the advantage of unlimited bandwidth if traffic spikes unexpectedly.
 
@@ -169,13 +169,13 @@ At a personal site with <1,000 monthly visitors, CDN tier differences are neglig
 
 - **Quartz v4:** Node.js SSG (requires Node 22). Designed for Obsidian-style Markdown vaults. Built-in: graph view (interactive node graph of links between notes), backlinks, client-side search, tags. Official GitHub Actions workflow provided for GitHub Pages and Cloudflare Pages in the hosting docs. Build command: `npx quartz build`. [fact, source: `https://quartz.jzhao.xyz/hosting`]
 
-- **Jekyll:** Ruby SSG native to GitHub Pages. Can deploy without custom Actions (branch-deploy mode). Limited plugin support in branch-deploy mode; arbitrary plugins available via custom Actions. Less relevant for a Python-centric repo.
+- **Jekyll:** Ruby SSG native to GitHub Pages [SOURCE NEEDED]. Can deploy without custom Actions (branch-deploy mode). Limited plugin support in branch-deploy mode [SOURCE NEEDED]; arbitrary plugins available via custom Actions. Less relevant for a Python-centric repo.
 
-- **Docusaurus:** React/Node.js SSG. Optimised for versioned documentation. Heavier than needed for this use case.
+- **Docusaurus:** React/Node.js SSG. Optimised for versioned documentation [SOURCE NEEDED]. Heavier than needed for this use case.
 
 **Q2b — Tag navigation and date-sorted indexes [fact]:**
 
-- **MkDocs Material:** Tags plugin (`- tags` in `plugins:`) generates a tag index page listing all items per tag. Date-sorted navigation requires either manual nav config in `mkdocs.yml` or a pre-build script to auto-generate nav from frontmatter dates. MkDocs does not auto-sort pages by date; this is a known gap that requires a small custom script or the `mkdocs-awesome-pages-plugin`. [fact, source: MkDocs Material tags docs]
+- **MkDocs Material:** Tags plugin (`- tags` in `plugins:`) generates a tag index page listing all items per tag. Date-sorted navigation requires either manual nav config in `mkdocs.yml` or a pre-build script to auto-generate nav from frontmatter dates. MkDocs does not auto-sort pages by date; this is a known gap that requires a small custom script or the `mkdocs-awesome-pages-plugin`. [fact, source: MkDocs Material tags docs [URL NEEDED]]
 - **Quartz v4:** Folder structure drives navigation. Tags are first-class. No auto-date-sorted index page without custom component development.
 
 [inference] Both MkDocs Material and Quartz can serve the navigation requirements with moderate configuration effort. MkDocs Material is closer to the existing Python tooling and has more documented recipes for auto-nav generation.
@@ -197,7 +197,7 @@ At a personal site with <1,000 monthly visitors, CDN tier differences are neglig
 
 - **Pagefind:** Post-processor SSG tool that indexes built static HTML files. Published at v1.0 (stable). Key features: split search index (loads only needed chunks); rich filtering engine for knowledge bases; custom metadata tracking; `data-pagefind-filter="tag"` attribute on tag links enables tag-based filtering within search results. Network payload: full-text search on a 10,000-page site under 300 kB including the Pagefind library; for 50–200 items the payload is closer to 10–50 kB. Integrates with any SSG. [fact, source: `https://pagefind.app`, `https://gebna.gg/blog/full-text-search-static-website-pagefind`]
 
-- **Orama (open-source):** JavaScript full-text + vector + hybrid search engine, zero dependencies, <2 kB gzipped. Runs in browser, Node.js, Cloudflare Workers, Deno, Bun. Supports vector search using pre-computed embeddings (any model producing numeric vectors) and hybrid search combining BM25 and cosine similarity. Requires: (a) a pre-build step to generate embeddings for all items and serialize them to JSON; (b) the JSON embeddings file to be bundled with the static site. No server required. [fact, source: `https://nearform.com/digital-community/browser-based-vector-search-fast-private-and-no-backend-required/`; `https://orama.com`]
+- **Orama (open-source):** JavaScript full-text + vector + hybrid search engine, zero dependencies, <2 kB gzipped. Runs in browser, Node.js, Cloudflare Workers, Deno, Bun. Supports vector search using pre-computed embeddings (any model producing numeric vectors) and hybrid search combining BM25 and cosine similarity. Requires: (a) a pre-build step to generate embeddings for all items and serialize them to JavaScript Object Notation (JSON); (b) the JSON embeddings file to be bundled with the static site. No server required. [fact, source: `https://nearform.com/digital-community/browser-based-vector-search-fast-private-and-no-backend-required/`; `https://orama.com`]
 
 **Q3b — Network payload at corpus scale [inference]:**
 
@@ -209,7 +209,7 @@ Orama is the only evaluated option that supports in-browser vector and hybrid se
 
 MkDocs built-in search and Pagefind are keyword-only (BM25); they do not support semantic similarity queries.
 
-**Conclusion Q3:** For keyword FTS with tag filtering: Pagefind is superior to lunr (tag filtering, section-level results, lower payload). For semantic/hybrid search without a server: Orama with pre-computed embeddings is the only viable path, at the cost of a CI embedding generation step.
+**Conclusion Q3:** For keyword FTS with tag filtering: [inference] Pagefind is superior to lunr (tag filtering, section-level results, lower payload). For semantic/hybrid search without a server: Orama with pre-computed embeddings is the only viable path, at the cost of a CI embedding generation step.
 
 ---
 
@@ -217,7 +217,7 @@ MkDocs built-in search and Pagefind are keyword-only (BM25); they do not support
 
 **Q4a — Storage and query limits [fact]:**
 
-- **Qdrant Cloud:** 1 GB RAM cluster, free forever, no credit card required. Supports approximately 1 million 768-dimensional vectors. Multiple collections allowed. REST API and gRPC API. Well-documented Python client. [fact, source: `https://www.firecrawl.dev/blog/best-vector-databases`; `http://oreateai.com/blog/navigating-qdrant-cloud-pricing-in-2025`]
+- **Qdrant Cloud:** 1 GB RAM cluster, free forever, no credit card required. Supports approximately 1 million 768-dimensional vectors. Multiple collections allowed. Representational State Transfer (REST) API and gRPC Remote Procedure Call (gRPC) API. Well-documented Python client. [fact, source: `https://www.firecrawl.dev/blog/best-vector-databases`; `http://oreateai.com/blog/navigating-qdrant-cloud-pricing-in-2025`]
 - **LanceDB Cloud:** Public beta at time of writing. 30-day free trial only — not free forever. LanceDB open-source (OSS) is embedded (runs in-process) and not suitable for a static site's server-free requirement without an edge function or Lambda. [fact, source: `https://docs.lancedb.com/cloud`; `https://cybergarden.au/blog/5-powerful-vector-database-tools-2025`]
 - **Weaviate Cloud:** 14-day free trial, then paid (from $25/month). Not free forever. [fact, source: `https://www.firecrawl.dev/blog/best-vector-databases`]
 
@@ -238,7 +238,7 @@ All cloud vector DB options (Qdrant Cloud, Weaviate Cloud, LanceDB Cloud) requir
 
 **Q5a — Neo4j AuraDB Free limits [fact]:**
 
-Neo4j AuraDB Free: $0, 1 database, 50,000 nodes, 175,000 relationships. Cloud-managed, auto-updated. REST API and Bolt protocol API accessible with an AuraDB credential. [fact, source: `https://neo4j.com/product/auradb/`; techzine news article on AuraDB Free launch]
+Neo4j AuraDB Free: $0, 1 database, 50,000 nodes, 175,000 relationships. Cloud-managed, auto-updated. REST API and Bolt protocol API accessible with an AuraDB credential. [fact, source: `https://neo4j.com/product/auradb/`; techzine news article on AuraDB Free launch [URL NEEDED]]
 
 **Q5b — Warranted for this corpus? [inference]:**
 
@@ -324,9 +324,9 @@ Claims separated by type:
 ### §5 Depth and Breadth Expansion
 
 **Technical lens:**
-The recommended MkDocs Material + Pagefind + GitHub Pages stack is entirely composed of tools that are mature and widely deployed. MkDocs Material is used by hundreds of major open-source documentation sites (FastAPI, Pydantic, Typer, mkdocs-material itself). Pagefind is developed and maintained by CloudCannon (a commercial static site CMS) and reached v1.0 in 2023. GitHub Pages has served static sites since 2008. Technical risk is low.
+The recommended MkDocs Material + Pagefind + GitHub Pages stack is entirely composed of tools that are mature and widely deployed. MkDocs Material is used by hundreds of major open-source documentation sites [SOURCE NEEDED] (FastAPI, Pydantic, Typer, mkdocs-material itself). Pagefind is developed and maintained by CloudCannon (a commercial static site CMS) and reached v1.0 in 2023. GitHub Pages has served static sites since 2008. [inference] Technical risk is low.
 
-The main technical gap identified is Pagefind tag filtering requiring template customisation in MkDocs Material. This is a known, solved problem: MkDocs Material template overrides allow injecting `data-pagefind-filter` attributes. Alternatively, MkDocs Material's built-in search with the tags plugin covers 80% of the filtering use case without this customisation.
+The main technical gap identified is Pagefind tag filtering requiring template customisation in MkDocs Material. [inference] This is a known, solved problem: MkDocs Material template overrides allow injecting `data-pagefind-filter` attributes. Alternatively, MkDocs Material's built-in search with the tags plugin covers 80% of the filtering use case [SOURCE NEEDED] without this customisation.
 
 **Economic lens:**
 The recommended stack has $0 recurring cost. The only cost is GitHub Actions compute time (the build + Pagefind indexing step adds ~30 s to CI time, within the free Actions quota on a public repo, or within the 2,000 minutes/month free quota on a private repo).
@@ -336,7 +336,7 @@ Adding Orama semantic search adds ~60–90 s CI time per build. For 1 commit/day
 Qdrant Cloud (if approved) at 1 GB free adds $0 recurring cost but introduces operational overhead: the embedding generation step runs in CI and pushes to Qdrant via its REST API. A credential (`QDRANT_API_KEY`) must be stored in GitHub Secrets.
 
 **Historical lens:**
-Static sites + client-side search is not a new pattern. Jekyll + Lunr.js was the standard combination for GitHub Pages sites ca. 2015–2020. The shift to Pagefind ca. 2022–2023 reflects lessons from the Lunr.js period: lunr's full-index-download approach does not scale to large sites. Pagefind's chunked approach is the current state of the art for static search. The history supports choosing Pagefind over lunr for a growing corpus.
+Static sites + client-side search is not a new pattern. Jekyll + Lunr.js was the standard combination for GitHub Pages sites ca. 2015–2020 [SOURCE NEEDED]. The shift to Pagefind ca. 2022–2023 reflects lessons from the Lunr.js period: lunr's full-index-download approach does not scale to large sites. [inference] Pagefind's chunked approach is the current state of the art for static search. The history supports choosing Pagefind over lunr for a growing corpus.
 
 **Behavioural lens:**
 The owner interacts via GitHub website and iOS app. A hosted static site is useful precisely because the wiki's search is limited to GitHub's built-in search (which searches the wiki repository but not frontmatter metadata or tags). A dedicated site with a visible search box and tag filtering lowers the friction of rediscovering relevant prior research, which directly supports the core workflow.
@@ -458,6 +458,12 @@ For the SSG choice, MkDocs Material is preferred over Quartz v4 because: the exi
 - CI: first use at §2 Investigation Q3c, expanded as "continuous integration (CI)". ✓
 - PII: expanded in §5 Regulatory lens as "PII (Personally Identifiable Information)" ✓
 - PoP: first use at §2 Investigation Q1c, expanded as "Points of Presence (PoPs)". ✓
+- YAML: first use at §1 Q2a, expanded as "YAML Ain't Markup Language (YAML)" ✓
+- SSL: first use at §2 Q1a table, expanded as "Secure Sockets Layer (SSL)" ✓
+- JSON: first use at §2 Q3a, expanded as "JavaScript Object Notation (JSON)" ✓
+- REST: first use at §2 Q4a, expanded as "Representational State Transfer (REST)" ✓
+- gRPC: first use at §2 Q4a, expanded as "gRPC Remote Procedure Call (gRPC)" ✓
+- CORS: first use at Open Questions §6, expanded as "Cross-Origin Resource Sharing (CORS)" ✓
 
 All claims are sourced or labelled. All uncertainties explicit. No unlabelled assumptions. ✓
 
@@ -535,7 +541,7 @@ The MkDocs Material + Pagefind + GitHub Pages stack is therefore the correct bas
 
 1. **Build trigger path filter:** Should the hosted site rebuild on every push to `main` or only on changes to `Research/completed/**`? Scoping to `Research/completed/**` would prevent redundant builds when only code or configuration changes are pushed.
 2. **Quartz v4 graph view:** If the owner values visual graph navigation between research items, Quartz v4 is worth reconsidering despite the Node.js runtime cost. A follow-up item could prototype Quartz on a branch.
-3. **Qdrant Cloud credential approval:** If the owner approves adding `QDRANT_API_KEY` to GitHub Secrets, what is the correct architecture for the semantic search endpoint — Cloudflare Worker (requires Cloudflare account + CLOUDFLARE_API_TOKEN), GitHub Actions nightly index push (avoids real-time query serving), or GitHub Pages + client-side Qdrant query via CORS (exposes the key in the browser)?
+3. **Qdrant Cloud credential approval:** If the owner approves adding `QDRANT_API_KEY` to GitHub Secrets, what is the correct architecture for the semantic search endpoint — Cloudflare Worker (requires Cloudflare account + CLOUDFLARE_API_TOKEN), GitHub Actions nightly index push (avoids real-time query serving), or GitHub Pages + client-side Qdrant query via Cross-Origin Resource Sharing (CORS) (exposes the key in the browser)?
 4. **Implementation backlog item:** A follow-up `BACKLOG.md` item should specify the implementation steps for the MkDocs Material + Pagefind + GitHub Pages stack. This research item produces the decision; the backlog item drives the execution.
 
 ---

@@ -67,7 +67,7 @@ Related completed research that is likely directly relevant:
 - [x] Lewis et al. (2020) — Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks: https://arxiv.org/abs/2005.11401
 - [x] Shuster et al. (2021) — Retrieval Augmentation Reduces Hallucination in Conversation: https://arxiv.org/abs/2104.07567 [accessed via ACL anthology PDF]
 - [ ] Perez et al. (2022) — Sycophancy in AI assistants: https://arxiv.org/abs/2310.13548 [identified; Sharma et al. 2023 is the correct primary sycophancy paper at this URL; not directly accessed — SycEval AAAI/ACM Conference on AI, Ethics, and Society (AIES) 2025 and arXiv:2509.12517 used instead as more current primary sources]
-- [x] SycEval (Fanous et al., AIES 2025) — Evaluating LLM Sycophancy: https://ojs.aaai.org/index.php/AIES/article/view/36598
+- [x] SycEval (Fanous et al., AAAI/ACM Conference on AI, Ethics, and Society (AIES) 2025) — Evaluating LLM Sycophancy: https://ojs.aaai.org/index.php/AIES/article/view/36598
 - [x] arXiv:2509.12517 — Interaction Context Often Increases Sycophancy in LLMs (ACM Conference on Human Factors in Computing Systems (CHI) 2026)
 - [x] arXiv:2512.07497 — How Do LLMs Fail in Agentic Scenarios? (KAMI benchmark, qualitative analysis)
 

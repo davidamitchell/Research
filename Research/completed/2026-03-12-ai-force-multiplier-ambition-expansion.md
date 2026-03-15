@@ -69,7 +69,7 @@ in coordination overhead never have capacity to sharpen the axe (strategic inves
 work, new market entry). Right-sizing teams frees that capacity.
 
 **AI-native company evidence**: The Software as a Service (SaaS) revenue-per-employee benchmark has historically been
-below $500K. AI-native companies are running 5–10x that:
+below $500K [SOURCE NEEDED]. AI-native companies are running 5–10x that:
 - Lovable (fka GPT Engineer): reached unicorn status with a very small team, global platform
 - Midjourney: ~40 employees generating hundreds of millions in annual recurring revenue (ARR)
 - ElevenLabs: similar pattern
@@ -236,8 +236,8 @@ Decomposition:
 
 [fact] The EY article on AI as a growth engine explicitly names the "cost-reduction trap": organisations calculate AI return on investment (ROI) based on headcount elimination, treating AI as a more efficient version of existing resources rather than as a capability that enables new value. (EY "Beyond cost cutting: AI as the ultimate growth engine")
 [fact] The Forbes "coordination theater" analysis (Feb 2026) documents a specific structural incentive: public markets reward visible efficiency (headcount reduction, cost compression) immediately, while operating model redesign "depresses margins before it expands them." (Forbes, Jason Snyder, Feb 2026)
-[fact] A 2025 McKinsey/LinkedIn study found that it can take more than two years for companies to economically recover from a Reduction in Force (RIF), including losses from attrition, engagement, and productivity. (LinkedIn post, Julianne Harmon, citing multiple studies)
-[inference] Historical analogues from the industrial revolution show that productivity step-changes (mechanised cotton spinning) produced gains not primarily through labour reduction but through entry of new, better-organised producers and exit of old ones — the "extensive margin" of plant entry/exit mattered more than efficiency improvements within existing firms. (UCLA Anderson / JSV working paper on technology adoption)
+[inference] A 2025 McKinsey/LinkedIn study found that it can take more than two years for companies to economically recover from a Reduction in Force (RIF), including losses from attrition, engagement, and productivity. (LinkedIn post, Julianne Harmon, citing multiple studies)
+[inference] Historical analogues from the industrial revolution show that productivity step-changes (mechanised cotton spinning) produced gains not primarily through labour reduction but through entry of new, better-organised producers and exit of old ones — the "extensive margin" of plant entry/exit mattered more than efficiency improvements within existing firms. (UCLA Anderson / JSV working paper on technology adoption [URL NEEDED — full title and URL required])
 [assumption] The same extensive-margin dynamic — new entrants structurally outperforming incumbents — applies to the AI productivity wave. Justification: the AI-native company data shows new entrants operating at structural efficiency levels incumbents cannot quickly replicate, consistent with the historical pattern.
 [inference] PC adoption research (St. Louis Fed, 1998) showed the "productivity paradox" — expected gains slow to appear in aggregate statistics — because organisational restructuring was required. Productivity gains materialised when firms gave workers decision-making roles and reorganised for the technology. This pattern suggests AI productivity gains for incumbents depend on genuine restructuring, not just tool adoption.
 
@@ -260,7 +260,7 @@ Decomposition:
 
 #### D1–D3: Coordination artifacts vs judgment roles
 
-[fact] Technical architects in AI-era organisations set code conventions, build AI agents, establish quality guardrails, and create rules that make AI output consistent — they design constraints for others to operate within. Members (generalists) build within those constraints with AI as the execution engine. (xpromx.me "How Organization Roles Change in the AI Era", DEV Community)
+[fact] Technical architects in AI-era organisations set code conventions, build AI agents, establish quality guardrails, and create rules that make AI output consistent — they design constraints for others to operate within. Members (generalists) build within those constraints with AI as the execution engine. (xpromx.me "How Organization Roles Change in the AI Era", DEV Community [URL NEEDED])
 [fact] The Forbes "coordination theater" article identifies that many enterprise AI deployments "have not structurally redefined the decision systems that determine enterprise value" — AI has trimmed output generation costs but left coordination overhead intact. (Forbes Feb 2026)
 [inference] Coordination-artifact roles are those whose function is primarily information relay, status reporting, or approval routing in a system that is too large to self-coordinate: traditional project manager roles that pass information between teams that cannot communicate directly; approval layers that exist because authority is not delegated to the operational level; status meeting facilitation roles. These roles exist because organisation size created a communication problem; smaller AI-augmented teams do not generate the same problem.
 [inference] Judgment roles are those involving: (1) product or service taste — deciding what to build and why; (2) domain expertise that AI cannot yet reliably substitute (regulatory, medical, legal, relational); (3) architectural decisions about the constraints within which AI operates; (4) customer understanding at the level of empathy and trust; (5) ethical and risk decisions requiring accountability to humans. These roles generate value by *directing* AI rather than by producing volume output.
@@ -327,13 +327,13 @@ Unsupported claim removed: "Most organisations are choosing cost reduction." Thi
 
 ### §5 Depth and Breadth Expansion
 
-**Technical lens:** The underlying technical reason AI-native companies achieve high revenue-per-employee ratios is that the AI layer acts as a multiplier on human output. A single engineer at Lovable can produce what would previously have required 5–10 engineers, because AI handles code generation, testing scaffolding, and documentation while the human provides architectural direction, product judgment, and quality review. This is not unique to software — any knowledge work domain where AI can handle production volume while humans direct and review will follow the same structural economics.
+**Technical lens:** [inference] The underlying technical reason AI-native companies achieve high revenue-per-employee ratios is that the AI layer acts as a multiplier on human output. A single engineer at Lovable can produce what would previously have required 5–10 engineers, because AI handles code generation, testing scaffolding, and documentation while the human provides architectural direction, product judgment, and quality review. This is not unique to software — any knowledge work domain where AI can handle production volume while humans direct and review will follow the same structural economics.
 
 **Historical lens:** The agricultural revolution analogy is instructive. When mechanisation multiplied farm productivity, societies did not simply employ 10x fewer farmers — most people left agriculture and entered new industries that were previously impossible to operate at scale. The "cannot do now" list for post-mechanisation society was the entire industrial economy. AI may represent a similar transition: the new missions are not yet named because they require the productivity freed from volume production to pursue.
 
 **Regulatory/governance lens:** The Shopify mandate raises a governance question for regulated industries. In financial services, healthcare, and utilities, headcount justification requirements are not just internal culture — they are embedded in governance frameworks, audit expectations, and regulatory prudential standards. Saying "AI can do this instead of a person" in a regulated context requires regulatory engagement that Shopify does not face. This is a genuine constraint, not just inertia.
 
-**Behavioural lens:** The distinction between "doing the same things faster" (exploitation, productivity improvement) and "doing new things" (exploration, ambition expansion) maps directly onto James March's exploit/explore framework documented in the AI Strategy item. Cost reduction is exploitation of the existing model. Ambition expansion is exploration. March's 1991 paper demonstrates that organisations under financial pressure systematically over-exploit and under-explore — which explains why short-term cost reduction is the natural default under the specific financial pressures AI adoption budgets create.
+**Behavioural lens:** The distinction between "doing the same things faster" (exploitation, productivity improvement) and "doing new things" (exploration, ambition expansion) maps directly onto James March's exploit/explore framework documented in the AI Strategy item. Cost reduction is exploitation of the existing model. Ambition expansion is exploration. [inference] March's 1991 paper demonstrates that organisations under financial pressure systematically over-exploit and under-explore — which explains why short-term cost reduction is the natural default under the specific financial pressures AI adoption budgets create.
 
 **Economic lens:** The EY "virtuous cycle" argument (more reach → more data → better AI → more reach) is an economic argument for the productivity of ambition expansion over cost reduction. It has a precise economic logic: the marginal return on new AI capability is highest when applied to expanding the boundary of what the firm does, not when applied to reducing the cost of what it already does.
 
@@ -385,7 +385,7 @@ The ambition-expansion response to AI productivity gains is demonstrably viable:
 
 3. **ElevenLabs reached approximately $330M ARR with 330–400 employees by late 2025, producing a revenue-per-employee ratio of $825K–$1M, which is 6–8x the private SaaS Capital 2025 median of $130K.** (high confidence)
 
-4. **Anthropic and OpenAI operate at $3.6M–$7.5M and ~$5M revenue per employee respectively, with both companies in 2025 achieving revenue-per-employee ratios that exceed Apple's $2.4M — the traditional benchmark for capital-efficient technology businesses.** (medium confidence — Anthropic headcount uncertain)
+4. **Anthropic and OpenAI operate at $3.6M–$7.5M and ~$5M revenue per employee respectively, with both companies in 2025 achieving revenue-per-employee ratios that exceed Apple's $2.4M [SOURCE NEEDED] — the traditional benchmark for capital-efficient technology businesses.** (medium confidence — Anthropic headcount uncertain)
 
 5. **The private SaaS median revenue per employee in 2025 is $129,724, with public SaaS at $283K median and an IPO readiness threshold of $300K; AI-native companies in this item's cohort operate at 4–36x these benchmarks, establishing a structurally different class of revenue efficiency.** (high confidence — SaaS Capital 2025 survey of 1,000+ companies)
 
@@ -468,7 +468,7 @@ One interpretation of the Midjourney and Lovable data is: "small teams are only 
 
 2. **What is the empirical breakdown of roles in a large organisation by coordination artifact vs judgment role?** A rigorous taxonomy with empirical proportions across industries would directly inform restructuring decisions. Potential new backlog item: medium priority.
 
-3. **How do regulated industries (specifically NZ financial services) implement AI-first mandate models while satisfying prudential and operational risk frameworks?** Potential new backlog item: high priority (blocks application to RBNZ/FSC-regulated organisations).
+3. **How do regulated industries (specifically New Zealand (NZ) financial services) implement AI-first mandate models while satisfying prudential and operational risk frameworks?** Potential new backlog item: high priority (blocks application to Reserve Bank of New Zealand (RBNZ)/Financial Services Council (FSC)-regulated organisations).
 
 4. **What is the relationship between "cannot do now" list quality and strike team success rate?** If the list contains items that are strategically wrong (not just resource-constrained), deploying strike teams against them wastes the freed capacity. How do organisations filter the list? Potential new backlog item: low priority.
 

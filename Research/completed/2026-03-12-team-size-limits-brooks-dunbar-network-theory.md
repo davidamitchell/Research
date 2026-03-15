@@ -98,9 +98,9 @@ Additional context: https://github.com/davidamitchell/Latest-developments-/blob/
 - [x] **Dunbar, R.I.M. (1992).** "Neocortex size as a constraint on group size in primates." *Journal of Human Evolution*, 22(6), 469–493. (primary; abstract + secondary analysis)
 - [x] **Dunbar, R.I.M. (1993).** "Coevolution of neocortical size, group size and language in humans." *Behavioral and Brain Sciences*, 16(4), 681–694. (primary PDF accessed)
 - [x] **US Army Ranks page** — https://www.army.mil/ranks/ (fire team = 4 soldiers)
-- [x] **FM 7-8 / FM 3-21.8** — Infantry Rifle Platoon and Squad (squad = 9, two fire teams of 4)
+- [x] **Field Manual (FM) 7-8 / FM 3-21.8** — Infantry Rifle Platoon and Squad (squad = 9, two fire teams of 4)
 - [x] **Lindenfors et al. (2021).** "Dunbar's Number Deconstructed." *Biology Letters*. PMC8103230. (empirical challenge to Dunbar)
-- [x] **Bezos two-pizza rule** — AWS Executive Insights; Nuclino blog; multiple secondary sources
+- [x] **Bezos two-pizza rule** — Amazon Web Services (AWS) Executive Insights; Nuclino blog; multiple secondary sources
 - [x] **Related item:** `Research/completed/2026-03-12-ai-team-size-strike-team-thesis.md`
 
 ---
@@ -194,13 +194,13 @@ Sources: web.eecs.umich.edu/~weimerw/2018-481/readings/mythical-man-month.pdf (p
 
 **Claim 2a [fact]:** Dunbar (1992) finds that neocortex volume (measured as the ratio of neocortex volume to total brain volume minus neocortex) is a statistically significant predictor of mean social group size across primate species (p<0.001). When this regression is extrapolated to human neocortex ratios, the predicted human group size is approximately 147.8.
 
-**Claim 2b [fact]:** The layered structure (5/15/50/150) is described across Dunbar's work. The 1993 paper confirms: "there is a cognitive limit to the number of individuals with whom any one person can maintain stable relationships." The inner layer of ~5 is the "support clique" or closest intimates; ~15 is the "sympathy group"; ~50 is the "affinity group"; ~150 is Dunbar's Number (the maximum stable community). BBC Future (2019) quotes Dunbar: "the tightest circle has just five people — loved ones."
+**Claim 2b [fact]:** The layered structure (5/15/50/150) is described across Dunbar's work. The 1993 paper confirms: "there is a cognitive limit to the number of individuals with whom any one person can maintain stable relationships." The inner layer of ~5 is the "support clique" or closest intimates; ~15 is the "sympathy group"; ~50 is the "affinity group"; ~150 is Dunbar's Number (the maximum stable community). British Broadcasting Corporation (BBC) Future (2019) quotes Dunbar: "the tightest circle has just five people — loved ones."
 
 **Claim 2c [fact]:** The proposed cognitive mechanism is neocortical processing capacity. Dunbar argues: "the number of neocortical neurons limits the organism's information-processing capacity and that this then limits the number of relationships that an individual can monitor simultaneously." When group size exceeds this limit, the group becomes unstable and fragments.
 
 **Claim 2d — Empirical challenge [fact]:** A 2021 study by Lindenfors, Wartel, and Lind (Stockholm University), published in *Biology Letters* (PMC8103230), replicated Dunbar's original analysis using updated data and modern statistical methods. Result: the 95% confidence interval for human group size spanned from 2 to 520 (or 5 to 292 in some analyses) — too wide to support any specific number. The authors conclude: "'Dunbar's number' is a concept with limited theoretical foundation lacking empirical support."
 
-**Claim 2e [fact]:** Dunbar has defended the concept in response to critics. The layers themselves (5, 15, 50, 150) have support from phone-call network analysis (MIT Technology Review, 2016, citing Dunbar et al.'s analysis of mobile phone call data), from hunter-gatherer society sizes, and from Roman legionary structure. The 150-person limit has received more independent confirmation than the specific 5-person inner circle.
+**Claim 2e [fact]:** Dunbar has defended the concept in response to critics. The layers themselves (5, 15, 50, 150) have support from phone-call network analysis (Massachusetts Institute of Technology (MIT) Technology Review, 2016, citing Dunbar et al.'s analysis of mobile phone call data), from hunter-gatherer society sizes, and from Roman legionary structure. The 150-person limit has received more independent confirmation than the specific 5-person inner circle.
 
 Sources: Dunbar 1992 (primary); Dunbar 1993 (primary PDF); Lindenfors et al. 2021 (PubMed Central (PMC) ID: PMC8103230) (primary challenge); BBC Future 2019; MIT Technology Review 2016; Wikipedia (Dunbar's number)
 
@@ -226,7 +226,7 @@ Sources: Dunbar 1992 (primary); Dunbar 1993 (primary PDF); Lindenfors et al. 202
 | 15 | 105 | +14 | +950% |
 | 20 | 190 | +19 | +1800% |
 
-**Inflection analysis [inference]:** The sharpest marginal cost is not at any single point — the formula grows monotonically. The "inflection" the speaker identifies at 5 is better understood as a threshold of cognitive manageability: 10 paths (n=5) is a set that one person can hold in working memory as a complete map; 45 paths (n=10) likely cannot be held this way. The jump from 5→6 persons (+50% paths) is the first step where the additional cost is clearly disproportionate to the added capacity.
+**Inflection analysis [inference]:** The sharpest marginal cost is not at any single point — the formula grows monotonically. The "inflection" the speaker identifies at 5 is better understood as a threshold of cognitive manageability: 10 paths (n=5) is a set that one person can hold in working memory as a complete map; 45 paths (n=10) likely cannot be held this way. The jump from 5→6 persons (+50% paths) is the first step where the additional cost is disproportionate to the added capacity.
 
 **Claim 3c [fact]:** Graph theory itself does not prescribe an optimal team size. The n(n-1)/2 formula describes a cost curve. The claim that this makes 5 the optimum requires an additional assumption: that humans can track approximately 4 active coordination relationships simultaneously. That assumption derives from cognitive science (Dunbar), not from graph theory.
 
@@ -307,13 +307,13 @@ Sources: aws.amazon.com/executive-insights; blog.nuclino.com; functionly.com/org
 
 ### §5 Depth and Breadth Expansion
 
-**Technical lens:** The n(n-1)/2 formula is a topological property of complete graphs (K_n). For coordination-intensive teams, the relevant graph is close to complete (everyone must coordinate with everyone). For tasks with clear decomposition (partitionable work), the communication graph is sparse and the formula overestimates coordination cost. Brooks explicitly distinguishes these cases.
+**Technical lens:** The n(n-1)/2 formula is a topological property of complete graphs (K_n). For coordination-intensive teams, the relevant graph is close to complete (everyone must coordinate with everyone). For tasks with clear decomposition (partitionable work), the communication graph is sparse and the formula overestimates coordination cost. [fact] Brooks explicitly distinguishes these cases.
 
 **Evolutionary lens:** Dunbar's argument is that the human neocortex evolved under selection pressure for managing social coalitions — an evolutionary arms race in social intelligence. The constraint is not a design flaw but an evolved optimisation for the ancestral group size (~50–150) at which humans lived for most of evolutionary history. The 5-person inner circle corresponds to the minimal trust coalition needed for cooperative survival.
 
-**Historical/military lens:** The fire team structure (4 soldiers) has existed in its current form since at least the 1960s across multiple major armies. The fact that independent military organisations arrived at similar structures through operational trial and error over decades provides empirical weight — but this is evidence that the structure is effective, not evidence that it derives from the same mechanism as Dunbar's neocortex limit.
+**Historical/military lens:** [fact] The fire team structure (4 soldiers) has existed in its current form since at least the 1960s across multiple major armies [SOURCE NEEDED]. The fact that independent military organisations arrived at similar structures through operational trial and error over decades provides empirical weight — but this is evidence that the structure is effective, not evidence that it derives from the same mechanism as Dunbar's neocortex limit.
 
-**Behavioural lens:** Trust formation dynamics (the social constraint) may be a third, partially independent mechanism. Trust requires repeated interaction, demonstrated reliability, and shared history. The number of people with whom a person can maintain trust at the level required for high-stakes delegation is limited by time (trust takes time to build) and by attentional bandwidth. This constraint is related to but not identical to neocortex size or communication-channel count.
+**Behavioural lens:** [inference] Trust formation dynamics (the social constraint) may be a third, partially independent mechanism. Trust requires repeated interaction, demonstrated reliability, and shared history. The number of people with whom a person can maintain trust at the level required for high-stakes delegation is limited by time (trust takes time to build) and by attentional bandwidth. [inference] This constraint is related to but not identical to neocortex size or communication-channel count.
 
 **Critique lens:** Dunbar's number is contested. The 2021 Stockholm study found that the original regression produces confidence intervals too wide to support any specific number. This does not necessarily invalidate the general idea that group size is cognitively constrained — but it does mean that the specific numbers (especially 150) should be treated as indicative rather than precise. The 5-person inner circle has less empirical validation than the 150-person number because small inner circles are harder to measure reliably in large datasets.
 
@@ -419,6 +419,8 @@ The convergence is therefore best interpreted as: multiple independent practical
 ---
 
 ## Findings
+
+*This section consolidates and extends the §6 Synthesis from the Research Skill Output above, incorporating the consistency-check resolutions from §4 and the cross-disciplinary lenses from §5. Where §6 presents claims in structured list form tied to individual questions, the findings below are consolidated by theme and confidence level.*
 
 ### Executive Summary
 

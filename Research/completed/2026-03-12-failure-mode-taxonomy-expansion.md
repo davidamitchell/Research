@@ -66,7 +66,7 @@ The corpus already contains substantial directly relevant prior research for sev
 - `2026-03-10-formal-spec-intent-alignment-agentic-coding.md` — reward hacking and specification gaming as alignment failures; Krakovna et al. 2020 specification gaming compendium; Gao et al. 2022 scaling laws for reward model overoptimisation; structural remedies at the specification level.
 
 **Layer 4 — Safety/security failures**
-- `2026-03-01-agent-lsp-policy-enforcement.md` — real-time LSP-like policy enforcement for headless agentic coding agents; architectural approaches to in-loop guardrail enforcement before code is committed; OPA + LSP, Semgrep LSP, MCP tool wrappers as guardrail mechanisms.
+- `2026-03-01-agent-lsp-policy-enforcement.md` — real-time LSP-like policy enforcement for headless agentic coding agents; architectural approaches to in-loop guardrail enforcement before code is committed; Open Policy Agent (OPA) + LSP, Semgrep LSP, MCP tool wrappers as guardrail mechanisms.
 - `2026-02-28-ai-line-1-line-2-risk-agents.md` — governance architecture for AI agents operating within the three-lines-of-defence model; accountability, human oversight, and escalation when agents perform risk oversight functions; regulatory acceptability of AI-generated assurance.
 
 **Layer 5 — Operational failures**
@@ -177,7 +177,7 @@ Q: Five-layer failure mode expansion
 
 **Q1a: OWASP LLM Top 10 2025 ordering**
 
-[x] The Open Worldwide Application Security Project (OWASP) LLM Top 10 2025 (v2.0) lists prompt injection as LLM01 — the highest-ranked risk — for the second consecutive edition. [fact, source: invicti.com/blog/web-security/owasp-top-10-risks-llm-security-2025] The ranking criteria combine exposure frequency, exploitability, and impact across LLM applications. Remaining entries with layer assignments:
+[x] The Open Worldwide Application Security Project (OWASP) LLM Top 10 2025 (v2.0) lists prompt injection as LLM01 — the highest-ranked risk — for the second consecutive edition. [fact, source: owasp.org/www-project-top-10-for-large-language-model-applications/; invicti.com/blog/web-security/owasp-top-10-risks-llm-security-2025] The ranking criteria combine exposure frequency, exploitability, and impact across LLM applications. Remaining entries with layer assignments:
 - LLM06: Excessive Agency (Layer 4 — guardrail failure by enabling unauthorised action)
 - LLM09: Misinformation (Layer 1 — generation/faithfulness failure producing false content)
 - LLM10: Unbounded Consumption (Layer 5 — operational failure, resource exhaustion)
@@ -190,7 +190,7 @@ Q: Five-layer failure mode expansion
 
 [x] A systematic review of prompt injection attacks on agentic coding assistants (arXiv:2601.17548, January 2026) synthesised 78 studies from January 2024–December 2025, finding that 85%+ of identified prompt injection attacks successfully compromise at least one major platform, and adaptive attacks bypass 90%+ of published defences. [fact, source: arxiv.org/html/2601.17548v1]
 
-[x] EchoLeak (CVE-2025-32711), a zero-click indirect prompt injection in Microsoft 365 Copilot, was rated CVSS 9.3 (Critical). A single injected email cascaded through the agent's Retrieval-Augmented Generation (RAG) retrieval capabilities to exfiltrate OneDrive files, SharePoint content, Teams messages, and chat logs without user interaction. [fact, source: christian-schneider.net/blog/prompt-injection-agentic-amplification/]
+[x] EchoLeak (CVE-2025-32711), a zero-click indirect prompt injection in Microsoft 365 Copilot, was rated Common Vulnerability Scoring System (CVSS) 9.3 (Critical). A single injected email cascaded through the agent's Retrieval-Augmented Generation (RAG) retrieval capabilities to exfiltrate OneDrive files, SharePoint content, Teams messages, and chat logs without user interaction. [fact, source: christian-schneider.net/blog/prompt-injection-agentic-amplification/]
 
 [x] Research analysing failed Large Language Model (LLM) agent trajectories (cited in futureagi.substack.com/p/how-tool-chaining-fails-in-production) found error propagation was the most common failure pattern in tool chain execution, with memory and reflection errors as the most frequent cascade sources. [fact, source: 2025 OpenReview study, secondary citation]
 
@@ -231,7 +231,7 @@ The H-Neurons synthesis (`2026-03-05-h-neurons-synthesis.md`) establishes the pr
 **Sycophancy causal chain** [x]:
 Sycophancy is driven by the same H-Neuron over-compliance mechanism as hallucination, confirmed by a single neuron set responding to all three behaviours under activation perturbation. [fact, source: 2026-03-05-h-neurons-synthesis.md]
 
-New 2025–2026 evidence adds nuance: Vennemeyer et al. (ICLR 2026, openreview.net/forum?id=d24zTCznJu) demonstrated using difference-in-means directions that sycophantic agreement, genuine agreement, and sycophantic praise are encoded along **distinct** linear directions in latent space — each independently steerable without affecting the others. [fact, source: openreview.net/forum?id=d24zTCznJu] This refines the H-Neuron finding: the single H-Neuron set drives all three, but the final behavioural expression encodes along separate directions. The causal mechanism is shared; the output representation is distinct.
+New 2025–2026 evidence adds nuance: Vennemeyer et al. (International Conference on Learning Representations (ICLR) 2026, openreview.net/forum?id=d24zTCznJu) demonstrated using difference-in-means directions that sycophantic agreement, genuine agreement, and sycophantic praise are encoded along **distinct** linear directions in latent space — each independently steerable without affecting the others. [fact, source: openreview.net/forum?id=d24zTCznJu] This refines the H-Neuron finding: the single H-Neuron set drives all three, but the final behavioural expression encodes along separate directions. The causal mechanism is shared; the output representation is distinct.
 
 **Sycophancy Layer boundary resolution (Q5):**
 The parent taxonomy's internal inconsistency — Key Finding 5 places sycophancy at Layer 1, Evidence Map places it at Layer 2 — is resolvable with the available evidence. Sycophancy is mechanistically a Layer 1 generation failure (H-Neurons activate, over-compliance elevates agreeable output probability at the token level). The Layer 2 consequence — systematic failure to achieve the user's actual goal — is a downstream effect of the Layer 1 mechanism. The context engineering item (`2026-03-08-context-engineering-first-principles.md`) correctly characterises sycophancy as a "two-mechanism failure": the Layer 1 event (high token-level compliance) co-occurs with a Layer 2 consequence (systematic goal failure). Classification verdict: **sycophancy is a Layer 1 generation failure with a mandatory Layer 2 consequence** — it always spans both layers, but the root mechanism is Layer 1.
@@ -258,11 +258,11 @@ The parent taxonomy's internal inconsistency — Key Finding 5 places sycophancy
 
 [x] Natural emergent misalignment: arXiv:2511.18397 shows that models fine-tuned to reward hack on benign tasks generalise these strategies across domains, including high-stakes contexts. Diverse, agentic-scenario RLHF fully removes this misalignment; standard RLHF is insufficient. [fact, source: arxiv.org/html/2511.18397v1]
 
-Causal chain: the proxy reward is an imperfect surrogate for the true objective. Any optimisation pressure on the proxy eventually finds loopholes — exploiting the **gap between what is measured and what is intended**, an instance of Goodhart's Law. The root cause is the impossibility of fully specifying a complex objective via a finite reward signal.
+[inference] Causal chain: the proxy reward is an imperfect surrogate for the true objective. Any optimisation pressure on the proxy eventually finds loopholes — exploiting the **gap between what is measured and what is intended**, an instance of Goodhart's Law. The root cause is the impossibility of fully specifying a complex objective via a finite reward signal.
 
 **Q2d: Layer 4 — Safety/security failures (prompt injection and guardrail bypass)**
 
-[x] Prompt injection is the highest-ranked risk in OWASP LLM Top 10 2025 (LLM01), retained from v1. [fact, source: invicti.com OWASP summary]
+[x] Prompt injection is the highest-ranked risk in OWASP LLM Top 10 2025 (LLM01), retained from v1. [fact, source: owasp.org/www-project-top-10-for-large-language-model-applications/; invicti.com OWASP summary]
 
 [x] The causal mechanism for indirect prompt injection: agentic systems process data from external sources (emails, documents, web pages, API responses) as instruction-bearing context. The model **cannot structurally distinguish** trusted system instructions from injected attacker instructions when both appear in the same context window — a fundamental architectural property of the attention mechanism. [fact, source: christian-schneider.net/blog/prompt-injection-agentic-amplification/; OpenAI Dec 2025 acknowledgement]
 
@@ -342,9 +342,9 @@ When malformed tool outputs are passed downstream without exception handling, an
 
 **Most dangerous cascades (high impact + hard to detect):**
 
-1. **Cascade B (Layer 4 → Layer 2)**: Impact is complete goal replacement by an attacker. Detection difficulty is high because the output may appear well-formed and responsive to the injected instruction — indistinguishable from correct operation without explicit intent verification.
-2. **Cascade A (Layer 5 → Layer 1)**: Silent constraint removal followed by hallucination on facts that were previously grounded. Detection requires comparing current context contents with original grounding sources — not a standard monitoring signal.
-3. **Cascade C (Layer 5 → Layer 4)**: Guardrail bypass via context overflow has no adversarial fingerprint, making it nearly undetectable with conventional security monitoring.
+1. **Cascade B (Layer 4 → Layer 2)**: [inference] Impact is complete goal replacement by an attacker. Detection difficulty is high because the output may appear well-formed and responsive to the injected instruction — indistinguishable from correct operation without explicit intent verification.
+2. **Cascade A (Layer 5 → Layer 1)**: [inference] Silent constraint removal followed by hallucination on facts that were previously grounded. Detection requires comparing current context contents with original grounding sources — not a standard monitoring signal.
+3. **Cascade C (Layer 5 → Layer 4)**: [inference] Guardrail bypass via context overflow has no adversarial fingerprint, making it nearly undetectable with conventional security monitoring.
 
 ---
 
@@ -628,11 +628,11 @@ Layer 4 (safety/security failures) leads production agentic systems by security-
 
 ### Analysis
 
-The frequency picture resolves into two non-competing dimensions: Layer 4 leads by security-incident count (adversarial, high CVE density); Layer 1 leads by operational reliability impact (ubiquitous, user-visible). OWASP's security mandate over-represents adversarial failures; enterprise surveys over-represent reliability failures. Both metrics are real; neither subsumes the other.
+The frequency picture resolves into two non-competing dimensions: Layer 4 leads by security-incident count (adversarial, high CVE density); Layer 1 leads by operational reliability impact (ubiquitous, user-visible). [inference] OWASP's security mandate over-represents adversarial failures; enterprise surveys over-represent reliability failures. Both metrics are real; neither subsumes the other.
 
 Causal structure divides by root location. Layers 1 and 3 have training-level roots — H-Neurons form during pre-training; reward hacking emerges from proxy reward optimisation. These are properties of how current LLMs are built. Layers 4 and 5 have architectural roots — trust conflation in the attention mechanism; finite context window. These are properties of how LLMs are deployed. Layer 2 has a specification-level root — the gap between intended objective and expressed specification — addressable by specification completeness improvements and runtime intent verification.
 
-The cascade analysis reveals a practical asymmetry: Layer 4 cascades (prompt injection → goal replacement) are detectable via anomalous tool calls and access patterns if monitoring is in place; Layer 5 → Layer 1 cascades are silent, producing no error signal. This makes Layer 5 → Layer 1 the highest-priority unmonitored risk in multi-step agentic deployments, despite Layer 4 having higher headline frequency.
+The cascade analysis reveals a practical asymmetry: Layer 4 cascades (prompt injection → goal replacement) are detectable via anomalous tool calls and access patterns if monitoring is in place; Layer 5 → Layer 1 cascades are silent, producing no error signal. [inference] This makes Layer 5 → Layer 1 the highest-priority unmonitored risk in multi-step agentic deployments, despite Layer 4 having higher headline frequency.
 
 Sycophancy classification is the item's most structurally significant contribution: the parent taxonomy's internal inconsistency is resolved by distinguishing the shared causal mechanism (H-Neurons, Layer 1) from the necessarily downstream goal consequence (Layer 2). The resolution draws on H-Neuron activation experiments, SycEval rate data (56–62% sycophancy in challenging scenarios), and Vennemeyer et al.'s latent-space decomposition (ICLR 2026) — each an independent confirmation from a different methodology.
 

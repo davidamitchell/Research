@@ -46,7 +46,7 @@ The research loop agent currently has no automated quality gate. There is no way
 3. **Specify gold dataset requirements**: What properties must a "known-good" research item have to serve as a regression baseline?
 4. **Design CI workflow**: Trigger, model selection, cost estimate, threshold configuration, pass/fail reporting
 5. **Select tooling**: Evaluate Pydantic Evals vs DeepEval vs custom for this use case; recommend one
-6. **Produce artefacts**: (a) rubric document as a versioned file in this repo; (b) CI workflow YAML specification (not implementation — a separate task)
+6. **Produce artefacts**: (a) rubric document as a versioned file in this repo; (b) CI workflow YAML Ain't Markup Language (YAML) specification (not implementation — a separate task)
 
 ## Sources
 
@@ -231,13 +231,13 @@ The main risk is that the Copilot CLI model version may change, causing evaluati
 
 ### §3 Reasoning
 
-**On dimension selection:** The research protocol defines 16 structural elements (§0–§7, plus 8 Findings subsections). Scoring each independently would produce an unwieldy 16-dimension rubric. The correct approach is to group by evaluator type: (a) structural presence (deterministic, binary), (b) evidence quality (LLM-judged, most diagnostic of agent failure), (c) synthesis quality (LLM-judged, determines usefulness of output). This produces a 9-dimension rubric that covers all failure modes without redundancy.
+**On dimension selection:** The research protocol defines 16 structural elements (§0–§7, plus 8 Findings subsections). Scoring each independently would produce an unwieldy 16-dimension rubric. The correct approach [inference] is to group by evaluator type: (a) structural presence (deterministic, binary), (b) evidence quality (LLM-judged, most diagnostic of agent failure), (c) synthesis quality (LLM-judged, determines usefulness of output). This produces a 9-dimension rubric that covers all failure modes without redundancy.
 
 **On scoring scale:** A 1–5 scale is preferred over binary pass/fail at the dimension level because it allows tracking quality trends over time (a score moving from 3 to 4 is signal even if both pass). However, score 1 on any structural dimension must be treated as a hard FAIL, because structural absence is a protocol violation that invalidates the item entirely.
 
-**On tooling:** The credential constraint is binding. DeepEval, Pydantic Evals, and agentevals all require OpenAI or Anthropic API keys that are not in the approved credentials table. The custom Copilot CLI approach is the only feasible option. This is not a quality compromise: the existing `research-review.yml` demonstrates that Copilot CLI can reliably perform structured document evaluation, and the rubric prompt design determines quality more than the choice of framework.
+**On tooling:** The credential constraint is binding. DeepEval, Pydantic Evals, and agentevals all require OpenAI or Anthropic API keys that are not in the approved credentials table. The custom Copilot CLI approach is the only feasible option. This is not a quality compromise [inference]: the existing `research-review.yml` demonstrates that Copilot CLI can reliably perform structured document evaluation, and the rubric prompt design determines quality more than the choice of framework.
 
-**On gold dataset:** The gold dataset is the riskiest component of the eval gate. An underspecified gold item will produce LLM-judge evaluations that pass items the human owner would reject (false negatives). The minimum viable gold set is 3 items, manually audited against the full 9-dimension rubric. A refresh protocol is needed because the research protocol evolves: when `research-prompt.md` or `SKILL.md` changes, gold items must be re-evaluated.
+**On gold dataset:** The gold dataset is the riskiest [inference] component of the eval gate. An underspecified gold item will produce LLM-judge evaluations that pass items the human owner would reject (false negatives). The minimum viable gold set is 3 items, manually audited against the full 9-dimension rubric. A refresh protocol is needed because the research protocol evolves: when `research-prompt.md` or `SKILL.md` changes, gold items must be re-evaluated.
 
 ---
 
@@ -267,7 +267,7 @@ The main risk is that the Copilot CLI model version may change, causing evaluati
 ```
 followed by a final `OVERALL: PASS` or `OVERALL: FAIL` line. This mirrors the pattern already used in `research-review-prompt.md` and is parseable with a simple `grep`.
 
-**Economic lens:** The marginal cost of the eval gate is zero (Copilot subscription already paid). The engineering cost to implement is low (one new prompt file + one new CI workflow = <1 day). The value of catching a protocol violation before it reaches `completed/` is high: each failed item requires a review cycle (review workflow run + fix + re-push), taking 20–30 minutes. The eval gate replaces post-completion detection with pre-completion detection.
+**Economic lens:** The marginal cost of the eval gate is zero (Copilot subscription already paid). The engineering cost to implement is low [assumption] (one new prompt file + one new CI workflow = <1 day). The value of catching a protocol violation before it reaches `completed/` is high [inference]: each failed item requires a review cycle (review workflow run + fix + re-push), taking 20–30 minutes. The eval gate replaces post-completion detection with pre-completion detection.
 
 **Historical lens:** The current `research-review.yml` was itself introduced as a quality gate after early research items failed human review for citation gaps. The pattern is established: the repository uses agent-based quality gates, and they work. The rubric eval extends this pattern rather than introducing a new one.
 
@@ -287,7 +287,7 @@ This repository's research loop agent should be evaluated using a 9-dimension ru
 
 1. The only tooling approach that satisfies this repository's no-new-credentials constraint is a custom Copilot CLI-based implementation, because all named evaluation frameworks (DeepEval, Pydantic Evals, agentevals) require OpenAI or Anthropic API keys not approved for this repository. Confidence: high.
 
-2. The research loop agent's three highest-frequency failure modes — acronym non-expansion, Executive Summary restating the question instead of answering it, and Evidence Map gaps — should be treated as hard FAIL conditions in the rubric, not as scored dimensions, because they are the most diagnostic indicators of incomplete protocol execution. Confidence: high.
+2. The research loop agent's three most structurally significant failure modes per the protocol specification — acronym non-expansion, Executive Summary restating the question instead of answering it, and Evidence Map gaps — should be treated as hard FAIL conditions in the rubric, not as scored dimensions, because they are the most diagnostic indicators of incomplete protocol execution. Confidence: high.
 
 3. A 9-dimension rubric structure separating structural compliance (binary/deterministic) from semantic quality (LLM-judged) is more reproducible and maintainable than a single holistic score, because structural dimensions can be evaluated without an LLM and provide a cheaper, faster first-pass filter before incurring LLM judge cost. Confidence: high.
 
@@ -393,7 +393,7 @@ This repository should implement its research loop eval gate as a custom 9-dimen
 
 1. The only tooling approach satisfying this repository's no-new-credentials constraint is a custom GitHub Copilot CLI-based implementation, because DeepEval, Pydantic Evals, and agentevals each require OpenAI or Anthropic API keys not listed in the approved credentials table in AGENTS.md. Confidence: high.
 
-2. The research loop agent's three highest-frequency failure modes — acronym non-expansion on first use, Executive Summary restating the research question instead of answering it, and Key Findings present without a corresponding Evidence Map row — should be hard FAIL conditions rather than scored dimensions, providing the clearest CI signal of incomplete protocol execution. Confidence: high.
+2. The research loop agent's three most structurally significant failure modes per the protocol specification — acronym non-expansion on first use, Executive Summary restating the research question instead of answering it, and Key Findings present without a corresponding Evidence Map row — should be hard FAIL conditions rather than scored dimensions, providing the clearest CI signal of incomplete protocol execution. Confidence: high.
 
 3. A 9-dimension rubric separating structural compliance (deterministic, 5 dimensions: section presence, Evidence Map coverage, Key Finding word count, source consultation, acronym expansion) from semantic quality (LLM-judged, 4 dimensions: executive summary first sentence, claim-to-source accuracy, epistemic labeling, Key Finding specificity) is more reproducible than a single holistic score because structural dimensions can be evaluated without LLM cost. Confidence: high.
 
@@ -426,7 +426,7 @@ This repository should implement its research loop eval gate as a custom 9-dimen
 | agentevals designed for tool-call trajectory matching | https://github.com/langchain-ai/agentevals | high | README describes trajectory as "list of tool calls" |
 | Gold set must refresh with protocol changes | Research/completed/2026-03-10-agent-evaluation-cross-repo-analysis.md KF 11 | high | Benchmark saturation principle applied to gold sets |
 | Machine-parseable output pattern proven in existing workflow | .github/workflows/research-review.yml | high | grep "^OVERALL: FAIL" pattern already in production |
-| Runner cost $0.08/minute → $0.04 per 5-min run | GitHub Actions pricing documentation | medium | Estimate; actual runtime may vary |
+| Runner cost $0.008/minute → $0.04 per 5-min run | GitHub Actions pricing documentation (https://docs.github.com/en/billing/managing-billing-for-your-products/managing-billing-for-github-actions/about-billing-for-github-actions) | medium | Estimate; actual runtime may vary |
 | DeepEval requires OpenAI/Anthropic key | https://www.confident-ai.com/blog/llm-agent-evaluation-complete-guide | high | Documented LLM API requirement |
 | Research-review.yml applies three skills in sequence | .github/workflows/research-review.yml | high | Source code directly inspected |
 | Copilot subscription already paid / COPILOT_GITHUB_TOKEN in use | AGENTS.md approved credentials table; research-loop.yml | high | Confirmed credential exists in repository secrets |
@@ -443,7 +443,7 @@ The credential constraint is the binding design decision. All named evaluation f
 
 The answer is a two-layer design. The first layer is structural compliance: five deterministic checks that the CI step can perform without LLM evaluation (checking for section heading presence using `grep`, Evidence Map row count using `awk`, Key Finding word count using a simple script). These checks are fast, cheap, and unambiguous — if any fail, the item is immediately rejected without invoking the LLM judge. The second layer is semantic quality: four LLM-judged dimensions that assess whether the agent followed the spirit of the protocol, not just its letter.
 
-The hardest design decision is which failures to treat as scored dimensions (recoverable) vs. hard FAILs (immediate rejection). The three chosen hard FAILs — acronym expansion, executive summary first sentence, Evidence Map gaps — share two properties: they are explicitly named in the research protocol as required behaviours, and they are consistently the most common failure modes observed in research review runs. This makes them the most diagnostic indicators of incomplete protocol execution.
+The hardest design decision is which failures to treat as scored dimensions (recoverable) vs. hard FAILs (immediate rejection). The three chosen hard FAILs — acronym expansion, executive summary first sentence, Evidence Map gaps — share two properties: they are explicitly named in the research protocol as required behaviours, and they are consistently the most common failure modes observed in research review runs [inference]. This makes them the most diagnostic indicators of incomplete protocol execution.
 
 ### Risks, Gaps, and Uncertainties
 
@@ -456,7 +456,7 @@ The hardest design decision is which failures to treat as scored dimensions (rec
 
 1. **Rubric prompt text:** Writing the exact prompt text (dimension definitions, scoring anchors, output format specification) is the primary implementation task and is out of scope for this research item. A separate task should produce `docs/eval/research-rubric-prompt.md`.
 2. **CI workflow YAML:** The CI workflow design is specified here in prose; the YAML implementation is a separate backlog task.
-3. **Score history:** Should dimension scores be persisted in a JSON file in the repository for trend tracking? This would enable automated detection of systematic quality degradation across items.
+3. **Score history:** Should dimension scores be persisted in a JavaScript Object Notation (JSON) file in the repository for trend tracking? This would enable automated detection of systematic quality degradation across items.
 4. **First three gold items:** Which completed items in `Research/completed/` should be designated as the initial gold set? This requires a manual audit pass.
 
 ### Output

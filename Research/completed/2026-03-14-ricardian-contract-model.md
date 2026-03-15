@@ -54,7 +54,7 @@ Decompose the question into sub-questions and investigate each:
 
 Starting points — papers, articles, repos, and docs.
 
-- [x] Ian Grigg, "The Ricardian Contract" (2004 IEEE workshop paper) — canonical definition — consulted at iang.org/papers/ricardian_contract.html
+- [x] Ian Grigg, "The Ricardian Contract" (2004 Institute of Electrical and Electronics Engineers (IEEE) workshop paper) — canonical definition — consulted at iang.org/papers/ricardian_contract.html
 - [x] Ian Grigg, "On the intersection of Ricardian and Smart Contracts" (2015) — iang.org/papers/intersection_ricardian_smart.html
 - [x] Ian Grigg, "Why the Ricardian Contract Came About: A Retrospective Dialogue with Lawyers" (2016/2022) — iang.org/papers/why_the_ricardian.pdf
 - [x] EOSIO/ricardian-template-toolkit — github.com/EOSIO/ricardian-template-toolkit
@@ -66,7 +66,7 @@ Starting points — papers, articles, repos, and docs.
 - [x] arXiv 2510.20007 (2025) — zk-agreements using Accord Project
 - [x] bitsonblocks.net interview with Ian Grigg (2016) — historical context
 - [x] Harvard Law corpgov.law.harvard.edu (2018) — definitions and legal context
-- [x] ResearchGate: "Integrating Ricardian contracts with SQL databases" (Feb 2026)
+- [x] ResearchGate: "Integrating Ricardian contracts with Structured Query Language (SQL) databases" (Feb 2026)
 - [x] Tilburg Law Review: "Merging Smart Contracts and ESG Metrics" (2025) — references Mandal 2019 Tilburg thesis
 - [ ] Ian Grigg's original 1996 Ricardo payment system documentation (iang.org/ricardo) — site no longer fully accessible
 - [ ] arXiv / Google Scholar: "Ricardian Contract" 2020–2024 — paywalled items not consulted
@@ -278,15 +278,15 @@ Cross-check of key claims:
 
 ### §5 Depth and Breadth Expansion
 
-**Technical lens:** The Ricardian Contract's hash-linking mechanism is structurally similar to content-addressed storage (used in IPFS and Git). The hash is not just an identifier — it is a cryptographic commitment that makes the contract tamper-evident. This property is why the model can be anchored to blockchains without requiring the full text to be stored on-chain (only the hash needs to go on-chain; the prose can be hosted on IPFS or similar).
+**Technical lens:** The Ricardian Contract's hash-linking mechanism is structurally similar to content-addressed storage (used in InterPlanetary File System (IPFS) and Git). The hash is not just an identifier — it is a cryptographic commitment that makes the contract tamper-evident. This property is why the model can be anchored to blockchains without requiring the full text to be stored on-chain (only the hash needs to go on-chain; the prose can be hosted on IPFS or similar).
 
 **Economic lens:** The model addresses a classic incomplete contracts problem: legal prose can cover contingencies that code cannot anticipate (force majeure, material adverse change). By pairing prose with code, Ricardian Contracts reduce the cost of interpreting and enforcing agreements when unexpected events occur — lowering the transaction cost that would otherwise require renegotiation or litigation. The MIS Quarterly (2024) framing of contract digitisation as a "shift parameter" in transaction cost economics supports this lens.
 
 **Regulatory lens:** The 2025 Tilburg Law Review paper and the 2025 international law journal paper both frame Ricardian Contracts as a path to regulatory compliance for smart contracts in cross-border transactions. The UK Law Commission's 2021 Smart Legal Contracts advice is referenced, and Ricardian Contracts are treated as satisfying the formal requirements for contract validity (writing, consent, identifiable parties). No jurisdiction explicitly mandates or prohibits Ricardian Contracts by name; adoption is voluntary.
 
-**Historical lens:** The model's development in 1995–1996 came during a period of intense activity in financial cryptography (PGP, the cypherpunk movement, Nick Szabo's smart contracts concept also appeared in 1996). Ricardian Contracts and Szabo's smart contracts were developed independently and in parallel, addressing different aspects of the same problem. The fact that Grigg's model was actually implemented in the Ricardo system — while Szabo's smart contracts remained theoretical until Ethereum in 2015 — is a significant historical asymmetry: the implemented, working design received less attention than the theoretical one.
+**Historical lens:** The model's development in 1995–1996 came during a period of intense activity in financial cryptography (Pretty Good Privacy (PGP), the cypherpunk movement, Nick Szabo's smart contracts concept also appeared in 1996). Ricardian Contracts and Szabo's smart contracts were developed independently and in parallel, addressing different aspects of the same problem. The fact that Grigg's model was actually implemented in the Ricardo system — while Szabo's smart contracts remained theoretical until Ethereum in 2015 — is a significant historical asymmetry: the implemented, working design received less attention than the theoretical one.
 
-**Behavioural lens:** DeFi's resistance to Ricardian Contracts (cited as an adoption barrier) has a cultural dimension: pseudonymous DeFi participants are reluctant to sign legally identifiable documents, since doing so creates a legal paper trail that can be used for enforcement. This resistance is not a technical limitation but a product of the DeFi community's values around privacy and permissionlessness. Institutional DeFi (banks, asset managers entering crypto markets) does not share this resistance and is the likely growth sector for Ricardian Contract adoption.
+**Behavioural lens:** DeFi's resistance to Ricardian Contracts (cited as an adoption barrier) has a cultural dimension: pseudonymous DeFi participants are reluctant to sign legally identifiable documents, since doing so creates a legal paper trail that can be used for enforcement. This resistance is not a technical limitation but a product of the DeFi community's values around privacy and permissionlessness. Institutional DeFi (banks, asset managers entering crypto markets) does not share this resistance and is the likely growth sector for Ricardian Contract adoption. [inference]
 
 ---
 
@@ -426,7 +426,7 @@ Acronym audit (full list):
 
 ### Executive Summary
 
-The Ricardian Contract is a design pattern, developed by Ian Grigg and Gary Howland in 1995–1996, that solves the problem of binding human-readable legal prose to machine-executable code within a single cryptographically signed document whose hash serves as the unique instrument identifier. Predating Bitcoin by over a decade, it was invented for the Ricardo payment system to give financial instruments a semantic identity that numeric codes could not provide. The design is complementary to Ethereum-style smart contracts — which handle execution — not competitive with them: Grigg explicitly characterised the two as addressing orthogonal concerns, semantics versus performance. Adoption remains domain-specific: EOSIO mandates the pattern for all smart contracts; the Accord Project (Linux Foundation) is the most active open standards ecosystem; and Mattereum and LTO Network have production deployments in Real-World Asset (RWA) tokenisation and digital identity as of 2024–2025. The primary barriers to broad adoption are the dual legal-technical skill requirement and the maintenance cost of keeping human-readable and machine-readable portions synchronised — barriers the emerging institutional Decentralised Finance (DeFi) sector is better positioned to absorb than consumer DeFi protocols.
+Ian Grigg and Gary Howland developed the Ricardian Contract between 1995 and 1996 as a design pattern for binding human-readable legal prose to machine-executable code within a single cryptographically signed document whose hash serves as the unique instrument identifier. Predating Bitcoin by over a decade, it was invented for the Ricardo payment system to give financial instruments a semantic identity that numeric codes could not provide. The design is complementary to Ethereum-style smart contracts — which handle execution — not competitive with them: Grigg explicitly characterised the two as addressing orthogonal concerns, semantics versus performance. Adoption remains domain-specific: EOSIO mandates the pattern for all smart contracts; the Accord Project (Linux Foundation) is the most active open standards ecosystem; and Mattereum and LTO Network have production deployments in Real-World Asset (RWA) tokenisation and digital identity as of 2024–2025. The primary barriers to broad adoption are the dual legal-technical skill requirement and the maintenance cost of keeping human-readable and machine-readable portions synchronised — barriers the emerging institutional Decentralised Finance (DeFi) sector is better positioned to absorb than consumer DeFi protocols.
 
 ### Key Findings
 
@@ -487,11 +487,11 @@ The Ricardian Contract is a design pattern, developed by Ian Grigg and Gary Howl
 
 The Ricardian Contract model is architecture-neutral: it specifies properties a document must have, not how it must be built. This is its strength (forward-compatible across multiple technology generations) and its weakness (no single dominant implementation standard). The fragmentation of tooling — EOSIO's CDT toolkit, Accord Project's Cicero/Ergo/Concerto stack, LTO Network's Live Contracts, Mattereum's proprietary Asset Passport — reflects this architecture neutrality at the cost of ecosystem coherence.
 
-The historical asymmetry between Grigg's implemented design (1996, working) and Szabo's theoretical design (1996, not implemented until 2015) illustrates how developer attention follows deployment activity rather than prior art. Smart contracts achieved mass adoption on Ethereum in 2017–2018 without substantive engagement with Ricardian Contract design principles. The subsequent recognition that pure smart contracts are legally unenforceable is now driving a return to hybrid approaches that align with Grigg's original framing.
+The historical asymmetry between Grigg's implemented design (1996, working) and Szabo's theoretical design (1996, not implemented until 2015) illustrates how developer attention follows deployment activity rather than prior art. Smart contracts achieved mass adoption on Ethereum in 2017–2018 without substantive engagement with Ricardian Contract design principles. The subsequent recognition that pure smart contracts are legally unenforceable is now driving a return to hybrid approaches that align with Grigg's original framing. [inference]
 
-EOSIO's mandate was the most forceful mechanism ever applied to the model, and its partial decline reduces the model's mindshare. The Accord Project's Linux Foundation stewardship is the most institutionally stable current mechanism, but depends on voluntary enterprise adoption.
+EOSIO's mandate was the most forceful mechanism ever applied to the model [inference], and its partial decline reduces the model's mindshare. The Accord Project's Linux Foundation stewardship is the most institutionally stable current mechanism [inference], but depends on voluntary enterprise adoption.
 
-The RWA tokenisation sector is the most structurally compelling driver: tokenising physical assets without legally binding documentation produces instruments that are meaningless to courts and regulators. Ricardian Contracts — or their functional equivalents in the Accord Project stack — are the natural solution. The 2024 Mattereum-Plume Network partnership for tokenised gold is the clearest current evidence that this is happening in production.
+RWA tokenisation is the most structurally compelling driver [inference]: tokenising physical assets without legally binding documentation produces instruments that are meaningless to courts and regulators. Ricardian Contracts — or their functional equivalents in the Accord Project stack — are the natural solution. The 2024 Mattereum-Plume Network partnership for tokenised gold is the clearest current evidence that this is happening in production.
 
 ### Risks, Gaps, and Uncertainties
 
