@@ -35,7 +35,7 @@ What are the established best practices for financially responsible forecasting 
 
 **Constraints:**
 - Distinguish between *internal planning* standards (what is prudent) and *external disclosure* standards (what is legally required). These have overlapping but not identical requirements.
-- Evidence should be sourced from authoritative bodies: accounting standards boards, regulatory bodies, practitioner frameworks (e.g., ISACA, ITIL, Gartner), and peer-reviewed literature where available.
+- Evidence should be sourced from authoritative bodies: accounting standards boards, regulatory bodies, practitioner frameworks (e.g., Information Systems Audit and Control Association (ISACA), ITIL, Gartner), and peer-reviewed literature where available.
 
 ## Context
 
@@ -72,13 +72,13 @@ This research is motivated by a practical need: to build forecasting models that
 
 - [ ] **IFRS Practice Statement 1 — Making Materiality Judgements** — IFRS Foundation
 - [ ] **IAS 37 — Provisions, Contingent Liabilities and Contingent Assets** — IFRS Foundation (relevant for uncertain future obligations)
-- [ ] **FASB ASC 275 — Risks and Uncertainties** — GAAP disclosure requirements for estimates subject to significant change
+- [ ] **FASB Accounting Standards Codification (ASC) 275 — Risks and Uncertainties** — GAAP disclosure requirements for estimates subject to significant change
 - [ ] **SEC FR-72 — Commission Guidance Regarding Management's Discussion and Analysis** — SEC guidance on forward-looking disclosures
-- [ ] **PCAOB AS 2101 / AICPA AU-C 540** — Auditing accounting estimates (relevant for what auditors expect from estimates)
+- [ ] **Public Company Accounting Oversight Board (PCAOB) AS 2101 / American Institute of Certified Public Accountants (AICPA) AU-C 540** — Auditing accounting estimates (relevant for what auditors expect from estimates)
 - [ ] **ISACA COBIT 2019** — IT governance framework including Financial Management practices
 - [ ] **ITIL 4 — Financial Management for IT Services** — practitioner framework for IT cost modelling
 - [ ] **Gartner IT Budgeting and Cost Optimisation research** — industry benchmarks and cost categorisation frameworks
-- [ ] **RICS Professional Standards — Uncertainty of Valuation** — for uncertainty disclosure methodology (adjacent field with mature practice)
+- [ ] **Royal Institution of Chartered Surveyors (RICS) Professional Standards — Uncertainty of Valuation** — for uncertainty disclosure methodology (adjacent field with mature practice)
 - [ ] **Vose, D. — Risk Analysis: A Quantitative Guide (3rd ed., Wiley)** — Monte Carlo simulation and compounding uncertainty
 - [ ] **Hubbard, D.W. — How to Measure Anything (3rd ed., Wiley)** — applied estimation and uncertainty quantification
 - [ ] **UK FRC — Financial Reporting Lab: Judgements and Estimates** — guidance on disclosing estimation uncertainty
@@ -159,11 +159,11 @@ The evidence supports a two-tier framework for IT operational run-cost forecasti
 
 *Tier 2 — External disclosure standard:* When IT cost estimates appear in financial filings, regulatory requirements add further obligations: assumptions must be specifically disclosed (not generic boilerplate), sensitivity must be quantified, and the uncertainty must be characterised in terms of near-term material adjustment risk (IFRS/FRC) or reasonable possibility of material change (GAAP/SEC MD&A). The EU Prospectus Regulation requires issuer-specific quantified risk factors where IT costs are material.
 
-The governance mechanism linking Tier 1 and Tier 2 is SOX 302/404: the CEO and CFO certification obligation means the internal estimation process itself must be subject to internal controls. The quality of Tier 1 is therefore a prerequisite for the integrity of Tier 2.
+The governance mechanism linking Tier 1 and Tier 2 is SOX 302/404: the Chief Executive Officer (CEO) and Chief Financial Officer (CFO) certification obligation means the internal estimation process itself must be subject to internal controls. [inference] The quality of Tier 1 is therefore a prerequisite for the integrity of Tier 2.
 
-The most significant practical gap is in uncertainty treatment. Organisations commonly present single-point IT cost forecasts with qualitative uncertainty acknowledgment. IAS 1.125 (confirmed by FRC enforcement) and ASC 275 both require quantitative uncertainty disclosure where it is material. Bridging this gap requires building range-based models internally and translating them into the specific disclosure language required by the applicable standard.
+[inference] The most significant practical gap is in uncertainty treatment. Organisations commonly present single-point IT cost forecasts with qualitative uncertainty acknowledgment. IAS 1.125 (confirmed by FRC enforcement) and ASC 275 both require quantitative uncertainty disclosure where it is material. Bridging this gap requires building range-based models internally and translating them into the specific disclosure language required by the applicable standard.
 
-The correlation structure of IT cost uncertainties is the technically decisive issue that most practitioners overlook. Assuming independence (and applying RSS) when inputs are actually correlated produces overconfident uncertainty ranges that understate the true risk. For a board or regulatory audience, this is a material disclosure failure. The correct approach is Monte Carlo with an explicit correlation matrix, or, more conservatively, arithmetic addition of percentage ranges where correlation is suspected but not quantified.
+The correlation structure of IT cost uncertainties is the technically decisive issue that most practitioners overlook. Assuming independence (and applying RSS) when inputs are actually correlated produces overconfident uncertainty ranges that understate the true risk. For a board or regulatory audience, this is a material disclosure failure. [inference] The correct approach is Monte Carlo with an explicit correlation matrix, or, more conservatively, arithmetic addition of percentage ranges where correlation is suspected but not quantified.
 
 ### Risks, Gaps, and Uncertainties
 
@@ -443,13 +443,13 @@ All causal claims reviewed; sources verified; [fact], [inference], and [assumpti
 
 **Technical lens:** The mathematical treatment of error propagation is domain-independent; its application to IT cost forecasting reveals that assuming independence when inputs are correlated produces overconfident (too-narrow) uncertainty ranges. Any credible IT run-cost forecast should explicitly state the assumed correlation structure.
 
-**Economic lens:** IT cost inflation is not uniformly distributed. Cloud compute unit prices have generally declined per unit as hardware costs fall, but total cloud spend has risen because consumption growth exceeds unit price reductions. Labour costs in specialist IT roles have experienced above-inflation growth due to skills scarcity. Applying uniform inflation assumptions across all IT categories is economically naive.
+**Economic lens:** IT cost inflation is not uniformly distributed. [inference] Cloud compute unit prices have generally declined per unit as hardware costs fall, but total cloud spend has risen because consumption growth exceeds unit price reductions. [SOURCE NEEDED] [inference] Labour costs in specialist IT roles have experienced above-inflation growth due to skills scarcity. [SOURCE NEEDED] Applying uniform inflation assumptions across all IT categories is economically naive.
 
 **Regulatory lens:** The gap between internal planning standards and external disclosure standards is significant. Internal business cases may use optimistic single-point estimates to secure approval. If those estimates appear in prospectuses or annual reports, they must meet a higher standard of disclosure. A material discrepancy between internal forecasts and disclosed figures without explanation could constitute misrepresentation.
 
-**Historical lens:** SOX's CEO/CFO certification obligation arose directly from Enron/WorldCom (2002), where material misrepresentations in forward-looking cost and revenue disclosures destroyed shareholder value. The legislative intent is directly relevant: senior executives certify the integrity of the estimation processes behind their financial statements, not just the outputs.
+**Historical lens:** [fact] SOX's CEO/CFO certification obligation arose directly from Enron/WorldCom (2002), where material misrepresentations in forward-looking cost and revenue disclosures destroyed shareholder value. [SOURCE NEEDED] The legislative intent is directly relevant: senior executives certify the integrity of the estimation processes behind their financial statements, not just the outputs.
 
-**Behavioural lens:** Optimism bias in operational cost estimation is well documented. Internal forecasters face incentives to present low cost estimates to secure budget approval. The regulatory framework counteracts this by requiring uncertainty disclosure — making single-point optimistic estimates harder to file without acknowledging the upside cost risk.
+**Behavioural lens:** [fact] Optimism bias in operational cost estimation is well documented. [SOURCE NEEDED] Internal forecasters face incentives to present low cost estimates to secure budget approval. The regulatory framework counteracts this by requiring uncertainty disclosure — making single-point optimistic estimates harder to file without acknowledging the upside cost risk.
 
 **Governance lens:** COBIT 2019 APO06 and ITIL 4 both position IT cost forecasting as a governance function, not merely an accounting one. Board-level approval of major IT expenditures, variance analysis against budget, and documented assumptions are governance controls — and regulatory frameworks (SOX, IFRS, GAAP) align by requiring that estimation processes be subject to internal control.
 
