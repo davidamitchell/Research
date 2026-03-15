@@ -89,8 +89,11 @@ The new item on organisational intent sharpens this: the barrier to formal organ
 
 One specific new failure mode with no prior equivalent: when an AI agent performs the exploratory work, the human supervisor holds only the *outcome* — not the process knowledge (what was tried, why choices were made, what was discarded). The agent's process knowledge is transient — it lives in the context window and disappears when the session ends. This makes human-to-human knowledge transfer logically impossible, not merely difficult. The correct response is architectural: require agents to produce structured, persisted decision logs as a standard output, enabling downstream agent synthesis. This is not a harder version of the tacit knowledge problem; it is a structurally different problem requiring a different class of solution.
 
+A further structural layer: every major AI assistant (ChatGPT, Claude) operates an internally siloed memory system with no programmatic API. OpenAI's built-in memory has no export or import hook. The only viable path to cross-tool memory portability is an external shared store accessed via each tool's extensibility mechanism (ChatGPT Actions for GPT-4o; MCP Connectors for Claude). This is the architectural materialisation of the "knowledge silos" failure mode — each assistant's memory is locally optimised and globally inaccessible, by design.
+
 **Evidence (extended):**
 - `Research/completed/2026-03-12-exploration-synthesis-gap.md` — the agent-mediated knowledge gap; context window transience as the mechanism; structured decision logs as the required artefact; agent synthesis pipeline as the architectural intervention
+- `Research/completed/2026-03-08-chatgpt-actions-memory-integration.md` — ChatGPT's built-in memory has no API; cross-tool portability requires external store + ChatGPT Actions write path; API key auth on Actions is mobile-reliable; same backend serves both ChatGPT Actions and Claude MCP without additional cost
 
 ---
 

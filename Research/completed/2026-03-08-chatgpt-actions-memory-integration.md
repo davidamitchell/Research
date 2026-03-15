@@ -1,12 +1,12 @@
 ---
 title: "ChatGPT Actions and custom GPTs: external memory integration options"
 added: 2026-03-08
-status: reviewing
+status: completed
 priority: low
 blocks: []
 tags: [mobile, chatgpt, openai, actions, memory-system]
 started: 2026-03-15
-completed: ~
+completed: 2026-03-15
 output: [knowledge]
 ---
 
