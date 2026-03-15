@@ -1,12 +1,12 @@
 ---
 title: "Ricardian Contract model: history, current state, and latest research"
 added: 2026-03-14
-status: reviewing
+status: completed
 priority: medium  # low | medium | high
 blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
 tags: [contracts, legal-technology, cryptography, blockchain, smart-contracts, fintech, ian-grigg, ricardian-contracts]
 started: 2026-03-15
-completed: ~
+completed: 2026-03-15
 output: [knowledge]
 ---
 
