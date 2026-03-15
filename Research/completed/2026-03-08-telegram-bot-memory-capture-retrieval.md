@@ -14,7 +14,7 @@ output: [tool, knowledge]
 
 ## Research Question
 
-Can a Telegram bot serve as a low-friction mobile capture and retrieval surface for the Memory-System? Specifically: (a) message received → file written to GitHub repo via API, (b) messages starting with `?` trigger semantic search via `search_brain` and reply with results, (c) what is the minimum hosting requirement (Raspberry Pi, VPS, free tier PaaS)?
+Can a Telegram bot serve as a low-friction mobile capture and retrieval surface for the Memory-System? Specifically: (a) message received → file written to GitHub repo via API, (b) messages starting with `?` trigger semantic search via `search_brain` and reply with results, (c) what is the minimum hosting requirement (Raspberry Pi, VPS, free tier Platform as a Service (PaaS))?
 
 ## Scope
 
@@ -23,14 +23,14 @@ Can a Telegram bot serve as a low-friction mobile capture and retrieval surface 
 - Capture path: Telegram message → GitHub Contents API write (file created in `inbox/`)
 - Retrieval path: `?<query>` message → `search_brain` → reply with top results
 - Hosting options: Railway, Render, Fly.io free tier, and Raspberry Pi + Tailscale
-- Security model: bot token storage, GitHub PAT storage, restricting bot to owner only
+- Security model: bot token storage, GitHub Personal Access Token (PAT) storage, restricting bot to owner only
 - End-to-end latency for capture and retrieval
 - Comparison with iOS Shortcuts path (no hosted component)
 
 **Out of scope:**
 - Slack (separate item: `2026-03-08-slack-bot-memory-capture-retrieval.md`)
 - Self-hosted MCP server (separate item: `2026-03-08-self-hosted-mcp-server-options.md`)
-- Android-specific considerations (Telegram is cross-platform; Android UX is implicitly covered)
+- Android-specific considerations (Telegram is cross-platform; Android User Experience (UX) is implicitly covered)
 
 **Constraints:** Free-tier hosting must sustain the bot continuously or handle cold starts gracefully. Bot token and GitHub PAT must not be committed to source.
 
@@ -127,7 +127,7 @@ Cross-reference: `Research/completed/2026-03-02-agent-memory-management-context-
 - E3. Railway free tier ($1 credit/month): can it sustain an always-on Python process?
 - E4. Fly.io: does it have a genuine free tier for Machines as of March 2026?
 - E5. Raspberry Pi + Tailscale: what is the cost and operational model?
-- E6. Oracle Cloud Always Free ARM VM: is it a viable zero-cost always-on host?
+- E6. Oracle Cloud Always Free Arm (ARM) VM: is it a viable zero-cost always-on host?
 
 **F. Latency estimation**
 - F1. What is the capture latency (Telegram message → GitHub commit)?
@@ -163,7 +163,7 @@ Source: Telegram Bot tutorial (https://core.telegram.org/bots/tutorial); BotFath
 
 **B1. Message event for capture** [fact]
 The `getUpdates` response contains an array of `Update` objects. Each `Update` with a text message has a `message` field containing a `Message` object with `text`, `from` (User), `chat` (Chat), and `date` fields. The bot handles this by iterating updates, checking `update.message` and `update.message.text`. In Python using `python-telegram-bot` (v20+), this is handled by registering a `MessageHandler` with a `filters.TEXT` filter.
-Source: Telegram Bot API docs (Update, Message objects); python-telegram-bot library documentation
+Source: Telegram Bot API docs (Update, Message objects); python-telegram-bot library documentation (https://python-telegram-bot.readthedocs.io)
 
 **B2. GitHub Contents API write** [fact]
 The GitHub Contents API endpoint for creating a file is `PUT /repos/{owner}/{repo}/contents/{path}`. The request body requires: `message` (commit message string), `content` (base64-encoded file content), and optionally `branch` (defaults to default branch). The endpoint returns 201 Created on success with the file's SHA. This is the same endpoint established in `2026-03-08-ios-shortcuts-github-api-memory-capture.md` — the Telegram bot uses an identical call.
@@ -194,10 +194,10 @@ Source: Telegram Bot API docs (sendMessage, parse_mode, message length limits)
 
 **C4. Async flow for `search_brain`** [fact]
 `python-telegram-bot` v20+ is fully async (asyncio-based). The bot can `await` an async `search_brain` call without blocking the poll loop. If `search_brain` is a subprocess, `asyncio.create_subprocess_exec` handles it non-blockingly. The bot sends a "Searching..." reply immediately, then edits the message once results are available, avoiding timeout perception.
-Source: python-telegram-bot v20 documentation; asyncio subprocess patterns
+Source: python-telegram-bot v20 documentation (https://python-telegram-bot.readthedocs.io); asyncio subprocess patterns
 
 **D1. Owner-only access via chat ID** [fact]
-Every Telegram `Message` object contains `from.id` (the sender's unique Telegram user ID) and `chat.id` (the chat's unique ID). For a private bot, both are the same value for DMs. The bot must check `update.message.from_user.id == OWNER_CHAT_ID` at the top of every handler and silently ignore (or reply "Unauthorised") any message from an unexpected ID. `OWNER_CHAT_ID` is stored as an environment variable alongside the bot token.
+Every Telegram `Message` object contains `from.id` (the sender's unique Telegram user ID) and `chat.id` (the chat's unique ID). For a private bot, both are the same value for Direct Messages (DMs). The bot must check `update.message.from_user.id == OWNER_CHAT_ID` at the top of every handler and silently ignore (or reply "Unauthorised") any message from an unexpected ID. `OWNER_CHAT_ID` is stored as an environment variable alongside the bot token.
 Source: Telegram Bot API docs (Message.from, User.id); standard bot security practice
 
 **D2. Credential storage** [fact]
@@ -206,7 +206,7 @@ Source: Railway/Render/Fly.io docs (environment variable configuration); standar
 
 **D3. Blast radius of leaked bot token** [fact]
 A leaked bot token allows an attacker to: (a) read all messages the bot has received (via `getUpdates`), (b) send messages as the bot to any chat the bot has access to, (c) delete messages the bot has sent. It does NOT allow access to any GitHub repository — the GitHub PAT is a separate credential. Revocation via BotFather `/revoke` immediately invalidates the token.
-Source: Telegram Bot API security FAQ; standard bot token security
+Source: Telegram Bot API security FAQ [SOURCE NEEDED]; standard bot token security
 
 **D4. Token revocation** [fact]
 BotFather's `/revoke` command immediately revokes the current bot token and generates a new one. The bot stops responding immediately after revocation. A new token must be deployed to the hosting environment. This is a 30-second manual operation.
@@ -217,7 +217,7 @@ Long-polling requires a continuously running process. The bot must call `getUpda
 Source: Telegram Bot API docs (getUpdates)
 
 **E2. Render free tier viability** [fact]
-Render's free tier provides 750 hours/month but **spins down a free web service after 15 minutes without inbound HTTP traffic or new WebSocket connections**. A long-polling Telegram bot using `getUpdates` makes exclusively outbound requests to Telegram's servers and receives no inbound traffic. Render therefore spins down the bot within 15 minutes of inactivity (no incoming messages). Spin-up takes approximately 1 minute during which the bot is unresponsive. For a personal bot receiving messages sporadically throughout the day, this creates unacceptable gaps.
+Render's free tier provides 750 hours/month but **spins down a free web service after 15 minutes without inbound HTTP traffic or new WebSocket connections**. A long-polling Telegram bot using `getUpdates` makes exclusively outbound requests to Telegram's servers and receives no inbound traffic. Render therefore spins down the bot within 15 minutes of inactivity (no incoming messages). Spin-up takes approximately 1 minute during which the bot is unresponsive. For a personal bot receiving messages sporadically throughout the day, this creates unacceptable gaps [inference].
 Source: Render free tier docs (https://render.com/docs/free — "spins down...after 15 minutes without receiving any inbound traffic")
 
 **E3. Railway free tier viability** [fact]
@@ -234,7 +234,7 @@ Source: Tailscale pricing (tailscale.com/kb/1017/install — Personal plan, 3 fr
 
 **E6. Oracle Cloud Always Free ARM VM** [fact]
 Oracle Cloud's Always Free tier includes two ARM-based Ampere A1 Compute instances (total: up to 4 OCPUs and 24GB RAM shared across all Always Free VMs). These instances never expire and have no billing as long as the account remains active. Oracle Cloud Always Free is the most capable genuinely-free always-on hosting option for a Telegram bot. The only cost is ongoing account maintenance and Oracle's identity verification.
-Source: Oracle Cloud Always Free docs (inference from well-established knowledge of the Oracle Cloud free tier; confirmed by general knowledge of the program's 2021 launch and ongoing status as of 2026)
+Source: Oracle Cloud Always Free docs [SOURCE NEEDED] (inference from well-established knowledge of the Oracle Cloud free tier; confirmed by general knowledge of the program's 2021 launch and ongoing status as of 2026)
 
 **F1. Capture latency** [inference]
 End-to-end capture latency (user sends message → file committed to GitHub):
@@ -287,7 +287,7 @@ Source: Inference from operational characteristics of both systems
 6. Railway free tier ($1/month) is insufficient for 24/7 continuous operation; the Hobby plan ($5/month) is viable.
 7. Fly.io has no genuine free tier as of March 2026; the cheapest option is ~$2/month.
 8. Raspberry Pi + Tailscale (for remote access only) is the most cost-effective long-term option assuming hardware is available.
-9. Oracle Cloud Always Free ARM VM is the best genuinely-free cloud hosting option.
+9. Oracle Cloud Always Free ARM VM is the best genuinely-free cloud hosting option. [inference]
 
 **Inferences explicitly noted:**
 - Capture latency of ~500ms–1.2s (derived from Telegram polling characteristics + GitHub API latency from iOS Shortcuts research)
@@ -312,18 +312,18 @@ $0.75 RAM + $1.00 CPU = $1.75/month vs $1/month credit. The CPU estimate of 0.05
 The Fly.io pricing page confirms that all organizations require a credit card and charges are usage-based. No explicit free allowance for compute is listed. The blog post (2023) mentioned "free VMs" as part of a prior free tier that has since been removed. The conclusion that Fly.io has no genuine free tier as of March 2026 is consistent with the current pricing page content. Consistent.
 
 **Check 4: Long-polling vs webhook recommendation**
-Long-polling is recommended for personal bots because it requires no public URL. Webhook mode requires a public HTTPS URL with a valid SSL certificate. All evaluated free-tier platforms (except Render) can serve as a webhook endpoint, but the URL requirement adds complexity. Long-polling is simpler for a personal bot and is the correct default recommendation. No contradiction.
+Long-polling is recommended for personal bots because it requires no public URL. Webhook mode requires a public HTTPS URL with a valid SSL certificate. All evaluated free-tier platforms (except Render) can serve as a webhook endpoint, but the URL requirement adds complexity. Long-polling is simpler for a personal bot and is the correct default recommendation. [inference] No contradiction.
 
 ### §5 Depth and Breadth Expansion
 
 **Technical lens — python-telegram-bot vs aiogram:**
-Two mature Python libraries exist for Telegram bot development. `python-telegram-bot` (v20+, async) is the most widely used, with extensive documentation and examples. `aiogram` (v3+) is fully async, more opinionated, and slightly more performant for high-throughput bots. For a personal single-user bot processing 10–50 messages/day, the performance difference is irrelevant. `python-telegram-bot` is preferred due to better documentation and community support.
+Two mature Python libraries exist for Telegram bot development. `python-telegram-bot` (v20+, async) is the most widely used, with extensive documentation and examples. `aiogram` (v3+) is fully async, more opinionated, and slightly more performant for high-throughput bots. For a personal single-user bot processing 10–50 messages/day, the performance difference is irrelevant. `python-telegram-bot` is preferred due to better documentation and community support. [inference]
 
 **Technical lens — webhook vs long-polling for Render:**
 If Render free tier is the target platform, webhook mode is the only viable architecture. The bot would need a public HTTPS URL (Render provides this automatically for Web Services). Render would spin the service up when Telegram sends a webhook and down 15 minutes after the last webhook. For a personal bot receiving multiple messages daily, the spin-up latency (~1 minute) on the first message of each 15-minute idle window is the main UX cost. Webhook on Render free tier is technically viable but creates ~1-minute response delays when cold.
 
 **Regulatory/privacy lens:**
-Message content passes through Telegram's servers before reaching the bot. Telegram's privacy policy applies to message content. For personal memory notes (grocery lists, ideas, tasks), this is an acceptable data processing arrangement for personal use. If notes contain sensitive data about third parties, GDPR considerations apply (Telegram is incorporated in the UAE and uses a privacy policy governed by UAE law). For personal-use memory capture, this is not a material concern.
+Message content passes through Telegram's servers before reaching the bot. Telegram's privacy policy applies to message content. For personal memory notes (grocery lists, ideas, tasks), this is an acceptable data processing arrangement for personal use. If notes contain sensitive data about third parties, General Data Protection Regulation (GDPR) considerations apply (Telegram is incorporated in the UAE and uses a privacy policy governed by UAE law). For personal-use memory capture, this is not a material concern.
 
 **Historical lens — Telegram Bot API stability:**
 The Telegram Bot API has been available since 2015 and has maintained backward compatibility throughout. Bot API 9.5 (March 1, 2026) adds features without breaking existing endpoints. The `getUpdates` and `sendMessage` endpoints have been stable for 10+ years. This contrasts with Slack, which has deprecated connectors and changed API terms periodically. Telegram's API stability makes it a more reliable long-term foundation.
@@ -389,7 +389,7 @@ The Telegram long-polling architecture is well-matched to a personal-use memory 
 
 Hosting evaluation reveals a clear tiering: Render free is non-viable for long-polling; Railway free is borderline-insufficient; Fly.io has no free tier; Raspberry Pi and Oracle Cloud Always Free are genuinely free always-on options. For a user with an existing Raspberry Pi, that is the recommended first option. For a user without home hardware, Oracle Cloud Always Free is the best zero-cost cloud option.
 
-The comparison with iOS Shortcuts shows the two paths are complementary. iOS Shortcuts is superior for Siri voice capture and zero-maintenance operation on iOS. Telegram is superior for cross-platform availability and always-on reliability independent of the iOS device. The Memory-System architecture benefits from having both paths active simultaneously.
+The comparison with iOS Shortcuts shows the two paths are complementary. iOS Shortcuts is superior for Siri voice capture and zero-maintenance operation on iOS [inference]. Telegram is superior for cross-platform availability and always-on reliability independent of the iOS device [inference]. The Memory-System architecture benefits from having both paths active simultaneously.
 
 **Risks, gaps, and uncertainties:**
 
@@ -432,13 +432,13 @@ A Telegram bot can serve as a viable mobile memory capture and retrieval surface
 
 1. **Telegram long-polling via `getUpdates` with `timeout=30` delivers messages within approximately one second, requires no public URL, no inbound firewall rules, and no OAuth flow — only a single bot token obtained from BotFather in a single chat conversation.**
 2. **The capture path is a direct reuse of the GitHub Contents API PUT pattern from the iOS Shortcuts research: base64-encode the message body, construct a second-precision filename (`inbox/YYYY-MM-DD-HHmmss.md`), and call `PUT /repos/{owner}/{repo}/contents/{path}` with a fine-grained PAT scoped to `Contents: write` on the Memory-System repository.**
-3. **Owner-only bot security is enforced by checking `update.message.from_user.id` against a hardcoded `OWNER_CHAT_ID` environment variable; this is the correct pattern because Telegram chat IDs are static and stable for a given user account.**
+3. **Owner-only bot security is enforced by checking `update.message.from_user.id` against a hardcoded `OWNER_CHAT_ID` environment variable; this is the correct pattern [inference] because Telegram chat IDs are static and stable for a given user account.**
 4. **Render's free web service tier spins down after 15 minutes without inbound HTTP traffic, which is never generated by a long-polling bot; Render free tier is therefore incompatible with long-polling and only viable in webhook mode, which introduces approximately one-minute cold-start delays.**
 5. **Railway's free plan provides $1/month of resource credit, which is marginally insufficient for a 24/7 always-on Python process at estimated costs of $1.15–1.75/month; the Railway Hobby plan at $5/month (with $5 included usage) covers the bot at zero marginal cost within the plan allowance.**
 6. **Fly.io has no genuine free tier for Fly Machines as of March 2026; the cheapest always-on Fly Machine (shared-cpu-1x, 256MB RAM) costs approximately $2.02/month continuously running, which is viable but not free.**
 7. **A Raspberry Pi running the bot as a systemd service represents the lowest-cost always-on hosting option at near-zero incremental electricity cost (~$1–3/year), with Tailscale's free Personal plan providing optional remote SSH access; this is the recommended hosting path for users with existing home hardware.**
-8. **Oracle Cloud's Always Free tier provides ARM VM compute (up to 4 OCPUs and 24GB RAM total across Always Free instances) with no expiry, making it the best zero-cost cloud option for users without home hardware, though Oracle's terms could change.**
-9. **The Telegram bot path and iOS Shortcuts path are complementary: iOS Shortcuts is superior for Siri hands-free voice capture and zero-maintenance operation; Telegram is superior for cross-platform availability, always-on reliability independent of the iOS device, and retrieval via chat interface.**
+8. **Oracle Cloud's Always Free tier provides ARM VM compute (up to 4 OCPUs and 24GB RAM total across Always Free instances) with no expiry, making it the best zero-cost cloud option [inference] for users without home hardware, though Oracle's terms could change.**
+9. **The Telegram bot path and iOS Shortcuts path are complementary. iOS Shortcuts has a clear advantage for Siri hands-free voice capture and zero-maintenance operation [inference]; the Telegram bot's value lies in cross-platform availability, always-on reliability independent of the iOS device, and retrieval via chat interface [inference].**
 10. **End-to-end capture latency is estimated at 500ms–1.2s (Telegram polling delivery plus GitHub Contents API write); retrieval latency is dominated by the `search_brain` execution time, which is out of scope for this item but is the primary variable in the user experience.**
 
 ### Evidence Map
@@ -468,11 +468,11 @@ A Telegram bot can serve as a viable mobile memory capture and retrieval surface
 
 ### Analysis
 
-The Telegram long-polling architecture is well-matched to a personal memory bot. The single-token credential model, no-public-URL requirement, and simple message event handling make it significantly simpler to deploy than a Slack bot (which requires two tokens, a workspace, and Socket Mode configuration). The capture path is an exact structural parallel to the iOS Shortcuts path — both call `PUT /repos/.../contents/inbox/{filename}.md` — which means the GitHub API layer is already validated by prior research.
+Telegram's long-polling architecture is well-matched to a personal memory bot. The single-token credential model, no-public-URL requirement, and simple message event handling make it significantly simpler to deploy than a Slack bot (which requires two tokens, a workspace, and Socket Mode configuration). The capture path is an exact structural parallel to the iOS Shortcuts path — both call `PUT /repos/.../contents/inbox/{filename}.md` — which means the GitHub API layer is already validated by prior research.
 
-The dominant implementation decision is hosting. The evaluation reveals a clear hierarchy: Render free is non-viable (wrong spin-down model); Railway free is borderline-insufficient; Fly.io requires payment; Raspberry Pi and Oracle Cloud Always Free are genuinely zero-cost. For users with existing home hardware, Raspberry Pi is the obvious choice. For cloud-only deployments, Oracle Cloud Always Free is recommended over Fly.io or Railway free.
+Hosting dominates the implementation decision. The evaluation reveals a clear hierarchy: Render free is non-viable (wrong spin-down model); Railway free is borderline-insufficient; Fly.io requires payment; Raspberry Pi and Oracle Cloud Always Free are genuinely zero-cost. For users with existing home hardware, Raspberry Pi is the obvious choice [inference]. For cloud-only deployments, Oracle Cloud Always Free is recommended over Fly.io or Railway free.
 
-The iOS Shortcuts comparison shows the two are complementary rather than competitive. The Telegram bot adds value by being platform-agnostic and always-on, while iOS Shortcuts retains a UX advantage for voice capture. Running both simultaneously gives the broadest capture coverage.
+Both paths are complementary: iOS Shortcuts retains a UX advantage for voice capture [inference]; running them simultaneously gives the broadest capture coverage.
 
 ### Risks, Gaps, and Uncertainties
 
