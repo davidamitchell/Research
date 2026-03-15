@@ -2,6 +2,11 @@ name: Close issues fixed by merged PRs
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/close-fixed-issues.yml
 
 permissions:
   issues: write
