@@ -118,7 +118,7 @@ What evaluation framework enables cross-repo comparison and regression detection
 ├── Q3: Are common patterns used idiomatically or with notable deviations?
 │   ├── Q3a: Is tool-calling idiomatic (standard function-call API)?
 │   ├── Q3b: Is memory injection idiomatic (documented retrieval pattern)?
-│   └── Q3c: Is LLM-as-judge idiomatic or idiosyncratic?
+│   └── Q3c: Is Large Language Model (LLM)-as-judge idiomatic or idiosyncratic?
 │
 ├── Q4: What effectiveness signals do these repos actually use?
 │   ├── Q4a: What does "working" mean in benchmark-first repos (SWE-bench, METR)?

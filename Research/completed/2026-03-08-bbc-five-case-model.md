@@ -182,23 +182,23 @@ Every long-list must include the do-nothing (status quo) option. This is the ref
 Short-listed options are appraised using:
 - **Social cost-benefit analysis (SCBA):** All economic, social, and environmental costs and benefits are quantified over the investment lifecycle and discounted to present value. The option with the highest net social value (or best BCR) is identified as the preferred option.
 - **Cost-effectiveness analysis:** Used where not all benefits can be monetised. Compares options' costs for a given level of output or outcome.
-Additional adjustments: risk adjustment (Monte Carlo or scenario analysis), distributional impacts (who benefits/loses), and sensitivity analysis (testing how outcomes change with key assumption variations). [fact, source: web search]
+Additional adjustments: risk adjustment (Monte Carlo or scenario analysis), distributional impacts (who benefits/loses), and sensitivity analysis (testing how outcomes change with key assumption variations). [SOURCE NEEDED]
 
 **B2d. Green Book parameters** [fact]
 
-- **Social Time Preference Rate (STPR):** The standard real discount rate is **3.5%** for years 0–30, **3.0%** for years 31–75, and **2.5%** for years 76–125. [fact, source: web search citing Green Book]
-- **Optimism bias:** A systematic upward adjustment to cost estimates to correct for the tendency to underestimate costs and overstate benefits. Adjustment percentages are provided in supplementary Green Book guidance by project type (transport, IT, buildings, etc.). [fact, source: web search]
+- **Social Time Preference Rate (STPR):** The standard real discount rate is **3.5%** for years 0–30, **3.0%** for years 31–75, and **2.5%** for years 76–125. [fact, source: web search citing Green Book] [SOURCE NEEDED]
+- **Optimism bias:** A systematic upward adjustment to cost estimates to correct for the tendency to underestimate costs and overstate benefits. Adjustment percentages are provided in supplementary Green Book guidance by project type (transport, IT, buildings, etc.). [SOURCE NEEDED]
 - **BCR critique:** The 2025 Green Book Review explicitly found that BCR is over-emphasised in government decision-making and that transformational projects with long-term benefits are poorly served by BCR alone. HM Treasury announced it will "clamp down on the over-emphasis on BCRs" while retaining BCR as one summary metric. [fact, source: Green Book Review 2025 https://www.gov.uk/government/publications/green-book-review-2025-findings-and-actions/green-book-review-2025-findings-and-actions]
 
 ---
 
 **B3a. Commercial Case — procurement strategy** [fact]
 
-The Commercial Case addresses: procurement strategy (open competition, frameworks, direct award), market engagement approach, evaluation criteria for suppliers, contract type and structure, risk allocation between public sector and suppliers, contract management arrangements (KPIs, performance monitoring, dispute resolution, escalation). It is iterative — as procurement progresses, updated cost and risk information feeds back into the Economic and Financial Cases. [fact, source: Knowledge Train; web search]
+The Commercial Case addresses: procurement strategy (open competition, frameworks, direct award), market engagement approach, evaluation criteria for suppliers, contract type and structure, risk allocation between public sector and suppliers, contract management arrangements (Key Performance Indicators (KPIs), performance monitoring, dispute resolution, escalation). It is iterative — as procurement progresses, updated cost and risk information feeds back into the Economic and Financial Cases. [fact, source: Knowledge Train; web search]
 
 **B3b. Risk allocation** [fact]
 
-Effective risk allocation transfers risk to the party best placed to manage it. The Commercial Case must identify which risks are retained by the public sector and which are transferred to contractors. Well-structured contractual terms incentivise performance and contain cost escalation risk. [fact, source: web search]
+Effective risk allocation transfers risk to the party best placed to manage it. The Commercial Case must identify which risks are retained by the public sector and which are transferred to contractors. Well-structured contractual terms incentivise performance and contain cost escalation risk. [SOURCE NEEDED]
 
 ---
 
@@ -208,7 +208,7 @@ The Financial Case and Economic Case are complementary, not interchangeable. The
 
 **B4b. Financial Case content** [fact]
 
-Required content: budget availability and sources (central budget, grant, borrowing, private investment), cash flow forecasts by year, impact on departmental spending limits, accounting treatment, VAT and inflation adjustments, contingencies, and funding profile under optimistic/pessimistic scenarios. [fact, source: web search]
+Required content: budget availability and sources (central budget, grant, borrowing, private investment), cash flow forecasts by year, impact on departmental spending limits, accounting treatment, VAT and inflation adjustments, contingencies, and funding profile under optimistic/pessimistic scenarios. [SOURCE NEEDED]
 
 ---
 
@@ -223,7 +223,7 @@ Required governance content:
 
 **B5b. Benefits realisation** [fact]
 
-The Management Case must include a Benefits Realisation Plan: identification of all anticipated benefits (quantitative and qualitative), baseline measurements, benefit profiles (how each will be measured, who owns it, when it is expected), and a feedback loop into strategic decision-making post-project. A Benefits Owner (often the SRO or Business Change Lead) must be named. [fact, source: web search]
+The Management Case must include a Benefits Realisation Plan: identification of all anticipated benefits (quantitative and qualitative), baseline measurements, benefit profiles (how each will be measured, who owns it, when it is expected), and a feedback loop into strategic decision-making post-project. A Benefits Owner (often the SRO or Business Change Lead) must be named. [SOURCE NEEDED]
 
 ---
 
@@ -242,9 +242,9 @@ Evidence from the Infrastructure and Projects Authority (IPA) and the National A
 1. Poor early planning and unclear objectives — ambiguous strategic justification, inadequate stakeholder engagement. [fact, source: web search citing IPA/NAO/Bevan Brittan analysis]
 2. Weak option appraisal — superficial analysis of alternatives, limited testing of value for money and feasibility. [fact, source: NAO briefing; web search]
 3. Over-optimistic cost/benefit estimates — failure to apply optimism bias corrections, leading to cost escalation. [fact, source: web search citing multiple IPA/NAO reports]
-4. Lack of skilled leadership and governance — high SRO turnover, unclear accountability, insufficient oversight. [fact, source: web search]
-5. Failure to integrate assurance findings — not acting on Gateway Review recommendations or lessons from previous projects. [fact, source: web search]
-6. Scope creep — inadequate control over requirements changes, compounding cost and schedule risk. [fact, source: web search]
+4. Lack of skilled leadership and governance — high SRO turnover, unclear accountability, insufficient oversight. [SOURCE NEEDED]
+5. Failure to integrate assurance findings — not acting on Gateway Review recommendations or lessons from previous projects. [SOURCE NEEDED]
+6. Scope creep — inadequate control over requirements changes, compounding cost and schedule risk. [SOURCE NEEDED]
 7. Insufficient benefits management — weak tracking of whether intended benefits materialise post-completion. [fact, source: NAO; web search]
 
 **D2. Quality tests** [inference, synthesised from FCM guidance]
@@ -308,9 +308,9 @@ An AI agent applying the FCM should:
 
 **Behavioural lens:** Optimism bias is a documented psychological phenomenon in forecasting, not merely a statistical correction. Project teams systematically underestimate costs and overestimate benefits due to anchoring, planning fallacy, and political pressure to secure approval. The Green Book's mandatory optimism bias tables are a structural countermeasure to this bias. [inference from behavioural economics literature, consistent with Green Book rationale]
 
-**International lens:** The FCM has been adopted or adapted by New Zealand (Treasury), Ireland (Public Spending Code), South Africa, Malaysia, and multilateral bodies including the World Bank, IMF, UNDP, and Asian Development Bank. [fact: APMG] Its appeal is its pragmatic integration of strategy, economics, procurement, finance, and delivery — disciplines that frameworks focusing on economic appraisal or governance alone do not bridge. [inference from APMG]
+**International lens:** The FCM has been adopted or adapted by New Zealand (Treasury), Ireland (Public Spending Code), South Africa, Malaysia, and multilateral bodies including the World Bank, International Monetary Fund (IMF), United Nations Development Programme (UNDP), and Asian Development Bank. [fact: APMG] Its appeal is its pragmatic integration of strategy, economics, procurement, finance, and delivery — disciplines that frameworks focusing on economic appraisal or governance alone do not bridge. [inference from APMG]
 
-**AI application lens:** An AI agent applying the FCM faces a specific failure mode: generating plausible-looking case content that lacks the evidential basis the framework demands. The most dangerous failure mode is fabricated option costs or benefit valuations — numbers that look credible but have no empirical basis. The FCM's structured input requirements (BAU baseline, option costs, stakeholder evidence) are the agent's discipline mechanism. The agent should refuse to generate content without those inputs and should explicitly flag when inputs are insufficient for a given stage.
+**AI application lens:** An AI agent applying the FCM faces a specific failure mode: generating plausible-looking case content that lacks the evidential basis the framework demands. [inference] The most dangerous failure mode is fabricated option costs or benefit valuations — numbers that look credible but have no empirical basis. The FCM's structured input requirements (BAU baseline, option costs, stakeholder evidence) are the agent's discipline mechanism. The agent should refuse to generate content without those inputs and should explicitly flag when inputs are insufficient for a given stage.
 
 ---
 
@@ -342,7 +342,7 @@ The Better Business Cases (BBC) Five Case Model is HM Treasury's required framew
 | FCM is embedded in the Green Book and required for major spending proposals | GOV.UK guidance page [x] https://www.gov.uk/government/publications/business-case-guidance-for-projects-and-programmes | High | Primary/official source |
 | SMART objectives required in Strategic Case | Knowledge Train [x]; web search | High | Multiple concordant sources |
 | Long-list must include do-nothing baseline | Knowledge Train [x]; web search | High | Consistent across all sources |
-| STPR discount rate 3.5% (years 0–30), 3.0% (31–75), 2.5% (76–125) | Web search citing Green Book | High | Standard Green Book parameter |
+| STPR discount rate 3.5% (years 0–30), 3.0% (31–75), 2.5% (76–125) | Web search citing Green Book | High | Standard Green Book parameter [SOURCE NEEDED] |
 | Optimism bias mandatory, sector tables in supplementary guidance | Web search citing Green Book | High | Mandatory per Green Book wording |
 | BCR over-emphasis finding and HM Treasury commitment to reduce it | Green Book Review 2025 [x] https://www.gov.uk/government/publications/green-book-review-2025-findings-and-actions | High | Primary source (HM Treasury) |
 | Economic vs Financial Case distinction (social value vs affordability) | Knowledge Train [x] | High | Structural FCM distinction, confirmed by multiple sources |
@@ -365,11 +365,11 @@ The Better Business Cases (BBC) Five Case Model is HM Treasury's required framew
 
 **Analysis:**
 
-The FCM is a mature framework whose structural design directly addresses the failure modes that preceded it. The separation of the five cases prevents the most common shortcuts: treating affordability as proof of value (Financial vs Economic separation), skipping options appraisal (Economic Case structure), and not planning for delivery (Management Case). The three-stage development model prevents premature commitment while maintaining momentum.
+[inference] The FCM is a mature framework whose structural design directly addresses the failure modes that preceded it. The separation of the five cases prevents the most common shortcuts: treating affordability as proof of value (Financial vs Economic separation), skipping options appraisal (Economic Case structure), and not planning for delivery (Management Case). The three-stage development model prevents premature commitment while maintaining momentum.
 
-The 2025 Green Book Review is significant because it signals a direction-of-travel change: less emphasis on a single numerical metric (BCR), more emphasis on strategic and place-based considerations. This does not invalidate the FCM but shifts the relative weight within the Economic Case from ratio calculation toward qualitative and distributional analysis. An AI agent should reflect this by not treating BCR as the sole decision criterion in the Economic Case.
+The 2025 Green Book Review is significant because it signals a direction-of-travel change: less emphasis on a single numerical metric (BCR), more emphasis on strategic and place-based considerations. This does not invalidate the FCM but shifts the relative weight within the Economic Case from ratio calculation toward qualitative and distributional analysis. Opinion: An AI agent should reflect this by not treating BCR as the sole decision criterion in the Economic Case.
 
-The most valuable quality test an agent can apply to any business case is whether the Economic and Financial Cases are clearly separated. Conflating social value with affordability is the most common structural error in submitted business cases, and it is easy to detect.
+[inference] The most valuable quality test an agent can apply to any business case is whether the Economic and Financial Cases are clearly separated. Conflating social value with affordability is the most common structural error in submitted business cases, and it is easy to detect.
 
 **Risks, gaps, and uncertainties:**
 
@@ -456,13 +456,11 @@ The Better Business Cases (BBC) Five Case Model is HM Treasury's mandated framew
 
 ### Analysis
 
-The FCM's structural design is a direct response to the failure modes it was created to prevent. The Economic/Financial separation prevents affordability from being conflated with value. The mandatory do-nothing baseline prevents options from being appraised in isolation from the status quo. The three-stage development model prevents premature commitment of funds before commercial and financial feasibility is confirmed.
+[inference] The FCM's structural design directly responds to the failure modes it was created to prevent — covered in detail in the §6 Analysis above. In practice, the most detectable structural error is a case presenting NPV of net financial savings as its "economic case": that conflation indicates the Economic and Financial Cases have not been correctly separated.
 
-The 2025 Green Book Review changes the centre of gravity within the Economic Case: less weight on a single BCR number, more weight on strategic and place-based considerations, and recognition that transformational projects with long-duration benefits need a different lens than incremental service improvements. An agent applying the FCM in a post-2025 context should treat BCR as informative but not decisive, and should give greater weight to the qualitative and distributional components of the economic appraisal.
+Opinion: In a post-2025 context, BCR should be treated as informative rather than decisive; transformational and place-based investments with long-duration benefits need proportionately greater weight on qualitative and distributional analysis.
 
-The most diagnostically useful quality test for a submitted business case is whether the Economic and Financial Cases are clearly and correctly separated. This is the most common structural error, and it is easy to detect — any case that presents the NPV of net financial savings as the "economic case" has conflated the two.
-
-The most damaging failure mode is optimism bias in cost estimates — not because optimism bias is inevitable, but because it compounds across all five cases: underestimated costs inflate the BCR, make the Financial Case appear affordable when it is not, and cause the Management Case delivery plan to be under-resourced from the outset.
+[inference] Optimism bias in cost estimates compounds most severely across all five cases: underestimated costs inflate the BCR, make the Financial Case appear affordable when it is not, and leave the Management Case delivery plan under-resourced from the outset.
 
 ### Risks, Gaps, and Uncertainties
 

@@ -24,9 +24,9 @@ What is the design pattern for a system of agents — human or AI — that share
 - Time-horizon coverage: the different temporal scopes across which agents reason (immediate, sprint, quarterly, annual, multi-year, permanent)
 - Interaction protocols: how agents with different competencies surface disagreements without deadlock; how shared-goal alignment is maintained under local optima pressure
 - Mapping to organisational structures: how traditional review boards, design councils, and cross-functional teams instantiate this pattern
-- Mapping to AI multi-agent systems: how multiple LLM agents with different system prompts (personas/roles) can provide multi-perspective coverage for a single task
-- The relationship to the BBC Five Case Model: each case (strategic, economic, commercial, financial, management) as a distinct adversarial perspective
-- How values alignment and strategic alignment agents function as "wisdom-layer" reviewers — the K→W gatekeepers in the DIKW framing
+- Mapping to AI multi-agent systems: how multiple Large Language Model (LLM) agents with different system prompts (personas/roles) can provide multi-perspective coverage for a single task
+- The relationship to the Better Business Cases (BBC) Five Case Model: each case (strategic, economic, commercial, financial, management) as a distinct adversarial perspective
+- How values alignment and strategic alignment agents function as "wisdom-layer" reviewers — the K→W gatekeepers in the Data, Information, Knowledge, Wisdom (DIKW) framing
 - Conditions for productive disagreement: when does a vetoing perspective improve quality vs. create gridlock?
 
 **Out of scope:**
@@ -40,7 +40,7 @@ What is the design pattern for a system of agents — human or AI — that share
 
 ### The core insight
 
-A single capable agent — human or AI — optimises for what it knows and can see. A designer optimises for usability; an SRE optimises for reliability; a security reviewer optimises for threat surface reduction. Each is locally rational but globally suboptimal in isolation. The adversarial collaboration pattern places these agents in deliberate tension: they share the goal of shipping something good but challenge each other's assumptions from non-overlapping vantage points.
+A single capable agent — human or AI — optimises for what it knows and can see. A designer optimises for usability; a Site Reliability Engineering (SRE) agent optimises for reliability; a security reviewer optimises for threat surface reduction. Each is locally rational but globally suboptimal in isolation. The adversarial collaboration pattern places these agents in deliberate tension: they share the goal of shipping something good but challenge each other's assumptions from non-overlapping vantage points.
 
 This is not committee design by accident — it is a structural mechanism for covering the blind spots that any single perspective necessarily has.
 
@@ -54,7 +54,7 @@ This is not committee design by accident — it is a structural mechanism for co
 | **Security** | Threat surface, vulnerabilities, compliance posture | Immediate + architectural (long) | Knowledge |
 | **Performance — speed/resource** | Latency, throughput, resource cost | Sprint → quarter | Data → Information |
 | **Performance — ROI** | Return on investment, cost/benefit, opportunity cost | Quarterly → annual | Information → Knowledge |
-| **Performance — goal achievement** | OKR delivery, outcomes vs. outputs, impact | Quarterly → annual | Knowledge → Wisdom |
+| **Performance — goal achievement** | Objectives and Key Results (OKR) delivery, outcomes vs. outputs, impact | Quarterly → annual | Knowledge → Wisdom |
 | **Strategic alignment** | Are we building the right thing? Is this consistent with direction? | Multi-year | Wisdom |
 | **Insight capture** | What have we learned? Is learning being retained? | Continuous / retrospective | Knowledge |
 | **Researcher** | What do we not know? Where are the unknown unknowns? | Long / pre-competitive | Knowledge → Wisdom |
@@ -191,13 +191,13 @@ The values alignment and strategic alignment agents are the explicit K→W gatek
 
 #### A2. Swiss cheese model: layered independent defence
 
-**[fact]** James Reason developed the Swiss cheese model in *Human Error* (1990, Cambridge University Press). The model represents defensive layers as slices of Swiss cheese — each layer has "holes" (failure modes), but accidents occur only when holes in all layers align simultaneously. Source: Wikipedia Swiss cheese model; EBSCO Research Starters
+**[inference]** James Reason developed the Swiss cheese model in *Human Error* (1990, Cambridge University Press). The model represents defensive layers as slices of Swiss cheese — each layer has "holes" (failure modes), but accidents occur only when holes in all layers align simultaneously. Source: Wikipedia Swiss cheese model; EBSCO Research Starters
 
 **[fact]** The critical property is independence: each defensive layer must cover different failure modes. If two layers have correlated holes (e.g., both fail under the same condition), the system offers less protection than the layer count implies. Source: Spring Safety Reviews (safety.inc)
 
 **[inference]** This is the safety-engineering analogue of the adversarial agent pattern: the value of each additional perspective is proportional to its independence from the perspectives already present. A security reviewer and a performance reviewer share fewer blind spots than two security reviewers. The mathematical implication is that the 15-agent taxonomy is designed so that no two agents have highly correlated blind spots.
 
-**[fact]** The Swiss cheese model has criticisms: it assumes relatively independent layers, but organisational weaknesses can affect multiple defences simultaneously (correlated failures). Source: The Decision Lab; Psych Safety
+**[inference]** The Swiss cheese model has criticisms: it assumes relatively independent layers, but organisational weaknesses can affect multiple defences simultaneously (correlated failures). Source: The Decision Lab; Psych Safety
 
 #### A3. Multi-perspective outperforms generalist: evidence base
 
@@ -248,7 +248,7 @@ The values alignment and strategic alignment agents are the explicit K→W gatek
 **[inference]** The 15-agent taxonomy in the research item maps to DIKW layers as follows:
 
 *Data → Information (observe, measure, instrument):*
-- SRE (reliability metrics, SLIs, error budgets)
+- SRE (reliability metrics, Service Level Indicators (SLIs), error budgets)
 - Tester (test outcomes, coverage data, regression signals)
 - Performance — speed/resource (latency, throughput, resource utilisation)
 - Change impact assessment (what changes, what breaks)
@@ -329,17 +329,17 @@ The values alignment and strategic alignment agents are the explicit K→W gatek
 
 ### §5 Depth and Breadth Expansion
 
-**Historical lens:** The adversarial-collaboration pattern is ancient. Roman Senate practice of appointing a "devil's advocate" (advocatus diaboli) for beatification proceedings is a formalised instance. Military "war games" with opposing teams date to Prussian Kriegsspiel (1812), the direct ancestor of modern red/blue team exercises. The pattern recurs because single-perspective failure is a universal failure mode.
+**Historical lens:** The adversarial-collaboration pattern is ancient. Roman Senate practice of appointing a "devil's advocate" (advocatus diaboli) for beatification proceedings is a formalised instance. [inference] Military "war games" with opposing teams date to Prussian Kriegsspiel (1812), the direct ancestor of modern red/blue team exercises. The pattern recurs because single-perspective failure is a universal failure mode.
 
-**Regulatory lens:** The BBC Five Case Model and financial industry investment committees are regulatory mandates, not voluntary practices. This implies that without mandating multi-perspective review, organisations systematically underinvest in perspectives that challenge their dominant viewpoint. The regulatory pressure exists because the market does not spontaneously produce adequate perspective coverage — organisations optimise for the perspectives that have near-term visibility and cut the perspectives (risk assessment, values alignment) that are less immediately legible.
+**Regulatory lens:** The BBC Five Case Model and financial industry investment committees are regulatory mandates, not voluntary practices. This implies that without mandating multi-perspective review, organisations systematically underinvest in perspectives that challenge their dominant viewpoint. [inference] The regulatory pressure exists because the market does not spontaneously produce adequate perspective coverage — organisations optimise for the perspectives that have near-term visibility and cut the perspectives (risk assessment, values alignment) that are less immediately legible.
 
 **Economic lens:** Oliver Williamson's transaction cost economics explains why each agent type exists inside the firm rather than being contracted from the market: asset specificity. A security reviewer who deeply understands the organisation's threat model and codebase cannot be substituted by a generic security consultant without significant information cost. The adversarial agents are internal functions precisely because their perspective value is context-dependent. This connects to the Coase/North framework noted in the research item context.
 
-**Behavioural lens:** The DoT (Degeneration-of-Thought) problem in LLMs is the AI analogue of "sunk cost" and "commitment bias" in human reasoning. Once an agent has invested in a position, it is structurally less capable of challenging that position. The adversarial-collaboration pattern is a structural antidote: different agents have different priors, so they have not invested in each other's positions and can challenge freely.
+**Behavioural lens:** [inference] The DoT (Degeneration-of-Thought) problem in LLMs is the AI analogue of "sunk cost" and "commitment bias" in human reasoning. Once an agent has invested in a position, it is structurally less capable of challenging that position. The adversarial-collaboration pattern is a structural antidote: different agents have different priors, so they have not invested in each other's positions and can challenge freely.
 
-**Technical lens (AI implementation):** The practical implementation requires a synthesis agent (judge) or aggregation protocol. In software engineering multi-agent systems (e.g., MetaGPT, ChatDev), roles are assigned at task initialisation and remain fixed. A dynamic role assignment system (Li et al. 2025) allows roles to adapt as task requirements change — this is closer to how human organisations work (a security reviewer may become a co-designer mid-task when the threat model reveals a design flaw).
+**Technical lens (AI implementation):** The practical implementation requires a synthesis agent (judge) or aggregation protocol. [inference] In software engineering multi-agent systems (e.g., MetaGPT, ChatDev), roles are assigned at task initialisation and remain fixed. A dynamic role assignment system (Li et al. 2025) allows roles to adapt as task requirements change — this is closer to how human organisations work (a security reviewer may become a co-designer mid-task when the threat model reveals a design flaw).
 
-**Organisational design lens:** The "purple team" synthesis step in security (red + blue → purple) is the organisational equivalent of the §6 Synthesis step in the research skill. The adversarial agents produce the raw disagreements; the synthesis step converts them into actionable knowledge. Without the synthesis step, adversarial agents produce conflict rather than improvement. This is the most commonly missed component in practice.
+**Organisational design lens:** The "purple team" synthesis step in security (red + blue → purple) is the organisational equivalent of the §6 Synthesis step in the research skill. The adversarial agents produce the raw disagreements; the synthesis step converts them into actionable knowledge. [inference] Without the synthesis step, adversarial agents produce conflict rather than improvement. This is the most commonly missed component in practice.
 
 ---
 
@@ -483,9 +483,9 @@ A system of agents sharing a goal but occupying different competency domains and
 
 ### Analysis
 
-The adversarial-collaboration pattern is grounded at three levels: theoretical (Kahneman, Reason), empirical/AI (Liang, Park, Guo), and institutional practice (ARBs, investment committees, SRE, red/blue teams). The convergence across these independent domains is strong evidence that the pattern addresses a universal failure mode — single-perspective commitment bias — rather than a domain-specific quirk.
+Adversarial collaboration is grounded at three levels: theoretical (Kahneman, Reason), empirical/AI (Liang, Park, Guo), and institutional practice (ARBs, investment committees, SRE, red/blue teams). [inference] That independent domains converge on the same four structural components points to a recurring failure mode — single-perspective commitment bias — rather than a domain-specific quirk.
 
-The most important trade-off is coverage vs. coordination cost. More independent perspectives provide more coverage but increase the cost of synthesis. The resolution is proportionate triage: not every change requires every perspective. This is confirmed in every institutional implementation examined — ARBs use risk-based triage; investment committees have materiality thresholds; SRE error budgets apply only to deployments that consume budget. The principle is: match the depth of multi-perspective review to the potential impact of the decision.
+Coverage vs. coordination cost is the central trade-off. More independent perspectives provide more coverage but increase the cost of synthesis. The resolution is proportionate triage: not every change requires every perspective. This is confirmed in every institutional implementation examined — ARBs use risk-based triage; investment committees have materiality thresholds; SRE error budgets apply only to deployments that consume budget. The principle is: match the depth of multi-perspective review to the potential impact of the decision.
 
 The synthesis step is the underappreciated load-bearing component. Every institutional implementation documents disagreements, but few have formal protocols for converting those disagreements into shared knowledge. The BBC Five Case Model is the exception: each case must not merely present its perspective but answer a specific structured question, enabling direct comparison across perspectives. The implication for AI multi-agent systems is that the judge agent or aggregation protocol is not a post-processing step — it is the central mechanism that converts adversarial agent output into value.
 

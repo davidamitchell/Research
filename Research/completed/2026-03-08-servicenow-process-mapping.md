@@ -20,7 +20,7 @@ What options exist within ServiceNow for documenting, mapping, and maintaining b
 
 **In scope:**
 - Native ServiceNow capabilities for process documentation and modelling: Process Universe, BPMN-style process flows, Flow Designer, Workflow Editor, Playbooks, Process Mining (if available)
-- How process maps in ServiceNow relate to the CSDM data model and module configuration
+- How process maps in ServiceNow relate to the Common Service Data Model (CSDM) and module configuration
 - What distinguishes process documentation that stays maintained vs what decays into irrelevance within 6–12 months
 - Governance models for process ownership and update triggers
 - Integration of process documentation with ITSM practices (incident, problem, change, service request workflows)
@@ -104,7 +104,7 @@ The research question decomposes into six sub-questions matching the Approach:
 - A5. How do these capabilities relate to each other — are they complementary or overlapping?
 
 **Cluster B: Decay analysis**
-- B1. What percentage of ITSM process documentation accurately reflects how work is actually done?
+- B1. What percentage of IT Service Management (ITSM) process documentation accurately reflects how work is actually done?
 - B2. What are the root causes of documentation decay, in order of significance?
 - B3. Is decay a tooling problem, a governance problem, or an ownership problem?
 
@@ -133,7 +133,7 @@ The research question decomposes into six sub-questions matching the Approach:
 
 **A1. Process Universe**
 
-[fact] ServiceNow's Process Universe is a curated library of ITIL 4-aligned best-practice processes provided as predefined process models, KPIs, RACI charts, and workflow templates. It is a design-time reference and starting-point for ITSM implementations, not a runtime operational tool. Source: web search synthesis from multiple ITSM sources including https://www.reco.ai/hub/itil-servicenow-guide-it-administrators and https://www.royalcyber.com/blogs/servicenow/servicenow-itil-4-transforming-itsm/.
+[inference] ServiceNow's Process Universe is a curated library of ITIL 4-aligned best-practice processes provided as predefined process models, KPIs, RACI charts, and workflow templates. It is a design-time reference and starting-point for ITSM implementations, not a runtime operational tool. Source: web search synthesis from multiple ITSM sources including https://www.reco.ai/hub/itil-servicenow-guide-it-administrators and https://www.royalcyber.com/blogs/servicenow/servicenow-itil-4-transforming-itsm/.
 
 [inference] The Process Universe reduces design time by providing standardised ITIL 4 process maps that organisations can adopt or adapt, but it does not automatically keep those maps current as operational reality evolves — that depends entirely on governance. The Universe is a starting point, not a maintenance mechanism.
 
@@ -143,7 +143,7 @@ The research question decomposes into six sub-questions matching the Approach:
 
 [fact] Playbooks (built in Workflow Studio / Process Automation Designer) provide step-by-step guided experiences for agents executing complex processes within ServiceNow Workspaces. They are runtime guidance tools — they document what a human agent must do, in what order, for a specific case type. Source: https://www.servicenow.com/docs/r/washingtondc/build-workflows/process-automation-designer-landing-page.html and https://www.suretysystems.com/insights/servicenow-playbooks-efficiency-dynamic-automation-surety-systems/.
 
-[inference] Flow Designer documents the automated layer (what the system does); Playbooks document the human execution layer (what agents must do). Neither constitutes a process map in the business process management (BPM) sense — neither produces a BPMN diagram that shows end-to-end process flow, decision points, and handoffs that a process owner would recognise as authoritative documentation.
+[inference] Flow Designer documents the automated layer (what the system does); Playbooks document the human execution layer (what agents must do). Neither constitutes a process map in the business process management (BPM) sense — neither produces a Business Process Model and Notation (BPMN) diagram that shows end-to-end process flow, decision points, and handoffs that a process owner would recognise as authoritative documentation.
 
 **A3. Workflow Editor**
 
@@ -203,9 +203,9 @@ None of these is a "living process documentation" tool in the sense of an author
 
 **C3. ServiceNow governance recommendations**
 
-[fact] ServiceNow's governance workbook recommends: separating policy documentation ("what and why") from procedure documentation ("how"), with centralised ownership of policy and potentially decentralised ownership of procedures. Procedures must conform to central policy standards. Source: https://us.fitgap.com/stack-guides/building-a-repeatable-governance-model-for-process-changes-across-business-units.
+[fact] FitGap's repeatable governance model guide recommends: separating policy documentation ("what and why") from procedure documentation ("how"), with centralised ownership of policy and potentially decentralised ownership of procedures. Procedures must conform to central policy standards. Source: https://us.fitgap.com/stack-guides/building-a-repeatable-governance-model-for-process-changes-across-business-units.
 
-[fact] ServiceNow recommends treating process and documentation changes as versioned decisions, each documented with rationale, impacted controls, and owner. This creates a traceable governance record and prevents "policy drift" — the gradual accumulation of undocumented local adaptations. Source: https://us.fitgap.com/stack-guides/building-a-repeatable-governance-model-for-process-changes-across-business-units.
+[fact] FitGap's governance guidance recommends treating process and documentation changes as versioned decisions, each documented with rationale, impacted controls, and owner. This creates a traceable governance record and prevents "policy drift" — the gradual accumulation of undocumented local adaptations. Source: https://us.fitgap.com/stack-guides/building-a-repeatable-governance-model-for-process-changes-across-business-units.
 
 **D1. Minimum viable process documentation**
 
@@ -215,7 +215,7 @@ None of these is a "living process documentation" tool in the sense of an author
 
 **D2. What is safe to leave undocumented**
 
-[inference] Safe to leave informal: team-specific local procedures that do not affect cross-team hand-offs, audit requirements, or SLA measurement. Dangerous to leave undocumented: escalation paths, cross-team hand-off points, approval chains, exception handling for regulatory or compliance-relevant process steps. [assumption] This distinction maps to whether a gap in documentation would produce inconsistent operation visible to audit or to service recipients — if yes, it must be documented; if only visible internally to the team, informal knowledge may suffice.
+[inference] Safe to leave informal: team-specific local procedures that do not affect cross-team hand-offs, audit requirements, or Service Level Agreement (SLA) measurement. Dangerous to leave undocumented: escalation paths, cross-team hand-off points, approval chains, exception handling for regulatory or compliance-relevant process steps. [assumption] This distinction maps to whether a gap in documentation would produce inconsistent operation visible to audit or to service recipients — if yes, it must be documented; if only visible internally to the team, informal knowledge may suffice.
 
 **D3. Out-of-box templates and MVP**
 
@@ -278,15 +278,15 @@ Every finding in §2 is labelled. The key inferences are:
 - §2-A3 states Workflow Editor is "maintenance-only" and not viable for new development, while §2-A2 notes Workflow Editor produced "the closest native equivalent to a process map". This creates a gap: if ServiceNow has deprecated the only tool that produced something resembling a standalone process map, the platform currently has no native tool for authoring human-readable BPM-style process documentation. This is not a contradiction but a finding that deserves explicit surfacing. [inference] ServiceNow's tooling investment has moved toward runtime guidance (Playbooks) and automation (Flow Designer), treating process documentation as a secondary artefact rather than a primary deliverable. This has governance implications.
 
 **Acronyms:**
-- ITSM: IT Service Management — expanded on first use in research question
-- CSDM: Common Service Data Model — expanded in scope, consistent with completed research item
+- ITSM: IT Service Management — expanded in §1, Cluster B (first use in Research Skill Output)
+- CSDM: Common Service Data Model — expanded in Scope section at first use
 - ITIL: Information Technology Infrastructure Library — expanded in §2-A1
 - BPM: Business Process Management — expanded in §2-A3
-- BPMN: Business Process Model and Notation — expanded in §2-A5
+- BPMN: Business Process Model and Notation — expanded in §2-A2 at first use
 - CI: Configuration Item — consistent with CSDM research item
 - RACI: Responsible, Accountable, Consulted, Informed — expanded in §2-C1
 - MVP: Minimum Viable Process — expanded in §2-D1
-- SLA: Service Level Agreement — consistent with completed research items
+- SLA: Service Level Agreement — expanded in §2-D2 at first use
 
 **Unsupported leaps:**
 - None identified. All claims in Findings are traced to sources in §2 or labelled as inferences.
@@ -296,16 +296,16 @@ Every finding in §2 is labelled. The key inferences are:
 ### §5 Depth and Breadth Expansion
 
 **Technical lens:**
-Flow Designer and Playbooks represent ServiceNow's bet that process documentation should be executable — that the system should enforce the process, not just describe it. This is a defensible position: a Playbook that guides an agent through the correct steps is more reliable than a PDF that describes the same steps, because it is harder to skip. However, executable documentation requires maintenance by platform developers when processes change, not just process owners updating a Word document. This increases the technical maintenance burden and creates a dependency on ServiceNow administrators that pure documentary approaches do not have.
+Flow Designer and Playbooks represent ServiceNow's bet that process documentation should be executable — that the system should enforce the process, not just describe it. Opinion: This is a defensible position — a Playbook that guides an agent through the correct steps is more reliable than a PDF that describes the same steps, because it is harder to skip. [inference] However, executable documentation requires maintenance by platform developers when processes change, not just process owners updating a Word document. This increases the technical maintenance burden and creates a dependency on ServiceNow administrators that pure documentary approaches do not have.
 
 **Governance lens:**
 The three-board governance model (strategic/portfolio/technical) recommended by ServiceNow addresses the organisational dimension of the decay problem. However, evidence of organisations that have successfully run this model for multi-year timescales is limited in the sources consulted. The governance recommendations are normative (what should be done) rather than empirical (what organisations do successfully). This is a gap in the evidence base.
 
 **Economic lens:**
-Full process documentation with rich BPMN diagrams has high upfront cost and high maintenance cost if the governance model is not in place. The minimum viable approach (out-of-box templates + delta documentation + escalation/exception paths + RACI) has lower upfront cost and lower maintenance cost, because the majority of the process is encoded in the platform and only the delta needs documentation. This is an economic argument for the MVP approach: the risk-adjusted expected maintenance cost of a rich-but-degrading documentation set exceeds the expected maintenance cost of a minimal-but-accurate one.
+Full process documentation with rich BPMN diagrams has high upfront cost and high maintenance cost if the governance model is not in place. The minimum viable approach (out-of-box templates + delta documentation + escalation/exception paths + RACI) has lower upfront cost and lower maintenance cost, because the majority of the process is encoded in the platform and only the delta needs documentation. [inference] This is an economic argument for the MVP approach: the risk-adjusted expected maintenance cost of a rich-but-degrading documentation set exceeds the expected maintenance cost of a minimal-but-accurate one.
 
 **Behavioural lens:**
-Process documentation that practitioners do not use will not be updated. The CTMS survey finding that 36% use process diagrams monthly or less suggests that a significant proportion of practitioners experience process maps as bureaucratic overhead rather than operational tools. Playbooks change this dynamic: they are embedded in the workspace where work happens, so practitioners encounter them during case execution. This makes Playbooks more likely to be noticed when they diverge from reality — a practitioner who must click through a Playbook step that no longer matches their actual procedure is more likely to flag it than a practitioner who could theoretically consult a process map they never look at.
+Process documentation that practitioners do not use will not be updated. The CTMS survey finding that 36% use process diagrams monthly or less suggests that a significant proportion of practitioners experience process maps as bureaucratic overhead rather than operational tools. [inference] Playbooks change this dynamic: they are embedded in the workspace where work happens, so practitioners encounter them during case execution. This makes Playbooks more likely to be noticed when they diverge from reality — a practitioner who must click through a Playbook step that no longer matches their actual procedure is more likely to flag it than a practitioner who could theoretically consult a process map they never look at.
 
 **Regulatory lens:**
 For regulated organisations (financial services, healthcare), the compliance use case for process documentation is distinct from the operational use case. Audit requirements for process documentation typically demand: version-controlled approval records, evidence that defined processes are followed, and clear ownership. Process Mining provides conformance data but not approval records. Authored documentation provides approval records but not conformance data. Regulated organisations need both.
@@ -423,7 +423,7 @@ The CSDM linkage gap is operationally significant. Every time a service owner ch
 
 ### Executive Summary
 
-ServiceNow offers five native capabilities for process documentation — the Process Universe (design-time ITIL 4 reference library), Flow Designer (automation logic), Playbooks (runtime agent guidance), the deprecated Workflow Editor, and Process Mining (event-log-based behaviour discovery) — but none functions as a self-maintaining authoritative process map. Eighty percent of ITSM practitioners report their process documentation does not reflect how work is actually performed; the primary cause is treating documentation as a project deliverable with no ongoing governance, not a tooling deficiency. The approach most resistant to decay in practice combines out-of-box ITSM templates with a minimal delta documentation set, mandatory documentation updates as change closure criteria, named process owners, and Process Mining for periodic conformance validation — accepting that comprehensive BPMN-style documentation will not be maintained and designing governance to keep a smaller, accurate set current instead.
+ServiceNow offers five native capabilities for process documentation — the Process Universe (design-time ITIL 4 reference library), Flow Designer (automation logic), Playbooks (runtime agent guidance), the deprecated Workflow Editor, and Process Mining (event-log-based behaviour discovery) — but none functions as a self-maintaining authoritative process map. Eighty percent of ITSM practitioners report their process documentation does not reflect how work is actually performed; the primary cause is treating documentation as a project deliverable with no ongoing governance, not a tooling deficiency. The approach most resistant to decay combines a minimal documentation set with change-triggered mandatory updates and named process owners — accepting that comprehensive BPMN-style documentation will not be maintained and designing governance to keep a smaller, accurate set current. Process Mining provides conformance validation but cannot substitute for governance.
 
 ### Key Findings
 
@@ -441,7 +441,7 @@ ServiceNow offers five native capabilities for process documentation — the Pro
 
 7. ServiceNow's recommended governance model for process documentation uses three boards (strategic, portfolio, technical) with named owners and RACI matrices per process, mandatory versioned documentation for every process change, and weekly/monthly/quarterly review cadences — with change-triggered updates as the more reliable decay-prevention mechanism compared to calendar-only reviews. [Medium confidence — normative recommendation from ServiceNow and independent governance sources; limited empirical validation of multi-year outcomes]
 
-8. The minimum viable process documentation approach that stays accurate is: use out-of-box ITSM templates as the documented baseline, add documentation only for the local configuration delta and for escalation/exception paths, define a RACI for each process, and avoid over-customisation — which proportionally increases the maintenance burden and should be avoided unless it provides demonstrable operational value. [Medium confidence — well-supported by principle and practitioner guidance]
+8. The minimum viable documentation approach uses out-of-box ITSM templates as the baseline, supplements with documentation of the local configuration delta, escalation/exception paths, and a RACI per process, and avoids over-customisation — which proportionally increases the maintenance burden. [Medium confidence — well-supported by principle and practitioner guidance]
 
 9. Process maps in ServiceNow have no native structured data linkage to CSDM Configuration Item (CI) or Business Service records, so process documentation and CSDM records must be kept aligned through governance coordination rather than platform relationships — creating a coordination risk when either changes independently of the other. [Medium confidence — inferred from evidence; absence of documentation of such a linkage across all consulted sources]
 
@@ -478,7 +478,7 @@ ServiceNow offers five native capabilities for process documentation — the Pro
 
 ### Analysis
 
-ServiceNow's tooling strategy represents a deliberate choice to embed process logic in executable artefacts (Playbooks, Flows) rather than separate documentation systems. This reduces one failure mode (documentation that is never consulted during work) while creating another (process logic that requires developer resource to update). The trade-off favours organisations with strong platform administration capability and weak documentation culture; it disadvantages organisations that need portable, tool-independent process documentation for audit or cross-system use.
+ServiceNow's tooling strategy represents a deliberate choice to embed process logic in executable artefacts (Playbooks, Flows) rather than separate documentation systems. [inference] This eliminates the risk of documentation that is never consulted during work, but ties process updates to developer resource and makes process logic non-portable. Organisations that require audit-friendly, tool-independent process records carry higher risk under this model.
 
 The minimum viable approach is economically rational because it concentrates maintenance effort on the elements most likely to change (local configuration, escalation paths, RACIs) while relying on ServiceNow's own updates to the Process Universe to refresh the underlying best-practice templates. An organisation following this approach is implicitly delegating the maintenance of standard process documentation to ServiceNow's product team — which is sustainable as long as the organisation stays close to out-of-box configuration.
 

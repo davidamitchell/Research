@@ -84,7 +84,7 @@ Cross-reference: `Research/completed/2026-03-02-agent-memory-management-context-
 **Prior research cross-reference:**
 - `2026-03-02-slack-msteams-research-integration.md` — established that Slack slash commands require a 3-second HTTP ACK that GitHub Actions cannot provide; that a persistent bot server is required for query-in-chat; and that incoming webhook delivery is one-way only (no read capability). This item extends that foundation to the memory capture use case where a persistent process is now explicitly in scope.
 - `2026-03-02-agent-memory-management-context-injection.md` — confirmed that ambient mobile capture surfaces are architecturally valuable; Slack on phone is the "wherever you already are" surface.
-- `2026-03-08-ios-shortcuts-github-api-memory-capture.md` — established the GitHub Contents API as the correct direct-write path for Memory-System (PAT + PUT, base64-encoded body, second-precision filename). The Slack bot will use the identical API call.
+- `2026-03-08-ios-shortcuts-github-api-memory-capture.md` — established the GitHub Contents API as the correct direct-write path for Memory-System (Personal Access Token (PAT) + PUT, base64-encoded body, second-precision filename). The Slack bot will use the identical API call.
 
 ### §1 Question Decomposition
 
@@ -245,14 +245,14 @@ Socket Mode maintains a persistent WebSocket connection. If the process exits, t
 Source: Slack Socket Mode docs; web search (docs.slack.dev/tools/bolt-python/concepts/socket-mode/).
 
 **E2. Railway, Render, Fly.io free tiers** [fact]
-None of the three standard free PaaS tiers sustain an always-on process reliably in 2024–2025:
+None of the three standard free Platform as a Service (PaaS) tiers sustain an always-on process reliably in 2024–2025:
 - **Railway**: $5/month credit, containers sleep after inactivity; not adequate for 24/7 WebSocket
 - **Render**: free Web Services sleep after 15 minutes of inactivity; not truly always-on
 - **Fly.io**: removed free tier for new sign-ups after October 7, 2024; legacy users keep $5/month credit; autosuspend defaults to suspend-on-idle (state saved to disk), not guaranteed always-on for long-lived WebSocket connections
 Source: Multiple hosting docs; web search confirming 2024–2025 policy changes.
 
 **E3. Oracle Cloud Always Free ARM VM** [fact]
-Oracle Cloud's Always Free tier provides up to 4 ARM (Ampere A1) OCPUs and 24 GB RAM across 1–4 VMs, genuinely always-on with no expiry. 200 GB block storage, 10 TB outbound bandwidth/month. A single 1 OCPU/6 GB RAM VM is more than sufficient for a Python Slack bot. Availability depends on region; "out of capacity" errors occur in popular regions but eventually resolve. Unlike AWS/GCP free tiers, Oracle's Always Free VMs do not expire after 12 months.
+Oracle Cloud's Always Free tier provides up to 4 ARM (Ampere A1) Oracle Compute Units (OCPUs) and 24 GB RAM across 1–4 VMs, genuinely always-on with no expiry. 200 GB block storage, 10 TB outbound bandwidth/month. A single 1 OCPU/6 GB RAM VM is more than sufficient for a Python Slack bot. Availability depends on region; "out of capacity" errors occur in popular regions but eventually resolve. Unlike AWS/GCP free tiers, Oracle's Always Free VMs do not expire after 12 months.
 Source: Oracle Cloud Always Free docs; multiple community confirmations (orendra.com, fullmetalbrackets.com).
 
 **F1. Socket Mode event delivery latency** [fact]
@@ -295,7 +295,7 @@ Source: Inference from prior research + community knowledge.
 - The capture path (message → GitHub Contents API write) is technically straightforward using Bolt for Python: subscribe to `message.channels`, call GitHub Contents API PUT with base64-encoded content.
 - The retrieval path (slash command → `search_brain` → thread reply) satisfies the 3-second ACK requirement via the `ack()` + `respond()` async pattern.
 - Free PaaS options (Railway, Render, Fly.io new accounts) do not provide reliably always-on processes. Oracle Cloud Free ARM VM is the only genuinely free always-on option.
-- End-to-end capture latency is approximately 200 ms–1 s; retrieval UX feedback is sub-second (immediate ACK) with results following.
+- End-to-end capture latency is approximately 200 ms–1 s; retrieval User Experience (UX) feedback is sub-second (immediate ACK) with results following.
 
 **Inferences derived:**
 - For a user who already has Slack open on their phone all day, the marginal friction of Slack capture is lower than starting a new app. However, for a user who doesn't use Slack for work, Telegram is strictly simpler.
@@ -327,13 +327,13 @@ Socket Mode introduces reconnection complexity: if the Slack WebSocket disconnec
 The bot requires two Slack tokens (App Token + Bot Token) and one GitHub PAT. All three must be stored as environment variables on the host. On Oracle Cloud, this is a standard `.env` file or systemd environment block. No secrets management overhead beyond initial setup.
 
 **Economic lens — Oracle Cloud free tier sustainability:**
-Oracle Cloud's Always Free program has been stable since 2019 and the ARM A1 allocation expanded in 2021. The risk is that Oracle could change terms, but this has not happened in 5 years. The alternative (small VPS: $4–6/month on DigitalOcean/Linode) is a modest cost but non-zero.
+Oracle Cloud's Always Free program has been stable since 2019 and the ARM A1 allocation expanded in 2021 [SOURCE NEEDED]. The risk is that Oracle could change terms, but this has not happened in 5 years [SOURCE NEEDED]. The alternative (small Virtual Private Server (VPS): $4–6/month on DigitalOcean/Linode) is a modest cost but non-zero.
 
 **Behavioural lens — capture friction:**
 The minimum-friction capture path is: open Slack app (2 taps if already open) → type in `#brain` channel → send. This is lower friction than any dedicated app but higher than iOS Shortcut capture (which can run from a lock-screen widget or Apple Watch complication). Slack capture requires the phone unlocked and the app open. The two surfaces are complementary: iOS Shortcuts for ambient/spontaneous capture, Slack for deliberate notes with conversational context.
 
 **Regulatory lens:**
-Slack processes message content through its servers. For personal memory notes, EU/UK GDPR considerations apply if notes contain personal data of others. The message content transits Slack's infrastructure before reaching the bot and being written to GitHub. Telegram has the same characteristic (Telegram processes all message content). Neither creates a meaningful compliance gap for personal use.
+Slack processes message content through its servers. For personal memory notes, EU/UK General Data Protection Regulation (GDPR) considerations apply if notes contain personal data of others. The message content transits Slack's infrastructure before reaching the bot and being written to GitHub. Telegram has the same characteristic (Telegram processes all message content). Neither creates a meaningful compliance gap for personal use.
 
 **Comparison lens — Slack vs Telegram synthesis:**
 Slack wins if: user already has Slack open all day (marginal friction is lowest), user values slash commands and rich threading over simplicity. Telegram wins if: user wants the simplest possible personal bot (no workspace overhead, no integration limit, simpler BotFather setup). For a user building this as a development exercise, Slack has richer documentation. For pure personal utility, Telegram is leaner.
@@ -426,11 +426,11 @@ The prior research finding that Slack slash commands are incompatible with GitHu
 
 ### Executive Summary
 
-A free Slack workspace fully supports a memory capture and retrieval bot using Socket Mode, which eliminates the public URL requirement via an outbound WebSocket connection. The minimum viable implementation is a Bolt for Python process that subscribes to `message.channels` for capture and handles a `/brain` slash command for retrieval via `search_brain`, with the 3-second ACK requirement satisfied cleanly by the `ack()` + `respond()` async pattern. The binding constraint is hosting: Railway, Render, and Fly.io (new accounts) do not sustain always-on WebSocket processes on free tiers; Oracle Cloud's Always Free ARM A1 VM is the only genuinely zero-cost always-on option. Slack is the correct channel when Slack is already the user's ambient environment; Telegram is strictly simpler for a purely personal bot where no Slack workspace already exists.
+A free Slack workspace fully supports a memory capture and retrieval bot using Socket Mode, which eliminates the public URL requirement via an outbound WebSocket connection. The minimum viable implementation is a Bolt for Python process that subscribes to `message.channels` for capture and handles a `/brain` slash command for retrieval via `search_brain`, with the 3-second ACK requirement satisfied cleanly by the `ack()` + `respond()` async pattern. The binding constraint is hosting: Railway, Render, and Fly.io (new accounts) do not sustain always-on WebSocket processes on free tiers; Oracle Cloud's Always Free ARM A1 VM is the only genuinely zero-cost always-on option. Slack is the correct channel [inference] when it is already the user's ambient environment. For a purely personal bot with no existing Slack workspace, Telegram is strictly simpler.
 
 ### Key Findings
 
-1. **Socket Mode is available on free Slack workspaces, requires no public URL, and is the correct transport for a personal memory bot — the bot process connects outward to Slack via WebSocket without needing any inbound HTTP endpoint.**
+1. **Socket Mode is available on free Slack workspaces, requires no public URL, and is the correct transport [inference] for a personal memory bot — the bot process connects outward to Slack via WebSocket without needing any inbound HTTP endpoint.**
 
 2. **A single Slack app handles both capture (message event subscription) and retrieval (slash command), counts as 1 of 10 allowed integrations on a free workspace, and satisfies both use cases with no free-tier API feature restrictions.**
 
@@ -442,7 +442,7 @@ A free Slack workspace fully supports a memory capture and retrieval bot using S
 
 6. **Railway, Render, and Fly.io do not provide reliably always-on free hosting in 2024–2025 for a Socket Mode bot that requires a persistent WebSocket process; new Fly.io accounts (post October 2024) have no free tier, and legacy-free accounts face autosuspend risk for outbound-only connections.**
 
-7. **Oracle Cloud's Always Free ARM A1 Compute is the only genuinely zero-cost always-on host: up to 4 OCPUs and 24 GB RAM across 1–4 VMs, no expiry, suitable for a Python bot running as a systemd service; the trade-off is DIY setup (SSH, systemd) rather than PaaS one-click deployment.**
+7. **Oracle Cloud's Always Free ARM A1 Compute is the only genuinely zero-cost always-on host: up to 4 OCPUs and 24 GB RAM across 1–4 VMs, no expiry, suitable for a Python bot running as a systemd service; the trade-off is Do It Yourself (DIY) setup (SSH, systemd) rather than PaaS one-click deployment.**
 
 8. **End-to-end capture latency is approximately 200 ms–1 s (Socket Mode event delivery 50–200 ms, GitHub Contents API write 100–800 ms), and retrieval UX feedback is sub-second because the ACK posts "Searching…" immediately; full results follow when `search_brain` completes.**
 
@@ -478,9 +478,9 @@ A free Slack workspace fully supports a memory capture and retrieval bot using S
 
 The key architectural question — Socket Mode vs. webhook — resolves conclusively to Socket Mode for any deployment that cannot expose a persistent public HTTPS endpoint. Socket Mode requires no inbound connectivity; the bot process connects outward to Slack. The cost is that the process must run continuously. The prior research finding (slash commands incompatible with GitHub Actions) does not apply here because this item uses a dedicated bot process.
 
-The hosting analysis is the most practically important finding: free PaaS options fail the always-on requirement. Oracle Cloud's ARM VM is the only credible free path, and it is genuinely powerful (6 GB RAM for a single VM vs. the 256 MB of typical free PaaS containers). The setup cost is higher (manual SSH/systemd configuration), but this is a one-time cost.
+The hosting analysis is the most practically important finding [inference]: free PaaS options fail the always-on requirement. Oracle Cloud's ARM VM is the only credible free path, and it is genuinely powerful (6 GB RAM for a single VM vs. the 256 MB of typical free PaaS containers). The setup cost is higher (manual SSH/systemd configuration), but this is a one-time cost.
 
-The Slack vs. Telegram comparison resolves to usage context: Telegram wins on simplicity and no-workspace overhead; Slack wins on ambient presence for users who are already in Slack all day. The correct answer is determined by one empirical question: does the user already use Slack?
+Slack vs. Telegram resolves to usage context: Telegram is simpler to set up with no workspace overhead, while Slack has the advantage for users already in it all day. One empirical question determines the answer [inference]: does the user already use Slack?
 
 ### Risks, Gaps, and Uncertainties
 

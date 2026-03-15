@@ -19,12 +19,12 @@ How is ServiceNow evolving its platform to support AI-powered knowledge manageme
 ## Scope
 
 **In scope:**
-- Now Assist: GenAI (Generative AI) features across ITSM, HR, CSM, and other modules — what is generally available now vs roadmap
+- Now Assist: GenAI (Generative AI) features across IT Service Management (ITSM), HR, CSM, and other modules — what is generally available now vs roadmap
 - ServiceNow AI Search: semantic search, knowledge base RAG, grounding AI responses in CMDB and knowledge article content
 - ServiceNow's AI agent framework (Now Assist agents, AI agent orchestration) — how agents are defined, how they invoke ServiceNow actions, and how they relate to external agent platforms
 - Knowledge Management in ServiceNow as a RAG data source: article quality, taxonomy, lifecycle governance, and their impact on AI response accuracy
 - Integration with external LLMs (Large Language Models) (OpenAI, Anthropic, Azure OpenAI) and ServiceNow's own Now LLM
-- What organisations need to do to their knowledge base quality and CSDM data to get value from Now Assist features
+- What organisations need to do to their knowledge base quality and Common Service Data Model (CSDM) data to get value from Now Assist features
 - Signals from ServiceNow's roadmap and recent acquisitions on the direction of AI in the platform
 - Relevance to regulated industries (financial services context): governance, auditability, and human-in-the-loop requirements for AI-assisted service actions
 
@@ -49,7 +49,7 @@ This item also covers the agent framework direction — ServiceNow is building t
 - Agent memory and context management: `2026-03-02-agent-memory-management-context-injection`
 - Integrative framework for agent decision-making: `2026-03-02-integrative-framework-agent-decision-making`
 - AI strategy and use-case typology: `2026-02-28-ai-strategy`
-- AI-assisted GRC (ServiceNow GRC context): `2026-02-28-ai-control-testing-and-assurance`
+- AI-assisted Governance, Risk, and Compliance (GRC) (ServiceNow GRC context): `2026-02-28-ai-control-testing-and-assurance`
 - Knowledge representation for agents: `2026-03-03-knowledge-representation-agent-context`
 - CSDM data model (prerequisite for grounding quality): `2026-03-08-servicenow-csdm-data-modelling`
 
@@ -88,7 +88,7 @@ This item also covers the agent framework direction — ServiceNow is building t
 **Constraint mode:** Full — all Approach sub-questions addressed with multi-source evidence.
 
 **Prior work cross-reference:**
-- `Research/completed/2026-03-08-servicenow-csdm-data-modelling.md` — directly relevant; confirms CSDM accuracy is a prerequisite for AI grounding quality and that ServiceNow GRC/IRM depends on CI-to-risk linkage being maintained. Finding from that item: CSDM layer hierarchy provides the data foundation required for AI Search to return CI-contextualised responses.
+- `Research/completed/2026-03-08-servicenow-csdm-data-modelling.md` — directly relevant; confirms CSDM accuracy is a prerequisite for AI grounding quality and that ServiceNow GRC/Integrated Risk Management (IRM) depends on CI-to-risk linkage being maintained. Finding from that item: CSDM layer hierarchy provides the data foundation required for AI Search to return CI-contextualised responses.
 - `Research/completed/2026-02-28-ai-control-testing-and-assurance.md` — relevant; identified ServiceNow GRC as a leading vendor in AI-assisted compliance monitoring. Now Assist governance features (Guardian, audit trail) directly address the compliance automation patterns documented there.
 - `Research/completed/2026-03-03-knowledge-representation-agent-context.md` — relevant; knowledge representation approaches inform how ServiceNow's hybrid search (BM25 + vector embeddings) balances structured and unstructured knowledge retrieval.
 
@@ -416,7 +416,7 @@ ServiceNow's AI capabilities as of March 2025 are production-ready for organisat
 
 ServiceNow's AI investment follows a consistent architectural logic: use the platform's existing data context (CMDB, knowledge base, process records) as the grounding layer for LLM-generated responses. This approach gives ServiceNow a structural advantage over standalone RAG deployments that must build data connectors and context management from scratch. The advantage compounds when CSDM data is accurate, because the AI can traverse service relationships to produce contextually richer answers than a generic vector store would provide.
 
-The RAG implementation — hybrid BM25+DPR with a re-ranker — represents current best practice for enterprise knowledge retrieval. The chunking model addresses a known failure mode of naive RAG (retrieving entire documents rather than relevant passages). These are sound architectural choices.
+[inference] The RAG implementation — hybrid BM25+DPR with a re-ranker — represents current best practice for enterprise knowledge retrieval. The chunking model addresses a known failure mode of naive RAG (retrieving entire documents rather than relevant passages). [inference] These are sound architectural choices.
 
 The agent framework in Yokohama is qualitatively more capable than Xanadu's domain-scoped agents. The Orchestrator architecture mirrors multi-agent patterns established in LangGraph and Autogen, but with deeper operational context. The HITL control model is practical: organisations can configure approval thresholds per action type, enabling autonomous handling of routine actions while preserving human oversight for consequential ones.
 
@@ -543,13 +543,13 @@ ServiceNow's AI capabilities as of March 2025 are production-ready for organisat
 
 ### Analysis
 
-ServiceNow's AI architecture makes a defensible bet: the platform already holds the operational ground truth (incident records, CMDB relationships, change history, approval chains) that generic RAG deployments must reconstruct from scratch. The hybrid search model and LLM-grounded Genius Results represent sound engineering applied to that advantage.
+[inference] ServiceNow's AI architecture makes a defensible bet: the platform already holds the operational ground truth (incident records, CMDB relationships, change history, approval chains) that generic RAG deployments must reconstruct from scratch. The hybrid search model and LLM-grounded Genius Results represent sound engineering applied to that advantage.
 
-The critical variable is data quality. Two organisations on identical Yokohama instances with identical licences will see materially different AI outcomes based solely on knowledge base and CMDB governance. The organisation that invested three years in CSDM compliance and knowledge lifecycle management will see Now Assist deliver accurate, sourced answers. The organisation that activated Now Assist on a 50,000-article knowledge base with 40% duplicates and 30% stale content will see confident hallucinations. This is not a product defect — it is RAG behaving correctly on bad inputs.
+The critical variable is data quality. Two organisations on identical Yokohama instances with identical licences will see materially different AI outcomes based solely on knowledge base and CMDB governance. Poor data quality produces confident hallucinations; this is not a product defect — it is RAG behaving correctly on bad inputs.
 
 The Yokohama agent framework represents a qualitative step change: from domain-scoped summarisation tools to multi-step cross-domain agents with governance controls. The HITL model is practical and configurable. The sequencing risk is the same as for Now Assist generally: organisations that activate agents before the knowledge base and CMDB are reliable will build agents that confidently execute wrong actions.
 
-For regulated financial services, the compliance architecture is mature. ServiceNow GRC/IRM supports APRA and RBNZ alignment natively; third-party content libraries automate standard mapping. The data residency question is resolved by Azure OpenAI for external LLM use cases. The remaining governance gap is model documentation: Now LLM's architecture and training data are not publicly disclosed, which limits what can be put in a model risk register. Organisations using Now LLM for consequential decisions should document this limitation and apply compensating controls (mandatory human review of AI-generated content before filing).
+[inference] For regulated financial services, the compliance architecture is mature. ServiceNow GRC/IRM supports APRA and RBNZ alignment natively; third-party content libraries automate standard mapping. The data residency question is resolved by Azure OpenAI for external LLM use cases. The remaining governance gap is model documentation: Now LLM's architecture and training data are not publicly disclosed, which limits what can be put in a model risk register. Organisations using Now LLM for consequential decisions should document this limitation and apply compensating controls (mandatory human review of AI-generated content before filing).
 
 ### Risks, Gaps, and Uncertainties
 
