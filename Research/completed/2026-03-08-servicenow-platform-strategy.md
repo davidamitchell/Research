@@ -14,7 +14,7 @@ output: [knowledge, backlog-item]
 
 ## Research Question
 
-Given the findings from the CSDM data modelling, process mapping, and AI capability research, how should an organisation develop a coherent, practical ServiceNow platform strategy — one that integrates data foundations, module-level best practices, maintainable process documentation, and AI investment into a single sustainable operating model?
+Given the findings from the Common Service Data Model (CSDM) data modelling, process mapping, and AI capability research, how should an organisation develop a coherent, practical ServiceNow platform strategy — one that integrates data foundations, module-level best practices, maintainable process documentation, and AI investment into a single sustainable operating model?
 
 ## Scope
 
@@ -24,7 +24,7 @@ Given the findings from the CSDM data modelling, process mapping, and AI capabil
 - Alignment with application definition governance and TCO/RUN-BUILD cost allocation as explored in prior research
 - Practical roadmap patterns: what does a 12–24 month ServiceNow platform strategy look like for an organisation starting from a typical partially-implemented state?
 - Sustainability model: what organisational capabilities (roles, governance, tooling) are required to keep the platform healthy over a multi-year horizon?
-- Module interdependencies: how do ITSM, APM, SPM, IRM/GRC, and FSO share data and processes, and what sequencing of investment maximises cross-module value?
+- Module interdependencies: how do IT Service Management (ITSM), Application Portfolio Management (APM), Strategic Portfolio Management (SPM), Integrated Risk Management (IRM)/Governance Risk and Compliance (GRC), and Financial Services Operations (FSO) share data and processes, and what sequencing of investment maximises cross-module value?
 - Connecting ServiceNow data to broader IT financial management — specifically how CSDM-aligned application records support RUN vs BUILD cost allocation
 - Recommendations for a regulated financial services context (NZ/Australia)
 
@@ -44,7 +44,7 @@ The synthesis here must draw on evidence from those items; it should not re-inve
 
 The three prerequisite items address distinct but tightly connected concerns:
 
-1. **CSDM and data modelling** (`2026-03-08-servicenow-csdm-data-modelling`) — What does the data foundation need to look like? How are applications, services, and technical CIs modelled? How is that model governed and kept current?
+1. **CSDM and data modelling** (`2026-03-08-servicenow-csdm-data-modelling`) — What does the data foundation need to look like? How are applications, services, and technical Configuration Items (CIs) modelled? How is that model governed and kept current?
 2. **Process mapping** (`2026-03-08-servicenow-process-mapping`) — How are operational processes documented within ServiceNow, and what makes that documentation stay meaningful?
 3. **AI capabilities** (`2026-03-08-servicenow-ai-knowledge-rag-agents`) — What AI features are available or emerging, and what prerequisites are required to extract value from them?
 
@@ -69,7 +69,7 @@ For a regulated financial services organisation, there is an additional dimensio
 3. **Governance operating model:** What roles, forums, and review cadences are required to keep a ServiceNow platform healthy over time? Who owns CSDM? Who owns process documentation? Who governs AI features? How are these connected?
 4. **Connection to IT financial management:** How does a well-governed ServiceNow implementation support RUN vs BUILD cost allocation and TCO reporting? What data flows are required, and what CSDM accuracy is needed before the numbers are trustworthy?
 5. **Regulated financial services lens:** How do the platform strategy choices look different for a regulated financial services firm, given FSO capabilities, operational resilience obligations, and regulatory reporting requirements?
-6. **Maturity model:** Is there a practical maturity model for ServiceNow platform health — a progression from "CMDB chaos" to "integrated operating model" — and what are the observable markers of each stage?
+6. **Maturity model:** Is there a practical maturity model for ServiceNow platform health — a progression from "Configuration Management Database (CMDB) chaos" to "integrated operating model" — and what are the observable markers of each stage?
 
 ## Sources
 
@@ -93,11 +93,11 @@ For a regulated financial services organisation, there is an additional dimensio
 
 **Research question restated:** How should an organisation develop a coherent, practical ServiceNow platform strategy that integrates data foundations (CSDM), module-level best practices, maintainable process documentation, and AI investment into a single sustainable operating model?
 
-**Scope confirmed:** In scope are the dependency structure across CSDM, ITSM, APM, SPM, IRM/GRC, and FSO; a practical 12-24 month implementation sequence from a typical partially-implemented state; the governance operating model required for long-term sustainability; the connection between CSDM and IT financial management (TBM/ITFM, RUN vs BUILD); and special considerations for regulated financial services firms in NZ/Australia.
+**Scope confirmed:** In scope are the dependency structure across CSDM, ITSM, APM, SPM, IRM/GRC, and FSO; a practical 12-24 month implementation sequence from a typical partially-implemented state; the governance operating model required for long-term sustainability; the connection between CSDM and IT financial management (Technology Business Management (TBM)/IT Financial Management (ITFM), RUN vs BUILD); and special considerations for regulated financial services firms in NZ/Australia.
 
 **Prior work cross-reference:**
 - `Research/completed/2026-03-08-servicenow-csdm-data-modelling.md` — directly relevant; provides the CSDM layer hierarchy, module dependency mapping, TCO data path, and governance sustainability patterns. Findings from that item are cited throughout this synthesis as prior art.
-- `Research/completed/2026-03-07-run-vs-build-it-spending-allocation.md` — relevant; establishes the TBM/ATUM framework and the industry-norm 65-80% RUN ratio for non-IT businesses.
+- `Research/completed/2026-03-07-run-vs-build-it-spending-allocation.md` — relevant; establishes the TBM/Apptio Technology Unit Management (ATUM) framework and the industry-norm 65-80% RUN ratio for non-IT businesses.
 - `Research/completed/2026-03-07-run-build-it-allocation-implementation-how.md` — directly relevant; establishes the application register as the non-negotiable prerequisite for cost allocation and documents implementation sequencing, failure modes, and governance patterns.
 - `Research/completed/2026-02-28-ai-control-testing-and-assurance.md` — relevant background; identified ServiceNow IRM as a leading GRC platform for AI-assisted control testing.
 
@@ -155,7 +155,7 @@ For a regulated financial services organisation, there is an additional dimensio
 
 #### Q1b-Q1c — Process governance and knowledge base prerequisites for AI
 
-**[fact]** ServiceNow Now Assist (the GenAI capability layer, introduced in the Vancouver 2023 release and extended in Xanadu 2024) requires centralized, governed, current knowledge content before it can produce reliable outputs. Fragmented, outdated, or redundant knowledge articles cause Now Assist to surface conflicting or stale information. Prerequisites documented by practitioners: single knowledge source of truth, clear ownership and review cycles, consistent article structure, and elimination of duplicates and conflicts. Source: Veracity IT, "Getting Ready for Now Assist" (2024); TEKsystems, "How To Structure Knowledge for Gen AI in ServiceNow"; Royal Cyber, "Optimize ServiceNow with Now Assist."
+**[fact]** ServiceNow Now Assist (the Generative AI (GenAI) capability layer, introduced in the Vancouver 2023 release and extended in Xanadu 2024) requires centralized, governed, current knowledge content before it can produce reliable outputs. Fragmented, outdated, or redundant knowledge articles cause Now Assist to surface conflicting or stale information. Prerequisites documented by practitioners: single knowledge source of truth, clear ownership and review cycles, consistent article structure, and elimination of duplicates and conflicts. Source: Veracity IT, "Getting Ready for Now Assist" (2024) [SOURCE NEEDED]; TEKsystems, "How To Structure Knowledge for Gen AI in ServiceNow" [SOURCE NEEDED]; Royal Cyber, "Optimize ServiceNow with Now Assist" [SOURCE NEEDED].
 
 **[fact]** Now Assist also requires the ServiceNow instance to be on a current release (Vancouver or later) and, for best AI performance, CSDM alignment of knowledge articles, catalog items, and incident data. A foundational CSDM structure — even if not fully mature — is explicitly recommended as a prerequisite for AI-driven workflows. Source: Beyond20, "Preparing Your ServiceNow Environment for AI: A Practical Guide" (2024); Cloud Consultings, "What Is ServiceNow Assist? Features & Use Cases."
 
@@ -187,17 +187,17 @@ For a regulated financial services organisation, there is an additional dimensio
 
 #### Q3a-Q3c — Governance operating model
 
-**[fact]** A ServiceNow governance operating model requires at minimum: a Platform Owner (strategic direction, roadmap, stakeholder engagement), a Centre of Excellence or CoE (standards, architecture governance, innovation, upgrade management, compliance), individual module owners (CSDM owner, ITSM process owner, APM owner, etc.), and an Organisational Change Management function. The CoE acts as the bridge between strategy and execution, holding accountability for platform architecture standards and preventing over-customisation. Source: Capgemini, "Set the score, keep the tempo: Why a ServiceNow Centre of Excellence and Innovation turns noise into value"; Plat4mation, "How to master ServiceNow governance"; iTechAG, "Mastering ServiceNow Governance: The Key to Platform Success."
+**[fact]** A ServiceNow governance operating model requires at minimum: a Platform Owner (strategic direction, roadmap, stakeholder engagement), a Centre of Excellence or CoE (standards, architecture governance, innovation, upgrade management, compliance), individual module owners (CSDM owner, ITSM process owner, APM owner, etc.), and an Organisational Change Management function. The CoE acts as the bridge between strategy and execution, holding accountability for platform architecture standards and preventing over-customisation. Source: Capgemini, "Set the score, keep the tempo: Why a ServiceNow Centre of Excellence and Innovation turns noise into value" [SOURCE NEEDED]; Plat4mation, "How to master ServiceNow governance" [SOURCE NEEDED]; iTechAG, "Mastering ServiceNow Governance: The Key to Platform Success." [SOURCE NEEDED]
 
 **[fact]** A CSDM owner role is specifically required — separate from the ITSM process owner. The CSDM owner is accountable for the data model's accuracy, scheduled certification cycles, and governance of ownership disputes. Without an explicit CSDM owner, the Data Foundations Dashboard surfaces findings that no one acts on, and accuracy degrades within 12 months of initial population. Source: `Research/completed/2026-03-08-servicenow-csdm-data-modelling.md` (Key Finding 9); ServiceNow Community CSDM data best practices.
 
-**[fact]** Sustainable review cadences documented across multiple sources: CSDM Foundation Data quarterly review; Business Application lifecycle certification semi-annually or on M&A/major architectural change; module-level process governance quarterly with sprint-cycle documentation updates in Flow Designer. Source: ServiceNow community documentation; LeanIX governance guidance; Flow Designer best practices (Navvia, TechWize, Getint.io).
+**[fact]** Sustainable review cadences documented across multiple sources: CSDM Foundation Data quarterly review; Business Application lifecycle certification semi-annually or on M&A/major architectural change; module-level process governance quarterly with sprint-cycle documentation updates in Flow Designer. Source: ServiceNow community documentation [SOURCE NEEDED]; LeanIX governance guidance [SOURCE NEEDED]; Flow Designer best practices (Navvia, TechWize, Getint.io).
 
 **[fact]** A CoE should be established concurrently with initial platform implementation — not as a retrofit after the platform is live. Organisations that establish CoE governance post-implementation face significantly higher remediation costs for over-customisation and data model drift. Source: Capgemini CoE analysis; xtype.io, "Accelerating Time-to-Value with a ServiceNow CoEI"; Kanini, "Boosting Performance with ServiceNow Governance Framework."
 
 #### Q4a-Q4c — IT financial management connection
 
-**[fact]** The data path connecting ServiceNow to RUN/BUILD cost allocation and TCO reporting is: CI (from CMDB, discovered by ITOM) to Application Service (CSDM Manage Technical Services layer) to Business Application (CSDM Design layer) to TBM/ITFM cost model (via Apptio, Nicus FMDB, or TakamApp integration). Each link must be complete and accurate; gaps cause costs to pool into unattributed shared infrastructure and overstate RUN while undercounting application-specific spend. Source: `Research/completed/2026-03-08-servicenow-csdm-data-modelling.md` (Key Finding 8); TBM Council, "TBM Integration with ServiceNow CSDM" (whitepaper); IBM Apptio ServiceNow integration documentation.
+**[fact]** The data path connecting ServiceNow to RUN/BUILD cost allocation and TCO reporting is: CI (from CMDB, discovered by IT Operations Management (ITOM)) to Application Service (CSDM Manage Technical Services layer) to Business Application (CSDM Design layer) to TBM/ITFM cost model (via Apptio, Nicus FMDB, or TakamApp integration). Each link must be complete and accurate; gaps cause costs to pool into unattributed shared infrastructure and overstate RUN while undercounting application-specific spend. Source: `Research/completed/2026-03-08-servicenow-csdm-data-modelling.md` (Key Finding 8); TBM Council, "TBM Integration with ServiceNow CSDM" (whitepaper); IBM Apptio ServiceNow integration documentation.
 
 **[fact]** The TBM Council has published a dedicated whitepaper addressing CSDM integration with TBM, mapping CSDM layers to TBM taxonomy layers and specifying which CSDM completeness thresholds are required before TBM allocation produces reliable output. The critical threshold is: Application Service to Business Application relationships must be approximately 80% complete (by application count) before total cost allocation to individual applications is meaningful. Source: TBM Council, "TBM Integration with ServiceNow CSDM" whitepaper; Apptio ServiceNow Store integration documentation.
 
@@ -207,7 +207,7 @@ For a regulated financial services organisation, there is an additional dimensio
 
 #### Q5a-Q5c — Regulated financial services lens
 
-**[fact]** DORA (Digital Operational Resilience Act, EU, applicable from January 2025) mandates that in-scope financial entities maintain a documented register of all ICT assets and their relationships to critical business functions (Articles 6 and 8). The CSDM research item established that this data path — FSO Business Function to Business Application to Application Service to CI to vendor/third-party relationships — is only reliable if the Manage Technical Services CSDM layer is at walk-or-above maturity. For EU-domiciled financial services firms, CSDM completion is therefore a legal obligation, not merely a best practice. Source: `Research/completed/2026-03-08-servicenow-csdm-data-modelling.md` (Key Finding 7); Sofigate, "Managing DORA Compliance with ServiceNow"; Einar & Partners, "Preparing Service Operations and Governance for DORA with ServiceNow."
+**[fact]** DORA (Digital Operational Resilience Act, EU, applicable from January 2025) mandates that in-scope financial entities maintain a documented register of all Information and Communication Technology (ICT) assets and their relationships to critical business functions (Articles 6 and 8). The CSDM research item established that this data path — FSO Business Function to Business Application to Application Service to CI to vendor/third-party relationships — is only reliable if the Manage Technical Services CSDM layer is at walk-or-above maturity. For EU-domiciled financial services firms, CSDM completion is therefore a legal obligation, not merely a best practice. Source: `Research/completed/2026-03-08-servicenow-csdm-data-modelling.md` (Key Finding 7); Sofigate, "Managing DORA Compliance with ServiceNow"; Einar & Partners, "Preparing Service Operations and Governance for DORA with ServiceNow."
 
 **[fact]** Luminor Bank (EU-regulated) implemented ServiceNow ITSM as its DORA compliance backbone, implementing custom DORA incident reporting modules, service impact documentation, and regulatory tracking dashboards. Luminor's implementation required CSDM-aligned asset and service mapping as the foundation for DORA's ICT risk register requirement. Source: Xcession, "Case Study: Luminor Bank's journey to DORA Compliance with ServiceNow ITSM."
 
@@ -306,13 +306,13 @@ A coherent ServiceNow platform strategy requires treating CSDM data accuracy as 
 
 **Analysis:**
 
-ServiceNow platform value is structurally sequential, not modular. Organisations that treat it as a collection of independently activatable modules consistently underperform relative to those that treat it as a layered system where each layer depends on the accuracy of the layer below it. Three independent evidence streams converge on this conclusion: the CSDM research item's module dependency mapping, the TBM Council's TCO data path specification, and practitioner accounts of premature APM and SPM activation failures.
+ServiceNow platform value is structurally sequential, not modular. Organisations that treat it as a collection of independently activatable modules consistently underperform relative to those that treat it as a layered system where each layer depends on the accuracy of the layer below it. The CSDM research item's module dependency mapping, the TBM Council's TCO data path specification, and practitioner accounts of premature APM and SPM activation failures all support this conclusion.
 
-The governance operating model is not separable from the data model. An organisation that completes CSDM Design layer work but lacks the governance model to sustain it will find its ITFM integration drifting within 12-18 months as application ownership records stale and lifecycle fields go unreviewed. The 2.2x faster outcomes finding and the people-failure pattern from RUN/BUILD implementation research converge on the same conclusion: structural accountability is the primary determinant of sustained platform health.
+The governance operating model is not separable from the data model. An organisation that completes CSDM Design layer work but lacks the governance model to sustain it will find its ITFM integration drifting within 12-18 months as application ownership records stale and lifecycle fields go unreviewed. [inference] The 2.2x faster outcomes finding and the people-failure pattern from RUN/BUILD implementation research both identify structural accountability as the primary determinant of sustained platform health. [inference]
 
 For financial services organisations, the regulatory dimension changes the investment case in a practically important way. DORA and CPS 230 provide a compliance argument for CSDM completion where the capability ROI case has previously stalled — a materially different conversation with boards and CFOs.
 
-The AI investment sequencing dilemma — organisations have purchased Now Assist licenses before completing their foundation — has a commercially rational resolution: a parallel-track approach. Run a contained Now Assist pilot in a domain with existing knowledge governance (HR Service Delivery is typically the best candidate, as it maintains more current knowledge articles than ITSM) while the ITSM and CSDM foundation is matured on a separate track. This avoids the credibility damage of failed AI activations while maintaining programme momentum.
+The AI investment sequencing dilemma — organisations have purchased Now Assist licenses before completing their foundation — has a commercially rational resolution: a parallel-track approach. Run a contained Now Assist pilot in a domain with existing knowledge governance (HR Service Delivery is typically the best candidate [inference], as it maintains more current knowledge articles than ITSM) while the ITSM and CSDM foundation is matured on a separate track. This avoids the credibility damage of failed AI activations while maintaining programme momentum.
 
 **Risks, Gaps, and Uncertainties:**
 
@@ -388,13 +388,13 @@ A coherent ServiceNow platform strategy requires treating CSDM data accuracy as 
 
 ### Analysis
 
-ServiceNow platform value is structurally sequential, not modular. Three independent evidence streams converge on this conclusion: the CSDM research item's module dependency mapping, the TBM Council's TCO data path specification, and practitioner accounts of premature APM and SPM activation failures. Organisations that treat ServiceNow as a collection of independently activatable modules consistently underperform those that treat it as a layered system where each layer depends on the accuracy of the one below it.
+ServiceNow platform value is structurally sequential, not modular. The CSDM research item's module dependency mapping, the TBM Council's TCO data path specification, and practitioner accounts of premature APM and SPM activation failures all confirm this. Organisations that treat ServiceNow as a collection of independently activatable modules consistently underperform those that treat it as a layered system where each layer depends on the accuracy of the one below it.
 
-The governance operating model is not separable from the data model. An organisation that completes CSDM Design layer work but lacks the governance to sustain it will find its ITFM integration drifting within 12-18 months as ownership records stale and lifecycle fields go unreviewed. The 2.2x faster outcomes finding and the people-failure pattern from RUN/BUILD implementation research converge on the same root cause: structural accountability — not tooling capability — is the primary determinant of sustained platform health.
+The governance operating model is not separable from the data model. An organisation that completes CSDM Design layer work but lacks the governance to sustain it will find its ITFM integration drifting within 12-18 months as ownership records stale and lifecycle fields go unreviewed. [inference] The 2.2x faster outcomes finding and the people-failure pattern from RUN/BUILD implementation research both indicate that structural accountability — not tooling capability — is the primary determinant of sustained platform health. [inference]
 
 For financial services organisations, DORA and CPS 230 provide a compliance argument for CSDM completion where the capability ROI case has previously stalled. This is a materially different conversation with boards and CFOs than an efficiency or cost-allocation argument.
 
-The AI sequencing dilemma — organisations holding Now Assist licenses before their foundation is ready — has a commercially rational resolution: a parallel-track approach. Run a contained Now Assist pilot in a domain with existing knowledge governance (HR Service Delivery is typically the best candidate) while maturing the ITSM and CSDM foundation on a separate track. This avoids credibility damage from failed AI activations while maintaining programme momentum.
+The AI sequencing dilemma — organisations holding Now Assist licenses before their foundation is ready — has a commercially rational resolution: a parallel-track approach. Run a contained Now Assist pilot in a domain with existing knowledge governance (HR Service Delivery is typically the best candidate [inference]) while maturing the ITSM and CSDM foundation on a separate track. This avoids credibility damage from failed AI activations while maintaining programme momentum.
 
 ### Risks, Gaps, and Uncertainties
 
