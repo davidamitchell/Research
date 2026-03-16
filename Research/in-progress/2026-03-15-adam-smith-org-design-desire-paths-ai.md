@@ -161,7 +161,7 @@ The main question decomposes into six branches aligned with the Approach sub-que
 
 **[fact]** Smith's "self-interest" in WoN is not the same as selfishness. The canonical passage — "It is not from the benevolence of the butcher, the brewer, or the baker that we expect our dinner, but from their regard to their own interest" — appeals to the *self-love* of others, with the emphasis on the need to take the interests of others into account. Smith did not reduce motivation to selfishness; he was explicit that self-interest operates within moral constraints established by sympathy. — Source: MDPI, "Adam Smith's Theory of Moral Development" (mdpi.com/2409-9287/11/1/9) [x]; Sociology Theory, "How to Read The Wealth of Nations" (asanet.org) [x]
 
-**[fact]** The "das Adam Smith Problem" — the apparent contradiction between ToMS (sympathy) and WoN (self-interest) — is resolved in modern scholarship: self-interest is one of the social passions that the impartial spectator regulates; it is morally praiseworthy under the virtue of prudence. The two works describe different domains (personal ethics vs. political-economic order) using a consistent underlying model of human behaviour. — Source: PMC, "Emotional foundations of the market" (pmc.ncbi.nlm.nih.gov/articles/PMC9701716/) [x]; Carnegie Mellon, Ashraf/Camerer/Loewenstein, "Adam Smith, Behavioral Economist" (cmu.edu) [x]; SEP (plato.stanford.edu/entries/smith-moral-political/) [x]
+**[fact]** The "das Adam Smith Problem" — the apparent contradiction between ToMS (sympathy) and WoN (self-interest) — is resolved in modern scholarship: self-interest is one of the social passions that the impartial spectator regulates; it is morally praiseworthy under the virtue of prudence. The two works describe different domains (personal ethics vs. political-economic order) using a consistent underlying model of human behaviour. — Source: PMC, "Emotional foundations of the market" (pmc.ncbi.nlm.nih.gov/articles/PMC9701716/) [x]; Ashraf, Camerer, Loewenstein, "Adam Smith, Behavioral Economist" (cmu.edu/dietrich/sds/docs/loewenstein/AdamSmith.pdf) [x]; SEP (plato.stanford.edu/entries/smith-moral-political/) [x]
 
 **B2 — Division of labour as productivity engine and emergent order**
 
@@ -169,17 +169,19 @@ The main question decomposes into six branches aligned with the Approach sub-que
 
 **[fact]** Munger's TAITC framing: "Productivity jumps when tasks, tools, learning by doing, and information incentive properties of organizations align." Division of labour is not merely task splitting — it is an alignment mechanism that coordinates dispersed knowledge without central direction. — Source: AdamSmithWorks, Munger, "Always Contemporary" [x]
 
-**[fact]** Division of labour is limited by the extent of the market: deeper specialisation requires larger markets to absorb the output of specialists. This implies that as AI tools expand the effective output of knowledge workers, they simultaneously create the conditions for finer-grained specialisation. — Source: Econlib, "Division of Labor and Specialization" (econlib.org/library/topics/highschool/divisionoflaborspecialization.html) [x]
+**[fact]** Division of labour is limited by the extent of the market: deeper specialisation requires larger markets to absorb the output of specialists. — Source: Econlib, "Division of Labor and Specialization" (econlib.org/library/topics/highschool/divisionoflaborspecialization.html) [x]
+
+**[inference]** As Large Language Model (LLM) tools expand the effective output of knowledge workers, they simultaneously create conditions for finer-grained specialisation — the AI era is functionally equivalent to an expansion of the market for specialist knowledge.
 
 **B3 — The invisible hand mechanism**
 
-**[fact]** The invisible hand is invoked once in WoN. Its stated claim is modest: the merchant who prefers domestic investment over foreign promotes domestic employment, "led by an invisible hand to promote an end which was no part of his intention." It is not a claim that all self-interest is always beneficial, merely that it is "not always the worse for society." — Source: Offer (2012), World Economics Association [x]; Mises Institute, "The Mystery of Adam Smith's Invisible Hand Resolved" [x]
+**[fact]** The invisible hand is invoked once in WoN. Its stated claim is modest: the merchant who prefers domestic investment over foreign promotes domestic employment, "led by an invisible hand to promote an end which was no part of his intention." It is not a claim that all self-interest is always beneficial, merely that it is "not always the worse for society." — Source: Offer (2012), World Economics Association [x]; Mises Institute, "The Mystery of Adam Smith's Invisible Hand Resolved" (cdn.mises.org) [x]
 
 **[inference]** The invisible hand mechanism requires functioning institutions — defined property rights, competition, and rule of law — to align individual self-interest with social benefit. Smith was not an uncritical advocate of laissez-faire; he explicitly identified conditions under which merchant self-interest harms society (monopoly, regulation-capture). The institutional preconditions are the work that ToMS and WoN together accomplish.
 
 **B4 — Resolution of the apparent ToMS–WoN tension**
 
-**[fact]** Modern Smith scholarship (Ashraf, Camerer, Loewenstein 2003; MDPI 2023; PMC 2022) converges on the view that ToMS describes the moral-psychological constraints within which WoN's economic mechanisms operate. Self-interest is a natural and morally praiseworthy motivation under the virtue of prudence, regulated by sympathy and the impartial spectator. — Source: Ashraf et al. (cmu.edu) [x]; MDPI (mdpi.com/2409-9287/11/1/9) [x]
+**[fact]** Modern Smith scholarship (Ashraf, Camerer, Loewenstein 2003; MDPI 2023; PMC 2022) converges on the view that ToMS describes the moral-psychological constraints within which WoN's economic mechanisms operate. Self-interest is a natural and morally praiseworthy motivation under the virtue of prudence, regulated by sympathy and the impartial spectator. — Source: Ashraf et al. (cmu.edu/dietrich/sds/docs/loewenstein/AdamSmith.pdf) [x]; MDPI (mdpi.com/2409-9287/11/1/9) [x]
 
 **C1 — Definition of desire paths**
 
@@ -233,7 +235,9 @@ The main question decomposes into six branches aligned with the Approach sub-que
 
 **[fact]** Industry analysis directly invokes the desire-path metaphor: "Urban planners have a concept called the 'Desire Path' — the worn trail across a lawn where people actually walk, not where the paved sidewalk goes. Smart cities don't fight the Desire Path. They pave it. Shadow AI is your organizational Desire Path." — Source: The AI Hat (theaihat.com) [x]
 
-**[fact]** Shadow AI is driven by: productivity pressure (employees need to move fast); policy lag (governance cycles run months behind adoption); tool quality gaps (approved tools do not match the capabilities of consumer AI). These are precisely the conditions Smith's model predicts produce desire-path behaviour: self-interest (personal productivity gain) not met by the formal path, moral legitimacy absent (no impartial spectator would approve banning tools that demonstrably help), and social contagion (seeing peers succeed with AI increases adoption probability threefold). — Source: Cascade Insights (cascadeinsights.com) [x]; Irrational Labs (irrationallabs.com) [x]
+**[fact]** Shadow AI is driven by: productivity pressure (employees need to move fast); policy lag (governance cycles run months behind adoption); tool quality gaps (approved tools do not match the capabilities of consumer AI). — Source: Cascade Insights (cascadeinsights.com) [x]; Irrational Labs (irrationallabs.com) [x]
+
+**[inference]** These are precisely the conditions Smith's model predicts produce desire-path behaviour: self-interest (personal productivity gain) not met by the formal path, moral legitimacy absent (an impartial spectator would not approve banning tools that demonstrably help), and social contagion (seeing peers succeed with AI increases adoption probability threefold).
 
 **F2 — Sympathy and AI adoption contagion**
 
@@ -247,7 +251,7 @@ The main question decomposes into six branches aligned with the Approach sub-que
 
 **[inference]** Smith's division-of-labour argument predicts that employees will adopt the AI tools that enable finer specialisation in their specific task domain. AI tools that are generic (applicable to all tasks) will be adopted early but broadly; tools that enable deep specialisation in a specific task will generate the highest productivity gains. The desire path for AI adoption runs toward tools that remove the bottleneck in the employee's specific work.
 
-**[fact]** Forrester research indicates that 38% of enterprise AI solutions began as employee-initiated pilots — i.e., desire paths that were subsequently formalised. This confirms Smith's model: the bottom-up desire path, not the top-down formal plan, drives durable adoption. — Source: Shadow AI (saveoursystems.com) [x]
+**[inference]** Forrester research as reported by saveoursystems.com indicates that 38% of enterprise AI solutions began as employee-initiated pilots — desire paths that were subsequently formalised. This is consistent with Smith's model: the bottom-up desire path, not the top-down formal plan, drives durable adoption. — Source: Shadow AI (saveoursystems.com) [x]
 
 **F4 — Smithian governance model for AI**
 
@@ -338,7 +342,7 @@ Adam Smith's two major works together supply a richer behavioural model than the
 | Claim | Source | Confidence | Notes |
 |---|---|---|---|
 | KF1: Smith's ToMS moral psychology (sympathy, impartial spectator) | ToMS primary text (ibiblio.org) [x]; Stanford Encyclopedia of Philosophy (SEP) [x]; Offer (2012) [x] | High | Primary source and multiple credible secondary sources |
-| KF2: das Adam Smith Problem resolved | Ashraf, Camerer, Loewenstein (cmu.edu) [x]; MDPI (mdpi.com/2409-9287/11/1/9) [x]; PMC (pmc.ncbi.nlm.nih.gov) [x] | High | Three independent peer-reviewed sources agree |
+| KF2: das Adam Smith Problem resolved | Ashraf, Camerer, Loewenstein (cmu.edu/dietrich/sds/docs/loewenstein/AdamSmith.pdf) [x]; MDPI (mdpi.com/2409-9287/11/1/9) [x]; PMC (pmc.ncbi.nlm.nih.gov) [x] | High | Three independent peer-reviewed sources agree |
 | KF3: Division of labour + AI extension | WoN Book I Ch.1 (adamsmithworks.org) [x]; Munger, "Always Contemporary" [x]; Econlib (econlib.org) [x] | Medium | AI extension is inference; Division of Labour claim is primary-source high-confidence |
 | KF4: Desire paths predicted by Smith | Lost Navigator [x]; Caredda [x]; Wikipedia desire path [x]; analytical mapping | Medium | Explicit Smith-desire-path connection is inferred, not sourced from existing literature |
 | KF5: Giddens–Smith parallel | VU Research Portal (Giddens) [x]; Lost Navigator (structuration applied to desire paths) [x] | Medium | Both sources support each claim independently; parallel is inferred |
@@ -405,7 +409,7 @@ The main competing interpretation is that desire-path behaviour in organisations
 | ToMS | Research Question | *The Theory of Moral Sentiments* (ToMS) — expanded in Research Question |
 | WoN | Research Question | *The Wealth of Nations* (WoN) — expanded in Research Question |
 | TAITC | Scope | "Two Idiots and a Podcast" (TAITC) — expanded in Scope |
-| LLM | §5 Technical lens | Large Language Model (LLM) — expanded at first use in §5 |
+| LLM | §2 B2 | Large Language Model (LLM) — expanded at first use in §2 B2 |
 | EU | §5 Regulatory lens | European Union (EU) — expanded at first use in §5 |
 | ISO/IEC | §5 Regulatory lens | International Organization for Standardization/International Electrotechnical Commission (ISO/IEC) — expanded at first use in §5 |
 | NIST | §5 Regulatory lens | National Institute of Standards and Technology (NIST) — expanded at first use in §5 |
@@ -424,7 +428,7 @@ All required acronyms expanded on first use. ✓
 
 ### Executive Summary
 
-Adam Smith's two major works together supply a richer model of human behaviour than the standard "self-interest" reading of *The Wealth of Nations* (WoN) admits: *The Theory of Moral Sentiments* (ToMS) establishes that humans are driven by sympathy and the desire for the approval of an internalised impartial spectator, while WoN's self-interest operates within those moral constraints. Applied to organisational design, this synthesis predicts exactly when and why desire paths — informal workarounds to formally designed systems — will emerge: when the designed path violates self-interest, lacks sympathetic moral legitimacy, or constrains natural specialisation. Shadow Artificial Intelligence (AI) adoption (51–68% of employees using unauthorised AI tools) is [inference] the current most visible expression of this dynamic: employees follow the desire path toward productivity gains regardless of formal policy. The strategic implication is that [inference] AI governance modelled on Smithian institutional design — aligning formal provision with natural behaviour rather than suppressing it — will produce durable adoption; [inference] governance by prohibition will produce shadow behaviour that is both less productive and less observable than sanctioned use.
+Adam Smith's two major works together supply a richer model of human behaviour than the standard "self-interest" reading of *The Wealth of Nations* (WoN) admits: *The Theory of Moral Sentiments* (ToMS) establishes that humans are driven by sympathy and the desire for the approval of an internalised impartial spectator, while WoN's self-interest operates within those moral constraints. Applied to organisational design, this synthesis predicts exactly when and why desire paths — informal workarounds to formally designed systems — will emerge: when the designed path violates self-interest, lacks sympathetic moral legitimacy, or constrains natural specialisation. Shadow Artificial Intelligence (AI) adoption (51–68% of employees using unauthorised AI tools [Saveoursystems [x]; Zylo [x]]) is [inference] the current most visible expression of this dynamic: employees follow the desire path toward productivity gains regardless of formal policy. The strategic implication is that [inference] AI governance modelled on Smithian institutional design — aligning formal provision with natural behaviour rather than suppressing it — will produce durable adoption; [inference] governance by prohibition will produce shadow behaviour that is both less productive and less observable than sanctioned use.
 
 ### Key Findings
 
@@ -438,15 +442,15 @@ Adam Smith's two major works together supply a richer model of human behaviour t
 
 5. Giddens' structuration theory (1984) provides the mechanism by which desire paths sediment into formal structures over time, and this process closely mirrors Smith's account of how moral norms emerge from habitual mutual-sympathy adjustment — both describe how informal distributed practices produce stable structures without central design. [Medium confidence]
 
-6. [inference] Shadow AI adoption — with 51–68% of knowledge workers using unauthorised AI tools and 78% of AI users bringing their own tools — is the current most visible organisational desire path, following self-interest along a path that formal AI governance has failed to make convenient or morally legitimate. [High confidence — multiple independent sources agree on direction]
+6. [inference] Shadow AI adoption — with 51–68% of knowledge workers using unauthorised AI tools [Saveoursystems [x]; Zylo [x]] and 78% of AI users bringing their own tools [Zylo [x]] — is the current most visible organisational desire path, following self-interest along a path that formal AI governance has failed to make convenient or morally legitimate. [High confidence — multiple independent sources agree on direction]
 
-7. [inference] Social contagion through Smith's sympathy mechanism is a primary driver of AI adoption: employees who know at least one AI user are 3x more likely to use AI themselves, and perceived peer-norms about AI use drive adoption even when those norms overstate actual behaviour. [High confidence — Irrational Labs survey data]
+7. [inference] Social contagion through Smith's sympathy mechanism is a primary driver of AI adoption: employees who know at least one AI user are 3x more likely to use AI themselves [Irrational Labs [x]], and perceived peer-norms about AI use drive adoption even when those norms overstate actual behaviour. [High confidence — Irrational Labs survey data]
 
 8. Organisations that govern shadow AI by prohibition face the same dynamic as urban planners who fence off desire paths — usage does not decrease but becomes invisible to governance, removing oversight without reducing risk or capturing productivity gains from sanctioned use. [High confidence — consistent finding across desire-path, shadow IT, and shadow AI literature]
 
 9. The Smithian governance prescription for AI is to make the formal path the path of least resistance: provide approved tools at least as capable as informal alternatives, make governance processes fast enough not to be the bottleneck, and rely on sympathy-based social visibility of approved use rather than enforcement-based prohibition. [Medium confidence — inference from Smithian framework, supported by practitioner evidence]
 
-10. Bottom-up desire-path adoption is the dominant channel for AI tool discovery in organisations: Forrester data indicates that 38% of enterprise AI solutions began as employee-initiated pilots, suggesting that top-down AI strategy that ignores desire-path signals will consistently miss the highest-value applications. [Medium confidence — secondary source, one study]
+10. Bottom-up desire-path adoption is the dominant channel for AI tool discovery in organisations: Forrester data as reported by Saveoursystems [x] indicates that 38% of enterprise AI solutions began as employee-initiated pilots, suggesting that top-down AI strategy that ignores desire-path signals will consistently miss the highest-value applications. [Medium confidence — secondary source, one study]
 
 ### Evidence Map
 
@@ -475,7 +479,7 @@ Adam Smith's two major works together supply a richer model of human behaviour t
 
 Enforcement-based responses to desire-path behaviour — treating it as simple non-compliance requiring stronger prohibition — fail on the evidence: fencing off desire paths does not eliminate them [Wikipedia desire path [x]], shadow IT bans did not reduce shadow IT usage [Cascade Insights [x]; Miller Nash (millernash.com) [x]], and shadow AI bans have not reduced shadow AI adoption [Zylo [x]; Alignmt.ai [x]]. [inference] The failure mode is structural, not motivational: enforcement treats the formal path as morally authoritative when it lacks sympathetic legitimacy and fails the self-interest test.
 
-Speed vs. control is the central trade-off in the Smithian AI governance prescription. [inference] Governance that approves employee-driven AI tools quickly captures productivity gains and reduces shadow adoption; governance that prioritises comprehensive risk assessment above responsiveness drives tools underground. Scania's documented model — granting AI access to teams rather than individuals and requiring teams to define their use-case collectively (The AI Hat [x]) — is a practical instantiation of the Smithian prescription: it aligns self-interest (team productivity), invokes the sympathetic mechanism (peer accountability), and creates visibility for the impartial spectator (governance can observe collective use rather than individual shadow use).
+Speed vs. control is the central trade-off in the Smithian AI governance prescription. [inference] Governance that approves employee-driven AI tools quickly captures productivity gains and reduces shadow adoption; governance that prioritises comprehensive risk assessment above responsiveness drives tools underground. [inference] Scania's documented model — granting AI access to teams rather than individuals and requiring teams to define their use-case collectively (The AI Hat [x]) — is a practical instantiation of the Smithian prescription: it aligns self-interest (team productivity), invokes the sympathetic mechanism (peer accountability), and creates visibility for the impartial spectator (governance can observe collective use rather than individual shadow use).
 
 ### Risks, Gaps, and Uncertainties
 
