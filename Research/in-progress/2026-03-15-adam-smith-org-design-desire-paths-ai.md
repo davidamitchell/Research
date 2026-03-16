@@ -141,7 +141,7 @@ The main question decomposes into six branches aligned with the Approach sub-que
 
 **[fact]** Moral norms in Smith's model are generated bottom-up through the habitual search for mutual sympathy. Individuals moderate their passions to a level that spectators can share; spectators extend their sympathy to match the observed person's restrained expression. The result is a negotiated propriety that neither party designed but both reinforce — a spontaneous moral order. — Source: Stanford Encyclopedia of Philosophy (plato.stanford.edu/entries/smith-moral-political) [x]; AdamSmithWorks, Lauren Hall, "Adam Smith, Sympathy, and Spontaneous Social-Moral Order" (adamsmithworks.org/documents/smith-on-sympathy-lauren-hall-12-1) [x]
 
-**[fact]** Smith distinguishes three types of passion: social (generosity, benevolence), unsocial (anger, resentment), and selfish (grief, joy). The impartial spectator is more readily sympathetic to social passions than unsocial ones, which shapes which behaviours receive moral approval and which are discouraged. — Source: Wikipedia, "The Theory of Moral Sentiments" (en.wikipedia.org/wiki/The_Theory_of_Moral_Sentiments) [x]
+**[fact]** Smith distinguishes three types of passion: social (generosity, benevolence), unsocial (anger, resentment), and selfish (grief, joy). The impartial spectator is more readily sympathetic to social passions than unsocial ones, which shapes which behaviours receive moral approval and which are discouraged. — Source: ToMS primary text, ibiblio.org/ml/libri/s/SmithA_MoralSentiments_p.pdf [x]; Stanford Encyclopedia of Philosophy (plato.stanford.edu/entries/smith-moral-political/) [x]
 
 **A2 — The impartial spectator as internal governance mechanism**
 
@@ -185,9 +185,9 @@ The main question decomposes into six branches aligned with the Approach sub-que
 
 **C1 — Definition of desire paths**
 
-**[fact]** A desire path is an unplanned small trail formed by human or animal traffic, typically representing the shortest or most easily navigated route between an origin and destination. Desire paths emerge when deliberately constructed paths are longer, more circuitous, have gaps, or are non-existent. Once worn, subsequent traffic reinforces the path through positive feedback. — Source: Wikipedia, "Desire path" (en.wikipedia.org/wiki/Desire_path) [x]
+**[fact]** A desire path is an unplanned trail formed by human or animal traffic, representing the shortest or most easily navigated route between an origin and destination. Desire paths emerge when deliberately constructed paths are longer, more circuitous, have gaps, or are non-existent; once worn, subsequent traffic reinforces the path through positive feedback. — Source: Lost Navigator, "Desire Path" (lost-navigator.net/desire-path/) [x]; 99 Percent Invisible, "Least Resistance: How Desire Paths Can Lead to Better Design" (99percentinvisible.org) [x]
 
-**[fact]** Land managers attempting to block desire paths with fencing and signage find that the desire path re-emerges even after attempts at suppression: users find routes around barriers rather than abandoning the informal path. — Source: Wikipedia, "Desire path" [x]
+**[fact]** Land managers attempting to block desire paths with fencing and signage find that the desire path re-emerges even after suppression attempts: users find routes around barriers rather than abandoning the informal path. — Source: 99 Percent Invisible, "Least Resistance: How Desire Paths Can Lead to Better Design" (99percentinvisible.org) [x]
 
 **C2 — Desire paths in organisational design**
 
@@ -364,11 +364,11 @@ Adam Smith's two major works together supply a richer behavioural model than the
 
 The key analytical move in this item is the synthesis of three distinct bodies of thought — Smith's moral psychology (ToMS), Smith's economic mechanism (WoN), and the desire-path concept from urban planning — into a coherent framework for organisational and AI strategy. The synthesis works because:
 
-1. Smith's ToMS and WoN together describe the same dual-motivation structure that desire-path theory observes empirically: humans have both self-interested drives (toward efficiency/productivity) and social-regulatory drives (sympathy, norm conformity) that shape which informal paths they take.
+1. [inference] Smith's ToMS and WoN together describe the same dual-motivation structure that desire-path theory observes empirically: humans have both self-interested drives (toward efficiency/productivity) and social-regulatory drives (sympathy, norm conformity) that shape which informal paths they take.
 
-2. Giddens' structuration theory provides the mechanism by which informal desire paths become formal structures, connecting the micro-psychology of Smith to the macro-sociology of organisations.
+2. [inference] Giddens' structuration theory provides the mechanism by which informal desire paths become formal structures, connecting the micro-psychology of Smith to the macro-sociology of organisations.
 
-3. Shadow AI data provides current empirical grounding for the model: the percentages and behavioural patterns observed in shadow AI adoption are exactly what Smith's model would predict.
+3. [inference] Shadow AI data provides current empirical grounding for the model: the percentages and behavioural patterns observed in shadow AI adoption are consistent with what Smith's model would predict.
 
 The main competing interpretation is that desire-path behaviour in organisations is simply non-compliance and should be governed by stronger enforcement. The Smith synthesis shows why this fails: enforcement-only governance ignores the sympathy mechanism, treating the formal path as morally authoritative when it may lack sympathetic legitimacy. Permanent suppression of desire paths requires either continuous enforcement cost or genuine alignment of the formal path with natural behaviour — the Smithian prescription is the second option.
 
@@ -428,7 +428,7 @@ All required acronyms expanded on first use. ✓
 
 ### Executive Summary
 
-Adam Smith's two major works together supply a richer model of human behaviour than the standard "self-interest" reading of *The Wealth of Nations* (WoN) admits: *The Theory of Moral Sentiments* (ToMS) establishes that humans are driven by sympathy and the desire for the approval of an internalised impartial spectator, while WoN's self-interest operates within those moral constraints. Applied to organisational design, this synthesis predicts exactly when and why desire paths — informal workarounds to formally designed systems — will emerge: when the designed path violates self-interest, lacks sympathetic moral legitimacy, or constrains natural specialisation. Shadow Artificial Intelligence (AI) adoption (51–68% of employees using unauthorised AI tools [Saveoursystems [x]; Zylo [x]]) is [inference] the current most visible expression of this dynamic: employees follow the desire path toward productivity gains regardless of formal policy. The strategic implication is that [inference] AI governance modelled on Smithian institutional design — aligning formal provision with natural behaviour rather than suppressing it — will produce durable adoption; [inference] governance by prohibition will produce shadow behaviour that is both less productive and less observable than sanctioned use.
+Adam Smith's two major works together supply a richer model of human behaviour than the standard "self-interest" reading of *The Wealth of Nations* (WoN) admits: *The Theory of Moral Sentiments* (ToMS) establishes that humans are driven by sympathy and the desire for the approval of an internalised impartial spectator, while WoN's self-interest operates within those moral constraints. Applied to organisational design, this synthesis predicts exactly when and why desire paths — informal workarounds to formally designed systems — will emerge: when the designed path violates self-interest, lacks sympathetic moral legitimacy, or constrains natural specialisation. [inference] Shadow AI is the current most visible expression of this organisational desire-path dynamic: employees follow the path toward productivity gains regardless of formal policy because approved tools fail both self-interest and sympathetic legitimacy tests (see KF6). The strategic implication is that [inference] AI governance modelled on Smithian institutional design — aligning formal provision with natural behaviour rather than suppressing it — will produce durable adoption.
 
 ### Key Findings
 
@@ -438,9 +438,9 @@ Adam Smith's two major works together supply a richer model of human behaviour t
 
 3. Division of labour is Smith's primary mechanism for productivity growth, limited by the extent of the market; AI tools that expand the effective output of knowledge workers simultaneously create conditions for finer-grained specialisation and compounding productivity gains. [Medium confidence — the AI extension is an analytical inference from Smith's mechanism]
 
-4. Desire paths are predicted as analytically inevitable by Smith's behavioural model wherever a designed path violates self-interest, lacks sympathetic legitimacy, or constrains natural specialisation — making desire-path emergence a diagnostic signal of misalignment rather than a sign of employee deviance. [Medium confidence — the Smith-desire-path mapping is an analytical inference]
+4. [inference] Desire paths are predicted as analytically inevitable by Smith's behavioural model wherever a designed path violates self-interest, lacks sympathetic legitimacy, or constrains natural specialisation — making desire-path emergence a diagnostic signal of misalignment rather than a sign of employee deviance. [Medium confidence — the Smith-desire-path mapping is an analytical inference]
 
-5. Giddens' structuration theory (1984) provides the mechanism by which desire paths sediment into formal structures over time, and this process closely mirrors Smith's account of how moral norms emerge from habitual mutual-sympathy adjustment — both describe how informal distributed practices produce stable structures without central design. [Medium confidence]
+5. [inference] Giddens' structuration theory (1984) provides the mechanism by which desire paths sediment into formal structures over time, and this process closely mirrors Smith's account of how moral norms emerge from habitual mutual-sympathy adjustment — both describe how informal distributed practices produce stable structures without central design. [Medium confidence]
 
 6. [inference] Shadow AI adoption — with 51–68% of knowledge workers using unauthorised AI tools [Saveoursystems [x]; Zylo [x]] and 78% of AI users bringing their own tools [Zylo [x]] — is the current most visible organisational desire path, following self-interest along a path that formal AI governance has failed to make convenient or morally legitimate. [High confidence — multiple independent sources agree on direction]
 
@@ -448,9 +448,9 @@ Adam Smith's two major works together supply a richer model of human behaviour t
 
 8. Organisations that govern shadow AI by prohibition face the same dynamic as urban planners who fence off desire paths — usage does not decrease but becomes invisible to governance, removing oversight without reducing risk or capturing productivity gains from sanctioned use. [High confidence — consistent finding across desire-path, shadow IT, and shadow AI literature]
 
-9. The Smithian governance prescription for AI is to make the formal path the path of least resistance: provide approved tools at least as capable as informal alternatives, make governance processes fast enough not to be the bottleneck, and rely on sympathy-based social visibility of approved use rather than enforcement-based prohibition. [Medium confidence — inference from Smithian framework, supported by practitioner evidence]
+9. [inference] The Smithian governance prescription for AI is to make the formal path the path of least resistance: provide approved tools at least as capable as informal alternatives, make governance processes fast enough not to be the bottleneck, and rely on sympathy-based social visibility of approved use rather than enforcement-based prohibition. [Medium confidence — inference from Smithian framework, supported by practitioner evidence]
 
-10. Bottom-up desire-path adoption is the dominant channel for AI tool discovery in organisations: Forrester data as reported by Saveoursystems [x] indicates that 38% of enterprise AI solutions began as employee-initiated pilots, suggesting that top-down AI strategy that ignores desire-path signals will consistently miss the highest-value applications. [Medium confidence — secondary source, one study]
+10. Bottom-up desire-path adoption is the dominant channel for AI tool discovery in organisations: Forrester data as reported by Saveoursystems [x] indicates that 38% of enterprise AI solutions began as employee-initiated pilots. [inference] Top-down AI strategy that ignores desire-path signals will consistently miss the highest-value applications. [Medium confidence — secondary source, one study]
 
 ### Evidence Map
 
@@ -477,7 +477,7 @@ Adam Smith's two major works together supply a richer model of human behaviour t
 
 [inference] Humans have both self-interested drives (toward efficiency) and social-regulatory drives (sympathy, norm conformity) that shape which informal paths they create and which formal structures they follow — a pattern present independently in Smith's ToMS, WoN, and the desire-path literature. [inference] Giddens' structuration theory provides the temporal mechanism by which informal paths become formal structures.
 
-Enforcement-based responses to desire-path behaviour — treating it as simple non-compliance requiring stronger prohibition — fail on the evidence: fencing off desire paths does not eliminate them [Wikipedia desire path [x]], shadow IT bans did not reduce shadow IT usage [Cascade Insights [x]; Miller Nash (millernash.com) [x]], and shadow AI bans have not reduced shadow AI adoption [Zylo [x]; Alignmt.ai [x]]. [inference] The failure mode is structural, not motivational: enforcement treats the formal path as morally authoritative when it lacks sympathetic legitimacy and fails the self-interest test.
+[inference] Enforcement-based governance of desire-path behaviour fails for structural reasons, not motivational ones: it treats the formal path as morally authoritative when the formal path lacks sympathetic legitimacy and fails the self-interest test. The evidence for the pattern is in KF8; the analytical consequence is that governance prescription must address path design rather than compliance pressure.
 
 Speed vs. control is the central trade-off in the Smithian AI governance prescription. [inference] Governance that approves employee-driven AI tools quickly captures productivity gains and reduces shadow adoption; governance that prioritises comprehensive risk assessment above responsiveness drives tools underground. [inference] Scania's documented model — granting AI access to teams rather than individuals and requiring teams to define their use-case collectively (The AI Hat [x]) — is a practical instantiation of the Smithian prescription: it aligns self-interest (team productivity), invokes the sympathetic mechanism (peer accountability), and creates visibility for the impartial spectator (governance can observe collective use rather than individual shadow use).
 
