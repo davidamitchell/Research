@@ -195,7 +195,7 @@ The main question decomposes into six branches aligned with the Approach sub-que
 
 **[fact]** "Pave the cowpath" is the design principle that emerges from the desire-path literature: identify where people already go, then formalise that path. Twitter's hashtag and at-sign (@) conventions were not designed by the platform; they emerged from community practice and were subsequently formalised. — Source: 99 Percent Invisible, "Least Resistance: How Desire Paths Can Lead to Better Design" (99percentinvisible.org) [x]
 
-**[fact]** A LinkedIn practitioner article applies desire paths directly to AI tool introduction in organisations: "Rather than imposing rigid systems from the top down, organizations should first observe the natural ways people operate and then refine and formalize those patterns into effective processes." — Source: Mitchell, "Desire Paths in the Workplace" (linkedin.com/pulse) [x]
+**[fact]** A LinkedIn practitioner article applies desire paths directly to AI tool introduction in organisations: "Rather than imposing rigid systems from the top down, organizations should first observe the natural ways people operate and then refine and formalize those patterns into effective processes." — Source: Mitchell, "Desire Paths in the Workplace" (linkedin.com/pulse/desire-paths-workplace-art-building-processes-around-what-mitchell-mbyle) [x]
 
 **C3 — Giddens' structuration theory and desire paths**
 
@@ -231,7 +231,7 @@ The main question decomposes into six branches aligned with the Approach sub-que
 
 **F1 — Shadow AI as desire path**
 
-**[fact]** 51–68% of employees currently use at least one unauthorised AI tool in their daily workflow. 78% of global knowledge workers who use AI bring their own tools. Shadow AI is the AI-era instantiation of shadow IT — the desire path employees create when formal AI provision does not meet their needs. — Source: Shadow AI literature (saveoursystems.com, zylo.com/blog/ai-in-workplace) [x]
+**[fact]** 51–68% of employees currently use at least one unauthorised AI tool in their daily workflow (saveoursystems.com [x]). 78% of global knowledge workers who use AI bring their own tools (zylo.com/blog/ai-in-workplace [x]). Shadow AI is the AI-era instantiation of shadow IT — the desire path employees create when formal AI provision does not meet their needs.
 
 **[fact]** Industry analysis directly invokes the desire-path metaphor: "Urban planners have a concept called the 'Desire Path' — the worn trail across a lawn where people actually walk, not where the paved sidewalk goes. Smart cities don't fight the Desire Path. They pave it. Shadow AI is your organizational Desire Path." — Source: The AI Hat (theaihat.com) [x]
 
@@ -370,7 +370,7 @@ The key analytical move in this item is the synthesis of three distinct bodies o
 
 3. [inference] Shadow AI data provides current empirical grounding for the model: the percentages and behavioural patterns observed in shadow AI adoption are consistent with what Smith's model would predict.
 
-The main competing interpretation is that desire-path behaviour in organisations is simply non-compliance and should be governed by stronger enforcement. The Smith synthesis shows why this fails: enforcement-only governance ignores the sympathy mechanism, treating the formal path as morally authoritative when it may lack sympathetic legitimacy. Permanent suppression of desire paths requires either continuous enforcement cost or genuine alignment of the formal path with natural behaviour — the Smithian prescription is the second option.
+[inference] The main competing interpretation — that desire-path behaviour is simply non-compliance requiring stronger enforcement — fails because enforcement-only governance ignores the sympathy mechanism and treats the formal path as morally authoritative when it may lack sympathetic legitimacy. [inference] Permanent suppression of desire paths requires either continuous enforcement cost or genuine alignment of the formal path with natural behaviour — the Smithian prescription is the second option.
 
 **Risks, gaps, and uncertainties:**
 
@@ -428,7 +428,7 @@ All required acronyms expanded on first use. ✓
 
 ### Executive Summary
 
-Adam Smith's two major works together supply a richer model of human behaviour than the standard "self-interest" reading of *The Wealth of Nations* (WoN) admits: *The Theory of Moral Sentiments* (ToMS) establishes that humans are driven by sympathy and the desire for the approval of an internalised impartial spectator, while WoN's self-interest operates within those moral constraints. Applied to organisational design, this synthesis predicts exactly when and why desire paths — informal workarounds to formally designed systems — will emerge: when the designed path violates self-interest, lacks sympathetic moral legitimacy, or constrains natural specialisation. [inference] Shadow AI is the current most visible expression of this organisational desire-path dynamic: employees follow the path toward productivity gains regardless of formal policy because approved tools fail both self-interest and sympathetic legitimacy tests (see KF6). [inference] AI governance modelled on Smithian institutional design — aligning formal provision with natural behaviour rather than suppressing it — will produce durable adoption.
+Adam Smith's two major works together supply a richer model of human behaviour than the standard "self-interest" reading of *The Wealth of Nations* (WoN) admits: *The Theory of Moral Sentiments* (ToMS) establishes that humans are driven by sympathy and the desire for the approval of an internalised impartial spectator, while WoN's self-interest operates within those moral constraints. [inference] Applied to organisational design, this synthesis predicts when and why desire paths — informal workarounds to formally designed systems — will emerge: when the designed path violates self-interest, lacks sympathetic moral legitimacy, or constrains natural specialisation. [inference] Shadow AI is the current most visible expression of this organisational desire-path dynamic: employees follow the path toward productivity gains regardless of formal policy because approved tools fail both self-interest and sympathetic legitimacy tests (see KF6). [inference] AI governance modelled on Smithian institutional design — aligning formal provision with natural behaviour rather than suppressing it — will produce durable adoption.
 
 ### Key Findings
 
@@ -477,9 +477,9 @@ Adam Smith's two major works together supply a richer model of human behaviour t
 
 [inference] Humans have both self-interested drives (toward efficiency) and social-regulatory drives (sympathy, norm conformity) that shape which informal paths they create and which formal structures they follow — Smith's dual-motivation model explains desire-path formation without requiring a new theoretical premise. [inference] Giddens' structuration theory provides the temporal mechanism by which informal paths become formal structures.
 
-[inference] Enforcement-based governance of desire-path behaviour fails for structural reasons, not motivational ones: it treats the formal path as morally authoritative when the formal path lacks sympathetic legitimacy and fails the self-interest test. The evidence for the pattern is in KF8; the analytical consequence is that governance prescription must address path design rather than compliance pressure.
+[inference] Enforcement-based governance of desire-path behaviour fails for structural reasons, not motivational ones: it treats the formal path as morally authoritative when the formal path lacks sympathetic legitimacy and fails the self-interest test. The evidence for the pattern is in KF8; [inference] governance prescription must address path design rather than compliance pressure.
 
-[inference] Speed vs. control is the central trade-off in the Smithian AI governance prescription. [inference] Governance that approves employee-driven AI tools quickly captures productivity gains and reduces shadow adoption; governance that prioritises comprehensive risk assessment above responsiveness drives tools underground. [inference] Scania's documented model — granting AI access to teams rather than individuals and requiring teams to define their use-case collectively (The AI Hat [x]) — is a practical instantiation of the Smithian prescription: it aligns self-interest (team productivity), invokes the sympathetic mechanism (peer accountability), and creates visibility for the impartial spectator (governance can observe collective use rather than individual shadow use).
+[inference] Speed vs. control is the central trade-off in the Smithian AI governance prescription. [inference] Responsiveness in tool approval is the operative variable: approved tools available at enterprise-quality remove the capability gap that drives shadow adoption; slow or incomplete approval preserves that gap and pushes tools underground. [inference] Scania's documented model — granting AI access to teams rather than individuals and requiring teams to define their use-case collectively (The AI Hat [x]) — is a practical instantiation of the Smithian prescription: it aligns self-interest, invokes the sympathetic mechanism, and creates visibility for the impartial spectator.
 
 ### Risks, Gaps, and Uncertainties
 
