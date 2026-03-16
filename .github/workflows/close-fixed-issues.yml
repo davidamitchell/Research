@@ -1,0 +1,74 @@
+name: Close issues fixed by merged PRs
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/close-fixed-issues.yml
+
+permissions:
+  issues: write
+
+jobs:
+  close-issues:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Close issues fixed by PR #166 and PR #172
+        env:
+          GH_TOKEN: ${{ secrets.COPILOT_GITHUB_TOKEN }}
+          REPO: davidamitchell/Research
+        run: |
+          set -euo pipefail
+
+          close_issue() {
+            local issue="$1"
+            local pr="$2"
+            echo "Closing #$issue (Fixed by #$pr)..."
+            if ! gh api -X POST "/repos/$REPO/issues/$issue/comments" \
+              -f body="Fixed by #$pr"; then
+              echo "  ✗ Failed to comment on #$issue" >&2
+              exit 1
+            fi
+            if ! gh api -X PATCH "/repos/$REPO/issues/$issue" \
+              -f state="closed"; then
+              echo "  ✗ Failed to close #$issue" >&2
+              exit 1
+            fi
+            echo "  ✓ Closed #$issue"
+          }
+
+          echo "=== Closing issues fixed by PR #166 ==="
+          close_issue 93  166   # 2026-02-27-interface-and-delivery
+          close_issue 94  166   # 2026-02-28-transcript-via-third-party-apis
+          close_issue 88  166   # 2026-03-08-bbc-five-case-model
+          close_issue 164 166   # 2026-03-08-chatgpt-actions-memory-integration
+          close_issue 86  166   # 2026-03-08-servicenow-ai-knowledge-rag-agents
+          close_issue 85  166   # 2026-03-08-servicenow-platform-strategy
+          close_issue 87  166   # 2026-03-08-servicenow-process-mapping
+          close_issue 89  166   # 2026-03-08-slack-bot-memory-capture-retrieval
+          close_issue 90  166   # 2026-03-08-telegram-bot-memory-capture-retrieval
+          close_issue 99  166   # 2026-03-10-adversarial-agents-shared-goals-multi-perspective
+
+          echo ""
+          echo "=== Closing issues fixed by PR #172 ==="
+          close_issue 163 172   # 2026-03-14-ricardian-contract-model
+          close_issue 137 172   # 2026-03-10-research-loop-evaluation-rubric
+          close_issue 147 172   # 2026-03-12-exploration-synthesis-gap
+          close_issue 101 172   # 2026-03-10-dikw-transformation-functions
+          close_issue 160 172   # 2026-03-14-organisational-intent-formal-specification
+          close_issue 150 172   # 2026-03-12-failure-mode-taxonomy-expansion
+          close_issue 156 172   # 2026-03-12-hosting-options-for-the-research-repo
+          close_issue 97  172   # 2026-03-10-ai-concept-classification-taxonomy
+          close_issue 83  172   # 2026-03-08-context-engineering-first-principles
+          close_issue 76  172   # 2026-03-08-context-engineering-first-principles (duplicate)
+          close_issue 81  172   # 2026-03-04-sdlc-ai-prompt-patterns
+          close_issue 71  172   # 2026-03-04-sdlc-ai-prompt-patterns (duplicate)
+          close_issue 74  172   # 2026-03-08-servicenow-csdm-data-modelling
+          close_issue 151 172   # 2026-03-12-team-size-limits-brooks-dunbar-network-theory
+
+          echo ""
+          echo "=== Done ==="
+          echo "NOT closing: #100 (agent-evaluation-cross-repo-analysis, partial fix only)"
+          echo "NOT closing: #144 (ai-team-size-strike-team-thesis, not addressed)"
