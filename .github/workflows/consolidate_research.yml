@@ -1,0 +1,111 @@
+name: Consolidate Research
+
+# Consolidates completed research notes into a single Research_Master.md file.
+#
+# Triggers:
+#   - Any push to main that touches Research/completed/
+#   - Manual dispatch from the Actions tab (GitHub website or iOS app)
+#
+# Output: Research_Master.md at the repository root.
+# Files in Research/completed/ that contain "meta", "infra", or "LSP" in the
+# filename are excluded from consolidation.
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "Research/completed/**"
+
+jobs:
+  consolidate:
+    name: Build Research Master Document
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Consolidate High-Signal Content
+        run: |
+          set -euo pipefail
+          shopt -s nocasematch
+          OUTPUT_FILE="Research_Master.md"
+
+          # Returns 0 (true) when a filename should be excluded.
+          should_exclude() {
+            local name="$1"
+            [[ "$name" == *"meta"* || "$name" == *"infra"* || "$name" == *"lsp"* ]]
+          }
+
+          # Initialize file — overwrite any previous run
+          echo "# Research Master Document" > "$OUTPUT_FILE"
+          echo "" >> "$OUTPUT_FILE"
+          echo "Generated on: $(date -u '+%Y-%m-%d %H:%M UTC')" >> "$OUTPUT_FILE"
+          echo "" >> "$OUTPUT_FILE"
+          echo "## Table of Contents" >> "$OUTPUT_FILE"
+          echo "" >> "$OUTPUT_FILE"
+
+          # First Pass: Generate Table of Contents
+          for file in Research/completed/*.md; do
+            [ -f "$file" ] || continue
+            FILENAME=$(basename "$file")
+            should_exclude "$FILENAME" && continue
+            # Build an anchor slug: lowercase, replace spaces and dots with hyphens
+            ANCHOR=$(echo "$FILENAME" | tr '[:upper:]' '[:lower:]' | tr ' .' '--')
+            echo "* [$FILENAME](#$ANCHOR)" >> "$OUTPUT_FILE"
+          done
+
+          echo "" >> "$OUTPUT_FILE"
+          echo "---" >> "$OUTPUT_FILE"
+          echo "" >> "$OUTPUT_FILE"
+
+          # Second Pass: Extract Specific Sections
+          for file in Research/completed/*.md; do
+            [ -f "$file" ] || continue
+            FILENAME=$(basename "$file")
+            should_exclude "$FILENAME" && continue
+            ANCHOR=$(echo "$FILENAME" | tr '[:upper:]' '[:lower:]' | tr ' .' '--')
+
+            # HTML anchor so TOC links resolve in rendered Markdown
+            echo "<a name=\"$ANCHOR\"></a>" >> "$OUTPUT_FILE"
+            echo "" >> "$OUTPUT_FILE"
+            echo "## Source: $FILENAME" >> "$OUTPUT_FILE"
+            echo "" >> "$OUTPUT_FILE"
+            echo "**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/$FILENAME" >> "$OUTPUT_FILE"
+            echo "" >> "$OUTPUT_FILE"
+
+            # Extract the target sections (Methodology, Implementation Logic,
+            # Decision Log, Strategic Choice, Technical Architecture, Findings,
+            # Schema).  A sentinel "## END" is appended before processing so
+            # that the final section in a file is not truncated when it has no
+            # following ## header.  The trailing sed strips the sentinel line.
+            EXTRACTED=$(
+              { cat "$file"; echo "## END"; } |
+              sed -n '/^## \(Methodology\|Implementation Logic\|Decision Log\|Strategic Choice\|Technical Architecture\|Findings\|Schema\)/,/^## /p' |
+              sed '$d'
+            )
+
+            if [ -n "$EXTRACTED" ]; then
+              echo "$EXTRACTED" >> "$OUTPUT_FILE"
+            fi
+
+            echo "" >> "$OUTPUT_FILE"
+            echo "---" >> "$OUTPUT_FILE"
+            echo "" >> "$OUTPUT_FILE"
+          done
+
+      - name: Commit Master File
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add Research_Master.md
+          if git diff --cached --quiet; then
+            echo "No changes to Research_Master.md — nothing to commit"
+          else
+            git commit -m "docs: update Research_Master.md [skip ci]"
+            git push
+          fi
