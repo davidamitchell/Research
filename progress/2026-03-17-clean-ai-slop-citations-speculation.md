@@ -1,7 +1,7 @@
 # Session: clean-ai-slop-citations-speculation
 
 **Date:** 2026-03-17
-**Issue:** #[clean] — Apply three quality skills to `Research/completed/2026-03-02-ai-not-a-data-problem.md`
+**Issue:** Clean (apply quality skills to 2026-03-02-ai-not-a-data-problem.md)
 
 ## What was done
 
@@ -25,7 +25,7 @@ Expanded all acronyms and initialisations on their first occurrence in the docum
 - `FCA` → Financial Conduct Authority (FCA) — Approach section
 - `GDPR` → General Data Protection Regulation (GDPR) — Approach section
 - `NIST` → National Institute of Standards and Technology (NIST) — Sources section
-- `CDO/CDAO` → Chief Data Officer (CDO)/Chief Data and Analytics Officer (CDAO) — §1
+- `CDO/CDAO` → Chief Data Officer (CDO)/Chief Data and Analytics Officer (CDAO) — Research Skill Output §1 Question Decomposition
 - `RBAC` → role-based access control (RBAC) — §2 Investigation
 - `RPO/RTO` → recovery point objective/recovery time objective (RPO/RTO) — §2
 - `mTLS` → mutual TLS (mTLS) — §2
