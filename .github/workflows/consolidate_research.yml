@@ -7,7 +7,7 @@ name: Consolidate Research
 #   - Manual dispatch from the Actions tab (GitHub website or iOS app)
 #
 # Output: Research_Master.md at the repository root.
-# Files in Research/completed/ that contain "meta", "infra", or "LSP" in the
+# Files in Research/completed/ that contain "meta" or "infra" in the
 # filename are excluded from consolidation.
 
 on:
@@ -38,7 +38,7 @@ jobs:
           # Returns 0 (true) when a filename should be excluded.
           should_exclude() {
             local name="$1"
-            [[ "$name" == *"meta"* || "$name" == *"infra"* || "$name" == *"lsp"* ]]
+            [[ "$name" == *"meta"* || "$name" == *"infra"* ]]
           }
 
           # Initialize file — overwrite any previous run
