@@ -8,7 +8,7 @@ Apply review-violation fixes to `Research/completed/2026-03-15-adam-smith-org-de
 ## Changes Made
 
 ### Em-dash removal (all issues)
-Replaced all 98 em-dash characters ( - ) with ` - ` (space-hyphen-space) throughout the document.
+Replaced all 98 em-dash characters (—) with ` - ` (space-hyphen-space) throughout the document.
 
 ### Issue #208 - Mises Institute URL
 - §2 A4: Added `[URL NEEDED]` after `Mises Institute PDF` citation for Herbener "An Integration"
