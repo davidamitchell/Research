@@ -9,6 +9,7 @@ A place to hold a backlog of research to be done, research underway, and complet
 | Directory / File | Purpose |
 |---|---|
 | `Research/` | Research items in three states: `backlog/`, `in-progress/`, `completed/` |
+| `Research/Research_Master.md` | Auto-generated consolidated view of all completed research (titles, questions, tags, findings) |
 | `src/` | Python tooling to support research (transcript fetcher, indexing, etc.) |
 | `tests/` | Tests for `src/` |
 | `config/` | Configuration for sources and tooling |
