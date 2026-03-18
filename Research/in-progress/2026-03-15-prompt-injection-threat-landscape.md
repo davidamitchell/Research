@@ -49,12 +49,12 @@ The present research item is dedicated to prompt injection alone because:
 
 1. **Severity has escalated with agency.** **[inference]** In 2022-2023 prompt injection was primarily discussed as jailbreak pressure and model-output manipulation, while in 2024-2025 agentic systems that browse, write code, call Application Programming Interfaces (APIs), and send messages make successful injection more likely to produce account takeover, data destruction, or lateral movement in the attacker's supply chain. (Sources: https://genai.owasp.org/llmrisk/llm01-prompt-injection/ ; https://arxiv.org/abs/2302.12173 ; https://unit42.paloaltonetworks.com/ai-agent-prompt-injection/)
 2. **The adversarial-agent pattern is operationally relevant.** **[fact]** `2026-03-10-adversarial-agents-shared-goals-multi-perspective.md` examined adversarial collaboration as a design pattern for multi-agent quality assurance. **[inference]** Prompt injection inverts this pattern by letting an attacker inject a hostile instruction into the environment and subvert a legitimate agent's goal. (Source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-10-adversarial-agents-shared-goals-multi-perspective.md)
-3. **Standards work is moving quickly.** **[fact]** OWASP Large Language Model (LLM)01:2025 and several vendor guidance documents were updated during 2024-2025, while NIST AI 100-2 provides the earlier formal framing that this newer work is building on. (Sources: https://genai.owasp.org/llmrisk/llm01-prompt-injection/ ; https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-2e2023.pdf ; https://www.anthropic.com/news/constitutional-classifiers ; https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/jailbreak-detection ; https://arxiv.org/abs/2503.18813)
+3. **Standards work is moving quickly.** **[fact]** Open Worldwide Application Security Project (OWASP) Large Language Model (LLM)01:2025 and several vendor guidance documents were updated during 2024-2025, while National Institute of Standards and Technology (NIST) AI 100-2 provides the earlier formal framing that this newer work is building on. (Sources: https://genai.owasp.org/llmrisk/llm01-prompt-injection/ ; https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-2e2023.pdf ; https://www.anthropic.com/news/constitutional-classifiers ; https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/jailbreak-detection ; https://arxiv.org/abs/2503.18813)
 
 ## Approach
 
 1. **Attack taxonomy** - synthesise the current academic and practitioner classification of prompt injection types (direct, indirect, compositional, multi-turn, multimodal). Use OWASP LLM01, NIST AI 100-2, the Greshake et al. foundational paper, and Simon Willison's taxonomy as primary framings.
-2. **Who is attacking** - identify threat actors and attack patterns: known real-world incidents, red-team disclosures, and CVEs or published exploits. Distinguish clearly between demonstrated exploitation and speculation about state or criminal use.
+2. **Who is attacking** - identify threat actors and attack patterns: known real-world incidents, red-team disclosures, and Common Vulnerabilities and Exposures (CVEs) or published exploits. Distinguish clearly between demonstrated exploitation and speculation about state or criminal use.
 3. **Who is defending** - survey the defence landscape: platform-level mitigations from major AI vendors, research defences such as instruction hierarchy and capability-based isolation, and enterprise tooling such as Prompt Shields and benchmarked detectors.
 4. **Active research front** - identify the most significant 2024-2025 papers on agentic prompt injection, the empirical evidence they provide, and the open problems they leave unsolved.
 5. **Agentic system design implications** - synthesise findings into concrete design recommendations for agentic systems: architectural limits, operational controls, and governance gates for high-privilege agents.
@@ -63,7 +63,7 @@ The present research item is dedicated to prompt injection alone because:
 
 - [x] OWASP LLM Top 10 v2 (2025) - https://owasp.org/www-project-top-10-for-large-language-model-applications/ - project overview and LLM01 linkage
 - [x] OWASP GenAI LLM01 Prompt Injection - https://genai.owasp.org/llmrisk/llm01-prompt-injection/ - direct/indirect taxonomy and mitigations
-- [x] MITRE ATLAS - https://atlas.mitre.org/ - adversarial threat matrix for AI systems; linked from OWASP related frameworks
+- [x] MITRE Adversarial Threat Landscape for Artificial-Intelligence Systems (ATLAS) - https://atlas.mitre.org/ - adversarial threat matrix for AI systems; linked from OWASP related frameworks
 - [x] NIST AI 100-2 "Adversarial Machine Learning: A Taxonomy and Terminology" - https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-2e2023.pdf
 - [x] Simon Willison's prompt injection writing - https://simonwillison.net/series/prompt-injection/ - practitioner taxonomy and incident catalogue
 - [x] "Not What You've Signed Up For: Compromising Real-World LLM-Integrated Applications with Indirect Prompt Injection" (Greshake et al., 2023) - https://arxiv.org/abs/2302.12173
@@ -189,11 +189,11 @@ The present research item is dedicated to prompt injection alone because:
 
 **[inference]** The most consequential 2024-2025 contributions in this research slice are:
 1. **[fact]** **Many-shot jailbreaking** (Anthropic, 2024; https://www.anthropic.com/research/many-shot-jailbreaking) shows that long context windows themselves amplify jailbreak vulnerability.
-2. **[fact]** **Constitutional Classifiers** (Anthropic, 2025; https://www.anthropic.com/news/constitutional-classifiers) provides one of the clearest published metrics for meaningful but incomplete jailbreak reduction.
+2. **[inference]** **Constitutional Classifiers** (Anthropic, 2025; https://www.anthropic.com/news/constitutional-classifiers) provides clear published metrics for meaningful but incomplete jailbreak reduction.
 3. **[fact]** **Defeating Prompt Injections by Design** (Google DeepMind, 2025; https://arxiv.org/abs/2503.18813) shifts the field from prompt filtering toward capability-based architectural isolation.
 4. **[fact]** **Adaptive Attacks Break Defenses Against Indirect Prompt Injection Attacks on LLM Agents** (Zhan et al., 2025; https://aclanthology.org/2025.findings-naacl.395/) demonstrates that state-of-the-art defences fail under adaptive evaluation.
 5. **[fact]** **Google DeepMind's Gemini security paper** (2025; https://storage.googleapis.com/deepmind-media/Security%20and%20Privacy/Gemini_Security_Paper.pdf) operationalises continuous adversarial evaluation for indirect prompt injection in deployed systems.
-6. **[fact]** **Lakera's PINT Benchmark** (2024-2025 updates; https://github.com/lakeraai/pint-benchmark) gives the ecosystem a comparative detector benchmark instead of vendor-specific anecdotes.
+6. **[inference]** **Lakera's PINT Benchmark** (2024-2025 updates; https://github.com/lakeraai/pint-benchmark) gives the ecosystem a comparative detector benchmark rather than leaving comparison to isolated vendor examples.
 
 **[fact]** Simon Willison's 2025 writing on agent design makes the same structural point from the practitioner side: powerful general-purpose agents with private data, untrusted content, and external communications create a "lethal trifecta" for prompt injection risk. (Source: https://simonwillison.net/series/prompt-injection/)
 
