@@ -47,7 +47,7 @@ Prompt injection was identified in `2026-02-28-ai-strategy-security-focus.md` as
 
 1. **Severity has escalated with agency.** **[inference]** In 2022-2023 prompt injection was primarily discussed as jailbreak pressure and model-output manipulation, while in 2024-2025 agentic systems that browse, write code, call Application Programming Interfaces (APIs), and send messages make successful injection more likely to produce account takeover, data destruction, or lateral movement in the attacker's supply chain. (Sources: https://genai.owasp.org/llmrisk/llm01-prompt-injection/ ; https://arxiv.org/abs/2302.12173 ; https://unit42.paloaltonetworks.com/ai-agent-prompt-injection/)
 2. **The adversarial-agent pattern is operationally relevant.** The research in `2026-03-10-adversarial-agents-shared-goals-multi-perspective.md` examined adversarial collaboration as a design pattern for multi-agent quality assurance. Prompt injection inverts this: it is a mechanism by which an attacker injects a hostile instruction into the environment and subverts a legitimate agent's goal.
-3. **Standards work is moving quickly.** **[fact]** OWASP Large Language Model (LLM)01:2025 and updated vendor guidance from Anthropic, Google DeepMind, Microsoft, and security companies all changed during 2024-2025, while NIST AI 100-2 provides the earlier formal framing that this newer work is building on. (Sources: https://genai.owasp.org/llmrisk/llm01-prompt-injection/ ; https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-2e2023.pdf ; https://www.anthropic.com/news/constitutional-classifiers ; https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/jailbreak-detection ; https://arxiv.org/abs/2503.18813)
+3. **Standards work is moving quickly.** **[fact]** OWASP Large Language Model (LLM)01:2025 and several vendor guidance documents were updated during 2024-2025, while NIST AI 100-2 provides the earlier formal framing that this newer work is building on. (Sources: https://genai.owasp.org/llmrisk/llm01-prompt-injection/ ; https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-2e2023.pdf ; https://www.anthropic.com/news/constitutional-classifiers ; https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/jailbreak-detection ; https://arxiv.org/abs/2503.18813)
 
 ## Approach
 
@@ -81,7 +81,7 @@ Prompt injection was identified in `2026-02-28-ai-strategy-security-focus.md` as
 
 ### §0 Initialise
 
-**Research question restated:** What is the current state of the prompt injection threat in agentic artificial intelligence (AI) systems, specifically: which attack types matter most, who is credibly exploiting them, who is building defences, and what remains unsolved in the 2024-2025 research front?
+**Research question restated:** What is the current state of the prompt injection threat in agentic artificial intelligence (AI) systems, specifically: which attack types matter most, who is credibly exploiting them, who is building defences, and what remains unsolved in the 2024-2025 research front? For definition, this item uses the Open Worldwide Application Security Project (OWASP) Large Language Model (LLM)01 description of prompt injection risk: https://genai.owasp.org/llmrisk/llm01-prompt-injection/
 
 **Scope confirmed:** In scope are direct prompt injection, indirect prompt injection, compositional and multi-turn prompt injection, multimodal prompt injection where it materially changes the threat surface, documented incidents and Common Vulnerabilities and Exposures (CVEs), standards and frameworks, vendor defences, and the design implications for agents with tools, memory, and external side effects. Out of scope are training-data poisoning, non-Large Language Model (LLM) adversarial machine-learning attacks, and broad AI-governance questions not specific to prompt injection.
 
@@ -225,7 +225,7 @@ Prompt injection was identified in `2026-02-28-ai-strategy-security-focus.md` as
 - **Potential contradiction checked:** Vendor documents often sound optimistic, while adaptive-attack papers sound pessimistic. These are consistent once scope is separated: vendors report meaningful gains under their evaluation settings; adaptive-attack papers test whether those gains survive an attacker who explicitly optimises against the defence.
 - **Potential contradiction checked:** Unit 42 says indirect prompt injection is being actively weaponized, while this item says evidence for some threat-actor classes is thin. These are consistent because Unit 42 provides strong evidence for malicious deployment on the web, but that does not automatically prove broad nation-state or criminal campaign prevalence across all sectors.
 - **Potential contradiction checked:** Benchmarks such as PINT show high detector scores, yet the literature says prompt injection is unsolved. These are consistent because detector accuracy on benchmark corpora is not the same thing as a universal guarantee against adaptive, multi-step, or multimodal attacks.
-- **Unresolvable uncertainty flagged:** MITRE ATLAS itself is difficult to quote directly because the site is JavaScript-heavy, but OWASP's LLM01 page explicitly links relevant MITRE ATLAS prompt-injection technique entries. This item therefore treats MITRE as part of the framework landscape but relies on OWASP and other accessible primary documents for quoted detail.
+- **Unresolvable uncertainty flagged:** MITRE Adversarial Threat Landscape for Artificial-Intelligence Systems (ATLAS) itself is difficult to quote directly because the site is JavaScript-heavy, but OWASP's LLM01 page explicitly links relevant MITRE ATLAS prompt-injection technique entries. This item therefore treats MITRE as part of the framework landscape but relies on OWASP and other accessible primary documents for quoted detail.
 
 ### §5 Depth and Breadth Expansion
 
@@ -250,7 +250,7 @@ Prompt injection was identified in `2026-02-28-ai-strategy-security-focus.md` as
 
 **Executive summary:**
 
-**[fact]** Prompt injection is now an operational security problem for agentic AI systems rather than a hypothetical edge case. (Sources: https://genai.owasp.org/llmrisk/llm01-prompt-injection/ ; https://arxiv.org/abs/2302.12173 ; https://unit42.paloaltonetworks.com/ai-agent-prompt-injection/)
+**[inference]** Prompt injection is now an operational security problem for agentic AI systems rather than a hypothetical edge case. (Sources: https://genai.owasp.org/llmrisk/llm01-prompt-injection/ ; https://arxiv.org/abs/2302.12173 ; https://unit42.paloaltonetworks.com/ai-agent-prompt-injection/)
 
 **[inference]** The public record shows repeated exploitation paths through untrusted content, but attribution evidence remains much stronger for researchers, bug hunters, and malicious content publishers than for large-scale state or criminal campaigns. (Sources: https://arxiv.org/abs/2302.12173 ; https://unit42.paloaltonetworks.com/ai-agent-prompt-injection/ ; https://simonwillison.net/series/prompt-injection/)
 
@@ -321,7 +321,7 @@ The major trade-off is between utility and controllability. Stronger system prom
 
 **[fact]** Prompt injection is now an operational security problem for agentic AI systems rather than a hypothetical edge case. (Sources: https://genai.owasp.org/llmrisk/llm01-prompt-injection/ ; https://arxiv.org/abs/2302.12173 ; https://unit42.paloaltonetworks.com/ai-agent-prompt-injection/)
 
-**[fact]** The public record shows repeated exploitation paths through untrusted content, but attribution evidence remains much stronger for researchers, bug hunters, and malicious content publishers than for large-scale state or criminal campaigns. (Sources: https://arxiv.org/abs/2302.12173 ; https://unit42.paloaltonetworks.com/ai-agent-prompt-injection/ ; https://simonwillison.net/series/prompt-injection/)
+**[inference]** The public record shows repeated exploitation paths through untrusted content, and the best-supported public attribution evidence is concentrated in researcher disclosures, bug bounty activity, and malicious content publishing rather than in large-scale state or criminal campaigns. (Sources: https://arxiv.org/abs/2302.12173 ; https://unit42.paloaltonetworks.com/ai-agent-prompt-injection/ ; https://simonwillison.net/series/prompt-injection/)
 
 **[inference]** Because current defences reduce risk without eliminating it, the safest near-term posture is to bound what agents can do after compromise rather than assume prompt hardening alone will hold. (Sources: https://www.anthropic.com/news/constitutional-classifiers ; https://aclanthology.org/2025.findings-naacl.395/ ; https://arxiv.org/abs/2503.18813 ; https://simonwillison.net/series/prompt-injection/)
 
