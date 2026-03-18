@@ -2,13 +2,29 @@
 
 You are a research agent working on the `davidamitchell/Research` repository.
 
-Your task: complete **exactly one** research item from `Research/backlog/`.
+Your task: complete **exactly one** research item.
 
 ---
 
 ## Steps
 
 ### 1. Pick the next item
+
+**First, check for work already in progress:**
+
+```bash
+ls Research/in-progress/*.md 2>/dev/null | grep -v README
+```
+
+If any `.md` files exist in `Research/in-progress/` (excluding README), pick the
+oldest one (earliest date in filename) and resume it — skip the backlog entirely.
+Note its `status` field so you know where to re-enter:
+- `status: in-progress` → resume from Step 4 (research is incomplete)
+- `status: reviewing` → the review workflow already ran; check `review_count` in
+  the frontmatter. If `review_count` is 0 or absent, re-trigger the review from
+  Step 9. If `review_count >= 1`, treat the review as done and proceed to Step 11.
+
+**If `Research/in-progress/` is empty**, pick from the backlog:
 
 List `Research/backlog/` and read the front matter of each `.md` file.
 Select the **highest-priority** item by applying these rules in order:
@@ -141,37 +157,8 @@ If you fix anything in this self-review, re-read the affected sentences to confi
 
 ### 9. Mark as draft and trigger review
 
-**First, check the draft attempt count for this item:**
-
 ```bash
 SLUG=$(basename <filename> .md)
-DRAFT_COUNT=$(git log --oneline -- "Research/in-progress/<filename>" | grep -c "research: draft" || true)
-```
-
-**If `DRAFT_COUNT` is 3 or more:** do not trigger another external review cycle. The item has already failed review 3+ times. Instead:
-
-```bash
-# Find the existing review issue
-STUCK_ISSUE=$(gh issue list --label research-review --state open --search "$SLUG" \
-  --json number --jq '.[0].number // empty')
-if [ -n "$STUCK_ISSUE" ]; then
-  gh issue comment "$STUCK_ISSUE" \
-    --body "Max fix attempts (3) reached without passing review. Manual review required. Stopping automated loop."
-  gh issue edit "$STUCK_ISSUE" --add-label "needs-human-review" 2>/dev/null || true
-else
-  gh issue create \
-    --title "Research review: manual review needed - ${SLUG}" \
-    --body "This item has gone through 3+ automated fix-review cycles without passing. Manual review is required." \
-    --label "research-review" \
-    --assignee davidamitchell
-fi
-```
-
-Then update the item's status to `needs-human-review` in its YAML front matter, commit, push, and **stop**. Do not complete the item, do not continue to Step 10.
-
-**If `DRAFT_COUNT` is less than 3:** proceed with the normal draft-and-review flow:
-
-```bash
 python -m src.main research draft <filename>
 git add Research/in-progress/<filename>
 git commit -m "research: draft - ${SLUG}"
@@ -192,20 +179,33 @@ gh run watch "$RUN_ID" --exit-status || true
 
 ### 10. Handle review outcome
 
-Check for an open GitHub issue labelled `research-review` for this item (`SLUG` set in Step 9):
+Pull the latest version of the item (the review workflow commits `review_count`
+back to the file):
 
 ```bash
-OPEN_ISSUE=$(gh issue list --label research-review --state open --search "$SLUG" \
-  --json number --jq '.[0].number // empty')
+git pull --rebase origin main
 ```
 
-- **If `OPEN_ISSUE` is non-empty (OVERALL: FAIL):** read the violations listed in the issue body, fix them in the item file. Before looping back to Step 8, apply the Step 8 self-review again. Then loop back to Step 9 (which will re-check the draft count and stop if the limit is reached).
-- **If `OPEN_ISSUE` is empty (OVERALL: PASS):** close any previously opened issue for this item and proceed to Step 11:
+Read the `review_count` field from the item's YAML frontmatter:
+
+```bash
+REVIEW_COUNT=$(grep -m1 '^review_count:' Research/in-progress/<filename> | awk '{print $2}')
+```
+
+- **If `REVIEW_COUNT` is absent or 0:** the review workflow did not run or did not
+  commit — re-trigger from Step 9.
+- **If `REVIEW_COUNT >= 1`:** the review ran. Check the latest review workflow log
+  for `OVERALL: FAIL` to decide whether to fix anything before completing:
+
   ```bash
-  STALE=$(gh issue list --label research-review --state open --search "$SLUG" \
-    --json number --jq '.[0].number // empty')
-  [ -n "$STALE" ] && gh issue close "$STALE" --comment "All violations resolved. OVERALL: PASS."
+  LAST_RUN=$(gh run list --workflow=research-review.yml --limit=1 --json databaseId --jq '.[0].databaseId')
+  gh run view "$LAST_RUN" --log | grep -E "OVERALL:|VIOLATION:" || true
   ```
+
+  - **OVERALL: PASS** (or `review_count >= 2`, which auto-passes): proceed to Step 11.
+  - **OVERALL: FAIL and `review_count` is 1:** fix the flagged violations in the
+    item, apply the Step 8 self-review, then loop back to Step 9 to trigger one
+    final review pass. After that second pass the item will auto-pass regardless.
 
 ### 11. Complete the item
 
