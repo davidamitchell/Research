@@ -426,3 +426,63 @@ def test_workflow_debug_appears_after_push() -> None:
     assert post_debug_pos > push_pos, (
         "Post-iteration debug block must appear after git push"
     )
+
+
+def test_failure_branch_cleans_dirty_working_tree() -> None:
+    """git checkout -- . and git clean -fd must appear only in the failure branch.
+
+    The cleanup must be positioned after the 'else' that handles Copilot failure
+    and before the consecutive-failure threshold check (or alongside it), but never
+    in the success path of the if/else block.
+    """
+    content = WORKFLOW_PATH.read_text(encoding="utf-8")
+
+    # Both cleanup commands must be present.
+    assert "git checkout -- ." in content, (
+        "git checkout -- . must be present in the workflow for dirty-tree cleanup"
+    )
+    assert "git clean -fd" in content, (
+        "git clean -fd must be present in the workflow for dirty-tree cleanup"
+    )
+
+    # The success path sets CONSECUTIVE_FAILURES=0; the failure path increments it.
+    # The cleanup commands must appear AFTER the increment (failure branch marker)
+    # and BEFORE the threshold abort (fi that closes the if/else block).
+    increment_pos = content.find("CONSECUTIVE_FAILURES=$((CONSECUTIVE_FAILURES + 1))")
+    checkout_pos = content.find("git checkout -- .")
+    clean_pos = content.find("git clean -fd")
+    success_reset_pos = content.find("CONSECUTIVE_FAILURES=0")
+    threshold_abort_pos = content.find(
+        "Consecutive failure threshold reached. Aborting to prevent runaway behaviour."
+    )
+
+    assert increment_pos != -1, "CONSECUTIVE_FAILURES increment must exist (failure branch marker)"
+    assert checkout_pos != -1, "git checkout -- . must exist"
+    assert clean_pos != -1, "git clean -fd must exist"
+    assert success_reset_pos != -1, "CONSECUTIVE_FAILURES=0 must exist (success branch marker)"
+    assert threshold_abort_pos != -1, "Threshold abort message must exist"
+
+    # Cleanup must appear AFTER the failure branch increment (not in the success path).
+    assert checkout_pos > increment_pos, (
+        "git checkout -- . must appear after CONSECUTIVE_FAILURES increment (failure branch)"
+    )
+    assert clean_pos > increment_pos, (
+        "git clean -fd must appear after CONSECUTIVE_FAILURES increment (failure branch)"
+    )
+
+    # Cleanup must appear BEFORE the consecutive-failure threshold abort.
+    assert checkout_pos < threshold_abort_pos, (
+        "git checkout -- . must appear before the threshold abort (inside failure branch)"
+    )
+    assert clean_pos < threshold_abort_pos, (
+        "git clean -fd must appear before the threshold abort (inside failure branch)"
+    )
+
+    # Cleanup must NOT appear before the success-branch reset (i.e. not in the success path).
+    # The success reset comes before the failure increment in source order.
+    assert success_reset_pos < increment_pos, (
+        "Success reset (CONSECUTIVE_FAILURES=0) must precede failure increment in source"
+    )
+    assert checkout_pos > success_reset_pos, (
+        "git checkout -- . must not appear in the success path (before CONSECUTIVE_FAILURES=0)"
+    )
