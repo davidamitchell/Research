@@ -2,7 +2,7 @@
 
 **Date:** 2026-03-18
 **Slug:** human-brain-prediction-machines
-**Issue:** "Are humans brains just predictions machines"
+**Issue:** "Are human brains just prediction machines"
 
 ## What Was Done
 
