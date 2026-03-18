@@ -276,8 +276,6 @@ The present research item is dedicated to prompt injection alone because:
 
 **Analysis:**
 
-Method note: this analysis weighted standards documents and primary empirical studies above commentary because those sources define the threat model or report measured outcomes directly.
-
 **[inference]** Attacker attribution received lower confidence than architectural conclusions because the public record is rich in disclosed incidents and demonstrations but thinner on independently verified attribution to specific state or criminal campaigns. (Sources: https://unit42.paloaltonetworks.com/ai-agent-prompt-injection/ ; https://simonwillison.net/series/prompt-injection/ ; https://arxiv.org/abs/2302.12173)
 
 **[inference]** Static benchmark wins were weighted cautiously when adaptive-attack evidence was available, because papers that let attackers optimise against the defence show that non-adaptive evaluation can overstate real-world robustness. (Sources: https://aclanthology.org/2025.findings-naacl.395/ ; https://storage.googleapis.com/deepmind-media/Security%20and%20Privacy/Gemini_Security_Paper.pdf)
@@ -342,7 +340,7 @@ Method note: this analysis weighted standards documents and primary empirical st
 
 ### Assumptions
 
-- **Assumption:** High-privilege agent operators should prefer bounded autonomy over maximum autonomy. **Justification:** This is consistent with OWASP least-privilege and human-approval guidance, but it remains an operational design choice rather than an independently measured universal fact.
+- **Assumption:** High-privilege agent operators should prefer bounded autonomy over maximum autonomy. **Justification:** This is consistent with OWASP least-privilege and human-approval guidance, but it remains an operational design choice rather than an independently measured universal fact. (Source: https://genai.owasp.org/llmrisk/llm01-prompt-injection/)
 
 ### Analysis
 
