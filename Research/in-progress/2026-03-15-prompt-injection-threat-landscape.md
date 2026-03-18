@@ -141,7 +141,7 @@ The present research item is dedicated to prompt injection alone because:
 
 #### B1-B3. Who is attacking, what has been disclosed, and how strong the evidence is
 
-**[fact]** Greshake et al. demonstrated prompt injection against real systems including Bing's GPT-4-powered chat and code-completion engines in 2023, showing that indirect prompt injection is not restricted to toy examples. (Source: https://arxiv.org/abs/2302.12173)
+**[fact]** Greshake et al. demonstrated prompt injection against real systems including Bing's Generative Pre-trained Transformer 4 (GPT-4)-powered chat and code-completion engines in 2023, showing that indirect prompt injection is not restricted to toy examples. (Source: https://arxiv.org/abs/2302.12173)
 
 **[fact]** OWASP's LLM01 reference scenarios cite public plugin and document-based prompt injection cases, including document poisoning, cross-plugin request forgery, resume injection, payload splitting, code injection, multilingual and obfuscated attacks, and multimodal attacks. (Source: https://genai.owasp.org/llmrisk/llm01-prompt-injection/)
 
@@ -179,7 +179,7 @@ The present research item is dedicated to prompt injection alone because:
 
 #### D1-D3. Significant 2024-2025 papers and open problems
 
-**[inference]** The most consequential 2024-2025 contributions in this research slice are:
+**[fact]** The reviewed 2024-2025 contributions in this research slice are:
 1. **[fact]** **Many-shot jailbreaking** (Anthropic, 2024; https://www.anthropic.com/research/many-shot-jailbreaking) shows that long context windows themselves amplify jailbreak vulnerability.
 2. **[inference]** **Constitutional Classifiers** (Anthropic, 2025; https://www.anthropic.com/news/constitutional-classifiers) provides clear published metrics for meaningful but incomplete jailbreak reduction.
 3. **[fact]** **Defeating Prompt Injections by Design** (Google DeepMind, 2025; https://arxiv.org/abs/2503.18813) shifts the field from prompt filtering toward capability-based architectural isolation.
@@ -344,8 +344,6 @@ The present research item is dedicated to prompt injection alone because:
 
 ### Analysis
 
-**[fact]** The analysis weighted standards documents and primary empirical studies above commentary, because those sources either define the threat model or report measured outcomes directly. (Sources: https://genai.owasp.org/llmrisk/llm01-prompt-injection/ ; https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-2e2023.pdf ; https://arxiv.org/abs/2302.12173 ; https://www.anthropic.com/news/constitutional-classifiers ; https://arxiv.org/abs/2503.18813 ; https://aclanthology.org/2025.findings-naacl.395/)
-
 **[inference]** Attacker attribution received lower confidence than architectural conclusions because the public record is rich in disclosed incidents and demonstrations but thinner on independently verified attribution to specific state or criminal campaigns. (Sources: https://unit42.paloaltonetworks.com/ai-agent-prompt-injection/ ; https://simonwillison.net/series/prompt-injection/ ; https://arxiv.org/abs/2302.12173)
 
 **[inference]** Static benchmark wins were weighted cautiously when adaptive-attack evidence was available, because papers that let attackers optimise against the defence show that non-adaptive evaluation can overstate real-world robustness. (Sources: https://aclanthology.org/2025.findings-naacl.395/ ; https://storage.googleapis.com/deepmind-media/Security%20and%20Privacy/Gemini_Security_Paper.pdf)
@@ -356,7 +354,7 @@ The present research item is dedicated to prompt injection alone because:
 - **[inference]** Multimodal prompt injection has credible demonstrations, but far less production evidence than text and document-based indirect prompt injection. (Sources: https://storage.googleapis.com/deepmind-media/Security%20and%20Privacy/Gemini_Security_Paper.pdf ; https://genai.owasp.org/llmrisk/llm01-prompt-injection/)
 - **[inference]** Benchmark scores for detectors can overstate robustness if attackers are not adapting to the defence or if the benchmark distribution differs from production workloads. (Sources: https://aclanthology.org/2025.findings-naacl.395/ ; https://storage.googleapis.com/deepmind-media/Security%20and%20Privacy/Gemini_Security_Paper.pdf)
 - **[inference]** Vendor write-ups can mix product positioning with research results, so they were weighted most heavily when they included concrete metrics or limitations. (Sources: https://www.anthropic.com/news/constitutional-classifiers ; https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/jailbreak-detection)
-- **[fact]** MITRE ATLAS is relevant framework context, but this item relies on OWASP and other quoted primary documents for detailed evidence. (Sources: https://atlas.mitre.org/ ; https://genai.owasp.org/llmrisk/llm01-prompt-injection/)
+- **[fact]** MITRE ATLAS provides background context on adversarial tactics and techniques against AI-enabled systems. (Source: https://atlas.mitre.org/)
 
 ### Open Questions
 
