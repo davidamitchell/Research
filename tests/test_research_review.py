@@ -95,13 +95,13 @@ def test_workflow_uses_copilot_github_token_secret() -> None:
     assert "secrets.GH_TOKEN" not in content, "Workflow must not reference old GH_TOKEN secret"
 
 
-def test_workflow_permissions_are_read_only() -> None:
-    """Review job must use contents: read — it must not commit anything."""
+def test_workflow_permissions_allow_contents_write() -> None:
+    """Review job must use contents: write — it commits review_count increments."""
     wf = _load_workflow()
     job = wf["jobs"]["review"]
     perms = job.get("permissions", {})
-    assert perms.get("contents") == "read", (
-        "Review job must have contents: read — it must not write to the repo"
+    assert perms.get("contents") == "write", (
+        "Review job must have contents: write — it commits review_count frontmatter updates"
     )
 
 
@@ -260,33 +260,19 @@ def test_speculation_control_has_context_scope_note() -> None:
     assert "## Context" in step2_text, "Step 2 scope note must reference '## Context'"
 
 
-def test_workflow_has_issues_write_permission() -> None:
-    """The review job must have issues: write permission to create failure issues."""
-    wf = _load_workflow()
-    job = wf["jobs"]["review"]
-    perms = job.get("permissions", {})
-    assert perms.get("issues") == "write", (
-        "Review job must have issues: write to create GitHub issues on failure"
-    )
-
-
-def test_workflow_references_gh_issue_create() -> None:
-    """The workflow must reference gh issue or gh issue create to report failures."""
+def test_workflow_does_not_create_github_issues() -> None:
+    """Failures emit ::warning annotations only — no GitHub issue creation."""
     content = WORKFLOW_PATH.read_text(encoding="utf-8")
-    assert "gh issue" in content, (
-        "Workflow must use 'gh issue' to create or comment on failure issues"
+    assert "gh issue" not in content, (
+        "Workflow must not create GitHub issues on failure — use ::warning annotations instead"
     )
 
 
-def test_workflow_creates_research_review_label() -> None:
-    """The workflow must create the research-review label (idempotently)."""
+def test_workflow_emits_warning_on_failure() -> None:
+    """The workflow must emit a ::warning annotation when a review fails."""
     content = WORKFLOW_PATH.read_text(encoding="utf-8")
-    assert "research-review" in content, "Workflow must reference the 'research-review' label"
-    assert "gh label create" in content, (
-        "Workflow must use 'gh label create' to ensure the label exists"
-    )
-    assert "2>/dev/null || true" in content, (
-        "Label creation must be idempotent using '2>/dev/null || true'"
+    assert "::warning::" in content, (
+        "Workflow must emit ::warning:: annotations for review failures"
     )
 
 

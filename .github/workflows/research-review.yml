@@ -170,9 +170,9 @@ jobs:
             if grep -q '^review_count:' "$ITEM"; then
               sed -i "s/^review_count:.*/review_count: ${NEW_COUNT}/" "$ITEM"
             else
-              # Insert after the opening --- line
-              sed -i "1{/^---$/a review_count: ${NEW_COUNT}
-}" "$ITEM"
+              # Insert review_count after the opening --- line using awk
+              awk -v n="$NEW_COUNT" 'NR==1 && /^---$/{print; print "review_count: "n; next}1' "$ITEM" > /tmp/item-patched.md
+              mv /tmp/item-patched.md "$ITEM"
             fi
 
             git add "$ITEM"
