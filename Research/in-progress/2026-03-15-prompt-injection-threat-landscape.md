@@ -137,9 +137,9 @@ The present research item is dedicated to prompt injection alone because:
 
 **[fact]** OWASP explicitly adds multimodal prompt injection scenarios, including hidden instructions in images, and notes that current multimodal-specific defences remain immature. (Source: https://genai.owasp.org/llmrisk/llm01-prompt-injection/)
 
-**[inference]** The qualitatively new risk in agentic systems is not that prompt injection exists, but that the model now sits inside action loops with tools, memory, and private context. The same language-level failure that produced odd chatbot answers in 2023 can produce unauthorised transactions, destructive tool calls, or cross-system data exfiltration when the model has side effects.
+**[inference]** The qualitatively new risk in agentic systems is not that prompt injection exists, but that the model now sits inside action loops with tools, memory, and private context. The same language-level failure that produced odd chatbot answers in 2023 can produce unauthorised transactions, destructive tool calls, or cross-system data exfiltration when the model has side effects. (Sources: https://genai.owasp.org/llmrisk/llm01-prompt-injection/ ; https://arxiv.org/abs/2302.12173 ; https://unit42.paloaltonetworks.com/ai-agent-prompt-injection/)
 
-**[inference]** Indirect prompt injection is the most dangerous class for agents because the attacker does not need access to the chat box. Any untrusted resource the agent reads - a web page, source file, email, calendar invite, PDF, or tool response - becomes a potential prompt-delivery channel.
+**[inference]** Indirect prompt injection is the most dangerous class for agents because the attacker does not need access to the chat box. Any untrusted resource the agent reads - a web page, source file, email, calendar invite, PDF, or tool response - becomes a potential prompt-delivery channel. (Sources: https://arxiv.org/abs/2302.12173 ; https://genai.owasp.org/llmrisk/llm01-prompt-injection/ ; https://unit42.paloaltonetworks.com/ai-agent-prompt-injection/)
 
 #### B1-B3. Who is attacking, what has been disclosed, and how strong the evidence is
 
@@ -188,18 +188,18 @@ The present research item is dedicated to prompt injection alone because:
 **Source classes used:** Primary - the Anthropic many-shot paper, Anthropic Constitutional Classifiers, the Defeating Prompt Injections by Design paper, and the Adaptive Attacks paper. Secondary - Simon Willison series for research-front synthesis.
 
 **[inference]** The most consequential 2024-2025 contributions in this research slice are:
-1. **Many-shot jailbreaking** (Anthropic, 2024; https://www.anthropic.com/research/many-shot-jailbreaking) - shows that long context windows themselves amplify jailbreak vulnerability.
-2. **Constitutional Classifiers** (Anthropic, 2025; https://www.anthropic.com/news/constitutional-classifiers) - provides one of the clearest published metrics for meaningful but incomplete jailbreak reduction.
-3. **Defeating Prompt Injections by Design** (Google DeepMind, 2025; https://arxiv.org/abs/2503.18813) - shifts the field from prompt filtering toward capability-based architectural isolation.
-4. **Adaptive Attacks Break Defenses Against Indirect Prompt Injection Attacks on LLM Agents** (Zhan et al., 2025; https://aclanthology.org/2025.findings-naacl.395/) - demonstrates that state-of-the-art defences fail under adaptive evaluation.
-5. **Google DeepMind's Gemini security paper** (2025; https://storage.googleapis.com/deepmind-media/Security%20and%20Privacy/Gemini_Security_Paper.pdf) - operationalises continuous adversarial evaluation for indirect prompt injection in deployed systems.
-6. **Lakera's PINT Benchmark** (2024-2025 updates; https://github.com/lakeraai/pint-benchmark) - gives the ecosystem a comparative detector benchmark instead of vendor-specific anecdotes.
+1. **[fact]** **Many-shot jailbreaking** (Anthropic, 2024; https://www.anthropic.com/research/many-shot-jailbreaking) shows that long context windows themselves amplify jailbreak vulnerability.
+2. **[fact]** **Constitutional Classifiers** (Anthropic, 2025; https://www.anthropic.com/news/constitutional-classifiers) provides one of the clearest published metrics for meaningful but incomplete jailbreak reduction.
+3. **[fact]** **Defeating Prompt Injections by Design** (Google DeepMind, 2025; https://arxiv.org/abs/2503.18813) shifts the field from prompt filtering toward capability-based architectural isolation.
+4. **[fact]** **Adaptive Attacks Break Defenses Against Indirect Prompt Injection Attacks on LLM Agents** (Zhan et al., 2025; https://aclanthology.org/2025.findings-naacl.395/) demonstrates that state-of-the-art defences fail under adaptive evaluation.
+5. **[fact]** **Google DeepMind's Gemini security paper** (2025; https://storage.googleapis.com/deepmind-media/Security%20and%20Privacy/Gemini_Security_Paper.pdf) operationalises continuous adversarial evaluation for indirect prompt injection in deployed systems.
+6. **[fact]** **Lakera's PINT Benchmark** (2024-2025 updates; https://github.com/lakeraai/pint-benchmark) gives the ecosystem a comparative detector benchmark instead of vendor-specific anecdotes.
 
 **[fact]** Simon Willison's 2025 writing on agent design makes the same structural point from the practitioner side: powerful general-purpose agents with private data, untrusted content, and external communications create a "lethal trifecta" for prompt injection risk. (Source: https://simonwillison.net/series/prompt-injection/)
 
-**[inference]** The research consensus is moving toward the view that prompt injection is **structural**, not a bug likely to disappear through prompt engineering alone. The important disagreement is not whether the vulnerability exists, but how much useful capability can be preserved while bounding its consequences.
+**[inference]** The research consensus is moving toward the view that prompt injection is **structural**, not a bug likely to disappear through prompt engineering alone. The important disagreement is not whether the vulnerability exists, but how much useful capability can be preserved while bounding its consequences. (Sources: https://genai.owasp.org/llmrisk/llm01-prompt-injection/ ; https://www.anthropic.com/news/constitutional-classifiers ; https://arxiv.org/abs/2503.18813 ; https://simonwillison.net/series/prompt-injection/)
 
-**[inference]** Open problems remain in at least five areas: reliable instruction/data separation, multimodal prompt injection, secure memory for long-running agents, realistic adaptive evaluation, and formal verification of tool-use constraints.
+**[inference]** Open problems remain in at least five areas: reliable instruction/data separation, multimodal prompt injection, secure memory for long-running agents, realistic adaptive evaluation, and formal verification of tool-use constraints. (Sources: https://arxiv.org/abs/2503.18813 ; https://aclanthology.org/2025.findings-naacl.395/ ; https://www.anthropic.com/research/many-shot-jailbreaking ; https://genai.owasp.org/llmrisk/llm01-prompt-injection/)
 
 #### E1-E2. Agentic-system design implications
 
@@ -211,7 +211,7 @@ The present research item is dedicated to prompt injection alone because:
 
 **[fact]** CaMeL's core design principle is that untrusted data must not control program flow and must not be able to exfiltrate protected data through tool calls. (Source: https://arxiv.org/abs/2503.18813)
 
-**[inference]** For high-privilege agents, the minimum defensible architecture is not "a stronger system prompt" but a combination of least privilege, isolated tool execution, explicit approval gates for irreversible actions, content provenance boundaries, and runtime monitoring.
+**[inference]** For high-privilege agents, the minimum defensible architecture is not "a stronger system prompt" but a combination of least privilege, isolated tool execution, explicit approval gates for irreversible actions, content provenance boundaries, and runtime monitoring. (Sources: https://genai.owasp.org/llmrisk/llm01-prompt-injection/ ; https://arxiv.org/abs/2503.18813 ; https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/jailbreak-detection ; https://simonwillison.net/series/prompt-injection/)
 
 **[assumption]** I assume that organisations deploying high-privilege agents care more about preventing catastrophic side effects than preserving maximum agent autonomy. **Justification:** This assumption is consistent with OWASP's least-privilege and human-approval guidance, but it is still an operational preference rather than a universally measured fact.
 
