@@ -155,7 +155,7 @@ The present research item is dedicated to prompt injection alone because:
 
 **[fact]** Unit 42 also states that prior work focused largely on proof-of-concept risk, whereas its own telemetry shows web-based indirect prompt injection moving beyond theory into observed malicious deployment. (Source: https://unit42.paloaltonetworks.com/ai-agent-prompt-injection/)
 
-**[fact]** OWASP includes a code-injection scenario referencing CVE-2024-5184, showing that the standards community now treats prompt injection as a route to concrete downstream exploitation rather than merely a content-safety issue. (Source: https://genai.owasp.org/llmrisk/llm01-prompt-injection/)
+**[fact]** OWASP includes a code-injection scenario referencing CVE-2024-5184. **[inference]** That example supports treating prompt injection as a route to concrete downstream exploitation rather than merely a content-safety issue. (Source: https://genai.owasp.org/llmrisk/llm01-prompt-injection/)
 
 **[inference]** The strongest public evidence of active exploitation is currently concentrated in three actor groups: security researchers, bug hunters, and attackers embedding malicious instructions into web content or documents for opportunistic downstream influence. Public evidence for large-scale nation-state or organised-criminal **prompt injection specifically** is much thinner than public evidence for researchers and disclosed product vulnerabilities. (Sources: https://arxiv.org/abs/2302.12173 ; https://unit42.paloaltonetworks.com/ai-agent-prompt-injection/ ; https://simonwillison.net/series/prompt-injection/)
 
@@ -207,7 +207,7 @@ The present research item is dedicated to prompt injection alone because:
 
 **[fact]** OWASP recommends constraining model behaviour, validating output formats, filtering inputs and outputs, enforcing least privilege, requiring human approval for high-risk actions, segregating external content, and running adversarial testing. (Source: https://genai.owasp.org/llmrisk/llm01-prompt-injection/)
 
-**[fact]** Microsoft distinguishes user-prompt attacks from document attacks, which implies that grounded or retrieval-heavy systems need separate controls for user-entered content and third-party content. (Source: https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/jailbreak-detection)
+**[fact]** Microsoft distinguishes user-prompt attacks from document attacks. **[inference]** That distinction suggests grounded or retrieval-heavy systems need separate controls for user-entered content and third-party content. (Source: https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/jailbreak-detection)
 
 **[fact]** CaMeL's core design principle is that untrusted data must not control program flow and must not be able to exfiltrate protected data through tool calls. (Source: https://arxiv.org/abs/2503.18813)
 
@@ -243,7 +243,7 @@ The present research item is dedicated to prompt injection alone because:
 - **[inference]** That shift matters operationally: once the issue appears in standards and enterprise controls, boards and security teams can no longer dismiss it as an experimental model quirk. (Sources: https://genai.owasp.org/llmrisk/llm01-prompt-injection/ ; https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-2e2023.pdf)
 
 **Historical lens**
-- **[fact]** Simon Willison's writing shows the field's argument has been stable since 2022 on one central point: prompt injection is hard because the model cannot cleanly separate trusted instructions from untrusted text. **[inference]** By 2025, the consequences had grown because agents gained tools and ambient context. (Source: https://simonwillison.net/series/prompt-injection/)
+- **[inference]** Simon Willison's writing presents a stable argument from 2022 through 2025 on one central point: prompt injection is hard because the model cannot cleanly separate trusted instructions from untrusted text. **[inference]** By 2025, the consequences had grown because agents gained tools and ambient context. (Source: https://simonwillison.net/series/prompt-injection/)
 
 **Behavioural lens**
 - **[inference]** Human operators can over-trust coherent language output. This compounds prompt injection risk because a compromised agent may produce plausible justifications for malicious or incorrect actions, reducing the chance of timely detection unless approval and audit trails are designed in. (Sources: https://genai.owasp.org/llmrisk/llm01-prompt-injection/ ; https://simonwillison.net/series/prompt-injection/)
