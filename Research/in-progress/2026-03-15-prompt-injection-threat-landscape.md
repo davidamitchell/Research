@@ -95,7 +95,7 @@ The present research item is dedicated to prompt injection alone because:
 
 ### §1 Question Decomposition
 
-**Top-level question:** What is the current prompt injection threat landscape for agentic AI systems?
+**Top-level question:** What is the current prompt injection threat landscape for agentic AI systems, meaning AI systems that pursue goals with limited supervision and use tools or external software to act on the environment? (Source for term: https://cloud.google.com/discover/what-is-agentic-ai)
 
 **A. Attack taxonomy**
 - A1. What do standards and foundational papers mean by prompt injection?
@@ -193,7 +193,7 @@ The present research item is dedicated to prompt injection alone because:
 
 #### E1-E2. Agentic-system design implications
 
-**[fact]** OWASP recommends constraining model behaviour, validating output formats, filtering inputs and outputs, enforcing least privilege, requiring human approval for high-risk actions, segregating external content, and running adversarial testing. (Source: https://genai.owasp.org/llmrisk/llm01-prompt-injection/)
+**[fact]** OWASP recommends constraining model behaviour, validating output formats, filtering inputs and outputs, enforcing least privilege - the security principle of restricting access privileges to the minimum necessary to accomplish assigned tasks - requiring human approval for high-risk actions, segregating external content, and running adversarial testing. (Sources: https://genai.owasp.org/llmrisk/llm01-prompt-injection/ ; https://csrc.nist.gov/glossary/term/least_privilege)
 
 **[fact]** Microsoft distinguishes user-prompt attacks from document attacks. **[inference]** That distinction suggests grounded or retrieval-heavy systems need separate controls for user-entered content and third-party content. (Source: https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/jailbreak-detection)
 
