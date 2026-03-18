@@ -157,9 +157,9 @@ The present research item is dedicated to prompt injection alone because:
 
 **[fact]** OWASP includes a code-injection scenario referencing CVE-2024-5184, showing that the standards community now treats prompt injection as a route to concrete downstream exploitation rather than merely a content-safety issue. (Source: https://genai.owasp.org/llmrisk/llm01-prompt-injection/)
 
-**[inference]** The strongest public evidence of active exploitation is currently concentrated in three actor groups: security researchers, bug hunters, and attackers embedding malicious instructions into web content or documents for opportunistic downstream influence. Public evidence for large-scale nation-state or organised-criminal **prompt injection specifically** is much thinner than public evidence for researchers and disclosed product vulnerabilities.
+**[inference]** The strongest public evidence of active exploitation is currently concentrated in three actor groups: security researchers, bug hunters, and attackers embedding malicious instructions into web content or documents for opportunistic downstream influence. Public evidence for large-scale nation-state or organised-criminal **prompt injection specifically** is much thinner than public evidence for researchers and disclosed product vulnerabilities. (Sources: https://arxiv.org/abs/2302.12173 ; https://unit42.paloaltonetworks.com/ai-agent-prompt-injection/ ; https://simonwillison.net/series/prompt-injection/)
 
-**[inference]** Public reporting supports the claim that prompt injection is real and exploitable in deployed systems, but it does **not** yet support a strong claim that prompt injection has become a dominant, separately measured campaign technique for nation-state operators. That gap matters because it separates demonstrated system weakness from fully quantified threat-actor prevalence.
+**[inference]** Public reporting supports the claim that prompt injection is real and exploitable in deployed systems, but it does **not** yet support a strong claim that prompt injection has become a dominant, separately measured campaign technique for nation-state operators. That gap matters because it separates demonstrated system weakness from fully quantified threat-actor prevalence. (Sources: https://arxiv.org/abs/2302.12173 ; https://unit42.paloaltonetworks.com/ai-agent-prompt-injection/ ; https://simonwillison.net/series/prompt-injection/)
 
 #### C1-C3. Who is defending, what works, and where it fails
 
@@ -181,7 +181,7 @@ The present research item is dedicated to prompt injection alone because:
 
 **[fact]** Zhan et al. evaluate eight defences against indirect prompt injection on LLM agents and report bypassing all eight with adaptive attacks, with attack success rates consistently above 50%. (Source: https://aclanthology.org/2025.findings-naacl.395/)
 
-**[inference]** The defence landscape has converged on **layering** rather than elimination: specialised filters, architectural separation, least privilege, and human approval can all materially lower risk, but each either imposes cost, reduces capability, or remains bypassable under adaptive attack.
+**[inference]** The defence landscape has converged on **layering** rather than elimination: specialised filters, architectural separation, least privilege, and human approval can all materially lower risk, but each either imposes cost, reduces capability, or remains bypassable under adaptive attack. (Sources: https://www.anthropic.com/news/constitutional-classifiers ; https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/jailbreak-detection ; https://arxiv.org/abs/2503.18813 ; https://aclanthology.org/2025.findings-naacl.395/ ; https://simonwillison.net/series/prompt-injection/)
 
 #### D1-D3. Significant 2024-2025 papers and open problems
 
@@ -315,7 +315,6 @@ The present research item is dedicated to prompt injection alone because:
 - **[inference]** The main synthesis thread is consistent across §§2-6: prompt injection is structurally real, most dangerous when indirect and agentic, partially mitigable, and still unsolved.
 - **[inference]** The strongest uncertainty - attacker prevalence by threat-actor class - is explicit rather than glossed over.
 - **[fact]** Findings are directly seeded from §6 and do not add new claims.
-- **[fact]** Acronym audit applied during drafting: first uses in the research sections expand AI, LLM, API, OWASP, NIST, CVE, and MCP where used. (Source: This document's first-use expansions in §§0-7 and Findings)
 
 ---
 
