@@ -95,7 +95,7 @@ The present research item is dedicated to prompt injection alone because:
 
 ### §1 Question Decomposition
 
-**Top-level question:** What is the current prompt injection threat landscape for agentic AI systems, meaning AI systems that pursue goals with limited supervision and use tools or external software to act on the environment? (Source for term: https://cloud.google.com/discover/what-is-agentic-ai)
+**Top-level question:** What is the current prompt injection threat landscape for agentic AI systems, meaning AI systems that pursue goals with limited supervision and use tools or external software to act on the environment? (Source for term: https://www.congress.gov/crs-product/IF13151)
 
 **A. Attack taxonomy**
 - A1. What do standards and foundational papers mean by prompt injection?
@@ -183,7 +183,7 @@ The present research item is dedicated to prompt injection alone because:
 1. **[fact]** **Many-shot jailbreaking** (Anthropic, 2024; https://www.anthropic.com/research/many-shot-jailbreaking) shows that long context windows themselves amplify jailbreak vulnerability.
 2. **[inference]** **Constitutional Classifiers** (Anthropic, 2025; https://www.anthropic.com/news/constitutional-classifiers) provides clear published metrics for meaningful but incomplete jailbreak reduction.
 3. **[fact]** **Defeating Prompt Injections by Design** (Google DeepMind, 2025; https://arxiv.org/abs/2503.18813) shifts the field from prompt filtering toward capability-based architectural isolation.
-4. **[fact]** **Adaptive Attacks Break Defenses Against Indirect Prompt Injection Attacks on LLM Agents** (Zhan et al., 2025; https://aclanthology.org/2025.findings-naacl.395/) demonstrates that state-of-the-art defences fail under adaptive evaluation.
+4. **[fact]** **Adaptive Attacks Break Defenses Against Indirect Prompt Injection Attacks on LLM Agents** (Zhan et al., 2025; https://aclanthology.org/2025.findings-naacl.395/) demonstrates that all eight evaluated defences fail under adaptive evaluation.
 5. **[fact]** **Google DeepMind's Gemini security paper** (2025; https://storage.googleapis.com/deepmind-media/Security%20and%20Privacy/Gemini_Security_Paper.pdf) operationalises continuous adversarial evaluation for indirect prompt injection in deployed systems.
 6. **[inference]** **Lakera's PINT Benchmark** (2024-2025 updates; https://github.com/lakeraai/pint-benchmark) provides a comparative detector benchmark with published cross-detector scores.
 
