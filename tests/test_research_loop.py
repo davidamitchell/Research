@@ -423,9 +423,7 @@ def test_workflow_debug_appears_after_push() -> None:
     post_debug_pos = content.find("[DEBUG] end post-iteration state")
     assert push_pos != -1, "git push origin main || true must be present"
     assert post_debug_pos != -1, "Post-iteration debug marker must be present in workflow"
-    assert post_debug_pos > push_pos, (
-        "Post-iteration debug block must appear after git push"
-    )
+    assert post_debug_pos > push_pos, "Post-iteration debug block must appear after git push"
 
 
 def test_failure_branch_cleans_dirty_working_tree() -> None:
