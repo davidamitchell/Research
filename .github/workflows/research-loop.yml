@@ -203,6 +203,13 @@ jobs:
             else
               CONSECUTIVE_FAILURES=$((CONSECUTIVE_FAILURES + 1))
               echo "::warning::Copilot session failed (consecutive failures: $CONSECUTIVE_FAILURES/$FAILURE_THRESHOLD)"
+              # A failed session may have left partial writes on disk (no commit made).
+              # Discard them so the next iteration's git pull --rebase can proceed cleanly.
+              if ! git diff --quiet || ! git diff --cached --quiet; then
+                echo "::warning::Dirty working tree after failed session. Discarding uncommitted changes."
+                git checkout -- .
+                git clean -fd
+              fi
               if [ "$CONSECUTIVE_FAILURES" -ge "$FAILURE_THRESHOLD" ]; then
                 echo "::error::Consecutive failure threshold reached. Aborting to prevent runaway behaviour."
                 exit 1
