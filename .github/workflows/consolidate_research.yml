@@ -6,9 +6,11 @@ name: Consolidate Research
 #   - Any push to main that touches Research/completed/
 #   - Manual dispatch from the Actions tab (GitHub website or iOS app)
 #
-# Output: Research_Master.md at the repository root.
+# Output: Research/Research_Master.md in the Research directory.
 # Files in Research/completed/ that contain "meta" or "infra" in the
 # filename are excluded from consolidation.
+# Items with added date before 2026-02-28 are also excluded.
+# Output order is newest-first (reverse chronological).
 
 on:
   workflow_dispatch:
@@ -33,12 +35,25 @@ jobs:
         run: |
           set -euo pipefail
           shopt -s nocasematch
-          OUTPUT_FILE="Research_Master.md"
+          OUTPUT_FILE="Research/Research_Master.md"
+          CUTOFF_DATE="2026-02-28"
 
           # Returns 0 (true) when a filename should be excluded.
           should_exclude() {
             local name="$1"
             [[ "$name" == *"meta"* || "$name" == *"infra"* ]]
+          }
+
+          # Extract a single-line frontmatter field value.
+          # Reads between the first pair of --- delimiters and strips surrounding quotes.
+          # Pipeline: awk isolates the YAML block → grep finds the field line →
+          # head -1 takes the first match → sed strips the "field: " prefix →
+          # tr removes surrounding double-quotes.
+          # || true prevents pipefail exit when grep finds no match (returns empty string).
+          get_frontmatter() {
+            local file="$1" field="$2"
+            awk 'NR==1 && /^---$/{in_front=1; next} in_front && /^---$/{exit} in_front{print}' "$file" \
+              | grep "^${field}:" | head -1 | sed "s/^${field}: *//" | tr -d '"' || true
           }
 
           # Initialize file — overwrite any previous run
@@ -49,36 +64,69 @@ jobs:
           echo "## Table of Contents" >> "$OUTPUT_FILE"
           echo "" >> "$OUTPUT_FILE"
 
-          # First Pass: Generate Table of Contents
-          for file in Research/completed/*.md; do
+          # First Pass: Generate Table of Contents (newest first, skip pre-cutoff items)
+          while IFS= read -r file; do
             [ -f "$file" ] || continue
             FILENAME=$(basename "$file")
             should_exclude "$FILENAME" && continue
-            # Build an anchor slug: lowercase, replace spaces and dots with hyphens
+
+            ADDED=$(get_frontmatter "$file" "added")
+            # Skip items with missing or pre-cutoff added dates
+            [[ -z "$ADDED" || "$ADDED" < "$CUTOFF_DATE" ]] && continue
+
+            TITLE=$(get_frontmatter "$file" "title")
+            [ -z "$TITLE" ] && TITLE="$FILENAME"
+
+            # Anchor based on filename (stable, unambiguous)
             ANCHOR=$(echo "$FILENAME" | tr '[:upper:]' '[:lower:]' | tr ' .' '--')
-            echo "* [$FILENAME](#$ANCHOR)" >> "$OUTPUT_FILE"
-          done
+            echo "* [$TITLE](#$ANCHOR)" >> "$OUTPUT_FILE"
+          done < <(printf '%s\n' Research/completed/*.md | sort -r)
 
           echo "" >> "$OUTPUT_FILE"
           echo "---" >> "$OUTPUT_FILE"
           echo "" >> "$OUTPUT_FILE"
 
-          # Second Pass: Extract Specific Sections
-          for file in Research/completed/*.md; do
+          # Second Pass: Extract Specific Sections (newest first, skip pre-cutoff items)
+          while IFS= read -r file; do
             [ -f "$file" ] || continue
             FILENAME=$(basename "$file")
             should_exclude "$FILENAME" && continue
+
+            ADDED=$(get_frontmatter "$file" "added")
+            # Skip items with missing or pre-cutoff added dates
+            [[ -z "$ADDED" || "$ADDED" < "$CUTOFF_DATE" ]] && continue
+
+            TITLE=$(get_frontmatter "$file" "title")
+            [ -z "$TITLE" ] && TITLE="$FILENAME"
+
+            TAGS=$(get_frontmatter "$file" "tags")
             ANCHOR=$(echo "$FILENAME" | tr '[:upper:]' '[:lower:]' | tr ' .' '--')
 
             # HTML anchor so TOC links resolve in rendered Markdown
             echo "<a name=\"$ANCHOR\"></a>" >> "$OUTPUT_FILE"
             echo "" >> "$OUTPUT_FILE"
-            echo "## Source: $FILENAME" >> "$OUTPUT_FILE"
+            echo "## $TITLE" >> "$OUTPUT_FILE"
             echo "" >> "$OUTPUT_FILE"
+            if [ -n "$TAGS" ]; then
+              echo "**Tags:** $TAGS" >> "$OUTPUT_FILE"
+              echo "" >> "$OUTPUT_FILE"
+            fi
             echo "**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/$FILENAME" >> "$OUTPUT_FILE"
             echo "" >> "$OUTPUT_FILE"
 
-            # Extract the target sections (Methodology, Implementation Logic,
+            # Extract the research question (supports both naming conventions:
+            # newer "Research Question" and older "Question / Hypothesis").
+            QUESTION=$(
+              { cat "$file"; echo "## END"; } |
+              sed -n '/^## \(Research Question\|Question \/ Hypothesis\)/,/^## /p' |
+              sed '$d'
+            )
+            if [ -n "$QUESTION" ]; then
+              echo "$QUESTION" >> "$OUTPUT_FILE"
+              echo "" >> "$OUTPUT_FILE"
+            fi
+
+            # Extract the high-signal sections (Methodology, Implementation Logic,
             # Decision Log, Strategic Choice, Technical Architecture, Findings,
             # Schema).  A sentinel "## END" is appended before processing so
             # that the final section in a file is not truncated when it has no
@@ -88,7 +136,6 @@ jobs:
               sed -n '/^## \(Methodology\|Implementation Logic\|Decision Log\|Strategic Choice\|Technical Architecture\|Findings\|Schema\)/,/^## /p' |
               sed '$d'
             )
-
             if [ -n "$EXTRACTED" ]; then
               echo "$EXTRACTED" >> "$OUTPUT_FILE"
             fi
@@ -96,16 +143,16 @@ jobs:
             echo "" >> "$OUTPUT_FILE"
             echo "---" >> "$OUTPUT_FILE"
             echo "" >> "$OUTPUT_FILE"
-          done
+          done < <(printf '%s\n' Research/completed/*.md | sort -r)
 
       - name: Commit Master File
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add Research_Master.md
+          git add Research/Research_Master.md
           if git diff --cached --quiet; then
-            echo "No changes to Research_Master.md — nothing to commit"
+            echo "No changes to Research/Research_Master.md — nothing to commit"
           else
-            git commit -m "docs: update Research_Master.md [skip ci]"
+            git commit -m "docs: update Research/Research_Master.md [skip ci]"
             git push
           fi
