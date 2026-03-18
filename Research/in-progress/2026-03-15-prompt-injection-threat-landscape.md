@@ -95,7 +95,7 @@ The present research item is dedicated to prompt injection alone because:
 
 ### §1 Question Decomposition
 
-**Top-level question:** What is the current prompt injection threat landscape for agentic AI systems, meaning AI systems that pursue goals with limited supervision and use tools or external software to act on the environment? (Source for term: https://www.congress.gov/crs-product/IF13151)
+**[fact] Top-level question:** What is the current prompt injection threat landscape for agentic AI systems, meaning AI systems that pursue goals with limited supervision and use tools or external software to act on the environment? (Source for term: https://www.congress.gov/crs-product/IF13151)
 
 **A. Attack taxonomy**
 - A1. What do standards and foundational papers mean by prompt injection?
@@ -137,7 +137,7 @@ The present research item is dedicated to prompt injection alone because:
 
 **[inference]** The qualitatively new risk in agentic systems is not that prompt injection exists, but that the model now sits inside action loops with tools, memory, and private context. The same language-level failure that produced odd chatbot answers in 2023 can produce unauthorised transactions, destructive tool calls, or cross-system data exfiltration when the model has side effects. (Sources: https://genai.owasp.org/llmrisk/llm01-prompt-injection/ ; https://arxiv.org/abs/2302.12173 ; https://unit42.paloaltonetworks.com/ai-agent-prompt-injection/)
 
-**[inference]** Indirect prompt injection is the most dangerous class for agents because the attacker does not need access to the chat box. Any untrusted resource the agent reads - a web page, source file, email, calendar invite, PDF, or tool response - becomes a potential prompt-delivery channel. (Sources: https://arxiv.org/abs/2302.12173 ; https://genai.owasp.org/llmrisk/llm01-prompt-injection/ ; https://unit42.paloaltonetworks.com/ai-agent-prompt-injection/)
+**[inference]** Indirect prompt injection is the most dangerous class for agents because the attacker does not need access to the chat box. Any untrusted resource the agent reads - a web page, source file, email, calendar invite, Portable Document Format (PDF) file, or tool response - becomes a potential prompt-delivery channel. (Sources: https://arxiv.org/abs/2302.12173 ; https://genai.owasp.org/llmrisk/llm01-prompt-injection/ ; https://unit42.paloaltonetworks.com/ai-agent-prompt-injection/)
 
 #### B1-B3. Who is attacking, what has been disclosed, and how strong the evidence is
 
