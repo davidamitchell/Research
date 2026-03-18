@@ -89,7 +89,7 @@ Prompt injection was identified in `2026-02-28-ai-strategy-security-focus.md` as
 
 **Output format confirmed:** This item records a full research log in §§0-7, then seeds `## Findings` from §6 without introducing new claims.
 
-**Prior work cross-reference:** `Research/completed/2026-02-28-ai-strategy-security-focus.md` already established prompt injection as a key "AI system as attack surface" risk. `Research/completed/2026-03-10-adversarial-agents-shared-goals-multi-perspective.md` is relevant because prompt injection turns hostile external content into a de facto adversarial agent in the workflow.
+**[inference] Prior work cross-reference:** `Research/completed/2026-02-28-ai-strategy-security-focus.md` established prompt injection as a key "AI system as attack surface" risk in this repository's earlier synthesis. `Research/completed/2026-03-10-adversarial-agents-shared-goals-multi-perspective.md` is relevant because prompt injection turns hostile external content into a de facto adversarial agent in the workflow. (Sources: Research/completed/2026-02-28-ai-strategy-security-focus.md ; Research/completed/2026-03-10-adversarial-agents-shared-goals-multi-perspective.md)
 
 ### §1 Question Decomposition
 
@@ -215,10 +215,10 @@ Prompt injection was identified in `2026-02-28-ai-strategy-security-focus.md` as
 
 ### §3 Reasoning
 
-1. **Facts separated from conclusions.** Standards bodies, papers, and vendor documents establish that direct and indirect prompt injection exist; that tool-using systems expand the blast radius; that multiple CVE-level incidents and vendor disclosures exist; and that measured defences reduce but do not eliminate risk.
-2. **Key inference.** The evidence supports a stronger claim about **structural vulnerability** than about **attacker prevalence**. Public evidence is sufficient to say the weakness is real and already exploited in deployed systems. Public evidence is not sufficient to say that prompt injection has already become a dominant operational technique for every threat-actor class.
-3. **Why indirect prompt injection dominates the synthesis.** Greshake et al., OWASP, Unit 42, Microsoft, and Google DeepMind all point to the same mechanism: attackers use untrusted external content to steer agent behaviour without direct prompt access. That is the most important shift from chatbot-era prompt injection to agent-era prompt injection.
-4. **Why current defences are judged partial, not solved.** Anthropic reports strong reductions but still documents eventual jailbreaks and trade-offs. CaMeL shows architectural promise but with task-completion cost. Zhan et al. show all eight tested defences can be bypassed adaptively. The convergent conclusion is "risk can be bounded" rather than "prompt injection can be solved outright today."
+1. **[fact] Facts separated from conclusions.** Standards bodies, papers, and vendor documents establish that direct and indirect prompt injection exist; that tool-using systems expand the blast radius; that multiple CVE-level incidents and vendor disclosures exist; and that measured defences reduce but do not eliminate risk. (Sources: https://genai.owasp.org/llmrisk/llm01-prompt-injection/ ; https://arxiv.org/abs/2302.12173 ; https://www.anthropic.com/news/constitutional-classifiers ; https://unit42.paloaltonetworks.com/ai-agent-prompt-injection/)
+2. **[inference] Key inference.** The evidence supports a stronger claim about **structural vulnerability** than about **attacker prevalence**. Public evidence is sufficient to say the weakness is real and already exploited in deployed systems. Public evidence is not sufficient to say that prompt injection has already become a dominant operational technique for every threat-actor class. (Sources: https://arxiv.org/abs/2302.12173 ; https://unit42.paloaltonetworks.com/ai-agent-prompt-injection/ ; https://simonwillison.net/series/prompt-injection/)
+3. **[inference] Why indirect prompt injection dominates the synthesis.** Greshake et al., OWASP, Unit 42, Microsoft, and Google DeepMind all point to the same mechanism: attackers use untrusted external content to steer agent behaviour without direct prompt access. That is the most important shift from chatbot-era prompt injection to agent-era prompt injection. (Sources: https://arxiv.org/abs/2302.12173 ; https://genai.owasp.org/llmrisk/llm01-prompt-injection/ ; https://unit42.paloaltonetworks.com/ai-agent-prompt-injection/ ; https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/jailbreak-detection ; https://storage.googleapis.com/deepmind-media/Security%20and%20Privacy/Gemini_Security_Paper.pdf)
+4. **[inference] Why current defences are judged partial, not solved.** Anthropic reports strong reductions but still documents eventual jailbreaks and trade-offs. CaMeL shows architectural promise but with task-completion cost. Zhan et al. show all eight tested defences can be bypassed adaptively. The convergent conclusion is "risk can be bounded" rather than "prompt injection can be solved outright today." (Sources: https://www.anthropic.com/news/constitutional-classifiers ; https://arxiv.org/abs/2503.18813 ; https://aclanthology.org/2025.findings-naacl.395/)
 
 ### §4 Consistency Check
 
@@ -309,10 +309,10 @@ Prompt injection was identified in `2026-02-28-ai-strategy-security-focus.md` as
 
 ### §7 Recursive Review
 
-- Every section is tied back to a source or labelled as inference/assumption.
-- The main synthesis thread is consistent across §§2-6: prompt injection is structurally real, most dangerous when indirect and agentic, partially mitigable, and still unsolved.
-- The strongest uncertainty - attacker prevalence by threat-actor class - is explicit rather than glossed over.
-- Findings are directly seeded from §6 and do not add new claims.
+- **[inference]** Every section is tied back to a source or labelled as inference/assumption.
+- **[inference]** The main synthesis thread is consistent across §§2-6: prompt injection is structurally real, most dangerous when indirect and agentic, partially mitigable, and still unsolved.
+- **[inference]** The strongest uncertainty - attacker prevalence by threat-actor class - is explicit rather than glossed over.
+- **[fact]** Findings are directly seeded from §6 and do not add new claims.
 - Acronym audit applied during drafting: first uses in the research sections expand AI, LLM, API, OWASP, NIST, CVE, and MCP where used.
 
 ---
@@ -343,7 +343,7 @@ Prompt injection was identified in `2026-02-28-ai-strategy-security-focus.md` as
 | Claim | Source | Confidence | Notes |
 |---|---|---|---|
 | KF1 | https://genai.owasp.org/llmrisk/llm01-prompt-injection/ ; https://arxiv.org/abs/2302.12173 ; https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-2e2023.pdf | high | **[inference]** Structural framing of the control-system failure. |
-| KF2 | https://arxiv.org/abs/2302.12173 ; https://genai.owasp.org/llmrisk/llm01-prompt-injection/ ; https://unit42.paloaltonetworks.com/ai-agent-prompt-injection/ | high | **[fact]** External-content channels dominate practical agent risk. |
+| KF2 | https://arxiv.org/abs/2302.12173 ; https://genai.owasp.org/llmrisk/llm01-prompt-injection/ ; https://unit42.paloaltonetworks.com/ai-agent-prompt-injection/ | high | **[inference]** External-content channels dominate practical agent risk. |
 | KF3 | https://arxiv.org/abs/2302.12173 ; https://genai.owasp.org/llmrisk/llm01-prompt-injection/ ; https://unit42.paloaltonetworks.com/ai-agent-prompt-injection/ ; https://simonwillison.net/series/prompt-injection/ | medium | **[inference]** Exploitation evidence is real, but public attribution is uneven. |
 | KF4 | https://www.anthropic.com/research/many-shot-jailbreaking ; https://www.anthropic.com/news/constitutional-classifiers ; https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/jailbreak-detection ; https://genai.owasp.org/llmrisk/llm01-prompt-injection/ | high | **[fact]** Layered controls now dominate defensive guidance. |
 | KF5 | https://www.anthropic.com/news/constitutional-classifiers ; https://arxiv.org/abs/2503.18813 ; https://github.com/lakeraai/pint-benchmark | high | **[fact]** Measured defence gains come with utility trade-offs. |
