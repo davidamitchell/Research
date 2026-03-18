@@ -123,10 +123,55 @@ Re-read the completed item as a critical reader, not as its author. Apply all fo
 
 If any check surfaces a problem, fix it before proceeding.
 
-### 8. Mark as draft and trigger review
+### 8. Self-review before draft commit
+
+Before committing, run an inline self-review to catch the most common violations. This avoids spending a full external review cycle on easily-detectable issues.
+
+**Check all of the following before proceeding:**
+
+1. **Acronym/abbreviation expansion** — scan every section of `## Research Skill Output` and `## Findings`. List every abbreviation used. Confirm each is expanded at its **first occurrence in the entire document** (not per-section). The most commonly failed ones are: LLM, API, CLI, SDK, PAT, MCP, RAG, CoT, PDF, GPT, SRE, PR, ITSM, PINT, CVE, OWASP. Fix every unexpanded abbreviation before proceeding.
+
+2. **Claim labels** — every factual or inferential claim in `## Research Skill Output` must carry a `[fact]`, `[inference]`, or `[assumption]` label. Headings and question decomposition sub-headings are exempt. Fix any unlabelled claims.
+
+3. **Vague quantifiers** — check for unsourced "many", "most", "significant", "state-of-the-art". Replace with specific numbers or add a source, or qualify as `[inference]`.
+
+4. **AI slop phrases** — scan `## Findings` for: "Furthermore", "Additionally", "It is important to note", "In conclusion", "It is worth noting", "Importantly". Remove or rewrite each occurrence.
+
+If you fix anything in this self-review, re-read the affected sentences to confirm the fix did not introduce a new violation before proceeding.
+
+### 9. Mark as draft and trigger review
+
+**First, check the draft attempt count for this item:**
 
 ```bash
 SLUG=$(basename <filename> .md)
+DRAFT_COUNT=$(git log --oneline -- "Research/in-progress/<filename>" | grep -c "research: draft" || true)
+```
+
+**If `DRAFT_COUNT` is 3 or more:** do not trigger another external review cycle. The item has already failed review 3+ times. Instead:
+
+```bash
+# Find the existing review issue
+STUCK_ISSUE=$(gh issue list --label research-review --state open --search "$SLUG" \
+  --json number --jq '.[0].number // empty')
+if [ -n "$STUCK_ISSUE" ]; then
+  gh issue comment "$STUCK_ISSUE" \
+    --body "Max fix attempts (3) reached without passing review. Manual review required. Stopping automated loop."
+  gh issue edit "$STUCK_ISSUE" --add-label "needs-human-review" 2>/dev/null || true
+else
+  gh issue create \
+    --title "Research review: manual review needed - ${SLUG}" \
+    --body "This item has gone through 3+ automated fix-review cycles without passing. Manual review is required." \
+    --label "research-review" \
+    --assignee davidamitchell
+fi
+```
+
+Then update the item's status to `needs-human-review` in its YAML front matter, commit, push, and **stop**. Do not complete the item, do not continue to Step 10.
+
+**If `DRAFT_COUNT` is less than 3:** proceed with the normal draft-and-review flow:
+
+```bash
 python -m src.main research draft <filename>
 git add Research/in-progress/<filename>
 git commit -m "research: draft - ${SLUG}"
@@ -145,24 +190,24 @@ RUN_ID=$(gh run list --workflow=research-review.yml --branch=main --limit=1 --js
 gh run watch "$RUN_ID" --exit-status || true
 ```
 
-### 9. Handle review outcome
+### 10. Handle review outcome
 
-Check for an open GitHub issue labelled `research-review` for this item (`SLUG` set in Step 8):
+Check for an open GitHub issue labelled `research-review` for this item (`SLUG` set in Step 9):
 
 ```bash
 OPEN_ISSUE=$(gh issue list --label research-review --state open --search "$SLUG" \
   --json number --jq '.[0].number // empty')
 ```
 
-- **If `OPEN_ISSUE` is non-empty (OVERALL: FAIL):** read the violations listed in the issue body, fix them in the item file, then loop back to Step 8.
-- **If `OPEN_ISSUE` is empty (OVERALL: PASS):** close any previously opened issue for this item and proceed to Step 10:
+- **If `OPEN_ISSUE` is non-empty (OVERALL: FAIL):** read the violations listed in the issue body, fix them in the item file. Before looping back to Step 8, apply the Step 8 self-review again. Then loop back to Step 9 (which will re-check the draft count and stop if the limit is reached).
+- **If `OPEN_ISSUE` is empty (OVERALL: PASS):** close any previously opened issue for this item and proceed to Step 11:
   ```bash
   STALE=$(gh issue list --label research-review --state open --search "$SLUG" \
     --json number --jq '.[0].number // empty')
   [ -n "$STALE" ] && gh issue close "$STALE" --comment "All violations resolved. OVERALL: PASS."
   ```
 
-### 10. Complete the item
+### 11. Complete the item
 
 ```bash
 python -m src.main research complete <filename>
@@ -170,7 +215,7 @@ python -m src.main research complete <filename>
 
 This moves the file to `Research/completed/<filename>` and updates `status` and `completed` fields.
 
-### 11. Update learnings.md
+### 12. Update learnings.md
 
 Read `learnings.md`. Check whether any finding from this item adds signal to an existing cross-cutting thread:
 
@@ -180,7 +225,7 @@ Read `learnings.md`. Check whether any finding from this item adds signal to an 
 
 Do not add findings that are already captured or that apply only to this item. `learnings.md` is a synthesis layer across items, not a per-item summary.
 
-### 12. Create session log
+### 13. Create session log
 
 Create a new file `progress/YYYY-MM-DD-{slug}.md` where `{slug}` is the short-title portion of the research item filename (e.g. `slack-msteams-research-integration` from `2026-03-02-slack-msteams-research-integration.md`) with this content:
 
@@ -205,7 +250,7 @@ Sources consulted:
 4. **Is this a pattern?** <answer — if yes, note whether it matches a known pattern in the instructions or warrants adding a new one>
 ```
 
-### 13. Commit to main
+### 14. Commit to main
 
 ```bash
 git add .
