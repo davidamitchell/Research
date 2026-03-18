@@ -125,8 +125,6 @@ The present research item is dedicated to prompt injection alone because:
 
 #### A1-A3. Taxonomy and why agentic systems change the risk
 
-**Source classes used:** Primary - Open Worldwide Application Security Project (OWASP) Large Language Model (LLM)01, National Institute of Standards and Technology (NIST) AI 100-2, and Greshake et al. (2023). Secondary - Simon Willison's prompt injection series.
-
 **[fact]** OWASP LLM01:2025 defines prompt injection as a vulnerability in which prompts alter model behaviour or output in unintended ways, and it distinguishes **direct prompt injections** from **indirect prompt injections** where the model consumes attacker-controlled external content such as documents or web pages. (Sources: https://genai.owasp.org/llmrisk/llm01-prompt-injection/ ; https://owasp.org/www-project-top-10-for-large-language-model-applications/)
 
 **[fact]** OWASP states that the impact of prompt injection depends heavily on **agency**: a successful injection can disclose sensitive information, reveal system prompts or infrastructure details, gain unauthorised access to functions, execute arbitrary commands in connected systems, or manipulate critical decision-making. (Source: https://genai.owasp.org/llmrisk/llm01-prompt-injection/)
@@ -143,13 +141,11 @@ The present research item is dedicated to prompt injection alone because:
 
 #### B1-B3. Who is attacking, what has been disclosed, and how strong the evidence is
 
-**Source classes used:** Primary - Greshake et al., OWASP examples, Unit 42 telemetry, disclosed CVEs referenced by OWASP. Secondary - Simon Willison's incident catalogue and practitioner commentary.
-
 **[fact]** Greshake et al. demonstrated prompt injection against real systems including Bing's GPT-4-powered chat and code-completion engines in 2023, showing that indirect prompt injection is not restricted to toy examples. (Source: https://arxiv.org/abs/2302.12173)
 
 **[fact]** OWASP's LLM01 reference scenarios cite public plugin and document-based prompt injection cases, including document poisoning, cross-plugin request forgery, resume injection, payload splitting, code injection, multilingual and obfuscated attacks, and multimodal attacks. (Source: https://genai.owasp.org/llmrisk/llm01-prompt-injection/)
 
-**[inference]** Taken together, Simon Willison's long-running series traces the discussion from early chatbot jailbreaks toward prompt injection against browsing systems, retrieval pipelines, audio models, Model Context Protocol (MCP) tooling, and agent architectures. **[fact]** His 2025 writing repeatedly argues that prompt injection remains unsolved and that the key mitigation is to **limit blast radius**, not to assume the model can perfectly distinguish instructions from data. (Source: https://simonwillison.net/series/prompt-injection/)
+**[inference]** Taken together, Simon Willison's long-running series traces the discussion from early chatbot jailbreaks toward prompt injection against browsing systems, retrieval pipelines, audio models, Model Context Protocol (MCP) tooling, and agent architectures. **[fact]** His 2025 writing repeatedly argues that prompt injection remains unsolved and that the key mitigation is to **limit blast radius**, not to assume the model can perfectly distinguish instructions from data. (Sources: https://simonwillison.net/series/prompt-injection/ ; https://modelcontextprotocol.io/introduction)
 
 **[fact]** Palo Alto Networks Unit 42 reports that web-based indirect prompt injection is being **actively weaponized**. Their telemetry analysis claims 22 distinct payload-engineering techniques in the wild and documents attacker intents including ad-review evasion, search-engine-optimization manipulation, data destruction, denial of service, unauthorised transactions, sensitive information leakage, and system-prompt leakage. (Source: https://unit42.paloaltonetworks.com/ai-agent-prompt-injection/)
 
@@ -162,8 +158,6 @@ The present research item is dedicated to prompt injection alone because:
 **[inference]** Public reporting supports the claim that prompt injection is real and exploitable in deployed systems, but it does **not** yet support a strong claim that prompt injection has become a dominant, separately measured campaign technique for nation-state operators. That gap matters because it separates demonstrated system weakness from fully quantified threat-actor prevalence. (Sources: https://arxiv.org/abs/2302.12173 ; https://unit42.paloaltonetworks.com/ai-agent-prompt-injection/ ; https://simonwillison.net/series/prompt-injection/)
 
 #### C1-C3. Who is defending, what works, and where it fails
-
-**Source classes used:** Primary - Anthropic, Microsoft, Google DeepMind, the Defeating Prompt Injections by Design paper, the Lakera benchmark repository, and the Adaptive Attacks paper. Secondary - Simon Willison's analysis where it clarifies architectural trade-offs.
 
 **[fact]** Anthropic's many-shot jailbreaking research shows that longer context windows create a new attack surface: increasing the number of malicious demonstrations in-context increases jailbreak effectiveness, and simple fine-tuning only delays rather than removes the failure. Anthropic reports one prompt-based mitigation reducing attack success from 61% to 2% in one setting. (Source: https://www.anthropic.com/research/many-shot-jailbreaking)
 
@@ -185,8 +179,6 @@ The present research item is dedicated to prompt injection alone because:
 
 #### D1-D3. Significant 2024-2025 papers and open problems
 
-**Source classes used:** Primary - the Anthropic many-shot paper, Anthropic Constitutional Classifiers, the Defeating Prompt Injections by Design paper, and the Adaptive Attacks paper. Secondary - Simon Willison series for research-front synthesis.
-
 **[inference]** The most consequential 2024-2025 contributions in this research slice are:
 1. **[fact]** **Many-shot jailbreaking** (Anthropic, 2024; https://www.anthropic.com/research/many-shot-jailbreaking) shows that long context windows themselves amplify jailbreak vulnerability.
 2. **[inference]** **Constitutional Classifiers** (Anthropic, 2025; https://www.anthropic.com/news/constitutional-classifiers) provides clear published metrics for meaningful but incomplete jailbreak reduction.
@@ -202,8 +194,6 @@ The present research item is dedicated to prompt injection alone because:
 **[inference]** Open problems remain in at least five areas: reliable instruction/data separation, multimodal prompt injection, secure memory for long-running agents, realistic adaptive evaluation, and formal verification of tool-use constraints. (Sources: https://arxiv.org/abs/2503.18813 ; https://aclanthology.org/2025.findings-naacl.395/ ; https://www.anthropic.com/research/many-shot-jailbreaking ; https://genai.owasp.org/llmrisk/llm01-prompt-injection/)
 
 #### E1-E2. Agentic-system design implications
-
-**Source classes used:** Primary - OWASP LLM01, Microsoft Prompt Shields, and Anthropic and Google DeepMind defence papers. Secondary - Simon Willison's blast-radius framing.
 
 **[fact]** OWASP recommends constraining model behaviour, validating output formats, filtering inputs and outputs, enforcing least privilege, requiring human approval for high-risk actions, segregating external content, and running adversarial testing. (Source: https://genai.owasp.org/llmrisk/llm01-prompt-injection/)
 
@@ -286,7 +276,7 @@ The present research item is dedicated to prompt injection alone because:
 
 **Analysis:**
 
-**[fact]** The analysis weighted standards documents and primary empirical studies above commentary, because those sources either define the threat model or report measured outcomes directly. (Sources: https://genai.owasp.org/llmrisk/llm01-prompt-injection/ ; https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-2e2023.pdf ; https://arxiv.org/abs/2302.12173 ; https://www.anthropic.com/news/constitutional-classifiers ; https://arxiv.org/abs/2503.18813 ; https://aclanthology.org/2025.findings-naacl.395/)
+Method note: this analysis weighted standards documents and primary empirical studies above commentary because those sources define the threat model or report measured outcomes directly.
 
 **[inference]** Attacker attribution received lower confidence than architectural conclusions because the public record is rich in disclosed incidents and demonstrations but thinner on independently verified attribution to specific state or criminal campaigns. (Sources: https://unit42.paloaltonetworks.com/ai-agent-prompt-injection/ ; https://simonwillison.net/series/prompt-injection/ ; https://arxiv.org/abs/2302.12173)
 
