@@ -2,12 +2,12 @@
 review_count: 1
 title: "GitAgent and declarative agent definition: concepts, adoption, and cross-platform integration"
 added: 2026-03-16
-status: reviewing
+status: completed
 priority: high
 blocks: []
 tags: [agent, declarative-agent, gitagent, copilot, aws, azure, microsoft-365, git, ai-platform, multi-agent]
 started: 2026-03-19
-completed: ~
+completed: 2026-03-19
 output: [knowledge, backlog-item]
 ---
 
@@ -82,8 +82,8 @@ The declarative agent definition concept matters because it separates an agent's
 - [x] https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-agentactiongroup.html - CloudFormation `AgentActionGroup` resource.
 - [x] https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html - Amazon Bedrock AgentCore overview.
 - [x] https://modelcontextprotocol.io - Model Context Protocol (MCP) overview.
-- [x] https://developers.openai.com/api/docs/assistants/tools/ - deprecated Assistants API tools page.
-- [x] https://developers.openai.com/api/docs/guides/tools?api-mode=responses - current Responses API tools guide.
+- [x] https://developers.openai.com/api/docs/assistants/tools/ - deprecated Assistants Application Programming Interface (API) tools page.
+- [x] https://developers.openai.com/api/docs/guides/tools?api-mode=responses - current Responses Application Programming Interface (API) tools guide.
 - [x] https://developers.openai.com/api/docs/guides/tools-remote-mcp - OpenAI remote Model Context Protocol (MCP) guide.
 - [x] https://raw.githubusercontent.com/openai/plugins-quickstart/main/.well-known/ai-plugin.json - OpenAI plugin manifest example.
 - [x] https://raw.githubusercontent.com/openai/plugins-quickstart/main/openapi.yaml - OpenAI plugin OpenAPI example.
@@ -287,14 +287,14 @@ The declarative agent definition concept matters because it separates an agent's
 
 **Key findings:**
 
-1. **[High][fact]** GitAgent defines the repository itself as the canonical agent artifact, anchored by `agent.yaml` and `SOUL.md`, with optional skills, tools, workflows, hooks, memory, and compliance files.
-2. **[Medium][inference]** GitAgent shows credible early momentum, but its youth and `0.1.0` specification mean it should still be treated as an early-stage standard.
-3. **[High][fact]** Microsoft 365 Copilot declarative agents are manifest-centric and Microsoft-hosted, while their action layer is now bridged through plugin manifests that support both OpenAPI and remote Model Context Protocol (MCP) servers.
-4. **[High][fact]** Amazon Bedrock Agents are declarative service resources with action groups, knowledge bases, memory, and guardrails, while Amazon Bedrock AgentCore is a broader governed runtime and tooling layer.
-5. **[High][fact]** Azure Foundry Agent Service combines declarative prompt agents, declarative workflow agents, and code-based hosted agents inside one managed platform.
-6. **[High][fact]** OpenAI has preserved declarative agent configuration while moving from file-based plugin manifests toward request-scoped Responses tool definitions, including remote Model Context Protocol (MCP) servers.
-7. **[High][inference]** Model Context Protocol (MCP) is the strongest cross-platform tool bridge in the evidence base, whereas vendor-specific manifests remain platform-specific packaging formats.
-8. **[Medium][inference]** This repository already contains most of the ingredients a GitAgent definition would need, so GitAgent would fit as an exportable packaging layer but not as a full operational replacement for the current research loop.
+1. **[High][fact]** GitAgent defines the repository itself as the canonical agent artifact, anchored by `agent.yaml` and `SOUL.md`, with optional skills, tools, workflows, hooks, memory, and compliance files. Sources: https://raw.githubusercontent.com/open-gitagent/gitagent/main/README.md ; https://raw.githubusercontent.com/open-gitagent/gitagent/main/spec/SPECIFICATION.md
+2. **[Medium][inference]** GitAgent shows credible early momentum, but its youth and `0.1.0` specification mean it should still be treated as an early-stage standard. Sources: https://api.github.com/repos/open-gitagent/gitagent ; https://raw.githubusercontent.com/open-gitagent/gitagent/main/README.md ; https://raw.githubusercontent.com/open-gitagent/gitagent/main/spec/SPECIFICATION.md
+3. **[High][fact]** Microsoft 365 Copilot declarative agents are manifest-centric and Microsoft-hosted, while their action layer is now bridged through plugin manifests that support both OpenAPI and remote Model Context Protocol (MCP) servers. Sources: https://raw.githubusercontent.com/MicrosoftDocs/m365copilot-docs/main/docs/declarative-agent-manifest-1.6.md ; https://raw.githubusercontent.com/MicrosoftDocs/m365copilot-docs/main/docs/plugin-manifest-2.4.md
+4. **[High][fact]** Amazon Bedrock Agents are declarative service resources with action groups, knowledge bases, memory, and guardrails, while Amazon Bedrock AgentCore is a broader governed runtime and tooling layer. Sources: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-agent.html ; https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-agentactiongroup.html ; https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html
+5. **[High][fact]** Azure Foundry Agent Service combines declarative prompt agents, declarative workflow agents, and code-based hosted agents inside one managed platform. Sources: https://learn.microsoft.com/en-us/azure/foundry/agents/overview ; https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/tool-catalog
+6. **[High][fact]** OpenAI has preserved declarative agent configuration while moving from file-based plugin manifests toward request-scoped Responses tool definitions, including remote Model Context Protocol (MCP) servers. Sources: https://raw.githubusercontent.com/openai/plugins-quickstart/main/.well-known/ai-plugin.json ; https://developers.openai.com/api/docs/guides/tools?api-mode=responses ; https://developers.openai.com/api/docs/guides/tools-remote-mcp
+7. **[High][inference]** Model Context Protocol (MCP) is the strongest cross-platform tool bridge in the evidence base, whereas vendor-specific manifests remain platform-specific packaging formats. Sources: https://modelcontextprotocol.io ; https://developers.openai.com/api/docs/guides/tools-remote-mcp ; https://raw.githubusercontent.com/MicrosoftDocs/m365copilot-docs/main/docs/plugin-manifest-2.4.md ; https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/tool-catalog ; https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html
+8. **[Medium][inference]** This repository already contains most of the ingredients a GitAgent definition would need, so GitAgent would fit as an exportable packaging layer but not as a full operational replacement for the current research loop. Sources: https://github.com/davidamitchell/Research/blob/main/.github/mcp.json ; https://github.com/davidamitchell/Research/blob/main/.github/workflows/research-loop.yml ; https://github.com/davidamitchell/Research/blob/main/README.md ; https://raw.githubusercontent.com/open-gitagent/gitagent/main/spec/SPECIFICATION.md
 
 **Evidence map:**
 
@@ -311,8 +311,8 @@ The declarative agent definition concept matters because it separates an agent's
 
 **Assumptions:**
 
-- **[assumption]** Adding a second packaging layer is only worthwhile here if exportability or governance is a real future need. Source: https://github.com/davidamitchell/Research/blob/main/Research/in-progress/2026-03-16-gitagent-declarative-agent-definition.md
-- **[assumption]** A future GitAgent integration for this repository would keep using GitHub Actions and the existing Python Command Line Interface (CLI) rather than replacing them immediately. Source: https://github.com/davidamitchell/Research/blob/main/.github/workflows/research-loop.yml
+- **[assumption]** Adding a second packaging layer is only worthwhile here if exportability or governance is a real future need. Sources: https://github.com/davidamitchell/Research/blob/main/.github/workflows/research-loop.yml ; https://raw.githubusercontent.com/open-gitagent/gitagent/main/docs/comparison.md
+- **[assumption]** A future GitAgent integration for this repository would keep using GitHub Actions and the existing Python Command Line Interface (CLI) rather than replacing them immediately. Sources: https://github.com/davidamitchell/Research/blob/main/.github/workflows/research-loop.yml ; https://raw.githubusercontent.com/open-gitagent/gitagent/main/spec/SPECIFICATION.md
 
 **Analysis:**
 
@@ -334,10 +334,9 @@ The declarative agent definition concept matters because it separates an agent's
 
 ### §7 Recursive Review
 
-- **[fact]** Every factual, inferential, or assumptive statement in the Research Skill Output is explicitly labelled. Source: this section.
-- **[fact]** First-use expansion was checked for Large Language Model (LLM), Command Line Interface (CLI), Application Programming Interface (API), Microsoft 365 (M365), Amazon Web Services (AWS), Model Context Protocol (MCP), OpenAPI Specification (OAS), Agent-to-Agent (A2A), JavaScript Object Notation (JSON), and YAML Ain't Markup Language (YAML). Source: this document.
-- **[fact]** Every key finding in §6 maps to a named source in the evidence map. Source: §6 Synthesis above.
+- **[inference]** The central recommendation remains stable after a final consistency pass because the GitAgent specification, vendor platform documentation, and repository-specific workflow evidence all support the same layered interpretation rather than a runtime-replacement interpretation. Sources: https://raw.githubusercontent.com/open-gitagent/gitagent/main/spec/SPECIFICATION.md ; https://raw.githubusercontent.com/open-gitagent/gitagent/main/docs/comparison.md ; https://github.com/davidamitchell/Research/blob/main/.github/workflows/research-loop.yml
 - **[fact]** Alternative interpretations were considered and rejected where evidence allowed, especially the idea that GitAgent, Amazon Bedrock AgentCore, and Azure Foundry are interchangeable runtimes rather than different layers in the stack. Sources: https://raw.githubusercontent.com/open-gitagent/gitagent/main/docs/comparison.md ; https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html ; https://learn.microsoft.com/en-us/azure/foundry/agents/overview
+- **[inference]** Residual uncertainty is now concentrated in future adoption timing and adapter design, not in the descriptive comparison of current platforms, because the descriptive claims are backed by primary vendor documentation while the repository-fit recommendation remains architecture-level inference. Sources: https://raw.githubusercontent.com/open-gitagent/gitagent/main/spec/SPECIFICATION.md ; https://raw.githubusercontent.com/MicrosoftDocs/m365copilot-docs/main/docs/plugin-manifest-2.4.md ; https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-agent.html ; https://learn.microsoft.com/en-us/azure/foundry/agents/overview ; https://developers.openai.com/api/docs/guides/tools?api-mode=responses ; https://github.com/davidamitchell/Research/blob/main/.github/workflows/research-loop.yml
 - **[inference]** The main recommendation is adequately supported because it depends on documented platform boundaries and observed repository structure, not on speculative vendor roadmaps. Sources: https://raw.githubusercontent.com/open-gitagent/gitagent/main/spec/SPECIFICATION.md ; https://github.com/davidamitchell/Research/blob/main/.github/workflows/research-loop.yml
 
 ---
@@ -382,8 +381,8 @@ The declarative agent definition concept matters because it separates an agent's
 
 ### Assumptions
 
-- Future GitAgent adoption would only be justified here if the repository needs stronger exportability, reviewability, or machine-readable governance than the current conventions already provide. Sources: https://github.com/davidamitchell/Research/blob/main/.github/workflows/research-loop.yml ; https://github.com/davidamitchell/Research/blob/main/Research/in-progress/2026-03-16-gitagent-declarative-agent-definition.md
-- A first GitAgent integration would likely stay thin and wrap existing skills, Model Context Protocol (MCP) tools, and workflows instead of migrating all operational logic on day one. Sources: https://github.com/davidamitchell/Research/blob/main/.github/workflows/research-loop.yml ; https://github.com/davidamitchell/Research/blob/main/README.md ; https://raw.githubusercontent.com/open-gitagent/gitagent/main/spec/SPECIFICATION.md
+- **[assumption]** Future GitAgent adoption would only be justified here if the repository needs stronger exportability, reviewability, or machine-readable governance than the current conventions already provide. Sources: https://github.com/davidamitchell/Research/blob/main/.github/workflows/research-loop.yml ; https://raw.githubusercontent.com/open-gitagent/gitagent/main/docs/comparison.md
+- **[assumption]** A first GitAgent integration would likely stay thin and wrap existing skills, Model Context Protocol (MCP) tools, and workflows instead of migrating all operational logic on day one. Sources: https://github.com/davidamitchell/Research/blob/main/.github/workflows/research-loop.yml ; https://github.com/davidamitchell/Research/blob/main/README.md ; https://raw.githubusercontent.com/open-gitagent/gitagent/main/spec/SPECIFICATION.md
 
 ### Analysis
 
