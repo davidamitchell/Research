@@ -1,9 +1,10 @@
 # Research Master Document
 
-Generated on: 2026-03-19 06:58 UTC
+Generated on: 2026-03-19 07:25 UTC
 
 ## Table of Contents
 
+* [Invariants in Software as a Service (SaaS) Banking Software](#2026-03-15-saas-banking-invariants-md)
 * [Prompt injection threat landscape: exploits, defences, and active research in agentic artificial intelligence (AI) systems](#2026-03-15-prompt-injection-threat-landscape-md)
 * [Latent Concept Extraction from Confluence: Embeddings, Knowledge Graphs, and Epistemic Evaluation](#2026-03-15-latent-concept-extraction-confluence-md)
 * [Aligned Decision-Making: Context Architecture for AI Agents in Organisations](#2026-03-15-context-layers-aligned-decisions-synthesis-md)
@@ -93,6 +94,98 @@ Generated on: 2026-03-19 06:58 UTC
 * [AI Strategy Examples: Business Efficiency Focus](#2026-02-28-ai-strategy-business-efficiency-examples-md)
 * [AI Line 1 and Line 2 Risk Agents: Who Is Building Them?](#2026-02-28-ai-line-1-line-2-risk-agents-md)
 * [AI for Control Testing, Gap Identification, and Policies/Standards Reviews](#2026-02-28-ai-control-testing-and-assurance-md)
+
+---
+
+<a name="2026-03-15-saas-banking-invariants-md"></a>
+
+## Invariants in Software as a Service (SaaS) Banking Software
+
+**Tags:** [saas, banking, enterprise, build-vs-buy, tco, salesforce, ncino, architecture, ddd, total-cost-of-ownership]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-15-saas-banking-invariants.md
+
+## Research Question
+
+What capabilities do enterprise Software as a Service (SaaS) banking platforms (principally Salesforce Financial Services Cloud (FSC) and nCino) provide as true invariants - independent of customer implementation effort - and when full lifecycle costs are considered, how do these platforms compare economically to bespoke software built using modern engineering practices, before and after the arrival of Artificial Intelligence (AI)-assisted development?
+
+## Findings
+
+*(Populated from Section 6 Synthesis above.)*
+
+### Executive Summary
+
+**[inference]** Enterprise banking Software as a Service (SaaS) platforms do not provide end-to-end banking outcomes as true invariants; the most defensible invariants are vendor-maintained domain models, workflow scaffolding, integration surfaces, security and compliance envelopes, and shared operating infrastructure. Sources: https://resources.docs.salesforce.com/latest/latest/en-us/sfdc/pdf/financial_services.pdf ; https://resources.docs.salesforce.com/latest/latest/en-us/sfdc/pdf/salesforce_finserv_admin_guide.pdf ; https://www.ncino.com/our-platform ; https://developer.ncino.com/
+
+**[fact]** Salesforce Financial Services Cloud (FSC) and nCino both document customer responsibilities for core integration, data mapping, configuration, testing, training, and administration, so institution-specific execution remains outside the vendor's invariant layer. Sources: https://resources.docs.salesforce.com/latest/latest/en-us/sfdc/pdf/salesforce_finserv_admin_guide.pdf ; https://www.ncino.com/implementation ; https://developer.salesforce.com/docs/atlas.en-us.financial_services_cloud_admin_guide.meta/financial_services_cloud_admin_guide
+
+**[inference]** Before Artificial Intelligence (AI)-assisted development, buying or renting broad banking capability was usually economically attractive because vendors could amortize domain and platform investment across many customers, while public banking-industry surveys still showed widespread reliance on external platforms. Sources: https://www.aba.com/news-research/analysis-guides/2024-core-platforms-survey ; https://www.pwc.com/us/en/industries/financial-services/library/cloud-banking-trends.html ; https://www.seerene.com/news-research/banks-dilemma
+
+**[fact]** GitHub's published research on the economic impact of AI-powered development reports gains in coding, explanation, and task throughput, while Deloitte's banking engineering analysis still emphasizes legacy integration, governance, and risk-management constraints. Sources: https://github.blog/news-insights/research/the-economic-impact-of-the-ai-powered-developer-lifecycle-and-lessons-from-github-copilot/ ; https://www.deloitte.com/us/en/insights/industry/financial-services/future-of-software-engineering-in-banks.html
+
+**[inference]** The build-versus-buy threshold therefore shifts toward a layered architecture: buy commodity platform primitives and broad banking capability, then build differentiated workflows and experiences only where the remaining lifecycle cost is justified. Sources: https://www.cio.com/article/242681/calculating-the-total-cost-of-ownership-for-enterprise-software.html ; https://github.blog/news-insights/research/the-economic-impact-of-the-ai-powered-developer-lifecycle-and-lessons-from-github-copilot/ ; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-13-financial-forecasting-it-run-costs.md
+
+### Key Findings
+
+1. **Confidence: high. [inference]** Salesforce Financial Services Cloud (FSC) and nCino provide invariant value mainly through reusable financial-services data models, packaged workflow shells, open integration surfaces, and vendor-operated platform services, rather than through institution-specific end-to-end banking outcomes. Sources: https://resources.docs.salesforce.com/latest/latest/en-us/sfdc/pdf/financial_services.pdf ; https://www.ncino.com/our-platform ; https://developer.ncino.com/
+
+2. **Confidence: high. [fact]** The vendors' own implementation materials show that integration with core systems, data mapping and migration, configuration, testing, training, and platform administration are normal and unavoidable parts of adoption, which means customer effort remains a structural part of value realization. Sources: https://www.ncino.com/implementation ; https://resources.docs.salesforce.com/latest/latest/en-us/sfdc/pdf/salesforce_finserv_admin_guide.pdf ; https://developer.salesforce.com/docs/atlas.en-us.financial_services_cloud_admin_guide.meta/financial_services_cloud_admin_guide
+
+3. **Confidence: high. [fact]** Salesforce's strongest invariants come from the Lightning Platform and trust model - multitenant infrastructure, shared security and compliance documentation, shared tooling, and centrally managed operations - while Financial Services Cloud adds domain-specific objects and process scaffolding on top of those primitives. Sources: https://www.salesforce.com/products/platform/overview/ ; https://www.salesforce.com/company/legal/trust-and-compliance-documentation/ ; https://admin.salesforce.com/blog/2025/the-apartment-analogy-making-sense-of-salesforces-multitenant-architecture ; https://resources.docs.salesforce.com/latest/latest/en-us/sfdc/pdf/financial_services.pdf
+
+4. **Confidence: medium. [fact]** nCino's strongest invariants are packaged banking workflows for onboarding, account opening, lending, and portfolio management plus an implementation and integration model tuned to banking institutions, but these remain dependent on local core connectivity and operating-model fit. Sources: https://www.ncino.com/our-platform/commercial-banking ; https://www.ncino.com/implementation ; https://developer.ncino.com/ ; https://appexchange.salesforce.com/appxListingDetail?listingId=ab4e62c0-5000-4053-a26b-9eeab9d1853f
+
+5. **Confidence: high. [fact]** Comparable vendors such as Temenos and Thought Machine market the same underlying invariant pattern - configurable domain engines, vendor-maintained core capabilities, and exposed integration surfaces - showing that these invariants are industry-wide characteristics of modern banking platforms rather than unique properties of Salesforce Financial Services Cloud or nCino. Sources: https://www.temenos.com/products/core-banking/ ; https://www.thoughtmachine.net/vault-core ; https://www.ncino.com/our-platform
+
+6. **Confidence: medium. [inference]** Before Artificial Intelligence (AI)-assisted development, buying or renting broad banking platform capability was economically attractive for many banks because vendor products bundled proven domain functionality, ecosystem leverage, and ongoing platform investment that many institutions would struggle to reproduce internally at acceptable speed and risk. Sources: https://www.aba.com/news-research/analysis-guides/2024-core-platforms-survey ; https://www.pwc.com/us/en/industries/financial-services/library/cloud-banking-trends.html ; https://www.seerene.com/news-research/banks-dilemma
+
+7. **Confidence: high. [fact]** Full lifecycle Total Cost of Ownership (TCO) for banking Software as a Service (SaaS) platforms must include not only subscription or license spend but also integration, migration, security review, process redesign, regression testing, training, administration, and retirement or export work, because those categories recur across both vendor guidance and independent Total Cost of Ownership (TCO) literature. Sources: https://www.cio.com/article/242681/calculating-the-total-cost-of-ownership-for-enterprise-software.html ; https://www.ncino.com/implementation ; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-13-financial-forecasting-it-run-costs.md
+
+8. **Confidence: medium. [inference]** Artificial Intelligence (AI)-assisted development narrows the economic gap for bespoke software by reducing coding, legacy-code explanation, and test-authoring effort, but it does not proportionally reduce data migration, integration, governance, adoption, or regulatory assurance costs, so it shifts the threshold rather than eliminating the case for buying platforms. Sources: https://github.blog/news-insights/research/the-economic-impact-of-the-ai-powered-developer-lifecycle-and-lessons-from-github-copilot/ ; https://www.deloitte.com/us/en/insights/industry/financial-services/future-of-software-engineering-in-banks.html ; https://www.cio.com/article/242681/calculating-the-total-cost-of-ownership-for-enterprise-software.html
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| FSC and nCino provide reusable domain models and workflow scaffolding rather than turnkey institution-specific outcomes | https://resources.docs.salesforce.com/latest/latest/en-us/sfdc/pdf/financial_services.pdf ; https://resources.docs.salesforce.com/latest/latest/en-us/sfdc/pdf/salesforce_finserv_admin_guide.pdf ; https://trailhead.salesforce.com ; https://www.ncino.com/our-platform | high | Official documentation aligned across vendors |
+| Customer effort remains necessary for integration, mapping, testing, training, and administration | https://www.ncino.com/implementation ; https://www.cio.com/article/242681/calculating-the-total-cost-of-ownership-for-enterprise-software.html ; https://developer.salesforce.com/docs/atlas.en-us.financial_services_cloud_admin_guide.meta/financial_services_cloud_admin_guide | high | Explicitly documented in implementation and lifecycle material |
+| Salesforce invariants are mainly shared platform operations plus domain extensions | https://www.salesforce.com/products/platform/overview/ ; https://www.salesforce.com/company/legal/trust-and-compliance-documentation/ ; https://admin.salesforce.com/blog/2025/the-apartment-analogy-making-sense-of-salesforces-multitenant-architecture | high | Strong separation between platform primitives and FSC-specific layer |
+| nCino invariants are packaged banking workflows plus banking-oriented integration patterns | https://www.ncino.com/our-platform ; https://www.ncino.com/our-platform/commercial-banking ; https://developer.ncino.com/ ; https://appexchange.salesforce.com/appxListingDetail?listingId=ab4e62c0-5000-4053-a26b-9eeab9d1853f | medium | Strong official evidence on capability shape; less precise on economics |
+| Modern banking platform invariants are industry-wide, not unique to FSC or nCino | https://www.temenos.com/products/core-banking/ ; https://www.thoughtmachine.net/vault-core ; https://www.ncino.com/our-platform | high | Cross-vendor validation |
+| Pre-AI, buy-rent often beat full bespoke build for broad banking capability | https://www.aba.com/news-research/analysis-guides/2024-core-platforms-survey ; https://www.pwc.com/us/en/industries/financial-services/library/cloud-banking-trends.html ; https://www.seerene.com/news-research/banks-dilemma | medium | Direction strongly supported; exact magnitude less certain |
+| Honest banking platform TCO must include hidden lifecycle categories beyond sticker price | https://www.cio.com/article/242681/calculating-the-total-cost-of-ownership-for-enterprise-software.html ; https://www.ncino.com/implementation ; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-13-financial-forecasting-it-run-costs.md | high | Strong cross-source agreement |
+| AI narrows bespoke cost disadvantage but does not eliminate non-code transformation costs | https://github.blog/news-insights/research/the-economic-impact-of-the-ai-powered-developer-lifecycle-and-lessons-from-github-copilot/ ; https://www.deloitte.com/us/en/insights/industry/financial-services/future-of-software-engineering-in-banks.html ; https://www.cio.com/article/242681/calculating-the-total-cost-of-ownership-for-enterprise-software.html | medium | Development productivity well supported; transformation-cost conclusion partly inferential |
+
+### Assumptions
+
+- **Assumption:** Proprietary vendor price sheets and private implementation budgets would materially improve precision on exact break-even economics, but their absence does not prevent a robust structural comparison. **Justification:** The public evidence is sufficient to compare cost categories and relative advantage, but not to compute a universal numeric winner.
+
+- **Assumption:** The bespoke baseline assumes a bank with access to competent domain experts and engineering leadership capable of applying Domain-Driven Design (DDD), Single Responsibility, Open-Closed, Liskov Substitution, Interface Segregation, Dependency Inversion (SOLID), and Clean Architecture in practice. **Justification:** Without that baseline capability, bespoke would fail for reasons unrelated to Software as a Service (SaaS) economics.
+
+### Analysis
+
+**[inference]** The evidence is strongest when the question is reframed from "what feature exists?" to "what kind of thing is actually invariant?" Official Salesforce and nCino materials consistently distinguish packaged domain capability from institution-specific execution, which supports treating reusable models, workflows, and platform mechanics as the invariant layer rather than treating customer outcomes as invariant. Sources: https://resources.docs.salesforce.com/latest/latest/en-us/sfdc/pdf/financial_services.pdf ; https://resources.docs.salesforce.com/latest/latest/en-us/sfdc/pdf/salesforce_finserv_admin_guide.pdf ; https://www.ncino.com/our-platform ; https://www.ncino.com/implementation
+
+**[fact]** The cross-vendor check reduces the risk of overstating Salesforce Financial Services Cloud (FSC) or nCino as uniquely privileged because Temenos and Thought Machine describe the same pattern of configurable domain engines, exposed integration surfaces, and vendor-maintained platform mechanics. Sources: https://www.temenos.com/products/core-banking/ ; https://www.thoughtmachine.net/vault-core ; https://www.ncino.com/our-platform
+
+**[inference]** The economic comparison is most persuasive when separated into pre-AI and AI-assisted eras: GitHub's published developer-productivity research supports lower coding and explanation effort, but CIO Total Cost of Ownership (TCO) guidance and Deloitte's banking analysis imply that migration, integration, process design, user adoption, governance, and assurance remain stubborn cost categories. Sources: https://github.blog/news-insights/research/the-economic-impact-of-the-ai-powered-developer-lifecycle-and-lessons-from-github-copilot/ ; https://www.cio.com/article/242681/calculating-the-total-cost-of-ownership-for-enterprise-software.html ; https://www.deloitte.com/us/en/insights/industry/financial-services/future-of-software-engineering-in-banks.html
+
+### Risks, Gaps, and Uncertainties
+
+- **[fact]** Gartner, Forrester, and directly fetched McKinsey banking articles were not accessible in this session, so the evidence base leans more heavily on official vendor documentation and accessible secondary banking-industry commentary. Sources: https://www.gartner.com/en/banking-financial-services ; https://www.forrester.com/research/financial-services-technology/ ; https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights
+- **[fact]** Public sources do not expose enough pricing detail to calculate a generally valid numeric Total Cost of Ownership (TCO) crossover point between named vendor platforms and bespoke systems. Sources: https://www.cio.com/article/242681/calculating-the-total-cost-of-ownership-for-enterprise-software.html ; https://www.pwc.com/us/en/industries/financial-services/library/cloud-banking-trends.html
+- **[fact]** nCino's original `/products` web address returned status code 429 in this session, so the research used other official nCino pages that were accessible instead. Source: https://ncino.com/products
+- **[inference]** Vendor case material is structurally biased toward benefit claims, so confidence is lower on any conclusion that relies primarily on vendor marketing rather than on implementation mechanics or independent lifecycle-cost evidence. Sources: https://www.salesforce.com/products/financial-services-cloud/overview/ ; https://www.ncino.com/our-platform ; https://www.cio.com/article/242681/calculating-the-total-cost-of-ownership-for-enterprise-software.html
+- **[fact]** The exact effect of Artificial Intelligence (AI) on regulated-software assurance cost remains uncertain because the available public evidence is stronger on development productivity than on audit or regulatory-review compression. Sources: https://github.blog/news-insights/research/the-economic-impact-of-the-ai-powered-developer-lifecycle-and-lessons-from-github-copilot/ ; https://www.deloitte.com/us/en/insights/industry/financial-services/future-of-software-engineering-in-banks.html
+
+### Open Questions
+
+- For a named mid-tier bank, what is the five-year numeric break-even point between Salesforce Financial Services Cloud (FSC) plus nCino-style configuration and a bespoke platform built on a modern cloud stack with AI-assisted development?
+- How large is the regression-testing and release-management burden created by vendor-driven upgrade cycles in mature Salesforce Financial Services Cloud (FSC) and nCino estates?
+- Which banking capabilities most consistently remain worth building in-house even when the institution buys a broader platform - pricing, decisioning, customer journeys, or servicing orchestration?
+- How should exit costs and vendor-lock-in risk be incorporated into a full platform Total Cost of Ownership (TCO) model for banking Software as a Service (SaaS)?
+
+---
 
 ---
 
