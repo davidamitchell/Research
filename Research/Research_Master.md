@@ -1,9 +1,10 @@
 # Research Master Document
 
-Generated on: 2026-03-19 08:21 UTC
+Generated on: 2026-03-19 08:56 UTC
 
 ## Table of Contents
 
+* [GitAgent and declarative agent definition: concepts, adoption, and cross-platform integration](#2026-03-16-gitagent-declarative-agent-definition-md)
 * [Adaptive Policy-Based Authorization (APBA): compliance alignment with National Institute of Standards and Technology (NIST) Special Publication (SP) 800-53 and International Organization for Standardization (ISO) / International Electrotechnical Commission (IEC) 27001, and impact on Policy as Code (PaC) and Artificial Intelligence (AI)-generated authorization code](#2026-03-16-adaptive-policy-authorization-compliance-md)
 * [Trusting Trust and AI Corpus Contamination](#2026-03-15-trusting-trust-ai-corpus-contamination-md)
 * [Invariants in Software as a Service (SaaS) Banking Software](#2026-03-15-saas-banking-invariants-md)
@@ -96,6 +97,103 @@ Generated on: 2026-03-19 08:21 UTC
 * [AI Strategy Examples: Business Efficiency Focus](#2026-02-28-ai-strategy-business-efficiency-examples-md)
 * [AI Line 1 and Line 2 Risk Agents: Who Is Building Them?](#2026-02-28-ai-line-1-line-2-risk-agents-md)
 * [AI for Control Testing, Gap Identification, and Policies/Standards Reviews](#2026-02-28-ai-control-testing-and-assurance-md)
+
+---
+
+<a name="2026-03-16-gitagent-declarative-agent-definition-md"></a>
+
+## GitAgent and declarative agent definition: concepts, adoption, and cross-platform integration
+
+**Tags:** [agent, declarative-agent, gitagent, copilot, aws, azure, microsoft-365, git, ai-platform, multi-agent]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-16-gitagent-declarative-agent-definition.md
+
+## Research Question
+
+What is GitAgent (https://github.com/open-gitagent/gitagent), how can it be used in this repository, what concepts does it build on and produce, and how does the broader idea of declarative agent definition apply across Microsoft 365 (M365) Copilot, Amazon Web Services (AWS) Agent Core, and the Azure agentic platform?
+
+Supporting questions:
+- What is GitAgent, what problem does it solve, and what is its architecture?
+- What concepts (for example declarative agent manifests, tool use, event-driven triggers, policy-as-code) does GitAgent build on?
+- How could GitAgent be adopted or integrated in this repository's research tooling?
+- How does the declarative agent definition pattern manifest across Microsoft 365 (M365) Copilot extensions, AWS Agent Core, and Azure Artificial Intelligence (AI) Agent Service, and what are the similarities and differences?
+- What is the general declarative agent definition concept, and what prior art or standards does it draw from (for example OpenAI plugin manifests, Model Context Protocol (MCP), and OpenAPI Specification (OAS) documents)?
+
+## Findings
+
+### Executive Summary
+
+**[inference]** GitAgent is best understood as a portable, Git-native authoring and packaging layer, and the best-supported use for this repository is to layer it on top of the current GitHub Actions and Python runtime rather than to replace that runtime. Sources: https://raw.githubusercontent.com/open-gitagent/gitagent/main/spec/SPECIFICATION.md ; https://raw.githubusercontent.com/open-gitagent/gitagent/main/docs/comparison.md ; https://github.com/davidamitchell/Research/blob/main/.github/workflows/research-loop.yml
+
+**[fact]** Microsoft 365 Copilot, Amazon Bedrock, Azure Foundry, and OpenAI all expose declarative agent configuration, but they do so at different layers: Microsoft through app and plugin manifests, Amazon through managed agent resources, Azure through managed prompt or workflow definitions, and OpenAI through request-scoped tool objects. Sources: https://raw.githubusercontent.com/MicrosoftDocs/m365copilot-docs/main/docs/declarative-agent-manifest-1.6.md ; https://raw.githubusercontent.com/MicrosoftDocs/m365copilot-docs/main/docs/plugin-manifest-2.4.md ; https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-agent.html ; https://learn.microsoft.com/en-us/azure/foundry/agents/overview ; https://developers.openai.com/api/docs/guides/tools?api-mode=responses
+
+**[inference]** Model Context Protocol (MCP) (https://modelcontextprotocol.io) is the strongest cross-platform bridge in this comparison, while OpenAPI Specification (OAS) (https://www.openapis.org/what-is-openapi) remains the most common neutral format for Hypertext Transfer Protocol (HTTP) tool and action descriptions. Sources: https://modelcontextprotocol.io ; https://www.openapis.org/what-is-openapi ; https://developers.openai.com/api/docs/guides/tools-remote-mcp ; https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-agentactiongroup.html
+
+**[inference]** Without a concrete export target, this repository already has the execution, retry, and state-management machinery it needs, so GitAgent is easier to justify as a portability layer than as an operational rewrite. Sources: https://github.com/davidamitchell/Research/blob/main/.github/workflows/research-loop.yml ; https://github.com/davidamitchell/Research/blob/main/.github/mcp.json ; https://raw.githubusercontent.com/open-gitagent/gitagent/main/docs/comparison.md
+
+### Key Findings
+
+1. **[high][fact]** GitAgent defines an agent primarily as a Git repository rooted in `agent.yaml` and `SOUL.md`, and its specification deliberately extends that core with optional skills, tools, hooks, workflows, memory, compliance, and sub-agent directories rather than forcing one framework-specific runtime model. Sources: https://raw.githubusercontent.com/open-gitagent/gitagent/main/README.md ; https://raw.githubusercontent.com/open-gitagent/gitagent/main/spec/SPECIFICATION.md
+2. **[medium][inference]** GitAgent has already attracted visible early interest, but the repository's creation date in late February 2026 and its still-current `0.1.0` specification mean that teams should evaluate it as an early-stage standard instead of assuming it is already a stable industry baseline. Sources: https://api.github.com/repos/open-gitagent/gitagent ; https://raw.githubusercontent.com/open-gitagent/gitagent/main/README.md ; https://raw.githubusercontent.com/open-gitagent/gitagent/main/spec/SPECIFICATION.md
+3. **[high][fact]** Microsoft 365 Copilot implements declarative agent definition through a dedicated manifest that captures instructions, capabilities, conversation starters, and actions, while the platform keeps orchestration and hosting inside Microsoft-managed Copilot infrastructure instead of exposing a portable runtime-neutral package. Sources: https://raw.githubusercontent.com/MicrosoftDocs/m365copilot-docs/main/docs/agents-overview.md ; https://raw.githubusercontent.com/MicrosoftDocs/m365copilot-docs/main/docs/declarative-agent-manifest-1.6.md ; https://raw.githubusercontent.com/MicrosoftDocs/m365copilot-docs/main/docs/overview-declarative-agent.md
+4. **[high][fact]** Microsoft 365 Copilot's plugin manifest layer now bridges declarative agents to both OpenAPI-described services and remote Model Context Protocol (MCP) servers, which shows that Microsoft treats cross-system tool connectivity as a separate interface layer from the declarative agent manifest itself. Sources: https://raw.githubusercontent.com/MicrosoftDocs/m365copilot-docs/main/docs/plugin-manifest-2.4.md ; https://raw.githubusercontent.com/MicrosoftDocs/m365copilot-docs/main/docs/declarative-agent-manifest-1.6.md
+5. **[high][fact]** Amazon Bedrock Agents represent declarative agent definition as a managed cloud resource with fields for model selection, instructions, action groups, knowledge bases, memory, prompt overrides, guardrails, and orchestration type, while Amazon Bedrock AgentCore supplies a broader governed runtime, tool gateway, identity, and policy platform around that resource model. Sources: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-agent.html ; https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-agentactiongroup.html ; https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html
+6. **[high][inference]** Azure Foundry Agent Service offers the broadest explicit mix of declarative prompt, declarative workflow, and code-hosted agent patterns in the current evidence base, because it supports all three behind one managed service and one shared tool catalog. Sources: https://learn.microsoft.com/en-us/azure/foundry/agents/overview ; https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/tool-catalog
+7. **[high][fact]** OpenAI's older plugin manifest pattern and its newer Responses API tools pattern express the same underlying declarative idea at different scopes, because both hand the model machine-readable descriptions of callable capabilities even though one is file-packaged and the other is request-scoped. Sources: https://raw.githubusercontent.com/openai/plugins-quickstart/main/.well-known/ai-plugin.json ; https://raw.githubusercontent.com/openai/plugins-quickstart/main/openapi.yaml ; https://developers.openai.com/api/docs/assistants/tools/ ; https://developers.openai.com/api/docs/guides/tools?api-mode=responses ; https://developers.openai.com/api/docs/guides/tools-remote-mcp
+8. **[high][inference]** Model Context Protocol (MCP) is the clearest cross-platform convergence layer because OpenAI, Azure Foundry, Microsoft 365 Copilot plugins, Amazon Bedrock AgentCore, and this repository's existing tooling all expose or consume MCP-compatible tool connections. Sources: https://modelcontextprotocol.io ; https://raw.githubusercontent.com/MicrosoftDocs/m365copilot-docs/main/docs/plugin-manifest-2.4.md ; https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/tool-catalog ; https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html ; https://developers.openai.com/api/docs/guides/tools-remote-mcp ; https://github.com/davidamitchell/Research/blob/main/.github/mcp.json
+9. **[medium][inference]** This repository already contains most of the structural pieces that a GitAgent definition expects, so an incremental adoption path would package existing rules, skills, workflows, and tools for export instead of redesigning the runtime that already runs the research loop. Sources: https://github.com/davidamitchell/Research/blob/main/README.md ; https://github.com/davidamitchell/Research/blob/main/.github/mcp.json ; https://github.com/davidamitchell/Research/blob/main/.github/workflows/research-loop.yml ; https://raw.githubusercontent.com/open-gitagent/gitagent/main/spec/SPECIFICATION.md
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [fact] GitAgent treats a repository as the agent and uses `agent.yaml` plus `SOUL.md` as the minimum required core. | https://raw.githubusercontent.com/open-gitagent/gitagent/main/README.md ; https://raw.githubusercontent.com/open-gitagent/gitagent/main/spec/SPECIFICATION.md | high | README and specification agree on required files and directory model. |
+| [inference] GitAgent is promising but still early-stage rather than an established de facto standard. | https://api.github.com/repos/open-gitagent/gitagent ; https://raw.githubusercontent.com/open-gitagent/gitagent/main/README.md | medium | Strong public interest exists, but project age and spec version remain early. |
+| [fact] Microsoft 365 Copilot declarative agents are manifest-centric and Microsoft-hosted rather than runtime-portable artifacts. | https://raw.githubusercontent.com/MicrosoftDocs/m365copilot-docs/main/docs/agents-overview.md ; https://raw.githubusercontent.com/MicrosoftDocs/m365copilot-docs/main/docs/declarative-agent-manifest-1.6.md ; https://raw.githubusercontent.com/MicrosoftDocs/m365copilot-docs/main/docs/overview-declarative-agent.md | high | Official Microsoft docs define the manifest and hosting model directly. |
+| [fact] Microsoft plugin manifests bridge actions to OpenAPI and remote Model Context Protocol (MCP) servers. | https://raw.githubusercontent.com/MicrosoftDocs/m365copilot-docs/main/docs/plugin-manifest-2.4.md | high | Schema 2.4 explicitly names both OpenAPI and `RemoteMCPServer`. |
+| [fact] Amazon Bedrock Agents are declarative managed resources, while Amazon Bedrock AgentCore is a broader runtime and policy substrate. | https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-agent.html ; https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-agentactiongroup.html ; https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html | high | AWS resource and platform docs are complementary and specific. |
+| [inference] Azure Foundry supports the broadest explicit mix of declarative and hosted agent patterns among the researched vendor platforms. | https://learn.microsoft.com/en-us/azure/foundry/agents/overview ; https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/tool-catalog | high | Azure explicitly documents prompt, workflow, and hosted agents together. |
+| [fact] OpenAI shifted from plugin manifests toward request-scoped Responses tools while retaining declarative tool descriptions. | https://raw.githubusercontent.com/openai/plugins-quickstart/main/.well-known/ai-plugin.json ; https://developers.openai.com/api/docs/assistants/tools/ ; https://developers.openai.com/api/docs/guides/tools?api-mode=responses ; https://developers.openai.com/api/docs/guides/tools-remote-mcp | high | Historical and current sources show the shift explicitly. |
+| [inference] Model Context Protocol (MCP) is the strongest interoperability layer across the researched ecosystems. | https://modelcontextprotocol.io ; https://raw.githubusercontent.com/MicrosoftDocs/m365copilot-docs/main/docs/plugin-manifest-2.4.md ; https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/tool-catalog ; https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html ; https://developers.openai.com/api/docs/guides/tools-remote-mcp ; https://github.com/davidamitchell/Research/blob/main/.github/mcp.json | high | Independent vendor sources plus this repository all point to MCP. |
+| [inference] This repository aligns structurally with GitAgent, but the current research-loop runtime already handles execution concerns that GitAgent does not replace by itself. | https://github.com/davidamitchell/Research/blob/main/.github/workflows/research-loop.yml ; https://github.com/davidamitchell/Research/blob/main/.github/mcp.json ; https://github.com/davidamitchell/Research/blob/main/README.md ; https://raw.githubusercontent.com/open-gitagent/gitagent/main/docs/comparison.md | medium | Repo fit is evidence-based but still inferential. |
+
+### Assumptions
+
+- **[assumption]** Future GitAgent adoption would only be justified here if the repository needs stronger exportability, reviewability, or machine-readable governance than the current conventions already provide. Sources: https://github.com/davidamitchell/Research/blob/main/.github/workflows/research-loop.yml ; https://raw.githubusercontent.com/open-gitagent/gitagent/main/docs/comparison.md
+- **[assumption]** A first GitAgent integration would likely stay thin and wrap existing skills, Model Context Protocol (MCP) tools, and workflows instead of migrating all operational logic on day one. Sources: https://github.com/davidamitchell/Research/blob/main/.github/workflows/research-loop.yml ; https://github.com/davidamitchell/Research/blob/main/README.md ; https://raw.githubusercontent.com/open-gitagent/gitagent/main/spec/SPECIFICATION.md
+
+### Analysis
+
+**[inference]** GitAgent sits above runtimes: it packages identity, rules, skills, tool schemas, and governance in repository files, while Microsoft 365 Copilot, Amazon Bedrock, Azure Foundry, and OpenAI package comparable concerns inside service-specific manifests, cloud resources, or request payloads. Sources: https://raw.githubusercontent.com/open-gitagent/gitagent/main/spec/SPECIFICATION.md ; https://raw.githubusercontent.com/MicrosoftDocs/m365copilot-docs/main/docs/declarative-agent-manifest-1.6.md ; https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-agent.html ; https://learn.microsoft.com/en-us/azure/foundry/agents/overview ; https://developers.openai.com/api/docs/guides/tools?api-mode=responses
+
+**[inference]** For interoperability, the declarations that travel best are the tool-facing ones rather than the vendor-facing ones, which is why Model Context Protocol (MCP) and OpenAPI Specification (OAS) matter more than any one vendor's agent package format. Sources: https://modelcontextprotocol.io ; https://www.openapis.org/what-is-openapi ; https://raw.githubusercontent.com/MicrosoftDocs/m365copilot-docs/main/docs/plugin-manifest-2.4.md ; https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/tool-catalog ; https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-agentactiongroup.html ; https://developers.openai.com/api/docs/guides/tools-remote-mcp
+
+**[inference]** The repository-specific takeaway is practical rather than ideological: preserve the existing GitHub Actions control plane, and add GitAgent only if there is a real downstream need to publish or export the repository's agent definition elsewhere. Sources: https://github.com/davidamitchell/Research/blob/main/.github/workflows/research-loop.yml ; https://github.com/davidamitchell/Research/blob/main/.github/mcp.json ; https://raw.githubusercontent.com/open-gitagent/gitagent/main/docs/comparison.md
+
+#### Cross-platform comparison
+
+| Platform | Main declarative unit | What it captures well | What stays platform-specific | Best bridge format |
+|---|---|---|---|---|
+| GitAgent | Repository rooted in `agent.yaml` | Identity, rules, skills, tools, workflows, governance, composition | Actual runtime orchestration and adapters | Model Context Protocol (MCP), OpenAPI Specification (OAS), exported target formats |
+| Microsoft 365 Copilot | Declarative agent manifest plus plugin manifest | Instructions, Microsoft knowledge sources, conversation starters, actions | Copilot hosting, Microsoft capabilities, app packaging | Plugin manifest with OpenAPI and remote MCP |
+| Amazon Bedrock | `AWS::Bedrock::Agent` plus action groups | Model, instructions, action groups, knowledge bases, memory, guardrails | AWS-managed orchestration and deployment | OpenAPI in action groups; MCP via AgentCore Gateway |
+| Azure Foundry | Prompt agent definition or workflow definition | Instructions, model, tools, workflow logic, structured inputs | Azure-managed runtime, publishing, identity, observability | MCP, OpenAPI, Agent-to-Agent (A2A) |
+| OpenAI | Request-scoped `tools` objects; earlier plugin manifest files | Tool declarations, approvals, remote MCP servers | Hosted runtime behavior and conversation state model | MCP, function calling, OpenAPI through prior plugin pattern |
+
+### Risks, Gaps, and Uncertainties
+
+- **[fact]** GitAgent's published specification is still `0.1.0`, so field names, adapter behavior, and best practices could change quickly. Sources: https://raw.githubusercontent.com/open-gitagent/gitagent/main/spec/SPECIFICATION.md ; https://api.github.com/repos/open-gitagent/gitagent
+- **[fact]** The Amazon Bedrock AgentCore launch blog cited in the original source list was unavailable in this environment, so conclusions rely on the official developer guide rather than the announcement post. Sources: https://aws.amazon.com/blogs/aws/introducing-amazon-bedrock-agentcore/ ; https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html
+- **[fact]** Some Microsoft 365 rendered documentation required authorization in this environment, so Microsoft evidence comes from the public MicrosoftDocs source repository rather than the rendered Learn pages. Sources: https://raw.githubusercontent.com/MicrosoftDocs/m365copilot-docs/main/docs/agents-overview.md ; https://raw.githubusercontent.com/MicrosoftDocs/m365copilot-docs/main/docs/declarative-agent-manifest-1.6.md
+- **[fact]** This research did not test a live GitAgent-to-this-repository prototype, so the adoption recommendation is architecture-grounded rather than implementation-proven. Sources: https://github.com/davidamitchell/Research/blob/main/.github/workflows/research-loop.yml ; https://raw.githubusercontent.com/open-gitagent/gitagent/main/spec/SPECIFICATION.md
+
+### Open Questions
+
+- What is the smallest useful GitAgent layer for this repository: only `agent.yaml` and core identity files, or a fuller mapping of skills, tools, and workflows?
+- Should a future GitAgent integration here target GitHub Copilot first, or should it target an export path into Azure Foundry, Microsoft 365 Copilot, or OpenAI-compatible runtimes?
+- Would it be cleaner to author a custom GitAgent adapter for this repository's research workflow than to force the existing workflow into a generic runtime model?
+
+---
 
 ---
 
