@@ -1,9 +1,10 @@
 # Research Master Document
 
-Generated on: 2026-03-19 07:59 UTC
+Generated on: 2026-03-19 08:21 UTC
 
 ## Table of Contents
 
+* [Adaptive Policy-Based Authorization (APBA): compliance alignment with National Institute of Standards and Technology (NIST) Special Publication (SP) 800-53 and International Organization for Standardization (ISO) / International Electrotechnical Commission (IEC) 27001, and impact on Policy as Code (PaC) and Artificial Intelligence (AI)-generated authorization code](#2026-03-16-adaptive-policy-authorization-compliance-md)
 * [Trusting Trust and AI Corpus Contamination](#2026-03-15-trusting-trust-ai-corpus-contamination-md)
 * [Invariants in Software as a Service (SaaS) Banking Software](#2026-03-15-saas-banking-invariants-md)
 * [Prompt injection threat landscape: exploits, defences, and active research in agentic artificial intelligence (AI) systems](#2026-03-15-prompt-injection-threat-landscape-md)
@@ -95,6 +96,84 @@ Generated on: 2026-03-19 07:59 UTC
 * [AI Strategy Examples: Business Efficiency Focus](#2026-02-28-ai-strategy-business-efficiency-examples-md)
 * [AI Line 1 and Line 2 Risk Agents: Who Is Building Them?](#2026-02-28-ai-line-1-line-2-risk-agents-md)
 * [AI for Control Testing, Gap Identification, and Policies/Standards Reviews](#2026-02-28-ai-control-testing-and-assurance-md)
+
+---
+
+<a name="2026-03-16-adaptive-policy-authorization-compliance-md"></a>
+
+## Adaptive Policy-Based Authorization (APBA): compliance alignment with National Institute of Standards and Technology (NIST) Special Publication (SP) 800-53 and International Organization for Standardization (ISO) / International Electrotechnical Commission (IEC) 27001, and impact on Policy as Code (PaC) and Artificial Intelligence (AI)-generated authorization code
+
+**Tags:** [authorization, policy-as-code, compliance, nist, iso-27001, ai, governance, least-privilege, access-control, iac]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-16-adaptive-policy-authorization-compliance.md
+
+## Research Question
+
+How does Adaptive Policy-Based Authorization (APBA) align with the dynamic access-control requirements of National Institute of Standards and Technology (NIST) Special Publication (SP) 800-53 and ISO/IEC 27001, and what implications does this alignment have for Policy as Code (PaC) tooling and the AI-assisted production of authorization code?
+
+Supporting questions:
+- Which specific controls in NIST SP 800-53 and ISO/IEC 27001 are addressed by APBA, and how directly do they map?
+- What does "adaptive" mean in practice — context-aware evaluation, risk-based step-up, continuous re-authorization — and which compliance requirements drive each variant?
+- How do current PaC frameworks such as Open Policy Agent (OPA), Cedar, Amazon Web Services (AWS) Verified Permissions, Rego, Cerbos, and eXtensible Access Control Markup Language (XACML) implement or approximate APBA, and what compliance evidence do they generate?
+- What are the risks of using AI to generate authorization policies and access-control code, and which failure modes are most compliance-relevant (privilege escalation, over-permissive defaults, stale policy drift)?
+- What governance controls are required when AI is used to author or modify policies that are themselves compliance artefacts?
+
+## Findings
+
+### Executive Summary
+
+- [inference] Adaptive Policy-Based Authorization aligns strongly with the access-control intent of NIST SP 800-53 Rev. 5 and materially supports ISO/IEC 27001:2022 access-management controls, but it is not compliance-complete unless its policies, attribute changes, and authorization decisions are validated, logged, reviewed, and tied to identity lifecycle processes. (Sources: https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-2/ ; https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-3/ ; https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-16/ ; https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-24/ ; https://www.isms.online/iso-27001/annex-a-2022/ ; https://consultantslikeus.co.uk/wp-content/uploads/2025/04/93-annex-a-controls-pdf.pdf)
+- [fact] The direct standards fit is strongest for Attribute-Based Access Control because NIST names attribute-based enforcement, dynamic attribute association, and per-request authorization decisions explicitly. (Sources: https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-3/ ; https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-16/ ; https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-24/ ; https://csrc.nist.gov/publications/detail/sp/800-162/final)
+- [inference] Current policy engines already provide the core technical mechanisms for compliant APBA, but they differ in how much auditability and validation workflow they supply out of the box. (Sources: https://www.openpolicyagent.org/docs/latest/ ; https://docs.cedarpolicy.com/policies/validation.html ; https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/monitoring-cloudtrail.html ; https://docs.cerbos.dev/cerbos/latest/policies/compile.html ; https://www.oasis-open.org/committees/xacml/)
+- [inference] Current AI-code-security evidence makes unreviewed authorization-policy generation a control weakness for regulated environments. (Sources: https://arxiv.org/abs/2108.09293 ; https://arxiv.org/html/2506.11022v2 ; https://arxiv.org/html/2412.15004v4)
+
+### Key Findings
+
+1. [fact] **High confidence:** Adaptive Policy-Based Authorization maps directly to NIST SP 800-53 Rev. 5 because the catalog explicitly requires attribute-based access control, dynamic attribute association, and per-request authorization decisions rather than leaving those mechanisms entirely implicit. (Sources: https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-3/ ; https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-16/ ; https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-24/ ; https://csrc.nist.gov/publications/detail/sp/800-162/final)
+2. [inference] **High confidence:** Risk-Adaptive Access Control and continuous authorization strengthen compliance alignment chiefly by operationalizing dynamic privilege changes, dynamic account management, remote-access monitoring, and event-driven re-evaluation of access rather than by satisfying a single named control on their own. (Sources: https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-2/ ; https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-17/ ; https://csrc.nist.gov/glossary/term/Risk_Adaptive_Adaptable_Access_Control ; https://csrc.nist.gov/publications/detail/sp/800-207/final)
+3. [inference] **Medium confidence:** Adaptive Policy-Based Authorization materially supports ISO/IEC 27001:2022 controls A.5.15 through A.5.18 because it expresses access rules, identity-linked decisions, and revocable rights in executable form, but the normative Annex A text was not openly accessible during this session. (Sources: https://www.iso.org/standard/27001 ; https://www.isms.online/iso-27001/annex-a-2022/ ; https://consultantslikeus.co.uk/wp-content/uploads/2025/04/93-annex-a-controls-pdf.pdf)
+4. [inference] **High confidence:** OPA, Cedar, AWS Verified Permissions, Cerbos, and XACML are all viable foundations for compliant Adaptive Policy-Based Authorization, and they expose evidence differently: AWS Verified Permissions adds managed audit integration, OPA exposes flexible custom logging and tests, Cerbos includes built-in test suites and decision lineage, and XACML supplies the reference architecture. (Sources: https://www.openpolicyagent.org/docs/latest/ ; https://www.openpolicyagent.org/docs/policy-testing ; https://www.openpolicyagent.org/docs/management-decision-logs ; https://docs.cedarpolicy.com/policies/validation.html ; https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/monitoring-cloudtrail.html ; https://docs.cerbos.dev/cerbos/latest/policies/compile.html ; https://www.oasis-open.org/committees/xacml/)
+5. [inference] **High confidence:** AI-generated authorization policies and access-control code should be handled as high-risk compliance artefacts because current empirical research shows that AI-generated code frequently contains vulnerabilities, users often overestimate its security, and iterative refinement can introduce additional critical defects. (Sources: https://arxiv.org/abs/2108.09293 ; https://arxiv.org/html/2506.11022v2 ; https://arxiv.org/html/2412.15004v4)
+6. [inference] **High confidence:** Human review, schema validation, automated policy tests, immutable version history, and decision logging are the minimum governance controls required before an organization can rely on AI-assisted authorization authoring in a regulated environment. (Sources: https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-2/ ; https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-3/ ; https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-16/ ; https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-24/ ; https://docs.cedarpolicy.com/policies/validation.html ; https://www.openpolicyagent.org/docs/policy-testing ; https://www.openpolicyagent.org/docs/management-decision-logs ; https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/monitoring-cloudtrail.html ; https://docs.cerbos.dev/cerbos/latest/policies/compile.html)
+7. [inference] **Medium confidence:** The main architectural trade-off is operational burden versus managed evidence because self-managed engines offer portability and deep customization while managed services reduce the work needed to build auditable authorization pipelines. (Sources: https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/what-is-avp.html ; https://www.openpolicyagent.org/docs/latest/ ; https://docs.cerbos.dev/cerbos/latest/index.html ; https://www.oasis-open.org/committees/xacml/)
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| APBA maps directly to AC-3(13), AC-16, and AC-24 | https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-3/ ; https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-16/ ; https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-24/ ; https://csrc.nist.gov/publications/detail/sp/800-162/final | high | Direct primary-source mapping |
+| RAdAC and continuous authorization align through dynamic controls | https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-2/ ; https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-17/ ; https://csrc.nist.gov/glossary/term/Risk_Adaptive_Adaptable_Access_Control ; https://csrc.nist.gov/publications/detail/sp/800-207/final | high | Combination of glossary, standard, and control text |
+| APBA supports ISO A.5.15–A.5.18 but with lower textual certainty | https://www.iso.org/standard/27001 ; https://www.isms.online/iso-27001/annex-a-2022/ ; https://consultantslikeus.co.uk/wp-content/uploads/2025/04/93-annex-a-controls-pdf.pdf | medium | Official overview + secondary summaries |
+| Modern policy engines differ mainly in evidence surface | https://www.openpolicyagent.org/docs/latest/ ; https://www.openpolicyagent.org/docs/policy-testing ; https://www.openpolicyagent.org/docs/management-decision-logs ; https://docs.cedarpolicy.com/policies/validation.html ; https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/monitoring-cloudtrail.html ; https://docs.cerbos.dev/cerbos/latest/policies/compile.html ; https://www.oasis-open.org/committees/xacml/ | high | Direct official documentation |
+| AI-generated authorization artefacts are high-risk | https://arxiv.org/abs/2108.09293 ; https://arxiv.org/html/2506.11022v2 ; https://arxiv.org/html/2412.15004v4 | high | Independent research convergence |
+| Review, validation, testing, versioning, and logs are minimum governance controls | https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-2/ ; https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-3/ ; https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-16/ ; https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-24/ ; https://docs.cedarpolicy.com/policies/validation.html ; https://www.openpolicyagent.org/docs/policy-testing ; https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/monitoring-cloudtrail.html ; https://docs.cerbos.dev/cerbos/latest/policies/compile.html | high | Derived governance conclusion from standards + tooling |
+| Managed services reduce evidence-pipeline assembly effort | https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/what-is-avp.html ; https://aws.amazon.com/verified-permissions/features/ ; https://www.openpolicyagent.org/docs/latest/ ; https://docs.cerbos.dev/cerbos/latest/index.html | medium | Architecture comparison, not benchmarked cost data |
+
+### Assumptions
+
+- [assumption] The consulted ISO/IEC 27001:2022 summaries materially preserve the intent of Annex A.5.15–A.5.18. **Justification:** the normative text was not openly accessible, and multiple summaries converged on the same control themes.
+- [assumption] Broad AI-code-security research applies to authorization policy generation strongly enough to guide governance design. **Justification:** authorization policies are executable security logic, and their primary failure modes map directly to access-control outcomes.
+
+### Analysis
+
+- [inference] NIST is the clearest mechanism match because its access-control catalog explicitly names attribute-based enforcement, dynamic attributes, dynamic privilege changes, and per-request authorization decisions, while ISO/IEC 27001 concentrates more on governed rule-setting, identity management, authentication information handling, and access-right review. That makes APBA a strong technical substrate for compliance, but never the whole answer. (Sources: https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-2/ ; https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-3/ ; https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-16/ ; https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-24/ ; https://www.isms.online/iso-27001/annex-a-2022/ ; https://consultantslikeus.co.uk/wp-content/uploads/2025/04/93-annex-a-controls-pdf.pdf)
+- [inference] Official product documentation shows that the engines are already capable, but the surrounding review, approval, and evidence lifecycle determines whether the implementation is auditable. (Sources: https://www.openpolicyagent.org/docs/latest/ ; https://docs.cedarpolicy.com/policies/validation.html ; https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/monitoring-cloudtrail.html ; https://docs.cerbos.dev/cerbos/latest/policies/compile.html ; https://www.oasis-open.org/committees/xacml/)
+- [inference] Empirical AI-security studies make augmentation under controls more defensible than autonomous policy publishing because authorization defects can remain silent while still changing who gets access. (Sources: https://arxiv.org/abs/2108.09293 ; https://arxiv.org/html/2506.11022v2 ; https://arxiv.org/html/2412.15004v4)
+
+### Risks, Gaps, and Uncertainties
+
+- [fact] The official ISO/IEC 27001 Annex A control text was not directly accessible, so the ISO control mapping rests partly on secondary sources. (Sources: https://www.iso.org/standard/27001 ; https://www.isms.online/iso-27001/annex-a-2022/ ; https://consultantslikeus.co.uk/wp-content/uploads/2025/04/93-annex-a-controls-pdf.pdf)
+- [fact] The practical comparison among policy engines is documentation-based and not benchmarked with a common reference implementation. (Sources: https://www.openpolicyagent.org/docs/latest/ ; https://docs.cedarpolicy.com/policies/validation.html ; https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/monitoring-cloudtrail.html ; https://docs.cerbos.dev/cerbos/latest/policies/compile.html ; https://www.oasis-open.org/committees/xacml/)
+- [fact] The AI-security literature is still broader than the specific niche of authorization policy generation. (Sources: https://arxiv.org/abs/2108.09293 ; https://arxiv.org/html/2506.11022v2 ; https://arxiv.org/html/2412.15004v4)
+- [fact] XACML remains relevant as a standards reference, but this item did not evaluate a current XACML product stack in operational depth. (Sources: https://www.oasis-open.org/committees/xacml/ ; https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html)
+
+### Open Questions
+
+- Which public case studies show regulated teams using AI to author or revise authorization policies with auditable approval workflows?
+- How do external auditors weigh simulated policy-test evidence against live authorization decision logs during access-right reviews?
+- What is the best machine-checkable way to bind natural-language access requirements to executable policies without introducing intent drift?
+
+---
 
 ---
 
