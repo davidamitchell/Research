@@ -16,8 +16,13 @@ Read the research item at path: `{{ITEM_PATH}}`
 
 ## Review Process
 
-Apply each skill below in **audit-only** mode — check for violations; do not
-rewrite or edit the item.
+Before starting any checks: read the entire item from top to bottom so you
+have the full picture. Then apply each skill below in **audit-only** mode —
+check for violations; do not rewrite or edit the item.
+
+After completing all three checks, review your own analysis once for
+consistency — ask yourself whether each flagged item is a genuine problem or a
+preference. Only then write the report.
 
 ### Step 1 — citation-discipline
 

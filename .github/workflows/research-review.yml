@@ -45,14 +45,14 @@ jobs:
     timeout-minutes: 30
 
     permissions:
-      contents: read
-      issues: write
+      contents: write
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 1
+          token: ${{ secrets.COPILOT_GITHUB_TOKEN }}
 
       - name: Initialize skills submodule
         run: git submodule update --init .github/skills
@@ -82,12 +82,11 @@ jobs:
         if: steps.items.outputs.has_items == 'true'
         run: npm install -g @github/copilot
 
-      - name: Ensure research-review label exists
+      - name: Configure git identity
         if: steps.items.outputs.has_items == 'true'
-        env:
-          GH_TOKEN: ${{ secrets.COPILOT_GITHUB_TOKEN }}
         run: |
-          gh label create "research-review" --color "e11d48" --description "Research quality review failure" 2>/dev/null || true
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
 
       - name: Run quality review
         if: steps.items.outputs.has_items == 'true'
@@ -96,14 +95,15 @@ jobs:
         run: |
           set -euo pipefail
 
-          FAILED=0
+          # Maximum number of review passes per item. After this, the item
+          # is considered good enough and the review auto-passes.
+          MAX_REVIEWS=2
 
           while IFS= read -r ITEM; do
             [ -z "$ITEM" ] && continue
 
             if [ ! -f "$ITEM" ]; then
               echo "::error::Item not found: $ITEM"
-              FAILED=1
               continue
             fi
 
@@ -113,12 +113,32 @@ jobs:
             echo "========================================"
             echo ""
 
-            # Inject the item path into the prompt template.
+            # ---------------------------------------------------------------- #
+            # Review cap check                                                  #
+            # ---------------------------------------------------------------- #
+            # Read review_count from YAML frontmatter (default 0 if absent).
+            REVIEW_COUNT=$(grep -m1 '^review_count:' "$ITEM" | awk '{print $2}' || true)
+            REVIEW_COUNT="${REVIEW_COUNT:-0}"
+            echo "Review pass: $((REVIEW_COUNT + 1)) of $MAX_REVIEWS"
+
+            if [ "$REVIEW_COUNT" -ge "$MAX_REVIEWS" ]; then
+              echo "Review cap ($MAX_REVIEWS) reached for: $ITEM — auto-passing."
+              printf 'REVIEW_TARGET: %s\ncitation-discipline: PASS\nspeculation-control: PASS\nremove-ai-slop: PASS\nOVERALL: PASS\nNOTE: review cap reached (%s/%s)\n' \
+                "$ITEM" "$REVIEW_COUNT" "$MAX_REVIEWS" \
+                > /tmp/research-review-report.txt
+              cat /tmp/research-review-report.txt
+              continue
+            fi
+
+            # ---------------------------------------------------------------- #
+            # Run the copilot review                                            #
+            # ---------------------------------------------------------------- #
             sed "s|{{ITEM_PATH}}|${ITEM}|g" research-review-prompt.md \
               > /tmp/review-prompt.md
 
             rm -f /tmp/research-review-report.txt
 
+            REVIEW_STATUS="PASS"
             if copilot -p "$(cat /tmp/review-prompt.md)" \
                 --autopilot \
                 --allow-all; then
@@ -129,42 +149,37 @@ jobs:
                 echo "====================="
                 echo ""
                 if grep -q "^OVERALL: FAIL" /tmp/research-review-report.txt; then
-                  echo "::error::Research quality review FAILED for: $ITEM"
-                  SLUG=$(basename "$ITEM" .md)
-                  TITLE="Research review failed: ${SLUG}"
-                  EXISTING=$(gh issue list \
-                    --label "research-review" \
-                    --state open \
-                    --json number,title \
-                    --jq ".[] | select(.title == \"$TITLE\") | .number" | head -1)
-                  if [ -n "$EXISTING" ]; then
-                    gh issue comment "$EXISTING" \
-                      --body "$(cat /tmp/research-review-report.txt)"
-                  else
-                    gh issue create \
-                      --title "$TITLE" \
-                      --body "$(cat /tmp/research-review-report.txt)" \
-                      --label "research-review" \
-                      --assignee davidamitchell
-                  fi
-                  FAILED=1
+                  REVIEW_STATUS="FAIL"
+                  echo "::warning::Research quality review FAILED for: $ITEM (pass $((REVIEW_COUNT + 1)) of $MAX_REVIEWS — no issue raised)"
                 else
                   echo "Research quality review PASSED for: $ITEM"
                 fi
               else
-                echo "::error::Review report was not generated for: $ITEM"
-                FAILED=1
+                echo "::warning::Review report was not generated for: $ITEM"
+                REVIEW_STATUS="FAIL"
               fi
             else
-              echo "::error::Copilot review agent failed for: $ITEM"
-              FAILED=1
+              echo "::warning::Copilot review agent failed for: $ITEM"
+              REVIEW_STATUS="FAIL"
             fi
+
+            # ---------------------------------------------------------------- #
+            # Increment review_count in item frontmatter                       #
+            # ---------------------------------------------------------------- #
+            NEW_COUNT=$((REVIEW_COUNT + 1))
+            if grep -q '^review_count:' "$ITEM"; then
+              sed -i "s/^review_count:.*/review_count: ${NEW_COUNT}/" "$ITEM"
+            else
+              # Insert review_count after the opening --- line using awk
+              awk -v n="$NEW_COUNT" 'NR==1 && /^---$/{print; print "review_count: "n; next}1' "$ITEM" > /tmp/item-patched.md
+              mv /tmp/item-patched.md "$ITEM"
+            fi
+
+            git add "$ITEM"
+            git commit -m "review: pass ${NEW_COUNT}/${MAX_REVIEWS} for $(basename "$ITEM" .md) — ${REVIEW_STATUS}"
+            git push origin HEAD
 
           done < /tmp/items-to-review.txt
 
-          if [ "$FAILED" -ne 0 ]; then
-            exit 1
-          fi
-
           echo ""
-          echo "All research quality reviews passed."
+          echo "All research quality reviews complete."

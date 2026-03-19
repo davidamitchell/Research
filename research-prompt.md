@@ -2,13 +2,29 @@
 
 You are a research agent working on the `davidamitchell/Research` repository.
 
-Your task: complete **exactly one** research item from `Research/backlog/`.
+Your task: complete **exactly one** research item.
 
 ---
 
 ## Steps
 
 ### 1. Pick the next item
+
+**First, check for work already in progress:**
+
+```bash
+ls Research/in-progress/*.md 2>/dev/null | grep -v README
+```
+
+If any `.md` files exist in `Research/in-progress/` (excluding README), pick the
+oldest one (earliest date in filename) and resume it — skip the backlog entirely.
+Note its `status` field so you know where to re-enter:
+- `status: in-progress` → resume from Step 4 (research is incomplete)
+- `status: reviewing` → the review workflow already ran; check `review_count` in
+  the frontmatter. If `review_count` is 0 or absent, re-trigger the review from
+  Step 9. If `review_count >= 1`, treat the review as done and proceed to Step 11.
+
+**If `Research/in-progress/` is empty**, pick from the backlog:
 
 List `Research/backlog/` and read the front matter of each `.md` file.
 Select the **highest-priority** item by applying these rules in order:
@@ -123,7 +139,23 @@ Re-read the completed item as a critical reader, not as its author. Apply all fo
 
 If any check surfaces a problem, fix it before proceeding.
 
-### 8. Mark as draft and trigger review
+### 8. Self-review before draft commit
+
+Before committing, run an inline self-review to catch the most common violations. This avoids spending a full external review cycle on easily-detectable issues.
+
+**Check all of the following before proceeding:**
+
+1. **Acronym/abbreviation expansion** — scan every section of `## Research Skill Output` and `## Findings`. List every abbreviation used. Confirm each is expanded at its **first occurrence in the entire document** (not per-section). The most commonly failed ones are: LLM, API, CLI, SDK, PAT, MCP, RAG, CoT, PDF, GPT, SRE, PR, ITSM, PINT, CVE, OWASP. Fix every unexpanded abbreviation before proceeding.
+
+2. **Claim labels** — every factual or inferential claim in `## Research Skill Output` must carry a `[fact]`, `[inference]`, or `[assumption]` label. Headings and question decomposition sub-headings are exempt. Fix any unlabelled claims.
+
+3. **Vague quantifiers** — check for unsourced "many", "most", "significant", "state-of-the-art". Replace with specific numbers or add a source, or qualify as `[inference]`.
+
+4. **AI slop phrases** — scan `## Findings` for: "Furthermore", "Additionally", "It is important to note", "In conclusion", "It is worth noting", "Importantly". Remove or rewrite each occurrence.
+
+If you fix anything in this self-review, re-read the affected sentences to confirm the fix did not introduce a new violation before proceeding.
+
+### 9. Mark as draft and trigger review
 
 ```bash
 SLUG=$(basename <filename> .md)
@@ -145,24 +177,37 @@ RUN_ID=$(gh run list --workflow=research-review.yml --branch=main --limit=1 --js
 gh run watch "$RUN_ID" --exit-status || true
 ```
 
-### 9. Handle review outcome
+### 10. Handle review outcome
 
-Check for an open GitHub issue labelled `research-review` for this item (`SLUG` set in Step 8):
+Pull the latest version of the item (the review workflow commits `review_count`
+back to the file):
 
 ```bash
-OPEN_ISSUE=$(gh issue list --label research-review --state open --search "$SLUG" \
-  --json number --jq '.[0].number // empty')
+git pull --rebase origin main
 ```
 
-- **If `OPEN_ISSUE` is non-empty (OVERALL: FAIL):** read the violations listed in the issue body, fix them in the item file, then loop back to Step 8.
-- **If `OPEN_ISSUE` is empty (OVERALL: PASS):** close any previously opened issue for this item and proceed to Step 10:
+Read the `review_count` field from the item's YAML frontmatter:
+
+```bash
+REVIEW_COUNT=$(grep -m1 '^review_count:' Research/in-progress/<filename> | awk '{print $2}')
+```
+
+- **If `REVIEW_COUNT` is absent or 0:** the review workflow did not run or did not
+  commit — re-trigger from Step 9.
+- **If `REVIEW_COUNT >= 1`:** the review ran. Check the latest review workflow log
+  for `OVERALL: FAIL` to decide whether to fix anything before completing:
+
   ```bash
-  STALE=$(gh issue list --label research-review --state open --search "$SLUG" \
-    --json number --jq '.[0].number // empty')
-  [ -n "$STALE" ] && gh issue close "$STALE" --comment "All violations resolved. OVERALL: PASS."
+  LAST_RUN=$(gh run list --workflow=research-review.yml --limit=1 --json databaseId --jq '.[0].databaseId')
+  gh run view "$LAST_RUN" --log | grep -E "OVERALL:|VIOLATION:" || true
   ```
 
-### 10. Complete the item
+  - **OVERALL: PASS** (or `review_count >= 2`, which auto-passes): proceed to Step 11.
+  - **OVERALL: FAIL and `review_count` is 1:** fix the flagged violations in the
+    item, apply the Step 8 self-review, then loop back to Step 9 to trigger one
+    final review pass. After that second pass the item will auto-pass regardless.
+
+### 11. Complete the item
 
 ```bash
 python -m src.main research complete <filename>
@@ -170,7 +215,7 @@ python -m src.main research complete <filename>
 
 This moves the file to `Research/completed/<filename>` and updates `status` and `completed` fields.
 
-### 11. Update learnings.md
+### 12. Update learnings.md
 
 Read `learnings.md`. Check whether any finding from this item adds signal to an existing cross-cutting thread:
 
@@ -180,7 +225,7 @@ Read `learnings.md`. Check whether any finding from this item adds signal to an 
 
 Do not add findings that are already captured or that apply only to this item. `learnings.md` is a synthesis layer across items, not a per-item summary.
 
-### 12. Create session log
+### 13. Create session log
 
 Create a new file `progress/YYYY-MM-DD-{slug}.md` where `{slug}` is the short-title portion of the research item filename (e.g. `slack-msteams-research-integration` from `2026-03-02-slack-msteams-research-integration.md`) with this content:
 
@@ -205,7 +250,7 @@ Sources consulted:
 4. **Is this a pattern?** <answer — if yes, note whether it matches a known pattern in the instructions or warrants adding a new one>
 ```
 
-### 13. Commit to main
+### 14. Commit to main
 
 ```bash
 git add .

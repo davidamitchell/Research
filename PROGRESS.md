@@ -1,6 +1,7 @@
 # Progress
 
 > Session logs live in [`progress/`](progress/) — one file per session, no edits to this file required.
+Last updated: 2026-03-18 (optimize-review-process — review cap + no-issue policy)
 Last updated: 2026-03-08 (run-build-it-allocation-implementation-how)
 Last updated: 2026-03-07 (ai-not-a-data-problem)
 Last updated: 2026-03-06 (interoception-and-the-predictive-self)
@@ -45,6 +46,28 @@ Last updated: 2026-03-03 (ai-control-testing-and-assurance)
 ---
 
 ## Work Log
+
+### 2026-03-18 — Review process optimisation (optimize-review-process-Ciwup)
+
+**Problem:** Items were accumulating 20–30 draft commits across multiple review
+sessions because the LLM reviewer, given a fresh context each time, always found
+something to flag — acronyms, vague phrases, heading labels. The review was
+measuring the reviewer's ability to generate critique, not actual document quality.
+
+**Changes made:**
+
+- `research-review.yml`: capped reviews at **2 passes per item** via a
+  `review_count` frontmatter field. After 2 passes the item auto-passes. Removed
+  all GitHub issue creation and commenting — failures are logged as warnings only.
+- `research-review-prompt.md`: reviewer is now instructed to read the full
+  document before starting checks, then review its own analysis once before
+  writing the report.
+- Frontmatter field added automatically: `review_count` is incremented and
+  committed back after each pass (PASS or FAIL), so the cap is durable across runs.
+
+**Fix type:** workflow policy + prompt engineering (no research content changed)
+
+---
 
 ### 2026-03-08 — Research Loop (run-build-it-allocation-implementation-how)
 
