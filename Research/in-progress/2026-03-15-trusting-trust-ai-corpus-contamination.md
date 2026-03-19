@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "Trusting Trust and AI Corpus Contamination"
 added: 2026-03-15
 status: reviewing
