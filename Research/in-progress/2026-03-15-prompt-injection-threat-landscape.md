@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "Prompt injection threat landscape: exploits, defences, and active research in agentic artificial intelligence (AI) systems"
 added: 2026-03-15
 status: reviewing
