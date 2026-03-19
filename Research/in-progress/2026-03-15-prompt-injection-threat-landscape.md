@@ -27,7 +27,7 @@ Supporting questions:
 **In scope:**
 - Taxonomy of prompt injection attack types: direct (user-controlled input), indirect (environment-sourced: web pages, documents, tool outputs), and multi-turn/compositional attacks
 - Who is conducting attacks: threat actors, research groups, red teams, and known real-world incidents involving prompt injection in deployed systems
-- Who is building defences: researchers, platform vendors (OpenAI, Anthropic, Google DeepMind, Microsoft), standards bodies (Open Worldwide Application Security Project (OWASP), National Institute of Standards and Technology (NIST), MITRE), and enterprise security teams
+- Who is building defences: researchers, platform vendors (OpenAI, Anthropic, Google DeepMind, Microsoft), standards bodies (Open Worldwide Application Security Project (OWASP), National Institute of Standards and Technology (NIST), The MITRE Corporation (MITRE)), and enterprise security teams
 - The attack surface specific to agentic systems: agents that browse the web, execute code, send emails, call Application Programming Interfaces (APIs), or have filesystem access - and why indirect injection is qualitatively more dangerous in these contexts
 - Current published research (2023-2025): academic papers, red-team disclosures, Common Vulnerabilities and Exposures (CVEs), and practitioner blog posts
 - Mitigation approaches and their effectiveness: prompt hardening, instruction hierarchy, sandboxing, input/output filtering, privilege separation, human-in-the-loop gates
@@ -70,9 +70,9 @@ The present research item is dedicated to prompt injection alone because:
 - [x] Anthropic many-shot jailbreaking - https://www.anthropic.com/research/many-shot-jailbreaking
 - [x] Anthropic Constitutional Classifiers - https://www.anthropic.com/news/constitutional-classifiers
 - [x] Microsoft Prompt Shields documentation - https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/jailbreak-detection
-- [x] Google DeepMind CaMeL - https://arxiv.org/abs/2503.18813
+- [x] Google DeepMind CApabilities for MachinE Learning (CaMeL) - https://arxiv.org/abs/2503.18813
 - [x] Google DeepMind "Lessons from Defending Gemini Against Indirect Prompt Injections" - https://storage.googleapis.com/deepmind-media/Security%20and%20Privacy/Gemini_Security_Paper.pdf
-- [x] Lakera PINT Benchmark - https://github.com/lakeraai/pint-benchmark
+- [x] Lakera Prompt Injection Test (PINT) Benchmark - https://github.com/lakeraai/pint-benchmark
 - [x] Lakera benchmark background - https://www.lakera.ai/product-updates/lakera-pint-benchmark
 - [x] Palo Alto Networks Unit 42 web-based indirect prompt injection analysis - https://unit42.paloaltonetworks.com/ai-agent-prompt-injection/
 - [x] Adaptive Attacks Break Defenses Against Indirect Prompt Injection Attacks on LLM Agents - https://aclanthology.org/2025.findings-naacl.395/
@@ -145,7 +145,7 @@ The present research item is dedicated to prompt injection alone because:
 
 **[fact]** OWASP's LLM01 reference scenarios cite public plugin and document-based prompt injection cases, including document poisoning, cross-plugin request forgery, resume injection, payload splitting, code injection, multilingual and obfuscated attacks, and multimodal attacks. (Source: https://genai.owasp.org/llmrisk/llm01-prompt-injection/)
 
-**[fact]** Simon Willison's 2023-2025 prompt-injection writing covers mitigation through blast-radius reduction, Model Context Protocol (MCP) security problems, and agent-architecture defences such as CaMeL. **[fact]** Across those posts, he argues that prompt injection remains unsolved and that the key mitigation is to **limit blast radius**, not to assume the model can perfectly distinguish instructions from data. (Sources: https://simonwillison.net/2023/Dec/20/mitigate-prompt-injection/ ; https://simonwillison.net/2025/Apr/9/mcp-prompt-injection/ ; https://simonwillison.net/2025/Apr/11/camel/ ; https://modelcontextprotocol.io/introduction)
+**[fact]** Simon Willison's 2023-2025 prompt-injection writing covers mitigation through blast-radius reduction, Model Context Protocol (MCP) security problems, and agent-architecture defences such as CApabilities for MachinE Learning (CaMeL). **[fact]** Across those posts, he argues that prompt injection remains unsolved and that the key mitigation is to **limit blast radius**, not to assume the model can perfectly distinguish instructions from data. (Sources: https://simonwillison.net/2023/Dec/20/mitigate-prompt-injection/ ; https://simonwillison.net/2025/Apr/9/mcp-prompt-injection/ ; https://simonwillison.net/2025/Apr/11/camel/ ; https://modelcontextprotocol.io/introduction)
 
 **[fact]** Palo Alto Networks Unit 42 reports that web-based indirect prompt injection is being **actively weaponized**. Their telemetry analysis claims 22 distinct payload-engineering techniques in the wild and documents attacker intents including ad-review evasion, search-engine-optimization manipulation, data destruction, denial of service, unauthorised transactions, sensitive information leakage, and system-prompt leakage. (Source: https://unit42.paloaltonetworks.com/ai-agent-prompt-injection/)
 
@@ -306,11 +306,7 @@ The present research item is dedicated to prompt injection alone because:
 
 ### Executive Summary
 
-**[inference]** Prompt injection is now an operational security problem for agentic AI systems rather than a hypothetical edge case. (Sources: https://genai.owasp.org/llmrisk/llm01-prompt-injection/ ; https://arxiv.org/abs/2302.12173 ; https://unit42.paloaltonetworks.com/ai-agent-prompt-injection/)
-
-**[inference]** Documented incidents mostly begin with poisoned external content, while the strongest public evidence still points to researchers, bug hunters, and malicious publishers more than to clearly attributed state or organised-crime campaigns. (Sources: https://arxiv.org/abs/2302.12173 ; https://unit42.paloaltonetworks.com/ai-agent-prompt-injection/)
-
-**[inference]** The practical consequence is that organisations should prioritize containment, approval gates, and least privilege, because existing defences lower attack success without making fully autonomous agents trustworthy by default. (Sources: https://www.anthropic.com/news/constitutional-classifiers ; https://aclanthology.org/2025.findings-naacl.395/ ; https://arxiv.org/abs/2503.18813)
+**[inference]** Prompt injection is now an operational security problem for agentic AI systems - AI systems that pursue goals with limited supervision and use tools or external software - rather than a hypothetical edge case. (Sources: https://www.congress.gov/crs-product/IF13151 ; https://genai.owasp.org/llmrisk/llm01-prompt-injection/ ; https://arxiv.org/abs/2302.12173 ; https://unit42.paloaltonetworks.com/ai-agent-prompt-injection/) **[inference]** Documented incidents mostly begin with poisoned external content, while the strongest public evidence still points to researchers, bug hunters, and malicious publishers more than to clearly attributed state or organised-crime campaigns. (Sources: https://arxiv.org/abs/2302.12173 ; https://unit42.paloaltonetworks.com/ai-agent-prompt-injection/) **[inference]** The practical consequence is that organisations should prioritize containment, approval gates, and least privilege, because existing defences lower attack success without making fully autonomous agents trustworthy by default. (Sources: https://www.anthropic.com/news/constitutional-classifiers ; https://aclanthology.org/2025.findings-naacl.395/ ; https://arxiv.org/abs/2503.18813)
 
 ### Key Findings
 
