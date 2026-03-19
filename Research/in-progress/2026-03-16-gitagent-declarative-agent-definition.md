@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "GitAgent and declarative agent definition: concepts, adoption, and cross-platform integration"
 added: 2026-03-16
 status: reviewing
