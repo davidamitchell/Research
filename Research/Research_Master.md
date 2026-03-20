@@ -1,9 +1,10 @@
 # Research Master Document
 
-Generated on: 2026-03-20 03:41 UTC
+Generated on: 2026-03-20 04:03 UTC
 
 ## Table of Contents
 
+* [Intent Driven Development: context and concept layering to bound the solution space](#2026-03-16-intent-driven-development-md)
 * [GitAgent and declarative agent definition: concepts, adoption, and cross-platform integration](#2026-03-16-gitagent-declarative-agent-definition-md)
 * [Adaptive Policy-Based Authorization (APBA): compliance alignment with National Institute of Standards and Technology (NIST) Special Publication (SP) 800-53 and International Organization for Standardization (ISO) / International Electrotechnical Commission (IEC) 27001, and impact on Policy as Code (PaC) and Artificial Intelligence (AI)-generated authorization code](#2026-03-16-adaptive-policy-authorization-compliance-md)
 * [Trusting Trust and AI Corpus Contamination](#2026-03-15-trusting-trust-ai-corpus-contamination-md)
@@ -97,6 +98,91 @@ Generated on: 2026-03-20 03:41 UTC
 * [AI Strategy Examples: Business Efficiency Focus](#2026-02-28-ai-strategy-business-efficiency-examples-md)
 * [AI Line 1 and Line 2 Risk Agents: Who Is Building Them?](#2026-02-28-ai-line-1-line-2-risk-agents-md)
 * [AI for Control Testing, Gap Identification, and Policies/Standards Reviews](#2026-02-28-ai-control-testing-and-assurance-md)
+
+---
+
+<a name="2026-03-16-intent-driven-development-md"></a>
+
+## Intent Driven Development: context and concept layering to bound the solution space
+
+**Tags:** [intent, software-engineering, test-driven-development, specification-driven-development, context-layering, agentic-coding, artificial-intelligence, developer-tooling, design-methodology]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-16-intent-driven-development.md
+
+## Research Question
+
+What is Intent Driven Development (IDD) — as a methodology that moves past Test Driven Development (TDD) and Specification Driven Development (SDD) — and what context and concept layering mechanisms are required to sufficiently bound the potential solution space so that Artificial Intelligence (AI) coding agents produce outputs that are aligned with developer and organisational intent?
+
+Supporting questions:
+- What is IDD? Is it a named methodology, an emergent practice, or a set of loosely related ideas? Who coined it or is actively defining it?
+- How does IDD differ from TDD and SDD? What does each paradigm use as its primary constraint on the solution space, and where does each break down with AI-assisted development?
+- What does StrongDM Factory (https://factory.strongdm.ai/) represent as a concrete implementation of intent-driven principles in infrastructure and access management? What can be generalised?
+- What is the structure of a complete "intent layer"? What artefacts (natural language, formal specs, constraints, examples, policies) are needed and in what combination?
+- How do concept layering and context architecture interact with intent? What are the relevant findings from context-compression and aligned decision-making research?
+- What does the Hacker News (HN) community (https://news.ycombinator.com/item?id=46924426) identify as the key challenges, precedents, and open problems in intent-driven approaches?
+
+## Findings
+
+### Executive Summary
+
+Intent Driven Development (IDD) is not yet a settled industry standard; it is an emerging intent-first, validation-heavy practice whose strongest public implementations depend on layered artefacts rather than on intent statements alone. StrongDM Factory is the clearest radical example: it uses Natural Language Specifications (NLSpecs), holdout scenarios, feedback loops, digital-twin validation, and explicit context tooling while excluding human-written and human-reviewed code. Compared with Test Driven Development (TDD) and Specification Driven Development (SDD) / Design by Contract (DbC), IDD shifts the highest-authority constraint upward from tests or contracts to a richer stack of outcomes, boundaries, policies, domain concepts, and runtime context, while still keeping tests and contracts as lower-level validators. The stack is partially buildable today, but standard schemas, interoperable policy and context protocols, comparative outcome evidence, and clear economic boundaries are still missing.
+
+### Key Findings
+
+1. **[Medium]** Public sources do not identify a single canonical inventor, standard, or governing body for Intent Driven Development (IDD); instead, they show overlapping practitioner formulations that agree on intent-first alignment but diverge on specification depth, automation level, and the role of human review.
+2. **[High]** StrongDM Factory operationalizes the most radical public form of IDD by combining NLSpecs, holdout scenarios, feedback loops, and Digital Twin Universe (DTU) environments while explicitly forbidding human-written and human-reviewed code in its published workflow.
+3. **[High]** Test Driven Development (TDD) constrains agent behavior through executable examples, but StrongDM's own field notes show that tests alone can be shortcut or reward-hacked when an agent can satisfy narrow checks without preserving the broader user intent.
+4. **[High]** Design by Contract (DbC) and related specification-driven approaches provide stronger local guarantees than TDD because they express preconditions, postconditions, and invariants, yet they still miss organisational priorities, architectural preferences, and unspoken trade-offs unless those concerns are represented elsewhere.
+5. **[High]** The consulted public evidence shows that mature "intent-driven" systems do not replace specification with vague prompting; they expand intent into a layered artefact stack containing problem statements, outcome criteria, scope boundaries, domain models, policies, examples, and machine-checkable constraints.
+6. **[Medium]** A complete intent layer for AI coding agents requires both stable high-authority context and dynamic task context, which matches the layered context architecture already identified in prior research on aligned organisational decision-making and agent guidance.
+7. **[Medium]** The most reusable StrongDM contributions are architectural rather than ideological, because rich seed artefacts, scenario-based validation, context storage, provider-aligned agent loops, and near-production harnesses can transfer to other teams even if the "no human code" rule does not.
+8. **[Medium]** IDD is partially production-ready today because many component practices already exist, but the field still lacks standard schemas, interoperable policy-injection protocols, comparative outcome evidence across organisations, and defensible thresholds for when high token spend is better than disciplined human review.
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| IDD is an emerging umbrella practice rather than a settled standard. | [x] https://keyholesoftware.com/intent-driven-development-build-first-documentation/ ; [x] https://factory.strongdm.ai/ ; [x] https://news.ycombinator.com/item?id=46924426 | medium | Agreement on direction, disagreement on formulation. |
+| StrongDM Factory is the clearest radical public implementation of IDD-like practice. | [x] https://factory.strongdm.ai/ ; [x] https://factory.strongdm.ai/principles ; [x] https://raw.githubusercontent.com/strongdm/attractor/main/README.md | high | StrongDM publishes both doctrine and artefacts. |
+| Tests alone are vulnerable to shortcutting in agentic workflows. | [x] https://factory.strongdm.ai/ ; [x] https://martinfowler.com/bliki/TestDrivenDevelopment.html | high | StrongDM reports the failure mode directly. |
+| Contracts give stronger local guarantees than tests, but only for encoded invariants. | [x] https://www.eiffel.org/doc/uuid/2ef367c9-34d9-d45e-a722-163b39581405 ; [x] `Research/completed/2026-03-10-formal-spec-intent-alignment-agentic-coding.md` | high | External source defines contracts; prior synthesis explains the hierarchy. |
+| Mature IDD expands intent into a layered artefact stack rather than replacing specification with prompts. | [x] https://keyholesoftware.com/intent-driven-development-build-first-documentation/ ; [x] https://raw.githubusercontent.com/strongdm/attractor/main/README.md ; [x] https://raw.githubusercontent.com/strongdm/attractorbench/main/README.md | high | Public implementations rely on rich artefacts. |
+| A complete intent layer needs both stable high-authority context and dynamic task context. | [x] `Research/completed/2026-03-15-context-layers-aligned-decisions-synthesis.md` ; [x] https://raw.githubusercontent.com/strongdm/attractor/main/coding-agent-loop-spec.md | medium | Cross-item integration plus public agent-loop design. |
+| StrongDM's most reusable contributions are architectural rather than ideological. | [x] https://factory.strongdm.ai/ ; [x] https://factory.strongdm.ai/principles ; [x] https://raw.githubusercontent.com/strongdm/attractor/main/coding-agent-loop-spec.md | medium | Reusability claim is a synthesis, not a direct quote. |
+| IDD is partially production-ready, but standards, protocols, comparative evidence, and economics remain open. | [x] https://raw.githubusercontent.com/strongdm/attractorbench/main/README.md ; [x] https://factory.strongdm.ai/ ; [x] `Research/completed/2026-03-01-agent-lsp-policy-enforcement.md` | medium | Components exist; the field-level proof is weaker. |
+
+### Assumptions
+
+- **Assumption:** The term "Intent Driven Development" can legitimately cover adjacent public practices that use different labels, such as StrongDM's "Software Factory." **Justification:** The consulted sources share the same governing pattern of intent capture plus validation, even when the branding differs.
+- **Assumption:** The Hacker News thread is useful as practitioner-discussion evidence but not as proof of performance. **Justification:** It contains reactions and one firsthand implementation report, but it is not controlled evidence.
+- **Assumption:** Prior completed items remain valid synthesis inputs for context layering, policy enforcement, and formal-specification trade-offs. **Justification:** They are used here for cross-item integration, not to avoid checking current public sources.
+
+### Analysis
+
+The evidence supports a layered interpretation of IDD. Tests and contracts still matter, but they no longer sit at the top of the stack when an AI coding agent is doing meaningful implementation work. Higher-authority artefacts must first define what success means, what boundaries may not be crossed, which concepts matter, and which organisational or technical constraints should dominate local optimization.
+
+StrongDM supplies the clearest concrete picture of this stack. Its public materials show that the practical implementation of an intent-first workflow is much heavier than the phrase sounds: long NLSpecs, explicit agent loops, scenario harnesses, digital twins, context storage, and aggressive token budgets. That makes StrongDM a better source for implementation detail than for the canonical definition of the field.
+
+Keyhole is useful because it shows the same move in a more conservative enterprise form. It retains ordinary human delivery roles, but still shifts value upstream into intent capture and downstream into build-first documentation. Taken together, the two sources support a spectrum model: conservative IDD keeps humans inside the build; radical factory IDD pushes humans almost entirely into artefact design and harness supervision.
+
+The unresolved issue is whether IDD is genuinely new or mainly a recombination of older techniques for a new execution environment. The evidence favors the recombination view. The novelty lies less in its primitives than in the fact that AI agents make incomplete specifications more dangerous and make upstream intent artefacts more economically valuable.
+
+### Risks, Gaps, and Uncertainties
+
+- Public evidence is dominated by vendor and practitioner material rather than by peer-reviewed comparative studies.
+- StrongDM's benchmark documentation explicitly says current totals are not yet valid for ranking, which weakens claims that benchmark performance already proves a superior methodology.
+- The economic viability of heavy-token factory workflows is openly disputed in practitioner discussion and is likely to vary sharply by domain.
+- No consulted source provides a standard machine-readable schema for intent artefacts that multiple tools or vendors can exchange.
+- No consulted source resolves how long NLSpecs, policies, scenarios, and generated code should stay synchronized over the lifetime of a changing system.
+
+### Open Questions
+
+- What is the minimum interoperable schema for an intent artefact that different coding agents, policy engines, and retrieval systems can consume consistently?
+- Which intent artefacts should stay as natural-language documents, and which should be promoted into tests, contracts, types, or formal specifications?
+- What runtime protocol should deliver high-authority policy and architecture feedback to a headless coding agent before code is committed?
+- How should teams measure satisfaction, correctness, and economic return together so that scenario success does not hide local invariant failures or runaway token spend?
+
+---
 
 ---
 
