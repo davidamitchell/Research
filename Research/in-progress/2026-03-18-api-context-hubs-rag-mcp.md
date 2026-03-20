@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "Application Programming Interface (API) Context Hubs, Retrieval-Augmented Generation, and the Model Context Protocol: How Agents Discover and Use APIs"
 added: 2026-03-18
 status: reviewing
