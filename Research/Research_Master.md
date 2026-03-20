@@ -1,9 +1,10 @@
 # Research Master Document
 
-Generated on: 2026-03-20 07:07 UTC
+Generated on: 2026-03-20 07:26 UTC
 
 ## Table of Contents
 
+* [Stateless-agent assumption failure: causes, detection, and recovery patterns for orphaned state in multi-session agentic workflows](#2026-03-18-stateless-agent-assumption-failure-md)
 * [Artificial Intelligence (AI) Memory Systems: Retrieval-Augmented Generation (RAG), Vendor Implementations, and Neuroscience Foundations](#2026-03-17-ai-memory-systems-rag-neuroscience-md)
 * [Vision-Language Joint Embedding Predictive Architecture (VL-JEPA) and concept prediction: background and options for leveraging with frontier models](#2026-03-16-vl-jepa-concept-prediction-md)
 * [Intent Driven Development: context and concept layering to bound the solution space](#2026-03-16-intent-driven-development-md)
@@ -100,6 +101,83 @@ Generated on: 2026-03-20 07:07 UTC
 * [AI Strategy Examples: Business Efficiency Focus](#2026-02-28-ai-strategy-business-efficiency-examples-md)
 * [AI Line 1 and Line 2 Risk Agents: Who Is Building Them?](#2026-02-28-ai-line-1-line-2-risk-agents-md)
 * [AI for Control Testing, Gap Identification, and Policies/Standards Reviews](#2026-02-28-ai-control-testing-and-assurance-md)
+
+---
+
+<a name="2026-03-18-stateless-agent-assumption-failure-md"></a>
+
+## Stateless-agent assumption failure: causes, detection, and recovery patterns for orphaned state in multi-session agentic workflows
+
+**Tags:** [failure-modes, agentic-systems, operational-failures, layer-5, state-management, idempotency, checkpoint-resume, multi-session, workflow]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-18-stateless-agent-assumption-failure.md
+
+## Research Question
+
+When an agentic workflow spans multiple session boundaries — each session starting with a fresh context window and no memory of prior runs — what are the mechanisms by which external state becomes orphaned, how frequently does this failure mode occur in production systems, what signals reliably detect it before it compounds, and what design patterns reliably prevent or recover from it?
+
+## Findings
+
+### Executive Summary
+
+- [inference] This failure is best understood as a continuity failure: a new session treats the world as clean even though earlier sessions already changed durable external state. (Sources: [Failure mode taxonomy expansion](Research/completed/2026-03-12-failure-mode-taxonomy-expansion.md); [Context engineering: first principles](Research/completed/2026-03-08-context-engineering-first-principles.md))
+- [inference] Public evidence is strongest in the solution surface rather than in a named incident class, because official frameworks independently ship checkpointing, session memory, replay, and durable execution as core workflow features while using different terminology for the underlying problem. (Sources: [LangGraph Persistence](https://docs.langchain.com/oss/python/langgraph/persistence); [LangGraph Durable Execution](https://docs.langchain.com/oss/python/langgraph/durable-execution); [OpenAI Agents SDK Quickstart](https://openai.github.io/openai-agents-python/quickstart/); [Temporal Workflow Execution](https://docs.temporal.io/workflow-execution))
+- [inference] In practice, the safest operating rule is to begin each session with state reconciliation across repository files, git history, workflow state, and metadata before selecting new work or retrying a side effect. (Sources: [.github/workflows/research-loop.yml](.github/workflows/research-loop.yml); [.github/workflows/research-review.yml](.github/workflows/research-review.yml); [src/research/item.py](src/research/item.py))
+- [inference] Idempotent retry plus checkpoint-resume covers the common case, while compensation or manual quarantine is reserved for workflows whose external mutations cannot be retried safely as a single atomic step. (Sources: [AWS idempotency guidance](https://aws-samples.github.io/eda-on-aws/concepts/idempotency/); [microservices.io idempotent consumer](https://microservices.io/patterns/communication-style/idempotent-consumer.html); [microservices.io saga](https://microservices.io/patterns/data/saga.html); [Temporal durable execution](https://temporal.io/blog/what-is-durable-execution))
+
+### Key Findings
+
+1. **High confidence — [inference]:** Stateless-agent assumption failure is a Layer 5 operational failure in which volatile in-session reasoning operates over durable out-of-session state without a mandatory reconciliation step, so later sessions can hide, duplicate, or contradict prior work even when each individual session behaves coherently. (Sources: [Failure mode taxonomy expansion](Research/completed/2026-03-12-failure-mode-taxonomy-expansion.md); [Context engineering: first principles](Research/completed/2026-03-08-context-engineering-first-principles.md))
+2. **High confidence — [inference]:** Leading production-oriented agent frameworks already treat persistence, resumability, and replay as first-class concerns, which supports the conclusion that cross-session orphaned-state risk is a normal systems problem rather than an exotic edge case tied to one repository or one vendor. (Sources: [LangGraph Persistence](https://docs.langchain.com/oss/python/langgraph/persistence); [LangGraph Durable Execution](https://docs.langchain.com/oss/python/langgraph/durable-execution); [OpenAI Agents SDK Quickstart](https://openai.github.io/openai-agents-python/quickstart/); [Temporal Workflow Execution](https://docs.temporal.io/workflow-execution))
+3. **Medium confidence — [inference]:** The agent ecosystem has not yet converged on a single standard name for this failure class, because public documentation standardises the remedy vocabulary — checkpointing, session memory, durable execution, replay, and persistence — more clearly than the underlying continuity failure itself. (Sources: [LangGraph Persistence](https://docs.langchain.com/oss/python/langgraph/persistence); [OpenAI Agents SDK session memory cookbook](https://developers.openai.com/cookbook/examples/agents_sdk/session_memory); [Temporal durable execution](https://temporal.io/blog/what-is-durable-execution))
+4. **Medium confidence — [inference]:** Longer workflows materially increase exposure to this failure because they create more opportunities for interruption, partial side effects, and stale assumptions between sessions, and METR's long-task results show that agent reliability falls sharply as task duration rises. (Source: [METR — Measuring AI Ability to Complete Long Tasks](https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/))
+5. **High confidence — [inference]:** Reliable detection requires checking at least four state surfaces together — file-system artefacts, git-history transitions, external-service state, and explicit metadata such as `status` or `review_count` — because each surface can expose orphaning that the others leave invisible. (Sources: [.github/workflows/research-loop.yml](.github/workflows/research-loop.yml); [.github/workflows/research-review.yml](.github/workflows/research-review.yml); [src/research/item.py](src/research/item.py))
+6. **High confidence — [inference]:** Idempotent side effects with at-least-once retry semantics are a better default for agent workflows than literal exactly-once guarantees, because repositories, workflow engines, human review steps, and tool Application Programming Interfaces (APIs) do not share one transaction boundary that a single coordinator can enforce. (Sources: [AWS idempotency guidance](https://aws-samples.github.io/eda-on-aws/concepts/idempotency/); [RabbitMQ reliability](https://www.rabbitmq.com/docs/reliability); [Kafka delivery semantics](https://docs.confluent.io/kafka/design/delivery-semantics.html); [microservices.io idempotent consumer](https://microservices.io/patterns/communication-style/idempotent-consumer.html))
+7. **Medium confidence — [inference]:** Saga-style compensation and dead-letter or manual-review paths become necessary when an agent workflow performs multi-step external mutations whose partial completion cannot be made atomic, because recovery must then undo or quarantine inconsistent intermediate state rather than merely retrying the last step. (Sources: [microservices.io saga](https://microservices.io/patterns/data/saga.html); [Temporal Workflow Execution](https://docs.temporal.io/workflow-execution))
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| Stateless-agent assumption failure is a Layer 5 operational subtype | [Failure mode taxonomy expansion](Research/completed/2026-03-12-failure-mode-taxonomy-expansion.md); [Context engineering: first principles](Research/completed/2026-03-08-context-engineering-first-principles.md) | high | Internal prior work fixes the boundary against context overflow and instruction conflict |
+| Frameworks productise persistence and resumability | [LangGraph Persistence](https://docs.langchain.com/oss/python/langgraph/persistence); [LangGraph Durable Execution](https://docs.langchain.com/oss/python/langgraph/durable-execution); [OpenAI Agents SDK Quickstart](https://openai.github.io/openai-agents-python/quickstart/); [Temporal Workflow Execution](https://docs.temporal.io/workflow-execution) | high | Independent official docs converge on the same need |
+| No canonical shared name exists yet | [LangGraph Persistence](https://docs.langchain.com/oss/python/langgraph/persistence); [OpenAI Agents SDK session memory cookbook](https://developers.openai.com/cookbook/examples/agents_sdk/session_memory); [Temporal durable execution](https://temporal.io/blog/what-is-durable-execution) | medium | Evidence is terminological and therefore indirect |
+| Long workflows increase exposure | [METR — Measuring AI Ability to Complete Long Tasks](https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/) | medium | Supports rising interruption and failure exposure, not a direct incident count for this subtype |
+| Detection must span repository, workflow, and metadata layers | [.github/workflows/research-loop.yml](.github/workflows/research-loop.yml); [.github/workflows/research-review.yml](.github/workflows/research-review.yml); [src/research/item.py](src/research/item.py) | high | Primary repository evidence |
+| Idempotent retry is the best-supported baseline for agent workflows | [AWS idempotency guidance](https://aws-samples.github.io/eda-on-aws/concepts/idempotency/); [RabbitMQ reliability](https://www.rabbitmq.com/docs/reliability); [Kafka delivery semantics](https://docs.confluent.io/kafka/design/delivery-semantics.html); [microservices.io idempotent consumer](https://microservices.io/patterns/communication-style/idempotent-consumer.html) | high | This row captures the supported engineering conclusion rather than a broker-native guarantee |
+| Compensation is required for non-atomic multi-step mutation | [microservices.io saga](https://microservices.io/patterns/data/saga.html); [Temporal Workflow Execution](https://docs.temporal.io/workflow-execution) | medium | Strong for the pattern; the agent-workflow mapping remains inferential |
+
+### Assumptions
+
+- **[assumption]** No public benchmark currently isolates this failure under the exact label "stateless-agent assumption failure." The reviewed public sources expose adjacent categories such as checkpointing, replay, persistence, or session memory instead.
+- **[assumption]** The motivating repository incident is representative of a broader architectural class. That assumption is justified because the same remedy structure appears independently in agent-framework docs and in older distributed-systems reliability guidance.
+
+### Analysis
+
+- [inference] The central mistake is treating context reset as though it implied world reset. In production workflows the opposite assumption is safer: processes are disposable, but state written to files, workflows, queues, and service-side records persists until something explicitly reconciles it.
+- [inference] That is why prompt-only mitigations are weak. A reminder like "check in-progress items first" helps, but the reliable fix is architectural: one authoritative state register, explicit status transitions, idempotent side effects, and a mandatory preflight that compares expected state with actual state before the session chooses its next action.
+- [inference] The distributed-systems analogy is operational rather than decorative. Agent workflows with tools now face the same constraints as message-driven systems: retries happen, acknowledgements can be lost, side effects escape the local process, and partial completion is normal.
+
+### Risks, Gaps, and Uncertainties
+
+- [fact] Public incident counts for this exact failure label remain sparse, so exact frequency can only be stated qualitatively rather than numerically.
+- [fact] Framework documentation proves practical importance, but it does not quantify how many production failures each feature prevents.
+- [inference] Classical distributed-systems patterns do not fully capture human-review steps, unstructured tool outputs, or repository-specific state machines, so some translation into agent workflows remains design work rather than settled doctrine.
+
+### Open Questions
+
+- Can a lightweight repository-local continuity manifest capture enough state to prevent most orphan classes without adopting a full durable-execution engine?
+- Which classes of agent side effects should default to idempotent retry, which require compensation, and which should always route to manual review?
+- Can future agent evaluations measure cross-session continuity failure directly instead of burying it inside generic long-horizon success or failure rates?
+
+### Output
+
+- [fact] Type: `knowledge`
+- [fact] Description: Structured findings on stateless-agent assumption failure as a Layer 5 operational failure, including definition, empirical framing, detection signals, and recovery patterns for multi-session agentic workflows.
+- [fact] Links:
+  - [fact] https://docs.langchain.com/oss/python/langgraph/durable-execution — durable execution and replay requirements
+  - [fact] https://docs.temporal.io/workflow-execution — durable workflow execution and replay semantics
+  - [fact] https://aws-samples.github.io/eda-on-aws/concepts/idempotency/ — idempotency and duplicate-processing guidance
 
 ---
 
