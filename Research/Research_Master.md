@@ -1,9 +1,10 @@
 # Research Master Document
 
-Generated on: 2026-03-20 04:03 UTC
+Generated on: 2026-03-20 04:32 UTC
 
 ## Table of Contents
 
+* [Vision-Language Joint Embedding Predictive Architecture (VL-JEPA) and concept prediction: background and options for leveraging with frontier models](#2026-03-16-vl-jepa-concept-prediction-md)
 * [Intent Driven Development: context and concept layering to bound the solution space](#2026-03-16-intent-driven-development-md)
 * [GitAgent and declarative agent definition: concepts, adoption, and cross-platform integration](#2026-03-16-gitagent-declarative-agent-definition-md)
 * [Adaptive Policy-Based Authorization (APBA): compliance alignment with National Institute of Standards and Technology (NIST) Special Publication (SP) 800-53 and International Organization for Standardization (ISO) / International Electrotechnical Commission (IEC) 27001, and impact on Policy as Code (PaC) and Artificial Intelligence (AI)-generated authorization code](#2026-03-16-adaptive-policy-authorization-compliance-md)
@@ -98,6 +99,87 @@ Generated on: 2026-03-20 04:03 UTC
 * [AI Strategy Examples: Business Efficiency Focus](#2026-02-28-ai-strategy-business-efficiency-examples-md)
 * [AI Line 1 and Line 2 Risk Agents: Who Is Building Them?](#2026-02-28-ai-line-1-line-2-risk-agents-md)
 * [AI for Control Testing, Gap Identification, and Policies/Standards Reviews](#2026-02-28-ai-control-testing-and-assurance-md)
+
+---
+
+<a name="2026-03-16-vl-jepa-concept-prediction-md"></a>
+
+## Vision-Language Joint Embedding Predictive Architecture (VL-JEPA) and concept prediction: background and options for leveraging with frontier models
+
+**Tags:** [machine-learning, vision-language, jepa, meta, yann-lecun, concept-prediction, frontier-models, github-copilot, claude-code, agentic-coding, ai-architecture]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-16-vl-jepa-concept-prediction.md
+
+## Research Question
+
+What is Vision-Language Joint Embedding Predictive Architecture (VL-JEPA) - specifically its concept prediction mechanism - and what practical options exist for a developer consumer of existing frontier models (GitHub Copilot, Claude Code) to leverage the principles and capabilities it introduces?
+
+Supporting questions:
+- What is VL-JEPA, who authored it, and what problem does it solve that prior architectures (Transformer-based, contrastive, generative) do not?
+- What is concept prediction as embodied in VL-JEPA? How does it differ from token prediction (language models) and masked image prediction (Vision Transformer (ViT)/Masked Autoencoder (MAE))?
+- What is the Joint Embedding Predictive Architecture (JEPA) lineage? How does VL-JEPA relate to Image Joint Embedding Predictive Architecture (I-JEPA), Video Joint Embedding Predictive Architecture (V-JEPA), and V-JEPA 2?
+- What are the empirical results reported in the VL-JEPA paper? What benchmarks, and how does it compare to prior state of the art?
+- What is Yann LeCun's broader thesis on world models and energy-based models, and where does VL-JEPA sit within it?
+- As a developer who consumes frontier models via GitHub Copilot and Claude Code - not who trains or fine-tunes models - what are the realistic options for applying or benefiting from VL-JEPA-style concept prediction capabilities?
+
+## Findings
+
+### Executive Summary
+
+- **[fact]** As of early 2026, Vision-Language Joint Embedding Predictive Architecture (VL-JEPA) is a genuine Meta research model that predicts semantic answer embeddings from visual input and optional text queries rather than generating answer tokens directly, and the paper reports stronger matched-condition performance than token-generative baselines with about 50 percent fewer trainable parameters. **Sources:** https://arxiv.org/abs/2512.10942 ; https://arxiv.org/html/2512.10942
+- **[fact]** Public product documents for GitHub Copilot, Anthropic vision, and Claude Code expose multimodal inputs, file attachments, screenshot comparison, and text/code outputs, but not a public VL-JEPA-style embedding stream or selective-decoding Application Programming Interface. **Sources:** https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/provide-visual-inputs ; https://docs.anthropic.com/en/docs/build-with-claude/vision ; https://code.claude.com/docs/en/overview ; https://code.claude.com/docs/en/desktop
+- **[inference]** For a developer using GitHub Copilot or Claude Code, the main value today is therefore architectural rather than product-level: separate multimodal perception from language generation, preserve compact semantic state between steps, and decode to text only when a human or downstream tool actually needs text. **Sources:** https://arxiv.org/html/2512.10942 ; https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/provide-visual-inputs ; https://docs.anthropic.com/en/docs/build-with-claude/vision ; https://code.claude.com/docs/en/desktop
+- **[inference]** VL-JEPA matters immediately as a design pattern for multimodal agents, even though it is not yet a directly callable developer primitive in the consulted public tooling surfaces. **Sources:** https://arxiv.org/html/2512.10942 ; https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/provide-visual-inputs ; https://docs.anthropic.com/en/docs/build-with-claude/vision ; https://code.claude.com/docs/en/overview
+
+### Key Findings
+
+1. **[fact][High]** VL-JEPA predicts the embedding of the target answer text from visual input and an optional query instead of predicting the next answer token, which lets the model learn semantic state before committing to any particular wording. **Sources:** https://arxiv.org/abs/2512.10942 ; https://arxiv.org/html/2512.10942
+2. **[fact][High]** Concept prediction in VL-JEPA differs from both next-token prediction and masked-patch prediction because the supervision target is neither a literal token sequence nor a hidden visual region, but a shared semantic answer representation. **Sources:** https://arxiv.org/html/2512.10942 ; https://arxiv.org/abs/2301.08243 ; https://openreview.net/forum?id=WFYbBOEOtv
+3. **[fact][High]** The JEPA lineage is cumulative rather than discontinuous, with I-JEPA establishing latent prediction for images, V-JEPA extending it to masked spatio-temporal video regions, V-JEPA 2 scaling the approach toward world-modeling and planning, and VL-JEPA carrying the same principle into vision-language tasks. **Sources:** https://arxiv.org/abs/2301.08243 ; https://openreview.net/forum?id=WFYbBOEOtv ; https://arxiv.org/abs/2506.09985 ; https://arxiv.org/html/2512.10942
+4. **[fact][High]** The VL-JEPA paper reports strong empirical results, including roughly 50 percent fewer trainable parameters than a matched token-generative baseline, about 2.85x fewer decoding operations under selective decoding, better average zero-shot classification and retrieval than CLIP, SigLIP2, and Perception Encoder, and competitive 1.6B-parameter visual question answering (VQA) performance against larger classical vision-language models. **Sources:** https://arxiv.org/abs/2512.10942 ; https://arxiv.org/html/2512.10942
+5. **[inference][Medium]** VL-JEPA is a meaningful but partial validation of Yann LeCun's world-model thesis because it demonstrates abstract prediction in a shared latent space for perception-heavy multimodal tasks, but it does not yet instantiate the full hierarchical, action-conditioned autonomous architecture described in the 2022 position paper. **Sources:** https://openreview.net/pdf?id=BZ5a1r-kVsf ; https://arxiv.org/abs/2506.09985 ; https://arxiv.org/html/2512.10942
+6. **[inference][Medium]** No consulted public documentation shows that GitHub Copilot, Claude Code, Anthropic's public API, or Google's public Gemini surfaces expose VL-JEPA-style concept-prediction endpoints to external developers, so any such capability is either undisclosed or unavailable through standard developer channels. **Sources:** https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/provide-visual-inputs ; https://docs.anthropic.com/en/docs/build-with-claude/vision ; https://code.claude.com/docs/en/overview ; https://arxiv.org/abs/2312.11805
+7. **[inference][High]** The most realistic way for a developer consumer to benefit from VL-JEPA today is to imitate its workflow logic by using multimodal inputs for perception, preserving compact structured state between steps, preferring discriminative or candidate-ranking subtasks when possible, and emitting text only at significant decision points or state changes. **Sources:** https://arxiv.org/html/2512.10942 ; https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/provide-visual-inputs ; https://docs.anthropic.com/en/docs/build-with-claude/vision ; https://code.claude.com/docs/en/best-practices ; https://code.claude.com/docs/en/desktop
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| VL-JEPA predicts answer embeddings rather than answer tokens. | https://arxiv.org/abs/2512.10942 ; https://arxiv.org/html/2512.10942 | high | Directly stated in abstract and methodology. |
+| Concept prediction targets semantic answer space rather than hidden patches or literal next tokens. | https://arxiv.org/html/2512.10942 ; https://arxiv.org/abs/2301.08243 ; https://openreview.net/forum?id=WFYbBOEOtv | high | Requires cross-comparison across the JEPA papers. |
+| JEPA lineage runs I-JEPA -> V-JEPA -> V-JEPA 2 -> VL-JEPA. | https://arxiv.org/abs/2301.08243 ; https://openreview.net/forum?id=WFYbBOEOtv ; https://arxiv.org/abs/2506.09985 ; https://arxiv.org/html/2512.10942 | high | Each stage adds scope while preserving latent prediction. |
+| VL-JEPA reports strong controlled-comparison and efficiency results. | https://arxiv.org/abs/2512.10942 ; https://arxiv.org/html/2512.10942 | high | Parameter, benchmark, and selective-decoding claims all come from the primary paper. |
+| VL-JEPA partially validates LeCun's world-model thesis but does not complete it. | https://openreview.net/pdf?id=BZ5a1r-kVsf ; https://arxiv.org/abs/2506.09985 ; https://arxiv.org/html/2512.10942 | medium | Interpretive synthesis grounded in the scope mismatch between thesis and demonstrated system. |
+| No consulted public developer-facing documentation exposes a VL-JEPA-style concept-prediction endpoint. | https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/provide-visual-inputs ; https://docs.anthropic.com/en/docs/build-with-claude/vision ; https://code.claude.com/docs/en/overview ; https://arxiv.org/abs/2312.11805 | medium | Bounded to public evidence and current standard developer surfaces. |
+| Developers can benefit now by imitating VL-JEPA's perception-first, decode-late workflow logic. | https://arxiv.org/html/2512.10942 ; https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/provide-visual-inputs ; https://docs.anthropic.com/en/docs/build-with-claude/vision ; https://code.claude.com/docs/en/desktop | high | Strong correspondence between model design and documented product affordances. |
+
+### Assumptions
+
+- **Assumption:** Publicly documented interfaces are the relevant decision surface for this item. **Justification:** The question is about what a normal developer consumer of GitHub Copilot and Claude Code can use intentionally, not about private or internal research access.
+- **Assumption:** Hidden provider-side use of JEPA-like components does not create a practical option unless the capability is surfaced through a documented interface or consistent observable behaviour. **Justification:** Practical leverage requires controllable access, not speculation about internal architecture.
+
+### Analysis
+
+- **[fact]** The evidence splits into two layers: model papers establish that VL-JEPA is technically real, architecturally distinctive, and empirically competitive on the tasks the paper studies, while product documentation establishes that current developer-facing multimodal tools are still oriented around image attachment, prompt conditioning, screenshot verification, and text/code output. **Sources:** https://arxiv.org/abs/2512.10942 ; https://arxiv.org/html/2512.10942 ; https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/provide-visual-inputs ; https://docs.anthropic.com/en/docs/build-with-claude/vision ; https://code.claude.com/docs/en/overview ; https://code.claude.com/docs/en/desktop
+- **[inference]** That split is the key analytical move in this item because it prevents a category mistake: a strong research result does not automatically imply a usable developer primitive, so the practical answer depends on product affordances rather than on research novelty alone. **Sources:** https://arxiv.org/html/2512.10942 ; https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/provide-visual-inputs ; https://docs.anthropic.com/en/docs/build-with-claude/vision ; https://code.claude.com/docs/en/overview
+- **[inference]** Because the available product affordances are attachments, screenshots, prompting, and text/code emission rather than latent-state access, the strongest current recommendation is to imitate VL-JEPA's architecture at the workflow layer instead of waiting for a direct model endpoint. **Sources:** https://arxiv.org/html/2512.10942 ; https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/provide-visual-inputs ; https://docs.anthropic.com/en/docs/build-with-claude/vision ; https://code.claude.com/docs/en/best-practices ; https://code.claude.com/docs/en/desktop
+- **[inference]** The remaining uncertainty is primarily about vendor disclosure, not about the existence of the research model itself, because OpenAI, Google, Anthropic, and GitHub disclose product behaviour unevenly and do not publish a shared standard for exposing latent multimodal state. **Sources:** https://arxiv.org/abs/2303.08774 ; https://arxiv.org/abs/2312.11805 ; https://docs.anthropic.com/en/docs/build-with-claude/vision ; https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/provide-visual-inputs
+
+### Risks, Gaps, and Uncertainties
+
+- **[fact]** The Meta AI VL-JEPA landing page was unavailable during this session, so the item relies on arXiv and extracted OpenReview text instead of a clean Meta-hosted summary page. **Source:** https://ai.meta.com/research/publications/vl-jepa/
+- **[fact]** The empirical claims in this item are paper-reported claims from the VL-JEPA paper itself, so the strongest evidence base currently available in the consulted sources is still concentrated in a single primary research report. **Sources:** https://arxiv.org/abs/2512.10942 ; https://arxiv.org/html/2512.10942
+- **[inference]** The public-model-landscape conclusion is bounded by provider non-disclosure, so the defensible claim is that no public evidence was found for developer-facing concept-prediction endpoints, not that such methods are impossible or unused internally. **Sources:** https://arxiv.org/abs/2303.08774 ; https://arxiv.org/abs/2312.11805 ; https://docs.anthropic.com/en/docs/build-with-claude/vision ; https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/provide-visual-inputs
+- **[fact]** No consulted source exposed a public VL-JEPA embedding or concept-stream Application Programming Interface, so any workflow recommendation here necessarily imitates VL-JEPA at the application layer rather than using the model directly. **Sources:** https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/provide-visual-inputs ; https://docs.anthropic.com/en/docs/build-with-claude/vision ; https://code.claude.com/docs/en/overview ; https://code.claude.com/docs/en/desktop
+
+### Open Questions
+
+- Will Meta expose VL-JEPA or a related concept-prediction model through a public developer interface?
+- Can a mainstream coding assistant benefit measurably from event-triggered multimodal decoding compared with continuous free-form narration?
+- Which downstream tasks in software engineering are best modeled as discriminative semantic-state estimation problems rather than open-ended language-generation problems?
+- Are major providers already using latent semantic predictors internally as hidden subsystems of generative products, and if so, what external behavioural signature would reveal that without relying on vendor disclosure?
+
+---
 
 ---
 
