@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "Intent Driven Development: context and concept layering to bound the solution space"
 added: 2026-03-16
 status: reviewing
