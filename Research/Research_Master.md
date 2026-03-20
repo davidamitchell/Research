@@ -1,10 +1,11 @@
 # Research Master Document
 
-Generated on: 2026-03-20 07:26 UTC
+Generated on: 2026-03-20 07:49 UTC
 
 ## Table of Contents
 
 * [Stateless-agent assumption failure: causes, detection, and recovery patterns for orphaned state in multi-session agentic workflows](#2026-03-18-stateless-agent-assumption-failure-md)
+* [API Context Hubs, Retrieval-Augmented Generation, and the Model Context Protocol: How Agents Discover and Use APIs](#2026-03-18-api-context-hubs-rag-mcp-md)
 * [Artificial Intelligence (AI) Memory Systems: Retrieval-Augmented Generation (RAG), Vendor Implementations, and Neuroscience Foundations](#2026-03-17-ai-memory-systems-rag-neuroscience-md)
 * [Vision-Language Joint Embedding Predictive Architecture (VL-JEPA) and concept prediction: background and options for leveraging with frontier models](#2026-03-16-vl-jepa-concept-prediction-md)
 * [Intent Driven Development: context and concept layering to bound the solution space](#2026-03-16-intent-driven-development-md)
@@ -178,6 +179,92 @@ When an agentic workflow spans multiple session boundaries — each session star
   - [fact] https://docs.langchain.com/oss/python/langgraph/durable-execution — durable execution and replay requirements
   - [fact] https://docs.temporal.io/workflow-execution — durable workflow execution and replay semantics
   - [fact] https://aws-samples.github.io/eda-on-aws/concepts/idempotency/ — idempotency and duplicate-processing guidance
+
+---
+
+<a name="2026-03-18-api-context-hubs-rag-mcp-md"></a>
+
+## API Context Hubs, Retrieval-Augmented Generation, and the Model Context Protocol: How Agents Discover and Use APIs
+
+**Tags:** [api-discovery, context-hub, rag, mcp, model-context-protocol, retrieval-augmented-generation, agents, tooling, ai-agents, api-integration]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-18-api-context-hubs-rag-mcp.md
+
+## Research Question
+
+What approaches are being used to enable AI agents to discover, understand, and invoke external Application Programming Interfaces (APIs), and how do the three major emerging strategies — context hubs (exemplified by Andrew Ng's `context-hub`), Retrieval-Augmented Generation (RAG)-based API discovery, and the Model Context Protocol (MCP) — compare in their design choices, trade-offs, and scope? Is the core problem that `context-hub` addresses being solved in meaningfully different ways elsewhere, or do these approaches converge?
+
+Supporting questions:
+- What specific problem does `andrewyng/context-hub` solve, and what is its design model?
+- How does RAG-based API discovery work, and what prior work exists (e.g., REST-GPT, a Generative Pre-trained Transformer (GPT)-based REST planner, Gorilla, ToolBench)?
+- What is MCP, what problem does it solve, and how does its scope overlap with or differ from context hubs and RAG-based tooling?
+- What are the key design axes across these approaches (static vs. dynamic discovery, structured vs. unstructured context, push vs. pull, standardised vs. proprietary protocol)?
+- What gaps remain unaddressed across all three approaches?
+
+## Findings
+
+### Executive Summary
+
+**[inference]** Context hubs, Retrieval-Augmented Generation (RAG)-based Application Programming Interface (API) discovery, and the Model Context Protocol (MCP) are best understood as complementary layers of agent tool use rather than as direct substitutes. (Synthesised from https://github.com/andrewyng/context-hub ; https://doi.org/10.48550/arXiv.2307.16789 ; https://www.anthropic.com/news/model-context-protocol)
+
+**[fact]** Context Hub improves the quality and freshness of API knowledge an agent reads, RAG-based systems improve retrieval and ranking across large tool catalogues, and MCP standardises how clients connect to live tools, resources, and prompts. (Sources: https://github.com/andrewyng/context-hub ; https://doi.org/10.48550/arXiv.2305.15334 ; https://doi.org/10.48550/arXiv.2307.16789 ; https://modelcontextprotocol.io/introduction)
+
+**[inference]** Structured interface descriptions such as the OpenAPI Specification (OAS) provide the main bridge layer because they can be rewritten into agent-facing documentation, indexed for retrieval, or transformed into callable tool definitions. (Synthesised from https://swagger.io/specification/ ; https://developers.openai.com/api/docs/guides/function-calling ; https://docs.aws.amazon.com/bedrock/latest/userguide/agents-action-create.html)
+
+**[fact]** Trustworthy global tool discovery, authentication and permission governance, version drift across multiple APIs, and cost-aware orchestration remain incompletely solved in the consulted material. (Sources: https://modelcontextprotocol.io/specification ; https://docs.aws.amazon.com/bedrock/latest/userguide/agents-action-create.html ; https://doi.org/10.48550/arXiv.2304.08354)
+
+### Key Findings
+
+1. **[inference] High confidence:** Context Hub treats API misuse primarily as a documentation-quality problem and addresses it with versioned markdown, incremental fetch, persistent annotations, and maintainer feedback loops delivered at inference time. (Sources: https://github.com/andrewyng/context-hub ; https://raw.githubusercontent.com/andrewyng/context-hub/main/docs/cli-reference.md ; https://raw.githubusercontent.com/andrewyng/context-hub/main/docs/content-guide.md)
+2. **[inference] High confidence:** Gorilla, ToolLLM, REST-GPT, HuggingGPT, and API-Bank model API use as a retrieval, planning, and execution problem over broad tool corpora, which gives them better scale than Context Hub but also creates retrieval, ranking, and planning failure modes. (Sources: https://doi.org/10.48550/arXiv.2305.15334 ; https://doi.org/10.48550/arXiv.2307.16789 ; https://doi.org/10.48550/arXiv.2306.06624 ; https://doi.org/10.48550/arXiv.2303.17580 ; https://doi.org/10.48550/arXiv.2304.08244)
+3. **[fact] High confidence:** Model Context Protocol (MCP) standardises live capability exposure and invocation across clients and servers, but it does not eliminate the need for either curated guidance or large-scale retrieval because the protocol assumes the client already knows which server to contact. (Sources: https://www.anthropic.com/news/model-context-protocol ; https://modelcontextprotocol.io/introduction ; https://modelcontextprotocol.io/specification)
+4. **[inference] High confidence:** The OpenAPI Specification (OAS) acts as a reusable structural substrate because an OpenAPI description can support agent-facing documentation, retrieval indices, and callable tool definitions or action-group metadata. (Sources: https://swagger.io/specification/ ; https://developers.openai.com/api/docs/guides/function-calling ; https://docs.aws.amazon.com/bedrock/latest/userguide/agents-action-create.html ; https://developers.llamaindex.ai/python/framework/module_guides/deploying/agents/tools/)
+5. **[inference] Medium confidence:** Platform vendors are already combining these strategies in practice, because OpenAI tools, LangChain, LlamaIndex, Bedrock Agents, and Postman expose structured tool metadata while also supporting routing, remote invocation, or MCP-based integration. (Sources: https://developers.openai.com/api/docs/guides/tools ; https://docs.langchain.com/oss/python/langchain/agents ; https://developers.llamaindex.ai/python/framework/module_guides/mcp/ ; https://docs.aws.amazon.com/bedrock/latest/userguide/agents-action-create.html ; https://learning.postman.com/docs/postman-ai/overview/)
+6. **[inference] High confidence:** A layer-based comparison is the most useful one, because it explains the non-identical strengths and boundaries of Context Hub, RAG systems, and MCP without treating them as identical substitutes. (Synthesised from https://github.com/andrewyng/context-hub ; https://doi.org/10.48550/arXiv.2304.08354 ; https://modelcontextprotocol.io/introduction)
+7. **[inference] Medium confidence:** Authentication handoff, least-privilege governance, version drift across multiple APIs, and cost-aware multi-tool orchestration remain open engineering concerns, so production agent systems still need control layers above documentation, retrieval, and protocol execution. (Sources: https://modelcontextprotocol.io/specification ; https://docs.aws.amazon.com/bedrock/latest/userguide/agents-action-create.html ; https://doi.org/10.48550/arXiv.2304.08354)
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| Context Hub is a curated, agent-facing documentation registry with annotations and feedback loops. | https://github.com/andrewyng/context-hub ; https://raw.githubusercontent.com/andrewyng/context-hub/main/docs/cli-reference.md ; https://raw.githubusercontent.com/andrewyng/context-hub/main/docs/content-guide.md | high | Primary project documentation. |
+| RAG-for-tools systems optimise discovery, retrieval, planning, and execution over large API corpora. | https://doi.org/10.48550/arXiv.2305.15334 ; https://doi.org/10.48550/arXiv.2307.16789 ; https://doi.org/10.48550/arXiv.2306.06624 ; https://doi.org/10.48550/arXiv.2303.17580 ; https://doi.org/10.48550/arXiv.2304.08244 ; https://doi.org/10.48550/arXiv.2304.08354 | high | Multiple academic sources agree. |
+| MCP standardises live capability exposure and invocation, not global server search. | https://www.anthropic.com/news/model-context-protocol ; https://modelcontextprotocol.io/introduction ; https://modelcontextprotocol.io/specification ; https://modelcontextprotocol.io/clients | high | Primary protocol and ecosystem sources. |
+| OpenAPI is a shared substrate for documentation, retrieval, and callable tools. | https://swagger.io/specification/ ; https://developers.openai.com/api/docs/guides/function-calling ; https://docs.aws.amazon.com/bedrock/latest/userguide/agents-action-create.html ; https://developers.llamaindex.ai/python/framework/module_guides/deploying/agents/tools/ | high | Primary sources from standards and platforms. |
+| Platform vendors blend structured tools, retrieval, and invocation. | https://developers.openai.com/api/docs/guides/tools ; https://docs.langchain.com/oss/python/langchain/agents ; https://developers.llamaindex.ai/python/framework/module_guides/mcp/ ; https://learning.postman.com/docs/postman-ai/overview/ | medium | Cross-platform synthesis from primary docs. |
+| A layer-based comparison best explains the differences among Context Hub, RAG systems, and MCP. | https://github.com/andrewyng/context-hub ; https://doi.org/10.48550/arXiv.2304.08354 ; https://modelcontextprotocol.io/introduction | high | Integrative synthesis from primary and academic sources. |
+| Governance, authentication handoff, version drift, and cost-aware orchestration remain open gaps. | https://modelcontextprotocol.io/specification ; https://docs.aws.amazon.com/bedrock/latest/userguide/agents-action-create.html ; https://doi.org/10.48550/arXiv.2304.08354 | medium | Supported by partial coverage and documented omissions. |
+
+### Assumptions
+
+- **Assumption:** Context Hub can sustain enough curation coverage to remain valuable for important APIs at scale. **Justification:** the consulted sources document its mechanism clearly but do not yet provide mature coverage benchmarks.
+- **Assumption:** Production agent stacks will continue to use layered combinations rather than a single dominant approach. **Justification:** current platform documentation already shows mixed architectures, but the long-term equilibrium remains unsettled.
+
+### Analysis
+
+**[inference]** A practical architecture can assign each approach a distinct role without forcing one layer to absorb the others’ jobs.
+
+**[inference]** Curated documentation is most valuable where accuracy, examples, and human judgement about the common case matter more than raw catalogue breadth.
+
+**[inference]** Retrieval-heavy systems become more attractive as the tool universe grows, because the cost of maintaining curated descriptions for every tool rises faster than the cost of indexing and ranking a large corpus.
+
+**[inference]** Protocol standardisation matters most at the interoperability boundary, where many clients and servers need a shared transport and capability model even if they disagree about how discovery or ranking should happen upstream.
+
+### Risks, Gaps, and Uncertainties
+
+- **[fact]** Context Hub is new enough that long-run maintenance quality and coverage breadth are still uncertain.
+- **[fact]** MCP ecosystem support is evolving quickly, so specific client or server support claims may drift after this item is completed.
+- **[fact]** Academic tool-use benchmarks do not fully capture production constraints such as permissions, billing, operational policies, or conflicting versions across several APIs.
+- **[fact]** No consulted source fully solved trustworthy global discovery and ranking of third-party MCP servers.
+
+### Open Questions
+
+- **[inference]** What kind of open registry, if any, could provide trustworthy global discovery and ranking for MCP servers without creating a new proprietary bottleneck?
+- **[inference]** How should structured API descriptions, agent-facing summaries, and live server metadata be synchronised to minimise version drift?
+- **[inference]** What benchmark best captures production agent tool choice when several tools overlap semantically but differ in permissions, cost, and freshness?
+- **[inference]** Which governance model best constrains autonomous multi-tool agents in practice: capability-scoped servers, policy engines, retrieval-time filters, or a hybrid?
+
+---
 
 ---
 
