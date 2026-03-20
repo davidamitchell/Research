@@ -181,7 +181,7 @@ Values alignment and strategic alignment agents are the explicit K→W gatekeepe
 
 ---
 
-*Last updated: 2026-03-19 (Thread 10 extended: prompt injection threat-landscape sharpened Layer 4 as an operational security failure class for tool-using agents; defensive consensus now stated explicitly as least privilege, blast-radius reduction, approval gates, and capability isolation rather than prompt hardening alone)*
+*Last updated: 2026-03-20 (Thread 10 extended: stateless-agent assumption failure sharpened Layer 5 continuity failures as an architectural class requiring startup reconciliation, idempotent retry, checkpoint-resume, and compensation/manual quarantine for non-atomic side effects)*
 
 ---
 
@@ -206,6 +206,7 @@ Values alignment and strategic alignment agents are the explicit K→W gatekeepe
 - `Research/completed/2026-03-10-hallucination-mechanisms-h-neurons.md` — H-Neuron suppression as a direct training-level mitigation; distinct mechanism from architectural mitigations
 - `Research/completed/2026-03-12-swat-technique-loop-fresh-context.md` — SWAT loop case study: sycophancy (61.75% preemptive rebuttal rate) and false completeness are training-level (RLHF), unaffected by grounding; cross-iteration consistency collapse is architectural (stateless loop design), addressable by state persistence
 - `Research/completed/2026-03-15-prompt-injection-threat-landscape.md` — Layer 4 prompt injection becomes an operational security problem when agents have tools, memory, and side effects; indirect prompt injection dominates the practical attack surface; defensive consensus converges on least privilege, blast-radius reduction, approval gates, and capability isolation rather than prompt hardening alone
+- `Research/completed/2026-03-18-stateless-agent-assumption-failure.md` — extends the Layer 5 branch from generic \"state persistence\" to a sharper continuity model: fresh-session agents fail when they treat the world as clean despite durable prior state; the control stack is startup reconciliation across all authoritative state surfaces, idempotent retry as the default replay baseline, checkpoint-resume for long-running work, and compensation/manual quarantine once side effects are non-atomic
 
 **Open thread:** Are training-level and architectural-level failure classes fully independent, or do they interact? (E.g., does a reward-hacked model have a wider prompt injection surface because it has learned to find reward-maximising paths through adversarial inputs?) Does the two-class taxonomy hold for non-transformer architectures (state-space models, diffusion models)?
 
