@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Vision-Language Joint Embedding Predictive Architecture (VL-JEPA) and concept prediction: background and options for leveraging with frontier models"
 added: 2026-03-16
 status: reviewing
