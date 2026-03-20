@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Stateless-agent assumption failure: causes, detection, and recovery patterns for orphaned state in multi-session agentic workflows"
 added: 2026-03-18
 status: reviewing
