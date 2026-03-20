@@ -1,9 +1,10 @@
 # Research Master Document
 
-Generated on: 2026-03-20 04:32 UTC
+Generated on: 2026-03-20 07:07 UTC
 
 ## Table of Contents
 
+* [Artificial Intelligence (AI) Memory Systems: Retrieval-Augmented Generation (RAG), Vendor Implementations, and Neuroscience Foundations](#2026-03-17-ai-memory-systems-rag-neuroscience-md)
 * [Vision-Language Joint Embedding Predictive Architecture (VL-JEPA) and concept prediction: background and options for leveraging with frontier models](#2026-03-16-vl-jepa-concept-prediction-md)
 * [Intent Driven Development: context and concept layering to bound the solution space](#2026-03-16-intent-driven-development-md)
 * [GitAgent and declarative agent definition: concepts, adoption, and cross-platform integration](#2026-03-16-gitagent-declarative-agent-definition-md)
@@ -99,6 +100,96 @@ Generated on: 2026-03-20 04:32 UTC
 * [AI Strategy Examples: Business Efficiency Focus](#2026-02-28-ai-strategy-business-efficiency-examples-md)
 * [AI Line 1 and Line 2 Risk Agents: Who Is Building Them?](#2026-02-28-ai-line-1-line-2-risk-agents-md)
 * [AI for Control Testing, Gap Identification, and Policies/Standards Reviews](#2026-02-28-ai-control-testing-and-assurance-md)
+
+---
+
+<a name="2026-03-17-ai-memory-systems-rag-neuroscience-md"></a>
+
+## Artificial Intelligence (AI) Memory Systems: Retrieval-Augmented Generation (RAG), Vendor Implementations, and Neuroscience Foundations
+
+**Tags:** [memory, retrieval-augmented-generation, neuroscience, artificial-intelligence-vendors, github-copilot, gemini, claude, episodic-memory, working-memory, knowledge-management]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-17-ai-memory-systems-rag-neuroscience.md
+
+## Research Question
+
+What is the current state of Artificial Intelligence (AI) memory systems — across Retrieval-Augmented Generation (RAG) research, commercial AI vendor implementations (GitHub Copilot, Gemini, Claude, and others), and neuroscience-informed memory architectures — and what design principles for durable, personalised AI memory emerge when these strands are synthesised?
+
+Supporting questions:
+- What does Zak El-Fassi's framing ("how do you want to remember?") reveal about the gap between how humans construct memory and how AI systems currently simulate it?
+- What are the architectural approaches to AI memory across GitHub Copilot Memory, Gemini Memory, Claude's memory surfaces, OpenAI Memory, and Mem0 or other open solutions?
+- What is the current state of RAG research for long-term memory — Hypothetical Document Embeddings (HyDE), Recursive Abstractive Processing for Tree-Organized Retrieval (RAPTOR), Graph Retrieval-Augmented Generation (GraphRAG), Memory-GPT (MemGPT), and related techniques — and what problems do they solve that naive RAG does not?
+- What neuroscience findings on episodic memory, working memory consolidation, and memory reconsolidation are directly applicable to AI memory system design?
+- What is missing across all current vendor implementations, and what would a neuroscience-informed design look like?
+
+## Findings
+
+*(Populated from §6 Synthesis above.)*
+
+### Executive Summary
+
+[inference] Current vendor memory features are continuity aids rather than full durable-memory architectures, because they scope what can be recalled but rarely expose explicit consolidation, rationale preservation, or reconsolidation logic. Sources: Zak El-Fassi, “How Do You Want to Remember?” https://zakelfassi.com/how-do-you-want-to-remember; Anthropic Projects https://www.anthropic.com/news/projects; Gemini Personal Intelligence https://gemini.google/overview/personal-intelligence/; OpenAI Memory summary https://help.openai.com/en/articles/8590148-memory-in-chatgpt-remembering-what-you-chat-about.
+
+[inference] GitHub Copilot Memory is the strongest official answer to memory staleness in the surveyed set because GitHub stores repository memories with citations, validates them against the live branch, and expires them after 28 days. Sources: GitHub Docs “Copilot Memory” https://docs.github.com/en/copilot/concepts/agents/copilot-memory; GitHub blog “Building an agentic memory system for GitHub Copilot” https://github.blog/ai-and-ml/github-copilot/building-an-agentic-memory-system-for-github-copilot/.
+
+[inference] Advanced RAG research fills technical gaps that vendor features leave open: HyDE improves cold-start retrieval, RAPTOR and GraphRAG handle abstraction and relationships, CRAG and Self-RAG check retrieval quality, and MemGPT manages tiered context. Sources: HyDE https://arxiv.org/abs/2212.10496; RAPTOR https://arxiv.org/abs/2401.18059; GraphRAG https://microsoft.github.io/graphrag/; CRAG https://arxiv.org/abs/2401.15884; Self-RAG https://arxiv.org/abs/2310.11511; MemGPT https://arxiv.org/abs/2310.08560.
+
+[inference] The best-supported design is therefore a layered memory system that captures episodic traces with rationale, consolidates them into semantic and relational structures, retrieves them with failure-mode-specific RAG methods, and revises them when reuse exposes stale or incomplete memory. Sources: Frontiers review https://www.frontiersin.org/journals/human-neuroscience/articles/10.3389/fnhum.2023.1217093/full; Memory & Cognition https://link.springer.com/article/10.3758/s13421-022-01299-x; Research/completed/2026-03-02-agent-memory-management-context-injection https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-02-agent-memory-management-context-injection.md; Research/completed/2026-03-03-knowledge-retention-active-recall https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-03-knowledge-retention-active-recall.md.
+
+### Key Findings
+
+1. [inference] Most surveyed vendor memory systems optimise for personalisation, continuity, or workspace setup rather than for deliberate consolidation, rationale retention, or reconsolidation, which is why they remember useful facts or artefacts but rarely preserve why a decision was made. Sources: Zak El-Fassi, “How Do You Want to Remember?” https://zakelfassi.com/how-do-you-want-to-remember; Anthropic Projects https://www.anthropic.com/news/projects; Gemini Personal Intelligence https://gemini.google/overview/personal-intelligence/. (confidence: high)
+
+2. [inference] GitHub Copilot’s citation-backed, branch-validated, repository-scoped memory is the clearest documented production answer to memory staleness because GitHub treats validity over time as the primary problem and uses just-in-time verification instead of trusting offline curation. Sources: GitHub Docs “Copilot Memory” https://docs.github.com/en/copilot/concepts/agents/copilot-memory; GitHub blog “Building an agentic memory system for GitHub Copilot” https://github.blog/ai-and-ml/github-copilot/building-an-agentic-memory-system-for-github-copilot/. (confidence: high)
+
+3. [inference] The vendor landscape is best understood as competing memory ontologies rather than as a single feature race: Gemini and OpenAI store user-profile memory, Claude Projects and Perplexity Spaces store workspace memory, GitHub Copilot stores repository-operational memory, and Mem0 exposes programmable multi-level scoped memory. Sources: Gemini Personal Intelligence https://gemini.google/overview/personal-intelligence/; Gemini support https://support.google.com/gemini?p=mk_pi; Anthropic Projects https://www.anthropic.com/news/projects; OpenAI Memory summary https://help.openai.com/en/articles/8590148-memory-in-chatgpt-remembering-what-you-chat-about; Perplexity Spaces summary https://www.perplexity.ai/help-center/en/articles/10352961-what-are-spaces; Mem0 https://github.com/mem0ai/mem0. (confidence: high)
+
+4. [inference] Advanced RAG methods solve different failure modes rather than competing for one slot in a stack, with HyDE addressing cold-start retrieval, RAPTOR and GraphRAG addressing hierarchy and relations, CRAG and Self-RAG addressing retrieval quality control, MemGPT addressing tiered context management, and Modular RAG addressing orchestration. Sources: HyDE https://arxiv.org/abs/2212.10496; RAPTOR https://arxiv.org/abs/2401.18059; GraphRAG https://microsoft.github.io/graphrag/; CRAG https://arxiv.org/abs/2401.15884; Self-RAG https://arxiv.org/abs/2310.11511; MemGPT https://arxiv.org/abs/2310.08560; Modular RAG https://arxiv.org/abs/2407.21059. (confidence: high)
+
+5. [inference] Neuroscience supports durable AI memory designs that separate episodic traces from semantic abstractions, use deferred consolidation, exploit contextual cues and schema links, preserve rationale with events, and allow reconsolidation so retrieved memories can be corrected or refined. Sources: Frontiers review https://www.frontiersin.org/journals/human-neuroscience/articles/10.3389/fnhum.2023.1217093/full; Memory & Cognition https://link.springer.com/article/10.3758/s13421-022-01299-x. (confidence: high)
+
+6. [fact] The prior repository findings remain active constraints on this synthesis: memory is context engineering, active reuse strengthens retention, explicit links raise corpus value, and advanced RAG plus routing and compression still depends on source governance. Sources: Research/completed/2026-03-02-agent-memory-management-context-injection https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-02-agent-memory-management-context-injection.md; Research/completed/2026-03-03-knowledge-retention-active-recall https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-03-knowledge-retention-active-recall.md; Research/completed/2026-03-03-knowledge-linking-connected-corpus https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-03-knowledge-linking-connected-corpus.md; Research/completed/2026-03-15-context-compression-rag-enterprise-knowledge https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-15-context-compression-rag-enterprise-knowledge.md. (confidence: high)
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [inference] Most surveyed vendor memory systems optimise for continuity or workspace convenience more than for rationale-preserving consolidation. | Zak El-Fassi, “How Do You Want to Remember?” https://zakelfassi.com/how-do-you-want-to-remember; Anthropic Projects https://www.anthropic.com/news/projects; Gemini Personal Intelligence https://gemini.google/overview/personal-intelligence/ | high | Comparative conclusion derived from multiple sources rather than directly stated by one source. |
+| [fact] GitHub Copilot Memory addresses freshness with citations, validation against current code and branch, and 28-day expiry. | GitHub Docs “Copilot Memory” https://docs.github.com/en/copilot/concepts/agents/copilot-memory; GitHub blog “Building an agentic memory system for GitHub Copilot” https://github.blog/ai-and-ml/github-copilot/building-an-agentic-memory-system-for-github-copilot/ | high | Strongest official evidence on production memory validity. |
+| [inference] Gemini and OpenAI focus on user-context memory, while Anthropic Projects and Perplexity Spaces focus on workspace artefacts and instructions, and Mem0 exposes scoped programmable memory. | Gemini overview https://gemini.google/overview/personal-intelligence/; Gemini support https://support.google.com/gemini?p=mk_pi; Anthropic Projects https://www.anthropic.com/news/projects; OpenAI Memory summary https://help.openai.com/en/articles/8590148-memory-in-chatgpt-remembering-what-you-chat-about; Perplexity Spaces summary https://www.perplexity.ai/help-center/en/articles/10352961-what-are-spaces; Mem0 https://github.com/mem0ai/mem0 | medium | OpenAI and Perplexity detail depth is limited by accessible summaries. |
+| [inference] Advanced RAG methods target distinct retrieval and orchestration failure modes beyond naive retrieval. | HyDE https://arxiv.org/abs/2212.10496; RAPTOR https://arxiv.org/abs/2401.18059; GraphRAG https://microsoft.github.io/graphrag/; CRAG https://arxiv.org/abs/2401.15884; Self-RAG https://arxiv.org/abs/2310.11511; MemGPT https://arxiv.org/abs/2310.08560; Modular RAG https://arxiv.org/abs/2407.21059 | high | This is a synthesis across research papers rather than a verbatim claim from one source. |
+| [inference] Durable memory should separate episodic and semantic forms, use consolidation and reconsolidation, and rely on cues and schema links. | Frontiers review https://www.frontiersin.org/journals/human-neuroscience/articles/10.3389/fnhum.2023.1217093/full; Memory & Cognition https://link.springer.com/article/10.3758/s13421-022-01299-x | high | Design implication derived from neuroscience evidence. |
+| [fact] Prior repository findings reinforce context engineering, active recall, linking, and governance as necessary constraints. | Research/completed/2026-03-02-agent-memory-management-context-injection https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-02-agent-memory-management-context-injection.md; Research/completed/2026-03-03-knowledge-retention-active-recall https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-03-knowledge-retention-active-recall.md; Research/completed/2026-03-03-knowledge-linking-connected-corpus https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-03-knowledge-linking-connected-corpus.md; Research/completed/2026-03-15-context-compression-rag-enterprise-knowledge https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-15-context-compression-rag-enterprise-knowledge.md | high | Cross-item consistency is strong and now independently verifiable by URL. |
+
+### Assumptions
+
+- **Assumption:** The accessible OpenAI and Perplexity summaries are sufficient for high-level ontology comparison. **Justification:** This synthesis uses only the surfaced official behaviours and assigns lower confidence where deeper implementation detail is unavailable.
+- **Assumption:** Anthropic Projects is the safest official proxy for Claude memory behaviour in this item. **Justification:** It is the strongest accessible official Anthropic source in scope, and broader memory claims would otherwise overreach.
+- **Assumption:** Neuroscience findings should inform design goals and constraints rather than be treated as literal implementation homologies. **Justification:** The useful transfer is at the level of memory properties such as consolidation, cue dependence, and reconsolidation.
+
+### Analysis
+
+- [inference] The evidence weighs most strongly against treating memory as one feature category, because the vendor material, the RAG papers, and the neuroscience sources each describe different but complementary functions. Sources: GitHub Copilot docs https://docs.github.com/en/copilot/concepts/agents/copilot-memory; Frontiers review https://www.frontiersin.org/journals/human-neuroscience/articles/10.3389/fnhum.2023.1217093/full; Modular RAG https://arxiv.org/abs/2407.21059.
+- [inference] GitHub Copilot deserves disproportionate weight on the staleness question because its official documentation explicitly specifies citation-backed verification and expiry, whereas the other official vendor materials focus more on scope and control than on freshness logic. Sources: GitHub Copilot docs https://docs.github.com/en/copilot/concepts/agents/copilot-memory; GitHub blog https://github.blog/ai-and-ml/github-copilot/building-an-agentic-memory-system-for-github-copilot/; Gemini overview https://gemini.google/overview/personal-intelligence/; Anthropic Projects https://www.anthropic.com/news/projects.
+- [inference] Zak El-Fassi’s rationale result matters more than the raw recall uplift alone, because it shows that explanation-rich structure changes what the system can recover later, which aligns with neuroscience on cue-dependent and reconstructive retrieval. Sources: Zak El-Fassi, “How Do You Want to Remember?” https://zakelfassi.com/how-do-you-want-to-remember; Frontiers review https://www.frontiersin.org/journals/human-neuroscience/articles/10.3389/fnhum.2023.1217093/full.
+- [inference] The best-supported architecture is therefore layered and selective: preserve episodic traces with rationale, consolidate into semantic and relational memory, retrieve through modular RAG matched to query type, and refresh or revise memory through successful reuse and revalidation. Sources: Frontiers review https://www.frontiersin.org/journals/human-neuroscience/articles/10.3389/fnhum.2023.1217093/full; Memory & Cognition https://link.springer.com/article/10.3758/s13421-022-01299-x; Research/completed/2026-03-02-agent-memory-management-context-injection https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-02-agent-memory-management-context-injection.md.
+
+### Risks, Gaps, and Uncertainties
+
+- [fact] Anthropic’s broader official memory documentation was not accessible here, so any claim beyond Projects would be speculative.
+- [fact] OpenAI and Perplexity evidence is limited to accessible official summaries, so deeper claims about ranking, persistence, or update policies remain lower confidence.
+- [fact] Mem0’s benchmark figures are self-published, which weakens them relative to independently replicated evaluations.
+- [inference] No surveyed vendor product provides a fully documented production design for consolidation, replay, or reconsolidation, so the neuroscience-informed architecture remains a synthesis target rather than a direct description of current deployments.
+- [inference] The largest unresolved production gap is governed updating: deciding when memory should be strengthened, merged, revised, or forgotten.
+
+### Open Questions
+
+1. [inference] What write-path policy should determine when an episodic trace becomes a semantic memory, and what evidence threshold should trigger that consolidation in production systems?
+2. [inference] How should successful downstream use be measured so memory importance is ranked by consequence rather than only by recency or retrieval frequency?
+3. [inference] Which production system will first combine citation-backed freshness verification, graph or hierarchical abstraction, and explicit reconsolidation into a single auditable memory architecture?
+4. [inference] How much of a neuroscience-informed memory stack can be implemented as product logic around existing models without requiring specialised training or new base-model capabilities?
+
+---
 
 ---
 
