@@ -1,9 +1,9 @@
 ---
-review_count: 1
+review_count: 2
 title: "Compliance Scanning via GitHub Actions — Broad Policy as Code Across a Heterogeneous Stack"
 added: 2026-03-22
 status: reviewing
-review_count: 1
+review_count: 2
 priority: high  # low | medium | high
 blocks: []
 tags: [github-actions, policy-as-code, compliance, codeql, ghas, dotnet, kubernetes, eventing, rest-api, graph-api, python, react, airflow, dbt, snowflake, rds, golang, terraform, ansible]
