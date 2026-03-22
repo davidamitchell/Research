@@ -2,12 +2,12 @@
 review_count: 2
 title: "More formal proof engineering: Leanstral and Artificial Intelligence (AI)-assisted formal verification"
 added: 2026-03-18
-status: reviewing
+status: completed
 priority: high  # low | medium | high
 blocks: []
 tags: [formal-methods, formal-verification, lean, proof-engineering, ai-agents, guardrails, agent-autonomy, software-reliability, trustworthy-ai]
 started: 2026-03-22
-completed: ~
+completed: 2026-03-22
 output: [knowledge]
 ---
 
