@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "How to best use awesome-copilot in this repo and across personal repos"
 added: 2026-03-22
 status: reviewing
