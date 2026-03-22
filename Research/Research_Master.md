@@ -1,9 +1,10 @@
 # Research Master Document
 
-Generated on: 2026-03-22 10:56 UTC
+Generated on: 2026-03-22 11:23 UTC
 
 ## Table of Contents
 
+* [How to best use awesome-copilot in this repo and across personal repos](#2026-03-22-using-awesome-copilot-across-repos-md)
 * [Cross-Scanner Compliance Evidence and Waiver Normalisation in GitHub Actions](#2026-03-22-cross-scanner-compliance-evidence-normalisation-md)
 * [Compliance Scanning via GitHub Actions — Broad Policy as Code Across a Heterogeneous Stack](#2026-03-22-compliance-scanning-gh-actions-md)
 * [Coding AI Agent Skills Survey: Existing Vendor and OSS Prompt Libraries for Software Engineering Domains](#2026-03-22-coding-ai-agent-skills-survey-md)
@@ -114,6 +115,88 @@ Generated on: 2026-03-22 10:56 UTC
 * [AI Strategy Examples: Business Efficiency Focus](#2026-02-28-ai-strategy-business-efficiency-examples-md)
 * [AI Line 1 and Line 2 Risk Agents: Who Is Building Them?](#2026-02-28-ai-line-1-line-2-risk-agents-md)
 * [AI for Control Testing, Gap Identification, and Policies/Standards Reviews](#2026-02-28-ai-control-testing-and-assurance-md)
+
+---
+
+<a name="2026-03-22-using-awesome-copilot-across-repos-md"></a>
+
+## How to best use awesome-copilot in this repo and across personal repos
+
+**Tags:** [github-copilot, awesome-copilot, instructions, skills, agents, workflows, tooling, repo-setup]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-22-using-awesome-copilot-across-repos.md
+
+## Research Question
+
+What resources from `davidamitchell/awesome-copilot` — GitHub Copilot (GHC) instructions, skills, agents, workflows, hooks, and plugins — provide the most leverage when applied to this Research repo and to the four other personal repos (Personal-Assistant, Latest-developments, Memory-System, Agent-Evaluation), and what is the concrete adoption plan for each?
+
+Supporting questions:
+- What categories of resource does `awesome-copilot` contain (instructions, skills, agents, workflows, hooks, plugins, cookbook recipes) and what problem does each category solve?
+- Which resources are drop-in (copy a file to `.github/`) versus requiring configuration or code changes?
+- What does each target repo do, and which awesome-copilot resources are the best fit for its purpose?
+- Are there resources that already overlap with what this Research repo has in place (e.g. existing skills, `copilot-instructions.md`, `mcp.json`) — and would adopting them create a conflict or improvement?
+- What is the recommended adoption sequence: which resources have the highest value-to-effort ratio and should be applied first?
+- Are there any licensing, maintenance, or update-cadence considerations for using resources from a community-curated repo?
+
+## Findings
+
+*(Populated from §6 Synthesis above.)*
+
+### Executive Summary
+
+- [inference] For this repo portfolio, the fastest high-value import from `awesome-copilot` is its instruction architecture rather than its runtime automation: GitHub already consumes `AGENTS.md` and path-specific instructions, and three inspected repos still do not expose both surfaces. (Sources: [GitHub docs](https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot), [Research .github](https://github.com/davidamitchell/Research/tree/main/.github), [Latest-developments .github](https://github.com/davidamitchell/Latest-developments-/tree/main/.github), [Agent-Evaluation .github](https://github.com/davidamitchell/Agent-Evaluation/tree/main/.github))
+- [fact] The baseline is uneven rather than empty: `Research`, `Latest-developments-`, and `Agent-Evaluation` already expose repository-wide Copilot guidance plus shared skills, whereas `Personal-Assistant-` already adds `AGENTS.md`, path-specific instructions, `mcp.json`, and repo-wide guidance. (Sources: [Research .github](https://github.com/davidamitchell/Research/tree/main/.github), [Latest-developments .github](https://github.com/davidamitchell/Latest-developments-/tree/main/.github), [Agent-Evaluation .github](https://github.com/davidamitchell/Agent-Evaluation/tree/main/.github), [Personal-Assistant .github](https://github.com/davidamitchell/Personal-Assistant-/tree/main/.github))
+- [inference] A defensible first wave is therefore documentation-first — add `AGENTS.md` and targeted instruction files to the three thinner repos — and only then consider second-wave safety automation such as `Tool Guardian` where shell or database blast radius is meaningful. (Sources: [create-agentsmd](https://github.com/davidamitchell/awesome-copilot/blob/main/skills/create-agentsmd/SKILL.md), [GitHub docs](https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot), [Tool Guardian](https://github.com/davidamitchell/awesome-copilot/blob/main/hooks/tool-guardian/README.md))
+- [fact] Shared-skill adoption belongs in `davidamitchell/Skills`, and the unresolved `Memory-System` repository identity still blocks any repo-specific recommendation for that target. (Sources: [Research .gitmodules](https://github.com/davidamitchell/Research/blob/main/.gitmodules), [Personal-Assistant .gitmodules](https://github.com/davidamitchell/Personal-Assistant-/blob/main/.gitmodules), [Latest-developments .gitmodules](https://github.com/davidamitchell/Latest-developments-/blob/main/.gitmodules), [Agent-Evaluation .gitmodules](https://github.com/davidamitchell/Agent-Evaluation/blob/main/.gitmodules), [Memory-System URL](https://github.com/davidamitchell/Memory-System))
+
+### Key Findings
+
+1. **[inference][high]** Because GitHub web already reads repository-wide instructions, path-specific instructions, and nearest-file `AGENTS.md`, those files are the lowest-friction way to improve agent behavior across repos that do not yet expose all three surfaces. (Source: [GitHub docs](https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot))
+2. **[fact][high]** `awesome-copilot` spans agents, instructions, skills, hooks, workflows, plugins, and cookbook content, so its value lies in supplying reusable patterns for multiple adoption modes rather than one standard installation sequence. (Sources: [awesome-copilot README](https://github.com/davidamitchell/awesome-copilot/blob/main/README.md), [awesome-copilot AGENTS.md](https://github.com/davidamitchell/awesome-copilot/blob/main/AGENTS.md))
+3. **[fact][high]** `Research`, `Latest-developments-`, and `Agent-Evaluation` already ship repo-wide Copilot guidance and shared skills, but the inspected roots still lack `AGENTS.md`, which creates the same missing context layer in three separate repos. (Sources: [Research root](https://github.com/davidamitchell/Research/tree/main), [Latest-developments root](https://github.com/davidamitchell/Latest-developments-/tree/main), [Agent-Evaluation root](https://github.com/davidamitchell/Agent-Evaluation/tree/main))
+4. **[inference][high]** Because `Personal-Assistant-` already includes `AGENTS.md`, path-specific instructions, repository-wide guidance, `mcp.json`, and shared skills, importing more generic documentation scaffolds from `awesome-copilot` would add comparatively little leverage there. (Sources: [Personal-Assistant README](https://github.com/davidamitchell/Personal-Assistant-/blob/main/README.md), [Personal-Assistant AGENTS.md](https://github.com/davidamitchell/Personal-Assistant-/blob/main/AGENTS.md), [Personal-Assistant .github](https://github.com/davidamitchell/Personal-Assistant-/tree/main/.github))
+5. **[inference][high]** The strongest first-wave imports for this portfolio are the `create-agentsmd` skill and GitHub's path-specific instruction pattern, because those resources directly close the largest shared gaps without introducing new credentials or run-time behavior. (Sources: [create-agentsmd](https://github.com/davidamitchell/awesome-copilot/blob/main/skills/create-agentsmd/SKILL.md), [GitHub docs](https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot), [Research .github](https://github.com/davidamitchell/Research/tree/main/.github), [Latest-developments .github](https://github.com/davidamitchell/Latest-developments-/tree/main/.github), [Agent-Evaluation .github](https://github.com/davidamitchell/Agent-Evaluation/tree/main/.github))
+6. **[inference][medium]** `Tool Guardian` is the most compelling second-wave `awesome-copilot` candidate for `Research` and `Personal-Assistant-`, but it belongs after the documentation wave because hooks introduce scripts, logs, and execution-time policy. (Sources: [Tool Guardian](https://github.com/davidamitchell/awesome-copilot/blob/main/hooks/tool-guardian/README.md), [Personal-Assistant README](https://github.com/davidamitchell/Personal-Assistant-/blob/main/README.md), [Research root](https://github.com/davidamitchell/Research/tree/main))
+7. **[fact][high]** Directly copying awesome-copilot skills into these repos would violate the current shared-skills model, so any selected skill must be ported into `davidamitchell/Skills` and then synchronized by submodule update. (Sources: [Research .gitmodules](https://github.com/davidamitchell/Research/blob/main/.gitmodules), [Personal-Assistant .gitmodules](https://github.com/davidamitchell/Personal-Assistant-/blob/main/.gitmodules), [Latest-developments .gitmodules](https://github.com/davidamitchell/Latest-developments-/blob/main/.gitmodules), [Agent-Evaluation .gitmodules](https://github.com/davidamitchell/Agent-Evaluation/blob/main/.gitmodules))
+8. **[inference][medium]** Since `awesome-copilot` is MIT-licensed and has visible public commits on 2026-03-19 and 2026-03-20, selective cherry-picking with periodic upstream review is a reasonable maintenance posture for these personal repos. (Sources: [awesome-copilot AGENTS.md](https://github.com/davidamitchell/awesome-copilot/blob/main/AGENTS.md), [commit c6a75d7](https://github.com/davidamitchell/awesome-copilot/commit/c6a75d7e0923ec0a754e5554b1c52ef76f0d75f8), [commit 6fbbc52](https://github.com/davidamitchell/awesome-copilot/commit/6fbbc5204e63a304d0196e3e66ddf401ddb77380))
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [fact] GitHub web natively supports repo-wide instructions, path-specific instructions, and `AGENTS.md`. | https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot | high | [fact] This row rests on first-party platform documentation for supported customization surfaces. (Source: https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot) |
+| [fact] awesome-copilot is a multi-surface pattern library, not a single installation bundle. | https://github.com/davidamitchell/awesome-copilot/blob/main/README.md ; https://github.com/davidamitchell/awesome-copilot/blob/main/AGENTS.md | high | [fact] The README and AGENTS.md independently describe the same category model. (Sources: https://github.com/davidamitchell/awesome-copilot/blob/main/README.md ; https://github.com/davidamitchell/awesome-copilot/blob/main/AGENTS.md) |
+| [fact] Research, Latest-developments-, and Agent-Evaluation share a missing `AGENTS.md` surface. | https://github.com/davidamitchell/Research/tree/main ; https://github.com/davidamitchell/Latest-developments-/tree/main ; https://github.com/davidamitchell/Agent-Evaluation/tree/main | high | [fact] The same missing-file pattern appears across three separate repo roots. (Sources: https://github.com/davidamitchell/Research/tree/main ; https://github.com/davidamitchell/Latest-developments-/tree/main ; https://github.com/davidamitchell/Agent-Evaluation/tree/main) |
+| [inference] Personal-Assistant- has the fullest instruction stack in the inspected set. | https://github.com/davidamitchell/Personal-Assistant-/blob/main/README.md ; https://github.com/davidamitchell/Personal-Assistant-/blob/main/AGENTS.md ; https://github.com/davidamitchell/Personal-Assistant-/tree/main/.github | high | [inference] Multiple repo-local artifacts justify the higher-maturity comparison. (Sources: https://github.com/davidamitchell/Personal-Assistant-/blob/main/README.md ; https://github.com/davidamitchell/Personal-Assistant-/blob/main/AGENTS.md ; https://github.com/davidamitchell/Personal-Assistant-/tree/main/.github) |
+| [inference] `create-agentsmd` plus path-specific instructions are the best first-wave imports. | https://github.com/davidamitchell/awesome-copilot/blob/main/skills/create-agentsmd/SKILL.md ; https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot | high | [inference] The resource pattern matches the shared gap more directly than hooks, workflows, or plugins. (Sources: https://github.com/davidamitchell/awesome-copilot/blob/main/skills/create-agentsmd/SKILL.md ; https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot) |
+| [inference] `Tool Guardian` is a strong second-wave candidate for `Research` and `Personal-Assistant-`. | https://github.com/davidamitchell/awesome-copilot/blob/main/hooks/tool-guardian/README.md ; https://github.com/davidamitchell/Personal-Assistant-/blob/main/README.md ; https://github.com/davidamitchell/Research/tree/main | medium | [inference] The repo contexts and hook purpose align, but end-to-end validation has not yet been run. (Sources: https://github.com/davidamitchell/awesome-copilot/blob/main/hooks/tool-guardian/README.md ; https://github.com/davidamitchell/Personal-Assistant-/blob/main/README.md ; https://github.com/davidamitchell/Research/tree/main) |
+| [fact] Skills must be adopted through `davidamitchell/Skills`, not direct repo edits. | https://github.com/davidamitchell/Research/blob/main/.gitmodules ; https://github.com/davidamitchell/Personal-Assistant-/blob/main/.gitmodules ; https://github.com/davidamitchell/Latest-developments-/blob/main/.gitmodules ; https://github.com/davidamitchell/Agent-Evaluation/blob/main/.gitmodules | high | [fact] The shared submodule declaration is explicit across every inspected consumer repo. (Sources: https://github.com/davidamitchell/Research/blob/main/.gitmodules ; https://github.com/davidamitchell/Personal-Assistant-/blob/main/.gitmodules ; https://github.com/davidamitchell/Latest-developments-/blob/main/.gitmodules ; https://github.com/davidamitchell/Agent-Evaluation/blob/main/.gitmodules) |
+| [inference] awesome-copilot is MIT-licensed and recently active enough for selective adoption. | https://github.com/davidamitchell/awesome-copilot/blob/main/AGENTS.md ; https://github.com/davidamitchell/awesome-copilot/commit/c6a75d7e0923ec0a754e5554b1c52ef76f0d75f8 ; https://github.com/davidamitchell/awesome-copilot/commit/6fbbc5204e63a304d0196e3e66ddf401ddb77380 | medium | [inference] The license is explicit and the recent public commits support a cherry-pick maintenance posture. (Sources: https://github.com/davidamitchell/awesome-copilot/blob/main/AGENTS.md ; https://github.com/davidamitchell/awesome-copilot/commit/c6a75d7e0923ec0a754e5554b1c52ef76f0d75f8 ; https://github.com/davidamitchell/awesome-copilot/commit/6fbbc5204e63a304d0196e3e66ddf401ddb77380) |
+
+### Assumptions
+
+- **[assumption]** The `Memory-System` target may still be relevant under a private or renamed repository identifier. **Justification:** the research brief names it as a target repo, but current GitHub lookup returned 404. (Source: [Memory-System URL](https://github.com/davidamitchell/Memory-System))
+
+### Analysis
+
+- [fact] The current portfolio is not missing Copilot entirely; it is missing the final instruction layers that sit between repo-wide policy and file-local context. (Sources: [Research .github](https://github.com/davidamitchell/Research/tree/main/.github), [Latest-developments .github](https://github.com/davidamitchell/Latest-developments-/tree/main/.github), [Agent-Evaluation .github](https://github.com/davidamitchell/Agent-Evaluation/tree/main/.github))
+- [inference] That is why `AGENTS.md` and path-specific instructions outrank workflows and plugins: they solve the common structural gap across the greatest number of repos with the least new operational surface area. (Sources: [GitHub docs](https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot), [create-agentsmd](https://github.com/davidamitchell/awesome-copilot/blob/main/skills/create-agentsmd/SKILL.md))
+- [inference] `Personal-Assistant-` is the exception because its documentation already covers the instruction stack well enough that further value comes from reducing execution risk, not from adding another guidance file. (Sources: [Personal-Assistant README](https://github.com/davidamitchell/Personal-Assistant-/blob/main/README.md), [Personal-Assistant AGENTS.md](https://github.com/davidamitchell/Personal-Assistant-/blob/main/AGENTS.md), [Tool Guardian](https://github.com/davidamitchell/awesome-copilot/blob/main/hooks/tool-guardian/README.md))
+- [inference] Skills are strategically useful but operationally upstream, so they belong in a separate shared-skills adoption track rather than being mixed into per-repo first-wave work. (Sources: [Research .gitmodules](https://github.com/davidamitchell/Research/blob/main/.gitmodules), [Research repo instructions](https://github.com/davidamitchell/Research/blob/main/.github/copilot-instructions.md), [awesome-copilot skills](https://github.com/davidamitchell/awesome-copilot/tree/main/skills))
+
+### Risks, Gaps, and Uncertainties
+
+- [fact] `Memory-System` is an unresolved target because the listed repository URL was not inspectable on 2026-03-22. (Source: [Memory-System URL](https://github.com/davidamitchell/Memory-System))
+- [fact] The investigation sampled representative hooks, workflows, skills, and plugins rather than validating every individual resource in `awesome-copilot`, so repo-specific fit still needs judgment during implementation. (Sources: [awesome-copilot README](https://github.com/davidamitchell/awesome-copilot/blob/main/README.md), [Tool Guardian](https://github.com/davidamitchell/awesome-copilot/blob/main/hooks/tool-guardian/README.md), [relevance-check](https://github.com/davidamitchell/awesome-copilot/blob/main/workflows/relevance-check.md), [project-planning plugin](https://github.com/davidamitchell/awesome-copilot/blob/main/plugins/project-planning/.github/plugin/plugin.json))
+- [inference] Hook adoption risk is mostly operational rather than conceptual, because false positives or noisy logging could create friction if introduced before instruction quality is stabilized. (Sources: [Session Logger](https://github.com/davidamitchell/awesome-copilot/blob/main/hooks/session-logger/README.md), [Tool Guardian](https://github.com/davidamitchell/awesome-copilot/blob/main/hooks/tool-guardian/README.md))
+
+### Open Questions
+
+- What is the correct current repository identifier or visibility status for `Memory-System`?
+- Which specific awesome-copilot skills, if any, should be ported into `davidamitchell/Skills` after the first-wave documentation work lands?
+- Should `Tool Guardian` run in `warn` mode permanently, or only as a rollout phase before switching to `block` mode in selected repos?
+
+---
 
 ---
 
