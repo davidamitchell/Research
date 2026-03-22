@@ -2,12 +2,12 @@
 review_count: 2
 title: "Cross-Scanner Compliance Evidence and Waiver Normalisation in GitHub Actions"
 added: 2026-03-22
-status: reviewing
+status: completed
 priority: high  # low | medium | high
 blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
 tags: [github-actions, compliance, policy-as-code, evidence, waivers, sarif, governance, reporting]
 started: 2026-03-22
-completed: ~
+completed: 2026-03-22
 output: [knowledge]
 ---
 
@@ -155,8 +155,8 @@ The completed item `2026-03-22-compliance-scanning-gh-actions.md` concluded that
 
 ### §4 Consistency Check
 
-- [fact] No retrieved source contradicts the claim that GitHub code scanning is SARIF-centered and location-aware. Sources: https://docs.github.com/en/code-security/concepts/code-scanning/about-code-scanning-alerts ; https://docs.github.com/en/code-security/reference/code-scanning/sarif-files/sarif-support-for-code-scanning
-- [fact] No retrieved source claims that Semgrep, Checkov, Spectral, GraphQL Inspector, and SQLFluff share a uniform waiver syntax or a uniform severity taxonomy. Sources: https://semgrep.dev/docs/ignoring-files-folders-code ; https://www.checkov.io/2.Basics/Suppressing%20and%20Skipping%20Policies.html ; https://docs.stoplight.io/docs/spectral/branches/develop/9ffa04e052cc1-spectral-cli ; https://the-guild.dev/graphql/inspector/docs/products/action ; https://docs.sqlfluff.com/en/latest/configuration/ignoring_configuration.html
+- [inference] The retrieved GitHub documentation consistently presents third-party code scanning as a SARIF-based, location-aware alert system, so the recommended presentation model does not depend on undocumented GitHub behavior. Basis: https://docs.github.com/en/code-security/concepts/code-scanning/about-code-scanning-alerts ; https://docs.github.com/en/code-security/reference/code-scanning/sarif-files/sarif-support-for-code-scanning ; https://docs.github.com/en/code-security/how-tos/scan-code-for-vulnerabilities/integrate-with-existing-tools/uploading-a-sarif-file-to-github
+- [inference] The retrieved Semgrep, Checkov, Spectral, GraphQL Inspector, and SQLFluff documentation describes different waiver and severity mechanisms per tool, which supports the need for a shared normalization layer above the scanners rather than a purely native governance model. Basis: https://semgrep.dev/docs/ignoring-files-folders-code ; https://www.checkov.io/2.Basics/Suppressing%20and%20Skipping%20Policies.html ; https://docs.stoplight.io/docs/spectral/branches/develop/9ffa04e052cc1-spectral-cli ; https://the-guild.dev/graphql/inspector/docs/products/action ; https://docs.sqlfluff.com/en/latest/configuration/ignoring_configuration.html ; https://www.checkov.io/2.Basics/CLI%20Command%20Reference.html
 - [inference] The evidence therefore supports a split architecture in which the normalized record is shared, but scanner adapters remain tool-specific at ingestion time. Basis: https://semgrep.dev/docs/ignoring-files-folders-code ; https://www.checkov.io/2.Basics/CLI%20Command%20Reference.html ; https://docs.stoplight.io/docs/spectral/branches/develop/9ffa04e052cc1-spectral-cli ; https://the-guild.dev/graphql/inspector/docs/products/action ; https://docs.sqlfluff.com/en/latest/configuration/ignoring_configuration.html ; https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html ; https://docs.github.com/en/code-security/reference/code-scanning/sarif-files/sarif-support-for-code-scanning
 - [assumption] The organization can keep rule identifiers stable across scanner upgrades or policy revisions. This assumption is necessary because GitHub duplicate-prevention logic depends on stable identifiers, but the retrieved sources do not guarantee organizational discipline around versioning. Justification sources: https://docs.github.com/en/code-security/reference/code-scanning/sarif-files/sarif-support-for-code-scanning ; https://docs.github.com/en/code-security/how-tos/scan-code-for-vulnerabilities/integrate-with-existing-tools/uploading-a-sarif-file-to-github
 
