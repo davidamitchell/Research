@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "Compliance Scanning via GitHub Actions — Broad Policy as Code Across a Heterogeneous Stack"
 added: 2026-03-22
 status: reviewing
