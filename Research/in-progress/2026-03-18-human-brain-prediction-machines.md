@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Are Human Brains Just Prediction Machines? Comparing Predictive Processing and Large Language Model Next-Token Generation"
 added: 2026-03-18
 status: reviewing
