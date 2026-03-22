@@ -1,6 +1,6 @@
 # Research Master Document
 
-Generated on: 2026-03-22 08:53 UTC
+Generated on: 2026-03-22 09:14 UTC
 
 ## Table of Contents
 
@@ -23,6 +23,7 @@ Generated on: 2026-03-22 08:53 UTC
 * [Trusting Trust and AI Corpus Contamination](#2026-03-15-trusting-trust-ai-corpus-contamination-md)
 * [Invariants in Software as a Service (SaaS) Banking Software](#2026-03-15-saas-banking-invariants-md)
 * [Prompt injection threat landscape: exploits, defences, and active research in agentic artificial intelligence (AI) systems](#2026-03-15-prompt-injection-threat-landscape-md)
+* [Neurological Basis of Contextual Reasoning and Relevance Filtering](#2026-03-15-neurological-context-management-md)
 * [Latent Concept Extraction from Confluence: Embeddings, Knowledge Graphs, and Epistemic Evaluation](#2026-03-15-latent-concept-extraction-confluence-md)
 * [Aligned Decision-Making: Context Architecture for AI Agents in Organisations](#2026-03-15-context-layers-aligned-decisions-synthesis-md)
 * [Context Compression and RAG Techniques for Organisational Knowledge](#2026-03-15-context-compression-rag-enterprise-knowledge-md)
@@ -1762,6 +1763,84 @@ Supporting questions:
 - How should long-lived agent memory be partitioned so that injected state does not persist across sessions or users?
 - Which benchmark design best predicts production resilience against indirect and multimodal prompt injection rather than benchmark-specific performance?
 - What evidence, if any, will emerge that prompt injection is being adopted systematically by large-scale cybercriminal or nation-state operators?
+
+---
+
+---
+
+<a name="2026-03-15-neurological-context-management-md"></a>
+
+## Neurological Basis of Contextual Reasoning and Relevance Filtering
+
+**Tags:** [neuroscience, cognition, context-management, working-memory, attention, prefrontal-cortex, decision-making]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-15-neurological-context-management.md
+
+## Research Question
+
+How do human brains store, compress, retrieve, and dynamically layer multiple types of contextual knowledge — values, goals, rules, current state, and immediate task — when making decisions, and what design principles for Artificial Intelligence (AI) context management can be derived from this neurological understanding?
+
+## Findings
+
+### Executive Summary
+
+[inference] The brain handles contextual reasoning by compressing experience into a few active chunks, using prefrontal control to keep the most relevant chunk in play, and leaning on hippocampal-prefrontal schema machinery so that recurring experience can be reused without replaying every detail from scratch. [Sources: https://pmc.ncbi.nlm.nih.gov/articles/PMC2864034/ ; https://pubmed.ncbi.nlm.nih.gov/11283309/ ; https://pmc.ncbi.nlm.nih.gov/articles/PMC3789138/]
+
+[inference] Working-memory evidence, attention research, and schema-consolidation studies all point away from a flat "load everything" model of context use and toward selective activation, multimodal binding, and gradual abstraction from episodes into more reusable structures. [Sources: https://pubmed.ncbi.nlm.nih.gov/11058819/ ; https://pmc.ncbi.nlm.nih.gov/articles/PMC2864034/ ; https://pmc.ncbi.nlm.nih.gov/articles/PMC6689265/ ; https://pmc.ncbi.nlm.nih.gov/articles/PMC3789138/]
+
+[inference] For AI context management, the practical lesson is to keep compact high-authority priors resident, retrieve situational detail only when it matters, preserve episodic provenance, and escalate from cheap schema-led reasoning to slower deliberation when novelty or conflict rises. [Sources: https://pubmed.ncbi.nlm.nih.gov/11283309/ ; https://pmc.ncbi.nlm.nih.gov/articles/PMC3789138/ ; https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2022.805386/full ; https://doi.org/10.1038/nrn2787]
+
+[inference] That answer is best treated as an architectural constraint set rather than as evidence that digital systems should mimic biological circuitry one-for-one. [Sources: https://pubmed.ncbi.nlm.nih.gov/11283309/ ; https://pmc.ncbi.nlm.nih.gov/articles/PMC3789138/ ; https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2022.805386/full]
+
+### Key Findings
+
+1. [inference] [confidence: high] Human working memory can actively maintain only a small number of meaningful chunks at once, so robust context systems must compress and bind information into compact units rather than trying to expose the reasoner to every relevant raw document simultaneously. [Sources: https://pmc.ncbi.nlm.nih.gov/articles/PMC2864034/ ; https://pubmed.ncbi.nlm.nih.gov/11058819/]
+2. [inference] [confidence: high] Prefrontal control research shows that goal maintenance and biasing are separate functions from storage itself, which means effective AI context architectures need an explicit controller that chooses what remains active instead of assuming retrieval alone solves selection. [Sources: https://pubmed.ncbi.nlm.nih.gov/11283309/ ; https://pmc.ncbi.nlm.nih.gov/articles/PMC5447931/]
+3. [inference] [confidence: high] Attention and working memory share overlapping top-down machinery, and inhibition of return shows that search quality improves when previously visited or low-yield regions are suppressed, so context ranking should include anti-redundancy and anti-revisit signals rather than relevance alone. [Sources: https://pmc.ncbi.nlm.nih.gov/articles/PMC6689265/ ; https://pmc.ncbi.nlm.nih.gov/articles/PMC6969912/]
+4. [inference] [confidence: medium] Predictive-processing evidence suggests that stable higher-order goals behave like priors that determine which mismatches are salient, so context assembly should emphasise changes, exceptions, and conflicts against those priors instead of repeatedly reinjecting unchanged background guidance. [Sources: https://doi.org/10.1038/nrn2787 ; https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2022.805386/full]
+5. [inference] [confidence: high] Schema-consolidation research indicates that detailed episodic traces and higher-level abstractions play different roles in cognition, so AI memory should preserve both a provenance-rich episodic layer and a compressed schema layer with explicit promotion between them. [Sources: https://pmc.ncbi.nlm.nih.gov/articles/PMC3789138/ ; https://www.frontiersin.org/journals/human-neuroscience/articles/10.3389/fnhum.2023.1217093/full]
+6. [inference] [confidence: medium] Dual-process evidence supports a split between fast low-cost contextual guesses and slower controlled evaluation, so practical AI systems should treat schema-led reasoning as the default path and reserve heavier deliberate reasoning for ambiguity, conflict, or novelty. [Sources: https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2022.805386/full ; https://pmc.ncbi.nlm.nih.gov/articles/PMC5447931/]
+7. [inference] [confidence: high] The most supportable overall architecture is a layered one with always-on high-authority goals and values, a tightly bounded active task buffer, on-demand retrieval of situational evidence, and explicit conflict resolution between long-horizon priorities and immediate task demands. [Sources: https://pmc.ncbi.nlm.nih.gov/articles/PMC2864034/ ; https://pubmed.ncbi.nlm.nih.gov/11283309/ ; https://pmc.ncbi.nlm.nih.gov/articles/PMC3789138/ ; https://pmc.ncbi.nlm.nih.gov/articles/PMC6689265/]
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [inference] Active context is limited to a few chunks, so compression is mandatory. | https://pmc.ncbi.nlm.nih.gov/articles/PMC2864034/ ; https://pubmed.ncbi.nlm.nih.gov/11058819/ | high | Cowan provides the capacity limit; Baddeley explains multimodal binding into chunks. |
+| [inference] Context needs an explicit gating controller, not only storage. | https://pubmed.ncbi.nlm.nih.gov/11283309/ ; https://pmc.ncbi.nlm.nih.gov/articles/PMC5447931/ | high | Prefrontal goal maintenance and resource allocation both support the controller claim. |
+| [inference] Efficient context search needs suppression as well as retrieval. | https://pmc.ncbi.nlm.nih.gov/articles/PMC6689265/ ; https://pmc.ncbi.nlm.nih.gov/articles/PMC6969912/ | high | Attention prioritises; inhibition of return de-prioritises revisits. |
+| [inference] Stable higher-order priors should stay resident while deltas and conflicts get surfaced. | https://doi.org/10.1038/nrn2787 ; https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2022.805386/full | medium | Strong mechanistic support; engineering translation remains inferential. |
+| [inference] Episode memory and schema memory should be separate layers with promotion between them. | https://pmc.ncbi.nlm.nih.gov/articles/PMC3789138/ ; https://www.frontiersin.org/journals/human-neuroscience/articles/10.3389/fnhum.2023.1217093/full | high | Consolidation literature supports preserving both detail and abstraction. |
+| [inference] Systems should support fast default reasoning and slow escalation paths. | https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2022.805386/full ; https://pmc.ncbi.nlm.nih.gov/articles/PMC5447931/ | medium | Supported as a cognitive division of labour; implementation mapping remains approximate. |
+| [inference] A layered architecture with core priors, active task state, and on-demand retrieval best matches the full evidence set. | https://pmc.ncbi.nlm.nih.gov/articles/PMC2864034/ ; https://pubmed.ncbi.nlm.nih.gov/11283309/ ; https://pmc.ncbi.nlm.nih.gov/articles/PMC3789138/ ; https://pmc.ncbi.nlm.nih.gov/articles/PMC6689265/ | high | Integrates the strongest convergent evidence without relying on internal repository citations. |
+
+### Assumptions
+
+- [assumption] AI architectures can validly borrow functional constraints from neuroscience without needing neuron-level biological fidelity. **Justification:** the question asks for design principles, and the evidence base is strongest at the level of memory structure, control, and filtering. [Sources: https://pubmed.ncbi.nlm.nih.gov/11283309/ ; https://pmc.ncbi.nlm.nih.gov/articles/PMC3789138/]
+- [assumption] Fast-path versus slow-path AI reasoning is an analogy to human dual-process distinctions, not a literal mechanistic equivalence. **Justification:** the human evidence is strong enough to justify the design analogy but not a one-to-one mapping. [Sources: https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2022.805386/full ; https://pmc.ncbi.nlm.nih.gov/articles/PMC5447931/]
+
+### Analysis
+
+[inference] Across the source set, the recurring theme is scarcity: active context is limited, competition between representations is real, and control matters because too much simultaneously active material creates interference. [Sources: https://pmc.ncbi.nlm.nih.gov/articles/PMC2864034/ ; https://pubmed.ncbi.nlm.nih.gov/11283309/ ; https://pmc.ncbi.nlm.nih.gov/articles/PMC5447931/]
+
+[inference] By contrast, the consolidation literature explains why cognition does not collapse under that scarcity: repeated episodes are gradually transformed into schemas that can be reactivated cheaply, provided detailed traces remain available when nuance is needed. [Sources: https://pmc.ncbi.nlm.nih.gov/articles/PMC3789138/ ; https://www.frontiersin.org/journals/human-neuroscience/articles/10.3389/fnhum.2023.1217093/full]
+
+[inference] Attention and inhibition findings sharpen the design trade-off further, because they show that successful reasoning depends not just on finding relevant material but on suppressing already-checked or distracting material that would otherwise consume limited active bandwidth. [Sources: https://pmc.ncbi.nlm.nih.gov/articles/PMC6689265/ ; https://pmc.ncbi.nlm.nih.gov/articles/PMC6969912/]
+
+[inference] Finally, predictive-processing and dual-process work together to suggest when escalation is needed: stable priors can cheaply guide routine interpretation, but mismatches, ambiguity, and conflict are the moments when the system must pay the cost of slower more deliberate reasoning. [Sources: https://doi.org/10.1038/nrn2787 ; https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2022.805386/full]
+
+### Risks, Gaps, and Uncertainties
+
+- [inference] The literature cited here supports architectural constraints more directly than it supports concrete implementation choices such as exact retrieval algorithms or threshold values for escalation. [Sources: https://pmc.ncbi.nlm.nih.gov/articles/PMC2864034/ ; https://pubmed.ncbi.nlm.nih.gov/11283309/ ; https://pmc.ncbi.nlm.nih.gov/articles/PMC3789138/ ; https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2022.805386/full]
+- [inference] Schema-based compression improves speed and generalisation, but it also risks over-abstraction and loss of episode-specific detail if the promotion path from episodes to schemas is too aggressive. [Sources: https://pmc.ncbi.nlm.nih.gov/articles/PMC3789138/ ; https://www.frontiersin.org/journals/human-neuroscience/articles/10.3389/fnhum.2023.1217093/full]
+- [inference] Predictive-processing analogies can become overextended if they are used to justify every design choice, so only the narrower salience-and-error-prioritisation lesson should be treated as well supported here. [Sources: https://doi.org/10.1038/nrn2787 ; https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2022.805386/full]
+- [inference] The best-supported design still needs empirical validation in AI systems, especially around when to escalate from fast context use to slower deliberate reasoning. [Sources: https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2022.805386/full ; https://pmc.ncbi.nlm.nih.gov/articles/PMC5447931/]
+
+### Open Questions
+
+- What practical promotion criteria should move an AI memory from episodic trace to reusable schema without losing provenance?
+- How should an AI controller detect that conflict or novelty is high enough to warrant switching from fast-path reasoning to slower deliberate reasoning?
+- Which organisational context layers should be always resident because they behave like high-authority priors, and which should stay retrievable but usually inactive?
 
 ---
 
