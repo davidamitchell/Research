@@ -2,12 +2,12 @@
 review_count: 2
 title: "Code Architecture Inspection Across Repositories"
 added: 2026-03-22
-status: reviewing
+status: completed
 priority: high  # low | medium | high
 blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
 tags: [architecture, static-analysis, multi-repo, coupling, standards, github-copilot, tooling]
 started: 2026-03-22
-completed: ~
+completed: 2026-03-22
 output: [knowledge, backlog-item]
 ---
 
@@ -261,11 +261,11 @@ Understanding how a collection of repositories fits together — which services 
 
 ### §7 Recursive Review
 
-- [fact] Every claim-bearing sentence in `## Research Skill Output` is labeled as `[fact]`, `[inference]`, or `[assumption]`.
-- [fact] All factual claims are anchored either to URL-level citations or to prior completed research items cited by GitHub URL.
-- [fact] The first-use acronym audit was completed for the commonly failed terms in this document, including Large Language Model (LLM), Application Programming Interface (API), Model Context Protocol (MCP), Software Bill of Materials (SBOM), Command Line Interface (CLI), Infrastructure as Code (IaC), Open Policy Agent (OPA), and architectural decision records (ADRs).
-- [fact] Findings below were seeded from §6 and do not introduce new claims not already present in the Research Skill Output.
-- [inference] The remaining uncertainty is not about the core conclusion, but about which extractor mix would be best for a specific future estate; that is an implementation-detail gap, not a contradiction in the synthesis.
+- [fact] Every claim-bearing sentence in `## Research Skill Output` is labeled as `[fact]`, `[inference]`, or `[assumption]`. Source: this document's `## Research Skill Output` section.
+- [fact] All factual claims are anchored either to URL-level citations or to prior completed research items cited by GitHub URL. Source: this document's `## Research Skill Output` section.
+- [fact] The first-use acronym audit was completed for the commonly failed terms in this document, including Large Language Model (LLM), Application Programming Interface (API), Model Context Protocol (MCP), Software Bill of Materials (SBOM), Command Line Interface (CLI), Infrastructure as Code (IaC), Open Policy Agent (OPA), and architectural decision records (ADRs). Source: this document's `## Research Skill Output` and `## Findings` sections.
+- [fact] Findings below were seeded from §6 and do not introduce new claims not already present in the Research Skill Output. Source: this document's `### §6 Synthesis` and `## Findings` sections.
+- [inference] The remaining uncertainty is not about the core conclusion, but about which extractor mix would be best for a specific future estate; that is an implementation-detail gap, not a contradiction in the synthesis. Sources: https://raw.githubusercontent.com/sverweij/dependency-cruiser/main/README.md ; https://raw.githubusercontent.com/reposwarm/reposwarm/main/README.md ; https://docs.github.com/api/article/body?pathname=/en/rest/dependency-graph
 
 ---
 
@@ -298,20 +298,20 @@ Understanding how a collection of repositories fits together — which services 
 
 | Claim | Source | Confidence | Notes |
 |---|---|---|---|
-| [inference] Deterministic extraction must precede LLM synthesis for trusted architecture inspection. | https://raw.githubusercontent.com/sverweij/dependency-cruiser/main/README.md ; https://docs.github.com/api/article/body?pathname=/en/rest/dependency-graph ; https://www.openpolicyagent.org/docs/latest/ ; https://raw.githubusercontent.com/github/awesome-copilot/main/skills/architecture-blueprint-generator/SKILL.md | high | Required for reproducibility and drift comparison. |
-| [fact] architecture-blueprint-generator is a synthesis prompt, not a native extractor or policy engine. | https://raw.githubusercontent.com/github/awesome-copilot/main/skills/architecture-blueprint-generator/SKILL.md | high | Strong on output shape, weak on raw evidence capture. |
+| [inference] Deterministic extraction before LLM synthesis is the recommended trust boundary for architecture inspection. | https://raw.githubusercontent.com/sverweij/dependency-cruiser/main/README.md ; https://docs.github.com/api/article/body?pathname=/en/rest/dependency-graph ; https://www.openpolicyagent.org/docs/latest/ ; https://raw.githubusercontent.com/github/awesome-copilot/main/skills/architecture-blueprint-generator/SKILL.md | high | [inference] Reproducibility and drift comparison depend on stable extracted evidence. |
+| [fact] architecture-blueprint-generator is a synthesis prompt, not a native extractor or policy engine. | https://raw.githubusercontent.com/github/awesome-copilot/main/skills/architecture-blueprint-generator/SKILL.md | high | [inference] The documented scope emphasizes output structure and governance prompts rather than raw evidence capture. |
 | [inference] RepoSwarm provides the clearest open-source multi-repo architecture workflow in this evidence base. | https://raw.githubusercontent.com/reposwarm/reposwarm/main/README.md | medium | Workflow evidence is strong; live deployment evidence was not inspected. |
 | [inference] dependency-cruiser, GitHub dependency graph, Renovate, and Sourcegraph cover different structural layers. | https://raw.githubusercontent.com/sverweij/dependency-cruiser/main/README.md ; https://docs.github.com/api/article/body?pathname=/en/rest/dependency-graph ; https://docs.github.com/api/article/body?pathname=/en/rest/dependency-graph/sboms ; https://docs.renovatebot.com ; https://sourcegraph.com/docs ; https://sourcegraph.com/docs/code-insights ; https://sourcegraph.com/docs/batch_changes | high | Complementary coverage is the main pattern. |
-| [inference] Standards alignment belongs in policy rules and architecture fitness functions, with ADRs preserving rationale. | https://www.openpolicyagent.org/docs/latest/ ; https://adr.github.io ; https://nealford.com/books/buildingevolutionaryarchitectures.html ; https://evolutionaryarchitecture.com | high | Policies catch drift; ADRs preserve intent. |
+| [inference] Standards alignment belongs in policy rules and architecture fitness functions, with ADRs preserving rationale. | https://www.openpolicyagent.org/docs/latest/ ; https://adr.github.io ; https://nealford.com/books/buildingevolutionaryarchitectures.html ; https://evolutionaryarchitecture.com | high | [inference] Policy checks detect drift, while ADRs retain the boundary rationale that code alone does not expose. |
 | [inference] OpenRewrite and Batch Changes are remediation layers. | https://docs.openrewrite.org ; https://sourcegraph.com/docs/batch_changes | medium | Useful after violations are detected. |
 | [fact] Cross-repo architecture maps need provenance, freshness, semantic type, and confidence metadata on each edge. | https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-21-dependency-mapping-dotnet-terraform-dynatrace.md | high | Reuses established repository pattern. |
-| [inference] GitHub Actions plus versioned artifacts is the rollout path that best matches this repository's operating constraints. | https://docs.github.com/api/article/body?pathname=/en/rest/dependency-graph ; https://raw.githubusercontent.com/sverweij/dependency-cruiser/main/README.md ; https://www.openpolicyagent.org/docs/latest/ ; https://raw.githubusercontent.com/github/awesome-copilot/main/skills/architecture-blueprint-generator/SKILL.md ; https://raw.githubusercontent.com/reposwarm/reposwarm/main/README.md | high | Matches the owner's operating constraints. |
+| [inference] A GitHub-native rollout with versioned artifacts best matches this repository's operating constraints. | https://docs.github.com/api/article/body?pathname=/en/rest/dependency-graph ; https://raw.githubusercontent.com/sverweij/dependency-cruiser/main/README.md ; https://www.openpolicyagent.org/docs/latest/ ; https://raw.githubusercontent.com/github/awesome-copilot/main/skills/architecture-blueprint-generator/SKILL.md ; https://raw.githubusercontent.com/reposwarm/reposwarm/main/README.md | high | [inference] The repository's web-first operating model favors reviewable workflow outputs over ad hoc local tooling. |
 
 ### Assumptions
 
-- [assumption] Public documentation is sufficiently current to support an implementation-plan recommendation. **Justification:** this item is scoped to public capability discovery, not private deployment verification.
-- [assumption] The target repositories can tolerate small repository-local configuration files for scanners, policies, or generated outputs. **Justification:** every practical approach here requires at least one local configuration or artifact format.
-- [assumption] RepoSwarm's repository overview is representative of its present practical behavior. **Justification:** no live RepoSwarm instance was deployed during this item.
+- [assumption] Public documentation is sufficiently current to support an implementation-plan recommendation. **Justification:** this item is scoped to public capability discovery, not private deployment verification. Sources: https://raw.githubusercontent.com/reposwarm/reposwarm/main/README.md ; https://raw.githubusercontent.com/github/awesome-copilot/main/skills/architecture-blueprint-generator/SKILL.md
+- [assumption] The target repositories can tolerate small repository-local configuration files for scanners, policies, or generated outputs. **Justification:** every practical approach here requires at least one local configuration or artifact format. Sources: https://raw.githubusercontent.com/sverweij/dependency-cruiser/main/README.md ; https://www.openpolicyagent.org/docs/latest/
+- [assumption] RepoSwarm's repository overview is representative of its present practical behavior. **Justification:** no live RepoSwarm instance was deployed during this item. Source: https://raw.githubusercontent.com/reposwarm/reposwarm/main/README.md
 
 ### Analysis
 
