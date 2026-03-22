@@ -1,9 +1,10 @@
 # Research Master Document
 
-Generated on: 2026-03-22 06:40 UTC
+Generated on: 2026-03-22 07:07 UTC
 
 ## Table of Contents
 
+* [Technology Capability Models: Survey, Comparison, and Recommendation for Multi-Level IT Capability Mapping](#2026-03-21-technology-capability-models-md)
 * [Dependency Mapping Across .NET Codebases, Terraform, Dynatrace, Confluence, Log Aggregation, and the Configuration and Service Data Model (CSDM)](#2026-03-21-dependency-mapping-dotnet-terraform-dynatrace-md)
 * [Layered Organisation Large Language Model: Feasibility and Architecture of Organisation-Customised LLMs](#2026-03-19-layered-org-llm-architecture-md)
 * [Stateless-agent assumption failure: causes, detection, and recovery patterns for orphaned state in multi-session agentic workflows](#2026-03-18-stateless-agent-assumption-failure-md)
@@ -106,6 +107,89 @@ Generated on: 2026-03-22 06:40 UTC
 * [AI Strategy Examples: Business Efficiency Focus](#2026-02-28-ai-strategy-business-efficiency-examples-md)
 * [AI Line 1 and Line 2 Risk Agents: Who Is Building Them?](#2026-02-28-ai-line-1-line-2-risk-agents-md)
 * [AI for Control Testing, Gap Identification, and Policies/Standards Reviews](#2026-02-28-ai-control-testing-and-assurance-md)
+
+---
+
+<a name="2026-03-21-technology-capability-models-md"></a>
+
+## Technology Capability Models: Survey, Comparison, and Recommendation for Multi-Level IT Capability Mapping
+
+**Tags:** [capability-modelling, enterprise-architecture, togaf, sabsa, bian, tmf, csdm, business-capability-model, technical-capability-model, dependency-map, maturity-assessment, it-architecture, it-strategy]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-21-technology-capability-models.md
+
+## Research Question
+
+What established and emerging IT capability models define a complete, multi-level set of technical capabilities - such as authentication, networking, Application Programming Interface (API) gateways, and data storage - and which model or combination of models best supports: (a) designing new and existing solutions without tying to specific implementation details, and (b) assessing capability maturity against a standardised framework to identify where investment is needed?
+
+Supporting questions:
+- What multi-level capability taxonomy models currently exist across both traditional architecture frameworks and modern engineering-focused approaches?
+- What are the strengths and weaknesses of each model for the purposes of abstract capability design and maturity assessment?
+- How do these models handle the traceability link from business functions down through IT services to technical capabilities?
+- How does ServiceNow's Common Service Data Model (CSDM) relate to or complement these capability models?
+- Which single model or which combination would best serve as a foundation for a capability map that is implementation-agnostic and assessable for maturity?
+
+## Findings
+
+*(Populated from Section 6 Synthesis above.)*
+
+### Executive Summary
+
+**[inference]** No single surveyed public framework can serve as both the enterprise-wide technical capability taxonomy and the maturity model, so the strongest answer is a layered stack that combines a generic taxonomy backbone, a maturity overlay, and an operational traceability model. Sources: `https://www.opengroup.org/togaf`; `https://ivi.ie/it-capability-maturity-framework/`; `https://cmmiinstitute.com/learning/appraisals/levels`.
+
+**[inference]** The most defensible composition is a TOGAF-style backbone plus IT-CMF plus CSDM, because TOGAF contributes reusable implementation-agnostic structure, IT-CMF contributes maturity mechanics, and prior repository work shows that CSDM contributes the operational traceability layers needed to anchor the model in ServiceNow. Sources: `https://www.opengroup.org/togaf`; `https://www.opengroup.org/architecture/0210can/togaf8/doc-review/togaf8cr/c/p3/iii-rm/concepts.htm`; `https://ivi.ie/it-capability-maturity-framework/`; `https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-servicenow-csdm-data-modelling.md`; `https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-servicenow-platform-strategy.md`.
+
+**[inference]** Sector, security, and engineering frameworks such as BIAN, TM Forum TAM, SABSA, NIST CSF 2.0, ZTA, DORA, Team Topologies, Wardley Mapping, and the cloud well-architected frameworks should improve or specialise the map rather than replace the enterprise-wide backbone. Sources: `https://bian.org/service-landscape/`; `https://www.tmforum.org/open-digital-architecture/process-framework-etom/`; `https://sabsa.org/sabsa-executive-summary/`; `https://csrc.nist.gov/pubs/cswp/29/the-nist-cybersecurity-framework-csf-20/final`; `https://csrc.nist.gov/pubs/sp/800/207/final`; `https://dora.dev/`; `https://teamtopologies.com/key-concepts`; `https://learnwardleymapping.com/`; `https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html`; `https://learn.microsoft.com/en-us/azure/well-architected/`; `https://cloud.google.com/architecture/framework`.
+
+### Key Findings
+
+1. **[inference][high]** No surveyed public framework is simultaneously a modern enterprise-wide technical capability taxonomy and a robust maturity model, so organisations that need both outcomes must combine at least one classification framework with at least one maturity overlay. Sources: `https://www.opengroup.org/togaf`; `https://ivi.ie/it-capability-maturity-framework/`; `https://cmmiinstitute.com/learning/appraisals/levels`.
+2. **[inference][medium]** TOGAF's Technical Reference Model and Integrated Information Infrastructure Reference Model are the best general-purpose public backbone in the set because they provide reusable cross-industry structural categories without binding the capability map to specific vendors or implementations. Sources: `https://www.opengroup.org/togaf`; `https://www.opengroup.org/architecture/0210can/togaf8/doc-review/togaf8cr/c/p3/iii-rm/concepts.htm`.
+3. **[inference][high]** IT-CMF is the strongest enterprise-level maturity companion in the survey because IVI explicitly positions it as a 37-capability framework with maturity profiles, assessments, and improvement roadmaps that complement other domain-specific frameworks rather than replace them. Source: `https://ivi.ie/it-capability-maturity-framework/`.
+4. **[fact][medium]** DoDAF, NAF, BIAN, and TM Forum TAM all provide meaningful multi-level decomposition or traceability, but each does so inside a bounded defence, banking, or telecom context rather than as a neutral enterprise technology stack. Sources: `https://dodcio.defense.gov/Portals/0/Documents/DODAF/DoDAF_v2-02_web.pdf`; `https://fachglossar.platinus.at/assets/files/NAFv4_2020.09-ed0964cf26fb5f5d0c23a54bc073b5ea.pdf`; `https://bian.org/service-landscape/`; `https://www.tmforum.org/open-digital-architecture/process-framework-etom/`.
+5. **[fact][high]** SABSA, NIST CSF 2.0, and ZTA are valuable security overlays because they describe security attributes, outcomes, or logical security components, but they do not attempt to describe the full technical capability stack for the rest of enterprise IT. Sources: `https://sabsa.org/sabsa-executive-summary/`; `https://csrc.nist.gov/pubs/cswp/29/the-nist-cybersecurity-framework-csf-20/final`; `https://csrc.nist.gov/pubs/sp/800/207/final`.
+6. **[fact][high]** Team Topologies, DORA, Wardley Mapping, and the well-architected frameworks contribute team-design, performance, strategy, or review discipline rather than a canonical enterprise capability taxonomy, so they should challenge and improve the map instead of defining it. Sources: `https://teamtopologies.com/key-concepts`; `https://dora.dev/`; `https://learnwardleymapping.com/`; `https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html`; `https://learn.microsoft.com/en-us/azure/well-architected/`; `https://cloud.google.com/architecture/framework`.
+7. **[inference][high]** CSDM should be used as the operational representation layer for the capability map, with shared technical capabilities anchored first to Technical Services and then traced down to Configuration Items, because prior repository work shows that CSDM is strong on traceability but not on capability definition. Sources: `https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-servicenow-csdm-data-modelling.md`; `https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-servicenow-platform-strategy.md`.
+8. **[inference][high]** The most defensible rollout path is to stabilise CSDM ownership and service layers first, define a small implementation-agnostic enterprise capability backbone next, map Technical Services and Application Services onto it, and only then apply IT-CMF and targeted overlays for maturity and design review. Sources: `https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-servicenow-csdm-data-modelling.md`; `https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-servicenow-platform-strategy.md`; `https://ivi.ie/it-capability-maturity-framework/`.
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| **[inference]** No single public framework covers both taxonomy and maturity well. | `https://www.opengroup.org/togaf`; `https://ivi.ie/it-capability-maturity-framework/`; `https://cmmiinstitute.com/learning/appraisals/levels` | high | Cross-framework comparison rather than a single-source statement. |
+| **[inference]** TOGAF is the best generic backbone in the set. | `https://www.opengroup.org/togaf`; `https://www.opengroup.org/architecture/0210can/togaf8/doc-review/togaf8cr/c/p3/iii-rm/concepts.htm` | medium | Reference-model details are partly older public material. |
+| **[inference]** IT-CMF is the strongest maturity companion. | `https://ivi.ie/it-capability-maturity-framework/` | high | Official IVI statement is explicit. |
+| **[fact]** DoDAF, NAF, BIAN, and TAM are domain-bounded decompositions. | `https://dodcio.defense.gov/Portals/0/Documents/DODAF/DoDAF_v2-02_web.pdf`; `https://fachglossar.platinus.at/assets/files/NAFv4_2020.09-ed0964cf26fb5f5d0c23a54bc073b5ea.pdf`; `https://bian.org/service-landscape/`; `https://www.tmforum.org/open-digital-architecture/process-framework-etom/` | medium | Stronger for DoDAF and BIAN than for TM Forum due access limits. |
+| **[fact]** SABSA, NIST CSF 2.0, and ZTA are overlays or slices, not full-stack maps. | `https://sabsa.org/sabsa-executive-summary/`; `https://csrc.nist.gov/pubs/cswp/29/the-nist-cybersecurity-framework-csf-20/final`; `https://csrc.nist.gov/pubs/sp/800/207/final` | high | Security-specific scope is explicit in the sources. |
+| **[fact]** Team Topologies, DORA, Wardley Mapping, and well-architected frameworks are improvement or design lenses. | `https://teamtopologies.com/key-concepts`; `https://dora.dev/`; `https://learnwardleymapping.com/`; `https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html`; `https://learn.microsoft.com/en-us/azure/well-architected/`; `https://cloud.google.com/architecture/framework` | high | Multiple independent sources agree on role. |
+| **[inference]** CSDM should hold the map, not define the taxonomy. | `https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-servicenow-csdm-data-modelling.md`; `https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-servicenow-platform-strategy.md` | high | Strong repository-specific evidence. |
+| **[inference]** A phased rollout should be CSDM-first, taxonomy-second, maturity-third. | `https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-servicenow-csdm-data-modelling.md`; `https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-servicenow-platform-strategy.md`; `https://ivi.ie/it-capability-maturity-framework/` | high | Synthesises repository sequencing with maturity overlay evidence. |
+
+### Assumptions
+
+- **[assumption]** TM Forum TAM remains application-centric in the current public standard even though the official TAM detail page was inaccessible in this environment. **Justification:** accessible public explainers and official TM Forum references consistently describe eTOM as process architecture and TAM as the application architecture companion. Sources: `https://www.tmforum.org/open-digital-architecture/process-framework-etom/`; `https://www.ntt-review.jp/archive/ntttechnical.php?contents=ntr202307gls_s.html`; `https://www.telecom-expertise.com/areas-of-expertise/`.
+- **[assumption]** SABSA's current public executive-summary content still reflects the six-layer, business-attribute-driven structure described in accessible secondary sources. **Justification:** direct fetch of the official page returned 403, but public SABSA descriptions were consistent and aligned with long-standing SABSA structure. Sources: `https://sabsa.org/sabsa-executive-summary/`; `https://en.wikipedia.org/wiki/Sherwood_Applied_Business_Security_Architecture`; `https://davidlynas.com/sabsa/`.
+- **[assumption]** A local enterprise capability map will need extension for modern platform areas such as internal developer platforms, event streaming, and artificial intelligence operations because the generic public frameworks do not normalise those areas consistently. **Justification:** the most general frameworks are reference models or overlays rather than contemporary exhaustive technical libraries. Sources: `https://www.opengroup.org/togaf`; `https://teamtopologies.com/key-concepts`; `https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html`.
+
+### Analysis
+
+- **[inference]** The evidence points to a layered architecture because the frameworks answer different questions: TOGAF and sector models classify capability structure, IT-CMF and CMMI score maturity, CSDM provides traceability, and DORA or Team Topologies shape how capabilities are operated. Sources: `https://www.opengroup.org/togaf`; `https://ivi.ie/it-capability-maturity-framework/`; `https://cmmiinstitute.com/learning/appraisals/levels`; `https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-servicenow-csdm-data-modelling.md`; `https://dora.dev/`; `https://teamtopologies.com/key-concepts`.
+- **[inference]** The main trade-off is breadth versus specificity: general frameworks are reusable but coarse, while sector frameworks are precise but hard to generalise beyond their native industries. Sources: `https://www.opengroup.org/togaf`; `https://bian.org/service-landscape/`; `https://www.tmforum.org/open-digital-architecture/process-framework-etom/`; `https://dodcio.defense.gov/Portals/0/Documents/DODAF/DoDAF_v2-02_web.pdf`.
+- **[inference]** The recommendation therefore favours composition over purity: use one backbone for stable capability names, one operational model for traceability, and targeted overlays for risk, design quality, or engineering performance. Sources: `https://www.opengroup.org/togaf`; `https://ivi.ie/it-capability-maturity-framework/`; `https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-servicenow-csdm-data-modelling.md`; `https://csrc.nist.gov/pubs/cswp/29/the-nist-cybersecurity-framework-csf-20/final`; `https://dora.dev/`; `https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html`.
+
+### Risks, Gaps, and Uncertainties
+
+- **[fact]** Official SABSA and TM Forum detail pages were partially inaccessible from this environment, so the conclusions on those frameworks rest on mixed official metadata and public supporting summaries rather than on fully fetched primary text. Sources: `https://sabsa.org/sabsa-executive-summary/`; `https://www.tmforum.org/open-digital-architecture/process-framework-etom/`.
+- **[inference]** TOGAF's public material is sufficient to justify its role as the generic backbone, but a production rollout would still need licensed or internal detail to define the exact level-2 and level-3 capability families. Sources: `https://www.opengroup.org/togaf`; `https://www.opengroup.org/togaf-standard-10th-edition-downloads`.
+- **[inference]** The recommendation does not eliminate local design work, because modern platform capabilities are not normalised consistently across the surveyed public frameworks. Sources: `https://www.opengroup.org/togaf`; `https://teamtopologies.com/key-concepts`; `https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html`.
+
+### Open Questions
+
+- Which concrete level-2 and level-3 capability families should be standardised first for this repository's likely enterprise context: identity, networking, integration, observability, or data?
+- What is the cleanest way to attach IT-CMF maturity scoring to individual Technical Services in CSDM without creating duplicate governance structures?
+- How much local extension is needed to represent platform engineering, internal developer platform, and artificial intelligence operations capabilities cleanly on top of a TOGAF-style backbone?
+
+---
 
 ---
 
