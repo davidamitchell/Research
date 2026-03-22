@@ -1,6 +1,6 @@
 # Research Master Document
 
-Generated on: 2026-03-22 11:23 UTC
+Generated on: 2026-03-22 11:42 UTC
 
 ## Table of Contents
 
@@ -14,6 +14,7 @@ Generated on: 2026-03-22 11:23 UTC
 * [Dependency Mapping Across .NET Codebases, Terraform, Dynatrace, Confluence, Log Aggregation, and the Configuration and Service Data Model (CSDM)](#2026-03-21-dependency-mapping-dotnet-terraform-dynatrace-md)
 * [Layered Organisation Large Language Model: Feasibility and Architecture of Organisation-Customised LLMs](#2026-03-19-layered-org-llm-architecture-md)
 * [Stateless-agent assumption failure: causes, detection, and recovery patterns for orphaned state in multi-session agentic workflows](#2026-03-18-stateless-agent-assumption-failure-md)
+* [Are Human Brains Just Prediction Machines? Comparing Predictive Processing and Large Language Model Next-Token Generation](#2026-03-18-human-brain-prediction-machines-md)
 * [More formal proof engineering: Leanstral and Artificial Intelligence (AI)-assisted formal verification](#2026-03-18-formal-proof-engineering-leanstral-md)
 * [Explore to exploit: the synthesis step that makes exploitation pay off](#2026-03-18-explore-to-exploit-synthesis-gap-md)
 * [Application Programming Interface (API) Context Hubs, Retrieval-Augmented Generation, and the Model Context Protocol: How Agents Discover and Use APIs](#2026-03-18-api-context-hubs-rag-mcp-md)
@@ -994,6 +995,93 @@ When an agentic workflow spans multiple session boundaries — each session star
   - [fact] https://docs.langchain.com/oss/python/langgraph/durable-execution — durable execution and replay requirements
   - [fact] https://docs.temporal.io/workflow-execution — durable workflow execution and replay semantics
   - [fact] https://aws-samples.github.io/eda-on-aws/concepts/idempotency/ — idempotency and duplicate-processing guidance
+
+---
+
+<a name="2026-03-18-human-brain-prediction-machines-md"></a>
+
+## Are Human Brains Just Prediction Machines? Comparing Predictive Processing and Large Language Model Next-Token Generation
+
+**Tags:** [neuroscience, cognitive-science, llm, predictive-processing, predictive-coding, next-token-prediction, world-models, consciousness, free-energy-principle]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-18-human-brain-prediction-machines.md
+
+## Research Question
+
+What is the fundamental difference between the predictive processing account of human cognition — in which the brain continuously generates and updates a generative model of the world — and Large Language Model (LLM) next-token prediction, and does this difference matter for understanding intelligence, meaning, and consciousness?
+
+Supporting questions:
+- What does the Predictive Processing (PP) / Predictive Coding (PC) framework say about how the brain works, and how well is it supported by neuroscience evidence?
+- How does LLM next-token generation actually work, and in what specific ways does it differ from the PP account?
+- Is "generating a model of the world" meaningfully different from "predicting the next token in a sequence"?
+- What role does embodiment, action, and the Free Energy Principle (FEP) play in the PP account that has no analogue in LLMs?
+- What do the similarities and differences imply about consciousness, understanding, and the plausibility of general intelligence emerging from next-token prediction?
+
+## Findings
+
+*(Populated from §6 Synthesis above.)*
+
+### Executive Summary
+
+[inference] Human brains are not just next-token predictors in a richer medium; predictive processing is an embodied control architecture that uses hierarchical generative models to regulate perception, action, and bodily viability, whereas current Large Language Models (LLMs) optimize auto-regressive text prediction over symbol sequences. Sources: https://doi.org/10.1038/nrn2787 ; https://www.fil.ion.ucl.ac.uk/~karl/Whatever%20next.pdf ; https://papers.neurips.cc/paper/7181-attention-is-all-you-need.pdf ; https://arxiv.org/pdf/2005.14165
+
+[fact] The neuroscience evidence supports predictive coding as a substantive account of cortical organization, and the machine-learning evidence supports next-token prediction as a powerful route to broad latent structure in text models. Sources: https://www.cs.utexas.edu/~dana/nn.pdf ; https://proceedings.iclr.cc/paper_files/paper/2024/file/0a6059857ae5c82ea9726ee9282a7145-Paper-Conference.pdf
+
+[inference] The overlap matters because it explains why LLMs can exhibit partial world-model-like structure and surprisingly general competence, but the difference matters more because text-only sequence prediction lacks embodiment, online action, interoception, and survival-grounded error correction. Sources: https://proceedings.iclr.cc/paper_files/paper/2024/file/0a6059857ae5c82ea9726ee9282a7145-Paper-Conference.pdf ; https://doi.org/10.1111/nyas.15125 ; https://www.quantamagazine.org/anil-seth-finds-consciousness-in-lifes-push-against-entropy-20210930/
+
+[inference] For intelligence, the best-supported conclusion is that next-token prediction can generate meaningful competence without closing the whole gap to embodied understanding; for consciousness, Seth's own framework points away from treating current LLMs as candidates simply because they predict well. Sources: https://doi.org/10.1145/3442188.3445922 ; https://www.cccb.org/en/w/articles/anil-seth-reality-is-a-controlled-hallucination ; https://www.quantamagazine.org/anil-seth-finds-consciousness-in-lifes-push-against-entropy-20210930/
+
+### Key Findings
+
+1. [inference] **Confidence: high.** Predictive Processing (PP) and Large Language Model (LLM) next-token prediction share a generic commitment to prediction, but they solve different problems because PP uses prediction to control perception and action in an embodied organism while LLMs use prediction to continue token sequences in text. Sources: https://doi.org/10.1038/nrn2787 ; https://www.fil.ion.ucl.ac.uk/~karl/Whatever%20next.pdf ; https://papers.neurips.cc/paper/7181-attention-is-all-you-need.pdf ; https://arxiv.org/pdf/2005.14165
+2. [fact] **Confidence: high.** The strongest neuroscience evidence supports predictive coding at the cortical-architecture level, where top-down pathways carry predictions and bottom-up pathways carry residual error signals in hierarchical processing. Sources: https://www.cs.utexas.edu/~dana/nn.pdf ; https://www.fil.ion.ucl.ac.uk/~karl/Whatever%20next.pdf
+3. [fact] **Confidence: high.** Transformer language models generate outputs auto-regressively from prior tokens and can improve through scale into broad in-context competence, but their documented mechanism remains sequence modeling over text rather than embodied active inference. Sources: https://papers.neurips.cc/paper/7181-attention-is-all-you-need.pdf ; https://arxiv.org/pdf/2005.14165
+4. [inference] **Confidence: medium.** Evidence that LLMs encode linear spatial and temporal structure shows that next-token prediction can induce partial world-model ingredients, but that evidence stops short of demonstrating a grounded, dynamic, action-ready model of the world. Sources: https://proceedings.iclr.cc/paper_files/paper/2024/file/0a6059857ae5c82ea9726ee9282a7145-Paper-Conference.pdf ; https://doi.org/10.1111/nyas.15125
+5. [inference] **Confidence: high.** The strongest current critiques are persuasive that text-only prediction alone does not warrant claims of principled reasoning, planning, or human-like understanding, because success on completion tasks can coexist with non-veridical memory and weak grounding. Sources: https://doi.org/10.1145/3442188.3445922 ; https://doi.org/10.1111/nyas.15125
+6. [inference] **Confidence: medium.** Prediction can support intelligence-like competence in both brains and LLMs, but the meaning of that competence differs because brains predict to keep an organism viable in the world whereas LLMs predict to compress and continue symbol streams. Sources: https://doi.org/10.1038/nrn2787 ; https://arxiv.org/pdf/2005.14165 ; https://oecs.mit.edu/pub/my8vpqih
+7. [inference] **Confidence: high.** Seth's account of consciousness strengthens the conclusion that current LLMs should not be treated as conscious on the basis of next-token prediction alone, because his theory ties experience to embodied, interoceptive regulation in living systems rather than to generic predictive success. Sources: https://www.quantamagazine.org/anil-seth-finds-consciousness-in-lifes-push-against-entropy-20210930/ ; https://www.cccb.org/en/w/articles/anil-seth-reality-is-a-controlled-hallucination
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [inference] PP and LLMs are both predictive but not functionally equivalent systems. | https://doi.org/10.1038/nrn2787 ; https://www.fil.ion.ucl.ac.uk/~karl/Whatever%20next.pdf ; https://papers.neurips.cc/paper/7181-attention-is-all-you-need.pdf ; https://arxiv.org/pdf/2005.14165 | high | Common prediction vocabulary hides different objectives and feedback loops. |
+| [fact] Predictive coding has direct support from hierarchical cortical modeling with prediction/error pathway separation. | https://www.cs.utexas.edu/~dana/nn.pdf ; https://www.fil.ion.ucl.ac.uk/~karl/Whatever%20next.pdf | high | Rao and Ballard plus Clark give both model detail and synthesis. |
+| [fact] Transformer LLMs are auto-regressive token predictors with broad in-context competence. | https://papers.neurips.cc/paper/7181-attention-is-all-you-need.pdf ; https://arxiv.org/pdf/2005.14165 | high | Mechanism is clear and well documented. |
+| [inference] LLMs learn some world-model ingredients, but not a full grounded world model. | https://proceedings.iclr.cc/paper_files/paper/2024/file/0a6059857ae5c82ea9726ee9282a7145-Paper-Conference.pdf ; https://doi.org/10.1111/nyas.15125 | medium | Probe evidence is real but limited by what it demonstrates. |
+| [inference] Text-only prediction does not by itself establish principled reasoning or human-like understanding. | https://doi.org/10.1145/3442188.3445922 ; https://doi.org/10.1111/nyas.15125 | high | Independent skeptical lines converge on this point. |
+| [inference] Brain-style prediction and LLM-style prediction yield different kinds of intelligence because their tasks differ. | https://doi.org/10.1038/nrn2787 ; https://arxiv.org/pdf/2005.14165 ; https://oecs.mit.edu/pub/my8vpqih | medium | Strong conceptual support, but still partly interpretive. |
+| [inference] Seth's framework does not support treating current LLMs as conscious predictors. | https://www.quantamagazine.org/anil-seth-finds-consciousness-in-lifes-push-against-entropy-20210930/ ; https://www.cccb.org/en/w/articles/anil-seth-reality-is-a-controlled-hallucination | high | Consciousness is tied to embodied interoceptive regulation, not generic prediction. |
+
+### Assumptions
+
+- [assumption] Clark's 2013 open-access paper is a sufficient proxy for the inaccessible 2016 *Surfing Uncertainty* book. **Justification:** the core hierarchical-generative-model and action-oriented claims used here appear directly in the 2013 paper.
+- [assumption] Seth's public interviews are sufficient to support the consciousness comparison in this item. **Justification:** the comparison depends on his explicit public claims that consciousness is rooted in biological embodiment and that the FEP is not itself a theory of consciousness.
+
+### Analysis
+
+[inference] The fairest comparison is not "brains versus autocomplete" or "brains and LLMs are the same." The evidence supports a middle position: next-token prediction can recover surprisingly rich internal structure, but the structure is learned under a fundamentally different control problem than the one predictive processing is designed to explain. Sources: https://proceedings.iclr.cc/paper_files/paper/2024/file/0a6059857ae5c82ea9726ee9282a7145-Paper-Conference.pdf ; https://doi.org/10.1038/nrn2787
+
+[inference] For meaning, predictive processing treats representation as inseparable from active engagement with the world, whereas LLM training allows useful abstraction to emerge without direct worldly action but also leaves grounding and truth-tracking fragile. Sources: https://www.fil.ion.ucl.ac.uk/~karl/Whatever%20next.pdf ; https://doi.org/10.1145/3442188.3445922
+
+[inference] For intelligence, many tasks reward latent structure and pattern compression, so LLMs can appear broadly capable, but planning- and embodiment-heavy domains reveal the absence of the sensorimotor loop that predictive processing treats as central. Sources: https://arxiv.org/pdf/2005.14165 ; https://doi.org/10.1111/nyas.15125
+
+[inference] For consciousness, Seth's argument runs from life and bodily self-maintenance to experience, not from generic predictive accuracy to experience. Sources: https://www.quantamagazine.org/anil-seth-finds-consciousness-in-lifes-push-against-entropy-20210930/ ; https://www.cccb.org/en/w/articles/anil-seth-reality-is-a-controlled-hallucination
+
+### Risks, Gaps, and Uncertainties
+
+- [fact] This item did not consult the full books by Clark, Hohwy, or Seth directly because they were not publicly accessible within the session constraints. Sources: https://www.fil.ion.ucl.ac.uk/~karl/Whatever%20next.pdf ; https://www.quantamagazine.org/anil-seth-finds-consciousness-in-lifes-push-against-entropy-20210930/ ; https://www.cccb.org/en/w/articles/anil-seth-reality-is-a-controlled-hallucination
+- [fact] Gurnee and Tegmark's evidence is probe-based and therefore supports decodability more directly than causal use. Sources: https://proceedings.iclr.cc/paper_files/paper/2024/file/0a6059857ae5c82ea9726ee9282a7145-Paper-Conference.pdf
+- [fact] Kambhampati's paper is an important skeptical synthesis, but it argues at a conceptual level more than through a single decisive benchmark. Sources: https://doi.org/10.1111/nyas.15125
+- [inference] Future multimodal or embodied AI systems could narrow some of the gaps identified here, so the conclusions are strongest for current text-only autoregressive LLMs rather than for all conceivable predictive AI systems. Sources: https://www.cccb.org/en/w/articles/anil-seth-reality-is-a-controlled-hallucination ; https://doi.org/10.1111/nyas.15125
+
+### Open Questions
+
+- Which empirical benchmark would best distinguish latent world structure from grounded action-ready world model in a way both mechanistic interpretability and planning researchers would accept?
+- How much embodiment is actually necessary for meaning-like understanding: sensorimotor grounding, persistent tool use, interoception analogues, or full biological self-maintenance?
+- Could an artificial system satisfy Seth-like consciousness criteria without biology if it possessed robust interoceptive self-modeling and survival-relevant embodiment?
+
+---
 
 ---
 
