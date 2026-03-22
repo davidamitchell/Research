@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "Layered Organisation Large Language Model: Feasibility and Architecture of Organisation-Customised LLMs"
 added: 2026-03-19
 status: reviewing
