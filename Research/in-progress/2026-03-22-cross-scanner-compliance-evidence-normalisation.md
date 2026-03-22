@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "Cross-Scanner Compliance Evidence and Waiver Normalisation in GitHub Actions"
 added: 2026-03-22
 status: reviewing
