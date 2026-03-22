@@ -1,9 +1,10 @@
 # Research Master Document
 
-Generated on: 2026-03-22 08:09 UTC
+Generated on: 2026-03-22 08:33 UTC
 
 ## Table of Contents
 
+* [Compliance Scanning via GitHub Actions — Broad Policy as Code Across a Heterogeneous Stack](#2026-03-22-compliance-scanning-gh-actions-md)
 * [Coding AI Agent Skills Survey: Existing Vendor and OSS Prompt Libraries for Software Engineering Domains](#2026-03-22-coding-ai-agent-skills-survey-md)
 * [Applied context engineering: skills, workflows, and best practices for agent development](#2026-03-22-applied-context-engineering-agent-workflows-md)
 * [Technology Capability Models: Survey, Comparison, and Recommendation for Multi-Level IT Capability Mapping](#2026-03-21-technology-capability-models-md)
@@ -109,6 +110,79 @@ Generated on: 2026-03-22 08:09 UTC
 * [AI Strategy Examples: Business Efficiency Focus](#2026-02-28-ai-strategy-business-efficiency-examples-md)
 * [AI Line 1 and Line 2 Risk Agents: Who Is Building Them?](#2026-02-28-ai-line-1-line-2-risk-agents-md)
 * [AI for Control Testing, Gap Identification, and Policies/Standards Reviews](#2026-02-28-ai-control-testing-and-assurance-md)
+
+---
+
+<a name="2026-03-22-compliance-scanning-gh-actions-md"></a>
+
+## Compliance Scanning via GitHub Actions — Broad Policy as Code Across a Heterogeneous Stack
+
+**Tags:** [github-actions, policy-as-code, compliance, codeql, ghas, dotnet, kubernetes, eventing, rest-api, graph-api, python, react, airflow, dbt, snowflake, rds, golang, terraform, ansible]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-22-compliance-scanning-gh-actions.md
+
+## Research Question
+
+How can GitHub Actions (with GitHub Advanced Security (GHAS) and CodeQL already enabled) be extended to enforce a broad, organisation-wide compliance policy — covering naming conventions, architectural patterns, directory layout, Application Programming Interface (API) specifications, event schemas, and technology-stack-specific usage rules — across a heterogeneous estate of .NET, Kubernetes (k8s), Python, React, Go, Airflow, DBT (Data Build Tool), Snowflake, Relational Database Service (RDS), Terraform, Ansible, Representational State Transfer (REST) APIs, Graph APIs (GraphQL), and event-driven systems, where policies are defined once and shared across multiple enforcement points?
+
+## Findings
+
+### Executive Summary
+
+- [inference] The most defensible way to extend GHAS and CodeQL into broad compliance scanning is to treat them as the supported-language security layer inside a larger GitHub Actions architecture that also governs manifests, schemas, SQL, and project structure. Basis: https://docs.github.com/en/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql ; https://docs.github.com/en/actions/sharing-automations/reusing-workflows ; https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets#require-workflows-to-pass-before-merging
+- [fact] GitHub already provides the cross-repository control-plane primitives needed for that design: reusable workflows centralise execution logic, while organisation rulesets and required status checks make shared checks mandatory. Sources: https://docs.github.com/en/actions/sharing-automations/reusing-workflows ; https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-organization-settings/creating-rulesets-for-repositories-in-your-organization
+- [inference] The correct operating model is a multi-tool policy portfolio organised by artefact type, not an attempt to stretch CodeQL into every compliance domain named in the question. Basis: https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/ ; https://github.com/bridgecrewio/checkov ; https://github.com/stoplightio/spectral ; https://the-guild.dev/graphql/inspector/docs/index ; https://sqlfluff.com/ ; https://github.com/dbt-labs/dbt-project-evaluator
+- [inference] The safest adoption path is to centralise policy artefacts, run them first in Evaluate or soft-fail mode, and only then promote them into merge-blocking rulesets after outputs, ownership, and exceptions are stable. Basis: https://wellarchitected.github.com/library/governance/recommendations/managing-repositories-at-scale/rulesets-best-practices/ ; https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/centralized-custom-checkov-scanning.html
+
+### Key Findings
+
+1. [inference][high] Because the CodeQL support matrix is language-centric, any estate that also needs Terraform, Kubernetes, OpenAPI, AsyncAPI, SQL, or dbt governance must add dedicated artefact scanners instead of expecting GHAS alone to enforce those surfaces. Basis: https://docs.github.com/en/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql ; https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/
+2. [fact][high] GitHub separates shared execution from shared enforcement: reusable workflows encapsulate the shared scanning logic, while organisation rulesets and required checks apply merge-blocking governance across targeted repositories. Sources: https://docs.github.com/en/actions/sharing-automations/reusing-workflows ; https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-organization-settings/creating-rulesets-for-repositories-in-your-organization ; https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets#require-workflows-to-pass-before-merging
+3. [fact][high] CodeQL packs are an important extension point for supported languages, but the official pack model still assumes CodeQL-compatible artefacts and therefore cannot replace specialised validation tools for schemas, manifests, and SQL-focused repositories. Sources: https://docs.github.com/en/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/publishing-and-using-codeql-packs ; https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/
+4. [fact][high] The open-source toolchain retrieved in this item is already broad enough to cover most of the named estate when organised by artefact type, combining Semgrep and Conftest for generic policy, Checkov and kube-score for IaC and Kubernetes, Spectral and AsyncAPI CLI for API and event contracts, GraphQL Inspector for GraphQL, and SQLFluff plus dbt-project-evaluator for data-platform governance. Sources: https://semgrep.dev/docs/writing-rules/overview ; https://www.conftest.dev/ ; https://github.com/bridgecrewio/checkov ; https://github.com/zegl/kube-score ; https://github.com/stoplightio/spectral ; https://www.asyncapi.com/tools/cli ; https://the-guild.dev/graphql/inspector/docs/index ; https://sqlfluff.com/ ; https://github.com/dbt-labs/dbt-project-evaluator
+5. [inference][medium] A central policy-repository model is more maintainable than embedding scanner logic in every application repository, because central rule bundles and reusable workflows reduce drift, simplify ownership, and let policy teams update standards without mass copy-editing downstream repositories. Basis: https://docs.github.com/en/actions/sharing-automations/reusing-workflows ; https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/centralized-custom-checkov-scanning.html ; https://wellarchitected.github.com/library/governance/recommendations/managing-repositories-at-scale/rulesets-best-practices/
+6. [inference][high] A staged rollout with Evaluate mode, soft-fail where appropriate, rule insights, and explicit bypass governance is not just a convenience feature but the operational control that prevents multi-scanner compliance programmes from collapsing under false positives and unstable checks. Basis: https://wellarchitected.github.com/library/governance/recommendations/managing-repositories-at-scale/rulesets-best-practices/ ; https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/centralized-custom-checkov-scanning.html
+7. [inference][medium] The minimum viable architecture for this problem is a portfolio of four reusable workflow domains — code, infrastructure, APIs/events, and data — each backed by centrally versioned policies and attached to repository tiers through organisation rulesets. Basis: https://docs.github.com/en/actions/sharing-automations/reusing-workflows ; https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets#require-workflows-to-pass-before-merging ; https://wellarchitected.github.com/library/governance/recommendations/managing-repositories-at-scale/rulesets-best-practices/
+8. [inference][medium] GraphQL and event-driven contract governance deserve first-class treatment in the compliance model, because the retrieved evidence shows dedicated schema-aware tools for those artefacts and does not support treating them as a by-product of generic source-code scanning. Basis: https://the-guild.dev/graphql/inspector/docs/index ; https://www.asyncapi.com/tools/cli ; https://github.com/stoplightio/spectral
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [inference] CodeQL's published support boundary leaves manifest-, schema-, SQL-, and dbt-centric compliance domains outside the native GHAS baseline. | https://docs.github.com/en/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql ; https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/ | high | This is a synthesis from the explicit support matrix. |
+| [fact] GitHub splits shared compliance into two primitives: reusable workflows for execution logic and rulesets for mandatory enforcement. | https://docs.github.com/en/actions/sharing-automations/reusing-workflows ; https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-organization-settings/creating-rulesets-for-repositories-in-your-organization ; https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets#require-workflows-to-pass-before-merging | high | This expresses the same mechanism more precisely than a generic restatement. |
+| [fact] CodeQL packs extend supported-language analysis but not schema or manifest validation. | https://docs.github.com/en/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/publishing-and-using-codeql-packs ; https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/ | high | Extension exists, but supported artefact scope remains bounded. |
+| [fact] The open-source scanner portfolio covers most artefact types when combined. | https://semgrep.dev/docs/writing-rules/overview ; https://www.conftest.dev/ ; https://github.com/bridgecrewio/checkov ; https://github.com/zegl/kube-score ; https://github.com/stoplightio/spectral ; https://www.asyncapi.com/tools/cli ; https://the-guild.dev/graphql/inspector/docs/index ; https://sqlfluff.com/ ; https://github.com/dbt-labs/dbt-project-evaluator | high | Coverage is broad, but intentionally multi-tool. |
+| [inference] Central policy repositories are more maintainable than per-repo embedded policy logic. | https://docs.github.com/en/actions/sharing-automations/reusing-workflows ; https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/centralized-custom-checkov-scanning.html ; https://wellarchitected.github.com/library/governance/recommendations/managing-repositories-at-scale/rulesets-best-practices/ | medium | Strong pattern evidence, but still a design inference. |
+| [inference] Staged rollout and bypass governance are operationally necessary. | https://wellarchitected.github.com/library/governance/recommendations/managing-repositories-at-scale/rulesets-best-practices/ ; https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/centralized-custom-checkov-scanning.html | high | Both sources explicitly recommend phased rollout and governance. |
+| [inference] Four reusable workflow domains are the minimum viable implementation shape. | https://docs.github.com/en/actions/sharing-automations/reusing-workflows ; https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets#require-workflows-to-pass-before-merging ; https://wellarchitected.github.com/library/governance/recommendations/managing-repositories-at-scale/rulesets-best-practices/ | medium | Synthesised implementation pattern, not a quoted vendor prescription. |
+| [inference] GraphQL and event schemas need dedicated first-class checks. | https://the-guild.dev/graphql/inspector/docs/index ; https://www.asyncapi.com/tools/cli ; https://github.com/stoplightio/spectral | medium | Evidence is direct on tool capability, indirect on organisational design choice. |
+
+### Assumptions
+
+- [assumption] **Assumption:** The organisation can maintain central policy repositories and a small reusable-workflow portfolio. **Justification:** Without central ownership, the proposed architecture degenerates into per-repository duplication and loses its main scale advantage.
+- [assumption] **Assumption:** Teams can tolerate an Evaluate or soft-fail adoption period before strict merge blocking. **Justification:** GitHub and AWS guidance both point to staged rollout as the practical way to reduce developer friction and tune rules.
+
+### Analysis
+
+- [inference] The evidence supports a compositional architecture rather than a monolithic scanner strategy. GitHub supplies the orchestration and enforcement layer, while specialised tools supply the domain semantics. Basis: https://docs.github.com/en/actions/sharing-automations/reusing-workflows ; https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets#require-workflows-to-pass-before-merging ; https://github.com/bridgecrewio/checkov ; https://github.com/stoplightio/spectral ; https://sqlfluff.com/
+- [inference] That compositional design also fits realistic ownership boundaries, because platform or security teams can own shared rules and workflows while application teams remain responsible only for repository-local adoption and exception handling. Basis: https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/centralized-custom-checkov-scanning.html ; https://wellarchitected.github.com/library/governance/recommendations/managing-repositories-at-scale/rulesets-best-practices/
+- [inference] The main remaining architecture gap is not scanner availability but result normalisation: a serious enterprise rollout will eventually need a common severity, waiver, and reporting model across these otherwise independent tools. Basis: https://github.com/bridgecrewio/checkov ; https://github.com/stoplightio/spectral ; https://the-guild.dev/graphql/inspector/docs/index ; https://sqlfluff.com/ ; https://github.com/dbt-labs/dbt-project-evaluator
+
+### Risks, Gaps, and Uncertainties
+
+- [fact] The original Spectral documentation page supplied in the item was inaccessible during retrieval, so Spectral capability claims rely on the project readme rather than the exact seed page. Sources: https://docs.stoplight.io/docs/spectral/ ; https://github.com/stoplightio/spectral
+- [inference] GitHub's required-workflows feature history is partially split between older launch posts and newer rulesets documentation, so any implementation should validate plan support against current product docs for the target organisation. Basis: https://github.blog/enterprise-software/devops/introducing-required-workflows-and-configuration-variables-to-github-actions/ ; https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets#require-workflows-to-pass-before-merging
+- [inference] GraphQL governance beyond schema diffing and document validation remains underexplored in this item and would benefit from a dedicated follow-up on style, naming, and resolver policy tooling. Basis: https://the-guild.dev/graphql/inspector/docs/index
+- [inference] A common evidence and waiver layer for multi-scanner GitHub Actions compliance remains an open design problem not resolved by the retrieved sources. Basis: gap across the retrieved tool documentation.
+
+### Open Questions
+
+- [inference] How should heterogeneous scanner outputs be normalised into one durable evidence model for audit, waiver management, and developer triage inside GitHub?
+- [inference] What is the best open-source governance toolchain for GraphQL style and schema policy beyond change detection and operation validation?
+- [inference] When central workflows become merge-blocking, which checks should emit GitHub code-scanning alerts versus regular check-run summaries so that developers see one coherent signal instead of many parallel failure surfaces?
+
+---
 
 ---
 
