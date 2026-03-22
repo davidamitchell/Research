@@ -1,9 +1,10 @@
 # Research Master Document
 
-Generated on: 2026-03-22 08:33 UTC
+Generated on: 2026-03-22 08:53 UTC
 
 ## Table of Contents
 
+* [Cross-Scanner Compliance Evidence and Waiver Normalisation in GitHub Actions](#2026-03-22-cross-scanner-compliance-evidence-normalisation-md)
 * [Compliance Scanning via GitHub Actions — Broad Policy as Code Across a Heterogeneous Stack](#2026-03-22-compliance-scanning-gh-actions-md)
 * [Coding AI Agent Skills Survey: Existing Vendor and OSS Prompt Libraries for Software Engineering Domains](#2026-03-22-coding-ai-agent-skills-survey-md)
 * [Applied context engineering: skills, workflows, and best practices for agent development](#2026-03-22-applied-context-engineering-agent-workflows-md)
@@ -110,6 +111,84 @@ Generated on: 2026-03-22 08:33 UTC
 * [AI Strategy Examples: Business Efficiency Focus](#2026-02-28-ai-strategy-business-efficiency-examples-md)
 * [AI Line 1 and Line 2 Risk Agents: Who Is Building Them?](#2026-02-28-ai-line-1-line-2-risk-agents-md)
 * [AI for Control Testing, Gap Identification, and Policies/Standards Reviews](#2026-02-28-ai-control-testing-and-assurance-md)
+
+---
+
+<a name="2026-03-22-cross-scanner-compliance-evidence-normalisation-md"></a>
+
+## Cross-Scanner Compliance Evidence and Waiver Normalisation in GitHub Actions
+
+**Tags:** [github-actions, compliance, policy-as-code, evidence, waivers, sarif, governance, reporting]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-22-cross-scanner-compliance-evidence-normalisation.md
+
+## Research Question
+
+How should an organisation running multiple compliance scanners in GitHub Actions normalise evidence, severity, waiver handling, and developer-facing output so that heterogeneous tools behave like one coherent compliance system rather than a collection of unrelated failing checks?
+
+## Findings
+
+### Executive Summary
+
+- [inference] A coherent multi-scanner compliance system in GitHub Actions should normalize every scanner result into a shared SARIF-aligned evidence contract and keep waivers in a separate organization-owned registry, because the retrieved tools expose incompatible severity models and incompatible suppression syntaxes. Sources: https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html ; https://docs.github.com/en/code-security/reference/code-scanning/sarif-files/sarif-support-for-code-scanning ; https://semgrep.dev/docs/ignoring-files-folders-code ; https://www.checkov.io/2.Basics/Suppressing%20and%20Skipping%20Policies.html ; https://the-guild.dev/graphql/inspector/docs/products/action
+- [inference] The recommended normalization strategy is to split severity into presentation level, business severity, and merge-gate policy instead of forcing GraphQL Inspector, Spectral, Checkov, Semgrep, and GitHub code scanning into one ordinal ladder. Sources: https://docs.github.com/en/code-security/concepts/code-scanning/about-code-scanning-alerts ; https://docs.stoplight.io/docs/spectral/branches/develop/9ffa04e052cc1-spectral-cli ; https://www.checkov.io/2.Basics/CLI%20Command%20Reference.html ; https://the-guild.dev/graphql/inspector/docs/products/action
+- [inference] GitHub code scanning should host only SARIF-capable, location-aware findings with stable identifiers, while check runs, annotations, and job summaries should carry scanner outputs that do not naturally behave like persistent source-code alerts. Sources: https://docs.github.com/en/code-security/concepts/code-scanning/about-code-scanning-alerts ; https://docs.github.com/en/code-security/how-tos/scan-code-for-vulnerabilities/integrate-with-existing-tools/uploading-a-sarif-file-to-github ; https://the-guild.dev/graphql/inspector/docs/products/action ; https://docs.sqlfluff.com/en/stable/reference/cli.html
+- [inference] The practical implementation path is to build adapters first, then stabilize fingerprinting and categories, then enforce central waiver expiry, and only then make normalized policy outcomes blocking for merges. Sources: https://docs.github.com/en/code-security/reference/code-scanning/sarif-files/sarif-support-for-code-scanning ; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-22-compliance-scanning-gh-actions.md
+
+### Key Findings
+
+1. [inference] **Confidence: high.** An organization should treat SARIF as the shared interchange backbone for multi-scanner compliance evidence because OASIS designed it for cross-tool aggregation and GitHub already ingests SARIF 2.1.0 into code scanning without requiring a custom user interface. Sources: https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html ; https://docs.github.com/en/code-security/reference/code-scanning/sarif-files/sarif-support-for-code-scanning
+2. [inference] **Confidence: high.** A single normalized severity field is the wrong abstraction for a heterogeneous scanner estate, because GitHub code scanning uses `Error` or `Warning` or `Note`, Spectral uses lint severities, Checkov uses thresholdable policy severities, and GraphQL Inspector signals breaking-change impact instead of security risk. Sources: https://docs.github.com/en/code-security/concepts/code-scanning/about-code-scanning-alerts ; https://docs.stoplight.io/docs/spectral/branches/develop/9ffa04e052cc1-spectral-cli ; https://www.checkov.io/2.Basics/CLI%20Command%20Reference.html ; https://the-guild.dev/graphql/inspector/docs/products/action
+3. [inference] **Confidence: high.** The minimum viable normalized evidence record should preserve stable rule identity, artifact location, fingerprint, presentation level, business severity, workflow category, and policy version, because those are the fields that enable deduplication, routing, auditability, and user interface placement across scanner boundaries. Sources: https://docs.github.com/en/code-security/reference/code-scanning/sarif-files/sarif-support-for-code-scanning ; https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html ; https://semgrep.dev/docs/semgrep-appsec-platform/json-and-sarif
+4. [inference] **Confidence: high.** Waivers should be keyed to the normalized finding identity in a central registry with approver, justification, expiry, and policy-version metadata, because scanner-native suppressions such as `nosemgrep`, `checkov:skip`, and `noqa` are useful locally but do not provide a uniform audit contract. Sources: https://semgrep.dev/docs/ignoring-files-folders-code ; https://www.checkov.io/2.Basics/Suppressing%20and%20Skipping%20Policies.html ; https://docs.sqlfluff.com/en/latest/configuration/ignoring_configuration.html ; https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html
+5. [inference] **Confidence: high.** CodeQL, Semgrep, Checkov, and Spectral findings that already fit SARIF should be uploaded into GitHub code scanning under distinct categories, because GitHub otherwise treats same-tool same-category uploads as replacements and because location-aware alerts benefit from the native security tab and pull request surfaces. Sources: https://docs.github.com/en/code-security/how-tos/scan-code-for-vulnerabilities/integrate-with-existing-tools/uploading-a-sarif-file-to-github ; https://www.checkov.io/8.Outputs/SARIF.html ; https://semgrep.dev/docs/semgrep-appsec-platform/json-and-sarif ; https://docs.stoplight.io/docs/spectral/branches/develop/9ffa04e052cc1-spectral-cli
+6. [inference] **Confidence: medium.** GraphQL Inspector should remain a check-and-annotation adapter instead of being forced into the same alert channel as every other tool, because its documented model is schema-diff feedback with `fail-on-breaking` and label-based approval rather than SARIF-based persistent alert lifecycle. Source: https://the-guild.dev/graphql/inspector/docs/products/action
+7. [inference] **Confidence: medium.** SQLFluff should start as a check-run or job-summary signal until the team proves that a maintained converter is worth the effort, because the retrieved official SQLFluff documentation emphasizes rule selection and `noqa` suppression rather than native SARIF output. Sources: https://docs.sqlfluff.com/en/latest/configuration/ignoring_configuration.html ; https://docs.sqlfluff.com/en/stable/reference/cli.html
+8. [inference] **Confidence: high.** The safest rollout sequence is normalize first, observe duplicate and category stability second, centralize waivers third, and enforce blocking policy last, because fingerprint churn or weak mappings create developer distrust when they are introduced directly as hard merge gates. Sources: https://docs.github.com/en/code-security/reference/code-scanning/sarif-files/sarif-support-for-code-scanning ; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-22-compliance-scanning-gh-actions.md
+
+### Evidence Map
+
+| claim | source | confidence | notes |
+|---|---|---|---|
+| [inference] SARIF should be the backbone for multi-scanner evidence normalization. | https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html ; https://docs.github.com/en/code-security/reference/code-scanning/sarif-files/sarif-support-for-code-scanning | high | OASIS defines the interchange purpose; GitHub provides the ingestion path. |
+| [inference] Severity must be split into presentation, business, and merge-gate dimensions. | https://docs.github.com/en/code-security/concepts/code-scanning/about-code-scanning-alerts ; https://docs.stoplight.io/docs/spectral/branches/develop/9ffa04e052cc1-spectral-cli ; https://www.checkov.io/2.Basics/CLI%20Command%20Reference.html ; https://the-guild.dev/graphql/inspector/docs/products/action | high | The tools expose different importance semantics. |
+| [inference] Normalized records need rule identity, location, fingerprint, severity dimensions, workflow category, and policy version. | https://docs.github.com/en/code-security/reference/code-scanning/sarif-files/sarif-support-for-code-scanning ; https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html ; https://semgrep.dev/docs/semgrep-appsec-platform/json-and-sarif | high | These fields support deduplication, routing, and auditability. |
+| [inference] Waivers should live in a central registry rather than only in tool-native suppressions. | https://semgrep.dev/docs/ignoring-files-folders-code ; https://www.checkov.io/2.Basics/Suppressing%20and%20Skipping%20Policies.html ; https://docs.sqlfluff.com/en/latest/configuration/ignoring_configuration.html ; https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html | high | Tool-native suppressions are heterogeneous and weak on centralized governance. |
+| [inference] SARIF-capable findings should be uploaded to code scanning with distinct categories. | https://docs.github.com/en/code-security/how-tos/scan-code-for-vulnerabilities/integrate-with-existing-tools/uploading-a-sarif-file-to-github ; https://www.checkov.io/8.Outputs/SARIF.html ; https://semgrep.dev/docs/semgrep-appsec-platform/json-and-sarif ; https://docs.stoplight.io/docs/spectral/branches/develop/9ffa04e052cc1-spectral-cli | high | Category separation avoids upload replacement and preserves native alert flows. |
+| [inference] GraphQL Inspector should stay on checks and annotations. | https://the-guild.dev/graphql/inspector/docs/products/action | medium | The action docs center on schema-diff annotations and approval labels. |
+| [inference] SQLFluff should begin in checks or summaries rather than in forced SARIF uploads. | https://docs.sqlfluff.com/en/latest/configuration/ignoring_configuration.html ; https://docs.sqlfluff.com/en/stable/reference/cli.html | medium | This is based on the absence of native SARIF emphasis in the retrieved official pages. |
+| [inference] Rollout should harden mappings before making them blocking. | https://docs.github.com/en/code-security/reference/code-scanning/sarif-files/sarif-support-for-code-scanning ; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-22-compliance-scanning-gh-actions.md | high | Stable identifiers and prior multi-scanner context argue for phased enforcement. |
+
+### Assumptions
+
+- [assumption] The organization can keep normalized `rule_id` values and workflow categories stable across tool upgrades. Justification: GitHub's duplicate-prevention logic depends on stable identifiers, but the retrieved documentation cannot guarantee internal governance discipline. Sources: https://docs.github.com/en/code-security/reference/code-scanning/sarif-files/sarif-support-for-code-scanning ; https://docs.github.com/en/code-security/how-tos/scan-code-for-vulnerabilities/integrate-with-existing-tools/uploading-a-sarif-file-to-github
+- [assumption] The waiver registry can be implemented as either a repository-governed manifest or an external system, provided it is queryable in workflows and keeps historical state. Justification: the public sources define interoperable result and alert constraints, but they do not prescribe a single storage architecture for waivers. Sources: https://docs.github.com/en/code-security/concepts/code-scanning/about-code-scanning-alerts ; https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html
+
+### Analysis
+
+- [inference] The central design choice is to normalize evidence more aggressively than user interface behavior. This works because a shared record can drive several surfaces at once, while a shared surface cannot recover semantics that were discarded during ingestion. Sources: https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html ; https://docs.github.com/en/code-security/concepts/code-scanning/about-code-scanning-alerts
+- [inference] Keeping `presentation_level`, `business_severity`, and `merge_gate` separate turns severity into a translation layer instead of a lossy compromise, which is the only way to accommodate both policy scanners and schema-change scanners under one governance model. Sources: https://docs.github.com/en/code-security/concepts/code-scanning/about-code-scanning-alerts ; https://the-guild.dev/graphql/inspector/docs/products/action ; https://docs.stoplight.io/docs/spectral/branches/develop/9ffa04e052cc1-spectral-cli ; https://www.checkov.io/2.Basics/CLI%20Command%20Reference.html
+- [inference] Centralizing waivers reduces long-term compliance drift because expiry, approver identity, and policy-version traceability become first-class metadata instead of comments hidden inside unrelated source files. Sources: https://www.checkov.io/2.Basics/Suppressing%20and%20Skipping%20Policies.html ; https://semgrep.dev/docs/ignoring-files-folders-code ; https://docs.sqlfluff.com/en/latest/configuration/ignoring_configuration.html
+- [inference] The platform should prefer native GitHub surfaces when they match the scanner's semantics and avoid forced conversions when they do not, because every adapter choice trades implementation simplicity against user-context quality. Sources: https://docs.github.com/en/code-security/concepts/code-scanning/about-code-scanning-alerts ; https://the-guild.dev/graphql/inspector/docs/products/action ; https://docs.sqlfluff.com/en/stable/reference/cli.html
+
+### Risks, Gaps, and Uncertainties
+
+- [fact] GitHub code scanning only shows pull request alerts when the identified lines are present in the diff, so repository-level governance findings without precise locations will need a different surface. Sources: https://docs.github.com/en/code-security/concepts/code-scanning/about-code-scanning-alerts ; https://docs.github.com/en/code-security/reference/code-scanning/sarif-files/sarif-support-for-code-scanning
+- [inference] Fingerprint instability or category drift will create duplicate or disappearing alerts, which will undermine trust before the platform's governance model matures. Source: https://docs.github.com/en/code-security/reference/code-scanning/sarif-files/sarif-support-for-code-scanning
+- [inference] The public sources leave open whether maintaining custom SARIF converters for non-native tools is cheaper than keeping mixed surfaces. That trade-off depends on internal engineering capacity and desired user experience consistency. Sources: https://the-guild.dev/graphql/inspector/docs/products/action ; https://docs.sqlfluff.com/en/stable/reference/cli.html
+- [inference] Inline suppressions remain a governance risk even under a central registry if workflows do not reconcile source-level suppressions back to the registry on every run. Sources: https://semgrep.dev/docs/ignoring-files-folders-code ; https://www.checkov.io/2.Basics/Suppressing%20and%20Skipping%20Policies.html ; https://docs.sqlfluff.com/en/latest/configuration/ignoring_configuration.html
+
+### Open Questions
+
+- [inference] Should the organization standardize on a repository-resident waiver manifest for maximum transparency, or move directly to an external evidence store for stronger history and access control?
+- [inference] Which non-SARIF tools, if any, are worth converting into SARIF rather than preserving as native checks and summaries?
+- [inference] How should business severity be assigned for schema-breaking changes that are operationally critical but not security findings?
+
+### Output
+
+- [fact] **Type:** knowledge. Source: https://github.com/davidamitchell/Research/blob/main/research-prompt.md
+- [inference] **Description:** This item defines a hub-and-adapter operating model for multi-scanner compliance in GitHub Actions, centered on a SARIF-aligned evidence schema, a separate waiver registry, split severity dimensions, and layered GitHub presentation surfaces. Sources: https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html ; https://docs.github.com/en/code-security/reference/code-scanning/sarif-files/sarif-support-for-code-scanning ; https://docs.github.com/en/code-security/concepts/code-scanning/about-code-scanning-alerts
+- [fact] **Three key sources:** https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html ; https://docs.github.com/en/code-security/reference/code-scanning/sarif-files/sarif-support-for-code-scanning ; https://docs.github.com/en/code-security/concepts/code-scanning/about-code-scanning-alerts
 
 ---
 
