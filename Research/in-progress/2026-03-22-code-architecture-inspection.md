@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Code Architecture Inspection Across Repositories"
 added: 2026-03-22
 status: reviewing
