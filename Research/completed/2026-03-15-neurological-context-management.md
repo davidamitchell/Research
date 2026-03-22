@@ -2,12 +2,12 @@
 review_count: 2
 title: "Neurological Basis of Contextual Reasoning and Relevance Filtering"
 added: 2026-03-15
-status: reviewing
+status: completed
 priority: medium  # low | medium | high
 blocks: [2026-03-15-context-layers-aligned-decisions-synthesis]  # slugs (filename without .md) of backlog items that cannot start until this one is complete
 tags: [neuroscience, cognition, context-management, working-memory, attention, prefrontal-cortex, decision-making]
 started: 2026-03-22
-completed: ~
+completed: 2026-03-22
 output: [knowledge]
 ---
 
@@ -39,7 +39,7 @@ How do human brains store, compress, retrieve, and dynamically layer multiple ty
 
 ## Context
 
-Human beings routinely make aligned decisions while drawing on a vast, heterogeneous store of contextual knowledge: organisational values internalised years ago, strategy understood from a presentation last quarter, policies referenced occasionally, and the immediate task at hand — all simultaneously active but not equally weighted. Humans clearly do not load all of this into a single buffer; the brain has evolved mechanisms for compressing, selectively activating, and dynamically re-weighting context based on relevance and salience. Understanding those mechanisms offers a principled, biology-tested blueprint for designing AI context management systems that go beyond simple Retrieval-Augmented Generation (RAG) into something closer to how intelligence actually works. This item feeds the synthesis item on aligned decision-making context architecture by providing the cognitive science grounding.
+Human beings routinely make aligned decisions while drawing on a vast, heterogeneous store of contextual knowledge: organisational values internalised years ago, strategy understood from a presentation last quarter, policies referenced occasionally, and the immediate task at hand — all simultaneously active but not equally weighted. The literature reviewed for this item indicates that people do not maintain all of this material in a single raw buffer; instead, they rely on compression, selective activation, and dynamic re-weighting based on relevance and salience. Understanding those mechanisms offers a principled, biology-tested blueprint for designing AI context management systems that go beyond simple Retrieval-Augmented Generation (RAG) into something closer to how intelligence actually works. This item feeds the synthesis item on aligned decision-making context architecture by providing the cognitive science grounding.
 
 ## Approach
 
@@ -62,7 +62,7 @@ Human beings routinely make aligned decisions while drawing on a vast, heterogen
 - [x] Raymond M. Klein and Steven P. Hilchey (2020) — "What Neuroscientific Studies Tell Us about Inhibition of Return" — PubMed Central (PMC) full text — https://pmc.ncbi.nlm.nih.gov/articles/PMC6969912/
 - [x] Junaid Younas et al. (2023) — "Cognitive neuroscience perspective on memory" — Frontiers in Human Neuroscience — https://www.frontiersin.org/journals/human-neuroscience/articles/10.3389/fnhum.2023.1217093/full
 - [x] Guilherme Bellini-Leite (2022) — "Dual Process Theory: Embodied and Predictive; Symbolic and Classical" — Frontiers in Psychology — https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2022.805386/full
-- [x] Karl Friston (2010) — "The free-energy principle: a unified brain theory?" — DOI landing page — https://doi.org/10.1038/nrn2787
+- [x] Karl Friston (2010) — "The free-energy principle: a unified brain theory?" — Digital Object Identifier (DOI) landing page — https://doi.org/10.1038/nrn2787
 - [x] Prior completed item — `Research/completed/2026-02-28-predictive-processing-active-inference.md`
 - [x] Prior completed item — `Research/completed/2026-03-17-ai-memory-systems-rag-neuroscience.md`
 - [x] Prior completed item — `Research/completed/2026-03-15-context-layers-aligned-decisions-synthesis.md`
@@ -77,7 +77,7 @@ Human beings routinely make aligned decisions while drawing on a vast, heterogen
 
 - Research question restated: how do human brains store, compress, retrieve, and dynamically layer values, goals, rules, current state, and immediate task context during decision-making, and which AI context-management design principles are supportable from that evidence?
 - Scope confirmed: working memory limits, prefrontal control, predictive processing, attention and inhibition, episodic and semantic memory interaction, schema formation, and dual-process reasoning are in scope; clinical pathology and low-level biochemical circuitry remain out of scope.
-- Constraints confirmed: public sources with URL-level citations are required, and claims must remain separated into [fact], [inference], and [assumption] where applicable.
+- Constraints confirmed: public sources with Uniform Resource Locator (URL)-level citations are required, and claims must remain separated into [fact], [inference], and [assumption] where applicable.
 - Prior-work cross-reference completed before investigation: `2026-02-28-predictive-processing-active-inference.md` informed the predictive-processing framing, `2026-03-17-ai-memory-systems-rag-neuroscience.md` informed the memory-layer analogy, and `2026-03-15-context-layers-aligned-decisions-synthesis.md` identified the downstream architecture this item is intended to unblock.
 - Output format confirmed: a knowledge note whose §6 Synthesis establishes every claim that later appears in `## Findings`.
 
@@ -156,9 +156,9 @@ Human beings routinely make aligned decisions while drawing on a vast, heterogen
 
 ### §4 Consistency Check
 
-- [fact] The capacity-limit evidence and schema evidence are consistent rather than contradictory: Cowan's 3-to-5-item limit applies to active maintained chunks, while schema theory explains how experience can be compressed so each active chunk contains more structured content. [Sources: https://pmc.ncbi.nlm.nih.gov/articles/PMC2864034/ ; https://pmc.ncbi.nlm.nih.gov/articles/PMC3789138/ ; https://www.frontiersin.org/journals/human-neuroscience/articles/10.3389/fnhum.2023.1217093/full]
-- [fact] The prefrontal-control literature and attention literature are also consistent: Miller and Cohen describe prefrontal biasing of downstream pathways, while Rahmati et al. describe attention as top-down biased competition that changes which representations win access and maintenance. [Sources: https://pubmed.ncbi.nlm.nih.gov/11283309/ ; https://pmc.ncbi.nlm.nih.gov/articles/PMC6689265/]
-- [fact] The predictive-processing material does not conflict with the prefrontal-control account at the level used here, because both emphasise top-down models shaping lower-level processing and upward transmission of only the most relevant discrepancy information. [Sources: https://doi.org/10.1038/nrn2787 ; https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2022.805386/full]
+- [inference] The capacity-limit evidence and schema evidence are consistent rather than contradictory: Cowan's 3-to-5-item limit applies to active maintained chunks, while schema theory explains how experience can be compressed so each active chunk contains more structured content. [Sources: https://pmc.ncbi.nlm.nih.gov/articles/PMC2864034/ ; https://pmc.ncbi.nlm.nih.gov/articles/PMC3789138/ ; https://www.frontiersin.org/journals/human-neuroscience/articles/10.3389/fnhum.2023.1217093/full]
+- [inference] The prefrontal-control literature and attention literature are also consistent: Miller and Cohen describe prefrontal biasing of downstream pathways, while Rahmati et al. describe attention as top-down biased competition that changes which representations win access and maintenance. [Sources: https://pubmed.ncbi.nlm.nih.gov/11283309/ ; https://pmc.ncbi.nlm.nih.gov/articles/PMC6689265/]
+- [inference] The predictive-processing material does not conflict with the prefrontal-control account at the level used here, because both emphasise top-down models shaping lower-level processing and upward transmission of only the most relevant discrepancy information. [Sources: https://doi.org/10.1038/nrn2787 ; https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2022.805386/full]
 - [inference] No major contradiction remained unresolved after separating high-confidence mechanistic claims from lower-confidence engineering analogies. [Sources: https://pmc.ncbi.nlm.nih.gov/articles/PMC2864034/ ; https://pubmed.ncbi.nlm.nih.gov/11283309/ ; https://pmc.ncbi.nlm.nih.gov/articles/PMC6689265/ ; https://pmc.ncbi.nlm.nih.gov/articles/PMC3789138/ ; https://doi.org/10.1038/nrn2787]
 
 ### §5 Depth and Breadth Expansion
@@ -173,7 +173,7 @@ Human beings routinely make aligned decisions while drawing on a vast, heterogen
 **Executive summary:**
 
 - [inference] Human contextual reasoning is best understood as a layered control system in which a few compressed chunks are kept active, prefrontal control biases which chunks dominate current processing, and hippocampal-prefrontal interactions convert repeated episodes into reusable schemas that can be rapidly reactivated. [Sources: https://pmc.ncbi.nlm.nih.gov/articles/PMC2864034/ ; https://pubmed.ncbi.nlm.nih.gov/11283309/ ; https://pmc.ncbi.nlm.nih.gov/articles/PMC3789138/]
-- [fact] The evidence does not support a picture in which the brain keeps all relevant context simultaneously in raw form; it supports severe active-capacity limits, multimodal binding, top-down attention, and schema-based compression. [Sources: https://pubmed.ncbi.nlm.nih.gov/11058819/ ; https://pmc.ncbi.nlm.nih.gov/articles/PMC2864034/ ; https://pubmed.ncbi.nlm.nih.gov/11283309/ ; https://pmc.ncbi.nlm.nih.gov/articles/PMC3789138/]
+- [inference] The evidence does not support a picture in which the brain keeps all relevant context simultaneously in raw form; it supports severe active-capacity limits, multimodal binding, top-down attention, and schema-based compression. [Sources: https://pubmed.ncbi.nlm.nih.gov/11058819/ ; https://pmc.ncbi.nlm.nih.gov/articles/PMC2864034/ ; https://pubmed.ncbi.nlm.nih.gov/11283309/ ; https://pmc.ncbi.nlm.nih.gov/articles/PMC3789138/]
 - [inference] The most defensible AI design principles are therefore layered memory tiers, always-resident high-authority goals, explicit gating and salience routing, separate episodic and schema stores with provenance, and escalation from fast heuristic processing to slower deliberative processing when conflict or novelty is detected. [Sources: https://pubmed.ncbi.nlm.nih.gov/11283309/ ; https://pmc.ncbi.nlm.nih.gov/articles/PMC3789138/ ; https://pmc.ncbi.nlm.nih.gov/articles/PMC6689265/ ; https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2022.805386/full]
 - [inference] This answer is strong on architectural constraints and weak on neuron-level implementation details, which are outside scope and not needed for the design conclusions. [Sources: https://pubmed.ncbi.nlm.nih.gov/11283309/ ; https://pmc.ncbi.nlm.nih.gov/articles/PMC3789138/ ; https://www.frontiersin.org/journals/human-neuroscience/articles/10.3389/fnhum.2023.1217093/full]
 
@@ -237,7 +237,7 @@ Human beings routinely make aligned decisions while drawing on a vast, heterogen
 
 [inference] The brain handles contextual reasoning by compressing experience into a few active chunks, using prefrontal control to keep the most relevant chunk in play, and leaning on hippocampal-prefrontal schema machinery so that recurring experience can be reused without replaying every detail from scratch. [Sources: https://pmc.ncbi.nlm.nih.gov/articles/PMC2864034/ ; https://pubmed.ncbi.nlm.nih.gov/11283309/ ; https://pmc.ncbi.nlm.nih.gov/articles/PMC3789138/]
 
-[fact] Working-memory evidence, attention research, and schema-consolidation studies all point away from a flat "load everything" model of context use and toward selective activation, multimodal binding, and gradual abstraction from episodes into more reusable structures. [Sources: https://pubmed.ncbi.nlm.nih.gov/11058819/ ; https://pmc.ncbi.nlm.nih.gov/articles/PMC2864034/ ; https://pmc.ncbi.nlm.nih.gov/articles/PMC6689265/ ; https://pmc.ncbi.nlm.nih.gov/articles/PMC3789138/]
+[inference] Working-memory evidence, attention research, and schema-consolidation studies all point away from a flat "load everything" model of context use and toward selective activation, multimodal binding, and gradual abstraction from episodes into more reusable structures. [Sources: https://pubmed.ncbi.nlm.nih.gov/11058819/ ; https://pmc.ncbi.nlm.nih.gov/articles/PMC2864034/ ; https://pmc.ncbi.nlm.nih.gov/articles/PMC6689265/ ; https://pmc.ncbi.nlm.nih.gov/articles/PMC3789138/]
 
 [inference] For AI context management, the practical lesson is to keep compact high-authority priors resident, retrieve situational detail only when it matters, preserve episodic provenance, and escalate from cheap schema-led reasoning to slower deliberation when novelty or conflict rises. [Sources: https://pubmed.ncbi.nlm.nih.gov/11283309/ ; https://pmc.ncbi.nlm.nih.gov/articles/PMC3789138/ ; https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2022.805386/full ; https://doi.org/10.1038/nrn2787]
 
