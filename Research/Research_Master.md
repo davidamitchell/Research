@@ -1,6 +1,6 @@
 # Research Master Document
 
-Generated on: 2026-03-22 09:14 UTC
+Generated on: 2026-03-22 09:37 UTC
 
 ## Table of Contents
 
@@ -21,6 +21,7 @@ Generated on: 2026-03-22 09:14 UTC
 * [GitAgent and declarative agent definition: concepts, adoption, and cross-platform integration](#2026-03-16-gitagent-declarative-agent-definition-md)
 * [Adaptive Policy-Based Authorization (APBA): compliance alignment with National Institute of Standards and Technology (NIST) Special Publication (SP) 800-53 and International Organization for Standardization (ISO) / International Electrotechnical Commission (IEC) 27001, and impact on Policy as Code (PaC) and Artificial Intelligence (AI)-generated authorization code](#2026-03-16-adaptive-policy-authorization-compliance-md)
 * [Trusting Trust and AI Corpus Contamination](#2026-03-15-trusting-trust-ai-corpus-contamination-md)
+* [Tracking How Work Travels Across Organisational Systems](#2026-03-15-tracking-work-across-systems-md)
 * [Invariants in Software as a Service (SaaS) Banking Software](#2026-03-15-saas-banking-invariants-md)
 * [Prompt injection threat landscape: exploits, defences, and active research in agentic artificial intelligence (AI) systems](#2026-03-15-prompt-injection-threat-landscape-md)
 * [Neurological Basis of Contextual Reasoning and Relevance Filtering](#2026-03-15-neurological-context-management-md)
@@ -1596,6 +1597,81 @@ Ken Thompson's "Trusting Trust" argument shows that you cannot verify a compiler
 - Can search and retrieval systems rank source independence and provenance quality, not just relevance and authority signals?
 - How quickly are synthetic-content farms reshaping citation graphs, search results, and future training corpora in practice?
 - What minimum reservoir of verified human-generated data is needed to keep recursive training from erasing tail knowledge in large production systems?
+
+---
+
+---
+
+<a name="2026-03-15-tracking-work-across-systems-md"></a>
+
+## Tracking How Work Travels Across Organisational Systems
+
+**Tags:** [knowledge-management, work-tracking, sharepoint, confluence, ado, jira, git, monitoring, data-platform, provenance]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-15-tracking-work-across-systems.md
+
+## Research Question
+
+Can we track how a unit of 'Work' -- an idea or concept -- travels across organisational systems (SharePoint, Confluence, Azure DevOps (ADO)/Jira, Git, monitoring systems, and data platforms), and what mechanisms or patterns exist to trace its full lifecycle from inception to delivery and beyond?
+
+## Findings
+
+### Executive Summary
+
+- **[inference]** End-to-end tracking of organisational work is achievable, but only by building a graph of work artefacts and typed evidence links (a provenance graph) that stitches together local identifiers, web links, and event records from multiple systems rather than by discovering a single native identifier that already follows the work everywhere. Sources: https://learn.microsoft.com/en-us/graph/api/resources/driveitem?view=graph-rest-1.0; https://learn.microsoft.com/en-us/azure/devops/boards/github/link-to-from-github; https://docs.github.com/en/rest/deployments/deployments; https://support.pagerduty.com/main/docs/recent-changes; https://openlineage.io/docs/spec/object-model/
+- **[inference]** The strongest native traceability today sits in the issue-to-code-to-build or deployment path, where GitHub, Azure Boards, and Jira all provide explicit mechanisms for linking work items, branches, commits, pull requests, and builds. Sources: https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue; https://learn.microsoft.com/en-us/azure/devops/boards/github/link-to-from-github; https://support.atlassian.com/jira-software-cloud/docs/process-issues-with-smart-commits/
+- **[fact]** SharePoint, Confluence, monitoring systems, and data platforms can all contribute important lifecycle evidence, but they do so through weaker document links, service correlations, or specialised standards such as OpenLineage rather than through one shared work-tracking schema. Sources: https://learn.microsoft.com/en-us/graph/api/resources/driveitem?view=graph-rest-1.0; https://support.atlassian.com/platform-experiences/docs/use-smart-links-to-view-projects-in-confluence/; https://support.pagerduty.com/main/docs/recent-changes; https://openlineage.io/docs/spec/object-model/
+- **[inference]** The best minimum viable approach is to choose the issue layer as the canonical work key, ingest every deterministic native link the tools already expose, and then attach provenance plus confidence to any correlation-based or inferred joins that extend the lifecycle into documents, incidents, and data jobs. Sources: https://learn.microsoft.com/en-us/azure/devops/boards/github/link-to-from-github; https://support.atlassian.com/jira-software-cloud/docs/process-issues-with-smart-commits/; https://support.pagerduty.com/main/docs/recent-changes; https://openlineage.io/docs/spec/object-model/
+
+### Key Findings
+
+1. **[fact][high confidence]** Azure Boards, Jira Software, and GitHub all support explicit issue-to-code linkage, but they rely on product-specific identifiers and text conventions such as `AB#123`, Jira issue keys, and pull request closing keywords instead of one shared cross-system work identifier. Sources: https://learn.microsoft.com/en-us/azure/devops/boards/github/link-to-from-github; https://support.atlassian.com/jira-software-cloud/docs/process-issues-with-smart-commits/; https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue
+2. **[fact][high confidence]** SharePoint and Confluence expose stable, addressable artefacts that can anchor provenance, but their public documentation positions them primarily as content surfaces and link renderers rather than as authoritative registries for the lifecycle of engineering work. Sources: https://learn.microsoft.com/en-us/graph/api/resources/driveitem?view=graph-rest-1.0; https://support.atlassian.com/platform-experiences/docs/use-smart-links-to-view-projects-in-confluence/
+3. **[inference][high confidence]** Deployment-stage traceability becomes materially stronger when deployments are modelled as first-class records, because GitHub deployment objects tie an environment and status history to a specific ref while Azure Boards can return build evidence to the originating work item. Sources: https://docs.github.com/en/rest/deployments/deployments; https://learn.microsoft.com/en-us/azure/devops/boards/github/link-to-from-github
+4. **[inference][medium confidence]** Monitoring-stage linkage is usually correlation-based rather than strictly deterministic, because PagerDuty connects incidents to recent changes by time, related service, and machine-learning similarity instead of requiring every incident to carry the original issue or deployment identifier. Sources: https://support.pagerduty.com/main/docs/recent-changes
+5. **[fact][high confidence]** OpenLineage provides a mature provenance model for the data-platform segment through Jobs, Runs, Datasets, and extensible facets, but its native entity set stops short of documents, pull requests, deployments, and incidents. Sources: https://openlineage.io/docs/spec/object-model/; https://openlineage.io/docs/1.38.0/guides/facets
+6. **[fact][medium confidence]** Commercial products such as LinearB and the older Sleuth positioning create value mainly by standardising existing keys and correlating signals across systems, which means their effectiveness still depends on disciplined issue references, deployment records, and service-mapping data upstream. Sources: https://linearb.zendesk.com/hc/en-us/articles/45768080630043-Integrating-Jira-Cloud-into-LinearB-OAuth-2-0; https://www.sleuth.io/post/dora-metrics-explained/; https://support.pagerduty.com/main/docs/recent-changes
+7. **[inference][high confidence]** The most defensible organisation-wide architecture is a provenance graph with typed nodes and edges, because each platform owns only one segment of the lifecycle and no reviewed standard already spans document intent, tracked work, code change, release, incident, and data lineage together. Sources: https://learn.microsoft.com/en-us/graph/api/resources/driveitem?view=graph-rest-1.0; https://docs.github.com/en/rest/deployments/deployments; https://openlineage.io/docs/spec/object-model/
+8. **[inference][high confidence]** A minimum viable implementation should start at the issue layer as the canonical work key, capture deterministic joins first, and treat semantic matching or correlation as a secondary repair strategy for missing document-origin, incident, or downstream data-job links. Sources: https://learn.microsoft.com/en-us/azure/devops/boards/github/link-to-from-github; https://support.atlassian.com/jira-software-cloud/docs/process-issues-with-smart-commits/; https://support.pagerduty.com/main/docs/recent-changes; https://openlineage.io/docs/spec/object-model/
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [fact] Issue-to-code links are strong but product-specific. | https://learn.microsoft.com/en-us/azure/devops/boards/github/link-to-from-github; https://support.atlassian.com/jira-software-cloud/docs/process-issues-with-smart-commits/; https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue | high | Three independent primary docs converge. |
+| [fact] Documents are stable provenance nodes but weak lifecycle authorities. | https://learn.microsoft.com/en-us/graph/api/resources/driveitem?view=graph-rest-1.0; https://support.atlassian.com/platform-experiences/docs/use-smart-links-to-view-projects-in-confluence/ | high | Good support for addressability, weaker support for lifecycle ownership. |
+| [inference] Deployment records strengthen traceability. | https://docs.github.com/en/rest/deployments/deployments; https://learn.microsoft.com/en-us/azure/devops/boards/github/link-to-from-github | high | Deployment objects and build links are explicit machine-readable joins. |
+| [inference] Incident linkage is correlation-heavy. | https://support.pagerduty.com/main/docs/recent-changes | medium | Strong primary source, but vendor-specific implementation. |
+| [fact] OpenLineage is strong for data jobs but narrow for broader work provenance. | https://openlineage.io/docs/spec/object-model/; https://openlineage.io/docs/1.38.0/guides/facets | high | Clear entity-boundary evidence. |
+| [inference] Commercial tools depend on upstream identifier discipline. | https://linearb.zendesk.com/hc/en-us/articles/45768080630043-Integrating-Jira-Cloud-into-LinearB-OAuth-2-0; https://www.sleuth.io/post/dora-metrics-explained/; https://support.pagerduty.com/main/docs/recent-changes | medium | Good directional evidence, but partly product-positioning material. |
+| [inference] A provenance graph is the best synthesis layer. | https://learn.microsoft.com/en-us/graph/api/resources/driveitem?view=graph-rest-1.0; https://docs.github.com/en/rest/deployments/deployments; https://openlineage.io/docs/spec/object-model/ | high | Inference directly supported by heterogeneous node and edge types. |
+| [inference] The minimum viable approach should start with canonical issue keys and deterministic joins. | https://learn.microsoft.com/en-us/azure/devops/boards/github/link-to-from-github; https://support.atlassian.com/jira-software-cloud/docs/process-issues-with-smart-commits/; https://support.pagerduty.com/main/docs/recent-changes; https://openlineage.io/docs/spec/object-model/ | high | Best-supported practical implementation path. |
+
+### Assumptions
+
+- **[assumption]** The issue or work-item layer is the best canonical key for most organisations. **Justification:** the strongest reviewed native joins cluster around Azure Boards and Jira issue identifiers. Sources: https://learn.microsoft.com/en-us/azure/devops/boards/github/link-to-from-github; https://support.atlassian.com/jira-software-cloud/docs/process-issues-with-smart-commits/
+- **[assumption]** Documents should be modelled as contextual provenance nodes even when they are not authoritative identifiers. **Justification:** SharePoint and Confluence both expose stable, linkable artefacts that can preserve origin and decision context. Sources: https://learn.microsoft.com/en-us/graph/api/resources/driveitem?view=graph-rest-1.0; https://support.atlassian.com/platform-experiences/docs/use-smart-links-to-view-projects-in-confluence/
+- **[assumption]** Semantic inference should be reserved for explicit-link gaps rather than used as the default join strategy. **Justification:** deterministic identifiers and event objects exist across much of the lifecycle, while confidence drops noticeably at the correlation layer. Sources: https://docs.github.com/en/rest/deployments/deployments; https://support.pagerduty.com/main/docs/recent-changes; https://openlineage.io/docs/spec/object-model/
+
+### Analysis
+
+- **[fact]** The evidence supports a layered traceability model: deterministic reference links at the issue and code layer, first-class event objects at the deployment and data layer, and weaker explicit-link or correlation logic at the document and incident layer. Sources: https://learn.microsoft.com/en-us/azure/devops/boards/github/link-to-from-github; https://docs.github.com/en/rest/deployments/deployments; https://support.pagerduty.com/main/docs/recent-changes; https://openlineage.io/docs/spec/object-model/
+- **[inference]** This layered model explains why organisations can usually answer "which ticket drove this pull request?" more confidently than "which document started this work?" or "which deployment caused this incident?" because the latter questions rely on looser metadata or probabilistic correlation. Sources: https://learn.microsoft.com/en-us/graph/api/resources/driveitem?view=graph-rest-1.0; https://support.atlassian.com/platform-experiences/docs/use-smart-links-to-view-projects-in-confluence/; https://support.pagerduty.com/main/docs/recent-changes
+- **[inference]** OpenLineage's success inside data platforms suggests that broader work provenance should also be event-centric and extensible, but the broader problem needs a super-graph because the lifecycle crosses entity types that were never designed to share one canonical schema. Sources: https://openlineage.io/docs/spec/object-model/; https://openlineage.io/docs/1.38.0/guides/facets
+- **[inference]** The minimum viable design choice is therefore organisational rather than purely technical: choose a canonical issue key, enforce identifier hygiene, emit deployments and change events, and preserve edge provenance so that downstream graphs expose certainty and ambiguity separately. Sources: https://learn.microsoft.com/en-us/azure/devops/boards/github/link-to-from-github; https://docs.github.com/en/rest/deployments/deployments; https://support.pagerduty.com/main/docs/recent-changes
+
+### Risks, Gaps, and Uncertainties
+
+- **[fact]** The reviewed public sources do not define one vendor-neutral standard that covers documents, tracked work, code changes, deployments, incidents, and data lineage together. Sources: https://openlineage.io/docs/spec/object-model/; https://learn.microsoft.com/en-us/graph/api/resources/driveitem?view=graph-rest-1.0; https://support.pagerduty.com/main/docs/recent-changes
+- **[fact]** Several originally listed sources had drifted or moved, which means product-level evidence in this domain can become stale quickly and must be revalidated before implementation decisions. Sources: https://support.atlassian.com/jira-software-cloud/docs/process-issues-with-smart-commits/; https://learn.microsoft.com/en-us/azure/devops/pipelines/release/deployment-gates; https://www.sleuth.io
+- **[inference]** The real operational risk is false confidence: a graph that hides whether an edge is declared, correlated, or inferred will look more precise than the evidence actually warrants. Sources: https://support.pagerduty.com/main/docs/recent-changes; https://openlineage.io/docs/1.38.0/guides/facets
+- **[inference]** Organisations with inconsistent branch naming, missing issue keys, or absent deployment or change-event instrumentation will only recover a partial lifecycle regardless of how good the graph technology is. Sources: https://support.atlassian.com/jira-software-cloud/docs/process-issues-with-smart-commits/; https://docs.github.com/en/rest/deployments/deployments; https://support.pagerduty.com/main/docs/recent-changes
+
+### Open Questions
+
+- **[inference]** What is the smallest metadata contract that would let SharePoint and Confluence pages declare themselves as the origin or justification of a specific work item without forcing a new authoring workflow?
+- **[inference]** Which public monitoring and observability APIs provide the cleanest deterministic deployment-to-incident joins beyond PagerDuty's correlation model?
+- **[inference]** What graph query patterns are most useful for users once the lifecycle graph exists: origin tracing, blast-radius analysis, compliance evidence, or onboarding explanations?
 
 ---
 
