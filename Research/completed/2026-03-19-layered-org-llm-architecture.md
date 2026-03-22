@@ -2,12 +2,12 @@
 review_count: 2
 title: "Layered Organisation Large Language Model: Feasibility and Architecture of Organisation-Customised LLMs"
 added: 2026-03-19
-status: reviewing
+status: completed
 priority: high  # low | medium | high
 blocks: []
 tags: [llm, rag, fine-tuning, enterprise-ai, knowledge-management, organisational-context, architecture, feasibility, concept-generation, customisation, layered-llm, retrieval-augmented-generation, parameter-efficient-fine-tuning]
 started: 2026-03-22
-completed: ~
+completed: 2026-03-22
 output: [knowledge]
 ---
 
@@ -151,8 +151,8 @@ The prior research in this repository on context compression, context layers, an
   - E1. Is concept extraction or synthetic corpus generation a credible complement to RAG?
   - E2. Is concept generation better understood as ontology extraction, synthetic supervision, or full replacement for retrieval?
 - **Branch F - Feasibility synthesis**
-  - F1. Which approaches are production-ready, early-adopter, or still research-only for a mid-to-large enterprise?
-  - F2. What skill, data, and evaluation stack is required for each?
+  - F.1 Which approaches are production-ready, early-adopter, or still research-only for a mid-to-large enterprise?
+  - F.2 What skill, data, and evaluation stack is required for each?
 
 ### §2 Investigation
 
@@ -203,7 +203,7 @@ The prior research in this repository on context compression, context layers, an
 #### E. Concept generation beyond prompt-time retrieval
 
 - **[fact]** The phi-1 paper shows that a small code model can achieve strong downstream performance using a mixture of textbook-quality web data and synthetically generated textbooks and exercises, which is a direct precedent for synthetic domain corpus generation as an adaptation path. Source: `https://arxiv.org/abs/2306.11644`
-- **[fact]** ConExion shows that pretrained large language models can extract domain concepts beyond keyphrases and improve F1 score against prior techniques, specifically for concept extraction intended to support ontology learning and domain coverage evaluation. Source: `https://arxiv.org/abs/2504.12915`
+- **[fact]** ConExion shows that pretrained large language models can extract domain concepts beyond keyphrases and improve F1 score (F1) against prior techniques, specifically for concept extraction intended to support ontology learning and domain coverage evaluation. Source: `https://arxiv.org/abs/2504.12915`
 - **[fact]** Prior repository research on latent concept extraction concluded that the convergent architecture for organisational corpora is dense embeddings plus a knowledge graph plus graph-traversal reasoning rather than dense retrieval alone. Source: `Research/completed/2026-03-15-latent-concept-extraction-confluence.md`
 - **[inference]** Concept generation is therefore viable, but mainly in three forms: extracting a domain ontology or concept library, generating synthetic task data for fine-tuning, or distilling domain vocabulary into rankers and adapters. The evidence does not support treating concept generation as a direct replacement for retrieval when fresh source-grounded answers are required.
 
@@ -364,11 +364,11 @@ The prior research in this repository on context compression, context layers, an
 
 [inference] A mid-to-large enterprise can build a useful organisation-customised Large Language Model (LLM) layer today, but the economically viable design is a layered system built on top of a base foundation model with Retrieval-Augmented Generation (RAG), selective parameter-efficient adaptation, and optional verifier layers rather than a standalone organisation-trained model. (Sources: `https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html`; `https://cloud.google.com/vertex-ai/generative-ai/docs/rag-overview`; `https://arxiv.org/abs/2106.09685`; `https://arxiv.org/abs/2305.14314`)
 
-[inference] Public case materials point to the same design direction across different industries: a retrieval-first assistant in Morgan Stanley's published case summary, a layered multi-model legal stack at Harvey, and a knowledge-graph-plus-search stack at Glean all extend base models instead of replacing them wholesale. (Sources: `https://www.zenml.io/llmops-database/enterprise-knowledge-management-with-llms-morgan-stanley-s-gpt-4-implementation`; `https://www.harvey.ai/blog/expanding-harveys-model-offerings`; `https://cloud.google.com/blog/products/data-analytics/glean-uses-bigquery-and-google-ai-to-enhance-enterprise-search`; `https://www.glean.com/resources/guides/glean-knowledge-graph`)
+[inference] The public cases show that enterprises are customising the surrounding system stack - retrieval, routing, and knowledge structures - more often than they are building wholly new standalone models. (Sources: `https://www.zenml.io/llmops-database/enterprise-knowledge-management-with-llms-morgan-stanley-s-gpt-4-implementation`; `https://www.harvey.ai/blog/expanding-harveys-model-offerings`; `https://cloud.google.com/blog/products/data-analytics/glean-uses-bigquery-and-google-ai-to-enhance-enterprise-search`; `https://www.glean.com/resources/guides/glean-knowledge-graph`)
 
 [inference] The main reason to go beyond pure RAG is not that retrieval has failed completely, but that repeated domain vocabulary, concept structure, routing logic, and verification requirements create a performance ceiling that retrieval alone does not remove. (Sources: `https://arxiv.org/abs/2401.05856`; `https://arxiv.org/abs/2106.09685`; `https://arxiv.org/abs/2305.14314`)
 
-[inference] Concept generation is best treated as an enrichment technique for ontology extraction, synthetic supervision, or concept distillation, not as a substitute for source-grounded retrieval at answer time. (Sources: `https://arxiv.org/abs/2306.11644`; `https://arxiv.org/abs/2504.12915`)
+[inference] This makes concept generation a supporting technique for representation and supervision, while live answer quality still depends on access to current source material. (Sources: `https://arxiv.org/abs/2306.11644`; `https://arxiv.org/abs/2504.12915`)
 
 ### Key Findings
 
@@ -396,9 +396,9 @@ The prior research in this repository on context compression, context layers, an
 
 ### Assumptions
 
-- [assumption] The ZenML Morgan Stanley write-up is a fair secondary summary of the underlying OpenAI case study. **Justification:** it provides concrete implementation details and evaluation practices consistent with other public references to the deployment, but the official OpenAI page was not directly fetchable from this environment.
-- [assumption] Glean's public Google Cloud architecture post is representative of the architecture direction of its enterprise product rather than a one-off cloud-marketing example. **Justification:** it is co-authored with Glean leadership and matches Glean's own knowledge graph materials.
-- [assumption] Mid-to-large enterprise here means an organisation that can already sustain modern data-platform, retrieval, and evaluation work, but not frontier-foundation-model training budgets. **Justification:** the prompt asks for enterprise feasibility rather than laboratory or hyperscaler feasibility.
+- [assumption] The ZenML Morgan Stanley write-up is a fair secondary summary of the underlying OpenAI case study. **Justification:** it provides concrete implementation details and evaluation practices consistent with other public references to the deployment, but the official OpenAI page was not directly fetchable from this environment. (Sources: `https://www.zenml.io/llmops-database/enterprise-knowledge-management-with-llms-morgan-stanley-s-gpt-4-implementation`; `https://openai.com/index/morgan-stanley/`)
+- [assumption] Glean's public Google Cloud architecture post is representative of the architecture direction of its enterprise product rather than a one-off cloud-marketing example. **Justification:** it is co-authored with Glean leadership and matches Glean's own knowledge graph materials. (Sources: `https://cloud.google.com/blog/products/data-analytics/glean-uses-bigquery-and-google-ai-to-enhance-enterprise-search`; `https://www.glean.com/resources/guides/glean-knowledge-graph`)
+- [assumption] Mid-to-large enterprise here means an organisation that can already sustain modern data-platform, retrieval, and evaluation work, but not frontier-foundation-model training budgets. **Justification:** the prompt asks for enterprise feasibility rather than laboratory or hyperscaler feasibility. (Sources: `https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html`; `https://cloud.google.com/vertex-ai/generative-ai/docs/rag-overview`; `https://www.nature.com/articles/s42256-023-00626-4`)
 
 ### Analysis
 
@@ -412,15 +412,17 @@ The prior research in this repository on context compression, context layers, an
 
 **Feasibility Matrix**
 
-| Approach | Readiness | Relative cost | Data requirement | Time-to-value | Skill requirement |
-|---|---|---|---|---|---|
-| Prompting plus RAG | production-ready | low to moderate | existing authoritative content | weeks | application engineers plus search / retrieval competence |
-| RAG plus knowledge graph / better rankers | production-ready | moderate | connected systems plus relevance signals | weeks to months | search engineers plus knowledge architecture skills |
-| PEFT with LoRA / QLoRA | production-ready to early-adopter | moderate | curated exemplars and evaluation set | 1-3 months | machine-learning engineer, MLOps, subject-matter experts |
-| Full fine-tuning | early-adopter | high | larger curated dataset | several months | stronger ML platform and evaluation capability |
-| Domain-adaptive pretraining | early-adopter for very large domains | high to very high | massive stable corpus | several months to a year | dedicated data science, ML platform, and domain-expert support |
-| Training from scratch | uncommon outside frontier or sector-scale actors | very high | enormous corpus and compute | long horizon | frontier-model training capability |
-| Tandem / critic layers | production-ready as overlay | moderate | policies, eval prompts, routing logic | weeks to months | orchestration, prompt, and evaluation engineering |
+[inference] The following matrix is a synthesis table. Each readiness, cost, time-to-value, and skill judgment is an inferential estimate drawn from the cited sources for that row.
+
+| Approach | Claim type | Readiness | Relative cost | Data requirement | Time-to-value | Skill requirement | Sources |
+|---|---|---|---|---|---|---|---|
+| Prompting plus RAG | [inference] | production-ready | low to moderate | existing authoritative content | weeks | application engineers plus search / retrieval competence | `https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html`; `https://cloud.google.com/vertex-ai/generative-ai/docs/rag-overview`; `https://docs.cohere.com/docs/retrieval-augmented-generation-rag` |
+| RAG plus knowledge graph / better rankers | [inference] | production-ready | moderate | connected systems plus relevance signals | weeks to months | search engineers plus knowledge architecture skills | `https://www.glean.com/resources/guides/glean-knowledge-graph`; `https://cloud.google.com/blog/products/data-analytics/glean-uses-bigquery-and-google-ai-to-enhance-enterprise-search`; `https://arxiv.org/abs/2401.05856` |
+| PEFT with LoRA / QLoRA | [inference] | production-ready to early-adopter | moderate | curated exemplars and evaluation set | 1-3 months | machine-learning engineer, Machine Learning Operations (MLOps), subject-matter experts | `https://arxiv.org/abs/2106.09685`; `https://arxiv.org/abs/2305.14314`; `https://www.nature.com/articles/s42256-023-00626-4` |
+| Full fine-tuning | [inference] | early-adopter | high | larger curated dataset | several months | stronger Machine Learning (ML) platform and evaluation capability | `https://www.nature.com/articles/s42256-023-00626-4`; `https://arxiv.org/abs/2106.09685`; `https://arxiv.org/abs/2305.14314` |
+| Domain-adaptive pretraining | [inference] | early-adopter for very large domains | high to very high | massive stable corpus | several months to a year | dedicated data science, Machine Learning platform, and domain-expert support | `https://arxiv.org/abs/2303.17564`; `https://arxiv.org/abs/2212.13138`; `https://arxiv.org/abs/2004.10964` |
+| Training from scratch | [inference] | uncommon outside frontier or sector-scale actors | very high | enormous corpus and compute | long horizon | frontier-model training capability | `https://arxiv.org/abs/2303.17564`; `https://arxiv.org/abs/2212.13138` |
+| Tandem / critic layers | [inference] | production-ready as overlay | moderate | policies, eval prompts, routing logic | weeks to months | orchestration, prompt, and evaluation engineering | `https://arxiv.org/abs/2406.04692`; `https://arxiv.org/abs/2309.11495`; `https://arxiv.org/abs/2212.08073` |
 
 ### Risks, Gaps, and Uncertainties
 
