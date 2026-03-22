@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Technology Capability Models: Survey, Comparison, and Recommendation for Multi-Level IT Capability Mapping"
 added: 2026-03-21
 status: reviewing
