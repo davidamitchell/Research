@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Dependency Mapping Across .NET Codebases, Terraform, Dynatrace, Confluence, Log Aggregation, and the Configuration and Service Data Model (CSDM)"
 added: 2026-03-21
 status: reviewing
