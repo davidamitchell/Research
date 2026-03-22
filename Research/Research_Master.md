@@ -1,10 +1,11 @@
 # Research Master Document
 
-Generated on: 2026-03-22 07:39 UTC
+Generated on: 2026-03-22 08:09 UTC
 
 ## Table of Contents
 
 * [Coding AI Agent Skills Survey: Existing Vendor and OSS Prompt Libraries for Software Engineering Domains](#2026-03-22-coding-ai-agent-skills-survey-md)
+* [Applied context engineering: skills, workflows, and best practices for agent development](#2026-03-22-applied-context-engineering-agent-workflows-md)
 * [Technology Capability Models: Survey, Comparison, and Recommendation for Multi-Level IT Capability Mapping](#2026-03-21-technology-capability-models-md)
 * [Dependency Mapping Across .NET Codebases, Terraform, Dynatrace, Confluence, Log Aggregation, and the Configuration and Service Data Model (CSDM)](#2026-03-21-dependency-mapping-dotnet-terraform-dynatrace-md)
 * [Layered Organisation Large Language Model: Feasibility and Architecture of Organisation-Customised LLMs](#2026-03-19-layered-org-llm-architecture-md)
@@ -214,6 +215,106 @@ What actively maintained, publicly available agent skills, prompt libraries, ins
 - Should internal standardisation effort center on `AGENTS.md` plus portable skills, or on tool-native collections such as Copilot plugins and Cursor rules?
 - Is there enough public demand to justify building a new curated catalog specifically for DDD, CQRS, Kafka ECST, and data-architecture prompts?
 - Can standards-oriented prompt linting be automated so that a prompt file can be validated against ASVS, OpenAPI, AsyncAPI, or 12-Factor requirements before adoption?
+
+---
+
+<a name="2026-03-22-applied-context-engineering-agent-workflows-md"></a>
+
+## Applied context engineering: skills, workflows, and best practices for agent development
+
+**Tags:** [context-engineering, agent-skills, workflows, best-practices, multi-agent, memory-systems, tool-design, project-development, evaluation, production-agents]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-22-applied-context-engineering-agent-workflows.md
+
+## Research Question
+
+What practical patterns, workflow best practices, and agent development guidelines emerge from synthesising the `muratcankoylan/Agent-Skills-for-Context-Engineering` skill library with the context engineering first principles and prior research in this repository — specifically for building production-grade agent workflows and general agent-assisted development?
+
+Supporting questions:
+- What are the most actionable context engineering patterns from the muratcankoylan skill library, and how do they map to the two-mechanism model (token-level vs goal-level steering) established in this repo?
+- What related public skill libraries and awesome lists add context that the muratcankoylan repo does not cover?
+- How do the architectural skills (multi-agent patterns, memory systems, tool design, filesystem context) translate into concrete best practices for building agent workflows?
+- What evaluation and project development practices are most relevant for teams building agents in this repo's domain?
+- How do the findings from prior research in this repo (context compression, API context hubs, memory systems, declarative agents, stateless agent failures) compose into a unified applied framework?
+
+## Findings
+
+*(Populated from §6 Synthesis above.)*
+
+### Executive Summary
+
+The `muratcankoylan/Agent-Skills-for-Context-Engineering` library is the most comprehensive single public source of production-oriented context engineering skills for agents, and synthesising it with prior research in this repository yields a six-part applied framework for building production-grade agent workflows. Effective context capacity is 60–70% of the advertised token window; multi-agent architectures cost ~15x single-agent chat and should be adopted only when context isolation justifies that cost; the filesystem is the most reliable persistent layer for agent state, implementing idempotency through file existence; tool sets should be consolidated until each tool's selection criterion is unambiguous; evaluation rubrics must separately score goal-level and token-level quality to detect sycophancy-type failures; and LLM projects should be structured as deterministic pipelines wrapping a non-deterministic processing stage. The primary public skill library gaps are Model Context Protocol (MCP) server design, human-in-the-loop patterns for high-stakes decisions, and dynamic skill evolution infrastructure.
+
+### Key Findings
+
+1. **[fact]** The effective context window for reliable agent reasoning is 60–70% of the advertised token limit; beyond this threshold, performance degrades through the U-shaped attention curve, with recall accuracy in the middle 10–40% below positions at the beginning and end of context. Source: muratcankoylan context-fundamentals SKILL.md; Liu et al. 2023. Confidence: high.
+
+2. **[fact]** Five context degradation patterns — lost-in-middle, poisoning, distraction, confusion, and clash — have specific detection signals and mitigations; context poisoning in particular requires truncation to before the poisoning point rather than adding corrections on top of poisoned context. Source: https://raw.githubusercontent.com/muratcankoylan/Agent-Skills-for-Context-Engineering/main/skills/context-degradation/SKILL.md. Confidence: high.
+
+3. **[fact]** Multi-agent architectures cost approximately 15x single-agent chat in token terms, and BrowseComp evaluation data shows that 80% of browsing agent performance variance is explained by token usage, implying model quality upgrades are typically more cost-effective than adding agent parallelism for most workloads. Source: muratcankoylan multi-agent-patterns SKILL.md; muratcankoylan evaluation SKILL.md. Confidence: high (BrowseComp benchmark).
+
+4. **[fact]** The tool consolidation principle is supported by the Vercel case study — reducing from 17 specialised tools to 2 general-purpose tools improved agent performance — and by the principle that overlapping tool descriptions create ambiguous selection decisions that degrade reliability in proportion to overlap. Source: https://raw.githubusercontent.com/muratcankoylan/Agent-Skills-for-Context-Engineering/main/skills/tool-design/SKILL.md. Confidence: medium (single case study).
+
+5. **[fact]** Filesystem-based memory agents (Letta: 74% on LoCoMo benchmark) outperform specialised memory framework tools (Mem0: 68.5% on LoCoMo), confirming that retrieval reliability and architectural simplicity matter more than framework sophistication for most production memory use cases. Source: muratcankoylan memory-systems SKILL.md. Confidence: high (named benchmark comparison).
+
+6. **[inference]** The file-system-as-state-machine pipeline pattern — tracking stage completion via file existence, re-running stages by deleting output files — implements the idempotent side-effect requirement identified in the stateless-agent failure research without requiring any external infrastructure. Source: muratcankoylan project-development SKILL.md + `Research/completed/2026-03-18-stateless-agent-assumption-failure.md`. Confidence: high.
+
+7. **[inference]** Evaluation rubrics that separately score goal-level dimensions (factual accuracy, completeness) and token-level dimensions (surface coherence, tool efficiency) will detect sycophancy-type failures — where high token-level quality masks systematic goal-level failure — while rubrics that aggregate to a single quality score will not. Source: muratcankoylan evaluation SKILL.md + `Research/completed/2026-03-08-context-engineering-first-principles.md` (SycEval AIES 2025). Confidence: high.
+
+8. **[inference]** The declarative agent definition pattern — expressing agent capabilities, tool connections, and instructions in version-controlled manifest files — applies the infrastructure-as-code principle to agent definition, producing auditable, reproducible agent specifications deployable via standard Git workflows. Source: `Research/completed/2026-03-16-gitagent-declarative-agent-definition.md`. Confidence: high.
+
+9. **[fact]** The Peking University Meta Context Engineering (MCE) paper (2026) establishes that human-authored static skill files are the current production standard while dynamic skill evolution — agents autonomously generating and refining skills based on task performance feedback — is the research frontier, citing muratcankoylan as foundational work. Source: https://arxiv.org/pdf/2601.21557. Confidence: high.
+
+10. **[fact]** The primary gaps in existing public agent skill libraries are: Model Context Protocol (MCP) server design for exposing APIs as structured agent-accessible tools, human-in-the-loop design patterns for high-stakes agent decisions, and multi-modal context management — none covered by the muratcankoylan library or any other reviewed public source. Source: `Research/completed/2026-03-18-api-context-hubs-rag-mcp.md` + muratcankoylan README inspection. Confidence: medium (gap finding from library survey).
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| Effective capacity 60–70% of advertised window [fact] | muratcankoylan context-fundamentals SKILL.md https://raw.githubusercontent.com/muratcankoylan/Agent-Skills-for-Context-Engineering/main/skills/context-fundamentals/SKILL.md | high | Consistent with attention mechanics literature |
+| Recall drops 10–40% in middle positions [fact] | muratcankoylan context-degradation SKILL.md; Liu et al. 2023 | high | Peer-reviewed benchmark cited |
+| Tool outputs reach 83.9% of context [fact] | muratcankoylan context-fundamentals SKILL.md | medium | Research finding; primary study not specified |
+| Multi-agent cost ~15x [fact] | muratcankoylan multi-agent-patterns SKILL.md | medium | Production data, directional |
+| BrowseComp: 80% variance = token usage [fact] | muratcankoylan multi-agent-patterns + evaluation SKILL.md | high | Named benchmark |
+| Vercel: 17 → 2 tools improved performance [fact] | muratcankoylan tool-design SKILL.md | medium | Single case study |
+| Letta 74% vs. Mem0 68.5% on LoCoMo [fact] | muratcankoylan memory-systems SKILL.md | high | Named benchmark comparison |
+| Filesystem idempotency composes with stateless-agent fix [inference] | muratcankoylan project-development SKILL.md + Research/completed/2026-03-18-stateless-agent-assumption-failure.md | high | Two independent sources converge |
+| Separate goal/token scoring detects sycophancy [inference] | muratcankoylan evaluation SKILL.md + Research/completed/2026-03-08-context-engineering-first-principles.md | high | SycEval AIES 2025; two-mechanism model |
+| Declarative agents = infra-as-code for agents [inference] | Research/completed/2026-03-16-gitagent-declarative-agent-definition.md | high | Structural analogy, well-documented pattern |
+| MCE paper cites muratcankoylan as foundational [fact] | https://arxiv.org/pdf/2601.21557 | high | Primary academic source |
+| MCP server design is a public skill gap [fact] | Research/completed/2026-03-18-api-context-hubs-rag-mcp.md + muratcankoylan README | medium | Gap finding from library survey |
+
+### Assumptions
+
+- **[assumption]** The muratcankoylan skill library's production figures (15x token cost, 83.9% observation share) are directionally accurate. **Justification:** Consistent with attention mechanics literature and independent practitioner reports; cited as representative production data by the library.
+- **[assumption]** The BrowseComp 80% variance finding generalises from browsing agents to research and reasoning agents. **Justification:** The mechanism (more tokens = more exploration capacity) applies broadly; exact proportions vary by task type.
+- **[assumption]** Static skill files remain the practical production standard in 2026 despite the MCE paper. **Justification:** All production tool vendors (Claude Code, Cursor, GitHub Copilot) ship static skill architectures; dynamic skill evolution requires feedback infrastructure not yet widely available.
+
+### Analysis
+
+The six-part applied framework that emerges from this synthesis is not a new invention — it is the convergence of independent discoveries across the muratcankoylan library, this repository's prior research, and the wider practitioner and academic literature. The convergence is itself evidence of robustness: the attention-budget model (muratcankoylan), the entropy-reduction principle (first-principles research, 2026-03-08), and the signal-density test are all equivalent formulations of the same design principle.
+
+[inference] The most practically important single finding is the filesystem composition: the muratcankoylan filesystem scratch pad pattern, the stateless-agent cross-session reconciliation requirement, and the project-development pipeline state-machine all converge on the same architecture — use files as the primary persistent layer, with explicit status transitions and idempotent writes. This architecture is implementable today, requires no external infrastructure, and addresses the most common agent workflow failure mode (cross-session state inconsistency).
+
+[inference] The second most important finding is tool consolidation. The Vercel case study is directional rather than definitive, but the underlying mechanism is well-understood: overlapping tool descriptions create selection ambiguity that compounds with context length. The practical action is to treat tool description writing as context engineering — every word in a tool description steers agent behaviour, and ambiguous tool sets are a form of context poisoning.
+
+The multi-agent cost finding (15x tokens, 80% variance = usage) reconfigures the architectural decision. Multi-agent is not primarily a quality improvement strategy — it is a context isolation strategy. If isolation is the bottleneck, multi-agent helps. If quality is the bottleneck, model upgrades help more per dollar.
+
+### Risks, Gaps, and Uncertainties
+
+- The 15x token cost multiplier is directional; actual costs vary by architecture, task type, and model. No controlled benchmark is cited by the muratcankoylan library.
+- The Vercel tool consolidation result is a single case study; the generalisation "fewer tools → better performance" may not hold when task variety is high.
+- MCP (Model Context Protocol) server design is absent from all reviewed public skill libraries; this is the highest-priority gap for teams building API-connected agents.
+- Dynamic skill evolution (MCE) is research-stage; production timeline is uncertain.
+
+### Open Questions
+
+1. Would implementing progressive disclosure in this repository's research loop — injecting only item titles and tags at startup, loading full items on demand — reduce context rot and improve research quality?
+2. Should MCP server design be a dedicated backlog research item, given the API context hubs finding that MCP is the emerging agent-to-API connectivity standard?
+3. What human-in-the-loop design patterns exist for high-stakes agent decisions, and are there public skill files covering this domain?
+4. Can the file-system-as-state-machine pipeline pattern be explicitly adopted in this repository's research tooling to make status-field transitions more reliable across interrupted sessions?
+
+---
 
 ---
 
