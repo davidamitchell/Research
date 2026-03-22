@@ -233,3 +233,17 @@ The Quint ecosystem item adds a cognitive dimension: the verification bottleneck
 - `Research/completed/2026-03-14-reliable-software-llm-era.md` — cognitive debt as the trust-deficit dimension of the verification bottleneck; Quint executable specifications as verification infrastructure that mechanises the correctness layer; practitioner evidence: 10–20× tokens on spec vs. code generation
 
 **Open thread:** Does the verification bottleneck grow linearly with AI-generated volume, or does it exhibit a threshold effect (above some volume level, human judgment is saturated and quality degrades discontinuously)? Is there an organisational design that reduces verification cost without reducing verification quality — e.g., AI-assisted verification, adversarial review agents, or structured test-driven development mandates? Does executable specification (Quint, Dafny, Lean) reduce the verification cost per unit of LLM-generated code, and if so, at what authorship overhead?
+
+---
+
+## Thread 12 — Durable enterprise capability maps need separate taxonomy, traceability, and maturity layers
+
+**The learning:** Enterprise architecture frameworks become much more durable when they separate three concerns that are often forced into one model: a stable capability taxonomy, an operational traceability model, and a maturity or assessment overlay. The ServiceNow Common Service Data Model (CSDM) item showed that CSDM is strong at ownership and configuration traceability but is not itself a capability taxonomy. The ServiceNow platform strategy item showed that governance value emerges only after foundational and technical-service layers are stable enough to support higher-order management views. The dependency-mapping item extended the same pattern outside ServiceNow: reliable architecture understanding comes from reconciling multiple authoritative surfaces rather than assuming that a single representation is sufficient. The technology-capability-models item adds the architecture-framework comparison and makes the synthesis explicit: no surveyed public framework cleanly provides all three layers at once, so the strongest operating model is a composed stack such as TOGAF-style taxonomy backbone plus CSDM traceability plus IT Capability Maturity Framework (IT-CMF) maturity overlay.
+
+**Evidence:**
+- `Research/completed/2026-03-08-servicenow-csdm-data-modelling.md` — CSDM establishes durable operational traceability layers, but those layers do not define the enterprise capability taxonomy
+- `Research/completed/2026-03-08-servicenow-platform-strategy.md` — platform governance and portfolio value depend on sequencing: foundation and service layers stabilise first, strategic overlays later
+- `Research/completed/2026-03-21-dependency-mapping-dotnet-terraform-dynatrace.md` — dependency truth is layered across code, infrastructure, and observability sources rather than residing in a single authoritative model
+- `Research/completed/2026-03-21-technology-capability-models.md` — no single surveyed public framework supplies taxonomy, traceability, and maturity together; the best-supported answer is a layered composition
+
+**Open thread:** Can this layered pattern be turned into a reusable enterprise metamodel with standard mappings between business capabilities, application-facing capabilities, shared technical services, and concrete implementation objects, or will each organisation always need substantial local extension?
