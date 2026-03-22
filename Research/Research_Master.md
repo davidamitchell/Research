@@ -1,12 +1,13 @@
 # Research Master Document
 
-Generated on: 2026-03-22 09:37 UTC
+Generated on: 2026-03-22 10:56 UTC
 
 ## Table of Contents
 
 * [Cross-Scanner Compliance Evidence and Waiver Normalisation in GitHub Actions](#2026-03-22-cross-scanner-compliance-evidence-normalisation-md)
 * [Compliance Scanning via GitHub Actions — Broad Policy as Code Across a Heterogeneous Stack](#2026-03-22-compliance-scanning-gh-actions-md)
 * [Coding AI Agent Skills Survey: Existing Vendor and OSS Prompt Libraries for Software Engineering Domains](#2026-03-22-coding-ai-agent-skills-survey-md)
+* [Code Architecture Inspection Across Repositories](#2026-03-22-code-architecture-inspection-md)
 * [Applied context engineering: skills, workflows, and best practices for agent development](#2026-03-22-applied-context-engineering-agent-workflows-md)
 * [Technology Capability Models: Survey, Comparison, and Recommendation for Multi-Level IT Capability Mapping](#2026-03-21-technology-capability-models-md)
 * [Dependency Mapping Across .NET Codebases, Terraform, Dynatrace, Confluence, Log Aggregation, and the Configuration and Service Data Model (CSDM)](#2026-03-21-dependency-mapping-dotnet-terraform-dynatrace-md)
@@ -370,6 +371,88 @@ What actively maintained, publicly available agent skills, prompt libraries, ins
 - Should internal standardisation effort center on `AGENTS.md` plus portable skills, or on tool-native collections such as Copilot plugins and Cursor rules?
 - Is there enough public demand to justify building a new curated catalog specifically for DDD, CQRS, Kafka ECST, and data-architecture prompts?
 - Can standards-oriented prompt linting be automated so that a prompt file can be validated against ASVS, OpenAPI, AsyncAPI, or 12-Factor requirements before adoption?
+
+---
+
+<a name="2026-03-22-code-architecture-inspection-md"></a>
+
+## Code Architecture Inspection Across Repositories
+
+**Tags:** [architecture, static-analysis, multi-repo, coupling, standards, github-copilot, tooling]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-22-code-architecture-inspection.md
+
+## Research Question
+
+What practical implementation approaches exist for automatically inspecting and understanding how a set of repositories is architected, how they relate to and couple with each other, and whether they are following standards or drifting out of alignment — and which of these approaches can be operationalised using GitHub Copilot skills, agents, or adjacent tooling such as RepoSwarm?
+
+## Findings
+
+*(Populated from §6 Synthesis above.)*
+
+### Executive Summary
+
+[inference] The best-supported answer is that multi-repository architecture inspection should be implemented as a layered system in which deterministic tools extract structural and governance facts first, and a Large Language Model (LLM) layer produces the human-readable blueprint second. Sources: https://raw.githubusercontent.com/sverweij/dependency-cruiser/main/README.md ; https://docs.github.com/api/article/body?pathname=/en/rest/dependency-graph ; https://www.openpolicyagent.org/docs/latest/ ; https://raw.githubusercontent.com/github/awesome-copilot/main/skills/architecture-blueprint-generator/SKILL.md
+
+[inference] GitHub Copilot skills such as architecture-blueprint-generator and adjacent systems such as RepoSwarm are valuable because they package explanation, documentation, and workflow orchestration, but they are not strong enough on their own to serve as the primary truth source for coupling or standards drift. Sources: https://raw.githubusercontent.com/github/awesome-copilot/main/skills/architecture-blueprint-generator/SKILL.md ; https://raw.githubusercontent.com/reposwarm/reposwarm/main/README.md
+
+[inference] The practical implementation seam is therefore `extract -> normalize -> evaluate -> synthesize`, with GitHub Actions running scanners and policy checks, versioned artifacts preserving provenance, and the synthesis layer turning those artifacts into reviewable architectural summaries. Sources: https://docs.github.com/api/article/body?pathname=/en/rest/dependency-graph ; https://raw.githubusercontent.com/sverweij/dependency-cruiser/main/README.md ; https://www.openpolicyagent.org/docs/latest/ ; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-10-agent-evaluation-cross-repo-analysis.md ; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-22-applied-context-engineering-agent-workflows.md
+
+[inference] This matters because architecture understanding, standards enforcement, and cross-repository remediation require different mechanisms, and mixing them into one opaque agent step removes the provenance needed for drift analysis, trust, and repeatable governance. Sources: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-21-dependency-mapping-dotnet-terraform-dynatrace.md ; https://www.openpolicyagent.org/docs/latest/ ; https://docs.openrewrite.org
+
+### Key Findings
+
+1. [inference] [high confidence] A reliable multi-repository architecture inspection system should separate deterministic extraction from LLM-based synthesis, because reproducible graphs, manifests, and policy facts are required before any narrative blueprint can be trusted, compared across runs, or used for governance decisions. Sources: https://raw.githubusercontent.com/sverweij/dependency-cruiser/main/README.md ; https://docs.github.com/api/article/body?pathname=/en/rest/dependency-graph ; https://www.openpolicyagent.org/docs/latest/ ; https://raw.githubusercontent.com/github/awesome-copilot/main/skills/architecture-blueprint-generator/SKILL.md
+2. [fact] [high confidence] The architecture-blueprint-generator skill is a comprehensive architecture-documentation prompt covering technology detection, diagrams, layer rules, cross-cutting concerns, governance, and decision records, but it does not ship any native mechanism for cross-repository graph extraction or standards enforcement. Source: https://raw.githubusercontent.com/github/awesome-copilot/main/skills/architecture-blueprint-generator/SKILL.md
+3. [inference] [medium confidence] RepoSwarm is the strongest open-source portfolio-analysis example in this evidence base because it performs multi-repository investigations, applies type-aware prompts, emits standardized `.arch.md` outputs, supports incremental updates, and keeps searchable results for later comparison. Source: https://raw.githubusercontent.com/reposwarm/reposwarm/main/README.md
+4. [inference] [high confidence] dependency-cruiser, GitHub dependency graph and Software Bill of Materials (SBOM) exports, Renovate, and Sourcegraph each reveal a different structural layer — code imports, package manifests, dependency drift, and cross-repo search or bulk edits — so none of them alone is a complete architecture inspector. Sources: https://raw.githubusercontent.com/sverweij/dependency-cruiser/main/README.md ; https://docs.github.com/api/article/body?pathname=/en/rest/dependency-graph ; https://docs.github.com/api/article/body?pathname=/en/rest/dependency-graph/sboms ; https://docs.renovatebot.com ; https://sourcegraph.com/docs ; https://sourcegraph.com/docs/code-insights ; https://sourcegraph.com/docs/batch_changes
+5. [inference] [high confidence] Standards alignment should be implemented as machine-checkable architecture fitness functions and policy rules over normalized facts, while architectural decision records (ADRs) remain the durable source for rationale and trade-off context that code graphs cannot express alone. Sources: https://www.openpolicyagent.org/docs/latest/ ; https://adr.github.io ; https://nealford.com/books/buildingevolutionaryarchitectures.html ; https://evolutionaryarchitecture.com
+6. [inference] [medium confidence] OpenRewrite and Sourcegraph Batch Changes are better treated as remediation engines than as discovery systems, because they become valuable only after an earlier layer has already identified the drift pattern or forbidden dependency that must be corrected across repositories. Sources: https://docs.openrewrite.org ; https://sourcegraph.com/docs/batch_changes
+7. [fact] [high confidence] Prior repository research shows that any credible cross-repo architecture map must preserve provenance, freshness, semantic type, and confidence metadata on each edge, because declared structure, observed behavior, and documented intent are different kinds of truth rather than competing measurements of one truth. Source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-21-dependency-mapping-dotnet-terraform-dynatrace.md
+8. [inference] [high confidence] In a GitHub-first operating model, the rollout that best matches this repository's constraints is to run repository scanners and normalizers in GitHub Actions, store the outputs as reviewable versioned artifacts, evaluate standards with policy-as-code, and then use a Copilot skill or RepoSwarm-style agent to generate the human-facing blueprint and remediation summary. Sources: https://docs.github.com/api/article/body?pathname=/en/rest/dependency-graph ; https://raw.githubusercontent.com/sverweij/dependency-cruiser/main/README.md ; https://www.openpolicyagent.org/docs/latest/ ; https://raw.githubusercontent.com/github/awesome-copilot/main/skills/architecture-blueprint-generator/SKILL.md ; https://raw.githubusercontent.com/reposwarm/reposwarm/main/README.md
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [inference] Deterministic extraction before LLM synthesis is the recommended trust boundary for architecture inspection. | https://raw.githubusercontent.com/sverweij/dependency-cruiser/main/README.md ; https://docs.github.com/api/article/body?pathname=/en/rest/dependency-graph ; https://www.openpolicyagent.org/docs/latest/ ; https://raw.githubusercontent.com/github/awesome-copilot/main/skills/architecture-blueprint-generator/SKILL.md | high | [inference] Reproducibility and drift comparison depend on stable extracted evidence. |
+| [fact] architecture-blueprint-generator is a synthesis prompt, not a native extractor or policy engine. | https://raw.githubusercontent.com/github/awesome-copilot/main/skills/architecture-blueprint-generator/SKILL.md | high | [inference] The documented scope emphasizes output structure and governance prompts rather than raw evidence capture. |
+| [inference] RepoSwarm provides the clearest open-source multi-repo architecture workflow in this evidence base. | https://raw.githubusercontent.com/reposwarm/reposwarm/main/README.md | medium | Workflow evidence is strong; live deployment evidence was not inspected. |
+| [inference] dependency-cruiser, GitHub dependency graph, Renovate, and Sourcegraph cover different structural layers. | https://raw.githubusercontent.com/sverweij/dependency-cruiser/main/README.md ; https://docs.github.com/api/article/body?pathname=/en/rest/dependency-graph ; https://docs.github.com/api/article/body?pathname=/en/rest/dependency-graph/sboms ; https://docs.renovatebot.com ; https://sourcegraph.com/docs ; https://sourcegraph.com/docs/code-insights ; https://sourcegraph.com/docs/batch_changes | high | Complementary coverage is the main pattern. |
+| [inference] Standards alignment belongs in policy rules and architecture fitness functions, with ADRs preserving rationale. | https://www.openpolicyagent.org/docs/latest/ ; https://adr.github.io ; https://nealford.com/books/buildingevolutionaryarchitectures.html ; https://evolutionaryarchitecture.com | high | [inference] Policy checks detect drift, while ADRs retain the boundary rationale that code alone does not expose. |
+| [inference] OpenRewrite and Batch Changes are remediation layers. | https://docs.openrewrite.org ; https://sourcegraph.com/docs/batch_changes | medium | Useful after violations are detected. |
+| [fact] Cross-repo architecture maps need provenance, freshness, semantic type, and confidence metadata on each edge. | https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-21-dependency-mapping-dotnet-terraform-dynatrace.md | high | Reuses established repository pattern. |
+| [inference] A GitHub-native rollout with versioned artifacts best matches this repository's operating constraints. | https://docs.github.com/api/article/body?pathname=/en/rest/dependency-graph ; https://raw.githubusercontent.com/sverweij/dependency-cruiser/main/README.md ; https://www.openpolicyagent.org/docs/latest/ ; https://raw.githubusercontent.com/github/awesome-copilot/main/skills/architecture-blueprint-generator/SKILL.md ; https://raw.githubusercontent.com/reposwarm/reposwarm/main/README.md | high | [inference] The repository's web-first operating model favors reviewable workflow outputs over ad hoc local tooling. |
+
+### Assumptions
+
+- [assumption] Public documentation is sufficiently current to support an implementation-plan recommendation. **Justification:** this item is scoped to public capability discovery, not private deployment verification. Sources: https://raw.githubusercontent.com/reposwarm/reposwarm/main/README.md ; https://raw.githubusercontent.com/github/awesome-copilot/main/skills/architecture-blueprint-generator/SKILL.md
+- [assumption] The target repositories can tolerate small repository-local configuration files for scanners, policies, or generated outputs. **Justification:** every practical approach here requires at least one local configuration or artifact format. Sources: https://raw.githubusercontent.com/sverweij/dependency-cruiser/main/README.md ; https://www.openpolicyagent.org/docs/latest/
+- [assumption] RepoSwarm's repository overview is representative of its present practical behavior. **Justification:** no live RepoSwarm instance was deployed during this item. Source: https://raw.githubusercontent.com/reposwarm/reposwarm/main/README.md
+
+### Analysis
+
+- [inference] The evidence supports a four-stage operating model: **extract -> normalize -> evaluate -> synthesize**. That structure is the smallest one that preserves provenance while still producing a usable architectural narrative. Sources: https://raw.githubusercontent.com/sverweij/dependency-cruiser/main/README.md ; https://docs.github.com/api/article/body?pathname=/en/rest/dependency-graph ; https://www.openpolicyagent.org/docs/latest/ ; https://raw.githubusercontent.com/github/awesome-copilot/main/skills/architecture-blueprint-generator/SKILL.md
+- [inference] Extraction should remain deterministic whenever possible, because architecture inspection loses organizational trust quickly when it cannot explain why an edge or violation was reported. Sources: https://raw.githubusercontent.com/sverweij/dependency-cruiser/main/README.md ; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-10-agent-evaluation-cross-repo-analysis.md
+- [inference] Synthesis is the natural place for Copilot skills and RepoSwarm-style agents, because they add clear value when translating structured evidence into diagrams, boundary explanations, onboarding context, and prioritized remediation advice. Sources: https://raw.githubusercontent.com/github/awesome-copilot/main/skills/architecture-blueprint-generator/SKILL.md ; https://raw.githubusercontent.com/reposwarm/reposwarm/main/README.md
+- [inference] Remediation should remain separable from synthesis, because policy violations and dependency drift often need code changes that can be automated independently of the documentation pass. Sources: https://docs.openrewrite.org ; https://sourcegraph.com/docs/batch_changes ; https://www.openpolicyagent.org/docs/latest/
+- [inference] The core design decision is therefore not which single product wins, but where the repository draws the boundary between evidence production and interpretation. Sources: https://raw.githubusercontent.com/github/awesome-copilot/main/skills/architecture-blueprint-generator/SKILL.md ; https://raw.githubusercontent.com/reposwarm/reposwarm/main/README.md ; https://raw.githubusercontent.com/sverweij/dependency-cruiser/main/README.md ; https://www.openpolicyagent.org/docs/latest/
+
+### Risks, Gaps, and Uncertainties
+
+- [fact] The public evidence base is weaker on mature, language-agnostic open-source call-graph extraction across heterogeneous estates than it is on package, manifest, and repository-level metadata extraction. Sources: https://raw.githubusercontent.com/sverweij/dependency-cruiser/main/README.md ; https://docs.github.com/api/article/body?pathname=/en/rest/dependency-graph ; https://raw.githubusercontent.com/reposwarm/reposwarm/main/README.md
+- [fact] RepoSwarm's repository overview is strong on end-to-end workflow shape, but weaker on the exact internal normalization model it uses before prompt generation. Source: https://raw.githubusercontent.com/reposwarm/reposwarm/main/README.md
+- [fact] GitHub dependency-graph data is package-focused, so teams can misread package visibility as service-architecture visibility if they do not distinguish those semantics explicitly. Sources: https://docs.github.com/api/article/body?pathname=/en/rest/dependency-graph ; https://docs.github.com/api/article/body?pathname=/en/rest/dependency-graph/sboms
+- [inference] A rollout that lets an agent inspect raw repository portfolios without first creating normalized evidence artifacts will likely become expensive, hard to review, and difficult to trust as repo count grows. Sources: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-10-agent-evaluation-cross-repo-analysis.md ; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-21-dependency-mapping-dotnet-terraform-dynatrace.md ; https://raw.githubusercontent.com/reposwarm/reposwarm/main/README.md
+
+### Open Questions
+
+- What is the thinnest normalized architecture schema that can represent imports, package dependencies, ownership, standards violations, ADR references, and generated blueprint links without becoming another heavyweight enterprise metamodel?
+- Which open-source extractors outside the JavaScript and Java ecosystems are mature enough to provide equivalent structural evidence for Python, .NET, Go, and Infrastructure as Code (IaC) repositories?
+- What is the minimum evaluation harness needed to measure false-positive and false-negative rates for cross-repository coupling detection before the system is trusted as a governance control?
+- Should the synthesized output live primarily as per-repo architecture files, a central results hub, or both?
+
+---
 
 ---
 
