@@ -20,6 +20,7 @@ Format: [MADR (Markdown Architectural Decision Records)](https://adr.github.io/m
 | [0006](0006-standardise-agent-instructions.md) | Standardise agent instruction files | Accepted | 2026-03-07 |
 | [0007](0007-reviewing-state-and-dispatch-trigger.md) | Reviewing state and workflow_dispatch trigger for research review | Accepted | 2026-03-11 |
 | [0009](0009-consolidate-research-workflow.md) | Consolidate Research Workflow | Accepted | 2026-03-17 |
+| [0010](0010-github-pages-static-site.md) | GitHub Pages static site as research delivery channel | Accepted | 2026-03-23 |
 
 ---
 
