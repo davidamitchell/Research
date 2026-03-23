@@ -747,6 +747,14 @@ def load_items() -> list[dict]:
     return items
 
 
+def load_metadata() -> dict:
+    """Load state/content_metadata.json if present, else return empty dict."""
+    path = REPO_ROOT / "state" / "content_metadata.json"
+    if not path.exists():
+        return {}
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
 def load_links(items: list[dict]) -> dict[str, list[dict]]:
     """Build a map of slug -> list of related items (by shared tags, >= 2 tags)."""
     links: dict[str, list[dict]] = {item["slug"]: [] for item in items}
@@ -985,7 +993,7 @@ SEARCH_JS = """
       + '<div class="card-title">' + escapeHtml(item.title) + '</div>'
       + '<div class="card-meta">' + escapeHtml(item.added) + '</div>'
       + '<div class="card-tags">' + tags + '</div>'
-      + '<div class="card-excerpt">' + escapeHtml(item.question_excerpt) + '</div>'
+      + '<div class="card-excerpt">' + escapeHtml(item.findings_excerpt || item.question_excerpt || '') + '</div>'
       + '</a>';
   }
 
@@ -993,9 +1001,7 @@ SEARCH_JS = """
     if (!index) return;
     var q = input.value.trim().toLowerCase();
     var results = !q ? [] : index.filter(function(item) {
-      return item.title.toLowerCase().indexOf(q) !== -1
-          || item.question_excerpt.toLowerCase().indexOf(q) !== -1
-          || item.tags.join(' ').indexOf(q) !== -1;
+      return (item.full_text || item.title + ' ' + item.question_excerpt).toLowerCase().indexOf(q) !== -1;
     });
     resultsEl.innerHTML = results.map(renderCard).join('');
     if (countEl) {
@@ -1452,20 +1458,33 @@ def build_search_page() -> str:
     )
 
 
-def build_search_index(items: list[dict]) -> str:
+def build_search_index(
+    items: list[dict],
+    metadata: dict,
+    slug_to_threads: dict[str, list[str]],
+) -> str:
     """Generate docs/search-index.json."""
-    index = [
-        {
-            "slug": item["slug"],
-            "title": item["title"],
-            "tags": item["tags"],
-            "added": item["added_str"],
-            "question_excerpt": item["question_excerpt"],
-            "findings_excerpt": get_findings_excerpt(item),
-            "url": f"/Research/research/{item['slug']}.html",
-        }
-        for item in items
-    ]
+    meta_items = metadata.get("items", {})
+    index = []
+    for item in items:
+        slug = item["slug"]
+        item_meta = meta_items.get(slug, {})
+        named_concepts = item_meta.get("named_concepts", [])
+        all_text_parts = [item["title"]] + list(item["sections"].values()) + named_concepts
+        full_text = " ".join(all_text_parts)
+        index.append(
+            {
+                "slug": slug,
+                "title": item["title"],
+                "tags": item["tags"],
+                "added": item["added_str"],
+                "question_excerpt": item["question_excerpt"],
+                "findings_excerpt": get_findings_excerpt(item, 400),
+                "full_text": full_text,
+                "thread_slugs": slug_to_threads.get(slug, []),
+                "url": f"/Research/research/{slug}.html",
+            }
+        )
     return json.dumps(index, ensure_ascii=False, indent=2)
 
 
@@ -1499,12 +1518,20 @@ def main() -> None:
     items = load_items()
     print(f"  {len(items)} items loaded")
 
+    metadata = load_metadata()
+
     print("Building relationship graph…")
     links = load_links(items)
 
     print("Detecting threads…")
     threads = detect_threads(items)
     print(f"  {len(threads)} threads detected")
+
+    # Build slug -> thread slugs mapping
+    slug_to_threads: dict[str, list[str]] = {}
+    for thread in threads:
+        for item in thread["items"]:
+            slug_to_threads.setdefault(item["slug"], []).append(thread["slug"])
 
     # Create output directories
     DOCS_DIR.mkdir(exist_ok=True)
@@ -1553,7 +1580,9 @@ def main() -> None:
 
     # 7. search-index.json
     print("Building search-index.json…")
-    (DOCS_DIR / "search-index.json").write_text(build_search_index(items), encoding="utf-8")
+    (DOCS_DIR / "search-index.json").write_text(
+        build_search_index(items, metadata, slug_to_threads), encoding="utf-8"
+    )
 
     # 8. threads-index.json
     print("Building threads-index.json…")

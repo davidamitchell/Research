@@ -537,7 +537,7 @@ main {
       + '<div class="card-title">' + escapeHtml(item.title) + '</div>'
       + '<div class="card-meta">' + escapeHtml(item.added) + '</div>'
       + '<div class="card-tags">' + tags + '</div>'
-      + '<div class="card-excerpt">' + escapeHtml(item.question_excerpt) + '</div>'
+      + '<div class="card-excerpt">' + escapeHtml(item.findings_excerpt || item.question_excerpt || '') + '</div>'
       + '</a>';
   }
 
@@ -545,9 +545,7 @@ main {
     if (!index) return;
     var q = input.value.trim().toLowerCase();
     var results = !q ? [] : index.filter(function(item) {
-      return item.title.toLowerCase().indexOf(q) !== -1
-          || item.question_excerpt.toLowerCase().indexOf(q) !== -1
-          || item.tags.join(' ').indexOf(q) !== -1;
+      return (item.full_text || item.title + ' ' + item.question_excerpt).toLowerCase().indexOf(q) !== -1;
     });
     resultsEl.innerHTML = results.map(renderCard).join('');
     if (countEl) {
