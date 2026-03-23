@@ -56,7 +56,7 @@ back to the `research-prompt.md` fallback path for BBC author tasks.
   submodule with the correct constraint ("Never edit `.github/skills/` — it is a
   read-only submodule. All skill changes go to `davidamitchell/Skills`"). No change
   needed.
-- `docs/adr/0002-agent-skills-submodule.md` — already documents the submodule
+- `docs-adr/0002-agent-skills-submodule.md` — already documents the submodule
   decision as "accepted". No change needed.
 
 ## Tests

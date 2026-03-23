@@ -9,7 +9,7 @@ Agent instructions lived in `AGENTS.md` at the repo root and a stub `.github/cop
 
 ## Decision
 
-Expand `.github/copilot-instructions.md` with the full content from `AGENTS.md`, removing the indirection. Delete `AGENTS.md` and `.claude/`. Update `.gitmodules` to remove the `.claude/skills` submodule entry. Update `sync-skills.yml` to sync only `.github/skills`. Add `BACKLOG.md`, `PROGRESS.md`, `CHANGELOG.md`, and `docs/adr/` mandates to the instructions.
+Expand `.github/copilot-instructions.md` with the full content from `AGENTS.md`, removing the indirection. Delete `AGENTS.md` and `.claude/`. Update `.gitmodules` to remove the `.claude/skills` submodule entry. Update `sync-skills.yml` to sync only `.github/skills`. Add `BACKLOG.md`, `PROGRESS.md`, `CHANGELOG.md`, and `docs-adr/` mandates to the instructions.
 
 ## Consequences
 

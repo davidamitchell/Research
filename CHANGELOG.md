@@ -57,7 +57,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - `Research/completed/2026-03-04-sdlc-ai-prompt-patterns.md`: completed research on emergent AI prompt patterns for SDLC phases; key findings: 55.8% Build-phase speed gain (Peng et al. 2023), SCoT +13.79% Pass@1 over CoT (Li et al. 2023), DORA 2024 AI adoption correlation (+3.4% code quality, -7.2% delivery stability); phase taxonomy, evidence map, and tooling alignment framework including MCP prompts primitive
 - `.github/copilot-instructions.md` (full content, replaces `AGENTS.md` stub)
 - `CHANGELOG.md` (this file)
-- `docs/adr/0006-standardise-agent-instructions.md`
+- `docs-adr/0006-standardise-agent-instructions.md`
 - `## Continuous Improvement & Learning` unified self-improvement framework in `.github/copilot-instructions.md`
 - `## Chain-of-Thought Reasoning` section in `.github/copilot-instructions.md`
 
@@ -73,4 +73,4 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - `.github/workflows/sync-skills.yml`: removed `.claude/skills` sync step
 - `README.md`: updated to reflect current structure
 - `BACKLOG.md`: added W-0033 for standardisation work
-- `docs/adr/README.md`: added ADR-0006, added "When to write an ADR" section
+- `docs-adr/README.md`: added ADR-0006, added "When to write an ADR" section

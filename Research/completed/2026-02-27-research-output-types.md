@@ -115,7 +115,7 @@ Decomposed into atomic questions:
 
 **[fact]** `AGENTS.md` defines a tool as "a new or updated tool in `src/`". Source: `AGENTS.md` § Output Types.
 
-**[fact]** `AGENTS.md` § Adding a New Source Type (Code) specifies the handling procedure for tool outputs that add a new data source: create `src/fetchers/<source>.py` implementing the Fetcher protocol; add config schema to `config/sources.yaml`; register in `src/main.py`; write unit tests in `tests/`; write an ADR in `docs/adr/` if a significant design decision is involved; update `BACKLOG.md` and `PROGRESS.md`. Source: `AGENTS.md` § Adding a New Source Type (Code).
+**[fact]** `AGENTS.md` § Adding a New Source Type (Code) specifies the handling procedure for tool outputs that add a new data source: create `src/fetchers/<source>.py` implementing the Fetcher protocol; add config schema to `config/sources.yaml`; register in `src/main.py`; write unit tests in `tests/`; write an ADR in `docs-adr/` if a significant design decision is involved; update `BACKLOG.md` and `PROGRESS.md`. Source: `AGENTS.md` § Adding a New Source Type (Code).
 
 **[fact]** `2026-02-27-youtube-transcript-fetcher.md` (output: `[tool, backlog-item]`) produced `src/fetchers/youtube.py`, `src/main.py` CLI extension, and `.github/workflows/fetch-transcript.yml`. Its `## Output` section links to the specific file paths and workflow. Source: direct inspection of `Research/completed/2026-02-27-youtube-transcript-fetcher.md`.
 
@@ -141,7 +141,7 @@ Decomposed into atomic questions:
 
 **[fact]** `AGENTS.md` defines knowledge as "a structured note or ADR". Source: `AGENTS.md` § Output Types.
 
-**[fact]** ADRs follow MADR format, are stored in `docs/adr/` with filenames `NNNN-short-title.md` (zero-padded 4 digits), and require updating `docs/adr/README.md` after adding. Source: `AGENTS.md` § Adding an ADR.
+**[fact]** ADRs follow MADR format, are stored in `docs-adr/` with filenames `NNNN-short-title.md` (zero-padded 4 digits), and require updating `docs-adr/README.md` after adding. Source: `AGENTS.md` § Adding an ADR.
 
 **[fact]** The research item's `## Findings` section is itself a knowledge output — it is retained in `Research/completed/` and published to the GitHub wiki via `publish-wiki.yml`. Source: `AGENTS.md` § Research Item Workflow; prior memory about `publish-wiki.yml`.
 
@@ -195,7 +195,7 @@ Decomposed into atomic questions:
 - `skill`: stored in `davidamitchell/Skills` as a directory with `SKILL.md`; synced automatically via submodule workflow. In practice, the handling step of actually creating the skill in the Skills repo has not been completed in the two items that declared this output type.
 - `tool`: stored in `src/`; handling procedure in AGENTS.md is detailed (create file, add tests, update BACKLOG.md, write ADR if warranted). The `youtube-transcript-fetcher` item shows the complete pattern.
 - `agent`: stored in `.github/` or as a root-level prompt file; no completed examples; handling convention absent from AGENTS.md.
-- `knowledge`: default output for all research items; the completed item itself is a knowledge artifact; ADRs follow MADR format in `docs/adr/`; published to wiki automatically.
+- `knowledge`: default output for all research items; the completed item itself is a knowledge artifact; ADRs follow MADR format in `docs-adr/`; published to wiki automatically.
 - `backlog-item`: spawns numbered entries in `BACKLOG.md`; most common secondary output (13/26 items); handling is well-understood.
 
 **Inferences drawn:**
@@ -223,10 +223,10 @@ One tension identified but not a contradiction: the `knowledge` type is both a d
 1. `skill` → commit to `davidamitchell/Skills`; automatic submodule sync
 2. `tool` → PR or direct commit to `src/`; CI tests; BACKLOG.md entry
 3. `agent` → commit to `.github/` or root; no automated handling
-4. `knowledge` → always implicit; explicit ADRs to `docs/adr/`; wiki publish
+4. `knowledge` → always implicit; explicit ADRs to `docs-adr/`; wiki publish
 5. `backlog-item` → append to `BACKLOG.md`; assign W-XXXX number
 
-**Gap lens:** The `agent` output type is the least actionable: no dedicated storage directory exists, no handling procedure is documented, and no completed item has used it. Given the current repository state, the most natural storage location for a new agent output would be a new directory such as `agents/` at the repo root, analogous to the `docs/adr/` convention for knowledge outputs. However, this would require an AGENTS.md update and possibly an ADR — and since no completed item has triggered this need, the gap exists but is not urgent.
+**Gap lens:** The `agent` output type is the least actionable: no dedicated storage directory exists, no handling procedure is documented, and no completed item has used it. Given the current repository state, the most natural storage location for a new agent output would be a new directory such as `agents/` at the repo root, analogous to the `docs-adr/` convention for knowledge outputs. However, this would require an AGENTS.md update and possibly an ADR — and since no completed item has triggered this need, the gap exists but is not urgent.
 
 **Historical lens:** The taxonomy was established in the repository's founding documents (2026-02-27) and has not changed in the 4 weeks since. This stability suggests the five types were well-chosen at the outset and have not needed extension.
 
@@ -277,7 +277,7 @@ The five-type taxonomy was established at the repository's founding and has prov
 
 - The `agent` output type has no storage convention. If a research item produces an agent configuration, the agent must decide where to store it with no documented guidance. This is a gap in AGENTS.md.
 - The `skill` handling procedure says "add it to the Skills repo first" without explaining the directory/SKILL.md structure or how to authenticate to a separate repository from a GitHub Actions workflow. Two items have declared `skill` as an output without completing this step, suggesting the friction is real.
-- The wiki publish pipeline (`publish-wiki.yml`) constitutes an implicit fifth storage location for `knowledge` outputs (alongside the completed item file, `docs/adr/`, and any linked READMEs). This implicit output is not documented in the taxonomy.
+- The wiki publish pipeline (`publish-wiki.yml`) constitutes an implicit fifth storage location for `knowledge` outputs (alongside the completed item file, `docs-adr/`, and any linked READMEs). This implicit output is not documented in the taxonomy.
 
 **Open questions:**
 

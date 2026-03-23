@@ -118,4 +118,4 @@ The two-layer approach (YAML front-matter for research metadata + JSON for proce
 
 - Type: knowledge, backlog-item
 - Description: ADR-0003 documenting the JSON state file + YAML front-matter approach for Epic 3; W-0021 scope refined to implement JSON state with atomic writes and a defined schema.
-- Links: `docs/adr/0003-indexing-and-tracking-approach.md` (to be created as part of W-0020)
+- Links: `docs-adr/0003-indexing-and-tracking-approach.md` (to be created as part of W-0020)

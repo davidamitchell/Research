@@ -819,8 +819,8 @@ Sources consulted:
   - Added 30-second inter-iteration sleep (`INTER_ITERATION_SLEEP=30`)
   - Added `set -euo pipefail` for fail-fast shell behaviour
 - `tests/test_research_loop.py`: 25 tests proving workflow structure, safety controls, prompt content, backlog counting logic, and end-to-end loop cycle
-- `docs/adr/0004-autonomous-research-loop.md`: ADR documenting design decisions, safety controls, and rejected alternatives (Claude Code CLI, unlimited `max_items`, PR-per-item model)
-- `docs/adr/README.md`: ADR index updated with ADR-0004
+- `docs-adr/0004-autonomous-research-loop.md`: ADR documenting design decisions, safety controls, and rejected alternatives (Claude Code CLI, unlimited `max_items`, PR-per-item model)
+- `docs-adr/README.md`: ADR index updated with ADR-0004
 - `AGENTS.md`: Updated credentials table (`COPILOT_GITHUB_TOKEN`), research loop docs, safety controls summary
 - `BACKLOG.md`: W-0029 added as done
 
@@ -982,8 +982,8 @@ Research items:
 - `Research/completed/2026-02-27-indexing-and-tracking-method.md` — completed; findings recommend JSON state file (`state/index.json`) for URL-based deduplication + YAML front-matter for item metadata; SQLite and vector stores deferred with clear migration trigger criteria
 
 System improvements:
-- `docs/adr/0003-indexing-and-tracking-approach.md` — ADR documenting the chosen approach, rejected alternatives, and migration trigger; unblocks Epic 3
-- `docs/adr/README.md` — index updated
+- `docs-adr/0003-indexing-and-tracking-approach.md` — ADR documenting the chosen approach, rejected alternatives, and migration trigger; unblocks Epic 3
+- `docs-adr/README.md` — index updated
 - `BACKLOG.md` — W-0020 marked done
 - `PROGRESS.md` — Epic 3 status updated to "In Progress (1/3 slices)"
 
@@ -1015,8 +1015,8 @@ System improvements:
 - `.devcontainer/devcontainer.json` — Codespaces setup
 - `.github/workflows/ci.yml` — lint + test CI
 - `.github/workflows/sync-skills.yml` — weekly skills submodule sync
-- `docs/adr/README.md` — ADR index with template
-- `docs/adr/0001-use-python-as-primary-language.md` — first ADR
+- `docs-adr/README.md` — ADR index with template
+- `docs-adr/0001-use-python-as-primary-language.md` — first ADR
 - `Research/README.md` — research workflow documentation
 - `Research/_template.md` — template for a new research item
 - `Research/backlog/` — 9 research items added from the project backlog
@@ -1059,8 +1059,8 @@ Research items:
 - `.github/skills` — git submodule properly initialised, pointing to `davidamitchell/Skills` at `7095c41e842f036e2241ad9ae3aa1360db04be83` (latest)
 - `.claude/skills` — same submodule added for Claude Code
 - `.claude/CLAUDE.md` — thin stub pointing to `AGENTS.md` (matches `Latest-developments-` pattern)
-- `docs/adr/0002-agent-skills-submodule.md` — ADR documenting the submodule decision
-- `docs/adr/README.md` — index updated
+- `docs-adr/0002-agent-skills-submodule.md` — ADR documenting the submodule decision
+- `docs-adr/README.md` — index updated
 - `BACKLOG.md` — W-0026 added and marked done
 
 **Root cause of the gap:** The `.gitmodules` file was created manually in Session 1 (the entries were written as plain text) but `git submodule add` was never run, so no gitlink entries were committed into the tree. The skill directories did not exist and agents had no access to the skill files.
@@ -1161,7 +1161,7 @@ System improvements:
 
 ## 2026-03-07
 
-Standardisation pass (W-0033): expanded `.github/copilot-instructions.md` from stub to full (content from `AGENTS.md`). Deleted `AGENTS.md` and `.claude/`. Updated `.gitmodules` and `sync-skills.yml` to remove `.claude/skills`. Created `CHANGELOG.md`, added `docs/adr/0006-standardise-agent-instructions.md`. Updated `README.md`, `BACKLOG.md`, `docs/adr/README.md`.
+Standardisation pass (W-0033): expanded `.github/copilot-instructions.md` from stub to full (content from `AGENTS.md`). Deleted `AGENTS.md` and `.claude/`. Updated `.gitmodules` and `sync-skills.yml` to remove `.claude/skills`. Created `CHANGELOG.md`, added `docs-adr/0006-standardise-agent-instructions.md`. Updated `README.md`, `BACKLOG.md`, `docs-adr/README.md`.
 
 ### Continuous Improvement & Learning framework
 

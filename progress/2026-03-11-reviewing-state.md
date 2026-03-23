@@ -16,8 +16,8 @@ from a `push` trigger to `workflow_dispatch`-only.
   `Research/in-progress/` paths; simplified "Determine items to review" step
 - `research-prompt.md`: replaced single step 8 with three steps (draft → review → complete);
   renumbered session log and commit steps to 11 and 12
-- `docs/adr/0007-reviewing-state-and-dispatch-trigger.md`: ADR documenting decisions
-- `docs/adr/README.md`: added ADR-0007 to index
+- `docs-adr/0007-reviewing-state-and-dispatch-trigger.md`: ADR documenting decisions
+- `docs-adr/README.md`: added ADR-0007 to index
 - `Research/in-progress/README.md`: documents `reviewing` status and in-place file behaviour
 - `Research/README.md`: updated to four-state lifecycle with `research draft` in workflow
 - `CHANGELOG.md`: added entry under [Unreleased]
