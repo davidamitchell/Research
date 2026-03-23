@@ -1,6 +1,6 @@
 # Research Master Document
 
-Generated on: 2026-03-23 08:07 UTC
+Generated on: 2026-03-23 08:27 UTC
 
 ## Table of Contents
 
@@ -10,6 +10,7 @@ Generated on: 2026-03-23 08:07 UTC
 * [Coding AI Agent Skills Survey: Existing Vendor and OSS Prompt Libraries for Software Engineering Domains](#2026-03-22-coding-ai-agent-skills-survey-md)
 * [Code Architecture Inspection Across Repositories](#2026-03-22-code-architecture-inspection-md)
 * [Applied context engineering: skills, workflows, and best practices for agent development](#2026-03-22-applied-context-engineering-agent-workflows-md)
+* [Artificial Intelligence (AI) agents as finishers and synthesisers: optimising AI agents to complement ideation-strong, execution-weak humans](#2026-03-22-agents-as-finishers-and-synthesisers-md)
 * [Technology Capability Models: Survey, Comparison, and Recommendation for Multi-Level IT Capability Mapping](#2026-03-21-technology-capability-models-md)
 * [Dependency Mapping Across .NET Codebases, Terraform, Dynatrace, Confluence, Log Aggregation, and the Configuration and Service Data Model (CSDM)](#2026-03-21-dependency-mapping-dotnet-terraform-dynatrace-md)
 * [Layered Organisation Large Language Model: Feasibility and Architecture of Organisation-Customised LLMs](#2026-03-19-layered-org-llm-architecture-md)
@@ -635,6 +636,94 @@ The multi-agent cost finding (15x tokens, 80% variance = usage) reconfigures the
 2. Should MCP server design be a dedicated backlog research item, given the API context hubs finding that MCP is the emerging agent-to-API connectivity standard?
 3. What human-in-the-loop design patterns exist for high-stakes agent decisions, and are there public skill files covering this domain?
 4. Can the file-system-as-state-machine pipeline pattern be explicitly adopted in this repository's research tooling to make status-field transitions more reliable across interrupted sessions?
+
+---
+
+---
+
+<a name="2026-03-22-agents-as-finishers-and-synthesisers-md"></a>
+
+## Artificial Intelligence (AI) agents as finishers and synthesisers: optimising AI agents to complement ideation-strong, execution-weak humans
+
+**Tags:** [agents, human-ai-collaboration, productivity, finishing, synthesis, orchestration, cognitive-styles]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-22-agents-as-finishers-and-synthesisers.md
+
+## Research Question
+
+What agent configurations, prompt strategies, orchestration patterns, and tooling choices allow an AI agent (or agent team) to act as a reliable *finisher* and *synthesiser* - completing work that a human has started but not followed through on - and what are the practical limits of this complementary model?
+
+Supporting questions:
+- What cognitive or productivity frameworks describe the "ideas person / weak finisher" profile, and how does that map to AI agent capabilities?
+- Which agent roles (planner, executor, reviewer, synthesiser, organiser) are most effective at compensating for execution and organisation weaknesses?
+- What prompt patterns and agent instructions produce reliable task completion rather than a new layer of partial ideas?
+- How should a human-agent handoff be structured so the agent can pick up unfinished work without losing context?
+- What are the failure modes when using agents as finishers (e.g. hallucinated completions, loss of original intent, over-generalisation)?
+- Are there published agent frameworks, research papers, or real-world case studies that specifically address human-AI cognitive complementarity?
+- What tooling (GitHub Copilot Agent, AutoGen, CrewAI, LangGraph, etc.) is best suited to a "finishing and synthesising" use case in a no-local-Integrated Development Environment (IDE) environment?
+
+## Findings
+
+### Executive Summary
+
+- [inference] Artificial Intelligence (AI) finishers are most dependable when they operate inside bounded GitHub-native tasks, because the agent can handle planning, execution, validation, and packaging while the human keeps scoping authority and final sign-off. Sources: https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-coding-agent; https://www.anthropic.com/research/building-effective-agents; https://hal.cs.princeton.edu/reliability/
+- [inference] The key mechanism is cognitive complementarity: the human provides divergent thinking, judgment, and prioritisation, while the agent externalises convergent work such as sequencing, formatting, cross-checking, and synthesis into durable artifacts. Sources: https://doi.org/10.1080/0960085X.2025.2475962; https://www.designcouncil.org.uk/our-resources/the-double-diamond/; https://doi.org/10.1016/j.tics.2016.07.002
+- [inference] In a browser-first repository workflow, the GitHub-native agent surface fits sooner than CrewAI, AutoGen, or LangGraph, because it reuses existing issues, pull requests, instructions, and review gates instead of requiring a separate programmable runtime. Sources: https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-coding-agent; https://docs.crewai.com/concepts/agents; https://microsoft.github.io/autogen/stable/; https://docs.langchain.com/oss/python/langgraph/overview
+- [inference] The main practical limit is reliability rather than raw capability, so the model remains complementary rather than autonomous: bounded scope, explicit done criteria, validation, and human review are mandatory controls rather than optional extras. Sources: https://hal.cs.princeton.edu/reliability/; https://doi.org/10.6028/NIST.AI.100-1
+
+### Key Findings
+
+1. [inference][high] A reliable finisher architecture uses an explicit planner-executor-synthesiser-reviewer loop, because completion quality improves when planning, doing, packaging, and checking are treated as distinct responsibilities rather than collapsed into one unconstrained conversational turn. Sources: https://www.anthropic.com/research/building-effective-agents; https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-coding-agent
+2. [inference][high] Human-AI complementarity is strongest when the human keeps ownership of divergent tasks such as choosing goals and making trade-offs, while the agent takes convergent tasks such as structuring, sequencing, packaging, and verifying completeness against stated criteria. Sources: https://doi.org/10.1080/0960085X.2025.2475962; https://www.designcouncil.org.uk/our-resources/the-double-diamond/; https://doi.org/10.1037/aca0000513
+3. [inference][high] Persistent handoff artifacts are more dependable than conversational memory for unfinished work because they offload executive burden, preserve intent over time, and give the agent a stable contract describing constraints, sources, validation, and stop conditions. Sources: https://doi.org/10.1016/j.tics.2016.07.002; https://doi.org/10.1111/cogs.12770; https://docs.github.com/en/copilot/how-tos/configure-custom-instructions/add-repository-instructions
+4. [inference][high] GitHub Copilot coding agent is directly aligned with browser-first GitHub workflows, while CrewAI, AutoGen, and LangGraph are primarily frameworks for teams that can install packages, write orchestration code, and operate custom runtime state. Sources: https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-coding-agent; https://docs.crewai.com/concepts/agents; https://microsoft.github.io/autogen/stable/; https://docs.langchain.com/oss/python/langgraph/overview
+5. [inference][medium] The fastest practical path in a browser-first GitHub workflow is to strengthen repository instructions, handoff contracts, and reviewer gates before experimenting with bespoke multi-agent frameworks, because the largest immediate gains come from clearer completion discipline rather than from deeper orchestration. Sources: https://docs.github.com/en/copilot/how-tos/configure-custom-instructions/add-repository-instructions; https://github.blog/ai-and-ml/github-copilot/github-copilot-coding-agent-101-getting-started-with-agentic-workflows-on-github/; https://www.anthropic.com/research/building-effective-agents
+6. [inference][high] Frontier agents still show meaningful reliability gaps on consistency, predictability, and prompt robustness, so fully autonomous finishing remains inappropriate for ambiguous tasks where success cannot be checked by tests, review, or hard acceptance criteria. Sources: https://hal.cs.princeton.edu/reliability/; https://www.anthropic.com/research/building-effective-agents
+7. [inference][high] The most effective control stack for a finisher agent is bounded scope, explicit definition of done, executable validation steps, reviewable output artifacts, escalation rules, and human acceptance at the final gate, because each control targets a different failure mode in the completion loop. Sources: https://hal.cs.princeton.edu/reliability/; https://doi.org/10.6028/NIST.AI.100-1; https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-coding-agent
+8. [fact][medium] GitHub exposes several repository-level control surfaces - including custom instructions, agent instruction files, skills, hooks, and custom agents - so finisher behaviour can be tuned incrementally without first migrating to a different platform. Sources: https://docs.github.com/en/copilot/how-tos/configure-custom-instructions/add-repository-instructions; https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-coding-agent
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [inference] Explicit planner-executor-synthesiser-reviewer loops improve finishing reliability. | https://www.anthropic.com/research/building-effective-agents; https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-coding-agent | high | [fact] Supported by first-party workflow patterns and the GitHub review surface. |
+| [inference] Complementarity works best when humans stay on divergent work and agents take convergent work. | https://doi.org/10.1080/0960085X.2025.2475962; https://www.designcouncil.org.uk/our-resources/the-double-diamond/; https://doi.org/10.1037/aca0000513 | high | [inference] Theory and process evidence align. |
+| [inference] Durable handoff artifacts reduce intent loss and executive burden. | https://doi.org/10.1016/j.tics.2016.07.002; https://doi.org/10.1111/cogs.12770; https://docs.github.com/en/copilot/how-tos/configure-custom-instructions/add-repository-instructions | high | [inference] Cognitive offloading and repository-instruction mechanisms point in the same direction. |
+| [inference] GitHub Copilot coding agent fits browser-only finishing better than CrewAI, AutoGen, or LangGraph. | https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-coding-agent; https://docs.crewai.com/concepts/agents; https://microsoft.github.io/autogen/stable/; https://docs.langchain.com/oss/python/langgraph/overview | high | [fact] Tooling capabilities and operating assumptions differ clearly. |
+| [inference] Repository instructions, handoff contracts, and reviewer gates should be improved before bespoke multi-agent orchestration is introduced. | https://docs.github.com/en/copilot/how-tos/configure-custom-instructions/add-repository-instructions; https://github.blog/ai-and-ml/github-copilot/github-copilot-coding-agent-101-getting-started-with-agentic-workflows-on-github/; https://www.anthropic.com/research/building-effective-agents | medium | [inference] First-party workflow guidance supports this rollout order. |
+| [inference] Reliability gaps still prevent unchecked autonomous finishing for ambiguous work. | https://hal.cs.princeton.edu/reliability/; https://www.anthropic.com/research/building-effective-agents | high | [fact] Consistency and prompt robustness remain unresolved. |
+| [inference] Bounded scope, validation, review, and escalation are the right completion controls. | https://hal.cs.princeton.edu/reliability/; https://doi.org/10.6028/NIST.AI.100-1; https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-coding-agent | high | [inference] Governance and workflow controls converge on the same safeguards. |
+| [fact] Finisher behaviour can be improved through additive repository artifacts such as instructions, skills, hooks, and custom agents. | https://docs.github.com/en/copilot/how-tos/configure-custom-instructions/add-repository-instructions; https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-coding-agent | medium | [fact] GitHub documents several repository-level control surfaces for behaviour shaping. |
+
+### Assumptions
+
+- [assumption] The initial deployment target is bounded repository or document work that can be expressed as an issue, task brief, or section-level deliverable rather than as open-ended personal decision-making. **Justification:** GitHub coding agent and the Princeton AI Agent Reliability Tracker are both strongest for bounded, reviewable tasks. Sources: https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-coding-agent; https://hal.cs.princeton.edu/reliability/
+- [assumption] The operator is willing to keep human review at the final acceptance gate instead of delegating irreversible decisions to the agent. **Justification:** GitHub coding agent and the NIST framework both assume meaningful human oversight for trustworthy deployment. Sources: https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-coding-agent; https://doi.org/10.6028/NIST.AI.100-1
+- [assumption] A good outcome means higher completion throughput with bounded risk, not maximum agent autonomy. **Justification:** Anthropic and the Princeton AI Agent Reliability Tracker both treat reliability and controllability as first-order deployment criteria, not optional extras. Sources: https://www.anthropic.com/research/building-effective-agents; https://hal.cs.princeton.edu/reliability/
+
+### Analysis
+
+[inference] The evidence does not support the naive idea that an ideation-heavy human simply needs "a stronger agent." It supports a more specific design: the human keeps problem framing and acceptance, while the agent becomes an execution scaffold that turns intent into artifacts, checks, and structured outputs. Sources: https://doi.org/10.1080/0960085X.2025.2475962; https://doi.org/10.1016/j.tics.2016.07.002; https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-coding-agent
+
+[inference] That is why GitHub-native finishing is the best present fit. It packages work as issues, pull requests, comments, instructions, and workflow states - exactly the kinds of durable objects that both humans and agents can revisit without relying on conversational memory. Sources: https://docs.github.com/en/copilot/how-tos/configure-custom-instructions/add-repository-instructions; https://github.blog/ai-and-ml/github-copilot/github-copilot-coding-agent-101-getting-started-with-agentic-workflows-on-github/; https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-coding-agent
+
+[inference] The larger orchestration frameworks still matter, but as second-order options. They become attractive only after the repository has proven a stable handoff contract and completion rubric, because otherwise they would automate ambiguity rather than reduce it. Sources: https://www.anthropic.com/research/building-effective-agents; https://docs.crewai.com/concepts/agents; https://microsoft.github.io/autogen/stable/; https://docs.langchain.com/oss/python/langgraph/overview
+
+[inference] The main architectural principle is therefore: maximise external structure before maximising autonomy. In this domain, better completion comes from clearer contracts and reviews before it comes from more elaborate agent topologies. Sources: https://doi.org/10.1016/j.tics.2016.07.002; https://hal.cs.princeton.edu/reliability/; https://doi.org/10.6028/NIST.AI.100-1
+
+### Risks, Gaps, and Uncertainties
+
+- [fact] Reliability evidence is still evolving and does not supply a universal threshold at which an agent can be trusted to finish ambiguous tasks without review. Sources: https://hal.cs.princeton.edu/reliability/; https://doi.org/10.6028/NIST.AI.100-1
+- [inference] The public evidence base is stronger for coding and structured completion than for personal productivity or personal knowledge management finishing, so these conclusions are strongest for repository workflows. Sources: https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-coding-agent; https://www.anthropic.com/research/building-effective-agents; https://docs.crewai.com/concepts/agents; https://microsoft.github.io/autogen/stable/; https://docs.langchain.com/oss/python/langgraph/overview
+- [inference] The complementarity literature is newer and less extensive than the tooling literature, so the psychological explanation should be treated as supportive framing rather than closed theory. Sources: https://doi.org/10.1080/0960085X.2025.2475962; https://www.designcouncil.org.uk/our-resources/the-double-diamond/; https://www.anthropic.com/research/building-effective-agents
+- [inference] The exact threshold at which this repo should graduate from GitHub-native finishing to custom multi-agent orchestration remains uncertain and should be decided empirically after a simpler finisher contract is piloted. Sources: https://hal.cs.princeton.edu/reliability/; https://www.anthropic.com/research/building-effective-agents; https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-coding-agent
+
+### Open Questions
+
+- [inference] What is the smallest reusable handoff template that reliably preserves intent across research, repo-maintenance, and backlog-management tasks in this repository?
+- [inference] Should completion review be implemented as a dedicated repository skill, as path-specific GitHub instructions, or as a workflow-enforced checklist?
+- [inference] How should non-code finishing work be validated when there are no automated tests and the main risks are synthesis drift and premature closure?
+- [inference] When, if ever, would it become worthwhile to add a deeper CrewAI, AutoGen, or LangGraph orchestration layer on top of the current GitHub-native workflow?
 
 ---
 
