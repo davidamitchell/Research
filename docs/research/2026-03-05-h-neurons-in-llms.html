@@ -263,7 +263,7 @@ main {
 
 .item-content h2 {
   font-size: var(--text-sm);
-  text-transform: uppercase;
+  text-transform: lowercase;
   letter-spacing: 0.1em;
   color: var(--text-muted);
   margin-top: 2.5rem;
@@ -417,6 +417,71 @@ main {
   main { padding: 72px 1rem 3rem; }
   nav { padding: 0 1rem; }
 }
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); }
+.key-claims li:last-child { border-bottom: none; }
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); }
+.related-entry:last-child { border-bottom: none; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--text); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-entry { padding: 1rem; border: 1px solid var(--border); border-bottom: none; text-decoration: none; color: var(--text); display: block; }
+.thread-entry:last-child { border-bottom: 1px solid var(--border); }
+.thread-entry:hover { background: var(--surface); text-decoration: none; }
+.thread-entry-title { font-size: var(--text-base); font-weight: 500; }
+.thread-entry-meta { font-size: var(--text-xs); color: var(--text-muted); margin-top: 0.25rem; letter-spacing: 0.05em; }
 </style>
 
         </head>
@@ -425,6 +490,8 @@ main {
   <div class="nav-inner">
     <a class="nav-brand" href="/Research/">Research</a>
     <div class="nav-links">
+      <a href="/Research/browse.html">Browse</a>
+      <a href="/Research/threads.html">Threads</a>
       <a href="/Research/tags/">Tags</a>
       <a href="/Research/search.html">Search</a>
     </div>
@@ -433,6 +500,8 @@ main {
 <main>
   <div class="breadcrumb">
     <a href="/Research/">Research</a>
+    <span>/</span>
+    <a href="/Research/browse.html">Browse</a>
     <span>/</span>
     <span>Hallucination-Associated Neurons (H-Neurons) in LLMs — Identification, Behavioural Impact, and Origins</span>
   </div>
@@ -444,6 +513,13 @@ main {
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-05-h-neurons-in-llms.md" target="_blank" rel="noopener">source →</a>
   </div>
+  <div class="key-claims"><div class="key-claims-label">key findings</div><ol><li>**Assumption:** The six models tested (Mistral, Gemma-3, Llama-3 families) are representative of the broader LLM ecosystem including closed-source models (GPT-4, Claude, Gemini). **Justification:** The three families span diverse pre-training data, architecture choices, and parameter counts. However, closed-source model internals are inaccessible for verification; findings may not generalise identically.</li>
+<li>**Assumption:** The TriviaQA-based training procedure for the sparse probe is sufficient to identify H-Neurons for other hallucination types (e.g., reasoning errors, long-form inconsistency). **Justification:** The paper evaluates cross-domain and fabrication generalisation and finds strong results. However, reasoning-type hallucinations are not tested; the assumption holds for factual QA hallucinations but remains unverified for reasoning.</li>
+<li>**Assumption:** AUROC retention in base models is sufficient evidence for pre-training origin, even though the SFT procedure could in principle activate different neurons than the instruction-tuned model while preserving similar AUROC by coincidence. **Justification:** The parameter inertia analysis (cosine similarity ranks) independently confirms H-Neurons are minimally modified during SFT, making coincidence unlikely; the two lines of evidence converge.</li>
+<li>**Attention heads excluded:** The analysis covers FFN neurons only. Whether attention heads play a similar or complementary role in hallucination is unknown. The full picture of hallucination at the circuit level is incomplete.</li>
+<li>**Llama-3.1-8B NonExist anomaly (inaccessible explanation):** The below-baseline performance on fabricated-entity questions is unexplained. It may indicate that H-Neurons as currently identified are insufficient for fabrication detection in some architectures, or that the Llama-3.1-8B training dynamics differ in a relevant way.</li>
+</ol></div>
+
   <div class="item-content">
     <h2>Research Question</h2>
 <p>What are Hallucination-Associated Neurons (H-Neurons) in large language models, how can they be identified, what behaviours do they cause, where do they come from, and what do these findings imply for building more reliable LLMs?</p>
@@ -617,6 +693,13 @@ main {
 
 
   </div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-03-05-h-neurons-synthesis.html">H-Neurons Synthesis — From Hallucination Mechanisms to Actionable LLM Reliability Engineering</a> <span class="related-note">via alignment, h-neurons, hallucinations, llm, mechanistic-interpretability, over-compliance, pre-training, reliability</span></div>
+<div class="related-entry"><a href="/Research/research/2026-03-05-h-neuron-pretraining-origins.html">Pre-Training Origins of Hallucination-Associated Neurons — Implications for LLM Development</a> <span class="related-note">via alignment, h-neurons, hallucinations, llm, mechanistic-interpretability, pre-training, reliability</span></div>
+<div class="related-entry"><a href="/Research/research/2026-03-05-h-neuron-over-compliance.html">Over-Compliance in LLMs — How H-Neurons Drive Sycophancy and What Interventions Are Possible</a> <span class="related-note">via alignment, h-neurons, hallucinations, llm, mechanistic-interpretability, over-compliance, reliability</span></div>
+<div class="related-entry"><a href="/Research/research/2026-03-05-llm-hallucination-mechanisms.html">LLM Hallucinations — Types, Causes, and Current Mitigation Approaches</a> <span class="related-note">via alignment, hallucinations, llm, mechanistic-interpretability, reliability</span></div>
+<div class="related-entry"><a href="/Research/research/2026-03-14-reliable-software-llm-era.html">Reliable Software in the LLM Era</a> <span class="related-note">via llm, reliability</span></div>
+</div></div>
+
   <div class="item-nav">
     <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-05-h-neurons-synthesis.html">H-Neurons Synthesis — From Hallucination Mechanisms to Actionable LLM Reliability Engineering</a></div>
     <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-05-h-neuron-pretraining-origins.html">Pre-Training Origins of Hallucination-Associated Neurons — Implications for LLM Development</a></div>

@@ -14,6 +14,7 @@
     ],
     "added": "2026-03-22",
     "question_excerpt": "What resources from `davidamitchell/awesome-copilot` — GitHub Copilot (GHC) instructions, skills, agents, workflows, hooks, and plugins — provide the most leverage when applied to this Research repo a",
+    "findings_excerpt": "(Populated from §6 Synthesis above.) Executive Summary [inference] For this repo portfolio, the fastest high-value import from awesome-copilot is its instruction architecture rather than its runtime a…",
     "url": "/Research/research/2026-03-22-using-awesome-copilot-across-repos.html"
   },
   {
@@ -31,6 +32,7 @@
     ],
     "added": "2026-03-22",
     "question_excerpt": "How should an organisation running multiple compliance scanners in GitHub Actions normalise evidence, severity, waiver handling, and developer-facing output so that heterogeneous tools behave like one",
+    "findings_excerpt": "Executive Summary [inference] A coherent multi-scanner compliance system in GitHub Actions should normalize every scanner result into a shared SARIF-aligned evidence contract and keep waivers in a sep…",
     "url": "/Research/research/2026-03-22-cross-scanner-compliance-evidence-normalisation.html"
   },
   {
@@ -59,6 +61,7 @@
     ],
     "added": "2026-03-22",
     "question_excerpt": "How can GitHub Actions (with GitHub Advanced Security (GHAS) and CodeQL already enabled) be extended to enforce a broad, organisation-wide compliance policy — covering naming conventions, architectura",
+    "findings_excerpt": "Executive Summary [inference] The most defensible way to extend GHAS and CodeQL into broad compliance scanning is to treat them as the supported-language security layer inside a larger GitHub Actions…",
     "url": "/Research/research/2026-03-22-compliance-scanning-gh-actions.html"
   },
   {
@@ -87,6 +90,7 @@
     ],
     "added": "2026-03-22",
     "question_excerpt": "What actively maintained, publicly available agent skills, prompt libraries, instructions files, and system prompts exist — from vendors such as Microsoft and from the Open Source Software (OSS) commu",
+    "findings_excerpt": "Executive Summary [inference] The most adoptable public answer today is a portable stack rather than a single canonical library: teams should standardize on AGENTS.md or SKILL.md-style packaging, then…",
     "url": "/Research/research/2026-03-22-coding-ai-agent-skills-survey.html"
   },
   {
@@ -103,6 +107,7 @@
     ],
     "added": "2026-03-22",
     "question_excerpt": "What practical implementation approaches exist for automatically inspecting and understanding how a set of repositories is architected, how they relate to and couple with each other, and whether they",
+    "findings_excerpt": "(Populated from §6 Synthesis above.) Executive Summary [inference] The best-supported answer is that multi-repository architecture inspection should be implemented as a layered system in which determi…",
     "url": "/Research/research/2026-03-22-code-architecture-inspection.html"
   },
   {
@@ -122,6 +127,7 @@
     ],
     "added": "2026-03-22",
     "question_excerpt": "What practical patterns, workflow best practices, and agent development guidelines emerge from synthesising the `muratcankoylan/Agent-Skills-for-Context-Engineering` skill library with the context eng",
+    "findings_excerpt": "(Populated from §6 Synthesis above.) Executive Summary The muratcankoylan/Agent-Skills-for-Context-Engineering library is the most comprehensive single public source of production-oriented context eng…",
     "url": "/Research/research/2026-03-22-applied-context-engineering-agent-workflows.html"
   },
   {
@@ -144,6 +150,7 @@
     ],
     "added": "2026-03-21",
     "question_excerpt": "What established and emerging IT capability models define a complete, multi-level set of technical capabilities - such as authentication, networking, Application Programming Interface (API) gateways,",
+    "findings_excerpt": "(Populated from Section 6 Synthesis above.) Executive Summary [inference] No single surveyed public framework can serve as both the enterprise-wide technical capability taxonomy and the maturity model…",
     "url": "/Research/research/2026-03-21-technology-capability-models.html"
   },
   {
@@ -165,6 +172,7 @@
     ],
     "added": "2026-03-21",
     "question_excerpt": "What practical tools and methodologies are being used to map dependencies across .NET codebases, Terraform configurations, Dynatrace Application Performance Management (APM) monitoring, and solution d",
+    "findings_excerpt": "(Populated from Section 6 Synthesis above.) Executive Summary [inference] The best-supported answer is to treat dependency mapping as a graph-merge problem: combine declared edges from code and Infras…",
     "url": "/Research/research/2026-03-21-dependency-mapping-dotnet-terraform-dynatrace.html"
   },
   {
@@ -187,6 +195,7 @@
     ],
     "added": "2026-03-19",
     "question_excerpt": "Is it technically feasible and economically viable for an organisation to build a customised Large Language Model (LLM) layer that injects and optimises over organisation-specific context - internal k",
+    "findings_excerpt": "Executive Summary [inference] A mid-to-large enterprise can build a useful organisation-customised Large Language Model (LLM) layer today, but the economically viable design is a layered system built…",
     "url": "/Research/research/2026-03-19-layered-org-llm-architecture.html"
   },
   {
@@ -205,6 +214,7 @@
     ],
     "added": "2026-03-18",
     "question_excerpt": "When an agentic workflow spans multiple session boundaries — each session starting with a fresh context window and no memory of prior runs — what are the mechanisms by which external state becomes orp",
+    "findings_excerpt": "Executive Summary [inference] This failure is best understood as a continuity failure: a new session treats the world as clean even though earlier sessions already changed durable external state. (Sou…",
     "url": "/Research/research/2026-03-18-stateless-agent-assumption-failure.html"
   },
   {
@@ -223,6 +233,7 @@
     ],
     "added": "2026-03-18",
     "question_excerpt": "What is the fundamental difference between the predictive processing account of human cognition — in which the brain continuously generates and updates a generative model of the world — and Large Lang",
+    "findings_excerpt": "(Populated from §6 Synthesis above.) Executive Summary [inference] Human brains are not just next-token predictors in a richer medium; predictive processing is an embodied control architecture that us…",
     "url": "/Research/research/2026-03-18-human-brain-prediction-machines.html"
   },
   {
@@ -241,6 +252,7 @@
     ],
     "added": "2026-03-18",
     "question_excerpt": "What does Leanstral - an open-source agent for formal proof engineering - offer as a practical path to trustworthy, formally verified software built with Artificial Intelligence (AI) assistance, and h",
+    "findings_excerpt": "Executive Summary [inference] Leanstral is a promising but narrow advance: it can make Lean 4-based formal proof engineering more usable for AI-assisted workflows, but it only improves trust where tea…",
     "url": "/Research/research/2026-03-18-formal-proof-engineering-leanstral.html"
   },
   {
@@ -258,6 +270,7 @@
     ],
     "added": "2026-03-18",
     "question_excerpt": "When technology is moving fast, what is the synthesis step between exploration and exploitation, why is it so commonly skipped, what are the costs of skipping it, and what strategies allow organisatio",
+    "findings_excerpt": "Executive Summary [inference] The transition from exploration to exploitation pays off only when organisations insert a distinct synthesis phase that converts experiment results into explicit operatin…",
     "url": "/Research/research/2026-03-18-explore-to-exploit-synthesis-gap.html"
   },
   {
@@ -277,6 +290,7 @@
     ],
     "added": "2026-03-18",
     "question_excerpt": "What approaches are being used to enable Artificial Intelligence (AI) agents to discover, understand, and invoke external Application Programming Interfaces (APIs), and how do the three major emerging",
+    "findings_excerpt": "Executive Summary [inference] API context hubs, RAG-based API discovery, and MCP belong on one stack because they intervene at different points in the path from \\\"what tools exist\\\" to \\\"invoke this t…",
     "url": "/Research/research/2026-03-18-api-context-hubs-rag-mcp.html"
   },
   {
@@ -296,6 +310,7 @@
     ],
     "added": "2026-03-17",
     "question_excerpt": "What is the current state of Artificial Intelligence (AI) memory systems — across Retrieval-Augmented Generation (RAG) research, commercial AI vendor implementations (GitHub Copilot, Gemini, Claude, a",
+    "findings_excerpt": "(Populated from §6 Synthesis above.) Executive Summary [inference] Current vendor memory features are continuity aids rather than full durable-memory architectures, because they scope what can be reca…",
     "url": "/Research/research/2026-03-17-ai-memory-systems-rag-neuroscience.html"
   },
   {
@@ -316,6 +331,7 @@
     ],
     "added": "2026-03-16",
     "question_excerpt": "What is Vision-Language Joint Embedding Predictive Architecture (VL-JEPA) - specifically its concept prediction mechanism - and what practical options exist for a developer consumer of existing fronti",
+    "findings_excerpt": "Executive Summary [fact] As of early 2026, Vision-Language Joint Embedding Predictive Architecture (VL-JEPA) is a genuine Meta research model that predicts semantic answer embeddings from visual input…",
     "url": "/Research/research/2026-03-16-vl-jepa-concept-prediction.html"
   },
   {
@@ -334,6 +350,7 @@
     ],
     "added": "2026-03-16",
     "question_excerpt": "What is Intent Driven Development (IDD) — as a methodology that moves past Test Driven Development (TDD) and Specification Driven Development (SDD) — and what context and concept layering mechanisms a",
+    "findings_excerpt": "Executive Summary Intent Driven Development (IDD) is not yet a settled industry standard; it is an emerging intent-first, validation-heavy practice whose strongest public implementations depend on lay…",
     "url": "/Research/research/2026-03-16-intent-driven-development.html"
   },
   {
@@ -353,6 +370,7 @@
     ],
     "added": "2026-03-16",
     "question_excerpt": "What is GitAgent (https://github.com/open-gitagent/gitagent), how can it be used in this repository, what concepts does it build on and produce, and how does the broader idea of declarative agent defi",
+    "findings_excerpt": "Executive Summary [inference] GitAgent is best understood as a portable, Git-native authoring and packaging layer, and the best-supported use for this repository is to layer it on top of the current G…",
     "url": "/Research/research/2026-03-16-gitagent-declarative-agent-definition.html"
   },
   {
@@ -372,6 +390,7 @@
     ],
     "added": "2026-03-16",
     "question_excerpt": "How does Adaptive Policy-Based Authorization (APBA) align with the dynamic access-control requirements of National Institute of Standards and Technology (NIST) Special Publication (SP) 800-53 and ISO/",
+    "findings_excerpt": "Executive Summary [inference] Adaptive Policy-Based Authorization aligns strongly with the access-control intent of NIST SP 800-53 Rev. 5 and materially supports ISO/IEC 27001:2022 access-management c…",
     "url": "/Research/research/2026-03-16-adaptive-policy-authorization-compliance.html"
   },
   {
@@ -389,6 +408,7 @@
     ],
     "added": "2026-03-15",
     "question_excerpt": "Ken Thompson's \"Trusting Trust\" argument shows that you cannot verify a compiler by reading its source code if the compiler was compiled by a compromised toolchain — the contamination lives in the bin",
+    "findings_excerpt": "Executive Summary [inference] The public web now behaves less like a neutral evidence commons and more like a partially recursive corpus whose provenance cannot be validated by reading any single page…",
     "url": "/Research/research/2026-03-15-trusting-trust-ai-corpus-contamination.html"
   },
   {
@@ -408,6 +428,7 @@
     ],
     "added": "2026-03-15",
     "question_excerpt": "Can we track how a unit of 'Work' -- an idea or concept -- travels across organisational systems (SharePoint, Confluence, Azure DevOps (ADO)/Jira, Git, monitoring systems, and data platforms), and wha",
+    "findings_excerpt": "Executive Summary [inference] End-to-end tracking of organisational work is achievable, but only by building a graph of work artefacts and typed evidence links (a provenance graph) that stitches toget…",
     "url": "/Research/research/2026-03-15-tracking-work-across-systems.html"
   },
   {
@@ -427,6 +448,7 @@
     ],
     "added": "2026-03-15",
     "question_excerpt": "What capabilities do enterprise Software as a Service (SaaS) banking platforms (principally Salesforce Financial Services Cloud (FSC) and nCino) provide as true invariants - independent of customer im",
+    "findings_excerpt": "Executive Summary [inference] Enterprise banking Software as a Service (SaaS) platforms deliver durable value as reusable domain and operating primitives, not as implementation-free banking outcomes.…",
     "url": "/Research/research/2026-03-15-saas-banking-invariants.html"
   },
   {
@@ -445,6 +467,7 @@
     ],
     "added": "2026-03-15",
     "question_excerpt": "What is the current state of the prompt injection threat in agentic artificial intelligence (AI) systems: who is exploiting it, who is defending against it, and what does the research community consid",
+    "findings_excerpt": "Executive Summary [inference] Prompt injection is now an operational security problem for agentic AI systems - AI systems that pursue goals with limited supervision and use tools or external software…",
     "url": "/Research/research/2026-03-15-prompt-injection-threat-landscape.html"
   },
   {
@@ -461,6 +484,7 @@
     ],
     "added": "2026-03-15",
     "question_excerpt": "How do human brains store, compress, retrieve, and dynamically layer multiple types of contextual knowledge — values, goals, rules, current state, and immediate task — when making decisions, and what",
+    "findings_excerpt": "Executive Summary [inference] The brain handles contextual reasoning by compressing experience into a few active chunks, using prefrontal control to keep the most relevant chunk in play, and leaning o…",
     "url": "/Research/research/2026-03-15-neurological-context-management.html"
   },
   {
@@ -478,6 +502,7 @@
     ],
     "added": "2026-03-15",
     "question_excerpt": "What are the best approaches for extracting latent concepts from a Confluence wiki, representing them as word embeddings in a vector database (VDB) and as a knowledge graph (KG), and how can the resul",
+    "findings_excerpt": "(Populated from §6 Synthesis above.) Executive Summary BERTopic combined with NER + relation extraction (mREBEL) is the current best-practice approach for latent concept extraction from a Confluence w…",
     "url": "/Research/research/2026-03-15-latent-concept-extraction-confluence.html"
   },
   {
@@ -495,6 +520,7 @@
     ],
     "added": "2026-03-15",
     "question_excerpt": "What framework should an organisation adopt to ensure that AI agents making or supporting decisions have access to the right layered organisational context — spanning regulatory boundaries, values and",
+    "findings_excerpt": "(Populated from §6 Synthesis above.) Executive Summary A layered organisational context architecture should partition organisational knowledge into eight distinct layers — regulatory, values/purpose,…",
     "url": "/Research/research/2026-03-15-context-layers-aligned-decisions-synthesis.html"
   },
   {
@@ -511,6 +537,7 @@
     ],
     "added": "2026-03-15",
     "question_excerpt": "What are the current best practices and bleeding-edge techniques  -  including Retrieval-Augmented Generation (RAG), context compression, and context architecture  -  for selectively surfacing the rig",
+    "findings_excerpt": "(Populated from §6 Synthesis above.) Executive Summary Advanced Retrieval-Augmented Generation (RAG) - combining hybrid search, re-ranking, hierarchical indexing (Recursive Abstractive Processing for…",
     "url": "/Research/research/2026-03-15-context-compression-rag-enterprise-knowledge.html"
   },
   {
@@ -528,6 +555,7 @@
     ],
     "added": "2026-03-15",
     "question_excerpt": "What can Adam Smith's insights into human nature and morality - drawn from *The Theory of Moral Sentiments* (ToMS) and *The Wealth of Nations* (WoN) - teach us about designing organisations that align",
+    "findings_excerpt": "(Populated from §6 Synthesis above.) Executive Summary Smith's two books together provide the most coherent extant model of how informal order emerges from human behaviour in groups, and therefore the…",
     "url": "/Research/research/2026-03-15-adam-smith-org-design-desire-paths-ai.html"
   },
   {
@@ -545,6 +573,7 @@
     ],
     "added": "2026-03-14",
     "question_excerpt": "What is the Ricardian Contract model proposed by Ian Grigg in 1996, how has it evolved over the past three decades, who is actively building with it today, and what does the latest academic and applie",
+    "findings_excerpt": "(Populated from §6 Synthesis above.) Executive Summary Ian Grigg and Gary Howland developed the Ricardian Contract between 1995 and 1996 as a design pattern for binding human-readable legal prose to m…",
     "url": "/Research/research/2026-03-14-ricardian-contract-model.html"
   },
   {
@@ -562,6 +591,7 @@
     ],
     "added": "2026-03-14",
     "question_excerpt": "What strategies and formal-methods tooling exist for maintaining software reliability in the Large Language Model (LLM) era, and what does the Quint formal specification language ecosystem - including",
+    "findings_excerpt": "Executive Summary See §6 Synthesis (Executive summary) for the full narrative. In brief: the Quint ecosystem offers a technically sound, single-case-study-supported answer to LLM-era reliability risks…",
     "url": "/Research/research/2026-03-14-reliable-software-llm-era.html"
   },
   {
@@ -581,6 +611,7 @@
     ],
     "added": "2026-03-14",
     "question_excerpt": "Can organisational intent — mission, values, strategy, resource allocation — be expressed as a formally structured specification from which human-readable artefacts are derived, and against which Obje",
+    "findings_excerpt": "(Populated from §6 Synthesis above.) Executive Summary Organisational intent can in principle be expressed as a formally structured specification against which OKRs, funding decisions, and initiative…",
     "url": "/Research/research/2026-03-14-organisational-intent-formal-specification.html"
   },
   {
@@ -597,6 +628,7 @@
     ],
     "added": "2026-03-13",
     "question_excerpt": "What are the established best practices for financially responsible forecasting of Information Technology (IT) operational run costs — covering cost estimation by technology and infrastructure type, r",
+    "findings_excerpt": "Executive Summary Financially responsible forecasting of IT operational run costs requires three interlocking practices: a structured cost taxonomy aligned to the Technology Business Management (TBM)…",
     "url": "/Research/research/2026-03-13-financial-forecasting-it-run-costs.html"
   },
   {
@@ -616,6 +648,7 @@
     ],
     "added": "2026-03-12",
     "question_excerpt": "Before Artificial Intelligence (AI), throughput (volume of output) was the binding constraint on knowledge work. AI has\ndramatically reduced the cost of generating output. Does the evidence support th",
+    "findings_excerpt": "Executive Summary Correctness — whether output is production-ready, strategically coherent, or factually accurate — has become the primary constraint in AI-augmented knowledge work; volume generation…",
     "url": "/Research/research/2026-03-12-volume-vs-correctness-ai-era.html"
   },
   {
@@ -634,6 +667,7 @@
     ],
     "added": "2026-03-12",
     "question_excerpt": "Software engineering (Fred Brooks, 1975), evolutionary psychology (Robin Dunbar, 1992), and graph\ntheory each independently arrive at the same structural limit: approximately 5 people for a\nhigh-coord",
+    "findings_excerpt": "This section consolidates and extends the §6 Synthesis from the Research Skill Output above, incorporating the consistency-check resolutions from §4 and the cross-disciplinary lenses from §5. Where §6…",
     "url": "/Research/research/2026-03-12-team-size-limits-brooks-dunbar-network-theory.html"
   },
   {
@@ -652,6 +686,7 @@
     ],
     "added": "2026-03-12",
     "question_excerpt": "When the SWAT (Strengths, Weaknesses, Assumptions, Threats) technique is executed repeatedly in a loop where each invocation uses a fresh Large Language Model (LLM) context window and the caller blind",
+    "findings_excerpt": "Executive Summary A SWAT (Strengths, Weaknesses, Assumptions, Threats) loop running with a fresh Large Language Model (LLM) context window per iteration and blind acceptance of every output produces a…",
     "url": "/Research/research/2026-03-12-swat-technique-loop-fresh-context.html"
   },
   {
@@ -669,6 +704,7 @@
     ],
     "added": "2026-03-12",
     "question_excerpt": "What ideas, patterns, and workflow practices from `davidamitchell/superpowers` (a fork of `obra/superpowers`) can be used as inspiration for improving agent tooling in `davidamitchell/Latest-developme",
+    "findings_excerpt": "Executive Summary davidamitchell/superpowers is a clean upstream fork of obra/superpowers — a plugin system for interactive IDE agents. The value is not in installing it (incompatible with the GitHub…",
     "url": "/Research/research/2026-03-12-superpowers-integration-analysis.html"
   },
   {
@@ -684,6 +720,7 @@
     ],
     "added": "2026-03-12",
     "question_excerpt": "What is the best free or very-low-cost hosting option for this research repository that supports full-text search, and optionally vector/graph database capabilities, without requiring SEO, custom DNS,",
+    "findings_excerpt": "Executive Summary MkDocs Material deployed to GitHub Pages via GitHub Actions — using only the already-approved GITHUB_TOKEN — is the recommended hosting stack for this research repository. A five-lin…",
     "url": "/Research/research/2026-03-12-hosting-options-for-the-research-repo.html"
   },
   {
@@ -703,6 +740,7 @@
     ],
     "added": "2026-03-12",
     "question_excerpt": "The five-layer failure mode taxonomy established in `2026-03-10-ai-concept-classification-taxonomy.md` (Q5) provides a structurally sound classification, but leaves three empirical gaps unanswered: (1",
+    "findings_excerpt": "Executive Summary Layer 4 (safety/security failures) leads production agentic systems by security-incident count — prompt injection is the #1 risk in Open Worldwide Application Security Project (OWASP…",
     "url": "/Research/research/2026-03-12-failure-mode-taxonomy-expansion.html"
   },
   {
@@ -721,6 +759,7 @@
     ],
     "added": "2026-03-12",
     "question_excerpt": "During periods of rapid exploration — such as the current wave of Artificial Intelligence (AI) / Large Language Model (LLM) adoption inside organisations — individuals and teams routinely duplicate ef",
+    "findings_excerpt": "(Populated from §6 Synthesis above.) Executive Summary The exploration-synthesis gap — the systematic failure of individuals and teams in \"explore mode\" to build on colleagues' prior work — is produce…",
     "url": "/Research/research/2026-03-12-exploration-synthesis-gap.html"
   },
   {
@@ -737,6 +776,7 @@
     ],
     "added": "2026-03-12",
     "question_excerpt": "Artificial Intelligence (AI) has increased per-person output by 5–10x. If coordination cost scales with the square of team size\n(see `2026-03-12-team-size-limits-brooks-dunbar-network-theory.md`), wha",
+    "findings_excerpt": "Executive Summary AI increased per-person output by 5–10x without reducing coordination overhead per person; this makes the economic penalty for over-staffing above five proportionally larger than in…",
     "url": "/Research/research/2026-03-12-ai-team-size-strike-team-thesis.html"
   },
   {
@@ -755,6 +795,7 @@
     ],
     "added": "2026-03-12",
     "question_excerpt": "When Artificial Intelligence (AI) multiplies the productive capacity of each person by 5–10x, organisations face a\nstrategic choice: reduce headcount to cut costs, or redeploy the same people against",
+    "findings_excerpt": "Executive Summary The ambition-expansion response to AI productivity gains is demonstrably viable: Lovable ($2.74M ARR per employee), Midjourney (~$4.7M), ElevenLabs (~$825K), Anthropic (~$3.6M–$7.5M)…",
     "url": "/Research/research/2026-03-12-ai-force-multiplier-ambition-expansion.html"
   },
   {
@@ -772,6 +813,7 @@
     ],
     "added": "2026-03-10",
     "question_excerpt": "What structured rubric should be used to evaluate the outputs of this repository's research loop agent — and what does a minimal viable implementation of a Continuous Integration (CI)-integrated eval",
+    "findings_excerpt": "Executive Summary This repository should implement its research loop eval gate as a custom 9-dimension rubric prompt passed to the GitHub Copilot CLI, extending the existing research-review.yml patter…",
     "url": "/Research/research/2026-03-10-research-loop-evaluation-rubric.html"
   },
   {
@@ -791,6 +833,7 @@
     ],
     "added": "2026-03-10",
     "question_excerpt": "Why do organisations (firms and business units) exist when markets are theoretically efficient? What are the fitness functions and invariants that determine when organisational form is the correct coo",
+    "findings_excerpt": "(Populated from §6 Synthesis above.) Executive Summary Organisations exist because markets have friction. Coase (1937) identified three transaction cost categories — search and information, bargaining…",
     "url": "/Research/research/2026-03-10-nature-of-the-firm-coase-organisations.html"
   },
   {
@@ -810,6 +853,7 @@
     ],
     "added": "2026-03-10",
     "question_excerpt": "Is anyone actively developing a programming language or structured output format specifically designed for LLM agents to generate — rather than humans to write — that structurally addresses generation",
+    "findings_excerpt": "Executive Summary No programming language or structured output format designed specifically for large language model (LLM) agents to produce has been identified in the 2022–2025 research literature; t…",
     "url": "/Research/research/2026-03-10-language-for-llm-agent-output.html"
   },
   {
@@ -826,6 +870,7 @@
     ],
     "added": "2026-03-10",
     "question_excerpt": "Can formal specification of task intent structurally eliminate reward hacking and intent mismatch in agentic coding systems? What is the expressiveness-verifiability tradeoff at each level of the spec",
+    "findings_excerpt": "Executive Summary Formal specification structurally reduces reward hacking and intent mismatch in agentic coding systems in proportion to the completeness of the specification: each higher level of th…",
     "url": "/Research/research/2026-03-10-formal-spec-intent-alignment-agentic-coding.html"
   },
   {
@@ -843,6 +888,7 @@
     ],
     "added": "2026-03-10",
     "question_excerpt": "What are the transformation functions that move between the levels of the DIKW pyramid — Data → Information → Knowledge → Wisdom? What cognitive, computational, and organisational mechanisms perform e",
+    "findings_excerpt": "(Populated from §6 Synthesis above.) Executive Summary The DIKW pyramid has four distinct transformation functions: D→I (contextualisation and compression, formally tractable via Shannon mutual inform…",
     "url": "/Research/research/2026-03-10-dikw-transformation-functions.html"
   },
   {
@@ -864,6 +910,7 @@
     ],
     "added": "2026-03-10",
     "question_excerpt": "What is a coherent, internally consistent classification taxonomy for the core concepts in AI-assisted and agentic systems — covering prompt types, instruction types, prompt/content/intent engineering",
+    "findings_excerpt": "Executive Summary A coherent AI concept classification taxonomy requires eight independent but intercomposable domains. The taxonomy's central structural insight is that prompt type, instruction type,…",
     "url": "/Research/research/2026-03-10-ai-concept-classification-taxonomy.html"
   },
   {
@@ -883,6 +930,7 @@
     ],
     "added": "2026-03-10",
     "question_excerpt": "What evaluation framework allows systematic comparison of agent implementations across multiple repositories — identifying what problems each is solving, whether concepts are used idiomatically or in",
+    "findings_excerpt": "Executive Summary No universally adopted evaluation framework for cross-repo agent comparison exists in early 2026, but the field has converged on a coherent set of practices. Tool-mediated execution…",
     "url": "/Research/research/2026-03-10-agent-evaluation-cross-repo-analysis.html"
   },
   {
@@ -901,6 +949,7 @@
     ],
     "added": "2026-03-10",
     "question_excerpt": "What is the design pattern for a system of agents — human or AI — that share a common goal but deliberately occupy different competency domains and time horizons? How does \"adversarial collaboration\"",
+    "findings_excerpt": "(Populated from §6 Synthesis above.) Executive Summary A system of agents sharing a goal but occupying different competency domains and time horizons demonstrably outperforms a single generalist becau…",
     "url": "/Research/research/2026-03-10-adversarial-agents-shared-goals-multi-perspective.html"
   },
   {
@@ -917,6 +966,7 @@
     ],
     "added": "2026-03-08",
     "question_excerpt": "Can a Telegram bot serve as a low-friction mobile capture and retrieval surface for the Memory-System? Specifically: (a) message received → file written to GitHub repo via API, (b) messages starting w",
+    "findings_excerpt": "(Populated from §6 Synthesis above.) Executive Summary A Telegram bot can serve as a viable mobile memory capture and retrieval surface for the Memory-System. The capture path — message received → inb…",
     "url": "/Research/research/2026-03-08-telegram-bot-memory-capture-retrieval.html"
   },
   {
@@ -932,6 +982,7 @@
     ],
     "added": "2026-03-08",
     "question_excerpt": "Can a Slack bot in a personal or team workspace serve as a memory capture and retrieval surface? What is the minimum viable setup: slash command vs bot, incoming webhook vs Socket Mode, and does a fre",
+    "findings_excerpt": "(Populated from §6 Synthesis above.) Executive Summary A free Slack workspace fully supports a memory capture and retrieval bot using Socket Mode, which eliminates the public URL requirement via an ou…",
     "url": "/Research/research/2026-03-08-slack-bot-memory-capture-retrieval.html"
   },
   {
@@ -949,6 +1000,7 @@
     ],
     "added": "2026-03-08",
     "question_excerpt": "What options exist within ServiceNow for documenting, mapping, and maintaining business and IT processes — and which approaches are sustainable enough in practice to stay meaningful, current, and actu",
+    "findings_excerpt": "Executive Summary ServiceNow offers five native capabilities for process documentation — the Process Universe (design-time ITIL 4 reference library), Flow Designer (automation logic), Playbooks (runti…",
     "url": "/Research/research/2026-03-08-servicenow-process-mapping.html"
   },
   {
@@ -971,6 +1023,7 @@
     ],
     "added": "2026-03-08",
     "question_excerpt": "Given the findings from the Common Service Data Model (CSDM) data modelling, process mapping, and AI capability research, how should an organisation develop a coherent, practical ServiceNow platform s",
+    "findings_excerpt": "Executive Summary A coherent ServiceNow platform strategy requires treating CSDM data accuracy as a permanent operational discipline and sequencing module activation against verified CSDM maturity rat…",
     "url": "/Research/research/2026-03-08-servicenow-platform-strategy.html"
   },
   {
@@ -992,6 +1045,7 @@
     ],
     "added": "2026-03-08",
     "question_excerpt": "How should organisations model their enterprise data in ServiceNow to meet the CSDM standard while keeping the model maintainable and accurate — and what are the practical patterns for aligning IT Ser",
+    "findings_excerpt": "Executive Summary A maintainable ServiceNow CSDM implementation requires the Manage Technical Services layer (Application Services, CI relationships) to reach \"walk\" maturity before ITSM, IRM/GRC, and…",
     "url": "/Research/research/2026-03-08-servicenow-csdm-data-modelling.html"
   },
   {
@@ -1010,6 +1064,7 @@
     ],
     "added": "2026-03-08",
     "question_excerpt": "How is ServiceNow evolving its platform to support AI-powered knowledge management, retrieval-augmented generation (RAG), and agent frameworks — and what should an organisation investing in ServiceNow",
+    "findings_excerpt": "Executive Summary ServiceNow's AI capabilities as of March 2025 are production-ready for organisations that have invested in knowledge base governance and CMDB accuracy, but will produce unreliable, c…",
     "url": "/Research/research/2026-03-08-servicenow-ai-knowledge-rag-agents.html"
   },
   {
@@ -1026,6 +1081,7 @@
     ],
     "added": "2026-03-08",
     "question_excerpt": "What is the minimum viable self-hosted deployment of `mcp_server.py` (or a write-only HTTP wrapper) that: (a) is reachable from the public internet, (b) has zero or near-zero ongoing cost, (c) require",
+    "findings_excerpt": "Executive Summary Self-hosting a Python MCP server for mobile AI integration resolves to a split architecture. The write path — a stateless GitHub Contents API proxy — fits naturally on Cloudflare Wor…",
     "url": "/Research/research/2026-03-08-self-hosted-mcp-server-options.html"
   },
   {
@@ -1040,6 +1096,7 @@
     ],
     "added": "2026-03-08",
     "question_excerpt": "Can the LanceDB index be rebuilt from the `.md` files in the repo on startup fast enough to enable stateless (per-request) deployment? Measure rebuild time at: current corpus size, 100 files, 500 file",
+    "findings_excerpt": "(Populated from §6 Synthesis above.) Executive Summary The embedding model — not LanceDB — is the bottleneck in cold-start index rebuilds: LanceDB write operations consume under 1% of total startup ti…",
     "url": "/Research/research/2026-03-08-lancedb-index-rebuild-from-git.html"
   },
   {
@@ -1055,6 +1112,7 @@
     ],
     "added": "2026-03-08",
     "question_excerpt": "Can an iOS Shortcut write a timestamped `.md` file directly to a GitHub repo via the Contents API (`PUT /repos/{owner}/{repo}/contents/{path}`) with a stored Personal Access Token (PAT), with enough r",
+    "findings_excerpt": "(Populated from §6 Synthesis above.) Executive Summary An iOS Shortcut can reliably write timestamped .md files directly to a GitHub repository via the Contents API using a stored PAT, and this direct…",
     "url": "/Research/research/2026-03-08-ios-shortcuts-github-api-memory-capture.html"
   },
   {
@@ -1069,6 +1127,7 @@
     ],
     "added": "2026-03-08",
     "question_excerpt": "Does removing the folder-selection decision from the capture path meaningfully reduce friction? Design and evaluate an `inbox/` folder pattern where: (a) any capture tool writes unstructured notes to",
+    "findings_excerpt": "Executive Summary Removing folder selection from the capture path eliminates a structurally disproportionate decision from mobile note-taking. GTD (Allen, 2001) and Matuschak's Evergreen Notes both sp…",
     "url": "/Research/research/2026-03-08-inbox-folder-capture-triage-pattern.html"
   },
   {
@@ -1088,6 +1147,7 @@
     ],
     "added": "2026-03-08",
     "question_excerpt": "What are the first principles of context engineering — and what novel approaches emerge when it is understood as two distinct but coupled mechanisms: (1) making the next predicted token more likely to",
+    "findings_excerpt": "(Populated from §6 Synthesis above.) Executive Summary Context engineering is the discipline of shaping the token probability distribution an LLM samples from at inference — operating through two dist…",
     "url": "/Research/research/2026-03-08-context-engineering-first-principles.html"
   },
   {
@@ -1103,6 +1163,7 @@
     ],
     "added": "2026-03-08",
     "question_excerpt": "Does the Claude iOS app support MCP connections to a remote server? If so: (a) what transport is supported (HTTP/SSE vs stdio), (b) does it require the same `.mcp.json` config as Claude Desktop, (c) w",
+    "findings_excerpt": "Executive Summary The Claude iOS app supports remote MCP connections via Anthropic's Connectors system, which is live and explicitly listed as available across \"Claude web, Claude Desktop, mobile apps…",
     "url": "/Research/research/2026-03-08-claude-ios-mcp-remote-integration.html"
   },
   {
@@ -1117,6 +1178,7 @@
     ],
     "added": "2026-03-08",
     "question_excerpt": "Can a ChatGPT custom Generative Pre-trained Transformer (GPT) be configured with Actions that: (a) call a self-hosted HTTP endpoint to add a memory, (b) call `search_brain` before responding to surfac",
+    "findings_excerpt": "(Populated from §6 Synthesis above.) Executive Summary A custom GPT can be configured with Actions that call a self-hosted HTTPS endpoint to write a memory (add_memory) and to retrieve context before…",
     "url": "/Research/research/2026-03-08-chatgpt-actions-memory-integration.html"
   },
   {
@@ -1133,6 +1195,7 @@
     ],
     "added": "2026-03-08",
     "question_excerpt": "What is the Better Business Cases (BBC) Five Case Model framework, what are the requirements and standards for each of the five cases, and how should an AI agent apply this framework to author, review",
+    "findings_excerpt": "Executive Summary The Better Business Cases (BBC) Five Case Model is HM Treasury's mandated framework for UK public sector investment proposals, requiring every spending case to be justified across fi…",
     "url": "/Research/research/2026-03-08-bbc-five-case-model.html"
   },
   {
@@ -1155,6 +1218,7 @@
     ],
     "added": "2026-03-08",
     "question_excerpt": "What are the core architectural and philosophical principles behind the AI coding harnesses (agentic IDEs and agent runtimes) published or released by Anthropic, OpenAI, and the broader ecosystem of c",
+    "findings_excerpt": "(Populated from §6 Synthesis above.) Executive Summary AI coding harnesses across commercial and OSS tools have converged on three architectural choices: tool-mediated execution (every agent action go…",
     "url": "/Research/research/2026-03-08-ai-coding-harnesses-agent-philosophy.html"
   },
   {
@@ -1171,6 +1235,7 @@
     ],
     "added": "2026-03-07",
     "question_excerpt": "How do non-IT primary businesses (manufacturing, retail, finance) calculate and apportion IT spending between RUN (nondiscretionary operational sustainment) and BUILD (discretionary strategic enhancem",
+    "findings_excerpt": "Executive Summary Non-IT primary businesses (manufacturing, retail, finance) calculate the RUN vs BUILD IT spending split using a converged methodology centred on the TBM Council's ATUM taxonomy as th…",
     "url": "/Research/research/2026-03-07-run-vs-build-it-spending-allocation.html"
   },
   {
@@ -1187,6 +1252,7 @@
     ],
     "added": "2026-03-07",
     "question_excerpt": "How have organisations actually implemented a working RUN vs BUILD IT cost allocation — specifically: how did they agree on what counts as an \"application\", how did they get consistent work-item taggi",
+    "findings_excerpt": "(Populated from §6 Synthesis above.) Executive Summary Organisations that achieve a working RUN vs BUILD cost allocation must build three artefacts in strict sequence — application register, team taxo…",
     "url": "/Research/research/2026-03-07-run-build-it-allocation-implementation-how.html"
   },
   {
@@ -1206,6 +1272,7 @@
     ],
     "added": "2026-03-05",
     "question_excerpt": "What is the structured, decision-oriented landscape of four advanced technique families — Swarm Intelligence, Principal Component Analysis (PCA) and its modern extensions, Genetic Algorithms and Evolu",
+    "findings_excerpt": "Executive Summary PCA remains the correct dimensionality reduction choice for analytics model families sensitive to feature collinearity — standardise features first, use cumulative explained variance…",
     "url": "/Research/research/2026-03-05-swarm-pca-genetic-reinforcement-learning.html"
   },
   {
@@ -1221,6 +1288,7 @@
     ],
     "added": "2026-03-05",
     "question_excerpt": "What are the established types, root causes, and current mitigation strategies for hallucinations in large language models, and what does the macroscopic (training-level) view leave unexplained that m",
+    "findings_excerpt": "Executive Summary LLM hallucination — output that is fabricated or ungrounded — is best classified using the factuality/faithfulness taxonomy from Huang et al. (2023): factuality hallucination is a cl…",
     "url": "/Research/research/2026-03-05-llm-hallucination-mechanisms.html"
   },
   {
@@ -1239,6 +1307,7 @@
     ],
     "added": "2026-03-05",
     "question_excerpt": "Across all four preceding research items — the macroscopic hallucination landscape, the H-Neurons paper, over-compliance interventions, and pre-training origins — what is the unified, actionable pictu",
+    "findings_excerpt": "Executive Summary LLM hallucinations — factual confabulation, sycophantic capitulation, and context-unfaithful generation — are three expressions of a single neural mechanism: a sparse set of FFN neur…",
     "url": "/Research/research/2026-03-05-h-neurons-synthesis.html"
   },
   {
@@ -1257,6 +1326,7 @@
     ],
     "added": "2026-03-05",
     "question_excerpt": "What are Hallucination-Associated Neurons (H-Neurons) in large language models, how can they be identified, what behaviours do they cause, where do they come from, and what do these findings imply for",
+    "findings_excerpt": "Executive Summary A sparse subset of feed-forward network neurons — fewer than 1‰ of total parameters across every tested model — reliably predicts and causally drives hallucination in large language…",
     "url": "/Research/research/2026-03-05-h-neurons-in-llms.html"
   },
   {
@@ -1275,6 +1345,7 @@
     ],
     "added": "2026-03-05",
     "question_excerpt": "Given that Hallucination-Associated Neurons (H-Neurons) emerge during pre-training rather than instruction tuning or RLHF, what does this reveal about how hallucination-prone behaviour is encoded duri",
+    "findings_excerpt": "Executive Summary H-Neurons originate during pre-training because the next-token prediction objective provides an unrestricted positive reward for compliant, agreeable continuations whenever training…",
     "url": "/Research/research/2026-03-05-h-neuron-pretraining-origins.html"
   },
   {
@@ -1293,6 +1364,7 @@
     ],
     "added": "2026-03-05",
     "question_excerpt": "What exactly is over-compliance behaviour in LLMs, how do Hallucination-Associated Neurons (H-Neurons) cause it, and what neuron-level and inference-time interventions are feasible to reduce it withou",
+    "findings_excerpt": "Executive Summary Over-compliance — the tendency of LLMs to generate outputs that satisfy user expectations at the cost of factual accuracy — is the causal pathway linking Hallucination-Associated Neu…",
     "url": "/Research/research/2026-03-05-h-neuron-over-compliance.html"
   },
   {
@@ -1310,6 +1382,7 @@
     ],
     "added": "2026-03-05",
     "question_excerpt": "What is the most principled architecture for a Self-Improving AI Agent Evaluation Loop — specifically, how should a nested inner/outer loop be designed so that a \"Meta-Optimizer\" rewrites system promp",
+    "findings_excerpt": "Executive Summary DSPy (Khattab et al., 2023) is the most principled foundation for a Self-Improving AI Agent Evaluation Loop because it is the only surveyed framework providing native support for bot…",
     "url": "/Research/research/2026-03-05-general-agent-optimization-framework.html"
   },
   {
@@ -1326,6 +1399,7 @@
     ],
     "added": "2026-03-04",
     "question_excerpt": "What are the current and emergent best practices for crafting AI agent prompts and tooling guidance tailored to each phase of the Software Development Life Cycle (SDLC) — covering discovery, requireme",
+    "findings_excerpt": "Executive Summary Phase-aware prompting produces measurable gains in the Build phase — Peng et al. (2023) measured 55.8% faster task completion — but whole-SDLC evidence remains thin, with Discovery,…",
     "url": "/Research/research/2026-03-04-sdlc-ai-prompt-patterns.html"
   },
   {
@@ -1342,6 +1416,7 @@
     ],
     "added": "2026-03-03",
     "question_excerpt": "How can the quality of research items produced by the `research-loop.yml` autonomous pipeline be systematically evaluated, and what changes to `research-prompt.md` and the loop's prompting strategy wo",
+    "findings_excerpt": "Executive Summary The quality variation in autonomous research loop output is prompt-caused, not model-caused: the model is capable of high-quality synthesis, and corpus evidence demonstrates this dir…",
     "url": "/Research/research/2026-03-03-research-loop-quality-prompt-engineering.html"
   },
   {
@@ -1358,6 +1433,7 @@
     ],
     "added": "2026-03-03",
     "question_excerpt": "How should the research backlog be maintained and prioritised to ensure balanced coverage of important domains, detect over-concentration in one area (research drift), and surface high-value gaps — ra",
+    "findings_excerpt": "Executive Summary The research backlog for davidamitchell/Research currently lacks a domain map, a principled prioritisation rubric, and a drift detection mechanism — three interlocking deficiencies t…",
     "url": "/Research/research/2026-03-03-research-agenda-curation-coverage.html"
   },
   {
@@ -1375,6 +1451,7 @@
     ],
     "added": "2026-03-03",
     "question_excerpt": "What is the complete, structured landscape of machine learning techniques and algorithms that an advanced analytics department should know, use, and actively pursue — covering foundational concepts, w",
+    "findings_excerpt": "Executive Summary Gradient-boosted decision trees (GBDTs — XGBoost, LightGBM, CatBoost) are the correct default algorithm for tabular analytics, outperforming alternatives including deep learning on t…",
     "url": "/Research/research/2026-03-03-ml-techniques-and-algorithms.html"
   },
   {
@@ -1391,6 +1468,7 @@
     ],
     "added": "2026-03-03",
     "question_excerpt": "What mechanisms ensure that knowledge from completed research items is retained, recalled when contextually relevant, and applied to decisions — rather than being archived indefinitely with no re-enga",
+    "findings_excerpt": "Executive Summary Knowledge from completed research items will decay significantly within 2–4 weeks without re-engagement, even given the deeper initial encoding that research writing provides (via se…",
     "url": "/Research/research/2026-03-03-knowledge-retention-active-recall.html"
   },
   {
@@ -1411,6 +1489,7 @@
     ],
     "added": "2026-03-03",
     "question_excerpt": "What techniques — latent semantic extraction, knowledge graphs, concept maps, hierarchical document compression, and layered abstraction — most effectively represent and compress large knowledge corpo",
+    "findings_excerpt": "Executive Summary For agent-accessible large knowledge corpora (100–10,000 documents), the most effective knowledge representation architecture combines four complementary techniques in a layered stac…",
     "url": "/Research/research/2026-03-03-knowledge-representation-agent-context.html"
   },
   {
@@ -1427,6 +1506,7 @@
     ],
     "added": "2026-03-03",
     "question_excerpt": "What is the minimum viable approach to making the `Research/completed/` corpus a connected knowledge network — where items explicitly reference related items, contradictions and confirmations are surf",
+    "findings_excerpt": "Executive Summary The minimum viable approach to making Research/completed/ a connected knowledge network is a three-component system: (1) a structured Related Items section in every completed item us…",
     "url": "/Research/research/2026-03-03-knowledge-linking-connected-corpus.html"
   },
   {
@@ -1447,6 +1527,7 @@
     ],
     "added": "2026-03-02",
     "question_excerpt": "What are the foundational concepts of transaction cost economics (Coase → Williamson → North → Ostrom), and how might the analytical framework map onto software engineering organisation, AI agent desi",
+    "findings_excerpt": "Executive Summary Transaction cost economics asks why economic coordination takes the forms it does — markets, firms, hierarchies, or hybrid institutions — and answers that the structure which minimis…",
     "url": "/Research/research/2026-03-02-transaction-costs.html"
   },
   {
@@ -1464,6 +1545,7 @@
     ],
     "added": "2026-03-02",
     "question_excerpt": "What is the most practical way to integrate the research corpus with Slack and/or Microsoft Teams — for both outbound delivery (notifying when new research is completed) and inbound capture (receiving",
+    "findings_excerpt": "Executive Summary Outbound push delivery to Slack or MS Teams is viable, low-complexity, and immediately implementable using a single new GitHub Actions workflow file and one new secret per platform (…",
     "url": "/Research/research/2026-03-02-slack-msteams-research-integration.html"
   },
   {
@@ -1480,6 +1562,7 @@
     ],
     "added": "2026-03-02",
     "question_excerpt": "What combination of full-text search (keyword/BM25) and semantic search (embeddings/vector) is most appropriate for querying the `Research/completed/` corpus, given the constraints of a git-based, loc",
+    "findings_excerpt": "Executive Summary SQLite FTS5 (BM25) alone is the correct implementation for this corpus at current scale (12–100 items), requiring zero new dependencies beyond Python's standard library; Model2Vec (p…",
     "url": "/Research/research/2026-03-02-semantic-full-text-search.html"
   },
   {
@@ -1496,6 +1579,7 @@
     ],
     "added": "2026-03-02",
     "question_excerpt": "What review methodology is required to reliably move from information gathering through to applied knowledge and wisdom — and which of those steps can be automated in a CI pipeline versus requiring hu",
+    "findings_excerpt": "Executive Summary The three existing quality skills (citation-discipline, speculation-control, remove-ai-slop) cover factual hygiene and writing quality but leave three critical gaps: logical coherenc…",
     "url": "/Research/research/2026-03-02-research-quality-assurance-methodology.html"
   },
   {
@@ -1512,6 +1596,7 @@
     ],
     "added": "2026-03-02",
     "question_excerpt": "What iOS Shortcuts workflows provide the most value for a personal research system hosted on GitHub — covering both low-friction research capture (adding a URL or idea to the backlog from anywhere on",
+    "findings_excerpt": "Executive Summary iOS Shortcuts calling the GitHub Issues API via \"Get Contents of URL\" is the correct and simplest path for mobile research capture — three to five Shortcut actions create a labeled G…",
     "url": "/Research/research/2026-03-02-ios-shortcuts-research.html"
   },
   {
@@ -1531,6 +1616,7 @@
     ],
     "added": "2026-03-02",
     "question_excerpt": "How can the DIKW (Data → Information → Knowledge → Wisdom) progression be operationalised within agentic systems to produce intent-aligned, context-aware decisions that reconcile conflicting knowledge",
+    "findings_excerpt": "Executive Summary A complete DIKW operationalisation for enterprise agents requires a five-component architecture: a multi-domain knowledge graph encoding all eight enterprise knowledge domains; a for…",
     "url": "/Research/research/2026-03-02-integrative-framework-agent-decision-making.html"
   },
   {
@@ -1548,6 +1634,7 @@
     ],
     "added": "2026-03-02",
     "question_excerpt": "What is the best approach to expose the `Research/completed/` corpus as a queryable, conversational interface — so that a user (or an AI agent) can ask \"what do I know about X?\" and receive a grounded",
+    "findings_excerpt": "Executive Summary An MCP server with stdio transport — registered in .github/mcp.json alongside the repository's existing 10 MCP servers — is the correct and only viable approach for a conversational…",
     "url": "/Research/research/2026-03-02-chat-conversational-interface.html"
   },
   {
@@ -1567,6 +1654,7 @@
     ],
     "added": "2026-03-02",
     "question_excerpt": "What is the strongest case - technical, architectural, organisational, legal, and regulatory - that an organisation's AI capability should NOT be owned by or coupled to its data/analytics department o",
+    "findings_excerpt": "Executive Summary Coupling an organisation's AI capability to its data/analytics department is a structural category error: analytics platforms fail the non-functional requirements of production AI ag…",
     "url": "/Research/research/2026-03-02-ai-not-a-data-problem.html"
   },
   {
@@ -1590,6 +1678,7 @@
     ],
     "added": "2026-03-02",
     "question_excerpt": "What is the current state of agent memory management systems — beyond RAG — and which approaches best address the real constraints of latency, knowledge freshness, scoping, governance, quality, and di",
+    "findings_excerpt": "Executive Summary Agent memory is a solved problem in the narrow sense (RAG works for retrieval) and an open problem in the broad sense (RAG is not a memory architecture). A more precise reframe, from…",
     "url": "/Research/research/2026-03-02-agent-memory-management-context-injection.html"
   },
   {
@@ -1604,6 +1693,7 @@
     ],
     "added": "2026-03-01",
     "question_excerpt": "What is the best approach for publishing completed research items from `Research/completed/` into the GitHub wiki, and what tooling is needed to keep it current and readable?",
+    "findings_excerpt": "Executive Summary The GitHub wiki is a separate, flat git repository ({repo}.wiki.git) that can be cloned and pushed by any Actions workflow with contents: write permission using the built-in GITHUB_T…",
     "url": "/Research/research/2026-03-01-github-wiki-research-content.html"
   },
   {
@@ -1621,6 +1711,7 @@
     ],
     "added": "2026-03-01",
     "question_excerpt": "What is \"Specify\" in the context of GitHub-integrated AI development workflows, how does the Ralph loop implement proof-driven development in practice, and what role does Lisa planning play in the spe",
+    "findings_excerpt": "Executive Summary The Ralph Wiggum Technique is a proof-driven autonomous coding loop coined by Geoffrey Huntley (ghuntley.com/ralph/), published July 2025 and going viral December 2025. At its simple…",
     "url": "/Research/research/2026-03-01-github-specify-ralph-loop-lisa-planning.html"
   },
   {
@@ -1636,6 +1727,7 @@
     ],
     "added": "2026-03-01",
     "question_excerpt": "What is Context Mode's architecture and actual effectiveness for compressing MCP tool outputs in Claude Code, what are its real-world limitations (especially regarding MCP tool interception), and what",
+    "findings_excerpt": "Executive Summary The LLM context window has two consumption fronts: tool definitions loaded at session start, and tool outputs returned during the session. Cloudflare's Code Mode addresses the defini…",
     "url": "/Research/research/2026-03-01-context-mode-llm-context-compression.html"
   },
   {
@@ -1652,6 +1744,7 @@
     ],
     "added": "2026-03-01",
     "question_excerpt": "Who is building solutions that allow headless autonomous coding agents to be guided in real time by LSP-like mechanisms — rather than CI gates or pre-commit hooks — to conform to an organisation's sec",
+    "findings_excerpt": "Executive Summary LSAP (Language Server Agent Protocol), at github.com/lsp-client/LSAP, is the project behind the user's \"LSAP/LASP\" reference: an open protocol at v1.0.0-alpha that transforms LSP's a…",
     "url": "/Research/research/2026-03-01-agent-lsp-policy-enforcement.html"
   },
   {
@@ -1670,6 +1763,7 @@
     ],
     "added": "2026-02-28",
     "question_excerpt": "What are the key concepts presented in Anil Seth's \"Reality Is A Controlled Hallucination\" (https://youtu.be/HYUoS0GkGCs), and how do they relate to and reinforce each other when synthesised?",
+    "findings_excerpt": "Executive Summary Anil Seth argues that conscious experience — including both the perception of the external world and the sense of self — is a \"controlled hallucination\": an active, top-down construc…",
     "url": "/Research/research/2026-02-28-youtube-video-hyuos0gkgcs-concepts.html"
   },
   {
@@ -1685,6 +1779,7 @@
     ],
     "added": "2026-02-28",
     "question_excerpt": "Can we bypass YouTube's IP-based transcript block by downloading the **audio track** with\n`yt-dlp` (a different endpoint from the transcript API) and then transcribing it with\nOpenAI Whisper?",
+    "findings_excerpt": "Executive Summary The hypothesis that yt-dlp audio CDN downloads are less restricted than the transcript API on GitHub Actions IPs is false: audio and video both traverse the same YouTube CDN infrastr…",
     "url": "/Research/research/2026-02-28-transcript-via-yt-dlp-whisper.html"
   },
   {
@@ -1700,6 +1795,7 @@
     ],
     "added": "2026-02-28",
     "question_excerpt": "Can a third-party transcript API (AssemblyAI, Supadata, Kagi, or similar) retrieve YouTube\ntranscripts from a GitHub Actions runner, bypassing YouTube's IP-based block on the\ninternal transcript endpo",
+    "findings_excerpt": "(Populated from §6 Synthesis above.) Executive Summary Supadata is the only third-party transcript API among the evaluated candidates that both bypasses YouTube's cloud IP block and returns verbatim t…",
     "url": "/Research/research/2026-02-28-transcript-via-third-party-apis.html"
   },
   {
@@ -1714,6 +1810,7 @@
     ],
     "added": "2026-02-28",
     "question_excerpt": "Can we use the Gemini API (already configured in `davidamitchell/Latest-developments-`) to\nextract full transcripts from YouTube videos without being blocked by YouTube's IP restrictions?",
+    "findings_excerpt": "Executive Summary The Gemini API does bypass YouTube's IP restriction: when a YouTube URL is passed via fileData.fileUri, Gemini fetches the video using Google's own infrastructure, so GitHub Actions'…",
     "url": "/Research/research/2026-02-28-transcript-via-gemini-api.html"
   },
   {
@@ -1729,6 +1826,7 @@
     ],
     "added": "2026-02-28",
     "question_excerpt": "What are the Reserve Bank of New Zealand's specific supervisory expectations for AI use by regulated entities, and how do these align with or diverge from the expectations of comparator regulators (AP",
+    "findings_excerpt": "Executive Summary RBNZ has no standalone AI supervisory framework; its first substantive AI-focused publication is the May 2025 \"Rise of the Machines\" article in the Financial Stability Report, which…",
     "url": "/Research/research/2026-02-28-rbnz-ai-supervisory-expectations.html"
   },
   {
@@ -1743,6 +1841,7 @@
     ],
     "added": "2026-02-28",
     "question_excerpt": "What exactly is the predictive processing / active inference framework, how does it differ from classical feedforward models of perception, and what is the empirical status of the free energy principl",
+    "findings_excerpt": "(Fill in when completing. Follow the research skill synthesis structure.) Executive Summary Predictive processing (PP) is a well-supported computational framework in which the brain maintains hierarch…",
     "url": "/Research/research/2026-02-28-predictive-processing-active-inference.html"
   },
   {
@@ -1758,6 +1857,7 @@
     ],
     "added": "2026-02-28",
     "question_excerpt": "How does Jevons Paradox operate across different sectors historically, what are the conditions under which cost or efficiency improvements *do not* increase total demand, and what do current thinkers",
+    "findings_excerpt": "Executive Summary Jevons Paradox — the observation that efficiency gains that lower the cost of using a resource tend to increase total consumption of that resource — is historically robust across ene…",
     "url": "/Research/research/2026-02-28-jevons-paradox.html"
   },
   {
@@ -1773,6 +1873,7 @@
     ],
     "added": "2026-02-28",
     "question_excerpt": "What is the evidence that the sense of self emerges from interoceptive predictive processing — and what are the implications for understanding depersonalisation, emotion, and mental illness?",
+    "findings_excerpt": "Executive Summary The sense of minimal selfhood — the pre-reflective experience of being an embodied living thing — arises from the brain's predictive regulation of interoceptive signals, with the ant…",
     "url": "/Research/research/2026-02-28-interoception-and-the-predictive-self.html"
   },
   {
@@ -1788,6 +1889,7 @@
     ],
     "added": "2026-02-28",
     "question_excerpt": "What is the difference between Chalmers' \"hard problem\" and Seth's \"real problem\" of consciousness — is the real-problem strategy a genuine advance or a deferrment of the original question?",
+    "findings_excerpt": "Executive Summary Seth's \"real problem\" of consciousness is a principled deferment of Chalmers' \"hard problem,\" not a philosophical resolution: it reorients empirical research toward tractable questio…",
     "url": "/Research/research/2026-02-28-hard-problem-vs-real-problem-consciousness.html"
   },
   {
@@ -1806,6 +1908,7 @@
     ],
     "added": "2026-02-28",
     "question_excerpt": "Why do living organisms need predictive brains? What is the precise relationship between the thermodynamic concept of entropy (disorder), the information-theoretic concept of free energy (surprise), K",
+    "findings_excerpt": "Executive Summary Living organisms need predictive brains because prediction is the efficient mechanism for maintaining the low-entropy states that life requires: any organism that cannot anticipate a…",
     "url": "/Research/research/2026-02-28-free-energy-entropy-and-life.html"
   },
   {
@@ -1820,6 +1923,7 @@
     ],
     "added": "2026-02-28",
     "question_excerpt": "How should organisations distinguish between exploitation and exploration AI investments in practice, and what diagnostic criteria and portfolio tools enable that distinction to be applied at budget a",
+    "findings_excerpt": "Executive Summary Organisations can reliably classify any AI investment as exploit or explore using five observable dimensions — solution maturity, target market novelty, evidence basis for value, mil…",
     "url": "/Research/research/2026-02-28-exploit-explore-ai-portfolio-framework.html"
   },
   {
@@ -1834,6 +1938,7 @@
     ],
     "added": "2026-02-28",
     "question_excerpt": "What is the evidence that perception is a generative, top-down process rather than a bottom-up readout of the world — and what are the strongest objections to Seth's \"controlled hallucination\" framing",
+    "findings_excerpt": "Executive Summary Perception is a generative, top-down process: the brain continuously predicts sensory input and uses incoming signals primarily as correction, not construction. This is established a…",
     "url": "/Research/research/2026-02-28-controlled-hallucination-perception-as-construction.html"
   },
   {
@@ -1853,6 +1958,7 @@
     ],
     "added": "2026-02-28",
     "question_excerpt": "What do leading global AI strategies look like, how does New Zealand's regulatory and policy landscape (RBNZ, DIA, MBIE, and others) compare, and what use-case typology — from human augmentation throu",
+    "findings_excerpt": "Executive Summary New Zealand released its first national AI strategy, Investing with Confidence, in July 2025. It is adoption-focused and deliberately light-touch: the government chose to use existin…",
     "url": "/Research/research/2026-02-28-ai-strategy.html"
   },
   {
@@ -1867,6 +1973,7 @@
     ],
     "added": "2026-02-28",
     "question_excerpt": "Which organisations have published or disclosed coherent AI strategies specifically targeting software engineering, what outcomes have they measured, and what does the trajectory from AI-assisted codi",
+    "findings_excerpt": "Executive Summary Organisations deploying AI coding assistants at scale achieve real but task-scoped individual productivity gains of 40–55% on well-specified coding tasks; however, these gains do not…",
     "url": "/Research/research/2026-02-28-ai-strategy-swe-focus.html"
   },
   {
@@ -1882,6 +1989,7 @@
     ],
     "added": "2026-02-28",
     "question_excerpt": "Which organisations have developed coherent AI strategies with security as the primary objective — either using AI to enhance security posture or governing the security risks that AI systems themselve",
+    "findings_excerpt": "Executive Summary AI security strategy in 2025–2026 requires parallel governance architecture for two distinct problems: AI as an attack-amplification tool in adversaries' hands, and AI systems as a n…",
     "url": "/Research/research/2026-02-28-ai-strategy-security-focus.html"
   },
   {
@@ -1897,6 +2005,7 @@
     ],
     "added": "2026-02-28",
     "question_excerpt": "Which organisations have developed AI strategies explicitly framed around risk reduction — operational risk, credit risk, fraud, compliance, model risk — and what governance structures, outcome metric",
+    "findings_excerpt": "Executive Summary Financial services organisations deploy AI primarily for fraud detection, AML transaction monitoring, and credit risk scoring, with documented outcome metrics that include 60–95% red…",
     "url": "/Research/research/2026-02-28-ai-strategy-risk-reduction-focus.html"
   },
   {
@@ -1911,6 +2020,7 @@
     ],
     "added": "2026-02-28",
     "question_excerpt": "Which published AI strategies — corporate, national, or sector-specific — are explicitly designed around business efficiency as the primary objective, what measurable outcomes have they produced, and",
+    "findings_excerpt": "Executive Summary Efficiency-focused AI programmes deliver measurable outcomes when three conditions align: high-quality operational data, end-to-end process integration (not isolated pilots), and act…",
     "url": "/Research/research/2026-02-28-ai-strategy-business-efficiency-examples.html"
   },
   {
@@ -1928,6 +2038,7 @@
     ],
     "added": "2026-02-28",
     "question_excerpt": "Who is currently building or deploying AI agents specifically positioned to operate within the three lines of defence model — line 1 (business/operational risk management) and line 2 (risk and complia",
+    "findings_excerpt": "Executive Summary AI agents performing line 1 and line 2 risk functions in financial services are deployed today, but almost exclusively in the \"tool output\" mode: the agent produces flags, alerts, or…",
     "url": "/Research/research/2026-02-28-ai-line-1-line-2-risk-agents.html"
   },
   {
@@ -1944,6 +2055,7 @@
     ],
     "added": "2026-02-28",
     "question_excerpt": "Which organisations are using AI to automate control testing, identify control gaps, or conduct policies and standards reviews — and what does the current vendor, practitioner, and regulatory landscap",
+    "findings_excerpt": "Executive Summary AI-assisted control testing and regulatory gap analysis have moved from aspiration to active commercial deployment. Every major GRC platform (AuditBoard, ServiceNow, Diligent, LogicG…",
     "url": "/Research/research/2026-02-28-ai-control-testing-and-assurance.html"
   }
 ]

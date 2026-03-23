@@ -263,7 +263,7 @@ main {
 
 .item-content h2 {
   font-size: var(--text-sm);
-  text-transform: uppercase;
+  text-transform: lowercase;
   letter-spacing: 0.1em;
   color: var(--text-muted);
   margin-top: 2.5rem;
@@ -417,6 +417,71 @@ main {
   main { padding: 72px 1rem 3rem; }
   nav { padding: 0 1rem; }
 }
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); }
+.key-claims li:last-child { border-bottom: none; }
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); }
+.related-entry:last-child { border-bottom: none; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--text); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-entry { padding: 1rem; border: 1px solid var(--border); border-bottom: none; text-decoration: none; color: var(--text); display: block; }
+.thread-entry:last-child { border-bottom: 1px solid var(--border); }
+.thread-entry:hover { background: var(--surface); text-decoration: none; }
+.thread-entry-title { font-size: var(--text-base); font-weight: 500; }
+.thread-entry-meta { font-size: var(--text-xs); color: var(--text-muted); margin-top: 0.25rem; letter-spacing: 0.05em; }
 </style>
 
         </head>
@@ -425,6 +490,8 @@ main {
   <div class="nav-inner">
     <a class="nav-brand" href="/Research/">Research</a>
     <div class="nav-links">
+      <a href="/Research/browse.html">Browse</a>
+      <a href="/Research/threads.html">Threads</a>
       <a href="/Research/tags/">Tags</a>
       <a href="/Research/search.html">Search</a>
     </div>
@@ -433,6 +500,8 @@ main {
 <main>
   <div class="breadcrumb">
     <a href="/Research/">Research</a>
+    <span>/</span>
+    <a href="/Research/browse.html">Browse</a>
     <span>/</span>
     <span>Free energy, entropy, and life: why organisms predict — from Schrödinger to Friston to Seth</span>
   </div>
@@ -444,6 +513,13 @@ main {
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-02-28-free-energy-entropy-and-life.md" target="_blank" rel="noopener">source →</a>
   </div>
+  <div class="key-claims"><div class="key-claims-label">key findings</div><ol><li>**[assumption] Schrödinger&#39;s negentropy argument is accurately characterised by secondary sources.** The primary text was not directly accessed. Multiple independent secondary sources give the same account of the negentropy argument and include the same direct quote. Justification: the argument&#39;s core claim is uncontroversial and widely reproduced.</li>
+<li>**[assumption] The MIT Open Encyclopedia of Cognitive Science and Wikipedia FEP article accurately represent Friston&#39;s VFE formulation.** The primary papers (Friston 2010 NRN, Friston et al. 2022 arXiv) were accessed in summary/abstract form only. Justification: both secondary sources agree, and the mathematical formulation (KL-divergence bound on model evidence) is standard in the variational inference literature.</li>
+<li>The Dialectical Systems &quot;Life beyond the free energy principle&quot; article (URL: https://www.dialecticalsystems.eu/contributions/life-beyond-the-free-energy-principle-how-to-survive-without-invariance/) was inaccessible during research. It reportedly targets the *invariance* assumption in FEP — that generative models are stable. If this objection is as strong as indicated by secondary references, it would be relevant to claims about long-term biological adaptation.</li>
+<li>*Being You* chapters 5–8 were not directly read; Seth&#39;s characterisation is based on the Quanta Magazine interview (primary) and prior completed research items. The specific technical development of the beast machine thesis may contain nuances not captured here.</li>
+<li>The formal proof of the Markov blanket → VFE minimisation result (Friston 2022 arXiv full text) was accessed in summary only. The technical steps of that proof are not independently verified.</li>
+</ol></div>
+
   <div class="item-content">
     <h2>Research Question</h2>
 <p>Why do living organisms need predictive brains? What is the precise relationship between the thermodynamic concept of entropy (disorder), the information-theoretic concept of free energy (surprise), Karl Friston's free energy principle, and Anil Seth's claim that consciousness is the subjective instrument of life's war against entropy?</p>
@@ -523,6 +599,13 @@ main {
 
 
   </div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-02-28-youtube-video-hyuos0gkgcs-concepts.html">Reality Is A Controlled Hallucination — Anil Seth (Essentia Foundation): concept extraction and synthesis</a> <span class="related-note">via anil-seth, consciousness, entropy, predictive-processing</span></div>
+<div class="related-entry"><a href="/Research/research/2026-02-28-predictive-processing-active-inference.html">Predictive processing and active inference: the brain as prediction machine</a> <span class="related-note">via active-inference, free-energy-principle, karl-friston, predictive-processing</span></div>
+<div class="related-entry"><a href="/Research/research/2026-03-18-human-brain-prediction-machines.html">Are Human Brains Just Prediction Machines? Comparing Predictive Processing and Large Language Model Next-Token Generation</a> <span class="related-note">via consciousness, free-energy-principle, predictive-processing</span></div>
+<div class="related-entry"><a href="/Research/research/2026-02-28-interoception-and-the-predictive-self.html">Interoception and the predictive self: selfhood as bodily inference</a> <span class="related-note">via anil-seth, consciousness, predictive-processing</span></div>
+<div class="related-entry"><a href="/Research/research/2026-02-28-hard-problem-vs-real-problem-consciousness.html">The hard problem vs. the real problem of consciousness</a> <span class="related-note">via anil-seth, consciousness</span></div>
+</div></div>
+
   <div class="item-nav">
     <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-02-28-hard-problem-vs-real-problem-consciousness.html">The hard problem vs. the real problem of consciousness</a></div>
     <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-02-28-exploit-explore-ai-portfolio-framework.html">Exploit vs Explore: A Decision Framework for AI Portfolio Planning</a></div>
