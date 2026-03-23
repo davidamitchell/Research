@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -504,22 +586,22 @@ main {
     <a class="back-link" href="/Research/browse.html">← browse</a>
   </div>
   <div class="card-grid">
-    <a class="card" href="/Research/research/2026-03-12-failure-mode-taxonomy-expansion.html" data-title="failure mode taxonomy: empirical frequency, causal mechanisms, detection signals, and cascade patterns in production agentic systems" data-question="the five-layer failure mode taxonomy established in `2026-03-10-ai-concept-classification-taxonomy.md` (q5) provides a structurally sound classification, but leaves three empirical gaps unanswered: (1" data-tags="failure-modes,taxonomy,hallucination,reward-hacking,prompt-injection,alignment,agentic-systems,owasp,safety,observability">
-  <div class="card-title">Failure mode taxonomy: empirical frequency, causal mechanisms, detection signals, and cascade patterns in production agentic systems</div>
+    <a class="card" href="/Research/research/2026-03-12-failure-mode-taxonomy-expansion.html" data-title="failure mode taxonomy" data-question="the five-layer failure mode taxonomy established in `2026-03-10-ai-concept-classification-taxonomy.md` (q5) provides a structurally sound classification, but leaves three empirical gaps unanswered: (1" data-tags="failure-modes,taxonomy,hallucination,reward-hacking,prompt-injection,alignment,agentic-systems,owasp,observability">
+  <div class="card-title">Failure mode taxonomy</div>
   <div class="card-meta">2026-03-12</div>
-  <div class="card-tags"><span class="tag">failure-modes</span><span class="tag">taxonomy</span><span class="tag">hallucination</span><span class="tag">reward-hacking</span><span class="tag">prompt-injection</span><span class="tag">alignment</span><span class="tag">agentic-systems</span><span class="tag">owasp</span><span class="tag">safety</span><span class="tag">observability</span></div>
+  <div class="card-tags"><span class="tag">failure-modes</span><span class="tag">taxonomy</span><span class="tag">hallucination</span><span class="tag">reward-hacking</span><span class="tag">prompt-injection</span><span class="tag">alignment</span><span class="tag">agentic-systems</span><span class="tag">owasp</span><span class="tag">observability</span></div>
   <div class="card-excerpt">The five-layer failure mode taxonomy established in `2026-03-10-ai-concept-classification-taxonomy.md` (Q5) provides a structurally sound classification, but leaves three empirical gaps unanswered: (1…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-10-language-for-llm-agent-output.html" data-title="language designed for llm agents to produce: addressing generation-layer failure modes in agentic systems" data-question="is anyone actively developing a programming language or structured output format specifically designed for llm agents to generate — rather than humans to write — that structurally addresses generation" data-tags="agentic-systems,programming-languages,dsl,failure-modes,intent-alignment,reward-hacking,formal-methods,output-language,llm-code-generation,structured-output">
-  <div class="card-title">Language designed for LLM agents to produce: addressing generation-layer failure modes in agentic systems</div>
+<a class="card" href="/Research/research/2026-03-10-language-for-llm-agent-output.html" data-title="language designed for llm agents to produce" data-question="is anyone actively developing a programming language or structured output format specifically designed for llm agents to generate — rather than humans to write — that structurally addresses generation" data-tags="agentic-systems,programming-languages,failure-modes,intent-alignment,reward-hacking,formal-methods">
+  <div class="card-title">Language designed for LLM agents to produce</div>
   <div class="card-meta">2026-03-10</div>
-  <div class="card-tags"><span class="tag">agentic-systems</span><span class="tag">programming-languages</span><span class="tag">dsl</span><span class="tag">failure-modes</span><span class="tag">intent-alignment</span><span class="tag">reward-hacking</span><span class="tag">formal-methods</span><span class="tag">output-language</span><span class="tag">llm-code-generation</span><span class="tag">structured-output</span></div>
+  <div class="card-tags"><span class="tag">agentic-systems</span><span class="tag">programming-languages</span><span class="tag">failure-modes</span><span class="tag">intent-alignment</span><span class="tag">reward-hacking</span><span class="tag">formal-methods</span></div>
   <div class="card-excerpt">Is anyone actively developing a programming language or structured output format specifically designed for LLM agents to generate — rather than humans to write — that structurally addresses generation…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-10-formal-spec-intent-alignment-agentic-coding.html" data-title="formal intent specification and language choice for ai alignment in agentic coding systems" data-question="can formal specification of task intent structurally eliminate reward hacking and intent mismatch in agentic coding systems? what is the expressiveness-verifiability tradeoff at each level of the spec" data-tags="formal-methods,intent-alignment,reward-hacking,agentic-systems,programming-languages,type-theory,out-of-the-tar-pit">
-  <div class="card-title">Formal intent specification and language choice for AI alignment in agentic coding systems</div>
+<a class="card" href="/Research/research/2026-03-10-formal-spec-intent-alignment-agentic-coding.html" data-title="formal intent specification and language choice for ai alignment in agentic…" data-question="can formal specification of task intent structurally eliminate reward hacking and intent mismatch in agentic coding systems? what is the expressiveness-verifiability tradeoff at each level of the spec" data-tags="formal-methods,intent-alignment,reward-hacking,agentic-systems,programming-languages">
+  <div class="card-title">Formal intent specification and language choice for AI alignment in agentic…</div>
   <div class="card-meta">2026-03-10</div>
-  <div class="card-tags"><span class="tag">formal-methods</span><span class="tag">intent-alignment</span><span class="tag">reward-hacking</span><span class="tag">agentic-systems</span><span class="tag">programming-languages</span><span class="tag">type-theory</span><span class="tag">out-of-the-tar-pit</span></div>
+  <div class="card-tags"><span class="tag">formal-methods</span><span class="tag">intent-alignment</span><span class="tag">reward-hacking</span><span class="tag">agentic-systems</span><span class="tag">programming-languages</span></div>
   <div class="card-excerpt">Can formal specification of task intent structurally eliminate reward hacking and intent mismatch in agentic coding systems? What is the expressiveness-verifiability tradeoff at each level of the spec…</div>
 </a>
 

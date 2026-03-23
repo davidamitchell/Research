@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -506,12 +588,14 @@ main {
     <span>Hosting options for the Research repo</span>
   </div>
   <h1 class="item-title">Hosting options for the Research repo</h1>
-  <div class="meta-bar">
+    <div class="meta-bar">
     <span>2026-03-12</span>
     <span class="meta-sep">·</span>
-    <a class="tag" href="/Research/tags/hosting.html">hosting</a> <a class="tag" href="/Research/tags/static-site.html">static-site</a> <a class="tag" href="/Research/tags/search.html">search</a> <a class="tag" href="/Research/tags/vector-db.html">vector-db</a> <a class="tag" href="/Research/tags/infrastructure.html">infrastructure</a> <a class="tag" href="/Research/tags/free-tier.html">free-tier</a> 
+    <a class="tag" href="/Research/tags/search.html">search</a> <a class="tag" href="/Research/tags/vector-db.html">vector-db</a> <a class="tag" href="/Research/tags/infrastructure.html">infrastructure</a> 
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-12-hosting-options-for-the-research-repo.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-12-hosting-options-for-the-research-repo" target="_blank" rel="noopener">wiki →</a>
   </div>
   
   <div class="item-content">
@@ -660,8 +744,8 @@ main {
   </div>
   
   <div class="item-nav">
-    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-12-superpowers-integration-analysis.html">Superpowers as inspiration: what obra/superpowers can teach us about improving agent workflows across davidamitchell repos</a></div>
-    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-12-failure-mode-taxonomy-expansion.html">Failure mode taxonomy: empirical frequency, causal mechanisms, detection signals, and cascade patterns in production agentic systems</a></div>
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-12-superpowers-integration-analysis.html">Superpowers as inspiration</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-12-failure-mode-taxonomy-expansion.html">Failure mode taxonomy</a></div>
   </div>
 </main>
 </body>

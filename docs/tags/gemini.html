@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -504,10 +586,10 @@ main {
     <a class="back-link" href="/Research/browse.html">← browse</a>
   </div>
   <div class="card-grid">
-    <a class="card" href="/Research/research/2026-03-17-ai-memory-systems-rag-neuroscience.html" data-title="artificial intelligence (ai) memory systems: retrieval-augmented generation (rag), vendor implementations, and neuroscience foundations" data-question="what is the current state of artificial intelligence (ai) memory systems — across retrieval-augmented generation (rag) research, commercial ai vendor implementations (github copilot, gemini, claude, a" data-tags="memory,retrieval-augmented-generation,neuroscience,artificial-intelligence-vendors,github-copilot,gemini,claude,episodic-memory,working-memory,knowledge-management">
-  <div class="card-title">Artificial Intelligence (AI) Memory Systems: Retrieval-Augmented Generation (RAG), Vendor Implementations, and Neuroscience Foundations</div>
+    <a class="card" href="/Research/research/2026-03-17-ai-memory-systems-rag-neuroscience.html" data-title="ai memory systems" data-question="what is the current state of artificial intelligence (ai) memory systems — across retrieval-augmented generation (rag) research, commercial ai vendor implementations (github copilot, gemini, claude, a" data-tags="memory,retrieval-augmented-generation,neuroscience,github-copilot,gemini,claude,working-memory,knowledge-management">
+  <div class="card-title">AI Memory Systems</div>
   <div class="card-meta">2026-03-17</div>
-  <div class="card-tags"><span class="tag">memory</span><span class="tag">retrieval-augmented-generation</span><span class="tag">neuroscience</span><span class="tag">artificial-intelligence-vendors</span><span class="tag">github-copilot</span><span class="tag">gemini</span><span class="tag">claude</span><span class="tag">episodic-memory</span><span class="tag">working-memory</span><span class="tag">knowledge-management</span></div>
+  <div class="card-tags"><span class="tag">memory</span><span class="tag">retrieval-augmented-generation</span><span class="tag">neuroscience</span><span class="tag">github-copilot</span><span class="tag">gemini</span><span class="tag">claude</span><span class="tag">working-memory</span><span class="tag">knowledge-management</span></div>
   <div class="card-excerpt">What is the current state of Artificial Intelligence (AI) memory systems — across Retrieval-Augmented Generation (RAG) research, commercial AI vendor implementations (GitHub Copilot, Gemini, Claude, a…</div>
 </a>
 <a class="card" href="/Research/research/2026-02-28-transcript-via-gemini-api.html" data-title="youtube transcripts via gemini api (native youtube url support)" data-question="can we use the gemini api (already configured in `davidamitchell/latest-developments-`) to

@@ -3,7 +3,7 @@
         <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>AI coding harnesses: agent execution model, memory, and context management across commercial and OSS tools — Research</title>
+          <title>AI coding harnesses — Research</title>
           <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -503,15 +585,18 @@ main {
     <span>/</span>
     <a href="/Research/browse.html">Browse</a>
     <span>/</span>
-    <span>AI coding harnesses: agent execution model, memory, and context management across commercial and OSS tools</span>
+    <span>AI coding harnesses</span>
   </div>
-  <h1 class="item-title">AI coding harnesses: agent execution model, memory, and context management across commercial and OSS tools</h1>
+  <h1 class="item-title">AI coding harnesses</h1>
+  <p class="full-title-subtitle">AI coding harnesses: agent execution model, memory, and context management across commercial and OSS tools</p>
   <div class="meta-bar">
     <span>2026-03-08</span>
     <span class="meta-sep">·</span>
-    <a class="tag" href="/Research/tags/ai-agents.html">ai-agents</a> <a class="tag" href="/Research/tags/coding.html">coding</a> <a class="tag" href="/Research/tags/ide.html">ide</a> <a class="tag" href="/Research/tags/anthropic.html">anthropic</a> <a class="tag" href="/Research/tags/openai.html">openai</a> <a class="tag" href="/Research/tags/cursor.html">cursor</a> <a class="tag" href="/Research/tags/opencode.html">opencode</a> <a class="tag" href="/Research/tags/aider.html">aider</a> <a class="tag" href="/Research/tags/cline.html">cline</a> <a class="tag" href="/Research/tags/context-management.html">context-management</a> <a class="tag" href="/Research/tags/memory.html">memory</a> <a class="tag" href="/Research/tags/state-management.html">state-management</a> <a class="tag" href="/Research/tags/oss.html">oss</a> 
+    <a class="tag" href="/Research/tags/ai-agents.html">ai-agents</a> <a class="tag" href="/Research/tags/openai.html">openai</a> <a class="tag" href="/Research/tags/context-management.html">context-management</a> <a class="tag" href="/Research/tags/memory.html">memory</a> <a class="tag" href="/Research/tags/state-management.html">state-management</a> 
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-ai-coding-harnesses-agent-philosophy.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-08-ai-coding-harnesses-agent-philosophy" target="_blank" rel="noopener">wiki →</a>
   </div>
   
   <div class="item-content">
@@ -624,7 +709,7 @@ main {
 </table>
 <h3>Assumptions</h3>
 <ul>
-<li><strong>Assumption:</strong> The YouTube video at https://youtu.be/09sFAO7pklo does not contain claims that contradict or materially extend the findings from other primary sources consulted. <strong>Justification:</strong> All major harnesses have official documentation and engineering blog posts; the video was listed as a jump-off point rather than an exclusive source of evidence, and multiple independent sources covering the same territory were available.</li>
+<li><strong>Assumption:</strong> The YouTube video at <a href="https://youtu.be/09sFAO7pklo">youtu.be</a> does not contain claims that contradict or materially extend the findings from other primary sources consulted. <strong>Justification:</strong> All major harnesses have official documentation and engineering blog posts; the video was listed as a jump-off point rather than an exclusive source of evidence, and multiple independent sources covering the same territory were available.</li>
 <li><strong>Assumption:</strong> Absence of vector stores in documented coding agent architectures reflects a deliberate design choice rather than a documentation gap. <strong>Justification:</strong> Aider, Cline, and Opencode are fully open-source with published architectural analyses; none document vector store components in their default coding loop.</li>
 </ul>
 <h3>Analysis</h3>
@@ -633,7 +718,7 @@ main {
 <p>Context window management fragmentation is the clearest indicator the field has not converged. Each approach addresses a different slice of the problem: repo maps summarise codebase structure at low token cost, trading inline code detail for breadth; dynamic context discovery cuts token waste at the cost of tool orchestration complexity; LSP integration delivers the richest live semantics — diagnostics, symbol tables, type information — at the cost of editor coupling; compaction maintains session continuity but can degrade instruction fidelity at boundaries. That even frontier models with compaction fail on long-running tasks without structured progress files — per Anthropic's harness engineering findings — suggests larger context windows alone will not close this gap.</p>
 <h3>Risks, Gaps, and Uncertainties</h3>
 <ul>
-<li>The primary jump-off source (https://youtu.be/09sFAO7pklo) was inaccessible. Any unique framework or claim introduced there is absent.</li>
+<li>The primary jump-off source (<a href="https://youtu.be/09sFAO7pklo">youtu.be</a> was inaccessible. Any unique framework or claim introduced there is absent.</li>
 <li>Cursor's 47% token reduction figure for dynamic context discovery is reported from Cursor's own A/B testing via a single InfoQ article; no independent replication is available.</li>
 <li>AMP's sub-agent specialisation details come primarily from the Owner's Manual and secondary analysis; the internal model routing and prompt designs are not publicly documented.</li>
 <li>Zed's ACP is nascent (announced late 2025); real-world interoperability and adoption breadth remain to be established.</li>
@@ -654,7 +739,7 @@ main {
   </div>
   
   <div class="item-nav">
-    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-08-bbc-five-case-model.html">Better Business Cases: Five Case Model authoring and application</a></div>
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-08-bbc-five-case-model.html">Better Business Cases</a></div>
     <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-07-run-vs-build-it-spending-allocation.html">RUN vs BUILD IT spending allocation in non-IT primary businesses</a></div>
   </div>
 </main>

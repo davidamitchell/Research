@@ -3,7 +3,7 @@
         <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>AI amplified the coordination tax: the 5-person strike team as the structural unit of the AI era — Research</title>
+          <title>AI amplified the coordination tax — Research</title>
           <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -503,15 +585,18 @@ main {
     <span>/</span>
     <a href="/Research/browse.html">Browse</a>
     <span>/</span>
-    <span>AI amplified the coordination tax: the 5-person strike team as the structural unit of the AI era</span>
+    <span>AI amplified the coordination tax</span>
   </div>
-  <h1 class="item-title">AI amplified the coordination tax: the 5-person strike team as the structural unit of the AI era</h1>
+  <h1 class="item-title">AI amplified the coordination tax</h1>
+  <p class="full-title-subtitle">AI amplified the coordination tax: the 5-person strike team as the structural unit of the AI era</p>
   <div class="meta-bar">
     <span>2026-03-12</span>
     <span class="meta-sep">·</span>
-    <a class="tag" href="/Research/tags/team-size.html">team-size</a> <a class="tag" href="/Research/tags/ai.html">ai</a> <a class="tag" href="/Research/tags/coordination-overhead.html">coordination-overhead</a> <a class="tag" href="/Research/tags/strike-team.html">strike-team</a> <a class="tag" href="/Research/tags/organisational-design.html">organisational-design</a> <a class="tag" href="/Research/tags/productivity.html">productivity</a> <a class="tag" href="/Research/tags/ai-native.html">ai-native</a> 
+    <a class="tag" href="/Research/tags/team-size.html">team-size</a> <a class="tag" href="/Research/tags/ai.html">ai</a> <a class="tag" href="/Research/tags/coordination-overhead.html">coordination-overhead</a> <a class="tag" href="/Research/tags/organisational-design.html">organisational-design</a> <a class="tag" href="/Research/tags/productivity.html">productivity</a> <a class="tag" href="/Research/tags/ai-native.html">ai-native</a> 
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-12-ai-team-size-strike-team-thesis.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-12-ai-team-size-strike-team-thesis" target="_blank" rel="noopener">wiki →</a>
   </div>
   <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>The communication-channel formula from Frederick Brooks&#39; *The Mythical Man-Month* (1975) — n(n-1)/2 — establishes that expanding a 5-person team to 6 people increases coordination pathways by 50%, from 10 channels to 15, while adding only one additional contributor</li>
 <li>When AI multiplies per-person productive output from approximately $250K/year to $2M/year, the economic cost of each additional coordination channel rises by the same multiple, making the penalty for each hire above the 5-person threshold approximately 5–10x more expensive than in the pre-AI era</li>
@@ -654,7 +739,7 @@ how organisations should be designed today?</p>
 <ul>
 <li>Original Brooks (1975) <em>The Mythical Man-Month</em> (primary book — accessed via secondary sources only)</li>
 <li>Hackman/Wageman primary academic publications</li>
-<li>Video transcript https://youtu.be/hnwM01CpzmA (not directly accessible as transcript)</li>
+<li>Video transcript <a href="https://youtu.be/hnwM01CpzmA">youtu.be</a> (not directly accessible as transcript)</li>
 </ul>
 <h3>Assumptions</h3>
 <ol>
@@ -699,9 +784,9 @@ how organisations should be designed today?</p>
 <strong>Description:</strong> Structured analysis of the economic argument for the 5-person strike team in AI-augmented organisations, grounded in the Brooks coordination formula, AI-native revenue-per-employee data, and the scout/strike team archetype framework.</p>
 <p><strong>Three most important sources:</strong></p>
 <ol>
-<li>Brooks, F.P. (1975). <em>The Mythical Man-Month.</em> — https://www.historyofinformation.com/detail.php?id=2298 (establishes the coordination overhead formula)</li>
-<li>ElectroIQ &quot;Midjourney Statistics&quot; (2025) — https://electroiq.com/stats/midjourney-statistics/ (primary data on AI-native revenue efficiency)</li>
-<li>Shopify CEO Lütke memo, TechCrunch (April 7, 2025) — https://techcrunch.com/2025/04/07/shopify-ceo-tells-teams-to-consider-using-ai-before-growing-headcount/ (operationalised institutional response)</li>
+<li>Brooks, F.P. (1975). <em>The Mythical Man-Month.</em> — <a href="https://www.historyofinformation.com/detail.php?id=2298">www.historyofinformation.com</a> (establishes the coordination overhead formula)</li>
+<li>ElectroIQ &quot;Midjourney Statistics&quot; (2025) — <a href="https://electroiq.com/stats/midjourney-statistics/">electroiq.com</a> (primary data on AI-native revenue efficiency)</li>
+<li>Shopify CEO Lütke memo, TechCrunch (April 7, 2025) — <a href="https://techcrunch.com/2025/04/07/shopify-ceo-tells-teams-to-consider-using-ai-before-growing-headcount/">techcrunch.com</a> (operationalised institutional response)</li>
 </ol>
 
 
@@ -712,8 +797,8 @@ how organisations should be designed today?</p>
 </div></div>
 
   <div class="item-nav">
-    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-12-exploration-synthesis-gap.html">Exploration-synthesis gap: why people in explore mode fail to synthesise others&#39; work, and whether agent synthesis can close the gap</a></div>
-    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-12-ai-force-multiplier-ambition-expansion.html">Force multiplier, not cost reducer: expanding organisational ambition when AI multiplies per-person output</a></div>
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-12-exploration-synthesis-gap.html">Exploration-synthesis gap</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-12-ai-force-multiplier-ambition-expansion.html">Force multiplier, not cost reducer</a></div>
   </div>
 </main>
 </body>

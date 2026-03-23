@@ -3,7 +3,7 @@
         <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>AI capability is not a data problem - why the data/analytics department is the wrong home for organisational AI — Research</title>
+          <title>AI capability is not a data problem - why the data/analytics department is the… — Research</title>
           <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -503,15 +585,18 @@ main {
     <span>/</span>
     <a href="/Research/browse.html">Browse</a>
     <span>/</span>
-    <span>AI capability is not a data problem - why the data/analytics department is the wrong home for organisational AI</span>
+    <span>AI capability is not a data problem - why the data/analytics department is the…</span>
   </div>
-  <h1 class="item-title">AI capability is not a data problem - why the data/analytics department is the wrong home for organisational AI</h1>
+  <h1 class="item-title">AI capability is not a data problem - why the data/analytics department is the…</h1>
+  <p class="full-title-subtitle">AI capability is not a data problem - why the data/analytics department is the wrong home for organisational AI</p>
   <div class="meta-bar">
     <span>2026-03-02</span>
     <span class="meta-sep">·</span>
-    <a class="tag" href="/Research/tags/ai-strategy.html">ai-strategy</a> <a class="tag" href="/Research/tags/architecture.html">architecture</a> <a class="tag" href="/Research/tags/data-platform.html">data-platform</a> <a class="tag" href="/Research/tags/api-layer.html">api-layer</a> <a class="tag" href="/Research/tags/agents.html">agents</a> <a class="tag" href="/Research/tags/organisational-design.html">organisational-design</a> <a class="tag" href="/Research/tags/governance.html">governance</a> <a class="tag" href="/Research/tags/mcp.html">mcp</a> <a class="tag" href="/Research/tags/zero-trust.html">zero-trust</a> <a class="tag" href="/Research/tags/identity.html">identity</a> 
+    <a class="tag" href="/Research/tags/ai-strategy.html">ai-strategy</a> <a class="tag" href="/Research/tags/architecture.html">architecture</a> <a class="tag" href="/Research/tags/data-platform.html">data-platform</a> <a class="tag" href="/Research/tags/agents.html">agents</a> <a class="tag" href="/Research/tags/organisational-design.html">organisational-design</a> <a class="tag" href="/Research/tags/governance.html">governance</a> <a class="tag" href="/Research/tags/mcp.html">mcp</a> 
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-02-ai-not-a-data-problem.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-02-ai-not-a-data-problem" target="_blank" rel="noopener">wiki →</a>
   </div>
   <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Analytics platforms fail production AI agent NFRs by design, not by deficiency: they are built for batch/analytical workloads and cannot satisfy the sub-second latency, HADR, fine-grained delegated authorisation, mutation auditability, and zero-trust requirements that production agents demand</li>
 <li>Martin Fowler&#39;s data mesh architecture explicitly establishes that operational data is served through microservice APIs and that &quot;data is hidden on the inside of each microservice, controlled and accessed through the microservice&#39;s APIs&quot; - meaning agents that consume operational data must integrate through the API layer, not the analytical plane</li>
@@ -681,7 +766,7 @@ main {
 <ul>
 <li><p><strong>Evidence gap on controlled studies:</strong> No published study directly compares AI programme outcomes by departmental ownership structure (data team vs. cross-functional vs. dedicated AI function). The 74% failure rate is associated with absence of cross-functional ownership, not with data-team ownership specifically - though the CDO readiness gap and HBR analysis provide strong indirect evidence.</p>
 </li>
-<li><p><strong>Inaccessible sources:</strong> Zhamak Dehghani's <em>Data Mesh</em> (O'Reilly, 2022), W3C DID spec, CNCF Zero Trust Whitepaper, OWASP API Security Top 10, Google Cloud and Microsoft Azure architecture documentation, Thoughtworks Technology Radar, and McKinsey Global Institute AI survey were not directly fetched in this investigation. These sources were not required to establish the claims - the claims are well-supported by accessed sources - but their absence is noted. The Fowler article (public, accessed) provides the foundational data mesh argument; the Dehghani book would corroborate but is paywalled.</p>
+<li><p><strong>Inaccessible sources:</strong> Zhamak Dehghani's <em>Data Mesh</em> (O'Reilly, 2022), W3C DID spec, <a href="https://github.com/cncf/tag-security/blob/main/security-whitepaper/v2/cloud-native-security-whitepaper.md">CNCF Zero Trust Whitepaper</a>, <a href="https://owasp.org/www-project-api-security/">OWASP API Security Top 10</a>, Google Cloud and Microsoft Azure architecture documentation, Thoughtworks Technology Radar, and McKinsey Global Institute AI survey were not directly fetched in this investigation. These sources were not required to establish the claims - the claims are well-supported by accessed sources - but their absence is noted. The Fowler article (public, accessed) provides the foundational data mesh argument; the Dehghani book would corroborate but is paywalled.</p>
 </li>
 <li><p><strong>Hybrid model evidence:</strong> The recommendation that a hybrid model (data platform as API-mediated read-only knowledge substrate) preserves data-team advantages is an inference, not a directly documented case study. No published case study was found that specifically documented the transition from data-platform-centric to API-layer-centric agent architecture and its outcomes.</p>
 </li>

@@ -3,7 +3,7 @@
         <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Intent Driven Development: context and concept layering to bound the solution space — Research</title>
+          <title>Intent Driven Development — Research</title>
           <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -503,15 +585,18 @@ main {
     <span>/</span>
     <a href="/Research/browse.html">Browse</a>
     <span>/</span>
-    <span>Intent Driven Development: context and concept layering to bound the solution space</span>
+    <span>Intent Driven Development</span>
   </div>
-  <h1 class="item-title">Intent Driven Development: context and concept layering to bound the solution space</h1>
+  <h1 class="item-title">Intent Driven Development</h1>
+  <p class="full-title-subtitle">Intent Driven Development: context and concept layering to bound the solution space</p>
   <div class="meta-bar">
     <span>2026-03-16</span>
     <span class="meta-sep">·</span>
-    <a class="tag" href="/Research/tags/intent.html">intent</a> <a class="tag" href="/Research/tags/software-engineering.html">software-engineering</a> <a class="tag" href="/Research/tags/test-driven-development.html">test-driven-development</a> <a class="tag" href="/Research/tags/specification-driven-development.html">specification-driven-development</a> <a class="tag" href="/Research/tags/context-layering.html">context-layering</a> <a class="tag" href="/Research/tags/agentic-coding.html">agentic-coding</a> <a class="tag" href="/Research/tags/artificial-intelligence.html">artificial-intelligence</a> <a class="tag" href="/Research/tags/developer-tooling.html">developer-tooling</a> <a class="tag" href="/Research/tags/design-methodology.html">design-methodology</a> 
+    <a class="tag" href="/Research/tags/intent.html">intent</a> <a class="tag" href="/Research/tags/software-engineering.html">software-engineering</a> <a class="tag" href="/Research/tags/agentic-coding.html">agentic-coding</a> <a class="tag" href="/Research/tags/developer-tooling.html">developer-tooling</a> 
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-16-intent-driven-development.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-16-intent-driven-development" target="_blank" rel="noopener">wiki →</a>
   </div>
   <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Public sources do not identify a single canonical inventor, standard, or governing body for Intent Driven Development (IDD); instead, they show overlapping practitioner formulations that agree on intent-first alignment but diverge on specification depth, automation level, and the role of human review</li>
 <li>StrongDM Factory operationalizes the most radical public form of IDD by combining NLSpecs, holdout scenarios, feedback loops, and Digital Twin Universe (DTU) environments while explicitly forbidding human-written and human-reviewed code in its published workflow</li>
@@ -530,10 +615,10 @@ main {
 <ul>
 <li>What is IDD? Is it a named methodology, an emergent practice, or a set of loosely related ideas? Who coined it or is actively defining it?</li>
 <li>How does IDD differ from TDD and SDD? What does each paradigm use as its primary constraint on the solution space, and where does each break down with AI-assisted development?</li>
-<li>What does StrongDM Factory (https://factory.strongdm.ai/) represent as a concrete implementation of intent-driven principles in infrastructure and access management? What can be generalised?</li>
+<li>What does StrongDM Factory (<a href="https://factory.strongdm.ai/">factory.strongdm.ai</a> represent as a concrete implementation of intent-driven principles in infrastructure and access management? What can be generalised?</li>
 <li>What is the structure of a complete &quot;intent layer&quot;? What artefacts (natural language, formal specs, constraints, examples, policies) are needed and in what combination?</li>
 <li>How do concept layering and context architecture interact with intent? What are the relevant findings from context-compression and aligned decision-making research?</li>
-<li>What does the Hacker News (HN) community (https://news.ycombinator.com/item?id=46924426) identify as the key challenges, precedents, and open problems in intent-driven approaches?</li>
+<li>What does the Hacker News (HN) community (<a href="https://news.ycombinator.com/item?id=46924426">news.ycombinator.com</a> identify as the key challenges, precedents, and open problems in intent-driven approaches?</li>
 </ul>
 
 <h2>Findings</h2>
@@ -563,49 +648,49 @@ main {
 <tbody>
 <tr>
   <td>IDD is an emerging umbrella practice rather than a settled standard.</td>
-  <td>[x] https://keyholesoftware.com/intent-driven-development-build-first-documentation/ ; [x] https://factory.strongdm.ai/ ; [x] https://news.ycombinator.com/item?id=46924426</td>
+  <td>[x] <a href="https://keyholesoftware.com/intent-driven-development-build-first-documentation/">keyholesoftware.com</a> ; [x] <a href="https://factory.strongdm.ai/">factory.strongdm.ai</a> ; [x] <a href="https://news.ycombinator.com/item?id=46924426</td>">news.ycombinator.com</a>
   <td>medium</td>
   <td>Agreement on direction, disagreement on formulation.</td>
 </tr>
 <tr>
   <td>StrongDM Factory is the clearest radical public implementation of IDD-like practice.</td>
-  <td>[x] https://factory.strongdm.ai/ ; [x] https://factory.strongdm.ai/principles ; [x] https://raw.githubusercontent.com/strongdm/attractor/main/README.md</td>
+  <td>[x] <a href="https://factory.strongdm.ai/">factory.strongdm.ai</a> ; [x] <a href="https://factory.strongdm.ai/principles">factory.strongdm.ai</a> ; [x] <a href="https://raw.githubusercontent.com/strongdm/attractor/main/README.md</td>">raw.githubusercontent.com</a>
   <td>high</td>
   <td>StrongDM publishes both doctrine and artefacts.</td>
 </tr>
 <tr>
   <td>Tests alone are vulnerable to shortcutting in agentic workflows.</td>
-  <td>[x] https://factory.strongdm.ai/ ; [x] https://martinfowler.com/bliki/TestDrivenDevelopment.html</td>
+  <td>[x] <a href="https://factory.strongdm.ai/">factory.strongdm.ai</a> ; [x] <a href="https://martinfowler.com/bliki/TestDrivenDevelopment.html</td>">martinfowler.com</a>
   <td>high</td>
   <td>StrongDM reports the failure mode directly.</td>
 </tr>
 <tr>
   <td>Contracts give stronger local guarantees than tests, but only for encoded invariants.</td>
-  <td>[x] https://www.eiffel.org/doc/uuid/2ef367c9-34d9-d45e-a722-163b39581405 ; [x] <code>Research/completed/2026-03-10-formal-spec-intent-alignment-agentic-coding.md</code></td>
+  <td>[x] <a href="https://www.eiffel.org/doc/uuid/2ef367c9-34d9-d45e-a722-163b39581405">www.eiffel.org</a> ; [x] <code>Research/completed/2026-03-10-formal-spec-intent-alignment-agentic-coding.md</code></td>
   <td>high</td>
   <td>External source defines contracts; prior synthesis explains the hierarchy.</td>
 </tr>
 <tr>
   <td>Mature IDD expands intent into a layered artefact stack rather than replacing specification with prompts.</td>
-  <td>[x] https://keyholesoftware.com/intent-driven-development-build-first-documentation/ ; [x] https://raw.githubusercontent.com/strongdm/attractor/main/README.md ; [x] https://raw.githubusercontent.com/strongdm/attractorbench/main/README.md</td>
+  <td>[x] <a href="https://keyholesoftware.com/intent-driven-development-build-first-documentation/">keyholesoftware.com</a> ; [x] <a href="https://raw.githubusercontent.com/strongdm/attractor/main/README.md">raw.githubusercontent.com</a> ; [x] <a href="https://raw.githubusercontent.com/strongdm/attractorbench/main/README.md</td>">raw.githubusercontent.com</a>
   <td>high</td>
   <td>Public implementations rely on rich artefacts.</td>
 </tr>
 <tr>
   <td>A complete intent layer needs both stable high-authority context and dynamic task context.</td>
-  <td>[x] <code>Research/completed/2026-03-15-context-layers-aligned-decisions-synthesis.md</code> ; [x] https://raw.githubusercontent.com/strongdm/attractor/main/coding-agent-loop-spec.md</td>
+  <td>[x] <code>Research/completed/2026-03-15-context-layers-aligned-decisions-synthesis.md</code> ; [x] <a href="https://raw.githubusercontent.com/strongdm/attractor/main/coding-agent-loop-spec.md</td>">raw.githubusercontent.com</a>
   <td>medium</td>
   <td>Cross-item integration plus public agent-loop design.</td>
 </tr>
 <tr>
   <td>StrongDM's most reusable contributions are architectural rather than ideological.</td>
-  <td>[x] https://factory.strongdm.ai/ ; [x] https://factory.strongdm.ai/principles ; [x] https://raw.githubusercontent.com/strongdm/attractor/main/coding-agent-loop-spec.md</td>
+  <td>[x] <a href="https://factory.strongdm.ai/">factory.strongdm.ai</a> ; [x] <a href="https://factory.strongdm.ai/principles">factory.strongdm.ai</a> ; [x] <a href="https://raw.githubusercontent.com/strongdm/attractor/main/coding-agent-loop-spec.md</td>">raw.githubusercontent.com</a>
   <td>medium</td>
   <td>Reusability claim is a synthesis, not a direct quote.</td>
 </tr>
 <tr>
   <td>IDD is partially production-ready, but standards, protocols, comparative evidence, and economics remain open.</td>
-  <td>[x] https://raw.githubusercontent.com/strongdm/attractorbench/main/README.md ; [x] https://factory.strongdm.ai/ ; [x] <code>Research/completed/2026-03-01-agent-lsp-policy-enforcement.md</code></td>
+  <td>[x] <a href="https://raw.githubusercontent.com/strongdm/attractorbench/main/README.md">raw.githubusercontent.com</a> ; [x] <a href="https://factory.strongdm.ai/">factory.strongdm.ai</a> ; [x] <code>Research/completed/2026-03-01-agent-lsp-policy-enforcement.md</code></td>
   <td>medium</td>
   <td>Components exist; the field-level proof is weaker.</td>
 </tr>
@@ -646,8 +731,8 @@ main {
 </div></div>
 
   <div class="item-nav">
-    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-16-vl-jepa-concept-prediction.html">Vision-Language Joint Embedding Predictive Architecture (VL-JEPA) and concept prediction: background and options for leveraging with frontier models</a></div>
-    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-16-gitagent-declarative-agent-definition.html">GitAgent and declarative agent definition: concepts, adoption, and cross-platform integration</a></div>
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-16-vl-jepa-concept-prediction.html">Vision-Language Joint Embedding Predictive Architecture (VL-JEPA) and concept…</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-16-gitagent-declarative-agent-definition.html">GitAgent and declarative agent definition</a></div>
   </div>
 </main>
 </body>

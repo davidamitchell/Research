@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -504,22 +586,22 @@ main {
     <a class="back-link" href="/Research/browse.html">← browse</a>
   </div>
   <div class="card-grid">
-    <a class="card" href="/Research/research/2026-03-16-intent-driven-development.html" data-title="intent driven development: context and concept layering to bound the solution space" data-question="what is intent driven development (idd) — as a methodology that moves past test driven development (tdd) and specification driven development (sdd) — and what context and concept layering mechanisms a" data-tags="intent,software-engineering,test-driven-development,specification-driven-development,context-layering,agentic-coding,artificial-intelligence,developer-tooling,design-methodology">
-  <div class="card-title">Intent Driven Development: context and concept layering to bound the solution space</div>
+    <a class="card" href="/Research/research/2026-03-16-intent-driven-development.html" data-title="intent driven development" data-question="what is intent driven development (idd) — as a methodology that moves past test driven development (tdd) and specification driven development (sdd) — and what context and concept layering mechanisms a" data-tags="intent,software-engineering,agentic-coding,developer-tooling">
+  <div class="card-title">Intent Driven Development</div>
   <div class="card-meta">2026-03-16</div>
-  <div class="card-tags"><span class="tag">intent</span><span class="tag">software-engineering</span><span class="tag">test-driven-development</span><span class="tag">specification-driven-development</span><span class="tag">context-layering</span><span class="tag">agentic-coding</span><span class="tag">artificial-intelligence</span><span class="tag">developer-tooling</span><span class="tag">design-methodology</span></div>
+  <div class="card-tags"><span class="tag">intent</span><span class="tag">software-engineering</span><span class="tag">agentic-coding</span><span class="tag">developer-tooling</span></div>
   <div class="card-excerpt">What is Intent Driven Development (IDD) — as a methodology that moves past Test Driven Development (TDD) and Specification Driven Development (SDD) — and what context and concept layering mechanisms a…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-14-organisational-intent-formal-specification.html" data-title="can organisational intent be expressed as a formally structured specification from which artefacts are derived and consistency is machine-checked?" data-question="can organisational intent — mission, values, strategy, resource allocation — be expressed as a formally structured specification from which human-readable artefacts are derived, and against which obje" data-tags="formal-methods,strategy,okrs,goal-modelling,normative-systems,hoshin-kanri,resource-allocation,consistency-checking,funding,intent">
-  <div class="card-title">Can organisational intent be expressed as a formally structured specification from which artefacts are derived and consistency is machine-checked?</div>
+<a class="card" href="/Research/research/2026-03-14-organisational-intent-formal-specification.html" data-title="can organisational intent be expressed as a formally structured specification…" data-question="can organisational intent — mission, values, strategy, resource allocation — be expressed as a formally structured specification from which human-readable artefacts are derived, and against which obje" data-tags="formal-methods,strategy,intent">
+  <div class="card-title">Can organisational intent be expressed as a formally structured specification…</div>
   <div class="card-meta">2026-03-14</div>
-  <div class="card-tags"><span class="tag">formal-methods</span><span class="tag">strategy</span><span class="tag">okrs</span><span class="tag">goal-modelling</span><span class="tag">normative-systems</span><span class="tag">hoshin-kanri</span><span class="tag">resource-allocation</span><span class="tag">consistency-checking</span><span class="tag">funding</span><span class="tag">intent</span></div>
+  <div class="card-tags"><span class="tag">formal-methods</span><span class="tag">strategy</span><span class="tag">intent</span></div>
   <div class="card-excerpt">Can organisational intent — mission, values, strategy, resource allocation — be expressed as a formally structured specification from which human-readable artefacts are derived, and against which Obje…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-02-integrative-framework-agent-decision-making.html" data-title="an integrative framework for agent decision-making: aligning knowledge management, intent understanding, and contextual decision frameworks" data-question="how can the dikw (data → information → knowledge → wisdom) progression be operationalised within agentic systems to produce intent-aligned, context-aware decisions that reconcile conflicting knowledge" data-tags="agents,decision-making,dikw,knowledge-management,intent,memory,context,alignment,governance,wisdom">
-  <div class="card-title">An Integrative Framework for Agent Decision-Making: Aligning Knowledge Management, Intent Understanding, and Contextual Decision Frameworks</div>
+<a class="card" href="/Research/research/2026-03-02-integrative-framework-agent-decision-making.html" data-title="an integrative framework for agent decision-making" data-question="how can the dikw (data → information → knowledge → wisdom) progression be operationalised within agentic systems to produce intent-aligned, context-aware decisions that reconcile conflicting knowledge" data-tags="agents,decision-making,dikw,knowledge-management,intent,memory,alignment,governance,wisdom">
+  <div class="card-title">An Integrative Framework for Agent Decision-Making</div>
   <div class="card-meta">2026-03-02</div>
-  <div class="card-tags"><span class="tag">agents</span><span class="tag">decision-making</span><span class="tag">dikw</span><span class="tag">knowledge-management</span><span class="tag">intent</span><span class="tag">memory</span><span class="tag">context</span><span class="tag">alignment</span><span class="tag">governance</span><span class="tag">wisdom</span></div>
+  <div class="card-tags"><span class="tag">agents</span><span class="tag">decision-making</span><span class="tag">dikw</span><span class="tag">knowledge-management</span><span class="tag">intent</span><span class="tag">memory</span><span class="tag">alignment</span><span class="tag">governance</span><span class="tag">wisdom</span></div>
   <div class="card-excerpt">How can the DIKW (Data → Information → Knowledge → Wisdom) progression be operationalised within agentic systems to produce intent-aligned, context-aware decisions that reconcile conflicting knowledge…</div>
 </a>
 

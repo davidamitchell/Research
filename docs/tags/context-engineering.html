@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -504,28 +586,28 @@ main {
     <a class="back-link" href="/Research/browse.html">← browse</a>
   </div>
   <div class="card-grid">
-    <a class="card" href="/Research/research/2026-03-22-applied-context-engineering-agent-workflows.html" data-title="applied context engineering: skills, workflows, and best practices for agent development" data-question="what practical patterns, workflow best practices, and agent development guidelines emerge from synthesising the `muratcankoylan/agent-skills-for-context-engineering` skill library with the context eng" data-tags="context-engineering,agent-skills,workflows,best-practices,multi-agent,memory-systems,tool-design,project-development,evaluation,production-agents">
-  <div class="card-title">Applied context engineering: skills, workflows, and best practices for agent development</div>
+    <a class="card" href="/Research/research/2026-03-22-applied-context-engineering-agent-workflows.html" data-title="applied context engineering" data-question="what practical patterns, workflow best practices, and agent development guidelines emerge from synthesising the `muratcankoylan/agent-skills-for-context-engineering` skill library with the context eng" data-tags="context-engineering,workflows,best-practices,multi-agent,evaluation">
+  <div class="card-title">Applied context engineering</div>
   <div class="card-meta">2026-03-22</div>
-  <div class="card-tags"><span class="tag">context-engineering</span><span class="tag">agent-skills</span><span class="tag">workflows</span><span class="tag">best-practices</span><span class="tag">multi-agent</span><span class="tag">memory-systems</span><span class="tag">tool-design</span><span class="tag">project-development</span><span class="tag">evaluation</span><span class="tag">production-agents</span></div>
+  <div class="card-tags"><span class="tag">context-engineering</span><span class="tag">workflows</span><span class="tag">best-practices</span><span class="tag">multi-agent</span><span class="tag">evaluation</span></div>
   <div class="card-excerpt">What practical patterns, workflow best practices, and agent development guidelines emerge from synthesising the `muratcankoylan/Agent-Skills-for-Context-Engineering` skill library with the context eng…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-10-ai-concept-classification-taxonomy.html" data-title="ai concept classification taxonomy: prompts, instructions, memory, failure modes, controls, and problem domains" data-question="what is a coherent, internally consistent classification taxonomy for the core concepts in ai-assisted and agentic systems — covering prompt types, instruction types, prompt/content/intent engineering" data-tags="taxonomy,classification,prompt-engineering,context-engineering,intent-engineering,memory,failure-modes,guardrails,skills,tools,agents,agentic-systems">
-  <div class="card-title">AI concept classification taxonomy: prompts, instructions, memory, failure modes, controls, and problem domains</div>
+<a class="card" href="/Research/research/2026-03-10-ai-concept-classification-taxonomy.html" data-title="ai concept classification taxonomy" data-question="what is a coherent, internally consistent classification taxonomy for the core concepts in ai-assisted and agentic systems — covering prompt types, instruction types, prompt/content/intent engineering" data-tags="taxonomy,prompt-engineering,context-engineering,memory,failure-modes,guardrails,skills,agents,agentic-systems">
+  <div class="card-title">AI concept classification taxonomy</div>
   <div class="card-meta">2026-03-10</div>
-  <div class="card-tags"><span class="tag">taxonomy</span><span class="tag">classification</span><span class="tag">prompt-engineering</span><span class="tag">context-engineering</span><span class="tag">intent-engineering</span><span class="tag">memory</span><span class="tag">failure-modes</span><span class="tag">guardrails</span><span class="tag">skills</span><span class="tag">tools</span><span class="tag">agents</span><span class="tag">agentic-systems</span></div>
+  <div class="card-tags"><span class="tag">taxonomy</span><span class="tag">prompt-engineering</span><span class="tag">context-engineering</span><span class="tag">memory</span><span class="tag">failure-modes</span><span class="tag">guardrails</span><span class="tag">skills</span><span class="tag">agents</span><span class="tag">agentic-systems</span></div>
   <div class="card-excerpt">What is a coherent, internally consistent classification taxonomy for the core concepts in AI-assisted and agentic systems — covering prompt types, instruction types, prompt/content/intent engineering…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-08-context-engineering-first-principles.html" data-title="context engineering: first principles of steering llm output without control" data-question="what are the first principles of context engineering — and what novel approaches emerge when it is understood as two distinct but coupled mechanisms: (1) making the next predicted token more likely to" data-tags="context-engineering,prompt-engineering,llm,token-prediction,first-principles,steering,goal-alignment,rag,agent-instructions,compliance">
-  <div class="card-title">Context engineering: first principles of steering LLM output without control</div>
+<a class="card" href="/Research/research/2026-03-08-context-engineering-first-principles.html" data-title="context engineering" data-question="what are the first principles of context engineering — and what novel approaches emerge when it is understood as two distinct but coupled mechanisms: (1) making the next predicted token more likely to" data-tags="context-engineering,prompt-engineering,llm,rag,compliance">
+  <div class="card-title">Context engineering</div>
   <div class="card-meta">2026-03-08</div>
-  <div class="card-tags"><span class="tag">context-engineering</span><span class="tag">prompt-engineering</span><span class="tag">llm</span><span class="tag">token-prediction</span><span class="tag">first-principles</span><span class="tag">steering</span><span class="tag">goal-alignment</span><span class="tag">rag</span><span class="tag">agent-instructions</span><span class="tag">compliance</span></div>
+  <div class="card-tags"><span class="tag">context-engineering</span><span class="tag">prompt-engineering</span><span class="tag">llm</span><span class="tag">rag</span><span class="tag">compliance</span></div>
   <div class="card-excerpt">What are the first principles of context engineering — and what novel approaches emerge when it is understood as two distinct but coupled mechanisms: (1) making the next predicted token more likely to…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-02-transaction-costs.html" data-title="transaction cost economics: foundations and speculative integration with swe, ai, knowledge management, and context engineering" data-question="what are the foundational concepts of transaction cost economics (coase → williamson → north → ostrom), and how might the analytical framework map onto software engineering organisation, ai agent desi" data-tags="transaction-costs,institutional-economics,coase,williamson,north,ostrom,munger,swe,ai-agents,knowledge-management,context-engineering">
-  <div class="card-title">Transaction Cost Economics: foundations and speculative integration with SWE, AI, knowledge management, and context engineering</div>
+<a class="card" href="/Research/research/2026-03-02-transaction-costs.html" data-title="transaction cost economics" data-question="what are the foundational concepts of transaction cost economics (coase → williamson → north → ostrom), and how might the analytical framework map onto software engineering organisation, ai agent desi" data-tags="transaction-costs,coase,williamson,north,ai-agents,knowledge-management,context-engineering">
+  <div class="card-title">Transaction Cost Economics</div>
   <div class="card-meta">2026-03-02</div>
-  <div class="card-tags"><span class="tag">transaction-costs</span><span class="tag">institutional-economics</span><span class="tag">coase</span><span class="tag">williamson</span><span class="tag">north</span><span class="tag">ostrom</span><span class="tag">munger</span><span class="tag">swe</span><span class="tag">ai-agents</span><span class="tag">knowledge-management</span><span class="tag">context-engineering</span></div>
+  <div class="card-tags"><span class="tag">transaction-costs</span><span class="tag">coase</span><span class="tag">williamson</span><span class="tag">north</span><span class="tag">ai-agents</span><span class="tag">knowledge-management</span><span class="tag">context-engineering</span></div>
   <div class="card-excerpt">What are the foundational concepts of transaction cost economics (Coase → Williamson → North → Ostrom), and how might the analytical framework map onto software engineering organisation, AI agent desi…</div>
 </a>
 

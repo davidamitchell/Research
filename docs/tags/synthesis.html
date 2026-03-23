@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -504,34 +586,34 @@ main {
     <a class="back-link" href="/Research/browse.html">← browse</a>
   </div>
   <div class="card-grid">
-    <a class="card" href="/Research/research/2026-03-18-explore-to-exploit-synthesis-gap.html" data-title="explore to exploit: the synthesis step that makes exploitation pay off" data-question="when technology is moving fast, what is the synthesis step between exploration and exploitation, why is it so commonly skipped, what are the costs of skipping it, and what strategies allow organisatio" data-tags="strategy,exploration,exploitation,synthesis,technology-adoption,portfolio,decision-making,organizational-learning">
-  <div class="card-title">Explore to exploit: the synthesis step that makes exploitation pay off</div>
+    <a class="card" href="/Research/research/2026-03-18-explore-to-exploit-synthesis-gap.html" data-title="explore to exploit" data-question="when technology is moving fast, what is the synthesis step between exploration and exploitation, why is it so commonly skipped, what are the costs of skipping it, and what strategies allow organisatio" data-tags="strategy,exploration,synthesis,decision-making">
+  <div class="card-title">Explore to exploit</div>
   <div class="card-meta">2026-03-18</div>
-  <div class="card-tags"><span class="tag">strategy</span><span class="tag">exploration</span><span class="tag">exploitation</span><span class="tag">synthesis</span><span class="tag">technology-adoption</span><span class="tag">portfolio</span><span class="tag">decision-making</span><span class="tag">organizational-learning</span></div>
+  <div class="card-tags"><span class="tag">strategy</span><span class="tag">exploration</span><span class="tag">synthesis</span><span class="tag">decision-making</span></div>
   <div class="card-excerpt">When technology is moving fast, what is the synthesis step between exploration and exploitation, why is it so commonly skipped, what are the costs of skipping it, and what strategies allow organisatio…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-15-context-layers-aligned-decisions-synthesis.html" data-title="aligned decision-making: context architecture for ai agents in organisations" data-question="what framework should an organisation adopt to ensure that ai agents making or supporting decisions have access to the right layered organisational context — spanning regulatory boundaries, values and" data-tags="context-architecture,alignment,decision-making,enterprise-ai,rag,knowledge-management,organisational-strategy,synthesis">
-  <div class="card-title">Aligned Decision-Making: Context Architecture for AI Agents in Organisations</div>
+<a class="card" href="/Research/research/2026-03-15-context-layers-aligned-decisions-synthesis.html" data-title="aligned decision-making" data-question="what framework should an organisation adopt to ensure that ai agents making or supporting decisions have access to the right layered organisational context — spanning regulatory boundaries, values and" data-tags="alignment,decision-making,enterprise-ai,rag,knowledge-management,synthesis">
+  <div class="card-title">Aligned Decision-Making</div>
   <div class="card-meta">2026-03-15</div>
-  <div class="card-tags"><span class="tag">context-architecture</span><span class="tag">alignment</span><span class="tag">decision-making</span><span class="tag">enterprise-ai</span><span class="tag">rag</span><span class="tag">knowledge-management</span><span class="tag">organisational-strategy</span><span class="tag">synthesis</span></div>
+  <div class="card-tags"><span class="tag">alignment</span><span class="tag">decision-making</span><span class="tag">enterprise-ai</span><span class="tag">rag</span><span class="tag">knowledge-management</span><span class="tag">synthesis</span></div>
   <div class="card-excerpt">What framework should an organisation adopt to ensure that AI agents making or supporting decisions have access to the right layered organisational context — spanning regulatory boundaries, values and…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-12-exploration-synthesis-gap.html" data-title="exploration-synthesis gap: why people in explore mode fail to synthesise others&#39; work, and whether agent synthesis can close the gap" data-question="during periods of rapid exploration — such as the current wave of artificial intelligence (ai) / large language model (llm) adoption inside organisations — individuals and teams routinely duplicate ef" data-tags="cognition,exploration,synthesis,knowledge-sharing,incentives,ego,agentic-systems,organisational-behaviour,psychology">
-  <div class="card-title">Exploration-synthesis gap: why people in explore mode fail to synthesise others&#39; work, and whether agent synthesis can close the gap</div>
+<a class="card" href="/Research/research/2026-03-12-exploration-synthesis-gap.html" data-title="exploration-synthesis gap" data-question="during periods of rapid exploration — such as the current wave of artificial intelligence (ai) / large language model (llm) adoption inside organisations — individuals and teams routinely duplicate ef" data-tags="cognition,exploration,synthesis,agentic-systems">
+  <div class="card-title">Exploration-synthesis gap</div>
   <div class="card-meta">2026-03-12</div>
-  <div class="card-tags"><span class="tag">cognition</span><span class="tag">exploration</span><span class="tag">synthesis</span><span class="tag">knowledge-sharing</span><span class="tag">incentives</span><span class="tag">ego</span><span class="tag">agentic-systems</span><span class="tag">organisational-behaviour</span><span class="tag">psychology</span></div>
+  <div class="card-tags"><span class="tag">cognition</span><span class="tag">exploration</span><span class="tag">synthesis</span><span class="tag">agentic-systems</span></div>
   <div class="card-excerpt">During periods of rapid exploration — such as the current wave of Artificial Intelligence (AI) / Large Language Model (LLM) adoption inside organisations — individuals and teams routinely duplicate ef…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-05-h-neurons-synthesis.html" data-title="h-neurons synthesis — from hallucination mechanisms to actionable llm reliability engineering" data-question="across all four preceding research items — the macroscopic hallucination landscape, the h-neurons paper, over-compliance interventions, and pre-training origins — what is the unified, actionable pictu" data-tags="llm,hallucinations,h-neurons,mechanistic-interpretability,over-compliance,pre-training,alignment,reliability,synthesis">
-  <div class="card-title">H-Neurons Synthesis — From Hallucination Mechanisms to Actionable LLM Reliability Engineering</div>
+<a class="card" href="/Research/research/2026-03-05-h-neurons-synthesis.html" data-title="h-neurons synthesis — from hallucination mechanisms to actionable llm…" data-question="across all four preceding research items — the macroscopic hallucination landscape, the h-neurons paper, over-compliance interventions, and pre-training origins — what is the unified, actionable pictu" data-tags="llm,hallucinations,h-neurons,mechanistic-interpretability,over-compliance,pre-training,alignment,reliability,synthesis">
+  <div class="card-title">H-Neurons Synthesis — From Hallucination Mechanisms to Actionable LLM…</div>
   <div class="card-meta">2026-03-05</div>
   <div class="card-tags"><span class="tag">llm</span><span class="tag">hallucinations</span><span class="tag">h-neurons</span><span class="tag">mechanistic-interpretability</span><span class="tag">over-compliance</span><span class="tag">pre-training</span><span class="tag">alignment</span><span class="tag">reliability</span><span class="tag">synthesis</span></div>
   <div class="card-excerpt">Across all four preceding research items — the macroscopic hallucination landscape, the H-Neurons paper, over-compliance interventions, and pre-training origins — what is the unified, actionable pictu…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-03-knowledge-linking-connected-corpus.html" data-title="knowledge linking: building a connected research corpus via explicit cross-references and a knowledge graph" data-question="what is the minimum viable approach to making the `research/completed/` corpus a connected knowledge network — where items explicitly reference related items, contradictions and confirmations are surf" data-tags="knowledge-graph,zettelkasten,cross-references,linking,synthesis,backlinks,corpus">
-  <div class="card-title">Knowledge linking: building a connected research corpus via explicit cross-references and a knowledge graph</div>
+<a class="card" href="/Research/research/2026-03-03-knowledge-linking-connected-corpus.html" data-title="knowledge linking" data-question="what is the minimum viable approach to making the `research/completed/` corpus a connected knowledge network — where items explicitly reference related items, contradictions and confirmations are surf" data-tags="knowledge-graph,synthesis">
+  <div class="card-title">Knowledge linking</div>
   <div class="card-meta">2026-03-03</div>
-  <div class="card-tags"><span class="tag">knowledge-graph</span><span class="tag">zettelkasten</span><span class="tag">cross-references</span><span class="tag">linking</span><span class="tag">synthesis</span><span class="tag">backlinks</span><span class="tag">corpus</span></div>
+  <div class="card-tags"><span class="tag">knowledge-graph</span><span class="tag">synthesis</span></div>
   <div class="card-excerpt">What is the minimum viable approach to making the `Research/completed/` corpus a connected knowledge network — where items explicitly reference related items, contradictions and confirmations are surf…</div>
 </a>
 

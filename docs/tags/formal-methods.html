@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -504,34 +586,34 @@ main {
     <a class="back-link" href="/Research/browse.html">← browse</a>
   </div>
   <div class="card-grid">
-    <a class="card" href="/Research/research/2026-03-18-formal-proof-engineering-leanstral.html" data-title="more formal proof engineering: leanstral and artificial intelligence (ai)-assisted formal verification" data-question="what does leanstral - an open-source agent for formal proof engineering - offer as a practical path to trustworthy, formally verified software built with artificial intelligence (ai) assistance, and h" data-tags="formal-methods,formal-verification,lean,proof-engineering,ai-agents,guardrails,agent-autonomy,software-reliability,trustworthy-ai">
-  <div class="card-title">More formal proof engineering: Leanstral and Artificial Intelligence (AI)-assisted formal verification</div>
+    <a class="card" href="/Research/research/2026-03-18-formal-proof-engineering-leanstral.html" data-title="more formal proof engineering" data-question="what does leanstral - an open-source agent for formal proof engineering - offer as a practical path to trustworthy, formally verified software built with artificial intelligence (ai) assistance, and h" data-tags="formal-methods,formal-verification,ai-agents,guardrails">
+  <div class="card-title">More formal proof engineering</div>
   <div class="card-meta">2026-03-18</div>
-  <div class="card-tags"><span class="tag">formal-methods</span><span class="tag">formal-verification</span><span class="tag">lean</span><span class="tag">proof-engineering</span><span class="tag">ai-agents</span><span class="tag">guardrails</span><span class="tag">agent-autonomy</span><span class="tag">software-reliability</span><span class="tag">trustworthy-ai</span></div>
+  <div class="card-tags"><span class="tag">formal-methods</span><span class="tag">formal-verification</span><span class="tag">ai-agents</span><span class="tag">guardrails</span></div>
   <div class="card-excerpt">What does Leanstral - an open-source agent for formal proof engineering - offer as a practical path to trustworthy, formally verified software built with Artificial Intelligence (AI) assistance, and h…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-14-reliable-software-llm-era.html" data-title="reliable software in the llm era" data-question="what strategies and formal-methods tooling exist for maintaining software reliability in the large language model (llm) era, and what does the quint formal specification language ecosystem - including" data-tags="llm,formal-methods,reliability,software-engineering,quint,formal-verification,cognitive-debt,ai">
+<a class="card" href="/Research/research/2026-03-14-reliable-software-llm-era.html" data-title="reliable software in the llm era" data-question="what strategies and formal-methods tooling exist for maintaining software reliability in the large language model (llm) era, and what does the quint formal specification language ecosystem - including" data-tags="llm,formal-methods,reliability,software-engineering,formal-verification,ai">
   <div class="card-title">Reliable Software in the LLM Era</div>
   <div class="card-meta">2026-03-14</div>
-  <div class="card-tags"><span class="tag">llm</span><span class="tag">formal-methods</span><span class="tag">reliability</span><span class="tag">software-engineering</span><span class="tag">quint</span><span class="tag">formal-verification</span><span class="tag">cognitive-debt</span><span class="tag">ai</span></div>
+  <div class="card-tags"><span class="tag">llm</span><span class="tag">formal-methods</span><span class="tag">reliability</span><span class="tag">software-engineering</span><span class="tag">formal-verification</span><span class="tag">ai</span></div>
   <div class="card-excerpt">What strategies and formal-methods tooling exist for maintaining software reliability in the Large Language Model (LLM) era, and what does the Quint formal specification language ecosystem - including…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-14-organisational-intent-formal-specification.html" data-title="can organisational intent be expressed as a formally structured specification from which artefacts are derived and consistency is machine-checked?" data-question="can organisational intent — mission, values, strategy, resource allocation — be expressed as a formally structured specification from which human-readable artefacts are derived, and against which obje" data-tags="formal-methods,strategy,okrs,goal-modelling,normative-systems,hoshin-kanri,resource-allocation,consistency-checking,funding,intent">
-  <div class="card-title">Can organisational intent be expressed as a formally structured specification from which artefacts are derived and consistency is machine-checked?</div>
+<a class="card" href="/Research/research/2026-03-14-organisational-intent-formal-specification.html" data-title="can organisational intent be expressed as a formally structured specification…" data-question="can organisational intent — mission, values, strategy, resource allocation — be expressed as a formally structured specification from which human-readable artefacts are derived, and against which obje" data-tags="formal-methods,strategy,intent">
+  <div class="card-title">Can organisational intent be expressed as a formally structured specification…</div>
   <div class="card-meta">2026-03-14</div>
-  <div class="card-tags"><span class="tag">formal-methods</span><span class="tag">strategy</span><span class="tag">okrs</span><span class="tag">goal-modelling</span><span class="tag">normative-systems</span><span class="tag">hoshin-kanri</span><span class="tag">resource-allocation</span><span class="tag">consistency-checking</span><span class="tag">funding</span><span class="tag">intent</span></div>
+  <div class="card-tags"><span class="tag">formal-methods</span><span class="tag">strategy</span><span class="tag">intent</span></div>
   <div class="card-excerpt">Can organisational intent — mission, values, strategy, resource allocation — be expressed as a formally structured specification from which human-readable artefacts are derived, and against which Obje…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-10-language-for-llm-agent-output.html" data-title="language designed for llm agents to produce: addressing generation-layer failure modes in agentic systems" data-question="is anyone actively developing a programming language or structured output format specifically designed for llm agents to generate — rather than humans to write — that structurally addresses generation" data-tags="agentic-systems,programming-languages,dsl,failure-modes,intent-alignment,reward-hacking,formal-methods,output-language,llm-code-generation,structured-output">
-  <div class="card-title">Language designed for LLM agents to produce: addressing generation-layer failure modes in agentic systems</div>
+<a class="card" href="/Research/research/2026-03-10-language-for-llm-agent-output.html" data-title="language designed for llm agents to produce" data-question="is anyone actively developing a programming language or structured output format specifically designed for llm agents to generate — rather than humans to write — that structurally addresses generation" data-tags="agentic-systems,programming-languages,failure-modes,intent-alignment,reward-hacking,formal-methods">
+  <div class="card-title">Language designed for LLM agents to produce</div>
   <div class="card-meta">2026-03-10</div>
-  <div class="card-tags"><span class="tag">agentic-systems</span><span class="tag">programming-languages</span><span class="tag">dsl</span><span class="tag">failure-modes</span><span class="tag">intent-alignment</span><span class="tag">reward-hacking</span><span class="tag">formal-methods</span><span class="tag">output-language</span><span class="tag">llm-code-generation</span><span class="tag">structured-output</span></div>
+  <div class="card-tags"><span class="tag">agentic-systems</span><span class="tag">programming-languages</span><span class="tag">failure-modes</span><span class="tag">intent-alignment</span><span class="tag">reward-hacking</span><span class="tag">formal-methods</span></div>
   <div class="card-excerpt">Is anyone actively developing a programming language or structured output format specifically designed for LLM agents to generate — rather than humans to write — that structurally addresses generation…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-10-formal-spec-intent-alignment-agentic-coding.html" data-title="formal intent specification and language choice for ai alignment in agentic coding systems" data-question="can formal specification of task intent structurally eliminate reward hacking and intent mismatch in agentic coding systems? what is the expressiveness-verifiability tradeoff at each level of the spec" data-tags="formal-methods,intent-alignment,reward-hacking,agentic-systems,programming-languages,type-theory,out-of-the-tar-pit">
-  <div class="card-title">Formal intent specification and language choice for AI alignment in agentic coding systems</div>
+<a class="card" href="/Research/research/2026-03-10-formal-spec-intent-alignment-agentic-coding.html" data-title="formal intent specification and language choice for ai alignment in agentic…" data-question="can formal specification of task intent structurally eliminate reward hacking and intent mismatch in agentic coding systems? what is the expressiveness-verifiability tradeoff at each level of the spec" data-tags="formal-methods,intent-alignment,reward-hacking,agentic-systems,programming-languages">
+  <div class="card-title">Formal intent specification and language choice for AI alignment in agentic…</div>
   <div class="card-meta">2026-03-10</div>
-  <div class="card-tags"><span class="tag">formal-methods</span><span class="tag">intent-alignment</span><span class="tag">reward-hacking</span><span class="tag">agentic-systems</span><span class="tag">programming-languages</span><span class="tag">type-theory</span><span class="tag">out-of-the-tar-pit</span></div>
+  <div class="card-tags"><span class="tag">formal-methods</span><span class="tag">intent-alignment</span><span class="tag">reward-hacking</span><span class="tag">agentic-systems</span><span class="tag">programming-languages</span></div>
   <div class="card-excerpt">Can formal specification of task intent structurally eliminate reward hacking and intent mismatch in agentic coding systems? What is the expressiveness-verifiability tradeoff at each level of the spec…</div>
 </a>
 

@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -504,14 +586,14 @@ main {
     <a class="back-link" href="/Research/browse.html">← browse</a>
   </div>
   <div class="card-grid">
-    <a class="card" href="/Research/research/2026-03-15-saas-banking-invariants.html" data-title="invariants in software as a service (saas) banking software" data-question="what capabilities do enterprise software as a service (saas) banking platforms (principally salesforce financial services cloud (fsc) and ncino) provide as true invariants - independent of customer im" data-tags="saas,banking,enterprise,build-vs-buy,tco,salesforce,ncino,architecture,ddd,total-cost-of-ownership">
+    <a class="card" href="/Research/research/2026-03-15-saas-banking-invariants.html" data-title="invariants in software as a service (saas) banking software" data-question="what capabilities do enterprise software as a service (saas) banking platforms (principally salesforce financial services cloud (fsc) and ncino) provide as true invariants - independent of customer im" data-tags="tco,architecture,ddd">
   <div class="card-title">Invariants in Software as a Service (SaaS) Banking Software</div>
   <div class="card-meta">2026-03-15</div>
-  <div class="card-tags"><span class="tag">saas</span><span class="tag">banking</span><span class="tag">enterprise</span><span class="tag">build-vs-buy</span><span class="tag">tco</span><span class="tag">salesforce</span><span class="tag">ncino</span><span class="tag">architecture</span><span class="tag">ddd</span><span class="tag">total-cost-of-ownership</span></div>
+  <div class="card-tags"><span class="tag">tco</span><span class="tag">architecture</span><span class="tag">ddd</span></div>
   <div class="card-excerpt">What capabilities do enterprise Software as a Service (SaaS) banking platforms (principally Salesforce Financial Services Cloud (FSC) and nCino) provide as true invariants - independent of customer im…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-08-servicenow-platform-strategy.html" data-title="servicenow platform strategy: holistic integration of csdm, modules, process, and ai" data-question="given the findings from the common service data model (csdm) data modelling, process mapping, and ai capability research, how should an organisation develop a coherent, practical servicenow platform s" data-tags="servicenow,platform-strategy,csdm,itsm,apm,spm,irm,grc,fso,ai,process-mapping,enterprise-architecture,tco">
-  <div class="card-title">ServiceNow Platform Strategy: Holistic Integration of CSDM, Modules, Process, and AI</div>
+<a class="card" href="/Research/research/2026-03-08-servicenow-platform-strategy.html" data-title="servicenow platform strategy" data-question="given the findings from the common service data model (csdm) data modelling, process mapping, and ai capability research, how should an organisation develop a coherent, practical servicenow platform s" data-tags="servicenow,platform-strategy,csdm,itsm,apm,spm,irm,grc,fso,ai,process-mapping,enterprise-architecture,tco">
+  <div class="card-title">ServiceNow Platform Strategy</div>
   <div class="card-meta">2026-03-08</div>
   <div class="card-tags"><span class="tag">servicenow</span><span class="tag">platform-strategy</span><span class="tag">csdm</span><span class="tag">itsm</span><span class="tag">apm</span><span class="tag">spm</span><span class="tag">irm</span><span class="tag">grc</span><span class="tag">fso</span><span class="tag">ai</span><span class="tag">process-mapping</span><span class="tag">enterprise-architecture</span><span class="tag">tco</span></div>
   <div class="card-excerpt">Given the findings from the Common Service Data Model (CSDM) data modelling, process mapping, and AI capability research, how should an organisation develop a coherent, practical ServiceNow platform s…</div>

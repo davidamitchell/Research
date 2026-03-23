@@ -3,7 +3,7 @@
         <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>AI concept classification taxonomy: prompts, instructions, memory, failure modes, controls, and problem domains — Research</title>
+          <title>AI concept classification taxonomy — Research</title>
           <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -503,15 +585,18 @@ main {
     <span>/</span>
     <a href="/Research/browse.html">Browse</a>
     <span>/</span>
-    <span>AI concept classification taxonomy: prompts, instructions, memory, failure modes, controls, and problem domains</span>
+    <span>AI concept classification taxonomy</span>
   </div>
-  <h1 class="item-title">AI concept classification taxonomy: prompts, instructions, memory, failure modes, controls, and problem domains</h1>
+  <h1 class="item-title">AI concept classification taxonomy</h1>
+  <p class="full-title-subtitle">AI concept classification taxonomy: prompts, instructions, memory, failure modes, controls, and problem domains</p>
   <div class="meta-bar">
     <span>2026-03-10</span>
     <span class="meta-sep">·</span>
-    <a class="tag" href="/Research/tags/taxonomy.html">taxonomy</a> <a class="tag" href="/Research/tags/classification.html">classification</a> <a class="tag" href="/Research/tags/prompt-engineering.html">prompt-engineering</a> <a class="tag" href="/Research/tags/context-engineering.html">context-engineering</a> <a class="tag" href="/Research/tags/intent-engineering.html">intent-engineering</a> <a class="tag" href="/Research/tags/memory.html">memory</a> <a class="tag" href="/Research/tags/failure-modes.html">failure-modes</a> <a class="tag" href="/Research/tags/guardrails.html">guardrails</a> <a class="tag" href="/Research/tags/skills.html">skills</a> <a class="tag" href="/Research/tags/tools.html">tools</a> <a class="tag" href="/Research/tags/agents.html">agents</a> <a class="tag" href="/Research/tags/agentic-systems.html">agentic-systems</a> 
+    <a class="tag" href="/Research/tags/taxonomy.html">taxonomy</a> <a class="tag" href="/Research/tags/prompt-engineering.html">prompt-engineering</a> <a class="tag" href="/Research/tags/context-engineering.html">context-engineering</a> <a class="tag" href="/Research/tags/memory.html">memory</a> <a class="tag" href="/Research/tags/failure-modes.html">failure-modes</a> <a class="tag" href="/Research/tags/guardrails.html">guardrails</a> <a class="tag" href="/Research/tags/skills.html">skills</a> <a class="tag" href="/Research/tags/agents.html">agents</a> <a class="tag" href="/Research/tags/agentic-systems.html">agentic-systems</a> 
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-10-ai-concept-classification-taxonomy.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-10-ai-concept-classification-taxonomy" target="_blank" rel="noopener">wiki →</a>
   </div>
   <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Prompt type is a two-dimensional concept: structural role (system/user/assistant/tool) and functional form (few-shot/CoT/meta-prompt/RAG-augmented) are orthogonal — any structural role can carry any functional form, which explains why CoT works in both system prompts and user turns without contradiction</li>
 <li>Instruction types are rhetorical functions — what a message element does to model behaviour — not structural categories, and they co-occur within a single message: a system prompt typically exercises persona definition, declarative goal, constraint, and format directive functions simultaneously, which means instruction type is a set membership relationship, not a type assignment</li>
@@ -702,9 +787,9 @@ main {
 <li>Type: knowledge</li>
 <li>Description: An eight-domain MECE classification taxonomy for AI/agentic system concepts — prompt types (two-dimensional: structural role × functional form), instruction types (seven rhetorical functions), engineering disciplines (intent → context → prompt hierarchy), memory types (six types), failure modes (five layers), controls (four categories with failure-mode mappings), skills/tools/agents (autonomy hierarchy + tool sub-taxonomy), and problem domains (task decomposition uncertainty criterion). Validated against six prior research items.</li>
 <li>Links:<ul>
-<li>https://arxiv.org/abs/2302.11382 — White et al. 2023, Prompt Pattern Catalog</li>
-<li>https://arxiv.org/abs/2308.11432 — Wang et al. 2023, Survey on LLM-based Autonomous Agents</li>
-<li>https://owasp.org/www-project-top-10-for-large-language-model-applications/ — OWASP Top 10 for LLM Applications 2025</li>
+<li><a href="https://arxiv.org/abs/2302.11382">arxiv.org/abs/2302.11382</a> — White et al. 2023, Prompt Pattern Catalog</li>
+<li><a href="https://arxiv.org/abs/2308.11432">arxiv.org/abs/2308.11432</a> — Wang et al. 2023, Survey on LLM-based Autonomous Agents</li>
+<li><a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/">owasp.org</a> — OWASP Top 10 for LLM Applications 2025</li>
 </ul>
 </li>
 </ul>
@@ -719,8 +804,8 @@ main {
 </div></div>
 
   <div class="item-nav">
-    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-10-dikw-transformation-functions.html">The DIKW pyramid: transformation functions from data to information to knowledge to wisdom</a></div>
-    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-10-agent-evaluation-cross-repo-analysis.html">Agent evaluation framework: cross-repo pattern analysis, commonality detection, and regression identification</a></div>
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-10-dikw-transformation-functions.html">The DIKW pyramid</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-10-agent-evaluation-cross-repo-analysis.html">Agent evaluation framework</a></div>
   </div>
 </main>
 </body>

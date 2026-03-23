@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -504,18 +586,18 @@ main {
     <a class="back-link" href="/Research/browse.html">← browse</a>
   </div>
   <div class="card-grid">
-    <a class="card" href="/Research/research/2026-03-12-volume-vs-correctness-ai-era.html" data-title="ai inverted the knowledge-work scarcity equation: volume is free, correctness is the scarce resource" data-question="before artificial intelligence (ai), throughput (volume of output) was the binding constraint on knowledge work. ai has
-dramatically reduced the cost of generating output. does the evidence support th" data-tags="correctness,quality,throughput,volume,ai,productivity,verification,shared-context,agentic-tarpit,procter-and-gamble-study">
-  <div class="card-title">AI inverted the knowledge-work scarcity equation: volume is free, correctness is the scarce resource</div>
+    <a class="card" href="/Research/research/2026-03-12-volume-vs-correctness-ai-era.html" data-title="ai inverted the knowledge-work scarcity equation" data-question="before artificial intelligence (ai), throughput (volume of output) was the binding constraint on knowledge work. ai has
+dramatically reduced the cost of generating output. does the evidence support th" data-tags="quality,ai,productivity">
+  <div class="card-title">AI inverted the knowledge-work scarcity equation</div>
   <div class="card-meta">2026-03-12</div>
-  <div class="card-tags"><span class="tag">correctness</span><span class="tag">quality</span><span class="tag">throughput</span><span class="tag">volume</span><span class="tag">ai</span><span class="tag">productivity</span><span class="tag">verification</span><span class="tag">shared-context</span><span class="tag">agentic-tarpit</span><span class="tag">procter-and-gamble-study</span></div>
+  <div class="card-tags"><span class="tag">quality</span><span class="tag">ai</span><span class="tag">productivity</span></div>
   <div class="card-excerpt">Before Artificial Intelligence (AI), throughput (volume of output) was the binding constraint on knowledge work. AI has
 dramatically reduced the cost of generating output. Does the evidence support th…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-03-research-loop-quality-prompt-engineering.html" data-title="evaluating and improving autonomous research loop quality: prompt engineering and output assessment" data-question="how can the quality of research items produced by the `research-loop.yml` autonomous pipeline be systematically evaluated, and what changes to `research-prompt.md` and the loop&#39;s prompting strategy wo" data-tags="research-loop,prompt-engineering,quality,autonomous-research,evaluation,research-prompt,github-actions">
-  <div class="card-title">Evaluating and improving autonomous research loop quality: prompt engineering and output assessment</div>
+<a class="card" href="/Research/research/2026-03-03-research-loop-quality-prompt-engineering.html" data-title="evaluating and improving autonomous research loop quality" data-question="how can the quality of research items produced by the `research-loop.yml` autonomous pipeline be systematically evaluated, and what changes to `research-prompt.md` and the loop&#39;s prompting strategy wo" data-tags="research-loop,prompt-engineering,quality,evaluation,github-actions">
+  <div class="card-title">Evaluating and improving autonomous research loop quality</div>
   <div class="card-meta">2026-03-03</div>
-  <div class="card-tags"><span class="tag">research-loop</span><span class="tag">prompt-engineering</span><span class="tag">quality</span><span class="tag">autonomous-research</span><span class="tag">evaluation</span><span class="tag">research-prompt</span><span class="tag">github-actions</span></div>
+  <div class="card-tags"><span class="tag">research-loop</span><span class="tag">prompt-engineering</span><span class="tag">quality</span><span class="tag">evaluation</span><span class="tag">github-actions</span></div>
   <div class="card-excerpt">How can the quality of research items produced by the `research-loop.yml` autonomous pipeline be systematically evaluated, and what changes to `research-prompt.md` and the loop&#39;s prompting strategy wo…</div>
 </a>
 

@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -504,22 +586,22 @@ main {
     <a class="back-link" href="/Research/browse.html">← browse</a>
   </div>
   <div class="card-grid">
-    <a class="card" href="/Research/research/2026-03-15-adam-smith-org-design-desire-paths-ai.html" data-title="adam smith, organisational design, desire paths, and ai strategy" data-question="what can adam smith&#39;s insights into human nature and morality - drawn from *the theory of moral sentiments* (toms) and *the wealth of nations* (won) - teach us about designing organisations that align" data-tags="economics,adam-smith,org-design,desire-paths,ai-strategy,moral-philosophy,human-nature,behaviour">
+    <a class="card" href="/Research/research/2026-03-15-adam-smith-org-design-desire-paths-ai.html" data-title="adam smith, organisational design, desire paths, and ai strategy" data-question="what can adam smith&#39;s insights into human nature and morality - drawn from *the theory of moral sentiments* (toms) and *the wealth of nations* (won) - teach us about designing organisations that align" data-tags="economics,ai-strategy">
   <div class="card-title">Adam Smith, Organisational Design, Desire Paths, and AI Strategy</div>
   <div class="card-meta">2026-03-15</div>
-  <div class="card-tags"><span class="tag">economics</span><span class="tag">adam-smith</span><span class="tag">org-design</span><span class="tag">desire-paths</span><span class="tag">ai-strategy</span><span class="tag">moral-philosophy</span><span class="tag">human-nature</span><span class="tag">behaviour</span></div>
+  <div class="card-tags"><span class="tag">economics</span><span class="tag">ai-strategy</span></div>
   <div class="card-excerpt">What can Adam Smith&#39;s insights into human nature and morality - drawn from *The Theory of Moral Sentiments* (ToMS) and *The Wealth of Nations* (WoN) - teach us about designing organisations that align…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-08-bbc-five-case-model.html" data-title="better business cases: five case model authoring and application" data-question="what is the better business cases (bbc) five case model framework, what are the requirements and standards for each of the five cases, and how should an ai agent apply this framework to author, review" data-tags="business-case,bbc,five-case-model,public-sector,strategy,economics,procurement">
-  <div class="card-title">Better Business Cases: Five Case Model authoring and application</div>
+<a class="card" href="/Research/research/2026-03-08-bbc-five-case-model.html" data-title="better business cases" data-question="what is the better business cases (bbc) five case model framework, what are the requirements and standards for each of the five cases, and how should an ai agent apply this framework to author, review" data-tags="strategy,economics">
+  <div class="card-title">Better Business Cases</div>
   <div class="card-meta">2026-03-08</div>
-  <div class="card-tags"><span class="tag">business-case</span><span class="tag">bbc</span><span class="tag">five-case-model</span><span class="tag">public-sector</span><span class="tag">strategy</span><span class="tag">economics</span><span class="tag">procurement</span></div>
+  <div class="card-tags"><span class="tag">strategy</span><span class="tag">economics</span></div>
   <div class="card-excerpt">What is the Better Business Cases (BBC) Five Case Model framework, what are the requirements and standards for each of the five cases, and how should an AI agent apply this framework to author, review…</div>
 </a>
-<a class="card" href="/Research/research/2026-02-28-jevons-paradox.html" data-title="jevons paradox: efficiency gains, demand rebound, and the falling cost of software production" data-question="how does jevons paradox operate across different sectors historically, what are the conditions under which cost or efficiency improvements *do not* increase total demand, and what do current thinkers" data-tags="jevons-paradox,rebound-effect,economics,software-engineering,ai-coding,technology-forecasting">
-  <div class="card-title">Jevons Paradox: efficiency gains, demand rebound, and the falling cost of software production</div>
+<a class="card" href="/Research/research/2026-02-28-jevons-paradox.html" data-title="jevons paradox" data-question="how does jevons paradox operate across different sectors historically, what are the conditions under which cost or efficiency improvements *do not* increase total demand, and what do current thinkers" data-tags="economics,software-engineering">
+  <div class="card-title">Jevons Paradox</div>
   <div class="card-meta">2026-02-28</div>
-  <div class="card-tags"><span class="tag">jevons-paradox</span><span class="tag">rebound-effect</span><span class="tag">economics</span><span class="tag">software-engineering</span><span class="tag">ai-coding</span><span class="tag">technology-forecasting</span></div>
+  <div class="card-tags"><span class="tag">economics</span><span class="tag">software-engineering</span></div>
   <div class="card-excerpt">How does Jevons Paradox operate across different sectors historically, what are the conditions under which cost or efficiency improvements *do not* increase total demand, and what do current thinkers…</div>
 </a>
 

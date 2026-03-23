@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -504,22 +586,22 @@ main {
     <a class="back-link" href="/Research/browse.html">← browse</a>
   </div>
   <div class="card-grid">
-    <a class="card" href="/Research/research/2026-03-15-neurological-context-management.html" data-title="neurological basis of contextual reasoning and relevance filtering" data-question="how do human brains store, compress, retrieve, and dynamically layer multiple types of contextual knowledge — values, goals, rules, current state, and immediate task — when making decisions, and what" data-tags="neuroscience,cognition,context-management,working-memory,attention,prefrontal-cortex,decision-making">
+    <a class="card" href="/Research/research/2026-03-15-neurological-context-management.html" data-title="neurological basis of contextual reasoning and relevance filtering" data-question="how do human brains store, compress, retrieve, and dynamically layer multiple types of contextual knowledge — values, goals, rules, current state, and immediate task — when making decisions, and what" data-tags="neuroscience,cognition,context-management,working-memory,decision-making">
   <div class="card-title">Neurological Basis of Contextual Reasoning and Relevance Filtering</div>
   <div class="card-meta">2026-03-15</div>
-  <div class="card-tags"><span class="tag">neuroscience</span><span class="tag">cognition</span><span class="tag">context-management</span><span class="tag">working-memory</span><span class="tag">attention</span><span class="tag">prefrontal-cortex</span><span class="tag">decision-making</span></div>
+  <div class="card-tags"><span class="tag">neuroscience</span><span class="tag">cognition</span><span class="tag">context-management</span><span class="tag">working-memory</span><span class="tag">decision-making</span></div>
   <div class="card-excerpt">How do human brains store, compress, retrieve, and dynamically layer multiple types of contextual knowledge — values, goals, rules, current state, and immediate task — when making decisions, and what…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-12-exploration-synthesis-gap.html" data-title="exploration-synthesis gap: why people in explore mode fail to synthesise others&#39; work, and whether agent synthesis can close the gap" data-question="during periods of rapid exploration — such as the current wave of artificial intelligence (ai) / large language model (llm) adoption inside organisations — individuals and teams routinely duplicate ef" data-tags="cognition,exploration,synthesis,knowledge-sharing,incentives,ego,agentic-systems,organisational-behaviour,psychology">
-  <div class="card-title">Exploration-synthesis gap: why people in explore mode fail to synthesise others&#39; work, and whether agent synthesis can close the gap</div>
+<a class="card" href="/Research/research/2026-03-12-exploration-synthesis-gap.html" data-title="exploration-synthesis gap" data-question="during periods of rapid exploration — such as the current wave of artificial intelligence (ai) / large language model (llm) adoption inside organisations — individuals and teams routinely duplicate ef" data-tags="cognition,exploration,synthesis,agentic-systems">
+  <div class="card-title">Exploration-synthesis gap</div>
   <div class="card-meta">2026-03-12</div>
-  <div class="card-tags"><span class="tag">cognition</span><span class="tag">exploration</span><span class="tag">synthesis</span><span class="tag">knowledge-sharing</span><span class="tag">incentives</span><span class="tag">ego</span><span class="tag">agentic-systems</span><span class="tag">organisational-behaviour</span><span class="tag">psychology</span></div>
+  <div class="card-tags"><span class="tag">cognition</span><span class="tag">exploration</span><span class="tag">synthesis</span><span class="tag">agentic-systems</span></div>
   <div class="card-excerpt">During periods of rapid exploration — such as the current wave of Artificial Intelligence (AI) / Large Language Model (LLM) adoption inside organisations — individuals and teams routinely duplicate ef…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-10-dikw-transformation-functions.html" data-title="the dikw pyramid: transformation functions from data to information to knowledge to wisdom" data-question="what are the transformation functions that move between the levels of the dikw pyramid — data → information → knowledge → wisdom? what cognitive, computational, and organisational mechanisms perform e" data-tags="dikw,knowledge-management,epistemology,information-theory,wisdom,cognition,organisations,learning">
-  <div class="card-title">The DIKW pyramid: transformation functions from data to information to knowledge to wisdom</div>
+<a class="card" href="/Research/research/2026-03-10-dikw-transformation-functions.html" data-title="the dikw pyramid" data-question="what are the transformation functions that move between the levels of the dikw pyramid — data → information → knowledge → wisdom? what cognitive, computational, and organisational mechanisms perform e" data-tags="dikw,knowledge-management,epistemology,wisdom,cognition">
+  <div class="card-title">The DIKW pyramid</div>
   <div class="card-meta">2026-03-10</div>
-  <div class="card-tags"><span class="tag">dikw</span><span class="tag">knowledge-management</span><span class="tag">epistemology</span><span class="tag">information-theory</span><span class="tag">wisdom</span><span class="tag">cognition</span><span class="tag">organisations</span><span class="tag">learning</span></div>
+  <div class="card-tags"><span class="tag">dikw</span><span class="tag">knowledge-management</span><span class="tag">epistemology</span><span class="tag">wisdom</span><span class="tag">cognition</span></div>
   <div class="card-excerpt">What are the transformation functions that move between the levels of the DIKW pyramid — Data → Information → Knowledge → Wisdom? What cognitive, computational, and organisational mechanisms perform e…</div>
 </a>
 

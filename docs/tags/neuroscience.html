@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -504,34 +586,34 @@ main {
     <a class="back-link" href="/Research/browse.html">← browse</a>
   </div>
   <div class="card-grid">
-    <a class="card" href="/Research/research/2026-03-18-human-brain-prediction-machines.html" data-title="are human brains just prediction machines? comparing predictive processing and large language model next-token generation" data-question="what is the fundamental difference between the predictive processing account of human cognition — in which the brain continuously generates and updates a generative model of the world — and large lang" data-tags="neuroscience,cognitive-science,llm,predictive-processing,predictive-coding,next-token-prediction,world-models,consciousness,free-energy-principle">
-  <div class="card-title">Are Human Brains Just Prediction Machines? Comparing Predictive Processing and Large Language Model Next-Token Generation</div>
+    <a class="card" href="/Research/research/2026-03-18-human-brain-prediction-machines.html" data-title="are human brains just prediction machines? comparing predictive processing and…" data-question="what is the fundamental difference between the predictive processing account of human cognition — in which the brain continuously generates and updates a generative model of the world — and large lang" data-tags="neuroscience,llm,predictive-processing,consciousness,free-energy-principle">
+  <div class="card-title">Are Human Brains Just Prediction Machines? Comparing Predictive Processing and…</div>
   <div class="card-meta">2026-03-18</div>
-  <div class="card-tags"><span class="tag">neuroscience</span><span class="tag">cognitive-science</span><span class="tag">llm</span><span class="tag">predictive-processing</span><span class="tag">predictive-coding</span><span class="tag">next-token-prediction</span><span class="tag">world-models</span><span class="tag">consciousness</span><span class="tag">free-energy-principle</span></div>
+  <div class="card-tags"><span class="tag">neuroscience</span><span class="tag">llm</span><span class="tag">predictive-processing</span><span class="tag">consciousness</span><span class="tag">free-energy-principle</span></div>
   <div class="card-excerpt">What is the fundamental difference between the predictive processing account of human cognition — in which the brain continuously generates and updates a generative model of the world — and Large Lang…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-17-ai-memory-systems-rag-neuroscience.html" data-title="artificial intelligence (ai) memory systems: retrieval-augmented generation (rag), vendor implementations, and neuroscience foundations" data-question="what is the current state of artificial intelligence (ai) memory systems — across retrieval-augmented generation (rag) research, commercial ai vendor implementations (github copilot, gemini, claude, a" data-tags="memory,retrieval-augmented-generation,neuroscience,artificial-intelligence-vendors,github-copilot,gemini,claude,episodic-memory,working-memory,knowledge-management">
-  <div class="card-title">Artificial Intelligence (AI) Memory Systems: Retrieval-Augmented Generation (RAG), Vendor Implementations, and Neuroscience Foundations</div>
+<a class="card" href="/Research/research/2026-03-17-ai-memory-systems-rag-neuroscience.html" data-title="ai memory systems" data-question="what is the current state of artificial intelligence (ai) memory systems — across retrieval-augmented generation (rag) research, commercial ai vendor implementations (github copilot, gemini, claude, a" data-tags="memory,retrieval-augmented-generation,neuroscience,github-copilot,gemini,claude,working-memory,knowledge-management">
+  <div class="card-title">AI Memory Systems</div>
   <div class="card-meta">2026-03-17</div>
-  <div class="card-tags"><span class="tag">memory</span><span class="tag">retrieval-augmented-generation</span><span class="tag">neuroscience</span><span class="tag">artificial-intelligence-vendors</span><span class="tag">github-copilot</span><span class="tag">gemini</span><span class="tag">claude</span><span class="tag">episodic-memory</span><span class="tag">working-memory</span><span class="tag">knowledge-management</span></div>
+  <div class="card-tags"><span class="tag">memory</span><span class="tag">retrieval-augmented-generation</span><span class="tag">neuroscience</span><span class="tag">github-copilot</span><span class="tag">gemini</span><span class="tag">claude</span><span class="tag">working-memory</span><span class="tag">knowledge-management</span></div>
   <div class="card-excerpt">What is the current state of Artificial Intelligence (AI) memory systems — across Retrieval-Augmented Generation (RAG) research, commercial AI vendor implementations (GitHub Copilot, Gemini, Claude, a…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-15-neurological-context-management.html" data-title="neurological basis of contextual reasoning and relevance filtering" data-question="how do human brains store, compress, retrieve, and dynamically layer multiple types of contextual knowledge — values, goals, rules, current state, and immediate task — when making decisions, and what" data-tags="neuroscience,cognition,context-management,working-memory,attention,prefrontal-cortex,decision-making">
+<a class="card" href="/Research/research/2026-03-15-neurological-context-management.html" data-title="neurological basis of contextual reasoning and relevance filtering" data-question="how do human brains store, compress, retrieve, and dynamically layer multiple types of contextual knowledge — values, goals, rules, current state, and immediate task — when making decisions, and what" data-tags="neuroscience,cognition,context-management,working-memory,decision-making">
   <div class="card-title">Neurological Basis of Contextual Reasoning and Relevance Filtering</div>
   <div class="card-meta">2026-03-15</div>
-  <div class="card-tags"><span class="tag">neuroscience</span><span class="tag">cognition</span><span class="tag">context-management</span><span class="tag">working-memory</span><span class="tag">attention</span><span class="tag">prefrontal-cortex</span><span class="tag">decision-making</span></div>
+  <div class="card-tags"><span class="tag">neuroscience</span><span class="tag">cognition</span><span class="tag">context-management</span><span class="tag">working-memory</span><span class="tag">decision-making</span></div>
   <div class="card-excerpt">How do human brains store, compress, retrieve, and dynamically layer multiple types of contextual knowledge — values, goals, rules, current state, and immediate task — when making decisions, and what…</div>
 </a>
-<a class="card" href="/Research/research/2026-02-28-predictive-processing-active-inference.html" data-title="predictive processing and active inference: the brain as prediction machine" data-question="what exactly is the predictive processing / active inference framework, how does it differ from classical feedforward models of perception, and what is the empirical status of the free energy principl" data-tags="predictive-processing,active-inference,free-energy-principle,karl-friston,neuroscience">
-  <div class="card-title">Predictive processing and active inference: the brain as prediction machine</div>
+<a class="card" href="/Research/research/2026-02-28-predictive-processing-active-inference.html" data-title="predictive processing and active inference" data-question="what exactly is the predictive processing / active inference framework, how does it differ from classical feedforward models of perception, and what is the empirical status of the free energy principl" data-tags="predictive-processing,active-inference,free-energy-principle,karl-friston,neuroscience">
+  <div class="card-title">Predictive processing and active inference</div>
   <div class="card-meta">2026-02-28</div>
   <div class="card-tags"><span class="tag">predictive-processing</span><span class="tag">active-inference</span><span class="tag">free-energy-principle</span><span class="tag">karl-friston</span><span class="tag">neuroscience</span></div>
   <div class="card-excerpt">What exactly is the predictive processing / active inference framework, how does it differ from classical feedforward models of perception, and what is the empirical status of the free energy principl…</div>
 </a>
-<a class="card" href="/Research/research/2026-02-28-controlled-hallucination-perception-as-construction.html" data-title="controlled hallucination: perception as active brain construction" data-question="what is the evidence that perception is a generative, top-down process rather than a bottom-up readout of the world — and what are the strongest objections to seth&#39;s &quot;controlled hallucination&quot; framing" data-tags="consciousness,perception,controlled-hallucination,anil-seth,neuroscience">
-  <div class="card-title">Controlled hallucination: perception as active brain construction</div>
+<a class="card" href="/Research/research/2026-02-28-controlled-hallucination-perception-as-construction.html" data-title="controlled hallucination" data-question="what is the evidence that perception is a generative, top-down process rather than a bottom-up readout of the world — and what are the strongest objections to seth&#39;s &quot;controlled hallucination&quot; framing" data-tags="consciousness,perception,anil-seth,neuroscience">
+  <div class="card-title">Controlled hallucination</div>
   <div class="card-meta">2026-02-28</div>
-  <div class="card-tags"><span class="tag">consciousness</span><span class="tag">perception</span><span class="tag">controlled-hallucination</span><span class="tag">anil-seth</span><span class="tag">neuroscience</span></div>
+  <div class="card-tags"><span class="tag">consciousness</span><span class="tag">perception</span><span class="tag">anil-seth</span><span class="tag">neuroscience</span></div>
   <div class="card-excerpt">What is the evidence that perception is a generative, top-down process rather than a bottom-up readout of the world — and what are the strongest objections to Seth&#39;s &quot;controlled hallucination&quot; framing…</div>
 </a>
 

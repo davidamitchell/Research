@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -506,24 +588,26 @@ main {
     <span>YouTube transcripts via third-party transcript APIs (AssemblyAI / Supadata)</span>
   </div>
   <h1 class="item-title">YouTube transcripts via third-party transcript APIs (AssemblyAI / Supadata)</h1>
-  <div class="meta-bar">
+    <div class="meta-bar">
     <span>2026-02-28</span>
     <span class="meta-sep">·</span>
-    <a class="tag" href="/Research/tags/youtube.html">youtube</a> <a class="tag" href="/Research/tags/transcripts.html">transcripts</a> <a class="tag" href="/Research/tags/assemblyai.html">assemblyai</a> <a class="tag" href="/Research/tags/supadata.html">supadata</a> <a class="tag" href="/Research/tags/tooling.html">tooling</a> <a class="tag" href="/Research/tags/automation.html">automation</a> 
+    <a class="tag" href="/Research/tags/youtube.html">youtube</a> <a class="tag" href="/Research/tags/transcripts.html">transcripts</a> <a class="tag" href="/Research/tags/tooling.html">tooling</a> <a class="tag" href="/Research/tags/automation.html">automation</a> 
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-02-28-transcript-via-third-party-apis.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-02-28-transcript-via-third-party-apis" target="_blank" rel="noopener">wiki →</a>
   </div>
   
   <div class="item-content">
     <h2>Research Question</h2>
-<p>Can a third-party transcript API (AssemblyAI, Supadata, Kagi, or similar) retrieve YouTube
+<p>Can a third-party transcript API (<a href="https://www.assemblyai.com/docs/guides/transcribing-audio-with-a-url">AssemblyAI</a>, <a href="https://supadata.ai/documentation/youtube/get-transcript">Supadata</a>, Kagi, or similar) retrieve YouTube
 transcripts from a GitHub Actions runner, bypassing YouTube's IP-based block on the
 internal transcript endpoint?</p>
 
 <h2>Findings</h2>
 <p><em>(Populated from §6 Synthesis above.)</em></p>
 <h3>Executive Summary</h3>
-<p>Supadata is the only third-party transcript API among the evaluated candidates that both bypasses YouTube's cloud IP block and returns verbatim transcript text, [inference] making it the correct implementation path for the research workflow. AssemblyAI does not bypass the IP block — it requires prior audio download via <code>yt-dlp</code>, which reintroduces the same cloud-IP restriction that blocks <code>youtube-transcript-api</code> — and the original premise that AssemblyAI accepts YouTube URLs directly is factually incorrect. Kagi's Universal Summarizer bypasses the IP block via server-side processing but produces summaries, not verbatim transcripts, making it a video-analysis tool rather than a transcript fetcher. Supadata's free tier (100 credits/month) covers the research volume comfortably, and integration requires only one new repository secret and one new fetcher function.</p>
+<p><a href="https://supadata.ai/documentation/youtube/get-transcript">Supadata</a> is the only third-party transcript API among the evaluated candidates that both bypasses YouTube's cloud IP block and returns verbatim transcript text, [inference] making it the correct implementation path for the research workflow. <a href="https://www.assemblyai.com/docs/guides/transcribing-audio-with-a-url">AssemblyAI</a> does not bypass the IP block — it requires prior audio download via <code>yt-dlp</code>, which reintroduces the same cloud-IP restriction that blocks <code>youtube-transcript-api</code> — and the original premise that AssemblyAI accepts YouTube URLs directly is factually incorrect. Kagi's Universal Summarizer bypasses the IP block via server-side processing but produces summaries, not verbatim transcripts, making it a video-analysis tool rather than a transcript fetcher. Supadata's free tier (100 credits/month) covers the research volume comfortably, and integration requires only one new repository secret and one new fetcher function.</p>
 <h3>Key Findings</h3>
 <ol>
 <li><p>Supadata's transcript API fully insulates the GitHub Actions runner from YouTube's IP block because the runner contacts only <code>api.supadata.ai</code> via HTTPS while Supadata's own infrastructure handles all downstream YouTube requests. [High confidence]</p>
@@ -556,19 +640,19 @@ internal transcript endpoint?</p>
 <tbody>
 <tr>
   <td>Supadata insulates runner from YouTube IP block</td>
-  <td>https://deepwiki.com/supadata-ai/supadata-docs/4.1.1-transcript-service</td>
+  <td><a href="https://deepwiki.com/supadata-ai/supadata-docs/4.1.1-transcript-service</td>">deepwiki.com</a>
   <td>High</td>
   <td>[x] consulted</td>
 </tr>
 <tr>
   <td>Supadata three modes: Native, Auto, Generate</td>
-  <td>https://deepwiki.com/supadata-ai/supadata-docs/4.1.1-transcript-service</td>
+  <td><a href="https://deepwiki.com/supadata-ai/supadata-docs/4.1.1-transcript-service</td>">deepwiki.com</a>
   <td>High</td>
   <td>[x] consulted</td>
 </tr>
 <tr>
   <td>Supadata Native returns YouTube caption text verbatim</td>
-  <td>https://supadata.ai/blog/best-youtube-transcript-api</td>
+  <td><a href="https://supadata.ai/blog/best-youtube-transcript-api</td>">supadata.ai</a>
   <td>High</td>
   <td>[x] consulted</td>
 </tr>
@@ -580,61 +664,61 @@ internal transcript endpoint?</p>
 </tr>
 <tr>
   <td>AssemblyAI audio_url does not accept YouTube URLs</td>
-  <td>https://www.assemblyai.com/docs/faq/how-can-i-transcribe-youtube-videos</td>
+  <td><a href="https://www.assemblyai.com/docs/faq/how-can-i-transcribe-youtube-videos</td>">www.assemblyai.com</a>
   <td>High</td>
   <td>[x] primary source</td>
 </tr>
 <tr>
   <td>AssemblyAI requires yt-dlp pre-download for YouTube</td>
-  <td>https://www.assemblyai.com/docs/faq/how-can-i-transcribe-youtube-videos</td>
+  <td><a href="https://www.assemblyai.com/docs/faq/how-can-i-transcribe-youtube-videos</td>">www.assemblyai.com</a>
   <td>High</td>
   <td>[x] primary source</td>
 </tr>
 <tr>
   <td>AssemblyAI free tier is $50 one-time, not recurring monthly</td>
-  <td>https://costbench.com/software/ai-transcription-apis/assemblyai/free-plan/</td>
+  <td><a href="https://costbench.com/software/ai-transcription-apis/assemblyai/free-plan/</td>">costbench.com</a>
   <td>High</td>
   <td>[x] consulted</td>
 </tr>
 <tr>
   <td>AssemblyAI paid rate: $0.15/hour base</td>
-  <td>https://www.assemblyai.com/pricing</td>
+  <td><a href="https://www.assemblyai.com/pricing</td>">www.assemblyai.com</a>
   <td>High</td>
   <td>Referenced via search</td>
 </tr>
 <tr>
   <td>Kagi accepts YouTube URLs via server-side processing</td>
-  <td>https://help.kagi.com/kagi/api/summarizer.html</td>
+  <td><a href="https://help.kagi.com/kagi/api/summarizer.html</td>">help.kagi.com</a>
   <td>High</td>
   <td>[x] primary source</td>
 </tr>
 <tr>
   <td>Kagi YouTube support is &quot;Experimental&quot;</td>
-  <td>https://help.kagi.com/kagi/api/summarizer.html</td>
+  <td><a href="https://help.kagi.com/kagi/api/summarizer.html</td>">help.kagi.com</a>
   <td>High</td>
   <td>[x] primary source</td>
 </tr>
 <tr>
   <td>Kagi output is summary, not verbatim transcript</td>
-  <td>https://help.kagi.com/kagi/api/summarizer.html</td>
+  <td><a href="https://help.kagi.com/kagi/api/summarizer.html</td>">help.kagi.com</a>
   <td>High</td>
   <td>[x] explicit in docs</td>
 </tr>
 <tr>
   <td>Kagi pricing: $0.030/1,000 tokens, max $0.30/call</td>
-  <td>https://help.kagi.com/kagi/api/summarizer.html</td>
+  <td><a href="https://help.kagi.com/kagi/api/summarizer.html</td>">help.kagi.com</a>
   <td>High</td>
   <td>[x] primary source</td>
 </tr>
 <tr>
   <td>Supadata free: 100 credits/month, no CC required</td>
-  <td>https://supadata.ai/blog/best-youtube-transcript-api + coldiq.com</td>
+  <td><a href="https://supadata.ai/blog/best-youtube-transcript-api">supadata.ai</a> + coldiq.com</td>
   <td>High</td>
   <td>Two independent sources [x]</td>
 </tr>
 <tr>
   <td>Supadata paid: $17/3,000 credits/month</td>
-  <td>https://supadata.ai/blog/best-youtube-transcript-api</td>
+  <td><a href="https://supadata.ai/blog/best-youtube-transcript-api</td>">supadata.ai</a>
   <td>High</td>
   <td>[x] consulted</td>
 </tr>

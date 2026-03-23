@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -506,12 +588,14 @@ main {
     <span>YouTube transcripts via yt-dlp audio + Whisper transcription</span>
   </div>
   <h1 class="item-title">YouTube transcripts via yt-dlp audio + Whisper transcription</h1>
-  <div class="meta-bar">
+    <div class="meta-bar">
     <span>2026-02-28</span>
     <span class="meta-sep">·</span>
-    <a class="tag" href="/Research/tags/youtube.html">youtube</a> <a class="tag" href="/Research/tags/transcripts.html">transcripts</a> <a class="tag" href="/Research/tags/whisper.html">whisper</a> <a class="tag" href="/Research/tags/yt-dlp.html">yt-dlp</a> <a class="tag" href="/Research/tags/tooling.html">tooling</a> <a class="tag" href="/Research/tags/automation.html">automation</a> 
+    <a class="tag" href="/Research/tags/youtube.html">youtube</a> <a class="tag" href="/Research/tags/transcripts.html">transcripts</a> <a class="tag" href="/Research/tags/tooling.html">tooling</a> <a class="tag" href="/Research/tags/automation.html">automation</a> 
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-02-28-transcript-via-yt-dlp-whisper.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-02-28-transcript-via-yt-dlp-whisper" target="_blank" rel="noopener">wiki →</a>
   </div>
   <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>YouTube delivers audio and video streams via the same CDN infrastructure; cloud IP restrictions that block `yt-dlp` video downloads also block `yt-dlp` audio-only downloads from GitHub Actions runners running on AWS IP ranges</li>
 <li>As of 2024–2025, yt-dlp downloads from cloud/datacenter IPs (including GitHub Actions) are actively blocked by YouTube, producing HTTP 403 errors or &quot;Sign in to confirm you&#39;re not a bot&quot; challenges, regardless of whether the requested format is video or audio</li>
@@ -541,7 +625,7 @@ OpenAI Whisper?</p>
 <li><strong>[high]</strong> <code>faster-whisper</code> with int8 quantization delivers 4–7x speedup over vanilla <code>openai-whisper</code> on CPU, reducing the same 60-min audio to ~7–15 minutes of runner time, making the approach economically viable on the free Actions tier.</li>
 <li><strong>[medium]</strong> The Whisper <code>small</code> model achieves 3.2–3.4% WER on clean English speech; <code>medium</code> achieves 2.7–2.9% WER — a 0.5–0.7 percentage point improvement that widens for noisy or accented audio but is modest for well-recorded English talks.</li>
 <li><strong>[high]</strong> The <code>small</code> model requires ~461 MB download; <code>medium</code> requires ~1.5 GB. Both should be cached via <code>actions/cache</code> to avoid re-downloading on every workflow run.</li>
-<li><strong>[high]</strong> Option B (OpenAI Whisper API at <code>whisper-1</code>, $0.006/min) requires <code>OPENAI_API_KEY</code>, which is not in the AGENTS.md approved credentials table; it cannot be implemented without explicit owner approval.</li>
+<li><strong>[high]</strong> Option B (<a href="https://platform.openai.com/docs/guides/speech-to-text">OpenAI Whisper API</a> at <code>whisper-1</code>, $0.006/min) requires <code>OPENAI_API_KEY</code>, which is not in the AGENTS.md approved credentials table; it cannot be implemented without explicit owner approval.</li>
 <li><strong>[medium]</strong> The OpenAI Whisper API <code>whisper-1</code> model is equivalent in quality to <code>large-v2</code> locally, delivering higher accuracy than any local model size runnable on GitHub Actions CPU within a reasonable time budget.</li>
 <li><strong>[medium]</strong> Third-party transcript APIs (the companion backlog item <code>2026-02-28-transcript-via-third-party-apis.md</code>) sidestep the cloud IP block entirely and may offer a better cost/complexity tradeoff than maintaining YouTube cookies in a GitHub secret.</li>
 </ol>
@@ -680,7 +764,7 @@ OpenAI Whisper?</p>
 </div></div>
 
   <div class="item-nav">
-    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-02-28-youtube-video-hyuos0gkgcs-concepts.html">Reality Is A Controlled Hallucination — Anil Seth (Essentia Foundation): concept extraction and synthesis</a></div>
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-02-28-youtube-video-hyuos0gkgcs-concepts.html">Reality Is A Controlled Hallucination — Anil Seth (Essentia Foundation)</a></div>
     <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-02-28-transcript-via-third-party-apis.html">YouTube transcripts via third-party transcript APIs (AssemblyAI / Supadata)</a></div>
   </div>
 </main>

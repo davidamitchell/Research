@@ -3,7 +3,7 @@
         <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Adversarial agents with shared goals: multi-perspective coverage across competencies and time horizons — Research</title>
+          <title>Adversarial agents with shared goals — Research</title>
           <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -503,15 +585,18 @@ main {
     <span>/</span>
     <a href="/Research/browse.html">Browse</a>
     <span>/</span>
-    <span>Adversarial agents with shared goals: multi-perspective coverage across competencies and time horizons</span>
+    <span>Adversarial agents with shared goals</span>
   </div>
-  <h1 class="item-title">Adversarial agents with shared goals: multi-perspective coverage across competencies and time horizons</h1>
+  <h1 class="item-title">Adversarial agents with shared goals</h1>
+  <p class="full-title-subtitle">Adversarial agents with shared goals: multi-perspective coverage across competencies and time horizons</p>
   <div class="meta-bar">
     <span>2026-03-10</span>
     <span class="meta-sep">·</span>
-    <a class="tag" href="/Research/tags/multi-agent.html">multi-agent</a> <a class="tag" href="/Research/tags/adversarial-collaboration.html">adversarial-collaboration</a> <a class="tag" href="/Research/tags/competency-coverage.html">competency-coverage</a> <a class="tag" href="/Research/tags/time-horizons.html">time-horizons</a> <a class="tag" href="/Research/tags/fitness-functions.html">fitness-functions</a> <a class="tag" href="/Research/tags/organisational-design.html">organisational-design</a> <a class="tag" href="/Research/tags/red-team.html">red-team</a> <a class="tag" href="/Research/tags/quality-assurance.html">quality-assurance</a> <a class="tag" href="/Research/tags/values-alignment.html">values-alignment</a> 
+    <a class="tag" href="/Research/tags/multi-agent.html">multi-agent</a> <a class="tag" href="/Research/tags/fitness-functions.html">fitness-functions</a> <a class="tag" href="/Research/tags/organisational-design.html">organisational-design</a> <a class="tag" href="/Research/tags/red-team.html">red-team</a> <a class="tag" href="/Research/tags/quality-assurance.html">quality-assurance</a> 
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-10-adversarial-agents-shared-goals-multi-perspective.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-10-adversarial-agents-shared-goals-multi-perspective" target="_blank" rel="noopener">wiki →</a>
   </div>
   
   <div class="item-content">
@@ -667,7 +752,7 @@ main {
   </div>
   
   <div class="item-nav">
-    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-10-agent-evaluation-cross-repo-analysis.html">Agent evaluation framework: cross-repo pattern analysis, commonality detection, and regression identification</a></div>
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-10-agent-evaluation-cross-repo-analysis.html">Agent evaluation framework</a></div>
     <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-08-telegram-bot-memory-capture-retrieval.html">Telegram bot as mobile memory capture and retrieval channel</a></div>
   </div>
 </main>

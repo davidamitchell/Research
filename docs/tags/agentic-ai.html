@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -504,16 +586,16 @@ main {
     <a class="back-link" href="/Research/browse.html">← browse</a>
   </div>
   <div class="card-grid">
-    <a class="card" href="/Research/research/2026-02-28-ai-strategy.html" data-title="ai strategy: global and nz examples, policy frameworks, regulations, and use-case typologies" data-question="what do leading global ai strategies look like, how does new zealand&#39;s regulatory and policy landscape (rbnz, dia, mbie, and others) compare, and what use-case typology — from human augmentation throu" data-tags="ai-strategy,policy,regulation,new-zealand,rbnz,dia,mbie,dora,use-cases,agentic-ai">
-  <div class="card-title">AI Strategy: global and NZ examples, policy frameworks, regulations, and use-case typologies</div>
+    <a class="card" href="/Research/research/2026-02-28-ai-strategy.html" data-title="ai strategy" data-question="what do leading global ai strategies look like, how does new zealand&#39;s regulatory and policy landscape (rbnz, dia, mbie, and others) compare, and what use-case typology — from human augmentation throu" data-tags="ai-strategy,rbnz,agentic-ai">
+  <div class="card-title">AI Strategy</div>
   <div class="card-meta">2026-02-28</div>
-  <div class="card-tags"><span class="tag">ai-strategy</span><span class="tag">policy</span><span class="tag">regulation</span><span class="tag">new-zealand</span><span class="tag">rbnz</span><span class="tag">dia</span><span class="tag">mbie</span><span class="tag">dora</span><span class="tag">use-cases</span><span class="tag">agentic-ai</span></div>
+  <div class="card-tags"><span class="tag">ai-strategy</span><span class="tag">rbnz</span><span class="tag">agentic-ai</span></div>
   <div class="card-excerpt">What do leading global AI strategies look like, how does New Zealand&#39;s regulatory and policy landscape (RBNZ, DIA, MBIE, and others) compare, and what use-case typology — from human augmentation throu…</div>
 </a>
-<a class="card" href="/Research/research/2026-02-28-ai-line-1-line-2-risk-agents.html" data-title="ai line 1 and line 2 risk agents: who is building them?" data-question="who is currently building or deploying ai agents specifically positioned to operate within the three lines of defence model — line 1 (business/operational risk management) and line 2 (risk and complia" data-tags="ai-strategy,risk-agents,line-1,line-2,three-lines-model,agentic-ai,financial-services,risk-management">
-  <div class="card-title">AI Line 1 and Line 2 Risk Agents: Who Is Building Them?</div>
+<a class="card" href="/Research/research/2026-02-28-ai-line-1-line-2-risk-agents.html" data-title="ai line 1 and line 2 risk agents" data-question="who is currently building or deploying ai agents specifically positioned to operate within the three lines of defence model — line 1 (business/operational risk management) and line 2 (risk and complia" data-tags="ai-strategy,agentic-ai,financial-services,risk-management">
+  <div class="card-title">AI Line 1 and Line 2 Risk Agents</div>
   <div class="card-meta">2026-02-28</div>
-  <div class="card-tags"><span class="tag">ai-strategy</span><span class="tag">risk-agents</span><span class="tag">line-1</span><span class="tag">line-2</span><span class="tag">three-lines-model</span><span class="tag">agentic-ai</span><span class="tag">financial-services</span><span class="tag">risk-management</span></div>
+  <div class="card-tags"><span class="tag">ai-strategy</span><span class="tag">agentic-ai</span><span class="tag">financial-services</span><span class="tag">risk-management</span></div>
   <div class="card-excerpt">Who is currently building or deploying AI agents specifically positioned to operate within the three lines of defence model — line 1 (business/operational risk management) and line 2 (risk and complia…</div>
 </a>
 

@@ -22,6 +22,7 @@ from __future__ import annotations
 
 import json
 import re
+import shutil
 import textwrap
 from collections import Counter
 from datetime import date
@@ -469,9 +470,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -598,8 +681,148 @@ def escape(text: str) -> str:
 
 
 # ---------------------------------------------------------------------------
-# Data loading
+# Title helpers
 # ---------------------------------------------------------------------------
+
+
+def make_display_title(title: str) -> str:
+    """Shorten title for display: collapse acronym expansions, colon-truncate, length limit."""
+    result = title
+    abbr_pattern = re.compile(r"[A-Z][a-zA-Z\-]*(?:\s+[A-Za-z][a-zA-Z\-]*)*\s+\(([A-Z]{2,8})\)")
+    prev = None
+    while prev != result:
+        prev = result
+        result = abbr_pattern.sub(lambda m: m.group(1), result)
+    if ":" in result:
+        before_colon = result.split(":", 1)[0].strip()
+        if len(before_colon) < 80:
+            result = before_colon
+    if len(result) > 80:
+        truncated = result[:80]
+        last_space = truncated.rfind(" ")
+        if last_space > 0:
+            truncated = truncated[:last_space]
+        result = truncated + "…"
+    return result
+
+
+# ---------------------------------------------------------------------------
+# Singleton tag filtering
+# ---------------------------------------------------------------------------
+
+
+def filter_singleton_tags(items: list[dict]) -> tuple[set[str], int, int]:
+    """Return (tags_to_drop, n_dropped, n_retained_sole).
+
+    For each tag T where count == 1:
+      - If the single item carrying T has at least one other tag with count > 1: drop T
+      - If ALL of that item's tags have count == 1: retain T (sole tag for navigation)
+    """
+    tag_counts: Counter[str] = Counter(t for item in items for t in item["tags"])
+    singleton_tags = {t for t, c in tag_counts.items() if c == 1}
+
+    tags_to_drop: set[str] = set()
+    tags_to_retain: set[str] = set()
+    for tag in singleton_tags:
+        items_with_tag = [i for i in items if tag in i["tags"]]
+        if not items_with_tag:
+            continue
+        single_item = items_with_tag[0]
+        has_non_singleton = any(tag_counts[t] > 1 for t in single_item["tags"] if t != tag)
+        if has_non_singleton:
+            tags_to_drop.add(tag)
+        else:
+            tags_to_retain.add(tag)
+
+    return tags_to_drop, len(tags_to_drop), len(tags_to_retain)
+
+
+# ---------------------------------------------------------------------------
+# Source reference parsing and autolinking
+# ---------------------------------------------------------------------------
+
+
+def parse_source_refs(sources_text: str) -> dict[str, str]:
+    """Parse Sources section markdown into {display_name: url} dict."""
+    refs: dict[str, str] = {}
+    if not sources_text:
+        return refs
+    for m in re.finditer(r"\[([^\]]+)\]\((https://[^)]+)\)", sources_text):
+        refs[m.group(1)] = m.group(2)
+    for m in re.finditer(r"^[*\-]?\s*(.+?):\s+(https://\S+)", sources_text, re.MULTILINE):
+        name = m.group(1).strip("*- []")
+        if len(name) < 100 and name:
+            refs[name] = m.group(2).rstrip(".,;)")
+    return refs
+
+
+def autolink_html(html: str, source_refs: dict[str, str]) -> str:
+    """Replace first unlinked occurrence of each ref name; autolink bare https:// URLs."""
+    link_pattern = re.compile(r"<a\b[^>]*>.*?</a>", re.DOTALL | re.IGNORECASE)
+
+    def replace_first_outside_links(html_text: str, search: str, replacement: str) -> str:
+        result = []
+        last_end = 0
+        replaced = False
+        for m in link_pattern.finditer(html_text):
+            segment = html_text[last_end : m.start()]
+            if not replaced:
+                idx = segment.find(search)
+                if idx >= 0:
+                    result.append(segment[:idx] + replacement + segment[idx + len(search) :])
+                    replaced = True
+                else:
+                    result.append(segment)
+            else:
+                result.append(segment)
+            result.append(m.group(0))
+            last_end = m.end()
+        segment = html_text[last_end:]
+        if not replaced:
+            idx = segment.find(search)
+            if idx >= 0:
+                result.append(segment[:idx] + replacement + segment[idx + len(search) :])
+            else:
+                result.append(segment)
+        else:
+            result.append(segment)
+        return "".join(result)
+
+    for name, url in source_refs.items():
+        if not name or not url:
+            continue
+        escaped_url = url.replace('"', "&quot;")
+        link_html = f'<a href="{escaped_url}">{escape(name)}</a>'
+        html = replace_first_outside_links(html, name, link_html)
+
+    def get_display_domain(url: str) -> str:
+        if "arxiv.org" in url:
+            arxiv_m = re.search(r"arxiv\.org/abs/(\S+?)(?:\s|$|[,;)])", url)
+            if arxiv_m:
+                return f"arxiv.org/abs/{arxiv_m.group(1)}"
+        m = re.match(r"https?://([^/]+)", url)
+        return m.group(1) if m else url
+
+    def autolink_bare_urls(html_text: str) -> str:
+        url_pattern = re.compile(r"https://\S+")
+
+        def replace_url(um: re.Match) -> str:
+            url = um.group(0).rstrip(".,;)")
+            return f'<a href="{url}">{get_display_domain(url)}</a>'
+
+        result = []
+        last_end = 0
+        for m in link_pattern.finditer(html_text):
+            segment = html_text[last_end : m.start()]
+            result.append(url_pattern.sub(replace_url, segment))
+            result.append(m.group(0))
+            last_end = m.end()
+        segment = html_text[last_end:]
+        result.append(url_pattern.sub(replace_url, segment))
+        return "".join(result)
+
+    html = autolink_bare_urls(html)
+    return html
 
 
 def parse_frontmatter(text: str) -> tuple[dict, str]:
@@ -698,20 +921,32 @@ def get_findings_excerpt(item: dict, max_chars: int = 200) -> str:
     return text
 
 
-def load_items() -> list[dict]:
-    """Load and filter all completed research items."""
+def load_items() -> tuple[list[dict], dict[str, int]]:
+    """Load and filter all completed research items.
+
+    Returns (items, exclusion_stats) where exclusion_stats has keys
+    'meta_infra' and 'date' with counts of excluded files.
+    """
     items = []
+    excl_meta = 0
+    excl_date = 0
     for path in sorted(COMPLETED_DIR.glob("*.md"), reverse=True):
         name = path.name
         if name.lower() == "readme.md":
             continue
         if re.search(r"meta|infra", name, re.IGNORECASE):
+            excl_meta += 1
             continue
-        text = path.read_text(encoding="utf-8")
-        text = strip_evidence_map(text)
-        meta, body = parse_frontmatter(text)
+        try:
+            text = path.read_text(encoding="utf-8")
+            text = strip_evidence_map(text)
+            meta, body = parse_frontmatter(text)
+        except Exception as exc:
+            print(f"ERROR: failed to parse {path}: {exc}")
+            raise SystemExit(1) from exc
         added_raw = meta.get("added")
         if not added_raw:
+            excl_date += 1
             continue
         try:
             if isinstance(added_raw, str):
@@ -719,13 +954,16 @@ def load_items() -> list[dict]:
             else:
                 added = date(added_raw.year, added_raw.month, added_raw.day)
         except (ValueError, AttributeError):
+            excl_date += 1
             continue
         if added < CUTOFF_DATE:
+            excl_date += 1
             continue
         title = str(meta.get("title", path.stem))
         tags = normalise_tags(meta.get("tags", []))
         slug = slugify(path.stem)
         sections = extract_sections(body)
+        sources_text = extract_section(body, "Sources")
         question = sections.get("Research Question", "")
         thread_field = meta.get("thread", "")
         items.append(
@@ -733,10 +971,12 @@ def load_items() -> list[dict]:
                 "slug": slug,
                 "filename": name,
                 "title": title,
+                "display_title": make_display_title(title),
                 "added": added,
                 "added_str": added.isoformat(),
                 "tags": tags,
                 "sections": sections,
+                "_sources_text": sources_text,
                 "question": question,
                 "question_excerpt": question[:200].strip(),
                 "github_url": GITHUB_BASE + name,
@@ -744,7 +984,7 @@ def load_items() -> list[dict]:
             }
         )
     items.sort(key=lambda x: x["added"], reverse=True)
-    return items
+    return items, {"meta_infra": excl_meta, "date": excl_date}
 
 
 def load_metadata() -> dict:
@@ -875,10 +1115,10 @@ def render_card(item: dict, link_prefix: str = "/Research/research/") -> str:
         excerpt = excerpt.rstrip() + "…"
     return (
         f'<a class="card" href="{link_prefix}{item["slug"]}.html"'
-        f' data-title="{escape(item["title"].lower())}"'
+        f' data-title="{escape(item["display_title"].lower())}"'
         f' data-question="{escape(item["question_excerpt"].lower())}"'
         f' data-tags="{escape(",".join(item["tags"]))}">\n'
-        f'  <div class="card-title">{escape(item["title"])}</div>\n'
+        f'  <div class="card-title">{escape(item["display_title"])}</div>\n'
         f'  <div class="card-meta">{item["added_str"]}</div>\n'
         f'  <div class="card-tags">{tags_html}</div>\n'
         f'  <div class="card-excerpt">{escape(excerpt)}</div>\n'
@@ -931,7 +1171,8 @@ BROWSE_JS = """
       card.style.display = visible ? '' : 'none';
       if (visible) anyVisible = true;
     });
-    if (noResults) noResults.style.display = anyVisible ? 'none' : '';
+    var filtersActive = activeTags.size > 0 || q.length > 0;
+    if (noResults) noResults.style.display = (filtersActive && !anyVisible) ? '' : 'none';
     if (clearBtn) clearBtn.style.display = activeTags.size > 0 ? '' : 'none';
     tagBtns.forEach(function(btn) {
       btn.classList.toggle('active', activeTags.has(btn.dataset.tag));
@@ -1005,9 +1246,13 @@ SEARCH_JS = """
     });
     resultsEl.innerHTML = results.map(renderCard).join('');
     if (countEl) {
-      countEl.textContent = q
-        ? results.length + ' result' + (results.length === 1 ? '' : 's')
-        : '';
+      if (!q) {
+        countEl.textContent = '';
+      } else if (results.length === 0) {
+        countEl.textContent = 'No results found.';
+      } else {
+        countEl.textContent = results.length + ' result' + (results.length === 1 ? '' : 's');
+      }
     }
     var params = new URLSearchParams();
     if (q) params.set('q', q);
@@ -1235,6 +1480,10 @@ def build_item_page(
     """Generate docs/research/<slug>.html."""
     md = mistune.create_markdown(plugins=["table", "strikethrough"])
 
+    display_title = item["display_title"]
+    full_title = item["title"]
+    wiki_slug = item["slug"]
+
     tags_html = "".join(
         f'<a class="tag" href="/Research/tags/{escape(t)}.html">{escape(t)}</a> '
         for t in item["tags"]
@@ -1243,15 +1492,24 @@ def build_item_page(
     # Key claims from pre-extracted metadata (clean, source-URL-free sentences)
     key_claims_html = _render_key_claims(meta_claims or [])
 
+    # Build source refs for autolinking
+    source_refs = parse_source_refs(item.get("_sources_text", ""))
+
     sections_html = ""
     for section_name in SECTIONS_ORDERED:
         content = item["sections"].get(section_name, "")
         if not content:
             continue
         rendered = md(content)
+        rendered = autolink_html(rendered, source_refs)
         sections_html += f"<h2>{escape(section_name)}</h2>\n{rendered}\n"
 
     related_html = _render_related(related or [])
+
+    # Subtitle line shown when display_title has been shortened
+    subtitle_html = ""
+    if display_title != full_title:
+        subtitle_html = f'<p class="full-title-subtitle">{escape(full_title)}</p>\n'
 
     # Prev / Next
     prev_html = ""
@@ -1260,19 +1518,21 @@ def build_item_page(
         prev_html = (
             f'<div class="item-nav-prev">'
             f'<span class="item-nav-label">← newer</span>'
-            f'<a href="/Research/research/{prev_item["slug"]}.html">{escape(prev_item["title"])}</a>'
+            f'<a href="/Research/research/{prev_item["slug"]}.html">'
+            f"{escape(prev_item['display_title'])}</a>"
             f"</div>"
         )
     if next_item:
         next_html = (
             f'<div class="item-nav-next">'
             f'<span class="item-nav-label">older →</span>'
-            f'<a href="/Research/research/{next_item["slug"]}.html">{escape(next_item["title"])}</a>'
+            f'<a href="/Research/research/{next_item["slug"]}.html">'
+            f"{escape(next_item['display_title'])}</a>"
             f"</div>"
         )
 
     return (
-        html_head(f"{escape(item['title'])} — Research")
+        html_head(f"{escape(display_title)} — Research")
         + html_nav()
         + f"""\
 <main>
@@ -1281,15 +1541,17 @@ def build_item_page(
     <span>/</span>
     <a href="/Research/browse.html">Browse</a>
     <span>/</span>
-    <span>{escape(item["title"])}</span>
+    <span>{escape(display_title)}</span>
   </div>
-  <h1 class="item-title">{escape(item["title"])}</h1>
-  <div class="meta-bar">
+  <h1 class="item-title">{escape(display_title)}</h1>
+  {subtitle_html}  <div class="meta-bar">
     <span>{item["added_str"]}</span>
     <span class="meta-sep">·</span>
     {tags_html}
     <span class="meta-sep">·</span>
     <a class="source-link" href="{item["github_url"]}" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/{wiki_slug}" target="_blank" rel="noopener">wiki →</a>
   </div>
   {key_claims_html}
   <div class="item-content">
@@ -1468,7 +1730,8 @@ def build_search_index(
         index.append(
             {
                 "slug": slug,
-                "title": item["title"],
+                "title": item["display_title"],
+                "full_title": item["title"],
                 "tags": item["tags"],
                 "added": item["added_str"],
                 "question_excerpt": item["question_excerpt"],
@@ -1508,17 +1771,34 @@ def build_threads_index_json(threads: list[dict]) -> str:
 
 def main() -> None:
     print("Loading research items…")
-    items = load_items()
+    items, excl_stats = load_items()
     print(f"  {len(items)} items loaded")
+    print(
+        f"  {excl_stats['meta_infra'] + excl_stats['date']} items excluded"
+        f" (meta/infra: {excl_stats['meta_infra']}, date: {excl_stats['date']})"
+    )
+
+    # Singleton tag filtering
+    tags_to_drop, n_dropped, n_retained = filter_singleton_tags(items)
+    for item in items:
+        item["tags"] = [t for t in item["tags"] if t not in tags_to_drop]
+    print(f"  {n_dropped} singleton tags dropped, {n_retained} retained (sole tag for item)")
 
     metadata = load_metadata()
 
     print("Building relationship graph…")
     links = load_links(items)
+    total_edges = sum(len(v) for v in links.values())
 
     print("Detecting threads…")
     threads = detect_threads(items)
-    print(f"  {len(threads)} threads detected")
+    n_explicit = sum(1 for t in threads if t["kind"] == "explicit")
+    n_implicit = len(threads) - n_explicit
+    print(f"  {len(threads)} threads detected ({n_explicit} chain, {n_implicit} tag)")
+
+    # Shared-source relationships
+    shared = detect_shared_sources(items)
+    n_shared = sum(len(v) for v in shared.values())
 
     # Build slug -> thread slugs mapping
     slug_to_threads: dict[str, list[str]] = {}
@@ -1526,19 +1806,24 @@ def main() -> None:
         for item in thread["items"]:
             slug_to_threads.setdefault(item["slug"], []).append(thread["slug"])
 
-    # Create output directories
+    # Ensure owned output directories are clean (removes stale pages)
     DOCS_DIR.mkdir(exist_ok=True)
-    RESEARCH_DIR.mkdir(exist_ok=True)
-    TAGS_DIR.mkdir(exist_ok=True)
-    THREADS_DIR.mkdir(exist_ok=True)
+    for owned_dir in (RESEARCH_DIR, TAGS_DIR, THREADS_DIR):
+        if owned_dir.exists():
+            shutil.rmtree(owned_dir)
+        owned_dir.mkdir()
+
+    pages_written = 0
 
     # 1. index.html (landing)
     print("Building index.html…")
     (DOCS_DIR / "index.html").write_text(build_landing(items, threads), encoding="utf-8")
+    pages_written += 1
 
     # 2. browse.html (filterable grid)
     print("Building browse.html…")
     (DOCS_DIR / "browse.html").write_text(build_browse(items), encoding="utf-8")
+    pages_written += 1
 
     # 3. Individual item pages
     print(f"Building {len(items)} item pages…")
@@ -1549,6 +1834,7 @@ def main() -> None:
         meta_claims = metadata.get("items", {}).get(item["slug"], {}).get("key_claims", [])
         html = build_item_page(item, prev_item, next_item, related, meta_claims)
         (RESEARCH_DIR / f"{item['slug']}.html").write_text(html, encoding="utf-8")
+        pages_written += 1
 
     # 4. Tag pages
     tags_map: dict[str, list[dict]] = {}
@@ -1557,20 +1843,25 @@ def main() -> None:
             tags_map.setdefault(tag, []).append(item)
     print(f"Building tags index + {len(tags_map)} tag pages…")
     (TAGS_DIR / "index.html").write_text(build_tags_index(tags_map), encoding="utf-8")
+    pages_written += 1
     for tag, tag_items in tags_map.items():
         html = build_tag_page(tag, tag_items)
         (TAGS_DIR / f"{tag}.html").write_text(html, encoding="utf-8")
+        pages_written += 1
 
     # 5. Thread pages
     print(f"Building threads.html + {len(threads)} thread pages…")
     (DOCS_DIR / "threads.html").write_text(build_threads_listing(threads), encoding="utf-8")
+    pages_written += 1
     for thread in threads:
         html = build_thread_page(thread)
         (THREADS_DIR / f"{thread['slug']}.html").write_text(html, encoding="utf-8")
+        pages_written += 1
 
     # 6. search.html
     print("Building search.html…")
     (DOCS_DIR / "search.html").write_text(build_search_page(), encoding="utf-8")
+    pages_written += 1
 
     # 7. search-index.json
     print("Building search-index.json…")
@@ -1587,7 +1878,24 @@ def main() -> None:
     # 9. .nojekyll
     (DOCS_DIR / ".nojekyll").write_text("", encoding="utf-8")
 
-    print("Done.")
+    unique_tags = len({t for item in items for t in item["tags"]})
+    n_with_claims = sum(
+        1 for item in items if metadata.get("items", {}).get(item["slug"], {}).get("key_claims")
+    )
+
+    print("\nBuild complete.")
+    print(f"  {len(items)} items processed")
+    print(
+        f"  {excl_stats['meta_infra'] + excl_stats['date']} items excluded"
+        f" (meta/infra: {excl_stats['meta_infra']}, date: {excl_stats['date']})"
+    )
+    print(f"  {pages_written} pages written")
+    print(f"  {unique_tags} unique tags (after singleton filtering)")
+    print(f"  {n_dropped} singleton tags dropped / {n_retained} retained")
+    print(f"  {len(threads)} threads ({n_explicit} chain, {n_implicit} tag)")
+    print(f"  {total_edges} edges loaded")
+    print(f"  {n_shared} shared-source relationships added")
+    print(f"  {n_with_claims} items with key claims")
 
 
 if __name__ == "__main__":

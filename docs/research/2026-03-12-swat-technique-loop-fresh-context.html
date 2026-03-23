@@ -3,7 +3,7 @@
         <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>SWAT technique in a fresh-context loop: reliability, drift, and the effect of web search and org RAG on blind-acceptance outcomes — Research</title>
+          <title>SWAT technique in a fresh-context loop — Research</title>
           <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -503,15 +585,18 @@ main {
     <span>/</span>
     <a href="/Research/browse.html">Browse</a>
     <span>/</span>
-    <span>SWAT technique in a fresh-context loop: reliability, drift, and the effect of web search and org RAG on blind-acceptance outcomes</span>
+    <span>SWAT technique in a fresh-context loop</span>
   </div>
-  <h1 class="item-title">SWAT technique in a fresh-context loop: reliability, drift, and the effect of web search and org RAG on blind-acceptance outcomes</h1>
+  <h1 class="item-title">SWAT technique in a fresh-context loop</h1>
+  <p class="full-title-subtitle">SWAT technique in a fresh-context loop: reliability, drift, and the effect of web search and org RAG on blind-acceptance outcomes</p>
   <div class="meta-bar">
     <span>2026-03-12</span>
     <span class="meta-sep">·</span>
-    <a class="tag" href="/Research/tags/swat.html">swat</a> <a class="tag" href="/Research/tags/prompting-techniques.html">prompting-techniques</a> <a class="tag" href="/Research/tags/agentic-systems.html">agentic-systems</a> <a class="tag" href="/Research/tags/rag.html">rag</a> <a class="tag" href="/Research/tags/web-search.html">web-search</a> <a class="tag" href="/Research/tags/hallucination.html">hallucination</a> <a class="tag" href="/Research/tags/context-window.html">context-window</a> <a class="tag" href="/Research/tags/loop-reliability.html">loop-reliability</a> <a class="tag" href="/Research/tags/grounding.html">grounding</a> 
+    <a class="tag" href="/Research/tags/agentic-systems.html">agentic-systems</a> <a class="tag" href="/Research/tags/rag.html">rag</a> <a class="tag" href="/Research/tags/hallucination.html">hallucination</a> <a class="tag" href="/Research/tags/context-window.html">context-window</a> <a class="tag" href="/Research/tags/grounding.html">grounding</a> 
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-12-swat-technique-loop-fresh-context.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-12-swat-technique-loop-fresh-context" target="_blank" rel="noopener">wiki →</a>
   </div>
   
   <div class="item-content">
@@ -623,13 +708,13 @@ main {
 </tr>
 <tr>
   <td>Retrieval inconsistency: different iterations retrieve different results</td>
-  <td>https://milvus.io/ai-quick-reference/what-are-some-failure-modes-of-grounding-like-contradictory-documents-retrieved-or-no-relevant-document-retrieved-and-how-do-these-manifest-in-the-final-answer [x]; https://dev.to/kuldeep_paul/ten-failure-modes-of-rag-nobody-talks-about-and-how-to-detect-them-systematically-7i4 [x]</td>
+  <td><a href="https://milvus.io/ai-quick-reference/what-are-some-failure-modes-of-grounding-like-contradictory-documents-retrieved-or-no-relevant-document-retrieved-and-how-do-these-manifest-in-the-final-answer">milvus.io</a> [x]; <a href="https://dev.to/kuldeep_paul/ten-failure-modes-of-rag-nobody-talks-about-and-how-to-detect-them-systematically-7i4">dev.to</a> [x]</td>
   <td>Medium</td>
   <td>Practitioner sources; well-attested pattern</td>
 </tr>
 <tr>
   <td>Semantic mismatch: analytical queries differ from document vocabulary</td>
-  <td>https://www.letsdatascience.com/blog/agentic-rag-self-correcting-retrieval [x]</td>
+  <td><a href="https://www.letsdatascience.com/blog/agentic-rag-self-correcting-retrieval">www.letsdatascience.com</a> [x]</td>
   <td>Medium</td>
   <td>Secondary practitioner source</td>
 </tr>
@@ -641,7 +726,7 @@ main {
 </tr>
 <tr>
   <td>Index staleness as RAG failure mode</td>
-  <td>https://dev.to/kuldeep_paul/ten-failure-modes-of-rag-nobody-talks-about-and-how-to-detect-them-systematically-7i4 [x]</td>
+  <td><a href="https://dev.to/kuldeep_paul/ten-failure-modes-of-rag-nobody-talks-about-and-how-to-detect-them-systematically-7i4">dev.to</a> [x]</td>
   <td>Medium</td>
   <td>Practitioner documentation</td>
 </tr>
@@ -680,8 +765,8 @@ main {
 </div></div>
 
   <div class="item-nav">
-    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-12-team-size-limits-brooks-dunbar-network-theory.html">Three disciplines, one answer: Brooks, Dunbar, and network theory on why 5 is the coordination limit</a></div>
-    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-12-superpowers-integration-analysis.html">Superpowers as inspiration: what obra/superpowers can teach us about improving agent workflows across davidamitchell repos</a></div>
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-12-team-size-limits-brooks-dunbar-network-theory.html">Three disciplines, one answer</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-12-superpowers-integration-analysis.html">Superpowers as inspiration</a></div>
   </div>
 </main>
 </body>

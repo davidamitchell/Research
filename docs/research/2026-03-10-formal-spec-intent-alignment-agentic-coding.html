@@ -3,7 +3,7 @@
         <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Formal intent specification and language choice for AI alignment in agentic coding systems — Research</title>
+          <title>Formal intent specification and language choice for AI alignment in agentic… — Research</title>
           <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -503,15 +585,18 @@ main {
     <span>/</span>
     <a href="/Research/browse.html">Browse</a>
     <span>/</span>
-    <span>Formal intent specification and language choice for AI alignment in agentic coding systems</span>
+    <span>Formal intent specification and language choice for AI alignment in agentic…</span>
   </div>
-  <h1 class="item-title">Formal intent specification and language choice for AI alignment in agentic coding systems</h1>
+  <h1 class="item-title">Formal intent specification and language choice for AI alignment in agentic…</h1>
+  <p class="full-title-subtitle">Formal intent specification and language choice for AI alignment in agentic coding systems</p>
   <div class="meta-bar">
     <span>2026-03-10</span>
     <span class="meta-sep">·</span>
-    <a class="tag" href="/Research/tags/formal-methods.html">formal-methods</a> <a class="tag" href="/Research/tags/intent-alignment.html">intent-alignment</a> <a class="tag" href="/Research/tags/reward-hacking.html">reward-hacking</a> <a class="tag" href="/Research/tags/agentic-systems.html">agentic-systems</a> <a class="tag" href="/Research/tags/programming-languages.html">programming-languages</a> <a class="tag" href="/Research/tags/type-theory.html">type-theory</a> <a class="tag" href="/Research/tags/out-of-the-tar-pit.html">out-of-the-tar-pit</a> 
+    <a class="tag" href="/Research/tags/formal-methods.html">formal-methods</a> <a class="tag" href="/Research/tags/intent-alignment.html">intent-alignment</a> <a class="tag" href="/Research/tags/reward-hacking.html">reward-hacking</a> <a class="tag" href="/Research/tags/agentic-systems.html">agentic-systems</a> <a class="tag" href="/Research/tags/programming-languages.html">programming-languages</a> 
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-10-formal-spec-intent-alignment-agentic-coding.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-10-formal-spec-intent-alignment-agentic-coding" target="_blank" rel="noopener">wiki →</a>
   </div>
   
   <div class="item-content">
@@ -677,8 +762,8 @@ main {
 </div></div>
 
   <div class="item-nav">
-    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-10-language-for-llm-agent-output.html">Language designed for LLM agents to produce: addressing generation-layer failure modes in agentic systems</a></div>
-    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-10-dikw-transformation-functions.html">The DIKW pyramid: transformation functions from data to information to knowledge to wisdom</a></div>
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-10-language-for-llm-agent-output.html">Language designed for LLM agents to produce</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-10-dikw-transformation-functions.html">The DIKW pyramid</a></div>
   </div>
 </main>
 </body>

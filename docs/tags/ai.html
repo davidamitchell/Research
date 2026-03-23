@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -504,50 +586,50 @@ main {
     <a class="back-link" href="/Research/browse.html">← browse</a>
   </div>
   <div class="card-grid">
-    <a class="card" href="/Research/research/2026-03-16-adaptive-policy-authorization-compliance.html" data-title="adaptive policy-based authorization (apba): compliance alignment with national institute of standards and technology (nist) special publication (sp) 800-53 and international organization for standardization (iso) / international electrotechnical commission (iec) 27001, and impact on policy as code (pac) and artificial intelligence (ai)-generated authorization code" data-question="how does adaptive policy-based authorization (apba) align with the dynamic access-control requirements of national institute of standards and technology (nist) special publication (sp) 800-53 and iso/" data-tags="authorization,policy-as-code,compliance,nist,iso-27001,ai,governance,least-privilege,access-control,iac">
-  <div class="card-title">Adaptive Policy-Based Authorization (APBA): compliance alignment with National Institute of Standards and Technology (NIST) Special Publication (SP) 800-53 and International Organization for Standardization (ISO) / International Electrotechnical Commission (IEC) 27001, and impact on Policy as Code (PaC) and Artificial Intelligence (AI)-generated authorization code</div>
+    <a class="card" href="/Research/research/2026-03-16-adaptive-policy-authorization-compliance.html" data-title="apba" data-question="how does adaptive policy-based authorization (apba) align with the dynamic access-control requirements of national institute of standards and technology (nist) special publication (sp) 800-53 and iso/" data-tags="policy-as-code,compliance,ai,governance">
+  <div class="card-title">APBA</div>
   <div class="card-meta">2026-03-16</div>
-  <div class="card-tags"><span class="tag">authorization</span><span class="tag">policy-as-code</span><span class="tag">compliance</span><span class="tag">nist</span><span class="tag">iso-27001</span><span class="tag">ai</span><span class="tag">governance</span><span class="tag">least-privilege</span><span class="tag">access-control</span><span class="tag">iac</span></div>
+  <div class="card-tags"><span class="tag">policy-as-code</span><span class="tag">compliance</span><span class="tag">ai</span><span class="tag">governance</span></div>
   <div class="card-excerpt">How does Adaptive Policy-Based Authorization (APBA) align with the dynamic access-control requirements of National Institute of Standards and Technology (NIST) Special Publication (SP) 800-53 and ISO/…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-15-trusting-trust-ai-corpus-contamination.html" data-title="trusting trust and ai corpus contamination" data-question="ken thompson&#39;s &quot;trusting trust&quot; argument shows that you cannot verify a compiler by reading its source code if the compiler was compiled by a compromised toolchain — the contamination lives in the bin" data-tags="ai,epistemology,trust,corpus-contamination,prompt-injection,large-language-model,knowledge,security">
+<a class="card" href="/Research/research/2026-03-15-trusting-trust-ai-corpus-contamination.html" data-title="trusting trust and ai corpus contamination" data-question="ken thompson&#39;s &quot;trusting trust&quot; argument shows that you cannot verify a compiler by reading its source code if the compiler was compiled by a compromised toolchain — the contamination lives in the bin" data-tags="ai,epistemology,prompt-injection,security">
   <div class="card-title">Trusting Trust and AI Corpus Contamination</div>
   <div class="card-meta">2026-03-15</div>
-  <div class="card-tags"><span class="tag">ai</span><span class="tag">epistemology</span><span class="tag">trust</span><span class="tag">corpus-contamination</span><span class="tag">prompt-injection</span><span class="tag">large-language-model</span><span class="tag">knowledge</span><span class="tag">security</span></div>
+  <div class="card-tags"><span class="tag">ai</span><span class="tag">epistemology</span><span class="tag">prompt-injection</span><span class="tag">security</span></div>
   <div class="card-excerpt">Ken Thompson&#39;s &quot;Trusting Trust&quot; argument shows that you cannot verify a compiler by reading its source code if the compiler was compiled by a compromised toolchain — the contamination lives in the bin…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-14-reliable-software-llm-era.html" data-title="reliable software in the llm era" data-question="what strategies and formal-methods tooling exist for maintaining software reliability in the large language model (llm) era, and what does the quint formal specification language ecosystem - including" data-tags="llm,formal-methods,reliability,software-engineering,quint,formal-verification,cognitive-debt,ai">
+<a class="card" href="/Research/research/2026-03-14-reliable-software-llm-era.html" data-title="reliable software in the llm era" data-question="what strategies and formal-methods tooling exist for maintaining software reliability in the large language model (llm) era, and what does the quint formal specification language ecosystem - including" data-tags="llm,formal-methods,reliability,software-engineering,formal-verification,ai">
   <div class="card-title">Reliable Software in the LLM Era</div>
   <div class="card-meta">2026-03-14</div>
-  <div class="card-tags"><span class="tag">llm</span><span class="tag">formal-methods</span><span class="tag">reliability</span><span class="tag">software-engineering</span><span class="tag">quint</span><span class="tag">formal-verification</span><span class="tag">cognitive-debt</span><span class="tag">ai</span></div>
+  <div class="card-tags"><span class="tag">llm</span><span class="tag">formal-methods</span><span class="tag">reliability</span><span class="tag">software-engineering</span><span class="tag">formal-verification</span><span class="tag">ai</span></div>
   <div class="card-excerpt">What strategies and formal-methods tooling exist for maintaining software reliability in the Large Language Model (LLM) era, and what does the Quint formal specification language ecosystem - including…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-12-volume-vs-correctness-ai-era.html" data-title="ai inverted the knowledge-work scarcity equation: volume is free, correctness is the scarce resource" data-question="before artificial intelligence (ai), throughput (volume of output) was the binding constraint on knowledge work. ai has
-dramatically reduced the cost of generating output. does the evidence support th" data-tags="correctness,quality,throughput,volume,ai,productivity,verification,shared-context,agentic-tarpit,procter-and-gamble-study">
-  <div class="card-title">AI inverted the knowledge-work scarcity equation: volume is free, correctness is the scarce resource</div>
+<a class="card" href="/Research/research/2026-03-12-volume-vs-correctness-ai-era.html" data-title="ai inverted the knowledge-work scarcity equation" data-question="before artificial intelligence (ai), throughput (volume of output) was the binding constraint on knowledge work. ai has
+dramatically reduced the cost of generating output. does the evidence support th" data-tags="quality,ai,productivity">
+  <div class="card-title">AI inverted the knowledge-work scarcity equation</div>
   <div class="card-meta">2026-03-12</div>
-  <div class="card-tags"><span class="tag">correctness</span><span class="tag">quality</span><span class="tag">throughput</span><span class="tag">volume</span><span class="tag">ai</span><span class="tag">productivity</span><span class="tag">verification</span><span class="tag">shared-context</span><span class="tag">agentic-tarpit</span><span class="tag">procter-and-gamble-study</span></div>
+  <div class="card-tags"><span class="tag">quality</span><span class="tag">ai</span><span class="tag">productivity</span></div>
   <div class="card-excerpt">Before Artificial Intelligence (AI), throughput (volume of output) was the binding constraint on knowledge work. AI has
 dramatically reduced the cost of generating output. Does the evidence support th…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-12-ai-team-size-strike-team-thesis.html" data-title="ai amplified the coordination tax: the 5-person strike team as the structural unit of the ai era" data-question="artificial intelligence (ai) has increased per-person output by 5–10x. if coordination cost scales with the square of team size
-(see `2026-03-12-team-size-limits-brooks-dunbar-network-theory.md`), wha" data-tags="team-size,ai,coordination-overhead,strike-team,organisational-design,productivity,ai-native">
-  <div class="card-title">AI amplified the coordination tax: the 5-person strike team as the structural unit of the AI era</div>
+<a class="card" href="/Research/research/2026-03-12-ai-team-size-strike-team-thesis.html" data-title="ai amplified the coordination tax" data-question="artificial intelligence (ai) has increased per-person output by 5–10x. if coordination cost scales with the square of team size
+(see `2026-03-12-team-size-limits-brooks-dunbar-network-theory.md`), wha" data-tags="team-size,ai,coordination-overhead,organisational-design,productivity,ai-native">
+  <div class="card-title">AI amplified the coordination tax</div>
   <div class="card-meta">2026-03-12</div>
-  <div class="card-tags"><span class="tag">team-size</span><span class="tag">ai</span><span class="tag">coordination-overhead</span><span class="tag">strike-team</span><span class="tag">organisational-design</span><span class="tag">productivity</span><span class="tag">ai-native</span></div>
+  <div class="card-tags"><span class="tag">team-size</span><span class="tag">ai</span><span class="tag">coordination-overhead</span><span class="tag">organisational-design</span><span class="tag">productivity</span><span class="tag">ai-native</span></div>
   <div class="card-excerpt">Artificial Intelligence (AI) has increased per-person output by 5–10x. If coordination cost scales with the square of team size
 (see `2026-03-12-team-size-limits-brooks-dunbar-network-theory.md`), wha…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-08-servicenow-platform-strategy.html" data-title="servicenow platform strategy: holistic integration of csdm, modules, process, and ai" data-question="given the findings from the common service data model (csdm) data modelling, process mapping, and ai capability research, how should an organisation develop a coherent, practical servicenow platform s" data-tags="servicenow,platform-strategy,csdm,itsm,apm,spm,irm,grc,fso,ai,process-mapping,enterprise-architecture,tco">
-  <div class="card-title">ServiceNow Platform Strategy: Holistic Integration of CSDM, Modules, Process, and AI</div>
+<a class="card" href="/Research/research/2026-03-08-servicenow-platform-strategy.html" data-title="servicenow platform strategy" data-question="given the findings from the common service data model (csdm) data modelling, process mapping, and ai capability research, how should an organisation develop a coherent, practical servicenow platform s" data-tags="servicenow,platform-strategy,csdm,itsm,apm,spm,irm,grc,fso,ai,process-mapping,enterprise-architecture,tco">
+  <div class="card-title">ServiceNow Platform Strategy</div>
   <div class="card-meta">2026-03-08</div>
   <div class="card-tags"><span class="tag">servicenow</span><span class="tag">platform-strategy</span><span class="tag">csdm</span><span class="tag">itsm</span><span class="tag">apm</span><span class="tag">spm</span><span class="tag">irm</span><span class="tag">grc</span><span class="tag">fso</span><span class="tag">ai</span><span class="tag">process-mapping</span><span class="tag">enterprise-architecture</span><span class="tag">tco</span></div>
   <div class="card-excerpt">Given the findings from the Common Service Data Model (CSDM) data modelling, process mapping, and AI capability research, how should an organisation develop a coherent, practical ServiceNow platform s…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-08-servicenow-ai-knowledge-rag-agents.html" data-title="servicenow ai: knowledge management, rag pipelines, and agent frameworks" data-question="how is servicenow evolving its platform to support ai-powered knowledge management, retrieval-augmented generation (rag), and agent frameworks — and what should an organisation investing in servicenow" data-tags="servicenow,ai,now-assist,rag,knowledge-management,agent-frameworks,genai,llm,knowledge-base">
-  <div class="card-title">ServiceNow AI: Knowledge Management, RAG Pipelines, and Agent Frameworks</div>
+<a class="card" href="/Research/research/2026-03-08-servicenow-ai-knowledge-rag-agents.html" data-title="servicenow ai" data-question="how is servicenow evolving its platform to support ai-powered knowledge management, retrieval-augmented generation (rag), and agent frameworks — and what should an organisation investing in servicenow" data-tags="servicenow,ai,rag,knowledge-management,llm">
+  <div class="card-title">ServiceNow AI</div>
   <div class="card-meta">2026-03-08</div>
-  <div class="card-tags"><span class="tag">servicenow</span><span class="tag">ai</span><span class="tag">now-assist</span><span class="tag">rag</span><span class="tag">knowledge-management</span><span class="tag">agent-frameworks</span><span class="tag">genai</span><span class="tag">llm</span><span class="tag">knowledge-base</span></div>
+  <div class="card-tags"><span class="tag">servicenow</span><span class="tag">ai</span><span class="tag">rag</span><span class="tag">knowledge-management</span><span class="tag">llm</span></div>
   <div class="card-excerpt">How is ServiceNow evolving its platform to support AI-powered knowledge management, retrieval-augmented generation (RAG), and agent frameworks — and what should an organisation investing in ServiceNow…</div>
 </a>
 

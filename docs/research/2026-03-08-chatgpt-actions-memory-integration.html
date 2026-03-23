@@ -3,7 +3,7 @@
         <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>ChatGPT Actions and custom GPTs: external memory integration options — Research</title>
+          <title>ChatGPT Actions and custom GPTs — Research</title>
           <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -503,15 +585,18 @@ main {
     <span>/</span>
     <a href="/Research/browse.html">Browse</a>
     <span>/</span>
-    <span>ChatGPT Actions and custom GPTs: external memory integration options</span>
+    <span>ChatGPT Actions and custom GPTs</span>
   </div>
-  <h1 class="item-title">ChatGPT Actions and custom GPTs: external memory integration options</h1>
+  <h1 class="item-title">ChatGPT Actions and custom GPTs</h1>
+  <p class="full-title-subtitle">ChatGPT Actions and custom GPTs: external memory integration options</p>
   <div class="meta-bar">
     <span>2026-03-08</span>
     <span class="meta-sep">·</span>
-    <a class="tag" href="/Research/tags/mobile.html">mobile</a> <a class="tag" href="/Research/tags/chatgpt.html">chatgpt</a> <a class="tag" href="/Research/tags/openai.html">openai</a> <a class="tag" href="/Research/tags/actions.html">actions</a> <a class="tag" href="/Research/tags/memory-system.html">memory-system</a> 
+    <a class="tag" href="/Research/tags/mobile.html">mobile</a> <a class="tag" href="/Research/tags/openai.html">openai</a> <a class="tag" href="/Research/tags/memory-system.html">memory-system</a> 
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-chatgpt-actions-memory-integration.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-08-chatgpt-actions-memory-integration" target="_blank" rel="noopener">wiki →</a>
   </div>
   
   <div class="item-content">
@@ -554,7 +639,7 @@ main {
 <tbody>
 <tr>
   <td>GPT Actions call any public HTTPS endpoint via OpenAPI schema</td>
-  <td>https://platform.openai.com/docs/actions/introduction</td>
+  <td><a href="https://platform.openai.com/docs/actions/introduction</td>">platform.openai.com</a>
   <td>high</td>
   <td>Primary source; confirmed by multiple implementation guides</td>
 </tr>
@@ -566,7 +651,7 @@ main {
 </tr>
 <tr>
   <td>API key (custom header) auth supported in GPT editor UI</td>
-  <td>https://platform.openai.com/docs/actions/authentication; OpenAI docs at developers.openai.com</td>
+  <td><a href="https://platform.openai.com/docs/actions/authentication">platform.openai.com</a> OpenAI docs at developers.openai.com</td>
   <td>high</td>
   <td>Primary source; three sub-types confirmed</td>
 </tr>
@@ -584,7 +669,7 @@ main {
 </tr>
 <tr>
   <td><code>search_brain</code> retrieval triggerable via system prompt</td>
-  <td>https://help.openai.com/en/articles/8868588-retrieval-augmented-generation-rag-and-semantic-search-for-gpts</td>
+  <td><a href="https://help.openai.com/en/articles/8868588-retrieval-augmented-generation-rag-and-semantic-search-for-gpts</td>">help.openai.com</a>
   <td>medium</td>
   <td>System prompt compliance is probabilistic, not guaranteed</td>
 </tr>
@@ -596,13 +681,13 @@ main {
 </tr>
 <tr>
   <td>Memory export is manual ZIP only</td>
-  <td>https://help.openai.com/en/articles/7260999-how-do-i-export-my-chatgpt-history-and-data</td>
+  <td><a href="https://help.openai.com/en/articles/7260999-how-do-i-export-my-chatgpt-history-and-data</td>">help.openai.com</a>
   <td>high</td>
   <td>Primary source</td>
 </tr>
 <tr>
   <td>ChatGPT Plus required to create custom GPTs</td>
-  <td>https://help.openai.com/en/articles/8554397-creating-a-gpt</td>
+  <td><a href="https://help.openai.com/en/articles/8554397-creating-a-gpt</td>">help.openai.com</a>
   <td>high</td>
   <td>Primary source</td>
 </tr>
@@ -658,8 +743,8 @@ main {
 </div></div>
 
   <div class="item-nav">
-    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-08-claude-ios-mcp-remote-integration.html">Claude for iOS: MCP remote integration for memory capture and retrieval</a></div>
-    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-08-bbc-five-case-model.html">Better Business Cases: Five Case Model authoring and application</a></div>
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-08-claude-ios-mcp-remote-integration.html">Claude for iOS</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-08-bbc-five-case-model.html">Better Business Cases</a></div>
   </div>
 </main>
 </body>

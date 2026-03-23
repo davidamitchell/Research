@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -506,12 +588,14 @@ main {
     <span>Semantic and full-text search over the research corpus</span>
   </div>
   <h1 class="item-title">Semantic and full-text search over the research corpus</h1>
-  <div class="meta-bar">
+    <div class="meta-bar">
     <span>2026-03-02</span>
     <span class="meta-sep">·</span>
-    <a class="tag" href="/Research/tags/search.html">search</a> <a class="tag" href="/Research/tags/semantic-search.html">semantic-search</a> <a class="tag" href="/Research/tags/full-text-search.html">full-text-search</a> <a class="tag" href="/Research/tags/vector-search.html">vector-search</a> <a class="tag" href="/Research/tags/embeddings.html">embeddings</a> <a class="tag" href="/Research/tags/indexing.html">indexing</a> <a class="tag" href="/Research/tags/rag.html">rag</a> 
+    <a class="tag" href="/Research/tags/search.html">search</a> <a class="tag" href="/Research/tags/embeddings.html">embeddings</a> <a class="tag" href="/Research/tags/indexing.html">indexing</a> <a class="tag" href="/Research/tags/rag.html">rag</a> 
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-02-semantic-full-text-search.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-02-semantic-full-text-search" target="_blank" rel="noopener">wiki →</a>
   </div>
   <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>SQLite FTS5 BM25 full-text search requires zero additional Python dependencies beyond the stdlib `sqlite3` module and delivers sub-millisecond query latency for corpora of fewer than 500 documents, making it the correct and sufficient Phase 1 implementation</li>
 <li>The four query patterns for this corpus — tag-based, keyword, topic/conceptual, and recency — split cleanly: tag and recency queries require only YAML front-matter metadata lookups; keyword queries are served by FTS5; only conceptual queries (&quot;what do I know about X&quot;) require semantic search, and these are the least frequent query type for a single-owner corpus</li>
@@ -590,7 +674,7 @@ main {
 </tr>
 <tr>
   <td>sqlite-vec pre-v1, breaking changes declared</td>
-  <td>https://github.com/asg017/sqlite-vec README</td>
+  <td><a href="https://github.com/asg017/sqlite-vec">github.com</a> README</td>
   <td>high</td>
   <td>Explicitly stated in the repository's README</td>
 </tr>

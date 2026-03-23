@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -509,24 +591,24 @@ main {
   <p class="page-subtitle" style="margin-bottom:1.5rem">3 items</p>
   <div class="featured-pills" style="margin-bottom:1.5rem"><a class="tag-pill-link tag" href="/Research/tags/compliance.html">compliance</a><a class="tag-pill-link tag" href="/Research/tags/policy-as-code.html">policy-as-code</a><a class="tag-pill-link tag" href="/Research/tags/github-actions.html">github-actions</a></div>
   <div class="card-grid">
-    <a class="card" href="/Research/research/2026-03-16-adaptive-policy-authorization-compliance.html" data-title="adaptive policy-based authorization (apba): compliance alignment with national institute of standards and technology (nist) special publication (sp) 800-53 and international organization for standardization (iso) / international electrotechnical commission (iec) 27001, and impact on policy as code (pac) and artificial intelligence (ai)-generated authorization code" data-question="how does adaptive policy-based authorization (apba) align with the dynamic access-control requirements of national institute of standards and technology (nist) special publication (sp) 800-53 and iso/" data-tags="authorization,policy-as-code,compliance,nist,iso-27001,ai,governance,least-privilege,access-control,iac">
-  <div class="card-title">Adaptive Policy-Based Authorization (APBA): compliance alignment with National Institute of Standards and Technology (NIST) Special Publication (SP) 800-53 and International Organization for Standardization (ISO) / International Electrotechnical Commission (IEC) 27001, and impact on Policy as Code (PaC) and Artificial Intelligence (AI)-generated authorization code</div>
+    <a class="card" href="/Research/research/2026-03-16-adaptive-policy-authorization-compliance.html" data-title="apba" data-question="how does adaptive policy-based authorization (apba) align with the dynamic access-control requirements of national institute of standards and technology (nist) special publication (sp) 800-53 and iso/" data-tags="policy-as-code,compliance,ai,governance">
+  <div class="card-title">APBA</div>
   <div class="card-meta">2026-03-16</div>
-  <div class="card-tags"><span class="tag">authorization</span><span class="tag">policy-as-code</span><span class="tag">compliance</span><span class="tag">nist</span><span class="tag">iso-27001</span><span class="tag">ai</span><span class="tag">governance</span><span class="tag">least-privilege</span><span class="tag">access-control</span><span class="tag">iac</span></div>
+  <div class="card-tags"><span class="tag">policy-as-code</span><span class="tag">compliance</span><span class="tag">ai</span><span class="tag">governance</span></div>
   <div class="card-excerpt">How does Adaptive Policy-Based Authorization (APBA) align with the dynamic access-control requirements of National Institute of Standards and Technology (NIST) Special Publication (SP) 800-53 and ISO/…</div>
 </a>
 <div class="thread-connector">↓</div>
-<a class="card" href="/Research/research/2026-03-22-cross-scanner-compliance-evidence-normalisation.html" data-title="cross-scanner compliance evidence and waiver normalisation in github actions" data-question="how should an organisation running multiple compliance scanners in github actions normalise evidence, severity, waiver handling, and developer-facing output so that heterogeneous tools behave like one" data-tags="github-actions,compliance,policy-as-code,evidence,waivers,sarif,governance,reporting">
+<a class="card" href="/Research/research/2026-03-22-cross-scanner-compliance-evidence-normalisation.html" data-title="cross-scanner compliance evidence and waiver normalisation in github actions" data-question="how should an organisation running multiple compliance scanners in github actions normalise evidence, severity, waiver handling, and developer-facing output so that heterogeneous tools behave like one" data-tags="github-actions,compliance,policy-as-code,governance">
   <div class="card-title">Cross-Scanner Compliance Evidence and Waiver Normalisation in GitHub Actions</div>
   <div class="card-meta">2026-03-22</div>
-  <div class="card-tags"><span class="tag">github-actions</span><span class="tag">compliance</span><span class="tag">policy-as-code</span><span class="tag">evidence</span><span class="tag">waivers</span><span class="tag">sarif</span><span class="tag">governance</span><span class="tag">reporting</span></div>
+  <div class="card-tags"><span class="tag">github-actions</span><span class="tag">compliance</span><span class="tag">policy-as-code</span><span class="tag">governance</span></div>
   <div class="card-excerpt">How should an organisation running multiple compliance scanners in GitHub Actions normalise evidence, severity, waiver handling, and developer-facing output so that heterogeneous tools behave like one…</div>
 </a>
 <div class="thread-connector">↓</div>
-<a class="card" href="/Research/research/2026-03-22-compliance-scanning-gh-actions.html" data-title="compliance scanning via github actions — broad policy as code across a heterogeneous stack" data-question="how can github actions (with github advanced security (ghas) and codeql already enabled) be extended to enforce a broad, organisation-wide compliance policy — covering naming conventions, architectura" data-tags="github-actions,policy-as-code,compliance,codeql,ghas,dotnet,kubernetes,eventing,rest-api,graph-api,python,react,airflow,dbt,snowflake,rds,golang,terraform,ansible">
-  <div class="card-title">Compliance Scanning via GitHub Actions — Broad Policy as Code Across a Heterogeneous Stack</div>
+<a class="card" href="/Research/research/2026-03-22-compliance-scanning-gh-actions.html" data-title="compliance scanning via github actions — broad policy as code across a…" data-question="how can github actions (with github advanced security (ghas) and codeql already enabled) be extended to enforce a broad, organisation-wide compliance policy — covering naming conventions, architectura" data-tags="github-actions,policy-as-code,compliance,dotnet,python,airflow,terraform">
+  <div class="card-title">Compliance Scanning via GitHub Actions — Broad Policy as Code Across a…</div>
   <div class="card-meta">2026-03-22</div>
-  <div class="card-tags"><span class="tag">github-actions</span><span class="tag">policy-as-code</span><span class="tag">compliance</span><span class="tag">codeql</span><span class="tag">ghas</span><span class="tag">dotnet</span><span class="tag">kubernetes</span><span class="tag">eventing</span><span class="tag">rest-api</span><span class="tag">graph-api</span><span class="tag">python</span><span class="tag">react</span><span class="tag">airflow</span><span class="tag">dbt</span><span class="tag">snowflake</span><span class="tag">rds</span><span class="tag">golang</span><span class="tag">terraform</span><span class="tag">ansible</span></div>
+  <div class="card-tags"><span class="tag">github-actions</span><span class="tag">policy-as-code</span><span class="tag">compliance</span><span class="tag">dotnet</span><span class="tag">python</span><span class="tag">airflow</span><span class="tag">terraform</span></div>
   <div class="card-excerpt">How can GitHub Actions (with GitHub Advanced Security (GHAS) and CodeQL already enabled) be extended to enforce a broad, organisation-wide compliance policy — covering naming conventions, architectura…</div>
 </a>
 

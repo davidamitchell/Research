@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -506,12 +588,14 @@ main {
     <span>Slack and MS Teams integration for research delivery and capture</span>
   </div>
   <h1 class="item-title">Slack and MS Teams integration for research delivery and capture</h1>
-  <div class="meta-bar">
+    <div class="meta-bar">
     <span>2026-03-02</span>
     <span class="meta-sep">·</span>
-    <a class="tag" href="/Research/tags/slack.html">slack</a> <a class="tag" href="/Research/tags/ms-teams.html">ms-teams</a> <a class="tag" href="/Research/tags/integration.html">integration</a> <a class="tag" href="/Research/tags/delivery.html">delivery</a> <a class="tag" href="/Research/tags/notifications.html">notifications</a> <a class="tag" href="/Research/tags/bot.html">bot</a> <a class="tag" href="/Research/tags/interface.html">interface</a> <a class="tag" href="/Research/tags/distribution.html">distribution</a> 
+    <a class="tag" href="/Research/tags/slack.html">slack</a> <a class="tag" href="/Research/tags/delivery.html">delivery</a> <a class="tag" href="/Research/tags/bot.html">bot</a> <a class="tag" href="/Research/tags/interface.html">interface</a> 
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-02-slack-msteams-research-integration.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-02-slack-msteams-research-integration" target="_blank" rel="noopener">wiki →</a>
   </div>
   <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>`slackapi/slack-github-action@v2.1.1` is the only actively maintained official Slack notification action for GitHub Actions; `8398a7/action-slack` was archived on 2025-09-13 and its own README recommends migrating to the Slack-maintained action</li>
 <li>Outbound Slack notification requires exactly one new secret (`SLACK_WEBHOOK_URL`) stored as a GitHub Actions repository secret; this secret is the only new credential needed for per-item delivery and requires explicit owner approval before the workflow can be implemented</li>
@@ -675,7 +759,7 @@ main {
 </div></div>
 
   <div class="item-nav">
-    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-02-transaction-costs.html">Transaction Cost Economics: foundations and speculative integration with SWE, AI, knowledge management, and context engineering</a></div>
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-02-transaction-costs.html">Transaction Cost Economics</a></div>
     <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-02-semantic-full-text-search.html">Semantic and full-text search over the research corpus</a></div>
   </div>
 </main>

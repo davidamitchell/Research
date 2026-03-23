@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -504,16 +586,16 @@ main {
     <a class="back-link" href="/Research/browse.html">← browse</a>
   </div>
   <div class="card-grid">
-    <a class="card" href="/Research/research/2026-03-16-gitagent-declarative-agent-definition.html" data-title="gitagent and declarative agent definition: concepts, adoption, and cross-platform integration" data-question="what is gitagent (https://github.com/open-gitagent/gitagent), how can it be used in this repository, what concepts does it build on and produce, and how does the broader idea of declarative agent defi" data-tags="agent,declarative-agent,gitagent,copilot,aws,azure,microsoft-365,git,ai-platform,multi-agent">
-  <div class="card-title">GitAgent and declarative agent definition: concepts, adoption, and cross-platform integration</div>
+    <a class="card" href="/Research/research/2026-03-16-gitagent-declarative-agent-definition.html" data-title="gitagent and declarative agent definition" data-question="what is gitagent (https://github.com/open-gitagent/gitagent), how can it be used in this repository, what concepts does it build on and produce, and how does the broader idea of declarative agent defi" data-tags="copilot,git,multi-agent">
+  <div class="card-title">GitAgent and declarative agent definition</div>
   <div class="card-meta">2026-03-16</div>
-  <div class="card-tags"><span class="tag">agent</span><span class="tag">declarative-agent</span><span class="tag">gitagent</span><span class="tag">copilot</span><span class="tag">aws</span><span class="tag">azure</span><span class="tag">microsoft-365</span><span class="tag">git</span><span class="tag">ai-platform</span><span class="tag">multi-agent</span></div>
+  <div class="card-tags"><span class="tag">copilot</span><span class="tag">git</span><span class="tag">multi-agent</span></div>
   <div class="card-excerpt">What is GitAgent (https://github.com/open-gitagent/gitagent), how can it be used in this repository, what concepts does it build on and produce, and how does the broader idea of declarative agent defi…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-15-tracking-work-across-systems.html" data-title="tracking how work travels across organisational systems" data-question="can we track how a unit of &#39;work&#39; -- an idea or concept -- travels across organisational systems (sharepoint, confluence, azure devops (ado)/jira, git, monitoring systems, and data platforms), and wha" data-tags="knowledge-management,work-tracking,sharepoint,confluence,ado,jira,git,monitoring,data-platform,provenance">
+<a class="card" href="/Research/research/2026-03-15-tracking-work-across-systems.html" data-title="tracking how work travels across organisational systems" data-question="can we track how a unit of &#39;work&#39; -- an idea or concept -- travels across organisational systems (sharepoint, confluence, azure devops (ado)/jira, git, monitoring systems, and data platforms), and wha" data-tags="knowledge-management,confluence,git,data-platform">
   <div class="card-title">Tracking How Work Travels Across Organisational Systems</div>
   <div class="card-meta">2026-03-15</div>
-  <div class="card-tags"><span class="tag">knowledge-management</span><span class="tag">work-tracking</span><span class="tag">sharepoint</span><span class="tag">confluence</span><span class="tag">ado</span><span class="tag">jira</span><span class="tag">git</span><span class="tag">monitoring</span><span class="tag">data-platform</span><span class="tag">provenance</span></div>
+  <div class="card-tags"><span class="tag">knowledge-management</span><span class="tag">confluence</span><span class="tag">git</span><span class="tag">data-platform</span></div>
   <div class="card-excerpt">Can we track how a unit of &#39;Work&#39; -- an idea or concept -- travels across organisational systems (SharePoint, Confluence, Azure DevOps (ADO)/Jira, Git, monitoring systems, and data platforms), and wha…</div>
 </a>
 

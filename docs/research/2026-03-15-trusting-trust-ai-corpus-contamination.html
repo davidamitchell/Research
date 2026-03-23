@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -506,12 +588,14 @@ main {
     <span>Trusting Trust and AI Corpus Contamination</span>
   </div>
   <h1 class="item-title">Trusting Trust and AI Corpus Contamination</h1>
-  <div class="meta-bar">
+    <div class="meta-bar">
     <span>2026-03-15</span>
     <span class="meta-sep">·</span>
-    <a class="tag" href="/Research/tags/ai.html">ai</a> <a class="tag" href="/Research/tags/epistemology.html">epistemology</a> <a class="tag" href="/Research/tags/trust.html">trust</a> <a class="tag" href="/Research/tags/corpus-contamination.html">corpus-contamination</a> <a class="tag" href="/Research/tags/prompt-injection.html">prompt-injection</a> <a class="tag" href="/Research/tags/large-language-model.html">large-language-model</a> <a class="tag" href="/Research/tags/knowledge.html">knowledge</a> <a class="tag" href="/Research/tags/security.html">security</a> 
+    <a class="tag" href="/Research/tags/ai.html">ai</a> <a class="tag" href="/Research/tags/epistemology.html">epistemology</a> <a class="tag" href="/Research/tags/prompt-injection.html">prompt-injection</a> <a class="tag" href="/Research/tags/security.html">security</a> 
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-15-trusting-trust-ai-corpus-contamination.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-15-trusting-trust-ai-corpus-contamination" target="_blank" rel="noopener">wiki →</a>
   </div>
   <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Thompson&#39;s trusting-trust argument maps most closely to recursive corpus contamination because both involve upstream corruption that reproduces across generations while remaining largely invisible when a reviewer inspects only the final visible artifact</li>
 <li>The strongest publicly accessible prevalence evidence shows that AI-generated text is already a large share of the public web, but the underlying studies support a bounded range rather than a settled claim that half of all web text is synthetic</li>
@@ -529,20 +613,20 @@ main {
 
 <h2>Findings</h2>
 <h3>Executive Summary</h3>
-<p><strong>[inference]</strong> The public web now behaves less like a neutral evidence commons and more like a partially recursive corpus whose provenance cannot be validated by reading any single page in isolation. (Sources: https://graphite.io/five-percent/more-articles-are-now-created-by-ai-than-humans ; https://arxiv.org/abs/2504.08755 ; https://www.nature.com/articles/s41586-024-07566-y)</p>
-<p><strong>[inference]</strong> Thompson's trusting-trust argument is therefore best applied here as a warning about recursive corpus contamination rather than as a claim that the web contains a literal compiler-style backdoor. Later models and later readers increasingly consume outputs partly produced by earlier models, which weakens local source inspection as a test of independence. (Sources: https://www.cs.cmu.edu/afs/cs/academic/class/15712-f08/www/lectures/Thompson84lecture.pdf ; https://www.nature.com/articles/s41586-024-07566-y ; https://arxiv.org/abs/2404.01413)</p>
-<p><strong>[fact]</strong> The best accessible prevalence evidence does not establish that half of all web text is AI-generated, but it does support a large current share, with active-web estimates around 30-40% and some sampled article sets already near parity. (Sources: https://graphite.io/five-percent/more-articles-are-now-created-by-ai-than-humans ; https://arxiv.org/abs/2504.08755)</p>
-<p><strong>[inference]</strong> The practical result is epistemic as well as technical: citation and agreement remain useful, but they now carry more weight when they demonstrate provenance and source independence rather than repeated fluency across webpages. (Sources: https://iep.utm.edu/ep-circ/ ; https://www.cs.cmu.edu/afs/cs/academic/class/15712-f08/www/lectures/Thompson84lecture.pdf)</p>
+<p><strong>[inference]</strong> The public web now behaves less like a neutral evidence commons and more like a partially recursive corpus whose provenance cannot be validated by reading any single page in isolation. (Sources: <a href="https://graphite.io/five-percent/more-articles-are-now-created-by-ai-than-humans">graphite.io</a> ; <a href="https://arxiv.org/abs/2504.08755">arxiv.org/abs/2504.08755</a> ; <a href="https://www.nature.com/articles/s41586-024-07566-y)</p>">www.nature.com</a>
+<p><strong>[inference]</strong> Thompson's trusting-trust argument is therefore best applied here as a warning about recursive corpus contamination rather than as a claim that the web contains a literal compiler-style backdoor. Later models and later readers increasingly consume outputs partly produced by earlier models, which weakens local source inspection as a test of independence. (Sources: <a href="https://www.cs.cmu.edu/afs/cs/academic/class/15712-f08/www/lectures/Thompson84lecture.pdf">www.cs.cmu.edu</a> ; <a href="https://www.nature.com/articles/s41586-024-07566-y">www.nature.com</a> ; <a href="https://arxiv.org/abs/2404.01413)</p>">arxiv.org/abs/2404.01413</a>
+<p><strong>[fact]</strong> The best accessible prevalence evidence does not establish that half of all web text is AI-generated, but it does support a large current share, with active-web estimates around 30-40% and some sampled article sets already near parity. (Sources: <a href="https://graphite.io/five-percent/more-articles-are-now-created-by-ai-than-humans">graphite.io</a> ; <a href="https://arxiv.org/abs/2504.08755)</p>">arxiv.org/abs/2504.08755</a>
+<p><strong>[inference]</strong> The practical result is epistemic as well as technical: citation and agreement remain useful, but they now carry more weight when they demonstrate provenance and source independence rather than repeated fluency across webpages. (Sources: <a href="https://iep.utm.edu/ep-circ/">iep.utm.edu</a> ; <a href="https://www.cs.cmu.edu/afs/cs/academic/class/15712-f08/www/lectures/Thompson84lecture.pdf)</p>">www.cs.cmu.edu</a>
 <h3>Key Findings</h3>
 <ol>
-<li><strong>[inference]</strong> Thompson's trusting-trust argument maps most closely to recursive corpus contamination because both involve upstream corruption that reproduces across generations while remaining largely invisible when a reviewer inspects only the final visible artifact. <strong>Confidence:</strong> high. (Sources: https://www.cs.cmu.edu/afs/cs/academic/class/15712-f08/www/lectures/Thompson84lecture.pdf ; https://www.nature.com/articles/s41586-024-07566-y)</li>
-<li><strong>[fact]</strong> The strongest publicly accessible prevalence evidence shows that AI-generated text is already a large share of the public web, but the underlying studies support a bounded range rather than a settled claim that half of all web text is synthetic. <strong>Confidence:</strong> medium. (Sources: https://graphite.io/five-percent/more-articles-are-now-created-by-ai-than-humans ; https://arxiv.org/abs/2504.08755)</li>
-<li><strong>[fact]</strong> Shumailov and colleagues show that recursive training on generated data causes models to lose tail information and drift away from the original data distribution, which means corpus contamination can alter what future systems are capable of representing, not just what they happen to retrieve. <strong>Confidence:</strong> high. (Source: https://www.nature.com/articles/s41586-024-07566-y)</li>
-<li><strong>[fact]</strong> Gerstgrasser and colleagues show that recursive contamination is not mechanically inevitable under every data regime, because retaining original real data alongside synthetic data materially changes the outcome and can bound collapse in their experiments. <strong>Confidence:</strong> high. (Source: https://arxiv.org/abs/2404.01413)</li>
-<li><strong>[inference]</strong> The epistemic danger is that apparently independent webpages can become practically circular evidence when they are all descended from the same generative loop, so citation count and fluent agreement stop being reliable proxies for independent confirmation. <strong>Confidence:</strong> high. (Sources: https://iep.utm.edu/ep-circ/ ; https://www.nature.com/articles/s41586-024-07566-y)</li>
-<li><strong>[inference]</strong> Prompt injection and corpus contamination are structurally related because both exploit the model's inability to distinguish trusted instructions from untrusted language-shaped inputs, but prompt injection acts at inference time while corpus contamination degrades the evidence and training base over longer horizons. <strong>Confidence:</strong> high. (Sources: https://genai.owasp.org/llmrisk/llm01-prompt-injection/ ; https://arxiv.org/abs/2302.12173 ; https://genai.owasp.org/llmrisk/llm042025-data-and-model-poisoning/)</li>
-<li><strong>[inference]</strong> Document-level AI detection cannot solve the trusting-trust-style problem because detecting one synthetic page does not reveal whether the broader corpus, retrieval chain, or training lineage behind a claim is independent and trustworthy. <strong>Confidence:</strong> high. (Sources: https://graphite.io/five-percent/more-articles-are-now-created-by-ai-than-humans ; https://arxiv.org/abs/2504.08755 ; https://iep.utm.edu/ep-circ/)</li>
-<li><strong>[inference]</strong> The most defensible practical response is to treat open-web knowledge more like a software supply chain by preferring primary sources, preserving trusted human-generated data reservoirs, recording provenance, and requiring stronger human review for high-stakes grounded outputs. <strong>Confidence:</strong> high. (Sources: https://www.cs.cmu.edu/afs/cs/academic/class/15712-f08/www/lectures/Thompson84lecture.pdf ; https://www.nature.com/articles/s41586-024-07566-y ; https://genai.owasp.org/llmrisk/llm01-prompt-injection/)</li>
+<li><strong>[inference]</strong> Thompson's trusting-trust argument maps most closely to recursive corpus contamination because both involve upstream corruption that reproduces across generations while remaining largely invisible when a reviewer inspects only the final visible artifact. <strong>Confidence:</strong> high. (Sources: <a href="https://www.cs.cmu.edu/afs/cs/academic/class/15712-f08/www/lectures/Thompson84lecture.pdf">www.cs.cmu.edu</a> ; <a href="https://www.nature.com/articles/s41586-024-07566-y)</li>">www.nature.com</a>
+<li><strong>[fact]</strong> The strongest publicly accessible prevalence evidence shows that AI-generated text is already a large share of the public web, but the underlying studies support a bounded range rather than a settled claim that half of all web text is synthetic. <strong>Confidence:</strong> medium. (Sources: <a href="https://graphite.io/five-percent/more-articles-are-now-created-by-ai-than-humans">graphite.io</a> ; <a href="https://arxiv.org/abs/2504.08755)</li>">arxiv.org/abs/2504.08755</a>
+<li><strong>[fact]</strong> Shumailov and colleagues show that recursive training on generated data causes models to lose tail information and drift away from the original data distribution, which means corpus contamination can alter what future systems are capable of representing, not just what they happen to retrieve. <strong>Confidence:</strong> high. (Source: <a href="https://www.nature.com/articles/s41586-024-07566-y)</li>">www.nature.com</a>
+<li><strong>[fact]</strong> Gerstgrasser and colleagues show that recursive contamination is not mechanically inevitable under every data regime, because retaining original real data alongside synthetic data materially changes the outcome and can bound collapse in their experiments. <strong>Confidence:</strong> high. (Source: <a href="https://arxiv.org/abs/2404.01413)</li>">arxiv.org/abs/2404.01413</a>
+<li><strong>[inference]</strong> The epistemic danger is that apparently independent webpages can become practically circular evidence when they are all descended from the same generative loop, so citation count and fluent agreement stop being reliable proxies for independent confirmation. <strong>Confidence:</strong> high. (Sources: <a href="https://iep.utm.edu/ep-circ/">iep.utm.edu</a> ; <a href="https://www.nature.com/articles/s41586-024-07566-y)</li>">www.nature.com</a>
+<li><strong>[inference]</strong> Prompt injection and corpus contamination are structurally related because both exploit the model's inability to distinguish trusted instructions from untrusted language-shaped inputs, but prompt injection acts at inference time while corpus contamination degrades the evidence and training base over longer horizons. <strong>Confidence:</strong> high. (Sources: <a href="https://genai.owasp.org/llmrisk/llm01-prompt-injection/">genai.owasp.org</a> ; <a href="https://arxiv.org/abs/2302.12173">arxiv.org/abs/2302.12173</a> ; <a href="https://genai.owasp.org/llmrisk/llm042025-data-and-model-poisoning/)</li>">genai.owasp.org</a>
+<li><strong>[inference]</strong> Document-level AI detection cannot solve the trusting-trust-style problem because detecting one synthetic page does not reveal whether the broader corpus, retrieval chain, or training lineage behind a claim is independent and trustworthy. <strong>Confidence:</strong> high. (Sources: <a href="https://graphite.io/five-percent/more-articles-are-now-created-by-ai-than-humans">graphite.io</a> ; <a href="https://arxiv.org/abs/2504.08755">arxiv.org/abs/2504.08755</a> ; <a href="https://iep.utm.edu/ep-circ/)</li>">iep.utm.edu</a>
+<li><strong>[inference]</strong> The most defensible practical response is to treat open-web knowledge more like a software supply chain by preferring primary sources, preserving trusted human-generated data reservoirs, recording provenance, and requiring stronger human review for high-stakes grounded outputs. <strong>Confidence:</strong> high. (Sources: <a href="https://www.cs.cmu.edu/afs/cs/academic/class/15712-f08/www/lectures/Thompson84lecture.pdf">www.cs.cmu.edu</a> ; <a href="https://www.nature.com/articles/s41586-024-07566-y">www.nature.com</a> ; <a href="https://genai.owasp.org/llmrisk/llm01-prompt-injection/)</li>">genai.owasp.org</a>
 </ol>
 <h3>Evidence Map</h3>
 <table>
@@ -557,55 +641,55 @@ main {
 <tbody>
 <tr>
   <td>Thompson's trusting-trust argument depends on source-invisible upstream corruption that reproduces across generations.</td>
-  <td>https://www.cs.cmu.edu/afs/cs/academic/class/15712-f08/www/lectures/Thompson84lecture.pdf</td>
+  <td><a href="https://www.cs.cmu.edu/afs/cs/academic/class/15712-f08/www/lectures/Thompson84lecture.pdf</td>">www.cs.cmu.edu</a>
   <td>high</td>
   <td>Primary source; defines the analogy.</td>
 </tr>
 <tr>
   <td>AI-generated article publication reached near parity in Graphite's Common Crawl sample.</td>
-  <td>https://graphite.io/five-percent/more-articles-are-now-created-by-ai-than-humans</td>
+  <td><a href="https://graphite.io/five-percent/more-articles-are-now-created-by-ai-than-humans</td>">graphite.io</a>
   <td>medium</td>
   <td>Detector-based industry study of English-language articles.</td>
 </tr>
 <tr>
   <td>At least 30% of text on active web pages is AI-generated, with the proportion likely approaching 40%, in Spennemann's estimate.</td>
-  <td>https://arxiv.org/abs/2504.08755</td>
+  <td><a href="https://arxiv.org/abs/2504.08755</td>">arxiv.org/abs/2504.08755</td></a>
   <td>medium</td>
   <td>Preprint based on linguistic markers.</td>
 </tr>
 <tr>
   <td>Recursive training on generated data causes model collapse and loss of tails in the original distribution.</td>
-  <td>https://www.nature.com/articles/s41586-024-07566-y</td>
+  <td><a href="https://www.nature.com/articles/s41586-024-07566-y</td>">www.nature.com</a>
   <td>high</td>
   <td>Primary peer-reviewed evidence.</td>
 </tr>
 <tr>
   <td>Accumulating real and synthetic data changes the collapse outcome materially.</td>
-  <td>https://arxiv.org/abs/2404.01413</td>
+  <td><a href="https://arxiv.org/abs/2404.01413</td>">arxiv.org/abs/2404.01413</td></a>
   <td>high</td>
   <td>Important bound on the stronger collapse claim.</td>
 </tr>
 <tr>
   <td>Epistemic circularity explains why source reliability cannot be established by outputs that already depend on that source.</td>
-  <td>https://iep.utm.edu/ep-circ/</td>
+  <td><a href="https://iep.utm.edu/ep-circ/</td>">iep.utm.edu</a>
   <td>high</td>
   <td>Conceptual basis for the citation problem.</td>
 </tr>
 <tr>
   <td>Prompt injection is an inference-time trust-boundary failure involving untrusted external content.</td>
-  <td>https://genai.owasp.org/llmrisk/llm01-prompt-injection/ ; https://arxiv.org/abs/2302.12173</td>
+  <td><a href="https://genai.owasp.org/llmrisk/llm01-prompt-injection/">genai.owasp.org</a> ; <a href="https://arxiv.org/abs/2302.12173</td>">arxiv.org/abs/2302.12173</td></a>
   <td>high</td>
   <td>Security framing supported by primary guidance and foundational paper.</td>
 </tr>
 <tr>
   <td>Data poisoning is a related upstream integrity attack on training and fine-tuning data.</td>
-  <td>https://genai.owasp.org/llmrisk/llm042025-data-and-model-poisoning/</td>
+  <td><a href="https://genai.owasp.org/llmrisk/llm042025-data-and-model-poisoning/</td>">genai.owasp.org</a>
   <td>high</td>
   <td>Distinguishes adversarial poisoning from broader contamination.</td>
 </tr>
 <tr>
   <td>AI-generated pseudo-news sites now exist at industrial scale across many languages.</td>
-  <td>https://www.newsguardtech.com/special-reports/ai-tracking-center/</td>
+  <td><a href="https://www.newsguardtech.com/special-reports/ai-tracking-center/</td>">www.newsguardtech.com</a>
   <td>medium</td>
   <td>Strong proliferation evidence; not a total-share estimate.</td>
 </tr>
@@ -613,13 +697,13 @@ main {
 </table>
 <h3>Assumptions</h3>
 <ul>
-<li><strong>[assumption] Assumption:</strong> Provenance-verified human-generated data remain a cleaner reference class than heavily synthetic corpora for preventing recursive degradation. <strong>Justification:</strong> The Nature paper explicitly argues that access to real human-produced data becomes increasingly valuable as generated content pollutes the internet. <strong>Source:</strong> https://www.nature.com/articles/s41586-024-07566-y</li>
-<li><strong>[assumption] Assumption:</strong> The article-sample and active-page prevalence studies are sufficiently independent to justify a directional conclusion about substantial contamination. <strong>Justification:</strong> They use different methods and still converge on a large synthetic share rather than a trivial one. <strong>Sources:</strong> https://graphite.io/five-percent/more-articles-are-now-created-by-ai-than-humans ; https://arxiv.org/abs/2504.08755</li>
+<li><strong>[assumption] Assumption:</strong> Provenance-verified human-generated data remain a cleaner reference class than heavily synthetic corpora for preventing recursive degradation. <strong>Justification:</strong> The Nature paper explicitly argues that access to real human-produced data becomes increasingly valuable as generated content pollutes the internet. <strong>Source:</strong> <a href="https://www.nature.com/articles/s41586-024-07566-y</li>">www.nature.com</a>
+<li><strong>[assumption] Assumption:</strong> The article-sample and active-page prevalence studies are sufficiently independent to justify a directional conclusion about substantial contamination. <strong>Justification:</strong> They use different methods and still converge on a large synthetic share rather than a trivial one. <strong>Sources:</strong> <a href="https://graphite.io/five-percent/more-articles-are-now-created-by-ai-than-humans">graphite.io</a> ; <a href="https://arxiv.org/abs/2504.08755</li>">arxiv.org/abs/2504.08755</li></a>
 </ul>
 <h3>Analysis</h3>
-<p><strong>[inference]</strong> The structural part of the case is stronger than the quantitative part because the Thompson lecture and the recursive-training papers independently support the claim that integrity can fail upstream while downstream outputs remain superficially coherent. (Sources: https://www.cs.cmu.edu/afs/cs/academic/class/15712-f08/www/lectures/Thompson84lecture.pdf ; https://www.nature.com/articles/s41586-024-07566-y ; https://arxiv.org/abs/2404.01413)</p>
-<p><strong>[inference]</strong> The prevalence evidence is less certain because there is no authoritative whole-web census, but the accessible studies and NewsGuard's tracking still show that contamination pressure is already large enough to matter operationally for research and grounding workflows. (Sources: https://graphite.io/five-percent/more-articles-are-now-created-by-ai-than-humans ; https://arxiv.org/abs/2504.08755 ; https://www.newsguardtech.com/special-reports/ai-tracking-center/)</p>
-<p><strong>[inference]</strong> The security material helps separate layers of the problem: prompt injection is the short-horizon exploit form of a broader trust-boundary failure, while corpus contamination is the long-horizon evidence-base form. That distinction is why provenance review and primary-source preference are more useful controls here than document-level authorship checks alone. (Sources: https://genai.owasp.org/llmrisk/llm01-prompt-injection/ ; https://arxiv.org/abs/2302.12173 ; https://genai.owasp.org/llmrisk/llm042025-data-and-model-poisoning/)</p>
+<p><strong>[inference]</strong> The structural part of the case is stronger than the quantitative part because the Thompson lecture and the recursive-training papers independently support the claim that integrity can fail upstream while downstream outputs remain superficially coherent. (Sources: <a href="https://www.cs.cmu.edu/afs/cs/academic/class/15712-f08/www/lectures/Thompson84lecture.pdf">www.cs.cmu.edu</a> ; <a href="https://www.nature.com/articles/s41586-024-07566-y">www.nature.com</a> ; <a href="https://arxiv.org/abs/2404.01413)</p>">arxiv.org/abs/2404.01413</a>
+<p><strong>[inference]</strong> The prevalence evidence is less certain because there is no authoritative whole-web census, but the accessible studies and NewsGuard's tracking still show that contamination pressure is already large enough to matter operationally for research and grounding workflows. (Sources: <a href="https://graphite.io/five-percent/more-articles-are-now-created-by-ai-than-humans">graphite.io</a> ; <a href="https://arxiv.org/abs/2504.08755">arxiv.org/abs/2504.08755</a> ; <a href="https://www.newsguardtech.com/special-reports/ai-tracking-center/)</p>">www.newsguardtech.com</a>
+<p><strong>[inference]</strong> The security material helps separate layers of the problem: prompt injection is the short-horizon exploit form of a broader trust-boundary failure, while corpus contamination is the long-horizon evidence-base form. That distinction is why provenance review and primary-source preference are more useful controls here than document-level authorship checks alone. (Sources: <a href="https://genai.owasp.org/llmrisk/llm01-prompt-injection/">genai.owasp.org</a> ; <a href="https://arxiv.org/abs/2302.12173">arxiv.org/abs/2302.12173</a> ; <a href="https://genai.owasp.org/llmrisk/llm042025-data-and-model-poisoning/)</p>">genai.owasp.org</a>
 <h3>Risks, Gaps, and Uncertainties</h3>
 <ul>
 <li>No public source in this review provides a definitive whole-web percentage for AI-generated text.</li>
@@ -643,7 +727,7 @@ main {
 </div></div>
 
   <div class="item-nav">
-    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-16-adaptive-policy-authorization-compliance.html">Adaptive Policy-Based Authorization (APBA): compliance alignment with National Institute of Standards and Technology (NIST) Special Publication (SP) 800-53 and International Organization for Standardization (ISO) / International Electrotechnical Commission (IEC) 27001, and impact on Policy as Code (PaC) and Artificial Intelligence (AI)-generated authorization code</a></div>
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-16-adaptive-policy-authorization-compliance.html">APBA</a></div>
     <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-15-tracking-work-across-systems.html">Tracking How Work Travels Across Organisational Systems</a></div>
   </div>
 </main>

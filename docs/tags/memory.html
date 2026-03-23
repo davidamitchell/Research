@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -504,34 +586,34 @@ main {
     <a class="back-link" href="/Research/browse.html">← browse</a>
   </div>
   <div class="card-grid">
-    <a class="card" href="/Research/research/2026-03-17-ai-memory-systems-rag-neuroscience.html" data-title="artificial intelligence (ai) memory systems: retrieval-augmented generation (rag), vendor implementations, and neuroscience foundations" data-question="what is the current state of artificial intelligence (ai) memory systems — across retrieval-augmented generation (rag) research, commercial ai vendor implementations (github copilot, gemini, claude, a" data-tags="memory,retrieval-augmented-generation,neuroscience,artificial-intelligence-vendors,github-copilot,gemini,claude,episodic-memory,working-memory,knowledge-management">
-  <div class="card-title">Artificial Intelligence (AI) Memory Systems: Retrieval-Augmented Generation (RAG), Vendor Implementations, and Neuroscience Foundations</div>
+    <a class="card" href="/Research/research/2026-03-17-ai-memory-systems-rag-neuroscience.html" data-title="ai memory systems" data-question="what is the current state of artificial intelligence (ai) memory systems — across retrieval-augmented generation (rag) research, commercial ai vendor implementations (github copilot, gemini, claude, a" data-tags="memory,retrieval-augmented-generation,neuroscience,github-copilot,gemini,claude,working-memory,knowledge-management">
+  <div class="card-title">AI Memory Systems</div>
   <div class="card-meta">2026-03-17</div>
-  <div class="card-tags"><span class="tag">memory</span><span class="tag">retrieval-augmented-generation</span><span class="tag">neuroscience</span><span class="tag">artificial-intelligence-vendors</span><span class="tag">github-copilot</span><span class="tag">gemini</span><span class="tag">claude</span><span class="tag">episodic-memory</span><span class="tag">working-memory</span><span class="tag">knowledge-management</span></div>
+  <div class="card-tags"><span class="tag">memory</span><span class="tag">retrieval-augmented-generation</span><span class="tag">neuroscience</span><span class="tag">github-copilot</span><span class="tag">gemini</span><span class="tag">claude</span><span class="tag">working-memory</span><span class="tag">knowledge-management</span></div>
   <div class="card-excerpt">What is the current state of Artificial Intelligence (AI) memory systems — across Retrieval-Augmented Generation (RAG) research, commercial AI vendor implementations (GitHub Copilot, Gemini, Claude, a…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-10-ai-concept-classification-taxonomy.html" data-title="ai concept classification taxonomy: prompts, instructions, memory, failure modes, controls, and problem domains" data-question="what is a coherent, internally consistent classification taxonomy for the core concepts in ai-assisted and agentic systems — covering prompt types, instruction types, prompt/content/intent engineering" data-tags="taxonomy,classification,prompt-engineering,context-engineering,intent-engineering,memory,failure-modes,guardrails,skills,tools,agents,agentic-systems">
-  <div class="card-title">AI concept classification taxonomy: prompts, instructions, memory, failure modes, controls, and problem domains</div>
+<a class="card" href="/Research/research/2026-03-10-ai-concept-classification-taxonomy.html" data-title="ai concept classification taxonomy" data-question="what is a coherent, internally consistent classification taxonomy for the core concepts in ai-assisted and agentic systems — covering prompt types, instruction types, prompt/content/intent engineering" data-tags="taxonomy,prompt-engineering,context-engineering,memory,failure-modes,guardrails,skills,agents,agentic-systems">
+  <div class="card-title">AI concept classification taxonomy</div>
   <div class="card-meta">2026-03-10</div>
-  <div class="card-tags"><span class="tag">taxonomy</span><span class="tag">classification</span><span class="tag">prompt-engineering</span><span class="tag">context-engineering</span><span class="tag">intent-engineering</span><span class="tag">memory</span><span class="tag">failure-modes</span><span class="tag">guardrails</span><span class="tag">skills</span><span class="tag">tools</span><span class="tag">agents</span><span class="tag">agentic-systems</span></div>
+  <div class="card-tags"><span class="tag">taxonomy</span><span class="tag">prompt-engineering</span><span class="tag">context-engineering</span><span class="tag">memory</span><span class="tag">failure-modes</span><span class="tag">guardrails</span><span class="tag">skills</span><span class="tag">agents</span><span class="tag">agentic-systems</span></div>
   <div class="card-excerpt">What is a coherent, internally consistent classification taxonomy for the core concepts in AI-assisted and agentic systems — covering prompt types, instruction types, prompt/content/intent engineering…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-08-ai-coding-harnesses-agent-philosophy.html" data-title="ai coding harnesses: agent execution model, memory, and context management across commercial and oss tools" data-question="what are the core architectural and philosophical principles behind the ai coding harnesses (agentic ides and agent runtimes) published or released by anthropic, openai, and the broader ecosystem of c" data-tags="ai-agents,coding,ide,anthropic,openai,cursor,opencode,aider,cline,context-management,memory,state-management,oss">
-  <div class="card-title">AI coding harnesses: agent execution model, memory, and context management across commercial and OSS tools</div>
+<a class="card" href="/Research/research/2026-03-08-ai-coding-harnesses-agent-philosophy.html" data-title="ai coding harnesses" data-question="what are the core architectural and philosophical principles behind the ai coding harnesses (agentic ides and agent runtimes) published or released by anthropic, openai, and the broader ecosystem of c" data-tags="ai-agents,openai,context-management,memory,state-management">
+  <div class="card-title">AI coding harnesses</div>
   <div class="card-meta">2026-03-08</div>
-  <div class="card-tags"><span class="tag">ai-agents</span><span class="tag">coding</span><span class="tag">ide</span><span class="tag">anthropic</span><span class="tag">openai</span><span class="tag">cursor</span><span class="tag">opencode</span><span class="tag">aider</span><span class="tag">cline</span><span class="tag">context-management</span><span class="tag">memory</span><span class="tag">state-management</span><span class="tag">oss</span></div>
+  <div class="card-tags"><span class="tag">ai-agents</span><span class="tag">openai</span><span class="tag">context-management</span><span class="tag">memory</span><span class="tag">state-management</span></div>
   <div class="card-excerpt">What are the core architectural and philosophical principles behind the AI coding harnesses (agentic IDEs and agent runtimes) published or released by Anthropic, OpenAI, and the broader ecosystem of c…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-02-integrative-framework-agent-decision-making.html" data-title="an integrative framework for agent decision-making: aligning knowledge management, intent understanding, and contextual decision frameworks" data-question="how can the dikw (data → information → knowledge → wisdom) progression be operationalised within agentic systems to produce intent-aligned, context-aware decisions that reconcile conflicting knowledge" data-tags="agents,decision-making,dikw,knowledge-management,intent,memory,context,alignment,governance,wisdom">
-  <div class="card-title">An Integrative Framework for Agent Decision-Making: Aligning Knowledge Management, Intent Understanding, and Contextual Decision Frameworks</div>
+<a class="card" href="/Research/research/2026-03-02-integrative-framework-agent-decision-making.html" data-title="an integrative framework for agent decision-making" data-question="how can the dikw (data → information → knowledge → wisdom) progression be operationalised within agentic systems to produce intent-aligned, context-aware decisions that reconcile conflicting knowledge" data-tags="agents,decision-making,dikw,knowledge-management,intent,memory,alignment,governance,wisdom">
+  <div class="card-title">An Integrative Framework for Agent Decision-Making</div>
   <div class="card-meta">2026-03-02</div>
-  <div class="card-tags"><span class="tag">agents</span><span class="tag">decision-making</span><span class="tag">dikw</span><span class="tag">knowledge-management</span><span class="tag">intent</span><span class="tag">memory</span><span class="tag">context</span><span class="tag">alignment</span><span class="tag">governance</span><span class="tag">wisdom</span></div>
+  <div class="card-tags"><span class="tag">agents</span><span class="tag">decision-making</span><span class="tag">dikw</span><span class="tag">knowledge-management</span><span class="tag">intent</span><span class="tag">memory</span><span class="tag">alignment</span><span class="tag">governance</span><span class="tag">wisdom</span></div>
   <div class="card-excerpt">How can the DIKW (Data → Information → Knowledge → Wisdom) progression be operationalised within agentic systems to produce intent-aligned, context-aware decisions that reconcile conflicting knowledge…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-02-agent-memory-management-context-injection.html" data-title="agent memory management and context injection" data-question="what is the current state of agent memory management systems — beyond rag — and which approaches best address the real constraints of latency, knowledge freshness, scoping, governance, quality, and di" data-tags="memory,context-injection,rag,agents,knowledge-management,architecture,governance,dikw,obsidian,pkm,knowledge-graphs,embeddings,graph-of-thoughts,portability">
+<a class="card" href="/Research/research/2026-03-02-agent-memory-management-context-injection.html" data-title="agent memory management and context injection" data-question="what is the current state of agent memory management systems — beyond rag — and which approaches best address the real constraints of latency, knowledge freshness, scoping, governance, quality, and di" data-tags="memory,rag,agents,knowledge-management,architecture,governance,dikw,knowledge-graphs,embeddings">
   <div class="card-title">Agent Memory Management and Context Injection</div>
   <div class="card-meta">2026-03-02</div>
-  <div class="card-tags"><span class="tag">memory</span><span class="tag">context-injection</span><span class="tag">rag</span><span class="tag">agents</span><span class="tag">knowledge-management</span><span class="tag">architecture</span><span class="tag">governance</span><span class="tag">dikw</span><span class="tag">obsidian</span><span class="tag">pkm</span><span class="tag">knowledge-graphs</span><span class="tag">embeddings</span><span class="tag">graph-of-thoughts</span><span class="tag">portability</span></div>
+  <div class="card-tags"><span class="tag">memory</span><span class="tag">rag</span><span class="tag">agents</span><span class="tag">knowledge-management</span><span class="tag">architecture</span><span class="tag">governance</span><span class="tag">dikw</span><span class="tag">knowledge-graphs</span><span class="tag">embeddings</span></div>
   <div class="card-excerpt">What is the current state of agent memory management systems — beyond RAG — and which approaches best address the real constraints of latency, knowledge freshness, scoping, governance, quality, and di…</div>
 </a>
 

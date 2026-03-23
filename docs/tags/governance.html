@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -504,34 +586,34 @@ main {
     <a class="back-link" href="/Research/browse.html">← browse</a>
   </div>
   <div class="card-grid">
-    <a class="card" href="/Research/research/2026-03-22-cross-scanner-compliance-evidence-normalisation.html" data-title="cross-scanner compliance evidence and waiver normalisation in github actions" data-question="how should an organisation running multiple compliance scanners in github actions normalise evidence, severity, waiver handling, and developer-facing output so that heterogeneous tools behave like one" data-tags="github-actions,compliance,policy-as-code,evidence,waivers,sarif,governance,reporting">
+    <a class="card" href="/Research/research/2026-03-22-cross-scanner-compliance-evidence-normalisation.html" data-title="cross-scanner compliance evidence and waiver normalisation in github actions" data-question="how should an organisation running multiple compliance scanners in github actions normalise evidence, severity, waiver handling, and developer-facing output so that heterogeneous tools behave like one" data-tags="github-actions,compliance,policy-as-code,governance">
   <div class="card-title">Cross-Scanner Compliance Evidence and Waiver Normalisation in GitHub Actions</div>
   <div class="card-meta">2026-03-22</div>
-  <div class="card-tags"><span class="tag">github-actions</span><span class="tag">compliance</span><span class="tag">policy-as-code</span><span class="tag">evidence</span><span class="tag">waivers</span><span class="tag">sarif</span><span class="tag">governance</span><span class="tag">reporting</span></div>
+  <div class="card-tags"><span class="tag">github-actions</span><span class="tag">compliance</span><span class="tag">policy-as-code</span><span class="tag">governance</span></div>
   <div class="card-excerpt">How should an organisation running multiple compliance scanners in GitHub Actions normalise evidence, severity, waiver handling, and developer-facing output so that heterogeneous tools behave like one…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-16-adaptive-policy-authorization-compliance.html" data-title="adaptive policy-based authorization (apba): compliance alignment with national institute of standards and technology (nist) special publication (sp) 800-53 and international organization for standardization (iso) / international electrotechnical commission (iec) 27001, and impact on policy as code (pac) and artificial intelligence (ai)-generated authorization code" data-question="how does adaptive policy-based authorization (apba) align with the dynamic access-control requirements of national institute of standards and technology (nist) special publication (sp) 800-53 and iso/" data-tags="authorization,policy-as-code,compliance,nist,iso-27001,ai,governance,least-privilege,access-control,iac">
-  <div class="card-title">Adaptive Policy-Based Authorization (APBA): compliance alignment with National Institute of Standards and Technology (NIST) Special Publication (SP) 800-53 and International Organization for Standardization (ISO) / International Electrotechnical Commission (IEC) 27001, and impact on Policy as Code (PaC) and Artificial Intelligence (AI)-generated authorization code</div>
+<a class="card" href="/Research/research/2026-03-16-adaptive-policy-authorization-compliance.html" data-title="apba" data-question="how does adaptive policy-based authorization (apba) align with the dynamic access-control requirements of national institute of standards and technology (nist) special publication (sp) 800-53 and iso/" data-tags="policy-as-code,compliance,ai,governance">
+  <div class="card-title">APBA</div>
   <div class="card-meta">2026-03-16</div>
-  <div class="card-tags"><span class="tag">authorization</span><span class="tag">policy-as-code</span><span class="tag">compliance</span><span class="tag">nist</span><span class="tag">iso-27001</span><span class="tag">ai</span><span class="tag">governance</span><span class="tag">least-privilege</span><span class="tag">access-control</span><span class="tag">iac</span></div>
+  <div class="card-tags"><span class="tag">policy-as-code</span><span class="tag">compliance</span><span class="tag">ai</span><span class="tag">governance</span></div>
   <div class="card-excerpt">How does Adaptive Policy-Based Authorization (APBA) align with the dynamic access-control requirements of National Institute of Standards and Technology (NIST) Special Publication (SP) 800-53 and ISO/…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-02-integrative-framework-agent-decision-making.html" data-title="an integrative framework for agent decision-making: aligning knowledge management, intent understanding, and contextual decision frameworks" data-question="how can the dikw (data → information → knowledge → wisdom) progression be operationalised within agentic systems to produce intent-aligned, context-aware decisions that reconcile conflicting knowledge" data-tags="agents,decision-making,dikw,knowledge-management,intent,memory,context,alignment,governance,wisdom">
-  <div class="card-title">An Integrative Framework for Agent Decision-Making: Aligning Knowledge Management, Intent Understanding, and Contextual Decision Frameworks</div>
+<a class="card" href="/Research/research/2026-03-02-integrative-framework-agent-decision-making.html" data-title="an integrative framework for agent decision-making" data-question="how can the dikw (data → information → knowledge → wisdom) progression be operationalised within agentic systems to produce intent-aligned, context-aware decisions that reconcile conflicting knowledge" data-tags="agents,decision-making,dikw,knowledge-management,intent,memory,alignment,governance,wisdom">
+  <div class="card-title">An Integrative Framework for Agent Decision-Making</div>
   <div class="card-meta">2026-03-02</div>
-  <div class="card-tags"><span class="tag">agents</span><span class="tag">decision-making</span><span class="tag">dikw</span><span class="tag">knowledge-management</span><span class="tag">intent</span><span class="tag">memory</span><span class="tag">context</span><span class="tag">alignment</span><span class="tag">governance</span><span class="tag">wisdom</span></div>
+  <div class="card-tags"><span class="tag">agents</span><span class="tag">decision-making</span><span class="tag">dikw</span><span class="tag">knowledge-management</span><span class="tag">intent</span><span class="tag">memory</span><span class="tag">alignment</span><span class="tag">governance</span><span class="tag">wisdom</span></div>
   <div class="card-excerpt">How can the DIKW (Data → Information → Knowledge → Wisdom) progression be operationalised within agentic systems to produce intent-aligned, context-aware decisions that reconcile conflicting knowledge…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-02-ai-not-a-data-problem.html" data-title="ai capability is not a data problem - why the data/analytics department is the wrong home for organisational ai" data-question="what is the strongest case - technical, architectural, organisational, legal, and regulatory - that an organisation&#39;s ai capability should not be owned by or coupled to its data/analytics department o" data-tags="ai-strategy,architecture,data-platform,api-layer,agents,organisational-design,governance,mcp,zero-trust,identity">
-  <div class="card-title">AI capability is not a data problem - why the data/analytics department is the wrong home for organisational AI</div>
+<a class="card" href="/Research/research/2026-03-02-ai-not-a-data-problem.html" data-title="ai capability is not a data problem - why the data/analytics department is the…" data-question="what is the strongest case - technical, architectural, organisational, legal, and regulatory - that an organisation&#39;s ai capability should not be owned by or coupled to its data/analytics department o" data-tags="ai-strategy,architecture,data-platform,agents,organisational-design,governance,mcp">
+  <div class="card-title">AI capability is not a data problem - why the data/analytics department is the…</div>
   <div class="card-meta">2026-03-02</div>
-  <div class="card-tags"><span class="tag">ai-strategy</span><span class="tag">architecture</span><span class="tag">data-platform</span><span class="tag">api-layer</span><span class="tag">agents</span><span class="tag">organisational-design</span><span class="tag">governance</span><span class="tag">mcp</span><span class="tag">zero-trust</span><span class="tag">identity</span></div>
+  <div class="card-tags"><span class="tag">ai-strategy</span><span class="tag">architecture</span><span class="tag">data-platform</span><span class="tag">agents</span><span class="tag">organisational-design</span><span class="tag">governance</span><span class="tag">mcp</span></div>
   <div class="card-excerpt">What is the strongest case - technical, architectural, organisational, legal, and regulatory - that an organisation&#39;s AI capability should NOT be owned by or coupled to its data/analytics department o…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-02-agent-memory-management-context-injection.html" data-title="agent memory management and context injection" data-question="what is the current state of agent memory management systems — beyond rag — and which approaches best address the real constraints of latency, knowledge freshness, scoping, governance, quality, and di" data-tags="memory,context-injection,rag,agents,knowledge-management,architecture,governance,dikw,obsidian,pkm,knowledge-graphs,embeddings,graph-of-thoughts,portability">
+<a class="card" href="/Research/research/2026-03-02-agent-memory-management-context-injection.html" data-title="agent memory management and context injection" data-question="what is the current state of agent memory management systems — beyond rag — and which approaches best address the real constraints of latency, knowledge freshness, scoping, governance, quality, and di" data-tags="memory,rag,agents,knowledge-management,architecture,governance,dikw,knowledge-graphs,embeddings">
   <div class="card-title">Agent Memory Management and Context Injection</div>
   <div class="card-meta">2026-03-02</div>
-  <div class="card-tags"><span class="tag">memory</span><span class="tag">context-injection</span><span class="tag">rag</span><span class="tag">agents</span><span class="tag">knowledge-management</span><span class="tag">architecture</span><span class="tag">governance</span><span class="tag">dikw</span><span class="tag">obsidian</span><span class="tag">pkm</span><span class="tag">knowledge-graphs</span><span class="tag">embeddings</span><span class="tag">graph-of-thoughts</span><span class="tag">portability</span></div>
+  <div class="card-tags"><span class="tag">memory</span><span class="tag">rag</span><span class="tag">agents</span><span class="tag">knowledge-management</span><span class="tag">architecture</span><span class="tag">governance</span><span class="tag">dikw</span><span class="tag">knowledge-graphs</span><span class="tag">embeddings</span></div>
   <div class="card-excerpt">What is the current state of agent memory management systems — beyond RAG — and which approaches best address the real constraints of latency, knowledge freshness, scoping, governance, quality, and di…</div>
 </a>
 

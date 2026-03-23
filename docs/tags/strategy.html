@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -504,36 +586,36 @@ main {
     <a class="back-link" href="/Research/browse.html">← browse</a>
   </div>
   <div class="card-grid">
-    <a class="card" href="/Research/research/2026-03-18-explore-to-exploit-synthesis-gap.html" data-title="explore to exploit: the synthesis step that makes exploitation pay off" data-question="when technology is moving fast, what is the synthesis step between exploration and exploitation, why is it so commonly skipped, what are the costs of skipping it, and what strategies allow organisatio" data-tags="strategy,exploration,exploitation,synthesis,technology-adoption,portfolio,decision-making,organizational-learning">
-  <div class="card-title">Explore to exploit: the synthesis step that makes exploitation pay off</div>
+    <a class="card" href="/Research/research/2026-03-18-explore-to-exploit-synthesis-gap.html" data-title="explore to exploit" data-question="when technology is moving fast, what is the synthesis step between exploration and exploitation, why is it so commonly skipped, what are the costs of skipping it, and what strategies allow organisatio" data-tags="strategy,exploration,synthesis,decision-making">
+  <div class="card-title">Explore to exploit</div>
   <div class="card-meta">2026-03-18</div>
-  <div class="card-tags"><span class="tag">strategy</span><span class="tag">exploration</span><span class="tag">exploitation</span><span class="tag">synthesis</span><span class="tag">technology-adoption</span><span class="tag">portfolio</span><span class="tag">decision-making</span><span class="tag">organizational-learning</span></div>
+  <div class="card-tags"><span class="tag">strategy</span><span class="tag">exploration</span><span class="tag">synthesis</span><span class="tag">decision-making</span></div>
   <div class="card-excerpt">When technology is moving fast, what is the synthesis step between exploration and exploitation, why is it so commonly skipped, what are the costs of skipping it, and what strategies allow organisatio…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-14-organisational-intent-formal-specification.html" data-title="can organisational intent be expressed as a formally structured specification from which artefacts are derived and consistency is machine-checked?" data-question="can organisational intent — mission, values, strategy, resource allocation — be expressed as a formally structured specification from which human-readable artefacts are derived, and against which obje" data-tags="formal-methods,strategy,okrs,goal-modelling,normative-systems,hoshin-kanri,resource-allocation,consistency-checking,funding,intent">
-  <div class="card-title">Can organisational intent be expressed as a formally structured specification from which artefacts are derived and consistency is machine-checked?</div>
+<a class="card" href="/Research/research/2026-03-14-organisational-intent-formal-specification.html" data-title="can organisational intent be expressed as a formally structured specification…" data-question="can organisational intent — mission, values, strategy, resource allocation — be expressed as a formally structured specification from which human-readable artefacts are derived, and against which obje" data-tags="formal-methods,strategy,intent">
+  <div class="card-title">Can organisational intent be expressed as a formally structured specification…</div>
   <div class="card-meta">2026-03-14</div>
-  <div class="card-tags"><span class="tag">formal-methods</span><span class="tag">strategy</span><span class="tag">okrs</span><span class="tag">goal-modelling</span><span class="tag">normative-systems</span><span class="tag">hoshin-kanri</span><span class="tag">resource-allocation</span><span class="tag">consistency-checking</span><span class="tag">funding</span><span class="tag">intent</span></div>
+  <div class="card-tags"><span class="tag">formal-methods</span><span class="tag">strategy</span><span class="tag">intent</span></div>
   <div class="card-excerpt">Can organisational intent — mission, values, strategy, resource allocation — be expressed as a formally structured specification from which human-readable artefacts are derived, and against which Obje…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-12-ai-force-multiplier-ambition-expansion.html" data-title="force multiplier, not cost reducer: expanding organisational ambition when ai multiplies per-person output" data-question="when artificial intelligence (ai) multiplies the productive capacity of each person by 5–10x, organisations face a
-strategic choice: reduce headcount to cut costs, or redeploy the same people against" data-tags="force-multiplier,ambition,organisational-design,ai-native,strategy,headcount,revenue-per-employee,cannot-do-now,capacity-expansion">
-  <div class="card-title">Force multiplier, not cost reducer: expanding organisational ambition when AI multiplies per-person output</div>
+<a class="card" href="/Research/research/2026-03-12-ai-force-multiplier-ambition-expansion.html" data-title="force multiplier, not cost reducer" data-question="when artificial intelligence (ai) multiplies the productive capacity of each person by 5–10x, organisations face a
+strategic choice: reduce headcount to cut costs, or redeploy the same people against" data-tags="organisational-design,ai-native,strategy">
+  <div class="card-title">Force multiplier, not cost reducer</div>
   <div class="card-meta">2026-03-12</div>
-  <div class="card-tags"><span class="tag">force-multiplier</span><span class="tag">ambition</span><span class="tag">organisational-design</span><span class="tag">ai-native</span><span class="tag">strategy</span><span class="tag">headcount</span><span class="tag">revenue-per-employee</span><span class="tag">cannot-do-now</span><span class="tag">capacity-expansion</span></div>
+  <div class="card-tags"><span class="tag">organisational-design</span><span class="tag">ai-native</span><span class="tag">strategy</span></div>
   <div class="card-excerpt">When Artificial Intelligence (AI) multiplies the productive capacity of each person by 5–10x, organisations face a
 strategic choice: reduce headcount to cut costs, or redeploy the same people against…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-08-bbc-five-case-model.html" data-title="better business cases: five case model authoring and application" data-question="what is the better business cases (bbc) five case model framework, what are the requirements and standards for each of the five cases, and how should an ai agent apply this framework to author, review" data-tags="business-case,bbc,five-case-model,public-sector,strategy,economics,procurement">
-  <div class="card-title">Better Business Cases: Five Case Model authoring and application</div>
+<a class="card" href="/Research/research/2026-03-08-bbc-five-case-model.html" data-title="better business cases" data-question="what is the better business cases (bbc) five case model framework, what are the requirements and standards for each of the five cases, and how should an ai agent apply this framework to author, review" data-tags="strategy,economics">
+  <div class="card-title">Better Business Cases</div>
   <div class="card-meta">2026-03-08</div>
-  <div class="card-tags"><span class="tag">business-case</span><span class="tag">bbc</span><span class="tag">five-case-model</span><span class="tag">public-sector</span><span class="tag">strategy</span><span class="tag">economics</span><span class="tag">procurement</span></div>
+  <div class="card-tags"><span class="tag">strategy</span><span class="tag">economics</span></div>
   <div class="card-excerpt">What is the Better Business Cases (BBC) Five Case Model framework, what are the requirements and standards for each of the five cases, and how should an AI agent apply this framework to author, review…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-03-research-agenda-curation-coverage.html" data-title="research agenda curation: prioritisation, coverage analysis, and avoiding research drift" data-question="how should the research backlog be maintained and prioritised to ensure balanced coverage of important domains, detect over-concentration in one area (research drift), and surface high-value gaps — ra" data-tags="research-agenda,prioritisation,coverage,curation,strategy,backlog-management,research-drift">
-  <div class="card-title">Research agenda curation: prioritisation, coverage analysis, and avoiding research drift</div>
+<a class="card" href="/Research/research/2026-03-03-research-agenda-curation-coverage.html" data-title="research agenda curation" data-question="how should the research backlog be maintained and prioritised to ensure balanced coverage of important domains, detect over-concentration in one area (research drift), and surface high-value gaps — ra" data-tags="strategy">
+  <div class="card-title">Research agenda curation</div>
   <div class="card-meta">2026-03-03</div>
-  <div class="card-tags"><span class="tag">research-agenda</span><span class="tag">prioritisation</span><span class="tag">coverage</span><span class="tag">curation</span><span class="tag">strategy</span><span class="tag">backlog-management</span><span class="tag">research-drift</span></div>
+  <div class="card-tags"><span class="tag">strategy</span></div>
   <div class="card-excerpt">How should the research backlog be maintained and prioritised to ensure balanced coverage of important domains, detect over-concentration in one area (research drift), and surface high-value gaps — ra…</div>
 </a>
 

@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -504,34 +586,34 @@ main {
     <a class="back-link" href="/Research/browse.html">← browse</a>
   </div>
   <div class="card-grid">
-    <a class="card" href="/Research/research/2026-03-22-coding-ai-agent-skills-survey.html" data-title="coding ai agent skills survey: existing vendor and oss prompt libraries for software engineering domains" data-question="what actively maintained, publicly available agent skills, prompt libraries, instructions files, and system prompts exist — from vendors such as microsoft and from the open source software (oss) commu" data-tags="ai-agents,copilot,skills,prompts,software-engineering,dotnet,python,ddd,cqrs,clean-architecture,solid,api-design,testing,security,kafka,airflow,data-pipelines,data-visualisation,jupyter">
-  <div class="card-title">Coding AI Agent Skills Survey: Existing Vendor and OSS Prompt Libraries for Software Engineering Domains</div>
+    <a class="card" href="/Research/research/2026-03-22-coding-ai-agent-skills-survey.html" data-title="coding ai agent skills survey" data-question="what actively maintained, publicly available agent skills, prompt libraries, instructions files, and system prompts exist — from vendors such as microsoft and from the open source software (oss) commu" data-tags="ai-agents,copilot,skills,prompts,software-engineering,dotnet,python,ddd,security,airflow">
+  <div class="card-title">Coding AI Agent Skills Survey</div>
   <div class="card-meta">2026-03-22</div>
-  <div class="card-tags"><span class="tag">ai-agents</span><span class="tag">copilot</span><span class="tag">skills</span><span class="tag">prompts</span><span class="tag">software-engineering</span><span class="tag">dotnet</span><span class="tag">python</span><span class="tag">ddd</span><span class="tag">cqrs</span><span class="tag">clean-architecture</span><span class="tag">solid</span><span class="tag">api-design</span><span class="tag">testing</span><span class="tag">security</span><span class="tag">kafka</span><span class="tag">airflow</span><span class="tag">data-pipelines</span><span class="tag">data-visualisation</span><span class="tag">jupyter</span></div>
+  <div class="card-tags"><span class="tag">ai-agents</span><span class="tag">copilot</span><span class="tag">skills</span><span class="tag">prompts</span><span class="tag">software-engineering</span><span class="tag">dotnet</span><span class="tag">python</span><span class="tag">ddd</span><span class="tag">security</span><span class="tag">airflow</span></div>
   <div class="card-excerpt">What actively maintained, publicly available agent skills, prompt libraries, instructions files, and system prompts exist — from vendors such as Microsoft and from the Open Source Software (OSS) commu…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-15-trusting-trust-ai-corpus-contamination.html" data-title="trusting trust and ai corpus contamination" data-question="ken thompson&#39;s &quot;trusting trust&quot; argument shows that you cannot verify a compiler by reading its source code if the compiler was compiled by a compromised toolchain — the contamination lives in the bin" data-tags="ai,epistemology,trust,corpus-contamination,prompt-injection,large-language-model,knowledge,security">
+<a class="card" href="/Research/research/2026-03-15-trusting-trust-ai-corpus-contamination.html" data-title="trusting trust and ai corpus contamination" data-question="ken thompson&#39;s &quot;trusting trust&quot; argument shows that you cannot verify a compiler by reading its source code if the compiler was compiled by a compromised toolchain — the contamination lives in the bin" data-tags="ai,epistemology,prompt-injection,security">
   <div class="card-title">Trusting Trust and AI Corpus Contamination</div>
   <div class="card-meta">2026-03-15</div>
-  <div class="card-tags"><span class="tag">ai</span><span class="tag">epistemology</span><span class="tag">trust</span><span class="tag">corpus-contamination</span><span class="tag">prompt-injection</span><span class="tag">large-language-model</span><span class="tag">knowledge</span><span class="tag">security</span></div>
+  <div class="card-tags"><span class="tag">ai</span><span class="tag">epistemology</span><span class="tag">prompt-injection</span><span class="tag">security</span></div>
   <div class="card-excerpt">Ken Thompson&#39;s &quot;Trusting Trust&quot; argument shows that you cannot verify a compiler by reading its source code if the compiler was compiled by a compromised toolchain — the contamination lives in the bin…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-15-prompt-injection-threat-landscape.html" data-title="prompt injection threat landscape: exploits, defences, and active research in agentic artificial intelligence (ai) systems" data-question="what is the current state of the prompt injection threat in agentic artificial intelligence (ai) systems: who is exploiting it, who is defending against it, and what does the research community consid" data-tags="prompt-injection,security,llm,agents,adversarial,owasp,mitre-atlas,red-team,ai-governance">
-  <div class="card-title">Prompt injection threat landscape: exploits, defences, and active research in agentic artificial intelligence (AI) systems</div>
+<a class="card" href="/Research/research/2026-03-15-prompt-injection-threat-landscape.html" data-title="prompt injection threat landscape" data-question="what is the current state of the prompt injection threat in agentic artificial intelligence (ai) systems: who is exploiting it, who is defending against it, and what does the research community consid" data-tags="prompt-injection,security,llm,agents,owasp,red-team,ai-governance">
+  <div class="card-title">Prompt injection threat landscape</div>
   <div class="card-meta">2026-03-15</div>
-  <div class="card-tags"><span class="tag">prompt-injection</span><span class="tag">security</span><span class="tag">llm</span><span class="tag">agents</span><span class="tag">adversarial</span><span class="tag">owasp</span><span class="tag">mitre-atlas</span><span class="tag">red-team</span><span class="tag">ai-governance</span></div>
+  <div class="card-tags"><span class="tag">prompt-injection</span><span class="tag">security</span><span class="tag">llm</span><span class="tag">agents</span><span class="tag">owasp</span><span class="tag">red-team</span><span class="tag">ai-governance</span></div>
   <div class="card-excerpt">What is the current state of the prompt injection threat in agentic artificial intelligence (AI) systems: who is exploiting it, who is defending against it, and what does the research community consid…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-01-agent-lsp-policy-enforcement.html" data-title="guiding headless agents via lsp-like mechanisms for org policy conformance" data-question="who is building solutions that allow headless autonomous coding agents to be guided in real time by lsp-like mechanisms — rather than ci gates or pre-commit hooks — to conform to an organisation&#39;s sec" data-tags="agentic-coding,lsp,policy-enforcement,headless-agents,architecture-governance,security,developer-tooling">
+<a class="card" href="/Research/research/2026-03-01-agent-lsp-policy-enforcement.html" data-title="guiding headless agents via lsp-like mechanisms for org policy conformance" data-question="who is building solutions that allow headless autonomous coding agents to be guided in real time by lsp-like mechanisms — rather than ci gates or pre-commit hooks — to conform to an organisation&#39;s sec" data-tags="agentic-coding,security,developer-tooling">
   <div class="card-title">Guiding Headless Agents via LSP-Like Mechanisms for Org Policy Conformance</div>
   <div class="card-meta">2026-03-01</div>
-  <div class="card-tags"><span class="tag">agentic-coding</span><span class="tag">lsp</span><span class="tag">policy-enforcement</span><span class="tag">headless-agents</span><span class="tag">architecture-governance</span><span class="tag">security</span><span class="tag">developer-tooling</span></div>
+  <div class="card-tags"><span class="tag">agentic-coding</span><span class="tag">security</span><span class="tag">developer-tooling</span></div>
   <div class="card-excerpt">Who is building solutions that allow headless autonomous coding agents to be guided in real time by LSP-like mechanisms — rather than CI gates or pre-commit hooks — to conform to an organisation&#39;s sec…</div>
 </a>
-<a class="card" href="/Research/research/2026-02-28-ai-strategy-security-focus.html" data-title="ai strategy examples: security focus" data-question="which organisations have developed coherent ai strategies with security as the primary objective — either using ai to enhance security posture or governing the security risks that ai systems themselve" data-tags="ai-strategy,security,cybersecurity,threat-detection,adversarial-ai,ai-governance">
-  <div class="card-title">AI Strategy Examples: Security Focus</div>
+<a class="card" href="/Research/research/2026-02-28-ai-strategy-security-focus.html" data-title="ai strategy examples" data-question="which organisations have developed coherent ai strategies with security as the primary objective — either using ai to enhance security posture or governing the security risks that ai systems themselve" data-tags="ai-strategy,security,ai-governance">
+  <div class="card-title">AI Strategy Examples</div>
   <div class="card-meta">2026-02-28</div>
-  <div class="card-tags"><span class="tag">ai-strategy</span><span class="tag">security</span><span class="tag">cybersecurity</span><span class="tag">threat-detection</span><span class="tag">adversarial-ai</span><span class="tag">ai-governance</span></div>
+  <div class="card-tags"><span class="tag">ai-strategy</span><span class="tag">security</span><span class="tag">ai-governance</span></div>
   <div class="card-excerpt">Which organisations have developed coherent AI strategies with security as the primary objective — either using AI to enhance security posture or governing the security risks that AI systems themselve…</div>
 </a>
 

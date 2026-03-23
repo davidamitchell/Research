@@ -3,7 +3,7 @@
         <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>AI Strategy: global and NZ examples, policy frameworks, regulations, and use-case typologies — Research</title>
+          <title>AI Strategy — Research</title>
           <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -503,15 +585,18 @@ main {
     <span>/</span>
     <a href="/Research/browse.html">Browse</a>
     <span>/</span>
-    <span>AI Strategy: global and NZ examples, policy frameworks, regulations, and use-case typologies</span>
+    <span>AI Strategy</span>
   </div>
-  <h1 class="item-title">AI Strategy: global and NZ examples, policy frameworks, regulations, and use-case typologies</h1>
+  <h1 class="item-title">AI Strategy</h1>
+  <p class="full-title-subtitle">AI Strategy: global and NZ examples, policy frameworks, regulations, and use-case typologies</p>
   <div class="meta-bar">
     <span>2026-02-28</span>
     <span class="meta-sep">·</span>
-    <a class="tag" href="/Research/tags/ai-strategy.html">ai-strategy</a> <a class="tag" href="/Research/tags/policy.html">policy</a> <a class="tag" href="/Research/tags/regulation.html">regulation</a> <a class="tag" href="/Research/tags/new-zealand.html">new-zealand</a> <a class="tag" href="/Research/tags/rbnz.html">rbnz</a> <a class="tag" href="/Research/tags/dia.html">dia</a> <a class="tag" href="/Research/tags/mbie.html">mbie</a> <a class="tag" href="/Research/tags/dora.html">dora</a> <a class="tag" href="/Research/tags/use-cases.html">use-cases</a> <a class="tag" href="/Research/tags/agentic-ai.html">agentic-ai</a> 
+    <a class="tag" href="/Research/tags/ai-strategy.html">ai-strategy</a> <a class="tag" href="/Research/tags/rbnz.html">rbnz</a> <a class="tag" href="/Research/tags/agentic-ai.html">agentic-ai</a> 
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-02-28-ai-strategy.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-02-28-ai-strategy" target="_blank" rel="noopener">wiki →</a>
   </div>
   <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Global strategies share eight common pillars — foundational research, human-AI symbiosis, ethical/legal frameworks, trust and safety, AI infrastructure, workforce formation, governance, and export controls — but diverge significantly on enforcement model</li>
 <li>NZ&#39;s &quot;Investing with Confidence&quot; (July 2025) is a sophisticated-adopter strategy, not a leadership play</li>
@@ -694,8 +779,8 @@ main {
 </div></div>
 
   <div class="item-nav">
-    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-02-28-controlled-hallucination-perception-as-construction.html">Controlled hallucination: perception as active brain construction</a></div>
-    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-02-28-ai-strategy-swe-focus.html">AI Strategy Examples: Software Engineering Focus</a></div>
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-02-28-controlled-hallucination-perception-as-construction.html">Controlled hallucination</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-02-28-ai-strategy-swe-focus.html">AI Strategy Examples</a></div>
   </div>
 </main>
 </body>

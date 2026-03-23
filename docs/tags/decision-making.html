@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -504,28 +586,28 @@ main {
     <a class="back-link" href="/Research/browse.html">← browse</a>
   </div>
   <div class="card-grid">
-    <a class="card" href="/Research/research/2026-03-18-explore-to-exploit-synthesis-gap.html" data-title="explore to exploit: the synthesis step that makes exploitation pay off" data-question="when technology is moving fast, what is the synthesis step between exploration and exploitation, why is it so commonly skipped, what are the costs of skipping it, and what strategies allow organisatio" data-tags="strategy,exploration,exploitation,synthesis,technology-adoption,portfolio,decision-making,organizational-learning">
-  <div class="card-title">Explore to exploit: the synthesis step that makes exploitation pay off</div>
+    <a class="card" href="/Research/research/2026-03-18-explore-to-exploit-synthesis-gap.html" data-title="explore to exploit" data-question="when technology is moving fast, what is the synthesis step between exploration and exploitation, why is it so commonly skipped, what are the costs of skipping it, and what strategies allow organisatio" data-tags="strategy,exploration,synthesis,decision-making">
+  <div class="card-title">Explore to exploit</div>
   <div class="card-meta">2026-03-18</div>
-  <div class="card-tags"><span class="tag">strategy</span><span class="tag">exploration</span><span class="tag">exploitation</span><span class="tag">synthesis</span><span class="tag">technology-adoption</span><span class="tag">portfolio</span><span class="tag">decision-making</span><span class="tag">organizational-learning</span></div>
+  <div class="card-tags"><span class="tag">strategy</span><span class="tag">exploration</span><span class="tag">synthesis</span><span class="tag">decision-making</span></div>
   <div class="card-excerpt">When technology is moving fast, what is the synthesis step between exploration and exploitation, why is it so commonly skipped, what are the costs of skipping it, and what strategies allow organisatio…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-15-neurological-context-management.html" data-title="neurological basis of contextual reasoning and relevance filtering" data-question="how do human brains store, compress, retrieve, and dynamically layer multiple types of contextual knowledge — values, goals, rules, current state, and immediate task — when making decisions, and what" data-tags="neuroscience,cognition,context-management,working-memory,attention,prefrontal-cortex,decision-making">
+<a class="card" href="/Research/research/2026-03-15-neurological-context-management.html" data-title="neurological basis of contextual reasoning and relevance filtering" data-question="how do human brains store, compress, retrieve, and dynamically layer multiple types of contextual knowledge — values, goals, rules, current state, and immediate task — when making decisions, and what" data-tags="neuroscience,cognition,context-management,working-memory,decision-making">
   <div class="card-title">Neurological Basis of Contextual Reasoning and Relevance Filtering</div>
   <div class="card-meta">2026-03-15</div>
-  <div class="card-tags"><span class="tag">neuroscience</span><span class="tag">cognition</span><span class="tag">context-management</span><span class="tag">working-memory</span><span class="tag">attention</span><span class="tag">prefrontal-cortex</span><span class="tag">decision-making</span></div>
+  <div class="card-tags"><span class="tag">neuroscience</span><span class="tag">cognition</span><span class="tag">context-management</span><span class="tag">working-memory</span><span class="tag">decision-making</span></div>
   <div class="card-excerpt">How do human brains store, compress, retrieve, and dynamically layer multiple types of contextual knowledge — values, goals, rules, current state, and immediate task — when making decisions, and what…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-15-context-layers-aligned-decisions-synthesis.html" data-title="aligned decision-making: context architecture for ai agents in organisations" data-question="what framework should an organisation adopt to ensure that ai agents making or supporting decisions have access to the right layered organisational context — spanning regulatory boundaries, values and" data-tags="context-architecture,alignment,decision-making,enterprise-ai,rag,knowledge-management,organisational-strategy,synthesis">
-  <div class="card-title">Aligned Decision-Making: Context Architecture for AI Agents in Organisations</div>
+<a class="card" href="/Research/research/2026-03-15-context-layers-aligned-decisions-synthesis.html" data-title="aligned decision-making" data-question="what framework should an organisation adopt to ensure that ai agents making or supporting decisions have access to the right layered organisational context — spanning regulatory boundaries, values and" data-tags="alignment,decision-making,enterprise-ai,rag,knowledge-management,synthesis">
+  <div class="card-title">Aligned Decision-Making</div>
   <div class="card-meta">2026-03-15</div>
-  <div class="card-tags"><span class="tag">context-architecture</span><span class="tag">alignment</span><span class="tag">decision-making</span><span class="tag">enterprise-ai</span><span class="tag">rag</span><span class="tag">knowledge-management</span><span class="tag">organisational-strategy</span><span class="tag">synthesis</span></div>
+  <div class="card-tags"><span class="tag">alignment</span><span class="tag">decision-making</span><span class="tag">enterprise-ai</span><span class="tag">rag</span><span class="tag">knowledge-management</span><span class="tag">synthesis</span></div>
   <div class="card-excerpt">What framework should an organisation adopt to ensure that AI agents making or supporting decisions have access to the right layered organisational context — spanning regulatory boundaries, values and…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-02-integrative-framework-agent-decision-making.html" data-title="an integrative framework for agent decision-making: aligning knowledge management, intent understanding, and contextual decision frameworks" data-question="how can the dikw (data → information → knowledge → wisdom) progression be operationalised within agentic systems to produce intent-aligned, context-aware decisions that reconcile conflicting knowledge" data-tags="agents,decision-making,dikw,knowledge-management,intent,memory,context,alignment,governance,wisdom">
-  <div class="card-title">An Integrative Framework for Agent Decision-Making: Aligning Knowledge Management, Intent Understanding, and Contextual Decision Frameworks</div>
+<a class="card" href="/Research/research/2026-03-02-integrative-framework-agent-decision-making.html" data-title="an integrative framework for agent decision-making" data-question="how can the dikw (data → information → knowledge → wisdom) progression be operationalised within agentic systems to produce intent-aligned, context-aware decisions that reconcile conflicting knowledge" data-tags="agents,decision-making,dikw,knowledge-management,intent,memory,alignment,governance,wisdom">
+  <div class="card-title">An Integrative Framework for Agent Decision-Making</div>
   <div class="card-meta">2026-03-02</div>
-  <div class="card-tags"><span class="tag">agents</span><span class="tag">decision-making</span><span class="tag">dikw</span><span class="tag">knowledge-management</span><span class="tag">intent</span><span class="tag">memory</span><span class="tag">context</span><span class="tag">alignment</span><span class="tag">governance</span><span class="tag">wisdom</span></div>
+  <div class="card-tags"><span class="tag">agents</span><span class="tag">decision-making</span><span class="tag">dikw</span><span class="tag">knowledge-management</span><span class="tag">intent</span><span class="tag">memory</span><span class="tag">alignment</span><span class="tag">governance</span><span class="tag">wisdom</span></div>
   <div class="card-excerpt">How can the DIKW (Data → Information → Knowledge → Wisdom) progression be operationalised within agentic systems to produce intent-aligned, context-aware decisions that reconcile conflicting knowledge…</div>
 </a>
 

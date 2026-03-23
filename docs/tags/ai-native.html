@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -504,19 +586,19 @@ main {
     <a class="back-link" href="/Research/browse.html">← browse</a>
   </div>
   <div class="card-grid">
-    <a class="card" href="/Research/research/2026-03-12-ai-team-size-strike-team-thesis.html" data-title="ai amplified the coordination tax: the 5-person strike team as the structural unit of the ai era" data-question="artificial intelligence (ai) has increased per-person output by 5–10x. if coordination cost scales with the square of team size
-(see `2026-03-12-team-size-limits-brooks-dunbar-network-theory.md`), wha" data-tags="team-size,ai,coordination-overhead,strike-team,organisational-design,productivity,ai-native">
-  <div class="card-title">AI amplified the coordination tax: the 5-person strike team as the structural unit of the AI era</div>
+    <a class="card" href="/Research/research/2026-03-12-ai-team-size-strike-team-thesis.html" data-title="ai amplified the coordination tax" data-question="artificial intelligence (ai) has increased per-person output by 5–10x. if coordination cost scales with the square of team size
+(see `2026-03-12-team-size-limits-brooks-dunbar-network-theory.md`), wha" data-tags="team-size,ai,coordination-overhead,organisational-design,productivity,ai-native">
+  <div class="card-title">AI amplified the coordination tax</div>
   <div class="card-meta">2026-03-12</div>
-  <div class="card-tags"><span class="tag">team-size</span><span class="tag">ai</span><span class="tag">coordination-overhead</span><span class="tag">strike-team</span><span class="tag">organisational-design</span><span class="tag">productivity</span><span class="tag">ai-native</span></div>
+  <div class="card-tags"><span class="tag">team-size</span><span class="tag">ai</span><span class="tag">coordination-overhead</span><span class="tag">organisational-design</span><span class="tag">productivity</span><span class="tag">ai-native</span></div>
   <div class="card-excerpt">Artificial Intelligence (AI) has increased per-person output by 5–10x. If coordination cost scales with the square of team size
 (see `2026-03-12-team-size-limits-brooks-dunbar-network-theory.md`), wha…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-12-ai-force-multiplier-ambition-expansion.html" data-title="force multiplier, not cost reducer: expanding organisational ambition when ai multiplies per-person output" data-question="when artificial intelligence (ai) multiplies the productive capacity of each person by 5–10x, organisations face a
-strategic choice: reduce headcount to cut costs, or redeploy the same people against" data-tags="force-multiplier,ambition,organisational-design,ai-native,strategy,headcount,revenue-per-employee,cannot-do-now,capacity-expansion">
-  <div class="card-title">Force multiplier, not cost reducer: expanding organisational ambition when AI multiplies per-person output</div>
+<a class="card" href="/Research/research/2026-03-12-ai-force-multiplier-ambition-expansion.html" data-title="force multiplier, not cost reducer" data-question="when artificial intelligence (ai) multiplies the productive capacity of each person by 5–10x, organisations face a
+strategic choice: reduce headcount to cut costs, or redeploy the same people against" data-tags="organisational-design,ai-native,strategy">
+  <div class="card-title">Force multiplier, not cost reducer</div>
   <div class="card-meta">2026-03-12</div>
-  <div class="card-tags"><span class="tag">force-multiplier</span><span class="tag">ambition</span><span class="tag">organisational-design</span><span class="tag">ai-native</span><span class="tag">strategy</span><span class="tag">headcount</span><span class="tag">revenue-per-employee</span><span class="tag">cannot-do-now</span><span class="tag">capacity-expansion</span></div>
+  <div class="card-tags"><span class="tag">organisational-design</span><span class="tag">ai-native</span><span class="tag">strategy</span></div>
   <div class="card-excerpt">When Artificial Intelligence (AI) multiplies the productive capacity of each person by 5–10x, organisations face a
 strategic choice: reduce headcount to cut costs, or redeploy the same people against…</div>
 </a>

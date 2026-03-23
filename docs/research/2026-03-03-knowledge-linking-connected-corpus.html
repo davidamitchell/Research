@@ -3,7 +3,7 @@
         <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Knowledge linking: building a connected research corpus via explicit cross-references and a knowledge graph — Research</title>
+          <title>Knowledge linking — Research</title>
           <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -503,15 +585,18 @@ main {
     <span>/</span>
     <a href="/Research/browse.html">Browse</a>
     <span>/</span>
-    <span>Knowledge linking: building a connected research corpus via explicit cross-references and a knowledge graph</span>
+    <span>Knowledge linking</span>
   </div>
-  <h1 class="item-title">Knowledge linking: building a connected research corpus via explicit cross-references and a knowledge graph</h1>
+  <h1 class="item-title">Knowledge linking</h1>
+  <p class="full-title-subtitle">Knowledge linking: building a connected research corpus via explicit cross-references and a knowledge graph</p>
   <div class="meta-bar">
     <span>2026-03-03</span>
     <span class="meta-sep">·</span>
-    <a class="tag" href="/Research/tags/knowledge-graph.html">knowledge-graph</a> <a class="tag" href="/Research/tags/zettelkasten.html">zettelkasten</a> <a class="tag" href="/Research/tags/cross-references.html">cross-references</a> <a class="tag" href="/Research/tags/linking.html">linking</a> <a class="tag" href="/Research/tags/synthesis.html">synthesis</a> <a class="tag" href="/Research/tags/backlinks.html">backlinks</a> <a class="tag" href="/Research/tags/corpus.html">corpus</a> 
+    <a class="tag" href="/Research/tags/knowledge-graph.html">knowledge-graph</a> <a class="tag" href="/Research/tags/synthesis.html">synthesis</a> 
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-03-knowledge-linking-connected-corpus.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-03-knowledge-linking-connected-corpus" target="_blank" rel="noopener">wiki →</a>
   </div>
   <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Zettelkasten&#39;s core principle is connection over collection; the date-prefixed filename already satisfies the fixed-address requirement</li>
 <li>A dedicated `## Related Items` section using typed relative Markdown links is the optimal cross-reference format</li>
@@ -654,8 +739,8 @@ main {
 <li>Type: knowledge, tool, backlog-item</li>
 <li>Description: Cross-reference syntax convention (<code>## Related Items</code> section, typed relative Markdown links, five-type vocabulary); backlink index design (<code>state/links.json</code> committed JSON edge store); auto-detection tool specification (<code>research links --detect</code> on tag overlap + shared source URLs); wiki integration design (Related Items appended to wiki pages from edge store); <code>.gitignore</code> adjustment required.</li>
 <li>Links:<ul>
-<li>https://zettelkasten.de/introduction/ (Zettelkasten principles — foundational reference for the linking model)</li>
-<li>https://jackiexiao.github.io/obsidian-docs/en/How%20to/Working%20with%20backlinks/ (Obsidian backlinks — non-intrusive backlink pattern)</li>
+<li><a href="https://zettelkasten.de/introduction/">zettelkasten.de</a> (Zettelkasten principles — foundational reference for the linking model)</li>
+<li><a href="https://jackiexiao.github.io/obsidian-docs/en/How%20to/Working%20with%20backlinks/">jackiexiao.github.io</a> (Obsidian backlinks — non-intrusive backlink pattern)</li>
 <li><code>Research/completed/2026-03-01-github-wiki-research-content.md</code> (wiki pipeline — extension point for Related Items sections)</li>
 </ul>
 </li>
@@ -666,8 +751,8 @@ main {
   </div>
   
   <div class="item-nav">
-    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-03-knowledge-representation-agent-context.html">Knowledge Representation for Agent Context: LSE, Knowledge Graphs, Concept Maps, and Document Compression for Large-Scale Context Management</a></div>
-    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-02-transaction-costs.html">Transaction Cost Economics: foundations and speculative integration with SWE, AI, knowledge management, and context engineering</a></div>
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-03-knowledge-representation-agent-context.html">Knowledge Representation for Agent Context</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-02-transaction-costs.html">Transaction Cost Economics</a></div>
   </div>
 </main>
 </body>

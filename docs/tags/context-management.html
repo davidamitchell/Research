@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -504,32 +586,32 @@ main {
     <a class="back-link" href="/Research/browse.html">← browse</a>
   </div>
   <div class="card-grid">
-    <a class="card" href="/Research/research/2026-03-15-neurological-context-management.html" data-title="neurological basis of contextual reasoning and relevance filtering" data-question="how do human brains store, compress, retrieve, and dynamically layer multiple types of contextual knowledge — values, goals, rules, current state, and immediate task — when making decisions, and what" data-tags="neuroscience,cognition,context-management,working-memory,attention,prefrontal-cortex,decision-making">
+    <a class="card" href="/Research/research/2026-03-15-neurological-context-management.html" data-title="neurological basis of contextual reasoning and relevance filtering" data-question="how do human brains store, compress, retrieve, and dynamically layer multiple types of contextual knowledge — values, goals, rules, current state, and immediate task — when making decisions, and what" data-tags="neuroscience,cognition,context-management,working-memory,decision-making">
   <div class="card-title">Neurological Basis of Contextual Reasoning and Relevance Filtering</div>
   <div class="card-meta">2026-03-15</div>
-  <div class="card-tags"><span class="tag">neuroscience</span><span class="tag">cognition</span><span class="tag">context-management</span><span class="tag">working-memory</span><span class="tag">attention</span><span class="tag">prefrontal-cortex</span><span class="tag">decision-making</span></div>
+  <div class="card-tags"><span class="tag">neuroscience</span><span class="tag">cognition</span><span class="tag">context-management</span><span class="tag">working-memory</span><span class="tag">decision-making</span></div>
   <div class="card-excerpt">How do human brains store, compress, retrieve, and dynamically layer multiple types of contextual knowledge — values, goals, rules, current state, and immediate task — when making decisions, and what…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-15-context-compression-rag-enterprise-knowledge.html" data-title="context compression and rag techniques for organisational knowledge" data-question="what are the current best practices and bleeding-edge techniques  -  including retrieval-augmented generation (rag), context compression, and context architecture  -  for selectively surfacing the rig" data-tags="rag,context-management,compression,llm,knowledge-architecture,enterprise-ai,context-window">
+<a class="card" href="/Research/research/2026-03-15-context-compression-rag-enterprise-knowledge.html" data-title="context compression and rag techniques for organisational knowledge" data-question="what are the current best practices and bleeding-edge techniques  -  including retrieval-augmented generation (rag), context compression, and context architecture  -  for selectively surfacing the rig" data-tags="rag,context-management,llm,enterprise-ai,context-window">
   <div class="card-title">Context Compression and RAG Techniques for Organisational Knowledge</div>
   <div class="card-meta">2026-03-15</div>
-  <div class="card-tags"><span class="tag">rag</span><span class="tag">context-management</span><span class="tag">compression</span><span class="tag">llm</span><span class="tag">knowledge-architecture</span><span class="tag">enterprise-ai</span><span class="tag">context-window</span></div>
+  <div class="card-tags"><span class="tag">rag</span><span class="tag">context-management</span><span class="tag">llm</span><span class="tag">enterprise-ai</span><span class="tag">context-window</span></div>
   <div class="card-excerpt">What are the current best practices and bleeding-edge techniques  -  including Retrieval-Augmented Generation (RAG), context compression, and context architecture  -  for selectively surfacing the rig…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-08-ai-coding-harnesses-agent-philosophy.html" data-title="ai coding harnesses: agent execution model, memory, and context management across commercial and oss tools" data-question="what are the core architectural and philosophical principles behind the ai coding harnesses (agentic ides and agent runtimes) published or released by anthropic, openai, and the broader ecosystem of c" data-tags="ai-agents,coding,ide,anthropic,openai,cursor,opencode,aider,cline,context-management,memory,state-management,oss">
-  <div class="card-title">AI coding harnesses: agent execution model, memory, and context management across commercial and OSS tools</div>
+<a class="card" href="/Research/research/2026-03-08-ai-coding-harnesses-agent-philosophy.html" data-title="ai coding harnesses" data-question="what are the core architectural and philosophical principles behind the ai coding harnesses (agentic ides and agent runtimes) published or released by anthropic, openai, and the broader ecosystem of c" data-tags="ai-agents,openai,context-management,memory,state-management">
+  <div class="card-title">AI coding harnesses</div>
   <div class="card-meta">2026-03-08</div>
-  <div class="card-tags"><span class="tag">ai-agents</span><span class="tag">coding</span><span class="tag">ide</span><span class="tag">anthropic</span><span class="tag">openai</span><span class="tag">cursor</span><span class="tag">opencode</span><span class="tag">aider</span><span class="tag">cline</span><span class="tag">context-management</span><span class="tag">memory</span><span class="tag">state-management</span><span class="tag">oss</span></div>
+  <div class="card-tags"><span class="tag">ai-agents</span><span class="tag">openai</span><span class="tag">context-management</span><span class="tag">memory</span><span class="tag">state-management</span></div>
   <div class="card-excerpt">What are the core architectural and philosophical principles behind the AI coding harnesses (agentic IDEs and agent runtimes) published or released by Anthropic, OpenAI, and the broader ecosystem of c…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-03-knowledge-representation-agent-context.html" data-title="knowledge representation for agent context: lse, knowledge graphs, concept maps, and document compression for large-scale context management" data-question="what techniques — latent semantic extraction, knowledge graphs, concept maps, hierarchical document compression, and layered abstraction — most effectively represent and compress large knowledge corpo" data-tags="lse,lsa,knowledge-graphs,concept-maps,document-compression,context-management,rag,agents,knowledge-layering,intent-alignment,graphrag">
-  <div class="card-title">Knowledge Representation for Agent Context: LSE, Knowledge Graphs, Concept Maps, and Document Compression for Large-Scale Context Management</div>
+<a class="card" href="/Research/research/2026-03-03-knowledge-representation-agent-context.html" data-title="knowledge representation for agent context" data-question="what techniques — latent semantic extraction, knowledge graphs, concept maps, hierarchical document compression, and layered abstraction — most effectively represent and compress large knowledge corpo" data-tags="knowledge-graphs,context-management,rag,agents,intent-alignment">
+  <div class="card-title">Knowledge Representation for Agent Context</div>
   <div class="card-meta">2026-03-03</div>
-  <div class="card-tags"><span class="tag">lse</span><span class="tag">lsa</span><span class="tag">knowledge-graphs</span><span class="tag">concept-maps</span><span class="tag">document-compression</span><span class="tag">context-management</span><span class="tag">rag</span><span class="tag">agents</span><span class="tag">knowledge-layering</span><span class="tag">intent-alignment</span><span class="tag">graphrag</span></div>
+  <div class="card-tags"><span class="tag">knowledge-graphs</span><span class="tag">context-management</span><span class="tag">rag</span><span class="tag">agents</span><span class="tag">intent-alignment</span></div>
   <div class="card-excerpt">What techniques — latent semantic extraction, knowledge graphs, concept maps, hierarchical document compression, and layered abstraction — most effectively represent and compress large knowledge corpo…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-01-context-mode-llm-context-compression.html" data-title="context mode: mcp tool output compression and the llm context window management problem" data-question="what is context mode&#39;s architecture and actual effectiveness for compressing mcp tool outputs in claude code, what are its real-world limitations (especially regarding mcp tool interception), and what" data-tags="llm,context-window,mcp,claude-code,context-management,tooling">
-  <div class="card-title">Context Mode: MCP tool output compression and the LLM context window management problem</div>
+<a class="card" href="/Research/research/2026-03-01-context-mode-llm-context-compression.html" data-title="context mode" data-question="what is context mode&#39;s architecture and actual effectiveness for compressing mcp tool outputs in claude code, what are its real-world limitations (especially regarding mcp tool interception), and what" data-tags="llm,context-window,mcp,claude-code,context-management,tooling">
+  <div class="card-title">Context Mode</div>
   <div class="card-meta">2026-03-01</div>
   <div class="card-tags"><span class="tag">llm</span><span class="tag">context-window</span><span class="tag">mcp</span><span class="tag">claude-code</span><span class="tag">context-management</span><span class="tag">tooling</span></div>
   <div class="card-excerpt">What is Context Mode&#39;s architecture and actual effectiveness for compressing MCP tool outputs in Claude Code, what are its real-world limitations (especially regarding MCP tool interception), and what…</div>

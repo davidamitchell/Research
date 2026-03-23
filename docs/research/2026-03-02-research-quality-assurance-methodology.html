@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -506,12 +588,14 @@ main {
     <span>Research Quality Assurance and Knowledge Integration Methodology</span>
   </div>
   <h1 class="item-title">Research Quality Assurance and Knowledge Integration Methodology</h1>
-  <div class="meta-bar">
+    <div class="meta-bar">
     <span>2026-03-02</span>
     <span class="meta-sep">·</span>
-    <a class="tag" href="/Research/tags/research-methodology.html">research-methodology</a> <a class="tag" href="/Research/tags/quality-assurance.html">quality-assurance</a> <a class="tag" href="/Research/tags/peer-review.html">peer-review</a> <a class="tag" href="/Research/tags/knowledge-integration.html">knowledge-integration</a> <a class="tag" href="/Research/tags/information-to-wisdom.html">information-to-wisdom</a> <a class="tag" href="/Research/tags/ci.html">ci</a> <a class="tag" href="/Research/tags/skills.html">skills</a> 
+    <a class="tag" href="/Research/tags/quality-assurance.html">quality-assurance</a> <a class="tag" href="/Research/tags/ci.html">ci</a> <a class="tag" href="/Research/tags/skills.html">skills</a> 
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-02-research-quality-assurance-methodology.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-02-research-quality-assurance-methodology" target="_blank" rel="noopener">wiki →</a>
   </div>
   <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>The three existing skills leave logical coherence, alternative explanations, and cross-item integration uncovered</li>
 <li>LLM agents can check logical coherence and missing alternative explanations at a quality level matching median human peer reviewers</li>
@@ -655,9 +739,9 @@ main {
 <li>Type: skill, knowledge, backlog-item</li>
 <li>Description: Four-tier quality review pipeline taxonomy with automation classification; <code>peer-review</code> skill scope; DIKW/SECI mapping to repository workflows. The direct input to BACKLOG.md W-0031 (research review CI step implementation).</li>
 <li>Links:<ul>
-<li>https://www.springernature.com/gp/authors/campaigns/how-to-peer-review-3 (Springer Nature peer review guidelines — defines what reviewers check)</li>
-<li>https://arxiv.org/html/2505.11718v1 (REMOR — LLM peer review matching human quality on coherence)</li>
-<li>https://zettelkasten.de/introduction/ (Zettelkasten introduction — integration methodology foundation)</li>
+<li><a href="https://www.springernature.com/gp/authors/campaigns/how-to-peer-review-3">www.springernature.com</a> (Springer Nature peer review guidelines — defines what reviewers check)</li>
+<li><a href="https://arxiv.org/html/2505.11718v1">arxiv.org</a> (REMOR — LLM peer review matching human quality on coherence)</li>
+<li><a href="https://zettelkasten.de/introduction/">zettelkasten.de</a> (Zettelkasten introduction — integration methodology foundation)</li>
 </ul>
 </li>
 </ul>

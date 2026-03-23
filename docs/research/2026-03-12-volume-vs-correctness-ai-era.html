@@ -3,7 +3,7 @@
         <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>AI inverted the knowledge-work scarcity equation: volume is free, correctness is the scarce resource — Research</title>
+          <title>AI inverted the knowledge-work scarcity equation — Research</title>
           <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -503,15 +585,18 @@ main {
     <span>/</span>
     <a href="/Research/browse.html">Browse</a>
     <span>/</span>
-    <span>AI inverted the knowledge-work scarcity equation: volume is free, correctness is the scarce resource</span>
+    <span>AI inverted the knowledge-work scarcity equation</span>
   </div>
-  <h1 class="item-title">AI inverted the knowledge-work scarcity equation: volume is free, correctness is the scarce resource</h1>
+  <h1 class="item-title">AI inverted the knowledge-work scarcity equation</h1>
+  <p class="full-title-subtitle">AI inverted the knowledge-work scarcity equation: volume is free, correctness is the scarce resource</p>
   <div class="meta-bar">
     <span>2026-03-12</span>
     <span class="meta-sep">·</span>
-    <a class="tag" href="/Research/tags/correctness.html">correctness</a> <a class="tag" href="/Research/tags/quality.html">quality</a> <a class="tag" href="/Research/tags/throughput.html">throughput</a> <a class="tag" href="/Research/tags/volume.html">volume</a> <a class="tag" href="/Research/tags/ai.html">ai</a> <a class="tag" href="/Research/tags/productivity.html">productivity</a> <a class="tag" href="/Research/tags/verification.html">verification</a> <a class="tag" href="/Research/tags/shared-context.html">shared-context</a> <a class="tag" href="/Research/tags/agentic-tarpit.html">agentic-tarpit</a> <a class="tag" href="/Research/tags/procter-and-gamble-study.html">procter-and-gamble-study</a> 
+    <a class="tag" href="/Research/tags/quality.html">quality</a> <a class="tag" href="/Research/tags/ai.html">ai</a> <a class="tag" href="/Research/tags/productivity.html">productivity</a> 
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-12-volume-vs-correctness-ai-era.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-12-volume-vs-correctness-ai-era" target="_blank" rel="noopener">wiki →</a>
   </div>
   <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Volume up, delivery flat: AI coding assistants increased individual task completion by 21% and PR merges by 98% across 10,000+ developers in the Faros AI 2025 telemetry study, yet organisational delivery metrics — throughput, stability, change failure rate — remained flat</li>
 <li>3x top-decile quality with structured AI use: In the Dell&#39;Acqua et al</li>
@@ -678,9 +763,9 @@ quality should be managed in the AI era?</p>
 <li><strong>Type:</strong> knowledge</li>
 <li><strong>Description:</strong> Evidence-based synthesis of the volume-vs-correctness inversion thesis, with primary empirical grounding in the Dell'Acqua et al. (2025) P&amp;G RCT (NBER w33641) and the Faros AI 2025 productivity paradox study. Establishes that correctness is the binding constraint in AI-augmented knowledge work and identifies the verification bottleneck and agentic tarpit as the two key mechanisms.</li>
 <li><strong>Key sources:</strong><ol>
-<li>Dell'Acqua et al. (2025), &quot;The Cybernetic Teammate: A Field Experiment on Generative AI Reshaping Teamwork and Expertise,&quot; NBER Working Paper w33641 — https://www.nber.org/system/files/working_papers/w33641/w33641.pdf</li>
-<li>Wes McKinney, &quot;The Mythical Agent-Month&quot; (2025) — https://wesmckinney.com/blog/mythical-agent-month/</li>
-<li>Faros AI, &quot;The AI Productivity Paradox&quot; (2025) — https://www.faros.ai/blog/ai-software-engineering</li>
+<li>Dell'Acqua et al. (2025), &quot;The Cybernetic Teammate: A Field Experiment on Generative AI Reshaping Teamwork and Expertise,&quot; NBER Working Paper w33641 — <a href="https://www.nber.org/system/files/working_papers/w33641/w33641.pdf</li>">www.nber.org</a>
+<li>Wes McKinney, &quot;The Mythical Agent-Month&quot; (2025) — <a href="https://wesmckinney.com/blog/mythical-agent-month/</li>">wesmckinney.com</a>
+<li>Faros AI, &quot;The AI Productivity Paradox&quot; (2025) — <a href="https://www.faros.ai/blog/ai-software-engineering</li>">www.faros.ai</a>
 </ol>
 </li>
 </ul>
@@ -691,8 +776,8 @@ quality should be managed in the AI era?</p>
 </div></div>
 
   <div class="item-nav">
-    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-13-financial-forecasting-it-run-costs.html">Best practices in financial forecasting for IT operational run costs: assumptions, uncertainty, and regulatory considerations</a></div>
-    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-12-team-size-limits-brooks-dunbar-network-theory.html">Three disciplines, one answer: Brooks, Dunbar, and network theory on why 5 is the coordination limit</a></div>
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-13-financial-forecasting-it-run-costs.html">Best practices in financial forecasting for IT operational run costs</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-12-team-size-limits-brooks-dunbar-network-theory.html">Three disciplines, one answer</a></div>
   </div>
 </main>
 </body>

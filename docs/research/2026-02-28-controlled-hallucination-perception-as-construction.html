@@ -3,7 +3,7 @@
         <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Controlled hallucination: perception as active brain construction — Research</title>
+          <title>Controlled hallucination — Research</title>
           <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -503,15 +585,18 @@ main {
     <span>/</span>
     <a href="/Research/browse.html">Browse</a>
     <span>/</span>
-    <span>Controlled hallucination: perception as active brain construction</span>
+    <span>Controlled hallucination</span>
   </div>
-  <h1 class="item-title">Controlled hallucination: perception as active brain construction</h1>
+  <h1 class="item-title">Controlled hallucination</h1>
+  <p class="full-title-subtitle">Controlled hallucination: perception as active brain construction</p>
   <div class="meta-bar">
     <span>2026-02-28</span>
     <span class="meta-sep">·</span>
-    <a class="tag" href="/Research/tags/consciousness.html">consciousness</a> <a class="tag" href="/Research/tags/perception.html">perception</a> <a class="tag" href="/Research/tags/controlled-hallucination.html">controlled-hallucination</a> <a class="tag" href="/Research/tags/anil-seth.html">anil-seth</a> <a class="tag" href="/Research/tags/neuroscience.html">neuroscience</a> 
+    <a class="tag" href="/Research/tags/consciousness.html">consciousness</a> <a class="tag" href="/Research/tags/perception.html">perception</a> <a class="tag" href="/Research/tags/anil-seth.html">anil-seth</a> <a class="tag" href="/Research/tags/neuroscience.html">neuroscience</a> 
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-02-28-controlled-hallucination-perception-as-construction.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-02-28-controlled-hallucination-perception-as-construction" target="_blank" rel="noopener">wiki →</a>
   </div>
   <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Predictive coding in visual cortex is mechanistically established: Rao &amp; Ballard (1999) showed that hierarchical feedback predictions plus feedforward error signals account for extra-classical receptive field effects (surround suppression, end-stopping) in V1 that purely feedforward models cannot explain, providing the computational architecture underlying controlled hallucination</li>
 <li>The rubber hand illusion demonstrates that body ownership is a top-down prediction, not a sensory readout: Synchronous visual-tactile stroking induces ownership of a rubber hand; the effect requires anatomical plausibility, confirming that the brain&#39;s prior body model — not raw sensory input — determines ownership attribution</li>
@@ -661,8 +746,8 @@ main {
 </div></div>
 
   <div class="item-nav">
-    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-02-28-exploit-explore-ai-portfolio-framework.html">Exploit vs Explore: A Decision Framework for AI Portfolio Planning</a></div>
-    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-02-28-ai-strategy.html">AI Strategy: global and NZ examples, policy frameworks, regulations, and use-case typologies</a></div>
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-02-28-exploit-explore-ai-portfolio-framework.html">Exploit vs Explore</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-02-28-ai-strategy.html">AI Strategy</a></div>
   </div>
 </main>
 </body>

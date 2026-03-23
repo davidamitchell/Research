@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -504,16 +586,16 @@ main {
     <a class="back-link" href="/Research/browse.html">← browse</a>
   </div>
   <div class="card-grid">
-    <a class="card" href="/Research/research/2026-03-12-swat-technique-loop-fresh-context.html" data-title="swat technique in a fresh-context loop: reliability, drift, and the effect of web search and org rag on blind-acceptance outcomes" data-question="when the swat (strengths, weaknesses, assumptions, threats) technique is executed repeatedly in a loop where each invocation uses a fresh large language model (llm) context window and the caller blind" data-tags="swat,prompting-techniques,agentic-systems,rag,web-search,hallucination,context-window,loop-reliability,grounding">
-  <div class="card-title">SWAT technique in a fresh-context loop: reliability, drift, and the effect of web search and org RAG on blind-acceptance outcomes</div>
+    <a class="card" href="/Research/research/2026-03-12-swat-technique-loop-fresh-context.html" data-title="swat technique in a fresh-context loop" data-question="when the swat (strengths, weaknesses, assumptions, threats) technique is executed repeatedly in a loop where each invocation uses a fresh large language model (llm) context window and the caller blind" data-tags="agentic-systems,rag,hallucination,context-window,grounding">
+  <div class="card-title">SWAT technique in a fresh-context loop</div>
   <div class="card-meta">2026-03-12</div>
-  <div class="card-tags"><span class="tag">swat</span><span class="tag">prompting-techniques</span><span class="tag">agentic-systems</span><span class="tag">rag</span><span class="tag">web-search</span><span class="tag">hallucination</span><span class="tag">context-window</span><span class="tag">loop-reliability</span><span class="tag">grounding</span></div>
+  <div class="card-tags"><span class="tag">agentic-systems</span><span class="tag">rag</span><span class="tag">hallucination</span><span class="tag">context-window</span><span class="tag">grounding</span></div>
   <div class="card-excerpt">When the SWAT (Strengths, Weaknesses, Assumptions, Threats) technique is executed repeatedly in a loop where each invocation uses a fresh Large Language Model (LLM) context window and the caller blind…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-12-failure-mode-taxonomy-expansion.html" data-title="failure mode taxonomy: empirical frequency, causal mechanisms, detection signals, and cascade patterns in production agentic systems" data-question="the five-layer failure mode taxonomy established in `2026-03-10-ai-concept-classification-taxonomy.md` (q5) provides a structurally sound classification, but leaves three empirical gaps unanswered: (1" data-tags="failure-modes,taxonomy,hallucination,reward-hacking,prompt-injection,alignment,agentic-systems,owasp,safety,observability">
-  <div class="card-title">Failure mode taxonomy: empirical frequency, causal mechanisms, detection signals, and cascade patterns in production agentic systems</div>
+<a class="card" href="/Research/research/2026-03-12-failure-mode-taxonomy-expansion.html" data-title="failure mode taxonomy" data-question="the five-layer failure mode taxonomy established in `2026-03-10-ai-concept-classification-taxonomy.md` (q5) provides a structurally sound classification, but leaves three empirical gaps unanswered: (1" data-tags="failure-modes,taxonomy,hallucination,reward-hacking,prompt-injection,alignment,agentic-systems,owasp,observability">
+  <div class="card-title">Failure mode taxonomy</div>
   <div class="card-meta">2026-03-12</div>
-  <div class="card-tags"><span class="tag">failure-modes</span><span class="tag">taxonomy</span><span class="tag">hallucination</span><span class="tag">reward-hacking</span><span class="tag">prompt-injection</span><span class="tag">alignment</span><span class="tag">agentic-systems</span><span class="tag">owasp</span><span class="tag">safety</span><span class="tag">observability</span></div>
+  <div class="card-tags"><span class="tag">failure-modes</span><span class="tag">taxonomy</span><span class="tag">hallucination</span><span class="tag">reward-hacking</span><span class="tag">prompt-injection</span><span class="tag">alignment</span><span class="tag">agentic-systems</span><span class="tag">owasp</span><span class="tag">observability</span></div>
   <div class="card-excerpt">The five-layer failure mode taxonomy established in `2026-03-10-ai-concept-classification-taxonomy.md` (Q5) provides a structurally sound classification, but leaves three empirical gaps unanswered: (1…</div>
 </a>
 

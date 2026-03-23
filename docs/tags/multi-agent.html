@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -504,22 +586,22 @@ main {
     <a class="back-link" href="/Research/browse.html">← browse</a>
   </div>
   <div class="card-grid">
-    <a class="card" href="/Research/research/2026-03-22-applied-context-engineering-agent-workflows.html" data-title="applied context engineering: skills, workflows, and best practices for agent development" data-question="what practical patterns, workflow best practices, and agent development guidelines emerge from synthesising the `muratcankoylan/agent-skills-for-context-engineering` skill library with the context eng" data-tags="context-engineering,agent-skills,workflows,best-practices,multi-agent,memory-systems,tool-design,project-development,evaluation,production-agents">
-  <div class="card-title">Applied context engineering: skills, workflows, and best practices for agent development</div>
+    <a class="card" href="/Research/research/2026-03-22-applied-context-engineering-agent-workflows.html" data-title="applied context engineering" data-question="what practical patterns, workflow best practices, and agent development guidelines emerge from synthesising the `muratcankoylan/agent-skills-for-context-engineering` skill library with the context eng" data-tags="context-engineering,workflows,best-practices,multi-agent,evaluation">
+  <div class="card-title">Applied context engineering</div>
   <div class="card-meta">2026-03-22</div>
-  <div class="card-tags"><span class="tag">context-engineering</span><span class="tag">agent-skills</span><span class="tag">workflows</span><span class="tag">best-practices</span><span class="tag">multi-agent</span><span class="tag">memory-systems</span><span class="tag">tool-design</span><span class="tag">project-development</span><span class="tag">evaluation</span><span class="tag">production-agents</span></div>
+  <div class="card-tags"><span class="tag">context-engineering</span><span class="tag">workflows</span><span class="tag">best-practices</span><span class="tag">multi-agent</span><span class="tag">evaluation</span></div>
   <div class="card-excerpt">What practical patterns, workflow best practices, and agent development guidelines emerge from synthesising the `muratcankoylan/Agent-Skills-for-Context-Engineering` skill library with the context eng…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-16-gitagent-declarative-agent-definition.html" data-title="gitagent and declarative agent definition: concepts, adoption, and cross-platform integration" data-question="what is gitagent (https://github.com/open-gitagent/gitagent), how can it be used in this repository, what concepts does it build on and produce, and how does the broader idea of declarative agent defi" data-tags="agent,declarative-agent,gitagent,copilot,aws,azure,microsoft-365,git,ai-platform,multi-agent">
-  <div class="card-title">GitAgent and declarative agent definition: concepts, adoption, and cross-platform integration</div>
+<a class="card" href="/Research/research/2026-03-16-gitagent-declarative-agent-definition.html" data-title="gitagent and declarative agent definition" data-question="what is gitagent (https://github.com/open-gitagent/gitagent), how can it be used in this repository, what concepts does it build on and produce, and how does the broader idea of declarative agent defi" data-tags="copilot,git,multi-agent">
+  <div class="card-title">GitAgent and declarative agent definition</div>
   <div class="card-meta">2026-03-16</div>
-  <div class="card-tags"><span class="tag">agent</span><span class="tag">declarative-agent</span><span class="tag">gitagent</span><span class="tag">copilot</span><span class="tag">aws</span><span class="tag">azure</span><span class="tag">microsoft-365</span><span class="tag">git</span><span class="tag">ai-platform</span><span class="tag">multi-agent</span></div>
+  <div class="card-tags"><span class="tag">copilot</span><span class="tag">git</span><span class="tag">multi-agent</span></div>
   <div class="card-excerpt">What is GitAgent (https://github.com/open-gitagent/gitagent), how can it be used in this repository, what concepts does it build on and produce, and how does the broader idea of declarative agent defi…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-10-adversarial-agents-shared-goals-multi-perspective.html" data-title="adversarial agents with shared goals: multi-perspective coverage across competencies and time horizons" data-question="what is the design pattern for a system of agents — human or ai — that share a common goal but deliberately occupy different competency domains and time horizons? how does &quot;adversarial collaboration&quot;" data-tags="multi-agent,adversarial-collaboration,competency-coverage,time-horizons,fitness-functions,organisational-design,red-team,quality-assurance,values-alignment">
-  <div class="card-title">Adversarial agents with shared goals: multi-perspective coverage across competencies and time horizons</div>
+<a class="card" href="/Research/research/2026-03-10-adversarial-agents-shared-goals-multi-perspective.html" data-title="adversarial agents with shared goals" data-question="what is the design pattern for a system of agents — human or ai — that share a common goal but deliberately occupy different competency domains and time horizons? how does &quot;adversarial collaboration&quot;" data-tags="multi-agent,fitness-functions,organisational-design,red-team,quality-assurance">
+  <div class="card-title">Adversarial agents with shared goals</div>
   <div class="card-meta">2026-03-10</div>
-  <div class="card-tags"><span class="tag">multi-agent</span><span class="tag">adversarial-collaboration</span><span class="tag">competency-coverage</span><span class="tag">time-horizons</span><span class="tag">fitness-functions</span><span class="tag">organisational-design</span><span class="tag">red-team</span><span class="tag">quality-assurance</span><span class="tag">values-alignment</span></div>
+  <div class="card-tags"><span class="tag">multi-agent</span><span class="tag">fitness-functions</span><span class="tag">organisational-design</span><span class="tag">red-team</span><span class="tag">quality-assurance</span></div>
   <div class="card-excerpt">What is the design pattern for a system of agents — human or AI — that share a common goal but deliberately occupy different competency domains and time horizons? How does &quot;adversarial collaboration&quot;…</div>
 </a>
 

@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -506,12 +588,14 @@ main {
     <span>iOS Shortcuts for research capture and query</span>
   </div>
   <h1 class="item-title">iOS Shortcuts for research capture and query</h1>
-  <div class="meta-bar">
+    <div class="meta-bar">
     <span>2026-03-02</span>
     <span class="meta-sep">·</span>
-    <a class="tag" href="/Research/tags/ios.html">ios</a> <a class="tag" href="/Research/tags/shortcuts.html">shortcuts</a> <a class="tag" href="/Research/tags/mobile.html">mobile</a> <a class="tag" href="/Research/tags/capture.html">capture</a> <a class="tag" href="/Research/tags/interface.html">interface</a> <a class="tag" href="/Research/tags/delivery.html">delivery</a> <a class="tag" href="/Research/tags/siri.html">siri</a> 
+    <a class="tag" href="/Research/tags/ios.html">ios</a> <a class="tag" href="/Research/tags/shortcuts.html">shortcuts</a> <a class="tag" href="/Research/tags/mobile.html">mobile</a> <a class="tag" href="/Research/tags/capture.html">capture</a> <a class="tag" href="/Research/tags/interface.html">interface</a> <a class="tag" href="/Research/tags/delivery.html">delivery</a> 
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-02-ios-shortcuts-research.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-02-ios-shortcuts-research" target="_blank" rel="noopener">wiki →</a>
   </div>
   <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>iOS Shortcuts &quot;Get Contents of URL&quot; supports arbitrary HTTP methods, custom headers, and JSON request bodies, making GitHub REST API calls fully feasible from iOS without any intermediary app or service</li>
 <li>Issue creation (POST `/repos/{owner}/{repo}/issues`) is the recommended capture implementation path because it requires no base64 encoding, no filename construction, and no Markdown template assembly — only a title and optional body are needed in the JSON request body</li>
@@ -544,7 +628,7 @@ main {
 </li>
 <li><p><strong>iOS Shortcuts has no native access to the iOS Keychain, so the PAT must be stored as a hardcoded text value in the Shortcut definition.</strong> The standard community practice is to store the token inline, keep the Shortcut private (not shared via iCloud link), and use a fine-grained PAT with minimal scope and a reasonable expiry (90–365 days).</p>
 </li>
-<li><p><strong>The GitHub wiki quick-access shortcut is a single &quot;Open URLs&quot; action pointing to <code>https://github.com/davidamitchell/Research/wiki/Home</code>; this is trivially implementable and adds Siri invocability over a plain Safari bookmark.</strong> The wiki is already published and maintained by the <code>publish-wiki.yml</code> workflow established in <code>2026-03-01-github-wiki-research-content.md</code>.</p>
+<li><p><strong>The GitHub wiki quick-access shortcut is a single &quot;Open URLs&quot; action pointing to <code><a href="https://github.com/davidamitchell/Research/wiki/Home</code>">github.com</a> this is trivially implementable and adds Siri invocability over a plain Safari bookmark.</strong> The wiki is already published and maintained by the <code>publish-wiki.yml</code> workflow established in <code>2026-03-01-github-wiki-research-content.md</code>.</p>
 </li>
 <li><p><strong>GitHub Actions <code>workflow_dispatch</code> is triggerable from iOS Shortcuts using the same &quot;Get Contents of URL&quot; pattern as issue creation, with endpoint <code>POST /repos/{owner}/{repo}/actions/workflows/{workflow_file}/dispatches</code> and JSON body <code>{&quot;ref&quot;: &quot;main&quot;, &quot;inputs&quot;: {...}}</code>.</strong> This pattern is confirmed by the island94.org GitHub employee post and independently by theporteur.com.</p>
 </li>
@@ -607,7 +691,7 @@ main {
   <td>No Apple documentation contradicts this; community consensus</td>
 </tr>
 <tr>
-  <td>Wiki URL: https://github.com/davidamitchell/Research/wiki/Home</td>
+  <td>Wiki URL: <a href="https://github.com/davidamitchell/Research/wiki/Home</td>">github.com</a>
   <td>Research/completed/2026-03-01-github-wiki-research-content.md Key Finding #3</td>
   <td>high</td>
   <td>Derived from prior research on wiki structure</td>
@@ -678,7 +762,7 @@ main {
 
   <div class="item-nav">
     <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-02-research-quality-assurance-methodology.html">Research Quality Assurance and Knowledge Integration Methodology</a></div>
-    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-02-integrative-framework-agent-decision-making.html">An Integrative Framework for Agent Decision-Making: Aligning Knowledge Management, Intent Understanding, and Contextual Decision Frameworks</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-02-integrative-framework-agent-decision-making.html">An Integrative Framework for Agent Decision-Making</a></div>
   </div>
 </main>
 </body>

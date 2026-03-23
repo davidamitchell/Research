@@ -3,7 +3,7 @@
         <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Stateless-agent assumption failure: causes, detection, and recovery patterns for orphaned state in multi-session agentic workflows — Research</title>
+          <title>Stateless-agent assumption failure — Research</title>
           <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -503,15 +585,18 @@ main {
     <span>/</span>
     <a href="/Research/browse.html">Browse</a>
     <span>/</span>
-    <span>Stateless-agent assumption failure: causes, detection, and recovery patterns for orphaned state in multi-session agentic workflows</span>
+    <span>Stateless-agent assumption failure</span>
   </div>
-  <h1 class="item-title">Stateless-agent assumption failure: causes, detection, and recovery patterns for orphaned state in multi-session agentic workflows</h1>
+  <h1 class="item-title">Stateless-agent assumption failure</h1>
+  <p class="full-title-subtitle">Stateless-agent assumption failure: causes, detection, and recovery patterns for orphaned state in multi-session agentic workflows</p>
   <div class="meta-bar">
     <span>2026-03-18</span>
     <span class="meta-sep">·</span>
-    <a class="tag" href="/Research/tags/failure-modes.html">failure-modes</a> <a class="tag" href="/Research/tags/agentic-systems.html">agentic-systems</a> <a class="tag" href="/Research/tags/operational-failures.html">operational-failures</a> <a class="tag" href="/Research/tags/layer-5.html">layer-5</a> <a class="tag" href="/Research/tags/state-management.html">state-management</a> <a class="tag" href="/Research/tags/idempotency.html">idempotency</a> <a class="tag" href="/Research/tags/checkpoint-resume.html">checkpoint-resume</a> <a class="tag" href="/Research/tags/multi-session.html">multi-session</a> <a class="tag" href="/Research/tags/workflow.html">workflow</a> 
+    <a class="tag" href="/Research/tags/failure-modes.html">failure-modes</a> <a class="tag" href="/Research/tags/agentic-systems.html">agentic-systems</a> <a class="tag" href="/Research/tags/state-management.html">state-management</a> <a class="tag" href="/Research/tags/workflow.html">workflow</a> 
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-18-stateless-agent-assumption-failure.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-18-stateless-agent-assumption-failure" target="_blank" rel="noopener">wiki →</a>
   </div>
   <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>High confidence — : Stateless-agent assumption failure is a Layer 5 operational failure in which volatile in-session reasoning operates over durable out-of-session state without a mandatory reconciliation step, so later sessions can hide, duplicate, or contradict prior work even when each individual session behaves coherently</li>
 <li>High confidence — : Leading production-oriented agent frameworks already treat persistence, resumability, and replay as first-class concerns, which supports the conclusion that cross-session orphaned-state risk is a normal systems problem rather than an exotic edge case tied to one repository or one vendor</li>
@@ -627,9 +712,9 @@ main {
 <li>[fact] Type: <code>knowledge</code></li>
 <li>[fact] Description: Structured findings on stateless-agent assumption failure as a Layer 5 operational failure, including definition, empirical framing, detection signals, and recovery patterns for multi-session agentic workflows.</li>
 <li>[fact] Links:<ul>
-<li>[fact] https://docs.langchain.com/oss/python/langgraph/durable-execution — durable execution and replay requirements</li>
-<li>[fact] https://docs.temporal.io/workflow-execution — durable workflow execution and replay semantics</li>
-<li>[fact] https://aws-samples.github.io/eda-on-aws/concepts/idempotency/ — idempotency and duplicate-processing guidance</li>
+<li>[fact] <a href="https://docs.langchain.com/oss/python/langgraph/durable-execution">docs.langchain.com</a> — durable execution and replay requirements</li>
+<li>[fact] <a href="https://docs.temporal.io/workflow-execution">docs.temporal.io</a> — durable workflow execution and replay semantics</li>
+<li>[fact] <a href="https://aws-samples.github.io/eda-on-aws/concepts/idempotency/">aws-samples.github.io</a> — idempotency and duplicate-processing guidance</li>
 </ul>
 </li>
 </ul>
@@ -642,8 +727,8 @@ main {
 </div></div>
 
   <div class="item-nav">
-    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-19-layered-org-llm-architecture.html">Layered Organisation Large Language Model: Feasibility and Architecture of Organisation-Customised LLMs</a></div>
-    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-18-human-brain-prediction-machines.html">Are Human Brains Just Prediction Machines? Comparing Predictive Processing and Large Language Model Next-Token Generation</a></div>
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-19-layered-org-llm-architecture.html">Layered Organisation Large Language Model</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-18-human-brain-prediction-machines.html">Are Human Brains Just Prediction Machines? Comparing Predictive Processing and…</a></div>
   </div>
 </main>
 </body>

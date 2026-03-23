@@ -387,19 +387,60 @@ def extract_named_concepts(text: str) -> list[str]:
 
 
 def extract_source_urls(sources_text: str, exclude_repo: str) -> list[str]:
-    """Extract unique https URLs from Sources section text, excluding repo URL."""
-    urls_found = re.findall(r"https://[^\s\)\]\>\"\']+", sources_text)
+    """Extract unique https URLs from Sources section markdown, excluding repo URL.
+
+    Recognises:
+      - Markdown links: [Name](https://...)
+      - Label colon:    Label: https://...
+      - Label em-dash:  Label — https://...
+    """
     seen: set[str] = set()
     result: list[str] = []
-    for url in urls_found:
-        # Strip trailing punctuation
+
+    def _add(url: str) -> None:
         url = url.rstrip(".,;:!?)")
         if exclude_repo in url:
-            continue
+            return
         if url not in seen:
             seen.add(url)
             result.append(url)
+
+    # Markdown link pattern: [Name](https://...)
+    for m in re.finditer(r"\[([^\]]*)\]\((https://[^)]+)\)", sources_text):
+        _add(m.group(2))
+
+    # Label: https://... pattern (bullet or plain line)
+    for m in re.finditer(r"(?:^|(?<=\n))[*\-]?\s*[^:\n]+?:\s+(https://\S+)", sources_text):
+        _add(m.group(1))
+
+    # Label — https://... pattern
+    for m in re.finditer(r"(?:^|(?<=\n))[*\-]?\s*[^\n]+?\s+—\s+(https://\S+)", sources_text):
+        _add(m.group(1))
+
     return result
+
+
+def _extract_key_claims_fallback(findings_text: str) -> list[str]:
+    """Fallback: first sentence from * [inference] / * [fact] bullets in Executive Summary."""
+    es_match = re.search(r"###\s+Executive Summary\b(.*?)(?=\n###|\Z)", findings_text, re.DOTALL)
+    if not es_match:
+        return []
+    es_text = es_match.group(1)
+    claims: list[str] = []
+    for line in es_text.split("\n"):
+        if not re.match(r"^\s*\*\s+\[(inference|fact)\]", line, re.IGNORECASE):
+            continue
+        text = re.sub(r"^\s*\*\s+", "", line)
+        text = re.sub(r"\[(inference|fact)\]\s*", "", text, flags=re.IGNORECASE)
+        text = text.strip()
+        parts = re.split(r"\.\s+", text)
+        if parts:
+            text = parts[0].strip().rstrip(".")
+        if text:
+            claims.append(text)
+        if len(claims) >= 8:
+            break
+    return claims
 
 
 def extract_key_claims(findings_text: str) -> list[str]:
@@ -407,7 +448,7 @@ def extract_key_claims(findings_text: str) -> list[str]:
     # Find ### Key Findings subsection
     kf_match = re.search(r"###\s+Key Findings\b(.*?)(?=\n###|\Z)", findings_text, re.DOTALL)
     if not kf_match:
-        return []
+        return _extract_key_claims_fallback(findings_text)
 
     kf_text = kf_match.group(1)
     claims: list[str] = []
@@ -438,6 +479,8 @@ def extract_key_claims(findings_text: str) -> list[str]:
         if len(claims) >= 8:
             break
 
+    if not claims:
+        return _extract_key_claims_fallback(findings_text)
     return claims
 
 

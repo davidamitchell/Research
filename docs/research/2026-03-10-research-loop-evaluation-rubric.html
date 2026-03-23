@@ -3,7 +3,7 @@
         <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Research loop evaluation rubric: LLM-as-judge specification for this repository&#39;s research loop agent — Research</title>
+          <title>Research loop evaluation rubric — Research</title>
           <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -503,15 +585,18 @@ main {
     <span>/</span>
     <a href="/Research/browse.html">Browse</a>
     <span>/</span>
-    <span>Research loop evaluation rubric: LLM-as-judge specification for this repository&#39;s research loop agent</span>
+    <span>Research loop evaluation rubric</span>
   </div>
-  <h1 class="item-title">Research loop evaluation rubric: LLM-as-judge specification for this repository&#39;s research loop agent</h1>
+  <h1 class="item-title">Research loop evaluation rubric</h1>
+  <p class="full-title-subtitle">Research loop evaluation rubric: LLM-as-judge specification for this repository&#39;s research loop agent</p>
   <div class="meta-bar">
     <span>2026-03-10</span>
     <span class="meta-sep">·</span>
-    <a class="tag" href="/Research/tags/agents.html">agents</a> <a class="tag" href="/Research/tags/evaluation.html">evaluation</a> <a class="tag" href="/Research/tags/rubric.html">rubric</a> <a class="tag" href="/Research/tags/research-loop.html">research-loop</a> <a class="tag" href="/Research/tags/llm-as-judge.html">llm-as-judge</a> <a class="tag" href="/Research/tags/regression.html">regression</a> <a class="tag" href="/Research/tags/quality-gate.html">quality-gate</a> <a class="tag" href="/Research/tags/ci.html">ci</a> 
+    <a class="tag" href="/Research/tags/agents.html">agents</a> <a class="tag" href="/Research/tags/evaluation.html">evaluation</a> <a class="tag" href="/Research/tags/research-loop.html">research-loop</a> <a class="tag" href="/Research/tags/regression.html">regression</a> <a class="tag" href="/Research/tags/ci.html">ci</a> 
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-10-research-loop-evaluation-rubric.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-10-research-loop-evaluation-rubric" target="_blank" rel="noopener">wiki →</a>
   </div>
   
   <div class="item-content">
@@ -581,31 +666,31 @@ main {
 </tr>
 <tr>
   <td>Pydantic Evals defaults to GPT-4o</td>
-  <td>https://pydantic.dev/articles/llm-as-a-judge</td>
+  <td><a href="https://pydantic.dev/articles/llm-as-a-judge</td>">pydantic.dev</a>
   <td>high</td>
   <td>&quot;GPT-4o by default&quot; stated explicitly</td>
 </tr>
 <tr>
   <td>Pydantic Evals has no Copilot API integration</td>
-  <td>https://ai.pydantic.dev/evals/ documentation</td>
+  <td><a href="https://ai.pydantic.dev/evals/">ai.pydantic.dev</a> documentation</td>
   <td>high</td>
   <td>No mention of Copilot API in docs</td>
 </tr>
 <tr>
   <td>Two-level evaluation (deterministic + LLM)</td>
-  <td>https://hamel.dev/blog/posts/evals/</td>
+  <td><a href="https://hamel.dev/blog/posts/evals/</td>">hamel.dev</a>
   <td>high</td>
   <td>Hamel Level 1 (unit tests) + Level 2 (model eval) framework</td>
 </tr>
 <tr>
   <td>Hard FAIL on score 1 + 1–5 scale for trend tracking</td>
-  <td>https://ai.pydantic.dev/evals/ (binary more reproducible); https://hamel.dev/blog/posts/evals/ (pass rate is product decision)</td>
+  <td><a href="https://ai.pydantic.dev/evals/">ai.pydantic.dev</a> (binary more reproducible); <a href="https://hamel.dev/blog/posts/evals/">hamel.dev</a> (pass rate is product decision)</td>
   <td>high</td>
   <td>Inference combining two primary practitioner sources</td>
 </tr>
 <tr>
   <td>agentevals designed for tool-call trajectory matching</td>
-  <td>https://github.com/langchain-ai/agentevals</td>
+  <td><a href="https://github.com/langchain-ai/agentevals</td>">github.com</a>
   <td>high</td>
   <td>README describes trajectory as &quot;list of tool calls&quot;</td>
 </tr>
@@ -623,13 +708,13 @@ main {
 </tr>
 <tr>
   <td>Runner cost $0.008/minute → $0.04 per 5-min run</td>
-  <td>GitHub Actions pricing documentation (https://docs.github.com/en/billing/managing-billing-for-your-products/managing-billing-for-github-actions/about-billing-for-github-actions)</td>
+  <td>GitHub Actions pricing documentation (<a href="https://docs.github.com/en/billing/managing-billing-for-your-products/managing-billing-for-github-actions/about-billing-for-github-actions)</td>">docs.github.com</a>
   <td>medium</td>
   <td>Estimate; actual runtime may vary</td>
 </tr>
 <tr>
   <td>DeepEval requires OpenAI/Anthropic key</td>
-  <td>https://www.confident-ai.com/blog/llm-agent-evaluation-complete-guide</td>
+  <td><a href="https://www.confident-ai.com/blog/llm-agent-evaluation-complete-guide</td>">www.confident-ai.com</a>
   <td>high</td>
   <td>Documented LLM API requirement</td>
 </tr>
@@ -676,8 +761,8 @@ main {
 <li><strong>Type:</strong> knowledge, artefact</li>
 <li><strong>Description:</strong> Full specification of the 9-dimension LLM-as-judge evaluation rubric and CI workflow design for this repository's research loop agent, with tooling selection rationale and gold dataset requirements. The rubric specification is suitable for extraction to <code>docs/eval/research-rubric-prompt.md</code>.</li>
 <li><strong>Key sources:</strong><ol>
-<li>Hamel Husain &quot;Your AI Product Needs Evals&quot; — https://hamel.dev/blog/posts/evals/</li>
-<li>Pydantic LLM-as-a-Judge guide — https://pydantic.dev/articles/llm-as-a-judge</li>
+<li>Hamel Husain &quot;Your AI Product Needs Evals&quot; — <a href="https://hamel.dev/blog/posts/evals/</li>">hamel.dev</a>
+<li>Pydantic LLM-as-a-Judge guide — <a href="https://pydantic.dev/articles/llm-as-a-judge</li>">pydantic.dev</a>
 <li>Research/completed/2026-03-10-agent-evaluation-cross-repo-analysis.md (prior art: 5-component MVF framework and tooling survey)</li>
 </ol>
 </li>
@@ -690,8 +775,8 @@ main {
 </div></div>
 
   <div class="item-nav">
-    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-12-ai-force-multiplier-ambition-expansion.html">Force multiplier, not cost reducer: expanding organisational ambition when AI multiplies per-person output</a></div>
-    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-10-nature-of-the-firm-coase-organisations.html">The Nature of the Firm: why organisations exist, their fitness functions, and invariants</a></div>
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-12-ai-force-multiplier-ambition-expansion.html">Force multiplier, not cost reducer</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-10-nature-of-the-firm-coase-organisations.html">The Nature of the Firm</a></div>
   </div>
 </main>
 </body>

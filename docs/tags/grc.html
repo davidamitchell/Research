@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -504,22 +586,22 @@ main {
     <a class="back-link" href="/Research/browse.html">← browse</a>
   </div>
   <div class="card-grid">
-    <a class="card" href="/Research/research/2026-03-08-servicenow-platform-strategy.html" data-title="servicenow platform strategy: holistic integration of csdm, modules, process, and ai" data-question="given the findings from the common service data model (csdm) data modelling, process mapping, and ai capability research, how should an organisation develop a coherent, practical servicenow platform s" data-tags="servicenow,platform-strategy,csdm,itsm,apm,spm,irm,grc,fso,ai,process-mapping,enterprise-architecture,tco">
-  <div class="card-title">ServiceNow Platform Strategy: Holistic Integration of CSDM, Modules, Process, and AI</div>
+    <a class="card" href="/Research/research/2026-03-08-servicenow-platform-strategy.html" data-title="servicenow platform strategy" data-question="given the findings from the common service data model (csdm) data modelling, process mapping, and ai capability research, how should an organisation develop a coherent, practical servicenow platform s" data-tags="servicenow,platform-strategy,csdm,itsm,apm,spm,irm,grc,fso,ai,process-mapping,enterprise-architecture,tco">
+  <div class="card-title">ServiceNow Platform Strategy</div>
   <div class="card-meta">2026-03-08</div>
   <div class="card-tags"><span class="tag">servicenow</span><span class="tag">platform-strategy</span><span class="tag">csdm</span><span class="tag">itsm</span><span class="tag">apm</span><span class="tag">spm</span><span class="tag">irm</span><span class="tag">grc</span><span class="tag">fso</span><span class="tag">ai</span><span class="tag">process-mapping</span><span class="tag">enterprise-architecture</span><span class="tag">tco</span></div>
   <div class="card-excerpt">Given the findings from the Common Service Data Model (CSDM) data modelling, process mapping, and AI capability research, how should an organisation develop a coherent, practical ServiceNow platform s…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-08-servicenow-csdm-data-modelling.html" data-title="servicenow csdm: practical data modelling across itsm, apm, spm, irm, and fso" data-question="how should organisations model their enterprise data in servicenow to meet the csdm standard while keeping the model maintainable and accurate — and what are the practical patterns for aligning it ser" data-tags="servicenow,csdm,cmdb,configuration-management,itsm,apm,spm,irm,grc,fso,enterprise-architecture,application-portfolio">
-  <div class="card-title">ServiceNow CSDM: Practical Data Modelling Across ITSM, APM, SPM, IRM, and FSO</div>
+<a class="card" href="/Research/research/2026-03-08-servicenow-csdm-data-modelling.html" data-title="servicenow csdm" data-question="how should organisations model their enterprise data in servicenow to meet the csdm standard while keeping the model maintainable and accurate — and what are the practical patterns for aligning it ser" data-tags="servicenow,csdm,itsm,apm,spm,irm,grc,fso,enterprise-architecture,application-portfolio">
+  <div class="card-title">ServiceNow CSDM</div>
   <div class="card-meta">2026-03-08</div>
-  <div class="card-tags"><span class="tag">servicenow</span><span class="tag">csdm</span><span class="tag">cmdb</span><span class="tag">configuration-management</span><span class="tag">itsm</span><span class="tag">apm</span><span class="tag">spm</span><span class="tag">irm</span><span class="tag">grc</span><span class="tag">fso</span><span class="tag">enterprise-architecture</span><span class="tag">application-portfolio</span></div>
+  <div class="card-tags"><span class="tag">servicenow</span><span class="tag">csdm</span><span class="tag">itsm</span><span class="tag">apm</span><span class="tag">spm</span><span class="tag">irm</span><span class="tag">grc</span><span class="tag">fso</span><span class="tag">enterprise-architecture</span><span class="tag">application-portfolio</span></div>
   <div class="card-excerpt">How should organisations model their enterprise data in ServiceNow to meet the CSDM standard while keeping the model maintainable and accurate — and what are the practical patterns for aligning IT Ser…</div>
 </a>
-<a class="card" href="/Research/research/2026-02-28-ai-control-testing-and-assurance.html" data-title="ai for control testing, gap identification, and policies/standards reviews" data-question="which organisations are using ai to automate control testing, identify control gaps, or conduct policies and standards reviews — and what does the current vendor, practitioner, and regulatory landscap" data-tags="ai-strategy,grc,control-testing,compliance-automation,internal-audit,risk-management,financial-services">
+<a class="card" href="/Research/research/2026-02-28-ai-control-testing-and-assurance.html" data-title="ai for control testing, gap identification, and policies/standards reviews" data-question="which organisations are using ai to automate control testing, identify control gaps, or conduct policies and standards reviews — and what does the current vendor, practitioner, and regulatory landscap" data-tags="ai-strategy,grc,risk-management,financial-services">
   <div class="card-title">AI for Control Testing, Gap Identification, and Policies/Standards Reviews</div>
   <div class="card-meta">2026-02-28</div>
-  <div class="card-tags"><span class="tag">ai-strategy</span><span class="tag">grc</span><span class="tag">control-testing</span><span class="tag">compliance-automation</span><span class="tag">internal-audit</span><span class="tag">risk-management</span><span class="tag">financial-services</span></div>
+  <div class="card-tags"><span class="tag">ai-strategy</span><span class="tag">grc</span><span class="tag">risk-management</span><span class="tag">financial-services</span></div>
   <div class="card-excerpt">Which organisations are using AI to automate control testing, identify control gaps, or conduct policies and standards reviews — and what does the current vendor, practitioner, and regulatory landscap…</div>
 </a>
 

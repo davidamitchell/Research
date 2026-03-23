@@ -3,7 +3,7 @@
         <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>AI Strategy Examples: Risk Reduction Focus — Research</title>
+          <title>AI Strategy Examples — Research</title>
           <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -503,15 +585,18 @@ main {
     <span>/</span>
     <a href="/Research/browse.html">Browse</a>
     <span>/</span>
-    <span>AI Strategy Examples: Risk Reduction Focus</span>
+    <span>AI Strategy Examples</span>
   </div>
-  <h1 class="item-title">AI Strategy Examples: Risk Reduction Focus</h1>
+  <h1 class="item-title">AI Strategy Examples</h1>
+  <p class="full-title-subtitle">AI Strategy Examples: Risk Reduction Focus</p>
   <div class="meta-bar">
     <span>2026-02-28</span>
     <span class="meta-sep">·</span>
-    <a class="tag" href="/Research/tags/ai-strategy.html">ai-strategy</a> <a class="tag" href="/Research/tags/risk-management.html">risk-management</a> <a class="tag" href="/Research/tags/operational-risk.html">operational-risk</a> <a class="tag" href="/Research/tags/model-risk.html">model-risk</a> <a class="tag" href="/Research/tags/ai-governance.html">ai-governance</a> <a class="tag" href="/Research/tags/financial-services.html">financial-services</a> 
+    <a class="tag" href="/Research/tags/ai-strategy.html">ai-strategy</a> <a class="tag" href="/Research/tags/risk-management.html">risk-management</a> <a class="tag" href="/Research/tags/model-risk.html">model-risk</a> <a class="tag" href="/Research/tags/ai-governance.html">ai-governance</a> <a class="tag" href="/Research/tags/financial-services.html">financial-services</a> 
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-02-28-ai-strategy-risk-reduction-focus.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-02-28-ai-strategy-risk-reduction-focus" target="_blank" rel="noopener">wiki →</a>
   </div>
   <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>HSBC&#39;s AI-driven AML system (Google Cloud Dynamic Risk Assessment) reduced false positive alerts by 60% and increased confirmed financial crime detection by 2–4×, processing billions of transactions in days rather than weeks</li>
 <li>JPMorgan Chase achieved a 95% reduction in false positives in AML/fraud detection using AI, with fraud detected 300× faster and estimated savings of $1.5 billion in 2023–2024 across 450+ AI use cases spanning risk management, surveillance, and operations</li>
@@ -570,73 +655,73 @@ main {
 <tbody>
 <tr>
   <td>HSBC: 60% false positive reduction, 2–4× crime detection</td>
-  <td>https://www.hsbc.com/news-and-views/views/hsbc-views/harnessing-the-power-of-ai-to-fight-financial-crime</td>
+  <td><a href="https://www.hsbc.com/news-and-views/views/hsbc-views/harnessing-the-power-of-ai-to-fight-financial-crime</td>">www.hsbc.com</a>
   <td>high</td>
   <td>Disclosed by HSBC and Google Cloud</td>
 </tr>
 <tr>
   <td>JPMorgan: 95% false positive reduction, $1.5B savings</td>
-  <td>https://aiexpert.network/ai-at-jpmorgan/</td>
+  <td><a href="https://aiexpert.network/ai-at-jpmorgan/</td>">aiexpert.network</a>
   <td>medium</td>
   <td>Aggregated from multiple industry sources; primary JPMorgan disclosure limited</td>
 </tr>
 <tr>
   <td>SR 11-7 applies to AI/ML via broad model definition</td>
-  <td>https://kpmg.com/us/en/articles/2024/artificial-intelligence-and-model-risk-management.html</td>
+  <td><a href="https://kpmg.com/us/en/articles/2024/artificial-intelligence-and-model-risk-management.html</td>">kpmg.com</a>
   <td>high</td>
   <td>Confirmed by multiple regulatory and industry sources</td>
 </tr>
 <tr>
   <td>APRA CPS 230 board accountability for AI critical ops</td>
-  <td>https://www.validata.ai/post/cps-230-demystified-what-it-means-for-ai-and-automation</td>
+  <td><a href="https://www.validata.ai/post/cps-230-demystified-what-it-means-for-ai-and-automation</td>">www.validata.ai</a>
   <td>high</td>
   <td>Official APRA standard, effective July 2025</td>
 </tr>
 <tr>
   <td>DORA classifies AI as ICT, incident reporting timelines</td>
-  <td>https://www.eba.europa.eu/activities/direct-supervision-and-oversight/digital-operational-resilience-act</td>
+  <td><a href="https://www.eba.europa.eu/activities/direct-supervision-and-oversight/digital-operational-resilience-act</td>">www.eba.europa.eu</a>
   <td>high</td>
   <td>Regulation text confirmed by EBA</td>
 </tr>
 <tr>
   <td>RBNZ no AI-specific guidance as of early 2025</td>
-  <td>https://assets.kpmg.com/content/dam/kpmg/nz/pdf/2024/04/kpmg-financial-services-navigating-resilience-and-resolution.pdf</td>
+  <td><a href="https://assets.kpmg.com/content/dam/kpmg/nz/pdf/2024/04/kpmg-financial-services-navigating-resilience-and-resolution.pdf</td>">assets.kpmg.com</a>
   <td>high</td>
   <td>Consistent across KPMG NZ, RBNZ policy pages</td>
 </tr>
 <tr>
   <td>NZ banks Pillar 3 no standalone AI section</td>
-  <td>https://www.anz.com/content/dam/anzcom/shareholder/June-2024-Pillar-3-Disclosure.pdf</td>
+  <td><a href="https://www.anz.com/content/dam/anzcom/shareholder/June-2024-Pillar-3-Disclosure.pdf</td>">www.anz.com</a>
   <td>high</td>
   <td>Verified against ANZ disclosure documents</td>
 </tr>
 <tr>
   <td>CFPB requires specific adverse action reasons for AI credit</td>
-  <td>https://www.consumerfinance.gov/about-us/newsroom/cfpb-issues-guidance-on-credit-denials-by-lenders-using-artificial-intelligence/</td>
+  <td><a href="https://www.consumerfinance.gov/about-us/newsroom/cfpb-issues-guidance-on-credit-denials-by-lenders-using-artificial-intelligence/</td>">www.consumerfinance.gov</a>
   <td>high</td>
   <td>Official CFPB guidance 2022/2023</td>
 </tr>
 <tr>
   <td>Fed warns AI perpetuates direct and indirect discrimination</td>
-  <td>https://www.arnoldporter.com/en/perspectives/blogs/enforcement-edge/2023/08/the-fed-warns-about-ai-bias</td>
+  <td><a href="https://www.arnoldporter.com/en/perspectives/blogs/enforcement-edge/2023/08/the-fed-warns-about-ai-bias</td>">www.arnoldporter.com</a>
   <td>high</td>
   <td>Fed Vice Chair statement 2023</td>
 </tr>
 <tr>
   <td>IIF-EY 2024: 66% have/plan C-suite AI ethics oversight</td>
-  <td>https://www.iif.com/portals/0/Files/content/Innovation/2024%20IIF-EY%20Survey%20Report%20on%20AI_ML%20Use%20in%20Financial%20Services_Public%2001.08.25.pdf</td>
+  <td><a href="https://www.iif.com/portals/0/Files/content/Innovation/2024%20IIF-EY%20Survey%20Report%20on%20AI_ML%20Use%20in%20Financial%20Services_Public%2001.08.25.pdf</td>">www.iif.com</a>
   <td>high</td>
   <td>Published IIF-EY survey 2024</td>
 </tr>
 <tr>
   <td>BIS Project Aurora: cross-institutional AML AI</td>
-  <td>https://www.bis.org/fsi/publ/insights63.pdf</td>
+  <td><a href="https://www.bis.org/fsi/publ/insights63.pdf</td>">www.bis.org</a>
   <td>high</td>
   <td>BIS FSI Insights No. 63, Dec 2024</td>
 </tr>
 <tr>
   <td>Wells Fargo independent validation and explainability toolkit</td>
-  <td>https://venturebeat.com/ai/embracing-responsibility-with-explainable-ai</td>
+  <td><a href="https://venturebeat.com/ai/embracing-responsibility-with-explainable-ai</td>">venturebeat.com</a>
   <td>medium</td>
   <td>Industry reporting; Wells Fargo primary source limited</td>
 </tr>
@@ -680,8 +765,8 @@ main {
 </div></div>
 
   <div class="item-nav">
-    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-02-28-ai-strategy-security-focus.html">AI Strategy Examples: Security Focus</a></div>
-    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-02-28-ai-strategy-business-efficiency-examples.html">AI Strategy Examples: Business Efficiency Focus</a></div>
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-02-28-ai-strategy-security-focus.html">AI Strategy Examples</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-02-28-ai-strategy-business-efficiency-examples.html">AI Strategy Examples</a></div>
   </div>
 </main>
 </body>

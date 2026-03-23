@@ -3,7 +3,7 @@
         <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Failure mode taxonomy: empirical frequency, causal mechanisms, detection signals, and cascade patterns in production agentic systems — Research</title>
+          <title>Failure mode taxonomy — Research</title>
           <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -503,15 +585,18 @@ main {
     <span>/</span>
     <a href="/Research/browse.html">Browse</a>
     <span>/</span>
-    <span>Failure mode taxonomy: empirical frequency, causal mechanisms, detection signals, and cascade patterns in production agentic systems</span>
+    <span>Failure mode taxonomy</span>
   </div>
-  <h1 class="item-title">Failure mode taxonomy: empirical frequency, causal mechanisms, detection signals, and cascade patterns in production agentic systems</h1>
+  <h1 class="item-title">Failure mode taxonomy</h1>
+  <p class="full-title-subtitle">Failure mode taxonomy: empirical frequency, causal mechanisms, detection signals, and cascade patterns in production agentic systems</p>
   <div class="meta-bar">
     <span>2026-03-12</span>
     <span class="meta-sep">·</span>
-    <a class="tag" href="/Research/tags/failure-modes.html">failure-modes</a> <a class="tag" href="/Research/tags/taxonomy.html">taxonomy</a> <a class="tag" href="/Research/tags/hallucination.html">hallucination</a> <a class="tag" href="/Research/tags/reward-hacking.html">reward-hacking</a> <a class="tag" href="/Research/tags/prompt-injection.html">prompt-injection</a> <a class="tag" href="/Research/tags/alignment.html">alignment</a> <a class="tag" href="/Research/tags/agentic-systems.html">agentic-systems</a> <a class="tag" href="/Research/tags/owasp.html">owasp</a> <a class="tag" href="/Research/tags/safety.html">safety</a> <a class="tag" href="/Research/tags/observability.html">observability</a> 
+    <a class="tag" href="/Research/tags/failure-modes.html">failure-modes</a> <a class="tag" href="/Research/tags/taxonomy.html">taxonomy</a> <a class="tag" href="/Research/tags/hallucination.html">hallucination</a> <a class="tag" href="/Research/tags/reward-hacking.html">reward-hacking</a> <a class="tag" href="/Research/tags/prompt-injection.html">prompt-injection</a> <a class="tag" href="/Research/tags/alignment.html">alignment</a> <a class="tag" href="/Research/tags/agentic-systems.html">agentic-systems</a> <a class="tag" href="/Research/tags/owasp.html">owasp</a> <a class="tag" href="/Research/tags/observability.html">observability</a> 
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-12-failure-mode-taxonomy-expansion.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-12-failure-mode-taxonomy-expansion" target="_blank" rel="noopener">wiki →</a>
   </div>
   
   <div class="item-content">
@@ -726,9 +811,9 @@ main {
 <li>Type: knowledge</li>
 <li>Description: Empirical frequency data by failure mode layer (Layer 4 leads by security-incident count; Layer 1 leads by operational impact), per-layer causal mechanisms (H-Neurons for L1; specification gap for L2/L3; architectural trust conflation for L4; finite context for L5), detection signals (output-, trace-, and system-observable), cascade analysis with three empirically-supported paths and two dangerous inferred paths, and resolution of the sycophancy Layer 1/2 boundary ambiguity.</li>
 <li>Links:<ul>
-<li>https://owasp.org/www-project-top-10-for-large-language-model-applications/ — OWASP LLM Top 10 2025</li>
-<li>https://arxiv.org/abs/2601.17548 — Prompt injection SoK: 78-study systematic review</li>
-<li>https://openreview.net/forum?id=d24zTCznJu — Vennemeyer et al. ICLR 2026, sycophancy causal decomposition</li>
+<li><a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/">owasp.org</a> — OWASP LLM Top 10 2025</li>
+<li><a href="https://arxiv.org/abs/2601.17548">arxiv.org/abs/2601.17548</a> — Prompt injection SoK: 78-study systematic review</li>
+<li><a href="https://openreview.net/forum?id=d24zTCznJu">openreview.net</a> — Vennemeyer et al. ICLR 2026, sycophancy causal decomposition</li>
 </ul>
 </li>
 </ul>
@@ -744,7 +829,7 @@ main {
 
   <div class="item-nav">
     <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-12-hosting-options-for-the-research-repo.html">Hosting options for the Research repo</a></div>
-    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-12-exploration-synthesis-gap.html">Exploration-synthesis gap: why people in explore mode fail to synthesise others&#39; work, and whether agent synthesis can close the gap</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-12-exploration-synthesis-gap.html">Exploration-synthesis gap</a></div>
   </div>
 </main>
 </body>

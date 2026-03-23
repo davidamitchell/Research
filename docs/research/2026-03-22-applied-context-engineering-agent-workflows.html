@@ -3,7 +3,7 @@
         <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Applied context engineering: skills, workflows, and best practices for agent development — Research</title>
+          <title>Applied context engineering — Research</title>
           <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -503,15 +585,18 @@ main {
     <span>/</span>
     <a href="/Research/browse.html">Browse</a>
     <span>/</span>
-    <span>Applied context engineering: skills, workflows, and best practices for agent development</span>
+    <span>Applied context engineering</span>
   </div>
-  <h1 class="item-title">Applied context engineering: skills, workflows, and best practices for agent development</h1>
+  <h1 class="item-title">Applied context engineering</h1>
+  <p class="full-title-subtitle">Applied context engineering: skills, workflows, and best practices for agent development</p>
   <div class="meta-bar">
     <span>2026-03-22</span>
     <span class="meta-sep">·</span>
-    <a class="tag" href="/Research/tags/context-engineering.html">context-engineering</a> <a class="tag" href="/Research/tags/agent-skills.html">agent-skills</a> <a class="tag" href="/Research/tags/workflows.html">workflows</a> <a class="tag" href="/Research/tags/best-practices.html">best-practices</a> <a class="tag" href="/Research/tags/multi-agent.html">multi-agent</a> <a class="tag" href="/Research/tags/memory-systems.html">memory-systems</a> <a class="tag" href="/Research/tags/tool-design.html">tool-design</a> <a class="tag" href="/Research/tags/project-development.html">project-development</a> <a class="tag" href="/Research/tags/evaluation.html">evaluation</a> <a class="tag" href="/Research/tags/production-agents.html">production-agents</a> 
+    <a class="tag" href="/Research/tags/context-engineering.html">context-engineering</a> <a class="tag" href="/Research/tags/workflows.html">workflows</a> <a class="tag" href="/Research/tags/best-practices.html">best-practices</a> <a class="tag" href="/Research/tags/multi-agent.html">multi-agent</a> <a class="tag" href="/Research/tags/evaluation.html">evaluation</a> 
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-22-applied-context-engineering-agent-workflows.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-22-applied-context-engineering-agent-workflows" target="_blank" rel="noopener">wiki →</a>
   </div>
   <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>The effective context window for reliable agent reasoning is 60–70% of the advertised token limit; beyond this threshold, performance degrades through the U-shaped attention curve, with recall accuracy in the middle 10–40% below positions at the beginning and end of context</li>
 <li>Five context degradation patterns — lost-in-middle, poisoning, distraction, confusion, and clash — have specific detection signals and mitigations; context poisoning in particular requires truncation to before the poisoning point rather than adding corrections on top of poisoned context</li>
@@ -543,11 +628,11 @@ main {
 <ol>
 <li><p><strong>[fact]</strong> The effective context window for reliable agent reasoning is 60–70% of the advertised token limit; beyond this threshold, performance degrades through the U-shaped attention curve, with recall accuracy in the middle 10–40% below positions at the beginning and end of context. Source: muratcankoylan context-fundamentals SKILL.md; Liu et al. 2023. Confidence: high.</p>
 </li>
-<li><p><strong>[fact]</strong> Five context degradation patterns — lost-in-middle, poisoning, distraction, confusion, and clash — have specific detection signals and mitigations; context poisoning in particular requires truncation to before the poisoning point rather than adding corrections on top of poisoned context. Source: https://raw.githubusercontent.com/muratcankoylan/Agent-Skills-for-Context-Engineering/main/skills/context-degradation/SKILL.md. Confidence: high.</p>
+<li><p><strong>[fact]</strong> Five context degradation patterns — lost-in-middle, poisoning, distraction, confusion, and clash — have specific detection signals and mitigations; context poisoning in particular requires truncation to before the poisoning point rather than adding corrections on top of poisoned context. Source: <a href="https://raw.githubusercontent.com/muratcankoylan/Agent-Skills-for-Context-Engineering/main/skills/context-degradation/SKILL.md">raw.githubusercontent.com</a> Confidence: high.</p>
 </li>
 <li><p><strong>[fact]</strong> Multi-agent architectures cost approximately 15x single-agent chat in token terms, and BrowseComp evaluation data shows that 80% of browsing agent performance variance is explained by token usage, implying model quality upgrades are typically more cost-effective than adding agent parallelism for most workloads. Source: muratcankoylan multi-agent-patterns SKILL.md; muratcankoylan evaluation SKILL.md. Confidence: high (BrowseComp benchmark).</p>
 </li>
-<li><p><strong>[fact]</strong> The tool consolidation principle is supported by the Vercel case study — reducing from 17 specialised tools to 2 general-purpose tools improved agent performance — and by the principle that overlapping tool descriptions create ambiguous selection decisions that degrade reliability in proportion to overlap. Source: https://raw.githubusercontent.com/muratcankoylan/Agent-Skills-for-Context-Engineering/main/skills/tool-design/SKILL.md. Confidence: medium (single case study).</p>
+<li><p><strong>[fact]</strong> The tool consolidation principle is supported by the Vercel case study — reducing from 17 specialised tools to 2 general-purpose tools improved agent performance — and by the principle that overlapping tool descriptions create ambiguous selection decisions that degrade reliability in proportion to overlap. Source: <a href="https://raw.githubusercontent.com/muratcankoylan/Agent-Skills-for-Context-Engineering/main/skills/tool-design/SKILL.md">raw.githubusercontent.com</a> Confidence: medium (single case study).</p>
 </li>
 <li><p><strong>[fact]</strong> Filesystem-based memory agents (Letta: 74% on LoCoMo benchmark) outperform specialised memory framework tools (Mem0: 68.5% on LoCoMo), confirming that retrieval reliability and architectural simplicity matter more than framework sophistication for most production memory use cases. Source: muratcankoylan memory-systems SKILL.md. Confidence: high (named benchmark comparison).</p>
 </li>
@@ -557,7 +642,7 @@ main {
 </li>
 <li><p><strong>[inference]</strong> The declarative agent definition pattern — expressing agent capabilities, tool connections, and instructions in version-controlled manifest files — applies the infrastructure-as-code principle to agent definition, producing auditable, reproducible agent specifications deployable via standard Git workflows. Source: <code>Research/completed/2026-03-16-gitagent-declarative-agent-definition.md</code>. Confidence: high.</p>
 </li>
-<li><p><strong>[fact]</strong> The Peking University Meta Context Engineering (MCE) paper (2026) establishes that human-authored static skill files are the current production standard while dynamic skill evolution — agents autonomously generating and refining skills based on task performance feedback — is the research frontier, citing muratcankoylan as foundational work. Source: https://arxiv.org/pdf/2601.21557. Confidence: high.</p>
+<li><p><strong>[fact]</strong> The Peking University Meta Context Engineering (MCE) paper (2026) establishes that human-authored static skill files are the current production standard while dynamic skill evolution — agents autonomously generating and refining skills based on task performance feedback — is the research frontier, citing muratcankoylan as foundational work. Source: <a href="https://arxiv.org/pdf/2601.21557">arxiv.org</a> Confidence: high.</p>
 </li>
 <li><p><strong>[fact]</strong> The primary gaps in existing public agent skill libraries are: Model Context Protocol (MCP) server design for exposing APIs as structured agent-accessible tools, human-in-the-loop design patterns for high-stakes agent decisions, and multi-modal context management — none covered by the muratcankoylan library or any other reviewed public source. Source: <code>Research/completed/2026-03-18-api-context-hubs-rag-mcp.md</code> + muratcankoylan README inspection. Confidence: medium (gap finding from library survey).</p>
 </li>
@@ -575,7 +660,7 @@ main {
 <tbody>
 <tr>
   <td>Effective capacity 60–70% of advertised window [fact]</td>
-  <td>muratcankoylan context-fundamentals SKILL.md https://raw.githubusercontent.com/muratcankoylan/Agent-Skills-for-Context-Engineering/main/skills/context-fundamentals/SKILL.md</td>
+  <td>muratcankoylan context-fundamentals SKILL.md <a href="https://raw.githubusercontent.com/muratcankoylan/Agent-Skills-for-Context-Engineering/main/skills/context-fundamentals/SKILL.md</td>">raw.githubusercontent.com</a>
   <td>high</td>
   <td>Consistent with attention mechanics literature</td>
 </tr>
@@ -635,7 +720,7 @@ main {
 </tr>
 <tr>
   <td>MCE paper cites muratcankoylan as foundational [fact]</td>
-  <td>https://arxiv.org/pdf/2601.21557</td>
+  <td><a href="https://arxiv.org/pdf/2601.21557</td>">arxiv.org</a>
   <td>high</td>
   <td>Primary academic source</td>
 </tr>
@@ -679,7 +764,7 @@ main {
   
   <div class="item-nav">
     <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-22-code-architecture-inspection.html">Code Architecture Inspection Across Repositories</a></div>
-    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-21-technology-capability-models.html">Technology Capability Models: Survey, Comparison, and Recommendation for Multi-Level IT Capability Mapping</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-21-technology-capability-models.html">Technology Capability Models</a></div>
   </div>
 </main>
 </body>

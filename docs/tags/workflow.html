@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -504,22 +586,22 @@ main {
     <a class="back-link" href="/Research/browse.html">← browse</a>
   </div>
   <div class="card-grid">
-    <a class="card" href="/Research/research/2026-03-18-stateless-agent-assumption-failure.html" data-title="stateless-agent assumption failure: causes, detection, and recovery patterns for orphaned state in multi-session agentic workflows" data-question="when an agentic workflow spans multiple session boundaries — each session starting with a fresh context window and no memory of prior runs — what are the mechanisms by which external state becomes orp" data-tags="failure-modes,agentic-systems,operational-failures,layer-5,state-management,idempotency,checkpoint-resume,multi-session,workflow">
-  <div class="card-title">Stateless-agent assumption failure: causes, detection, and recovery patterns for orphaned state in multi-session agentic workflows</div>
+    <a class="card" href="/Research/research/2026-03-18-stateless-agent-assumption-failure.html" data-title="stateless-agent assumption failure" data-question="when an agentic workflow spans multiple session boundaries — each session starting with a fresh context window and no memory of prior runs — what are the mechanisms by which external state becomes orp" data-tags="failure-modes,agentic-systems,state-management,workflow">
+  <div class="card-title">Stateless-agent assumption failure</div>
   <div class="card-meta">2026-03-18</div>
-  <div class="card-tags"><span class="tag">failure-modes</span><span class="tag">agentic-systems</span><span class="tag">operational-failures</span><span class="tag">layer-5</span><span class="tag">state-management</span><span class="tag">idempotency</span><span class="tag">checkpoint-resume</span><span class="tag">multi-session</span><span class="tag">workflow</span></div>
+  <div class="card-tags"><span class="tag">failure-modes</span><span class="tag">agentic-systems</span><span class="tag">state-management</span><span class="tag">workflow</span></div>
   <div class="card-excerpt">When an agentic workflow spans multiple session boundaries — each session starting with a fresh context window and no memory of prior runs — what are the mechanisms by which external state becomes orp…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-12-superpowers-integration-analysis.html" data-title="superpowers as inspiration: what obra/superpowers can teach us about improving agent workflows across davidamitchell repos" data-question="what ideas, patterns, and workflow practices from `davidamitchell/superpowers` (a fork of `obra/superpowers`) can be used as inspiration for improving agent tooling in `davidamitchell/latest-developme" data-tags="superpowers,skills,claude-code,github-copilot,agent-tooling,tdd,workflow,inspiration">
-  <div class="card-title">Superpowers as inspiration: what obra/superpowers can teach us about improving agent workflows across davidamitchell repos</div>
+<a class="card" href="/Research/research/2026-03-12-superpowers-integration-analysis.html" data-title="superpowers as inspiration" data-question="what ideas, patterns, and workflow practices from `davidamitchell/superpowers` (a fork of `obra/superpowers`) can be used as inspiration for improving agent tooling in `davidamitchell/latest-developme" data-tags="skills,claude-code,github-copilot,workflow">
+  <div class="card-title">Superpowers as inspiration</div>
   <div class="card-meta">2026-03-12</div>
-  <div class="card-tags"><span class="tag">superpowers</span><span class="tag">skills</span><span class="tag">claude-code</span><span class="tag">github-copilot</span><span class="tag">agent-tooling</span><span class="tag">tdd</span><span class="tag">workflow</span><span class="tag">inspiration</span></div>
+  <div class="card-tags"><span class="tag">skills</span><span class="tag">claude-code</span><span class="tag">github-copilot</span><span class="tag">workflow</span></div>
   <div class="card-excerpt">What ideas, patterns, and workflow practices from `davidamitchell/superpowers` (a fork of `obra/superpowers`) can be used as inspiration for improving agent tooling in `davidamitchell/Latest-developme…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-08-servicenow-process-mapping.html" data-title="servicenow process mapping: maintainable process documentation in snow" data-question="what options exist within servicenow for documenting, mapping, and maintaining business and it processes — and which approaches are sustainable enough in practice to stay meaningful, current, and actu" data-tags="servicenow,process-mapping,bpm,workflow,flow-designer,process-mining,itsm,documentation">
-  <div class="card-title">ServiceNow Process Mapping: Maintainable Process Documentation in SNOW</div>
+<a class="card" href="/Research/research/2026-03-08-servicenow-process-mapping.html" data-title="servicenow process mapping" data-question="what options exist within servicenow for documenting, mapping, and maintaining business and it processes — and which approaches are sustainable enough in practice to stay meaningful, current, and actu" data-tags="servicenow,process-mapping,workflow,itsm">
+  <div class="card-title">ServiceNow Process Mapping</div>
   <div class="card-meta">2026-03-08</div>
-  <div class="card-tags"><span class="tag">servicenow</span><span class="tag">process-mapping</span><span class="tag">bpm</span><span class="tag">workflow</span><span class="tag">flow-designer</span><span class="tag">process-mining</span><span class="tag">itsm</span><span class="tag">documentation</span></div>
+  <div class="card-tags"><span class="tag">servicenow</span><span class="tag">process-mapping</span><span class="tag">workflow</span><span class="tag">itsm</span></div>
   <div class="card-excerpt">What options exist within ServiceNow for documenting, mapping, and maintaining business and IT processes — and which approaches are sustainable enough in practice to stay meaningful, current, and actu…</div>
 </a>
 

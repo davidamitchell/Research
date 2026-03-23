@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -504,16 +586,16 @@ main {
     <a class="back-link" href="/Research/browse.html">← browse</a>
   </div>
   <div class="card-grid">
-    <a class="card" href="/Research/research/2026-03-05-swarm-pca-genetic-reinforcement-learning.html" data-title="swarm intelligence, pca, genetic algorithms, and reinforcement learning — advanced techniques for analytics teams" data-question="what is the structured, decision-oriented landscape of four advanced technique families — swarm intelligence, principal component analysis (pca) and its modern extensions, genetic algorithms and evolu" data-tags="machine-learning,analytics,swarm-intelligence,pca,dimensionality-reduction,genetic-algorithms,evolutionary-computation,reinforcement-learning,optimisation,advanced-analytics">
-  <div class="card-title">Swarm Intelligence, PCA, Genetic Algorithms, and Reinforcement Learning — advanced techniques for analytics teams</div>
+    <a class="card" href="/Research/research/2026-03-05-swarm-pca-genetic-reinforcement-learning.html" data-title="swarm intelligence, pca, genetic algorithms, and reinforcement learning —…" data-question="what is the structured, decision-oriented landscape of four advanced technique families — swarm intelligence, principal component analysis (pca) and its modern extensions, genetic algorithms and evolu" data-tags="machine-learning,analytics,advanced-analytics">
+  <div class="card-title">Swarm Intelligence, PCA, Genetic Algorithms, and Reinforcement Learning —…</div>
   <div class="card-meta">2026-03-05</div>
-  <div class="card-tags"><span class="tag">machine-learning</span><span class="tag">analytics</span><span class="tag">swarm-intelligence</span><span class="tag">pca</span><span class="tag">dimensionality-reduction</span><span class="tag">genetic-algorithms</span><span class="tag">evolutionary-computation</span><span class="tag">reinforcement-learning</span><span class="tag">optimisation</span><span class="tag">advanced-analytics</span></div>
+  <div class="card-tags"><span class="tag">machine-learning</span><span class="tag">analytics</span><span class="tag">advanced-analytics</span></div>
   <div class="card-excerpt">What is the structured, decision-oriented landscape of four advanced technique families — Swarm Intelligence, Principal Component Analysis (PCA) and its modern extensions, Genetic Algorithms and Evolu…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-03-ml-techniques-and-algorithms.html" data-title="ml techniques, algorithms, and advanced analytics — a systematic reference for analytics teams" data-question="what is the complete, structured landscape of machine learning techniques and algorithms that an advanced analytics department should know, use, and actively pursue — covering foundational concepts, w" data-tags="machine-learning,analytics,algorithms,statistics,deep-learning,advanced-analytics,best-practices,model-selection">
-  <div class="card-title">ML techniques, algorithms, and advanced analytics — a systematic reference for analytics teams</div>
+<a class="card" href="/Research/research/2026-03-03-ml-techniques-and-algorithms.html" data-title="ml techniques, algorithms, and advanced analytics — a systematic reference for…" data-question="what is the complete, structured landscape of machine learning techniques and algorithms that an advanced analytics department should know, use, and actively pursue — covering foundational concepts, w" data-tags="machine-learning,analytics,advanced-analytics,best-practices">
+  <div class="card-title">ML techniques, algorithms, and advanced analytics — a systematic reference for…</div>
   <div class="card-meta">2026-03-03</div>
-  <div class="card-tags"><span class="tag">machine-learning</span><span class="tag">analytics</span><span class="tag">algorithms</span><span class="tag">statistics</span><span class="tag">deep-learning</span><span class="tag">advanced-analytics</span><span class="tag">best-practices</span><span class="tag">model-selection</span></div>
+  <div class="card-tags"><span class="tag">machine-learning</span><span class="tag">analytics</span><span class="tag">advanced-analytics</span><span class="tag">best-practices</span></div>
   <div class="card-excerpt">What is the complete, structured landscape of machine learning techniques and algorithms that an advanced analytics department should know, use, and actively pursue — covering foundational concepts, w…</div>
 </a>
 

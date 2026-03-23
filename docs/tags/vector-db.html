@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -504,16 +586,16 @@ main {
     <a class="back-link" href="/Research/browse.html">← browse</a>
   </div>
   <div class="card-grid">
-    <a class="card" href="/Research/research/2026-03-15-latent-concept-extraction-confluence.html" data-title="latent concept extraction from confluence: embeddings, knowledge graphs, and epistemic evaluation" data-question="what are the best approaches for extracting latent concepts from a confluence wiki, representing them as word embeddings in a vector database (vdb) and as a knowledge graph (kg), and how can the resul" data-tags="confluence,embeddings,vector-db,knowledge-graph,nlp,epistemics,rag,latent-concepts">
-  <div class="card-title">Latent Concept Extraction from Confluence: Embeddings, Knowledge Graphs, and Epistemic Evaluation</div>
+    <a class="card" href="/Research/research/2026-03-15-latent-concept-extraction-confluence.html" data-title="latent concept extraction from confluence" data-question="what are the best approaches for extracting latent concepts from a confluence wiki, representing them as word embeddings in a vector database (vdb) and as a knowledge graph (kg), and how can the resul" data-tags="confluence,embeddings,vector-db,knowledge-graph,rag">
+  <div class="card-title">Latent Concept Extraction from Confluence</div>
   <div class="card-meta">2026-03-15</div>
-  <div class="card-tags"><span class="tag">confluence</span><span class="tag">embeddings</span><span class="tag">vector-db</span><span class="tag">knowledge-graph</span><span class="tag">nlp</span><span class="tag">epistemics</span><span class="tag">rag</span><span class="tag">latent-concepts</span></div>
+  <div class="card-tags"><span class="tag">confluence</span><span class="tag">embeddings</span><span class="tag">vector-db</span><span class="tag">knowledge-graph</span><span class="tag">rag</span></div>
   <div class="card-excerpt">What are the best approaches for extracting latent concepts from a Confluence wiki, representing them as word embeddings in a vector database (VDB) and as a knowledge graph (KG), and how can the resul…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-12-hosting-options-for-the-research-repo.html" data-title="hosting options for the research repo" data-question="what is the best free or very-low-cost hosting option for this research repository that supports full-text search, and optionally vector/graph database capabilities, without requiring seo, custom dns," data-tags="hosting,static-site,search,vector-db,infrastructure,free-tier">
+<a class="card" href="/Research/research/2026-03-12-hosting-options-for-the-research-repo.html" data-title="hosting options for the research repo" data-question="what is the best free or very-low-cost hosting option for this research repository that supports full-text search, and optionally vector/graph database capabilities, without requiring seo, custom dns," data-tags="search,vector-db,infrastructure">
   <div class="card-title">Hosting options for the Research repo</div>
   <div class="card-meta">2026-03-12</div>
-  <div class="card-tags"><span class="tag">hosting</span><span class="tag">static-site</span><span class="tag">search</span><span class="tag">vector-db</span><span class="tag">infrastructure</span><span class="tag">free-tier</span></div>
+  <div class="card-tags"><span class="tag">search</span><span class="tag">vector-db</span><span class="tag">infrastructure</span></div>
   <div class="card-excerpt">What is the best free or very-low-cost hosting option for this research repository that supports full-text search, and optionally vector/graph database capabilities, without requiring SEO, custom DNS,…</div>
 </a>
 

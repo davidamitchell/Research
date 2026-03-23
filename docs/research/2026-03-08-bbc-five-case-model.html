@@ -3,7 +3,7 @@
         <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Better Business Cases: Five Case Model authoring and application — Research</title>
+          <title>Better Business Cases — Research</title>
           <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -503,15 +585,18 @@ main {
     <span>/</span>
     <a href="/Research/browse.html">Browse</a>
     <span>/</span>
-    <span>Better Business Cases: Five Case Model authoring and application</span>
+    <span>Better Business Cases</span>
   </div>
-  <h1 class="item-title">Better Business Cases: Five Case Model authoring and application</h1>
+  <h1 class="item-title">Better Business Cases</h1>
+  <p class="full-title-subtitle">Better Business Cases: Five Case Model authoring and application</p>
   <div class="meta-bar">
     <span>2026-03-08</span>
     <span class="meta-sep">·</span>
-    <a class="tag" href="/Research/tags/business-case.html">business-case</a> <a class="tag" href="/Research/tags/bbc.html">bbc</a> <a class="tag" href="/Research/tags/five-case-model.html">five-case-model</a> <a class="tag" href="/Research/tags/public-sector.html">public-sector</a> <a class="tag" href="/Research/tags/strategy.html">strategy</a> <a class="tag" href="/Research/tags/economics.html">economics</a> <a class="tag" href="/Research/tags/procurement.html">procurement</a> 
+    <a class="tag" href="/Research/tags/strategy.html">strategy</a> <a class="tag" href="/Research/tags/economics.html">economics</a> 
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-bbc-five-case-model.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-08-bbc-five-case-model" target="_blank" rel="noopener">wiki →</a>
   </div>
   
   <div class="item-content">
@@ -615,9 +700,9 @@ main {
 </table>
 <p><strong>Identified but not consulted:</strong></p>
 <ul>
-<li>[ ] https://assets.publishing.service.gov.uk/media/66449468ae748c43d3793bb8/Project_Business_Case_2018.pdf (134-page PDF guide)</li>
-<li>[ ] https://www.gov.uk/government/collections/infrastructure-and-projects-authority-assurance-review-toolkit (IPA toolkit)</li>
-<li>[ ] https://www.nao.org.uk/briefings/delivering-major-projects-in-government-a-briefing-for-the-committee-of-public-accounts/ (NAO briefing)</li>
+<li>[ ] <a href="https://assets.publishing.service.gov.uk/media/66449468ae748c43d3793bb8/Project_Business_Case_2018.pdf">assets.publishing.service.gov.uk</a> (134-page PDF guide)</li>
+<li>[ ] <a href="https://www.gov.uk/government/collections/infrastructure-and-projects-authority-assurance-review-toolkit">www.gov.uk</a> (IPA toolkit)</li>
+<li>[ ] <a href="https://www.nao.org.uk/briefings/delivering-major-projects-in-government-a-briefing-for-the-committee-of-public-accounts/">www.nao.org.uk</a> (NAO briefing)</li>
 </ul>
 <h3>Assumptions</h3>
 <ul>
@@ -647,8 +732,8 @@ main {
   </div>
   
   <div class="item-nav">
-    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-08-chatgpt-actions-memory-integration.html">ChatGPT Actions and custom GPTs: external memory integration options</a></div>
-    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-08-ai-coding-harnesses-agent-philosophy.html">AI coding harnesses: agent execution model, memory, and context management across commercial and OSS tools</a></div>
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-08-chatgpt-actions-memory-integration.html">ChatGPT Actions and custom GPTs</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-08-ai-coding-harnesses-agent-philosophy.html">AI coding harnesses</a></div>
   </div>
 </main>
 </body>

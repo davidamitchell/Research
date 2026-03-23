@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -504,20 +586,20 @@ main {
     <a class="back-link" href="/Research/browse.html">← browse</a>
   </div>
   <div class="card-grid">
-    <a class="card" href="/Research/research/2026-03-08-telegram-bot-memory-capture-retrieval.html" data-title="telegram bot as mobile memory capture and retrieval channel" data-question="can a telegram bot serve as a low-friction mobile capture and retrieval surface for the memory-system? specifically: (a) message received → file written to github repo via api, (b) messages starting w" data-tags="mobile,telegram,bot,capture,retrieval,memory-system,self-hosted">
+    <a class="card" href="/Research/research/2026-03-08-telegram-bot-memory-capture-retrieval.html" data-title="telegram bot as mobile memory capture and retrieval channel" data-question="can a telegram bot serve as a low-friction mobile capture and retrieval surface for the memory-system? specifically: (a) message received → file written to github repo via api, (b) messages starting w" data-tags="mobile,bot,capture,retrieval,memory-system,self-hosted">
   <div class="card-title">Telegram bot as mobile memory capture and retrieval channel</div>
   <div class="card-meta">2026-03-08</div>
-  <div class="card-tags"><span class="tag">mobile</span><span class="tag">telegram</span><span class="tag">bot</span><span class="tag">capture</span><span class="tag">retrieval</span><span class="tag">memory-system</span><span class="tag">self-hosted</span></div>
+  <div class="card-tags"><span class="tag">mobile</span><span class="tag">bot</span><span class="tag">capture</span><span class="tag">retrieval</span><span class="tag">memory-system</span><span class="tag">self-hosted</span></div>
   <div class="card-excerpt">Can a Telegram bot serve as a low-friction mobile capture and retrieval surface for the Memory-System? Specifically: (a) message received → file written to GitHub repo via API, (b) messages starting w…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-08-self-hosted-mcp-server-options.html" data-title="self-hosted mcp server options: enabling mobile ai app integration" data-question="what is the minimum viable self-hosted deployment of `mcp_server.py` (or a write-only http wrapper) that: (a) is reachable from the public internet, (b) has zero or near-zero ongoing cost, (c) require" data-tags="mcp,self-hosted,infrastructure,mobile,memory-system,cloudflare,serverless">
-  <div class="card-title">Self-hosted MCP server options: enabling mobile AI app integration</div>
+<a class="card" href="/Research/research/2026-03-08-self-hosted-mcp-server-options.html" data-title="self-hosted mcp server options" data-question="what is the minimum viable self-hosted deployment of `mcp_server.py` (or a write-only http wrapper) that: (a) is reachable from the public internet, (b) has zero or near-zero ongoing cost, (c) require" data-tags="mcp,self-hosted,infrastructure,mobile,memory-system,serverless">
+  <div class="card-title">Self-hosted MCP server options</div>
   <div class="card-meta">2026-03-08</div>
-  <div class="card-tags"><span class="tag">mcp</span><span class="tag">self-hosted</span><span class="tag">infrastructure</span><span class="tag">mobile</span><span class="tag">memory-system</span><span class="tag">cloudflare</span><span class="tag">serverless</span></div>
+  <div class="card-tags"><span class="tag">mcp</span><span class="tag">self-hosted</span><span class="tag">infrastructure</span><span class="tag">mobile</span><span class="tag">memory-system</span><span class="tag">serverless</span></div>
   <div class="card-excerpt">What is the minimum viable self-hosted deployment of `mcp_server.py` (or a write-only HTTP wrapper) that: (a) is reachable from the public internet, (b) has zero or near-zero ongoing cost, (c) require…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-08-claude-ios-mcp-remote-integration.html" data-title="claude for ios: mcp remote integration for memory capture and retrieval" data-question="does the claude ios app support mcp connections to a remote server? if so: (a) what transport is supported (http/sse vs stdio), (b) does it require the same `.mcp.json` config as claude desktop, (c) w" data-tags="mobile,claude,ios,mcp,memory-system,self-hosted">
-  <div class="card-title">Claude for iOS: MCP remote integration for memory capture and retrieval</div>
+<a class="card" href="/Research/research/2026-03-08-claude-ios-mcp-remote-integration.html" data-title="claude for ios" data-question="does the claude ios app support mcp connections to a remote server? if so: (a) what transport is supported (http/sse vs stdio), (b) does it require the same `.mcp.json` config as claude desktop, (c) w" data-tags="mobile,claude,ios,mcp,memory-system,self-hosted">
+  <div class="card-title">Claude for iOS</div>
   <div class="card-meta">2026-03-08</div>
   <div class="card-tags"><span class="tag">mobile</span><span class="tag">claude</span><span class="tag">ios</span><span class="tag">mcp</span><span class="tag">memory-system</span><span class="tag">self-hosted</span></div>
   <div class="card-excerpt">Does the Claude iOS app support MCP connections to a remote server? If so: (a) what transport is supported (HTTP/SSE vs stdio), (b) does it require the same `.mcp.json` config as Claude Desktop, (c) w…</div>

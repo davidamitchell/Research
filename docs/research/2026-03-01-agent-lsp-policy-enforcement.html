@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -506,12 +588,14 @@ main {
     <span>Guiding Headless Agents via LSP-Like Mechanisms for Org Policy Conformance</span>
   </div>
   <h1 class="item-title">Guiding Headless Agents via LSP-Like Mechanisms for Org Policy Conformance</h1>
-  <div class="meta-bar">
+    <div class="meta-bar">
     <span>2026-03-01</span>
     <span class="meta-sep">·</span>
-    <a class="tag" href="/Research/tags/agentic-coding.html">agentic-coding</a> <a class="tag" href="/Research/tags/lsp.html">lsp</a> <a class="tag" href="/Research/tags/policy-enforcement.html">policy-enforcement</a> <a class="tag" href="/Research/tags/headless-agents.html">headless-agents</a> <a class="tag" href="/Research/tags/architecture-governance.html">architecture-governance</a> <a class="tag" href="/Research/tags/security.html">security</a> <a class="tag" href="/Research/tags/developer-tooling.html">developer-tooling</a> 
+    <a class="tag" href="/Research/tags/agentic-coding.html">agentic-coding</a> <a class="tag" href="/Research/tags/security.html">security</a> <a class="tag" href="/Research/tags/developer-tooling.html">developer-tooling</a> 
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-01-agent-lsp-policy-enforcement.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-01-agent-lsp-policy-enforcement" target="_blank" rel="noopener">wiki →</a>
   </div>
   <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>LSAP (Language Server Agent Protocol) exists as an open protocol at v1.0.0-alpha, hosted at github.com/lsp-client/LSAP with a Python SDK (`lsap-sdk` on PyPI) and CLI, and is the most likely project behind the user&#39;s &quot;LSAP/LASP&quot; reference</li>
 <li>LSAP&#39;s core design wraps sequences of atomic LSP operations into single-request cognitive capabilities returning structured Markdown, solving the token-efficiency and positional fragility problems that prevent agents from consuming raw LSP JSON directly</li>
@@ -664,8 +748,8 @@ main {
 </div></div>
 
   <div class="item-nav">
-    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-01-context-mode-llm-context-compression.html">Context Mode: MCP tool output compression and the LLM context window management problem</a></div>
-    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-02-28-youtube-video-hyuos0gkgcs-concepts.html">Reality Is A Controlled Hallucination — Anil Seth (Essentia Foundation): concept extraction and synthesis</a></div>
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-01-context-mode-llm-context-compression.html">Context Mode</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-02-28-youtube-video-hyuos0gkgcs-concepts.html">Reality Is A Controlled Hallucination — Anil Seth (Essentia Foundation)</a></div>
   </div>
 </main>
 </body>

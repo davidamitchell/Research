@@ -3,7 +3,7 @@
         <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Three disciplines, one answer: Brooks, Dunbar, and network theory on why 5 is the coordination limit — Research</title>
+          <title>Three disciplines, one answer — Research</title>
           <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -503,15 +585,18 @@ main {
     <span>/</span>
     <a href="/Research/browse.html">Browse</a>
     <span>/</span>
-    <span>Three disciplines, one answer: Brooks, Dunbar, and network theory on why 5 is the coordination limit</span>
+    <span>Three disciplines, one answer</span>
   </div>
-  <h1 class="item-title">Three disciplines, one answer: Brooks, Dunbar, and network theory on why 5 is the coordination limit</h1>
+  <h1 class="item-title">Three disciplines, one answer</h1>
+  <p class="full-title-subtitle">Three disciplines, one answer: Brooks, Dunbar, and network theory on why 5 is the coordination limit</p>
   <div class="meta-bar">
     <span>2026-03-12</span>
     <span class="meta-sep">·</span>
-    <a class="tag" href="/Research/tags/brooks-law.html">brooks-law</a> <a class="tag" href="/Research/tags/dunbar-number.html">dunbar-number</a> <a class="tag" href="/Research/tags/network-theory.html">network-theory</a> <a class="tag" href="/Research/tags/team-size.html">team-size</a> <a class="tag" href="/Research/tags/coordination-overhead.html">coordination-overhead</a> <a class="tag" href="/Research/tags/graph-theory.html">graph-theory</a> <a class="tag" href="/Research/tags/evolutionary-psychology.html">evolutionary-psychology</a> <a class="tag" href="/Research/tags/software-engineering.html">software-engineering</a> <a class="tag" href="/Research/tags/military.html">military</a> 
+    <a class="tag" href="/Research/tags/team-size.html">team-size</a> <a class="tag" href="/Research/tags/coordination-overhead.html">coordination-overhead</a> <a class="tag" href="/Research/tags/software-engineering.html">software-engineering</a> 
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-12-team-size-limits-brooks-dunbar-network-theory.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-12-team-size-limits-brooks-dunbar-network-theory" target="_blank" rel="noopener">wiki →</a>
   </div>
   <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Brooks (1975), Chapter 2 of *The Mythical Man-Month*, establishes that communication effort scales as n(n-1)/2, where each new person adds n-1 new channels and the training cost of onboarding cannot be partitioned across the team</li>
 <li>Brooks does not identify 5 as the optimal team size; his law establishes a general cost-growth principle from which small-team superiority is inferred, not a specific threshold that 5 uniquely satisfies</li>
@@ -641,7 +726,7 @@ deep nature of the constraint?</p>
 </table>
 <h3>Assumptions</h3>
 <ul>
-<li><p>The video transcript (https://youtu.be/hnwM01CpzmA) was not directly accessible. The speaker's claims are drawn from the item's context section, which is treated as a faithful reconstruction. The speaker's framing of the fire team as &quot;4+1=5&quot; appears to be an approximation that does not match the primary doctrine.</p>
+<li><p>The video transcript (<a href="https://youtu.be/hnwM01CpzmA">youtu.be</a> was not directly accessible. The speaker's claims are drawn from the item's context section, which is treated as a faithful reconstruction. The speaker's framing of the fire team as &quot;4+1=5&quot; appears to be an approximation that does not match the primary doctrine.</p>
 </li>
 <li><p>The full text of Dunbar (1992) was accessed through a PDF scan and the follow-on 1993 paper; the abstract and citations were verified via ScienceDirect. The mechanistic claims attributed to the 1992 paper are supported by the accessible content.</p>
 </li>
@@ -667,9 +752,9 @@ deep nature of the constraint?</p>
 <li><strong>Type:</strong> knowledge</li>
 <li><strong>Description:</strong> Evidence-based mechanistic analysis of the ~5-person team-size limit from software engineering, evolutionary psychology, graph theory, and military doctrine; resolution of the &quot;same mechanism&quot; question; empirical status of each claim including the 2021 challenge to Dunbar's number</li>
 <li><strong>Key sources:</strong><ol>
-<li>Brooks (1975), <em>The Mythical Man-Month</em> — https://web.eecs.umich.edu/~weimerw/2018-481/readings/mythical-man-month.pdf</li>
-<li>Dunbar (1993), &quot;Coevolution of neocortical size, group size and language in humans&quot; — https://pdodds.w3.uvm.edu/files/papers/others/1993/dunbar1993a.pdf</li>
-<li>Lindenfors et al. (2021), &quot;'Dunbar's Number' Deconstructed&quot; — https://pmc.ncbi.nlm.nih.gov/articles/PMC8103230/</li>
+<li>Brooks (1975), <em>The Mythical Man-Month</em> — <a href="https://web.eecs.umich.edu/~weimerw/2018-481/readings/mythical-man-month.pdf</li>">web.eecs.umich.edu</a>
+<li>Dunbar (1993), &quot;Coevolution of neocortical size, group size and language in humans&quot; — <a href="https://pdodds.w3.uvm.edu/files/papers/others/1993/dunbar1993a.pdf</li>">pdodds.w3.uvm.edu</a>
+<li>Lindenfors et al. (2021), &quot;'Dunbar's Number' Deconstructed&quot; — <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8103230/</li>">pmc.ncbi.nlm.nih.gov</a>
 </ol>
 </li>
 </ul>
@@ -680,8 +765,8 @@ deep nature of the constraint?</p>
 </div></div>
 
   <div class="item-nav">
-    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-12-volume-vs-correctness-ai-era.html">AI inverted the knowledge-work scarcity equation: volume is free, correctness is the scarce resource</a></div>
-    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-12-swat-technique-loop-fresh-context.html">SWAT technique in a fresh-context loop: reliability, drift, and the effect of web search and org RAG on blind-acceptance outcomes</a></div>
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-12-volume-vs-correctness-ai-era.html">AI inverted the knowledge-work scarcity equation</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-12-swat-technique-loop-fresh-context.html">SWAT technique in a fresh-context loop</a></div>
   </div>
 </main>
 </body>

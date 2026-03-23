@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -504,28 +586,28 @@ main {
     <a class="back-link" href="/Research/browse.html">← browse</a>
   </div>
   <div class="card-grid">
-    <a class="card" href="/Research/research/2026-03-02-slack-msteams-research-integration.html" data-title="slack and ms teams integration for research delivery and capture" data-question="what is the most practical way to integrate the research corpus with slack and/or microsoft teams — for both outbound delivery (notifying when new research is completed) and inbound capture (receiving" data-tags="slack,ms-teams,integration,delivery,notifications,bot,interface,distribution">
+    <a class="card" href="/Research/research/2026-03-02-slack-msteams-research-integration.html" data-title="slack and ms teams integration for research delivery and capture" data-question="what is the most practical way to integrate the research corpus with slack and/or microsoft teams — for both outbound delivery (notifying when new research is completed) and inbound capture (receiving" data-tags="slack,delivery,bot,interface">
   <div class="card-title">Slack and MS Teams integration for research delivery and capture</div>
   <div class="card-meta">2026-03-02</div>
-  <div class="card-tags"><span class="tag">slack</span><span class="tag">ms-teams</span><span class="tag">integration</span><span class="tag">delivery</span><span class="tag">notifications</span><span class="tag">bot</span><span class="tag">interface</span><span class="tag">distribution</span></div>
+  <div class="card-tags"><span class="tag">slack</span><span class="tag">delivery</span><span class="tag">bot</span><span class="tag">interface</span></div>
   <div class="card-excerpt">What is the most practical way to integrate the research corpus with Slack and/or Microsoft Teams — for both outbound delivery (notifying when new research is completed) and inbound capture (receiving…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-02-ios-shortcuts-research.html" data-title="ios shortcuts for research capture and query" data-question="what ios shortcuts workflows provide the most value for a personal research system hosted on github — covering both low-friction research capture (adding a url or idea to the backlog from anywhere on" data-tags="ios,shortcuts,mobile,capture,interface,delivery,siri">
+<a class="card" href="/Research/research/2026-03-02-ios-shortcuts-research.html" data-title="ios shortcuts for research capture and query" data-question="what ios shortcuts workflows provide the most value for a personal research system hosted on github — covering both low-friction research capture (adding a url or idea to the backlog from anywhere on" data-tags="ios,shortcuts,mobile,capture,interface,delivery">
   <div class="card-title">iOS Shortcuts for research capture and query</div>
   <div class="card-meta">2026-03-02</div>
-  <div class="card-tags"><span class="tag">ios</span><span class="tag">shortcuts</span><span class="tag">mobile</span><span class="tag">capture</span><span class="tag">interface</span><span class="tag">delivery</span><span class="tag">siri</span></div>
+  <div class="card-tags"><span class="tag">ios</span><span class="tag">shortcuts</span><span class="tag">mobile</span><span class="tag">capture</span><span class="tag">interface</span><span class="tag">delivery</span></div>
   <div class="card-excerpt">What iOS Shortcuts workflows provide the most value for a personal research system hosted on GitHub — covering both low-friction research capture (adding a URL or idea to the backlog from anywhere on…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-02-chat-conversational-interface.html" data-title="conversational and chat interface for querying the research corpus" data-question="what is the best approach to expose the `research/completed/` corpus as a queryable, conversational interface — so that a user (or an ai agent) can ask &quot;what do i know about x?&quot; and receive a grounded" data-tags="chat,conversational-interface,mcp,rag,search,interface,delivery,copilot-extension">
+<a class="card" href="/Research/research/2026-03-02-chat-conversational-interface.html" data-title="conversational and chat interface for querying the research corpus" data-question="what is the best approach to expose the `research/completed/` corpus as a queryable, conversational interface — so that a user (or an ai agent) can ask &quot;what do i know about x?&quot; and receive a grounded" data-tags="mcp,rag,search,interface,delivery">
   <div class="card-title">Conversational and chat interface for querying the research corpus</div>
   <div class="card-meta">2026-03-02</div>
-  <div class="card-tags"><span class="tag">chat</span><span class="tag">conversational-interface</span><span class="tag">mcp</span><span class="tag">rag</span><span class="tag">search</span><span class="tag">interface</span><span class="tag">delivery</span><span class="tag">copilot-extension</span></div>
+  <div class="card-tags"><span class="tag">mcp</span><span class="tag">rag</span><span class="tag">search</span><span class="tag">interface</span><span class="tag">delivery</span></div>
   <div class="card-excerpt">What is the best approach to expose the `Research/completed/` corpus as a queryable, conversational interface — so that a user (or an AI agent) can ask &quot;what do I know about X?&quot; and receive a grounded…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-01-github-wiki-research-content.html" data-title="github wiki for research content: approach and tooling" data-question="what is the best approach for publishing completed research items from `research/completed/` into the github wiki, and what tooling is needed to keep it current and readable?" data-tags="wiki,github,delivery,interface,output">
-  <div class="card-title">GitHub wiki for research content: approach and tooling</div>
+<a class="card" href="/Research/research/2026-03-01-github-wiki-research-content.html" data-title="github wiki for research content" data-question="what is the best approach for publishing completed research items from `research/completed/` into the github wiki, and what tooling is needed to keep it current and readable?" data-tags="delivery,interface">
+  <div class="card-title">GitHub wiki for research content</div>
   <div class="card-meta">2026-03-01</div>
-  <div class="card-tags"><span class="tag">wiki</span><span class="tag">github</span><span class="tag">delivery</span><span class="tag">interface</span><span class="tag">output</span></div>
+  <div class="card-tags"><span class="tag">delivery</span><span class="tag">interface</span></div>
   <div class="card-excerpt">What is the best approach for publishing completed research items from `Research/completed/` into the GitHub wiki, and what tooling is needed to keep it current and readable?</div>
 </a>
 

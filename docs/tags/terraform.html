@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -504,16 +586,16 @@ main {
     <a class="back-link" href="/Research/browse.html">← browse</a>
   </div>
   <div class="card-grid">
-    <a class="card" href="/Research/research/2026-03-22-compliance-scanning-gh-actions.html" data-title="compliance scanning via github actions — broad policy as code across a heterogeneous stack" data-question="how can github actions (with github advanced security (ghas) and codeql already enabled) be extended to enforce a broad, organisation-wide compliance policy — covering naming conventions, architectura" data-tags="github-actions,policy-as-code,compliance,codeql,ghas,dotnet,kubernetes,eventing,rest-api,graph-api,python,react,airflow,dbt,snowflake,rds,golang,terraform,ansible">
-  <div class="card-title">Compliance Scanning via GitHub Actions — Broad Policy as Code Across a Heterogeneous Stack</div>
+    <a class="card" href="/Research/research/2026-03-22-compliance-scanning-gh-actions.html" data-title="compliance scanning via github actions — broad policy as code across a…" data-question="how can github actions (with github advanced security (ghas) and codeql already enabled) be extended to enforce a broad, organisation-wide compliance policy — covering naming conventions, architectura" data-tags="github-actions,policy-as-code,compliance,dotnet,python,airflow,terraform">
+  <div class="card-title">Compliance Scanning via GitHub Actions — Broad Policy as Code Across a…</div>
   <div class="card-meta">2026-03-22</div>
-  <div class="card-tags"><span class="tag">github-actions</span><span class="tag">policy-as-code</span><span class="tag">compliance</span><span class="tag">codeql</span><span class="tag">ghas</span><span class="tag">dotnet</span><span class="tag">kubernetes</span><span class="tag">eventing</span><span class="tag">rest-api</span><span class="tag">graph-api</span><span class="tag">python</span><span class="tag">react</span><span class="tag">airflow</span><span class="tag">dbt</span><span class="tag">snowflake</span><span class="tag">rds</span><span class="tag">golang</span><span class="tag">terraform</span><span class="tag">ansible</span></div>
+  <div class="card-tags"><span class="tag">github-actions</span><span class="tag">policy-as-code</span><span class="tag">compliance</span><span class="tag">dotnet</span><span class="tag">python</span><span class="tag">airflow</span><span class="tag">terraform</span></div>
   <div class="card-excerpt">How can GitHub Actions (with GitHub Advanced Security (GHAS) and CodeQL already enabled) be extended to enforce a broad, organisation-wide compliance policy — covering naming conventions, architectura…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-21-dependency-mapping-dotnet-terraform-dynatrace.html" data-title="dependency mapping across .net codebases, terraform, dynatrace, confluence, log aggregation, and the configuration and service data model (csdm)" data-question="what practical tools and methodologies are being used to map dependencies across .net codebases, terraform configurations, dynatrace application performance management (apm) monitoring, and solution d" data-tags="dependency-mapping,dotnet,terraform,dynatrace,confluence,log-aggregation,csdm,architecture,discovery,agents,observability,infrastructure-as-code">
-  <div class="card-title">Dependency Mapping Across .NET Codebases, Terraform, Dynatrace, Confluence, Log Aggregation, and the Configuration and Service Data Model (CSDM)</div>
+<a class="card" href="/Research/research/2026-03-21-dependency-mapping-dotnet-terraform-dynatrace.html" data-title="dependency mapping across .net codebases, terraform, dynatrace, confluence, log…" data-question="what practical tools and methodologies are being used to map dependencies across .net codebases, terraform configurations, dynatrace application performance management (apm) monitoring, and solution d" data-tags="dotnet,terraform,confluence,csdm,architecture,agents,observability">
+  <div class="card-title">Dependency Mapping Across .NET Codebases, Terraform, Dynatrace, Confluence, Log…</div>
   <div class="card-meta">2026-03-21</div>
-  <div class="card-tags"><span class="tag">dependency-mapping</span><span class="tag">dotnet</span><span class="tag">terraform</span><span class="tag">dynatrace</span><span class="tag">confluence</span><span class="tag">log-aggregation</span><span class="tag">csdm</span><span class="tag">architecture</span><span class="tag">discovery</span><span class="tag">agents</span><span class="tag">observability</span><span class="tag">infrastructure-as-code</span></div>
+  <div class="card-tags"><span class="tag">dotnet</span><span class="tag">terraform</span><span class="tag">confluence</span><span class="tag">csdm</span><span class="tag">architecture</span><span class="tag">agents</span><span class="tag">observability</span></div>
   <div class="card-excerpt">What practical tools and methodologies are being used to map dependencies across .NET codebases, Terraform configurations, Dynatrace Application Performance Management (APM) monitoring, and solution d…</div>
 </a>
 

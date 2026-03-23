@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -504,8 +586,8 @@ main {
     <a class="back-link" href="/Research/browse.html">← browse</a>
   </div>
   <div class="card-grid">
-    <a class="card" href="/Research/research/2026-03-13-financial-forecasting-it-run-costs.html" data-title="best practices in financial forecasting for it operational run costs: assumptions, uncertainty, and regulatory considerations" data-question="what are the established best practices for financially responsible forecasting of information technology (it) operational run costs — covering cost estimation by technology and infrastructure type, r" data-tags="financial-forecasting,it-run-costs,uncertainty-modelling,regulatory,error-bars,infrastructure-costing,assumptions">
-  <div class="card-title">Best practices in financial forecasting for IT operational run costs: assumptions, uncertainty, and regulatory considerations</div>
+    <a class="card" href="/Research/research/2026-03-13-financial-forecasting-it-run-costs.html" data-title="best practices in financial forecasting for it operational run costs" data-question="what are the established best practices for financially responsible forecasting of information technology (it) operational run costs — covering cost estimation by technology and infrastructure type, r" data-tags="financial-forecasting,it-run-costs,uncertainty-modelling,regulatory,error-bars,infrastructure-costing,assumptions">
+  <div class="card-title">Best practices in financial forecasting for IT operational run costs</div>
   <div class="card-meta">2026-03-13</div>
   <div class="card-tags"><span class="tag">financial-forecasting</span><span class="tag">it-run-costs</span><span class="tag">uncertainty-modelling</span><span class="tag">regulatory</span><span class="tag">error-bars</span><span class="tag">infrastructure-costing</span><span class="tag">assumptions</span></div>
   <div class="card-excerpt">What are the established best practices for financially responsible forecasting of Information Technology (IT) operational run costs — covering cost estimation by technology and infrastructure type, r…</div>

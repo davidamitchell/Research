@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -504,34 +586,34 @@ main {
     <a class="back-link" href="/Research/browse.html">← browse</a>
   </div>
   <div class="card-grid">
-    <a class="card" href="/Research/research/2026-03-10-ai-concept-classification-taxonomy.html" data-title="ai concept classification taxonomy: prompts, instructions, memory, failure modes, controls, and problem domains" data-question="what is a coherent, internally consistent classification taxonomy for the core concepts in ai-assisted and agentic systems — covering prompt types, instruction types, prompt/content/intent engineering" data-tags="taxonomy,classification,prompt-engineering,context-engineering,intent-engineering,memory,failure-modes,guardrails,skills,tools,agents,agentic-systems">
-  <div class="card-title">AI concept classification taxonomy: prompts, instructions, memory, failure modes, controls, and problem domains</div>
+    <a class="card" href="/Research/research/2026-03-10-ai-concept-classification-taxonomy.html" data-title="ai concept classification taxonomy" data-question="what is a coherent, internally consistent classification taxonomy for the core concepts in ai-assisted and agentic systems — covering prompt types, instruction types, prompt/content/intent engineering" data-tags="taxonomy,prompt-engineering,context-engineering,memory,failure-modes,guardrails,skills,agents,agentic-systems">
+  <div class="card-title">AI concept classification taxonomy</div>
   <div class="card-meta">2026-03-10</div>
-  <div class="card-tags"><span class="tag">taxonomy</span><span class="tag">classification</span><span class="tag">prompt-engineering</span><span class="tag">context-engineering</span><span class="tag">intent-engineering</span><span class="tag">memory</span><span class="tag">failure-modes</span><span class="tag">guardrails</span><span class="tag">skills</span><span class="tag">tools</span><span class="tag">agents</span><span class="tag">agentic-systems</span></div>
+  <div class="card-tags"><span class="tag">taxonomy</span><span class="tag">prompt-engineering</span><span class="tag">context-engineering</span><span class="tag">memory</span><span class="tag">failure-modes</span><span class="tag">guardrails</span><span class="tag">skills</span><span class="tag">agents</span><span class="tag">agentic-systems</span></div>
   <div class="card-excerpt">What is a coherent, internally consistent classification taxonomy for the core concepts in AI-assisted and agentic systems — covering prompt types, instruction types, prompt/content/intent engineering…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-08-context-engineering-first-principles.html" data-title="context engineering: first principles of steering llm output without control" data-question="what are the first principles of context engineering — and what novel approaches emerge when it is understood as two distinct but coupled mechanisms: (1) making the next predicted token more likely to" data-tags="context-engineering,prompt-engineering,llm,token-prediction,first-principles,steering,goal-alignment,rag,agent-instructions,compliance">
-  <div class="card-title">Context engineering: first principles of steering LLM output without control</div>
+<a class="card" href="/Research/research/2026-03-08-context-engineering-first-principles.html" data-title="context engineering" data-question="what are the first principles of context engineering — and what novel approaches emerge when it is understood as two distinct but coupled mechanisms: (1) making the next predicted token more likely to" data-tags="context-engineering,prompt-engineering,llm,rag,compliance">
+  <div class="card-title">Context engineering</div>
   <div class="card-meta">2026-03-08</div>
-  <div class="card-tags"><span class="tag">context-engineering</span><span class="tag">prompt-engineering</span><span class="tag">llm</span><span class="tag">token-prediction</span><span class="tag">first-principles</span><span class="tag">steering</span><span class="tag">goal-alignment</span><span class="tag">rag</span><span class="tag">agent-instructions</span><span class="tag">compliance</span></div>
+  <div class="card-tags"><span class="tag">context-engineering</span><span class="tag">prompt-engineering</span><span class="tag">llm</span><span class="tag">rag</span><span class="tag">compliance</span></div>
   <div class="card-excerpt">What are the first principles of context engineering — and what novel approaches emerge when it is understood as two distinct but coupled mechanisms: (1) making the next predicted token more likely to…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-05-general-agent-optimization-framework.html" data-title="general agent optimization framework" data-question="what is the most principled architecture for a self-improving ai agent evaluation loop — specifically, how should a nested inner/outer loop be designed so that a &quot;meta-optimizer&quot; rewrites system promp" data-tags="ai-agents,optimization,benchmarks,dspy,evaluation,self-improvement,prompt-engineering,synthetic-data">
+<a class="card" href="/Research/research/2026-03-05-general-agent-optimization-framework.html" data-title="general agent optimization framework" data-question="what is the most principled architecture for a self-improving ai agent evaluation loop — specifically, how should a nested inner/outer loop be designed so that a &quot;meta-optimizer&quot; rewrites system promp" data-tags="ai-agents,evaluation,prompt-engineering">
   <div class="card-title">General Agent Optimization Framework</div>
   <div class="card-meta">2026-03-05</div>
-  <div class="card-tags"><span class="tag">ai-agents</span><span class="tag">optimization</span><span class="tag">benchmarks</span><span class="tag">dspy</span><span class="tag">evaluation</span><span class="tag">self-improvement</span><span class="tag">prompt-engineering</span><span class="tag">synthetic-data</span></div>
+  <div class="card-tags"><span class="tag">ai-agents</span><span class="tag">evaluation</span><span class="tag">prompt-engineering</span></div>
   <div class="card-excerpt">What is the most principled architecture for a Self-Improving AI Agent Evaluation Loop — specifically, how should a nested inner/outer loop be designed so that a &quot;Meta-Optimizer&quot; rewrites system promp…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-04-sdlc-ai-prompt-patterns.html" data-title="emergent patterns in software engineering prompts and sdlc guidance" data-question="what are the current and emergent best practices for crafting ai agent prompts and tooling guidance tailored to each phase of the software development life cycle (sdlc) — covering discovery, requireme" data-tags="ai-agents,prompts,sdlc,software-engineering,best-practices,prompt-engineering,developer-tooling">
+<a class="card" href="/Research/research/2026-03-04-sdlc-ai-prompt-patterns.html" data-title="emergent patterns in software engineering prompts and sdlc guidance" data-question="what are the current and emergent best practices for crafting ai agent prompts and tooling guidance tailored to each phase of the software development life cycle (sdlc) — covering discovery, requireme" data-tags="ai-agents,prompts,software-engineering,best-practices,prompt-engineering,developer-tooling">
   <div class="card-title">Emergent Patterns in Software Engineering Prompts and SDLC Guidance</div>
   <div class="card-meta">2026-03-04</div>
-  <div class="card-tags"><span class="tag">ai-agents</span><span class="tag">prompts</span><span class="tag">sdlc</span><span class="tag">software-engineering</span><span class="tag">best-practices</span><span class="tag">prompt-engineering</span><span class="tag">developer-tooling</span></div>
+  <div class="card-tags"><span class="tag">ai-agents</span><span class="tag">prompts</span><span class="tag">software-engineering</span><span class="tag">best-practices</span><span class="tag">prompt-engineering</span><span class="tag">developer-tooling</span></div>
   <div class="card-excerpt">What are the current and emergent best practices for crafting AI agent prompts and tooling guidance tailored to each phase of the Software Development Life Cycle (SDLC) — covering discovery, requireme…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-03-research-loop-quality-prompt-engineering.html" data-title="evaluating and improving autonomous research loop quality: prompt engineering and output assessment" data-question="how can the quality of research items produced by the `research-loop.yml` autonomous pipeline be systematically evaluated, and what changes to `research-prompt.md` and the loop&#39;s prompting strategy wo" data-tags="research-loop,prompt-engineering,quality,autonomous-research,evaluation,research-prompt,github-actions">
-  <div class="card-title">Evaluating and improving autonomous research loop quality: prompt engineering and output assessment</div>
+<a class="card" href="/Research/research/2026-03-03-research-loop-quality-prompt-engineering.html" data-title="evaluating and improving autonomous research loop quality" data-question="how can the quality of research items produced by the `research-loop.yml` autonomous pipeline be systematically evaluated, and what changes to `research-prompt.md` and the loop&#39;s prompting strategy wo" data-tags="research-loop,prompt-engineering,quality,evaluation,github-actions">
+  <div class="card-title">Evaluating and improving autonomous research loop quality</div>
   <div class="card-meta">2026-03-03</div>
-  <div class="card-tags"><span class="tag">research-loop</span><span class="tag">prompt-engineering</span><span class="tag">quality</span><span class="tag">autonomous-research</span><span class="tag">evaluation</span><span class="tag">research-prompt</span><span class="tag">github-actions</span></div>
+  <div class="card-tags"><span class="tag">research-loop</span><span class="tag">prompt-engineering</span><span class="tag">quality</span><span class="tag">evaluation</span><span class="tag">github-actions</span></div>
   <div class="card-excerpt">How can the quality of research items produced by the `research-loop.yml` autonomous pipeline be systematically evaluated, and what changes to `research-prompt.md` and the loop&#39;s prompting strategy wo…</div>
 </a>
 

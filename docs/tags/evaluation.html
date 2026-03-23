@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -504,34 +586,34 @@ main {
     <a class="back-link" href="/Research/browse.html">← browse</a>
   </div>
   <div class="card-grid">
-    <a class="card" href="/Research/research/2026-03-22-applied-context-engineering-agent-workflows.html" data-title="applied context engineering: skills, workflows, and best practices for agent development" data-question="what practical patterns, workflow best practices, and agent development guidelines emerge from synthesising the `muratcankoylan/agent-skills-for-context-engineering` skill library with the context eng" data-tags="context-engineering,agent-skills,workflows,best-practices,multi-agent,memory-systems,tool-design,project-development,evaluation,production-agents">
-  <div class="card-title">Applied context engineering: skills, workflows, and best practices for agent development</div>
+    <a class="card" href="/Research/research/2026-03-22-applied-context-engineering-agent-workflows.html" data-title="applied context engineering" data-question="what practical patterns, workflow best practices, and agent development guidelines emerge from synthesising the `muratcankoylan/agent-skills-for-context-engineering` skill library with the context eng" data-tags="context-engineering,workflows,best-practices,multi-agent,evaluation">
+  <div class="card-title">Applied context engineering</div>
   <div class="card-meta">2026-03-22</div>
-  <div class="card-tags"><span class="tag">context-engineering</span><span class="tag">agent-skills</span><span class="tag">workflows</span><span class="tag">best-practices</span><span class="tag">multi-agent</span><span class="tag">memory-systems</span><span class="tag">tool-design</span><span class="tag">project-development</span><span class="tag">evaluation</span><span class="tag">production-agents</span></div>
+  <div class="card-tags"><span class="tag">context-engineering</span><span class="tag">workflows</span><span class="tag">best-practices</span><span class="tag">multi-agent</span><span class="tag">evaluation</span></div>
   <div class="card-excerpt">What practical patterns, workflow best practices, and agent development guidelines emerge from synthesising the `muratcankoylan/Agent-Skills-for-Context-Engineering` skill library with the context eng…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-10-research-loop-evaluation-rubric.html" data-title="research loop evaluation rubric: llm-as-judge specification for this repository&#39;s research loop agent" data-question="what structured rubric should be used to evaluate the outputs of this repository&#39;s research loop agent — and what does a minimal viable implementation of a continuous integration (ci)-integrated eval" data-tags="agents,evaluation,rubric,research-loop,llm-as-judge,regression,quality-gate,ci">
-  <div class="card-title">Research loop evaluation rubric: LLM-as-judge specification for this repository&#39;s research loop agent</div>
+<a class="card" href="/Research/research/2026-03-10-research-loop-evaluation-rubric.html" data-title="research loop evaluation rubric" data-question="what structured rubric should be used to evaluate the outputs of this repository&#39;s research loop agent — and what does a minimal viable implementation of a continuous integration (ci)-integrated eval" data-tags="agents,evaluation,research-loop,regression,ci">
+  <div class="card-title">Research loop evaluation rubric</div>
   <div class="card-meta">2026-03-10</div>
-  <div class="card-tags"><span class="tag">agents</span><span class="tag">evaluation</span><span class="tag">rubric</span><span class="tag">research-loop</span><span class="tag">llm-as-judge</span><span class="tag">regression</span><span class="tag">quality-gate</span><span class="tag">ci</span></div>
+  <div class="card-tags"><span class="tag">agents</span><span class="tag">evaluation</span><span class="tag">research-loop</span><span class="tag">regression</span><span class="tag">ci</span></div>
   <div class="card-excerpt">What structured rubric should be used to evaluate the outputs of this repository&#39;s research loop agent — and what does a minimal viable implementation of a Continuous Integration (CI)-integrated eval…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-10-agent-evaluation-cross-repo-analysis.html" data-title="agent evaluation framework: cross-repo pattern analysis, commonality detection, and regression identification" data-question="what evaluation framework allows systematic comparison of agent implementations across multiple repositories — identifying what problems each is solving, whether concepts are used idiomatically or in" data-tags="agents,evaluation,benchmarking,cross-repo-analysis,pattern-analysis,agentic-systems,metrics,regression,effectiveness,taxonomy">
-  <div class="card-title">Agent evaluation framework: cross-repo pattern analysis, commonality detection, and regression identification</div>
+<a class="card" href="/Research/research/2026-03-10-agent-evaluation-cross-repo-analysis.html" data-title="agent evaluation framework" data-question="what evaluation framework allows systematic comparison of agent implementations across multiple repositories — identifying what problems each is solving, whether concepts are used idiomatically or in" data-tags="agents,evaluation,agentic-systems,regression,taxonomy">
+  <div class="card-title">Agent evaluation framework</div>
   <div class="card-meta">2026-03-10</div>
-  <div class="card-tags"><span class="tag">agents</span><span class="tag">evaluation</span><span class="tag">benchmarking</span><span class="tag">cross-repo-analysis</span><span class="tag">pattern-analysis</span><span class="tag">agentic-systems</span><span class="tag">metrics</span><span class="tag">regression</span><span class="tag">effectiveness</span><span class="tag">taxonomy</span></div>
+  <div class="card-tags"><span class="tag">agents</span><span class="tag">evaluation</span><span class="tag">agentic-systems</span><span class="tag">regression</span><span class="tag">taxonomy</span></div>
   <div class="card-excerpt">What evaluation framework allows systematic comparison of agent implementations across multiple repositories — identifying what problems each is solving, whether concepts are used idiomatically or in…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-05-general-agent-optimization-framework.html" data-title="general agent optimization framework" data-question="what is the most principled architecture for a self-improving ai agent evaluation loop — specifically, how should a nested inner/outer loop be designed so that a &quot;meta-optimizer&quot; rewrites system promp" data-tags="ai-agents,optimization,benchmarks,dspy,evaluation,self-improvement,prompt-engineering,synthetic-data">
+<a class="card" href="/Research/research/2026-03-05-general-agent-optimization-framework.html" data-title="general agent optimization framework" data-question="what is the most principled architecture for a self-improving ai agent evaluation loop — specifically, how should a nested inner/outer loop be designed so that a &quot;meta-optimizer&quot; rewrites system promp" data-tags="ai-agents,evaluation,prompt-engineering">
   <div class="card-title">General Agent Optimization Framework</div>
   <div class="card-meta">2026-03-05</div>
-  <div class="card-tags"><span class="tag">ai-agents</span><span class="tag">optimization</span><span class="tag">benchmarks</span><span class="tag">dspy</span><span class="tag">evaluation</span><span class="tag">self-improvement</span><span class="tag">prompt-engineering</span><span class="tag">synthetic-data</span></div>
+  <div class="card-tags"><span class="tag">ai-agents</span><span class="tag">evaluation</span><span class="tag">prompt-engineering</span></div>
   <div class="card-excerpt">What is the most principled architecture for a Self-Improving AI Agent Evaluation Loop — specifically, how should a nested inner/outer loop be designed so that a &quot;Meta-Optimizer&quot; rewrites system promp…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-03-research-loop-quality-prompt-engineering.html" data-title="evaluating and improving autonomous research loop quality: prompt engineering and output assessment" data-question="how can the quality of research items produced by the `research-loop.yml` autonomous pipeline be systematically evaluated, and what changes to `research-prompt.md` and the loop&#39;s prompting strategy wo" data-tags="research-loop,prompt-engineering,quality,autonomous-research,evaluation,research-prompt,github-actions">
-  <div class="card-title">Evaluating and improving autonomous research loop quality: prompt engineering and output assessment</div>
+<a class="card" href="/Research/research/2026-03-03-research-loop-quality-prompt-engineering.html" data-title="evaluating and improving autonomous research loop quality" data-question="how can the quality of research items produced by the `research-loop.yml` autonomous pipeline be systematically evaluated, and what changes to `research-prompt.md` and the loop&#39;s prompting strategy wo" data-tags="research-loop,prompt-engineering,quality,evaluation,github-actions">
+  <div class="card-title">Evaluating and improving autonomous research loop quality</div>
   <div class="card-meta">2026-03-03</div>
-  <div class="card-tags"><span class="tag">research-loop</span><span class="tag">prompt-engineering</span><span class="tag">quality</span><span class="tag">autonomous-research</span><span class="tag">evaluation</span><span class="tag">research-prompt</span><span class="tag">github-actions</span></div>
+  <div class="card-tags"><span class="tag">research-loop</span><span class="tag">prompt-engineering</span><span class="tag">quality</span><span class="tag">evaluation</span><span class="tag">github-actions</span></div>
   <div class="card-excerpt">How can the quality of research items produced by the `research-loop.yml` autonomous pipeline be systematically evaluated, and what changes to `research-prompt.md` and the loop&#39;s prompting strategy wo…</div>
 </a>
 

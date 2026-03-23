@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -504,16 +586,16 @@ main {
     <a class="back-link" href="/Research/browse.html">← browse</a>
   </div>
   <div class="card-grid">
-    <a class="card" href="/Research/research/2026-03-08-chatgpt-actions-memory-integration.html" data-title="chatgpt actions and custom gpts: external memory integration options" data-question="can a chatgpt custom generative pre-trained transformer (gpt) be configured with actions that: (a) call a self-hosted http endpoint to add a memory, (b) call `search_brain` before responding to surfac" data-tags="mobile,chatgpt,openai,actions,memory-system">
-  <div class="card-title">ChatGPT Actions and custom GPTs: external memory integration options</div>
+    <a class="card" href="/Research/research/2026-03-08-chatgpt-actions-memory-integration.html" data-title="chatgpt actions and custom gpts" data-question="can a chatgpt custom generative pre-trained transformer (gpt) be configured with actions that: (a) call a self-hosted http endpoint to add a memory, (b) call `search_brain` before responding to surfac" data-tags="mobile,openai,memory-system">
+  <div class="card-title">ChatGPT Actions and custom GPTs</div>
   <div class="card-meta">2026-03-08</div>
-  <div class="card-tags"><span class="tag">mobile</span><span class="tag">chatgpt</span><span class="tag">openai</span><span class="tag">actions</span><span class="tag">memory-system</span></div>
+  <div class="card-tags"><span class="tag">mobile</span><span class="tag">openai</span><span class="tag">memory-system</span></div>
   <div class="card-excerpt">Can a ChatGPT custom Generative Pre-trained Transformer (GPT) be configured with Actions that: (a) call a self-hosted HTTP endpoint to add a memory, (b) call `search_brain` before responding to surfac…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-08-ai-coding-harnesses-agent-philosophy.html" data-title="ai coding harnesses: agent execution model, memory, and context management across commercial and oss tools" data-question="what are the core architectural and philosophical principles behind the ai coding harnesses (agentic ides and agent runtimes) published or released by anthropic, openai, and the broader ecosystem of c" data-tags="ai-agents,coding,ide,anthropic,openai,cursor,opencode,aider,cline,context-management,memory,state-management,oss">
-  <div class="card-title">AI coding harnesses: agent execution model, memory, and context management across commercial and OSS tools</div>
+<a class="card" href="/Research/research/2026-03-08-ai-coding-harnesses-agent-philosophy.html" data-title="ai coding harnesses" data-question="what are the core architectural and philosophical principles behind the ai coding harnesses (agentic ides and agent runtimes) published or released by anthropic, openai, and the broader ecosystem of c" data-tags="ai-agents,openai,context-management,memory,state-management">
+  <div class="card-title">AI coding harnesses</div>
   <div class="card-meta">2026-03-08</div>
-  <div class="card-tags"><span class="tag">ai-agents</span><span class="tag">coding</span><span class="tag">ide</span><span class="tag">anthropic</span><span class="tag">openai</span><span class="tag">cursor</span><span class="tag">opencode</span><span class="tag">aider</span><span class="tag">cline</span><span class="tag">context-management</span><span class="tag">memory</span><span class="tag">state-management</span><span class="tag">oss</span></div>
+  <div class="card-tags"><span class="tag">ai-agents</span><span class="tag">openai</span><span class="tag">context-management</span><span class="tag">memory</span><span class="tag">state-management</span></div>
   <div class="card-excerpt">What are the core architectural and philosophical principles behind the AI coding harnesses (agentic IDEs and agent runtimes) published or released by Anthropic, OpenAI, and the broader ecosystem of c…</div>
 </a>
 

@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -504,22 +586,22 @@ main {
     <a class="back-link" href="/Research/browse.html">← browse</a>
   </div>
   <div class="card-grid">
-    <a class="card" href="/Research/research/2026-03-05-h-neurons-synthesis.html" data-title="h-neurons synthesis — from hallucination mechanisms to actionable llm reliability engineering" data-question="across all four preceding research items — the macroscopic hallucination landscape, the h-neurons paper, over-compliance interventions, and pre-training origins — what is the unified, actionable pictu" data-tags="llm,hallucinations,h-neurons,mechanistic-interpretability,over-compliance,pre-training,alignment,reliability,synthesis">
-  <div class="card-title">H-Neurons Synthesis — From Hallucination Mechanisms to Actionable LLM Reliability Engineering</div>
+    <a class="card" href="/Research/research/2026-03-05-h-neurons-synthesis.html" data-title="h-neurons synthesis — from hallucination mechanisms to actionable llm…" data-question="across all four preceding research items — the macroscopic hallucination landscape, the h-neurons paper, over-compliance interventions, and pre-training origins — what is the unified, actionable pictu" data-tags="llm,hallucinations,h-neurons,mechanistic-interpretability,over-compliance,pre-training,alignment,reliability,synthesis">
+  <div class="card-title">H-Neurons Synthesis — From Hallucination Mechanisms to Actionable LLM…</div>
   <div class="card-meta">2026-03-05</div>
   <div class="card-tags"><span class="tag">llm</span><span class="tag">hallucinations</span><span class="tag">h-neurons</span><span class="tag">mechanistic-interpretability</span><span class="tag">over-compliance</span><span class="tag">pre-training</span><span class="tag">alignment</span><span class="tag">reliability</span><span class="tag">synthesis</span></div>
   <div class="card-excerpt">Across all four preceding research items — the macroscopic hallucination landscape, the H-Neurons paper, over-compliance interventions, and pre-training origins — what is the unified, actionable pictu…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-05-h-neurons-in-llms.html" data-title="hallucination-associated neurons (h-neurons) in llms — identification, behavioural impact, and origins" data-question="what are hallucination-associated neurons (h-neurons) in large language models, how can they be identified, what behaviours do they cause, where do they come from, and what do these findings imply for" data-tags="llm,hallucinations,h-neurons,mechanistic-interpretability,over-compliance,pre-training,alignment,reliability,arxiv">
-  <div class="card-title">Hallucination-Associated Neurons (H-Neurons) in LLMs — Identification, Behavioural Impact, and Origins</div>
+<a class="card" href="/Research/research/2026-03-05-h-neurons-in-llms.html" data-title="hallucination-associated neurons (h-neurons) in llms — identification,…" data-question="what are hallucination-associated neurons (h-neurons) in large language models, how can they be identified, what behaviours do they cause, where do they come from, and what do these findings imply for" data-tags="llm,hallucinations,h-neurons,mechanistic-interpretability,over-compliance,pre-training,alignment,reliability">
+  <div class="card-title">Hallucination-Associated Neurons (H-Neurons) in LLMs — Identification,…</div>
   <div class="card-meta">2026-03-05</div>
-  <div class="card-tags"><span class="tag">llm</span><span class="tag">hallucinations</span><span class="tag">h-neurons</span><span class="tag">mechanistic-interpretability</span><span class="tag">over-compliance</span><span class="tag">pre-training</span><span class="tag">alignment</span><span class="tag">reliability</span><span class="tag">arxiv</span></div>
+  <div class="card-tags"><span class="tag">llm</span><span class="tag">hallucinations</span><span class="tag">h-neurons</span><span class="tag">mechanistic-interpretability</span><span class="tag">over-compliance</span><span class="tag">pre-training</span><span class="tag">alignment</span><span class="tag">reliability</span></div>
   <div class="card-excerpt">What are Hallucination-Associated Neurons (H-Neurons) in large language models, how can they be identified, what behaviours do they cause, where do they come from, and what do these findings imply for…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-05-h-neuron-pretraining-origins.html" data-title="pre-training origins of hallucination-associated neurons — implications for llm development" data-question="given that hallucination-associated neurons (h-neurons) emerge during pre-training rather than instruction tuning or rlhf, what does this reveal about how hallucination-prone behaviour is encoded duri" data-tags="llm,hallucinations,h-neurons,pre-training,alignment,rlhf,training-dynamics,mechanistic-interpretability,reliability">
-  <div class="card-title">Pre-Training Origins of Hallucination-Associated Neurons — Implications for LLM Development</div>
+<a class="card" href="/Research/research/2026-03-05-h-neuron-pretraining-origins.html" data-title="pre-training origins of hallucination-associated neurons — implications for llm…" data-question="given that hallucination-associated neurons (h-neurons) emerge during pre-training rather than instruction tuning or rlhf, what does this reveal about how hallucination-prone behaviour is encoded duri" data-tags="llm,hallucinations,h-neurons,pre-training,alignment,mechanistic-interpretability,reliability">
+  <div class="card-title">Pre-Training Origins of Hallucination-Associated Neurons — Implications for LLM…</div>
   <div class="card-meta">2026-03-05</div>
-  <div class="card-tags"><span class="tag">llm</span><span class="tag">hallucinations</span><span class="tag">h-neurons</span><span class="tag">pre-training</span><span class="tag">alignment</span><span class="tag">rlhf</span><span class="tag">training-dynamics</span><span class="tag">mechanistic-interpretability</span><span class="tag">reliability</span></div>
+  <div class="card-tags"><span class="tag">llm</span><span class="tag">hallucinations</span><span class="tag">h-neurons</span><span class="tag">pre-training</span><span class="tag">alignment</span><span class="tag">mechanistic-interpretability</span><span class="tag">reliability</span></div>
   <div class="card-excerpt">Given that Hallucination-Associated Neurons (H-Neurons) emerge during pre-training rather than instruction tuning or RLHF, what does this reveal about how hallucination-prone behaviour is encoded duri…</div>
 </a>
 

@@ -3,7 +3,7 @@
         <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Layered Organisation Large Language Model: Feasibility and Architecture of Organisation-Customised LLMs — Research</title>
+          <title>Layered Organisation Large Language Model — Research</title>
           <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -503,15 +585,18 @@ main {
     <span>/</span>
     <a href="/Research/browse.html">Browse</a>
     <span>/</span>
-    <span>Layered Organisation Large Language Model: Feasibility and Architecture of Organisation-Customised LLMs</span>
+    <span>Layered Organisation Large Language Model</span>
   </div>
-  <h1 class="item-title">Layered Organisation Large Language Model: Feasibility and Architecture of Organisation-Customised LLMs</h1>
+  <h1 class="item-title">Layered Organisation Large Language Model</h1>
+  <p class="full-title-subtitle">Layered Organisation Large Language Model: Feasibility and Architecture of Organisation-Customised LLMs</p>
   <div class="meta-bar">
     <span>2026-03-19</span>
     <span class="meta-sep">·</span>
-    <a class="tag" href="/Research/tags/llm.html">llm</a> <a class="tag" href="/Research/tags/rag.html">rag</a> <a class="tag" href="/Research/tags/fine-tuning.html">fine-tuning</a> <a class="tag" href="/Research/tags/enterprise-ai.html">enterprise-ai</a> <a class="tag" href="/Research/tags/knowledge-management.html">knowledge-management</a> <a class="tag" href="/Research/tags/organisational-context.html">organisational-context</a> <a class="tag" href="/Research/tags/architecture.html">architecture</a> <a class="tag" href="/Research/tags/feasibility.html">feasibility</a> <a class="tag" href="/Research/tags/concept-generation.html">concept-generation</a> <a class="tag" href="/Research/tags/customisation.html">customisation</a> <a class="tag" href="/Research/tags/layered-llm.html">layered-llm</a> <a class="tag" href="/Research/tags/retrieval-augmented-generation.html">retrieval-augmented-generation</a> <a class="tag" href="/Research/tags/parameter-efficient-fine-tuning.html">parameter-efficient-fine-tuning</a> 
+    <a class="tag" href="/Research/tags/llm.html">llm</a> <a class="tag" href="/Research/tags/rag.html">rag</a> <a class="tag" href="/Research/tags/enterprise-ai.html">enterprise-ai</a> <a class="tag" href="/Research/tags/knowledge-management.html">knowledge-management</a> <a class="tag" href="/Research/tags/architecture.html">architecture</a> <a class="tag" href="/Research/tags/retrieval-augmented-generation.html">retrieval-augmented-generation</a> 
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-19-layered-org-llm-architecture.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-19-layered-org-llm-architecture" target="_blank" rel="noopener">wiki →</a>
   </div>
   
   <div class="item-content">
@@ -532,20 +617,20 @@ main {
 
 <h2>Findings</h2>
 <h3>Executive Summary</h3>
-<p>[inference] A mid-to-large enterprise can build a useful organisation-customised Large Language Model (LLM) layer today, but the economically viable design is a layered system built on top of a base foundation model with Retrieval-Augmented Generation (RAG), selective parameter-efficient adaptation, and optional verifier layers rather than a standalone organisation-trained model. (Sources: <code>https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html</code>; <code>https://cloud.google.com/vertex-ai/generative-ai/docs/rag-overview</code>; <code>https://arxiv.org/abs/2106.09685</code>; <code>https://arxiv.org/abs/2305.14314</code>)</p>
-<p>[inference] The public cases show that enterprises are customising the surrounding system stack - retrieval, routing, and knowledge structures - more often than they are building wholly new standalone models. (Sources: <code>https://www.zenml.io/llmops-database/enterprise-knowledge-management-with-llms-morgan-stanley-s-gpt-4-implementation</code>; <code>https://www.harvey.ai/blog/expanding-harveys-model-offerings</code>; <code>https://cloud.google.com/blog/products/data-analytics/glean-uses-bigquery-and-google-ai-to-enhance-enterprise-search</code>; <code>https://www.glean.com/resources/guides/glean-knowledge-graph</code>)</p>
-<p>[inference] The main reason to go beyond pure RAG is not that retrieval has failed completely, but that repeated domain vocabulary, concept structure, routing logic, and verification requirements create a performance ceiling that retrieval alone does not remove. (Sources: <code>https://arxiv.org/abs/2401.05856</code>; <code>https://arxiv.org/abs/2106.09685</code>; <code>https://arxiv.org/abs/2305.14314</code>)</p>
-<p>[inference] This makes concept generation a supporting technique for representation and supervision, while live answer quality still depends on access to current source material. (Sources: <code>https://arxiv.org/abs/2306.11644</code>; <code>https://arxiv.org/abs/2504.12915</code>)</p>
+<p>[inference] A mid-to-large enterprise can build a useful organisation-customised Large Language Model (LLM) layer today, but the economically viable design is a layered system built on top of a base foundation model with Retrieval-Augmented Generation (RAG), selective parameter-efficient adaptation, and optional verifier layers rather than a standalone organisation-trained model. (Sources: <code><a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html</code>">docs.aws.amazon.com</a> <code><a href="https://cloud.google.com/vertex-ai/generative-ai/docs/rag-overview</code>">cloud.google.com</a> <code><a href="https://arxiv.org/abs/2106.09685</code>">arxiv.org/abs/2106.09685</code></a> <code><a href="https://arxiv.org/abs/2305.14314</code>)</p>">arxiv.org/abs/2305.14314</code></a>
+<p>[inference] The public cases show that enterprises are customising the surrounding system stack - retrieval, routing, and knowledge structures - more often than they are building wholly new standalone models. (Sources: <code><a href="https://www.zenml.io/llmops-database/enterprise-knowledge-management-with-llms-morgan-stanley-s-gpt-4-implementation</code>">www.zenml.io</a> <code><a href="https://www.harvey.ai/blog/expanding-harveys-model-offerings</code>">www.harvey.ai</a> <code><a href="https://cloud.google.com/blog/products/data-analytics/glean-uses-bigquery-and-google-ai-to-enhance-enterprise-search</code>">cloud.google.com</a> <code><a href="https://www.glean.com/resources/guides/glean-knowledge-graph</code>)</p>">www.glean.com</a>
+<p>[inference] The main reason to go beyond pure RAG is not that retrieval has failed completely, but that repeated domain vocabulary, concept structure, routing logic, and verification requirements create a performance ceiling that retrieval alone does not remove. (Sources: <code><a href="https://arxiv.org/abs/2401.05856</code>">arxiv.org/abs/2401.05856</code></a> <code><a href="https://arxiv.org/abs/2106.09685</code>">arxiv.org/abs/2106.09685</code></a> <code><a href="https://arxiv.org/abs/2305.14314</code>)</p>">arxiv.org/abs/2305.14314</code></a>
+<p>[inference] This makes concept generation a supporting technique for representation and supervision, while live answer quality still depends on access to current source material. (Sources: <code><a href="https://arxiv.org/abs/2306.11644</code>">arxiv.org/abs/2306.11644</code></a> <code><a href="https://arxiv.org/abs/2504.12915</code>)</p>">arxiv.org/abs/2504.12915</code></a>
 <h3>Key Findings</h3>
 <ol>
-<li>[fact] Production enterprise customisation still starts with retrieval because all major current platform docs and the Morgan Stanley deployment treat proprietary context injection as the default answer to the private-knowledge gap rather than immediate weight-level retraining. (Sources: <code>https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html</code>; <code>https://cloud.google.com/vertex-ai/generative-ai/docs/rag-overview</code>; <code>https://docs.cohere.com/docs/retrieval-augmented-generation-rag</code>; <code>https://www.zenml.io/llmops-database/enterprise-knowledge-management-with-llms-morgan-stanley-s-gpt-4-implementation</code>) [confidence: high]</li>
-<li>[fact] Parameter-efficient fine-tuning makes organisation-specific weight adaptation technically feasible for enterprises that could not justify full fine-tuning, because LoRA and QLoRA dramatically reduce trainable-parameter and memory requirements while preserving strong downstream task performance. (Sources: <code>https://arxiv.org/abs/2106.09685</code>; <code>https://arxiv.org/abs/2305.14314</code>; <code>https://www.nature.com/articles/s42256-023-00626-4</code>) [confidence: high]</li>
-<li>[inference] Domain-adaptive pretraining is viable when the corpus is very large and stable, but the strongest public examples sit at sector scale or vendor-platform scale rather than at the scale of a typical single enterprise. (Sources: <code>https://arxiv.org/abs/2303.17564</code>; <code>https://arxiv.org/abs/2212.13138</code>; <code>https://arxiv.org/abs/2004.10964</code>; <code>https://cloud.google.com/blog/products/data-analytics/glean-uses-bigquery-and-google-ai-to-enhance-enterprise-search</code>) [confidence: medium]</li>
-<li>[fact] Real enterprise leaders already use layered or tandem architectures instead of a single custom model, with Harvey routing across multiple foundation models and Glean combining retrieval, a knowledge graph, and adapted models inside one product stack. (Sources: <code>https://www.harvey.ai/blog/expanding-harveys-model-offerings</code>; <code>https://www.microsoft.com/en/customers/story/19750-harvey-azure-open-ai-service</code>; <code>https://www.glean.com/resources/guides/glean-knowledge-graph</code>; <code>https://cloud.google.com/blog/products/data-analytics/glean-uses-bigquery-and-google-ai-to-enhance-enterprise-search</code>) [confidence: high]</li>
-<li>[fact] Retrieval-Augmented Generation has structural failure modes - including retrieval mismatch, robustness drift, and validation burdens during operation - which is why a retrieval-only answer has a ceiling even though Retrieval-Augmented Generation remains the fastest path to value. (Sources: <code>https://arxiv.org/abs/2401.05856</code>) [confidence: high]</li>
-<li>[inference] Tandem and adversarial patterns are already technically available as control layers, because Mixture-of-Agents, chain-of-verification, and Constitutional AI show that routing, critique, and self-checking can be layered around a base answerer to improve reliability. (Sources: <code>https://arxiv.org/abs/2406.04692</code>; <code>https://arxiv.org/abs/2309.11495</code>; <code>https://arxiv.org/abs/2212.08073</code>) [confidence: high]</li>
-<li>[inference] Concept generation offers value when it creates reusable structure - ontology terms, synthetic exemplars, or distilled concept libraries - that can improve ranking, supervision, or adapters, but the available evidence does not support replacing fresh evidence retrieval with generated concepts alone. (Sources: <code>https://arxiv.org/abs/2306.11644</code>; <code>https://arxiv.org/abs/2504.12915</code>) [confidence: medium]</li>
-<li>[inference] The practical escalation rule is to improve retrieval and relevance first, add adapters when repeated high-value tasks justify internalisation, and reserve full domain pretraining or new-model training for unusually large, stable, and well-funded domains rather than ordinary enterprise deployments. (Sources: <code>https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html</code>; <code>https://cloud.google.com/vertex-ai/generative-ai/docs/rag-overview</code>; <code>https://arxiv.org/abs/2106.09685</code>; <code>https://arxiv.org/abs/2305.14314</code>; <code>https://arxiv.org/abs/2303.17564</code>; <code>https://arxiv.org/abs/2212.13138</code>) [confidence: high]</li>
+<li>[fact] Production enterprise customisation still starts with retrieval because all major current platform docs and the Morgan Stanley deployment treat proprietary context injection as the default answer to the private-knowledge gap rather than immediate weight-level retraining. (Sources: <code><a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html</code>">docs.aws.amazon.com</a> <code><a href="https://cloud.google.com/vertex-ai/generative-ai/docs/rag-overview</code>">cloud.google.com</a> <code><a href="https://docs.cohere.com/docs/retrieval-augmented-generation-rag</code>">docs.cohere.com</a> <code><a href="https://www.zenml.io/llmops-database/enterprise-knowledge-management-with-llms-morgan-stanley-s-gpt-4-implementation</code>">www.zenml.io</a> [confidence: high]</li>
+<li>[fact] Parameter-efficient fine-tuning makes organisation-specific weight adaptation technically feasible for enterprises that could not justify full fine-tuning, because LoRA and QLoRA dramatically reduce trainable-parameter and memory requirements while preserving strong downstream task performance. (Sources: <code><a href="https://arxiv.org/abs/2106.09685</code>">arxiv.org/abs/2106.09685</code></a> <code><a href="https://arxiv.org/abs/2305.14314</code>">arxiv.org/abs/2305.14314</code></a> <code><a href="https://www.nature.com/articles/s42256-023-00626-4</code>">www.nature.com</a> [confidence: high]</li>
+<li>[inference] Domain-adaptive pretraining is viable when the corpus is very large and stable, but the strongest public examples sit at sector scale or vendor-platform scale rather than at the scale of a typical single enterprise. (Sources: <code><a href="https://arxiv.org/abs/2303.17564</code>">arxiv.org/abs/2303.17564</code></a> <code><a href="https://arxiv.org/abs/2212.13138</code>">arxiv.org/abs/2212.13138</code></a> <code><a href="https://arxiv.org/abs/2004.10964</code>">arxiv.org/abs/2004.10964</code></a> <code><a href="https://cloud.google.com/blog/products/data-analytics/glean-uses-bigquery-and-google-ai-to-enhance-enterprise-search</code>">cloud.google.com</a> [confidence: medium]</li>
+<li>[fact] Real enterprise leaders already use layered or tandem architectures instead of a single custom model, with Harvey routing across multiple foundation models and Glean combining retrieval, a knowledge graph, and adapted models inside one product stack. (Sources: <code><a href="https://www.harvey.ai/blog/expanding-harveys-model-offerings</code>">www.harvey.ai</a> <code><a href="https://www.microsoft.com/en/customers/story/19750-harvey-azure-open-ai-service</code>">www.microsoft.com</a> <code><a href="https://www.glean.com/resources/guides/glean-knowledge-graph</code>">www.glean.com</a> <code><a href="https://cloud.google.com/blog/products/data-analytics/glean-uses-bigquery-and-google-ai-to-enhance-enterprise-search</code>">cloud.google.com</a> [confidence: high]</li>
+<li>[fact] Retrieval-Augmented Generation has structural failure modes - including retrieval mismatch, robustness drift, and validation burdens during operation - which is why a retrieval-only answer has a ceiling even though Retrieval-Augmented Generation remains the fastest path to value. (Sources: <code><a href="https://arxiv.org/abs/2401.05856</code>">arxiv.org/abs/2401.05856</code></a> [confidence: high]</li>
+<li>[inference] Tandem and adversarial patterns are already technically available as control layers, because Mixture-of-Agents, chain-of-verification, and Constitutional AI show that routing, critique, and self-checking can be layered around a base answerer to improve reliability. (Sources: <code><a href="https://arxiv.org/abs/2406.04692</code>">arxiv.org/abs/2406.04692</code></a> <code><a href="https://arxiv.org/abs/2309.11495</code>">arxiv.org/abs/2309.11495</code></a> <code><a href="https://arxiv.org/abs/2212.08073</code>">arxiv.org/abs/2212.08073</code></a> [confidence: high]</li>
+<li>[inference] Concept generation offers value when it creates reusable structure - ontology terms, synthetic exemplars, or distilled concept libraries - that can improve ranking, supervision, or adapters, but the available evidence does not support replacing fresh evidence retrieval with generated concepts alone. (Sources: <code><a href="https://arxiv.org/abs/2306.11644</code>">arxiv.org/abs/2306.11644</code></a> <code><a href="https://arxiv.org/abs/2504.12915</code>">arxiv.org/abs/2504.12915</code></a> [confidence: medium]</li>
+<li>[inference] The practical escalation rule is to improve retrieval and relevance first, add adapters when repeated high-value tasks justify internalisation, and reserve full domain pretraining or new-model training for unusually large, stable, and well-funded domains rather than ordinary enterprise deployments. (Sources: <code><a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html</code>">docs.aws.amazon.com</a> <code><a href="https://cloud.google.com/vertex-ai/generative-ai/docs/rag-overview</code>">cloud.google.com</a> <code><a href="https://arxiv.org/abs/2106.09685</code>">arxiv.org/abs/2106.09685</code></a> <code><a href="https://arxiv.org/abs/2305.14314</code>">arxiv.org/abs/2305.14314</code></a> <code><a href="https://arxiv.org/abs/2303.17564</code>">arxiv.org/abs/2303.17564</code></a> <code><a href="https://arxiv.org/abs/2212.13138</code>">arxiv.org/abs/2212.13138</code></a> [confidence: high]</li>
 </ol>
 <h3>Evidence Map</h3>
 <table>
@@ -560,49 +645,49 @@ main {
 <tbody>
 <tr>
   <td>[fact] Retrieval is the default production answer to private organisational knowledge</td>
-  <td><code>https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html</code>; <code>https://cloud.google.com/vertex-ai/generative-ai/docs/rag-overview</code>; <code>https://docs.cohere.com/docs/retrieval-augmented-generation-rag</code>; <code>https://www.zenml.io/llmops-database/enterprise-knowledge-management-with-llms-morgan-stanley-s-gpt-4-implementation</code></td>
+  <td><code><a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html</code>">docs.aws.amazon.com</a> <code><a href="https://cloud.google.com/vertex-ai/generative-ai/docs/rag-overview</code>">cloud.google.com</a> <code><a href="https://docs.cohere.com/docs/retrieval-augmented-generation-rag</code>">docs.cohere.com</a> <code><a href="https://www.zenml.io/llmops-database/enterprise-knowledge-management-with-llms-morgan-stanley-s-gpt-4-implementation</code></td>">www.zenml.io</a>
   <td>high</td>
   <td>Independent vendor docs and a deployment case agree</td>
 </tr>
 <tr>
   <td>[fact] LoRA and QLoRA materially lower adaptation cost</td>
-  <td><code>https://arxiv.org/abs/2106.09685</code>; <code>https://arxiv.org/abs/2305.14314</code>; <code>https://www.nature.com/articles/s42256-023-00626-4</code></td>
+  <td><code><a href="https://arxiv.org/abs/2106.09685</code>">arxiv.org/abs/2106.09685</code></a> <code><a href="https://arxiv.org/abs/2305.14314</code>">arxiv.org/abs/2305.14314</code></a> <code><a href="https://www.nature.com/articles/s42256-023-00626-4</code></td>">www.nature.com</a>
   <td>high</td>
   <td>Primary papers and survey agree</td>
 </tr>
 <tr>
   <td>[inference] Domain-adaptive pretraining is better suited to sector-scale or platform-scale corpora than ordinary single-enterprise use</td>
-  <td><code>https://arxiv.org/abs/2303.17564</code>; <code>https://arxiv.org/abs/2212.13138</code>; <code>https://arxiv.org/abs/2004.10964</code>; <code>https://cloud.google.com/blog/products/data-analytics/glean-uses-bigquery-and-google-ai-to-enhance-enterprise-search</code></td>
+  <td><code><a href="https://arxiv.org/abs/2303.17564</code>">arxiv.org/abs/2303.17564</code></a> <code><a href="https://arxiv.org/abs/2212.13138</code>">arxiv.org/abs/2212.13138</code></a> <code><a href="https://arxiv.org/abs/2004.10964</code>">arxiv.org/abs/2004.10964</code></a> <code><a href="https://cloud.google.com/blog/products/data-analytics/glean-uses-bigquery-and-google-ai-to-enhance-enterprise-search</code></td>">cloud.google.com</a>
   <td>medium</td>
   <td>Strong evidence of effectiveness, medium evidence of economic boundary</td>
 </tr>
 <tr>
   <td>[fact] Harvey and Glean already implement layered or tandem enterprise stacks</td>
-  <td><code>https://www.harvey.ai/blog/expanding-harveys-model-offerings</code>; <code>https://www.microsoft.com/en/customers/story/19750-harvey-azure-open-ai-service</code>; <code>https://www.glean.com/resources/guides/glean-knowledge-graph</code>; <code>https://cloud.google.com/blog/products/data-analytics/glean-uses-bigquery-and-google-ai-to-enhance-enterprise-search</code></td>
+  <td><code><a href="https://www.harvey.ai/blog/expanding-harveys-model-offerings</code>">www.harvey.ai</a> <code><a href="https://www.microsoft.com/en/customers/story/19750-harvey-azure-open-ai-service</code>">www.microsoft.com</a> <code><a href="https://www.glean.com/resources/guides/glean-knowledge-graph</code>">www.glean.com</a> <code><a href="https://cloud.google.com/blog/products/data-analytics/glean-uses-bigquery-and-google-ai-to-enhance-enterprise-search</code></td>">cloud.google.com</a>
   <td>high</td>
   <td>Official vendor materials are explicit</td>
 </tr>
 <tr>
   <td>[fact] Retrieval-Augmented Generation has recurring engineering failure points even when it improves grounding</td>
-  <td><code>https://arxiv.org/abs/2401.05856</code></td>
+  <td><code><a href="https://arxiv.org/abs/2401.05856</code></td>">arxiv.org/abs/2401.05856</code></td></a>
   <td>high</td>
   <td>Primary survey and experience report</td>
 </tr>
 <tr>
   <td>[fact] Verifier and critic patterns can be layered around base generation</td>
-  <td><code>https://arxiv.org/abs/2406.04692</code>; <code>https://arxiv.org/abs/2309.11495</code>; <code>https://arxiv.org/abs/2212.08073</code></td>
+  <td><code><a href="https://arxiv.org/abs/2406.04692</code>">arxiv.org/abs/2406.04692</code></a> <code><a href="https://arxiv.org/abs/2309.11495</code>">arxiv.org/abs/2309.11495</code></a> <code><a href="https://arxiv.org/abs/2212.08073</code></td>">arxiv.org/abs/2212.08073</code></td></a>
   <td>high</td>
   <td>Academic papers establish technical feasibility</td>
 </tr>
 <tr>
   <td>[inference] Concept generation is most useful as enrichment, not as full retrieval replacement</td>
-  <td><code>https://arxiv.org/abs/2306.11644</code>; <code>https://arxiv.org/abs/2504.12915</code></td>
+  <td><code><a href="https://arxiv.org/abs/2306.11644</code>">arxiv.org/abs/2306.11644</code></a> <code><a href="https://arxiv.org/abs/2504.12915</code></td>">arxiv.org/abs/2504.12915</code></td></a>
   <td>medium</td>
   <td>Direct evidence supports ontology and synthetic-supervision uses, but not full replacement</td>
 </tr>
 <tr>
   <td>[inference] Enterprises should escalate from retrieval improvements to adapters before considering heavy pretraining or new-model training</td>
-  <td><code>https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html</code>; <code>https://cloud.google.com/vertex-ai/generative-ai/docs/rag-overview</code>; <code>https://arxiv.org/abs/2106.09685</code>; <code>https://arxiv.org/abs/2305.14314</code>; <code>https://arxiv.org/abs/2303.17564</code>; <code>https://arxiv.org/abs/2212.13138</code></td>
+  <td><code><a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html</code>">docs.aws.amazon.com</a> <code><a href="https://cloud.google.com/vertex-ai/generative-ai/docs/rag-overview</code>">cloud.google.com</a> <code><a href="https://arxiv.org/abs/2106.09685</code>">arxiv.org/abs/2106.09685</code></a> <code><a href="https://arxiv.org/abs/2305.14314</code>">arxiv.org/abs/2305.14314</code></a> <code><a href="https://arxiv.org/abs/2303.17564</code>">arxiv.org/abs/2303.17564</code></a> <code><a href="https://arxiv.org/abs/2212.13138</code></td>">arxiv.org/abs/2212.13138</code></td></a>
   <td>high</td>
   <td>The evidence converges on staged escalation rather than immediate deep custom training</td>
 </tr>
@@ -610,15 +695,15 @@ main {
 </table>
 <h3>Assumptions</h3>
 <ul>
-<li>[assumption] The ZenML Morgan Stanley write-up is a fair secondary summary of the underlying OpenAI case study. <strong>Justification:</strong> it provides concrete implementation details and evaluation practices consistent with other public references to the deployment, but the official OpenAI page was not directly fetchable from this environment. (Sources: <code>https://www.zenml.io/llmops-database/enterprise-knowledge-management-with-llms-morgan-stanley-s-gpt-4-implementation</code>; <code>https://openai.com/index/morgan-stanley/</code>)</li>
-<li>[assumption] Glean's public Google Cloud architecture post is representative of the architecture direction of its enterprise product rather than a one-off cloud-marketing example. <strong>Justification:</strong> it is co-authored with Glean leadership and matches Glean's own knowledge graph materials. (Sources: <code>https://cloud.google.com/blog/products/data-analytics/glean-uses-bigquery-and-google-ai-to-enhance-enterprise-search</code>; <code>https://www.glean.com/resources/guides/glean-knowledge-graph</code>)</li>
-<li>[assumption] Mid-to-large enterprise here means an organisation that can already sustain modern data-platform, retrieval, and evaluation work, but not frontier-foundation-model training budgets. <strong>Justification:</strong> the prompt asks for enterprise feasibility rather than laboratory or hyperscaler feasibility. (Sources: <code>https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html</code>; <code>https://cloud.google.com/vertex-ai/generative-ai/docs/rag-overview</code>; <code>https://www.nature.com/articles/s42256-023-00626-4</code>)</li>
+<li>[assumption] The ZenML Morgan Stanley write-up is a fair secondary summary of the underlying OpenAI case study. <strong>Justification:</strong> it provides concrete implementation details and evaluation practices consistent with other public references to the deployment, but the official OpenAI page was not directly fetchable from this environment. (Sources: <code><a href="https://www.zenml.io/llmops-database/enterprise-knowledge-management-with-llms-morgan-stanley-s-gpt-4-implementation</code>">www.zenml.io</a> <code><a href="https://openai.com/index/morgan-stanley/</code>)</li>">openai.com</a>
+<li>[assumption] Glean's public Google Cloud architecture post is representative of the architecture direction of its enterprise product rather than a one-off cloud-marketing example. <strong>Justification:</strong> it is co-authored with Glean leadership and matches Glean's own knowledge graph materials. (Sources: <code><a href="https://cloud.google.com/blog/products/data-analytics/glean-uses-bigquery-and-google-ai-to-enhance-enterprise-search</code>">cloud.google.com</a> <code><a href="https://www.glean.com/resources/guides/glean-knowledge-graph</code>)</li>">www.glean.com</a>
+<li>[assumption] Mid-to-large enterprise here means an organisation that can already sustain modern data-platform, retrieval, and evaluation work, but not frontier-foundation-model training budgets. <strong>Justification:</strong> the prompt asks for enterprise feasibility rather than laboratory or hyperscaler feasibility. (Sources: <code><a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html</code>">docs.aws.amazon.com</a> <code><a href="https://cloud.google.com/vertex-ai/generative-ai/docs/rag-overview</code>">cloud.google.com</a> <code><a href="https://www.nature.com/articles/s42256-023-00626-4</code>)</li>">www.nature.com</a>
 </ul>
 <h3>Analysis</h3>
-<p>[inference] The decisive trade-off is freshness versus internalisation. Retrieval keeps answers tied to current documents and citations, while weight adaptation internalises repeated vocabulary, style, and decision patterns that would otherwise have to be re-explained on every request. (Sources: <code>https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html</code>; <code>https://arxiv.org/abs/2106.09685</code>; <code>https://arxiv.org/abs/2305.14314</code>)</p>
-<p>[inference] The case studies suggest a practical ordering: start with retrieval because private knowledge changes quickly, add graph or relevance signals when retrieval quality plateaus, add parameter-efficient fine-tuning when repeated high-value tasks justify internalisation, and add verifier layers where mistakes are materially costly. (Sources: <code>https://www.zenml.io/llmops-database/enterprise-knowledge-management-with-llms-morgan-stanley-s-gpt-4-implementation</code>; <code>https://www.glean.com/resources/guides/glean-knowledge-graph</code>; <code>https://www.harvey.ai/blog/expanding-harveys-model-offerings</code>; <code>https://arxiv.org/abs/2406.04692</code>; <code>https://arxiv.org/abs/2309.11495</code>)</p>
-<p>[inference] BloombergGPT and Med-PaLM show that going deeper into weights works when the domain is rich enough and the corpus is large enough, but Harvey, Morgan Stanley, and Glean show that most enterprise value arrives sooner from hybrid orchestration than from building a wholly new model. (Sources: <code>https://arxiv.org/abs/2303.17564</code>; <code>https://arxiv.org/abs/2212.13138</code>; <code>https://www.harvey.ai/blog/expanding-harveys-model-offerings</code>; <code>https://www.zenml.io/llmops-database/enterprise-knowledge-management-with-llms-morgan-stanley-s-gpt-4-implementation</code>; <code>https://cloud.google.com/blog/products/data-analytics/glean-uses-bigquery-and-google-ai-to-enhance-enterprise-search</code>)</p>
-<p>[inference] Feasibility is therefore more organisational than mathematical: enterprises need authoritative corpora, evaluation sets, routing logic, and subject-matter ownership at least as much as they need graphics processing unit (GPU) budget. (Sources: <code>https://arxiv.org/abs/2401.05856</code>; <code>https://www.nature.com/articles/s42256-023-00626-4</code>)</p>
+<p>[inference] The decisive trade-off is freshness versus internalisation. Retrieval keeps answers tied to current documents and citations, while weight adaptation internalises repeated vocabulary, style, and decision patterns that would otherwise have to be re-explained on every request. (Sources: <code><a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html</code>">docs.aws.amazon.com</a> <code><a href="https://arxiv.org/abs/2106.09685</code>">arxiv.org/abs/2106.09685</code></a> <code><a href="https://arxiv.org/abs/2305.14314</code>)</p>">arxiv.org/abs/2305.14314</code></a>
+<p>[inference] The case studies suggest a practical ordering: start with retrieval because private knowledge changes quickly, add graph or relevance signals when retrieval quality plateaus, add parameter-efficient fine-tuning when repeated high-value tasks justify internalisation, and add verifier layers where mistakes are materially costly. (Sources: <code><a href="https://www.zenml.io/llmops-database/enterprise-knowledge-management-with-llms-morgan-stanley-s-gpt-4-implementation</code>">www.zenml.io</a> <code><a href="https://www.glean.com/resources/guides/glean-knowledge-graph</code>">www.glean.com</a> <code><a href="https://www.harvey.ai/blog/expanding-harveys-model-offerings</code>">www.harvey.ai</a> <code><a href="https://arxiv.org/abs/2406.04692</code>">arxiv.org/abs/2406.04692</code></a> <code><a href="https://arxiv.org/abs/2309.11495</code>)</p>">arxiv.org/abs/2309.11495</code></a>
+<p>[inference] BloombergGPT and Med-PaLM show that going deeper into weights works when the domain is rich enough and the corpus is large enough, but Harvey, Morgan Stanley, and Glean show that most enterprise value arrives sooner from hybrid orchestration than from building a wholly new model. (Sources: <code><a href="https://arxiv.org/abs/2303.17564</code>">arxiv.org/abs/2303.17564</code></a> <code><a href="https://arxiv.org/abs/2212.13138</code>">arxiv.org/abs/2212.13138</code></a> <code><a href="https://www.harvey.ai/blog/expanding-harveys-model-offerings</code>">www.harvey.ai</a> <code><a href="https://www.zenml.io/llmops-database/enterprise-knowledge-management-with-llms-morgan-stanley-s-gpt-4-implementation</code>">www.zenml.io</a> <code><a href="https://cloud.google.com/blog/products/data-analytics/glean-uses-bigquery-and-google-ai-to-enhance-enterprise-search</code>)</p>">cloud.google.com</a>
+<p>[inference] Feasibility is therefore more organisational than mathematical: enterprises need authoritative corpora, evaluation sets, routing logic, and subject-matter ownership at least as much as they need graphics processing unit (GPU) budget. (Sources: <code><a href="https://arxiv.org/abs/2401.05856</code>">arxiv.org/abs/2401.05856</code></a> <code><a href="https://www.nature.com/articles/s42256-023-00626-4</code>)</p>">www.nature.com</a>
 <p><strong>Feasibility Matrix</strong></p>
 <p>[inference] The following matrix is a synthesis table. Each readiness, cost, time-to-value, and skill judgment is an inferential estimate drawn from the cited sources for that row.</p>
 <table>
@@ -643,7 +728,7 @@ main {
   <td>existing authoritative content</td>
   <td>weeks</td>
   <td>application engineers plus search / retrieval competence</td>
-  <td><code>https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html</code>; <code>https://cloud.google.com/vertex-ai/generative-ai/docs/rag-overview</code>; <code>https://docs.cohere.com/docs/retrieval-augmented-generation-rag</code></td>
+  <td><code><a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html</code>">docs.aws.amazon.com</a> <code><a href="https://cloud.google.com/vertex-ai/generative-ai/docs/rag-overview</code>">cloud.google.com</a> <code><a href="https://docs.cohere.com/docs/retrieval-augmented-generation-rag</code></td>">docs.cohere.com</a>
 </tr>
 <tr>
   <td>RAG plus knowledge graph / better rankers</td>
@@ -653,7 +738,7 @@ main {
   <td>connected systems plus relevance signals</td>
   <td>weeks to months</td>
   <td>search engineers plus knowledge architecture skills</td>
-  <td><code>https://www.glean.com/resources/guides/glean-knowledge-graph</code>; <code>https://cloud.google.com/blog/products/data-analytics/glean-uses-bigquery-and-google-ai-to-enhance-enterprise-search</code>; <code>https://arxiv.org/abs/2401.05856</code></td>
+  <td><code><a href="https://www.glean.com/resources/guides/glean-knowledge-graph</code>">www.glean.com</a> <code><a href="https://cloud.google.com/blog/products/data-analytics/glean-uses-bigquery-and-google-ai-to-enhance-enterprise-search</code>">cloud.google.com</a> <code><a href="https://arxiv.org/abs/2401.05856</code></td>">arxiv.org/abs/2401.05856</code></td></a>
 </tr>
 <tr>
   <td>PEFT with LoRA / QLoRA</td>
@@ -663,7 +748,7 @@ main {
   <td>curated exemplars and evaluation set</td>
   <td>1-3 months</td>
   <td>machine-learning engineer, Machine Learning Operations (MLOps), subject-matter experts</td>
-  <td><code>https://arxiv.org/abs/2106.09685</code>; <code>https://arxiv.org/abs/2305.14314</code>; <code>https://www.nature.com/articles/s42256-023-00626-4</code></td>
+  <td><code><a href="https://arxiv.org/abs/2106.09685</code>">arxiv.org/abs/2106.09685</code></a> <code><a href="https://arxiv.org/abs/2305.14314</code>">arxiv.org/abs/2305.14314</code></a> <code><a href="https://www.nature.com/articles/s42256-023-00626-4</code></td>">www.nature.com</a>
 </tr>
 <tr>
   <td>Full fine-tuning</td>
@@ -673,7 +758,7 @@ main {
   <td>larger curated dataset</td>
   <td>several months</td>
   <td>stronger Machine Learning (ML) platform and evaluation capability</td>
-  <td><code>https://www.nature.com/articles/s42256-023-00626-4</code>; <code>https://arxiv.org/abs/2106.09685</code>; <code>https://arxiv.org/abs/2305.14314</code></td>
+  <td><code><a href="https://www.nature.com/articles/s42256-023-00626-4</code>">www.nature.com</a> <code><a href="https://arxiv.org/abs/2106.09685</code>">arxiv.org/abs/2106.09685</code></a> <code><a href="https://arxiv.org/abs/2305.14314</code></td>">arxiv.org/abs/2305.14314</code></td></a>
 </tr>
 <tr>
   <td>Domain-adaptive pretraining</td>
@@ -683,7 +768,7 @@ main {
   <td>massive stable corpus</td>
   <td>several months to a year</td>
   <td>dedicated data science, Machine Learning platform, and domain-expert support</td>
-  <td><code>https://arxiv.org/abs/2303.17564</code>; <code>https://arxiv.org/abs/2212.13138</code>; <code>https://arxiv.org/abs/2004.10964</code></td>
+  <td><code><a href="https://arxiv.org/abs/2303.17564</code>">arxiv.org/abs/2303.17564</code></a> <code><a href="https://arxiv.org/abs/2212.13138</code>">arxiv.org/abs/2212.13138</code></a> <code><a href="https://arxiv.org/abs/2004.10964</code></td>">arxiv.org/abs/2004.10964</code></td></a>
 </tr>
 <tr>
   <td>Training from scratch</td>
@@ -693,7 +778,7 @@ main {
   <td>enormous corpus and compute</td>
   <td>long horizon</td>
   <td>frontier-model training capability</td>
-  <td><code>https://arxiv.org/abs/2303.17564</code>; <code>https://arxiv.org/abs/2212.13138</code></td>
+  <td><code><a href="https://arxiv.org/abs/2303.17564</code>">arxiv.org/abs/2303.17564</code></a> <code><a href="https://arxiv.org/abs/2212.13138</code></td>">arxiv.org/abs/2212.13138</code></td></a>
 </tr>
 <tr>
   <td>Tandem / critic layers</td>
@@ -703,17 +788,17 @@ main {
   <td>policies, eval prompts, routing logic</td>
   <td>weeks to months</td>
   <td>orchestration, prompt, and evaluation engineering</td>
-  <td><code>https://arxiv.org/abs/2406.04692</code>; <code>https://arxiv.org/abs/2309.11495</code>; <code>https://arxiv.org/abs/2212.08073</code></td>
+  <td><code><a href="https://arxiv.org/abs/2406.04692</code>">arxiv.org/abs/2406.04692</code></a> <code><a href="https://arxiv.org/abs/2309.11495</code>">arxiv.org/abs/2309.11495</code></a> <code><a href="https://arxiv.org/abs/2212.08073</code></td>">arxiv.org/abs/2212.08073</code></td></a>
 </tr>
 </tbody>
 </table>
 <h3>Risks, Gaps, and Uncertainties</h3>
 <ul>
-<li>[fact] The most direct official Morgan Stanley and OpenAI case-study page was not directly fetchable from this environment, so Morgan Stanley-specific details rely on a secondary summary rather than the original page. (Source: failed fetch of <code>https://openai.com/index/morgan-stanley/</code>)</li>
-<li>[inference] Public vendor material may understate operational failures, so the architectural conclusions should weight the RAG failure literature more heavily than product marketing on claims of completeness. (Sources: <code>https://arxiv.org/abs/2401.05856</code>; <code>https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html</code>; <code>https://cloud.google.com/vertex-ai/generative-ai/docs/rag-overview</code>)</li>
-<li>[inference] The consulted public literature does not provide a clean cost curve for when parameter-efficient fine-tuning (PEFT) overtakes retrieval economics for a given enterprise corpus and query volume, so the economic crossover point remains uncertain. (Sources: <code>https://www.nature.com/articles/s42256-023-00626-4</code>; <code>https://arxiv.org/abs/2106.09685</code>; <code>https://arxiv.org/abs/2305.14314</code>)</li>
-<li>[inference] Concept generation remains under-evidenced at enterprise deployment scale relative to retrieval and PEFT, even though the component techniques are promising. (Sources: <code>https://arxiv.org/abs/2306.11644</code>; <code>https://arxiv.org/abs/2504.12915</code>)</li>
-<li>[assumption] The security and governance implications of training on private enterprise data remain a separate blocker for some architectures. <strong>Justification:</strong> the enterprise platform materials emphasise controlled access, connected data sources, and governance for retrieval systems, while this item did not investigate legal, policy, or privacy controls for weight-level training. (Sources: <code>https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html</code>; <code>https://cloud.google.com/vertex-ai/generative-ai/docs/rag-overview</code>)</li>
+<li>[fact] The most direct official Morgan Stanley and OpenAI case-study page was not directly fetchable from this environment, so Morgan Stanley-specific details rely on a secondary summary rather than the original page. (Source: failed fetch of <code><a href="https://openai.com/index/morgan-stanley/</code>)</li>">openai.com</a>
+<li>[inference] Public vendor material may understate operational failures, so the architectural conclusions should weight the RAG failure literature more heavily than product marketing on claims of completeness. (Sources: <code><a href="https://arxiv.org/abs/2401.05856</code>">arxiv.org/abs/2401.05856</code></a> <code><a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html</code>">docs.aws.amazon.com</a> <code><a href="https://cloud.google.com/vertex-ai/generative-ai/docs/rag-overview</code>)</li>">cloud.google.com</a>
+<li>[inference] The consulted public literature does not provide a clean cost curve for when parameter-efficient fine-tuning (PEFT) overtakes retrieval economics for a given enterprise corpus and query volume, so the economic crossover point remains uncertain. (Sources: <code><a href="https://www.nature.com/articles/s42256-023-00626-4</code>">www.nature.com</a> <code><a href="https://arxiv.org/abs/2106.09685</code>">arxiv.org/abs/2106.09685</code></a> <code><a href="https://arxiv.org/abs/2305.14314</code>)</li>">arxiv.org/abs/2305.14314</code></a>
+<li>[inference] Concept generation remains under-evidenced at enterprise deployment scale relative to retrieval and PEFT, even though the component techniques are promising. (Sources: <code><a href="https://arxiv.org/abs/2306.11644</code>">arxiv.org/abs/2306.11644</code></a> <code><a href="https://arxiv.org/abs/2504.12915</code>)</li>">arxiv.org/abs/2504.12915</code></a>
+<li>[assumption] The security and governance implications of training on private enterprise data remain a separate blocker for some architectures. <strong>Justification:</strong> the enterprise platform materials emphasise controlled access, connected data sources, and governance for retrieval systems, while this item did not investigate legal, policy, or privacy controls for weight-level training. (Sources: <code><a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html</code>">docs.aws.amazon.com</a> <code><a href="https://cloud.google.com/vertex-ai/generative-ai/docs/rag-overview</code>)</li>">cloud.google.com</a>
 </ul>
 <h3>Open Questions</h3>
 <ul>
@@ -734,8 +819,8 @@ main {
 </div></div>
 
   <div class="item-nav">
-    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-21-dependency-mapping-dotnet-terraform-dynatrace.html">Dependency Mapping Across .NET Codebases, Terraform, Dynatrace, Confluence, Log Aggregation, and the Configuration and Service Data Model (CSDM)</a></div>
-    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-18-stateless-agent-assumption-failure.html">Stateless-agent assumption failure: causes, detection, and recovery patterns for orphaned state in multi-session agentic workflows</a></div>
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-21-dependency-mapping-dotnet-terraform-dynatrace.html">Dependency Mapping Across .NET Codebases, Terraform, Dynatrace, Confluence, Log…</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-18-stateless-agent-assumption-failure.html">Stateless-agent assumption failure</a></div>
   </div>
 </main>
 </body>

@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -506,12 +588,14 @@ main {
     <span>The hard problem vs. the real problem of consciousness</span>
   </div>
   <h1 class="item-title">The hard problem vs. the real problem of consciousness</h1>
-  <div class="meta-bar">
+    <div class="meta-bar">
     <span>2026-02-28</span>
     <span class="meta-sep">·</span>
-    <a class="tag" href="/Research/tags/consciousness.html">consciousness</a> <a class="tag" href="/Research/tags/hard-problem.html">hard-problem</a> <a class="tag" href="/Research/tags/philosophy-of-mind.html">philosophy-of-mind</a> <a class="tag" href="/Research/tags/anil-seth.html">anil-seth</a> <a class="tag" href="/Research/tags/chalmers.html">chalmers</a> <a class="tag" href="/Research/tags/phenomenology.html">phenomenology</a> 
+    <a class="tag" href="/Research/tags/consciousness.html">consciousness</a> <a class="tag" href="/Research/tags/anil-seth.html">anil-seth</a> 
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-02-28-hard-problem-vs-real-problem-consciousness.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-02-28-hard-problem-vs-real-problem-consciousness" target="_blank" rel="noopener">wiki →</a>
   </div>
   <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Chalmers&#39; hard problem (1995) asks why physical processes are accompanied by phenomenal experience at all, a question that functional and mechanistic explanations cannot answer in principle even if they are complete</li>
 <li>Seth&#39;s real problem (2016, 2021) asks which specific physical properties give rise to which specific conscious qualities, a question that generates testable predictions and active research programmes in neuroscience</li>
@@ -660,9 +744,9 @@ main {
 <li>Type: knowledge</li>
 <li>Description: Comparative analysis of Chalmers' hard problem and Seth's real problem of consciousness; evaluates competing philosophical strategies (illusionism, panpsychism, higher-order theory).</li>
 <li>Links:<ul>
-<li>https://en.wikipedia.org/wiki/Hard_problem_of_consciousness (primary reference for Chalmers' formulation and survey data)</li>
-<li>https://en.wikipedia.org/wiki/Being_You (primary reference for Seth's real problem and reviews)</li>
-<li>https://en.wikipedia.org/wiki/Keith_Frankish (primary reference for illusionism)</li>
+<li><a href="https://en.wikipedia.org/wiki/Hard_problem_of_consciousness">en.wikipedia.org</a> (primary reference for Chalmers' formulation and survey data)</li>
+<li><a href="https://en.wikipedia.org/wiki/Being_You">en.wikipedia.org</a> (primary reference for Seth's real problem and reviews)</li>
+<li><a href="https://en.wikipedia.org/wiki/Keith_Frankish">en.wikipedia.org</a> (primary reference for illusionism)</li>
 </ul>
 </li>
 </ul>
@@ -676,8 +760,8 @@ main {
 </div></div>
 
   <div class="item-nav">
-    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-02-28-interoception-and-the-predictive-self.html">Interoception and the predictive self: selfhood as bodily inference</a></div>
-    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-02-28-free-energy-entropy-and-life.html">Free energy, entropy, and life: why organisms predict — from Schrödinger to Friston to Seth</a></div>
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-02-28-interoception-and-the-predictive-self.html">Interoception and the predictive self</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-02-28-free-energy-entropy-and-life.html">Free energy, entropy, and life</a></div>
   </div>
 </main>
 </body>

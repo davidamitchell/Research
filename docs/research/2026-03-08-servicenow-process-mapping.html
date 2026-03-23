@@ -3,7 +3,7 @@
         <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>ServiceNow Process Mapping: Maintainable Process Documentation in SNOW — Research</title>
+          <title>ServiceNow Process Mapping — Research</title>
           <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -503,15 +585,18 @@ main {
     <span>/</span>
     <a href="/Research/browse.html">Browse</a>
     <span>/</span>
-    <span>ServiceNow Process Mapping: Maintainable Process Documentation in SNOW</span>
+    <span>ServiceNow Process Mapping</span>
   </div>
-  <h1 class="item-title">ServiceNow Process Mapping: Maintainable Process Documentation in SNOW</h1>
+  <h1 class="item-title">ServiceNow Process Mapping</h1>
+  <p class="full-title-subtitle">ServiceNow Process Mapping: Maintainable Process Documentation in SNOW</p>
   <div class="meta-bar">
     <span>2026-03-08</span>
     <span class="meta-sep">·</span>
-    <a class="tag" href="/Research/tags/servicenow.html">servicenow</a> <a class="tag" href="/Research/tags/process-mapping.html">process-mapping</a> <a class="tag" href="/Research/tags/bpm.html">bpm</a> <a class="tag" href="/Research/tags/workflow.html">workflow</a> <a class="tag" href="/Research/tags/flow-designer.html">flow-designer</a> <a class="tag" href="/Research/tags/process-mining.html">process-mining</a> <a class="tag" href="/Research/tags/itsm.html">itsm</a> <a class="tag" href="/Research/tags/documentation.html">documentation</a> 
+    <a class="tag" href="/Research/tags/servicenow.html">servicenow</a> <a class="tag" href="/Research/tags/process-mapping.html">process-mapping</a> <a class="tag" href="/Research/tags/workflow.html">workflow</a> <a class="tag" href="/Research/tags/itsm.html">itsm</a> 
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-servicenow-process-mapping.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-08-servicenow-process-mapping" target="_blank" rel="noopener">wiki →</a>
   </div>
   
   <div class="item-content">
@@ -557,67 +642,67 @@ main {
 <tbody>
 <tr>
   <td>Process Universe is a design-time ITIL 4-aligned reference library</td>
-  <td>https://www.reco.ai/hub/itil-servicenow-guide-it-administrators; https://www.royalcyber.com/blogs/servicenow/servicenow-itil-4-transforming-itsm/</td>
+  <td><a href="https://www.reco.ai/hub/itil-servicenow-guide-it-administrators">www.reco.ai</a> <a href="https://www.royalcyber.com/blogs/servicenow/servicenow-itil-4-transforming-itsm/</td>">www.royalcyber.com</a>
   <td>High</td>
   <td>[fact]</td>
 </tr>
 <tr>
   <td>Flow Designer is for background automation; Playbooks for runtime agent guidance</td>
-  <td>https://www.servicenow.com/community/developer-forum/flow-designer-vs-playbooks-in-servicenow-what-s-the-difference/m-p/3321831; https://www.servicenow.com/docs/r/washingtondc/build-workflows/process-automation-designer-landing-page.html</td>
+  <td><a href="https://www.servicenow.com/community/developer-forum/flow-designer-vs-playbooks-in-servicenow-what-s-the-difference/m-p/3321831">www.servicenow.com</a> <a href="https://www.servicenow.com/docs/r/washingtondc/build-workflows/process-automation-designer-landing-page.html</td>">www.servicenow.com</a>
   <td>High</td>
   <td>[fact] — two independent sources</td>
 </tr>
 <tr>
   <td>Workflow Editor is in maintenance-only status</td>
-  <td>https://www.mindspire-consulting.com/service-management-and-servicenow-news/future-of-automated-it-service-management/; https://www.igmguru.com/blog/servicenow-workflow</td>
+  <td><a href="https://www.mindspire-consulting.com/service-management-and-servicenow-news/future-of-automated-it-service-management/">www.mindspire-consulting.com</a> <a href="https://www.igmguru.com/blog/servicenow-workflow</td>">www.igmguru.com</a>
   <td>High</td>
   <td>[fact] — two independent sources</td>
 </tr>
 <tr>
   <td>80% of ITSM practitioners report inaccurate process maps</td>
-  <td>https://www.ctms-itsm.com/blogs/how-itsm-are-using-process-maps/ (primary survey)</td>
+  <td><a href="https://www.ctms-itsm.com/blogs/how-itsm-are-using-process-maps/">www.ctms-itsm.com</a> (primary survey)</td>
   <td>Medium</td>
   <td>[fact] — single survey, 100+ respondents</td>
 </tr>
 <tr>
   <td>20% say diagrams closely match real systems</td>
-  <td>https://www.ctms-itsm.com/blogs/how-itsm-are-using-process-maps/ (primary survey)</td>
+  <td><a href="https://www.ctms-itsm.com/blogs/how-itsm-are-using-process-maps/">www.ctms-itsm.com</a> (primary survey)</td>
   <td>Medium</td>
   <td>[fact] — same survey</td>
 </tr>
 <tr>
   <td>56% lack time to keep diagrams current</td>
-  <td>https://www.ctms-itsm.com/blogs/process-mapping-for-continuous-improvement/</td>
+  <td><a href="https://www.ctms-itsm.com/blogs/process-mapping-for-continuous-improvement/</td>">www.ctms-itsm.com</a>
   <td>Medium</td>
   <td>[fact] — single survey</td>
 </tr>
 <tr>
   <td>Root causes: one-off creation, no ownership, no governance, time pressure</td>
-  <td>https://itsm.tools/build-valued-process-library-itsm/; https://bpmcommunity.org/common-challenges-in-process-documentation/; https://www.ctms-itsm.com/blogs/how-itsm-are-using-process-maps/</td>
+  <td><a href="https://itsm.tools/build-valued-process-library-itsm/">itsm.tools</a> <a href="https://bpmcommunity.org/common-challenges-in-process-documentation/">bpmcommunity.org</a> <a href="https://www.ctms-itsm.com/blogs/how-itsm-are-using-process-maps/</td>">www.ctms-itsm.com</a>
   <td>High</td>
   <td>[fact] — multiple independent sources agree</td>
 </tr>
 <tr>
   <td>Three-board governance structure (strategic/portfolio/technical)</td>
-  <td>https://www.servicenow.com/content/dam/servicenow-assets/public/en-us/doc-type/success/workbook/governance-basics.pdf</td>
+  <td><a href="https://www.servicenow.com/content/dam/servicenow-assets/public/en-us/doc-type/success/workbook/governance-basics.pdf</td>">www.servicenow.com</a>
   <td>High</td>
   <td>[fact] — primary vendor source</td>
 </tr>
 <tr>
   <td>Named process owners + RACI matrices required for documentation currency</td>
-  <td>https://glydepath.com.au/governance; https://us.fitgap.com/stack-guides/building-a-repeatable-governance-model-for-process-changes-across-business-units</td>
+  <td><a href="https://glydepath.com.au/governance">glydepath.com.au</a> <a href="https://us.fitgap.com/stack-guides/building-a-repeatable-governance-model-for-process-changes-across-business-units</td>">us.fitgap.com</a>
   <td>High</td>
   <td>[fact] — two independent practitioner sources</td>
 </tr>
 <tr>
   <td>Change-triggered updates more reliable than calendar-only reviews</td>
-  <td>https://us.fitgap.com/stack-guides/building-a-repeatable-governance-model-for-process-changes-across-business-units</td>
+  <td><a href="https://us.fitgap.com/stack-guides/building-a-repeatable-governance-model-for-process-changes-across-business-units</td>">us.fitgap.com</a>
   <td>Medium</td>
   <td>[inference] from governance literature</td>
 </tr>
 <tr>
   <td>MVP: out-of-box templates + delta + RACI + exception/escalation paths</td>
-  <td>https://us.fitgap.com/stack-guides/standardize-it-process-requirements-with-a-minimum-viable-process-blueprint</td>
+  <td><a href="https://us.fitgap.com/stack-guides/standardize-it-process-requirements-with-a-minimum-viable-process-blueprint</td>">us.fitgap.com</a>
   <td>Medium</td>
   <td>[fact] + [inference]</td>
 </tr>
@@ -629,19 +714,19 @@ main {
 </tr>
 <tr>
   <td>CSDM change management uses service relationships for process impact computation</td>
-  <td>https://www.servicenow.com/community/common-service-data-model/how-the-common-service-data-model-transforms-change-management/ta-p/3434257</td>
+  <td><a href="https://www.servicenow.com/community/common-service-data-model/how-the-common-service-data-model-transforms-change-management/ta-p/3434257</td>">www.servicenow.com</a>
   <td>High</td>
   <td>[fact] — primary vendor community source</td>
 </tr>
 <tr>
   <td>Process Mining cannot substitute for governance documentation</td>
-  <td>https://www.thedigitaliceberg.com/post/how-does-process-mining-work-in-servicenow; https://servicenowspectaculars.com/servicenow-process-mining-implementation-issues-2026/; https://govcio.com/resources/article/servicenow-process-mining/</td>
+  <td><a href="https://www.thedigitaliceberg.com/post/how-does-process-mining-work-in-servicenow">www.thedigitaliceberg.com</a> <a href="https://servicenowspectaculars.com/servicenow-process-mining-implementation-issues-2026/">servicenowspectaculars.com</a> <a href="https://govcio.com/resources/article/servicenow-process-mining/</td>">govcio.com</a>
   <td>High</td>
   <td>[fact] — three independent sources</td>
 </tr>
 <tr>
   <td>Process Mining degrades on inconsistent event logs</td>
-  <td>https://servicenowspectaculars.com/servicenow-process-mining-implementation-issues-2026/</td>
+  <td><a href="https://servicenowspectaculars.com/servicenow-process-mining-implementation-issues-2026/</td>">servicenowspectaculars.com</a>
   <td>High</td>
   <td>[fact]</td>
 </tr>
@@ -692,7 +777,7 @@ main {
 
   <div class="item-nav">
     <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-08-slack-bot-memory-capture-retrieval.html">Slack as a mobile memory capture and retrieval channel</a></div>
-    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-08-servicenow-platform-strategy.html">ServiceNow Platform Strategy: Holistic Integration of CSDM, Modules, Process, and AI</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-08-servicenow-platform-strategy.html">ServiceNow Platform Strategy</a></div>
   </div>
 </main>
 </body>

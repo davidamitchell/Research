@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -509,24 +591,24 @@ main {
   <p class="page-subtitle" style="margin-bottom:1.5rem">3 items</p>
   <div class="featured-pills" style="margin-bottom:1.5rem"><a class="tag-pill-link tag" href="/Research/tags/predictive-processing.html">predictive-processing</a><a class="tag-pill-link tag" href="/Research/tags/free-energy-principle.html">free-energy-principle</a><a class="tag-pill-link tag" href="/Research/tags/neuroscience.html">neuroscience</a></div>
   <div class="card-grid">
-    <a class="card" href="/Research/research/2026-02-28-predictive-processing-active-inference.html" data-title="predictive processing and active inference: the brain as prediction machine" data-question="what exactly is the predictive processing / active inference framework, how does it differ from classical feedforward models of perception, and what is the empirical status of the free energy principl" data-tags="predictive-processing,active-inference,free-energy-principle,karl-friston,neuroscience">
-  <div class="card-title">Predictive processing and active inference: the brain as prediction machine</div>
+    <a class="card" href="/Research/research/2026-02-28-predictive-processing-active-inference.html" data-title="predictive processing and active inference" data-question="what exactly is the predictive processing / active inference framework, how does it differ from classical feedforward models of perception, and what is the empirical status of the free energy principl" data-tags="predictive-processing,active-inference,free-energy-principle,karl-friston,neuroscience">
+  <div class="card-title">Predictive processing and active inference</div>
   <div class="card-meta">2026-02-28</div>
   <div class="card-tags"><span class="tag">predictive-processing</span><span class="tag">active-inference</span><span class="tag">free-energy-principle</span><span class="tag">karl-friston</span><span class="tag">neuroscience</span></div>
   <div class="card-excerpt">What exactly is the predictive processing / active inference framework, how does it differ from classical feedforward models of perception, and what is the empirical status of the free energy principl…</div>
 </a>
 <div class="thread-connector">↓</div>
-<a class="card" href="/Research/research/2026-02-28-free-energy-entropy-and-life.html" data-title="free energy, entropy, and life: why organisms predict — from schrödinger to friston to seth" data-question="why do living organisms need predictive brains? what is the precise relationship between the thermodynamic concept of entropy (disorder), the information-theoretic concept of free energy (surprise), k" data-tags="free-energy-principle,entropy,predictive-processing,active-inference,karl-friston,anil-seth,consciousness,thermodynamics,life">
-  <div class="card-title">Free energy, entropy, and life: why organisms predict — from Schrödinger to Friston to Seth</div>
+<a class="card" href="/Research/research/2026-02-28-free-energy-entropy-and-life.html" data-title="free energy, entropy, and life" data-question="why do living organisms need predictive brains? what is the precise relationship between the thermodynamic concept of entropy (disorder), the information-theoretic concept of free energy (surprise), k" data-tags="free-energy-principle,entropy,predictive-processing,active-inference,karl-friston,anil-seth,consciousness">
+  <div class="card-title">Free energy, entropy, and life</div>
   <div class="card-meta">2026-02-28</div>
-  <div class="card-tags"><span class="tag">free-energy-principle</span><span class="tag">entropy</span><span class="tag">predictive-processing</span><span class="tag">active-inference</span><span class="tag">karl-friston</span><span class="tag">anil-seth</span><span class="tag">consciousness</span><span class="tag">thermodynamics</span><span class="tag">life</span></div>
+  <div class="card-tags"><span class="tag">free-energy-principle</span><span class="tag">entropy</span><span class="tag">predictive-processing</span><span class="tag">active-inference</span><span class="tag">karl-friston</span><span class="tag">anil-seth</span><span class="tag">consciousness</span></div>
   <div class="card-excerpt">Why do living organisms need predictive brains? What is the precise relationship between the thermodynamic concept of entropy (disorder), the information-theoretic concept of free energy (surprise), K…</div>
 </a>
 <div class="thread-connector">↓</div>
-<a class="card" href="/Research/research/2026-03-18-human-brain-prediction-machines.html" data-title="are human brains just prediction machines? comparing predictive processing and large language model next-token generation" data-question="what is the fundamental difference between the predictive processing account of human cognition — in which the brain continuously generates and updates a generative model of the world — and large lang" data-tags="neuroscience,cognitive-science,llm,predictive-processing,predictive-coding,next-token-prediction,world-models,consciousness,free-energy-principle">
-  <div class="card-title">Are Human Brains Just Prediction Machines? Comparing Predictive Processing and Large Language Model Next-Token Generation</div>
+<a class="card" href="/Research/research/2026-03-18-human-brain-prediction-machines.html" data-title="are human brains just prediction machines? comparing predictive processing and…" data-question="what is the fundamental difference between the predictive processing account of human cognition — in which the brain continuously generates and updates a generative model of the world — and large lang" data-tags="neuroscience,llm,predictive-processing,consciousness,free-energy-principle">
+  <div class="card-title">Are Human Brains Just Prediction Machines? Comparing Predictive Processing and…</div>
   <div class="card-meta">2026-03-18</div>
-  <div class="card-tags"><span class="tag">neuroscience</span><span class="tag">cognitive-science</span><span class="tag">llm</span><span class="tag">predictive-processing</span><span class="tag">predictive-coding</span><span class="tag">next-token-prediction</span><span class="tag">world-models</span><span class="tag">consciousness</span><span class="tag">free-energy-principle</span></div>
+  <div class="card-tags"><span class="tag">neuroscience</span><span class="tag">llm</span><span class="tag">predictive-processing</span><span class="tag">consciousness</span><span class="tag">free-energy-principle</span></div>
   <div class="card-excerpt">What is the fundamental difference between the predictive processing account of human cognition — in which the brain continuously generates and updates a generative model of the world — and Large Lang…</div>
 </a>
 

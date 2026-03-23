@@ -3,7 +3,7 @@
         <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Dependency Mapping Across .NET Codebases, Terraform, Dynatrace, Confluence, Log Aggregation, and the Configuration and Service Data Model (CSDM) — Research</title>
+          <title>Dependency Mapping Across .NET Codebases, Terraform, Dynatrace, Confluence, Log… — Research</title>
           <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -503,15 +585,18 @@ main {
     <span>/</span>
     <a href="/Research/browse.html">Browse</a>
     <span>/</span>
-    <span>Dependency Mapping Across .NET Codebases, Terraform, Dynatrace, Confluence, Log Aggregation, and the Configuration and Service Data Model (CSDM)</span>
+    <span>Dependency Mapping Across .NET Codebases, Terraform, Dynatrace, Confluence, Log…</span>
   </div>
-  <h1 class="item-title">Dependency Mapping Across .NET Codebases, Terraform, Dynatrace, Confluence, Log Aggregation, and the Configuration and Service Data Model (CSDM)</h1>
+  <h1 class="item-title">Dependency Mapping Across .NET Codebases, Terraform, Dynatrace, Confluence, Log…</h1>
+  <p class="full-title-subtitle">Dependency Mapping Across .NET Codebases, Terraform, Dynatrace, Confluence, Log Aggregation, and the Configuration and Service Data Model (CSDM)</p>
   <div class="meta-bar">
     <span>2026-03-21</span>
     <span class="meta-sep">·</span>
-    <a class="tag" href="/Research/tags/dependency-mapping.html">dependency-mapping</a> <a class="tag" href="/Research/tags/dotnet.html">dotnet</a> <a class="tag" href="/Research/tags/terraform.html">terraform</a> <a class="tag" href="/Research/tags/dynatrace.html">dynatrace</a> <a class="tag" href="/Research/tags/confluence.html">confluence</a> <a class="tag" href="/Research/tags/log-aggregation.html">log-aggregation</a> <a class="tag" href="/Research/tags/csdm.html">csdm</a> <a class="tag" href="/Research/tags/architecture.html">architecture</a> <a class="tag" href="/Research/tags/discovery.html">discovery</a> <a class="tag" href="/Research/tags/agents.html">agents</a> <a class="tag" href="/Research/tags/observability.html">observability</a> <a class="tag" href="/Research/tags/infrastructure-as-code.html">infrastructure-as-code</a> 
+    <a class="tag" href="/Research/tags/dotnet.html">dotnet</a> <a class="tag" href="/Research/tags/terraform.html">terraform</a> <a class="tag" href="/Research/tags/confluence.html">confluence</a> <a class="tag" href="/Research/tags/csdm.html">csdm</a> <a class="tag" href="/Research/tags/architecture.html">architecture</a> <a class="tag" href="/Research/tags/agents.html">agents</a> <a class="tag" href="/Research/tags/observability.html">observability</a> 
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-21-dependency-mapping-dotnet-terraform-dynatrace.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-21-dependency-mapping-dotnet-terraform-dynatrace" target="_blank" rel="noopener">wiki →</a>
   </div>
   <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Static extraction across .NET and Terraform should be the foundation of a dependency program because it provides the highest-confidence declared edges for code and infrastructure, but it cannot by itself prove live call paths, environment drift, or undocumented runtime coupling</li>
 <li>Modern observability maps from Dynatrace, Elastic, Splunk, and Datadog are runtime-verification layers rather than universal architecture inventories, because each vendor explicitly ties visible edges to instrumented or observed interactions and documents blind spots when instrumentation or propagation is missing</li>
@@ -542,20 +627,20 @@ main {
 <h2>Findings</h2>
 <p><em>(Populated from Section 6 Synthesis above.)</em></p>
 <h3>Executive Summary</h3>
-<p><strong>[inference]</strong> The best-supported answer is to treat dependency mapping as a graph-merge problem: combine declared edges from code and Infrastructure as Code (IaC), observed edges from runtime telemetry, and curated ownership or taxonomy records from documentation and service-management systems. Sources: <code>https://developer.hashicorp.com/terraform/cli/commands/graph</code>; <code>https://docs.dynatrace.com/docs/analyze-explore-automate/smartscape/smartscape-views/service-dependency-graph</code>; <code>https://developer.atlassian.com/cloud/confluence/rest/v2/intro/</code>; <code>https://www.servicenow.com/community/developer-blog/strengthening-csdm-data-foundations-best-practices-lessons/ba-p/3458446</code>.</p>
-<p><strong>[inference]</strong> The tool landscape splits into complementary evidence types rather than interchangeable products: static analyzers are strongest on declared structure, while Dynatrace, Elastic, Splunk, and Datadog map only the interactions that are actually observed through instrumentation and tracing. Sources: <code>https://www.ndepend.com/</code>; <code>https://github.com/bjorkstromm/depends</code>; <code>https://dev.to/nikiforovall/explore-net-application-dependencies-by-using-dependify-tool-41cf</code>; <code>https://developer.hashicorp.com/terraform/cli/commands/graph</code>; <code>https://docs.dynatrace.com/docs/analyze-explore-automate/smartscape/smartscape-views/service-dependency-graph</code>; <code>https://www.elastic.co/docs/solutions/observability/apm/service-map</code>; <code>https://lantern.splunk.com/Get_Started_with_Splunk_Software/Extracting_service_insights_from_APM</code>; <code>https://docs.datadoghq.com/tracing/services/services_map/</code>.</p>
-<p><strong>[inference]</strong> Documentation and registry layers improve a map only when they are actively governed, because Confluence and CSDM can carry the ownership and business context that static and runtime tools miss but both degrade quickly without freshness discipline and stewardship. Sources: <code>https://developer.atlassian.com/cloud/confluence/rest/v2/intro/</code>; <code>https://www.midori-global.com/blog/2023/01/18/confluence-content-lifecycle-management</code>; <code>https://www.servicenow.com/community/developer-blog/strengthening-csdm-data-foundations-best-practices-lessons/ba-p/3458446</code>; <code>https://www.thecloudpeople.com/blog/implementing-csdm-into-servicenow</code>.</p>
-<p><strong>[inference]</strong> Locally-running agents are most credible when they orchestrate extractors, query interfaces, and reconciliation steps with explicit provenance, rather than synthesising unsourced dependency truth on their own. Sources: <code>https://rustic-ai.github.io/codeprism/</code>; <code>https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-18-api-context-hubs-rag-mcp.md</code>; <code>https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-10-agent-evaluation-cross-repo-analysis.md</code>.</p>
+<p><strong>[inference]</strong> The best-supported answer is to treat dependency mapping as a graph-merge problem: combine declared edges from code and Infrastructure as Code (IaC), observed edges from runtime telemetry, and curated ownership or taxonomy records from documentation and service-management systems. Sources: <code><a href="https://developer.hashicorp.com/terraform/cli/commands/graph</code>">developer.hashicorp.com</a> <code><a href="https://docs.dynatrace.com/docs/analyze-explore-automate/smartscape/smartscape-views/service-dependency-graph</code>">docs.dynatrace.com</a> <code><a href="https://developer.atlassian.com/cloud/confluence/rest/v2/intro/</code>">developer.atlassian.com</a> <code><a href="https://www.servicenow.com/community/developer-blog/strengthening-csdm-data-foundations-best-practices-lessons/ba-p/3458446</code>.</p>">www.servicenow.com</a>
+<p><strong>[inference]</strong> The tool landscape splits into complementary evidence types rather than interchangeable products: static analyzers are strongest on declared structure, while Dynatrace, Elastic, Splunk, and Datadog map only the interactions that are actually observed through instrumentation and tracing. Sources: <code><a href="https://www.ndepend.com/</code>">www.ndepend.com</a> <code><a href="https://github.com/bjorkstromm/depends</code>">github.com</a> <code><a href="https://dev.to/nikiforovall/explore-net-application-dependencies-by-using-dependify-tool-41cf</code>">dev.to</a> <code><a href="https://developer.hashicorp.com/terraform/cli/commands/graph</code>">developer.hashicorp.com</a> <code><a href="https://docs.dynatrace.com/docs/analyze-explore-automate/smartscape/smartscape-views/service-dependency-graph</code>">docs.dynatrace.com</a> <code><a href="https://www.elastic.co/docs/solutions/observability/apm/service-map</code>">www.elastic.co</a> <code><a href="https://lantern.splunk.com/Get_Started_with_Splunk_Software/Extracting_service_insights_from_APM</code>">lantern.splunk.com</a> <code><a href="https://docs.datadoghq.com/tracing/services/services_map/</code>.</p>">docs.datadoghq.com</a>
+<p><strong>[inference]</strong> Documentation and registry layers improve a map only when they are actively governed, because Confluence and CSDM can carry the ownership and business context that static and runtime tools miss but both degrade quickly without freshness discipline and stewardship. Sources: <code><a href="https://developer.atlassian.com/cloud/confluence/rest/v2/intro/</code>">developer.atlassian.com</a> <code><a href="https://www.midori-global.com/blog/2023/01/18/confluence-content-lifecycle-management</code>">www.midori-global.com</a> <code><a href="https://www.servicenow.com/community/developer-blog/strengthening-csdm-data-foundations-best-practices-lessons/ba-p/3458446</code>">www.servicenow.com</a> <code><a href="https://www.thecloudpeople.com/blog/implementing-csdm-into-servicenow</code>.</p>">www.thecloudpeople.com</a>
+<p><strong>[inference]</strong> Locally-running agents are most credible when they orchestrate extractors, query interfaces, and reconciliation steps with explicit provenance, rather than synthesising unsourced dependency truth on their own. Sources: <code><a href="https://rustic-ai.github.io/codeprism/</code>">rustic-ai.github.io</a> <code><a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-18-api-context-hubs-rag-mcp.md</code>">github.com</a> <code><a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-10-agent-evaluation-cross-repo-analysis.md</code>.</p>">github.com</a>
 <h3>Key Findings</h3>
 <ol>
-<li><strong>[inference][high]</strong> Static extraction across .NET and Terraform should be the foundation of a dependency program because it provides the highest-confidence declared edges for code and infrastructure, but it cannot by itself prove live call paths, environment drift, or undocumented runtime coupling. Sources: <code>https://www.ndepend.com/</code>; <code>https://github.com/bjorkstromm/depends</code>; <code>https://dev.to/nikiforovall/explore-net-application-dependencies-by-using-dependify-tool-41cf</code>; <code>https://developer.hashicorp.com/terraform/cli/commands/graph</code>; <code>https://github.com/28mm/blast-radius</code>; <code>https://github.com/im2nguyen/rover</code>.</li>
-<li><strong>[fact][high]</strong> Modern observability maps from Dynatrace, Elastic, Splunk, and Datadog are runtime-verification layers rather than universal architecture inventories, because each vendor explicitly ties visible edges to instrumented or observed interactions and documents blind spots when instrumentation or propagation is missing. Sources: <code>https://docs.dynatrace.com/docs/analyze-explore-automate/smartscape/smartscape-views/service-dependency-graph</code>; <code>https://docs.dynatrace.com/docs/ingest-from/extend-dynatrace/extend-topology</code>; <code>https://www.elastic.co/docs/solutions/observability/apm/service-map</code>; <code>https://lantern.splunk.com/Get_Started_with_Splunk_Software/Extracting_service_insights_from_APM</code>; <code>https://docs.datadoghq.com/tracing/services/services_map/</code>.</li>
-<li><strong>[inference][high]</strong> Confluence should be mined for architectural intent, terminology, and ownership clues, but its content should be downgraded in confidence unless each page carries explicit freshness and ownership metadata, because the strongest practitioner evidence shows that stale Confluence is the default failure mode. Sources: <code>https://developer.atlassian.com/cloud/confluence/rest/v2/intro/</code>; <code>https://www.midori-global.com/blog/2023/01/18/confluence-content-lifecycle-management</code>; <code>https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-15-latent-concept-extraction-confluence.md</code>.</li>
-<li><strong>[inference][high]</strong> CSDM is the best enterprise layer for modelling service ownership, business context, and business-to-technical relationships, but it becomes misleading quickly when stewardship, automation, and use-case-driven governance are absent. Sources: <code>https://www.servicenow.com/community/developer-blog/strengthening-csdm-data-foundations-best-practices-lessons/ba-p/3458446</code>; <code>https://www.thecloudpeople.com/blog/implementing-csdm-into-servicenow</code>; <code>https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-servicenow-csdm-data-modelling.md</code>.</li>
-<li><strong>[inference][medium]</strong> A useful role for log aggregation in dependency mapping is to corroborate or investigate paths that are already suggested by traces, service tags, or request identifiers, because the public service-map evidence base is trace-first rather than raw-log-first. Sources: <code>https://www.elastic.co/docs/solutions/observability/apm/service-map</code>; <code>https://lantern.splunk.com/Get_Started_with_Splunk_Software/Extracting_service_insights_from_APM</code>; <code>https://docs.datadoghq.com/tracing/services/services_map/</code>.</li>
-<li><strong>[inference][high]</strong> Local agents should orchestrate deterministic extractors, call APIs, merge graph fragments, and explain contradictions with full provenance, because both local graph-first tooling and prior repository work support agents as a transport and reasoning layer, not as an untraceable substitute for source systems. Sources: <code>https://rustic-ai.github.io/codeprism/</code>; <code>https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-18-api-context-hubs-rag-mcp.md</code>; <code>https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-10-agent-evaluation-cross-repo-analysis.md</code>.</li>
-<li><strong>[inference][medium]</strong> Curated model-as-code overlays such as Backstage metadata and Structurizr workspaces are valuable between raw extraction and enterprise registry layers because they let teams review, explain, and intentionally publish architectural relationships instead of relying only on generated diagrams. Sources: <code>https://backstage.io/docs/features/software-catalog/</code>; <code>https://structurizr.com/</code>.</li>
-<li><strong>[inference][high]</strong> A pragmatic &quot;good enough&quot; dependency map is an iterative, risk-based composite graph with per-edge provenance, freshness, semantic type, and confidence metadata, starting from business-critical services rather than attempting immediate estate-wide completeness. Sources: <code>https://developer.hashicorp.com/terraform/cli/commands/graph</code>; <code>https://docs.dynatrace.com/docs/analyze-explore-automate/smartscape</code>; <code>https://www.midori-global.com/blog/2023/01/18/confluence-content-lifecycle-management</code>; <code>https://www.servicenow.com/community/developer-blog/strengthening-csdm-data-foundations-best-practices-lessons/ba-p/3458446</code>; <code>https://rustic-ai.github.io/codeprism/</code>.</li>
+<li><strong>[inference][high]</strong> Static extraction across .NET and Terraform should be the foundation of a dependency program because it provides the highest-confidence declared edges for code and infrastructure, but it cannot by itself prove live call paths, environment drift, or undocumented runtime coupling. Sources: <code><a href="https://www.ndepend.com/</code>">www.ndepend.com</a> <code><a href="https://github.com/bjorkstromm/depends</code>">github.com</a> <code><a href="https://dev.to/nikiforovall/explore-net-application-dependencies-by-using-dependify-tool-41cf</code>">dev.to</a> <code><a href="https://developer.hashicorp.com/terraform/cli/commands/graph</code>">developer.hashicorp.com</a> <code><a href="https://github.com/28mm/blast-radius</code>">github.com</a> <code><a href="https://github.com/im2nguyen/rover</code>.</li>">github.com</a>
+<li><strong>[fact][high]</strong> Modern observability maps from Dynatrace, Elastic, Splunk, and Datadog are runtime-verification layers rather than universal architecture inventories, because each vendor explicitly ties visible edges to instrumented or observed interactions and documents blind spots when instrumentation or propagation is missing. Sources: <code><a href="https://docs.dynatrace.com/docs/analyze-explore-automate/smartscape/smartscape-views/service-dependency-graph</code>">docs.dynatrace.com</a> <code><a href="https://docs.dynatrace.com/docs/ingest-from/extend-dynatrace/extend-topology</code>">docs.dynatrace.com</a> <code><a href="https://www.elastic.co/docs/solutions/observability/apm/service-map</code>">www.elastic.co</a> <code><a href="https://lantern.splunk.com/Get_Started_with_Splunk_Software/Extracting_service_insights_from_APM</code>">lantern.splunk.com</a> <code><a href="https://docs.datadoghq.com/tracing/services/services_map/</code>.</li>">docs.datadoghq.com</a>
+<li><strong>[inference][high]</strong> Confluence should be mined for architectural intent, terminology, and ownership clues, but its content should be downgraded in confidence unless each page carries explicit freshness and ownership metadata, because the strongest practitioner evidence shows that stale Confluence is the default failure mode. Sources: <code><a href="https://developer.atlassian.com/cloud/confluence/rest/v2/intro/</code>">developer.atlassian.com</a> <code><a href="https://www.midori-global.com/blog/2023/01/18/confluence-content-lifecycle-management</code>">www.midori-global.com</a> <code><a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-15-latent-concept-extraction-confluence.md</code>.</li>">github.com</a>
+<li><strong>[inference][high]</strong> CSDM is the best enterprise layer for modelling service ownership, business context, and business-to-technical relationships, but it becomes misleading quickly when stewardship, automation, and use-case-driven governance are absent. Sources: <code><a href="https://www.servicenow.com/community/developer-blog/strengthening-csdm-data-foundations-best-practices-lessons/ba-p/3458446</code>">www.servicenow.com</a> <code><a href="https://www.thecloudpeople.com/blog/implementing-csdm-into-servicenow</code>">www.thecloudpeople.com</a> <code><a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-servicenow-csdm-data-modelling.md</code>.</li>">github.com</a>
+<li><strong>[inference][medium]</strong> A useful role for log aggregation in dependency mapping is to corroborate or investigate paths that are already suggested by traces, service tags, or request identifiers, because the public service-map evidence base is trace-first rather than raw-log-first. Sources: <code><a href="https://www.elastic.co/docs/solutions/observability/apm/service-map</code>">www.elastic.co</a> <code><a href="https://lantern.splunk.com/Get_Started_with_Splunk_Software/Extracting_service_insights_from_APM</code>">lantern.splunk.com</a> <code><a href="https://docs.datadoghq.com/tracing/services/services_map/</code>.</li>">docs.datadoghq.com</a>
+<li><strong>[inference][high]</strong> Local agents should orchestrate deterministic extractors, call APIs, merge graph fragments, and explain contradictions with full provenance, because both local graph-first tooling and prior repository work support agents as a transport and reasoning layer, not as an untraceable substitute for source systems. Sources: <code><a href="https://rustic-ai.github.io/codeprism/</code>">rustic-ai.github.io</a> <code><a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-18-api-context-hubs-rag-mcp.md</code>">github.com</a> <code><a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-10-agent-evaluation-cross-repo-analysis.md</code>.</li>">github.com</a>
+<li><strong>[inference][medium]</strong> Curated model-as-code overlays such as Backstage metadata and Structurizr workspaces are valuable between raw extraction and enterprise registry layers because they let teams review, explain, and intentionally publish architectural relationships instead of relying only on generated diagrams. Sources: <code><a href="https://backstage.io/docs/features/software-catalog/</code>">backstage.io</a> <code><a href="https://structurizr.com/</code>.</li>">structurizr.com</a>
+<li><strong>[inference][high]</strong> A pragmatic &quot;good enough&quot; dependency map is an iterative, risk-based composite graph with per-edge provenance, freshness, semantic type, and confidence metadata, starting from business-critical services rather than attempting immediate estate-wide completeness. Sources: <code><a href="https://developer.hashicorp.com/terraform/cli/commands/graph</code>">developer.hashicorp.com</a> <code><a href="https://docs.dynatrace.com/docs/analyze-explore-automate/smartscape</code>">docs.dynatrace.com</a> <code><a href="https://www.midori-global.com/blog/2023/01/18/confluence-content-lifecycle-management</code>">www.midori-global.com</a> <code><a href="https://www.servicenow.com/community/developer-blog/strengthening-csdm-data-foundations-best-practices-lessons/ba-p/3458446</code>">www.servicenow.com</a> <code><a href="https://rustic-ai.github.io/codeprism/</code>.</li>">rustic-ai.github.io</a>
 </ol>
 <h3>Evidence Map</h3>
 <table>
@@ -570,49 +655,49 @@ main {
 <tbody>
 <tr>
   <td><strong>[inference]</strong> Static extraction should be the foundation, but it is incomplete for runtime truth.</td>
-  <td><code>https://www.ndepend.com/</code>; <code>https://github.com/bjorkstromm/depends</code>; <code>https://dev.to/nikiforovall/explore-net-application-dependencies-by-using-dependify-tool-41cf</code>; <code>https://developer.hashicorp.com/terraform/cli/commands/graph</code>; <code>https://github.com/28mm/blast-radius</code>; <code>https://github.com/im2nguyen/rover</code></td>
+  <td><code><a href="https://www.ndepend.com/</code>">www.ndepend.com</a> <code><a href="https://github.com/bjorkstromm/depends</code>">github.com</a> <code><a href="https://dev.to/nikiforovall/explore-net-application-dependencies-by-using-dependify-tool-41cf</code>">dev.to</a> <code><a href="https://developer.hashicorp.com/terraform/cli/commands/graph</code>">developer.hashicorp.com</a> <code><a href="https://github.com/28mm/blast-radius</code>">github.com</a> <code><a href="https://github.com/im2nguyen/rover</code></td>">github.com</a>
   <td>high</td>
   <td>Strong declared-edge evidence; does not prove live behavior.</td>
 </tr>
 <tr>
   <td><strong>[fact]</strong> Observability maps are runtime-verification layers, not universal inventories.</td>
-  <td><code>https://docs.dynatrace.com/docs/analyze-explore-automate/smartscape/smartscape-views/service-dependency-graph</code>; <code>https://docs.dynatrace.com/docs/ingest-from/extend-dynatrace/extend-topology</code>; <code>https://www.elastic.co/docs/solutions/observability/apm/service-map</code>; <code>https://lantern.splunk.com/Get_Started_with_Splunk_Software/Extracting_service_insights_from_APM</code>; <code>https://docs.datadoghq.com/tracing/services/services_map/</code></td>
+  <td><code><a href="https://docs.dynatrace.com/docs/analyze-explore-automate/smartscape/smartscape-views/service-dependency-graph</code>">docs.dynatrace.com</a> <code><a href="https://docs.dynatrace.com/docs/ingest-from/extend-dynatrace/extend-topology</code>">docs.dynatrace.com</a> <code><a href="https://www.elastic.co/docs/solutions/observability/apm/service-map</code>">www.elastic.co</a> <code><a href="https://lantern.splunk.com/Get_Started_with_Splunk_Software/Extracting_service_insights_from_APM</code>">lantern.splunk.com</a> <code><a href="https://docs.datadoghq.com/tracing/services/services_map/</code></td>">docs.datadoghq.com</a>
   <td>high</td>
   <td>Independent vendor convergence on instrumentation-bounded truth.</td>
 </tr>
 <tr>
   <td><strong>[inference]</strong> Confluence is useful but stale by default without lifecycle discipline.</td>
-  <td><code>https://developer.atlassian.com/cloud/confluence/rest/v2/intro/</code>; <code>https://www.midori-global.com/blog/2023/01/18/confluence-content-lifecycle-management</code>; <code>https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-15-latent-concept-extraction-confluence.md</code></td>
+  <td><code><a href="https://developer.atlassian.com/cloud/confluence/rest/v2/intro/</code>">developer.atlassian.com</a> <code><a href="https://www.midori-global.com/blog/2023/01/18/confluence-content-lifecycle-management</code>">www.midori-global.com</a> <code><a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-15-latent-concept-extraction-confluence.md</code></td>">github.com</a>
   <td>high</td>
   <td>Good candidate-edge source, weak without freshness metadata.</td>
 </tr>
 <tr>
   <td><strong>[inference]</strong> CSDM is structurally strong but governance-limited.</td>
-  <td><code>https://www.servicenow.com/community/developer-blog/strengthening-csdm-data-foundations-best-practices-lessons/ba-p/3458446</code>; <code>https://www.thecloudpeople.com/blog/implementing-csdm-into-servicenow</code>; <code>https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-servicenow-csdm-data-modelling.md</code></td>
+  <td><code><a href="https://www.servicenow.com/community/developer-blog/strengthening-csdm-data-foundations-best-practices-lessons/ba-p/3458446</code>">www.servicenow.com</a> <code><a href="https://www.thecloudpeople.com/blog/implementing-csdm-into-servicenow</code>">www.thecloudpeople.com</a> <code><a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-servicenow-csdm-data-modelling.md</code></td>">github.com</a>
   <td>high</td>
   <td>Best for ownership and service taxonomy, not self-maintaining.</td>
 </tr>
 <tr>
   <td><strong>[inference]</strong> Log aggregation is mainly corroborative in public mapping practice.</td>
-  <td><code>https://www.elastic.co/docs/solutions/observability/apm/service-map</code>; <code>https://lantern.splunk.com/Get_Started_with_Splunk_Software/Extracting_service_insights_from_APM</code>; <code>https://docs.datadoghq.com/tracing/services/services_map/</code></td>
+  <td><code><a href="https://www.elastic.co/docs/solutions/observability/apm/service-map</code>">www.elastic.co</a> <code><a href="https://lantern.splunk.com/Get_Started_with_Splunk_Software/Extracting_service_insights_from_APM</code>">lantern.splunk.com</a> <code><a href="https://docs.datadoghq.com/tracing/services/services_map/</code></td>">docs.datadoghq.com</a>
   <td>medium</td>
   <td>Public evidence is trace-first rather than raw-log-first.</td>
 </tr>
 <tr>
   <td><strong>[inference]</strong> Local agents should orchestrate and reconcile, not invent truth.</td>
-  <td><code>https://rustic-ai.github.io/codeprism/</code>; <code>https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-18-api-context-hubs-rag-mcp.md</code>; <code>https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-10-agent-evaluation-cross-repo-analysis.md</code></td>
+  <td><code><a href="https://rustic-ai.github.io/codeprism/</code>">rustic-ai.github.io</a> <code><a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-18-api-context-hubs-rag-mcp.md</code>">github.com</a> <code><a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-10-agent-evaluation-cross-repo-analysis.md</code></td>">github.com</a>
   <td>high</td>
   <td>Strong match between tool architecture and prior repo findings.</td>
 </tr>
 <tr>
   <td><strong>[inference]</strong> Backstage and Structurizr add reviewable curation between extraction and registry.</td>
-  <td><code>https://backstage.io/docs/features/software-catalog/</code>; <code>https://structurizr.com/</code></td>
+  <td><code><a href="https://backstage.io/docs/features/software-catalog/</code>">backstage.io</a> <code><a href="https://structurizr.com/</code></td>">structurizr.com</a>
   <td>medium</td>
   <td>Valuable overlay layer, not a discovery replacement.</td>
 </tr>
 <tr>
   <td><strong>[inference]</strong> The first usable map is iterative, risk-based, and metadata-rich.</td>
-  <td><code>https://docs.dynatrace.com/docs/analyze-explore-automate/smartscape</code>; <code>https://www.midori-global.com/blog/2023/01/18/confluence-content-lifecycle-management</code>; <code>https://www.servicenow.com/community/developer-blog/strengthening-csdm-data-foundations-best-practices-lessons/ba-p/3458446</code></td>
+  <td><code><a href="https://docs.dynatrace.com/docs/analyze-explore-automate/smartscape</code>">docs.dynatrace.com</a> <code><a href="https://www.midori-global.com/blog/2023/01/18/confluence-content-lifecycle-management</code>">www.midori-global.com</a> <code><a href="https://www.servicenow.com/community/developer-blog/strengthening-csdm-data-foundations-best-practices-lessons/ba-p/3458446</code></td>">www.servicenow.com</a>
   <td>high</td>
   <td>Composite conclusion supported by multiple independent source types.</td>
 </tr>
@@ -620,20 +705,20 @@ main {
 </table>
 <h3>Assumptions</h3>
 <ul>
-<li><strong>[assumption]</strong> Public materials understate the amount of bespoke internal reconciliation code used inside enterprises. <strong>Justification:</strong> extraction surfaces are well documented publicly, while end-to-end merge pipelines are mostly proprietary. Sources: <code>https://developer.hashicorp.com/terraform/cli/commands/graph</code>; <code>https://docs.dynatrace.com/docs/analyze-explore-automate/smartscape/smartscape-views/service-dependency-graph</code>; <code>https://developer.atlassian.com/cloud/confluence/rest/v2/intro/</code>; <code>https://www.servicenow.com/community/developer-blog/strengthening-csdm-data-foundations-best-practices-lessons/ba-p/3458446</code>; <code>https://rustic-ai.github.io/codeprism/</code>.</li>
-<li><strong>[assumption]</strong> Organisations seeking this capability can obtain read access to the relevant code, observability, and registry surfaces. <strong>Justification:</strong> the technical pattern is viable only when governance allows the agent or pipeline to query all key sources. Sources: <code>https://developer.atlassian.com/cloud/confluence/rest/v2/intro/</code>; <code>https://docs.dynatrace.com/docs/dynatrace-api/environment-api/topology-and-smartscape</code>; <code>https://www.servicenow.com/community/developer-blog/strengthening-csdm-data-foundations-best-practices-lessons/ba-p/3458446</code>; <code>https://backstage.io/docs/features/software-catalog/</code>.</li>
+<li><strong>[assumption]</strong> Public materials understate the amount of bespoke internal reconciliation code used inside enterprises. <strong>Justification:</strong> extraction surfaces are well documented publicly, while end-to-end merge pipelines are mostly proprietary. Sources: <code><a href="https://developer.hashicorp.com/terraform/cli/commands/graph</code>">developer.hashicorp.com</a> <code><a href="https://docs.dynatrace.com/docs/analyze-explore-automate/smartscape/smartscape-views/service-dependency-graph</code>">docs.dynatrace.com</a> <code><a href="https://developer.atlassian.com/cloud/confluence/rest/v2/intro/</code>">developer.atlassian.com</a> <code><a href="https://www.servicenow.com/community/developer-blog/strengthening-csdm-data-foundations-best-practices-lessons/ba-p/3458446</code>">www.servicenow.com</a> <code><a href="https://rustic-ai.github.io/codeprism/</code>.</li>">rustic-ai.github.io</a>
+<li><strong>[assumption]</strong> Organisations seeking this capability can obtain read access to the relevant code, observability, and registry surfaces. <strong>Justification:</strong> the technical pattern is viable only when governance allows the agent or pipeline to query all key sources. Sources: <code><a href="https://developer.atlassian.com/cloud/confluence/rest/v2/intro/</code>">developer.atlassian.com</a> <code><a href="https://docs.dynatrace.com/docs/dynatrace-api/environment-api/topology-and-smartscape</code>">docs.dynatrace.com</a> <code><a href="https://www.servicenow.com/community/developer-blog/strengthening-csdm-data-foundations-best-practices-lessons/ba-p/3458446</code>">www.servicenow.com</a> <code><a href="https://backstage.io/docs/features/software-catalog/</code>.</li>">backstage.io</a>
 </ul>
 <h3>Analysis</h3>
 <ul>
-<li><strong>[inference]</strong> The evidence points strongly toward a layered architecture because the sources describe different kinds of truth rather than competing measurements of the same truth. Static code and Terraform answer &quot;what is declared&quot;; APM and tracing answer &quot;what was observed&quot;; CSDM, Backstage, Structurizr, and Confluence answer &quot;who owns this and how is it meant to fit together&quot;. Sources: <code>https://developer.hashicorp.com/terraform/cli/commands/graph</code>; <code>https://docs.dynatrace.com/docs/analyze-explore-automate/smartscape/smartscape-views/service-dependency-graph</code>; <code>https://developer.atlassian.com/cloud/confluence/rest/v2/intro/</code>; <code>https://www.servicenow.com/community/developer-blog/strengthening-csdm-data-foundations-best-practices-lessons/ba-p/3458446</code>; <code>https://backstage.io/docs/features/software-catalog/</code>; <code>https://structurizr.com/</code>.</li>
-<li><strong>[inference]</strong> The main trade-off is precision versus coverage: static analysis is precise but semantically narrow; runtime telemetry is behaviorally rich but instrumentation-bound; registries and documentation are broad but governance-bound. Sources: <code>https://www.ndepend.com/</code>; <code>https://developer.hashicorp.com/terraform/cli/commands/graph</code>; <code>https://docs.dynatrace.com/docs/analyze-explore-automate/smartscape/smartscape-views/service-dependency-graph</code>; <code>https://www.midori-global.com/blog/2023/01/18/confluence-content-lifecycle-management</code>; <code>https://www.servicenow.com/community/developer-blog/strengthening-csdm-data-foundations-best-practices-lessons/ba-p/3458446</code>.</li>
-<li><strong>[inference]</strong> The practical answer is therefore to merge the layers explicitly, preserve provenance for every edge, and let humans review only the contradictions and high-impact unknowns. Sources: <code>https://developer.hashicorp.com/terraform/cli/commands/graph</code>; <code>https://docs.dynatrace.com/docs/analyze-explore-automate/smartscape/smartscape-views/service-dependency-graph</code>; <code>https://developer.atlassian.com/cloud/confluence/rest/v2/intro/</code>; <code>https://www.servicenow.com/community/developer-blog/strengthening-csdm-data-foundations-best-practices-lessons/ba-p/3458446</code>; <code>https://rustic-ai.github.io/codeprism/</code>.</li>
+<li><strong>[inference]</strong> The evidence points strongly toward a layered architecture because the sources describe different kinds of truth rather than competing measurements of the same truth. Static code and Terraform answer &quot;what is declared&quot;; APM and tracing answer &quot;what was observed&quot;; CSDM, Backstage, Structurizr, and Confluence answer &quot;who owns this and how is it meant to fit together&quot;. Sources: <code><a href="https://developer.hashicorp.com/terraform/cli/commands/graph</code>">developer.hashicorp.com</a> <code><a href="https://docs.dynatrace.com/docs/analyze-explore-automate/smartscape/smartscape-views/service-dependency-graph</code>">docs.dynatrace.com</a> <code><a href="https://developer.atlassian.com/cloud/confluence/rest/v2/intro/</code>">developer.atlassian.com</a> <code><a href="https://www.servicenow.com/community/developer-blog/strengthening-csdm-data-foundations-best-practices-lessons/ba-p/3458446</code>">www.servicenow.com</a> <code><a href="https://backstage.io/docs/features/software-catalog/</code>">backstage.io</a> <code><a href="https://structurizr.com/</code>.</li>">structurizr.com</a>
+<li><strong>[inference]</strong> The main trade-off is precision versus coverage: static analysis is precise but semantically narrow; runtime telemetry is behaviorally rich but instrumentation-bound; registries and documentation are broad but governance-bound. Sources: <code><a href="https://www.ndepend.com/</code>">www.ndepend.com</a> <code><a href="https://developer.hashicorp.com/terraform/cli/commands/graph</code>">developer.hashicorp.com</a> <code><a href="https://docs.dynatrace.com/docs/analyze-explore-automate/smartscape/smartscape-views/service-dependency-graph</code>">docs.dynatrace.com</a> <code><a href="https://www.midori-global.com/blog/2023/01/18/confluence-content-lifecycle-management</code>">www.midori-global.com</a> <code><a href="https://www.servicenow.com/community/developer-blog/strengthening-csdm-data-foundations-best-practices-lessons/ba-p/3458446</code>.</li>">www.servicenow.com</a>
+<li><strong>[inference]</strong> The practical answer is therefore to merge the layers explicitly, preserve provenance for every edge, and let humans review only the contradictions and high-impact unknowns. Sources: <code><a href="https://developer.hashicorp.com/terraform/cli/commands/graph</code>">developer.hashicorp.com</a> <code><a href="https://docs.dynatrace.com/docs/analyze-explore-automate/smartscape/smartscape-views/service-dependency-graph</code>">docs.dynatrace.com</a> <code><a href="https://developer.atlassian.com/cloud/confluence/rest/v2/intro/</code>">developer.atlassian.com</a> <code><a href="https://www.servicenow.com/community/developer-blog/strengthening-csdm-data-foundations-best-practices-lessons/ba-p/3458446</code>">www.servicenow.com</a> <code><a href="https://rustic-ai.github.io/codeprism/</code>.</li>">rustic-ai.github.io</a>
 </ul>
 <h3>Risks, Gaps, and Uncertainties</h3>
 <ul>
-<li><strong>[fact]</strong> The public evidence base for raw-log-only dependency mapping is materially thinner than the evidence for tracing-based service maps. Sources: <code>https://www.elastic.co/docs/solutions/observability/apm/service-map</code>; <code>https://lantern.splunk.com/Get_Started_with_Splunk_Software/Extracting_service_insights_from_APM</code>; <code>https://docs.datadoghq.com/tracing/services/services_map/</code>.</li>
-<li><strong>[inference]</strong> Public sources describe extraction and modelling layers more clearly than enterprise reconciliation engines, so implementation detail for confidence scoring and conflict-resolution heuristics remains partly inferential. Sources: <code>https://developer.hashicorp.com/terraform/cli/commands/graph</code>; <code>https://docs.dynatrace.com/docs/analyze-explore-automate/smartscape/smartscape-views/service-dependency-graph</code>; <code>https://developer.atlassian.com/cloud/confluence/rest/v2/intro/</code>; <code>https://www.servicenow.com/community/developer-blog/strengthening-csdm-data-foundations-best-practices-lessons/ba-p/3458446</code>; <code>https://rustic-ai.github.io/codeprism/</code>.</li>
-<li><strong>[inference]</strong> Organisations with weak ownership, poor tagging, or incomplete instrumentation will get less value from the composite pattern until those hygiene issues are improved. Sources: <code>https://www.midori-global.com/blog/2023/01/18/confluence-content-lifecycle-management</code>; <code>https://www.servicenow.com/community/developer-blog/strengthening-csdm-data-foundations-best-practices-lessons/ba-p/3458446</code>; <code>https://www.thecloudpeople.com/blog/implementing-csdm-into-servicenow</code>; <code>https://backstage.io/docs/features/software-catalog/</code>; <code>https://structurizr.com/</code>.</li>
+<li><strong>[fact]</strong> The public evidence base for raw-log-only dependency mapping is materially thinner than the evidence for tracing-based service maps. Sources: <code><a href="https://www.elastic.co/docs/solutions/observability/apm/service-map</code>">www.elastic.co</a> <code><a href="https://lantern.splunk.com/Get_Started_with_Splunk_Software/Extracting_service_insights_from_APM</code>">lantern.splunk.com</a> <code><a href="https://docs.datadoghq.com/tracing/services/services_map/</code>.</li>">docs.datadoghq.com</a>
+<li><strong>[inference]</strong> Public sources describe extraction and modelling layers more clearly than enterprise reconciliation engines, so implementation detail for confidence scoring and conflict-resolution heuristics remains partly inferential. Sources: <code><a href="https://developer.hashicorp.com/terraform/cli/commands/graph</code>">developer.hashicorp.com</a> <code><a href="https://docs.dynatrace.com/docs/analyze-explore-automate/smartscape/smartscape-views/service-dependency-graph</code>">docs.dynatrace.com</a> <code><a href="https://developer.atlassian.com/cloud/confluence/rest/v2/intro/</code>">developer.atlassian.com</a> <code><a href="https://www.servicenow.com/community/developer-blog/strengthening-csdm-data-foundations-best-practices-lessons/ba-p/3458446</code>">www.servicenow.com</a> <code><a href="https://rustic-ai.github.io/codeprism/</code>.</li>">rustic-ai.github.io</a>
+<li><strong>[inference]</strong> Organisations with weak ownership, poor tagging, or incomplete instrumentation will get less value from the composite pattern until those hygiene issues are improved. Sources: <code><a href="https://www.midori-global.com/blog/2023/01/18/confluence-content-lifecycle-management</code>">www.midori-global.com</a> <code><a href="https://www.servicenow.com/community/developer-blog/strengthening-csdm-data-foundations-best-practices-lessons/ba-p/3458446</code>">www.servicenow.com</a> <code><a href="https://www.thecloudpeople.com/blog/implementing-csdm-into-servicenow</code>">www.thecloudpeople.com</a> <code><a href="https://backstage.io/docs/features/software-catalog/</code>">backstage.io</a> <code><a href="https://structurizr.com/</code>.</li>">structurizr.com</a>
 </ul>
 <h3>Open Questions</h3>
 <ul>
@@ -651,8 +736,8 @@ main {
 </div></div>
 
   <div class="item-nav">
-    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-21-technology-capability-models.html">Technology Capability Models: Survey, Comparison, and Recommendation for Multi-Level IT Capability Mapping</a></div>
-    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-19-layered-org-llm-architecture.html">Layered Organisation Large Language Model: Feasibility and Architecture of Organisation-Customised LLMs</a></div>
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-21-technology-capability-models.html">Technology Capability Models</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-19-layered-org-llm-architecture.html">Layered Organisation Large Language Model</a></div>
   </div>
 </main>
 </body>

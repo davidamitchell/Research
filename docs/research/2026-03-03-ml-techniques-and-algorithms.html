@@ -3,7 +3,7 @@
         <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>ML techniques, algorithms, and advanced analytics — a systematic reference for analytics teams — Research</title>
+          <title>ML techniques, algorithms, and advanced analytics — a systematic reference for… — Research</title>
           <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -503,15 +585,18 @@ main {
     <span>/</span>
     <a href="/Research/browse.html">Browse</a>
     <span>/</span>
-    <span>ML techniques, algorithms, and advanced analytics — a systematic reference for analytics teams</span>
+    <span>ML techniques, algorithms, and advanced analytics — a systematic reference for…</span>
   </div>
-  <h1 class="item-title">ML techniques, algorithms, and advanced analytics — a systematic reference for analytics teams</h1>
+  <h1 class="item-title">ML techniques, algorithms, and advanced analytics — a systematic reference for…</h1>
+  <p class="full-title-subtitle">ML techniques, algorithms, and advanced analytics — a systematic reference for analytics teams</p>
   <div class="meta-bar">
     <span>2026-03-03</span>
     <span class="meta-sep">·</span>
-    <a class="tag" href="/Research/tags/machine-learning.html">machine-learning</a> <a class="tag" href="/Research/tags/analytics.html">analytics</a> <a class="tag" href="/Research/tags/algorithms.html">algorithms</a> <a class="tag" href="/Research/tags/statistics.html">statistics</a> <a class="tag" href="/Research/tags/deep-learning.html">deep-learning</a> <a class="tag" href="/Research/tags/advanced-analytics.html">advanced-analytics</a> <a class="tag" href="/Research/tags/best-practices.html">best-practices</a> <a class="tag" href="/Research/tags/model-selection.html">model-selection</a> 
+    <a class="tag" href="/Research/tags/machine-learning.html">machine-learning</a> <a class="tag" href="/Research/tags/analytics.html">analytics</a> <a class="tag" href="/Research/tags/advanced-analytics.html">advanced-analytics</a> <a class="tag" href="/Research/tags/best-practices.html">best-practices</a> 
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-03-ml-techniques-and-algorithms.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-03-ml-techniques-and-algorithms" target="_blank" rel="noopener">wiki →</a>
   </div>
   
   <div class="item-content">
@@ -665,9 +750,9 @@ main {
 <li>Type: knowledge, backlog-item</li>
 <li>Description: A structured taxonomy of ML techniques with decision guides (when to use / not to use), normal-vs-advanced maturity benchmark, best practices, regulatory compliance mapping (RBNZ), and a capability self-assessment framework. Three follow-on backlog items are identified: minimum viable causal ML for regulated analytics, model governance artefact standards for RBNZ compliance, and AutoML vs. manual construction for routine analytics tasks.</li>
 <li>Links:<ul>
-<li>https://arxiv.org/abs/2408.14817 — Lazebnik et al. (2024) comprehensive tabular ML benchmark</li>
-<li>https://www.kaggle.com/AI-Report-2023 — Kaggle AI Report 2023, tabular data section</li>
-<li>https://proceedings.neurips.cc/paper/2015/file/86df7dcfd896fcaf2674f757a2463eba-Paper.pdf — Sculley et al. (2015), hidden technical debt in ML systems</li>
+<li><a href="https://arxiv.org/abs/2408.14817">arxiv.org/abs/2408.14817</a> — Lazebnik et al. (2024) comprehensive tabular ML benchmark</li>
+<li><a href="https://www.kaggle.com/AI-Report-2023">www.kaggle.com</a> — Kaggle AI Report 2023, tabular data section</li>
+<li><a href="https://proceedings.neurips.cc/paper/2015/file/86df7dcfd896fcaf2674f757a2463eba-Paper.pdf">proceedings.neurips.cc</a> — Sculley et al. (2015), hidden technical debt in ML systems</li>
 </ul>
 </li>
 </ul>
@@ -678,8 +763,8 @@ main {
 </div></div>
 
   <div class="item-nav">
-    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-03-research-agenda-curation-coverage.html">Research agenda curation: prioritisation, coverage analysis, and avoiding research drift</a></div>
-    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-03-knowledge-retention-active-recall.html">Knowledge retention: mechanisms for ensuring completed research is recalled and applied over time</a></div>
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-03-research-agenda-curation-coverage.html">Research agenda curation</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-03-knowledge-retention-active-recall.html">Knowledge retention</a></div>
   </div>
 </main>
 </body>

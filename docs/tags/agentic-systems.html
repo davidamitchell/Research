@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -504,52 +586,52 @@ main {
     <a class="back-link" href="/Research/browse.html">← browse</a>
   </div>
   <div class="card-grid">
-    <a class="card" href="/Research/research/2026-03-18-stateless-agent-assumption-failure.html" data-title="stateless-agent assumption failure: causes, detection, and recovery patterns for orphaned state in multi-session agentic workflows" data-question="when an agentic workflow spans multiple session boundaries — each session starting with a fresh context window and no memory of prior runs — what are the mechanisms by which external state becomes orp" data-tags="failure-modes,agentic-systems,operational-failures,layer-5,state-management,idempotency,checkpoint-resume,multi-session,workflow">
-  <div class="card-title">Stateless-agent assumption failure: causes, detection, and recovery patterns for orphaned state in multi-session agentic workflows</div>
+    <a class="card" href="/Research/research/2026-03-18-stateless-agent-assumption-failure.html" data-title="stateless-agent assumption failure" data-question="when an agentic workflow spans multiple session boundaries — each session starting with a fresh context window and no memory of prior runs — what are the mechanisms by which external state becomes orp" data-tags="failure-modes,agentic-systems,state-management,workflow">
+  <div class="card-title">Stateless-agent assumption failure</div>
   <div class="card-meta">2026-03-18</div>
-  <div class="card-tags"><span class="tag">failure-modes</span><span class="tag">agentic-systems</span><span class="tag">operational-failures</span><span class="tag">layer-5</span><span class="tag">state-management</span><span class="tag">idempotency</span><span class="tag">checkpoint-resume</span><span class="tag">multi-session</span><span class="tag">workflow</span></div>
+  <div class="card-tags"><span class="tag">failure-modes</span><span class="tag">agentic-systems</span><span class="tag">state-management</span><span class="tag">workflow</span></div>
   <div class="card-excerpt">When an agentic workflow spans multiple session boundaries — each session starting with a fresh context window and no memory of prior runs — what are the mechanisms by which external state becomes orp…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-12-swat-technique-loop-fresh-context.html" data-title="swat technique in a fresh-context loop: reliability, drift, and the effect of web search and org rag on blind-acceptance outcomes" data-question="when the swat (strengths, weaknesses, assumptions, threats) technique is executed repeatedly in a loop where each invocation uses a fresh large language model (llm) context window and the caller blind" data-tags="swat,prompting-techniques,agentic-systems,rag,web-search,hallucination,context-window,loop-reliability,grounding">
-  <div class="card-title">SWAT technique in a fresh-context loop: reliability, drift, and the effect of web search and org RAG on blind-acceptance outcomes</div>
+<a class="card" href="/Research/research/2026-03-12-swat-technique-loop-fresh-context.html" data-title="swat technique in a fresh-context loop" data-question="when the swat (strengths, weaknesses, assumptions, threats) technique is executed repeatedly in a loop where each invocation uses a fresh large language model (llm) context window and the caller blind" data-tags="agentic-systems,rag,hallucination,context-window,grounding">
+  <div class="card-title">SWAT technique in a fresh-context loop</div>
   <div class="card-meta">2026-03-12</div>
-  <div class="card-tags"><span class="tag">swat</span><span class="tag">prompting-techniques</span><span class="tag">agentic-systems</span><span class="tag">rag</span><span class="tag">web-search</span><span class="tag">hallucination</span><span class="tag">context-window</span><span class="tag">loop-reliability</span><span class="tag">grounding</span></div>
+  <div class="card-tags"><span class="tag">agentic-systems</span><span class="tag">rag</span><span class="tag">hallucination</span><span class="tag">context-window</span><span class="tag">grounding</span></div>
   <div class="card-excerpt">When the SWAT (Strengths, Weaknesses, Assumptions, Threats) technique is executed repeatedly in a loop where each invocation uses a fresh Large Language Model (LLM) context window and the caller blind…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-12-failure-mode-taxonomy-expansion.html" data-title="failure mode taxonomy: empirical frequency, causal mechanisms, detection signals, and cascade patterns in production agentic systems" data-question="the five-layer failure mode taxonomy established in `2026-03-10-ai-concept-classification-taxonomy.md` (q5) provides a structurally sound classification, but leaves three empirical gaps unanswered: (1" data-tags="failure-modes,taxonomy,hallucination,reward-hacking,prompt-injection,alignment,agentic-systems,owasp,safety,observability">
-  <div class="card-title">Failure mode taxonomy: empirical frequency, causal mechanisms, detection signals, and cascade patterns in production agentic systems</div>
+<a class="card" href="/Research/research/2026-03-12-failure-mode-taxonomy-expansion.html" data-title="failure mode taxonomy" data-question="the five-layer failure mode taxonomy established in `2026-03-10-ai-concept-classification-taxonomy.md` (q5) provides a structurally sound classification, but leaves three empirical gaps unanswered: (1" data-tags="failure-modes,taxonomy,hallucination,reward-hacking,prompt-injection,alignment,agentic-systems,owasp,observability">
+  <div class="card-title">Failure mode taxonomy</div>
   <div class="card-meta">2026-03-12</div>
-  <div class="card-tags"><span class="tag">failure-modes</span><span class="tag">taxonomy</span><span class="tag">hallucination</span><span class="tag">reward-hacking</span><span class="tag">prompt-injection</span><span class="tag">alignment</span><span class="tag">agentic-systems</span><span class="tag">owasp</span><span class="tag">safety</span><span class="tag">observability</span></div>
+  <div class="card-tags"><span class="tag">failure-modes</span><span class="tag">taxonomy</span><span class="tag">hallucination</span><span class="tag">reward-hacking</span><span class="tag">prompt-injection</span><span class="tag">alignment</span><span class="tag">agentic-systems</span><span class="tag">owasp</span><span class="tag">observability</span></div>
   <div class="card-excerpt">The five-layer failure mode taxonomy established in `2026-03-10-ai-concept-classification-taxonomy.md` (Q5) provides a structurally sound classification, but leaves three empirical gaps unanswered: (1…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-12-exploration-synthesis-gap.html" data-title="exploration-synthesis gap: why people in explore mode fail to synthesise others&#39; work, and whether agent synthesis can close the gap" data-question="during periods of rapid exploration — such as the current wave of artificial intelligence (ai) / large language model (llm) adoption inside organisations — individuals and teams routinely duplicate ef" data-tags="cognition,exploration,synthesis,knowledge-sharing,incentives,ego,agentic-systems,organisational-behaviour,psychology">
-  <div class="card-title">Exploration-synthesis gap: why people in explore mode fail to synthesise others&#39; work, and whether agent synthesis can close the gap</div>
+<a class="card" href="/Research/research/2026-03-12-exploration-synthesis-gap.html" data-title="exploration-synthesis gap" data-question="during periods of rapid exploration — such as the current wave of artificial intelligence (ai) / large language model (llm) adoption inside organisations — individuals and teams routinely duplicate ef" data-tags="cognition,exploration,synthesis,agentic-systems">
+  <div class="card-title">Exploration-synthesis gap</div>
   <div class="card-meta">2026-03-12</div>
-  <div class="card-tags"><span class="tag">cognition</span><span class="tag">exploration</span><span class="tag">synthesis</span><span class="tag">knowledge-sharing</span><span class="tag">incentives</span><span class="tag">ego</span><span class="tag">agentic-systems</span><span class="tag">organisational-behaviour</span><span class="tag">psychology</span></div>
+  <div class="card-tags"><span class="tag">cognition</span><span class="tag">exploration</span><span class="tag">synthesis</span><span class="tag">agentic-systems</span></div>
   <div class="card-excerpt">During periods of rapid exploration — such as the current wave of Artificial Intelligence (AI) / Large Language Model (LLM) adoption inside organisations — individuals and teams routinely duplicate ef…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-10-language-for-llm-agent-output.html" data-title="language designed for llm agents to produce: addressing generation-layer failure modes in agentic systems" data-question="is anyone actively developing a programming language or structured output format specifically designed for llm agents to generate — rather than humans to write — that structurally addresses generation" data-tags="agentic-systems,programming-languages,dsl,failure-modes,intent-alignment,reward-hacking,formal-methods,output-language,llm-code-generation,structured-output">
-  <div class="card-title">Language designed for LLM agents to produce: addressing generation-layer failure modes in agentic systems</div>
+<a class="card" href="/Research/research/2026-03-10-language-for-llm-agent-output.html" data-title="language designed for llm agents to produce" data-question="is anyone actively developing a programming language or structured output format specifically designed for llm agents to generate — rather than humans to write — that structurally addresses generation" data-tags="agentic-systems,programming-languages,failure-modes,intent-alignment,reward-hacking,formal-methods">
+  <div class="card-title">Language designed for LLM agents to produce</div>
   <div class="card-meta">2026-03-10</div>
-  <div class="card-tags"><span class="tag">agentic-systems</span><span class="tag">programming-languages</span><span class="tag">dsl</span><span class="tag">failure-modes</span><span class="tag">intent-alignment</span><span class="tag">reward-hacking</span><span class="tag">formal-methods</span><span class="tag">output-language</span><span class="tag">llm-code-generation</span><span class="tag">structured-output</span></div>
+  <div class="card-tags"><span class="tag">agentic-systems</span><span class="tag">programming-languages</span><span class="tag">failure-modes</span><span class="tag">intent-alignment</span><span class="tag">reward-hacking</span><span class="tag">formal-methods</span></div>
   <div class="card-excerpt">Is anyone actively developing a programming language or structured output format specifically designed for LLM agents to generate — rather than humans to write — that structurally addresses generation…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-10-formal-spec-intent-alignment-agentic-coding.html" data-title="formal intent specification and language choice for ai alignment in agentic coding systems" data-question="can formal specification of task intent structurally eliminate reward hacking and intent mismatch in agentic coding systems? what is the expressiveness-verifiability tradeoff at each level of the spec" data-tags="formal-methods,intent-alignment,reward-hacking,agentic-systems,programming-languages,type-theory,out-of-the-tar-pit">
-  <div class="card-title">Formal intent specification and language choice for AI alignment in agentic coding systems</div>
+<a class="card" href="/Research/research/2026-03-10-formal-spec-intent-alignment-agentic-coding.html" data-title="formal intent specification and language choice for ai alignment in agentic…" data-question="can formal specification of task intent structurally eliminate reward hacking and intent mismatch in agentic coding systems? what is the expressiveness-verifiability tradeoff at each level of the spec" data-tags="formal-methods,intent-alignment,reward-hacking,agentic-systems,programming-languages">
+  <div class="card-title">Formal intent specification and language choice for AI alignment in agentic…</div>
   <div class="card-meta">2026-03-10</div>
-  <div class="card-tags"><span class="tag">formal-methods</span><span class="tag">intent-alignment</span><span class="tag">reward-hacking</span><span class="tag">agentic-systems</span><span class="tag">programming-languages</span><span class="tag">type-theory</span><span class="tag">out-of-the-tar-pit</span></div>
+  <div class="card-tags"><span class="tag">formal-methods</span><span class="tag">intent-alignment</span><span class="tag">reward-hacking</span><span class="tag">agentic-systems</span><span class="tag">programming-languages</span></div>
   <div class="card-excerpt">Can formal specification of task intent structurally eliminate reward hacking and intent mismatch in agentic coding systems? What is the expressiveness-verifiability tradeoff at each level of the spec…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-10-ai-concept-classification-taxonomy.html" data-title="ai concept classification taxonomy: prompts, instructions, memory, failure modes, controls, and problem domains" data-question="what is a coherent, internally consistent classification taxonomy for the core concepts in ai-assisted and agentic systems — covering prompt types, instruction types, prompt/content/intent engineering" data-tags="taxonomy,classification,prompt-engineering,context-engineering,intent-engineering,memory,failure-modes,guardrails,skills,tools,agents,agentic-systems">
-  <div class="card-title">AI concept classification taxonomy: prompts, instructions, memory, failure modes, controls, and problem domains</div>
+<a class="card" href="/Research/research/2026-03-10-ai-concept-classification-taxonomy.html" data-title="ai concept classification taxonomy" data-question="what is a coherent, internally consistent classification taxonomy for the core concepts in ai-assisted and agentic systems — covering prompt types, instruction types, prompt/content/intent engineering" data-tags="taxonomy,prompt-engineering,context-engineering,memory,failure-modes,guardrails,skills,agents,agentic-systems">
+  <div class="card-title">AI concept classification taxonomy</div>
   <div class="card-meta">2026-03-10</div>
-  <div class="card-tags"><span class="tag">taxonomy</span><span class="tag">classification</span><span class="tag">prompt-engineering</span><span class="tag">context-engineering</span><span class="tag">intent-engineering</span><span class="tag">memory</span><span class="tag">failure-modes</span><span class="tag">guardrails</span><span class="tag">skills</span><span class="tag">tools</span><span class="tag">agents</span><span class="tag">agentic-systems</span></div>
+  <div class="card-tags"><span class="tag">taxonomy</span><span class="tag">prompt-engineering</span><span class="tag">context-engineering</span><span class="tag">memory</span><span class="tag">failure-modes</span><span class="tag">guardrails</span><span class="tag">skills</span><span class="tag">agents</span><span class="tag">agentic-systems</span></div>
   <div class="card-excerpt">What is a coherent, internally consistent classification taxonomy for the core concepts in AI-assisted and agentic systems — covering prompt types, instruction types, prompt/content/intent engineering…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-10-agent-evaluation-cross-repo-analysis.html" data-title="agent evaluation framework: cross-repo pattern analysis, commonality detection, and regression identification" data-question="what evaluation framework allows systematic comparison of agent implementations across multiple repositories — identifying what problems each is solving, whether concepts are used idiomatically or in" data-tags="agents,evaluation,benchmarking,cross-repo-analysis,pattern-analysis,agentic-systems,metrics,regression,effectiveness,taxonomy">
-  <div class="card-title">Agent evaluation framework: cross-repo pattern analysis, commonality detection, and regression identification</div>
+<a class="card" href="/Research/research/2026-03-10-agent-evaluation-cross-repo-analysis.html" data-title="agent evaluation framework" data-question="what evaluation framework allows systematic comparison of agent implementations across multiple repositories — identifying what problems each is solving, whether concepts are used idiomatically or in" data-tags="agents,evaluation,agentic-systems,regression,taxonomy">
+  <div class="card-title">Agent evaluation framework</div>
   <div class="card-meta">2026-03-10</div>
-  <div class="card-tags"><span class="tag">agents</span><span class="tag">evaluation</span><span class="tag">benchmarking</span><span class="tag">cross-repo-analysis</span><span class="tag">pattern-analysis</span><span class="tag">agentic-systems</span><span class="tag">metrics</span><span class="tag">regression</span><span class="tag">effectiveness</span><span class="tag">taxonomy</span></div>
+  <div class="card-tags"><span class="tag">agents</span><span class="tag">evaluation</span><span class="tag">agentic-systems</span><span class="tag">regression</span><span class="tag">taxonomy</span></div>
   <div class="card-excerpt">What evaluation framework allows systematic comparison of agent implementations across multiple repositories — identifying what problems each is solving, whether concepts are used idiomatically or in…</div>
 </a>
 

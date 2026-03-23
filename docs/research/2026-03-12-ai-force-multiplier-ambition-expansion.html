@@ -3,7 +3,7 @@
         <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Force multiplier, not cost reducer: expanding organisational ambition when AI multiplies per-person output — Research</title>
+          <title>Force multiplier, not cost reducer — Research</title>
           <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -503,15 +585,18 @@ main {
     <span>/</span>
     <a href="/Research/browse.html">Browse</a>
     <span>/</span>
-    <span>Force multiplier, not cost reducer: expanding organisational ambition when AI multiplies per-person output</span>
+    <span>Force multiplier, not cost reducer</span>
   </div>
-  <h1 class="item-title">Force multiplier, not cost reducer: expanding organisational ambition when AI multiplies per-person output</h1>
+  <h1 class="item-title">Force multiplier, not cost reducer</h1>
+  <p class="full-title-subtitle">Force multiplier, not cost reducer: expanding organisational ambition when AI multiplies per-person output</p>
   <div class="meta-bar">
     <span>2026-03-12</span>
     <span class="meta-sep">·</span>
-    <a class="tag" href="/Research/tags/force-multiplier.html">force-multiplier</a> <a class="tag" href="/Research/tags/ambition.html">ambition</a> <a class="tag" href="/Research/tags/organisational-design.html">organisational-design</a> <a class="tag" href="/Research/tags/ai-native.html">ai-native</a> <a class="tag" href="/Research/tags/strategy.html">strategy</a> <a class="tag" href="/Research/tags/headcount.html">headcount</a> <a class="tag" href="/Research/tags/revenue-per-employee.html">revenue-per-employee</a> <a class="tag" href="/Research/tags/cannot-do-now.html">cannot-do-now</a> <a class="tag" href="/Research/tags/capacity-expansion.html">capacity-expansion</a> 
+    <a class="tag" href="/Research/tags/organisational-design.html">organisational-design</a> <a class="tag" href="/Research/tags/ai-native.html">ai-native</a> <a class="tag" href="/Research/tags/strategy.html">strategy</a> 
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-12-ai-force-multiplier-ambition-expansion.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-12-ai-force-multiplier-ambition-expansion" target="_blank" rel="noopener">wiki →</a>
   </div>
   <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Lovable achieved $400M in Annual Recurring Revenue (ARR) with 146 employees as of February 2026 — a ratio of $2.74M ARR per employee, exceeding Gartner&#39;s 2030 unicorn benchmark of $2M per employee by 37%</li>
 <li>Midjourney generated approximately $500M in revenue in 2025 with approximately 107 employees — a ratio of ~$4.7M revenue per employee — having built this on zero external venture funding and zero early marketing spend</li>
@@ -699,9 +784,9 @@ constraints — and how does restructuring into strike teams unlock it?</p>
 <li><strong>Type:</strong> knowledge</li>
 <li><strong>Description:</strong> Strategic framework for the ambition-expansion response to AI productivity gains, grounded in revenue-per-employee evidence from five AI-native companies and the Shopify mandate. Includes the &quot;cannot do now&quot; list concept, coordination-artifact vs judgment-role distinction, and a structural analysis of organisational inertia.</li>
 <li><strong>Key sources:</strong><ul>
-<li>TechCrunch / Business Insider on Lovable: https://techcrunch.com/2026/03/11/lovable-says-it-added-100m-in-revenue-last-month-alone-with-just-146-employees/</li>
-<li>CNBC on Shopify Lütke memo: https://www.cnbc.com/2025/04/07/shopify-ceo-prove-ai-cant-do-jobs-before-asking-for-more-headcount.html</li>
-<li>Forbes on coordination theater: https://www.forbes.com/sites/jasonsnyder/2026/02/26/enterprise-ais-illusion-of-progress-coordination-theater/</li>
+<li>TechCrunch / Business Insider on Lovable: <a href="https://techcrunch.com/2026/03/11/lovable-says-it-added-100m-in-revenue-last-month-alone-with-just-146-employees/</li>">techcrunch.com</a>
+<li>CNBC on Shopify Lütke memo: <a href="https://www.cnbc.com/2025/04/07/shopify-ceo-prove-ai-cant-do-jobs-before-asking-for-more-headcount.html</li>">www.cnbc.com</a>
+<li>Forbes on coordination theater: <a href="https://www.forbes.com/sites/jasonsnyder/2026/02/26/enterprise-ais-illusion-of-progress-coordination-theater/</li>">www.forbes.com</a>
 </ul>
 </li>
 </ul>
@@ -712,8 +797,8 @@ constraints — and how does restructuring into strike teams unlock it?</p>
 </div></div>
 
   <div class="item-nav">
-    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-12-ai-team-size-strike-team-thesis.html">AI amplified the coordination tax: the 5-person strike team as the structural unit of the AI era</a></div>
-    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-10-research-loop-evaluation-rubric.html">Research loop evaluation rubric: LLM-as-judge specification for this repository&#39;s research loop agent</a></div>
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-12-ai-team-size-strike-team-thesis.html">AI amplified the coordination tax</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-10-research-loop-evaluation-rubric.html">Research loop evaluation rubric</a></div>
   </div>
 </main>
 </body>

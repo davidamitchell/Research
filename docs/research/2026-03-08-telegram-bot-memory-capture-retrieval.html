@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -506,12 +588,14 @@ main {
     <span>Telegram bot as mobile memory capture and retrieval channel</span>
   </div>
   <h1 class="item-title">Telegram bot as mobile memory capture and retrieval channel</h1>
-  <div class="meta-bar">
+    <div class="meta-bar">
     <span>2026-03-08</span>
     <span class="meta-sep">·</span>
-    <a class="tag" href="/Research/tags/mobile.html">mobile</a> <a class="tag" href="/Research/tags/telegram.html">telegram</a> <a class="tag" href="/Research/tags/bot.html">bot</a> <a class="tag" href="/Research/tags/capture.html">capture</a> <a class="tag" href="/Research/tags/retrieval.html">retrieval</a> <a class="tag" href="/Research/tags/memory-system.html">memory-system</a> <a class="tag" href="/Research/tags/self-hosted.html">self-hosted</a> 
+    <a class="tag" href="/Research/tags/mobile.html">mobile</a> <a class="tag" href="/Research/tags/bot.html">bot</a> <a class="tag" href="/Research/tags/capture.html">capture</a> <a class="tag" href="/Research/tags/retrieval.html">retrieval</a> <a class="tag" href="/Research/tags/memory-system.html">memory-system</a> <a class="tag" href="/Research/tags/self-hosted.html">self-hosted</a> 
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-telegram-bot-memory-capture-retrieval.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-08-telegram-bot-memory-capture-retrieval" target="_blank" rel="noopener">wiki →</a>
   </div>
   <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Telegram long-polling via `getUpdates` with `timeout=30` delivers messages within approximately one second, requires no public URL, no inbound firewall rules, and no OAuth flow — only a single bot token obtained from BotFather in a single chat conversation</li>
 <li>The capture path is a direct reuse of the GitHub Contents API PUT pattern from the iOS Shortcuts research: base64-encode the message body, construct a second-precision filename (`inbox/YYYY-MM-DD-HHmmss.md`), and call `PUT /repos/{owner}/{repo}/contents/{path}` with a fine-grained PAT scoped to `Contents: write` on the Memory-System repository</li>
@@ -557,7 +641,7 @@ main {
 <tbody>
 <tr>
   <td>Long-polling requires no public URL</td>
-  <td>Telegram Bot API docs (https://core.telegram.org/bots/api#getting-updates)</td>
+  <td>Telegram Bot API docs (<a href="https://core.telegram.org/bots/api#getting-updates)</td>">core.telegram.org</a>
   <td>High</td>
   <td>Primary source</td>
 </tr>
@@ -569,7 +653,7 @@ main {
 </tr>
 <tr>
   <td>Capture uses GitHub Contents API PUT</td>
-  <td>GitHub REST API docs (https://docs.github.com/en/rest/repos/contents)</td>
+  <td>GitHub REST API docs (<a href="https://docs.github.com/en/rest/repos/contents)</td>">docs.github.com</a>
   <td>High</td>
   <td>Primary source; same as iOS Shortcuts pattern</td>
 </tr>
@@ -587,13 +671,13 @@ main {
 </tr>
 <tr>
   <td>Render spins down after 15 min without inbound HTTP</td>
-  <td>Render free docs (https://render.com/docs/free)</td>
+  <td>Render free docs (<a href="https://render.com/docs/free)</td>">render.com</a>
   <td>High</td>
   <td>Directly quoted</td>
 </tr>
 <tr>
   <td>Railway free = $1/month credit</td>
-  <td>Railway pricing docs (https://docs.railway.app/reference/pricing)</td>
+  <td>Railway pricing docs (<a href="https://docs.railway.app/reference/pricing)</td>">docs.railway.app</a>
   <td>High</td>
   <td>Primary source</td>
 </tr>
@@ -605,7 +689,7 @@ main {
 </tr>
 <tr>
   <td>Fly.io no free tier as of March 2026</td>
-  <td>Fly.io pricing docs (https://fly.io/docs/about/pricing/)</td>
+  <td>Fly.io pricing docs (<a href="https://fly.io/docs/about/pricing/)</td>">fly.io</a>
   <td>High</td>
   <td>No free allowance listed on pricing page</td>
 </tr>
@@ -635,7 +719,7 @@ main {
 </tr>
 <tr>
   <td>Telegram Bot API stable since 2015</td>
-  <td>Telegram Bot API changelog (https://core.telegram.org/bots/api)</td>
+  <td>Telegram Bot API changelog (<a href="https://core.telegram.org/bots/api)</td>">core.telegram.org</a>
   <td>High</td>
   <td>10+ years of backward-compatible history visible in changelog</td>
 </tr>
@@ -678,7 +762,7 @@ main {
 </div></div>
 
   <div class="item-nav">
-    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-10-adversarial-agents-shared-goals-multi-perspective.html">Adversarial agents with shared goals: multi-perspective coverage across competencies and time horizons</a></div>
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-10-adversarial-agents-shared-goals-multi-perspective.html">Adversarial agents with shared goals</a></div>
     <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-08-slack-bot-memory-capture-retrieval.html">Slack as a mobile memory capture and retrieval channel</a></div>
   </div>
 </main>

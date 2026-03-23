@@ -3,7 +3,7 @@
         <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>RBNZ AI Supervisory Expectations: What Do Regulated Entities Need to Know? — Research</title>
+          <title>RBNZ AI Supervisory Expectations — Research</title>
           <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -503,15 +585,18 @@ main {
     <span>/</span>
     <a href="/Research/browse.html">Browse</a>
     <span>/</span>
-    <span>RBNZ AI Supervisory Expectations: What Do Regulated Entities Need to Know?</span>
+    <span>RBNZ AI Supervisory Expectations</span>
   </div>
-  <h1 class="item-title">RBNZ AI Supervisory Expectations: What Do Regulated Entities Need to Know?</h1>
+  <h1 class="item-title">RBNZ AI Supervisory Expectations</h1>
+  <p class="full-title-subtitle">RBNZ AI Supervisory Expectations: What Do Regulated Entities Need to Know?</p>
   <div class="meta-bar">
     <span>2026-02-28</span>
     <span class="meta-sep">·</span>
-    <a class="tag" href="/Research/tags/rbnz.html">rbnz</a> <a class="tag" href="/Research/tags/ai-strategy.html">ai-strategy</a> <a class="tag" href="/Research/tags/financial-services.html">financial-services</a> <a class="tag" href="/Research/tags/prudential-regulation.html">prudential-regulation</a> <a class="tag" href="/Research/tags/model-risk.html">model-risk</a> <a class="tag" href="/Research/tags/nz-specific.html">nz-specific</a> 
+    <a class="tag" href="/Research/tags/rbnz.html">rbnz</a> <a class="tag" href="/Research/tags/ai-strategy.html">ai-strategy</a> <a class="tag" href="/Research/tags/financial-services.html">financial-services</a> <a class="tag" href="/Research/tags/model-risk.html">model-risk</a> 
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-02-28-rbnz-ai-supervisory-expectations.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-02-28-rbnz-ai-supervisory-expectations" target="_blank" rel="noopener">wiki →</a>
   </div>
   <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>RBNZ has published no standalone AI supervisory guidance, policy, or regulatory standard as of March 2026, making it one of the most silent major central banks on AI-specific prudential expectations relative to its size and the sophistication of NZ&#39;s financial sector</li>
 <li>The May 2025 &quot;Rise of the Machines&quot; FSR article is RBNZ&#39;s first substantive AI publication and is explicitly a monitoring report, not rule-making: Kerry Watt (Director of Financial Stability Assessment and Strategy) confirmed RBNZ will &quot;continue to closely monitor developments&quot; rather than announcing new obligations</li>
@@ -674,7 +759,7 @@ main {
 
   <div class="item-nav">
     <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-02-28-transcript-via-gemini-api.html">YouTube transcripts via Gemini API (native YouTube URL support)</a></div>
-    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-02-28-predictive-processing-active-inference.html">Predictive processing and active inference: the brain as prediction machine</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-02-28-predictive-processing-active-inference.html">Predictive processing and active inference</a></div>
   </div>
 </main>
 </body>

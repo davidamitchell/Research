@@ -3,7 +3,7 @@
         <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Best practices in financial forecasting for IT operational run costs: assumptions, uncertainty, and regulatory considerations — Research</title>
+          <title>Best practices in financial forecasting for IT operational run costs — Research</title>
           <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -503,15 +585,18 @@ main {
     <span>/</span>
     <a href="/Research/browse.html">Browse</a>
     <span>/</span>
-    <span>Best practices in financial forecasting for IT operational run costs: assumptions, uncertainty, and regulatory considerations</span>
+    <span>Best practices in financial forecasting for IT operational run costs</span>
   </div>
-  <h1 class="item-title">Best practices in financial forecasting for IT operational run costs: assumptions, uncertainty, and regulatory considerations</h1>
+  <h1 class="item-title">Best practices in financial forecasting for IT operational run costs</h1>
+  <p class="full-title-subtitle">Best practices in financial forecasting for IT operational run costs: assumptions, uncertainty, and regulatory considerations</p>
   <div class="meta-bar">
     <span>2026-03-13</span>
     <span class="meta-sep">·</span>
     <a class="tag" href="/Research/tags/financial-forecasting.html">financial-forecasting</a> <a class="tag" href="/Research/tags/it-run-costs.html">it-run-costs</a> <a class="tag" href="/Research/tags/uncertainty-modelling.html">uncertainty-modelling</a> <a class="tag" href="/Research/tags/regulatory.html">regulatory</a> <a class="tag" href="/Research/tags/error-bars.html">error-bars</a> <a class="tag" href="/Research/tags/infrastructure-costing.html">infrastructure-costing</a> <a class="tag" href="/Research/tags/assumptions.html">assumptions</a> 
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-13-financial-forecasting-it-run-costs.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-13-financial-forecasting-it-run-costs" target="_blank" rel="noopener">wiki →</a>
   </div>
   <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>The TBM Council V4 taxonomy is the de facto industry standard for categorising IT operational costs, providing a cost pool layer — labour, Software-as-a-Service (SaaS), cloud services, hardware, telecom, and facilities — that forms the required structure for building auditable run-cost estimates across all deployment models</li>
 <li>Infrastructure-as-a-Service (IaaS) cloud compute costs are consumption-driven and metered by the second, making them the highest-volatility IT cost category: cloud spend can increase 20–30% annually without active governance, driven by usage growth that outpaces the per-unit price reductions that cloud providers have historically delivered</li>
@@ -570,73 +655,73 @@ main {
 <tbody>
 <tr>
   <td>TBM Council V4 is de facto standard for IT cost categorisation</td>
-  <td>TBM Council https://www.tbmcouncil.org/taxonomy/ [x]</td>
+  <td>TBM Council <a href="https://www.tbmcouncil.org/taxonomy/">www.tbmcouncil.org</a> [x]</td>
   <td>High</td>
   <td>Primary source from industry standard body</td>
 </tr>
 <tr>
   <td>IaaS costs can increase 20–30% annually without governance</td>
-  <td>InfoTech &quot;Invest in Realistic Project Costing&quot; https://www.infotech.com/research/ss/invest-in-realistic-and-comprehensive-project-costing [x]</td>
+  <td>InfoTech &quot;Invest in Realistic Project Costing&quot; <a href="https://www.infotech.com/research/ss/invest-in-realistic-and-comprehensive-project-costing">www.infotech.com</a> [x]</td>
   <td>High</td>
   <td>Practitioner source; consistent with cloud billing literature</td>
 </tr>
 <tr>
   <td>Eight canonical required assumptions</td>
-  <td>ITIL 4 Practice Guide https://uat2.axelos.com/resource-hub/practice/service-financial-management-itil-4-practice-guide [x]; TBM Council [x]; COBIT (Control Objectives for Information and Related Technologies) 2019 APO06 https://nextstepac.com/wp-content/uploads/2025/12/COBIT-2019-Design-Guide-by-ISACA.pdf [x]</td>
+  <td>ITIL 4 Practice Guide <a href="https://uat2.axelos.com/resource-hub/practice/service-financial-management-itil-4-practice-guide">uat2.axelos.com</a> [x]; TBM Council [x]; COBIT (Control Objectives for Information and Related Technologies) 2019 APO06 <a href="https://nextstepac.com/wp-content/uploads/2025/12/COBIT-2019-Design-Guide-by-ISACA.pdf">nextstepac.com</a> [x]</td>
   <td>High</td>
   <td>Synthesised from three independent practitioner frameworks</td>
 </tr>
 <tr>
   <td>Monte Carlo produces probability distribution; scenarios do not</td>
-  <td>Toptal https://www.toptal.com/management-consultants/financial-forecasting/monte-carlo-simulation [x]; FinancialModelsLab https://financialmodelslab.com/blogs/blog/monte-carlo-simulation-financial-modelling [x]; Investopedia https://www.investopedia.com/terms/m/montecarlosimulation.asp [x]</td>
+  <td>Toptal <a href="https://www.toptal.com/management-consultants/financial-forecasting/monte-carlo-simulation">www.toptal.com</a> [x]; FinancialModelsLab <a href="https://financialmodelslab.com/blogs/blog/monte-carlo-simulation-financial-modelling">financialmodelslab.com</a> [x]; Investopedia <a href="https://www.investopedia.com/terms/m/montecarlosimulation.asp">www.investopedia.com</a> [x]</td>
   <td>High</td>
   <td>Three independent secondary sources agree</td>
 </tr>
 <tr>
   <td>Positive IT cost correlation → arithmetic addition more conservative than RSS</td>
-  <td>Wikipedia &quot;Propagation of uncertainty&quot; https://en.wikipedia.org/wiki/Propagation_of_uncertainty [x]; WSU error propagation PDF https://s3.wp.wsu.edu/uploads/sites/2621/2021/06/A-3-Data-Analysis-4-Error-Propagation.pdf [x]</td>
+  <td>Wikipedia &quot;Propagation of uncertainty&quot; <a href="https://en.wikipedia.org/wiki/Propagation_of_uncertainty">en.wikipedia.org</a> [x]; WSU error propagation PDF <a href="https://s3.wp.wsu.edu/uploads/sites/2621/2021/06/A-3-Data-Analysis-4-Error-Propagation.pdf">s3.wp.wsu.edu</a> [x]</td>
   <td>Medium</td>
   <td>Mathematical basis established; correlation direction is inference applied to IT domain</td>
 </tr>
 <tr>
   <td>Early-stage errors amplified in multi-stage forecasts</td>
-  <td>TTI/Texas A&amp;M &quot;Propagation of Uncertainty Through Travel Demand Models&quot; https://static.tti.tamu.edu/swutc.tamu.edu/publications/technicalreports/167804-1.pdf [x]</td>
+  <td>TTI/Texas A&amp;M &quot;Propagation of Uncertainty Through Travel Demand Models&quot; <a href="https://static.tti.tamu.edu/swutc.tamu.edu/publications/technicalreports/167804-1.pdf">static.tti.tamu.edu</a> [x]</td>
   <td>Medium</td>
   <td>Adjacent field; directly applicable mathematical mechanism</td>
 </tr>
 <tr>
   <td>IAS 1.125 requires near-term material adjustment uncertainty disclosure</td>
-  <td>IFRS Foundation staff paper https://www.ifrs.org/content/dam/ifrs/meetings/2023/january/issb/ap3b-general-sustainability-related-disclosures-s1-disclosure-of-judgements-assumptions-and-estimates.pdf [x]; dreport.cz IAS 1.125 explainer https://www.dreport.cz/en/blog/disclosure-of-significant-judgements-and-key-sources-of-estimation-uncertainty/ [x]</td>
+  <td>IFRS Foundation staff paper <a href="https://www.ifrs.org/content/dam/ifrs/meetings/2023/january/issb/ap3b-general-sustainability-related-disclosures-s1-disclosure-of-judgements-assumptions-and-estimates.pdf">www.ifrs.org</a> [x]; dreport.cz IAS 1.125 explainer <a href="https://www.dreport.cz/en/blog/disclosure-of-significant-judgements-and-key-sources-of-estimation-uncertainty/">www.dreport.cz</a> [x]</td>
   <td>High</td>
   <td>Primary and secondary sources consistent</td>
 </tr>
 <tr>
   <td>FRC found widespread IAS 1.125 non-compliance (2017, 2022)</td>
-  <td>FRC July 2022 thematic review https://www.frc.org.uk/news-and-events/news/2022/07/frc-publishes-review-of-judgements-and-estimates/ [x]</td>
+  <td>FRC July 2022 thematic review <a href="https://www.frc.org.uk/news-and-events/news/2022/07/frc-publishes-review-of-judgements-and-estimates/">www.frc.org.uk</a> [x]</td>
   <td>High</td>
   <td>Regulatory body's own published finding</td>
 </tr>
 <tr>
   <td>GAAP ASC 275 &quot;reasonably possible&quot; lower trigger than IFRS</td>
-  <td>PwC Viewpoint 24.3 https://viewpoint.pwc.com/dt/us/en/pwc/accounting_guides/financial_statement_/financial_statement___18_US/chapter_24_risks_and_US/243_disclosure_US.html [x]; SEC SAB Topic 5 https://www.sec.gov/interps/account/sabcodet5.htm [x]</td>
+  <td>PwC Viewpoint 24.3 <a href="https://viewpoint.pwc.com/dt/us/en/pwc/accounting_guides/financial_statement_/financial_statement___18_US/chapter_24_risks_and_US/243_disclosure_US.html">viewpoint.pwc.com</a> [x]; SEC SAB Topic 5 <a href="https://www.sec.gov/interps/account/sabcodet5.htm">www.sec.gov</a> [x]</td>
   <td>High</td>
   <td>Two independent accounting guidance sources</td>
 </tr>
 <tr>
   <td>SEC MD&amp;A Item 303 requires known cost trend disclosure</td>
-  <td>SEC FR-72 (2003) https://www.sec.gov/rules-regulations/2003/12/commission-guidance-regarding-managements-discussion-analysis-financial-condition-results-operations [x]; Federal Register 2021 amendments https://www.federalregister.gov/documents/2021/01/11/2020-26090/managements-discussion-and-analysis-selected-financial-data-and-supplementary-financial-information [x]</td>
+  <td>SEC FR-72 (2003) <a href="https://www.sec.gov/rules-regulations/2003/12/commission-guidance-regarding-managements-discussion-analysis-financial-condition-results-operations">www.sec.gov</a> [x]; Federal Register 2021 amendments <a href="https://www.federalregister.gov/documents/2021/01/11/2020-26090/managements-discussion-and-analysis-selected-financial-data-and-supplementary-financial-information">www.federalregister.gov</a> [x]</td>
   <td>High</td>
   <td>Primary regulatory sources</td>
 </tr>
 <tr>
   <td>SOX 302/404 applies to ICFR for material IT cost estimation</td>
-  <td>AuditBoard SOX overview https://auditboard.com/blog/sarbanes-oxley-act [x]; UpGuard SOX guide https://www.upguard.com/blog/sox-compliance [x]</td>
+  <td>AuditBoard SOX overview <a href="https://auditboard.com/blog/sarbanes-oxley-act">auditboard.com</a> [x]; UpGuard SOX guide <a href="https://www.upguard.com/blog/sox-compliance">www.upguard.com</a> [x]</td>
   <td>High</td>
   <td>Multiple independent secondary sources</td>
 </tr>
 <tr>
   <td>EU Prospectus Regulation requires specific, quantified IT risk factors</td>
-  <td>EUR-Lex Regulation (EU) 2017/1129 https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:02017R1129-20191231 [x]; Travers Smith overview https://www.traverssmith.com/knowledge/knowledge-container/eu-prospectus-regulation-what-fund-managers-and-investment-companies-sponsors-need-to-know/ [x]</td>
+  <td>EUR-Lex Regulation (EU) 2017/1129 <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:02017R1129-20191231">eur-lex.europa.eu</a> [x]; Travers Smith overview <a href="https://www.traverssmith.com/knowledge/knowledge-container/eu-prospectus-regulation-what-fund-managers-and-investment-companies-sponsors-need-to-know/">www.traverssmith.com</a> [x]</td>
   <td>High</td>
   <td>Primary regulatory source and legal practitioner commentary</td>
 </tr>
@@ -694,9 +779,9 @@ main {
 <li><strong>Type:</strong> knowledge</li>
 <li><strong>Description:</strong> Structured reference on IT operational run-cost forecasting best practices, covering cost taxonomy, required assumptions, uncertainty modelling techniques, compounding error propagation, and regulatory disclosure requirements across IFRS, GAAP, SEC MD&amp;A, SOX, FRC, and EU Prospectus Regulation.</li>
 <li><strong>Key sources:</strong><ul>
-<li>TBM Council V4 Taxonomy (primary IT cost taxonomy standard): https://www.tbmcouncil.org/taxonomy/</li>
-<li>SEC FR-72 / Item 303 MD&amp;A guidance (regulatory disclosure standard): https://www.sec.gov/rules-regulations/2003/12/commission-guidance-regarding-managements-discussion-analysis-financial-condition-results-operations</li>
-<li>FRC July 2022 Thematic Review: Judgements and Estimates (enforcement evidence): https://www.frc.org.uk/news-and-events/news/2022/07/frc-publishes-review-of-judgements-and-estimates/</li>
+<li>TBM Council V4 Taxonomy (primary IT cost taxonomy standard): <a href="https://www.tbmcouncil.org/taxonomy/</li>">www.tbmcouncil.org</a>
+<li>SEC FR-72 / Item 303 MD&amp;A guidance (regulatory disclosure standard): <a href="https://www.sec.gov/rules-regulations/2003/12/commission-guidance-regarding-managements-discussion-analysis-financial-condition-results-operations</li>">www.sec.gov</a>
+<li>FRC July 2022 Thematic Review: Judgements and Estimates (enforcement evidence): <a href="https://www.frc.org.uk/news-and-events/news/2022/07/frc-publishes-review-of-judgements-and-estimates/</li>">www.frc.org.uk</a>
 </ul>
 </li>
 </ul>
@@ -706,8 +791,8 @@ main {
   </div>
   
   <div class="item-nav">
-    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-14-organisational-intent-formal-specification.html">Can organisational intent be expressed as a formally structured specification from which artefacts are derived and consistency is machine-checked?</a></div>
-    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-12-volume-vs-correctness-ai-era.html">AI inverted the knowledge-work scarcity equation: volume is free, correctness is the scarce resource</a></div>
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-14-organisational-intent-formal-specification.html">Can organisational intent be expressed as a formally structured specification…</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-12-volume-vs-correctness-ai-era.html">AI inverted the knowledge-work scarcity equation</a></div>
   </div>
 </main>
 </body>

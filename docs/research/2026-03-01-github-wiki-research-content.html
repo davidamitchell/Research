@@ -3,7 +3,7 @@
         <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>GitHub wiki for research content: approach and tooling — Research</title>
+          <title>GitHub wiki for research content — Research</title>
           <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -503,15 +585,18 @@ main {
     <span>/</span>
     <a href="/Research/browse.html">Browse</a>
     <span>/</span>
-    <span>GitHub wiki for research content: approach and tooling</span>
+    <span>GitHub wiki for research content</span>
   </div>
-  <h1 class="item-title">GitHub wiki for research content: approach and tooling</h1>
+  <h1 class="item-title">GitHub wiki for research content</h1>
+  <p class="full-title-subtitle">GitHub wiki for research content: approach and tooling</p>
   <div class="meta-bar">
     <span>2026-03-01</span>
     <span class="meta-sep">·</span>
-    <a class="tag" href="/Research/tags/wiki.html">wiki</a> <a class="tag" href="/Research/tags/github.html">github</a> <a class="tag" href="/Research/tags/delivery.html">delivery</a> <a class="tag" href="/Research/tags/interface.html">interface</a> <a class="tag" href="/Research/tags/output.html">output</a> 
+    <a class="tag" href="/Research/tags/delivery.html">delivery</a> <a class="tag" href="/Research/tags/interface.html">interface</a> 
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-01-github-wiki-research-content.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-01-github-wiki-research-content" target="_blank" rel="noopener">wiki →</a>
   </div>
   <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>The GitHub wiki is a distinct git repo</li>
 <li>`GITHUB_TOKEN` is sufficient — no PAT needed</li>
@@ -532,7 +617,7 @@ main {
 <p>The GitHub wiki is a separate, flat git repository (<code>{repo}.wiki.git</code>) that can be cloned and pushed by any Actions workflow with <code>contents: write</code> permission using the built-in <code>GITHUB_TOKEN</code> — no PAT required. A full-rebuild approach (delete all pages, regenerate from <code>Research/completed/</code> on each push) is correct for this repository's volume and eliminates incremental state complexity. A Python script strips YAML front-matter, writes one wiki page per completed item, and generates <code>Home.md</code> (date-sorted index) and <code>_Sidebar.md</code> (tag navigation). The workflow triggers on any push to <code>main</code> that touches <code>Research/completed/**</code>, and also supports <code>workflow_dispatch</code> for manual runs. The wiki must be enabled once in repository Settings.</p>
 <h3>Key Findings</h3>
 <ol>
-<li><p><strong>The GitHub wiki is a distinct git repo.</strong> Every repository's wiki lives at <code>https://github.com/{owner}/{repo}.wiki.git</code>. It can be cloned and pushed like any git repository. <code>actions/checkout@v4</code> supports a <code>repository:</code> parameter that accepts <code>${{ github.repository }}.wiki</code>, making checkout straightforward.</p>
+<li><p><strong>The GitHub wiki is a distinct git repo.</strong> Every repository's wiki lives at <code><a href="https://github.com/{owner}/{repo}.wiki.git</code>">github.com</a> It can be cloned and pushed like any git repository. <code>actions/checkout@v4</code> supports a <code>repository:</code> parameter that accepts <code>${{ github.repository }}.wiki</code>, making checkout straightforward.</p>
 </li>
 <li><p><strong><code>GITHUB_TOKEN</code> is sufficient — no PAT needed.</strong> Actions workflows with <code>permissions: contents: write</code> can push to the wiki repo of the same repository using <code>${{ secrets.GITHUB_TOKEN }}</code>. No additional secrets are required.</p>
 </li>
@@ -643,7 +728,7 @@ main {
 
   <div class="item-nav">
     <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-02-agent-memory-management-context-injection.html">Agent Memory Management and Context Injection</a></div>
-    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-01-github-specify-ralph-loop-lisa-planning.html">GitHub Specify, Ralph Loops, and Lisa Planning: Proof-Driven Development with AI Agents</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-01-github-specify-ralph-loop-lisa-planning.html">GitHub Specify, Ralph Loops, and Lisa Planning</a></div>
   </div>
 </main>
 </body>

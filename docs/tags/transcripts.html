@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -506,20 +588,20 @@ main {
   <div class="card-grid">
     <a class="card" href="/Research/research/2026-02-28-transcript-via-yt-dlp-whisper.html" data-title="youtube transcripts via yt-dlp audio + whisper transcription" data-question="can we bypass youtube&#39;s ip-based transcript block by downloading the **audio track** with
 `yt-dlp` (a different endpoint from the transcript api) and then transcribing it with
-openai whisper?" data-tags="youtube,transcripts,whisper,yt-dlp,tooling,automation">
+openai whisper?" data-tags="youtube,transcripts,tooling,automation">
   <div class="card-title">YouTube transcripts via yt-dlp audio + Whisper transcription</div>
   <div class="card-meta">2026-02-28</div>
-  <div class="card-tags"><span class="tag">youtube</span><span class="tag">transcripts</span><span class="tag">whisper</span><span class="tag">yt-dlp</span><span class="tag">tooling</span><span class="tag">automation</span></div>
+  <div class="card-tags"><span class="tag">youtube</span><span class="tag">transcripts</span><span class="tag">tooling</span><span class="tag">automation</span></div>
   <div class="card-excerpt">Can we bypass YouTube&#39;s IP-based transcript block by downloading the **audio track** with
 `yt-dlp` (a different endpoint from the transcript API) and then transcribing it with
 OpenAI Whisper?</div>
 </a>
 <a class="card" href="/Research/research/2026-02-28-transcript-via-third-party-apis.html" data-title="youtube transcripts via third-party transcript apis (assemblyai / supadata)" data-question="can a third-party transcript api (assemblyai, supadata, kagi, or similar) retrieve youtube
 transcripts from a github actions runner, bypassing youtube&#39;s ip-based block on the
-internal transcript endpo" data-tags="youtube,transcripts,assemblyai,supadata,tooling,automation">
+internal transcript endpo" data-tags="youtube,transcripts,tooling,automation">
   <div class="card-title">YouTube transcripts via third-party transcript APIs (AssemblyAI / Supadata)</div>
   <div class="card-meta">2026-02-28</div>
-  <div class="card-tags"><span class="tag">youtube</span><span class="tag">transcripts</span><span class="tag">assemblyai</span><span class="tag">supadata</span><span class="tag">tooling</span><span class="tag">automation</span></div>
+  <div class="card-tags"><span class="tag">youtube</span><span class="tag">transcripts</span><span class="tag">tooling</span><span class="tag">automation</span></div>
   <div class="card-excerpt">Can a third-party transcript API (AssemblyAI, Supadata, Kagi, or similar) retrieve YouTube
 transcripts from a GitHub Actions runner, bypassing YouTube&#39;s IP-based block on the
 internal transcript endpo…</div>

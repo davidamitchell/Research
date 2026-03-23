@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -506,12 +588,14 @@ main {
     <span>YouTube transcripts via Gemini API (native YouTube URL support)</span>
   </div>
   <h1 class="item-title">YouTube transcripts via Gemini API (native YouTube URL support)</h1>
-  <div class="meta-bar">
+    <div class="meta-bar">
     <span>2026-02-28</span>
     <span class="meta-sep">·</span>
     <a class="tag" href="/Research/tags/youtube.html">youtube</a> <a class="tag" href="/Research/tags/transcripts.html">transcripts</a> <a class="tag" href="/Research/tags/gemini.html">gemini</a> <a class="tag" href="/Research/tags/tooling.html">tooling</a> <a class="tag" href="/Research/tags/automation.html">automation</a> 
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-02-28-transcript-via-gemini-api.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-02-28-transcript-via-gemini-api" target="_blank" rel="noopener">wiki →</a>
   </div>
   
   <div class="item-content">
@@ -548,37 +632,37 @@ extract full transcripts from YouTube videos without being blocked by YouTube's 
 <tbody>
 <tr>
   <td>YouTube URL IP bypass via server-side processing</td>
-  <td>https://ai.google.dev/gemini-api/docs/video-understanding</td>
+  <td><a href="https://ai.google.dev/gemini-api/docs/video-understanding</td>">ai.google.dev</a>
   <td>high</td>
   <td>Official docs show <code>fileData.fileUri</code> with YouTube URLs</td>
 </tr>
 <tr>
   <td>Gemini output is paraphrase, not verbatim</td>
-  <td>https://vomo.ai/blog/can-gemini-transcribe-youtube-videos</td>
+  <td><a href="https://vomo.ai/blog/can-gemini-transcribe-youtube-videos</td>">vomo.ai</a>
   <td>high</td>
   <td>Direct test with Gemini 2.5 Flash</td>
 </tr>
 <tr>
   <td>Paraphrase even with explicit prompting</td>
-  <td>https://ai-rockstars.com/tutorial-transcribing-youtube-videos-with-google-ai-studio/</td>
+  <td><a href="https://ai-rockstars.com/tutorial-transcribing-youtube-videos-with-google-ai-studio/</td>">ai-rockstars.com</a>
   <td>high</td>
   <td>Tutorial analysis of quality limits</td>
 </tr>
 <tr>
   <td><code>google-genai&gt;=1.0.0</code> supports YouTube URL input</td>
-  <td>https://ai.google.dev/gemini-api/docs/video-understanding + Latest-developments- requirements.txt</td>
+  <td><a href="https://ai.google.dev/gemini-api/docs/video-understanding">ai.google.dev</a> + Latest-developments- requirements.txt</td>
   <td>high</td>
   <td>Official SDK code examples + confirmed dependency</td>
 </tr>
 <tr>
   <td>Gemini Flash free tier: up to 1,500 RPD</td>
-  <td>https://ai.google.dev/gemini-api/docs/rate-limits + third-party rate limit analysis</td>
+  <td><a href="https://ai.google.dev/gemini-api/docs/rate-limits">ai.google.dev</a> + third-party rate limit analysis</td>
   <td>high</td>
   <td>Cross-confirmed across sources</td>
 </tr>
 <tr>
   <td>Free tier input/output tokens at $0</td>
-  <td>https://ai.google.dev/gemini-api/docs/pricing</td>
+  <td><a href="https://ai.google.dev/gemini-api/docs/pricing</td>">ai.google.dev</a>
   <td>high</td>
   <td>Official pricing page</td>
 </tr>
@@ -637,9 +721,9 @@ extract full transcripts from YouTube videos without being blocked by YouTube's 
 <li><strong>Type:</strong> knowledge</li>
 <li><strong>Description:</strong> Determines that Gemini API bypasses YouTube IP restriction via server-side processing, but produces paraphrased summaries not verbatim transcripts. Implementation of a Gemini-based video analysis fetcher is viable using existing credentials and SDK. Recommendation: implement as analysis fetcher, not transcript fetcher; pursue yt-dlp + Whisper for verbatim text.</li>
 <li><strong>Key sources:</strong><ol>
-<li>https://ai.google.dev/gemini-api/docs/video-understanding — official YouTube URL support documentation</li>
-<li>https://vomo.ai/blog/can-gemini-transcribe-youtube-videos — independent test of transcript quality</li>
-<li>https://ai.google.dev/gemini-api/docs/rate-limits — official free-tier rate limits</li>
+<li><a href="https://ai.google.dev/gemini-api/docs/video-understanding">ai.google.dev</a> — official YouTube URL support documentation</li>
+<li><a href="https://vomo.ai/blog/can-gemini-transcribe-youtube-videos">vomo.ai</a> — independent test of transcript quality</li>
+<li><a href="https://ai.google.dev/gemini-api/docs/rate-limits">ai.google.dev</a> — official free-tier rate limits</li>
 </ol>
 </li>
 </ul>
@@ -652,7 +736,7 @@ extract full transcripts from YouTube videos without being blocked by YouTube's 
 
   <div class="item-nav">
     <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-02-28-transcript-via-third-party-apis.html">YouTube transcripts via third-party transcript APIs (AssemblyAI / Supadata)</a></div>
-    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-02-28-rbnz-ai-supervisory-expectations.html">RBNZ AI Supervisory Expectations: What Do Regulated Entities Need to Know?</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-02-28-rbnz-ai-supervisory-expectations.html">RBNZ AI Supervisory Expectations</a></div>
   </div>
 </main>
 </body>

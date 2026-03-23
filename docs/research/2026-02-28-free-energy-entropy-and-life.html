@@ -3,7 +3,7 @@
         <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Free energy, entropy, and life: why organisms predict — from Schrödinger to Friston to Seth — Research</title>
+          <title>Free energy, entropy, and life — Research</title>
           <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -503,15 +585,18 @@ main {
     <span>/</span>
     <a href="/Research/browse.html">Browse</a>
     <span>/</span>
-    <span>Free energy, entropy, and life: why organisms predict — from Schrödinger to Friston to Seth</span>
+    <span>Free energy, entropy, and life</span>
   </div>
-  <h1 class="item-title">Free energy, entropy, and life: why organisms predict — from Schrödinger to Friston to Seth</h1>
+  <h1 class="item-title">Free energy, entropy, and life</h1>
+  <p class="full-title-subtitle">Free energy, entropy, and life: why organisms predict — from Schrödinger to Friston to Seth</p>
   <div class="meta-bar">
     <span>2026-02-28</span>
     <span class="meta-sep">·</span>
-    <a class="tag" href="/Research/tags/free-energy-principle.html">free-energy-principle</a> <a class="tag" href="/Research/tags/entropy.html">entropy</a> <a class="tag" href="/Research/tags/predictive-processing.html">predictive-processing</a> <a class="tag" href="/Research/tags/active-inference.html">active-inference</a> <a class="tag" href="/Research/tags/karl-friston.html">karl-friston</a> <a class="tag" href="/Research/tags/anil-seth.html">anil-seth</a> <a class="tag" href="/Research/tags/consciousness.html">consciousness</a> <a class="tag" href="/Research/tags/thermodynamics.html">thermodynamics</a> <a class="tag" href="/Research/tags/life.html">life</a> 
+    <a class="tag" href="/Research/tags/free-energy-principle.html">free-energy-principle</a> <a class="tag" href="/Research/tags/entropy.html">entropy</a> <a class="tag" href="/Research/tags/predictive-processing.html">predictive-processing</a> <a class="tag" href="/Research/tags/active-inference.html">active-inference</a> <a class="tag" href="/Research/tags/karl-friston.html">karl-friston</a> <a class="tag" href="/Research/tags/anil-seth.html">anil-seth</a> <a class="tag" href="/Research/tags/consciousness.html">consciousness</a> 
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-02-28-free-energy-entropy-and-life.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-02-28-free-energy-entropy-and-life" target="_blank" rel="noopener">wiki →</a>
   </div>
   <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Schrödinger&#39;s negentropy argument establishes that life requires thermodynamic openness, not a violation of the second law</li>
 <li>Friston&#39;s variational free energy (VFE) is formally derived from Shannon entropy and shares mathematical structure with Boltzmann entropy; the connection to thermodynamics is structural, not merely analogical</li>
@@ -576,7 +661,7 @@ main {
 <p>The key intellectual achievement of this three-layer picture is that it relocates the mystery of consciousness. Instead of asking &quot;why does brain activity produce experience?&quot; (Chalmers' hard problem, which has made no empirical progress), Seth asks &quot;what is the specific kind of predictive process that produces <em>this specific structure</em> of conscious experience?&quot; The answer — interoceptive, survival-oriented, allostatic prediction — generates testable predictions and a research programme. Whether it ultimately dissolves the hard problem or merely defers it remains genuinely open.</p>
 <h3>Risks, Gaps, and Uncertainties</h3>
 <ul>
-<li>The Dialectical Systems &quot;Life beyond the free energy principle&quot; article (URL: https://www.dialecticalsystems.eu/contributions/life-beyond-the-free-energy-principle-how-to-survive-without-invariance/) was inaccessible during research. It reportedly targets the <em>invariance</em> assumption in FEP — that generative models are stable. If this objection is as strong as indicated by secondary references, it would be relevant to claims about long-term biological adaptation.</li>
+<li>The Dialectical Systems &quot;Life beyond the free energy principle&quot; article (URL: <a href="https://www.dialecticalsystems.eu/contributions/life-beyond-the-free-energy-principle-how-to-survive-without-invariance/">www.dialecticalsystems.eu</a> was inaccessible during research. It reportedly targets the <em>invariance</em> assumption in FEP — that generative models are stable. If this objection is as strong as indicated by secondary references, it would be relevant to claims about long-term biological adaptation.</li>
 <li><em>Being You</em> chapters 5–8 were not directly read; Seth's characterisation is based on the Quanta Magazine interview (primary) and prior completed research items. The specific technical development of the beast machine thesis may contain nuances not captured here.</li>
 <li>The formal proof of the Markov blanket → VFE minimisation result (Friston 2022 arXiv full text) was accessed in summary only. The technical steps of that proof are not independently verified.</li>
 <li>Whether allostasis is empirically distinguishable from reactive homeostasis at the neural level (the key premise for why prediction rather than mere metabolic robustness is needed) requires direct neuroscience review, which is beyond this item's scope.</li>
@@ -593,9 +678,9 @@ main {
 <li><strong>Type:</strong> knowledge</li>
 <li><strong>Description:</strong> A structured analysis of the three-layer thermodynamics → FEP → consciousness argument, establishing where the transitions are formal vs. conjectural, characterising the Seth/Friston distinction, and identifying empirical research directions.</li>
 <li><strong>Key sources:</strong><ul>
-<li>Seth, A.K. (2021). &quot;Anil Seth Finds Consciousness in Life's Push Against Entropy.&quot; <em>Quanta Magazine</em>. https://www.quantamagazine.org/anil-seth-finds-consciousness-in-lifes-push-against-entropy-20210930/</li>
-<li>Friston, K. et al. (2022). &quot;The free energy principle made simpler but not too simple.&quot; arXiv:2201.06387. https://arxiv.org/abs/2201.06387</li>
-<li>Wikipedia: Free energy principle. https://en.wikipedia.org/wiki/Free_energy_principle</li>
+<li>Seth, A.K. (2021). &quot;Anil Seth Finds Consciousness in Life's Push Against Entropy.&quot; <em>Quanta Magazine</em>. <a href="https://www.quantamagazine.org/anil-seth-finds-consciousness-in-lifes-push-against-entropy-20210930/</li>">www.quantamagazine.org</a>
+<li>Friston, K. et al. (2022). &quot;The free energy principle made simpler but not too simple.&quot; arXiv:2201.06387. <a href="https://arxiv.org/abs/2201.06387</li>">arxiv.org/abs/2201.06387</li></a>
+<li>Wikipedia: Free energy principle. <a href="https://en.wikipedia.org/wiki/Free_energy_principle</li>">en.wikipedia.org</a>
 </ul>
 </li>
 </ul>
@@ -611,7 +696,7 @@ main {
 
   <div class="item-nav">
     <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-02-28-hard-problem-vs-real-problem-consciousness.html">The hard problem vs. the real problem of consciousness</a></div>
-    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-02-28-exploit-explore-ai-portfolio-framework.html">Exploit vs Explore: A Decision Framework for AI Portfolio Planning</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-02-28-exploit-explore-ai-portfolio-framework.html">Exploit vs Explore</a></div>
   </div>
 </main>
 </body>

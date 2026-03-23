@@ -3,7 +3,7 @@
         <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Claude for iOS: MCP remote integration for memory capture and retrieval — Research</title>
+          <title>Claude for iOS — Research</title>
           <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -503,15 +585,18 @@ main {
     <span>/</span>
     <a href="/Research/browse.html">Browse</a>
     <span>/</span>
-    <span>Claude for iOS: MCP remote integration for memory capture and retrieval</span>
+    <span>Claude for iOS</span>
   </div>
-  <h1 class="item-title">Claude for iOS: MCP remote integration for memory capture and retrieval</h1>
+  <h1 class="item-title">Claude for iOS</h1>
+  <p class="full-title-subtitle">Claude for iOS: MCP remote integration for memory capture and retrieval</p>
   <div class="meta-bar">
     <span>2026-03-08</span>
     <span class="meta-sep">·</span>
     <a class="tag" href="/Research/tags/mobile.html">mobile</a> <a class="tag" href="/Research/tags/claude.html">claude</a> <a class="tag" href="/Research/tags/ios.html">ios</a> <a class="tag" href="/Research/tags/mcp.html">mcp</a> <a class="tag" href="/Research/tags/memory-system.html">memory-system</a> <a class="tag" href="/Research/tags/self-hosted.html">self-hosted</a> 
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-claude-ios-mcp-remote-integration.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-08-claude-ios-mcp-remote-integration" target="_blank" rel="noopener">wiki →</a>
   </div>
   
   <div class="item-content">
@@ -527,7 +612,7 @@ main {
 <li>Remote MCP uses Streamable HTTP transport (the current MCP standard) or backwards-compatible legacy HTTP+SSE; stdio transport is architecturally impossible for iOS because it requires launching a subprocess on the client device.</li>
 <li>Configuration for remote connectors is done via the claude.ai web Settings → Connectors → &quot;Add custom connector&quot; UI, not <code>.mcp.json</code>; that file is exclusively a Claude Desktop mechanism for local stdio servers.</li>
 <li>Connectors configured on the claude.ai web UI sync to the Claude iOS app at login; there is no native iOS connector configuration UI — the iOS app consumes connector state set up on the web.</li>
-<li>The server must be HTTPS (explicitly required by the Anthropic MCP connector API: URL &quot;must start with https://&quot;) and publicly reachable from Anthropic's infrastructure, which acts as relay between the iOS app and the remote MCP server.</li>
+<li>The server must be HTTPS (explicitly required by the Anthropic MCP connector API: URL &quot;must start with <a href="https://&quot">&quot</a> and publicly reachable from Anthropic's infrastructure, which acts as relay between the iOS app and the remote MCP server.</li>
 <li>Authentication is optional per the MCP specification; the claude.ai custom connector UI supports no-auth (open endpoint) or OAuth 2.1; static bearer tokens (not OAuth) are available only through the Messages API and do not apply to the claude.ai/iOS connector path.</li>
 <li>Custom connectors require a paid Claude plan (Pro at $20/month minimum); the free plan cannot add custom connector URLs.</li>
 <li>A no-auth remote MCP server is accessible to any caller who discovers the URL; for personal memory data, IP allowlisting to Anthropic's published IP ranges or OAuth 2.1 is the minimum security measure.</li>
@@ -571,7 +656,7 @@ main {
 </tr>
 <tr>
   <td>HTTPS mandatory for remote connectors</td>
-  <td>MCP connector API docs (&quot;must start with https://&quot;)</td>
+  <td>MCP connector API docs (&quot;must start with <a href="https://&quot;)</td>">&quot;)<</a>
   <td>high</td>
   <td>Direct quote</td>
 </tr>
@@ -642,8 +727,8 @@ main {
 </div></div>
 
   <div class="item-nav">
-    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-08-context-engineering-first-principles.html">Context engineering: first principles of steering LLM output without control</a></div>
-    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-08-chatgpt-actions-memory-integration.html">ChatGPT Actions and custom GPTs: external memory integration options</a></div>
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-08-context-engineering-first-principles.html">Context engineering</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-08-chatgpt-actions-memory-integration.html">ChatGPT Actions and custom GPTs</a></div>
   </div>
 </main>
 </body>

@@ -413,9 +413,91 @@ main {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  main { padding: 72px 1rem 3rem; }
-  nav { padding: 0 1rem; }
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
 }
 
 /* Stats block */
@@ -504,16 +586,16 @@ main {
     <a class="back-link" href="/Research/browse.html">← browse</a>
   </div>
   <div class="card-grid">
-    <a class="card" href="/Research/research/2026-03-15-context-layers-aligned-decisions-synthesis.html" data-title="aligned decision-making: context architecture for ai agents in organisations" data-question="what framework should an organisation adopt to ensure that ai agents making or supporting decisions have access to the right layered organisational context — spanning regulatory boundaries, values and" data-tags="context-architecture,alignment,decision-making,enterprise-ai,rag,knowledge-management,organisational-strategy,synthesis">
-  <div class="card-title">Aligned Decision-Making: Context Architecture for AI Agents in Organisations</div>
+    <a class="card" href="/Research/research/2026-03-15-context-layers-aligned-decisions-synthesis.html" data-title="aligned decision-making" data-question="what framework should an organisation adopt to ensure that ai agents making or supporting decisions have access to the right layered organisational context — spanning regulatory boundaries, values and" data-tags="alignment,decision-making,enterprise-ai,rag,knowledge-management,synthesis">
+  <div class="card-title">Aligned Decision-Making</div>
   <div class="card-meta">2026-03-15</div>
-  <div class="card-tags"><span class="tag">context-architecture</span><span class="tag">alignment</span><span class="tag">decision-making</span><span class="tag">enterprise-ai</span><span class="tag">rag</span><span class="tag">knowledge-management</span><span class="tag">organisational-strategy</span><span class="tag">synthesis</span></div>
+  <div class="card-tags"><span class="tag">alignment</span><span class="tag">decision-making</span><span class="tag">enterprise-ai</span><span class="tag">rag</span><span class="tag">knowledge-management</span><span class="tag">synthesis</span></div>
   <div class="card-excerpt">What framework should an organisation adopt to ensure that AI agents making or supporting decisions have access to the right layered organisational context — spanning regulatory boundaries, values and…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-12-failure-mode-taxonomy-expansion.html" data-title="failure mode taxonomy: empirical frequency, causal mechanisms, detection signals, and cascade patterns in production agentic systems" data-question="the five-layer failure mode taxonomy established in `2026-03-10-ai-concept-classification-taxonomy.md` (q5) provides a structurally sound classification, but leaves three empirical gaps unanswered: (1" data-tags="failure-modes,taxonomy,hallucination,reward-hacking,prompt-injection,alignment,agentic-systems,owasp,safety,observability">
-  <div class="card-title">Failure mode taxonomy: empirical frequency, causal mechanisms, detection signals, and cascade patterns in production agentic systems</div>
+<a class="card" href="/Research/research/2026-03-12-failure-mode-taxonomy-expansion.html" data-title="failure mode taxonomy" data-question="the five-layer failure mode taxonomy established in `2026-03-10-ai-concept-classification-taxonomy.md` (q5) provides a structurally sound classification, but leaves three empirical gaps unanswered: (1" data-tags="failure-modes,taxonomy,hallucination,reward-hacking,prompt-injection,alignment,agentic-systems,owasp,observability">
+  <div class="card-title">Failure mode taxonomy</div>
   <div class="card-meta">2026-03-12</div>
-  <div class="card-tags"><span class="tag">failure-modes</span><span class="tag">taxonomy</span><span class="tag">hallucination</span><span class="tag">reward-hacking</span><span class="tag">prompt-injection</span><span class="tag">alignment</span><span class="tag">agentic-systems</span><span class="tag">owasp</span><span class="tag">safety</span><span class="tag">observability</span></div>
+  <div class="card-tags"><span class="tag">failure-modes</span><span class="tag">taxonomy</span><span class="tag">hallucination</span><span class="tag">reward-hacking</span><span class="tag">prompt-injection</span><span class="tag">alignment</span><span class="tag">agentic-systems</span><span class="tag">owasp</span><span class="tag">observability</span></div>
   <div class="card-excerpt">The five-layer failure mode taxonomy established in `2026-03-10-ai-concept-classification-taxonomy.md` (Q5) provides a structurally sound classification, but leaves three empirical gaps unanswered: (1…</div>
 </a>
 <a class="card" href="/Research/research/2026-03-05-llm-hallucination-mechanisms.html" data-title="llm hallucinations — types, causes, and current mitigation approaches" data-question="what are the established types, root causes, and current mitigation strategies for hallucinations in large language models, and what does the macroscopic (training-level) view leave unexplained that m" data-tags="llm,hallucinations,reliability,alignment,grounding,mechanistic-interpretability">
@@ -522,34 +604,34 @@ main {
   <div class="card-tags"><span class="tag">llm</span><span class="tag">hallucinations</span><span class="tag">reliability</span><span class="tag">alignment</span><span class="tag">grounding</span><span class="tag">mechanistic-interpretability</span></div>
   <div class="card-excerpt">What are the established types, root causes, and current mitigation strategies for hallucinations in large language models, and what does the macroscopic (training-level) view leave unexplained that m…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-05-h-neurons-synthesis.html" data-title="h-neurons synthesis — from hallucination mechanisms to actionable llm reliability engineering" data-question="across all four preceding research items — the macroscopic hallucination landscape, the h-neurons paper, over-compliance interventions, and pre-training origins — what is the unified, actionable pictu" data-tags="llm,hallucinations,h-neurons,mechanistic-interpretability,over-compliance,pre-training,alignment,reliability,synthesis">
-  <div class="card-title">H-Neurons Synthesis — From Hallucination Mechanisms to Actionable LLM Reliability Engineering</div>
+<a class="card" href="/Research/research/2026-03-05-h-neurons-synthesis.html" data-title="h-neurons synthesis — from hallucination mechanisms to actionable llm…" data-question="across all four preceding research items — the macroscopic hallucination landscape, the h-neurons paper, over-compliance interventions, and pre-training origins — what is the unified, actionable pictu" data-tags="llm,hallucinations,h-neurons,mechanistic-interpretability,over-compliance,pre-training,alignment,reliability,synthesis">
+  <div class="card-title">H-Neurons Synthesis — From Hallucination Mechanisms to Actionable LLM…</div>
   <div class="card-meta">2026-03-05</div>
   <div class="card-tags"><span class="tag">llm</span><span class="tag">hallucinations</span><span class="tag">h-neurons</span><span class="tag">mechanistic-interpretability</span><span class="tag">over-compliance</span><span class="tag">pre-training</span><span class="tag">alignment</span><span class="tag">reliability</span><span class="tag">synthesis</span></div>
   <div class="card-excerpt">Across all four preceding research items — the macroscopic hallucination landscape, the H-Neurons paper, over-compliance interventions, and pre-training origins — what is the unified, actionable pictu…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-05-h-neurons-in-llms.html" data-title="hallucination-associated neurons (h-neurons) in llms — identification, behavioural impact, and origins" data-question="what are hallucination-associated neurons (h-neurons) in large language models, how can they be identified, what behaviours do they cause, where do they come from, and what do these findings imply for" data-tags="llm,hallucinations,h-neurons,mechanistic-interpretability,over-compliance,pre-training,alignment,reliability,arxiv">
-  <div class="card-title">Hallucination-Associated Neurons (H-Neurons) in LLMs — Identification, Behavioural Impact, and Origins</div>
+<a class="card" href="/Research/research/2026-03-05-h-neurons-in-llms.html" data-title="hallucination-associated neurons (h-neurons) in llms — identification,…" data-question="what are hallucination-associated neurons (h-neurons) in large language models, how can they be identified, what behaviours do they cause, where do they come from, and what do these findings imply for" data-tags="llm,hallucinations,h-neurons,mechanistic-interpretability,over-compliance,pre-training,alignment,reliability">
+  <div class="card-title">Hallucination-Associated Neurons (H-Neurons) in LLMs — Identification,…</div>
   <div class="card-meta">2026-03-05</div>
-  <div class="card-tags"><span class="tag">llm</span><span class="tag">hallucinations</span><span class="tag">h-neurons</span><span class="tag">mechanistic-interpretability</span><span class="tag">over-compliance</span><span class="tag">pre-training</span><span class="tag">alignment</span><span class="tag">reliability</span><span class="tag">arxiv</span></div>
+  <div class="card-tags"><span class="tag">llm</span><span class="tag">hallucinations</span><span class="tag">h-neurons</span><span class="tag">mechanistic-interpretability</span><span class="tag">over-compliance</span><span class="tag">pre-training</span><span class="tag">alignment</span><span class="tag">reliability</span></div>
   <div class="card-excerpt">What are Hallucination-Associated Neurons (H-Neurons) in large language models, how can they be identified, what behaviours do they cause, where do they come from, and what do these findings imply for…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-05-h-neuron-pretraining-origins.html" data-title="pre-training origins of hallucination-associated neurons — implications for llm development" data-question="given that hallucination-associated neurons (h-neurons) emerge during pre-training rather than instruction tuning or rlhf, what does this reveal about how hallucination-prone behaviour is encoded duri" data-tags="llm,hallucinations,h-neurons,pre-training,alignment,rlhf,training-dynamics,mechanistic-interpretability,reliability">
-  <div class="card-title">Pre-Training Origins of Hallucination-Associated Neurons — Implications for LLM Development</div>
+<a class="card" href="/Research/research/2026-03-05-h-neuron-pretraining-origins.html" data-title="pre-training origins of hallucination-associated neurons — implications for llm…" data-question="given that hallucination-associated neurons (h-neurons) emerge during pre-training rather than instruction tuning or rlhf, what does this reveal about how hallucination-prone behaviour is encoded duri" data-tags="llm,hallucinations,h-neurons,pre-training,alignment,mechanistic-interpretability,reliability">
+  <div class="card-title">Pre-Training Origins of Hallucination-Associated Neurons — Implications for LLM…</div>
   <div class="card-meta">2026-03-05</div>
-  <div class="card-tags"><span class="tag">llm</span><span class="tag">hallucinations</span><span class="tag">h-neurons</span><span class="tag">pre-training</span><span class="tag">alignment</span><span class="tag">rlhf</span><span class="tag">training-dynamics</span><span class="tag">mechanistic-interpretability</span><span class="tag">reliability</span></div>
+  <div class="card-tags"><span class="tag">llm</span><span class="tag">hallucinations</span><span class="tag">h-neurons</span><span class="tag">pre-training</span><span class="tag">alignment</span><span class="tag">mechanistic-interpretability</span><span class="tag">reliability</span></div>
   <div class="card-excerpt">Given that Hallucination-Associated Neurons (H-Neurons) emerge during pre-training rather than instruction tuning or RLHF, what does this reveal about how hallucination-prone behaviour is encoded duri…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-05-h-neuron-over-compliance.html" data-title="over-compliance in llms — how h-neurons drive sycophancy and what interventions are possible" data-question="what exactly is over-compliance behaviour in llms, how do hallucination-associated neurons (h-neurons) cause it, and what neuron-level and inference-time interventions are feasible to reduce it withou" data-tags="llm,hallucinations,h-neurons,over-compliance,sycophancy,interventions,alignment,reliability,mechanistic-interpretability">
-  <div class="card-title">Over-Compliance in LLMs — How H-Neurons Drive Sycophancy and What Interventions Are Possible</div>
+<a class="card" href="/Research/research/2026-03-05-h-neuron-over-compliance.html" data-title="over-compliance in llms — how h-neurons drive sycophancy and what interventions…" data-question="what exactly is over-compliance behaviour in llms, how do hallucination-associated neurons (h-neurons) cause it, and what neuron-level and inference-time interventions are feasible to reduce it withou" data-tags="llm,hallucinations,h-neurons,over-compliance,alignment,reliability,mechanistic-interpretability">
+  <div class="card-title">Over-Compliance in LLMs — How H-Neurons Drive Sycophancy and What Interventions…</div>
   <div class="card-meta">2026-03-05</div>
-  <div class="card-tags"><span class="tag">llm</span><span class="tag">hallucinations</span><span class="tag">h-neurons</span><span class="tag">over-compliance</span><span class="tag">sycophancy</span><span class="tag">interventions</span><span class="tag">alignment</span><span class="tag">reliability</span><span class="tag">mechanistic-interpretability</span></div>
+  <div class="card-tags"><span class="tag">llm</span><span class="tag">hallucinations</span><span class="tag">h-neurons</span><span class="tag">over-compliance</span><span class="tag">alignment</span><span class="tag">reliability</span><span class="tag">mechanistic-interpretability</span></div>
   <div class="card-excerpt">What exactly is over-compliance behaviour in LLMs, how do Hallucination-Associated Neurons (H-Neurons) cause it, and what neuron-level and inference-time interventions are feasible to reduce it withou…</div>
 </a>
-<a class="card" href="/Research/research/2026-03-02-integrative-framework-agent-decision-making.html" data-title="an integrative framework for agent decision-making: aligning knowledge management, intent understanding, and contextual decision frameworks" data-question="how can the dikw (data → information → knowledge → wisdom) progression be operationalised within agentic systems to produce intent-aligned, context-aware decisions that reconcile conflicting knowledge" data-tags="agents,decision-making,dikw,knowledge-management,intent,memory,context,alignment,governance,wisdom">
-  <div class="card-title">An Integrative Framework for Agent Decision-Making: Aligning Knowledge Management, Intent Understanding, and Contextual Decision Frameworks</div>
+<a class="card" href="/Research/research/2026-03-02-integrative-framework-agent-decision-making.html" data-title="an integrative framework for agent decision-making" data-question="how can the dikw (data → information → knowledge → wisdom) progression be operationalised within agentic systems to produce intent-aligned, context-aware decisions that reconcile conflicting knowledge" data-tags="agents,decision-making,dikw,knowledge-management,intent,memory,alignment,governance,wisdom">
+  <div class="card-title">An Integrative Framework for Agent Decision-Making</div>
   <div class="card-meta">2026-03-02</div>
-  <div class="card-tags"><span class="tag">agents</span><span class="tag">decision-making</span><span class="tag">dikw</span><span class="tag">knowledge-management</span><span class="tag">intent</span><span class="tag">memory</span><span class="tag">context</span><span class="tag">alignment</span><span class="tag">governance</span><span class="tag">wisdom</span></div>
+  <div class="card-tags"><span class="tag">agents</span><span class="tag">decision-making</span><span class="tag">dikw</span><span class="tag">knowledge-management</span><span class="tag">intent</span><span class="tag">memory</span><span class="tag">alignment</span><span class="tag">governance</span><span class="tag">wisdom</span></div>
   <div class="card-excerpt">How can the DIKW (Data → Information → Knowledge → Wisdom) progression be operationalised within agentic systems to produce intent-aligned, context-aware decisions that reconcile conflicting knowledge…</div>
 </a>
 
