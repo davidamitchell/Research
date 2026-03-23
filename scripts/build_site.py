@@ -2,11 +2,15 @@
 """Build a static GitHub Pages site from Research/completed/*.md files.
 
 Generates:
-  docs/index.html            — filterable research card grid
-  docs/research/<slug>.html  — individual item pages
+  docs/index.html            — landing page with stats, threads, tags, search preview
+  docs/browse.html           — filterable research card grid
+  docs/research/<slug>.html  — individual item pages with related items
   docs/tags/<tag>.html       — one page per unique tag
+  docs/threads.html          — threads listing
+  docs/threads/<slug>.html   — individual thread pages
   docs/search.html           — standalone search page
   docs/search-index.json     — search index for client-side JS
+  docs/threads-index.json    — thread data for JS
 
 Usage:
   python scripts/build_site.py
@@ -19,6 +23,7 @@ from __future__ import annotations
 import json
 import re
 import textwrap
+from collections import Counter
 from datetime import date
 from pathlib import Path
 
@@ -34,6 +39,7 @@ COMPLETED_DIR = REPO_ROOT / "Research" / "completed"
 DOCS_DIR = REPO_ROOT / "docs"
 RESEARCH_DIR = DOCS_DIR / "research"
 TAGS_DIR = DOCS_DIR / "tags"
+THREADS_DIR = DOCS_DIR / "threads"
 
 CUTOFF_DATE = date(2026, 2, 28)
 GITHUB_BASE = "https://github.com/davidamitchell/Research/blob/main/Research/completed/"
@@ -313,7 +319,7 @@ main {
 
 .item-content h2 {
   font-size: var(--text-sm);
-  text-transform: uppercase;
+  text-transform: lowercase;
   letter-spacing: 0.1em;
   color: var(--text-muted);
   margin-top: 2.5rem;
@@ -467,6 +473,71 @@ main {
   main { padding: 72px 1rem 3rem; }
   nav { padding: 0 1rem; }
 }
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); }
+.key-claims li:last-child { border-bottom: none; }
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); }
+.related-entry:last-child { border-bottom: none; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--text); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-entry { padding: 1rem; border: 1px solid var(--border); border-bottom: none; text-decoration: none; color: var(--text); display: block; }
+.thread-entry:last-child { border-bottom: 1px solid var(--border); }
+.thread-entry:hover { background: var(--surface); text-decoration: none; }
+.thread-entry-title { font-size: var(--text-base); font-weight: 500; }
+.thread-entry-meta { font-size: var(--text-xs); color: var(--text-muted); margin-top: 0.25rem; letter-spacing: 0.05em; }
 """
 
 # ---------------------------------------------------------------------------
@@ -501,6 +572,8 @@ def html_nav() -> str:
           <div class="nav-inner">
             <a class="nav-brand" href="/Research/">Research</a>
             <div class="nav-links">
+              <a href="/Research/browse.html">Browse</a>
+              <a href="/Research/threads.html">Threads</a>
               <a href="/Research/tags/">Tags</a>
               <a href="/Research/search.html">Search</a>
             </div>
@@ -592,20 +665,51 @@ def extract_sections(body: str) -> dict[str, str]:
     return sections
 
 
+def strip_evidence_map(text: str) -> str:
+    """Remove an Evidence Map section appended by tooling."""
+    lines = text.split("\n")
+    result: list[str] = []
+    skip = False
+    for line in lines:
+        if re.match(r"^##\s+Evidence Map\s*$", line, re.IGNORECASE):
+            skip = True
+            continue
+        if skip and re.match(r"^##\s+", line):
+            skip = False
+        if not skip:
+            result.append(line)
+    return "\n".join(result)
+
+
+def get_findings_excerpt(item: dict, max_chars: int = 200) -> str:
+    """Return a short plain-text excerpt from the Findings section."""
+    findings = item["sections"].get("Findings", "")
+    if not findings:
+        return ""
+    # Strip markdown syntax for plain-text preview
+    text = re.sub(r"#{1,6}\s+", "", findings)
+    text = re.sub(r"\*{1,2}([^*]+)\*{1,2}", r"\1", text)
+    text = re.sub(r"`([^`]+)`", r"\1", text)
+    text = re.sub(r"\[([^\]]+)\]\([^)]+\)", r"\1", text)
+    text = re.sub(r"^[-*+]\s+", "", text, flags=re.MULTILINE)
+    text = re.sub(r"\s+", " ", text).strip()
+    if len(text) > max_chars:
+        return text[:max_chars].rstrip() + "…"
+    return text
+
+
 def load_items() -> list[dict]:
     """Load and filter all completed research items."""
     items = []
     for path in sorted(COMPLETED_DIR.glob("*.md"), reverse=True):
         name = path.name
-        # Skip README and non-research files
         if name.lower() == "readme.md":
             continue
-        # Exclusion: meta or infra in filename (case-insensitive)
         if re.search(r"meta|infra", name, re.IGNORECASE):
             continue
         text = path.read_text(encoding="utf-8")
+        text = strip_evidence_map(text)
         meta, body = parse_frontmatter(text)
-        # Exclusion: missing or pre-cutoff added date
         added_raw = meta.get("added")
         if not added_raw:
             continue
@@ -623,6 +727,7 @@ def load_items() -> list[dict]:
         slug = slugify(path.stem)
         sections = extract_sections(body)
         question = sections.get("Research Question", "")
+        thread_field = meta.get("thread", "")
         items.append(
             {
                 "slug": slug,
@@ -635,11 +740,120 @@ def load_items() -> list[dict]:
                 "question": question,
                 "question_excerpt": question[:200].strip(),
                 "github_url": GITHUB_BASE + name,
+                "thread": str(thread_field).strip() if thread_field else "",
             }
         )
-    # Sort newest-first
     items.sort(key=lambda x: x["added"], reverse=True)
     return items
+
+
+def load_links(items: list[dict]) -> dict[str, list[dict]]:
+    """Build a map of slug -> list of related items (by shared tags, >= 2 tags)."""
+    slug_map = {item["slug"]: item for item in items}
+    links: dict[str, list[dict]] = {item["slug"]: [] for item in items}
+    for i, item in enumerate(items):
+        item_tags = set(item["tags"])
+        if len(item_tags) < 2:
+            continue
+        for other in items:
+            if other["slug"] == item["slug"]:
+                continue
+            shared = item_tags & set(other["tags"])
+            if len(shared) >= 2:
+                links[item["slug"]].append(
+                    {"item": other, "shared_tags": sorted(shared), "rel": "related"}
+                )
+    # Deduplicate and keep top 5 by shared tag count
+    for slug in links:
+        seen: set[str] = set()
+        deduped = []
+        for entry in sorted(links[slug], key=lambda e: -len(e["shared_tags"])):
+            if entry["item"]["slug"] not in seen:
+                seen.add(entry["item"]["slug"])
+                deduped.append(entry)
+        links[slug] = deduped[:5]
+    return links
+
+
+def detect_threads(items: list[dict]) -> list[dict]:
+    """Group items into threads.
+
+    Priority:
+    1. Items with a matching ``thread`` frontmatter field are grouped together.
+    2. Items sharing 3+ tags form implicit threads (tag cluster).
+
+    Returns a list of thread dicts, each with keys:
+      slug, title, items, kind ('explicit' or 'implicit'), tag_cluster (list)
+    """
+    threads: list[dict] = []
+
+    # Explicit threads via frontmatter
+    explicit: dict[str, list[dict]] = {}
+    for item in items:
+        if item["thread"]:
+            explicit.setdefault(item["thread"], []).append(item)
+    for name, thread_items in explicit.items():
+        if len(thread_items) < 2:
+            continue
+        thread_items_sorted = sorted(thread_items, key=lambda x: x["added"])
+        threads.append(
+            {
+                "slug": slugify(name),
+                "title": name,
+                "items": thread_items_sorted,
+                "kind": "explicit",
+                "tag_cluster": [],
+            }
+        )
+
+    # Implicit threads: items sharing 3+ tags
+    explicit_slugs = {item["slug"] for t in threads for item in t["items"]}
+    remaining = [item for item in items if item["slug"] not in explicit_slugs]
+
+    # Find dense tag clusters
+    processed: set[str] = set()
+    for item in remaining:
+        if item["slug"] in processed or len(item["tags"]) < 3:
+            continue
+        item_tags = set(item["tags"])
+        cluster = [item]
+        for other in remaining:
+            if other["slug"] == item["slug"] or other["slug"] in processed:
+                continue
+            shared = item_tags & set(other["tags"])
+            if len(shared) >= 3:
+                cluster.append(other)
+        if len(cluster) >= 3:
+            for c in cluster:
+                processed.add(c["slug"])
+            cluster_sorted = sorted(cluster, key=lambda x: x["added"])
+            # Title from most frequent tags
+            all_tags: list[str] = []
+            for c in cluster:
+                all_tags.extend(c["tags"])
+            top_tags = [t for t, _ in Counter(all_tags).most_common(3)]
+            thread_title = " / ".join(top_tags)
+            threads.append(
+                {
+                    "slug": slugify(thread_title),
+                    "title": thread_title,
+                    "items": cluster_sorted,
+                    "kind": "implicit",
+                    "tag_cluster": top_tags,
+                }
+            )
+
+    threads.sort(key=lambda t: -len(t["items"]))
+    return threads
+
+
+def detect_shared_sources(items: list[dict]) -> dict[str, list[dict]]:
+    """Group items that cite the same GitHub source URL (by filename stem)."""
+    source_map: dict[str, list[dict]] = {}
+    for item in items:
+        stem = Path(item["filename"]).stem
+        source_map.setdefault(stem, []).append(item)
+    return {k: v for k, v in source_map.items() if len(v) > 1}
 
 
 # ---------------------------------------------------------------------------
@@ -666,10 +880,10 @@ def render_card(item: dict, link_prefix: str = "/Research/research/") -> str:
 
 
 # ---------------------------------------------------------------------------
-# Index JS (filter + search + URL params)
+# Shared JS snippets
 # ---------------------------------------------------------------------------
 
-INDEX_JS = """
+BROWSE_JS = """
 (function() {
   var cards = Array.from(document.querySelectorAll('.card'));
   var tagBtns = Array.from(document.querySelectorAll('.filter-bar .tag'));
@@ -718,7 +932,6 @@ INDEX_JS = """
     setParams();
   }
 
-  // Restore state from URL
   var init = getParams();
   init.tags.forEach(function(t) { activeTags.add(t); });
   searchInput.value = init.q;
@@ -743,10 +956,6 @@ INDEX_JS = """
   applyFilters();
 })();
 """
-
-# ---------------------------------------------------------------------------
-# Search page JS
-# ---------------------------------------------------------------------------
 
 SEARCH_JS = """
 (function() {
@@ -795,14 +1004,12 @@ SEARCH_JS = """
         ? results.length + ' result' + (results.length === 1 ? '' : 's')
         : '';
     }
-    // Restore URL param
     var params = new URLSearchParams();
     if (q) params.set('q', q);
     var str = params.toString();
     history.replaceState(null, '', window.location.pathname + (str ? '?' + str : ''));
   }
 
-  // Restore from URL
   var params = new URLSearchParams(window.location.search);
   var initQ = params.get('q') || '';
   input.value = initQ;
@@ -812,14 +1019,132 @@ SEARCH_JS = """
 })();
 """
 
+LANDING_SEARCH_JS = """
+(function() {
+  var input = document.getElementById('landing-search');
+  var resultsEl = document.getElementById('landing-search-results');
+  var index = null;
+
+  function fetchIndex() {
+    fetch('/Research/search-index.json')
+      .then(function(r) { return r.json(); })
+      .then(function(data) { index = data; })
+      .catch(function() {});
+  }
+
+  function escapeHtml(s) {
+    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+            .replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+  }
+
+  function runPreview() {
+    if (!index || !resultsEl) return;
+    var q = input.value.trim().toLowerCase();
+    if (!q) { resultsEl.style.display = 'none'; resultsEl.innerHTML = ''; return; }
+    var results = index.filter(function(item) {
+      return item.title.toLowerCase().indexOf(q) !== -1
+          || item.question_excerpt.toLowerCase().indexOf(q) !== -1
+          || item.tags.join(' ').indexOf(q) !== -1;
+    }).slice(0, 6);
+    if (!results.length) { resultsEl.style.display = 'none'; return; }
+    resultsEl.innerHTML = results.map(function(item) {
+      return '<a class="search-preview-item" href="/Research/research/' + item.slug + '.html">'
+        + '<span>' + escapeHtml(item.title) + '</span>'
+        + '<span class="search-preview-date">' + escapeHtml(item.added) + '</span>'
+        + '</a>';
+    }).join('') + '<a class="search-see-all" href="/Research/search.html?q=' + encodeURIComponent(input.value.trim()) + '">see all results →</a>';
+    resultsEl.style.display = '';
+  }
+
+  if (input) {
+    input.addEventListener('input', runPreview);
+    document.addEventListener('click', function(e) {
+      if (!input.contains(e.target) && !resultsEl.contains(e.target)) {
+        resultsEl.style.display = 'none';
+      }
+    });
+  }
+
+  fetchIndex();
+})();
+"""
+
 # ---------------------------------------------------------------------------
 # Page generators
 # ---------------------------------------------------------------------------
 
 
-def build_index(items: list[dict]) -> str:
-    """Generate docs/index.html."""
-    # Collect all tags sorted alphabetically
+def build_landing(items: list[dict], threads: list[dict]) -> str:
+    """Generate docs/index.html — landing page."""
+    count = len(items)
+    all_tags: Counter[str] = Counter()
+    for item in items:
+        all_tags.update(item["tags"])
+    tag_count = len(all_tags)
+    thread_count = len(threads)
+
+    # Stats block
+    stats_html = (
+        f'<div class="stats-block">'
+        f'<div class="stat-item"><span class="stat-number">{count}</span>'
+        f'<span class="stat-label">items</span></div>'
+        f'<div class="stat-item"><span class="stat-number">{tag_count}</span>'
+        f'<span class="stat-label">tags</span></div>'
+        f'<div class="stat-item"><span class="stat-number">{thread_count}</span>'
+        f'<span class="stat-label">threads</span></div>'
+        f'</div>'
+    )
+
+    # Thread pills (top 8 by size)
+    thread_pills = ""
+    for t in threads[:8]:
+        thread_pills += (
+            f'<a class="thread-pill" href="/Research/threads/{t["slug"]}.html">'
+            f'{escape(t["title"])}'
+            f' <span class="thread-pill-count">{len(t["items"])}</span>'
+            f'</a>'
+        )
+
+    # Tag pills (top 20 by frequency)
+    tag_pills = ""
+    for tag, _ in all_tags.most_common(20):
+        tag_pills += (
+            f'<a class="tag-pill-link tag" href="/Research/tags/{escape(tag)}.html">'
+            f'{escape(tag)}</a>'
+        )
+
+    return (
+        html_head("Research", extra_head='')
+        + html_nav()
+        + f"""\
+<main>
+  <div class="page-header">
+    <h1>Research</h1>
+    <p class="page-subtitle">notes, findings, and threads</p>
+  </div>
+  {stats_html}
+  <div class="search-preview-wrap">
+    <input id="landing-search" class="search-input" type="text"
+           placeholder="search research items…" autocomplete="off">
+    <div id="landing-search-results" class="search-preview-results"></div>
+  </div>
+  <div class="featured-section">
+    <div class="featured-label">threads</div>
+    <div class="featured-pills">{thread_pills}</div>
+  </div>
+  <div class="featured-section">
+    <div class="featured-label">topics</div>
+    <div class="featured-pills">{tag_pills}</div>
+  </div>
+</main>
+<script>{LANDING_SEARCH_JS}</script>
+"""
+        + html_foot()
+    )
+
+
+def build_browse(items: list[dict]) -> str:
+    """Generate docs/browse.html — filterable research card grid."""
     all_tags: set[str] = set()
     for item in items:
         all_tags.update(item["tags"])
@@ -832,12 +1157,12 @@ def build_index(items: list[dict]) -> str:
     count = len(items)
 
     return (
-        html_head("Research")
+        html_head("Browse — Research")
         + html_nav()
         + f"""\
 <main>
   <div class="page-header">
-    <h1>Research</h1>
+    <h1>Browse</h1>
     <p class="page-subtitle">{count} items</p>
   </div>
   <div class="search-wrap">
@@ -854,13 +1179,60 @@ def build_index(items: list[dict]) -> str:
   </div>
   <div id="no-results" class="no-results" style="display:none">No matching items.</div>
 </main>
-<script>{INDEX_JS}</script>
+<script>{BROWSE_JS}</script>
 """
         + html_foot()
     )
 
 
-def build_item_page(item: dict, prev_item: dict | None, next_item: dict | None) -> str:
+def _render_key_claims(findings: str) -> str:
+    """Extract bullet points from findings and render as a key-claims block."""
+    bullets = []
+    for line in findings.split("\n"):
+        m = re.match(r"^[-*+]\s+(.+)", line.strip())
+        if m:
+            bullets.append(m.group(1).strip())
+        if len(bullets) >= 5:
+            break
+    if not bullets:
+        return ""
+    items_html = "".join(f"<li>{escape(b)}</li>\n" for b in bullets)
+    return (
+        '<div class="key-claims">'
+        '<div class="key-claims-label">key findings</div>'
+        f'<ol>{items_html}</ol>'
+        "</div>\n"
+    )
+
+
+def _render_related(related: list[dict]) -> str:
+    """Render related items section."""
+    if not related:
+        return ""
+    entries_html = ""
+    for entry in related:
+        other = entry["item"]
+        shared = ", ".join(entry["shared_tags"])
+        entries_html += (
+            f'<div class="related-entry">'
+            f'<a href="/Research/research/{other["slug"]}.html">{escape(other["title"])}</a>'
+            f' <span class="related-note">via {escape(shared)}</span>'
+            f"</div>\n"
+        )
+    return (
+        '<div class="related-section">'
+        '<div class="related-group-label">related items</div>'
+        f'<div class="related-group">{entries_html}</div>'
+        "</div>\n"
+    )
+
+
+def build_item_page(
+    item: dict,
+    prev_item: dict | None,
+    next_item: dict | None,
+    related: list[dict] | None = None,
+) -> str:
     """Generate docs/research/<slug>.html."""
     md = mistune.create_markdown(plugins=["table", "strikethrough"])
 
@@ -869,6 +1241,10 @@ def build_item_page(item: dict, prev_item: dict | None, next_item: dict | None) 
         for t in item["tags"]
     )
 
+    # Key claims from findings
+    findings = item["sections"].get("Findings", "")
+    key_claims_html = _render_key_claims(findings) if findings else ""
+
     sections_html = ""
     for section_name in SECTIONS_ORDERED:
         content = item["sections"].get(section_name, "")
@@ -876,6 +1252,8 @@ def build_item_page(item: dict, prev_item: dict | None, next_item: dict | None) 
             continue
         rendered = md(content)
         sections_html += f"<h2>{escape(section_name)}</h2>\n{rendered}\n"
+
+    related_html = _render_related(related or [])
 
     # Prev / Next
     prev_html = ""
@@ -903,6 +1281,8 @@ def build_item_page(item: dict, prev_item: dict | None, next_item: dict | None) 
   <div class="breadcrumb">
     <a href="/Research/">Research</a>
     <span>/</span>
+    <a href="/Research/browse.html">Browse</a>
+    <span>/</span>
     <span>{escape(item["title"])}</span>
   </div>
   <h1 class="item-title">{escape(item["title"])}</h1>
@@ -913,9 +1293,11 @@ def build_item_page(item: dict, prev_item: dict | None, next_item: dict | None) 
     <span class="meta-sep">·</span>
     <a class="source-link" href="{item["github_url"]}" target="_blank" rel="noopener">source →</a>
   </div>
+  {key_claims_html}
   <div class="item-content">
     {sections_html}
   </div>
+  {related_html}
   <div class="item-nav">
     {prev_html}
     {next_html}
@@ -938,7 +1320,7 @@ def build_tag_page(tag: str, tag_items: list[dict]) -> str:
   <div class="tag-page-header">
     <h1>Tagged: {escape(tag)}</h1>
     <p class="page-subtitle">{count} item{"s" if count != 1 else ""}</p>
-    <a class="back-link" href="/Research/">← all research</a>
+    <a class="back-link" href="/Research/browse.html">← browse</a>
   </div>
   <div class="card-grid">
     {cards_html}
@@ -965,11 +1347,83 @@ def build_tags_index(tags_map: dict[str, list[dict]]) -> str:
   <div class="tag-page-header">
     <h1>Tags</h1>
     <p class="page-subtitle">{len(sorted_tags)} tags</p>
-    <a class="back-link" href="/Research/">← all research</a>
+    <a class="back-link" href="/Research/browse.html">← browse</a>
   </div>
   <ul class="tags-list">
     {rows}
   </ul>
+</main>
+"""
+        + html_foot()
+    )
+
+
+def build_threads_listing(threads: list[dict]) -> str:
+    """Generate docs/threads.html — all threads."""
+    entries_html = ""
+    for t in threads:
+        kind_label = "explicit" if t["kind"] == "explicit" else "tag cluster"
+        entries_html += (
+            f'<a class="thread-entry" href="/Research/threads/{t["slug"]}.html">'
+            f'<div class="thread-entry-title">{escape(t["title"])}</div>'
+            f'<div class="thread-entry-meta">{len(t["items"])} items · {kind_label}</div>'
+            f"</a>\n"
+        )
+    count = len(threads)
+    return (
+        html_head("Threads — Research")
+        + html_nav()
+        + f"""\
+<main>
+  <div class="page-header">
+    <h1>Threads</h1>
+    <p class="page-subtitle">{count} thread{"s" if count != 1 else ""}</p>
+  </div>
+  <div class="thread-list">
+    {entries_html}
+  </div>
+</main>
+"""
+        + html_foot()
+    )
+
+
+def build_thread_page(thread: dict) -> str:
+    """Generate docs/threads/<slug>.html — single thread."""
+    items = thread["items"]
+    cards_html = ""
+    for idx, item in enumerate(items):
+        cards_html += render_card(item)
+        if idx < len(items) - 1:
+            cards_html += '<div class="thread-connector">↓</div>\n'
+
+    tag_cluster_html = ""
+    if thread["tag_cluster"]:
+        pills = "".join(
+            f'<a class="tag-pill-link tag" href="/Research/tags/{escape(t)}.html">{escape(t)}</a>'
+            for t in thread["tag_cluster"]
+        )
+        tag_cluster_html = f'<div class="featured-pills" style="margin-bottom:1.5rem">{pills}</div>'
+
+    return (
+        html_head(f"{escape(thread['title'])} — Threads — Research")
+        + html_nav()
+        + f"""\
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <a href="/Research/threads.html">Threads</a>
+    <span>/</span>
+    <span>{escape(thread["title"])}</span>
+  </div>
+  <h1 class="item-title">{escape(thread["title"])}</h1>
+  <p class="page-subtitle" style="margin-bottom:1.5rem">{len(items)} items</p>
+  {tag_cluster_html}
+  <div class="card-grid">
+    {cards_html}
+  </div>
+  <a class="back-link" href="/Research/threads.html">← all threads</a>
 </main>
 """
         + html_foot()
@@ -1008,11 +1462,32 @@ def build_search_index(items: list[dict]) -> str:
             "tags": item["tags"],
             "added": item["added_str"],
             "question_excerpt": item["question_excerpt"],
+            "findings_excerpt": get_findings_excerpt(item),
             "url": f"/Research/research/{item['slug']}.html",
         }
         for item in items
     ]
     return json.dumps(index, ensure_ascii=False, indent=2)
+
+
+def build_threads_index_json(threads: list[dict]) -> str:
+    """Generate docs/threads-index.json."""
+    data = [
+        {
+            "slug": t["slug"],
+            "title": t["title"],
+            "kind": t["kind"],
+            "tag_cluster": t["tag_cluster"],
+            "item_count": len(t["items"]),
+            "items": [
+                {"slug": item["slug"], "title": item["title"], "added": item["added_str"]}
+                for item in t["items"]
+            ],
+            "url": f"/Research/threads/{t['slug']}.html",
+        }
+        for t in threads
+    ]
+    return json.dumps(data, ensure_ascii=False, indent=2)
 
 
 # ---------------------------------------------------------------------------
@@ -1025,24 +1500,37 @@ def main() -> None:
     items = load_items()
     print(f"  {len(items)} items loaded")
 
+    print("Building relationship graph…")
+    links = load_links(items)
+
+    print("Detecting threads…")
+    threads = detect_threads(items)
+    print(f"  {len(threads)} threads detected")
+
     # Create output directories
     DOCS_DIR.mkdir(exist_ok=True)
     RESEARCH_DIR.mkdir(exist_ok=True)
     TAGS_DIR.mkdir(exist_ok=True)
+    THREADS_DIR.mkdir(exist_ok=True)
 
-    # 1. index.html
+    # 1. index.html (landing)
     print("Building index.html…")
-    (DOCS_DIR / "index.html").write_text(build_index(items), encoding="utf-8")
+    (DOCS_DIR / "index.html").write_text(build_landing(items, threads), encoding="utf-8")
 
-    # 2. Individual item pages
+    # 2. browse.html (filterable grid)
+    print("Building browse.html…")
+    (DOCS_DIR / "browse.html").write_text(build_browse(items), encoding="utf-8")
+
+    # 3. Individual item pages
     print(f"Building {len(items)} item pages…")
     for i, item in enumerate(items):
         prev_item = items[i - 1] if i > 0 else None
         next_item = items[i + 1] if i < len(items) - 1 else None
-        html = build_item_page(item, prev_item, next_item)
+        related = links.get(item["slug"], [])
+        html = build_item_page(item, prev_item, next_item, related)
         (RESEARCH_DIR / f"{item['slug']}.html").write_text(html, encoding="utf-8")
 
-    # 3. Tag pages
+    # 4. Tag pages
     tags_map: dict[str, list[dict]] = {}
     for item in items:
         for tag in item["tags"]:
@@ -1053,15 +1541,28 @@ def main() -> None:
         html = build_tag_page(tag, tag_items)
         (TAGS_DIR / f"{tag}.html").write_text(html, encoding="utf-8")
 
-    # 4. search.html
+    # 5. Thread pages
+    print(f"Building threads.html + {len(threads)} thread pages…")
+    (DOCS_DIR / "threads.html").write_text(build_threads_listing(threads), encoding="utf-8")
+    for thread in threads:
+        html = build_thread_page(thread)
+        (THREADS_DIR / f"{thread['slug']}.html").write_text(html, encoding="utf-8")
+
+    # 6. search.html
     print("Building search.html…")
     (DOCS_DIR / "search.html").write_text(build_search_page(), encoding="utf-8")
 
-    # 5. search-index.json
+    # 7. search-index.json
     print("Building search-index.json…")
     (DOCS_DIR / "search-index.json").write_text(build_search_index(items), encoding="utf-8")
 
-    # 6. .nojekyll (prevents GitHub Pages from running Jekyll)
+    # 8. threads-index.json
+    print("Building threads-index.json…")
+    (DOCS_DIR / "threads-index.json").write_text(
+        build_threads_index_json(threads), encoding="utf-8"
+    )
+
+    # 9. .nojekyll
     (DOCS_DIR / ".nojekyll").write_text("", encoding="utf-8")
 
     print("Done.")
