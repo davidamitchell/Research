@@ -148,7 +148,7 @@ Root question broken into atomic sub-questions:
 
 [fact] Stripe's stated rationale for building in-house rather than using generic agents: "hundreds of millions of lines of Ruby, Sorbet types, and proprietary libraries no public model has seen. Generic agents couldn't navigate it." The principle: "If a tool is good for human engineers, it's good for LLMs." Source: alexop.dev/posts/the-software-factory, attributing Stripe.
 
-[fact] Steve Yegge built Gas Town (github.com/steveyegge/gastown), described as "Kubernetes for AI coding agents": a "Mayor" orchestrates 20–30 parallel "Polecat" coding agents, with a "Refinery" managing the merge queue to prevent parallel branch conflicts. Source: alexop.dev/posts/the-software-factory, citing cloudnativenow.com.
+[fact] Steve Yegge built Gas Town (github.com/steveyegge/gastown), described as "Kubernetes (the container orchestration platform) for AI coding agents": a "Mayor" orchestrates 20–30 parallel "Polecat" coding agents, with a "Refinery" managing the merge queue to prevent parallel branch conflicts. Source: alexop.dev/posts/the-software-factory, citing cloudnativenow.com.
 
 [fact] The HN discussion (news.ycombinator.com/item?id=47226107) documents OctopusGarden, an open-source "dark factory" implementation: a spec goes in, code is generated, built in Docker, validated against holdout scenarios the agent never saw, scored by an LLM-as-judge, and failures feed back until convergence — with no human code review in the loop. The author reports it works for standard CRUD (Create, Read, Update, Delete) and REST Application Programming Interface (API) apps. Source: HN 47226107.
 
