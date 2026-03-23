@@ -48,15 +48,15 @@ Completed items that constrain the taxonomy:
 - `2026-03-04-sdlc-ai-prompt-patterns.md` — identifies emergent prompt patterns in SDLC contexts
 - `2026-03-08-context-engineering-first-principles.md` — defines token-level vs goal-level steering; distinguishes prompt engineering from context engineering
 - `2026-03-02-agent-memory-management-context-injection.md` — taxonomy of memory approaches
-- `2026-03-02-integrative-framework-agent-decision-making.md` — DIKW-aligned decision-making framework
+- `2026-03-02-integrative-framework-agent-decision-making.md` — Data, Information, Knowledge, Wisdom (DIKW)-aligned decision-making framework
 - `2026-03-10-formal-spec-intent-alignment-agentic-coding.md` — intent specification hierarchy
 - `2026-02-28-ai-control-testing-and-assurance.md` — controls and assurance landscape
 
 ## Approach
 
 1. Audit existing research corpus for locally-defined vocabularies and taxonomies; collect all candidate category definitions
-2. Survey published AI/ML taxonomy literature (e.g. prompt pattern catalogues, LLM failure mode surveys, agent architecture surveys)
-3. For each candidate taxonomy domain (prompts, instructions, memory, failure modes, controls, skills, tools, problem domains): identify dimensions, enumerate categories, test mutual exclusivity and exhaustiveness (MECE)
+2. Survey published AI/ML taxonomy literature (e.g. prompt pattern catalogues, Large Language Model (LLM) failure mode surveys, agent architecture surveys)
+3. For each candidate taxonomy domain (prompts, instructions, memory, failure modes, controls, skills, tools, problem domains): identify dimensions, enumerate categories, test Mutually Exclusive, Collectively Exhaustive (MECE)
 4. Identify cross-cutting concerns and define composition rules (how categories from different domains relate)
 5. Validate the taxonomy against 5–10 existing completed research items: can each item's core concepts be unambiguously labelled?
 6. Produce the taxonomy as a structured artefact: a set of named, defined, and cross-referenced categories per domain
@@ -71,7 +71,7 @@ Completed items that constrain the taxonomy:
 - [x] Prompt pattern catalogues: "Prompt Patterns as a Means for Evaluating and Improving Prompt Engineering" (White et al., 2023) arXiv:2302.11382
 - [x] LLM failure mode surveys: "A Survey of Hallucination in Large Language Models" (Ji et al., 2023)
 - [x] Agent architecture surveys: "A Survey on Large Language Model based Autonomous Agents" (Wang et al., 2023) arXiv:2308.11432
-- [x] OWASP Top 10 for LLM Applications 2025
+- [x] Open Worldwide Application Security Project (OWASP) Top 10 for LLM Applications 2025
 - [x] LangChain component architecture documentation
 
 ---
@@ -206,7 +206,7 @@ What is a coherent AI concept classification taxonomy?
 3. **External (episodic)** — persistent, time-indexed event records; "what happened and when"; queryable by recency and event type.
 4. **External (semantic)** — persistent, concept-indexed fact stores; "what is true about X"; queryable by entity/relationship.
 5. **External (procedural)** — persistent, action-indexed skill stores; "how to do Y"; retrieved as executable procedures.
-6. **Cached (KV-cache)** — inference-time attention cache; a materialisation optimisation, not a new type; subsumed under in-context.
+6. **Cached (Key-Value (KV) cache)** — inference-time attention cache; a materialisation optimisation, not a new type; subsumed under in-context.
 
 **[inference]** Episodic + semantic + procedural = three functional subtypes of external memory, distinguished by their indexing scheme and retrieval semantics, not by their storage substrate.
 
@@ -218,7 +218,7 @@ What is a coherent AI concept classification taxonomy?
 
 **[fact]** Ji et al. (2023) "A Survey of Hallucination in Large Language Models" identifies hallucination as: producing content that is nonsensical or unfaithful to provided source content, or producing factually incorrect assertions. Classification: primary (peer-reviewed survey).
 
-**[fact]** 2026-03-08-context-engineering-first-principles.md establishes sycophancy as a prototypical two-mechanism failure: high token-level compliance combined with systematic goal-level failure, arising from RLHF training optimising for user satisfaction rather than accuracy. Classification: prior research.
+**[fact]** 2026-03-08-context-engineering-first-principles.md establishes sycophancy as a prototypical two-mechanism failure: high token-level compliance combined with systematic goal-level failure, arising from Reinforcement Learning from Human Feedback (RLHF) training optimising for user satisfaction rather than accuracy. Classification: prior research.
 
 **[fact]** 2026-03-10-formal-spec-intent-alignment-agentic-coding.md documents reward hacking as LLM agents optimising proxy rewards while degrading true alignment (Gao et al. scaling law, METR 2025, Anthropic 2025). Classification: prior research.
 
@@ -262,7 +262,7 @@ What is a coherent AI concept classification taxonomy?
 
 **Structural controls** — enforce constraints at the output schema level; violations are mechanically impossible within the schema. Examples: JSON schema validation, typed output, Pydantic models, type-constrained decoding. Addresses: under-specification, hallucination of structure, format violations.
 
-**Semantic controls** — enforce constraints at the content meaning level using classifiers, filters, or reviewers. Examples: toxicity classifiers, PII detectors, relevance filters, embedding-space similarity checks. Addresses: hallucination, sycophancy, sensitive information disclosure (OWASP LLM02).
+**Semantic controls** — enforce constraints at the content meaning level using classifiers, filters, or reviewers. Examples: toxicity classifiers, Personally Identifiable Information (PII) detectors, relevance filters, embedding-space similarity checks. Addresses: hallucination, sycophancy, sensitive information disclosure (OWASP LLM02).
 
 **Procedural controls** — enforce constraints through process gates that require events to occur before the system proceeds. Examples: human approval gates, confirmation steps, escalation paths, multi-agent review. Addresses: excessive agency, goal drift, reward hacking.
 

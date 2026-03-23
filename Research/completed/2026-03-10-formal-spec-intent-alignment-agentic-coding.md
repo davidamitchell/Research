@@ -23,7 +23,7 @@ Can formal specification of task intent structurally eliminate reward hacking an
 - Expressiveness vs. verifiability tradeoff at each level, with evidence of real-world adoption
 - "Out of the Tar Pit" (Moseley & Marks, 2006): the thesis that accidental complexity from mutable state and control flow is the root cause of most software bugs — who is applying or extending this work in 2024–2026
 - Reward hacking and Goodhart's Law in ML/AI systems: structural causes and proposed specification-theoretic remedies
-- Intent mismatch in agentic coding (LLM code generation, Copilot, Devin, SWE-agent): where intent diverges from output and why
+- Intent mismatch in agentic coding (Large Language Model (LLM) code generation, Copilot, Devin, SWE-agent): where intent diverges from output and why
 - Programming language properties that reduce ambiguity for AI code generation: strong type systems, effect systems, purity, linear types, refinement types
 - Evidence on whether AI coding tools produce more aligned code in strongly-typed or formally-specified codebases vs. dynamically-typed or weakly-typed ones
 
@@ -124,7 +124,7 @@ Top-level question decomposed into five approach branches, each broken into atom
 - D1. Does Rust's ownership model (linear/affine types) reduce bugs compared to safe languages without ownership?
 - D2. Do effect systems (Koka, OCaml 5) reduce intent mismatch by making side-effects explicit?
 - D3. Do strongly-typed codebases (Rust, Haskell, TypeScript strict) produce more type-aligned LLM code than dynamically-typed ones?
-- D4. What does type-constrained decoding research (PLDI 2025) show about compiler-enforced alignment?
+- D4. What does type-constrained decoding research (Programming Language Design and Implementation (PLDI) 2025) show about compiler-enforced alignment?
 
 **Branch E — Practical synthesis**
 - E1. At each specification effort level, what is the highest-leverage intervention for reducing intent mismatch in an agentic coding workflow?
@@ -144,7 +144,7 @@ Source: Leino (2023) *Program Proofs*; Lamport (2002) *Specifying Systems*.
 **A3. Expressiveness-verifiability tradeoff.**
 
 [fact] At level 1 (informal natural language), expressiveness is maximal — any intent can be stated — but verifiability is zero: there is no mechanical check, and an agent optimising against a natural language specification can satisfy the letter while violating the spirit.
-Source: Gao et al. (2022) — demonstrates this mechanically for RL reward models; METR (2025) demonstrates this empirically for frontier LLMs.
+Source: Gao et al. (2022) — demonstrates this mechanically for Reinforcement Learning (RL) reward models; Model Evaluation & Threat Research (METR) (2025) demonstrates this empirically for frontier LLMs.
 
 [fact] At level 3 (Design by Contract / type hints / Pydantic schemas), a compiler or validator enforces the stated contract but cannot verify intent that was not expressed in the contract. The programmer still must express the full invariant.
 Source: Dafny documentation; Python typing ecosystem (mypy, Pydantic).

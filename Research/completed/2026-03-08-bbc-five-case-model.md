@@ -165,17 +165,17 @@ The Strategic Case must set a small number of SMART objectives: Specific, Measur
 
 **B1c. Strategic fit** [fact]
 
-The Strategic Case must demonstrate alignment with local, regional, or national policies and priorities. It must identify critical success factors (CSFs) — conditions that must be met for the project to succeed — and map strategic risks and dependencies. Early stakeholder engagement is required to confirm understanding of the current situation and opportunities for improvement. [fact, source: web search; Knowledge Train]
+The Strategic Case must demonstrate alignment with local, regional, or national policies and priorities. It must identify critical success factors (CSFs) — conditions that must be met for the project to succeed — and map strategic risks and dependencies. Early stakeholder engagement is required to confirm understanding of the current situation and opportunities for improvement. [inference, source: web search; Knowledge Train]
 
 ---
 
 **B2a. Long-list generation and filtering** [fact]
 
-The Economic Case begins by generating a long-list of all feasible options, including creative and unconventional approaches. Long-list options are then filtered against the CSFs and SMART objectives using a systematic scoring framework. Options that are not viable, not affordable, or do not meet basic requirements are ruled out. The result is a short-list of typically three to five options for detailed appraisal. [fact, source: web search; Knowledge Train]
+The Economic Case begins by generating a long-list of all feasible options, including creative and unconventional approaches. Long-list options are then filtered against the CSFs and SMART objectives using a systematic scoring framework. Options that are not viable, not affordable, or do not meet basic requirements are ruled out. The result is a short-list of typically three to five options for detailed appraisal. [inference, source: web search; Knowledge Train]
 
 **B2b. Do-nothing option** [fact]
 
-Every long-list must include the do-nothing (status quo) option. This is the reference point for value-added analysis: it shows what happens if no investment is made and provides the baseline against which all other options are compared in SCBA. [fact, source: web search; Knowledge Train]
+Every long-list must include the do-nothing (status quo) option. This is the reference point for value-added analysis: it shows what happens if no investment is made and provides the baseline against which all other options are compared in SCBA. [inference, source: web search; Knowledge Train]
 
 **B2c. Appraisal methods** [fact]
 
@@ -186,7 +186,7 @@ Additional adjustments: risk adjustment (Monte Carlo or scenario analysis), dist
 
 **B2d. Green Book parameters** [fact]
 
-- **Social Time Preference Rate (STPR):** The standard real discount rate is **3.5%** for years 0–30, **3.0%** for years 31–75, and **2.5%** for years 76–125. [fact, source: web search citing Green Book] [SOURCE NEEDED]
+- **Social Time Preference Rate (STPR):** The standard real discount rate is **3.5%** for years 0–30, **3.0%** for years 31–75, and **2.5%** for years 76–125. [inference, source: web search citing Green Book] [SOURCE NEEDED]
 - **Optimism bias:** A systematic upward adjustment to cost estimates to correct for the tendency to underestimate costs and overstate benefits. Adjustment percentages are provided in supplementary Green Book guidance by project type (transport, IT, buildings, etc.). [SOURCE NEEDED]
 - **BCR critique:** The 2025 Green Book Review explicitly found that BCR is over-emphasised in government decision-making and that transformational projects with long-term benefits are poorly served by BCR alone. HM Treasury announced it will "clamp down on the over-emphasis on BCRs" while retaining BCR as one summary metric. [fact, source: Green Book Review 2025 https://www.gov.uk/government/publications/green-book-review-2025-findings-and-actions/green-book-review-2025-findings-and-actions]
 
@@ -219,7 +219,7 @@ Required governance content:
 - **Senior Responsible Owner (SRO):** The single accountable person for overall project success — benefits delivery, risk management, and assurance. Chairs or has a leading voice on the Project Board.
 - **RACI matrix:** Documents who is Responsible, Accountable, Consulted, and Informed for each major activity.
 - **Assurance Plan:** External gateway reviews (IPA Gateway Reviews) at set milestones, internal audit, regular review points tied to the Project Board schedule.
-[fact, source: web search; Knowledge Train]
+[inference, source: web search; Knowledge Train]
 
 **B5b. Benefits realisation** [fact]
 
@@ -239,13 +239,13 @@ The FCM is designed to be scalable. Small, lower-risk projects require less docu
 
 Evidence from the Infrastructure and Projects Authority (IPA) and the National Audit Office (NAO), corroborated by independent analysis:
 
-1. Poor early planning and unclear objectives — ambiguous strategic justification, inadequate stakeholder engagement. [fact, source: web search citing IPA/NAO/Bevan Brittan analysis]
-2. Weak option appraisal — superficial analysis of alternatives, limited testing of value for money and feasibility. [fact, source: NAO briefing; web search]
-3. Over-optimistic cost/benefit estimates — failure to apply optimism bias corrections, leading to cost escalation. [fact, source: web search citing multiple IPA/NAO reports]
+1. Poor early planning and unclear objectives — ambiguous strategic justification, inadequate stakeholder engagement. [inference, source: web search citing IPA/NAO/Bevan Brittan analysis]
+2. Weak option appraisal — superficial analysis of alternatives, limited testing of value for money and feasibility. [inference, source: NAO briefing; web search]
+3. Over-optimistic cost/benefit estimates — failure to apply optimism bias corrections, leading to cost escalation. [inference, source: web search citing multiple IPA/NAO reports]
 4. Lack of skilled leadership and governance — high SRO turnover, unclear accountability, insufficient oversight. [SOURCE NEEDED]
 5. Failure to integrate assurance findings — not acting on Gateway Review recommendations or lessons from previous projects. [SOURCE NEEDED]
 6. Scope creep — inadequate control over requirements changes, compounding cost and schedule risk. [SOURCE NEEDED]
-7. Insufficient benefits management — weak tracking of whether intended benefits materialise post-completion. [fact, source: NAO; web search]
+7. Insufficient benefits management — weak tracking of whether intended benefits materialise post-completion. [inference, source: NAO; web search]
 
 **D2. Quality tests** [inference, synthesised from FCM guidance]
 

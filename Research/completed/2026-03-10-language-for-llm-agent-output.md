@@ -24,7 +24,7 @@ Is anyone actively developing a programming language or structured output format
 - Research prototypes, academic papers, and production systems (2022–2026) describing languages or grammars designed with LLM generation in mind
 - How each candidate approach maps to the five-layer failure mode taxonomy from `2026-03-10-ai-concept-classification-taxonomy.md`: which layers (generation, goal, alignment, safety/security, operational) each language targets
 - How each candidate maps to the specification hierarchy from `2026-03-10-formal-spec-intent-alignment-agentic-coding.md`: where on the informal → structured output → type annotations → rich type system → formal verification continuum each approach sits
-- Type-constrained decoding (ETH Zurich PLDI 2025) and related compiler-enforced generation as a language-design mechanism
+- Type-constrained decoding (ETH Zurich Programming Language Design and Implementation (PLDI) 2025) and related compiler-enforced generation as a language-design mechanism
 - The "Out of the Tar Pit" thesis applied to agent-generated code: do any of these languages reduce mutable state and control flow complexity in LLM-produced output?
 - Intermediate representation (IR) approaches where agents emit to a typed IR rather than a surface language
 
@@ -179,7 +179,7 @@ Source: https://dottxt-ai.github.io/outlines/latest/; https://zenvanriel.nl/ai-e
 
 **B1. What type-constrained decoding does.**
 
-[fact] "Type-Constrained Code Generation with Language Models" (Muendler et al., ETH Zurich and UC Berkeley; arXiv:2504.09246; PLDI 2025) introduces a method that enforces type safety *during* LLM decoding for TypeScript. The approach uses prefix automata that incrementally parse and type-check generated code, filtering out tokens that would produce type errors. Evaluation on HumanEval and MBPP shows compilation errors more than halved and functional correctness increased. Code is open-source at https://github.com/eth-sri/type-constrained-code-generation.
+[fact] "Type-Constrained Code Generation with Language Models" (Muendler et al., ETH Zurich and UC Berkeley; arXiv:2504.09246; PLDI 2025) introduces a method that enforces type safety *during* LLM decoding for TypeScript. The approach uses prefix automata that incrementally parse and type-check generated code, filtering out tokens that would produce type errors. Evaluation on HumanEval and Mostly Basic Python Problems (MBPP) shows compilation errors more than halved and functional correctness increased. Code is open-source at https://github.com/eth-sri/type-constrained-code-generation.
 Source: https://arxiv.org/abs/2504.09246; https://pldi25.sigplan.org/details/pldi-2025-papers/25/Type-Constrained-Code-Generation-with-Language-Models
 
 [fact] The ETH Zurich approach is formalised first for a simply-typed lambda calculus and then extended to TypeScript. It is a generation-time enforcement mechanism, not a post-hoc validator.
@@ -308,11 +308,11 @@ Jsonformer (GitHub: 1rgs/jsonformer) enforces JSON structure by generating JSON 
 
 **Economic lens:** The commercial market has converged on level 2 structured generation (Outlines, Guidance) because this is where the value/cost ratio is highest — schema enforcement eliminates integration failures at near-zero inference cost overhead. Moving to level 3 (type-constrained decoding, ETH Zurich) requires a type-checking pass at each token, which increases latency. Level 4–5 would require a formal verification pass, which is computationally prohibitive per-token.
 
-**Historical lens:** The structured generation field follows the same arc as compiler-enforced safety in software: (1) convention/style guides (level 1, analogous to ReAct/MRKL text formats), (2) schema/contract enforcement (level 2, analogous to Design by Contract), (3) type systems (level 3, analogous to static typing in Rust/Haskell), (4) dependent types / verification (level 4–5, analogous to Dafny/Coq). Software took 40+ years to move from conventions to widespread formal verification adoption. LLM output constraint research has compressed 10+ years of this arc into 2–3 years.
+**Historical lens:** The structured generation field follows the same arc as compiler-enforced safety in software: (1) convention/style guides (level 1, analogous to ReAct/MRKL text formats), (2) schema/contract enforcement (level 2, analogous to Design by Contract), (3) type systems (level 3, analogous to static typing in Rust/Haskell), (4) dependent types / verification (level 4–5, analogous to Dafny/Coq). [inference] Software took 40+ years to move from conventions to widespread formal verification adoption. LLM output constraint research has compressed 10+ years of this arc into 2–3 years.
 
 **Behavioural lens:** The failure modes not addressed by current language/grammar approaches (reward hacking, specification gaming) are exactly the failure modes that require a model of the *human's true intent*. No grammar encodes "what the human actually wanted but failed to specify." This is a social/behavioural problem that cannot be reduced to a type system without the human providing a complete formal specification — which is the level 5 boundary.
 
-**Regulatory lens:** The EU AI Act's high-risk system requirements (traceability, human oversight, robustness) implicitly push toward level 2–3 structured outputs as a minimum for regulated applications, because only schema-enforced outputs are consistently parseable by audit tools. There is no regulatory requirement for level 4–5 output language design as of 2026.
+**Regulatory lens:** [inference] The EU AI Act's high-risk system requirements (traceability, human oversight, robustness) implicitly push toward level 2–3 structured outputs as a minimum for regulated applications, because only schema-enforced outputs are consistently parseable by audit tools. There is no regulatory requirement for level 4–5 output language design as of 2026.
 
 ---
 

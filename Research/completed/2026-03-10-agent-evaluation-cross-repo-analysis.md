@@ -31,7 +31,7 @@ What evaluation framework allows systematic comparison of agent implementations 
 - Building a fully automated cross-repo analysis pipeline (a separate backlog item if the framework warrants it)
 - Formal benchmarking infrastructure (e.g. HumanEval, SWE-Bench) — these are reference points but not the focus
 - Agent implementation for this repository (separate backlog item)
-- Evaluating non-agentic LLM applications
+- Evaluating non-agentic Large Language Model (LLM) applications
 
 **Constraints:** Analysis must be possible from public documentation, repos, and papers. No access to private repos or internal systems required. The taxonomy from `2026-03-10-ai-concept-classification-taxonomy.md` must be completed first; this item blocks on it.
 
@@ -129,7 +129,7 @@ What evaluation framework enables cross-repo comparison and regression detection
 │   ├── Q5a: What is the evals-as-code pattern?
 │   ├── Q5b: What is shadow testing for LLM agents?
 │   ├── Q5c: What is A/B testing for LLM agents?
-│   └── Q5d: What does a CI-integrated regression gate look like?
+│   └── Q5d: What does a Continuous Integration (CI)-integrated regression gate look like?
 │
 └── Q6: What does a minimal viable evaluation framework require?
     ├── Q6a: What are the minimum evaluation dimensions (what to measure)?
@@ -336,7 +336,7 @@ Stripping narrative and retaining only the evidential logic:
 
 **Technical lens:** The fundamental technical tension in agent evaluation is between determinism and capability. The more powerful an agent (the more it can do), the harder it is to write deterministic tests for it, because its outputs are genuinely variable. This is why the field has converged on probabilistic evals (LLM-as-judge, pass rates over N runs, trajectory comparison) rather than unit-test-style assertions.
 
-**Regulatory/safety lens:** OWASP LLM Top 10 2025 safety failures (prompt injection, guardrail bypass, excessive agency) are almost entirely absent from the evaluation mechanisms of the surveyed frameworks. None of the frameworks integrate structured safety evaluation as a first-class concern in their CI pipelines. This is a gap — safety evaluation is treated as a deployment-time concern rather than a development-time one.
+**Regulatory/safety lens:** Open Web Application Security Project (OWASP) LLM Top 10 2025 safety failures (prompt injection, guardrail bypass, excessive agency) are almost entirely absent from the evaluation mechanisms of the surveyed frameworks. None of the frameworks integrate structured safety evaluation as a first-class concern in their CI pipelines. This is a gap — safety evaluation is treated as a deployment-time concern rather than a development-time one.
 
 **Economic lens:** The cost of evaluation is itself a design constraint. Running 5 inference-time attempts (as OpenHands does) multiplies API costs by 5x. CI-integrated evals that run full LLM calls on every commit can become prohibitively expensive. Practitioner guides recommend tiered evaluation: cheap mocked tests in CI on every commit, expensive LLM-based evals weekly or on release branches. Source: hamel.dev/blog/posts/evals/; Pydantic AI testing documentation.
 
@@ -401,7 +401,7 @@ No dominant, universally-adopted evaluation framework for cross-repo agent compa
 
 **Assumptions**
 
-- [assumption] The eight surveyed frameworks are representative of the 2025 agent framework landscape. Justification: they cover the major public OSS frameworks by star count and practitioner adoption (AutoGen, CrewAI, LangGraph are the top three in practitioner comparisons; Pydantic AI and Agno represent the type-safe and multi-modal niches; OpenHands represents the SE-agent benchmark class). Two major commercial frameworks (GitHub Copilot Coding Agent, Claude Code) are partially characterised via prior research.
+- [assumption] The eight surveyed frameworks are representative of the 2025 agent framework landscape. Justification: they cover the major public open-source software (OSS) frameworks by star count and practitioner adoption (AutoGen, CrewAI, LangGraph are the top three in practitioner comparisons; Pydantic AI and Agno represent the type-safe and multi-modal niches; OpenHands represents the SE-agent benchmark class). Two major commercial frameworks (GitHub Copilot Coding Agent, Claude Code) are partially characterised via prior research.
 - [assumption] Secondary framework comparison sources (Braincuber, Meta Intelligence, DataCamp) are sufficiently reliable for architectural characterisation even when they do not cite primary empirical papers for performance figures. Justification: architectural claims (DAG structure, role assignment, memory implementation) are verifiable from official docs; performance figures (94%, 91%) are treated as medium-confidence claims.
 
 **Analysis**
@@ -418,7 +418,7 @@ For a research loop agent specifically, the evaluation trade-off is: the agent p
 - **LLM-as-judge consistency:** Even with structured rubrics, LLM-as-judge evaluations are not fully reproducible across model versions. Model updates to the judge model can silently change evaluation results, creating false regression signals.
 - **Safety evaluation gap:** No framework reviewed integrates safety evaluation (OWASP LLM Top 10) into CI. This is an unaddressed gap.
 - **Thin evidence for shadow testing in agent contexts:** The shadow testing literature for LLM agents is practitioner-level, not peer-reviewed. The technique is well-established for ML systems generally but its specific applicability to research loop agents is not independently validated.
-- **Missing frameworks:** Mastra (TypeScript), Google ADK, and Microsoft Copilot Studio were identified but not surveyed in depth due to scope limits. They may contribute additional patterns.
+- **Missing frameworks:** Mastra (TypeScript), Google Agent Development Kit (ADK), and Microsoft Copilot Studio were identified but not surveyed in depth due to scope limits. They may contribute additional patterns.
 
 **Open Questions**
 
