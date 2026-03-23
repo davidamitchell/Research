@@ -6,7 +6,7 @@ name: Build and Deploy Research Site
 # branch → main / docs/).
 #
 # Triggers:
-#   - Push to main that touches any file in Research/completed/
+#   - Push to main that touches any file in Research/completed/ or scripts/
 #   - Manual dispatch from the Actions tab
 
 on:
@@ -15,6 +15,7 @@ on:
     branches: [main]
     paths:
       - "Research/completed/**"
+      - "scripts/*.py"
 
 jobs:
   build:
@@ -36,17 +37,20 @@ jobs:
       - name: Install dependencies
         run: pip install mistune PyYAML
 
+      - name: Extract metadata
+        run: python scripts/extract_metadata.py
+
       - name: Build site
         run: python scripts/build_site.py
 
-      - name: Commit generated site
+      - name: Commit metadata and site
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add docs/
+          git add state/content_metadata.json docs/
           if git diff --cached --quiet; then
-            echo "No changes to docs/ — nothing to commit"
+            echo "No changes — nothing to commit"
           else
-            git commit -m "docs: rebuild GitHub Pages site [skip ci]"
+            git commit -m "docs: rebuild site and update metadata [skip ci]"
             git push
           fi

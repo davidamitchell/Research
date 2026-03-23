@@ -749,9 +749,8 @@ def load_items() -> list[dict]:
 
 def load_links(items: list[dict]) -> dict[str, list[dict]]:
     """Build a map of slug -> list of related items (by shared tags, >= 2 tags)."""
-    slug_map = {item["slug"]: item for item in items}
     links: dict[str, list[dict]] = {item["slug"]: [] for item in items}
-    for i, item in enumerate(items):
+    for item in items:
         item_tags = set(item["tags"])
         if len(item_tags) < 2:
             continue
@@ -1092,7 +1091,7 @@ def build_landing(items: list[dict], threads: list[dict]) -> str:
         f'<span class="stat-label">tags</span></div>'
         f'<div class="stat-item"><span class="stat-number">{thread_count}</span>'
         f'<span class="stat-label">threads</span></div>'
-        f'</div>'
+        f"</div>"
     )
 
     # Thread pills (top 8 by size)
@@ -1100,9 +1099,9 @@ def build_landing(items: list[dict], threads: list[dict]) -> str:
     for t in threads[:8]:
         thread_pills += (
             f'<a class="thread-pill" href="/Research/threads/{t["slug"]}.html">'
-            f'{escape(t["title"])}'
+            f"{escape(t['title'])}"
             f' <span class="thread-pill-count">{len(t["items"])}</span>'
-            f'</a>'
+            f"</a>"
         )
 
     # Tag pills (top 20 by frequency)
@@ -1110,11 +1109,11 @@ def build_landing(items: list[dict], threads: list[dict]) -> str:
     for tag, _ in all_tags.most_common(20):
         tag_pills += (
             f'<a class="tag-pill-link tag" href="/Research/tags/{escape(tag)}.html">'
-            f'{escape(tag)}</a>'
+            f"{escape(tag)}</a>"
         )
 
     return (
-        html_head("Research", extra_head='')
+        html_head("Research", extra_head="")
         + html_nav()
         + f"""\
 <main>
@@ -1200,7 +1199,7 @@ def _render_key_claims(findings: str) -> str:
     return (
         '<div class="key-claims">'
         '<div class="key-claims-label">key findings</div>'
-        f'<ol>{items_html}</ol>'
+        f"<ol>{items_html}</ol>"
         "</div>\n"
     )
 
