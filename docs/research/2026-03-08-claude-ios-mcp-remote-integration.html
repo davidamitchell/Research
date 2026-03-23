@@ -513,13 +513,7 @@ main {
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-claude-ios-mcp-remote-integration.md" target="_blank" rel="noopener">source →</a>
   </div>
-  <div class="key-claims"><div class="key-claims-label">key findings</div><ol><li>**Assumption:** The iOS app has no native connector configuration UI. **Justification:** All Anthropic documentation describes the web UI as the configuration point; iOS is described as consuming synced state. No source mentions an iOS-specific configuration flow. If this assumption is wrong, the configuration path described in Key Finding #3 is incomplete — but the transport and deployment requirements remain unchanged.</li>
-<li>**Assumption:** The Python MCP SDK&#39;s Streamable HTTP transport shares the same tool definition interface as the stdio transport. **Justification:** The MCP Python SDK separates transport from tool registration; tool definitions use `@server.tool()` decorators regardless of transport. This is consistent with the SDK&#39;s architecture as documented.</li>
-<li>The iOS connector UI is not directly verified through live app inspection; documentation is the sole evidence source. Anthropic may have introduced or removed features between documentation updates and the current app version.</li>
-<li>Anthropic&#39;s server relay introduces a network hop between the iOS Claude client and the remote MCP server that does not exist for Claude Desktop&#39;s local stdio connection. Real-world latency for tool calls from iOS has not been tested.</li>
-<li>OAuth 2.1 implementation for a single-user self-hosted server is disproportionately complex relative to the value — but no-auth leaves personal memory data exposed to URL discovery. A pragmatic middle path (hard-to-guess URL + IP allowlisting) is documented but not officially endorsed by Anthropic.</li>
-</ol></div>
-
+  
   <div class="item-content">
     <h2>Research Question</h2>
 <p>Does the Claude iOS app support MCP connections to a remote server? If so: (a) what transport is supported (HTTP/SSE vs stdio), (b) does it require the same <code>.mcp.json</code> config as Claude Desktop, (c) what is the minimum self-hosted deployment that would make <code>mcp_server.py</code> reachable from the app? What is Anthropic's roadmap for remote MCP and personal context/memory features?</p>

@@ -513,11 +513,14 @@ main {
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-02-28-transcript-via-yt-dlp-whisper.md" target="_blank" rel="noopener">source →</a>
   </div>
-  <div class="key-claims"><div class="key-claims-label">key findings</div><ol><li>**[assumption] GitHub Actions runners use AWS IP ranges.** Justification: GitHub-hosted runners are known to run on Azure and AWS infrastructure; both are in cloud IP ranges that YouTube blocks. This assumption is consistent with the prior research item&#39;s documented block.</li>
-<li>**[assumption] The cookies workaround would require the owner to use a personal Google account.** Justification: The research corpus does not specify a dedicated YouTube account. Using a personal account exposes personal cookies to GitHub Secrets, which is a security consideration.</li>
-<li>**Empirical testing not performed.** The blocking of yt-dlp from GitHub Actions is well-documented in community reports but not tested in this specific repository&#39;s workflow. A 5-minute test step in `fetch-transcript.yml` would confirm the block definitively.</li>
-<li>**Cookies lifespan is variable.** There is no community consensus on the exact expiry window; some report weeks, others months. The operational burden of the cookies approach is therefore uncertain.</li>
-<li>**faster-whisper accuracy at int8.** The benchmark comparison between float32 and int8 Whisper small shows negligible WER difference in most tests, but this is not universally verified for domain-specific technical vocabulary in research talks.</li>
+  <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>YouTube delivers audio and video streams via the same CDN infrastructure; cloud IP restrictions that block `yt-dlp` video downloads also block `yt-dlp` audio-only downloads from GitHub Actions runners running on AWS IP ranges</li>
+<li>As of 2024–2025, yt-dlp downloads from cloud/datacenter IPs (including GitHub Actions) are actively blocked by YouTube, producing HTTP 403 errors or &quot;Sign in to confirm you&#39;re not a bot&quot; challenges, regardless of whether the requested format is video or audio</li>
+<li>The only currently identified workaround that avoids paid third-party infrastructure is passing browser-exported cookies to yt-dlp via `--cookies`, stored as a base64-encoded GitHub Actions secret — but this requires periodic manual maintenance as cookies expire within weeks to months</li>
+<li>Using vanilla `openai-whisper` with the `small` model on a CPU-only GitHub Actions runner, transcribing a 60-minute audio file takes approximately 72–120 minutes — not the &quot;3–5 minutes&quot; estimated in the original item, which appears to assume GPU availability</li>
+<li>`faster-whisper` with int8 quantization delivers 4–7x speedup over vanilla `openai-whisper` on CPU, reducing the same 60-min audio to ~7–15 minutes of runner time, making the approach economically viable on the free Actions tier</li>
+<li>The Whisper `small` model achieves 3.2–3.4% WER on clean English speech; `medium` achieves 2.7–2.9% WER — a 0.5–0.7 percentage point improvement that widens for noisy or accented audio but is modest for well-recorded English talks</li>
+<li>The `small` model requires ~461 MB download; `medium` requires ~1.5 GB</li>
+<li>Option B (OpenAI Whisper API at `whisper-1`, $0.006/min) requires `OPENAI_API_KEY`, which is not in the AGENTS.md approved credentials table; it cannot be implemented without explicit owner approval</li>
 </ol></div>
 
   <div class="item-content">

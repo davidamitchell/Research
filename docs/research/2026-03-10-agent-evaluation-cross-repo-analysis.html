@@ -513,13 +513,7 @@ main {
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-10-agent-evaluation-cross-repo-analysis.md" target="_blank" rel="noopener">source →</a>
   </div>
-  <div class="key-claims"><div class="key-claims-label">key findings</div><ol><li>**A1:** The eight surveyed frameworks are representative of the 2025 agent framework landscape. Justification: they cover the major OSS frameworks by practitioner adoption (AutoGen, CrewAI, LangGraph dominate practitioner comparisons); Pydantic AI and Agno cover type-safe and multi-modal niches; OpenHands/SWE-bench cover the SE-agent benchmark class; Anthropic harness covers the production research-loop pattern. Commercial frameworks (Copilot Coding Agent, Claude Code) are partially covered via prior research.</li>
-<li>**A2:** Secondary framework performance figures (94%/91%/89% task completion) are accurate as relative indicators even without primary empirical papers. Justification: multiple independent secondary sources agree on the ranking and approximate magnitude; the architectural explanation (LangGraph&#39;s state management reducing a class of failures) is mechanically plausible.</li>
-<li>**Benchmark saturation:** Fixed benchmarks are gamed or saturated. Any evaluation framework must budget for benchmark refresh as infrastructure cost, not a one-time task.</li>
-<li>**LLM-as-judge drift:** Judge model updates can change evaluation results without any change to the agent being evaluated, creating phantom regression signals. Judge model versioning is a required mitigation.</li>
-<li>**Safety evaluation gap:** No surveyed framework integrates safety evals in CI. This is an active risk for production agents, including the research loop.</li>
-</ol></div>
-
+  
   <div class="item-content">
     <h2>Research Question</h2>
 <p>What evaluation framework allows systematic comparison of agent implementations across multiple repositories — identifying what problems each is solving, whether concepts are used idiomatically or in novel ways, whether the agent is effective, and how to detect whether a change to an agent made it better or worse — and what would a minimal viable implementation of such a framework look like?</p>

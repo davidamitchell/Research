@@ -513,13 +513,7 @@ main {
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-15-latent-concept-extraction-confluence.md" target="_blank" rel="noopener">source →</a>
   </div>
-  <div class="key-claims"><div class="key-claims-label">key findings</div><ol><li>**Assumption:** Domain adaptation (TSDAE/GPL) is not required for Confluence prototype-scale deployments on mixed-domain technical prose. **Justification:** General-purpose SBERT models demonstrate adequate retrieval quality on broad technical domains; domain adaptation adds engineering cost that is justified only when retrieval degradation is demonstrated on a Confluence-specific evaluation set.</li>
-<li>**Assumption:** A composite confidence score combining provenance quality, approval status, and recency signal is an adequate practical proxy for veritistic value in an organisational knowledge base. **Justification:** Direct measurement of V-value (belief change in users) is operationally infeasible at enterprise scale; metadata-based trust scoring is the industry-standard approximation, as documented in data governance literature and the Alation composite trust score model.</li>
-<li>**No Confluence-specific chunking benchmark.** NVIDIA&#39;s chunking study uses general document corpora; transfer to Confluence wiki structure (macros, tables, infoboxes, structured templates) is an inference from general results.</li>
-<li>**mREBEL triple coverage claim (1.8×) is from a single source.** Performance on Confluence technical prose (which differs from Wikipedia–Wikidata aligned training data) is unvalidated.</li>
-<li>**Weaviate&#39;s combined KG + VDB performance at wiki scale is not independently benchmarked.** The recommendation is based on feature documentation; production throughput and latency figures for this configuration were not found.</li>
-</ol></div>
-
+  
   <div class="item-content">
     <h2>Research Question</h2>
 <p>What are the best approaches for extracting latent concepts from a Confluence wiki, representing them as word embeddings in a vector database (VDB) and as a knowledge graph (KG), and how can the resulting knowledge base be evaluated for truth and utility  -  and is there a meaningful distinction between the two?</p>

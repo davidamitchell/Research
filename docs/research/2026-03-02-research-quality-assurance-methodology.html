@@ -513,11 +513,14 @@ main {
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-02-research-quality-assurance-methodology.md" target="_blank" rel="noopener">source →</a>
   </div>
-  <div class="key-claims"><div class="key-claims-label">key findings</div><ol><li>**Assumption:** The Copilot CLI agent running `research-review.yml` has sufficient reasoning capability to perform logical coherence checks on research items. **Justification:** REMOR and DeepReview demonstrate that current LLM-class models match median human reviewer quality on coherence; the Copilot CLI uses Claude Sonnet, which is in the same capability class. Direct empirical validation in this specific repo would be needed to confirm.</li>
-<li>**Assumption:** The existing `research-review.yml` agent prompt can be extended with logical coherence and evidence sufficiency instructions without degrading the quality of the existing three skill checks. **Justification:** The existing prompt already chains three separate skill checks; adding two more checks in the same format is consistent with the established pattern. The risk is prompt length degradation, but the existing prompt is already ~120 lines and functions correctly.</li>
-<li>**Assumption:** &quot;Domain plausibility&quot; checks (Tier 4) are not LLM-automatable for NZ financial services context. **Justification:** The ICLR 2025 feedback confirms agents underperform on domain-specific novelty and plausibility; the RBNZ supervisory expectations item confirms that NZ-specific regulatory context is required for correct domain assessment. This is a strong inference given the evidence, not an empirically proven claim about this specific agent.</li>
-<li>**Ahrens (2017)** was not accessed (book inaccessible). The Zettelkasten findings are corroborated by zettelkasten.de primary documentation and two prior completed items; this gap does not affect any Key Finding.</li>
-<li>**Empirical validation of LLM coherence checking in this specific repo** has not been done. The claim that the Copilot CLI agent can perform logical coherence checks is supported by REMOR/DeepReview but not validated against this repo&#39;s items. The first run of the extended `research-review-prompt.md` will provide this validation.</li>
+  <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>The three existing skills leave logical coherence, alternative explanations, and cross-item integration uncovered</li>
+<li>LLM agents can check logical coherence and missing alternative explanations at a quality level matching median human peer reviewers</li>
+<li>A four-tier quality review pipeline sequenced by automation cost is the correct architecture: structural checks → single-item agent review → cross-item agent review → human domain review</li>
+<li>The existing `research-review.yml` Tier 2 agent review should be extended with two new checks: logical coherence (does §6 Synthesis follow from §2 Investigation?) and evidence sufficiency (is the confidence level calibrated to source count and independence?)</li>
+<li>[fact + inference] The DIKW and SECI frameworks map to three distinct workflow stages in this repository: Information→Knowledge (individual item research and review), Knowledge→Wisdom (cross-item synthesis via the planned `synthesise.yml`), and Wisdom application (internalisation via the knowledge-retention mechanisms)</li>
+<li>Cross-item integration is a quality dimension for individual items, not only a synthesis-layer concern</li>
+<li>A `peer-review` skill with three checks is the correct scope addition to `davidamitchell/Skills`</li>
+<li>Bloom&#39;s revised taxonomy (2001) maps directly onto the four automation tiers: Remember/Understand levels map to structural checks; Apply/Analyse levels map to agent reasoning; Evaluate/Create levels map to human judgment</li>
 </ol></div>
 
   <div class="item-content">

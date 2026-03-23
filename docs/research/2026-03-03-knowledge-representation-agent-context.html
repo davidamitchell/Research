@@ -513,11 +513,14 @@ main {
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-03-knowledge-representation-agent-context.md" target="_blank" rel="noopener">source →</a>
   </div>
-  <div class="key-claims"><div class="key-claims-label">key findings</div><ol><li>**Assumption:** Dense embeddings at &lt;500 items are computationally feasible on CPU with local models (Model2Vec). **Justification:** Demonstrated in the context-mode research item by a practitioner running Model2Vec on a 49,746-chunk Obsidian vault without GPU.</li>
-<li>**Assumption:** LLM-based KG extraction produces sufficient quality on research-item content without extensive prompt tuning. **Justification:** GraphRAG, LightRAG, and HippoRAG all demonstrate strong extraction quality on similar corpus types; research items have clear, extractable entities.</li>
-<li>**Assumption:** The corpus will reach ~200 items within 6 months at current accumulation rates. **Justification:** Current backlog ~27 items; completing 2–5 items/week reaches 200 items in 3–6 months.</li>
-<li>**Unknown query type distribution.** The actual mix of local factual lookups, global sensemaking queries, and multi-hop relationship queries for this corpus is not yet known. This distribution determines relative technique value. Recommendation: instrument agent queries once the corpus reaches 100 items.</li>
-<li>**LLM extraction quality on research items is untested.** Whether standard LightRAG/HippoRAG extraction prompts work well on structured research markdown without tuning is unknown. A small-scale extraction test on 10–20 items before full pipeline build would de-risk this.</li>
+  <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>LSA is superseded by dense embeddings for agent context retrieval</li>
+<li>GraphRAG (Microsoft, Edge et al</li>
+<li>LightRAG (arXiv:2410.05779, EMNLP 2025) is the practical successor to GraphRAG for dynamic corpora</li>
+<li>HippoRAG&#39;s PPR-based retrieval achieves up to 20% improvement on multi-hop QA benchmarks at 10–30× lower cost than iterative retrievers</li>
+<li>RAPTOR&#39;s recursive abstractive hierarchy achieves +20 percentage points on multi-step reading comprehension (QuALITY benchmark, ICLR 2024)</li>
+<li>Concept maps do not constitute a separate agent-accessible knowledge layer</li>
+<li>A five-layer knowledge architecture provides principled agent context management</li>
+<li>RRF is the established standard for combining retrieval signals</li>
 </ol></div>
 
   <div class="item-content">

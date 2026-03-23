@@ -513,13 +513,7 @@ main {
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-05-h-neurons-synthesis.md" target="_blank" rel="noopener">source →</a>
   </div>
-  <div class="key-claims"><div class="key-claims-label">key findings</div><ol><li>**Assumption:** RLHF has a similar parameter-sparing effect on H-Neurons as SFT. **Justification:** RLHF typically makes smaller weight updates than SFT; if SFT does not modify H-Neurons, RLHF is at least as unlikely to do so. Directly untested.</li>
-<li>**Assumption:** Sycophantic and confidently-stated false text in pre-training corpora is the primary driver of H-Neuron formation. **Justification:** Pre-training origin evidence plus NTP objective analysis provides a coherent account; the data quality literature independently confirms that noisy training data increases hallucination rates. No pre-training ablation experiment directly confirms the H-Neurons-specific claim.</li>
-<li>**Assumption:** The six open-weight models tested are sufficiently representative for the causal chain claims to generalise to closed-source frontier models. **Justification:** Three families with diverse architectures are tested and show consistent patterns. Closed-source model internals remain inaccessible.</li>
-<li>**RLHF effect on H-Neurons is untested.** The parameter inertia finding covers SFT; RLHF&#39;s specific effect remains unknown.</li>
-<li>**Helpfulness trade-off is unquantified.** How much legitimate compliant behaviour is lost under H-Neuron suppression is not measured; this is the primary barrier to production deployment of inference-time intervention.</li>
-</ol></div>
-
+  
   <div class="item-content">
     <h2>Research Question</h2>
 <p>Across all four preceding research items — the macroscopic hallucination landscape, the H-Neurons paper, over-compliance interventions, and pre-training origins — what is the unified, actionable picture for understanding and reducing LLM hallucinations, and what are the highest-leverage next steps for organisations that care about LLM reliability?</p>

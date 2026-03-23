@@ -513,11 +513,14 @@ main {
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-02-agent-memory-management-context-injection.md" target="_blank" rel="noopener">source →</a>
   </div>
-  <div class="key-claims"><div class="key-claims-label">key findings</div><ol><li>**Assumption:** Benchmark scores (LOCOMO, LongMemEval) are representative of real-world agent memory quality. **Justification:** Both are peer-reviewed or publicly reproducible datasets. However, production workloads may have domain-specific distributions not captured in benchmarks.</li>
-<li>**Assumption:** The wiki failure mode will apply to agent memory at machine speed. **Justification:** The structural conditions are identical (unowned shared write store with no lifecycle management); agent write speeds remove the one natural brake (human effort) that slowed wiki rot.</li>
-<li>**Assumption:** Commercial-tier governance features (SOC2, HIPAA, BYOK, audit logs) are correctly implemented by vendors. **Justification:** SOC2 certification provides independent verification of controls; not independently audited here.</li>
-<li>**No open-source system has a credible quality feedback loop.** Confidence decay and TTL are available, but calibration requires production signal (was this retrieval useful?). No system closes this loop without custom instrumentation.</li>
-<li>**Benchmark scores are largely self-reported.** Independent head-to-head evaluations covering all major systems on both LOCOMO and LongMemEval do not yet exist as a single authoritative source.</li>
+  <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>RAG is retrieval, not memory</li>
+<li>Memory architecture has five distinct layers in practice</li>
+<li>Zep (Graphiti engine) is the most technically mature temporal memory system</li>
+<li>Mem0 is the most adopted open-source memory layer</li>
+<li>LangMem provides the cleanest semantic/episodic/procedural taxonomy</li>
+<li>Scoping is achievable but not combinatorial-explosion-free</li>
+<li>GraphRAG (Microsoft) solves multi-hop reasoning but not agent memory</li>
+<li>Governance is absent in open-source, partial in commercial</li>
 </ol></div>
 
   <div class="item-content">

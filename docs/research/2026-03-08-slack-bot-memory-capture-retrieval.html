@@ -513,11 +513,14 @@ main {
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-slack-bot-memory-capture-retrieval.md" target="_blank" rel="noopener">source →</a>
   </div>
-  <div class="key-claims"><div class="key-claims-label">key findings</div><ol><li>**Assumption:** The user has a Slack workspace or is willing to create one. **Justification:** Research is conditional on Slack being used; without a workspace, Telegram is unambiguously better.</li>
-<li>**Assumption:** `search_brain` is invocable as a Python function or subprocess from the bot process. **Justification:** Required for the retrieval path; implementation is out of scope for this item.</li>
-<li>**Assumption:** A fine-grained GitHub PAT with `Contents: write` on the Memory-System repository exists or can be created. **Justification:** Same credential established by the iOS Shortcuts research; no additional approval needed.</li>
-<li>**`search_brain` is unimplemented.** The retrieval path depends on a callable `search_brain` function whose latency and output format are unknown. Memory-System W-0003 implementation work must define this interface.</li>
-<li>**No on-process test conducted.** Implementation patterns are documentation-derived, not device-validated.</li>
+  <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Socket Mode is available on free Slack workspaces, requires no public URL, and is the correct transport  for a personal memory bot — the bot process connects outward to Slack via WebSocket without needing any inbound HTTP endpoint</li>
+<li>A single Slack app handles both capture (message event subscription) and retrieval (slash command), counts as 1 of 10 allowed integrations on a free workspace, and satisfies both use cases with no free-tier API feature restrictions</li>
+<li>The minimum viable bot scope set is `channels:history`, `channels:read`, `chat:write`, and an App Token with `connections:write`; the full capture and retrieval handler is approximately 15–20 lines of Bolt for Python using the `message.channels` event and a slash command</li>
+<li>The 3-second Slack slash command ACK requirement is satisfied by the `ack(&quot;Searching…&quot;)` + `respond()` async pattern: the bot acknowledges immediately with interim feedback, runs `search_brain` asynchronously, and posts results within 30 minutes using the `response_url` provided in the command payload</li>
+<li>The free workspace&#39;s 90-day message history limit is irrelevant to this use case because GitHub is the canonical memory store and each captured message is committed to the repository immediately; no memory is stored in or retrieved from Slack&#39;s message history</li>
+<li>Railway, Render, and Fly.io do not provide reliably always-on free hosting in 2024–2025 for a Socket Mode bot that requires a persistent WebSocket process; new Fly.io accounts (post October 2024) have no free tier, and legacy-free accounts face autosuspend risk for outbound-only connections</li>
+<li>Oracle Cloud&#39;s Always Free ARM A1 Compute is the only genuinely zero-cost always-on host: up to 4 OCPUs and 24 GB RAM across 1–4 VMs, no expiry, suitable for a Python bot running as a systemd service; the trade-off is Do It Yourself (DIY) setup (SSH, systemd) rather than PaaS one-click deployment</li>
+<li>End-to-end capture latency is approximately 200 ms–1 s (Socket Mode event delivery 50–200 ms, GitHub Contents API write 100–800 ms), and retrieval UX feedback is sub-second because the ACK posts &quot;Searching…&quot; immediately; full results follow when `search_brain` completes</li>
 </ol></div>
 
   <div class="item-content">

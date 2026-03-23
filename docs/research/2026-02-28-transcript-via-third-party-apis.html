@@ -513,13 +513,7 @@ main {
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-02-28-transcript-via-third-party-apis.md" target="_blank" rel="noopener">source →</a>
   </div>
-  <div class="key-claims"><div class="key-claims-label">key findings</div><ol><li>**Assumption:** Research use case volume is approximately 5–20 videos per month. **Justification:** Derived from the pattern of research items in this repository — items reference individual YouTube videos, and the research loop processes a small number of items per session.</li>
-<li>**Assumption:** Supadata&#39;s Auto mode successfully returns transcripts when called from GitHub Actions cloud IPs. **Justification:** Supadata&#39;s documented architecture explicitly routes all YouTube access through its own servers, not the caller&#39;s IP. The architectural guarantee is stated in the documentation, but no live test has been run.</li>
-<li>Supadata&#39;s AI fallback (Auto/Generate modes) uses models described as &quot;similar to Whisper&quot; in secondary sources; this description was not confirmed in Supadata&#39;s primary documentation. If the AI fallback is a language model rather than ASR, verbatim quality claims would need revision.</li>
-<li>Supadata is a small commercial service with no publicly stated service-level agreement on the free tier. Discontinuation or pricing changes would break the workflow. Mitigation: retain the existing fallback chain as a safety net.</li>
-<li>The IP-block status of `yt-dlp` CDN audio downloads from GitHub Actions runners remains unconfirmed. If a future test demonstrates that `yt-dlp` audio downloads succeed, AssemblyAI becomes viable as a higher-quality ASR alternative (at cost).</li>
-</ol></div>
-
+  
   <div class="item-content">
     <h2>Research Question</h2>
 <p>Can a third-party transcript API (AssemblyAI, Supadata, Kagi, or similar) retrieve YouTube

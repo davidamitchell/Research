@@ -513,11 +513,14 @@ main {
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-01-github-specify-ralph-loop-lisa-planning.md" target="_blank" rel="noopener">source →</a>
   </div>
-  <div class="key-claims"><div class="key-claims-label">key findings</div><ol><li>**Assumption:** Geoffrey Huntley coined the Ralph Wiggum Technique. **Justification:** ghuntley.com/ralph/ is cited by all downstream sources as the originating post; Huntley is credited as the inventor in every secondary source found.</li>
-<li>**Assumption:** &quot;Specify&quot; in the research question refers to Phase 1 of the Ralph workflow, not a GitHub product. **Justification:** Web search found no GitHub product called &quot;Specify&quot;; the ralph-playbook and ghuntley.com use &quot;Specify&quot; as a phase name. The Copilot &quot;issue assignment&quot; workflow is the closest product analogue.</li>
-<li>**Assumption:** Lisa as a persistent planning agent is community-built, not an official Huntley deliverable. **Justification:** ghuntley.com does not document Lisa; Lisa implementations (kenziecreative/lisa-simpson-claudecode, dev.to/tonycasey) are community responses to a real gap Huntley identifies (session statefulness).</li>
-<li>**Lisa product maturity is low.** Multiple community implementations exist; none appear production-stable. The Graphiti/Neo4j dependency is heavy for a knowledge graph that could be approximated with simpler solutions.</li>
-<li>**&quot;--dangerously-skip-permissions&quot; is a hard requirement for headless Claude Code.** GitHub Copilot Agent mode does not expose this flag — it runs with its own permission model. A true Claude Code Ralph loop requires a sandboxed environment this repo does not currently configure.</li>
+  <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>The Ralph loop is three phases, two prompts, one outer loop</li>
+<li>&quot;Specify&quot; is Phase 1 — not a product feature</li>
+<li>Spec format: one Markdown file per Topic of Concern</li>
+<li>Context management is the core engineering discipline</li>
+<li>Back-pressure (tests) is what makes the loop proof-driven</li>
+<li>Lisa = persistent memory + planning orchestration, Ralph = brute execution</li>
+<li>GitHub Copilot Agent mode is spec-first by design</li>
+<li>Active inference connection is structural, not merely analogical</li>
 </ol></div>
 
   <div class="item-content">

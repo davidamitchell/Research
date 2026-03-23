@@ -513,11 +513,14 @@ main {
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-03-knowledge-linking-connected-corpus.md" target="_blank" rel="noopener">source →</a>
   </div>
-  <div class="key-claims"><div class="key-claims-label">key findings</div><ol><li>**Assumption:** Research agents will consistently maintain the `## Related Items` section format. **Justification:** The section is added to `_template.md` as a mandatory placeholder. Failure to maintain degrades the index but does not corrupt it — missing section = no outgoing edges for that item.</li>
-<li>**Assumption:** Five relationship types are sufficient at current and near-term corpus scale (&lt;50 items). **Justification:** Empirical review of 18 completed items found only 4 informal relationship types in use; five covers all observed patterns.</li>
-<li>**Assumption:** Agent-reviewed auto-suggestions will be acted on within a reasonable time horizon. **Justification:** The research loop review step is a natural integration point for surfacing and acting on suggestions.</li>
-<li>**Relationship type accuracy:** Miscategorisation produces a less precise edge, not data corruption. Mitigable by including type definitions in the research prompt.</li>
-<li>**Retroactive linking:** The 18 existing completed items have no `## Related Items` sections. Sparse edge store until a retroactive pass is run.</li>
+  <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Zettelkasten&#39;s core principle is connection over collection; the date-prefixed filename already satisfies the fixed-address requirement</li>
+<li>A dedicated `## Related Items` section using typed relative Markdown links is the optimal cross-reference format</li>
+<li>Backlinks must be derived by file scanning, not written into referenced files</li>
+<li>A separate `state/links.json` committed to the repository is the correct edge store</li>
+<li>The edge store is a derived artifact, regenerable entirely from `## Related Items` sections</li>
+<li>[fact + inference] Five relationship types cover the corpus&#39;s actual usage patterns</li>
+<li>Auto-detection via tag overlap (≥ 2 narrow tags) and shared source URLs produces actionable suggestions with manageable false-positive rates</li>
+<li>The existing `src/wiki/publish.py` pipeline can append &quot;Related Items&quot; sections to wiki pages from `state/links.json` with ~20 lines of additional code</li>
 </ol></div>
 
   <div class="item-content">

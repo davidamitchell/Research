@@ -513,13 +513,7 @@ main {
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-05-general-agent-optimization-framework.md" target="_blank" rel="noopener">source →</a>
   </div>
-  <div class="key-claims"><div class="key-claims-label">key findings</div><ol><li>**Assumption:** The Self-Improving Loop operates against LLM APIs only (no local GPU compute). **Justification:** Explicitly stated in scope constraints; all cost estimates derived accordingly.</li>
-<li>**Assumption:** A weekly optimization cadence is the appropriate operational schedule. **Justification:** Derived from cost calculation (~370 API calls × weekly frequency = manageable; daily frequency becomes expensive); not empirically validated for this specific repo.</li>
-<li>**Assumption:** NZ legislation.govt.nz text is freely usable for LLM training. **Justification:** New Zealand government publications are typically Crown copyright with open licensing for non-commercial use, but specific terms should be confirmed before building a Golden Set from this source.</li>
-<li>**Assumption:** Brevity Penalty and Prompt Pruning can be implemented as MIPRO objective modifications. **Justification:** DSPy&#39;s modular objective design supports custom metric functions; the specific implementation is untested in this context.</li>
-<li>**Outer-loop test set refresh policy is unresolved.** No surveyed framework specifies when or how to replace the variation set to prevent the outer loop itself from overfitting. This is a first-order architectural gap.</li>
-</ol></div>
-
+  
   <div class="item-content">
     <h2>Research Question</h2>
 <p>What is the most principled architecture for a Self-Improving AI Agent Evaluation Loop — specifically, how should a nested inner/outer loop be designed so that a &quot;Meta-Optimizer&quot; rewrites system prompts based on failure analysis without causing instruction drift or overfitting to specific training questions?</p>

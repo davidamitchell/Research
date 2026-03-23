@@ -513,13 +513,7 @@ main {
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-chatgpt-actions-memory-integration.md" target="_blank" rel="noopener">source →</a>
   </div>
-  <div class="key-claims"><div class="key-claims-label">key findings</div><ol><li>**Assumption:** A system prompt instruction (&quot;before every response, call search_brain&quot;) achieves ≥95% retrieval invocation for standard conversational queries. **Justification:** Community implementations of RAG via Actions report reliable trigger behaviour for explicit, unambiguous instructions; the failure mode is ambiguous instructions, not the underlying mechanism. This rate is sufficient for personal use but has not been empirically measured.</li>
-<li>**Assumption:** A single FastAPI backend can expose both MCP Streamable HTTP routes and plain REST/JSON routes on different paths without conflict. **Justification:** FastAPI&#39;s routing system supports arbitrary path definitions; MCP and REST share the HTTP transport layer and can coexist in the same process. This is a standard web application architecture pattern.</li>
-<li>**Assumption:** The user sets the memory-retrieval custom GPT as the default or primary interface for ChatGPT conversations to ensure retrieval runs consistently. **Justification:** If the user opens standard ChatGPT (not the custom GPT), no retrieval occurs. The custom GPT must be the entry point. This is a workflow discipline requirement, not a technical constraint.</li>
-<li>The forced retrieval pattern (≥95% system prompt compliance) is an assumption, not an empirically verified rate. A prototype test with 20–30 queries would be sufficient to validate or reject this assumption before committing to the design.</li>
-<li>The &quot;not available on iOS&quot; issue, historically caused by OAuth flow failures, could resurface for API key Actions in a future app update. OpenAI has not documented iOS-specific Action availability guarantees.</li>
-</ol></div>
-
+  
   <div class="item-content">
     <h2>Research Question</h2>
 <p>Can a ChatGPT custom Generative Pre-trained Transformer (GPT) be configured with Actions that: (a) call a self-hosted HTTP endpoint to add a memory, (b) call <code>search_brain</code> before responding to surface relevant context? What is OpenAI's native Memory Application Programming Interface (API)  -  is there any export/import hook to sync ChatGPT's built-in memories into this repo? What are the auth and hosting requirements?</p>

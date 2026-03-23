@@ -513,13 +513,7 @@ main {
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-lancedb-index-rebuild-from-git.md" target="_blank" rel="noopener">source →</a>
   </div>
-  <div class="key-claims"><div class="key-claims-label">key findings</div><ol><li>**Assumption:** GitHub Actions runner hardware is representative of free-tier deployment targets. **Justification:** GitHub Actions 2-core runners are comparable to Fly.io free tier CPU; RAM (7 GB vs 256 MB) differs and may slow PyTorch model load on memory-constrained targets.</li>
-<li>**Assumption:** Document content truncated to 2000 characters per file represents a reasonable upper bound for embedding input length in this corpus. **Justification:** Research items are structured Markdown; semantic content is front-loaded in title, executive summary, and key findings.</li>
-<li>**Assumption:** Pre-computed JSON embeddings would be committed alongside `.md` files as part of the `add_memory` write path. **Justification:** The natural implementation; any other approach (separate batch job) introduces synchronisation complexity between stored files and their embeddings.</li>
-<li>Model2Vec&#39;s rebuild time in the LanceDB context has not been directly benchmarked; the 200× speedup is well-sourced but measured in a different evaluation context.</li>
-<li>Fly.io free tier (1 vCPU, 256 MB RAM) may exhibit worse model load times than the GitHub Actions runner due to RAM pressure during PyTorch initialisation.</li>
-</ol></div>
-
+  
   <div class="item-content">
     <h2>Research Question</h2>
 <p>Can the LanceDB index be rebuilt from the <code>.md</code> files in the repo on startup fast enough to enable stateless (per-request) deployment? Measure rebuild time at: current corpus size, 100 files, 500 files, 1000 files. Is the embedding model load time (BAAI/bge-small-en-v1.5) the bottleneck or the LanceDB write operations? Would a lighter embedding model (e.g. MiniLM) or pre-computed embeddings stored in git change the equation?</p>

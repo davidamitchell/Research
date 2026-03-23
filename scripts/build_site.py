@@ -1190,21 +1190,14 @@ def build_browse(items: list[dict]) -> str:
     )
 
 
-def _render_key_claims(findings: str) -> str:
-    """Extract bullet points from findings and render as a key-claims block."""
-    bullets = []
-    for line in findings.split("\n"):
-        m = re.match(r"^[-*+]\s+(.+)", line.strip())
-        if m:
-            bullets.append(m.group(1).strip())
-        if len(bullets) >= 5:
-            break
-    if not bullets:
+def _render_key_claims(meta_claims: list[str]) -> str:
+    """Render key claims block from pre-extracted, clean claim sentences."""
+    if not meta_claims:
         return ""
-    items_html = "".join(f"<li>{escape(b)}</li>\n" for b in bullets)
+    items_html = "".join(f"<li>{escape(c)}</li>\n" for c in meta_claims)
     return (
         '<div class="key-claims">'
-        '<div class="key-claims-label">key findings</div>'
+        '<div class="key-claims-label">key claims</div>'
         f"<ol>{items_html}</ol>"
         "</div>\n"
     )
@@ -1237,6 +1230,7 @@ def build_item_page(
     prev_item: dict | None,
     next_item: dict | None,
     related: list[dict] | None = None,
+    meta_claims: list[str] | None = None,
 ) -> str:
     """Generate docs/research/<slug>.html."""
     md = mistune.create_markdown(plugins=["table", "strikethrough"])
@@ -1246,9 +1240,8 @@ def build_item_page(
         for t in item["tags"]
     )
 
-    # Key claims from findings
-    findings = item["sections"].get("Findings", "")
-    key_claims_html = _render_key_claims(findings) if findings else ""
+    # Key claims from pre-extracted metadata (clean, source-URL-free sentences)
+    key_claims_html = _render_key_claims(meta_claims or [])
 
     sections_html = ""
     for section_name in SECTIONS_ORDERED:
@@ -1553,7 +1546,8 @@ def main() -> None:
         prev_item = items[i - 1] if i > 0 else None
         next_item = items[i + 1] if i < len(items) - 1 else None
         related = links.get(item["slug"], [])
-        html = build_item_page(item, prev_item, next_item, related)
+        meta_claims = metadata.get("items", {}).get(item["slug"], {}).get("key_claims", [])
+        html = build_item_page(item, prev_item, next_item, related, meta_claims)
         (RESEARCH_DIR / f"{item['slug']}.html").write_text(html, encoding="utf-8")
 
     # 4. Tag pages

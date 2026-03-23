@@ -513,13 +513,7 @@ main {
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-12-hosting-options-for-the-research-repo.md" target="_blank" rel="noopener">source →</a>
   </div>
-  <div class="key-claims"><div class="key-claims-label">key findings</div><ol><li>**Assumption:** Site traffic will remain low (personal/small-team use). **Justification:** The research corpus is a personal workflow tool; no public distribution is planned. GitHub Pages&#39; 100 GB/month soft bandwidth limit is not at risk.</li>
-<li>**Assumption:** The owner can perform one-time dashboard setup (enabling GitHub Pages in repository Settings, choosing &quot;GitHub Actions&quot; as the source). **Justification:** The owner previously enabled the GitHub wiki via repository Settings for the publish-wiki.yml workflow — this is the same pattern.</li>
-<li>**Assumption:** The YAML frontmatter `tags` key in `Research/completed/` files is compatible with MkDocs Material&#39;s tags plugin format (`tags: [tag1, tag2, ...]`). **Justification:** Both use standard YAML list syntax; MkDocs Material supports both YAML list and inline YAML formats.</li>
-<li>**Pagefind template override:** Pagefind tag filtering in MkDocs Material requires a community-pattern template override that emits `data-pagefind-filter` attributes. This is not officially supported by MkDocs Material and may break on theme updates. Mitigation: use MkDocs Material&#39;s native tags index as the primary tag navigation; Pagefind tag filter is an enhancement.</li>
-<li>**LanceDB Cloud free tier:** Currently in public beta with 30-day trial. A permanent free tier has not been announced. If one is launched, LanceDB becomes viable for server-side semantic search without pre-computing embeddings in CI.</li>
-</ol></div>
-
+  
   <div class="item-content">
     <h2>Research Question</h2>
 <p>What is the best free or very-low-cost hosting option for this research repository that supports full-text search, and optionally vector/graph database capabilities, without requiring SEO, custom DNS, or authentication?</p>

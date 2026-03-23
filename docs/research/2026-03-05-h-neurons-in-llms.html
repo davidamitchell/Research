@@ -513,13 +513,7 @@ main {
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-05-h-neurons-in-llms.md" target="_blank" rel="noopener">source →</a>
   </div>
-  <div class="key-claims"><div class="key-claims-label">key findings</div><ol><li>**Assumption:** The six models tested (Mistral, Gemma-3, Llama-3 families) are representative of the broader LLM ecosystem including closed-source models (GPT-4, Claude, Gemini). **Justification:** The three families span diverse pre-training data, architecture choices, and parameter counts. However, closed-source model internals are inaccessible for verification; findings may not generalise identically.</li>
-<li>**Assumption:** The TriviaQA-based training procedure for the sparse probe is sufficient to identify H-Neurons for other hallucination types (e.g., reasoning errors, long-form inconsistency). **Justification:** The paper evaluates cross-domain and fabrication generalisation and finds strong results. However, reasoning-type hallucinations are not tested; the assumption holds for factual QA hallucinations but remains unverified for reasoning.</li>
-<li>**Assumption:** AUROC retention in base models is sufficient evidence for pre-training origin, even though the SFT procedure could in principle activate different neurons than the instruction-tuned model while preserving similar AUROC by coincidence. **Justification:** The parameter inertia analysis (cosine similarity ranks) independently confirms H-Neurons are minimally modified during SFT, making coincidence unlikely; the two lines of evidence converge.</li>
-<li>**Attention heads excluded:** The analysis covers FFN neurons only. Whether attention heads play a similar or complementary role in hallucination is unknown. The full picture of hallucination at the circuit level is incomplete.</li>
-<li>**Llama-3.1-8B NonExist anomaly (inaccessible explanation):** The below-baseline performance on fabricated-entity questions is unexplained. It may indicate that H-Neurons as currently identified are insufficient for fabrication detection in some architectures, or that the Llama-3.1-8B training dynamics differ in a relevant way.</li>
-</ol></div>
-
+  
   <div class="item-content">
     <h2>Research Question</h2>
 <p>What are Hallucination-Associated Neurons (H-Neurons) in large language models, how can they be identified, what behaviours do they cause, where do they come from, and what do these findings imply for building more reliable LLMs?</p>

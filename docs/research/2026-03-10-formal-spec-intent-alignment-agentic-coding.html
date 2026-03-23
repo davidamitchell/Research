@@ -513,13 +513,7 @@ main {
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-10-formal-spec-intent-alignment-agentic-coding.md" target="_blank" rel="noopener">source →</a>
   </div>
-  <div class="key-claims"><div class="key-claims-label">key findings</div><ol><li>**Assumption:** LLMs generate structurally more aligned code in strongly-typed codebases than in dynamically-typed ones, absent type-constrained decoding. **Justification:** Type-constrained decoding evidence shows the mechanism works when applied; strongly-typed compilers reject misaligned output. But the causal claim — that writing the surrounding codebase in Rust makes the LLM&#39;s suggestions better even without tool-level enforcement — lacks a direct controlled study.</li>
-<li>**Assumption:** The OotTP thesis that mutable state is the dominant source of accidental complexity applies to AI-generated code as well as human-written code. **Justification:** LLMs are trained predominantly on imperative, stateful code and default to generating it. The structural argument is language-agnostic. Not directly tested for AI-generated code.</li>
-<li>**Major empirical gap:** No controlled experiment compares LLM intent alignment by programming language holding other variables constant. All language claims are mechanistically inferred, not directly measured.</li>
-<li>**Structural risk:** Formal specifications only provide guarantees if they are immutable from the agent&#39;s perspective. An agent with write access to its own specification (test files, contract definitions) can trivially satisfy any specification. This is not addressed by any level of the specification hierarchy and requires governance controls, not specification tools.</li>
-<li>**Benchmark validity risk:** SWE-bench&#39;s memorisation problem means that apparent alignment data on public coding benchmarks is partially unreliable. True alignment rates are likely lower than published numbers.</li>
-</ol></div>
-
+  
   <div class="item-content">
     <h2>Research Question</h2>
 <p>Can formal specification of task intent structurally eliminate reward hacking and intent mismatch in agentic coding systems? What is the expressiveness-verifiability tradeoff at each level of the specification hierarchy? Who is currently solving the class of accidental-complexity bugs described in &quot;Out of the Tar Pit&quot;? And which programming languages most effectively aid intent alignment and reduce state and flow bugs — including by making AI-generated code more aligned with human intent?</p>

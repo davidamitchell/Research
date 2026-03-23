@@ -513,11 +513,14 @@ main {
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-01-github-wiki-research-content.md" target="_blank" rel="noopener">source →</a>
   </div>
-  <div class="key-claims"><div class="key-claims-label">key findings</div><ol><li>**Assumption:** The `davidamitchell/Research` wiki is currently empty or does not exist. **Justification:** No wiki content has been referenced in any session log or PROGRESS.md entry; the wiki tab was not mentioned as populated.</li>
-<li>**Assumption:** PyYAML (already a project dependency) is sufficient for front-matter parsing in the Actions runner. **Justification:** `PyYAML&gt;=6.0` is listed in `pyproject.toml` dependencies.</li>
-<li>**Assumption:** The publish step can run with Python installed from `actions/setup-python@v5` using the project&#39;s existing `pip install -e .` pattern. **Justification:** This is the pattern used by `ci.yml` and `fetch-transcript.yml`.</li>
-<li>`Home.md`: date-sorted table of all completed items with title, date, tags, and a wiki link</li>
-<li>`_Sidebar.md`: tag-grouped navigation list</li>
+  <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>The GitHub wiki is a distinct git repo</li>
+<li>`GITHUB_TOKEN` is sufficient — no PAT needed</li>
+<li>Pages are flat — no subdirectories</li>
+<li>Three special pages control structure</li>
+<li>Internal wiki links use `[[Page Name]]` syntax</li>
+<li>Full rebuild is simpler than incremental</li>
+<li>YAML front-matter must be stripped</li>
+<li>The wiki must be enabled before the first push</li>
 </ol></div>
 
   <div class="item-content">

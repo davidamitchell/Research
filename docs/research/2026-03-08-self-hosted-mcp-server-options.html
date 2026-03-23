@@ -513,13 +513,7 @@ main {
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-self-hosted-mcp-server-options.md" target="_blank" rel="noopener">source →</a>
   </div>
-  <div class="key-claims"><div class="key-claims-label">key findings</div><ol><li>**Assumption:** A Python FastAPI + LanceDB server for a 100–300 item corpus fits within 256 MB RAM when idle. **Justification:** LanceDB index at this scale is under 3 MB (extrapolated from Key Finding 6: 7.74 MB per 1000 documents); FastAPI idle RAM footprint is approximately 30–60 MB; total estimated idle usage is well under 100 MB.</li>
-<li>**Assumption:** Personal capture rate is at most 10 `add_memory` calls per day. **Justification:** This is a personal assistant use case; even power users are unlikely to exceed 100 daily captures. The 100k/day Cloudflare Workers free limit would not bind below ~100,000 daily calls.</li>
-<li>Fly.io&#39;s free resource allowances have changed before and may change again; the $5/month Hobby plan is the durable commitment, but the &quot;included free VM allowance&quot; pricing could be revised.</li>
-<li>Tailscale Funnel bandwidth limits on the free plan are not explicitly documented; heavy-use scenarios could trigger undocumented restrictions.</li>
-<li>LanceDB on Fly.io&#39;s shared-cpu-1x machine has not been empirically tested at the described scale. The 256 MB RAM assumption is an inference from component sizes, not a direct measurement.</li>
-</ol></div>
-
+  
   <div class="item-content">
     <h2>Research Question</h2>
 <p>What is the minimum viable self-hosted deployment of <code>mcp_server.py</code> (or a write-only HTTP wrapper) that: (a) is reachable from the public internet, (b) has zero or near-zero ongoing cost, (c) requires minimal operational maintenance, (d) is secure enough for personal memory data? Evaluate: Cloudflare Worker (stateless, GitHub API only), Fly.io/Railway free tier, home server + Tailscale, GitHub Actions as a compute backend via <code>repository_dispatch</code>.</p>

@@ -513,11 +513,14 @@ main {
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-02-chat-conversational-interface.md" target="_blank" rel="noopener">source →</a>
   </div>
-  <div class="key-claims"><div class="key-claims-label">key findings</div><ol><li>**Assumption:** The owner&#39;s primary use of the conversational interface will be through AI agent sessions (Claude Code, GitHub Copilot) rather than a direct query CLI. **Justification:** The owner interacts exclusively via GitHub website and iOS app, and all coding/querying is done through agent sessions. A direct CLI would require a local terminal, which the owner does not use.</li>
-<li>**Assumption:** Corpus size will remain under 500 items for the foreseeable future, making grep-based Phase 1 search adequate. **Justification:** The corpus currently has ~35 completed items and grows at a rate of ~3–5 items per week. At this rate, 500 items is approximately 2–3 years away. Phase 2 (BM25) should be implemented before manual browse becomes painful (~50 items), which is much sooner.</li>
-<li>**Assumption:** The calling LLM agent (Claude Code or GitHub Copilot) will use the `search_research` results as the primary context for answering corpus questions, not its training knowledge. **Justification:** This is the intended usage pattern; the agent&#39;s system prompt and tool descriptions must enforce this.</li>
-<li>**Search quality in Phase 1 is limited by grep precision.** Grep is case-sensitive by default, does not handle stemming, and ranks by file order not relevance. For the current corpus size (&lt; 50 items), returning all matching items and letting the agent rank them is acceptable. Above ~50 items, the FTS5 search layer becomes important.</li>
-<li>**`state/links.json` sparseness.** The `get_related_items` tool depends on `state/links.json` being populated. As of this writing, the knowledge-linking implementation has not shipped. Until it does, `get_related_items` will return empty results for most items. The tool should gracefully return an empty list rather than an error.</li>
+  <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>The existing `.github/mcp.json` pattern (10 stdio servers, all subprocess-based) directly accommodates a new `research` MCP server without any new infrastructure, credentials, or persistent process</li>
+<li>MCP stdio transport uses subprocess invocation per agent session — the server process lives only for the duration of the session and terminates when the session ends</li>
+<li>The correct interface contract has three tools: `search_research(query, tags, limit)` returning ranked excerpts, `get_research_item(slug)` returning full Markdown, and `get_related_items(slug)` navigating the `state/links.json` edge store</li>
+<li>Grounding is architectural, not just instructional: because `search_research` can only return items from `Research/completed/`, the model cannot hallucinate corpus content that doesn&#39;t exist — it can only hallucinate synthesis or extrapolation from what was returned</li>
+<li>The GitHub Copilot Extension (OAuth app) model requires a publicly hosted HTTPS server, OAuth app registration, and a webhook handler — three constraints that make it infeasible for this repository</li>
+<li>GitHub Copilot&#39;s Agent Skills (`.github/skills/`) and custom agents (`.github/agents/`) provide persona and instructions but cannot run corpus searches — they have no query capability against the research files</li>
+<li>The CLI chatbot approach is blocked by the absence of an approved direct LLM API credential (Anthropic/OpenAI) in this repository&#39;s credential table</li>
+<li>Phase 1 (grep-based search) can be implemented immediately and independently of the `2026-03-02-semantic-full-text-search.md` item</li>
 </ol></div>
 
   <div class="item-content">

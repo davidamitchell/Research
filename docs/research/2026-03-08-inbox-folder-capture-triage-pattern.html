@@ -513,13 +513,7 @@ main {
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-inbox-folder-capture-triage-pattern.md" target="_blank" rel="noopener">source →</a>
   </div>
-  <div class="key-claims"><div class="key-claims-label">key findings</div><ol><li>**Assumption:** A few-shot triage prompt achieves &gt;85% classification accuracy on meeting/journal/project notes. **Justification:** Zero-shot baselines are 60–75%; few-shot prompting consistently raises accuracy in published benchmarks; the three categories have distinct structural signals. The estimate has not been validated on a real inbox dataset and must be treated as a starting hypothesis for iteration.</li>
-<li>**Assumption:** A mobile user capturing a fleeting thought operates at higher cognitive load than the triage agent processing the same note in a batch. **Justification:** Mobile HCI studies confirm elevated cognitive load during time-pressured on-device capture. The agent operates in a scheduled batch with no competing tasks.</li>
-<li>**Assumption:** The `?-` prefix convention is understandable without user documentation. **Justification:** The `?` character signals uncertainty in many naming systems. The convention should be documented in the triage prompt file and the Memory-System README to avoid entropy.</li>
-<li>Triage accuracy on the actual inbox dataset is not measured. The &gt;85% estimate requires validation against the first real batch of inbox files.</li>
-<li>The `inbox-triage-prompt.md` content is a design output specified in this item but not a tested artefact. It requires iteration before it can be trusted for unattended operation.</li>
-</ol></div>
-
+  
   <div class="item-content">
     <h2>Research Question</h2>
 <p>Does removing the folder-selection decision from the capture path meaningfully reduce friction? Design and evaluate an <code>inbox/</code> folder pattern where: (a) any capture tool writes unstructured notes to <code>inbox/</code> with no required metadata, (b) a periodic agent task reads the inbox and classifies each item into <code>meetings/</code>, <code>journal/</code>, or <code>projects/</code> with proper front-matter. What is the minimum viable agent prompt for triage? Can the existing <code>research-loop.yml</code> pattern be adapted?</p>

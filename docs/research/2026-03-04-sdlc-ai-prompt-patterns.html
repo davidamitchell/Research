@@ -513,11 +513,14 @@ main {
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-04-sdlc-ai-prompt-patterns.md" target="_blank" rel="noopener">source →</a>
   </div>
-  <div class="key-claims"><div class="key-claims-label">key findings</div><ol><li>**Assumption:** The eight-phase SDLC taxonomy used here (Discovery, Requirements, Design, Planning, Building, Testing, Reviewing, Iteration) is a reasonable working decomposition. **Justification:** No universally standardised taxonomy exists; this decomposition aligns with the GitHub Copilot Workspace flow and the phases distinguishable by their dominant prompt mode (exploration vs. acceleration). Different organisations may use fewer phases without invalidating the underlying pattern-to-phase mapping.</li>
-<li>**Assumption:** Prompt patterns that improve performance on code generation benchmarks (HumanEval, MBPP) also improve real-world SDLC task performance. **Justification:** Benchmark tasks are proxies for real tasks; the assumption is standard in the prompt engineering literature but has not been validated by a study that measures both benchmark and production outcomes simultaneously.</li>
-<li>**Assumption:** MCP&#39;s `prompts` primitive can deliver phase-specific prompt templates in a way that meaningfully improves over static context files. **Justification:** The capability exists in the protocol (modelcontextprotocol.io/docs/learn/server-concepts); no published case study of phase-aware MCP prompt delivery in an SDLC context was found.</li>
-<li>**Inaccessible sources:** OpenAI Prompt Engineering Guide (HTTP 403), Cursor documentation (JavaScript-rendered, inaccessible as plain text), Vaithilingam et al. CHI 2022 (no URL provided), and Anthropic&#39;s Claude extended thinking docs were all inaccessible during investigation. The OpenAI guide in particular is a primary practitioner source; its absence means this item does not cover OpenAI-specific prompt design recommendations.</li>
-<li>**No whole-SDLC controlled study:** Every controlled experiment found covers one to two SDLC phases. There is no study that instruments all eight phases with the same team, tool, and evaluation method. The cross-phase efficiency framework in §6 is a synthesis from independent evidence, not a directly validated framework.</li>
+  <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Peng et al</li>
+<li>Li et al</li>
+<li>White et al</li>
+<li>Barke et al</li>
+<li>GitHub Copilot Workspace (launched April 2024) operationalises phase-aware decomposition with a task-centric flow from GitHub Issue through specification, plan, code, test execution, and PR — with developer editability at every step and distinct Copilot agents for each phase transition</li>
+<li>DORA (DevOps Research and Assessment) 2024 found that a 25% increase in AI adoption correlates with +2.1% productivity and +3.4% code quality, but also -1.5% delivery throughput and -7.2% delivery stability, attributing the stability decrease to the larger code batch sizes that AI-assisted Building produces</li>
+<li>The persistent context file ecosystem is fragmented across AGENTS.md, CLAUDE.md, `.cursorrules`, and `.github/copilot-instructions.md`, with no format universally supported; AGENTS.md is the emerging cross-tool convergence point but tool support remains uneven as of early 2025</li>
+<li>MCP (Model Context Protocol), introduced by Anthropic in November 2024, provides a `prompts` primitive that enables reusable, dynamically delivered prompt templates as part of a standardised tool-integration protocol, making runtime phase-aware prompt injection technically feasible without static context files</li>
 </ol></div>
 
   <div class="item-content">

@@ -513,13 +513,7 @@ main {
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-22-code-architecture-inspection.md" target="_blank" rel="noopener">source →</a>
   </div>
-  <div class="key-claims"><div class="key-claims-label">key findings</div><ol><li>[assumption] Public documentation is sufficiently current to support an implementation-plan recommendation. **Justification:** this item is scoped to public capability discovery, not private deployment verification. Sources: https://raw.githubusercontent.com/reposwarm/reposwarm/main/README.md ; https://raw.githubusercontent.com/github/awesome-copilot/main/skills/architecture-blueprint-generator/SKILL.md</li>
-<li>[assumption] The target repositories can tolerate small repository-local configuration files for scanners, policies, or generated outputs. **Justification:** every practical approach here requires at least one local configuration or artifact format. Sources: https://raw.githubusercontent.com/sverweij/dependency-cruiser/main/README.md ; https://www.openpolicyagent.org/docs/latest/</li>
-<li>[assumption] RepoSwarm&#39;s repository overview is representative of its present practical behavior. **Justification:** no live RepoSwarm instance was deployed during this item. Source: https://raw.githubusercontent.com/reposwarm/reposwarm/main/README.md</li>
-<li>[inference] The evidence supports a four-stage operating model: **extract -&gt; normalize -&gt; evaluate -&gt; synthesize**. That structure is the smallest one that preserves provenance while still producing a usable architectural narrative. Sources: https://raw.githubusercontent.com/sverweij/dependency-cruiser/main/README.md ; https://docs.github.com/api/article/body?pathname=/en/rest/dependency-graph ; https://www.openpolicyagent.org/docs/latest/ ; https://raw.githubusercontent.com/github/awesome-copilot/main/skills/architecture-blueprint-generator/SKILL.md</li>
-<li>[inference] Extraction should remain deterministic whenever possible, because architecture inspection loses organizational trust quickly when it cannot explain why an edge or violation was reported. Sources: https://raw.githubusercontent.com/sverweij/dependency-cruiser/main/README.md ; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-10-agent-evaluation-cross-repo-analysis.md</li>
-</ol></div>
-
+  
   <div class="item-content">
     <h2>Research Question</h2>
 <p>What practical implementation approaches exist for automatically inspecting and understanding how a set of repositories is architected, how they relate to and couple with each other, and whether they are following standards or drifting out of alignment — and which of these approaches can be operationalised using GitHub Copilot skills, agents, or adjacent tooling such as RepoSwarm?</p>

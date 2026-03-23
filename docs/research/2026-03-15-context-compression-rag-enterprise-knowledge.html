@@ -513,13 +513,7 @@ main {
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-15-context-compression-rag-enterprise-knowledge.md" target="_blank" rel="noopener">source →</a>
   </div>
-  <div class="key-claims"><div class="key-claims-label">key findings</div><ol><li>**Assumption:** Regulatory and policy documents contain sufficient natural language redundancy for LLMLingua-style compression at 4x with acceptable quality loss. **Justification:** LLMLingua achieves 20x compression on reasoning benchmarks (GSM8K, BBH) with 1.5% loss; Shannon (1951) established general natural language redundancy; policy text&#39;s defined terms, cross-references, and boilerplate represent structured redundancy typically higher than general prose. This is an extrapolation  -  direct evidence for regulatory text specifically is absent.</li>
-<li>**Assumption:** The &quot;lost in the middle&quot; performance degradation documented in benchmarks applies to organisational document retrieval in the same way as measured for needle-in-a-haystack and multi-hop reasoning tasks. **Justification:** The effect has been documented consistently across multiple model families and task types (RULER benchmark, community reports); no counter-evidence found for structured policy document tasks specifically. Applies until domain-specific benchmarks show otherwise.</li>
-<li>**Assumption:** LlamaIndex hierarchical primitives (HierarchicalNodeParser, AutoMergingRetriever) can be configured to implement a full four-tier regulatory/strategy/policy/operational architecture without fundamental limitation of the framework. **Justification:** The primitives support arbitrary metadata tagging and routing by metadata label; the tier configuration is a software engineering implementation task, not a research-level gap. Confirmed by documentation review.</li>
-<li>**No benchmark for RAPTOR on structured policy/regulatory documents.** The ICLR 2024 results use literary and general knowledge corpora. Transfer to structured, hierarchically-organised organisational knowledge is an inference.</li>
-<li>**RAGAS is an approximation.** For compliance-critical deployments, ~0.55 correlation with human evaluation is insufficient as the sole quality gate. Domain-specific human evaluation benchmarks are required.</li>
-</ol></div>
-
+  
   <div class="item-content">
     <h2>Research Question</h2>
 <p>What are the current best practices and bleeding-edge techniques  -  including Retrieval-Augmented Generation (RAG), context compression, and context architecture  -  for selectively surfacing the right slice of a large organisational knowledge corpus (regulations, policies, strategy, current state) into a Large Language Model (LLM) context window at decision time?</p>

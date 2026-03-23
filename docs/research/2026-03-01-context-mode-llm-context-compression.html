@@ -513,11 +513,14 @@ main {
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-01-context-mode-llm-context-compression.md" target="_blank" rel="noopener">source →</a>
   </div>
-  <div class="key-claims"><div class="key-claims-label">key findings</div><ol><li>**Assumption:** The compression ratios in the primary article are representative of typical Claude Code sessions. **Justification:** The author validated across 11 scenarios including diverse output types (snapshots, logs, CSVs, git logs, test suites). The figures are plausible given the mechanism. Independent replication would strengthen this.</li>
-<li>**Assumption:** The HN commenter&#39;s empirical test of the MCP interception boundary is accurate. **Justification:** The commenter read the source code (PreToolUse hook), tested empirically (called their Obsidian MCP, observed zero FTS5 entries), and cited the specific hook match pattern. The architectural reasoning (JSON-RPC bypass, no PostToolUse hook) is consistent with publicly documented Claude Code architecture.</li>
-<li>**Assumption:** The &quot;no PostToolUse hook in Claude Code&quot; constraint is current as of March 2026. **Justification:** Stated and confirmed in the HN discussion by multiple commenters including the author. This could change in future Claude Code releases.</li>
-<li>The MCP interception boundary may be addressed in future Claude Code releases. If Anthropic adds a PostToolUse hook, the architectural limitation disappears and Context Mode&#39;s compression can apply to all tool types.</li>
-<li>The compression benchmarks assume the model writes correct summarisation code on the first attempt. The HN criticism is valid: if the model writes `git log --oneline | wc -l` when specific commit messages were needed, that information is irretrievably gone from context. The cost of wrong extraction scripts is higher than the cost of raw output in context.</li>
+  <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>The context problem is two-sided, and both sides are now being addressed</li>
+<li>Context Mode&#39;s core mechanism is sandboxed subprocess execution, not summarisation</li>
+<li>The knowledge base uses SQLite FTS5 with BM25 ranking, Porter stemming, and a three-layer search fallback</li>
+<li>Context Mode cannot intercept MCP tool responses — this is a hard architectural boundary, empirically confirmed</li>
+<li>Subagent routing is as important as the compression itself</li>
+<li>BM25 alone underperforms on tool outputs, which mix structured and natural-language data</li>
+<li>Context Mode&#39;s &quot;never let it in&quot; approach preserves prompt caching; post-hoc pruning does not</li>
+<li>The broader context management problem — selective pruning, backtracking, agentic self-management — remains open</li>
 </ol></div>
 
   <div class="item-content">

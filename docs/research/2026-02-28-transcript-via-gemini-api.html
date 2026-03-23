@@ -513,13 +513,7 @@ main {
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-02-28-transcript-via-gemini-api.md" target="_blank" rel="noopener">source →</a>
   </div>
-  <div class="key-claims"><div class="key-claims-label">key findings</div><ol><li>**[assumption] GEMINI_API_KEY from Latest-developments- is valid and has remaining free-tier quota.** Justification: the repo is actively used for daily digest generation; if the key were invalid, the workflow would be failing. This is a reasonable inference from an active production use.</li>
-<li>**[assumption] The HYUoS0GkGCs video is publicly accessible without age-restriction.** Justification: prior research item accessed video context via oEmbed and web sources without encountering access restrictions; the video appears on the public Essentia Foundation channel.</li>
-<li>**[assumption] Google&#39;s servers fetch YouTube video data for `fileData.fileUri` processing without passing the caller&#39;s IP to YouTube.** Justification: this is the architectural necessity implied by the server-side processing model; no source documents the exact network topology, but it is the only coherent explanation for why a client&#39;s IP would not be involved.</li>
-<li>**Verbatim quality for well-indexed videos:** Gemini may have higher verbatim accuracy for videos Google has already indexed (e.g., prominent public talks like HYUoS0GkGCs). This cannot be confirmed without a live API call. It is possible that popular, well-captioned videos receive better ASR treatment than obscure or poorly-captioned content.</li>
-<li>**Model-specific quality variance:** Quality findings are primarily from tests using Gemini 2.5 Flash and Gemini in Google AI Studio (which may use different backend model versions than API calls). The quality of `gemini-1.5-pro` via API may differ. No live test was performed.</li>
-</ol></div>
-
+  
   <div class="item-content">
     <h2>Research Question</h2>
 <p>Can we use the Gemini API (already configured in <code>davidamitchell/Latest-developments-</code>) to
