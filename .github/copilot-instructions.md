@@ -125,10 +125,9 @@ src/
 config/
 └── sources.yaml        # Source configuration
 
-docs/
-└── adr/                # Architecture Decision Records
-    ├── README.md        # ADR index
-    └── NNNN-title.md
+docs-adr/               # Architecture Decision Records
+├── README.md           # ADR index
+└── NNNN-title.md
 
 .github/
 ├── copilot-instructions.md  # Agent instructions (this file)
@@ -239,14 +238,14 @@ Research can produce one or more of the following outputs (record in the `output
 2. Add config schema to `config/sources.yaml`
 3. Register in `src/main.py`
 4. Write unit tests in `tests/test_fetchers_<source>.py`
-5. Write an ADR in `docs/adr/` if the approach involves a significant design decision
+5. Write an ADR in `docs-adr/` if the approach involves a significant design decision
 6. Update `BACKLOG.md` (mark slice done) and create `progress/YYYY-MM-DD-{slug}.md`
 
 ---
 
 ## Adding an ADR
 
-ADRs follow the [MADR format](https://adr.github.io/madr/). File naming: `docs/adr/NNNN-short-title.md` (zero-padded 4 digits). Update `docs/adr/README.md` after adding.
+ADRs follow the [MADR format](https://adr.github.io/madr/). File naming: `docs-adr/NNNN-short-title.md` (zero-padded 4 digits). Update `docs-adr/README.md` after adding.
 
 Status values: `proposed` → `accepted` → `superseded` / `deprecated`
 
@@ -275,7 +274,7 @@ Do not write an ADR for routine work:
 
 ### Checklist before closing a slice
 
-If your change touches any "when to write" trigger above, the slice is not done until the ADR exists, is `accepted`, and is linked in `docs/adr/README.md`.
+If your change touches any "when to write" trigger above, the slice is not done until the ADR exists, is `accepted`, and is linked in `docs-adr/README.md`.
 
 ---
 

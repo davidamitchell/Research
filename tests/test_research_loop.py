@@ -355,13 +355,13 @@ def test_consecutive_failure_threshold_logic() -> None:
 
 def test_adr_0004_exists() -> None:
     """ADR-0004 documenting the autonomous research loop must exist."""
-    adr_path = REPO_ROOT / "docs" / "adr" / "0004-autonomous-research-loop.md"
+    adr_path = REPO_ROOT / "docs-adr" / "0004-autonomous-research-loop.md"
     assert adr_path.exists(), f"ADR-0004 not found at {adr_path}"
 
 
 def test_adr_0004_indexed() -> None:
     """ADR-0004 must be referenced in the ADR index."""
-    index_path = REPO_ROOT / "docs" / "adr" / "README.md"
+    index_path = REPO_ROOT / "docs-adr" / "README.md"
     content = index_path.read_text(encoding="utf-8")
     assert "0004" in content, "ADR-0004 must be added to the ADR index"
 

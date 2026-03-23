@@ -86,7 +86,7 @@ There is no current mechanism to detect when the loop has produced a shallow ite
 - [ ] OpenAI Prompt Engineering Guide: https://platform.openai.com/docs/guides/prompt-engineering — structured output, decomposition patterns (JS-protected, inaccessible)
 - [x] LMSYS / arXiv — The Prompt Report (arXiv:2406.06608): systematic survey of 58+ LLM prompting techniques (2024)
 - [x] Fabric (Daniel Miessler): https://github.com/danielmiessler/fabric — prompt patterns for research extraction and synthesis; patterns like `extract_wisdom`, `summarize`, `create_report`
-- [x] `docs/adr/0004-autonomous-research-loop.md` — ADR for the loop; safety controls and design rationale
+- [x] `docs-adr/0004-autonomous-research-loop.md` — ADR for the loop; safety controls and design rationale
 
 ---
 
@@ -546,5 +546,5 @@ The quality gate is designed as an informational signal initially. This avoids t
 - Description: Quality dimension framework for autonomous research output with corpus audit findings; five targeted additions to `research-prompt.md` addressing residual failure patterns; four-check shell quality gate design; confirmation that loop item-selection is correct.
 - Links:
   - `research-prompt.md` (primary artefact — see additions below)
-  - `docs/adr/0004-autonomous-research-loop.md` (loop design rationale)
+  - `docs-adr/0004-autonomous-research-loop.md` (loop design rationale)
   - The Prompt Report: https://arxiv.org/abs/2406.06608 (prompt engineering survey)

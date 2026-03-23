@@ -13,7 +13,7 @@ A place to hold a backlog of research to be done, research underway, and complet
 | `src/` | Python tooling to support research (transcript fetcher, indexing, etc.) |
 | `tests/` | Tests for `src/` |
 | `config/` | Configuration for sources and tooling |
-| `docs/adr/` | Architecture Decision Records |
+| `docs-adr/` | Architecture Decision Records |
 | `.github/copilot-instructions.md` | Instructions for all AI coding agents |
 | `BACKLOG.md` | Repo improvement backlog (separate from research item backlog) |
 | `PROGRESS.md` | Session-by-session progress log |
