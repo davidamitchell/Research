@@ -280,6 +280,12 @@ STOPWORDS: frozenset[str] = frozenset(
 # Parsing helpers (duplicated from build_site.py to keep this script standalone)
 # ---------------------------------------------------------------------------
 
+# Prefixes that indicate a sentence is a confidence/label marker, not a claim.
+_KEY_CLAIMS_SKIP_PREFIXES = re.compile(
+    r"^(confidence:|(?:\[inference\])|(?:\[fact\])|(?:\[assumption\]))",
+    re.IGNORECASE,
+)
+
 
 def parse_frontmatter(text: str) -> tuple[dict, str]:
     """Split YAML front matter and body. Returns (meta, body)."""
@@ -470,12 +476,16 @@ def extract_key_claims(findings_text: str) -> list[str]:
         # Remove trailing "Sources: ..." or ". Source: ..."
         text = re.sub(r"[\.\s]*Sources?:.*$", "", text, flags=re.IGNORECASE)
         text = text.strip().rstrip(".")
-        # Take first sentence
+        # Split into sentences; skip leading sentences that are confidence/label prefixes
         parts = re.split(r"\.\s+", text)
-        if parts:
-            text = parts[0].strip()
-        if text:
-            claims.append(text)
+        claim_text = ""
+        for part in parts:
+            candidate = part.strip()
+            if candidate and not _KEY_CLAIMS_SKIP_PREFIXES.match(candidate):
+                claim_text = candidate
+                break
+        if claim_text:
+            claims.append(claim_text)
         if len(claims) >= 8:
             break
 

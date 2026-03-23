@@ -60,6 +60,12 @@ SECTIONS_ORDERED = [
 # All section names that the extractor looks for (includes alias)
 SECTION_PATTERNS = SECTIONS_ORDERED + ["Question / Hypothesis"]
 
+# Regex to remove stray HTML closing tags that can appear from malformed URLs in source
+# markdown. These tags are bare (appearing after a quote or another closing tag) rather
+# than properly closing a block element. Pattern matches </p>, </li>, </td>, </div>
+# only when immediately followed by a quote character or >.
+_STRAY_CLOSE_TAGS_RE = re.compile(r"</(?:p|li|td|div)>(?=[\"'>])")
+
 # ---------------------------------------------------------------------------
 # CSS / Design system
 # ---------------------------------------------------------------------------
@@ -655,10 +661,10 @@ def html_nav() -> str:
           <div class="nav-inner">
             <a class="nav-brand" href="/Research/">Research</a>
             <div class="nav-links">
-              <a href="/Research/browse.html">Browse</a>
               <a href="/Research/threads.html">Threads</a>
               <a href="/Research/tags/">Tags</a>
               <a href="/Research/search.html">Search</a>
+              <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener">GitHub</a>
             </div>
           </div>
         </nav>
@@ -904,11 +910,45 @@ def strip_evidence_map(text: str) -> str:
     return "\n".join(result)
 
 
+def strip_evidence_map_table(text: str) -> str:
+    """Strip markdown table that follows a line containing 'Evidence Map'.
+
+    Used before rendering section content so inline Evidence Map tables
+    (e.g. inside ## Findings) do not appear as HTML tables on item pages.
+    Strips from the Evidence Map heading line through to the last
+    consecutive line starting with '|'. Blank lines between the heading
+    and the table are also consumed.
+    """
+    lines = text.split("\n")
+    result: list[str] = []
+    skip = False
+    found_table = False
+    for line in lines:
+        if not skip and re.search(r"\bEvidence Map\b", line, re.IGNORECASE):
+            skip = True
+            found_table = False
+            continue
+        if skip:
+            stripped = line.strip()
+            if stripped.startswith("|"):
+                found_table = True
+                continue
+            if not stripped and not found_table:
+                # Blank line before any table row: keep skipping
+                continue
+            # Non-blank, non-table line ends the skip
+            skip = False
+            found_table = False
+        result.append(line)
+    return "\n".join(result)
+
+
 def get_findings_excerpt(item: dict, max_chars: int = 200) -> str:
     """Return a short plain-text excerpt from the Findings section."""
     findings = item["sections"].get("Findings", "")
     if not findings:
         return ""
+    findings = strip_evidence_map_table(findings)
     # Strip markdown syntax for plain-text preview
     text = re.sub(r"#{1,6}\s+", "", findings)
     text = re.sub(r"\*{1,2}([^*]+)\*{1,2}", r"\1", text)
@@ -1327,10 +1367,11 @@ LANDING_SEARCH_JS = """
 def build_landing(items: list[dict], threads: list[dict]) -> str:
     """Generate docs/index.html — landing page."""
     count = len(items)
-    all_tags: Counter[str] = Counter()
+    all_tags_flat: list[str] = []
     for item in items:
-        all_tags.update(item["tags"])
-    tag_count = len(all_tags)
+        all_tags_flat.extend(item["tags"])
+    tag_count = len(set(all_tags_flat))
+    all_tags: Counter[str] = Counter(all_tags_flat)
     thread_count = len(threads)
 
     # Stats block
@@ -1500,8 +1541,10 @@ def build_item_page(
         content = item["sections"].get(section_name, "")
         if not content:
             continue
+        content = strip_evidence_map_table(content)
         rendered = md(content)
         rendered = autolink_html(rendered, source_refs)
+        rendered = _STRAY_CLOSE_TAGS_RE.sub("", rendered)
         sections_html += f"<h2>{escape(section_name)}</h2>\n{rendered}\n"
 
     related_html = _render_related(related or [])
@@ -1538,8 +1581,6 @@ def build_item_page(
 <main>
   <div class="breadcrumb">
     <a href="/Research/">Research</a>
-    <span>/</span>
-    <a href="/Research/browse.html">Browse</a>
     <span>/</span>
     <span>{escape(display_title)}</span>
   </div>
@@ -1580,7 +1621,7 @@ def build_tag_page(tag: str, tag_items: list[dict]) -> str:
   <div class="tag-page-header">
     <h1>Tagged: {escape(tag)}</h1>
     <p class="page-subtitle">{count} item{"s" if count != 1 else ""}</p>
-    <a class="back-link" href="/Research/browse.html">← browse</a>
+    <a class="back-link" href="/Research/tags/">← all tags</a>
   </div>
   <div class="card-grid">
     {cards_html}
@@ -1595,10 +1636,25 @@ def build_tags_index(tags_map: dict[str, list[dict]]) -> str:
     """Generate docs/tags/index.html — all tags listed alphabetically."""
     sorted_tags = sorted(tags_map.keys())
     rows = "".join(
-        f'<li><a class="tag" href="/Research/tags/{escape(t)}.html">{escape(t)}</a>'
+        f'<li data-tag="{escape(t)}">'
+        f'<a class="tag" href="/Research/tags/{escape(t)}.html">{escape(t)}</a>'
         f' <span class="tag-count">({len(tags_map[t])})</span></li>\n'
         for t in sorted_tags
     )
+    tags_filter_js = """
+(function() {
+  var input = document.getElementById('tag-filter');
+  var items = document.querySelectorAll('#tags-list li');
+  if (!input) return;
+  input.addEventListener('input', function() {
+    var q = input.value.trim().toLowerCase();
+    items.forEach(function(li) {
+      var tag = li.getAttribute('data-tag') || '';
+      li.style.display = (!q || tag.indexOf(q) !== -1) ? '' : 'none';
+    });
+  });
+})();
+"""
     return (
         html_head("Tags — Research")
         + html_nav()
@@ -1607,12 +1663,16 @@ def build_tags_index(tags_map: dict[str, list[dict]]) -> str:
   <div class="tag-page-header">
     <h1>Tags</h1>
     <p class="page-subtitle">{len(sorted_tags)} tags</p>
-    <a class="back-link" href="/Research/browse.html">← browse</a>
   </div>
-  <ul class="tags-list">
+  <div class="search-wrap" style="margin-bottom:1.5rem">
+    <input id="tag-filter" class="search-input" type="text"
+           placeholder="filter tags…" autocomplete="off">
+  </div>
+  <ul id="tags-list" class="tags-list">
     {rows}
   </ul>
 </main>
+<script>{tags_filter_js}</script>
 """
         + html_foot()
     )
