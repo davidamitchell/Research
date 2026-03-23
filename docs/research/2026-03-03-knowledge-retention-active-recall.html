@@ -572,18 +572,16 @@ main {
   <div class="nav-inner">
     <a class="nav-brand" href="/Research/">Research</a>
     <div class="nav-links">
-      <a href="/Research/browse.html">Browse</a>
       <a href="/Research/threads.html">Threads</a>
       <a href="/Research/tags/">Tags</a>
       <a href="/Research/search.html">Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
 </nav>
 <main>
   <div class="breadcrumb">
     <a href="/Research/">Research</a>
-    <span>/</span>
-    <a href="/Research/browse.html">Browse</a>
     <span>/</span>
     <span>Knowledge retention</span>
   </div>
@@ -619,79 +617,6 @@ main {
 <li>Tracking <code>last_reviewed</code> per item in a <code>state/reviews.json</code> file is technically trivial (atomic write pattern already established) and provides scheduling data for the digest workflow. Time-since-completion is sufficient at the current corpus size; adaptive scheduling is deferred until ~200+ items. (confidence: medium)</li>
 <li>The conversational &quot;what do I know about X?&quot; interface is a downstream dependency of <code>2026-03-02-semantic-full-text-search.md</code> and should be designed with memory-first prompting (owner recalls before corpus is surfaced) to maximise retention benefit. (confidence: medium)</li>
 </ol>
-<h3>Evidence Map</h3>
-<table>
-<thead>
-<tr>
-  <th>Claim</th>
-  <th>Source</th>
-  <th>Confidence</th>
-  <th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>Research writing is deep semantic processing → more durable memory</td>
-  <td>Craik &amp; Lockhart 1972 (Wikipedia/Levels_of_processing_effect)</td>
-  <td>high</td>
-  <td>Generation effect applies; active content creation vs. passive reading</td>
-</tr>
-<tr>
-  <td>Retrieval practice &gt; re-reading for long-term retention</td>
-  <td>Testing effect literature (Wikipedia/Testing_effect)</td>
-  <td>high</td>
-  <td>Multiple replications; Roediger, Pashler et al.; effects lasting years</td>
-</tr>
-<tr>
-  <td>Applying findings to decisions produces strongest retention</td>
-  <td>Wikipedia/Testing_effect: &quot;transfer strongest with application to practice&quot;</td>
-  <td>high</td>
-  <td>Transfer-appropriate processing; inference questions</td>
-</tr>
-<tr>
-  <td>SM-2 intervals adaptable to document-level review</td>
-  <td>Wikipedia/Spaced_repetition; Obsidian SR plugin (stephenmwangi.com)</td>
-  <td>high</td>
-  <td>Whole-note review is established PKM pattern</td>
-</tr>
-<tr>
-  <td>Current research-prompt.md: no prior-research search instruction</td>
-  <td>Direct inspection of research-prompt.md</td>
-  <td>high</td>
-  <td>Verified by direct file read; confirmed absence of <code>Research/completed/</code> reference</td>
-</tr>
-<tr>
-  <td>Cross-references embed filename only, not key findings</td>
-  <td>Direct inspection of Research/backlog/2026-03-02-chat-conversational-interface.md</td>
-  <td>high</td>
-  <td>Pattern consistent across multiple backlog items</td>
-</tr>
-<tr>
-  <td>GitHub Actions schedule trigger enables weekly automation</td>
-  <td>GitHub Actions (general; existing publish-wiki.yml, research-loop.yml)</td>
-  <td>high</td>
-  <td>Already used in this repository</td>
-</tr>
-<tr>
-  <td>Minimum effective re-engagement: executive summary + key findings</td>
-  <td>Retrieval effort hypothesis; SR review practice</td>
-  <td>medium</td>
-  <td>Conservative assumption; not directly measured</td>
-</tr>
-<tr>
-  <td>Synthesis items have higher encoding depth than individual items</td>
-  <td>Levels of processing; generation effect (Wikipedia)</td>
-  <td>medium</td>
-  <td>Inference from encoding depth principles</td>
-</tr>
-<tr>
-  <td>state/reviews.json extension feasibility</td>
-  <td>src/state.py StateStore inspection (repository memory)</td>
-  <td>high</td>
-  <td>Atomic write pattern established; schema extension is trivial</td>
-</tr>
-</tbody>
-</table>
 <h3>Assumptions</h3>
 <ul>
 <li><strong>Assumption:</strong> Research writing provides generation-effect-level encoding depth. <strong>Justification:</strong> Research writing involves active content generation, structuring, and cross-linking — all characteristics of the generation effect. Not directly measured for this system's specific corpus type.</li>

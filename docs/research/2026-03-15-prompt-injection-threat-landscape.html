@@ -572,18 +572,16 @@ main {
   <div class="nav-inner">
     <a class="nav-brand" href="/Research/">Research</a>
     <div class="nav-links">
-      <a href="/Research/browse.html">Browse</a>
       <a href="/Research/threads.html">Threads</a>
       <a href="/Research/tags/">Tags</a>
       <a href="/Research/search.html">Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
 </nav>
 <main>
   <div class="breadcrumb">
     <a href="/Research/">Research</a>
-    <span>/</span>
-    <a href="/Research/browse.html">Browse</a>
     <span>/</span>
     <span>Prompt injection threat landscape</span>
   </div>
@@ -598,14 +596,14 @@ main {
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-15-prompt-injection-threat-landscape" target="_blank" rel="noopener">wiki →</a>
   </div>
-  <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Confidence: high</li>
-<li>Confidence: high</li>
-<li>Confidence: medium</li>
-<li>Confidence: high</li>
-<li>Confidence: high</li>
-<li>Confidence: high</li>
-<li>Confidence: medium</li>
-<li>Confidence: high</li>
+  <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Once an agent ingests external text or tool output, prompt injection stops looking like a simple chat misuse and instead becomes a boundary failure between trusted instructions and untrusted data inside the control flow</li>
+<li>Among the documented attack families, indirect prompt injection matters most in practice because malicious instructions can ride through web pages, documents, repositories, or tool responses without the attacker ever touching the main chat turn</li>
+<li>The public evidence base already includes disclosed vulnerabilities, malicious web payloads, and observed exploitation paths, yet attribution remains concentrated in researcher, bug-hunter, and malicious-publisher activity rather than in clearly documented nation-state campaigns</li>
+<li>Vendor and standards guidance converges on the same operational message: reducing prompt-injection risk requires layered architecture, privilege limits, and policy enforcement, not confidence that clever prompt wording will close the vulnerability by itself</li>
+<li>Reported defence improvements in constrained environments are meaningful, but the same papers and benchmarks show accompanying costs in compute, refusals, or secure-task completion, so capability and security still move together rather than independently</li>
+<li>Research published in 2025 raised the evaluation bar by showing that attackers who adapt to the defence can overturn reassuring benchmark results, which makes static success rates weak evidence of production robustness</li>
+<li>The most credible near-term operating model is constrained autonomy, where least privilege, isolated tools, deterministic checks, segmented untrusted content, and human approval for irreversible actions shrink blast radius even when model robustness remains incomplete</li>
+<li>The field still lacks an accepted definition of solved prompt-injection safety for general-purpose agents because the hardest problems remain instruction/data separation, multimodal attacks, long-term memory safety, adaptive benchmarks, and enforceable tool constraints</li>
 </ol></div>
 
   <div class="item-content">
@@ -621,93 +619,32 @@ main {
 
 <h2>Findings</h2>
 <h3>Executive Summary</h3>
-<p><strong>[inference]</strong> Prompt injection is now an operational security problem for agentic AI systems - AI systems that pursue goals with limited supervision and use tools or external software - rather than a hypothetical edge case. (Sources: <a href="https://www.congress.gov/crs-product/IF13151">www.congress.gov</a> ; <a href="https://genai.owasp.org/llmrisk/llm01-prompt-injection/">genai.owasp.org</a> ; <a href="https://arxiv.org/abs/2302.12173">arxiv.org/abs/2302.12173</a> ; <a href="https://unit42.paloaltonetworks.com/ai-agent-prompt-injection/">unit42.paloaltonetworks.com</a> <strong>[inference]</strong> Documented incidents mostly begin with poisoned external content, while the strongest public evidence still points to researchers, bug hunters, and malicious publishers more than to clearly attributed state or organised-crime campaigns. (Sources: <a href="https://arxiv.org/abs/2302.12173">arxiv.org/abs/2302.12173</a> ; <a href="https://unit42.paloaltonetworks.com/ai-agent-prompt-injection/">unit42.paloaltonetworks.com</a> <strong>[inference]</strong> The practical consequence is that organisations should prioritize containment, approval gates, and least privilege, because existing defences lower attack success without making fully autonomous agents trustworthy by default. (Sources: <a href="https://www.anthropic.com/news/constitutional-classifiers">www.anthropic.com</a> ; <a href="https://aclanthology.org/2025.findings-naacl.395/">aclanthology.org</a> ; <a href="https://arxiv.org/abs/2503.18813)</p>">arxiv.org/abs/2503.18813</a>
+<p><strong>[inference]</strong> Prompt injection is now an operational security problem for agentic AI systems - AI systems that pursue goals with limited supervision and use tools or external software - rather than a hypothetical edge case. (Sources: <a href="https://www.congress.gov/crs-product/IF13151">www.congress.gov</a> ; <a href="https://genai.owasp.org/llmrisk/llm01-prompt-injection/">genai.owasp.org</a> ; <a href="https://arxiv.org/abs/2302.12173">arxiv.org/abs/2302.12173</a> ; <a href="https://unit42.paloaltonetworks.com/ai-agent-prompt-injection/">unit42.paloaltonetworks.com</a> <strong>[inference]</strong> Documented incidents mostly begin with poisoned external content, while the strongest public evidence still points to researchers, bug hunters, and malicious publishers more than to clearly attributed state or organised-crime campaigns. (Sources: <a href="https://arxiv.org/abs/2302.12173">arxiv.org/abs/2302.12173</a> ; <a href="https://unit42.paloaltonetworks.com/ai-agent-prompt-injection/">unit42.paloaltonetworks.com</a> <strong>[inference]</strong> The practical consequence is that organisations should prioritize containment, approval gates, and least privilege, because existing defences lower attack success without making fully autonomous agents trustworthy by default. (Sources: <a href="https://www.anthropic.com/news/constitutional-classifiers">www.anthropic.com</a> ; <a href="https://aclanthology.org/2025.findings-naacl.395/">aclanthology.org</a> ; <a href="https://arxiv.org/abs/2503.18813)">arxiv.org/abs/2503.18813</a>
 <h3>Key Findings</h3>
 <ol>
-<li><strong>[inference] Confidence: high.</strong> Once an agent ingests external text or tool output, prompt injection stops looking like a simple chat misuse and instead becomes a boundary failure between trusted instructions and untrusted data inside the control flow. (Sources: <a href="https://genai.owasp.org/llmrisk/llm01-prompt-injection/">genai.owasp.org</a> ; <a href="https://arxiv.org/abs/2302.12173">arxiv.org/abs/2302.12173</a> ; <a href="https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-2e2023.pdf)</li>">nvlpubs.nist.gov</a>
-<li><strong>[inference] Confidence: high.</strong> Among the documented attack families, indirect prompt injection matters most in practice because malicious instructions can ride through web pages, documents, repositories, or tool responses without the attacker ever touching the main chat turn. (Sources: <a href="https://arxiv.org/abs/2302.12173">arxiv.org/abs/2302.12173</a> ; <a href="https://genai.owasp.org/llmrisk/llm01-prompt-injection/">genai.owasp.org</a> ; <a href="https://unit42.paloaltonetworks.com/ai-agent-prompt-injection/)</li>">unit42.paloaltonetworks.com</a>
-<li><strong>[inference] Confidence: medium.</strong> The public evidence base already includes disclosed vulnerabilities, malicious web payloads, and observed exploitation paths, yet attribution remains concentrated in researcher, bug-hunter, and malicious-publisher activity rather than in clearly documented nation-state campaigns. (Sources: <a href="https://arxiv.org/abs/2302.12173">arxiv.org/abs/2302.12173</a> ; <a href="https://genai.owasp.org/llmrisk/llm01-prompt-injection/">genai.owasp.org</a> ; <a href="https://unit42.paloaltonetworks.com/ai-agent-prompt-injection/)</li>">unit42.paloaltonetworks.com</a>
-<li><strong>[inference] Confidence: high.</strong> Vendor and standards guidance converges on the same operational message: reducing prompt-injection risk requires layered architecture, privilege limits, and policy enforcement, not confidence that clever prompt wording will close the vulnerability by itself. (Sources: <a href="https://www.anthropic.com/research/many-shot-jailbreaking">www.anthropic.com</a> ; <a href="https://www.anthropic.com/news/constitutional-classifiers">www.anthropic.com</a> ; <a href="https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/jailbreak-detection">learn.microsoft.com</a> ; <a href="https://genai.owasp.org/llmrisk/llm01-prompt-injection/)</li>">genai.owasp.org</a>
-<li><strong>[inference] Confidence: high.</strong> Reported defence improvements in constrained environments are meaningful, but the same papers and benchmarks show accompanying costs in compute, refusals, or secure-task completion, so capability and security still move together rather than independently. (Sources: <a href="https://www.anthropic.com/news/constitutional-classifiers">www.anthropic.com</a> ; <a href="https://arxiv.org/abs/2503.18813">arxiv.org/abs/2503.18813</a> ; <a href="https://github.com/lakeraai/pint-benchmark)</li>">github.com</a>
-<li><strong>[inference] Confidence: high.</strong> Research published in 2025 raised the evaluation bar by showing that attackers who adapt to the defence can overturn reassuring benchmark results, which makes static success rates weak evidence of production robustness. (Sources: <a href="https://aclanthology.org/2025.findings-naacl.395/">aclanthology.org</a> ; <a href="https://storage.googleapis.com/deepmind-media/Security%20and%20Privacy/Gemini_Security_Paper.pdf)</li>">storage.googleapis.com</a>
-<li><strong>[inference] Confidence: medium.</strong> The most credible near-term operating model is constrained autonomy, where least privilege, isolated tools, deterministic checks, segmented untrusted content, and human approval for irreversible actions shrink blast radius even when model robustness remains incomplete. (Sources: <a href="https://genai.owasp.org/llmrisk/llm01-prompt-injection/">genai.owasp.org</a> ; <a href="https://arxiv.org/abs/2503.18813">arxiv.org/abs/2503.18813</a> ; <a href="https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/jailbreak-detection)</li>">learn.microsoft.com</a>
-<li><strong>[inference] Confidence: high.</strong> The field still lacks an accepted definition of solved prompt-injection safety for general-purpose agents because the hardest problems remain instruction/data separation, multimodal attacks, long-term memory safety, adaptive benchmarks, and enforceable tool constraints. (Sources: <a href="https://arxiv.org/abs/2503.18813">arxiv.org/abs/2503.18813</a> ; <a href="https://aclanthology.org/2025.findings-naacl.395/">aclanthology.org</a> ; <a href="https://www.anthropic.com/research/many-shot-jailbreaking">www.anthropic.com</a> ; <a href="https://genai.owasp.org/llmrisk/llm01-prompt-injection/)</li>">genai.owasp.org</a>
+<li><strong>[inference] Confidence: high.</strong> Once an agent ingests external text or tool output, prompt injection stops looking like a simple chat misuse and instead becomes a boundary failure between trusted instructions and untrusted data inside the control flow. (Sources: <a href="https://genai.owasp.org/llmrisk/llm01-prompt-injection/">genai.owasp.org</a> ; <a href="https://arxiv.org/abs/2302.12173">arxiv.org/abs/2302.12173</a> ; <a href="https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-2e2023.pdf)">nvlpubs.nist.gov</a>
+<li><strong>[inference] Confidence: high.</strong> Among the documented attack families, indirect prompt injection matters most in practice because malicious instructions can ride through web pages, documents, repositories, or tool responses without the attacker ever touching the main chat turn. (Sources: <a href="https://arxiv.org/abs/2302.12173">arxiv.org/abs/2302.12173</a> ; <a href="https://genai.owasp.org/llmrisk/llm01-prompt-injection/">genai.owasp.org</a> ; <a href="https://unit42.paloaltonetworks.com/ai-agent-prompt-injection/)">unit42.paloaltonetworks.com</a>
+<li><strong>[inference] Confidence: medium.</strong> The public evidence base already includes disclosed vulnerabilities, malicious web payloads, and observed exploitation paths, yet attribution remains concentrated in researcher, bug-hunter, and malicious-publisher activity rather than in clearly documented nation-state campaigns. (Sources: <a href="https://arxiv.org/abs/2302.12173">arxiv.org/abs/2302.12173</a> ; <a href="https://genai.owasp.org/llmrisk/llm01-prompt-injection/">genai.owasp.org</a> ; <a href="https://unit42.paloaltonetworks.com/ai-agent-prompt-injection/)">unit42.paloaltonetworks.com</a>
+<li><strong>[inference] Confidence: high.</strong> Vendor and standards guidance converges on the same operational message: reducing prompt-injection risk requires layered architecture, privilege limits, and policy enforcement, not confidence that clever prompt wording will close the vulnerability by itself. (Sources: <a href="https://www.anthropic.com/research/many-shot-jailbreaking">www.anthropic.com</a> ; <a href="https://www.anthropic.com/news/constitutional-classifiers">www.anthropic.com</a> ; <a href="https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/jailbreak-detection">learn.microsoft.com</a> ; <a href="https://genai.owasp.org/llmrisk/llm01-prompt-injection/)">genai.owasp.org</a>
+<li><strong>[inference] Confidence: high.</strong> Reported defence improvements in constrained environments are meaningful, but the same papers and benchmarks show accompanying costs in compute, refusals, or secure-task completion, so capability and security still move together rather than independently. (Sources: <a href="https://www.anthropic.com/news/constitutional-classifiers">www.anthropic.com</a> ; <a href="https://arxiv.org/abs/2503.18813">arxiv.org/abs/2503.18813</a> ; <a href="https://github.com/lakeraai/pint-benchmark)">github.com</a>
+<li><strong>[inference] Confidence: high.</strong> Research published in 2025 raised the evaluation bar by showing that attackers who adapt to the defence can overturn reassuring benchmark results, which makes static success rates weak evidence of production robustness. (Sources: <a href="https://aclanthology.org/2025.findings-naacl.395/">aclanthology.org</a> ; <a href="https://storage.googleapis.com/deepmind-media/Security%20and%20Privacy/Gemini_Security_Paper.pdf)">storage.googleapis.com</a>
+<li><strong>[inference] Confidence: medium.</strong> The most credible near-term operating model is constrained autonomy, where least privilege, isolated tools, deterministic checks, segmented untrusted content, and human approval for irreversible actions shrink blast radius even when model robustness remains incomplete. (Sources: <a href="https://genai.owasp.org/llmrisk/llm01-prompt-injection/">genai.owasp.org</a> ; <a href="https://arxiv.org/abs/2503.18813">arxiv.org/abs/2503.18813</a> ; <a href="https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/jailbreak-detection)">learn.microsoft.com</a>
+<li><strong>[inference] Confidence: high.</strong> The field still lacks an accepted definition of solved prompt-injection safety for general-purpose agents because the hardest problems remain instruction/data separation, multimodal attacks, long-term memory safety, adaptive benchmarks, and enforceable tool constraints. (Sources: <a href="https://arxiv.org/abs/2503.18813">arxiv.org/abs/2503.18813</a> ; <a href="https://aclanthology.org/2025.findings-naacl.395/">aclanthology.org</a> ; <a href="https://www.anthropic.com/research/many-shot-jailbreaking">www.anthropic.com</a> ; <a href="https://genai.owasp.org/llmrisk/llm01-prompt-injection/)">genai.owasp.org</a>
 </ol>
-<h3>Evidence Map</h3>
-<table>
-<thead>
-<tr>
-  <th>Claim</th>
-  <th>Source</th>
-  <th>Confidence</th>
-  <th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>KF1</td>
-  <td><a href="https://genai.owasp.org/llmrisk/llm01-prompt-injection/">genai.owasp.org</a> ; <a href="https://arxiv.org/abs/2302.12173">arxiv.org/abs/2302.12173</a> ; <a href="https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-2e2023.pdf</td>">nvlpubs.nist.gov</a>
-  <td>high</td>
-  <td><strong>[inference]</strong> Structural framing of the control-system failure.</td>
-</tr>
-<tr>
-  <td>KF2</td>
-  <td><a href="https://arxiv.org/abs/2302.12173">arxiv.org/abs/2302.12173</a> ; <a href="https://genai.owasp.org/llmrisk/llm01-prompt-injection/">genai.owasp.org</a> ; <a href="https://unit42.paloaltonetworks.com/ai-agent-prompt-injection/</td>">unit42.paloaltonetworks.com</a>
-  <td>high</td>
-  <td><strong>[inference]</strong> External-content channels dominate practical agent risk.</td>
-</tr>
-<tr>
-  <td>KF3</td>
-  <td><a href="https://arxiv.org/abs/2302.12173">arxiv.org/abs/2302.12173</a> ; <a href="https://genai.owasp.org/llmrisk/llm01-prompt-injection/">genai.owasp.org</a> ; <a href="https://unit42.paloaltonetworks.com/ai-agent-prompt-injection/">unit42.paloaltonetworks.com</a> ; <a href="https://simonwillison.net/series/prompt-injection/</td>">simonwillison.net</a>
-  <td>medium</td>
-  <td><strong>[inference]</strong> Exploitation evidence is real, but public attribution is uneven.</td>
-</tr>
-<tr>
-  <td>KF4</td>
-  <td><a href="https://www.anthropic.com/research/many-shot-jailbreaking">www.anthropic.com</a> ; <a href="https://www.anthropic.com/news/constitutional-classifiers">www.anthropic.com</a> ; <a href="https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/jailbreak-detection">learn.microsoft.com</a> ; <a href="https://genai.owasp.org/llmrisk/llm01-prompt-injection/</td>">genai.owasp.org</a>
-  <td>high</td>
-  <td><strong>[inference]</strong> Layered controls are the shared direction of current defensive guidance.</td>
-</tr>
-<tr>
-  <td>KF5</td>
-  <td><a href="https://www.anthropic.com/news/constitutional-classifiers">www.anthropic.com</a> ; <a href="https://arxiv.org/abs/2503.18813">arxiv.org/abs/2503.18813</a> ; <a href="https://github.com/lakeraai/pint-benchmark</td>">github.com</a>
-  <td>high</td>
-  <td><strong>[inference]</strong> Measured defence gains come with utility trade-offs.</td>
-</tr>
-<tr>
-  <td>KF6</td>
-  <td><a href="https://aclanthology.org/2025.findings-naacl.395/">aclanthology.org</a> ; <a href="https://storage.googleapis.com/deepmind-media/Security%20and%20Privacy/Gemini_Security_Paper.pdf</td>">storage.googleapis.com</a>
-  <td>high</td>
-  <td><strong>[inference]</strong> Adaptive testing exposes weak static robustness claims.</td>
-</tr>
-<tr>
-  <td>KF7</td>
-  <td><a href="https://genai.owasp.org/llmrisk/llm01-prompt-injection/">genai.owasp.org</a> ; <a href="https://arxiv.org/abs/2503.18813">arxiv.org/abs/2503.18813</a> ; <a href="https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/jailbreak-detection">learn.microsoft.com</a> ; <a href="https://simonwillison.net/series/prompt-injection/</td>">simonwillison.net</a>
-  <td>medium</td>
-  <td><strong>[inference]</strong> Blast-radius reduction is the strongest near-term design choice.</td>
-</tr>
-<tr>
-  <td>KF8</td>
-  <td><a href="https://arxiv.org/abs/2503.18813">arxiv.org/abs/2503.18813</a> ; <a href="https://aclanthology.org/2025.findings-naacl.395/">aclanthology.org</a> ; <a href="https://www.anthropic.com/research/many-shot-jailbreaking">www.anthropic.com</a> ; <a href="https://genai.owasp.org/llmrisk/llm01-prompt-injection/</td>">genai.owasp.org</a>
-  <td>high</td>
-  <td><strong>[inference]</strong> Core architecture and evaluation questions remain open.</td>
-</tr>
-</tbody>
-</table>
 <h3>Assumptions</h3>
 <ul>
-<li><strong>Assumption:</strong> High-privilege agent operators should prefer bounded autonomy over maximum autonomy. <strong>Justification:</strong> This is consistent with OWASP least-privilege and human-approval guidance, but it remains an operational design choice rather than an independently measured universal fact. (Source: <a href="https://genai.owasp.org/llmrisk/llm01-prompt-injection/)</li>">genai.owasp.org</a>
+<li><strong>Assumption:</strong> High-privilege agent operators should prefer bounded autonomy over maximum autonomy. <strong>Justification:</strong> This is consistent with OWASP least-privilege and human-approval guidance, but it remains an operational design choice rather than an independently measured universal fact. (Source: <a href="https://genai.owasp.org/llmrisk/llm01-prompt-injection/)">genai.owasp.org</a>
 </ul>
 <h3>Analysis</h3>
-<p><strong>[inference]</strong> Attacker attribution received lower confidence than architectural conclusions because the public record is rich in disclosed incidents and demonstrations but thinner on independently verified attribution to specific state or criminal campaigns. (Sources: <a href="https://unit42.paloaltonetworks.com/ai-agent-prompt-injection/">unit42.paloaltonetworks.com</a> ; <a href="https://simonwillison.net/series/prompt-injection/">simonwillison.net</a> ; <a href="https://arxiv.org/abs/2302.12173)</p>">arxiv.org/abs/2302.12173</a>
-<p><strong>[inference]</strong> Static benchmark wins were weighted cautiously when adaptive-attack evidence was available, because papers that let attackers optimise against the defence show that non-adaptive evaluation can overstate real-world robustness. (Sources: <a href="https://aclanthology.org/2025.findings-naacl.395/">aclanthology.org</a> ; <a href="https://storage.googleapis.com/deepmind-media/Security%20and%20Privacy/Gemini_Security_Paper.pdf)</p>">storage.googleapis.com</a>
+<p><strong>[inference]</strong> Attacker attribution received lower confidence than architectural conclusions because the public record is rich in disclosed incidents and demonstrations but thinner on independently verified attribution to specific state or criminal campaigns. (Sources: <a href="https://unit42.paloaltonetworks.com/ai-agent-prompt-injection/">unit42.paloaltonetworks.com</a> ; <a href="https://simonwillison.net/series/prompt-injection/">simonwillison.net</a> ; <a href="https://arxiv.org/abs/2302.12173)">arxiv.org/abs/2302.12173</a>
+<p><strong>[inference]</strong> Static benchmark wins were weighted cautiously when adaptive-attack evidence was available, because papers that let attackers optimise against the defence show that non-adaptive evaluation can overstate real-world robustness. (Sources: <a href="https://aclanthology.org/2025.findings-naacl.395/">aclanthology.org</a> ; <a href="https://storage.googleapis.com/deepmind-media/Security%20and%20Privacy/Gemini_Security_Paper.pdf)">storage.googleapis.com</a>
 <h3>Risks, Gaps, and Uncertainties</h3>
 <ul>
-<li><strong>[inference]</strong> Public attribution data is weak for nation-state and organised-criminal prompt-injection campaigns compared with researcher disclosures and vendor-reported incidents. (Sources: <a href="https://unit42.paloaltonetworks.com/ai-agent-prompt-injection/">unit42.paloaltonetworks.com</a> ; <a href="https://simonwillison.net/series/prompt-injection/)</li>">simonwillison.net</a>
-<li><strong>[inference]</strong> Multimodal prompt injection has credible demonstrations, but far less production evidence than text and document-based indirect prompt injection. (Sources: <a href="https://storage.googleapis.com/deepmind-media/Security%20and%20Privacy/Gemini_Security_Paper.pdf">storage.googleapis.com</a> ; <a href="https://genai.owasp.org/llmrisk/llm01-prompt-injection/)</li>">genai.owasp.org</a>
-<li><strong>[inference]</strong> Benchmark scores for detectors can overstate robustness if attackers are not adapting to the defence or if the benchmark distribution differs from production workloads. (Sources: <a href="https://aclanthology.org/2025.findings-naacl.395/">aclanthology.org</a> ; <a href="https://storage.googleapis.com/deepmind-media/Security%20and%20Privacy/Gemini_Security_Paper.pdf)</li>">storage.googleapis.com</a>
-<li><strong>[inference]</strong> Vendor write-ups can mix product positioning with research results, so they were weighted most heavily when they included concrete metrics or limitations. (Sources: <a href="https://www.anthropic.com/news/constitutional-classifiers">www.anthropic.com</a> ; <a href="https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/jailbreak-detection)</li>">learn.microsoft.com</a>
-<li><strong>[fact]</strong> MITRE ATLAS provides background context on adversarial tactics and techniques against AI-enabled systems. (Source: <a href="https://atlas.mitre.org/)</li>">atlas.mitre.org</a>
+<li><strong>[inference]</strong> Public attribution data is weak for nation-state and organised-criminal prompt-injection campaigns compared with researcher disclosures and vendor-reported incidents. (Sources: <a href="https://unit42.paloaltonetworks.com/ai-agent-prompt-injection/">unit42.paloaltonetworks.com</a> ; <a href="https://simonwillison.net/series/prompt-injection/)">simonwillison.net</a>
+<li><strong>[inference]</strong> Multimodal prompt injection has credible demonstrations, but far less production evidence than text and document-based indirect prompt injection. (Sources: <a href="https://storage.googleapis.com/deepmind-media/Security%20and%20Privacy/Gemini_Security_Paper.pdf">storage.googleapis.com</a> ; <a href="https://genai.owasp.org/llmrisk/llm01-prompt-injection/)">genai.owasp.org</a>
+<li><strong>[inference]</strong> Benchmark scores for detectors can overstate robustness if attackers are not adapting to the defence or if the benchmark distribution differs from production workloads. (Sources: <a href="https://aclanthology.org/2025.findings-naacl.395/">aclanthology.org</a> ; <a href="https://storage.googleapis.com/deepmind-media/Security%20and%20Privacy/Gemini_Security_Paper.pdf)">storage.googleapis.com</a>
+<li><strong>[inference]</strong> Vendor write-ups can mix product positioning with research results, so they were weighted most heavily when they included concrete metrics or limitations. (Sources: <a href="https://www.anthropic.com/news/constitutional-classifiers">www.anthropic.com</a> ; <a href="https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/jailbreak-detection)">learn.microsoft.com</a>
+<li><strong>[fact]</strong> MITRE ATLAS provides background context on adversarial tactics and techniques against AI-enabled systems. (Source: <a href="https://atlas.mitre.org/)">atlas.mitre.org</a>
 </ul>
 <h3>Open Questions</h3>
 <ul>

@@ -572,18 +572,16 @@ main {
   <div class="nav-inner">
     <a class="nav-brand" href="/Research/">Research</a>
     <div class="nav-links">
-      <a href="/Research/browse.html">Browse</a>
       <a href="/Research/threads.html">Threads</a>
       <a href="/Research/tags/">Tags</a>
       <a href="/Research/search.html">Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
 </nav>
 <main>
   <div class="breadcrumb">
     <a href="/Research/">Research</a>
-    <span>/</span>
-    <a href="/Research/browse.html">Browse</a>
     <span>/</span>
     <span>Context engineering</span>
   </div>
@@ -639,103 +637,6 @@ main {
 <li><p><strong>The DORA 2024 finding — AI adoption improves code quality (+3.4%) while degrading delivery stability (−7.2%) — is a real-world manifestation of the token-goal gap: AI-assisted Build improves local token-level code quality without addressing the goal-level batch-size risk that degrades deployment stability.</strong> Source: DORA 2024, via 2026-03-04-sdlc-ai-prompt-patterns.md. Confidence: medium (inference applied to measured statistics).</p>
 </li>
 </ol>
-<h3>Evidence Map</h3>
-<table>
-<thead>
-<tr>
-  <th>Claim</th>
-  <th>Source</th>
-  <th>Confidence</th>
-  <th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>Context = full token sequence the model conditions on</td>
-  <td>Anthropic context engineering blog (2025)</td>
-  <td>high</td>
-  <td>Primary source from model builder</td>
-</tr>
-<tr>
-  <td>Two mechanisms separable — sycophancy is token✓/goal✗</td>
-  <td>Anthropic reward-tampering (2024); SycEval AIES 2025</td>
-  <td>high</td>
-  <td>Two independent sources</td>
-</tr>
-<tr>
-  <td>LLMs exhibit human-like framing effects</td>
-  <td>WildFrame arXiv:2502.17091 (2025)</td>
-  <td>high</td>
-  <td>Empirical study across leading models</td>
-</tr>
-<tr>
-  <td>LLMs exhibit structural priming identical to humans</td>
-  <td>ACL 2024 Findings, aclanthology.org/2024.findings-acl.877.pdf</td>
-  <td>high</td>
-  <td>Peer-reviewed</td>
-</tr>
-<tr>
-  <td>Presupposition effects in prompts documented</td>
-  <td>PLOS ONE prompt architecture paper (2025)</td>
-  <td>high</td>
-  <td>Peer-reviewed</td>
-</tr>
-<tr>
-  <td>Context rot — recall degrades with context length</td>
-  <td>Chroma context rot research (2024)</td>
-  <td>high</td>
-  <td>Empirical across multiple models</td>
-</tr>
-<tr>
-  <td>Attention budget: n² pairwise relationships</td>
-  <td>Anthropic context engineering blog (transformer architecture)</td>
-  <td>high</td>
-  <td>Architectural fact</td>
-</tr>
-<tr>
-  <td>Kambhampati: LLMs fail goal-level planning despite token fluency</td>
-  <td>arXiv:2402.01817, ICML 2024</td>
-  <td>high</td>
-  <td>Peer-reviewed, multiple benchmarks</td>
-</tr>
-<tr>
-  <td>Shannon entropy frames context as uncertainty reduction</td>
-  <td>Shannon (1948); LLM entropy analyses</td>
-  <td>high</td>
-  <td>Foundational mathematical fact</td>
-</tr>
-<tr>
-  <td>Tool schema as implicit instruction</td>
-  <td>Anthropic context engineering blog (2025)</td>
-  <td>medium</td>
-  <td>Practitioner documentation</td>
-</tr>
-<tr>
-  <td>Presupposition injection more efficient than explicit assertion</td>
-  <td>Inference from presupposition theory + PLOS ONE</td>
-  <td>medium</td>
-  <td>No controlled comparison</td>
-</tr>
-<tr>
-  <td>Sycophancy rates 56–62% in challenging scenarios</td>
-  <td>SycEval AIES 2025</td>
-  <td>high</td>
-  <td>Benchmark study</td>
-</tr>
-<tr>
-  <td>DORA gap = token-goal mechanism gap</td>
-  <td>DORA 2024 via 2026-03-04-sdlc-ai-prompt-patterns.md</td>
-  <td>medium</td>
-  <td>Inference applied to measured statistics</td>
-</tr>
-<tr>
-  <td>DSPy co-optimization confirms both mechanisms need joint design</td>
-  <td>2026-03-05-general-agent-optimization-framework.md</td>
-  <td>high</td>
-  <td>Research loop prior work</td>
-</tr>
-</tbody>
-</table>
 <h3>Assumptions</h3>
 <ul>
 <li><strong>Assumption:</strong> The two-mechanism model applies across model families and scales. <strong>Justification:</strong> The structural argument applies to any autoregressive transformer; evidence from GPT-4 class and Claude models. Verification across smaller models is absent.</li>

@@ -572,18 +572,16 @@ main {
   <div class="nav-inner">
     <a class="nav-brand" href="/Research/">Research</a>
     <div class="nav-links">
-      <a href="/Research/browse.html">Browse</a>
       <a href="/Research/threads.html">Threads</a>
       <a href="/Research/tags/">Tags</a>
       <a href="/Research/search.html">Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
 </nav>
 <main>
   <div class="breadcrumb">
     <a href="/Research/">Research</a>
-    <span>/</span>
-    <a href="/Research/browse.html">Browse</a>
     <span>/</span>
     <span>LLM Hallucinations — Types, Causes, and Current Mitigation Approaches</span>
   </div>
@@ -624,79 +622,6 @@ main {
 <li><p>Macroscopic explanations predict higher hallucination likelihood under specific conditions but cannot identify which specific generation will hallucinate or explain the sparse localisation of the effect, creating the explanatory gap that neuron-level investigation fills. (Confidence: high)</p>
 </li>
 </ol>
-<h3>Evidence Map</h3>
-<table>
-<thead>
-<tr>
-  <th>Claim</th>
-  <th>Source</th>
-  <th>Confidence</th>
-  <th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>Factuality vs. faithfulness taxonomy for LLMs</td>
-  <td>Huang et al. (2023), arXiv:2311.05232</td>
-  <td>High</td>
-  <td>Read in full via ar5iv HTML</td>
-</tr>
-<tr>
-  <td>Intrinsic vs. extrinsic taxonomy for NLG tasks</td>
-  <td>Ji et al. (2023), arXiv:2202.03629</td>
-  <td>High</td>
-  <td>Read via web search summary</td>
-</tr>
-<tr>
-  <td>Next-token prediction optimises fluency over factuality</td>
-  <td>Huang et al. 2023; Weng 2024; multiple secondary sources</td>
-  <td>High</td>
-  <td>Multiple independent sources agree</td>
-</tr>
-<tr>
-  <td>RLHF introduces capability misalignment and sycophancy</td>
-  <td>Huang et al. 2023; Perez et al. 2022/2023; Sharma et al. 2023</td>
-  <td>High</td>
-  <td>Multiple independent sources agree</td>
-</tr>
-<tr>
-  <td>Fine-tuning on Unknown examples increases hallucination</td>
-  <td>Gekhman et al. 2024, cited in Weng 2024</td>
-  <td>High</td>
-  <td>Primary paper not directly read; cited from Weng 2024</td>
-</tr>
-<tr>
-  <td>Sycophancy: models reverse correct answers under user pressure</td>
-  <td>Sharma et al. 2023; Perez et al. 2022/2023</td>
-  <td>High</td>
-  <td>Read via web search summaries</td>
-</tr>
-<tr>
-  <td>RAG addresses knowledge gap hallucination</td>
-  <td>Lewis et al. 2020; multiple secondary sources</td>
-  <td>High</td>
-  <td>Primary paper not directly read; well-characterised in literature</td>
-</tr>
-<tr>
-  <td>All mainstream mitigations are pre- or post-generation only</td>
-  <td>Synthesis from survey of mitigation landscape</td>
-  <td>High</td>
-  <td>Inference from survey, no contrary evidence found</td>
-</tr>
-<tr>
-  <td>Sparse neurons (&lt;0.1%) predict hallucination</td>
-  <td>Gao et al. 2025, arXiv:2512.01797</td>
-  <td>High</td>
-  <td>From secondary sources; primary paper subject of downstream item</td>
-</tr>
-<tr>
-  <td>Error rates higher for rare entities</td>
-  <td>Min et al. 2023 (FActScore), cited in Weng 2024</td>
-  <td>Medium</td>
-  <td>Accessed via Weng 2024 summary</td>
-</tr>
-</tbody>
-</table>
 <h3>Assumptions</h3>
 <ul>
 <li><p><strong>Assumption:</strong> Sycophancy and over-compliance are the same failure mode for the purposes of this taxonomy. <strong>Justification:</strong> Both terms appear in the primary literature to describe the same RLHF-induced pattern of over-agreeing with users at the expense of accuracy. Huang et al. (2023) use &quot;belief misalignment&quot; and cite both Perez et al. and Sharma et al. under this heading.</p>

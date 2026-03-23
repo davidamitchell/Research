@@ -572,18 +572,16 @@ main {
   <div class="nav-inner">
     <a class="nav-brand" href="/Research/">Research</a>
     <div class="nav-links">
-      <a href="/Research/browse.html">Browse</a>
       <a href="/Research/threads.html">Threads</a>
       <a href="/Research/tags/">Tags</a>
       <a href="/Research/search.html">Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
 </nav>
 <main>
   <div class="breadcrumb">
     <a href="/Research/">Research</a>
-    <span>/</span>
-    <a href="/Research/browse.html">Browse</a>
     <span>/</span>
     <span>Context Compression and RAG Techniques for Organisational Knowledge</span>
   </div>
@@ -633,91 +631,6 @@ main {
 <li><p>MemGPT/Letta's three-tier memory model (core memory always in context, recall memory for recent history, archival memory for long-term storage) is the closest operational approximation of a layered organisational context architecture, but it lacks the access control, provenance tracking, and audit trail capabilities required for compliance-sensitive enterprise deployments.</p>
 </li>
 </ol>
-<h3>Evidence Map</h3>
-<table>
-<thead>
-<tr>
-  <th>Claim</th>
-  <th>Source</th>
-  <th>Confidence</th>
-  <th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>Naive RAG fails for tiered knowledge  -  hybrid search + re-ranking is minimum baseline</td>
-  <td>arXiv:2312.10997 (Gao et al. RAG Survey, 2024); Weaviate Advanced RAG (2024)</td>
-  <td>high</td>
-  <td>Survey documents failure modes; Weaviate confirms in production context</td>
-</tr>
-<tr>
-  <td>Context window degradation: all models degrade, effective failure at 60–70%</td>
-  <td>arXiv:2404.06654 (RULER, NVIDIA 2024); community empirical reports (2024)</td>
-  <td>high</td>
-  <td>Benchmark paper plus independent empirical confirmation</td>
-</tr>
-<tr>
-  <td>LLMLingua-2: 3–6x faster, 1.6–2.9x latency reduction, task-agnostic</td>
-  <td>arXiv:2403.12968 (Pan et al., ACL 2024)</td>
-  <td>high</td>
-  <td>Peer-reviewed conference paper with benchmark tables</td>
-</tr>
-<tr>
-  <td>LongLLMLingua: ~75% accuracy at 3.9x compression on 20-document tasks</td>
-  <td>arXiv:2403.12968 PDF; Microsoft Research LongLLMLingua page</td>
-  <td>high</td>
-  <td>Benchmark table in paper reproduced by Microsoft Research</td>
-</tr>
-<tr>
-  <td>RAPTOR: 82.6% accuracy (GPT-4), 20pp over prior state-of-the-art</td>
-  <td>arXiv:2401.18059; ICLR 2024 proceedings</td>
-  <td>high</td>
-  <td>Conference paper results</td>
-</tr>
-<tr>
-  <td>Modular RAG routing separates tier selection from within-tier retrieval</td>
-  <td>arXiv:2312.10997 (RAG Survey); Meilisearch Modular RAG guide</td>
-  <td>medium</td>
-  <td>Survey taxonomy + practitioner documentation</td>
-</tr>
-<tr>
-  <td>GraphRAG indexing cost: 100–1000x vector RAG</td>
-  <td>articsledge.com, citing Microsoft Research 2025</td>
-  <td>medium</td>
-  <td>Single practitioner source; directionally consistent with LLM-based entity extraction costs</td>
-</tr>
-<tr>
-  <td>LlamaIndex hierarchical primitives: HierarchicalNodeParser, AutoMergingRetriever</td>
-  <td>LlamaIndex official documentation; NVIDIA GenerativeAI examples</td>
-  <td>medium</td>
-  <td>Documentation confirmed in two independent sources</td>
-</tr>
-<tr>
-  <td>RAGAS correlation with manual evaluation: ~0.55 harmonic mean</td>
-  <td>tech.beatrust.com Ragas evaluation study (2024)</td>
-  <td>medium</td>
-  <td>Single empirical study; no direct replication found</td>
-</tr>
-<tr>
-  <td>Knowledge governance as primary RAG quality determinant</td>
-  <td>Research/completed/2026-03-02-agent-memory-management-context-injection.md; Research/completed/2026-03-08-servicenow-ai-knowledge-rag-agents.md</td>
-  <td>high</td>
-  <td>Two independent internal research items with empirical evidence</td>
-</tr>
-<tr>
-  <td>Summarisation offline for stable docs; LLMLingua-2 online for dynamic</td>
-  <td>Enterprise RAG Architecture guide (applied-ai.com); LangChain docs</td>
-  <td>medium</td>
-  <td>Practitioner inference from documented latency/cost patterns</td>
-</tr>
-<tr>
-  <td>MemGPT/Letta lacks enterprise governance</td>
-  <td>arXiv:2310.08560 (MemGPT paper); medium.com Letta deep dive</td>
-  <td>medium</td>
-  <td>Paper scope is research system; governance features absent from documentation</td>
-</tr>
-</tbody>
-</table>
 <h3>Assumptions</h3>
 <ul>
 <li><p><strong>Assumption:</strong> Regulatory and policy documents contain sufficient natural language redundancy for LLMLingua-style compression at 4x with acceptable quality loss. <strong>Justification:</strong> LLMLingua achieves 20x compression on reasoning benchmarks (GSM8K, BBH) with 1.5% loss; Shannon (1951) established general natural language redundancy; policy text's defined terms, cross-references, and boilerplate represent structured redundancy typically higher than general prose. This is an extrapolation  -  direct evidence for regulatory text specifically is absent.</p>

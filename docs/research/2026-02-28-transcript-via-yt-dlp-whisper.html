@@ -572,18 +572,16 @@ main {
   <div class="nav-inner">
     <a class="nav-brand" href="/Research/">Research</a>
     <div class="nav-links">
-      <a href="/Research/browse.html">Browse</a>
       <a href="/Research/threads.html">Threads</a>
       <a href="/Research/tags/">Tags</a>
       <a href="/Research/search.html">Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
 </nav>
 <main>
   <div class="breadcrumb">
     <a href="/Research/">Research</a>
-    <span>/</span>
-    <a href="/Research/browse.html">Browse</a>
     <span>/</span>
     <span>YouTube transcripts via yt-dlp audio + Whisper transcription</span>
   </div>
@@ -629,109 +627,6 @@ OpenAI Whisper?</p>
 <li><strong>[medium]</strong> The OpenAI Whisper API <code>whisper-1</code> model is equivalent in quality to <code>large-v2</code> locally, delivering higher accuracy than any local model size runnable on GitHub Actions CPU within a reasonable time budget.</li>
 <li><strong>[medium]</strong> Third-party transcript APIs (the companion backlog item <code>2026-02-28-transcript-via-third-party-apis.md</code>) sidestep the cloud IP block entirely and may offer a better cost/complexity tradeoff than maintaining YouTube cookies in a GitHub secret.</li>
 </ol>
-<h3>Evidence Map</h3>
-<table>
-<thead>
-<tr>
-  <th>Claim</th>
-  <th>Source</th>
-  <th>Confidence</th>
-  <th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>Audio and video share same CDN</td>
-  <td>RapidSeedbox yt-dlp guide; yt-dlp issue tracker</td>
-  <td>high</td>
-  <td>No evidence of separate audio CDN</td>
-</tr>
-<tr>
-  <td>Cloud IPs blocked for yt-dlp (2024–2025)</td>
-  <td>yt-dlp GitHub issue #9890; Reddit r/youtubedl; Linux Mint Forums</td>
-  <td>high</td>
-  <td>Multiple independent reports</td>
-</tr>
-<tr>
-  <td>Audio block same as video block</td>
-  <td>CodeTriage yt-dlp issues synthesis</td>
-  <td>high</td>
-  <td>Consistent with CDN architecture</td>
-</tr>
-<tr>
-  <td>Cookies workaround is viable but not maintenance-free</td>
-  <td>yt-dlp wiki; community guides</td>
-  <td>medium</td>
-  <td>Cookies expire; needs periodic refresh</td>
-</tr>
-<tr>
-  <td>Cloudflare WARP provides partial relief</td>
-  <td>arfevrier.fr blog</td>
-  <td>low</td>
-  <td>Not guaranteed long-term</td>
-</tr>
-<tr>
-  <td>Vanilla whisper-small: 1.2–2 min per 1 min audio on CPU</td>
-  <td>Nikolas.blog benchmark</td>
-  <td>high</td>
-  <td>Xeon-class CPU matches GitHub runner</td>
-</tr>
-<tr>
-  <td>faster-whisper int8 small: ~8 sec per 1 min audio on CPU</td>
-  <td>faster-whisper PyPI; Nikolas.blog</td>
-  <td>high</td>
-  <td>~7–15x real-time, multiple benchmarks</td>
-</tr>
-<tr>
-  <td>GitHub Actions ubuntu-latest: 4 vCPU, 16 GB RAM (public repos)</td>
-  <td>GitHub blog runner upgrade announcement</td>
-  <td>high</td>
-  <td>Upgraded in late 2024</td>
-</tr>
-<tr>
-  <td>Whisper small WER: 3.2–3.4% (LibriSpeech clean)</td>
-  <td>OpenWhisper; Artificial Analysis AA-WER</td>
-  <td>high</td>
-  <td>Standard benchmark, well-replicated</td>
-</tr>
-<tr>
-  <td>Whisper medium WER: 2.7–2.9% (LibriSpeech clean)</td>
-  <td>OpenWhisper; Artificial Analysis AA-WER</td>
-  <td>high</td>
-  <td>~0.5–0.7pp better than small</td>
-</tr>
-<tr>
-  <td>Small model download size ~461 MB</td>
-  <td>OpenWhisper; StarWhisper download page</td>
-  <td>high</td>
-  <td>Consistent across sources</td>
-</tr>
-<tr>
-  <td>Medium model download size ~1.5 GB</td>
-  <td>OpenWhisper; StarWhisper download page</td>
-  <td>high</td>
-  <td>Consistent across sources</td>
-</tr>
-<tr>
-  <td>Whisper API cost: $0.006/min</td>
-  <td>OpenAI pricing page</td>
-  <td>high</td>
-  <td>$0.36 per 60-min video</td>
-</tr>
-<tr>
-  <td>whisper-1 equivalent to large-v2</td>
-  <td>OpenAI Whisper announcement</td>
-  <td>high</td>
-  <td>Official OpenAI statement</td>
-</tr>
-<tr>
-  <td>OPENAI_API_KEY not in approved credentials</td>
-  <td>AGENTS.md credentials table</td>
-  <td>high</td>
-  <td>Hard stop per policy</td>
-</tr>
-</tbody>
-</table>
 <h3>Assumptions</h3>
 <ul>
 <li><strong>[assumption] GitHub Actions runners use AWS IP ranges.</strong> Justification: GitHub-hosted runners are known to run on Azure and AWS infrastructure; both are in cloud IP ranges that YouTube blocks. This assumption is consistent with the prior research item's documented block.</li>

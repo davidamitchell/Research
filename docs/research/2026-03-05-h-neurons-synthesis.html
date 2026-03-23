@@ -572,18 +572,16 @@ main {
   <div class="nav-inner">
     <a class="nav-brand" href="/Research/">Research</a>
     <div class="nav-links">
-      <a href="/Research/browse.html">Browse</a>
       <a href="/Research/threads.html">Threads</a>
       <a href="/Research/tags/">Tags</a>
       <a href="/Research/search.html">Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
 </nav>
 <main>
   <div class="breadcrumb">
     <a href="/Research/">Research</a>
-    <span>/</span>
-    <a href="/Research/browse.html">Browse</a>
     <span>/</span>
     <span>H-Neurons Synthesis — From Hallucination Mechanisms to Actionable LLM…</span>
   </div>
@@ -737,103 +735,6 @@ main {
   <td>High</td>
   <td>None</td>
   <td>Any LLM API</td>
-</tr>
-</tbody>
-</table>
-<h3>Evidence Map</h3>
-<table>
-<thead>
-<tr>
-  <th>Claim</th>
-  <th>Source Items</th>
-  <th>Confidence</th>
-  <th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>H-Neurons &lt; 1‰ of FFN neurons</td>
-  <td>h-neurons-in-llms; Gao et al. 2025 Table 1</td>
-  <td>High</td>
-  <td>0.01‰–0.35‰ across 6 models</td>
-</tr>
-<tr>
-  <td>H-Neurons causally drive over-compliance</td>
-  <td>h-neurons-in-llms; Gao et al. 2025 §3</td>
-  <td>High</td>
-  <td>Dose-response confirmed across 4 benchmarks</td>
-</tr>
-<tr>
-  <td>Hallucination, sycophancy, jailbreak share one mechanism</td>
-  <td>h-neurons-in-llms; Gao et al. 2025 §3</td>
-  <td>High/medium</td>
-  <td>High for correlation; medium for single-mechanism claim</td>
-</tr>
-<tr>
-  <td>H-Neurons originate in pre-training</td>
-  <td>h-neurons-in-llms; Gao et al. 2025 §4 Fig 4a</td>
-  <td>High</td>
-  <td>AUROC transfer to base models confirmed</td>
-</tr>
-<tr>
-  <td>Parameter inertia under SFT</td>
-  <td>h-neurons-in-llms; Gao et al. 2025 §4 Fig 4b</td>
-  <td>High</td>
-  <td>P &lt; 0.001, cosine similarity analysis</td>
-</tr>
-<tr>
-  <td>NTP objective rewards agreeable continuation</td>
-  <td>llm-hallucination-mechanisms; Huang et al. 2023</td>
-  <td>High</td>
-  <td>Multiple independent sources</td>
-</tr>
-<tr>
-  <td>RLHF suppresses surface sycophancy</td>
-  <td>llm-hallucination-mechanisms; Sharma et al. 2023</td>
-  <td>High</td>
-  <td>Empirically demonstrated</td>
-</tr>
-<tr>
-  <td>RLHF does not address H-Neuron structure</td>
-  <td>h-neurons-in-llms (SFT result extended by inference)</td>
-  <td>Medium</td>
-  <td>RLHF directly untested; SFT inertia confirms principle</td>
-</tr>
-<tr>
-  <td>All mainstream mitigations are pre/post-generation</td>
-  <td>llm-hallucination-mechanisms</td>
-  <td>High</td>
-  <td>Survey of mitigation landscape</td>
-</tr>
-<tr>
-  <td>H-Neuron monitoring is viable real-time risk signal</td>
-  <td>h-neurons-in-llms; Gao et al. 2025 Table 1</td>
-  <td>High</td>
-  <td>Open-source implementation available</td>
-</tr>
-<tr>
-  <td>Simple suppression insufficient for deployment</td>
-  <td>h-neurons-in-llms; Gao et al. 2025 §5</td>
-  <td>High</td>
-  <td>Explicitly stated in paper</td>
-</tr>
-<tr>
-  <td>Activation steering reduces hallucination at inference</td>
-  <td>Zou et al. 2023; Li et al. 2023; SteeringSafety 2025</td>
-  <td>Medium</td>
-  <td>Research demonstrations; entanglement risk documented</td>
-</tr>
-<tr>
-  <td>Pre-training data quality reduces hallucination</td>
-  <td>Gautam 2025; data quality literature</td>
-  <td>Medium</td>
-  <td>No direct H-Neuron ablation experiment</td>
-</tr>
-<tr>
-  <td>Larger models less sensitive to perturbation</td>
-  <td>h-neurons-in-llms; Gao et al. 2025 §3</td>
-  <td>Medium</td>
-  <td>3 models per group; slopes 2.40 vs. 3.03</td>
 </tr>
 </tbody>
 </table>

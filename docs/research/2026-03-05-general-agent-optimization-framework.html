@@ -572,18 +572,16 @@ main {
   <div class="nav-inner">
     <a class="nav-brand" href="/Research/">Research</a>
     <div class="nav-links">
-      <a href="/Research/browse.html">Browse</a>
       <a href="/Research/threads.html">Threads</a>
       <a href="/Research/tags/">Tags</a>
       <a href="/Research/search.html">Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
 </nav>
 <main>
   <div class="breadcrumb">
     <a href="/Research/">Research</a>
-    <span>/</span>
-    <a href="/Research/browse.html">Browse</a>
     <span>/</span>
     <span>General Agent Optimization Framework</span>
   </div>
@@ -618,91 +616,6 @@ main {
 <li>Prompt length degrades LLM recall accuracy non-uniformly through context rot and the lost-in-the-middle effect; every Meta-Optimizer instruction update must include a compression step — LLMLingua achieves up to 20× compression with negligible performance loss. (Confidence: high)</li>
 <li>LLM-prompted paraphrase generation is the lowest-cost outer-loop variation method, but answer-consistency validation is mandatory because paraphrase generation can silently alter the semantically correct answer. Adversarial paraphrasing (NeurIPS 2025) is more effective at surface coverage but requires additional quality gates. (Confidence: medium)</li>
 </ol>
-<h3>Evidence Map</h3>
-<table>
-<thead>
-<tr>
-  <th>Claim</th>
-  <th>Source</th>
-  <th>Confidence</th>
-  <th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>DSPy provides native inner + outer loop support</td>
-  <td>Khattab et al., 2023 (arXiv:2310.03714)</td>
-  <td>high</td>
-  <td>Confirmed from abstract; outer loop is evaluation metric layer</td>
-</tr>
-<tr>
-  <td>APE outperforms human prompts on 19/24 NLP tasks</td>
-  <td>Zhou et al., 2023 (arXiv:2211.01910)</td>
-  <td>high</td>
-  <td>Directly from paper abstract</td>
-</tr>
-<tr>
-  <td>OPRO achieves up to 50% improvement on Big-Bench Hard</td>
-  <td>Yang et al., 2024 (arXiv:2309.03409)</td>
-  <td>high</td>
-  <td>Directly from paper abstract</td>
-</tr>
-<tr>
-  <td>TextGrad: GPQA 51% → 55% zero-shot (GPT-4o)</td>
-  <td>Yuksekgonul et al., 2024 (arXiv:2406.07496)</td>
-  <td>high</td>
-  <td>Directly from paper abstract</td>
-</tr>
-<tr>
-  <td>DSPy MIPRO ~370 LLM calls per default-settings run</td>
-  <td>DSPy documentation (dspy.ai) + web search synthesis</td>
-  <td>high</td>
-  <td>Formula confirmed; specific figure is synthesis of documented parameters</td>
-</tr>
-<tr>
-  <td>AgentBench is the only benchmark with a training split</td>
-  <td>Liu et al., 2023 (arXiv:2308.03688) + benchmark comparison web search</td>
-  <td>high</td>
-  <td>All other surveyed benchmarks are evaluation-only</td>
-</tr>
-<tr>
-  <td>Chambers GPG copyright prohibits bulk AI training extraction</td>
-  <td>practiceguides.chambers.com + assets.chambers.com/pdfs/gpg_brochure.pdf</td>
-  <td>high</td>
-  <td>Terms explicitly prohibit automated scraping and redistribution</td>
-</tr>
-<tr>
-  <td>FinBen: 36 datasets, 24 financial tasks, open-source</td>
-  <td>Xie et al., 2024 (arXiv:2402.12659); NeurIPS 2024 proceedings</td>
-  <td>medium</td>
-  <td>US-centric tasks; NZ supplementation required</td>
-</tr>
-<tr>
-  <td>Context rot: recall degrades with prompt length</td>
-  <td>Chroma Research 2025 (cited in prior item 2026-03-02); PromptLayer; MLOps blog</td>
-  <td>high</td>
-  <td>Cross-referenced across 3+ independent sources</td>
-</tr>
-<tr>
-  <td>LLMLingua achieves up to 20× compression with negligible loss</td>
-  <td>Web search citing LLMLingua documentation</td>
-  <td>medium</td>
-  <td>Specific compression ratio from vendor claim; independent replication not verified</td>
-</tr>
-<tr>
-  <td>LLM paraphrase can alter correct answer silently</td>
-  <td>Synthesis of ACL 2024 synthetic data survey and adversarial paraphrasing work</td>
-  <td>medium</td>
-  <td>Inferred from quality-control literature, not a single primary claim</td>
-</tr>
-<tr>
-  <td>Adversarial paraphrasing exposes model weaknesses</td>
-  <td>NeurIPS 2025 Adversarial Paraphrasing framework (chengez/Adversarial-Paraphrasing)</td>
-  <td>medium</td>
-  <td>Demonstrated on AI text detection tasks; transfer to general agent eval is inference</td>
-</tr>
-</tbody>
-</table>
 <h3>Assumptions</h3>
 <ul>
 <li><strong>Assumption:</strong> The Self-Improving Loop operates against LLM APIs only (no local GPU compute). <strong>Justification:</strong> Explicitly stated in scope constraints; all cost estimates derived accordingly.</li>

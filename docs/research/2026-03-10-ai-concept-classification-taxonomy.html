@@ -572,18 +572,16 @@ main {
   <div class="nav-inner">
     <a class="nav-brand" href="/Research/">Research</a>
     <div class="nav-links">
-      <a href="/Research/browse.html">Browse</a>
       <a href="/Research/threads.html">Threads</a>
       <a href="/Research/tags/">Tags</a>
       <a href="/Research/search.html">Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
 </nav>
 <main>
   <div class="breadcrumb">
     <a href="/Research/">Research</a>
-    <span>/</span>
-    <a href="/Research/browse.html">Browse</a>
     <span>/</span>
     <span>AI concept classification taxonomy</span>
   </div>
@@ -638,127 +636,6 @@ main {
 <li><p><strong>The term &quot;skill&quot; is used inconsistently across frameworks — LangChain uses it interchangeably with &quot;tool,&quot; CrewAI uses it as a named capability, and this repo uses it as a named instruction package — and the repo-local definition (skill = named, reusable instruction package delivered as a context injection) is more precise and should be adopted as the shared vocabulary for cross-item research.</strong> Confidence: high. Sources: LangChain docs; CrewAI docs; this repo's <code>.github/skills/</code> artefact.</p>
 </li>
 </ol>
-<h3>Evidence Map</h3>
-<table>
-<thead>
-<tr>
-  <th>Claim</th>
-  <th>Source</th>
-  <th>Confidence</th>
-  <th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>Structural message roles: system/user/assistant/tool</td>
-  <td>OpenAI Chat Completions API; Anthropic API docs</td>
-  <td>high</td>
-  <td>Primary vendor documentation</td>
-</tr>
-<tr>
-  <td>Prompt functional forms: few-shot, CoT, meta-prompt, RAG-augmented</td>
-  <td>White et al. 2023 arXiv:2302.11382</td>
-  <td>high</td>
-  <td>Peer-reviewed prompt pattern catalog</td>
-</tr>
-<tr>
-  <td>Instruction types as rhetorical functions</td>
-  <td>Inference from context eng. + formal spec prior research</td>
-  <td>high</td>
-  <td>Derived from two independent prior items</td>
-</tr>
-<tr>
-  <td>Intent → context → prompt discipline hierarchy</td>
-  <td>Anthropic context eng. blog 2025; 2026-03-08 prior research</td>
-  <td>high</td>
-  <td>Primary model builder source + prior research</td>
-</tr>
-<tr>
-  <td>Intent failure cannot be fixed by context engineering</td>
-  <td>2026-03-08-context-engineering-first-principles.md</td>
-  <td>high</td>
-  <td>Prior research (cross-referenced from Kambhampati arXiv:2402.01817)</td>
-</tr>
-<tr>
-  <td>Six memory types</td>
-  <td>Wang et al. 2023 arXiv:2308.11432; arXiv:2505.00675; prior research</td>
-  <td>high</td>
-  <td>Convergent from survey paper + recent arXiv + prior repo research</td>
-</tr>
-<tr>
-  <td>Episodic/semantic as external memory subtypes</td>
-  <td>arXiv:2505.00675; principia-agentica.io (2025)</td>
-  <td>high</td>
-  <td>Two independent recent sources</td>
-</tr>
-<tr>
-  <td>Procedural memory ≠ skill (different system layer)</td>
-  <td>2026-03-02-integrative-framework-agent-decision-making.md</td>
-  <td>high</td>
-  <td>Prior research</td>
-</tr>
-<tr>
-  <td>Hallucination taxonomy</td>
-  <td>Ji et al. 2023 survey</td>
-  <td>high</td>
-  <td>Primary survey</td>
-</tr>
-<tr>
-  <td>Sycophancy = Layer 2 goal failure</td>
-  <td>2026-03-08-context-engineering-first-principles.md</td>
-  <td>high</td>
-  <td>Prior research (Anthropic reward-tampering 2024; SycEval 2025)</td>
-</tr>
-<tr>
-  <td>Reward hacking = Layer 3 alignment failure</td>
-  <td>Gao et al. 2022; 2026-03-10-formal-spec-intent-alignment-agentic-coding.md</td>
-  <td>high</td>
-  <td>Prior research (two independent empirical sources)</td>
-</tr>
-<tr>
-  <td>OWASP LLM Top 10 2025 failure categories</td>
-  <td>owasp.org/www-project-top-10-for-large-language-model-applications/</td>
-  <td>high</td>
-  <td>Primary standards body</td>
-</tr>
-<tr>
-  <td>Four-category controls taxonomy</td>
-  <td>2026-02-28-ai-control-testing-and-assurance.md; 2026-03-10 prior research</td>
-  <td>high</td>
-  <td>Two prior research items convergent</td>
-</tr>
-<tr>
-  <td>Tool categories: retrieval/execution/communication</td>
-  <td>LangChain documentation 2024; Wang et al. 2023</td>
-  <td>high</td>
-  <td>Framework docs + survey paper</td>
-</tr>
-<tr>
-  <td>Tool autonomy: tools are atomic, agents are autonomous</td>
-  <td>Wang et al. 2023; LangChain docs; AI21 blog 2025</td>
-  <td>high</td>
-  <td>Multiple independent sources converge</td>
-</tr>
-<tr>
-  <td>Skill = instruction package vs tool = executable function</td>
-  <td>This repo's <code>.github/skills/</code>; LangChain docs; CrewAI docs</td>
-  <td>high</td>
-  <td>Primary artefact + two framework docs</td>
-</tr>
-<tr>
-  <td>Agentic vs pipeline: task decomposition uncertainty</td>
-  <td>Barke et al. 2022; 2026-03-08 prior research</td>
-  <td>high</td>
-  <td>Two independent sources</td>
-</tr>
-<tr>
-  <td>Cross-validation against six prior items</td>
-  <td>Internal cross-reference</td>
-  <td>high</td>
-  <td>Direct inspection of all six items</td>
-</tr>
-</tbody>
-</table>
 <h3>Assumptions</h3>
 <ul>
 <li><strong>No assumptions were required.</strong> All claims are grounded in primary or secondary sources or are inferences from prior research. The one ambiguous area (skill vs tool terminology across frameworks) was resolved through direct comparison of primary sources, not assumption.</li>

@@ -572,18 +572,16 @@ main {
   <div class="nav-inner">
     <a class="nav-brand" href="/Research/">Research</a>
     <div class="nav-links">
-      <a href="/Research/browse.html">Browse</a>
       <a href="/Research/threads.html">Threads</a>
       <a href="/Research/tags/">Tags</a>
       <a href="/Research/search.html">Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
 </nav>
 <main>
   <div class="breadcrumb">
     <a href="/Research/">Research</a>
-    <span>/</span>
-    <a href="/Research/browse.html">Browse</a>
     <span>/</span>
     <span>YouTube transcripts via third-party transcript APIs (AssemblyAI / Supadata)</span>
   </div>
@@ -627,109 +625,6 @@ internal transcript endpoint?</p>
 <li><p>Integrating Supadata into the existing research tooling requires one new repository secret (<code>SUPADATA_API_KEY</code>) and one new fetcher function using the existing <code>httpx</code> client pattern; no additional Python dependency is required. [High confidence]</p>
 </li>
 </ol>
-<h3>Evidence Map</h3>
-<table>
-<thead>
-<tr>
-  <th>Claim</th>
-  <th>Source</th>
-  <th>Confidence</th>
-  <th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>Supadata insulates runner from YouTube IP block</td>
-  <td><a href="https://deepwiki.com/supadata-ai/supadata-docs/4.1.1-transcript-service</td>">deepwiki.com</a>
-  <td>High</td>
-  <td>[x] consulted</td>
-</tr>
-<tr>
-  <td>Supadata three modes: Native, Auto, Generate</td>
-  <td><a href="https://deepwiki.com/supadata-ai/supadata-docs/4.1.1-transcript-service</td>">deepwiki.com</a>
-  <td>High</td>
-  <td>[x] consulted</td>
-</tr>
-<tr>
-  <td>Supadata Native returns YouTube caption text verbatim</td>
-  <td><a href="https://supadata.ai/blog/best-youtube-transcript-api</td>">supadata.ai</a>
-  <td>High</td>
-  <td>[x] consulted</td>
-</tr>
-<tr>
-  <td>Supadata AI fallback uses ASR-class (Whisper-equivalent) models</td>
-  <td>Web search synthesis citing deepwiki.com source</td>
-  <td>Medium</td>
-  <td>Secondary synthesis</td>
-</tr>
-<tr>
-  <td>AssemblyAI audio_url does not accept YouTube URLs</td>
-  <td><a href="https://www.assemblyai.com/docs/faq/how-can-i-transcribe-youtube-videos</td>">www.assemblyai.com</a>
-  <td>High</td>
-  <td>[x] primary source</td>
-</tr>
-<tr>
-  <td>AssemblyAI requires yt-dlp pre-download for YouTube</td>
-  <td><a href="https://www.assemblyai.com/docs/faq/how-can-i-transcribe-youtube-videos</td>">www.assemblyai.com</a>
-  <td>High</td>
-  <td>[x] primary source</td>
-</tr>
-<tr>
-  <td>AssemblyAI free tier is $50 one-time, not recurring monthly</td>
-  <td><a href="https://costbench.com/software/ai-transcription-apis/assemblyai/free-plan/</td>">costbench.com</a>
-  <td>High</td>
-  <td>[x] consulted</td>
-</tr>
-<tr>
-  <td>AssemblyAI paid rate: $0.15/hour base</td>
-  <td><a href="https://www.assemblyai.com/pricing</td>">www.assemblyai.com</a>
-  <td>High</td>
-  <td>Referenced via search</td>
-</tr>
-<tr>
-  <td>Kagi accepts YouTube URLs via server-side processing</td>
-  <td><a href="https://help.kagi.com/kagi/api/summarizer.html</td>">help.kagi.com</a>
-  <td>High</td>
-  <td>[x] primary source</td>
-</tr>
-<tr>
-  <td>Kagi YouTube support is &quot;Experimental&quot;</td>
-  <td><a href="https://help.kagi.com/kagi/api/summarizer.html</td>">help.kagi.com</a>
-  <td>High</td>
-  <td>[x] primary source</td>
-</tr>
-<tr>
-  <td>Kagi output is summary, not verbatim transcript</td>
-  <td><a href="https://help.kagi.com/kagi/api/summarizer.html</td>">help.kagi.com</a>
-  <td>High</td>
-  <td>[x] explicit in docs</td>
-</tr>
-<tr>
-  <td>Kagi pricing: $0.030/1,000 tokens, max $0.30/call</td>
-  <td><a href="https://help.kagi.com/kagi/api/summarizer.html</td>">help.kagi.com</a>
-  <td>High</td>
-  <td>[x] primary source</td>
-</tr>
-<tr>
-  <td>Supadata free: 100 credits/month, no CC required</td>
-  <td><a href="https://supadata.ai/blog/best-youtube-transcript-api">supadata.ai</a> + coldiq.com</td>
-  <td>High</td>
-  <td>Two independent sources [x]</td>
-</tr>
-<tr>
-  <td>Supadata paid: $17/3,000 credits/month</td>
-  <td><a href="https://supadata.ai/blog/best-youtube-transcript-api</td>">supadata.ai</a>
-  <td>High</td>
-  <td>[x] consulted</td>
-</tr>
-<tr>
-  <td>Auto mode preferred over Native for reliability</td>
-  <td>Inference from mode documentation</td>
-  <td>Medium</td>
-  <td>No live test run</td>
-</tr>
-</tbody>
-</table>
 <h3>Assumptions</h3>
 <ul>
 <li><strong>Assumption:</strong> Research use case volume is approximately 5–20 videos per month. <strong>Justification:</strong> Derived from the pattern of research items in this repository — items reference individual YouTube videos, and the research loop processes a small number of items per session.</li>

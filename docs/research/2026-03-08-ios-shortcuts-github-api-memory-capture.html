@@ -572,18 +572,16 @@ main {
   <div class="nav-inner">
     <a class="nav-brand" href="/Research/">Research</a>
     <div class="nav-links">
-      <a href="/Research/browse.html">Browse</a>
       <a href="/Research/threads.html">Threads</a>
       <a href="/Research/tags/">Tags</a>
       <a href="/Research/search.html">Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
 </nav>
 <main>
   <div class="breadcrumb">
     <a href="/Research/">Research</a>
-    <span>/</span>
-    <a href="/Research/browse.html">Browse</a>
     <span>/</span>
     <span>iOS Shortcuts + GitHub API</span>
   </div>
@@ -637,91 +635,6 @@ main {
 <li><p><strong>The direct-write path (Contents API) is the correct primary path for the Memory-System repository, reversing the prior research conclusion that issue creation is preferred; that conclusion holds for the Research repo, which has an issue-to-backlog Actions workflow, but the Memory-System's zero-infrastructure constraint requires direct file creation to avoid adding a new workflow dependency.</strong> The additional authoring complexity (8–11 vs. 4–5 actions) is a one-time build cost, not a recurring usage cost.</p>
 </li>
 </ol>
-<h3>Evidence Map</h3>
-<table>
-<thead>
-<tr>
-  <th>Claim</th>
-  <th>Source</th>
-  <th>Confidence</th>
-  <th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td><code>Get Contents of URL</code> supports PUT with custom headers and JSON</td>
-  <td>Apple Support (apd58d46713f); island94.org (Jan 2024); prior research 2026-03-02-ios-shortcuts-research.md</td>
-  <td>high</td>
-  <td>Independently confirmed by GitHub employee example and prior research</td>
-</tr>
-<tr>
-  <td>Contents API requires <code>message</code> and <code>content</code> (base64, no line breaks)</td>
-  <td>GitHub REST API Docs — repo contents; web search cross-confirmation</td>
-  <td>high</td>
-  <td>Primary source + two independent confirmations</td>
-</tr>
-<tr>
-  <td>Encode action Line Wrap: None required; MIME wrapping causes HTTP 422</td>
-  <td>Apple Community discussion (discussions.apple.com/thread/251563782); prior research 2026-03-02-ios-shortcuts-research.md</td>
-  <td>high</td>
-  <td>Multiple independent community reports of same failure and fix</td>
-</tr>
-<tr>
-  <td>Filename collision risk with minute-precision; seconds prevent it</td>
-  <td>Derived from Contents API behavior (HTTP 422 on existing file without sha)</td>
-  <td>high</td>
-  <td>Mechanistically sound</td>
-</tr>
-<tr>
-  <td>No native Keychain access from iOS Shortcuts</td>
-  <td>Web search (multiple developer/security sources, 2024); prior research 2026-03-02-ios-shortcuts-research.md Key Finding #6</td>
-  <td>high</td>
-  <td>Community consensus; no Apple documentation contradicts</td>
-</tr>
-<tr>
-  <td>Fine-grained PAT Contents: write scope sufficient; blast radius limited to one repo</td>
-  <td>GitHub Docs — fine-grained PATs; prior research 2026-03-02-ios-shortcuts-research.md Key Finding #5</td>
-  <td>high</td>
-  <td>Primary source + prior research confirmation</td>
-</tr>
-<tr>
-  <td>Rate limit: 5,000/hour primary; ~80/min secondary for content creation</td>
-  <td>GitHub REST API rate limits docs; web search cross-confirmation</td>
-  <td>high</td>
-  <td>Two independent sources consistent</td>
-</tr>
-<tr>
-  <td>Code search: 10 requests/minute authenticated; unauthenticated blocked</td>
-  <td>GitHub Changelog — code search API changes (March 2023)</td>
-  <td>high</td>
-  <td>Primary source (official changelog)</td>
-</tr>
-<tr>
-  <td>Code search JSON parseable via Shortcuts Dictionary/Repeat actions</td>
-  <td>Inference from known Shortcuts action set; web search (2024)</td>
-  <td>medium</td>
-  <td>Inference; not verified on device</td>
-</tr>
-<tr>
-  <td>Apple Watch complication → capture Shortcut viable; required actions watch-compatible</td>
-  <td>Apple Support watch shortcuts; Dr. Drang Tot Notes example (July 2024)</td>
-  <td>medium</td>
-  <td>Inference from analogy; on-device test needed to confirm</td>
-</tr>
-<tr>
-  <td>8–11 actions required for direct-write Shortcut</td>
-  <td>Derived from action enumeration in §2 A1–A5</td>
-  <td>medium</td>
-  <td>Estimated; exact count depends on implementation choices</td>
-</tr>
-<tr>
-  <td>Round-trip latency 1–5 seconds total</td>
-  <td>[assumption] — inferred from network characteristics; no specific benchmark found</td>
-  <td>low</td>
-  <td>Assumption explicitly labelled</td>
-</tr>
-</tbody>
-</table>
 <h3>Assumptions</h3>
 <ul>
 <li><p><strong>Assumption:</strong> Round-trip latency is 1–3 seconds on Wi-Fi and 2–5 seconds on LTE. <strong>Justification:</strong> Inferred from general iOS Shortcuts execution overhead (sub-second for local actions) plus typical GitHub API response times (200–800 ms on Wi-Fi, 500–2000 ms on LTE). No published benchmark for this specific Shortcuts + GitHub Contents API flow was found during research.</p>

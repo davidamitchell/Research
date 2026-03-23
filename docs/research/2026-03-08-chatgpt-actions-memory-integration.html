@@ -572,18 +572,16 @@ main {
   <div class="nav-inner">
     <a class="nav-brand" href="/Research/">Research</a>
     <div class="nav-links">
-      <a href="/Research/browse.html">Browse</a>
       <a href="/Research/threads.html">Threads</a>
       <a href="/Research/tags/">Tags</a>
       <a href="/Research/search.html">Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
 </nav>
 <main>
   <div class="breadcrumb">
     <a href="/Research/">Research</a>
-    <span>/</span>
-    <a href="/Research/browse.html">Browse</a>
     <span>/</span>
     <span>ChatGPT Actions and custom GPTs</span>
   </div>
@@ -626,85 +624,6 @@ main {
 <li><p>The ChatGPT Actions path has one structural limitation compared to Claude iOS MCP Connectors: retrieval only activates when the user opens the specific memory-retrieval custom GPT, whereas Claude Connectors apply automatically to every Claude conversation once configured.</p>
 </li>
 </ol>
-<h3>Evidence Map</h3>
-<table>
-<thead>
-<tr>
-  <th>Claim</th>
-  <th>Source</th>
-  <th>Confidence</th>
-  <th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>GPT Actions call any public HTTPS endpoint via OpenAPI schema</td>
-  <td><a href="https://platform.openai.com/docs/actions/introduction</td>">platform.openai.com</a>
-  <td>high</td>
-  <td>Primary source; confirmed by multiple implementation guides</td>
-</tr>
-<tr>
-  <td>Calls are server-side (OpenAI infrastructure)</td>
-  <td>OpenAI community: &quot;Since this endpoint will be run from OpenAI's backend, the API must be public&quot;</td>
-  <td>high</td>
-  <td>Consistent with Claude Connectors architecture from prior research</td>
-</tr>
-<tr>
-  <td>API key (custom header) auth supported in GPT editor UI</td>
-  <td><a href="https://platform.openai.com/docs/actions/authentication">platform.openai.com</a> OpenAI docs at developers.openai.com</td>
-  <td>high</td>
-  <td>Primary source; three sub-types confirmed</td>
-</tr>
-<tr>
-  <td>API key auth works on iOS; OAuth fails on iOS</td>
-  <td>community.openai.com/t/custom-gpt-oauth-issue-in-mobile-app/1114136; related threads Jan 2025, May 2025</td>
-  <td>high</td>
-  <td>Multiple independent community reports; no counter-evidence</td>
-</tr>
-<tr>
-  <td><code>add_memory</code> write path (Cloudflare Workers) compatible with Actions REST</td>
-  <td>2026-03-08-self-hosted-mcp-server-options.md Key Finding #1; OpenAI Actions spec</td>
-  <td>high</td>
-  <td>Inference from architecture; REST + JSON is exactly what Actions require</td>
-</tr>
-<tr>
-  <td><code>search_brain</code> retrieval triggerable via system prompt</td>
-  <td><a href="https://help.openai.com/en/articles/8868588-retrieval-augmented-generation-rag-and-semantic-search-for-gpts</td>">help.openai.com</a>
-  <td>medium</td>
-  <td>System prompt compliance is probabilistic, not guaranteed</td>
-</tr>
-<tr>
-  <td>No native Memory API (reading or writing)</td>
-  <td>community.openai.com/t/how-do-i-enable-or-disable-memory-in-api/703964; absence from OpenAI API reference</td>
-  <td>high</td>
-  <td>Explicit community confirmation; absence of endpoint in docs</td>
-</tr>
-<tr>
-  <td>Memory export is manual ZIP only</td>
-  <td><a href="https://help.openai.com/en/articles/7260999-how-do-i-export-my-chatgpt-history-and-data</td>">help.openai.com</a>
-  <td>high</td>
-  <td>Primary source</td>
-</tr>
-<tr>
-  <td>ChatGPT Plus required to create custom GPTs</td>
-  <td><a href="https://help.openai.com/en/articles/8554397-creating-a-gpt</td>">help.openai.com</a>
-  <td>high</td>
-  <td>Primary source</td>
-</tr>
-<tr>
-  <td>Same backend serves both GPT Actions and Claude MCP</td>
-  <td>2026-03-08-self-hosted-mcp-server-options.md; inference from architecture</td>
-  <td>medium</td>
-  <td>Architectural inference; not empirically tested</td>
-</tr>
-<tr>
-  <td>Claude iOS supports no-auth or OAuth 2.1 only (no static key)</td>
-  <td>2026-03-08-claude-ios-mcp-remote-integration.md Key Finding #6</td>
-  <td>high</td>
-  <td>Prior research, primary-sourced</td>
-</tr>
-</tbody>
-</table>
 <h3>Assumptions</h3>
 <ul>
 <li><p><strong>Assumption:</strong> A system prompt instruction (&quot;before every response, call search_brain&quot;) achieves ≥95% retrieval invocation for standard conversational queries. <strong>Justification:</strong> Community implementations of RAG via Actions report reliable trigger behaviour for explicit, unambiguous instructions; the failure mode is ambiguous instructions, not the underlying mechanism. This rate is sufficient for personal use but has not been empirically measured.</p>

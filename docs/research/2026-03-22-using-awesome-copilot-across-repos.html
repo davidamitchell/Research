@@ -572,18 +572,16 @@ main {
   <div class="nav-inner">
     <a class="nav-brand" href="/Research/">Research</a>
     <div class="nav-links">
-      <a href="/Research/browse.html">Browse</a>
       <a href="/Research/threads.html">Threads</a>
       <a href="/Research/tags/">Tags</a>
       <a href="/Research/search.html">Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
 </nav>
 <main>
   <div class="breadcrumb">
     <a href="/Research/">Research</a>
-    <span>/</span>
-    <a href="/Research/browse.html">Browse</a>
     <span>/</span>
     <span>How to best use awesome-copilot in this repo and across personal repos</span>
   </div>
@@ -640,67 +638,6 @@ main {
 <li><strong>[fact][high]</strong> Directly copying awesome-copilot skills into these repos would violate the current shared-skills model, so any selected skill must be ported into <code>davidamitchell/Skills</code> and then synchronized by submodule update. (Sources: <a href="https://github.com/davidamitchell/Research/blob/main/.gitmodules">Research .gitmodules</a>, <a href="https://github.com/davidamitchell/Personal-Assistant-/blob/main/.gitmodules">Personal-Assistant .gitmodules</a>, <a href="https://github.com/davidamitchell/Latest-developments-/blob/main/.gitmodules">Latest-developments .gitmodules</a>, <a href="https://github.com/davidamitchell/Agent-Evaluation/blob/main/.gitmodules">Agent-Evaluation .gitmodules</a>)</li>
 <li><strong>[inference][medium]</strong> Since <code>awesome-copilot</code> is MIT-licensed and has visible public commits on 2026-03-19 and 2026-03-20, selective cherry-picking with periodic upstream review is a reasonable maintenance posture for these personal repos. (Sources: <a href="https://github.com/davidamitchell/awesome-copilot/blob/main/AGENTS.md">awesome-copilot AGENTS.md</a>, <a href="https://github.com/davidamitchell/awesome-copilot/commit/c6a75d7e0923ec0a754e5554b1c52ef76f0d75f8">commit c6a75d7</a>, <a href="https://github.com/davidamitchell/awesome-copilot/commit/6fbbc5204e63a304d0196e3e66ddf401ddb77380">commit 6fbbc52</a>)</li>
 </ol>
-<h3>Evidence Map</h3>
-<table>
-<thead>
-<tr>
-  <th>Claim</th>
-  <th>Source</th>
-  <th>Confidence</th>
-  <th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>[fact] GitHub web natively supports repo-wide instructions, path-specific instructions, and <code>AGENTS.md</code>.</td>
-  <td><a href="https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot</td>">docs.github.com</a>
-  <td>high</td>
-  <td>[fact] This row rests on first-party platform documentation for supported customization surfaces. (Source: <a href="https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot)</td>">docs.github.com</a>
-</tr>
-<tr>
-  <td>[fact] awesome-copilot is a multi-surface pattern library, not a single installation bundle.</td>
-  <td><a href="https://github.com/davidamitchell/awesome-copilot/blob/main/README.md">github.com</a> ; <a href="https://github.com/davidamitchell/awesome-copilot/blob/main/AGENTS.md</td>">github.com</a>
-  <td>high</td>
-  <td>[fact] The README and AGENTS.md independently describe the same category model. (Sources: <a href="https://github.com/davidamitchell/awesome-copilot/blob/main/README.md">github.com</a> ; <a href="https://github.com/davidamitchell/awesome-copilot/blob/main/AGENTS.md)</td>">github.com</a>
-</tr>
-<tr>
-  <td>[fact] Research, Latest-developments-, and Agent-Evaluation share a missing <code>AGENTS.md</code> surface.</td>
-  <td><a href="https://github.com/davidamitchell/Research/tree/main">github.com</a> ; <a href="https://github.com/davidamitchell/Latest-developments-/tree/main">github.com</a> ; <a href="https://github.com/davidamitchell/Agent-Evaluation/tree/main</td>">github.com</a>
-  <td>high</td>
-  <td>[fact] The same missing-file pattern appears across three separate repo roots. (Sources: <a href="https://github.com/davidamitchell/Research/tree/main">github.com</a> ; <a href="https://github.com/davidamitchell/Latest-developments-/tree/main">github.com</a> ; <a href="https://github.com/davidamitchell/Agent-Evaluation/tree/main)</td>">github.com</a>
-</tr>
-<tr>
-  <td>[inference] Personal-Assistant- has the fullest instruction stack in the inspected set.</td>
-  <td><a href="https://github.com/davidamitchell/Personal-Assistant-/blob/main/README.md">github.com</a> ; <a href="https://github.com/davidamitchell/Personal-Assistant-/blob/main/AGENTS.md">github.com</a> ; <a href="https://github.com/davidamitchell/Personal-Assistant-/tree/main/.github</td>">github.com</a>
-  <td>high</td>
-  <td>[inference] Multiple repo-local artifacts justify the higher-maturity comparison. (Sources: <a href="https://github.com/davidamitchell/Personal-Assistant-/blob/main/README.md">github.com</a> ; <a href="https://github.com/davidamitchell/Personal-Assistant-/blob/main/AGENTS.md">github.com</a> ; <a href="https://github.com/davidamitchell/Personal-Assistant-/tree/main/.github)</td>">github.com</a>
-</tr>
-<tr>
-  <td>[inference] <code>create-agentsmd</code> plus path-specific instructions are the best first-wave imports.</td>
-  <td><a href="https://github.com/davidamitchell/awesome-copilot/blob/main/skills/create-agentsmd/SKILL.md">github.com</a> ; <a href="https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot</td>">docs.github.com</a>
-  <td>high</td>
-  <td>[inference] The resource pattern matches the shared gap more directly than hooks, workflows, or plugins. (Sources: <a href="https://github.com/davidamitchell/awesome-copilot/blob/main/skills/create-agentsmd/SKILL.md">github.com</a> ; <a href="https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot)</td>">docs.github.com</a>
-</tr>
-<tr>
-  <td>[inference] <code>Tool Guardian</code> is a strong second-wave candidate for <code>Research</code> and <code>Personal-Assistant-</code>.</td>
-  <td><a href="https://github.com/davidamitchell/awesome-copilot/blob/main/hooks/tool-guardian/README.md">github.com</a> ; <a href="https://github.com/davidamitchell/Personal-Assistant-/blob/main/README.md">github.com</a> ; <a href="https://github.com/davidamitchell/Research/tree/main</td>">github.com</a>
-  <td>medium</td>
-  <td>[inference] The repo contexts and hook purpose align, but end-to-end validation has not yet been run. (Sources: <a href="https://github.com/davidamitchell/awesome-copilot/blob/main/hooks/tool-guardian/README.md">github.com</a> ; <a href="https://github.com/davidamitchell/Personal-Assistant-/blob/main/README.md">github.com</a> ; <a href="https://github.com/davidamitchell/Research/tree/main)</td>">github.com</a>
-</tr>
-<tr>
-  <td>[fact] Skills must be adopted through <code>davidamitchell/Skills</code>, not direct repo edits.</td>
-  <td><a href="https://github.com/davidamitchell/Research/blob/main/.gitmodules">github.com</a> ; <a href="https://github.com/davidamitchell/Personal-Assistant-/blob/main/.gitmodules">github.com</a> ; <a href="https://github.com/davidamitchell/Latest-developments-/blob/main/.gitmodules">github.com</a> ; <a href="https://github.com/davidamitchell/Agent-Evaluation/blob/main/.gitmodules</td>">github.com</a>
-  <td>high</td>
-  <td>[fact] The shared submodule declaration is explicit across every inspected consumer repo. (Sources: <a href="https://github.com/davidamitchell/Research/blob/main/.gitmodules">github.com</a> ; <a href="https://github.com/davidamitchell/Personal-Assistant-/blob/main/.gitmodules">github.com</a> ; <a href="https://github.com/davidamitchell/Latest-developments-/blob/main/.gitmodules">github.com</a> ; <a href="https://github.com/davidamitchell/Agent-Evaluation/blob/main/.gitmodules)</td>">github.com</a>
-</tr>
-<tr>
-  <td>[inference] awesome-copilot is MIT-licensed and recently active enough for selective adoption.</td>
-  <td><a href="https://github.com/davidamitchell/awesome-copilot/blob/main/AGENTS.md">github.com</a> ; <a href="https://github.com/davidamitchell/awesome-copilot/commit/c6a75d7e0923ec0a754e5554b1c52ef76f0d75f8">github.com</a> ; <a href="https://github.com/davidamitchell/awesome-copilot/commit/6fbbc5204e63a304d0196e3e66ddf401ddb77380</td>">github.com</a>
-  <td>medium</td>
-  <td>[inference] The license is explicit and the recent public commits support a cherry-pick maintenance posture. (Sources: <a href="https://github.com/davidamitchell/awesome-copilot/blob/main/AGENTS.md">github.com</a> ; <a href="https://github.com/davidamitchell/awesome-copilot/commit/c6a75d7e0923ec0a754e5554b1c52ef76f0d75f8">github.com</a> ; <a href="https://github.com/davidamitchell/awesome-copilot/commit/6fbbc5204e63a304d0196e3e66ddf401ddb77380)</td>">github.com</a>
-</tr>
-</tbody>
-</table>
 <h3>Assumptions</h3>
 <ul>
 <li><strong>[assumption]</strong> The <code>Memory-System</code> target may still be relevant under a private or renamed repository identifier. <strong>Justification:</strong> the research brief names it as a target repo, but current GitHub lookup returned 404. (Source: <a href="https://github.com/davidamitchell/Memory-System">Memory-System URL</a>)</li>

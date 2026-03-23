@@ -572,18 +572,16 @@ main {
   <div class="nav-inner">
     <a class="nav-brand" href="/Research/">Research</a>
     <div class="nav-links">
-      <a href="/Research/browse.html">Browse</a>
       <a href="/Research/threads.html">Threads</a>
       <a href="/Research/tags/">Tags</a>
       <a href="/Research/search.html">Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
 </nav>
 <main>
   <div class="breadcrumb">
     <a href="/Research/">Research</a>
-    <span>/</span>
-    <a href="/Research/browse.html">Browse</a>
     <span>/</span>
     <span>Swarm Intelligence, PCA, Genetic Algorithms, and Reinforcement Learning —…</span>
   </div>
@@ -633,91 +631,6 @@ main {
 <li><p>Across all four families, adoption maturity varies widely: PCA is table-stakes; contextual bandits are industry-ready; GAs/PSO for hyperparameter search are specialist tools; online RL requires simulation infrastructure and is experimental for most analytics teams; offline RL is accessible via d3rlpy but remains a specialist capability. (confidence: high)</p>
 </li>
 </ol>
-<h3>Evidence Map</h3>
-<table>
-<thead>
-<tr>
-  <th>Claim</th>
-  <th>Source</th>
-  <th>Confidence</th>
-  <th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>PCA unnecessary for GBDTs</td>
-  <td>ML techniques reference item (GBDT collinearity handling); scikit-learn docs</td>
-  <td>high</td>
-  <td>GBDTs' split-based learning does not penalise correlated features</td>
-</tr>
-<tr>
-  <td>PCA requires prior standardisation</td>
-  <td>scikit-learn decomposition docs; statisticsbyjim.com PCA guide</td>
-  <td>high</td>
-  <td>Fundamental PCA property</td>
-</tr>
-<tr>
-  <td>Sparse PCA preferred for regulated attribution</td>
-  <td>scikit-learn docs (SparsePCA); inference from RBNZ explainability principles</td>
-  <td>high</td>
-  <td>Inference labelled</td>
-</tr>
-<tr>
-  <td>PCA on LLM embeddings: 60× speedup</td>
-  <td>arxiv.org/abs/2508.04307; arxiv.org/abs/2504.08386</td>
-  <td>high</td>
-  <td>Two independent empirical papers</td>
-</tr>
-<tr>
-  <td>Bayesian optimisation vs. GA/PSO trade-off by space type</td>
-  <td>Springer 2025 PSO review; IEEE 2024 comparison; Optuna docs</td>
-  <td>high</td>
-  <td>Consistent across sources</td>
-</tr>
-<tr>
-  <td>NSGA-II for portfolio Pareto fronts</td>
-  <td>EvoFolio (link.springer.com/article/10.1007/s00521-024-09456-w); MDPI NSGA-II RL paper</td>
-  <td>high</td>
-  <td>Two independent 2024/2025 sources</td>
-</tr>
-<tr>
-  <td>Contextual bandits for one-shot analytics</td>
-  <td>meegle.com; geteppo.com; NeurIPS 2024 dynamic pricing paper</td>
-  <td>high</td>
-  <td>Consistent across practitioner and research sources</td>
-</tr>
-<tr>
-  <td>Offline RL (CQL/IQL) for regulated industries</td>
-  <td>Springer 2024 chapter; d3rlpy docs; openreview.net IQL</td>
-  <td>high</td>
-  <td>Multiple independent sources including primary papers</td>
-</tr>
-<tr>
-  <td>RL explainability gap</td>
-  <td>Absence of SHAP + temporal credit assignment in literature; practitioner consensus</td>
-  <td>high</td>
-  <td>Gap confirmed by non-existence of solution</td>
-</tr>
-<tr>
-  <td>Neural combinatorial optimisation state of art</td>
-  <td>NeurIPS 2024; Springer 2025 review; PLoS ONE 2025</td>
-  <td>medium</td>
-  <td>Benchmark results; analytics team applicability is an inference</td>
-</tr>
-<tr>
-  <td>PSO vs. ACO domain partition</td>
-  <td>arxiv.org/html/2403.03781v1 (NAS); IEEE 2024 comparison</td>
-  <td>high</td>
-  <td>Two independent experimental comparisons</td>
-</tr>
-<tr>
-  <td>Adoption maturity gradient</td>
-  <td>Reference ML item (practitioner survey); d3rlpy docs; Stable Baselines3 docs</td>
-  <td>high</td>
-  <td>Practitioner-informed inference</td>
-</tr>
-</tbody>
-</table>
 <h3>Assumptions</h3>
 <ul>
 <li><strong>Assumption:</strong> Analytics teams in regulated financial services do not have dedicated GPU clusters for training RL agents from scratch. <strong>Justification:</strong> The reference item's minimum viable MLOps stack (open-source, cloud-portable) was explicitly designed for teams without specialised infrastructure; this item inherits that assumption.</li>

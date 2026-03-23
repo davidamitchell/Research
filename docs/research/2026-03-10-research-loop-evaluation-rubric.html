@@ -572,18 +572,16 @@ main {
   <div class="nav-inner">
     <a class="nav-brand" href="/Research/">Research</a>
     <div class="nav-links">
-      <a href="/Research/browse.html">Browse</a>
       <a href="/Research/threads.html">Threads</a>
       <a href="/Research/tags/">Tags</a>
       <a href="/Research/search.html">Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
 </nav>
 <main>
   <div class="breadcrumb">
     <a href="/Research/">Research</a>
-    <span>/</span>
-    <a href="/Research/browse.html">Browse</a>
     <span>/</span>
     <span>Research loop evaluation rubric</span>
   </div>
@@ -605,12 +603,9 @@ main {
 
 <h2>Findings</h2>
 <h3>Executive Summary</h3>
-<p>This repository should implement its research loop eval gate as a custom 9-dimension rubric prompt passed to the GitHub Copilot CLI, extending the existing <code>research-review.yml</code> pattern rather than adopting a third-party evaluation framework, because all named frameworks (DeepEval, Pydantic Evals, agentevals) require OpenAI or Anthropic API keys that are not approved credentials in this repository. The rubric separates structural compliance (5 dimensions, deterministic) from semantic quality (4 dimensions, LLM-judged), with three hard FAIL conditions — acronym non-expansion, Executive Summary restating the question, and Evidence Map gaps — because these are the most frequent and most diagnostic agent failure modes. The implementation requires one new prompt file (<code>docs/eval/research-rubric-prompt.md</code>) and one new CI workflow, with zero additional credentials and per-item cost under $0.05 in runner fees. A gold dataset of 3–5 manually audited completed items provides the regression baseline and must be refreshed whenever the research protocol changes.</p>
 <h3>Key Findings</h3>
 <ol>
 <li><p>The only tooling approach satisfying this repository's no-new-credentials constraint is a custom GitHub Copilot CLI-based implementation, because DeepEval, Pydantic Evals, and agentevals each require OpenAI or Anthropic API keys not listed in the approved credentials table in AGENTS.md. Confidence: high.</p>
-</li>
-<li><p>The research loop agent's three most structurally significant failure modes per the protocol specification — acronym non-expansion on first use, Executive Summary restating the research question instead of answering it, and Key Findings present without a corresponding Evidence Map row — should be hard FAIL conditions rather than scored dimensions, providing the clearest CI signal of incomplete protocol execution. Confidence: high.</p>
 </li>
 <li><p>A 9-dimension rubric separating structural compliance (deterministic, 5 dimensions: section presence, Evidence Map coverage, Key Finding word count, source consultation, acronym expansion) from semantic quality (LLM-judged, 4 dimensions: executive summary first sentence, claim-to-source accuracy, epistemic labeling, Key Finding specificity) is more reproducible than a single holistic score because structural dimensions can be evaluated without LLM cost. Confidence: high.</p>
 </li>
@@ -625,8 +620,6 @@ main {
 <li><p>The marginal API cost of the CI eval gate is zero because the Copilot subscription is already paid; runner cost is approximately $0.04 per evaluation (5 minutes at $0.008/minute on a GitHub Actions Linux runner), making the per-item cost effectively non-binding for this use case. Confidence: medium.</p>
 </li>
 <li><p>The eval gate should trigger on push to main where the diff includes files in <code>Research/completed/</code>, complementing rather than replacing the existing <code>research-review.yml</code> which runs on draft items; the two workflows cover different lifecycle stages (pre-complete vs post-complete) and different failure mode classes (prose quality vs structural completeness). Confidence: high.</p>
-</li>
-<li><p>The three structural hard FAILs (acronym expansion, executive summary quality, Evidence Map coverage) represent the most actionable additions to the current quality gate because the existing <code>research-review.yml</code> already checks citation discipline, speculation control, and AI slop removal — the new gate closes the gaps not covered by the existing workflow. Confidence: high.</p>
 </li>
 </ol>
 <h3>Evidence Map</h3>
@@ -658,78 +651,6 @@ main {
   <td>high</td>
   <td>Protocol specifies &quot;first sentence must state the answer as a specific, falsifiable claim&quot;</td>
 </tr>
-<tr>
-  <td>Evidence Map gaps are a documented failure mode</td>
-  <td>research-prompt.md Rules (&quot;Do not skip the Evidence Map&quot;)</td>
-  <td>high</td>
-  <td>Hard rule in the research protocol</td>
-</tr>
-<tr>
-  <td>Pydantic Evals defaults to GPT-4o</td>
-  <td><a href="https://pydantic.dev/articles/llm-as-a-judge</td>">pydantic.dev</a>
-  <td>high</td>
-  <td>&quot;GPT-4o by default&quot; stated explicitly</td>
-</tr>
-<tr>
-  <td>Pydantic Evals has no Copilot API integration</td>
-  <td><a href="https://ai.pydantic.dev/evals/">ai.pydantic.dev</a> documentation</td>
-  <td>high</td>
-  <td>No mention of Copilot API in docs</td>
-</tr>
-<tr>
-  <td>Two-level evaluation (deterministic + LLM)</td>
-  <td><a href="https://hamel.dev/blog/posts/evals/</td>">hamel.dev</a>
-  <td>high</td>
-  <td>Hamel Level 1 (unit tests) + Level 2 (model eval) framework</td>
-</tr>
-<tr>
-  <td>Hard FAIL on score 1 + 1–5 scale for trend tracking</td>
-  <td><a href="https://ai.pydantic.dev/evals/">ai.pydantic.dev</a> (binary more reproducible); <a href="https://hamel.dev/blog/posts/evals/">hamel.dev</a> (pass rate is product decision)</td>
-  <td>high</td>
-  <td>Inference combining two primary practitioner sources</td>
-</tr>
-<tr>
-  <td>agentevals designed for tool-call trajectory matching</td>
-  <td><a href="https://github.com/langchain-ai/agentevals</td>">github.com</a>
-  <td>high</td>
-  <td>README describes trajectory as &quot;list of tool calls&quot;</td>
-</tr>
-<tr>
-  <td>Gold set must refresh with protocol changes</td>
-  <td>Research/completed/2026-03-10-agent-evaluation-cross-repo-analysis.md KF 11</td>
-  <td>high</td>
-  <td>Benchmark saturation principle applied to gold sets</td>
-</tr>
-<tr>
-  <td>Machine-parseable output pattern proven in existing workflow</td>
-  <td>.github/workflows/research-review.yml</td>
-  <td>high</td>
-  <td>grep &quot;^OVERALL: FAIL&quot; pattern already in production</td>
-</tr>
-<tr>
-  <td>Runner cost $0.008/minute → $0.04 per 5-min run</td>
-  <td>GitHub Actions pricing documentation (<a href="https://docs.github.com/en/billing/managing-billing-for-your-products/managing-billing-for-github-actions/about-billing-for-github-actions)</td>">docs.github.com</a>
-  <td>medium</td>
-  <td>Estimate; actual runtime may vary</td>
-</tr>
-<tr>
-  <td>DeepEval requires OpenAI/Anthropic key</td>
-  <td><a href="https://www.confident-ai.com/blog/llm-agent-evaluation-complete-guide</td>">www.confident-ai.com</a>
-  <td>high</td>
-  <td>Documented LLM API requirement</td>
-</tr>
-<tr>
-  <td>Research-review.yml applies three skills in sequence</td>
-  <td>.github/workflows/research-review.yml</td>
-  <td>high</td>
-  <td>Source code directly inspected</td>
-</tr>
-<tr>
-  <td>Copilot subscription already paid / COPILOT_GITHUB_TOKEN in use</td>
-  <td>AGENTS.md approved credentials table; research-loop.yml</td>
-  <td>high</td>
-  <td>Confirmed credential exists in repository secrets</td>
-</tr>
 </tbody>
 </table>
 <h3>Assumptions</h3>
@@ -740,7 +661,6 @@ main {
 </ul>
 <h3>Analysis</h3>
 <p>The credential constraint is the binding design decision. All named evaluation frameworks require credentials beyond those available, so the tooling selection is deterministic given the constraints. The evaluation framework design question then becomes: how to maximise rubric quality using only the Copilot CLI?</p>
-<p>The answer is a two-layer design. The first layer is structural compliance: five deterministic checks that the CI step can perform without LLM evaluation (checking for section heading presence using <code>grep</code>, Evidence Map row count using <code>awk</code>, Key Finding word count using a simple script). These checks are fast, cheap, and unambiguous — if any fail, the item is immediately rejected without invoking the LLM judge. The second layer is semantic quality: four LLM-judged dimensions that assess whether the agent followed the spirit of the protocol, not just its letter.</p>
 <p>The hardest design decision is which failures to treat as scored dimensions (recoverable) vs. hard FAILs (immediate rejection). The three chosen hard FAILs — acronym expansion, executive summary first sentence, Evidence Map gaps — share two properties: they are explicitly named in the research protocol as required behaviours, and they are consistently the most common failure modes observed in research review runs [inference]. This makes them the most diagnostic indicators of incomplete protocol execution.</p>
 <h3>Risks, Gaps, and Uncertainties</h3>
 <ul>
@@ -761,8 +681,8 @@ main {
 <li><strong>Type:</strong> knowledge, artefact</li>
 <li><strong>Description:</strong> Full specification of the 9-dimension LLM-as-judge evaluation rubric and CI workflow design for this repository's research loop agent, with tooling selection rationale and gold dataset requirements. The rubric specification is suitable for extraction to <code>docs/eval/research-rubric-prompt.md</code>.</li>
 <li><strong>Key sources:</strong><ol>
-<li>Hamel Husain &quot;Your AI Product Needs Evals&quot; — <a href="https://hamel.dev/blog/posts/evals/</li>">hamel.dev</a>
-<li>Pydantic LLM-as-a-Judge guide — <a href="https://pydantic.dev/articles/llm-as-a-judge</li>">pydantic.dev</a>
+<li>Hamel Husain &quot;Your AI Product Needs Evals&quot; — <a href="https://hamel.dev/blog/posts/evals/">hamel.dev</a>
+<li>Pydantic LLM-as-a-Judge guide — <a href="https://pydantic.dev/articles/llm-as-a-judge">pydantic.dev</a>
 <li>Research/completed/2026-03-10-agent-evaluation-cross-repo-analysis.md (prior art: 5-component MVF framework and tooling survey)</li>
 </ol>
 </li>

@@ -572,18 +572,16 @@ main {
   <div class="nav-inner">
     <a class="nav-brand" href="/Research/">Research</a>
     <div class="nav-links">
-      <a href="/Research/browse.html">Browse</a>
       <a href="/Research/threads.html">Threads</a>
       <a href="/Research/tags/">Tags</a>
       <a href="/Research/search.html">Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
 </nav>
 <main>
   <div class="breadcrumb">
     <a href="/Research/">Research</a>
-    <span>/</span>
-    <a href="/Research/browse.html">Browse</a>
     <span>/</span>
     <span>Reliable Software in the LLM Era</span>
   </div>
@@ -628,91 +626,6 @@ main {
 <li><p>[inference] Model-version drift - the risk that a silent LLM update changes code generation behaviour in ways that model-based tests do not catch - is an identified reliability gap not addressed in any of the source material, representing a real-world failure mode for spec-based LLM workflows that depend on stable model behaviour. [Confidence: medium]</p>
 </li>
 </ol>
-<h3>Evidence Map</h3>
-<table>
-<thead>
-<tr>
-  <th>Claim</th>
-  <th>Source</th>
-  <th>Confidence</th>
-  <th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>LLMs produce text that looks correct; validation is the core challenge</td>
-  <td>quint-lang.org/posts/llm_era (Moreira, Nov 2025)</td>
-  <td>high</td>
-  <td>Direct quote; primary source</td>
-</tr>
-<tr>
-  <td>Quint is TLA+ with programming-style syntax, type checking, and toolchain</td>
-  <td>github.com/informalsystems/quint FAQ; r/tlaplus discussion</td>
-  <td>high</td>
-  <td>Two independent sources agree</td>
-</tr>
-<tr>
-  <td>Four-step Quint LLM workflow with LLM as translator, tools as reasoner</td>
-  <td>quint-lang.org/posts/llm_era</td>
-  <td>high</td>
-  <td>Step-by-step description with tooling commands</td>
-</tr>
-<tr>
-  <td>Malachite case study: months estimate → ~1 week actual; two bugs found in English spec</td>
-  <td>quint-lang.org/posts/llm_era</td>
-  <td>medium</td>
-  <td>Self-reported; single data point; no independent verification</td>
-</tr>
-<tr>
-  <td>Cognitive debt = understanding/trust deficit from bypassed understand-while-coding</td>
-  <td>quint-lang.org/posts/cognitive_debt (Widder &amp; Moreira, March 2026)</td>
-  <td>high</td>
-  <td>Primary source; detailed definition and framing</td>
-</tr>
-<tr>
-  <td>Three failures of natural language: contradiction detection, ambiguity, not executable</td>
-  <td>quint-lang.org/posts/cognitive_debt</td>
-  <td>high</td>
-  <td>Explicit enumeration in primary source</td>
-</tr>
-<tr>
-  <td>quint-llm-kit: Docker + Claude Code CLI + Quint agents + MCP servers, Apache-2.0</td>
-  <td>github.com/informalsystems/quint-llm-kit README</td>
-  <td>high</td>
-  <td>Directly observable</td>
-</tr>
-<tr>
-  <td>quint-llm-kit: not validated for general use; explicit disclaimer</td>
-  <td>github.com/informalsystems/quint-llm-kit README</td>
-  <td>high</td>
-  <td>Verbatim disclaimer in repository</td>
-</tr>
-<tr>
-  <td>Spectacle: failed builds since 2022, GHC 8.10.3 only, 147 lifetime downloads</td>
-  <td>hackage.haskell.org/package/spectacle</td>
-  <td>high</td>
-  <td>Directly observable from Hackage</td>
-</tr>
-<tr>
-  <td>Spec validation is underrated; 10–20× tokens on spec refinement vs. code generation</td>
-  <td>HN item 47350152 (OutOfHere)</td>
-  <td>medium</td>
-  <td>Single practitioner account</td>
-</tr>
-<tr>
-  <td>Model-update drift is an unaddressed gap</td>
-  <td>HN item 47360857 (shanjai_raj7)</td>
-  <td>medium</td>
-  <td>Identified gap; no counter-evidence in sources</td>
-</tr>
-<tr>
-  <td>Formal methods + LLMs roadmap for Requirements Engineering (RE) correctness guarantees</td>
-  <td>ACM Infsof 2025 (dl.acm.org/doi/10.1016/j.infsof.2025.107697)</td>
-  <td>medium</td>
-  <td>Consistent direction; independent academic source</td>
-</tr>
-</tbody>
-</table>
 <h3>Assumptions</h3>
 <ul>
 <li><strong>Assumption:</strong> The 4–10× speedup for the Malachite BFT consensus change generalises beyond distributed consensus protocols to other complex software systems. <strong>Justification:</strong> The article asserts this generalisation but cites no additional data. Adopted as a working medium-confidence assumption pending independent evidence.</li>

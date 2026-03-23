@@ -572,18 +572,16 @@ main {
   <div class="nav-inner">
     <a class="nav-brand" href="/Research/">Research</a>
     <div class="nav-links">
-      <a href="/Research/browse.html">Browse</a>
       <a href="/Research/threads.html">Threads</a>
       <a href="/Research/tags/">Tags</a>
       <a href="/Research/search.html">Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
 </nav>
 <main>
   <div class="breadcrumb">
     <a href="/Research/">Research</a>
-    <span>/</span>
-    <a href="/Research/browse.html">Browse</a>
     <span>/</span>
     <span>ML techniques, algorithms, and advanced analytics — a systematic reference for…</span>
   </div>
@@ -633,91 +631,6 @@ main {
 <li><p>The minimum viable MLOps stack for an analytics team — MLflow (experiment tracking + model registry), DVC (data versioning), Evidently AI (drift detection), and GitHub Actions (CI/CD for model retraining) — is entirely open-source, cloud-portable, and sufficient to meet the operational requirements of a regulated analytics function. (confidence: high)</p>
 </li>
 </ol>
-<h3>Evidence Map</h3>
-<table>
-<thead>
-<tr>
-  <th>Claim</th>
-  <th>Source</th>
-  <th>Confidence</th>
-  <th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>GBDTs dominate tabular data benchmarks</td>
-  <td>Lazebnik et al. arXiv:2408.14817; Kaggle AI Report 2023</td>
-  <td>high</td>
-  <td>111-dataset comparison; practitioner survey</td>
-</tr>
-<tr>
-  <td>DL outperforms GBDTs on &quot;hard&quot; datasets</td>
-  <td>NeurIPS 2023 &quot;When Do Neural Nets Outperform Boosted Trees?&quot;</td>
-  <td>high</td>
-  <td>Consistent with arXiv:2408.14817</td>
-</tr>
-<tr>
-  <td>TabPFN-2.5 100% win rate over XGBoost ≤10K rows</td>
-  <td>Prior Labs TabPFN-2.5 Model Report; arXiv:2511.08667</td>
-  <td>medium-high</td>
-  <td>Developer-reported; TabArena independently corroborates</td>
-</tr>
-<tr>
-  <td>Out-of-time validation essential for temporal data</td>
-  <td>Practitioner consensus; Sculley et al. 2015</td>
-  <td>high</td>
-  <td>Foundational time series ML practice</td>
-</tr>
-<tr>
-  <td>SHAP is regulated-industry explainability standard</td>
-  <td>arXiv:2305.02012; johal.in 2024 comparative guide</td>
-  <td>high</td>
-  <td>Multiple independent sources</td>
-</tr>
-<tr>
-  <td>Conformal prediction is production-deployed</td>
-  <td>PMLR 2023 Husqvarna case study; arXiv:2107.07511</td>
-  <td>high</td>
-  <td>Industrial implementation confirmed</td>
-</tr>
-<tr>
-  <td>DoWhy/EconML/CausalML are production-stable</td>
-  <td>PyWhy docs; Microsoft EconML Research; arXiv:2308.09066</td>
-  <td>high</td>
-  <td>Active maintenance; documented production use</td>
-</tr>
-<tr>
-  <td>AutoML frameworks are production-ready 2024</td>
-  <td>RapidCanvas benchmark; AutoGluon docs; H2O docs; FLAML GitHub</td>
-  <td>high</td>
-  <td>Multiple independent validation sources</td>
-</tr>
-<tr>
-  <td>TFT strongest for multivariate forecasting</td>
-  <td>Lim et al. 2021 (Int. J. Forecasting); PyTorch Forecasting docs</td>
-  <td>high</td>
-  <td>Original paper confirmed by downstream benchmarks</td>
-</tr>
-<tr>
-  <td>ML hidden technical debt (CACE principle)</td>
-  <td>Sculley et al. 2015 NeurIPS</td>
-  <td>high</td>
-  <td>Foundational paper; widely cited</td>
-</tr>
-<tr>
-  <td>RBNZ principles-based approach to ML risk</td>
-  <td>RBNZ FSR Nov 2024; RBNZ &quot;Rise of the Machines&quot; May 2025</td>
-  <td>high</td>
-  <td>Primary RBNZ publications</td>
-</tr>
-<tr>
-  <td>MLflow + Evidently AI viable MLOps stack</td>
-  <td>MLflow docs; Evidently AI docs; practitioner guides</td>
-  <td>high</td>
-  <td>Widely adopted open-source tooling</td>
-</tr>
-</tbody>
-</table>
 <h3>Assumptions</h3>
 <ul>
 <li><strong>Assumption:</strong> TabPFN-2.5's benchmark results (i.i.d. splits) translate to meaningful performance advantage on financial analytics datasets with temporal structure. <strong>Justification:</strong> TabPFN's in-context learning mechanism is not specifically designed for temporal data; the i.i.d. assumption is strong for financial data. Conservative assumption: treat TabPFN-2.5 as a strong first-pass baseline requiring out-of-time validation before accepting its predictions.</li>

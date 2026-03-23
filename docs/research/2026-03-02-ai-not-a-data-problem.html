@@ -572,18 +572,16 @@ main {
   <div class="nav-inner">
     <a class="nav-brand" href="/Research/">Research</a>
     <div class="nav-links">
-      <a href="/Research/browse.html">Browse</a>
       <a href="/Research/threads.html">Threads</a>
       <a href="/Research/tags/">Tags</a>
       <a href="/Research/search.html">Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
 </nav>
 <main>
   <div class="breadcrumb">
     <a href="/Research/">Research</a>
-    <span>/</span>
-    <a href="/Research/browse.html">Browse</a>
     <span>/</span>
     <span>AI capability is not a data problem - why the data/analytics department is the…</span>
   </div>
@@ -642,115 +640,6 @@ main {
 <li><p><strong>Regulators have not explicitly mandated separation of analytical and operational data access as a standalone requirement; the implication is indirect - operational risk, auditability, fine-grained access control, and board-level accountability requirements collectively produce the same architectural conclusion.</strong> (Confidence: high)</p>
 </li>
 </ol>
-<h3>Evidence Map</h3>
-<table>
-<thead>
-<tr>
-  <th>Claim</th>
-  <th>Source</th>
-  <th>Confidence</th>
-  <th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>Analytics platforms fail production agent NFRs by design</td>
-  <td>Pylar AI five-layer architecture; Machine Learning Mastery production agent deployment; Martin Fowler data mesh article</td>
-  <td>High</td>
-  <td>Consistent across architecture guidance</td>
-</tr>
-<tr>
-  <td>Operational data served through microservice APIs (Fowler)</td>
-  <td>Martin Fowler, &quot;Data Mesh Principles and Logical Architecture&quot; (2020), accessed</td>
-  <td>High</td>
-  <td>Primary source, verbatim quotation</td>
-</tr>
-<tr>
-  <td>RFC 8693 STS delegation for agents</td>
-  <td>RFC 8693 (rfc-editor.org); Auth0 Token Vault; IETF draft-oauth-ai-agents-on-behalf-of-user-01</td>
-  <td>High</td>
-  <td>Standards-based; IETF draft confirms AI-specific extension in progress</td>
-</tr>
-<tr>
-  <td>MCP as API-layer integration standard</td>
-  <td>MCP specification (modelcontextprotocol.io); CSA MCP primer; Okta MCP overview</td>
-  <td>High</td>
-  <td>Industry adoption by 4 major cloud platforms confirmed</td>
-</tr>
-<tr>
-  <td>Knowledge management ≠ data management for agents</td>
-  <td>Xenoss enterprise knowledge base RAG; CompuVate RAG systems; KM Insider RAG and KM; Denser AI KM analysis</td>
-  <td>High</td>
-  <td>Consistent across independent sources</td>
-</tr>
-<tr>
-  <td>NIST AI RMF cross-functional governance requirement</td>
-  <td>NIST AI RMF (nist.gov); Openlayer NIST guide; GLACIS NIST guide</td>
-  <td>High</td>
-  <td>Primary standard; implementation guides corroborate</td>
-</tr>
-<tr>
-  <td>CRO/CTO not CDO holds AI accountability (FCA/PRA)</td>
-  <td>Prior research 2026-02-28-ai-line-1-line-2-risk-agents.md (FCA DP5/22 analysis)</td>
-  <td>High</td>
-  <td>Based on completed primary research</td>
-</tr>
-<tr>
-  <td>APRA CPS 230 cross-functional AI governance</td>
-  <td>Prior research 2026-02-28-rbnz-ai-supervisory-expectations.md (APRA analysis)</td>
-  <td>High</td>
-  <td>Based on completed primary research</td>
-</tr>
-<tr>
-  <td>74% of organisations fail to scale AI to visible value</td>
-  <td>IBM 2025 CDO Study; prior research 2026-02-28-ai-strategy-business-efficiency-examples.md (BCG data)</td>
-  <td>High</td>
-  <td>Two independent datasets agree</td>
-</tr>
-<tr>
-  <td>26% of CDOs confident in AI revenue support</td>
-  <td>IBM 2025 CDO Study</td>
-  <td>High</td>
-  <td>Primary data; IBM IBV report</td>
-</tr>
-<tr>
-  <td>CDOs structurally set up to fail in AI delivery</td>
-  <td>HBR &quot;Why Chief Data and AI Officers Are Set Up to Fail&quot; (2023); CDO Magazine lessons analysis</td>
-  <td>High</td>
-  <td>HBR is a credible secondary; CDO Magazine corroborates</td>
-</tr>
-<tr>
-  <td>Hybrid model preserves advantages without risks</td>
-  <td>Inference from Fowler + MCP + RFC 8693 evidence</td>
-  <td>Medium</td>
-  <td>Logical derivation; no single source makes this claim explicitly</td>
-</tr>
-<tr>
-  <td>Data team correct for experimental AI, wrong for operational</td>
-  <td>Inference from NFR analysis + organisational mandate analysis</td>
-  <td>High</td>
-  <td>Consistent with all evidence streams; no source explicitly contradicts</td>
-</tr>
-<tr>
-  <td>Incentive misalignment in data team AI ownership</td>
-  <td>IBM CDO Study (ambitions outpace readiness); HBR CDO failure analysis</td>
-  <td>Medium</td>
-  <td>Described as structural dynamic, not directly measured</td>
-</tr>
-<tr>
-  <td>BI precedent for AI</td>
-  <td>[inference] from documented pattern of data-team-to-engineering-team handoffs in BI</td>
-  <td>Medium</td>
-  <td>No single authoritative study; widely observable pattern</td>
-</tr>
-<tr>
-  <td>No explicit regulatory separation mandate</td>
-  <td>Prior research RBNZ and APRA items; NIST AI RMF review</td>
-  <td>High</td>
-  <td>Absence confirmed across multiple regulatory frameworks reviewed</td>
-</tr>
-</tbody>
-</table>
 <h3>Assumptions</h3>
 <ul>
 <li><p><strong>Assumption:</strong> &quot;Production agent&quot; means an agent that takes consequential actions (sends communications, modifies records, makes decisions with downstream effects) rather than a read-only analytics assistant. <strong>Justification:</strong> The research question and scope explicitly include write operations and the high-stakes agent category is the primary motivating use case. A pure read-only analytics assistant raises fewer NFR concerns, though the identity and audit trail arguments still apply.</p>

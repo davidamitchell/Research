@@ -572,18 +572,16 @@ main {
   <div class="nav-inner">
     <a class="nav-brand" href="/Research/">Research</a>
     <div class="nav-links">
-      <a href="/Research/browse.html">Browse</a>
       <a href="/Research/threads.html">Threads</a>
       <a href="/Research/tags/">Tags</a>
       <a href="/Research/search.html">Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
 </nav>
 <main>
   <div class="breadcrumb">
     <a href="/Research/">Research</a>
-    <span>/</span>
-    <a href="/Research/browse.html">Browse</a>
     <span>/</span>
     <span>GitHub Specify, Ralph Loops, and Lisa Planning</span>
   </div>
@@ -638,85 +636,6 @@ main {
 <li><p><strong>This repo can adopt the Ralph pattern with minimal changes.</strong> Existing foundations: <code>AGENTS.md</code> (operational guide already loaded), <code>src/</code> (code), <code>tests/</code> (backpressure), <code>pyproject.toml</code> (validation commands). Gaps: no <code>specs/</code> folder, no <code>IMPLEMENTATION_PLAN.md</code>, no <code>loop.sh</code>. The BACKLOG.md items are structurally equivalent to implementation plan tasks; the Research backlog items serve as specs. The main blocker for a full Ralph loop is headless Claude Code CLI access from CI.</p>
 </li>
 </ol>
-<h3>Evidence Map</h3>
-<table>
-<thead>
-<tr>
-  <th>Claim</th>
-  <th>Source</th>
-  <th>Confidence</th>
-  <th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>Ralph = bash while loop feeding PROMPT.md to claude</td>
-  <td>ghuntley.com/ralph/</td>
-  <td>high</td>
-  <td>Primary source; original technique description</td>
-</tr>
-<tr>
-  <td>Three phases: Specify → Plan → Build</td>
-  <td>ClaytonFarr/ralph-playbook, aibit.im tutorial</td>
-  <td>high</td>
-  <td>Two independent descriptions match exactly</td>
-</tr>
-<tr>
-  <td>One task per loop; 40-60% context = smart zone</td>
-  <td>ClaytonFarr/ralph-playbook</td>
-  <td>high</td>
-  <td>Quoted figure; matches ghuntley.com architecture diagram</td>
-</tr>
-<tr>
-  <td>&quot;Specify&quot; is not a GitHub product name</td>
-  <td>Web search, GitHub docs</td>
-  <td>high</td>
-  <td>No GitHub product by that name found</td>
-</tr>
-<tr>
-  <td>GitHub Copilot Agent assigns issues, plans, opens PRs</td>
-  <td>github.blog/news-insights/product-news/github-copilot-meet-the-new-coding-agent</td>
-  <td>high</td>
-  <td>Official announcement</td>
-</tr>
-<tr>
-  <td>Agent Skills launched December 2025</td>
-  <td>github.blog/changelog/2025-12-18-github-copilot-now-supports-agent-skills/</td>
-  <td>high</td>
-  <td>Official changelog</td>
-</tr>
-<tr>
-  <td>Lisa = planning + persistent memory layer</td>
-  <td>dev.to/tonycasey/why-ralph-wiggum-needs-lisa-23nm, web search</td>
-  <td>medium</td>
-  <td>Lisa as product is community-built; role definition from multiple sources</td>
-</tr>
-<tr>
-  <td>Lisa solves Groundhog Day Problem via knowledge graph</td>
-  <td>dev.to/tonycasey/why-ralph-wiggum-needs-lisa-23nm</td>
-  <td>medium</td>
-  <td>Single primary source; architecture is credible but one team's implementation</td>
-</tr>
-<tr>
-  <td>Ralph is (1,1) evolutionary strategy</td>
-  <td>ianreppel.org/ralph-wiggum-as-a-degenerate-evolutionary-search/</td>
-  <td>high</td>
-  <td>Formal analysis; the mapping is precise</td>
-</tr>
-<tr>
-  <td>Active inference structural equivalence</td>
-  <td>Derived from ghuntley.com/ralph/ + Friston FEP literature</td>
-  <td>low</td>
-  <td>Author's inference, not asserted in primary sources</td>
-</tr>
-<tr>
-  <td>frankbria/ralph-claude-code: dual-condition exit gate</td>
-  <td>github.com/frankbria/ralph-claude-code README</td>
-  <td>high</td>
-  <td>Documented feature; v0.9.9 changelog entry</td>
-</tr>
-</tbody>
-</table>
 <h3>Assumptions</h3>
 <ul>
 <li><strong>Assumption:</strong> Geoffrey Huntley coined the Ralph Wiggum Technique. <strong>Justification:</strong> ghuntley.com/ralph/ is cited by all downstream sources as the originating post; Huntley is credited as the inventor in every secondary source found.</li>

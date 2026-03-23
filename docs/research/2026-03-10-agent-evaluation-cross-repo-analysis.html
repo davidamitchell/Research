@@ -572,18 +572,16 @@ main {
   <div class="nav-inner">
     <a class="nav-brand" href="/Research/">Research</a>
     <div class="nav-links">
-      <a href="/Research/browse.html">Browse</a>
       <a href="/Research/threads.html">Threads</a>
       <a href="/Research/tags/">Tags</a>
       <a href="/Research/search.html">Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
 </nav>
 <main>
   <div class="breadcrumb">
     <a href="/Research/">Research</a>
-    <span>/</span>
-    <a href="/Research/browse.html">Browse</a>
     <span>/</span>
     <span>Agent evaluation framework</span>
   </div>
@@ -633,103 +631,6 @@ main {
 <li><p>A minimal viable evaluation framework for a research loop agent requires five components: a versioned scenario registry, a two-layer metric stack (code-based + LLM-as-judge with structured rubric), trace capture, a CI regression gate with explicit failure thresholds, and a gold dataset refresh protocol — with shadow testing and A/B testing as production-grade extensions. Confidence: high (inference synthesised from primary practitioner and framework sources).</p>
 </li>
 </ol>
-<h3>Evidence Map</h3>
-<table>
-<thead>
-<tr>
-  <th>Claim</th>
-  <th>Source</th>
-  <th>Confidence</th>
-  <th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>Tool-mediated execution universal</td>
-  <td>Per-framework official docs; 2026-03-08 prior research</td>
-  <td>high</td>
-  <td>Confirmed in all 8 surveyed frameworks</td>
-</tr>
-<tr>
-  <td>Trajectory capture in 5/8 frameworks</td>
-  <td>Per-framework official docs; DeepWiki analyses</td>
-  <td>high</td>
-  <td>OpenHands, LangGraph, Pydantic AI, Agno, AutoGen Studio</td>
-</tr>
-<tr>
-  <td>Evals-as-CI practitioner consensus</td>
-  <td>hamel.dev/blog/posts/evals/; debugg.ai evals guide</td>
-  <td>high</td>
-  <td>Two independent primary practitioner sources</td>
-</tr>
-<tr>
-  <td>Measurement gap (want holistic, measure operational)</td>
-  <td>Yehudai et al. arXiv:2503.16416; Mohammadi et al. arXiv:2507.21504</td>
-  <td>high</td>
-  <td>Two independent peer-reviewed surveys</td>
-</tr>
-<tr>
-  <td>LangGraph ~94% task completion, complex workflows</td>
-  <td>Braincuber comparison; Meta Intelligence comparison</td>
-  <td>medium</td>
-  <td>Consistent secondary; no primary empirical paper cited</td>
-</tr>
-<tr>
-  <td>LangGraph time-travel debugging unique among orchestration</td>
-  <td>LangGraph official documentation</td>
-  <td>high</td>
-  <td>Primary docs; not present in other frameworks' docs</td>
-</tr>
-<tr>
-  <td>Pydantic AI type-constrained validation unique</td>
-  <td>Pydantic AI official documentation (ai.pydantic.dev)</td>
-  <td>high</td>
-  <td>Primary docs; explicitly absent in other frameworks' docs</td>
-</tr>
-<tr>
-  <td>OpenHands 60.6% → 66.4% inference-time scaling</td>
-  <td>OpenHands engineering blog (openhands.dev)</td>
-  <td>high</td>
-  <td>First-party quantified result with methodology described</td>
-</tr>
-<tr>
-  <td>METR time-horizon doubling ~every 7 months</td>
-  <td>metr.org/blog/2025-03-19</td>
-  <td>high</td>
-  <td>First-party METR research with data</td>
-</tr>
-<tr>
-  <td>Safety eval absent from framework CI</td>
-  <td>Absence from framework docs; OWASP LLM Top 10 exists</td>
-  <td>medium</td>
-  <td>Inferred from absence; cannot prove universal absence</td>
-</tr>
-<tr>
-  <td>LLM-as-judge unreliable without rubric</td>
-  <td>hamel.dev/blog/posts/evals/</td>
-  <td>high</td>
-  <td>Explicit anti-pattern documentation by practitioner</td>
-</tr>
-<tr>
-  <td>SWE-bench-Live created for saturation problem</td>
-  <td>arXiv:2505.23419v2 (SWE-bench Goes Live)</td>
-  <td>high</td>
-  <td>Primary paper</td>
-</tr>
-<tr>
-  <td>agentA/B simulation for pre-production A/B</td>
-  <td>arXiv:2504.09723</td>
-  <td>high</td>
-  <td>Primary peer-reviewed paper</td>
-</tr>
-<tr>
-  <td>5-component MVF specification</td>
-  <td>Synthesis: Pydantic AI docs; hamel.dev; agentevals GitHub; DeepEval docs</td>
-  <td>high</td>
-  <td>Synthesised inference from multiple primary practitioner sources</td>
-</tr>
-</tbody>
-</table>
 <h3>Assumptions</h3>
 <ul>
 <li><strong>A1:</strong> The eight surveyed frameworks are representative of the 2025 agent framework landscape. Justification: they cover the major OSS frameworks by practitioner adoption (AutoGen, CrewAI, LangGraph dominate practitioner comparisons); Pydantic AI and Agno cover type-safe and multi-modal niches; OpenHands/SWE-bench cover the SE-agent benchmark class; Anthropic harness covers the production research-loop pattern. Commercial frameworks (Copilot Coding Agent, Claude Code) are partially covered via prior research.</li>
@@ -759,9 +660,9 @@ main {
 <li><strong>Type:</strong> knowledge, backlog-item</li>
 <li><strong>Description:</strong> Structured evaluation framework specification covering 8-framework cross-repo analysis, pattern taxonomy, effectiveness signal survey, and 5-component MVF specification. Generates one follow-on backlog item: research loop evaluation rubric specification.</li>
 <li><strong>Key sources:</strong><ol>
-<li>Yehudai et al. &quot;Survey on Evaluation of LLM-based Agents&quot; arXiv:2503.16416 (2025) — <a href="https://arxiv.org/abs/2503.16416</li>">arxiv.org/abs/2503.16416</li></a>
-<li>Hamel Husain &quot;Your AI Product Needs Evals&quot; — <a href="https://hamel.dev/blog/posts/evals/</li>">hamel.dev</a>
-<li>METR &quot;Measuring AI Ability to Complete Long Tasks&quot; — <a href="https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/</li>">metr.org</a>
+<li>Yehudai et al. &quot;Survey on Evaluation of LLM-based Agents&quot; arXiv:2503.16416 (2025) — <a href="https://arxiv.org/abs/2503.16416">arxiv.org/abs/2503.16416</li></a>
+<li>Hamel Husain &quot;Your AI Product Needs Evals&quot; — <a href="https://hamel.dev/blog/posts/evals/">hamel.dev</a>
+<li>METR &quot;Measuring AI Ability to Complete Long Tasks&quot; — <a href="https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/">metr.org</a>
 </ol>
 </li>
 </ul>

@@ -572,18 +572,16 @@ main {
   <div class="nav-inner">
     <a class="nav-brand" href="/Research/">Research</a>
     <div class="nav-links">
-      <a href="/Research/browse.html">Browse</a>
       <a href="/Research/threads.html">Threads</a>
       <a href="/Research/tags/">Tags</a>
       <a href="/Research/search.html">Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
 </nav>
 <main>
   <div class="breadcrumb">
     <a href="/Research/">Research</a>
-    <span>/</span>
-    <a href="/Research/browse.html">Browse</a>
     <span>/</span>
     <span>Context Mode</span>
   </div>
@@ -634,67 +632,6 @@ main {
 <li><p><strong>The broader context management problem — selective pruning, backtracking, agentic self-management — remains open.</strong> The HN discussion surfaced several complementary directions: (a) <em>backtracking</em>: once a bug is fixed, the failed attempts in context are noise; pruning them to a stub (&quot;completed fix X&quot;) plus a drill-down reference would recover that space without losing the result; (b) <em>context trees</em>: treating context like a git undo tree (cherry-pick, rebase) to allow branching debug sessions; (c) <em>agentic context management</em>: giving the model a &quot;prune&quot; tool and letting it remove irrelevant context autonomously; (d) <em>subprocess isolation</em>: spawning all &quot;work&quot; calls as subprocesses that return a 4-part structured summary (answer, approach, failed attempts, learnings) rather than a raw transcript; (e) <em>local model summarisation</em>: running a small local model on log output and feeding only the summary to the powerful model. These approaches are complementary rather than competing.</p>
 </li>
 </ol>
-<h3>Evidence Map</h3>
-<table>
-<thead>
-<tr>
-  <th>Claim</th>
-  <th>Source</th>
-  <th>Confidence</th>
-  <th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>143K tokens (72%) consumed by tool definitions with 81+ tools active</td>
-  <td><a href="https://mksg.lu/blog/context-mode">mksg.lu/blog/context-mode</a>, citing <a href="https://scottspence.com/posts/optimising-mcp-server-context-usage-in-claude-code">scottspence.com</a></td>
-  <td>high</td>
-  <td>Independent third-party measurement cited in primary article</td>
-</tr>
-<tr>
-  <td>315 KB of session output → 5.4 KB (98% reduction); session from ~30 min to ~3 hours</td>
-  <td><a href="https://mksg.lu/blog/context-mode">mksg.lu/blog/context-mode</a></td>
-  <td>medium</td>
-  <td>Validated across 11 real-world scenarios per author; single-author measurement without independent replication</td>
-</tr>
-<tr>
-  <td>Per-tool compression ratios (Playwright 56 KB → 299 B; git log 153 commits → 107 B)</td>
-  <td><a href="https://github.com/mksglu/claude-context-mode">github.com/mksglu/claude-context-mode README</a></td>
-  <td>medium</td>
-  <td>Plausible given the mechanism; not independently replicated</td>
-</tr>
-<tr>
-  <td>Cloudflare Code Mode compresses 1.17M token API definitions to ~1,000 tokens (99.9%)</td>
-  <td><a href="https://blog.cloudflare.com/code-mode-mcp">blog.cloudflare.com/code-mode-mcp</a></td>
-  <td>high</td>
-  <td>Primary source; methodology described in detail</td>
-</tr>
-<tr>
-  <td>Context Mode cannot intercept MCP tool responses (JSON-RPC bypass)</td>
-  <td><a href="https://news.ycombinator.com/item?id=47193064">HN comment #47202616</a></td>
-  <td>high</td>
-  <td>Empirically tested; confirmed by inspection of PreToolUse hook source</td>
-</tr>
-<tr>
-  <td>BM25 underperforms on structured data (JSON, tables) in tool outputs</td>
-  <td><a href="https://news.ycombinator.com/item?id=47193064">HN comment #47203790</a></td>
-  <td>high</td>
-  <td>Well-known IR limitation; independently observed and addressed</td>
-</tr>
-<tr>
-  <td>Hybrid retrieval (Model2Vec + sqlite-vec + FTS5 + RRF) for 49K-chunk Obsidian vault</td>
-  <td><a href="https://news.ycombinator.com/item?id=47193064">HN comment #47203790</a></td>
-  <td>medium</td>
-  <td>Single practitioner; plausible and consistent with IR literature</td>
-</tr>
-<tr>
-  <td>Prompt cache preserved by &quot;never let it in&quot; vs busted by post-hoc pruning</td>
-  <td><a href="https://mksg.lu/blog/context-mode">mksg.lu/blog/context-mode</a>, <a href="https://news.ycombinator.com/item?id=47193064">HN comment #47200261</a></td>
-  <td>high</td>
-  <td>Mechanistically sound; follows from how prompt caching works</td>
-</tr>
-</tbody>
-</table>
 <h3>Assumptions</h3>
 <ul>
 <li><strong>Assumption:</strong> The compression ratios in the primary article are representative of typical Claude Code sessions. <strong>Justification:</strong> The author validated across 11 scenarios including diverse output types (snapshots, logs, CSVs, git logs, test suites). The figures are plausible given the mechanism. Independent replication would strengthen this.</li>

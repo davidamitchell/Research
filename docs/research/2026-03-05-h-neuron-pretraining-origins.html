@@ -572,18 +572,16 @@ main {
   <div class="nav-inner">
     <a class="nav-brand" href="/Research/">Research</a>
     <div class="nav-links">
-      <a href="/Research/browse.html">Browse</a>
       <a href="/Research/threads.html">Threads</a>
       <a href="/Research/tags/">Tags</a>
       <a href="/Research/search.html">Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
 </nav>
 <main>
   <div class="breadcrumb">
     <a href="/Research/">Research</a>
-    <span>/</span>
-    <a href="/Research/browse.html">Browse</a>
     <span>/</span>
     <span>Pre-Training Origins of Hallucination-Associated Neurons — Implications for LLM…</span>
   </div>
@@ -627,91 +625,6 @@ main {
 <li><p>Architectural reduction of superposition pressure (widening FFN intermediate layers, auxiliary sparsity losses) could reduce H-Neuron consolidation by allowing compliance features to be more orthogonally encoded, but this prediction is derived from toy-model superposition theory and has no direct validation in pre-training experiments with large transformer models. [confidence: low]</p>
 </li>
 </ol>
-<h3>Evidence Map</h3>
-<table>
-<thead>
-<tr>
-  <th>Claim</th>
-  <th>Source</th>
-  <th>Confidence</th>
-  <th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>H-Neurons predictive in base models before alignment (AUROC &gt; baseline on all 6 models)</td>
-  <td>Gao et al. (2025), arXiv:2512.01797, Fig. 4a</td>
-  <td>high</td>
-  <td>Primary empirical evidence for pre-training origin</td>
-</tr>
-<tr>
-  <td>H-Neurons undergo minimal weight change during SFT (parameter inertia, avg rank ≈0.97)</td>
-  <td>Gao et al. (2025), arXiv:2512.01797, Fig. 4b</td>
-  <td>high</td>
-  <td>One-sided t-test P &lt; 0.001 across all tested models</td>
-</tr>
-<tr>
-  <td>NTP objective rewards fluent compliant continuations without factual accuracy penalty</td>
-  <td>Gao et al. (2025) §5; Kalai et al. (2025) &quot;Why language models hallucinate&quot;</td>
-  <td>high (mechanism); medium (corpus-signal role)</td>
-  <td>Kalai et al. is learning-theory paper cited in Gao et al.; no direct ablation</td>
-</tr>
-<tr>
-  <td>RLHF does not rewrite circuits; operates at response-distribution level</td>
-  <td>Gao et al. parameter inertia; RLHF alignment tax literature</td>
-  <td>high</td>
-  <td>Consistent with multiple independent findings on RLHF surface-level operation</td>
-</tr>
-<tr>
-  <td>Larger models have lower H-Neuron ratios (0.01‰ vs 0.35‰)</td>
-  <td>Gao et al. (2025), Table 1</td>
-  <td>medium</td>
-  <td>Only 6 models, 3 families; pattern consistent but not a formal scaling law</td>
-</tr>
-<tr>
-  <td>Larger models show lower compliance perturbation slopes (2.40 vs 3.03)</td>
-  <td>Gao et al. (2025), Fig. 3</td>
-  <td>medium</td>
-  <td>Same data limitation; &quot;average slope&quot; aggregated across 4 benchmarks</td>
-</tr>
-<tr>
-  <td>Data filtering dramatically changes model behaviour (Phi-1 quality data effect)</td>
-  <td>Gunasekar et al. (2023), arXiv:2306.11644</td>
-  <td>medium</td>
-  <td>Evidence is for coding benchmarks; generalisation to over-compliance is inference</td>
-</tr>
-<tr>
-  <td>Web-scale filtering can match curated corpora at 5 trillion tokens (RefinedWeb)</td>
-  <td>Penedo et al. (2023), arXiv:2306.01116</td>
-  <td>medium</td>
-  <td>Demonstrates filtering feasibility and effectiveness on general capability</td>
-</tr>
-<tr>
-  <td>RLHF creates alignment tax; stronger reward optimisation degrades capabilities</td>
-  <td>Alignment tax literature (ACL 2024)</td>
-  <td>fact</td>
-  <td>Constrains how far RLHF can push against pre-trained features</td>
-</tr>
-<tr>
-  <td>Superposition: models encode more features than dimensions; sparse features compress via superposition</td>
-  <td>Elhage et al. (2022), transformer-circuits.pub toy models</td>
-  <td>high</td>
-  <td>Toy model result; direct extrapolation to large transformer H-Neurons is inference</td>
-</tr>
-<tr>
-  <td>Uncertainty-expression auxiliary objective directly addresses NTP compliance reward</td>
-  <td>First-principles inference from §2</td>
-  <td>low</td>
-  <td>No empirical validation at scale; mechanistically justified</td>
-</tr>
-<tr>
-  <td>Architectural FFN widening could reduce superposition pressure</td>
-  <td>Elhage et al. (2022) superposition theory</td>
-  <td>low</td>
-  <td>Inference; no direct pre-training experiment for H-Neurons</td>
-</tr>
-</tbody>
-</table>
 <h3>Assumptions</h3>
 <ul>
 <li><p><strong>Assumption:</strong> Web-scale pre-training corpora contain sycophantic and confidently-stated-false text at sufficient concentration and consistency to consolidate dedicated over-compliance circuits. <strong>Justification:</strong> The Constitutional AI paper (Anthropic 2022) motivates its own RLHF approach partly by noting that pre-training data embeds compliance-encouraging patterns. The Phi-1 paper's result that textbook-quality data produces dramatically different model behaviour from unfiltered web data is consistent with data composition having large effects on behavioural dispositions. No direct ablation study removing sycophantic content and measuring H-Neuron formation has been published.</p>

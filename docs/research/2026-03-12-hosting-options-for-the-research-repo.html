@@ -572,18 +572,16 @@ main {
   <div class="nav-inner">
     <a class="nav-brand" href="/Research/">Research</a>
     <div class="nav-links">
-      <a href="/Research/browse.html">Browse</a>
       <a href="/Research/threads.html">Threads</a>
       <a href="/Research/tags/">Tags</a>
       <a href="/Research/search.html">Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
 </nav>
 <main>
   <div class="breadcrumb">
     <a href="/Research/">Research</a>
-    <span>/</span>
-    <a href="/Research/browse.html">Browse</a>
     <span>/</span>
     <span>Hosting options for the Research repo</span>
   </div>
@@ -628,91 +626,6 @@ main {
 <li><p>The simplest end-to-end stack meeting all stated requirements — free, full-text search with tag filtering, push-to-main GitHub Actions workflow, zero new credentials — is MkDocs Material (SSG) + Pagefind (search post-processor) + GitHub Pages (hosting). [High confidence]</p>
 </li>
 </ol>
-<h3>Evidence Map</h3>
-<table>
-<thead>
-<tr>
-  <th>Claim</th>
-  <th>Source</th>
-  <th>Confidence</th>
-  <th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>GitHub Pages uses GITHUB_TOKEN (<code>pages: write</code>)</td>
-  <td><code>[x]</code> GitHub Pages limits docs; <code>[x]</code> publish-wiki.yml prior art</td>
-  <td>High</td>
-  <td>Confirmed by this repo's wiki deploy implementation</td>
-</tr>
-<tr>
-  <td>Cloudflare Pages: unlimited bandwidth, 500 builds/month free</td>
-  <td><code>[x]</code> netlify.com Cloudflare comparison; <code>[x]</code> digitalapplied.com 2025 comparison</td>
-  <td>High</td>
-  <td>Two independent sources</td>
-</tr>
-<tr>
-  <td>MkDocs Material tags plugin reads YAML <code>tags</code> frontmatter natively</td>
-  <td><code>[x]</code> squidfunk.github.io tags setup docs</td>
-  <td>High</td>
-  <td>Official primary source</td>
-</tr>
-<tr>
-  <td>MkDocs Material 5-line GitHub Actions deploy using GITHUB_TOKEN</td>
-  <td><code>[x]</code> squidfunk.github.io publishing docs</td>
-  <td>High</td>
-  <td>Official primary source with workflow YAML</td>
-</tr>
-<tr>
-  <td>Pagefind v1.0: post-processor, chunked index, &lt;300 kB for 10K-page site</td>
-  <td><code>[x]</code> pagefind.app official site; <code>[x]</code> gebna.gg tutorial</td>
-  <td>High</td>
-  <td>Official source + independent implementation article</td>
-</tr>
-<tr>
-  <td>Pagefind tag filtering via <code>data-pagefind-filter</code> attribute</td>
-  <td><code>[x]</code> marco.ninja SSG search tutorial</td>
-  <td>Medium</td>
-  <td>Community example; mechanism confirmed by Pagefind filtering API</td>
-</tr>
-<tr>
-  <td>Qdrant Cloud 1 GB free forever, ~1M 768-dimension vectors, no credit card</td>
-  <td><code>[x]</code> firecrawl.dev vector DB comparison; <code>[x]</code> oreateai.com Qdrant pricing</td>
-  <td>High</td>
-  <td>Two independent sources</td>
-</tr>
-<tr>
-  <td>LanceDB Cloud: 30-day free trial only</td>
-  <td><code>[x]</code> docs.lancedb.com/cloud; <code>[x]</code> cybergarden.au comparison</td>
-  <td>High</td>
-  <td>Official docs confirm &quot;public beta&quot; status</td>
-</tr>
-<tr>
-  <td>Neo4j AuraDB Free: 50K nodes, 175K relationships</td>
-  <td><code>[x]</code> neo4j.com/product/auradb; <code>[x]</code> techzine.eu AuraDB Free announcement</td>
-  <td>High</td>
-  <td>Two independent sources</td>
-</tr>
-<tr>
-  <td>Orama: browser-side vector + hybrid search, no server, pre-computed embeddings</td>
-  <td><code>[x]</code> nearform.com in-browser vector search article</td>
-  <td>High</td>
-  <td>Primary technical implementation article with code</td>
-</tr>
-<tr>
-  <td>Cloud vector DBs require API key not in approved credentials table</td>
-  <td>Structural: all managed cloud services require API keys; AGENTS.md credentials table</td>
-  <td>High</td>
-  <td>Logical consequence + approved-table confirmation</td>
-</tr>
-<tr>
-  <td>Embeddings JSON ≈ 300 kB at 200 items, 384-dimension model</td>
-  <td>[inference] 200 × 384 × 4 bytes = 307,200 bytes</td>
-  <td>Medium</td>
-  <td>Calculated; not empirically measured</td>
-</tr>
-</tbody>
-</table>
 <h3>Assumptions</h3>
 <ul>
 <li><strong>Assumption:</strong> Site traffic will remain low (personal/small-team use). <strong>Justification:</strong> The research corpus is a personal workflow tool; no public distribution is planned. GitHub Pages' 100 GB/month soft bandwidth limit is not at risk.</li>

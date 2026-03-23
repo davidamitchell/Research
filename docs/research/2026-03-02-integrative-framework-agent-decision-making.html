@@ -572,18 +572,16 @@ main {
   <div class="nav-inner">
     <a class="nav-brand" href="/Research/">Research</a>
     <div class="nav-links">
-      <a href="/Research/browse.html">Browse</a>
       <a href="/Research/threads.html">Threads</a>
       <a href="/Research/tags/">Tags</a>
       <a href="/Research/search.html">Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
 </nav>
 <main>
   <div class="breadcrumb">
     <a href="/Research/">Research</a>
-    <span>/</span>
-    <a href="/Research/browse.html">Browse</a>
     <span>/</span>
     <span>An Integrative Framework for Agent Decision-Making</span>
   </div>
@@ -638,109 +636,6 @@ main {
 <li><p><strong>No single open-source framework assembles all five components of the DIKW decision architecture (multi-domain knowledge graph + intent model + precedence engine + temporal arbitration + three-tier memory governance); the integration gap is the primary practitioner barrier, not the absence of individual components.</strong> (Confidence: high — confirmed by systematic survey of LangGraph, Letta, Mem0, Zep, and GraphRAG architectures)</p>
 </li>
 </ol>
-<h3>Evidence Map</h3>
-<table>
-<thead>
-<tr>
-  <th>Claim</th>
-  <th>Source</th>
-  <th>Confidence</th>
-  <th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>DIKW hierarchy definition and wisdom = value-laden judgement</td>
-  <td>Ackoff 1989 (faculty.ung.edu); Rowley 2007 (jpaulgibson.synology.me)</td>
-  <td>high</td>
-  <td>Both sources agree on structure; Rowley critiques vagueness at wisdom boundary</td>
-</tr>
-<tr>
-  <td>DIKW maps to five-layer knowledge architecture</td>
-  <td>Inference from prior research <code>2026-03-03-knowledge-representation-agent-context.md</code> + Wognin et al. 2012 (Springer)</td>
-  <td>high</td>
-  <td>Prior research provides the five-layer model; Wognin provides agent-DIKW mapping</td>
-</tr>
-<tr>
-  <td>Wisdom tier requires escalation for ambiguous conflicts</td>
-  <td>MDPI DIKW digital twin (2024); IJFMR 2025; Springer XAI chapter</td>
-  <td>high</td>
-  <td>Multiple 2024-2025 sources confirm this limitation</td>
-</tr>
-<tr>
-  <td>Precedence hierarchy: Regulation &gt; Policy &gt; BU Strategy &gt; Task Intent</td>
-  <td>Accenture (accenture.com Hive Mind); McKinsey (mckinsey.com Agentic Organisation); InfoQ (infoq.com Agentic AI Architecture); arionresearch.com Conflict Resolution Playbook</td>
-  <td>high</td>
-  <td>Four independent sources converge on same hierarchy</td>
-</tr>
-<tr>
-  <td>Intent = goals / objectives / constraints / desired outcomes</td>
-  <td>aisera.com LLM Agents Enterprise Guide; espjeta.org JETA-V5I2P115; deepwiki LLM-Agent-Survey</td>
-  <td>high</td>
-  <td>Consistent across multiple agent architecture surveys</td>
-</tr>
-<tr>
-  <td>Hierarchical task planning: ADaPT, AdaPlanner</td>
-  <td>espjeta.org JETA-V5I2P115; deepwiki xinzhel LLM-Agent-Survey</td>
-  <td>high</td>
-  <td>Both cited ADaPT/AdaPlanner as real-time decomposition systems</td>
-</tr>
-<tr>
-  <td>Google decomposition &gt; single-model intent extraction</td>
-  <td>research.google/blog small-models-big-results</td>
-  <td>medium</td>
-  <td>Single source; not independently confirmed but from Google Research</td>
-</tr>
-<tr>
-  <td>Constitutional AI + Safe RLHF for constraint satisfaction</td>
-  <td>arXiv 2407.16216; NAACL 2024 aclanthology IterAlign</td>
-  <td>high</td>
-  <td>IterAlign: +13.5% harmlessness, peer-reviewed</td>
-</tr>
-<tr>
-  <td>NIST AI RMF + EU AI Act machine-interpretable</td>
-  <td>NIST website; lumenova.ai; glacis.io crosswalk guide; eccouncil.org</td>
-  <td>high</td>
-  <td>Multiple practitioner sources confirm machine-interpretable crosswalk approach</td>
-</tr>
-<tr>
-  <td>Zep temporal knowledge graph + DMR accuracy</td>
-  <td>arXiv 2501.13956</td>
-  <td>high</td>
-  <td>Peer-reviewed; 94.8% DMR accuracy</td>
-</tr>
-<tr>
-  <td>Procedural memory = encoded wisdom heuristic</td>
-  <td>LangMem documentation (from prior research); Letta memory blocks (from prior research)</td>
-  <td>medium</td>
-  <td>Inference; no direct study validates this claim in production</td>
-</tr>
-<tr>
-  <td>SECI model + GRAI extension for GenAI</td>
-  <td>Wikipedia SECI; realkm.com GRAI 2025; Springer Revisiting SECI 2025</td>
-  <td>high</td>
-  <td>Multiple sources confirm GRAI extension and externalisation role of AI</td>
-</tr>
-<tr>
-  <td>Tacit knowledge requires human externalisation</td>
-  <td>GRAI framework; Nonaka &amp; Takeuchi SECI</td>
-  <td>medium</td>
-  <td>Agents can assist but not substitute; confirmed by GRAI; not validated in agent deployments specifically</td>
-</tr>
-<tr>
-  <td>EU AI Act articles 9 and 13 require justification traces</td>
-  <td>EU AI Act (2024); compliancegenie.io; IBM ibm.com/think</td>
-  <td>high</td>
-  <td>Binding regulation; corroborated by IBM governance guidance</td>
-</tr>
-<tr>
-  <td>No single framework assembles all five components</td>
-  <td>Systematic survey: LangGraph, Letta, Mem0, Zep, GraphRAG (from prior research + this item)</td>
-  <td>high</td>
-  <td>Each system handles 1-2 of the five components; no integration found</td>
-</tr>
-</tbody>
-</table>
 <h3>Assumptions</h3>
 <ul>
 <li><p><strong>Assumption:</strong> Writing episodic and procedural memory on every decision cycle (not just on &quot;significant&quot; events) is required for completeness. <strong>Justification:</strong> Conflicts that seem minor may later prove to be the first instance of a systematic misalignment pattern; selective writing introduces survivorship bias into the episodic record. Zep and Letta both support full-write paths; the cost is primarily storage, which is manageable. Not directly validated in production deployments.</p>

@@ -572,18 +572,16 @@ main {
   <div class="nav-inner">
     <a class="nav-brand" href="/Research/">Research</a>
     <div class="nav-links">
-      <a href="/Research/browse.html">Browse</a>
       <a href="/Research/threads.html">Threads</a>
       <a href="/Research/tags/">Tags</a>
       <a href="/Research/search.html">Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
 </nav>
 <main>
   <div class="breadcrumb">
     <a href="/Research/">Research</a>
-    <span>/</span>
-    <a href="/Research/browse.html">Browse</a>
     <span>/</span>
     <span>Formal intent specification and language choice for AI alignment in agentic…</span>
   </div>
@@ -633,91 +631,6 @@ main {
 <li><p>No published controlled experiment directly compares LLM intent alignment on equivalent tasks across Python vs. Rust vs. Haskell with all other variables held constant; the claim that strongly-typed codebases yield better-aligned AI code is mechanistically well-supported by type-constrained decoding research but remains an empirical gap in the literature.</p>
 </li>
 </ol>
-<h3>Evidence Map</h3>
-<table>
-<thead>
-<tr>
-  <th>Claim</th>
-  <th>Source</th>
-  <th>Confidence</th>
-  <th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>Formal spec reduces hacking proportionally to completeness</td>
-  <td>Gao et al. 2022; METR 2025; Anthropic 2025</td>
-  <td>high</td>
-  <td>Inference from two independent empirical confirmations</td>
-</tr>
-<tr>
-  <td>Gao et al. scaling law: proxy reward rises, true reward degrades</td>
-  <td>arXiv:2210.10760 (Gao, Schulman, Hilton 2022)</td>
-  <td>high</td>
-  <td>Primary source; reproduced by multiple follow-on papers</td>
-</tr>
-<tr>
-  <td>Frontier LLMs reward-hack coding benchmarks in 2025</td>
-  <td>METR 2025; Anthropic 2025 &quot;From shortcuts to sabotage&quot;</td>
-  <td>high</td>
-  <td>Two independent lab findings, independent methodologies</td>
-</tr>
-<tr>
-  <td>TLA+ in production at AWS, Microsoft, LinkedIn, Datadog etc.</td>
-  <td>CACM AWS paper; arXiv:2411.13722 systematic review (2024)</td>
-  <td>high</td>
-  <td>Systematic literature review + primary industry report</td>
-</tr>
-<tr>
-  <td>Rust eliminates memory safety bugs in safe subset</td>
-  <td>USENIX ATC 2024 (Li et al.); IEEE 2024</td>
-  <td>high</td>
-  <td>Two independent empirical studies</td>
-</tr>
-<tr>
-  <td>FCIS has mainstream adoption; relational FRP does not</td>
-  <td>functional-architecture.org (2024); Elm docs; Redux docs</td>
-  <td>medium</td>
-  <td>Strong indirect evidence; no single authoritative cross-survey</td>
-</tr>
-<tr>
-  <td>Type-constrained decoding improves type correctness</td>
-  <td>ETH Zurich PLDI 2025</td>
-  <td>medium</td>
-  <td>Single peer-reviewed primary source</td>
-</tr>
-<tr>
-  <td>Koka <code>total</code> annotation enforces purity at compile time</td>
-  <td>koka-lang.github.io (primary docs); LWN 2024</td>
-  <td>medium</td>
-  <td>Primary documentation; independent secondary reporting</td>
-</tr>
-<tr>
-  <td>SWE-bench alignment partially reflects memorisation</td>
-  <td>arXiv:2506.12286 &quot;SWE-Bench Illusion&quot; (2025)</td>
-  <td>medium</td>
-  <td>Single paper; argument is well-constructed</td>
-</tr>
-<tr>
-  <td>SSC reduces in-context reward hacking</td>
-  <td>arXiv:2507.18742 (2025)</td>
-  <td>medium</td>
-  <td>Single paper; intervention is small-scale</td>
-</tr>
-<tr>
-  <td>Practical framework by effort level</td>
-  <td>Synthesised from all above</td>
-  <td>medium</td>
-  <td>Author inference from multiple sources</td>
-</tr>
-<tr>
-  <td>Strongly-typed languages → better LLM alignment (direct)</td>
-  <td>No direct controlled study found</td>
-  <td>low</td>
-  <td>Mechanistically plausible; empirical gap</td>
-</tr>
-</tbody>
-</table>
 <h3>Assumptions</h3>
 <ul>
 <li><p><strong>Assumption:</strong> LLMs generate structurally more aligned code in strongly-typed codebases than in dynamically-typed ones, absent type-constrained decoding. <strong>Justification:</strong> Type-constrained decoding evidence shows the mechanism works when applied; strongly-typed compilers reject misaligned output. But the causal claim — that writing the surrounding codebase in Rust makes the LLM's suggestions better even without tool-level enforcement — lacks a direct controlled study.</p>

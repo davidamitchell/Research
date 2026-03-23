@@ -572,18 +572,16 @@ main {
   <div class="nav-inner">
     <a class="nav-brand" href="/Research/">Research</a>
     <div class="nav-links">
-      <a href="/Research/browse.html">Browse</a>
       <a href="/Research/threads.html">Threads</a>
       <a href="/Research/tags/">Tags</a>
       <a href="/Research/search.html">Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
 </nav>
 <main>
   <div class="breadcrumb">
     <a href="/Research/">Research</a>
-    <span>/</span>
-    <a href="/Research/browse.html">Browse</a>
     <span>/</span>
     <span>Claude for iOS</span>
   </div>
@@ -619,79 +617,6 @@ main {
 <li>Migrating <code>mcp_server.py</code> from stdio to Streamable HTTP requires changing the transport runner (from <code>stdio_server()</code> to the Streamable HTTP ASGI transport in the Python MCP SDK) and deploying on a cloud host with HTTPS — the tool logic (add_memory, search_brain) requires no changes.</li>
 <li>There is no public Anthropic roadmap for built-in persistent memory in Claude; MCP RFC #2043 (Memory Interchange Format) is a community GitHub issue with no Anthropic commitment or timeline, and Anthropic's documented approach is to provide connector infrastructure for self-hosted or third-party memory servers rather than a first-party memory feature.</li>
 </ol>
-<h3>Evidence Map</h3>
-<table>
-<thead>
-<tr>
-  <th>Claim</th>
-  <th>Source</th>
-  <th>Confidence</th>
-  <th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>iOS supports remote MCP via Connectors</td>
-  <td>Connectors Directory FAQ; &quot;Use connectors&quot; article; App Store listing</td>
-  <td>high</td>
-  <td>Three independent Anthropic sources; explicit platform listing</td>
-</tr>
-<tr>
-  <td>Transport is Streamable HTTP (not stdio)</td>
-  <td>MCP spec; MCP connector API docs; Cloudflare guide</td>
-  <td>high</td>
-  <td>Consistent across all sources; stdio is architecturally excluded for iOS</td>
-</tr>
-<tr>
-  <td>Config is web UI (not .mcp.json)</td>
-  <td>&quot;Getting Started&quot; article; &quot;When to use desktop vs web&quot; article; Local MCP article</td>
-  <td>high</td>
-  <td>.mcp.json scope is unambiguously Desktop/local only per multiple sources</td>
-</tr>
-<tr>
-  <td>Connector state syncs to iOS at login</td>
-  <td>&quot;Use connectors&quot; Anthropic support article</td>
-  <td>high</td>
-  <td>Explicit statement: &quot;available the next time you log in to your account on Claude for iOS or Android&quot;</td>
-</tr>
-<tr>
-  <td>HTTPS mandatory for remote connectors</td>
-  <td>MCP connector API docs (&quot;must start with <a href="https://&quot;)</td>">&quot;)<</a>
-  <td>high</td>
-  <td>Direct quote</td>
-</tr>
-<tr>
-  <td>Auth optional; OAuth 2.1 or no-auth via web UI</td>
-  <td>MCP auth spec; Connectors Directory FAQ; &quot;Getting Started&quot; article</td>
-  <td>high</td>
-  <td>All three sources consistent</td>
-</tr>
-<tr>
-  <td>Static bearer token is API-only</td>
-  <td>MCP connector API docs; absence of web UI bearer token option</td>
-  <td>medium</td>
-  <td>API docs confirm <code>authorization_token</code>; web UI docs describe only OAuth or no-auth</td>
-</tr>
-<tr>
-  <td>Pro plan required for custom connectors</td>
-  <td>Connectors Directory FAQ</td>
-  <td>high</td>
-  <td>Explicit: &quot;custom connectors, which are available for paid plans only (Pro, Max, Team, and Enterprise)&quot;</td>
-</tr>
-<tr>
-  <td>No first-party memory roadmap</td>
-  <td>App Store listing; Anthropic news site; MCP RFC #2043 issue</td>
-  <td>medium</td>
-  <td>Absence of announcement; MCP RFC #2043 has no Anthropic response</td>
-</tr>
-<tr>
-  <td>Tool logic unchanged for Streamable HTTP migration</td>
-  <td>MCP SDK design (transport/tool separation)</td>
-  <td>medium</td>
-  <td>Follows from SDK architecture; not directly tested</td>
-</tr>
-</tbody>
-</table>
 <h3>Assumptions</h3>
 <ul>
 <li><strong>Assumption:</strong> The iOS app has no native connector configuration UI. <strong>Justification:</strong> All Anthropic documentation describes the web UI as the configuration point; iOS is described as consuming synced state. No source mentions an iOS-specific configuration flow. If this assumption is wrong, the configuration path described in Key Finding #3 is incomplete — but the transport and deployment requirements remain unchanged.</li>

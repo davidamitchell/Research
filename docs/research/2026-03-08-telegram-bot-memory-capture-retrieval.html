@@ -572,18 +572,16 @@ main {
   <div class="nav-inner">
     <a class="nav-brand" href="/Research/">Research</a>
     <div class="nav-links">
-      <a href="/Research/browse.html">Browse</a>
       <a href="/Research/threads.html">Threads</a>
       <a href="/Research/tags/">Tags</a>
       <a href="/Research/search.html">Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
 </nav>
 <main>
   <div class="breadcrumb">
     <a href="/Research/">Research</a>
-    <span>/</span>
-    <a href="/Research/browse.html">Browse</a>
     <span>/</span>
     <span>Telegram bot as mobile memory capture and retrieval channel</span>
   </div>
@@ -628,103 +626,6 @@ main {
 <li><strong>The Telegram bot path and iOS Shortcuts path are complementary. iOS Shortcuts has a clear advantage for Siri hands-free voice capture and zero-maintenance operation [inference]; the Telegram bot's value lies in cross-platform availability, always-on reliability independent of the iOS device, and retrieval via chat interface [inference].</strong></li>
 <li><strong>End-to-end capture latency is estimated at 500ms–1.2s (Telegram polling delivery plus GitHub Contents API write); retrieval latency is dominated by the <code>search_brain</code> execution time, which is out of scope for this item but is the primary variable in the user experience.</strong></li>
 </ol>
-<h3>Evidence Map</h3>
-<table>
-<thead>
-<tr>
-  <th>Claim</th>
-  <th>Source</th>
-  <th>Confidence</th>
-  <th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>Long-polling requires no public URL</td>
-  <td>Telegram Bot API docs (<a href="https://core.telegram.org/bots/api#getting-updates)</td>">core.telegram.org</a>
-  <td>High</td>
-  <td>Primary source</td>
-</tr>
-<tr>
-  <td>getUpdates timeout=30 delivers within ~1s</td>
-  <td>Telegram Bot API docs + tutorial</td>
-  <td>High</td>
-  <td>Primary source</td>
-</tr>
-<tr>
-  <td>Capture uses GitHub Contents API PUT</td>
-  <td>GitHub REST API docs (<a href="https://docs.github.com/en/rest/repos/contents)</td>">docs.github.com</a>
-  <td>High</td>
-  <td>Primary source; same as iOS Shortcuts pattern</td>
-</tr>
-<tr>
-  <td>Fine-grained PAT with Contents:write is sufficient</td>
-  <td>GitHub REST API docs</td>
-  <td>High</td>
-  <td>Primary source</td>
-</tr>
-<tr>
-  <td>Owner-only access via from_user.id</td>
-  <td>Telegram Bot API docs (Message.from, User.id)</td>
-  <td>High</td>
-  <td>Primary source</td>
-</tr>
-<tr>
-  <td>Render spins down after 15 min without inbound HTTP</td>
-  <td>Render free docs (<a href="https://render.com/docs/free)</td>">render.com</a>
-  <td>High</td>
-  <td>Directly quoted</td>
-</tr>
-<tr>
-  <td>Railway free = $1/month credit</td>
-  <td>Railway pricing docs (<a href="https://docs.railway.app/reference/pricing)</td>">docs.railway.app</a>
-  <td>High</td>
-  <td>Primary source</td>
-</tr>
-<tr>
-  <td>Railway free insufficient for 24/7</td>
-  <td>Calculation from Railway pricing + resource estimates</td>
-  <td>Medium</td>
-  <td>Estimate; margin is tight</td>
-</tr>
-<tr>
-  <td>Fly.io no free tier as of March 2026</td>
-  <td>Fly.io pricing docs (<a href="https://fly.io/docs/about/pricing/)</td>">fly.io</a>
-  <td>High</td>
-  <td>No free allowance listed on pricing page</td>
-</tr>
-<tr>
-  <td>Fly.io cheapest = ~$2.02/month</td>
-  <td>Fly.io pricing docs</td>
-  <td>High</td>
-  <td>Directly from pricing table</td>
-</tr>
-<tr>
-  <td>Raspberry Pi near-zero incremental cost</td>
-  <td>Raspberry Pi power specs; electricity cost inference</td>
-  <td>Medium</td>
-  <td>Sunk hardware cost excluded</td>
-</tr>
-<tr>
-  <td>Oracle Cloud Always Free ARM VM exists</td>
-  <td>Oracle Cloud Always Free docs (inference)</td>
-  <td>Medium</td>
-  <td>Not directly fetched; well-established program</td>
-</tr>
-<tr>
-  <td>Capture latency 500ms–1.2s</td>
-  <td>Cross-reference iOS Shortcuts research + Telegram polling docs</td>
-  <td>Medium</td>
-  <td>Not measured; derived estimate</td>
-</tr>
-<tr>
-  <td>Telegram Bot API stable since 2015</td>
-  <td>Telegram Bot API changelog (<a href="https://core.telegram.org/bots/api)</td>">core.telegram.org</a>
-  <td>High</td>
-  <td>10+ years of backward-compatible history visible in changelog</td>
-</tr>
-</tbody>
-</table>
 <h3>Assumptions</h3>
 <ul>
 <li><strong>Assumption:</strong> <code>search_brain</code> is callable as a Python function or subprocess from the bot process. <strong>Justification:</strong> Memory-System W-0011 defines <code>search_brain</code> as callable; implementation is out of scope for this item.</li>

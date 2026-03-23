@@ -572,18 +572,16 @@ main {
   <div class="nav-inner">
     <a class="nav-brand" href="/Research/">Research</a>
     <div class="nav-links">
-      <a href="/Research/browse.html">Browse</a>
       <a href="/Research/threads.html">Threads</a>
       <a href="/Research/tags/">Tags</a>
       <a href="/Research/search.html">Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
 </nav>
 <main>
   <div class="breadcrumb">
     <a href="/Research/">Research</a>
-    <span>/</span>
-    <a href="/Research/browse.html">Browse</a>
     <span>/</span>
     <span>API Context Hubs, Retrieval-Augmented Generation, and the Model Context…</span>
   </div>
@@ -613,11 +611,11 @@ main {
 
 <h2>Findings</h2>
 <h3>Executive Summary</h3>
-<p>[inference] API context hubs, RAG-based API discovery, and MCP belong on one stack because they intervene at different points in the path from &quot;what tools exist&quot; to &quot;invoke this tool now.&quot; (Sources: <code><a href="https://raw.githubusercontent.com/andrewyng/context-hub/main/README.md</code>">raw.githubusercontent.com</a> <code><a href="https://arxiv.org/abs/2307.16789</code>">arxiv.org/abs/2307.16789</code></a> <code><a href="https://modelcontextprotocol.io/specification/latest/server/tools</code>)</p>">modelcontextprotocol.io</a>
-<p>[fact] Context hubs optimise repeated, high-trust workflows by packaging versioned, agent-oriented API guidance and preserving local notes that can be replayed on the next fetch. (Sources: <code><a href="https://raw.githubusercontent.com/andrewyng/context-hub/main/README.md</code>">raw.githubusercontent.com</a> <code><a href="https://raw.githubusercontent.com/andrewyng/context-hub/main/docs/feedback-and-annotations.md</code>)</p>">raw.githubusercontent.com</a>
-<p>[fact] Retrieval-heavy systems optimise breadth and freshness by searching larger API corpora at inference time, which improves long-tail coverage but introduces retriever and planner failure modes that curated hubs largely avoid. (Sources: <code><a href="https://arxiv.org/abs/2305.15334</code>">arxiv.org/abs/2305.15334</code></a> <code><a href="https://arxiv.org/abs/2307.16789</code>">arxiv.org/abs/2307.16789</code></a> <code><a href="https://arxiv.org/abs/2304.08244</code>)</p>">arxiv.org/abs/2304.08244</code></a>
-<p>[fact] MCP optimises connected-server interoperability by standardising capability negotiation and tool, resource, and prompt exchange, while leaving server selection and trust establishment outside the protocol boundary. (Sources: <code><a href="https://modelcontextprotocol.io/specification/latest/basic/lifecycle</code>">modelcontextprotocol.io</a> <code><a href="https://modelcontextprotocol.io/specification/latest/server/tools</code>">modelcontextprotocol.io</a> <code><a href="https://modelcontextprotocol.io/specification/latest/server/resources</code>">modelcontextprotocol.io</a> <code><a href="https://modelcontextprotocol.io/specification/latest/server/prompts</code>)</p>">modelcontextprotocol.io</a>
-<p>[inference] OAS is the recurring connective tissue across the field, and the durable gaps after all three approaches are still trust, delegated auth, version drift, and multi-system orchestration. (Sources: <code><a href="https://swagger.io/specification/</code>">swagger.io</a> <code><a href="https://restgpt.github.io/</code>">restgpt.github.io</a> <code><a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-action-add.html</code>">docs.aws.amazon.com</a> <code><a href="https://arxiv.org/abs/2304.08244</code>">arxiv.org/abs/2304.08244</code></a> <code><a href="https://modelcontextprotocol.io/specification/latest/server/tools</code>)</p>">modelcontextprotocol.io</a>
+<p>[inference] API context hubs, RAG-based API discovery, and MCP belong on one stack because they intervene at different points in the path from &quot;what tools exist&quot; to &quot;invoke this tool now.&quot; (Sources: <code><a href="https://raw.githubusercontent.com/andrewyng/context-hub/main/README.md</code>">raw.githubusercontent.com</a> <code><a href="https://arxiv.org/abs/2307.16789</code>">arxiv.org/abs/2307.16789</code></a> <code><a href="https://modelcontextprotocol.io/specification/latest/server/tools</code>)">modelcontextprotocol.io</a>
+<p>[fact] Context hubs optimise repeated, high-trust workflows by packaging versioned, agent-oriented API guidance and preserving local notes that can be replayed on the next fetch. (Sources: <code><a href="https://raw.githubusercontent.com/andrewyng/context-hub/main/README.md</code>">raw.githubusercontent.com</a> <code><a href="https://raw.githubusercontent.com/andrewyng/context-hub/main/docs/feedback-and-annotations.md</code>)">raw.githubusercontent.com</a>
+<p>[fact] Retrieval-heavy systems optimise breadth and freshness by searching larger API corpora at inference time, which improves long-tail coverage but introduces retriever and planner failure modes that curated hubs largely avoid. (Sources: <code><a href="https://arxiv.org/abs/2305.15334</code>">arxiv.org/abs/2305.15334</code></a> <code><a href="https://arxiv.org/abs/2307.16789</code>">arxiv.org/abs/2307.16789</code></a> <code><a href="https://arxiv.org/abs/2304.08244</code>)">arxiv.org/abs/2304.08244</code></a>
+<p>[fact] MCP optimises connected-server interoperability by standardising capability negotiation and tool, resource, and prompt exchange, while leaving server selection and trust establishment outside the protocol boundary. (Sources: <code><a href="https://modelcontextprotocol.io/specification/latest/basic/lifecycle</code>">modelcontextprotocol.io</a> <code><a href="https://modelcontextprotocol.io/specification/latest/server/tools</code>">modelcontextprotocol.io</a> <code><a href="https://modelcontextprotocol.io/specification/latest/server/resources</code>">modelcontextprotocol.io</a> <code><a href="https://modelcontextprotocol.io/specification/latest/server/prompts</code>)">modelcontextprotocol.io</a>
+<p>[inference] OAS is the recurring connective tissue across the field, and the durable gaps after all three approaches are still trust, delegated auth, version drift, and multi-system orchestration. (Sources: <code><a href="https://swagger.io/specification/</code>">swagger.io</a> <code><a href="https://restgpt.github.io/</code>">restgpt.github.io</a> <code><a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-action-add.html</code>">docs.aws.amazon.com</a> <code><a href="https://arxiv.org/abs/2304.08244</code>">arxiv.org/abs/2304.08244</code></a> <code><a href="https://modelcontextprotocol.io/specification/latest/server/tools</code>)">modelcontextprotocol.io</a>
 <h3>Key Findings</h3>
 <ol>
 <li>[fact] <code>context-hub</code> solves a narrow but practical problem by reducing hallucinated API usage and session-forgetting through curated, versioned documentation, persistent local annotations, and maintainer feedback loops that improve future agent runs. (Sources: <code><a href="https://raw.githubusercontent.com/andrewyng/context-hub/main/README.md</code>">raw.githubusercontent.com</a> <code><a href="https://raw.githubusercontent.com/andrewyng/context-hub/main/docs/feedback-and-annotations.md</code>">raw.githubusercontent.com</a> [confidence: high]</li>
@@ -629,73 +627,6 @@ main {
 <li>[inference] The approaches are complementary in deployment, because a production system can curate a small set of high-value APIs in a context hub, use retrieval over a long-tail catalogue for discovery, and invoke the selected capability through MCP or a similar protocol surface. (Sources: <code><a href="https://raw.githubusercontent.com/andrewyng/context-hub/main/README.md</code>">raw.githubusercontent.com</a> <code><a href="https://arxiv.org/abs/2307.16789</code>">arxiv.org/abs/2307.16789</code></a> <code><a href="https://modelcontextprotocol.io/specification/latest/server/tools</code>">modelcontextprotocol.io</a> [confidence: medium]</li>
 <li>[inference] The main unsolved gaps across all three approaches remain internet-scale server discovery and trust, delegated authentication and permissioning, end-to-end API drift management, and cost-aware cross-API orchestration across heterogeneous services. (Sources: <code><a href="https://arxiv.org/abs/2304.08244</code>">arxiv.org/abs/2304.08244</code></a> <code><a href="https://modelcontextprotocol.io/specification/latest/server/tools</code>">modelcontextprotocol.io</a> <code><a href="https://modelcontextprotocol.io/specification/latest/server/resources</code>">modelcontextprotocol.io</a> [confidence: medium]</li>
 </ol>
-<h3>Evidence Map</h3>
-<table>
-<thead>
-<tr>
-  <th>Claim</th>
-  <th>Source</th>
-  <th>Confidence</th>
-  <th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>[fact] <code>context-hub</code> exists to reduce API hallucination and session-forgetting</td>
-  <td><code><a href="https://raw.githubusercontent.com/andrewyng/context-hub/main/README.md</code></td>">raw.githubusercontent.com</a>
-  <td>high</td>
-  <td>Problem statement is explicit in the repository README</td>
-</tr>
-<tr>
-  <td>[fact] <code>context-hub</code> entries are versioned Markdown docs with YAML metadata and incremental fetch</td>
-  <td><code><a href="https://raw.githubusercontent.com/andrewyng/context-hub/main/docs/content-guide.md</code>">raw.githubusercontent.com</a> <code><a href="https://raw.githubusercontent.com/andrewyng/context-hub/main/docs/cli-reference.md</code></td>">raw.githubusercontent.com</a>
-  <td>high</td>
-  <td>Primary documentation of the data model and fetch model</td>
-</tr>
-<tr>
-  <td>[fact] Gorilla uses a retriever to adapt to document changes and mitigate hallucinated API use</td>
-  <td><code><a href="https://arxiv.org/abs/2305.15334</code></td>">arxiv.org/abs/2305.15334</code></td></a>
-  <td>high</td>
-  <td>Primary paper abstract states both claims directly</td>
-</tr>
-<tr>
-  <td>[fact] ToolBench covers 16,464 REST APIs from 49 categories and pairs ToolLLaMA with a neural API retriever</td>
-  <td><code><a href="https://arxiv.org/abs/2307.16789</code></td>">arxiv.org/abs/2307.16789</code></td></a>
-  <td>high</td>
-  <td>Primary paper provides the dataset size and retriever design</td>
-</tr>
-<tr>
-  <td>[fact] REST-GPT plans and executes against OAS-described APIs with planner-selector-executor structure</td>
-  <td><code><a href="https://arxiv.org/abs/2306.06624</code>">arxiv.org/abs/2306.06624</code></a> <code><a href="https://restgpt.github.io/</code></td>">restgpt.github.io</a>
-  <td>high</td>
-  <td>Primary paper and project page agree</td>
-</tr>
-<tr>
-  <td>[fact] MCP exposes tools/resources/prompts through negotiated capabilities and list/call style requests</td>
-  <td><code><a href="https://modelcontextprotocol.io/specification/latest/basic/lifecycle</code>">modelcontextprotocol.io</a> <code><a href="https://modelcontextprotocol.io/specification/latest/server/tools</code>">modelcontextprotocol.io</a> <code><a href="https://modelcontextprotocol.io/specification/latest/server/resources</code>">modelcontextprotocol.io</a> <code><a href="https://modelcontextprotocol.io/specification/latest/server/prompts</code></td>">modelcontextprotocol.io</a>
-  <td>high</td>
-  <td>Core protocol text is definitive</td>
-</tr>
-<tr>
-  <td>[fact] OAS is meant to let humans and computers discover and understand HTTP APIs</td>
-  <td><code><a href="https://swagger.io/specification/</code></td>">swagger.io</a>
-  <td>high</td>
-  <td>Direct definition from the specification</td>
-</tr>
-<tr>
-  <td>[inference] The approaches correspond to prompt-time grounding, inference-time selection, and runtime invocation</td>
-  <td><code><a href="https://raw.githubusercontent.com/andrewyng/context-hub/main/README.md</code>">raw.githubusercontent.com</a> <code><a href="https://arxiv.org/abs/2307.16789</code>">arxiv.org/abs/2307.16789</code></a> <code><a href="https://modelcontextprotocol.io/specification/latest/server/tools</code></td>">modelcontextprotocol.io</a>
-  <td>high</td>
-  <td>Inference is strongly supported by the different artefacts each system standardises</td>
-</tr>
-<tr>
-  <td>[inference] None of the three fully solves global server discovery, trust, delegated auth, drift, or cost-aware orchestration</td>
-  <td><code><a href="https://arxiv.org/abs/2304.08244</code>">arxiv.org/abs/2304.08244</code></a> <code><a href="https://modelcontextprotocol.io/specification/latest/server/tools</code>">modelcontextprotocol.io</a> <code><a href="https://modelcontextprotocol.io/specification/latest/server/resources</code></td>">modelcontextprotocol.io</a>
-  <td>medium</td>
-  <td>Synthesis claim supported by explicit residual gaps and by what the standards do not cover</td>
-</tr>
-</tbody>
-</table>
 <h3>Assumptions</h3>
 <ul>
 <li><strong>Assumption:</strong> Public <code>context-hub</code> design documents are representative of the broader &quot;context hub&quot; pattern. <strong>Justification:</strong> The repository is the named exemplar in the prompt, and no competing public specification with materially different goals surfaced in source review.</li>
@@ -703,15 +634,15 @@ main {
 </ul>
 <h3>Analysis</h3>
 <ul>
-<li>[inference] <code>context-hub</code> and RAG both target wrong API usage, but they make opposite trade-offs: <code>context-hub</code> spends more human curation effort up front so that the model sees a high-trust, compact document later, while RAG spends more runtime compute and evaluation effort so that the agent can cover a broader long tail of APIs and adapt to changing documents. (Sources: <code><a href="https://raw.githubusercontent.com/andrewyng/context-hub/main/README.md</code>">raw.githubusercontent.com</a> <code><a href="https://arxiv.org/abs/2305.15334</code>">arxiv.org/abs/2305.15334</code></a> <code><a href="https://arxiv.org/abs/2307.16789</code>)</li>">arxiv.org/abs/2307.16789</code></a>
-<li>[inference] MCP sits orthogonally to that trade-off because it does not answer &quot;which API should the agent choose?&quot; by itself; it answers &quot;once the client trusts a server, how can the client discover and invoke its capabilities through one standard protocol?&quot; (Sources: <code><a href="https://modelcontextprotocol.io/specification/latest/basic/lifecycle</code>">modelcontextprotocol.io</a> <code><a href="https://modelcontextprotocol.io/specification/latest/server/tools</code>)</li>">modelcontextprotocol.io</a>
-<li>[inference] OAS is the hidden common denominator across the field because structured API semantics remain valuable whether a system is curating docs, retrieving them at inference time, or compiling them into a runtime tool surface. (Sources: <code><a href="https://swagger.io/specification/</code>">swagger.io</a> <code><a href="https://restgpt.github.io/</code>">restgpt.github.io</a> <code><a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-action-add.html</code>)</li>">docs.aws.amazon.com</a>
+<li>[inference] <code>context-hub</code> and RAG both target wrong API usage, but they make opposite trade-offs: <code>context-hub</code> spends more human curation effort up front so that the model sees a high-trust, compact document later, while RAG spends more runtime compute and evaluation effort so that the agent can cover a broader long tail of APIs and adapt to changing documents. (Sources: <code><a href="https://raw.githubusercontent.com/andrewyng/context-hub/main/README.md</code>">raw.githubusercontent.com</a> <code><a href="https://arxiv.org/abs/2305.15334</code>">arxiv.org/abs/2305.15334</code></a> <code><a href="https://arxiv.org/abs/2307.16789</code>)">arxiv.org/abs/2307.16789</code></a>
+<li>[inference] MCP sits orthogonally to that trade-off because it does not answer &quot;which API should the agent choose?&quot; by itself; it answers &quot;once the client trusts a server, how can the client discover and invoke its capabilities through one standard protocol?&quot; (Sources: <code><a href="https://modelcontextprotocol.io/specification/latest/basic/lifecycle</code>">modelcontextprotocol.io</a> <code><a href="https://modelcontextprotocol.io/specification/latest/server/tools</code>)">modelcontextprotocol.io</a>
+<li>[inference] OAS is the hidden common denominator across the field because structured API semantics remain valuable whether a system is curating docs, retrieving them at inference time, or compiling them into a runtime tool surface. (Sources: <code><a href="https://swagger.io/specification/</code>">swagger.io</a> <code><a href="https://restgpt.github.io/</code>">restgpt.github.io</a> <code><a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-action-add.html</code>)">docs.aws.amazon.com</a>
 </ul>
 <h3>Risks, Gaps, and Uncertainties</h3>
 <ul>
-<li>[fact] The OpenAI function-calling documentation in the source list was inaccessible from this environment due to <code>403</code> responses, so no claims here rely on it. (Source: failed fetch of <code><a href="https://platform.openai.com/docs/guides/function-calling</code>)</li>">platform.openai.com</a>
-<li>[inference] MCP client support is evolving quickly, so ecosystem breadth may change faster than the academic literature that grounds the RAG comparison. (Sources: <code><a href="https://modelcontextprotocol.io/clients</code>">modelcontextprotocol.io</a> <code><a href="https://arxiv.org/abs/2305.15334</code>">arxiv.org/abs/2305.15334</code></a> <code><a href="https://arxiv.org/abs/2307.16789</code>)</li>">arxiv.org/abs/2307.16789</code></a>
-<li>[inference] The boundary between &quot;context hub&quot; and &quot;retrieval system&quot; may blur if future systems auto-generate curated docs from OAS or expose a context hub itself through MCP. (Sources: <code><a href="https://swagger.io/specification/</code>">swagger.io</a> <code><a href="https://modelcontextprotocol.io/specification/latest/server/tools</code>">modelcontextprotocol.io</a> <code><a href="https://raw.githubusercontent.com/andrewyng/context-hub/main/docs/content-guide.md</code>)</li>">raw.githubusercontent.com</a>
+<li>[fact] The OpenAI function-calling documentation in the source list was inaccessible from this environment due to <code>403</code> responses, so no claims here rely on it. (Source: failed fetch of <code><a href="https://platform.openai.com/docs/guides/function-calling</code>)">platform.openai.com</a>
+<li>[inference] MCP client support is evolving quickly, so ecosystem breadth may change faster than the academic literature that grounds the RAG comparison. (Sources: <code><a href="https://modelcontextprotocol.io/clients</code>">modelcontextprotocol.io</a> <code><a href="https://arxiv.org/abs/2305.15334</code>">arxiv.org/abs/2305.15334</code></a> <code><a href="https://arxiv.org/abs/2307.16789</code>)">arxiv.org/abs/2307.16789</code></a>
+<li>[inference] The boundary between &quot;context hub&quot; and &quot;retrieval system&quot; may blur if future systems auto-generate curated docs from OAS or expose a context hub itself through MCP. (Sources: <code><a href="https://swagger.io/specification/</code>">swagger.io</a> <code><a href="https://modelcontextprotocol.io/specification/latest/server/tools</code>">modelcontextprotocol.io</a> <code><a href="https://raw.githubusercontent.com/andrewyng/context-hub/main/docs/content-guide.md</code>)">raw.githubusercontent.com</a>
 </ul>
 <h3>Open Questions</h3>
 <ul>

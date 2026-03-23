@@ -572,18 +572,16 @@ main {
   <div class="nav-inner">
     <a class="nav-brand" href="/Research/">Research</a>
     <div class="nav-links">
-      <a href="/Research/browse.html">Browse</a>
       <a href="/Research/threads.html">Threads</a>
       <a href="/Research/tags/">Tags</a>
       <a href="/Research/search.html">Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
 </nav>
 <main>
   <div class="breadcrumb">
     <a href="/Research/">Research</a>
-    <span>/</span>
-    <a href="/Research/browse.html">Browse</a>
     <span>/</span>
     <span>ServiceNow Process Mapping</span>
   </div>
@@ -629,115 +627,6 @@ main {
 <li><p>Process Mining is effective as a conformance validation tool — it reveals whether actual process behaviour matches the intended process — but it cannot replace authored documentation because it provides no policy rationale, no version-controlled change approvals, and produces unreliable maps when event logs are inconsistent; the optimal use is as a periodic conformance check that triggers governance review and documentation updates when drift is detected. [High confidence]</p>
 </li>
 </ol>
-<h3>Evidence Map</h3>
-<table>
-<thead>
-<tr>
-  <th>Claim</th>
-  <th>Source</th>
-  <th>Confidence</th>
-  <th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>Process Universe is a design-time ITIL 4-aligned reference library</td>
-  <td><a href="https://www.reco.ai/hub/itil-servicenow-guide-it-administrators">www.reco.ai</a> <a href="https://www.royalcyber.com/blogs/servicenow/servicenow-itil-4-transforming-itsm/</td>">www.royalcyber.com</a>
-  <td>High</td>
-  <td>[fact]</td>
-</tr>
-<tr>
-  <td>Flow Designer is for background automation; Playbooks for runtime agent guidance</td>
-  <td><a href="https://www.servicenow.com/community/developer-forum/flow-designer-vs-playbooks-in-servicenow-what-s-the-difference/m-p/3321831">www.servicenow.com</a> <a href="https://www.servicenow.com/docs/r/washingtondc/build-workflows/process-automation-designer-landing-page.html</td>">www.servicenow.com</a>
-  <td>High</td>
-  <td>[fact] — two independent sources</td>
-</tr>
-<tr>
-  <td>Workflow Editor is in maintenance-only status</td>
-  <td><a href="https://www.mindspire-consulting.com/service-management-and-servicenow-news/future-of-automated-it-service-management/">www.mindspire-consulting.com</a> <a href="https://www.igmguru.com/blog/servicenow-workflow</td>">www.igmguru.com</a>
-  <td>High</td>
-  <td>[fact] — two independent sources</td>
-</tr>
-<tr>
-  <td>80% of ITSM practitioners report inaccurate process maps</td>
-  <td><a href="https://www.ctms-itsm.com/blogs/how-itsm-are-using-process-maps/">www.ctms-itsm.com</a> (primary survey)</td>
-  <td>Medium</td>
-  <td>[fact] — single survey, 100+ respondents</td>
-</tr>
-<tr>
-  <td>20% say diagrams closely match real systems</td>
-  <td><a href="https://www.ctms-itsm.com/blogs/how-itsm-are-using-process-maps/">www.ctms-itsm.com</a> (primary survey)</td>
-  <td>Medium</td>
-  <td>[fact] — same survey</td>
-</tr>
-<tr>
-  <td>56% lack time to keep diagrams current</td>
-  <td><a href="https://www.ctms-itsm.com/blogs/process-mapping-for-continuous-improvement/</td>">www.ctms-itsm.com</a>
-  <td>Medium</td>
-  <td>[fact] — single survey</td>
-</tr>
-<tr>
-  <td>Root causes: one-off creation, no ownership, no governance, time pressure</td>
-  <td><a href="https://itsm.tools/build-valued-process-library-itsm/">itsm.tools</a> <a href="https://bpmcommunity.org/common-challenges-in-process-documentation/">bpmcommunity.org</a> <a href="https://www.ctms-itsm.com/blogs/how-itsm-are-using-process-maps/</td>">www.ctms-itsm.com</a>
-  <td>High</td>
-  <td>[fact] — multiple independent sources agree</td>
-</tr>
-<tr>
-  <td>Three-board governance structure (strategic/portfolio/technical)</td>
-  <td><a href="https://www.servicenow.com/content/dam/servicenow-assets/public/en-us/doc-type/success/workbook/governance-basics.pdf</td>">www.servicenow.com</a>
-  <td>High</td>
-  <td>[fact] — primary vendor source</td>
-</tr>
-<tr>
-  <td>Named process owners + RACI matrices required for documentation currency</td>
-  <td><a href="https://glydepath.com.au/governance">glydepath.com.au</a> <a href="https://us.fitgap.com/stack-guides/building-a-repeatable-governance-model-for-process-changes-across-business-units</td>">us.fitgap.com</a>
-  <td>High</td>
-  <td>[fact] — two independent practitioner sources</td>
-</tr>
-<tr>
-  <td>Change-triggered updates more reliable than calendar-only reviews</td>
-  <td><a href="https://us.fitgap.com/stack-guides/building-a-repeatable-governance-model-for-process-changes-across-business-units</td>">us.fitgap.com</a>
-  <td>Medium</td>
-  <td>[inference] from governance literature</td>
-</tr>
-<tr>
-  <td>MVP: out-of-box templates + delta + RACI + exception/escalation paths</td>
-  <td><a href="https://us.fitgap.com/stack-guides/standardize-it-process-requirements-with-a-minimum-viable-process-blueprint</td>">us.fitgap.com</a>
-  <td>Medium</td>
-  <td>[fact] + [inference]</td>
-</tr>
-<tr>
-  <td>No native linkage between process docs and CSDM records</td>
-  <td>Inferred across all consulted sources</td>
-  <td>Medium</td>
-  <td>[inference] — absence of evidence</td>
-</tr>
-<tr>
-  <td>CSDM change management uses service relationships for process impact computation</td>
-  <td><a href="https://www.servicenow.com/community/common-service-data-model/how-the-common-service-data-model-transforms-change-management/ta-p/3434257</td>">www.servicenow.com</a>
-  <td>High</td>
-  <td>[fact] — primary vendor community source</td>
-</tr>
-<tr>
-  <td>Process Mining cannot substitute for governance documentation</td>
-  <td><a href="https://www.thedigitaliceberg.com/post/how-does-process-mining-work-in-servicenow">www.thedigitaliceberg.com</a> <a href="https://servicenowspectaculars.com/servicenow-process-mining-implementation-issues-2026/">servicenowspectaculars.com</a> <a href="https://govcio.com/resources/article/servicenow-process-mining/</td>">govcio.com</a>
-  <td>High</td>
-  <td>[fact] — three independent sources</td>
-</tr>
-<tr>
-  <td>Process Mining degrades on inconsistent event logs</td>
-  <td><a href="https://servicenowspectaculars.com/servicenow-process-mining-implementation-issues-2026/</td>">servicenowspectaculars.com</a>
-  <td>High</td>
-  <td>[fact]</td>
-</tr>
-<tr>
-  <td>Playbooks are more decay-resistant than static documents because agents encounter them during execution</td>
-  <td>Behavioural inference from tool design</td>
-  <td>Medium</td>
-  <td>[inference]</td>
-</tr>
-</tbody>
-</table>
 <h3>Assumptions</h3>
 <ul>
 <li><p><strong>Assumption:</strong> ServiceNow has not introduced a dedicated BPM-style process documentation tool (separate from Process Universe, Flow Designer, Playbooks, and Process Mining) in releases not covered by the sources consulted. <strong>Justification:</strong> No evidence of such a tool was found across multiple independent sources; a major new capability would likely appear in community and documentation sources.</p>

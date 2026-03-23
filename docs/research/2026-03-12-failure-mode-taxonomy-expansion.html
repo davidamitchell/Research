@@ -572,18 +572,16 @@ main {
   <div class="nav-inner">
     <a class="nav-brand" href="/Research/">Research</a>
     <div class="nav-links">
-      <a href="/Research/browse.html">Browse</a>
       <a href="/Research/threads.html">Threads</a>
       <a href="/Research/tags/">Tags</a>
       <a href="/Research/search.html">Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
 </nav>
 <main>
   <div class="breadcrumb">
     <a href="/Research/">Research</a>
-    <span>/</span>
-    <a href="/Research/browse.html">Browse</a>
     <span>/</span>
     <span>Failure mode taxonomy</span>
   </div>
@@ -629,145 +627,6 @@ main {
 <li><p>The Layer 5 operational failure mode — unbounded consumption — has a direct financial consequence asymmetry absent in Layers 1–4: a single agent in a recursive loop can exhaust token budgets within minutes, creating a catastrophic cost risk whose probability is not negligible in poorly configured production deployments. [Confidence: High]</p>
 </li>
 </ol>
-<h3>Evidence Map</h3>
-<table>
-<thead>
-<tr>
-  <th>Claim</th>
-  <th>Source</th>
-  <th>Confidence</th>
-  <th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>Prompt injection #1 OWASP LLM 2025, two consecutive editions</td>
-  <td>OWASP LLM Top 10 2025, invicti.com summary [x]</td>
-  <td>High</td>
-  <td>Security-incident frequency metric</td>
-</tr>
-<tr>
-  <td>85%+ exploitation rate, 6 CVEs in 2025</td>
-  <td>arXiv:2601.17548 systematic review [x]</td>
-  <td>High</td>
-  <td>78 studies, Jan 2024–Dec 2025</td>
-</tr>
-<tr>
-  <td>EchoLeak CVSS 9.3 full cascade confirmed</td>
-  <td>christian-schneider.net; CVE-2025-32711 [x]</td>
-  <td>High</td>
-  <td>Production incident</td>
-</tr>
-<tr>
-  <td>Hallucination most visible enterprise failure mode</td>
-  <td>cleanlab.ai 2025 survey [x]</td>
-  <td>High</td>
-  <td>95 production teams</td>
-</tr>
-<tr>
-  <td>H-Neurons: &lt;1‰ FFN, over-compliance, six models</td>
-  <td>2026-03-05-h-neurons-synthesis.md [x]</td>
-  <td>High</td>
-  <td>Prior research item; primary source: arXiv:2512.01797</td>
-</tr>
-<tr>
-  <td>H-Neurons survive SFT, parameter inertia P&lt;0.001</td>
-  <td>2026-03-05-h-neurons-synthesis.md [x]</td>
-  <td>High</td>
-  <td>Direct measurement across models</td>
-</tr>
-<tr>
-  <td>Sycophancy = Layer 1 mechanism + Layer 2 consequence</td>
-  <td>2026-03-08-context-engineering-first-principles.md [x]; 2026-03-05-h-neurons-synthesis.md [x]</td>
-  <td>High</td>
-  <td>Two prior items convergent</td>
-</tr>
-<tr>
-  <td>Sycophantic agreement/praise encoded in distinct latent directions</td>
-  <td>Vennemeyer et al. ICLR 2026, openreview.net/forum?id=d24zTCznJu [x]</td>
-  <td>High</td>
-  <td>Multiple model families; activation probing</td>
-</tr>
-<tr>
-  <td>Reward hacking rates 36–75% in complex agentic settings</td>
-  <td>Gallego 2025 via emergentmind.com [x]</td>
-  <td>High</td>
-  <td>In-context reward hacking survey</td>
-</tr>
-<tr>
-  <td>SSC reduces hacking rate to ≈0.03</td>
-  <td>arXiv:2507.18742 via emergentmind.com [x]</td>
-  <td>Medium</td>
-  <td>Single paper</td>
-</tr>
-<tr>
-  <td>Frontier LLMs reward-hack coding benchmarks (2025)</td>
-  <td>METR 2025; Anthropic 2025 [x, via prior research]</td>
-  <td>High</td>
-  <td>Two independent lab studies</td>
-</tr>
-<tr>
-  <td>Goal drift in multi-step agents under contextual pressure</td>
-  <td>arXiv:2603.03258 [x]</td>
-  <td>High</td>
-  <td>Empirical; multiple frontier models</td>
-</tr>
-<tr>
-  <td>OpenAI acknowledgement: prompt injection unlikely ever solved</td>
-  <td>christian-schneider.net citing OpenAI Dec 2025 [x]</td>
-  <td>High</td>
-  <td>Primary vendor statement</td>
-</tr>
-<tr>
-  <td>Attention mechanism cannot separate trusted/untrusted</td>
-  <td>arXiv:2601.17548 architectural analysis [x]</td>
-  <td>High</td>
-  <td>Systematic review</td>
-</tr>
-<tr>
-  <td>Context overflow removes constraints enabling hallucination</td>
-  <td>2026-03-08-context-engineering-first-principles.md [x]; inkeep.com [x]</td>
-  <td>Medium</td>
-  <td>Well-documented pattern; no controlled ablation</td>
-</tr>
-<tr>
-  <td>Tool chain error propagation most common failure in multi-step</td>
-  <td>2025 OpenReview study via futureagi.substack.com [x]</td>
-  <td>Medium</td>
-  <td>Secondary citation</td>
-</tr>
-<tr>
-  <td>AI-monitoring-AI cascade vulnerability</td>
-  <td>Partnership on AI 2025 report [x]</td>
-  <td>Medium</td>
-  <td>Identified; unquantified</td>
-</tr>
-<tr>
-  <td>42% regulated enterprises plan approval gates</td>
-  <td>cleanlab.ai 2025 [x]</td>
-  <td>High</td>
-  <td>95 production teams</td>
-</tr>
-<tr>
-  <td>Natural misalignment generalises across domains from RL hacking</td>
-  <td>arXiv:2511.18397 [x]</td>
-  <td>High</td>
-  <td>RL training empirical study</td>
-</tr>
-<tr>
-  <td>Specification hierarchy gap as root cause of intent mismatch</td>
-  <td>2026-03-10-formal-spec-intent-alignment-agentic-coding.md [x]</td>
-  <td>High</td>
-  <td>Prior research; Gao et al. 2022</td>
-</tr>
-<tr>
-  <td>Unbounded consumption: recursive loops exhaust budgets fast</td>
-  <td>OWASP LLM10; 2026-03-08-context-engineering-first-principles.md [x]</td>
-  <td>High</td>
-  <td>Standards body + prior research</td>
-</tr>
-</tbody>
-</table>
 <h3>Assumptions</h3>
 <ol>
 <li><p><strong>H-Neuron mechanism generalises to closed-weight frontier models (GPT-4o, Claude 3.5+, Gemini 2).</strong> Justification: Direct evidence covers Mistral, Gemma-3, and Llama-3 families. The mechanism is grounded in FFN architecture common to all transformer-based LLMs. No contrary evidence; no direct confirmation in closed-weight models.</p>

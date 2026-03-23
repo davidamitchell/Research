@@ -572,18 +572,16 @@ main {
   <div class="nav-inner">
     <a class="nav-brand" href="/Research/">Research</a>
     <div class="nav-links">
-      <a href="/Research/browse.html">Browse</a>
       <a href="/Research/threads.html">Threads</a>
       <a href="/Research/tags/">Tags</a>
       <a href="/Research/search.html">Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
 </nav>
 <main>
   <div class="breadcrumb">
     <a href="/Research/">Research</a>
-    <span>/</span>
-    <a href="/Research/browse.html">Browse</a>
     <span>/</span>
     <span>ServiceNow AI</span>
   </div>
@@ -633,109 +631,6 @@ main {
 <li><p>ServiceNow's agent framework is more tightly integrated with operational context — incident records, CMDB relationships, approval chains — than general-purpose frameworks such as LangChain or Autogen, but is narrower in scope, bounded to ServiceNow-native actions in the absence of Moveworks integration. [medium confidence]</p>
 </li>
 </ol>
-<h3>Evidence Map</h3>
-<table>
-<thead>
-<tr>
-  <th>Claim</th>
-  <th>Source</th>
-  <th>Confidence</th>
-  <th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>Now Assist for ITSM GA features in Xanadu</td>
-  <td>ServiceNow Xanadu release notes (docs); ServiceNow Xanadu blog; ServiceNow Store ITSM listing</td>
-  <td>High</td>
-  <td>[x] Consulted</td>
-</tr>
-<tr>
-  <td>Yokohama GA March 12, 2025; Orchestrator + Studio GA</td>
-  <td>ServiceNow newsroom press release; CIO.com; ITOpsTimes</td>
-  <td>High</td>
-  <td>[x] Three independent sources</td>
-</tr>
-<tr>
-  <td>Hybrid BM25 + DPR + re-ranker; 750-word chunking</td>
-  <td>ServiceNow Community — Now Assist in AI Search; The Digital Iceberg; Crossfuze Insights; eesel.ai</td>
-  <td>High</td>
-  <td>[x] Four sources; chunk size medium — may vary</td>
-</tr>
-<tr>
-  <td>KB quality directly determines RAG accuracy</td>
-  <td>ServiceNow Community best practices; TEKsystems; Xenonstack</td>
-  <td>High</td>
-  <td>[x] Three practitioner sources</td>
-</tr>
-<tr>
-  <td>External LLM via GenAI Controller</td>
-  <td>ServiceNow Community — Using external LLMs; RapDev; Kanini</td>
-  <td>High</td>
-  <td>[x] Multiple practitioner sources</td>
-</tr>
-<tr>
-  <td>Azure OpenAI preferred for regulated industries</td>
-  <td>Microsoft Azure OpenAI gateway guide; SmartDev Enterprise Compliance; Equal Experts</td>
-  <td>High</td>
-  <td>[x] Three independent sources</td>
-</tr>
-<tr>
-  <td>Now LLM data stays within ServiceNow</td>
-  <td>ServiceNow Community NowLLM post; Fujitsu blog</td>
-  <td>High</td>
-  <td>[x] Primary vendor + secondary</td>
-</tr>
-<tr>
-  <td>HITL in Orchestrator</td>
-  <td>CIO.com Orchestrator/Studio; Constellation Research Yokohama</td>
-  <td>High</td>
-  <td>[x] Two analyst sources</td>
-</tr>
-<tr>
-  <td>Now Assist Guardian GA Yokohama</td>
-  <td>No Jitter 150+ GenAI; ServiceNow BusinessWire Nov 2024</td>
-  <td>Medium</td>
-  <td>[x] Guardian GA confirmed; feature detail partially confirmed</td>
-</tr>
-<tr>
-  <td>APRA / RBNZ alignment in ServiceNow GRC</td>
-  <td>AC3 NZ; AC3 AU; Edgile ArC</td>
-  <td>High</td>
-  <td>[x] NZ/AU-specific practitioner sources</td>
-</tr>
-<tr>
-  <td>Moveworks acquisition $2.85B, completed March 2025</td>
-  <td>ServiceNow newsroom; Everest Group; Verdantix</td>
-  <td>High</td>
-  <td>[x] Primary press release + analysts</td>
-</tr>
-<tr>
-  <td>Moveworks integration not yet fully available</td>
-  <td>Workativ; Rezolve.ai</td>
-  <td>High</td>
-  <td>[inference] Consistent analyst commentary</td>
-</tr>
-<tr>
-  <td>Minimum viable KB requirements</td>
-  <td>ServiceNow Community; TEKsystems; vSoft Consulting</td>
-  <td>High</td>
-  <td>[x] Three practitioner sources</td>
-</tr>
-<tr>
-  <td>Agent Studio no-code governance risk</td>
-  <td>CIO.com; Constellation Research; inMorphis</td>
-  <td>Medium</td>
-  <td>[inference] No practitioner failure case cited</td>
-</tr>
-<tr>
-  <td>Pro Plus / Enterprise Plus licensing</td>
-  <td>ServiceNow Store listing</td>
-  <td>High</td>
-  <td>[x] Primary source</td>
-</tr>
-</tbody>
-</table>
 <h3>Assumptions</h3>
 <ul>
 <li><strong>Assumption:</strong> The ~750-word chunk size is the default configuration, not a universal constant. <strong>Justification:</strong> Multiple sources quote this figure as representative; the Semantic Index Config allows tuning.</li>

@@ -572,18 +572,16 @@ main {
   <div class="nav-inner">
     <a class="nav-brand" href="/Research/">Research</a>
     <div class="nav-links">
-      <a href="/Research/browse.html">Browse</a>
       <a href="/Research/threads.html">Threads</a>
       <a href="/Research/tags/">Tags</a>
       <a href="/Research/search.html">Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
 </nav>
 <main>
   <div class="breadcrumb">
     <a href="/Research/">Research</a>
-    <span>/</span>
-    <a href="/Research/browse.html">Browse</a>
     <span>/</span>
     <span>iOS Shortcuts for research capture and query</span>
   </div>
@@ -637,91 +635,6 @@ main {
 <li><p><strong>The query shortcut using <code>workflow_dispatch</code> is feasible but asynchronous — the Shortcut triggers the workflow, which must run and post results (as an issue or comment) before the user can view them.</strong> For synchronous query, opening the wiki and using Safari's built-in find-in-page covers the primary use case at zero implementation cost.</p>
 </li>
 </ol>
-<h3>Evidence Map</h3>
-<table>
-<thead>
-<tr>
-  <th>Claim</th>
-  <th>Source</th>
-  <th>Confidence</th>
-  <th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>&quot;Get Contents of URL&quot; supports arbitrary HTTP methods and JSON bodies</td>
-  <td>Apple Shortcuts User Guide (support.apple.com/guide/shortcuts); island94.org (primary working example)</td>
-  <td>high</td>
-  <td>Independently confirmed by GitHub employee and tutorial author</td>
-</tr>
-<tr>
-  <td>GitHub Issues API: POST with title+body</td>
-  <td>docs.github.com/en/rest/issues/issues; web search cross-confirmation</td>
-  <td>high</td>
-  <td>Standard API endpoint, unchanged since 2018</td>
-</tr>
-<tr>
-  <td>Base64 encoding requires &quot;Encode&quot; action, Line Wrap: None</td>
-  <td>Apple Community discussions.apple.com/thread/251563782</td>
-  <td>high</td>
-  <td>Failure mode confirmed; fix is specific and verified by community</td>
-</tr>
-<tr>
-  <td>Share Sheet input: Show in Share Sheet, Accepted Types: URL</td>
-  <td>support.apple.com/guide/shortcuts/input-types-apd7644168e1/ios</td>
-  <td>high</td>
-  <td>Apple primary documentation</td>
-</tr>
-<tr>
-  <td>Siri trigger + &quot;Ask for Input&quot; = hands-free voice dictation</td>
-  <td>macmost.com/creating-shortcuts-that-accept-voice-input.html; apple.stackexchange.com/questions/336799</td>
-  <td>high</td>
-  <td>Two independent secondary sources, consistent</td>
-</tr>
-<tr>
-  <td>Fine-grained PAT: Issues: write minimum for issue creation</td>
-  <td>GitHub docs (web search); GitHub PAT documentation</td>
-  <td>high</td>
-  <td>Consistent with GitHub's fine-grained token model</td>
-</tr>
-<tr>
-  <td>No native Keychain access from iOS Shortcuts</td>
-  <td>Web search (multiple security-focused sources)</td>
-  <td>high</td>
-  <td>No Apple documentation contradicts this; community consensus</td>
-</tr>
-<tr>
-  <td>Wiki URL: <a href="https://github.com/davidamitchell/Research/wiki/Home</td>">github.com</a>
-  <td>Research/completed/2026-03-01-github-wiki-research-content.md Key Finding #3</td>
-  <td>high</td>
-  <td>Derived from prior research on wiki structure</td>
-</tr>
-<tr>
-  <td>workflow_dispatch API endpoint and body format</td>
-  <td>docs.github.com/en/rest/actions/workflows; island94.org (working example)</td>
-  <td>high</td>
-  <td>Primary source + practitioner confirmation</td>
-</tr>
-<tr>
-  <td>No native &quot;Dispatch Workflow&quot; action in GitHub iOS app</td>
-  <td>Web search (March 2026)</td>
-  <td>medium</td>
-  <td>Absence of evidence; could change with a future GitHub app update</td>
-</tr>
-<tr>
-  <td>Query shortcut is asynchronous via workflow_dispatch</td>
-  <td>Derived from workflow_dispatch mechanics</td>
-  <td>high</td>
-  <td>Mechanistically sound: workflow runs on runner, not inline</td>
-</tr>
-<tr>
-  <td>Issue creation path: 4–5 actions vs. direct file creation: 7–9 actions</td>
-  <td>Derived from action enumeration in §2 Investigation</td>
-  <td>medium</td>
-  <td>Estimated; exact count depends on implementation choices</td>
-</tr>
-</tbody>
-</table>
 <h3>Assumptions</h3>
 <ul>
 <li><p><strong>Assumption:</strong> The issue-to-backlog GitHub Actions workflow identified in <code>2026-02-27-simple-process-for-adding-research-item.md</code> is implemented or will be implemented. <strong>Justification:</strong> The prior research item recommended this workflow as the owner's capture path; if it is not yet built, the capture shortcut still creates a labeled issue that is visible in the GitHub iOS app and on the web, requiring only a manual move rather than automatic conversion.</p>

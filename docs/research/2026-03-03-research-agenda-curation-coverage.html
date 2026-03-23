@@ -572,18 +572,16 @@ main {
   <div class="nav-inner">
     <a class="nav-brand" href="/Research/">Research</a>
     <div class="nav-links">
-      <a href="/Research/browse.html">Browse</a>
       <a href="/Research/threads.html">Threads</a>
       <a href="/Research/tags/">Tags</a>
       <a href="/Research/search.html">Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
 </nav>
 <main>
   <div class="breadcrumb">
     <a href="/Research/">Research</a>
-    <span>/</span>
-    <a href="/Research/browse.html">Browse</a>
     <span>/</span>
     <span>Research agenda curation</span>
   </div>
@@ -642,91 +640,6 @@ main {
 <li><p><strong>Open Questions in completed items are an under-used backlog input.</strong> Multiple completed items contain follow-on questions not yet added to backlog. The monthly review checklist should scan Open Questions sections systematically. [medium confidence — qualitative observation]</p>
 </li>
 </ol>
-<h3>Evidence Map</h3>
-<table>
-<thead>
-<tr>
-  <th>Claim</th>
-  <th>Source</th>
-  <th>Confidence</th>
-  <th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>88% medium priority inflation</td>
-  <td>YAML front-matter analysis, Research/backlog/*.md, 2026-03-03</td>
-  <td>high</td>
-  <td>Direct count: 22 medium, 1 high, 2 low out of 25 items</td>
-</tr>
-<tr>
-  <td>D4 = 44% of backlog</td>
-  <td>Tag analysis: Research/backlog/*.md</td>
-  <td>high</td>
-  <td>11/25 items carry tooling/interface/delivery/youtube/transcripts tags</td>
-</tr>
-<tr>
-  <td>Five-domain taxonomy covers all items</td>
-  <td>Tag co-occurrence analysis of all 48 items</td>
-  <td>medium</td>
-  <td>Primary domain assignment is inferential for multi-domain items</td>
-</tr>
-<tr>
-  <td>Four-dimension rubric aligns with AGENTS.md heuristic</td>
-  <td>AGENTS.md heuristic; Sivoi Insights JTBD; OKR International; Forte Labs PARA</td>
-  <td>medium</td>
-  <td>No single source validates exact rubric; synthesis across three frameworks</td>
-</tr>
-<tr>
-  <td>D1 professional priority</td>
-  <td>AGENTS.md repo description; Research/completed/2026-02-27-research-backlog-vs-repo-improvement-backlog.md</td>
-  <td>medium</td>
-  <td>Professional context inference, not stated explicitly</td>
-</tr>
-<tr>
-  <td>D2 under-representation</td>
-  <td>Tag analysis: 2/25 backlog items with agents/agentic/mcp/lsp tags</td>
-  <td>high</td>
-  <td>Direct count</td>
-</tr>
-<tr>
-  <td>40% drift threshold</td>
-  <td>RAND research portfolio evaluation; corpus-size arithmetic</td>
-  <td>medium</td>
-  <td>First-principles estimate; no historical validation</td>
-</tr>
-<tr>
-  <td>Monthly cadence</td>
-  <td>Corpus turnover arithmetic</td>
-  <td>high</td>
-  <td>3 items/day × 20 working days = 60/month throughput vs. 25-item backlog</td>
-</tr>
-<tr>
-  <td><code>research agenda</code> implementable</td>
-  <td>Direct inspection of src/research/item.py, src/research/cli.py</td>
-  <td>high</td>
-  <td>All required fields already parsed</td>
-</tr>
-<tr>
-  <td>Rubric embedding in template</td>
-  <td>Behavioural analysis; PARA prioritisation-at-creation principle</td>
-  <td>medium</td>
-  <td>Inferred from best practice; not validated</td>
-</tr>
-<tr>
-  <td>workflow_dispatch + issue delivery</td>
-  <td>AGENTS.md &quot;Consequences for tooling design&quot;</td>
-  <td>high</td>
-  <td>Explicitly stated</td>
-</tr>
-<tr>
-  <td>Open Questions under-used</td>
-  <td>Qualitative review of Research/completed/*.md</td>
-  <td>medium</td>
-  <td>Several completed items have unadded Open Questions; not systematically counted</td>
-</tr>
-</tbody>
-</table>
 <h3>Assumptions</h3>
 <ul>
 <li><strong>Assumption:</strong> The five-domain taxonomy is stable for this repo. <strong>Justification:</strong> The corpus has 48 items with clear tag clusters; the five domains emerged from bottom-up tag analysis and align with the owner's described professional context (NZ financial services, SWE, personal intellectual development). A sixth domain (e.g., &quot;Emerging Technology Trends&quot;) is possible but no tag cluster currently supports it.</li>

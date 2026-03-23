@@ -572,18 +572,16 @@ main {
   <div class="nav-inner">
     <a class="nav-brand" href="/Research/">Research</a>
     <div class="nav-links">
-      <a href="/Research/browse.html">Browse</a>
       <a href="/Research/threads.html">Threads</a>
       <a href="/Research/tags/">Tags</a>
       <a href="/Research/search.html">Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
 </nav>
 <main>
   <div class="breadcrumb">
     <a href="/Research/">Research</a>
-    <span>/</span>
-    <a href="/Research/browse.html">Browse</a>
     <span>/</span>
     <span>Inbox folder pattern</span>
   </div>
@@ -619,85 +617,6 @@ main {
 <li>Misclassification recovery requires only standard git commands — <code>git log --all --full-history -- &quot;*/&lt;filename&gt;&quot;</code> to locate, <code>git mv</code> to correct — with no data loss because git's content-addressable storage preserves all committed states.</li>
 <li>The psychological benefit extends beyond reduced step count: GTD literature documents that users who trust the system capture more, creating a self-reinforcing loop where reliable autonomous triage increases capture volume and therefore the system's usefulness.</li>
 </ol>
-<h3>Evidence Map</h3>
-<table>
-<thead>
-<tr>
-  <th>Claim</th>
-  <th>Source</th>
-  <th>Confidence</th>
-  <th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>Each additional mobile decision step increases cognitive load</td>
-  <td>CELDA 2023 (ED636454); ScienceDirect 2020 (doi:10.1016/j.chb.2020.106310)</td>
-  <td>high</td>
-  <td>Two independent controlled studies with direct measurement</td>
-</tr>
-<tr>
-  <td>GTD specifies capture-first, classify-later</td>
-  <td>GTD canonical documentation (cannelevate.com.au, dayviewer.com)</td>
-  <td>high</td>
-  <td>Core GTD principle, non-contested in literature</td>
-</tr>
-<tr>
-  <td>Matuschak maintains explicit inboxes and defers classification</td>
-  <td>notes.andymatuschak.org/Evergreen_notes (accessed 2026-03-08)</td>
-  <td>high</td>
-  <td>Primary source, page confirmed accessible</td>
-</tr>
-<tr>
-  <td>Minimum inbox file needs only timestamp + content</td>
-  <td>Derived from triage agent requirements analysis</td>
-  <td>medium</td>
-  <td>Inference; no counter-evidence, but not empirically tested</td>
-</tr>
-<tr>
-  <td>Zero-shot LLM text classification accuracy 60–75%</td>
-  <td>arXiv:2501.08457; nyckel.com/blog benchmarks</td>
-  <td>high</td>
-  <td>Consistent across multiple independent benchmarks</td>
-</tr>
-<tr>
-  <td>Few-shot prompting substantially raises accuracy</td>
-  <td>Springer LLM classification review</td>
-  <td>medium</td>
-  <td>Consistent directional finding; exact improvement varies by task; AAAI ICWSM prompt study cited in prior drafts but no author, URL, or DOI was verified — claim treated as [inference]</td>
-</tr>
-<tr>
-  <td>Triage accuracy &gt;85% achievable with few-shot on this task</td>
-  <td>Assumption derived from above two sources + category distinctiveness assessment</td>
-  <td>low</td>
-  <td>Not measured on meeting/journal/project notes specifically</td>
-</tr>
-<tr>
-  <td>Meeting/journal/project notes are structurally distinguishable</td>
-  <td>LLM classification literature; structural analysis of note types</td>
-  <td>medium</td>
-  <td>Structural signals identified; accuracy depends on prompt quality</td>
-</tr>
-<tr>
-  <td>research-loop.yml infrastructure is reusable unchanged</td>
-  <td>Direct inspection of <code>.github/workflows/research-loop.yml</code></td>
-  <td>high</td>
-  <td>All steps verified against file content</td>
-</tr>
-<tr>
-  <td>Git history recovers misclassified files</td>
-  <td>Git content-addressable storage specification</td>
-  <td>high</td>
-  <td>Fundamental property of git; not specific to this use case</td>
-</tr>
-<tr>
-  <td>Psychological trust loop increases capture rate</td>
-  <td>GTD literature (gettingthingsdone.com)</td>
-  <td>medium</td>
-  <td>Documented in GTD community; no controlled study on AI-triaged systems</td>
-</tr>
-</tbody>
-</table>
 <h3>Assumptions</h3>
 <ul>
 <li><strong>Assumption:</strong> A few-shot triage prompt achieves &gt;85% classification accuracy on meeting/journal/project notes. <strong>Justification:</strong> Zero-shot baselines are 60–75%; few-shot prompting consistently raises accuracy in published benchmarks; the three categories have distinct structural signals. The estimate has not been validated on a real inbox dataset and must be treated as a starting hypothesis for iteration.</li>

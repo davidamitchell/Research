@@ -572,18 +572,16 @@ main {
   <div class="nav-inner">
     <a class="nav-brand" href="/Research/">Research</a>
     <div class="nav-links">
-      <a href="/Research/browse.html">Browse</a>
       <a href="/Research/threads.html">Threads</a>
       <a href="/Research/tags/">Tags</a>
       <a href="/Research/search.html">Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
 </nav>
 <main>
   <div class="breadcrumb">
     <a href="/Research/">Research</a>
-    <span>/</span>
-    <a href="/Research/browse.html">Browse</a>
     <span>/</span>
     <span>GitHub wiki for research content</span>
   </div>
@@ -634,61 +632,6 @@ main {
 <li><p><strong>The wiki must be enabled before the first push.</strong> GitHub wikis are disabled by default on new repositories. The owner must enable it once via Settings → Features → Wikis. After that, the automated workflow maintains it.</p>
 </li>
 </ol>
-<h3>Evidence Map</h3>
-<table>
-<thead>
-<tr>
-  <th>Claim</th>
-  <th>Source</th>
-  <th>Confidence</th>
-  <th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>Wiki lives at <code>{repo}.wiki.git</code></td>
-  <td>GitHub Docs (Wikis)</td>
-  <td>high</td>
-  <td>Documented API and community practice</td>
-</tr>
-<tr>
-  <td><code>GITHUB_TOKEN</code> + <code>contents: write</code> is sufficient</td>
-  <td>GitHub Docs (GITHUB_TOKEN permissions)</td>
-  <td>high</td>
-  <td>Confirmed for same-repo wiki push</td>
-</tr>
-<tr>
-  <td>Pages are flat (no subdirectories)</td>
-  <td>GitHub Docs (Wiki page naming)</td>
-  <td>high</td>
-  <td>URL structure confirms</td>
-</tr>
-<tr>
-  <td><code>Home.md</code>, <code>_Sidebar.md</code>, <code>_Footer.md</code> are special</td>
-  <td>GitHub Docs (Customising sidebar)</td>
-  <td>high</td>
-  <td>Documented behaviour</td>
-</tr>
-<tr>
-  <td><code>[[Page]]</code> internal link syntax</td>
-  <td>GitHub Docs (Wiki links)</td>
-  <td>high</td>
-  <td>Standard GitHub wiki Markdown extension</td>
-</tr>
-<tr>
-  <td>Full rebuild is simpler than incremental</td>
-  <td>Analysis</td>
-  <td>medium</td>
-  <td>Validated at current item volume; re-evaluate if &gt; 500 items</td>
-</tr>
-<tr>
-  <td>Wiki disabled by default</td>
-  <td>GitHub Docs (Enabling wikis)</td>
-  <td>high</td>
-  <td>Repository settings requirement</td>
-</tr>
-</tbody>
-</table>
 <h3>Assumptions</h3>
 <ul>
 <li><strong>Assumption:</strong> The <code>davidamitchell/Research</code> wiki is currently empty or does not exist. <strong>Justification:</strong> No wiki content has been referenced in any session log or PROGRESS.md entry; the wiki tab was not mentioned as populated.</li>

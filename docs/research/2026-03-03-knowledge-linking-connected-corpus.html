@@ -572,18 +572,16 @@ main {
   <div class="nav-inner">
     <a class="nav-brand" href="/Research/">Research</a>
     <div class="nav-links">
-      <a href="/Research/browse.html">Browse</a>
       <a href="/Research/threads.html">Threads</a>
       <a href="/Research/tags/">Tags</a>
       <a href="/Research/search.html">Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
 </nav>
 <main>
   <div class="breadcrumb">
     <a href="/Research/">Research</a>
-    <span>/</span>
-    <a href="/Research/browse.html">Browse</a>
     <span>/</span>
     <span>Knowledge linking</span>
   </div>
@@ -638,79 +636,6 @@ main {
 <li><p><strong>[inference] The 18 existing completed items need a one-time retroactive linking pass.</strong> Until this is done, the edge store will be sparse. A <code>workflow_dispatch</code> job can automate this pass; it is scheduled as an open question / potential backlog item.</p>
 </li>
 </ol>
-<h3>Evidence Map</h3>
-<table>
-<thead>
-<tr>
-  <th>Claim</th>
-  <th>Source</th>
-  <th>Confidence</th>
-  <th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>Zettelkasten principle: connection over collection; fixed addresses are the foundation</td>
-  <td>zettelkasten.de/introduction</td>
-  <td>high</td>
-  <td>Primary source for the method</td>
-</tr>
-<tr>
-  <td>Obsidian derives backlinks by scanning; never writes to referenced file</td>
-  <td>web_search (Obsidian docs, forum)</td>
-  <td>high</td>
-  <td>Multiple independent sources confirm</td>
-</tr>
-<tr>
-  <td>Logseq parses Markdown to build backlink graph; same non-intrusive pattern as Obsidian</td>
-  <td>web_search (Logseq docs, bellingcat)</td>
-  <td>high</td>
-  <td>Independent tool confirming same pattern</td>
-</tr>
-<tr>
-  <td>Relative Markdown links render as clickable hyperlinks on GitHub.com</td>
-  <td>Research/completed/2026-03-01-github-wiki-research-content.md</td>
-  <td>high</td>
-  <td>Confirmed by existing conventions</td>
-</tr>
-<tr>
-  <td><code>state/index.json</code> has single-responsibility fetch semantics</td>
-  <td>src/state.py direct inspection</td>
-  <td>high</td>
-  <td>Code is authoritative</td>
-</tr>
-<tr>
-  <td><code>spawned-from</code> already exists informally in item frontmatter</td>
-  <td>Research/backlog/2026-02-28-free-energy-entropy-and-life.md</td>
-  <td>high</td>
-  <td>Direct file inspection</td>
-</tr>
-<tr>
-  <td><code>src/wiki/publish.py</code> has <code>wiki_link()</code> function</td>
-  <td>src/wiki/publish.py direct inspection</td>
-  <td>high</td>
-  <td>Code is authoritative</td>
-</tr>
-<tr>
-  <td>Five relationship types cover observed corpus usage</td>
-  <td>Corpus inspection (18 items) + Zettelkasten/Obsidian community patterns</td>
-  <td>medium</td>
-  <td>Inferred from usage; not experimentally validated at scale</td>
-</tr>
-<tr>
-  <td>Tag overlap ≥ 2 is a useful latent relationship signal</td>
-  <td>Knowledge graph literature (web_search) + information-synthesis-entropy item</td>
-  <td>medium</td>
-  <td>Reasonable threshold; exact false-positive rate unmeasured</td>
-</tr>
-<tr>
-  <td>Wiki pipeline easily extended with Related Items section</td>
-  <td>src/wiki/publish.py structure + Research/completed/2026-03-01-github-wiki-research-content.md</td>
-  <td>high</td>
-  <td>Code structure directly supports extension</td>
-</tr>
-</tbody>
-</table>
 <h3>Assumptions</h3>
 <ul>
 <li><strong>Assumption:</strong> Research agents will consistently maintain the <code>## Related Items</code> section format. <strong>Justification:</strong> The section is added to <code>_template.md</code> as a mandatory placeholder. Failure to maintain degrades the index but does not corrupt it — missing section = no outgoing edges for that item.</li>

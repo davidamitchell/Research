@@ -572,18 +572,16 @@ main {
   <div class="nav-inner">
     <a class="nav-brand" href="/Research/">Research</a>
     <div class="nav-links">
-      <a href="/Research/browse.html">Browse</a>
       <a href="/Research/threads.html">Threads</a>
       <a href="/Research/tags/">Tags</a>
       <a href="/Research/search.html">Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
 </nav>
 <main>
   <div class="breadcrumb">
     <a href="/Research/">Research</a>
-    <span>/</span>
-    <a href="/Research/browse.html">Browse</a>
     <span>/</span>
     <span>Research Quality Assurance and Knowledge Integration Methodology</span>
   </div>
@@ -637,79 +635,6 @@ main {
 <li><p><strong>[inference] An <code>integration</code> skill is not yet warranted; it becomes necessary once <code>Research/synthesis/</code> documents exist and require quality review of their own.</strong> The peer-review skill's cross-item reference check and the existing synthesis workflow design are sufficient for current corpus size and state.</p>
 </li>
 </ol>
-<h3>Evidence Map</h3>
-<table>
-<thead>
-<tr>
-  <th>Claim</th>
-  <th>Source</th>
-  <th>Confidence</th>
-  <th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>Existing three skills leave logical coherence uncovered</td>
-  <td>Direct reading of citation-discipline, speculation-control, remove-ai-slop SKILL.md files</td>
-  <td>high</td>
-  <td>Claim verified by reading all three skill files; none addresses conclusion-evidence relationship</td>
-</tr>
-<tr>
-  <td>LLM agents match median human peer reviewer quality on coherence</td>
-  <td>REMOR arXiv:2505.11718; DeepReview ACL 2025; ICLR 2025 LLM feedback blog</td>
-  <td>high</td>
-  <td>Multiple independent primary sources (arXiv paper, ACL proceedings, ICLR blog)</td>
-</tr>
-<tr>
-  <td>Springer Nature requires reviewers to check alternative explanations</td>
-  <td>Springer Nature How to Peer Review guidelines (2025)</td>
-  <td>high</td>
-  <td>Primary source; official journal policy documentation</td>
-</tr>
-<tr>
-  <td>DIKW hierarchy: 4 levels, non-linear with feedback</td>
-  <td>Ackoff 1989 (via secondary: EBSCO, DataCamp, Springer)</td>
-  <td>high</td>
-  <td>Well-established; secondary sourcing acceptable given paywalled primary</td>
-</tr>
-<tr>
-  <td>SECI model: 4 modes, Internalisation requires application not reading</td>
-  <td>Nonaka &amp; Takeuchi 1995 (via secondary: Wikipedia, Frontiers in Psychology, ASCN)</td>
-  <td>high</td>
-  <td>Well-established; secondary sourcing acceptable</td>
-</tr>
-<tr>
-  <td>Bloom's revised taxonomy maps to automation tiers</td>
-  <td>Anderson &amp; Krathwohl 2001 (via CDC, Cornell, Yale secondary sources)</td>
-  <td>high</td>
-  <td>Standard educational framework; secondary sources are authoritative institutional references</td>
-</tr>
-<tr>
-  <td>Zettelkasten: connection generates insight, archiving does not</td>
-  <td>zettelkasten.de introduction (Sascha, 2020); cross-item synthesis completed item</td>
-  <td>high</td>
-  <td>Primary web source accessed; corroborated by completed research item</td>
-</tr>
-<tr>
-  <td>Four-tier pipeline with cost-ordered sequencing</td>
-  <td>Inference from REMOR/DeepReview LLM cost data + CI pipeline patterns research</td>
-  <td>medium</td>
-  <td>Design inference; the specific tier boundaries and cost estimates are reasonable but not empirically validated for this repo</td>
-</tr>
-<tr>
-  <td><code>peer-review</code> skill scope (three checks)</td>
-  <td>Inference from Springer Nature review dimensions + existing skill gap analysis</td>
-  <td>medium</td>
-  <td>Scope is derived; the specific checks are defensible but other framings are possible</td>
-</tr>
-<tr>
-  <td>Cross-item integration is an individual item quality dimension</td>
-  <td>Prior research: knowledge-linking item, cross-item synthesis item; Zettelkasten principle</td>
-  <td>medium</td>
-  <td>Inference from multiple prior items; not directly stated in any single source</td>
-</tr>
-</tbody>
-</table>
 <h3>Assumptions</h3>
 <ul>
 <li><strong>Assumption:</strong> The Copilot CLI agent running <code>research-review.yml</code> has sufficient reasoning capability to perform logical coherence checks on research items. <strong>Justification:</strong> REMOR and DeepReview demonstrate that current LLM-class models match median human reviewer quality on coherence; the Copilot CLI uses Claude Sonnet, which is in the same capability class. Direct empirical validation in this specific repo would be needed to confirm.</li>

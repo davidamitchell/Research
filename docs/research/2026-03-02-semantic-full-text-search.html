@@ -572,18 +572,16 @@ main {
   <div class="nav-inner">
     <a class="nav-brand" href="/Research/">Research</a>
     <div class="nav-links">
-      <a href="/Research/browse.html">Browse</a>
       <a href="/Research/threads.html">Threads</a>
       <a href="/Research/tags/">Tags</a>
       <a href="/Research/search.html">Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
 </nav>
 <main>
   <div class="breadcrumb">
     <a href="/Research/">Research</a>
-    <span>/</span>
-    <a href="/Research/browse.html">Browse</a>
     <span>/</span>
     <span>Semantic and full-text search over the research corpus</span>
   </div>
@@ -637,79 +635,6 @@ main {
 <li><p><strong>The hybrid retrieval approach (FTS5 + Model2Vec + sqlite-vec + RRF) was validated in a directly analogous real-world implementation (15,800-file Obsidian vault, 49,746 chunks) documented in the context-mode completed research, providing practitioner-level evidence that the stack works at scale significantly beyond this corpus.</strong> [high]</p>
 </li>
 </ol>
-<h3>Evidence Map</h3>
-<table>
-<thead>
-<tr>
-  <th>Claim</th>
-  <th>Source</th>
-  <th>Confidence</th>
-  <th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>FTS5 BM25 zero new dependencies, stdlib sqlite3, sub-ms latency &lt;500 docs</td>
-  <td><code>Research/completed/2026-02-27-local-database.md</code> Key Finding 1; SQLite FTS5 docs; thelinuxcode.com FTS5 guide</td>
-  <td>high</td>
-  <td>FTS5 in Python stdlib confirmed by multiple sources</td>
-</tr>
-<tr>
-  <td>Tag/recency queries → metadata only; keyword → FTS5; conceptual → vector</td>
-  <td>Query pattern analysis in §2 Investigation; web search: BM25 vs semantic comparison</td>
-  <td>high</td>
-  <td>Straightforward classification from mechanism capabilities</td>
-</tr>
-<tr>
-  <td>Model2Vec potion-base-8M: ~30–50 MB, numpy-only, ~200x CPU speedup, 50.0 MTEB</td>
-  <td>minishlab/potion-base-8M HuggingFace model card; MinishLab/model2vec GitHub results README; model2vec PyPI</td>
-  <td>high</td>
-  <td>Benchmarks from official source; independently reported</td>
-</tr>
-<tr>
-  <td>all-MiniLM-L6-v2: 80–90 MB, PyTorch dependency, 56.0 MTEB</td>
-  <td>Mixpeek Model Hub; makiai.com; sentence-transformers docs</td>
-  <td>high</td>
-  <td>Multiple independent sources agree on size and MTEB score</td>
-</tr>
-<tr>
-  <td>sqlite-vec pre-v1, breaking changes declared</td>
-  <td><a href="https://github.com/asg017/sqlite-vec">github.com</a> README</td>
-  <td>high</td>
-  <td>Explicitly stated in the repository's README</td>
-</tr>
-<tr>
-  <td>RRF ~10 lines Python, no score calibration needed</td>
-  <td>colehoffer.ai RRF guide; carloodq/rrf GitHub; IR literature</td>
-  <td>high</td>
-  <td>Formula is well-established; implementations verified</td>
-</tr>
-<tr>
-  <td>FTS5 + sqlite-vec coexist in same SQLite database file</td>
-  <td>sqlite-vec GitHub Python docs; web search synthesis</td>
-  <td>high</td>
-  <td>Both use SQLite virtual table mechanism</td>
-</tr>
-<tr>
-  <td>Hybrid retrieval validated at 15,800-file Obsidian vault</td>
-  <td><code>Research/completed/2026-03-01-context-mode-llm-context-compression.md</code> Key Finding 6</td>
-  <td>medium</td>
-  <td>Single practitioner; plausible, consistent with IR literature</td>
-</tr>
-<tr>
-  <td>Phase 2 threshold: 100 items</td>
-  <td>Inference from corpus trajectory and query failure mode analysis</td>
-  <td>medium</td>
-  <td>Not empirically measured; threshold is a planning heuristic</td>
-</tr>
-<tr>
-  <td>ADR required for model2vec + sqlite-vec</td>
-  <td>Derived from AGENTS.md convention (new external dependency requires ADR)</td>
-  <td>high</td>
-  <td>ADR convention is established practice in this repo</td>
-</tr>
-</tbody>
-</table>
 <h3>Assumptions</h3>
 <ul>
 <li><strong>Assumption:</strong> The author queries their own corpus using the vocabulary they wrote, making vocabulary mismatch rare at small scale. <strong>Justification:</strong> Single-owner corpus; author wrote every item and reads them during the research loop. This assumption weakens as the corpus grows and older items fade from memory.</li>

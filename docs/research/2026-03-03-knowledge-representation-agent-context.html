@@ -572,18 +572,16 @@ main {
   <div class="nav-inner">
     <a class="nav-brand" href="/Research/">Research</a>
     <div class="nav-links">
-      <a href="/Research/browse.html">Browse</a>
       <a href="/Research/threads.html">Threads</a>
       <a href="/Research/tags/">Tags</a>
       <a href="/Research/search.html">Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
 </nav>
 <main>
   <div class="breadcrumb">
     <a href="/Research/">Research</a>
-    <span>/</span>
-    <a href="/Research/browse.html">Browse</a>
     <span>/</span>
     <span>Knowledge Representation for Agent Context</span>
   </div>
@@ -642,91 +640,6 @@ main {
 <li><p><strong>The convergent architecture (embeddings + knowledge graph + graph-traversal reasoning) is the highest-quality long-term path.</strong> Dense embeddings index into the knowledge graph; the graph provides relational structure; PPR or GoT traversal provides the reasoning scaffold for multi-hop queries. Demonstrated in HippoRAG (NeurIPS 2024) and KGoT (ETH Zurich 2024). Practical stack: Model2Vec (sqlite-vec) + LightRAG (NetworkX) + PPR for multi-hop queries. <strong>Confidence: high.</strong></p>
 </li>
 </ol>
-<h3>Evidence Map</h3>
-<table>
-<thead>
-<tr>
-  <th>Claim</th>
-  <th>Source</th>
-  <th>Confidence</th>
-  <th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>Dense embeddings outperform LSA on MTEB</td>
-  <td>MTEB benchmark; markaicode.com embedding comparison (2024)</td>
-  <td>high</td>
-  <td>Multiple independent sources</td>
-</tr>
-<tr>
-  <td>GraphRAG outperforms standard RAG on global queries</td>
-  <td>Edge et al. arXiv:2404.16130</td>
-  <td>high</td>
-  <td>Primary source; peer-reviewed at Microsoft Research</td>
-</tr>
-<tr>
-  <td>GraphRAG requires full rebuild for incremental updates</td>
-  <td>arXiv:2410.05779 (LightRAG framing); GraphRAG docs</td>
-  <td>high</td>
-  <td>Architectural fact, confirmed across sources</td>
-</tr>
-<tr>
-  <td>LightRAG 10–100× lower token costs, matching accuracy</td>
-  <td>arXiv:2410.05779; EMNLP 2025</td>
-  <td>high</td>
-  <td>Primary source with benchmark data</td>
-</tr>
-<tr>
-  <td>HippoRAG +20% multi-hop QA, 10–30× cheaper</td>
-  <td>arXiv:2405.14831; NeurIPS 2024</td>
-  <td>high</td>
-  <td>Peer-reviewed primary source</td>
-</tr>
-<tr>
-  <td>RAPTOR +20pp on QuALITY, F1 55.7% on QASPER</td>
-  <td>arXiv:2401.18059; ICLR 2024</td>
-  <td>high</td>
-  <td>Peer-reviewed primary source</td>
-</tr>
-<tr>
-  <td>Concept maps not machine-readable for agent retrieval</td>
-  <td>realkm.com (2024); NVIDIA KG+LLM blog</td>
-  <td>high</td>
-  <td>Consistent across practitioner and academic sources</td>
-</tr>
-<tr>
-  <td>KG subsumes concept map navigability for machine use</td>
-  <td>NVIDIA KG+LLM blog; MDPI KG+LLM survey (2025)</td>
-  <td>high</td>
-  <td>Multiple independent sources</td>
-</tr>
-<tr>
-  <td>RRF native in all major vector search engines</td>
-  <td>Azure AI Search docs; Milvus; MongoDB Atlas (2024)</td>
-  <td>high</td>
-  <td>Verified across 6+ platforms</td>
-</tr>
-<tr>
-  <td>KG construction &lt;$1 for 500 items</td>
-  <td>Estimated from arXiv:2410.05779 token benchmarks</td>
-  <td>medium</td>
-  <td>Estimate; depends on model choice</td>
-</tr>
-<tr>
-  <td>Five-layer architecture maps onto Letta framework</td>
-  <td>Letta blog; 2026-03-02-agent-memory-management-context-injection.md KF12</td>
-  <td>high</td>
-  <td>Internal consistency across research items</td>
-</tr>
-<tr>
-  <td>Knowledge rot risk for AI/ML items &gt;12–18 months</td>
-  <td>Enterprise wiki post-mortems; Zep/Graphiti temporal design</td>
-  <td>medium</td>
-  <td>No domain-specific timing data; extrapolated</td>
-</tr>
-</tbody>
-</table>
 <h3>Assumptions</h3>
 <ul>
 <li><strong>Assumption:</strong> Dense embeddings at &lt;500 items are computationally feasible on CPU with local models (Model2Vec). <strong>Justification:</strong> Demonstrated in the context-mode research item by a practitioner running Model2Vec on a 49,746-chunk Obsidian vault without GPU.</li>

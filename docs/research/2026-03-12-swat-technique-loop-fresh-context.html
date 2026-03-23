@@ -572,18 +572,16 @@ main {
   <div class="nav-inner">
     <a class="nav-brand" href="/Research/">Research</a>
     <div class="nav-links">
-      <a href="/Research/browse.html">Browse</a>
       <a href="/Research/threads.html">Threads</a>
       <a href="/Research/tags/">Tags</a>
       <a href="/Research/search.html">Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
 </nav>
 <main>
   <div class="breadcrumb">
     <a href="/Research/">Research</a>
-    <span>/</span>
-    <a href="/Research/browse.html">Browse</a>
     <span>/</span>
     <span>SWAT technique in a fresh-context loop</span>
   </div>
@@ -629,109 +627,6 @@ main {
 <li><p>The most effective single mitigation across all three conditions is restoring a human review gate at the SWAT output boundary, which eliminates blind acceptance  -  the mechanism that converts every other failure mode from correctable to compounding. [Confidence: High]</p>
 </li>
 </ol>
-<h3>Evidence Map</h3>
-<table>
-<thead>
-<tr>
-  <th>Claim</th>
-  <th>Source</th>
-  <th>Confidence</th>
-  <th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>Fresh context eliminates cross-iteration memory</td>
-  <td>2026-03-08-context-engineering-first-principles.md [x]</td>
-  <td>High</td>
-  <td>Open-loop single-turn calls cannot detect goal-level drift</td>
-</tr>
-<tr>
-  <td>Goal drift confirmed empirically in multi-step agentic systems</td>
-  <td>arXiv:2603.03258, via 2026-03-12-failure-mode-taxonomy-expansion.md [x]</td>
-  <td>High</td>
-  <td>Multiple frontier models</td>
-</tr>
-<tr>
-  <td>Sycophancy rate 61.75% for preemptive rebuttals</td>
-  <td>SycEval AIES 2025, Fanous et al. [x]</td>
-  <td>High</td>
-  <td>3 frontier models; AMPS + MedQuad datasets</td>
-</tr>
-<tr>
-  <td>Sycophancy persistence 78.5%</td>
-  <td>SycEval AIES 2025 [x]</td>
-  <td>High</td>
-  <td>95% CI [77.2%, 79.8%]</td>
-</tr>
-<tr>
-  <td>Sycophancy from RLHF H-Neuron mechanism</td>
-  <td>2026-03-12-failure-mode-taxonomy-expansion.md [x]</td>
-  <td>High</td>
-  <td>Primary: arXiv:2512.01797</td>
-</tr>
-<tr>
-  <td>Over-helpfulness under uncertainty: models fill gaps with plausible alternatives</td>
-  <td>arXiv:2512.07497 [x]</td>
-  <td>High</td>
-  <td>900 agentic execution traces</td>
-</tr>
-<tr>
-  <td>Context pollution vulnerability</td>
-  <td>arXiv:2512.07497 [x]</td>
-  <td>High</td>
-  <td>Archetype 3; cross-model</td>
-</tr>
-<tr>
-  <td>Layer 5→1 cascade: context overflow enables hallucination</td>
-  <td>2026-03-12-failure-mode-taxonomy-expansion.md [x]</td>
-  <td>Medium</td>
-  <td>Well-documented; no controlled ablation</td>
-</tr>
-<tr>
-  <td>RAG models hallucinate less, generate more factual text</td>
-  <td>Lewis et al. (2020) arXiv:2005.11401 [x]</td>
-  <td>High</td>
-  <td>NeurIPS 2020, peer-reviewed</td>
-</tr>
-<tr>
-  <td>RAG dramatically reduces hallucination rates in conversation</td>
-  <td>Shuster et al. (2021) arXiv:2104.07567 [x]</td>
-  <td>High</td>
-  <td>EMNLP Findings 2021, peer-reviewed</td>
-</tr>
-<tr>
-  <td>Interaction context increases sycophancy</td>
-  <td>arXiv:2509.12517 (CHI 2026) [x]</td>
-  <td>High</td>
-  <td>Multiple frontier models</td>
-</tr>
-<tr>
-  <td>Retrieval inconsistency: different iterations retrieve different results</td>
-  <td><a href="https://milvus.io/ai-quick-reference/what-are-some-failure-modes-of-grounding-like-contradictory-documents-retrieved-or-no-relevant-document-retrieved-and-how-do-these-manifest-in-the-final-answer">milvus.io</a> [x]; <a href="https://dev.to/kuldeep_paul/ten-failure-modes-of-rag-nobody-talks-about-and-how-to-detect-them-systematically-7i4">dev.to</a> [x]</td>
-  <td>Medium</td>
-  <td>Practitioner sources; well-attested pattern</td>
-</tr>
-<tr>
-  <td>Semantic mismatch: analytical queries differ from document vocabulary</td>
-  <td><a href="https://www.letsdatascience.com/blog/agentic-rag-self-correcting-retrieval">www.letsdatascience.com</a> [x]</td>
-  <td>Medium</td>
-  <td>Secondary practitioner source</td>
-</tr>
-<tr>
-  <td>Recency/popularity bias in web retrieval</td>
-  <td>arXiv:2602.06176 [x]</td>
-  <td>Medium</td>
-  <td>Mechanism; applied to retrieval by inference</td>
-</tr>
-<tr>
-  <td>Index staleness as RAG failure mode</td>
-  <td><a href="https://dev.to/kuldeep_paul/ten-failure-modes-of-rag-nobody-talks-about-and-how-to-detect-them-systematically-7i4">dev.to</a> [x]</td>
-  <td>Medium</td>
-  <td>Practitioner documentation</td>
-</tr>
-</tbody>
-</table>
 <h3>Assumptions</h3>
 <ul>
 <li><strong>Assumption:</strong> The SycEval preemptive rebuttal condition is a valid structural analogue for SWAT's critique-before-challenge prompt design. <strong>Justification:</strong> Both involve prompting the model to generate challenges before any specific human challenge is posed. The structural correspondence is close enough to treat the 61.75% finding as applicable; this assumption is explicitly labelled throughout.</li>

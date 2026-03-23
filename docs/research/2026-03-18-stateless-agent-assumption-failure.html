@@ -572,18 +572,16 @@ main {
   <div class="nav-inner">
     <a class="nav-brand" href="/Research/">Research</a>
     <div class="nav-links">
-      <a href="/Research/browse.html">Browse</a>
       <a href="/Research/threads.html">Threads</a>
       <a href="/Research/tags/">Tags</a>
       <a href="/Research/search.html">Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
 </nav>
 <main>
   <div class="breadcrumb">
     <a href="/Research/">Research</a>
-    <span>/</span>
-    <a href="/Research/browse.html">Browse</a>
     <span>/</span>
     <span>Stateless-agent assumption failure</span>
   </div>
@@ -629,61 +627,6 @@ main {
 <li><strong>High confidence — [inference]:</strong> Idempotent side effects with at-least-once retry semantics are a better default for agent workflows than literal exactly-once guarantees, because repositories, workflow engines, human review steps, and tool Application Programming Interfaces (APIs) do not share one transaction boundary that a single coordinator can enforce. (Sources: <a href="https://aws-samples.github.io/eda-on-aws/concepts/idempotency/">AWS idempotency guidance</a>; <a href="https://www.rabbitmq.com/docs/reliability">RabbitMQ reliability</a>; <a href="https://docs.confluent.io/kafka/design/delivery-semantics.html">Kafka delivery semantics</a>; <a href="https://microservices.io/patterns/communication-style/idempotent-consumer.html">microservices.io idempotent consumer</a>)</li>
 <li><strong>Medium confidence — [inference]:</strong> Saga-style compensation and dead-letter or manual-review paths become necessary when an agent workflow performs multi-step external mutations whose partial completion cannot be made atomic, because recovery must then undo or quarantine inconsistent intermediate state rather than merely retrying the last step. (Sources: <a href="https://microservices.io/patterns/data/saga.html">microservices.io saga</a>; <a href="https://docs.temporal.io/workflow-execution">Temporal Workflow Execution</a>)</li>
 </ol>
-<h3>Evidence Map</h3>
-<table>
-<thead>
-<tr>
-  <th>Claim</th>
-  <th>Source</th>
-  <th>Confidence</th>
-  <th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>Stateless-agent assumption failure is a Layer 5 operational subtype</td>
-  <td><a href="Research/completed/2026-03-12-failure-mode-taxonomy-expansion.md">Failure mode taxonomy expansion</a>; <a href="Research/completed/2026-03-08-context-engineering-first-principles.md">Context engineering: first principles</a></td>
-  <td>high</td>
-  <td>Internal prior work fixes the boundary against context overflow and instruction conflict</td>
-</tr>
-<tr>
-  <td>Frameworks productise persistence and resumability</td>
-  <td><a href="https://docs.langchain.com/oss/python/langgraph/persistence">LangGraph Persistence</a>; <a href="https://docs.langchain.com/oss/python/langgraph/durable-execution">LangGraph Durable Execution</a>; <a href="https://openai.github.io/openai-agents-python/quickstart/">OpenAI Agents SDK Quickstart</a>; <a href="https://docs.temporal.io/workflow-execution">Temporal Workflow Execution</a></td>
-  <td>high</td>
-  <td>Independent official docs converge on the same need</td>
-</tr>
-<tr>
-  <td>No canonical shared name exists yet</td>
-  <td><a href="https://docs.langchain.com/oss/python/langgraph/persistence">LangGraph Persistence</a>; <a href="https://developers.openai.com/cookbook/examples/agents_sdk/session_memory">OpenAI Agents SDK session memory cookbook</a>; <a href="https://temporal.io/blog/what-is-durable-execution">Temporal durable execution</a></td>
-  <td>medium</td>
-  <td>Evidence is terminological and therefore indirect</td>
-</tr>
-<tr>
-  <td>Long workflows increase exposure</td>
-  <td><a href="https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/">METR — Measuring AI Ability to Complete Long Tasks</a></td>
-  <td>medium</td>
-  <td>Supports rising interruption and failure exposure, not a direct incident count for this subtype</td>
-</tr>
-<tr>
-  <td>Detection must span repository, workflow, and metadata layers</td>
-  <td><a href=".github/workflows/research-loop.yml">.github/workflows/research-loop.yml</a>; <a href=".github/workflows/research-review.yml">.github/workflows/research-review.yml</a>; <a href="src/research/item.py">src/research/item.py</a></td>
-  <td>high</td>
-  <td>Primary repository evidence</td>
-</tr>
-<tr>
-  <td>Idempotent retry is the best-supported baseline for agent workflows</td>
-  <td><a href="https://aws-samples.github.io/eda-on-aws/concepts/idempotency/">AWS idempotency guidance</a>; <a href="https://www.rabbitmq.com/docs/reliability">RabbitMQ reliability</a>; <a href="https://docs.confluent.io/kafka/design/delivery-semantics.html">Kafka delivery semantics</a>; <a href="https://microservices.io/patterns/communication-style/idempotent-consumer.html">microservices.io idempotent consumer</a></td>
-  <td>high</td>
-  <td>This row captures the supported engineering conclusion rather than a broker-native guarantee</td>
-</tr>
-<tr>
-  <td>Compensation is required for non-atomic multi-step mutation</td>
-  <td><a href="https://microservices.io/patterns/data/saga.html">microservices.io saga</a>; <a href="https://docs.temporal.io/workflow-execution">Temporal Workflow Execution</a></td>
-  <td>medium</td>
-  <td>Strong for the pattern; the agent-workflow mapping remains inferential</td>
-</tr>
-</tbody>
-</table>
 <h3>Assumptions</h3>
 <ul>
 <li><strong>[assumption]</strong> No public benchmark currently isolates this failure under the exact label &quot;stateless-agent assumption failure.&quot; The reviewed public sources expose adjacent categories such as checkpointing, replay, persistence, or session memory instead.</li>

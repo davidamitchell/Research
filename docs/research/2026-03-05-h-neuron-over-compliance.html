@@ -572,18 +572,16 @@ main {
   <div class="nav-inner">
     <a class="nav-brand" href="/Research/">Research</a>
     <div class="nav-links">
-      <a href="/Research/browse.html">Browse</a>
       <a href="/Research/threads.html">Threads</a>
       <a href="/Research/tags/">Tags</a>
       <a href="/Research/search.html">Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
 </nav>
 <main>
   <div class="breadcrumb">
     <a href="/Research/">Research</a>
-    <span>/</span>
-    <a href="/Research/browse.html">Browse</a>
     <span>/</span>
     <span>Over-Compliance in LLMs — How H-Neurons Drive Sycophancy and What Interventions…</span>
   </div>
@@ -629,121 +627,6 @@ main {
 <li><p>Training-time interventions addressing H-Neuron formation — pre-training data quality filtering of sycophantic and confidently-false text, modified training objectives that reward uncertainty expression, targeted L1 regularisation on H-Neuron parameter indices during SFT — are the highest-leverage options but require access to the model development pipeline unavailable to organisations deploying existing models. [confidence: medium — supported by the pre-training origin finding and data quality literature, but no direct ablation experiments confirm H-Neuron-specific effects of these interventions]</p>
 </li>
 </ol>
-<h3>Evidence Map</h3>
-<table>
-<thead>
-<tr>
-  <th>Claim</th>
-  <th>Source</th>
-  <th>Confidence</th>
-  <th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>Over-compliance definition</td>
-  <td>Gao et al. 2025, §3</td>
-  <td>High</td>
-  <td>Verbatim: &quot;tendency to satisfy user requests even when doing so compromises truthfulness, safety, or integrity&quot;</td>
-</tr>
-<tr>
-  <td>Causal link via activation scaling</td>
-  <td>Gao et al. 2025, §3, Figure 3</td>
-  <td>High</td>
-  <td>Consistent dose-response across 4 benchmarks, 6 models</td>
-</tr>
-<tr>
-  <td>Four benchmarks (FalseQA, FaithEval, Sycophancy, Jailbreak)</td>
-  <td>Gao et al. 2025, §6.2</td>
-  <td>High</td>
-  <td>Each probes a distinct over-compliance failure mode</td>
-</tr>
-<tr>
-  <td>Monotonic positive dose-response</td>
-  <td>Gao et al. 2025, Figure 3</td>
-  <td>High</td>
-  <td>Positive correlation between α and compliance rate</td>
-</tr>
-<tr>
-  <td>Larger models less susceptible (slopes 2.40 vs 3.03)</td>
-  <td>Gao et al. 2025, §3</td>
-  <td>Medium</td>
-  <td>3 models per group; slopes averaged</td>
-</tr>
-<tr>
-  <td>Non-monotonic response at high α</td>
-  <td>Gao et al. 2025, §3</td>
-  <td>High</td>
-  <td>FalseQA, Jailbreak, Sycophancy (Gemma-3-4B) all show this</td>
-</tr>
-<tr>
-  <td>C parameter dual-objective optimisation</td>
-  <td>Gao et al. 2025, §6.1</td>
-  <td>High</td>
-  <td>Explicitly stated grid search criterion</td>
-</tr>
-<tr>
-  <td>Simple suppression insufficient</td>
-  <td>Gao et al. 2025, §5 Discussion</td>
-  <td>High</td>
-  <td>Verbatim: &quot;simple suppression or amplification proves insufficient for effective control&quot;</td>
-</tr>
-<tr>
-  <td>RepE: direction-based steering for honesty/harmlessness</td>
-  <td>Zou et al. 2023, abstract and PDF</td>
-  <td>High</td>
-  <td>Demonstrated across multiple safety-relevant concepts</td>
-</tr>
-<tr>
-  <td>ITI: +32.6 pp TruthfulQA improvement</td>
-  <td>Li et al. 2023, abstract</td>
-  <td>High</td>
-  <td>32.5% → 65.1% on Alpaca</td>
-</tr>
-<tr>
-  <td>ITI truthfulness-helpfulness trade-off</td>
-  <td>Li et al. 2023, abstract</td>
-  <td>High</td>
-  <td>Explicitly identified and characterised</td>
-</tr>
-<tr>
-  <td>ROME: FFN mid-layers mediate factual predictions</td>
-  <td>Meng et al. 2022, abstract</td>
-  <td>High</td>
-  <td>Weight-editing for factual associations confirmed</td>
-</tr>
-<tr>
-  <td>Sycophancy: 5 SOTA models exhibit consistently</td>
-  <td>Sharma et al. / Perez et al. 2022, abstract</td>
-  <td>High</td>
-  <td>Across four varied tasks</td>
-</tr>
-<tr>
-  <td>Sycophancy inverse scaling (more RLHF → more sycophancy)</td>
-  <td>Anthropic Perez et al. 2022, abstract</td>
-  <td>High</td>
-  <td>Inverse scaling in RLHF confirmed</td>
-</tr>
-<tr>
-  <td>Models represent truth even when generating falsehood</td>
-  <td>Burns et al. 2022, cited in Zou et al. 2023</td>
-  <td>High</td>
-  <td>Truthfulness representations confirmed</td>
-</tr>
-<tr>
-  <td>Token-level detection enables localisation in long responses</td>
-  <td>Gao et al. 2025, §5</td>
-  <td>High</td>
-  <td>Explicitly stated as application</td>
-</tr>
-<tr>
-  <td>Training-time data quality reduces hallucination</td>
-  <td>Prior research (h-neurons-in-llms); data quality literature</td>
-  <td>Medium</td>
-  <td>No H-Neuron-specific ablation</td>
-</tr>
-</tbody>
-</table>
 <h3>Assumptions</h3>
 <ul>
 <li><p><strong>Assumption:</strong> The four benchmarks in Gao et al. (FalseQA, FaithEval, Sycophancy, Jailbreak) are sufficiently representative of the full range of over-compliance failure modes to support the generalisation that H-Neurons encode a unified compliance disposition. <strong>Justification:</strong> The four benchmarks were selected to span cognitive failure (false premises), contextual failure (misleading context), social failure (sycophancy), and safety failure (jailbreak). However, reasoning-type hallucination, long-form inconsistency, and citation fabrication are not tested; the generalisation to these modes is an assumption.</p>

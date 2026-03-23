@@ -572,18 +572,16 @@ main {
   <div class="nav-inner">
     <a class="nav-brand" href="/Research/">Research</a>
     <div class="nav-links">
-      <a href="/Research/browse.html">Browse</a>
       <a href="/Research/threads.html">Threads</a>
       <a href="/Research/tags/">Tags</a>
       <a href="/Research/search.html">Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
 </nav>
 <main>
   <div class="breadcrumb">
     <a href="/Research/">Research</a>
-    <span>/</span>
-    <a href="/Research/browse.html">Browse</a>
     <span>/</span>
     <span>Self-hosted MCP server options</span>
   </div>
@@ -625,91 +623,6 @@ main {
 <li><p>The Claude iOS Connector system supports no-auth (open endpoint) or OAuth 2.1 only; static <code>Authorization: Bearer</code> header tokens are not configurable via the claude.ai connector UI, requiring either a high-entropy URL component (URL-as-secret) or a full OAuth 2.1 implementation as the auth design.</p>
 </li>
 </ol>
-<h3>Evidence Map</h3>
-<table>
-<thead>
-<tr>
-  <th>Claim</th>
-  <th>Source</th>
-  <th>Confidence</th>
-  <th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td><code>add_memory</code> requires only GitHub Contents API, no LanceDB</td>
-  <td>ios-shortcuts-github-api-memory-capture.md Key Finding 1</td>
-  <td>high</td>
-  <td>Write path pattern consistent across all research</td>
-</tr>
-<tr>
-  <td>Cloudflare Workers free: 100k req/day, 10ms CPU</td>
-  <td>developers.cloudflare.com/workers/platform/limits/</td>
-  <td>high</td>
-  <td>Primary source; multi-source confirmed</td>
-</tr>
-<tr>
-  <td>LanceDB not available in Pyodide package set</td>
-  <td>[SOURCE NEEDED]</td>
-  <td>high</td>
-  <td>Pyodide package list; LanceDB has C++ deps</td>
-</tr>
-<tr>
-  <td>Embedding inference 34–177ms exceeds 10ms Workers CPU limit</td>
-  <td>lancedb-index-rebuild-from-git.md Key Finding 3</td>
-  <td>high</td>
-  <td>Direct measurement on native hardware</td>
-</tr>
-<tr>
-  <td>Fly.io Hobby $5/month, free VM allowance covers single 256 MB container</td>
-  <td>fly.io/docs/about/pricing/</td>
-  <td>high</td>
-  <td>Primary documentation</td>
-</tr>
-<tr>
-  <td>Fly.io persistent NVMe volumes survive container restarts</td>
-  <td>fly.io/docs/database-storage-guides/</td>
-  <td>high</td>
-  <td>Primary documentation</td>
-</tr>
-<tr>
-  <td>Pre-computed embeddings: LanceDB startup under 0.2s</td>
-  <td>lancedb-index-rebuild-from-git.md Key Finding 5</td>
-  <td>high</td>
-  <td>Direct measurement at 1000 documents</td>
-</tr>
-<tr>
-  <td>Railway Hobby $5/month with $5 included usage credits</td>
-  <td>docs.railway.com/pricing/plans</td>
-  <td>high</td>
-  <td>Primary source</td>
-</tr>
-<tr>
-  <td>Tailscale Funnel available on free plan with auto-TLS</td>
-  <td>tailscale.com/docs/features/tailscale-funnel</td>
-  <td>high</td>
-  <td>Primary Tailscale documentation</td>
-</tr>
-<tr>
-  <td><code>repository_dispatch</code> returns 204, no synchronous result channel</td>
-  <td><a href="https://docs.github.com/en/rest/repos/repos#create-a-repository-dispatch-event</td>">docs.github.com</a>
-  <td>high</td>
-  <td>Architectural fact</td>
-</tr>
-<tr>
-  <td>Claude iOS Connector supports no-auth or OAuth 2.1 only</td>
-  <td>claude-ios-mcp-remote-integration.md Key Finding 6</td>
-  <td>high</td>
-  <td>Prior research, primary-sourced</td>
-</tr>
-<tr>
-  <td>MCP Python SDK v1.8.0+ supports Streamable HTTP via FastMCP</td>
-  <td>[SOURCE NEEDED]</td>
-  <td>high</td>
-  <td>Primary; SDK changelog confirms</td>
-</tr>
-</tbody>
-</table>
 <h3>Assumptions</h3>
 <ul>
 <li><strong>Assumption:</strong> A Python FastAPI + LanceDB server for a 100–300 item corpus fits within 256 MB RAM when idle. <strong>Justification:</strong> LanceDB index at this scale is under 3 MB (extrapolated from Key Finding 6: 7.74 MB per 1000 documents); FastAPI idle RAM footprint is approximately 30–60 MB; total estimated idle usage is well under 100 MB.</li>

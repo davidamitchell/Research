@@ -572,18 +572,16 @@ main {
   <div class="nav-inner">
     <a class="nav-brand" href="/Research/">Research</a>
     <div class="nav-links">
-      <a href="/Research/browse.html">Browse</a>
       <a href="/Research/threads.html">Threads</a>
       <a href="/Research/tags/">Tags</a>
       <a href="/Research/search.html">Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
 </nav>
 <main>
   <div class="breadcrumb">
     <a href="/Research/">Research</a>
-    <span>/</span>
-    <a href="/Research/browse.html">Browse</a>
     <span>/</span>
     <span>Guiding Headless Agents via LSP-Like Mechanisms for Org Policy Conformance</span>
   </div>
@@ -637,85 +635,6 @@ main {
 <li><p><strong>LSAP's v1.0.0-alpha schema directory contains no policy capability; org policy enforcement is described in promotional material as a future direction enabled by the orchestration layer, not a shipped feature.</strong> (Confidence: high)</p>
 </li>
 </ol>
-<h3>Evidence Map</h3>
-<table>
-<thead>
-<tr>
-  <th>Claim</th>
-  <th>Source</th>
-  <th>Confidence</th>
-  <th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>LSAP is at v1.0.0-alpha, MIT, at github.com/lsp-client/LSAP</td>
-  <td>github.com/lsp-client/LSAP/ (accessed directly)</td>
-  <td>high</td>
-  <td>PyPI package <code>lsap-sdk</code> visible</td>
-</tr>
-<tr>
-  <td>LSAP wraps atomic LSP into cognitive capabilities, Markdown-first</td>
-  <td>lsp-client.github.io/blog/designing-lsap/</td>
-  <td>high</td>
-  <td>Design blog with protocol detail</td>
-</tr>
-<tr>
-  <td>Headless LSP client needs only stdio/TCP, no GUI</td>
-  <td>microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/</td>
-  <td>high</td>
-  <td>Protocol specification</td>
-</tr>
-<tr>
-  <td><code>publishDiagnostics</code> is a server→client notification, no response needed</td>
-  <td>LSP spec v3.17</td>
-  <td>high</td>
-  <td>Protocol specification</td>
-</tr>
-<tr>
-  <td>Lanser-CLI formalises headless LSP for coding agents with process rewards</td>
-  <td>arxiv.org/abs/2510.22907</td>
-  <td>high</td>
-  <td>Peer-reviewed paper, Oct 2025</td>
-</tr>
-<tr>
-  <td>Semgrep has <code>semgrep lsp</code> server mode</td>
-  <td>semgrep.dev + emacs-lsp.github.io/lsp-mode/page/lsp-semgrep/</td>
-  <td>high</td>
-  <td>Official documentation</td>
-</tr>
-<tr>
-  <td>No documented headless agent consuming Semgrep LSP</td>
-  <td>Web search exhaustive</td>
-  <td>medium</td>
-  <td>Absence finding; may exist undocumented</td>
-</tr>
-<tr>
-  <td>OPA has no LSP server interface; vscode-opa is for Rego editing</td>
-  <td>open-policy-agent/vscode-opa GitHub</td>
-  <td>high</td>
-  <td>README confirms editor-only scope</td>
-</tr>
-<tr>
-  <td>LangGraph supports policy checkpoint nodes in workflow graphs</td>
-  <td>langchain.com/langgraph</td>
-  <td>high</td>
-  <td>Official documentation</td>
-</tr>
-<tr>
-  <td>ACP standardises editor-to-agent, in Copilot CLI public preview Jan 2026</td>
-  <td>agentclientprotocol.com; github.blog/changelog/2026-01-28</td>
-  <td>high</td>
-  <td>Official sources</td>
-</tr>
-<tr>
-  <td>LSAP policy enforcement is a future direction, not in v1 schema</td>
-  <td>github.com/lsp-client/LSAP/blob/main/schema</td>
-  <td>high</td>
-  <td>Schema directory inspection via web search</td>
-</tr>
-</tbody>
-</table>
 <h3>Assumptions</h3>
 <ul>
 <li><strong>Assumption:</strong> Semgrep LSP server can be consumed by a headless agent using standard LSP wire protocol. <strong>Justification:</strong> The LSP spec makes no mention of requiring an IDE host on the client side; the JSON-RPC transport over stdio works for any process. No evidence contradicts this; no production deployment confirms it.</li>

@@ -572,18 +572,16 @@ main {
   <div class="nav-inner">
     <a class="nav-brand" href="/Research/">Research</a>
     <div class="nav-links">
-      <a href="/Research/browse.html">Browse</a>
       <a href="/Research/threads.html">Threads</a>
       <a href="/Research/tags/">Tags</a>
       <a href="/Research/search.html">Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
 </nav>
 <main>
   <div class="breadcrumb">
     <a href="/Research/">Research</a>
-    <span>/</span>
-    <a href="/Research/browse.html">Browse</a>
     <span>/</span>
     <span>Slack as a mobile memory capture and retrieval channel</span>
   </div>
@@ -638,97 +636,6 @@ main {
 <li><p><strong>iOS Shortcuts (direct GitHub Contents API write from lock screen) and a Slack bot capture path are complementary surfaces: Shortcuts handles spontaneous ambient capture from Apple Watch or lock screen; Slack handles deliberate capture with conversational context from within an existing Slack workflow.</strong></p>
 </li>
 </ol>
-<h3>Evidence Map</h3>
-<table>
-<thead>
-<tr>
-  <th>Claim</th>
-  <th>Source</th>
-  <th>Confidence</th>
-  <th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>Socket Mode available on free workspace</td>
-  <td>Slack Help Center; Slack Socket Mode docs</td>
-  <td>high</td>
-  <td>Both primary sources confirm</td>
-</tr>
-<tr>
-  <td>10-app integration limit on free workspace</td>
-  <td>Slack Help Center free plan limits</td>
-  <td>high</td>
-  <td>Primary source</td>
-</tr>
-<tr>
-  <td>90-day history limit irrelevant to GitHub-backed memory</td>
-  <td>Inference from architecture; Slack Help Center</td>
-  <td>high</td>
-  <td>Mechanistically sound</td>
-</tr>
-<tr>
-  <td>Events API 30,000/hour; chat.postMessage 1 msg/sec</td>
-  <td>Slack rate limits docs</td>
-  <td>high</td>
-  <td>Primary source</td>
-</tr>
-<tr>
-  <td>Socket Mode: no public URL, outbound WebSocket</td>
-  <td>Slack Socket Mode docs (docs.slack.dev)</td>
-  <td>high</td>
-  <td>Primary source</td>
-</tr>
-<tr>
-  <td>Required scopes for capture + retrieval</td>
-  <td>Slack scope reference docs</td>
-  <td>high</td>
-  <td>Primary source</td>
-</tr>
-<tr>
-  <td>3-second ACK resolved by ack() + respond()</td>
-  <td>Slack slash commands docs; Vercel Academy</td>
-  <td>high</td>
-  <td>Two independent primary sources</td>
-</tr>
-<tr>
-  <td>Capture implementation pattern (Bolt + GitHub API)</td>
-  <td>Slack Bolt for Python docs; GitHub REST API docs</td>
-  <td>medium</td>
-  <td>Pattern established; no live test</td>
-</tr>
-<tr>
-  <td>Railway/Render always-on failure</td>
-  <td>Platform docs; web search 2024–2025</td>
-  <td>high</td>
-  <td>Multiple sources agree</td>
-</tr>
-<tr>
-  <td>Fly.io free tier removed for new accounts Oct 2024</td>
-  <td>Fly.io changelog; srvrlss.io blog</td>
-  <td>high</td>
-  <td>Two independent sources</td>
-</tr>
-<tr>
-  <td>Oracle Cloud ARM A1 Always Free genuinely always-on</td>
-  <td>Oracle Always Free docs; community corroboration</td>
-  <td>high</td>
-  <td>Primary + multiple secondary sources</td>
-</tr>
-<tr>
-  <td>Capture latency 200 ms–1 s</td>
-  <td>Inference: Socket Mode docs + GitHub API performance</td>
-  <td>medium</td>
-  <td>No single published benchmark</td>
-</tr>
-<tr>
-  <td>Telegram equivalent (long-polling, no limit)</td>
-  <td>Telegram Bot API; Slack vs Telegram comparison</td>
-  <td>high</td>
-  <td>Well-established pattern</td>
-</tr>
-</tbody>
-</table>
 <h3>Assumptions</h3>
 <ul>
 <li><strong>Assumption:</strong> The user has a Slack workspace or is willing to create one. <strong>Justification:</strong> Research is conditional on Slack being used; without a workspace, Telegram is unambiguously better.</li>

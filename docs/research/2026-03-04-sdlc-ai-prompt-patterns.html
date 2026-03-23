@@ -572,18 +572,16 @@ main {
   <div class="nav-inner">
     <a class="nav-brand" href="/Research/">Research</a>
     <div class="nav-links">
-      <a href="/Research/browse.html">Browse</a>
       <a href="/Research/threads.html">Threads</a>
       <a href="/Research/tags/">Tags</a>
       <a href="/Research/search.html">Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
 </nav>
 <main>
   <div class="breadcrumb">
     <a href="/Research/">Research</a>
-    <span>/</span>
-    <a href="/Research/browse.html">Browse</a>
     <span>/</span>
     <span>Emergent Patterns in Software Engineering Prompts and SDLC Guidance</span>
   </div>
@@ -637,85 +635,6 @@ main {
 <li><p><strong>Aider's published prompting principles — provide only relevant files, decompose goals into single steps, plan before generating code — encode context-selection and batch-size discipline that directly counteracts the DORA-observed stability degradation caused by AI-generated large code batches.</strong> Source: aider.chat/docs/usage/tips.html. Confidence: medium (practitioner documentation, not controlled study).</p>
 </li>
 </ol>
-<h3>Evidence Map</h3>
-<table>
-<thead>
-<tr>
-  <th>Claim</th>
-  <th>Source</th>
-  <th>Confidence</th>
-  <th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>55.8% faster task completion with Copilot</td>
-  <td>Peng et al. 2023, arXiv:2302.06590</td>
-  <td>high</td>
-  <td>Build phase only, JavaScript HTTP server task</td>
-</tr>
-<tr>
-  <td>SCoT +13.79% Pass@1 over CoT</td>
-  <td>Li et al. 2023, arXiv:2305.06599</td>
-  <td>high</td>
-  <td>HumanEval, MBPP, MBCPP benchmarks</td>
-</tr>
-<tr>
-  <td>Prompt patterns as software patterns</td>
-  <td>White et al. 2023, arXiv:2302.11382</td>
-  <td>high</td>
-  <td>Pattern catalog, CS.SE paper</td>
-</tr>
-<tr>
-  <td>Bimodal use: acceleration vs. exploration</td>
-  <td>Barke et al. 2022, arXiv:2206.15000</td>
-  <td>high</td>
-  <td>Grounded theory, 20 participants</td>
-</tr>
-<tr>
-  <td>Copilot Workspace phase-aware flow</td>
-  <td>GitHub Blog, github.blog/news-insights/product-news/github-copilot-workspace/</td>
-  <td>high</td>
-  <td>April 2024 technical preview</td>
-</tr>
-<tr>
-  <td>DORA AI effects on throughput and stability</td>
-  <td>DORA 2024, services.google.com/fh/files/misc/dora_one_pager_2024.pdf</td>
-  <td>high</td>
-  <td>75%+ respondents using AI daily</td>
-</tr>
-<tr>
-  <td>Context file ecosystem fragmentation</td>
-  <td>everydev.ai; aruniyer.github.io</td>
-  <td>medium</td>
-  <td>Practitioner accounts, no formal study</td>
-</tr>
-<tr>
-  <td>MCP prompts primitive capability</td>
-  <td>modelcontextprotocol.io/docs/learn/server-concepts</td>
-  <td>high</td>
-  <td>Primary protocol documentation</td>
-</tr>
-<tr>
-  <td>62% using AI; 43% trust AI output</td>
-  <td>Stack Overflow 2024, survey.stackoverflow.co/2024/ai</td>
-  <td>high</td>
-  <td>Survey statistics, ~65,000 respondents</td>
-</tr>
-<tr>
-  <td>Aider context-selection principles</td>
-  <td>Aider docs, aider.chat/docs/usage/tips.html</td>
-  <td>medium</td>
-  <td>Practitioner documentation</td>
-</tr>
-<tr>
-  <td>CoT improves complex reasoning at scale</td>
-  <td>Wei et al. 2022, arXiv:2201.11903</td>
-  <td>high</td>
-  <td>Controlled experiments on three LLMs</td>
-</tr>
-</tbody>
-</table>
 <h3>Assumptions</h3>
 <ul>
 <li><p><strong>Assumption:</strong> The eight-phase SDLC taxonomy used here (Discovery, Requirements, Design, Planning, Building, Testing, Reviewing, Iteration) is a reasonable working decomposition. <strong>Justification:</strong> No universally standardised taxonomy exists; this decomposition aligns with the GitHub Copilot Workspace flow and the phases distinguishable by their dominant prompt mode (exploration vs. acceleration). Different organisations may use fewer phases without invalidating the underlying pattern-to-phase mapping.</p>

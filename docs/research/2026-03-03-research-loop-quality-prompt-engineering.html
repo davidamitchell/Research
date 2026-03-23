@@ -572,18 +572,16 @@ main {
   <div class="nav-inner">
     <a class="nav-brand" href="/Research/">Research</a>
     <div class="nav-links">
-      <a href="/Research/browse.html">Browse</a>
       <a href="/Research/threads.html">Threads</a>
       <a href="/Research/tags/">Tags</a>
       <a href="/Research/search.html">Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
 </nav>
 <main>
   <div class="breadcrumb">
     <a href="/Research/">Research</a>
-    <span>/</span>
-    <a href="/Research/browse.html">Browse</a>
     <span>/</span>
     <span>Evaluating and improving autonomous research loop quality</span>
   </div>
@@ -629,79 +627,6 @@ main {
 <li><p>Fifteen items in <code>Research/completed/</code> (pre-2026-03-03) have suboptimal source coverage due to the pre-Research Skill Output prompt. A targeted re-enrichment pass on the strategically most important items is a separate task worth adding to the backlog. <strong>[medium confidence]</strong></p>
 </li>
 </ol>
-<h3>Evidence Map</h3>
-<table>
-<thead>
-<tr>
-  <th>Claim</th>
-  <th>Source</th>
-  <th>Confidence</th>
-  <th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>Research Skill Output section increases avg sources checked from 3.1 to 12.8</td>
-  <td>Corpus audit: 20 items inspected</td>
-  <td>high</td>
-  <td>Direct measurement from checklist counts</td>
-</tr>
-<tr>
-  <td>40% of items have some sources unchecked</td>
-  <td>Corpus audit: 8/20 items with unchecked</td>
-  <td>high</td>
-  <td>Direct count</td>
-</tr>
-<tr>
-  <td>20% of items have all sources unchecked</td>
-  <td>Corpus audit: 4/20 items all unchecked</td>
-  <td>high</td>
-  <td>ai-line-1, ai-strategy-risk, indexing, information-synthesis</td>
-</tr>
-<tr>
-  <td>Priority ordering correct and respected</td>
-  <td><code>research-prompt.md</code> Step 1; 2026-03-03 execution order</td>
-  <td>high</td>
-  <td>Both primary sources agree</td>
-</tr>
-<tr>
-  <td><code>research-prompt.md</code> lacks prior-research instruction</td>
-  <td>Direct inspection of all steps</td>
-  <td>high</td>
-  <td>Absence confirmed by search for &quot;completed&quot;</td>
-</tr>
-<tr>
-  <td>CoT / step decomposition drives quality improvement</td>
-  <td>The Prompt Report arXiv:2406.06608; corpus audit correlation</td>
-  <td>high</td>
-  <td>Literature + empirical evidence</td>
-</tr>
-<tr>
-  <td>Negative constraints better with positive pairing</td>
-  <td>Anthropic prompting guide; web search synthesis</td>
-  <td>medium</td>
-  <td>Practitioner consensus</td>
-</tr>
-<tr>
-  <td>Fabric minimum output counts improve specificity</td>
-  <td>extract_wisdom documentation</td>
-  <td>medium</td>
-  <td>Pattern analysis from single source</td>
-</tr>
-<tr>
-  <td>Four structural checks detect primary failure modes</td>
-  <td>Logical derivation from audit; shell script design</td>
-  <td>high</td>
-  <td>Derived from empirical failure patterns</td>
-</tr>
-<tr>
-  <td>&quot;Lost in the Middle&quot; applies to long prompts</td>
-  <td>arXiv:2307.03172 (Liu et al., Stanford 2023)</td>
-  <td>medium</td>
-  <td>Different model than Copilot CLI; applicable in principle</td>
-</tr>
-</tbody>
-</table>
 <h3>Assumptions</h3>
 <ul>
 <li><strong>Assumption:</strong> The model follows the revised prompt's instructions at quality comparable to the 2026-03-03 items. <strong>Justification:</strong> The 2026-03-03 items demonstrate the model is capable of compliance with multi-step structured instructions; proposed additions are incremental extensions.</li>

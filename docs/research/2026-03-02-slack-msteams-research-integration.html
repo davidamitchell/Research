@@ -572,18 +572,16 @@ main {
   <div class="nav-inner">
     <a class="nav-brand" href="/Research/">Research</a>
     <div class="nav-links">
-      <a href="/Research/browse.html">Browse</a>
       <a href="/Research/threads.html">Threads</a>
       <a href="/Research/tags/">Tags</a>
       <a href="/Research/search.html">Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
 </nav>
 <main>
   <div class="breadcrumb">
     <a href="/Research/">Research</a>
-    <span>/</span>
-    <a href="/Research/browse.html">Browse</a>
     <span>/</span>
     <span>Slack and MS Teams integration for research delivery and capture</span>
   </div>
@@ -637,91 +635,6 @@ main {
 <li><p><strong>Per-item notification is the correct default delivery mode for a personal research system where each completed item is discrete and actionable; the weekly digest is an additive option, not a replacement.</strong></p>
 </li>
 </ol>
-<h3>Evidence Map</h3>
-<table>
-<thead>
-<tr>
-  <th>Claim</th>
-  <th>Source</th>
-  <th>Confidence</th>
-  <th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td><code>slackapi/slack-github-action@v2.1.1</code> is the current recommended action</td>
-  <td>github.com/slackapi/slack-github-action README; 8398a7/action-slack archive notice</td>
-  <td>high</td>
-  <td>Both sources agree</td>
-</tr>
-<tr>
-  <td><code>8398a7/action-slack</code> archived 2025-09-13</td>
-  <td>github.com/8398a7/action-slack (direct fetch)</td>
-  <td>high</td>
-  <td>Primary source; explicit archive notice</td>
-</tr>
-<tr>
-  <td>Outbound Slack requires <code>SLACK_WEBHOOK_URL</code> as the only new secret</td>
-  <td>api.slack.com/messaging/webhooks; slackapi/slack-github-action docs</td>
-  <td>high</td>
-  <td>Confirmed by both sources</td>
-</tr>
-<tr>
-  <td>MS Teams connectors deprecated; Power Automate is the replacement</td>
-  <td>learn.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook (updated 2025-06-10)</td>
-  <td>high</td>
-  <td>Primary Microsoft source; confirmed deprecation</td>
-</tr>
-<tr>
-  <td>Power Automate webhook URL is functionally equivalent to old connector URL</td>
-  <td>Microsoft Learn, same page</td>
-  <td>high</td>
-  <td>Described in the replacement instructions</td>
-</tr>
-<tr>
-  <td>Slack slash commands require 3-second HTTPS response</td>
-  <td>api.slack.com/interactivity/slash-commands</td>
-  <td>high</td>
-  <td>Slack developer documentation (partially fetched)</td>
-</tr>
-<tr>
-  <td>GitHub Actions workflow_dispatch latency exceeds 3 seconds</td>
-  <td>GitHub Actions queue behaviour; established community knowledge</td>
-  <td>medium</td>
-  <td>Not independently cited in a single source; derived from known Actions behaviour</td>
-</tr>
-<tr>
-  <td>GitHub issue → workflow inbound capture requires zero new secrets</td>
-  <td>Direct inference from <code>GITHUB_TOKEN</code> capability + <code>publish-wiki.yml</code> pattern</td>
-  <td>high</td>
-  <td><code>GITHUB_TOKEN</code> with <code>contents: write</code> confirmed sufficient by wiki item</td>
-</tr>
-<tr>
-  <td><code>publish-wiki.yml</code> trigger pattern is reusable</td>
-  <td>Direct file inspection: <code>.github/workflows/publish-wiki.yml</code></td>
-  <td>high</td>
-  <td>Confirmed by reading the file</td>
-</tr>
-<tr>
-  <td><code>src/wiki/publish.py</code> <code>load_frontmatter()</code> is reusable</td>
-  <td>Direct file inspection: <code>src/wiki/publish.py</code></td>
-  <td>high</td>
-  <td>Confirmed by reading the file</td>
-</tr>
-<tr>
-  <td>Query-in-chat requires persistent bot server</td>
-  <td>2026-03-02-chat-conversational-interface.md Key Finding 2; MCP stdio transport spec</td>
-  <td>high</td>
-  <td>Cross-confirmed by two sources</td>
-</tr>
-<tr>
-  <td>Per-item notification is correct default for personal system</td>
-  <td>Inference from user interaction model</td>
-  <td>medium</td>
-  <td>No independent source; derived from context</td>
-</tr>
-</tbody>
-</table>
 <h3>Assumptions</h3>
 <ul>
 <li><p><strong>Assumption:</strong> The owner uses either Slack or MS Teams personally (not as enterprise admin). <strong>Justification:</strong> The research question specifically asks about Slack and MS Teams; if the owner uses neither, the integration question is moot. This assumption is flagged as the top unknown.</p>

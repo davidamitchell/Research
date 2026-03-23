@@ -572,18 +572,16 @@ main {
   <div class="nav-inner">
     <a class="nav-brand" href="/Research/">Research</a>
     <div class="nav-links">
-      <a href="/Research/browse.html">Browse</a>
       <a href="/Research/threads.html">Threads</a>
       <a href="/Research/tags/">Tags</a>
       <a href="/Research/search.html">Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
 </nav>
 <main>
   <div class="breadcrumb">
     <a href="/Research/">Research</a>
-    <span>/</span>
-    <a href="/Research/browse.html">Browse</a>
     <span>/</span>
     <span>ServiceNow CSDM</span>
   </div>
@@ -621,91 +619,6 @@ main {
 <li>Over-customisation of CSDM tables and relationships is the primary preventable structural failure: it blocks upgrade paths, disables built-in health dashboards, and prevents access to new ServiceNow features that increasingly assume CSDM-aligned data structures.</li>
 <li>CSDM 5 (released Knowledge 2025) generalises Application Service to Service Instance, enabling network, data, facility, and operational process services to be modelled within the same framework — significantly expanding the model's applicability for FSO, DORA-scoped estates, and non-IT service portfolios. (medium confidence — design documentation, limited production experience available)</li>
 </ol>
-<h3>Evidence Map</h3>
-<table>
-<thead>
-<tr>
-  <th>Claim</th>
-  <th>Source</th>
-  <th>Confidence</th>
-  <th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>Three-layer application definition (Business Application / Application Service / Technical Service)</td>
-  <td>ServiceNow Community types of services; ITNow Inc</td>
-  <td>high</td>
-  <td>Consistent across official and practitioner sources</td>
-</tr>
-<tr>
-  <td>Foundation Data as prerequisite for all upper layers</td>
-  <td>ServiceNow Community CSDM data foundations; Bright Consulting</td>
-  <td>high</td>
-  <td>Practitioner consensus</td>
-</tr>
-<tr>
-  <td>ITSM requires Application Services mapped to CIs</td>
-  <td>The Cloud People implementing CSDM; [SOURCE NEEDED]</td>
-  <td>high</td>
-  <td>Consistent across multiple sources</td>
-</tr>
-<tr>
-  <td>APM requires Business Application with owner/lifecycle/cost centre</td>
-  <td>ServiceNow Community APM/CSDM; Jade Global SPM/APM</td>
-  <td>high</td>
-  <td>Official and partner sources agree</td>
-</tr>
-<tr>
-  <td>SPM demand/investment requires BA and Business Capability records</td>
-  <td>Jade Global; Beyond20 SPM integration</td>
-  <td>high</td>
-  <td>Multiple partner sources</td>
-</tr>
-<tr>
-  <td>IRM risk-to-CI requires complete BA → AS → CI chain</td>
-  <td>ServiceNow Community DORA compliance; Sofigate DORA</td>
-  <td>high</td>
-  <td>DORA compliance context makes explicit</td>
-</tr>
-<tr>
-  <td>DORA mandates ICT risk linkage to business functions via asset register</td>
-  <td>Sofigate DORA; Plat4mation NIS2/DORA; Infocenter DORA</td>
-  <td>high</td>
-  <td>Multiple regulatory sources</td>
-</tr>
-<tr>
-  <td>TCO data path requires complete AS → BA relationships</td>
-  <td>TBM Council CSDM integration; IBM Apptio documentation</td>
-  <td>high</td>
-  <td>Standards-body and vendor documentation agree</td>
-</tr>
-<tr>
-  <td>CI ownership, lifecycle status, dependency maps consistently decay</td>
-  <td>Meyerwire CMDB decay; ServiceNow Community data foundations</td>
-  <td>high</td>
-  <td>Multiple practitioner and official sources</td>
-</tr>
-<tr>
-  <td>2.2× faster outcomes for cultural approach</td>
-  <td>Einar &amp; Partners Benchmark Report 2024</td>
-  <td>medium</td>
-  <td>Single benchmark study; methodology not fully disclosed</td>
-</tr>
-<tr>
-  <td>Over-customisation blocks upgrade and feature access</td>
-  <td>Einar &amp; Partners Masterclass; Bright Consulting</td>
-  <td>high</td>
-  <td>Consistent across practitioner sources</td>
-</tr>
-<tr>
-  <td>CSDM 5 generalises Application Service to Service Instance</td>
-  <td>JAVC Management CSDM 5; Data Content Manager CSDM 4 vs 5</td>
-  <td>high</td>
-  <td>Based on Knowledge 2025 release documentation</td>
-</tr>
-</tbody>
-</table>
 <h3>Assumptions</h3>
 <ul>
 <li><strong>Assumption:</strong> Vendor bundle boundary decisions (Oracle E-Business Suite as one vs. many Business Applications) are governance outputs rather than system-enforced constraints. <strong>Justification:</strong> No primary source found that specifies a CSDM-native rule for vendor bundle decomposition; practitioner sources uniformly describe this as an organisational decision documented in the application register.</li>

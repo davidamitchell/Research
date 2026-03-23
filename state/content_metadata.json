@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-03-23T08:41:06Z",
+  "extracted_at": "2026-03-23T16:01:51Z",
   "items": {
     "2026-03-22-using-awesome-copilot-across-repos": {
       "named_concepts": [
@@ -290,6 +290,32 @@
         "Evaluation rubrics that separately score goal-level dimensions (factual accuracy, completeness) and token-level dimensions (surface coherence, tool efficiency) will detect sycophancy-type failures — where high token-level quality masks systematic goal-level failure — while rubrics that aggregate to a single quality score will not",
         "The declarative agent definition pattern — expressing agent capabilities, tool connections, and instructions in version-controlled manifest files — applies the infrastructure-as-code principle to agent definition, producing auditable, reproducible agent specifications deployable via standard Git workflows"
       ]
+    },
+    "2026-03-22-agents-as-finishers-and-synthesisers": {
+      "named_concepts": [
+        "crewai autogen",
+        "coding agent",
+        "human keeps",
+        "bounded scope",
+        "issues pull",
+        "pull requests",
+        "scope explicit",
+        "human review",
+        "optional extras",
+        "extras sources",
+        "explicit planner-executor-synthesiser-reviewer",
+        "criteria sources",
+        "handoff artifacts",
+        "conversational memory",
+        "executive burden",
+        "github copilot",
+        "copilot coding",
+        "browser-first github",
+        "repository instructions",
+        "instructions handoff"
+      ],
+      "source_urls": [],
+      "key_claims": []
     },
     "2026-03-21-technology-capability-models": {
       "named_concepts": [
@@ -872,14 +898,14 @@
       ],
       "source_urls": [],
       "key_claims": [
-        "Confidence: high",
-        "Confidence: high",
-        "Confidence: high",
-        "Confidence: medium",
-        "Confidence: high",
-        "Confidence: medium",
-        "Confidence: high",
-        "Confidence: medium"
+        "Salesforce Financial Services Cloud (FSC) and nCino provide invariant value mainly through reusable financial-services data models, packaged workflow shells, open integration surfaces, and vendor-operated platform services, rather than through institution-specific end-to-end banking outcomes",
+        "The vendors' own implementation materials show that integration with core systems, data mapping and migration, configuration, testing, training, and platform administration are normal and unavoidable parts of adoption, which means customer effort remains a structural part of value realization",
+        "Salesforce's strongest invariants come from the Lightning Platform and trust model - multitenant infrastructure, shared security and compliance documentation, shared tooling, and centrally managed operations - while Financial Services Cloud adds domain-specific objects and process scaffolding on top of those primitives",
+        "nCino's strongest invariants are packaged banking workflows for onboarding, account opening, lending, and portfolio management plus an implementation and integration model tuned to banking institutions, but these remain dependent on local core connectivity and operating-model fit",
+        "Comparable vendors such as Temenos and Thought Machine market the same underlying invariant pattern - configurable domain engines, vendor-maintained core capabilities, and exposed integration surfaces - showing that these invariants are industry-wide characteristics of modern banking platforms rather than unique properties of Salesforce Financial Services Cloud or nCino",
+        "Before Artificial Intelligence (AI)-assisted development, buying or renting broad banking platform capability was economically attractive for many banks because vendor products bundled proven domain functionality, ecosystem leverage, and ongoing platform investment that many institutions would struggle to reproduce internally at acceptable speed and risk",
+        "Full lifecycle Total Cost of Ownership (TCO) for banking Software as a Service (SaaS) platforms must include not only subscription or license spend but also integration, migration, security review, process redesign, regression testing, training, administration, and retirement or export work, because those categories recur across both vendor guidance and independent Total Cost of Ownership (TCO) literature",
+        "Artificial Intelligence (AI)-assisted development narrows the economic gap for bespoke software by reducing coding, legacy-code explanation, and test-authoring effort, but it does not proportionally reduce data migration, integration, governance, adoption, or regulatory assurance costs, so it shifts the threshold rather than eliminating the case for buying platforms"
       ]
     },
     "2026-03-15-prompt-injection-threat-landscape": {
@@ -907,14 +933,14 @@
       ],
       "source_urls": [],
       "key_claims": [
-        "Confidence: high",
-        "Confidence: high",
-        "Confidence: medium",
-        "Confidence: high",
-        "Confidence: high",
-        "Confidence: high",
-        "Confidence: medium",
-        "Confidence: high"
+        "Once an agent ingests external text or tool output, prompt injection stops looking like a simple chat misuse and instead becomes a boundary failure between trusted instructions and untrusted data inside the control flow",
+        "Among the documented attack families, indirect prompt injection matters most in practice because malicious instructions can ride through web pages, documents, repositories, or tool responses without the attacker ever touching the main chat turn",
+        "The public evidence base already includes disclosed vulnerabilities, malicious web payloads, and observed exploitation paths, yet attribution remains concentrated in researcher, bug-hunter, and malicious-publisher activity rather than in clearly documented nation-state campaigns",
+        "Vendor and standards guidance converges on the same operational message: reducing prompt-injection risk requires layered architecture, privilege limits, and policy enforcement, not confidence that clever prompt wording will close the vulnerability by itself",
+        "Reported defence improvements in constrained environments are meaningful, but the same papers and benchmarks show accompanying costs in compute, refusals, or secure-task completion, so capability and security still move together rather than independently",
+        "Research published in 2025 raised the evaluation bar by showing that attackers who adapt to the defence can overturn reassuring benchmark results, which makes static success rates weak evidence of production robustness",
+        "The most credible near-term operating model is constrained autonomy, where least privilege, isolated tools, deterministic checks, segmented untrusted content, and human approval for irreversible actions shrink blast radius even when model robustness remains incomplete",
+        "The field still lacks an accepted definition of solved prompt-injection safety for general-purpose agents because the hardest problems remain instruction/data separation, multimodal attacks, long-term memory safety, adaptive benchmarks, and enforceable tool constraints"
       ]
     },
     "2026-03-15-neurological-context-management": {

@@ -572,18 +572,16 @@ main {
   <div class="nav-inner">
     <a class="nav-brand" href="/Research/">Research</a>
     <div class="nav-links">
-      <a href="/Research/browse.html">Browse</a>
       <a href="/Research/threads.html">Threads</a>
       <a href="/Research/tags/">Tags</a>
       <a href="/Research/search.html">Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
 </nav>
 <main>
   <div class="breadcrumb">
     <a href="/Research/">Research</a>
-    <span>/</span>
-    <a href="/Research/browse.html">Browse</a>
     <span>/</span>
     <span>AI coding harnesses</span>
   </div>
@@ -622,91 +620,6 @@ main {
 <li>OSS tools (Cline, Aider, Opencode) share a bring-your-own-key, local-sovereignty philosophy — code stays on the developer's machine, API keys remain under developer control — positioning them against commercial per-seat tools but limiting their adoption in enterprise-governed environments.</li>
 <li>Anthropic's &quot;Building Effective Agents&quot; (December 2024) introduces five composable workflow patterns (prompt chaining, routing, parallelisation, orchestrator-workers, evaluator-optimizer) with the explicit design principle that systems should start simple and add complexity only where clear value is demonstrated.</li>
 </ol>
-<h3>Evidence Map</h3>
-<table>
-<thead>
-<tr>
-  <th>Claim</th>
-  <th>Source</th>
-  <th>Confidence</th>
-  <th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>Tool-mediated execution as core primitive</td>
-  <td>cline.bot; cursor.com/docs; aider.chat/docs; anthropic.com/engineering/building-effective-agents</td>
-  <td>high</td>
-  <td>Consistent across all surveyed systems</td>
-</tr>
-<tr>
-  <td>AGENTS.md is cross-vendor standard</td>
-  <td>agents.md; agentsmd.online; sgryphon.gamertheory.net/2025/07/agents-md-standardisation</td>
-  <td>high</td>
-  <td>Supported by OpenAI, Google, Sourcegraph, Cursor, Copilot, AMP</td>
-</tr>
-<tr>
-  <td>Approval gates (local) vs. sandbox (cloud)</td>
-  <td>openai.com/index/introducing-codex; github.blog/news-insights/product-news/github-copilot-meet-the-new-coding-agent; cline.bot; deepwiki.com/cline/cline/1.1-architecture-overview</td>
-  <td>high</td>
-  <td>Confirmed by official sources for both patterns</td>
-</tr>
-<tr>
-  <td>Git as universal state store</td>
-  <td>anthropic.com/engineering/effective-harnesses-for-long-running-agents; aider.chat/docs</td>
-  <td>high</td>
-  <td>Explicit design choice per primary engineering sources</td>
-</tr>
-<tr>
-  <td>Anthropic harness architecture</td>
-  <td>anthropic.com/engineering/effective-harnesses-for-long-running-agents</td>
-  <td>high</td>
-  <td>Primary source; Anthropic engineering blog post</td>
-</tr>
-<tr>
-  <td>Context window management unsolved</td>
-  <td>infoq.com/news/2026/01/cursor-dynamic-context-discovery; anthropic.com/engineering/effective-harnesses-for-long-running-agents</td>
-  <td>high</td>
-  <td>Multiple competing approaches; explicitly noted as open problem</td>
-</tr>
-<tr>
-  <td>AMP sub-agent specialisation (Oracle / Executor / Search)</td>
-  <td>ampcode.com/manual; deepwiki.com/x1xhlol/system-prompts-and-models-of-ai-tools/5.3-amp-by-sourcegraph</td>
-  <td>medium</td>
-  <td>AMP Owner's Manual + cross-confirmed secondary analysis</td>
-</tr>
-<tr>
-  <td>GitHub Copilot dual-layer</td>
-  <td>github.blog/developer-skills/github/less-todo-more-done-the-difference-between-coding-agent-and-agent-mode-in-github-copilot</td>
-  <td>high</td>
-  <td>Official GitHub engineering blog</td>
-</tr>
-<tr>
-  <td>Zed ACP</td>
-  <td>tessl.io/blog/zed-debuts-agent-client-protocol; alternativestack.com/news/zed-revolutionizes</td>
-  <td>high</td>
-  <td>Multiple independent tech sources</td>
-</tr>
-<tr>
-  <td>No default vector stores</td>
-  <td>absence confirmed across all documented architectures</td>
-  <td>medium</td>
-  <td>Absence of evidence; confirmed for open-source tools with published architecture</td>
-</tr>
-<tr>
-  <td>OSS BYOK/sovereignty positioning</td>
-  <td>cline.bot; open-code.dev; aider.chat/docs</td>
-  <td>high</td>
-  <td>Explicit in official documentation of all three tools</td>
-</tr>
-<tr>
-  <td>Anthropic five workflow patterns</td>
-  <td>anthropic.com/engineering/building-effective-agents; simonwillison.net/2024/Dec/20/building-effective-agents</td>
-  <td>high</td>
-  <td>Primary source plus independent expert summary</td>
-</tr>
-</tbody>
-</table>
 <h3>Assumptions</h3>
 <ul>
 <li><strong>Assumption:</strong> The YouTube video at <a href="https://youtu.be/09sFAO7pklo">youtu.be</a> does not contain claims that contradict or materially extend the findings from other primary sources consulted. <strong>Justification:</strong> All major harnesses have official documentation and engineering blog posts; the video was listed as a jump-off point rather than an exclusive source of evidence, and multiple independent sources covering the same territory were available.</li>

@@ -572,18 +572,16 @@ main {
   <div class="nav-inner">
     <a class="nav-brand" href="/Research/">Research</a>
     <div class="nav-links">
-      <a href="/Research/browse.html">Browse</a>
       <a href="/Research/threads.html">Threads</a>
       <a href="/Research/tags/">Tags</a>
       <a href="/Research/search.html">Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
 </nav>
 <main>
   <div class="breadcrumb">
     <a href="/Research/">Research</a>
-    <span>/</span>
-    <a href="/Research/browse.html">Browse</a>
     <span>/</span>
     <span>Applied context engineering</span>
   </div>
@@ -647,91 +645,6 @@ main {
 <li><p><strong>[fact]</strong> The primary gaps in existing public agent skill libraries are: Model Context Protocol (MCP) server design for exposing APIs as structured agent-accessible tools, human-in-the-loop design patterns for high-stakes agent decisions, and multi-modal context management — none covered by the muratcankoylan library or any other reviewed public source. Source: <code>Research/completed/2026-03-18-api-context-hubs-rag-mcp.md</code> + muratcankoylan README inspection. Confidence: medium (gap finding from library survey).</p>
 </li>
 </ol>
-<h3>Evidence Map</h3>
-<table>
-<thead>
-<tr>
-  <th>Claim</th>
-  <th>Source</th>
-  <th>Confidence</th>
-  <th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>Effective capacity 60–70% of advertised window [fact]</td>
-  <td>muratcankoylan context-fundamentals SKILL.md <a href="https://raw.githubusercontent.com/muratcankoylan/Agent-Skills-for-Context-Engineering/main/skills/context-fundamentals/SKILL.md</td>">raw.githubusercontent.com</a>
-  <td>high</td>
-  <td>Consistent with attention mechanics literature</td>
-</tr>
-<tr>
-  <td>Recall drops 10–40% in middle positions [fact]</td>
-  <td>muratcankoylan context-degradation SKILL.md; Liu et al. 2023</td>
-  <td>high</td>
-  <td>Peer-reviewed benchmark cited</td>
-</tr>
-<tr>
-  <td>Tool outputs reach 83.9% of context [fact]</td>
-  <td>muratcankoylan context-fundamentals SKILL.md</td>
-  <td>medium</td>
-  <td>Research finding; primary study not specified</td>
-</tr>
-<tr>
-  <td>Multi-agent cost ~15x [fact]</td>
-  <td>muratcankoylan multi-agent-patterns SKILL.md</td>
-  <td>medium</td>
-  <td>Production data, directional</td>
-</tr>
-<tr>
-  <td>BrowseComp: 80% variance = token usage [fact]</td>
-  <td>muratcankoylan multi-agent-patterns + evaluation SKILL.md</td>
-  <td>high</td>
-  <td>Named benchmark</td>
-</tr>
-<tr>
-  <td>Vercel: 17 → 2 tools improved performance [fact]</td>
-  <td>muratcankoylan tool-design SKILL.md</td>
-  <td>medium</td>
-  <td>Single case study</td>
-</tr>
-<tr>
-  <td>Letta 74% vs. Mem0 68.5% on LoCoMo [fact]</td>
-  <td>muratcankoylan memory-systems SKILL.md</td>
-  <td>high</td>
-  <td>Named benchmark comparison</td>
-</tr>
-<tr>
-  <td>Filesystem idempotency composes with stateless-agent fix [inference]</td>
-  <td>muratcankoylan project-development SKILL.md + Research/completed/2026-03-18-stateless-agent-assumption-failure.md</td>
-  <td>high</td>
-  <td>Two independent sources converge</td>
-</tr>
-<tr>
-  <td>Separate goal/token scoring detects sycophancy [inference]</td>
-  <td>muratcankoylan evaluation SKILL.md + Research/completed/2026-03-08-context-engineering-first-principles.md</td>
-  <td>high</td>
-  <td>SycEval AIES 2025; two-mechanism model</td>
-</tr>
-<tr>
-  <td>Declarative agents = infra-as-code for agents [inference]</td>
-  <td>Research/completed/2026-03-16-gitagent-declarative-agent-definition.md</td>
-  <td>high</td>
-  <td>Structural analogy, well-documented pattern</td>
-</tr>
-<tr>
-  <td>MCE paper cites muratcankoylan as foundational [fact]</td>
-  <td><a href="https://arxiv.org/pdf/2601.21557</td>">arxiv.org</a>
-  <td>high</td>
-  <td>Primary academic source</td>
-</tr>
-<tr>
-  <td>MCP server design is a public skill gap [fact]</td>
-  <td>Research/completed/2026-03-18-api-context-hubs-rag-mcp.md + muratcankoylan README</td>
-  <td>medium</td>
-  <td>Gap finding from library survey</td>
-</tr>
-</tbody>
-</table>
 <h3>Assumptions</h3>
 <ul>
 <li><strong>[assumption]</strong> The muratcankoylan skill library's production figures (15x token cost, 83.9% observation share) are directionally accurate. <strong>Justification:</strong> Consistent with attention mechanics literature and independent practitioner reports; cited as representative production data by the library.</li>
@@ -764,7 +677,7 @@ main {
   
   <div class="item-nav">
     <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-22-code-architecture-inspection.html">Code Architecture Inspection Across Repositories</a></div>
-    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-21-technology-capability-models.html">Technology Capability Models</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-22-agents-as-finishers-and-synthesisers.html">AI agents as finishers and synthesisers</a></div>
   </div>
 </main>
 </body>

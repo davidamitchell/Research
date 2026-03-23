@@ -572,18 +572,16 @@ main {
   <div class="nav-inner">
     <a class="nav-brand" href="/Research/">Research</a>
     <div class="nav-links">
-      <a href="/Research/browse.html">Browse</a>
       <a href="/Research/threads.html">Threads</a>
       <a href="/Research/tags/">Tags</a>
       <a href="/Research/search.html">Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
 </nav>
 <main>
   <div class="breadcrumb">
     <a href="/Research/">Research</a>
-    <span>/</span>
-    <a href="/Research/browse.html">Browse</a>
     <span>/</span>
     <span>LanceDB index rebuild speed from git</span>
   </div>
@@ -628,91 +626,6 @@ main {
 <li><p>Model2Vec (potion-base-8M), identified in prior semantic-search research as ~200× faster than MiniLM on CPU with 91–93% of MiniLM's MTEB accuracy and no PyTorch dependency, would reduce rebuild time to under 1s for 500 items — making per-request stateless rebuild viable without pre-computed embedding storage. [medium — requires direct LanceDB benchmark to confirm]</p>
 </li>
 </ol>
-<h3>Evidence Map</h3>
-<table>
-<thead>
-<tr>
-  <th>Claim</th>
-  <th>Source</th>
-  <th>Confidence</th>
-  <th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>LanceDB write &lt;30ms at 1000 docs</td>
-  <td>Direct benchmark, lancedb v0.29.2</td>
-  <td>high</td>
-  <td>Reproducible; O(n) columnar append</td>
-</tr>
-<tr>
-  <td>BGE-small cached load = 0.68s</td>
-  <td>Direct benchmark</td>
-  <td>high</td>
-  <td>Consistent across 3 measurements</td>
-</tr>
-<tr>
-  <td>MiniLM cached load = 0.50s</td>
-  <td>Direct benchmark</td>
-  <td>high</td>
-  <td>Consistent across 2 measurements</td>
-</tr>
-<tr>
-  <td>BGE-small ~34.5ms/doc (synthetic)</td>
-  <td>Direct benchmark, 10–1000 items</td>
-  <td>high</td>
-  <td>Linear scaling confirmed across range</td>
-</tr>
-<tr>
-  <td>BGE-small ~177ms/doc (real items)</td>
-  <td>Direct benchmark, 61 items</td>
-  <td>high</td>
-  <td>5× slowdown explained by doc length</td>
-</tr>
-<tr>
-  <td>Current 61-item corpus = 11.5s cold start</td>
-  <td>Direct benchmark</td>
-  <td>high</td>
-  <td>Measured against Research/completed/</td>
-</tr>
-<tr>
-  <td>JSON 7.74 KB/doc at 384 dims</td>
-  <td>Direct measurement</td>
-  <td>high</td>
-  <td>Deterministic from float32 × 384 dims</td>
-</tr>
-<tr>
-  <td>JSON load+write 0.13s at 1000 docs</td>
-  <td>Direct benchmark</td>
-  <td>high</td>
-  <td>Dominated by JSON parse</td>
-</tr>
-<tr>
-  <td>MiniLM 2× faster embedding than BGE</td>
-  <td>Direct benchmark</td>
-  <td>high</td>
-  <td>Consistent across all corpus sizes</td>
-</tr>
-<tr>
-  <td>GitHub code search 10 req/min limit</td>
-  <td>GitHub Docs; GitHub Changelog Mar 2023</td>
-  <td>high</td>
-  <td>Two independent authoritative sources</td>
-</tr>
-<tr>
-  <td>GitHub code search keyword-only</td>
-  <td>GitHub API docs (github.apidog.io)</td>
-  <td>high</td>
-  <td>Official documentation</td>
-</tr>
-<tr>
-  <td>Model2Vec ~200× faster than MiniLM</td>
-  <td>Research/completed/2026-03-02-semantic-full-text-search.md</td>
-  <td>high</td>
-  <td>Prior research; primary MTEB benchmarks cited</td>
-</tr>
-</tbody>
-</table>
 <h3>Assumptions</h3>
 <ul>
 <li><strong>Assumption:</strong> GitHub Actions runner hardware is representative of free-tier deployment targets. <strong>Justification:</strong> GitHub Actions 2-core runners are comparable to Fly.io free tier CPU; RAM (7 GB vs 256 MB) differs and may slow PyTorch model load on memory-constrained targets.</li>

@@ -572,18 +572,16 @@ main {
   <div class="nav-inner">
     <a class="nav-brand" href="/Research/">Research</a>
     <div class="nav-links">
-      <a href="/Research/browse.html">Browse</a>
       <a href="/Research/threads.html">Threads</a>
       <a href="/Research/tags/">Tags</a>
       <a href="/Research/search.html">Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
 </nav>
 <main>
   <div class="breadcrumb">
     <a href="/Research/">Research</a>
-    <span>/</span>
-    <a href="/Research/browse.html">Browse</a>
     <span>/</span>
     <span>Latent Concept Extraction from Confluence</span>
   </div>
@@ -634,133 +632,6 @@ main {
 <li><p>Late chunking (Jina AI, 2024) embeds full documents before splitting so each chunk carries context from the entire page, potentially resolving pronoun and reference problems across chunk boundaries in Confluence pages where context is established in the introduction; this technique has not been benchmarked on structured wiki content and should be monitored for future adoption. Confidence: low (novel technique, single source, no Confluence-specific benchmark).</p>
 </li>
 </ol>
-<h3>Evidence Map</h3>
-<table>
-<thead>
-<tr>
-  <th>Claim</th>
-  <th>Source</th>
-  <th>Confidence</th>
-  <th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>BERTopic outperforms LDA on coherence for longer text</td>
-  <td>AGILE GIScience 6(6) 2025; arXiv:2401.12990</td>
-  <td>high</td>
-  <td>Two independent studies</td>
-</tr>
-<tr>
-  <td>BERTopic does not require pre-specifying topic count</td>
-  <td>BERTopic documentation (maartengr.github.io/BERTopic)</td>
-  <td>high</td>
-  <td>Primary documentation</td>
-</tr>
-<tr>
-  <td>BERTopic supports incremental online learning</td>
-  <td>BERTopic documentation</td>
-  <td>high</td>
-  <td>Primary documentation</td>
-</tr>
-<tr>
-  <td>mREBEL: joint NER + relation extraction, no predefined ontology</td>
-  <td>CHIIR 2024 (arXiv:2401.07683); PMC 2025</td>
-  <td>high</td>
-  <td>Two sources</td>
-</tr>
-<tr>
-  <td>mREBEL 1.8× triple coverage vs. traditional</td>
-  <td>PMC 2025 KG construction survey</td>
-  <td>medium</td>
-  <td>Single source</td>
-</tr>
-<tr>
-  <td>NV-Embed tops MTEB at 69.32 (2024)</td>
-  <td>NVIDIA developer blog</td>
-  <td>high</td>
-  <td>Primary source</td>
-</tr>
-<tr>
-  <td>SBERT <code>all-mpnet-base-v2</code> production baseline</td>
-  <td>sbert.net documentation</td>
-  <td>high</td>
-  <td>Primary documentation</td>
-</tr>
-<tr>
-  <td>TSDAE/GPL unsupervised domain adaptation</td>
-  <td>sbert.net domain adaptation docs</td>
-  <td>high</td>
-  <td>Primary documentation</td>
-</tr>
-<tr>
-  <td>Semantic chunking recall 0.919 vs. 0.854–0.895 fixed</td>
-  <td>Chroma Research, cited in firecrawl.dev 2025</td>
-  <td>medium</td>
-  <td>Secondary citation</td>
-</tr>
-<tr>
-  <td>Factoid 256–512 tokens; analytical 1024+</td>
-  <td>NVIDIA 2024 chunking study, cited in firecrawl.dev 2025</td>
-  <td>medium</td>
-  <td>Secondary citation</td>
-</tr>
-<tr>
-  <td>HybridRAG outperforms VectorRAG and GraphRAG individually</td>
-  <td>arXiv:2408.04948 (2024)</td>
-  <td>high</td>
-  <td>Peer-reviewed</td>
-</tr>
-<tr>
-  <td>Weaviate: built-in hybrid search + KG node vectorisation</td>
-  <td>useparagon.com; Weaviate docs</td>
-  <td>high</td>
-  <td>Two independent sources</td>
-</tr>
-<tr>
-  <td>Qdrant 50.3% lower p50 latency at 90% recall</td>
-  <td>tigerdata.com benchmark 2024</td>
-  <td>high</td>
-  <td>Published benchmark</td>
-</tr>
-<tr>
-  <td>pgvector 11.4× throughput at 99% recall</td>
-  <td>tigerdata.com benchmark 2024</td>
-  <td>high</td>
-  <td>Same benchmark</td>
-</tr>
-<tr>
-  <td>KG cold-start challenge</td>
-  <td>machinelearningmastery.com; CHIIR 2024</td>
-  <td>high</td>
-  <td>Two independent sources</td>
-</tr>
-<tr>
-  <td>Goldman veritistic V-value framework</td>
-  <td>Rysiew (web.uvic.ca); Stanford SEP</td>
-  <td>high</td>
-  <td>Two academic sources</td>
-</tr>
-<tr>
-  <td>Stich pragmatist collapse of truth/utility</td>
-  <td>Rysiew (web.uvic.ca)</td>
-  <td>high</td>
-  <td>Academic source</td>
-</tr>
-<tr>
-  <td>Knowledge governance as primary RAG quality determinant</td>
-  <td>Research/completed/2026-03-15-context-compression-rag-enterprise-knowledge.md KF10; Research/completed/2026-03-08-servicenow-ai-knowledge-rag-agents.md</td>
-  <td>high</td>
-  <td>Two internal research items</td>
-</tr>
-<tr>
-  <td>Late chunking (Jina AI 2024)</td>
-  <td>firecrawl.dev 2025</td>
-  <td>low</td>
-  <td>Single practitioner citation; novel technique</td>
-</tr>
-</tbody>
-</table>
 <h3>Assumptions</h3>
 <ul>
 <li><p><strong>Assumption:</strong> Domain adaptation (TSDAE/GPL) is not required for Confluence prototype-scale deployments on mixed-domain technical prose. <strong>Justification:</strong> General-purpose SBERT models demonstrate adequate retrieval quality on broad technical domains; domain adaptation adds engineering cost that is justified only when retrieval degradation is demonstrated on a Confluence-specific evaluation set.</p>

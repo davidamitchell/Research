@@ -572,18 +572,16 @@ main {
   <div class="nav-inner">
     <a class="nav-brand" href="/Research/">Research</a>
     <div class="nav-links">
-      <a href="/Research/browse.html">Browse</a>
       <a href="/Research/threads.html">Threads</a>
       <a href="/Research/tags/">Tags</a>
       <a href="/Research/search.html">Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
 </nav>
 <main>
   <div class="breadcrumb">
     <a href="/Research/">Research</a>
-    <span>/</span>
-    <a href="/Research/browse.html">Browse</a>
     <span>/</span>
     <span>Conversational and chat interface for querying the research corpus</span>
   </div>
@@ -637,91 +635,6 @@ main {
 <li><p><strong>An ADR is required before shipping the MCP server:</strong> it documents the stdio transport choice, three-tool interface contract, grounding design, two-phase implementation plan, and confirms no new credentials or services are introduced.</p>
 </li>
 </ol>
-<h3>Evidence Map</h3>
-<table>
-<thead>
-<tr>
-  <th>Claim</th>
-  <th>Source</th>
-  <th>Confidence</th>
-  <th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td><code>.github/mcp.json</code> has 10 stdio MCP servers, establishing the pattern</td>
-  <td>Direct file inspection: <code>.github/mcp.json</code></td>
-  <td>high</td>
-  <td>Verified by reading the file</td>
-</tr>
-<tr>
-  <td>stdio MCP servers are subprocess-based, stateless, no persistent process</td>
-  <td>modelcontextprotocol.io/docs/concepts/tools; mcp-framework.com/docs/Transports/stdio-transport</td>
-  <td>high</td>
-  <td>Protocol specification; confirmed by practitioner guides</td>
-</tr>
-<tr>
-  <td>Python stdio MCP server cold-start: 30–300ms</td>
-  <td>MCP stdio transport practitioner benchmarks (web_search)</td>
-  <td>medium</td>
-  <td>Estimated range; specific to Python runtime and module load time</td>
-</tr>
-<tr>
-  <td>FastMCP supports decorator-based tool registration with type annotations</td>
-  <td>github.com/modelcontextprotocol/python-sdk README</td>
-  <td>high</td>
-  <td>Official SDK documentation</td>
-</tr>
-<tr>
-  <td>Claude Code discovers MCP servers in <code>.mcp.json</code>; Copilot Agent in <code>.github/mcp.json</code></td>
-  <td>context-mode research (Key Finding 4); GitHub Copilot docs</td>
-  <td>high</td>
-  <td>Cross-confirmed by two independent sources</td>
-</tr>
-<tr>
-  <td>GitHub Copilot Extension (OAuth) requires hosted HTTPS server</td>
-  <td>docs.github.com/en/copilot/building-copilot-extensions redirects to MCP; older extension architecture requires webhook endpoint</td>
-  <td>high</td>
-  <td>Primary source; confirmed by architecture requirements</td>
-</tr>
-<tr>
-  <td>GitHub docs (2025) redirect &quot;building Copilot extensions&quot; to MCP as primary path</td>
-  <td>docs.github.com/en/copilot/building-copilot-extensions/about-building-copilot-extensions</td>
-  <td>high</td>
-  <td>Direct fetch of the page</td>
-</tr>
-<tr>
-  <td>Agent Skills (<code>.github/skills/</code>) and custom agents (<code>.github/agents/</code>) cannot query corpus</td>
-  <td>GitHub Docs — custom agents configuration; GitHub Changelog 2025-10-28</td>
-  <td>high</td>
-  <td>By design: these are instruction/persona files, not query tools</td>
-</tr>
-<tr>
-  <td>No Anthropic/OpenAI API key in approved credentials table</td>
-  <td>AGENTS.md Working Environment credentials table</td>
-  <td>high</td>
-  <td>Direct inspection of AGENTS.md</td>
-</tr>
-<tr>
-  <td>&quot;Answer only from context&quot; RAG prompt pattern prevents hallucination of corpus content</td>
-  <td>RAG grounding literature survey (web_search; Anthropic/OpenAI/Hugging Face guides)</td>
-  <td>high</td>
-  <td>Well-established pattern with documented failure modes</td>
-</tr>
-<tr>
-  <td><code>state/links.json</code> edge store defined by <code>2026-03-03-knowledge-linking-connected-corpus.md</code></td>
-  <td>Research/completed/2026-03-03-knowledge-linking-connected-corpus.md Key Findings 4–5</td>
-  <td>high</td>
-  <td>Direct reading of completed research item</td>
-</tr>
-<tr>
-  <td>MCP tool-scoped retrieval is structural grounding (server cannot return non-corpus content)</td>
-  <td>MCP protocol: tools/call response is bounded by server implementation</td>
-  <td>high</td>
-  <td>Mechanistically sound; follows from how tool responses work</td>
-</tr>
-</tbody>
-</table>
 <h3>Assumptions</h3>
 <ul>
 <li><p><strong>Assumption:</strong> The owner's primary use of the conversational interface will be through AI agent sessions (Claude Code, GitHub Copilot) rather than a direct query CLI. <strong>Justification:</strong> The owner interacts exclusively via GitHub website and iOS app, and all coding/querying is done through agent sessions. A direct CLI would require a local terminal, which the owner does not use.</p>
