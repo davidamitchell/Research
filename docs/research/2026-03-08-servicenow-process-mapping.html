@@ -1,0 +1,625 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>ServiceNow Process Mapping: Maintainable Process Documentation in SNOW — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #141414;
+  --surface-2:       #1c1c1c;
+  --border:          #2a2a2a;
+  --text:            #e8e8e8;
+  --text-muted:      #666;
+  --accent:          #e8e8e8;
+  --accent-dim:      #333;
+  --tag-bg:          #1e1e1e;
+  --tag-text:        #999;
+  --tag-active-bg:   #e8e8e8;
+  --tag-active-text: #0d0d0d;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--accent); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+}
+.card:hover { border-color: var(--accent); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+}
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+.item-content pre code { background: none; padding: 0; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--text); text-decoration: underline; }
+.item-content a:hover { color: var(--text-muted); }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  main { padding: 72px 1rem 3rem; }
+  nav { padding: 0 1rem; }
+}
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/">Research</a>
+    <div class="nav-links">
+      <a href="/Research/tags/">Tags</a>
+      <a href="/Research/search.html">Search</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>ServiceNow Process Mapping: Maintainable Process Documentation in SNOW</span>
+  </div>
+  <h1 class="item-title">ServiceNow Process Mapping: Maintainable Process Documentation in SNOW</h1>
+  <div class="meta-bar">
+    <span>2026-03-08</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/servicenow.html">servicenow</a> <a class="tag" href="/Research/tags/process-mapping.html">process-mapping</a> <a class="tag" href="/Research/tags/bpm.html">bpm</a> <a class="tag" href="/Research/tags/workflow.html">workflow</a> <a class="tag" href="/Research/tags/flow-designer.html">flow-designer</a> <a class="tag" href="/Research/tags/process-mining.html">process-mining</a> <a class="tag" href="/Research/tags/itsm.html">itsm</a> <a class="tag" href="/Research/tags/documentation.html">documentation</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-servicenow-process-mapping.md" target="_blank" rel="noopener">source →</a>
+  </div>
+  <div class="item-content">
+    <h2>Research Question</h2>
+<p>What options exist within ServiceNow for documenting, mapping, and maintaining business and IT processes — and which approaches are sustainable enough in practice to stay meaningful, current, and actually used over time?</p>
+
+<h2>Findings</h2>
+<h3>Executive Summary</h3>
+<p>ServiceNow offers five native capabilities for process documentation — the Process Universe (design-time ITIL 4 reference library), Flow Designer (automation logic), Playbooks (runtime agent guidance), the deprecated Workflow Editor, and Process Mining (event-log-based behaviour discovery) — but none functions as a self-maintaining authoritative process map. Eighty percent of ITSM practitioners report their process documentation does not reflect how work is actually performed; the primary cause is treating documentation as a project deliverable with no ongoing governance, not a tooling deficiency. The approach most resistant to decay combines a minimal documentation set with change-triggered mandatory updates and named process owners — accepting that comprehensive BPMN-style documentation will not be maintained and designing governance to keep a smaller, accurate set current. Process Mining provides conformance validation but cannot substitute for governance.</p>
+<h3>Key Findings</h3>
+<ol>
+<li><p>The Process Universe is an ITIL 4-aligned design-time reference library of process maps, KPIs, and RACI templates that ServiceNow ships with its platform; it provides a starting point for implementation but has no mechanism for keeping documentation current as organisations evolve their processes over time. [High confidence]</p>
+</li>
+<li><p>Flow Designer documents what the ServiceNow platform does automatically (event triggers, conditions, integrations), while Playbooks document what human agents must do step-by-step during case execution; neither tool produces a standalone BPMN-style process map that can serve as authoritative governance documentation independent of the platform. [High confidence]</p>
+</li>
+<li><p>The Workflow Editor — historically the ServiceNow tool closest to a conventional process flowchart — is in maintenance-only status and is not viable for new process documentation, leaving a gap in native capability for human-readable BPM-style process authoring. [High confidence]</p>
+</li>
+<li><p>Eighty percent of ITSM practitioners in a practitioner survey (CTMS/Ivanti LIVE, 100+ respondents) reported that their process diagrams do not accurately reflect how their teams work, with only 20% saying their diagrams closely match their real systems and tools. [Medium confidence — directionally strong, single survey source]</p>
+</li>
+<li><p>The primary structural cause of process documentation decay is treating process mapping as a one-off implementation project deliverable rather than a continuously governed practice, with the absence of named process owners and change-triggered update requirements identified as the two most direct operational causes across multiple independent practitioner sources. [High confidence]</p>
+</li>
+<li><p>Fifty-six percent of ITSM professionals report lacking the time to keep process diagrams current, confirming that documentation maintenance must be embedded in change workflows as a mandatory step rather than left to discretionary effort by practitioners. [Medium confidence — single survey source, directionally consistent with broader literature]</p>
+</li>
+<li><p>ServiceNow's recommended governance model for process documentation uses three boards (strategic, portfolio, technical) with named owners and RACI matrices per process, mandatory versioned documentation for every process change, and weekly/monthly/quarterly review cadences — with change-triggered updates as the more reliable decay-prevention mechanism compared to calendar-only reviews. [Medium confidence — normative recommendation from ServiceNow and independent governance sources; limited empirical validation of multi-year outcomes]</p>
+</li>
+<li><p>The minimum viable documentation approach uses out-of-box ITSM templates as the baseline, supplements with documentation of the local configuration delta, escalation/exception paths, and a RACI per process, and avoids over-customisation — which proportionally increases the maintenance burden. [Medium confidence — well-supported by principle and practitioner guidance]</p>
+</li>
+<li><p>Process maps in ServiceNow have no native structured data linkage to CSDM Configuration Item (CI) or Business Service records, so process documentation and CSDM records must be kept aligned through governance coordination rather than platform relationships — creating a coordination risk when either changes independently of the other. [Medium confidence — inferred from evidence; absence of documentation of such a linkage across all consulted sources]</p>
+</li>
+<li><p>Process Mining is effective as a conformance validation tool — it reveals whether actual process behaviour matches the intended process — but it cannot replace authored documentation because it provides no policy rationale, no version-controlled change approvals, and produces unreliable maps when event logs are inconsistent; the optimal use is as a periodic conformance check that triggers governance review and documentation updates when drift is detected. [High confidence]</p>
+</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+  <th>Claim</th>
+  <th>Source</th>
+  <th>Confidence</th>
+  <th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Process Universe is a design-time ITIL 4-aligned reference library</td>
+  <td>https://www.reco.ai/hub/itil-servicenow-guide-it-administrators; https://www.royalcyber.com/blogs/servicenow/servicenow-itil-4-transforming-itsm/</td>
+  <td>High</td>
+  <td>[fact]</td>
+</tr>
+<tr>
+  <td>Flow Designer is for background automation; Playbooks for runtime agent guidance</td>
+  <td>https://www.servicenow.com/community/developer-forum/flow-designer-vs-playbooks-in-servicenow-what-s-the-difference/m-p/3321831; https://www.servicenow.com/docs/r/washingtondc/build-workflows/process-automation-designer-landing-page.html</td>
+  <td>High</td>
+  <td>[fact] — two independent sources</td>
+</tr>
+<tr>
+  <td>Workflow Editor is in maintenance-only status</td>
+  <td>https://www.mindspire-consulting.com/service-management-and-servicenow-news/future-of-automated-it-service-management/; https://www.igmguru.com/blog/servicenow-workflow</td>
+  <td>High</td>
+  <td>[fact] — two independent sources</td>
+</tr>
+<tr>
+  <td>80% of ITSM practitioners report inaccurate process maps</td>
+  <td>https://www.ctms-itsm.com/blogs/how-itsm-are-using-process-maps/ (primary survey)</td>
+  <td>Medium</td>
+  <td>[fact] — single survey, 100+ respondents</td>
+</tr>
+<tr>
+  <td>20% say diagrams closely match real systems</td>
+  <td>https://www.ctms-itsm.com/blogs/how-itsm-are-using-process-maps/ (primary survey)</td>
+  <td>Medium</td>
+  <td>[fact] — same survey</td>
+</tr>
+<tr>
+  <td>56% lack time to keep diagrams current</td>
+  <td>https://www.ctms-itsm.com/blogs/process-mapping-for-continuous-improvement/</td>
+  <td>Medium</td>
+  <td>[fact] — single survey</td>
+</tr>
+<tr>
+  <td>Root causes: one-off creation, no ownership, no governance, time pressure</td>
+  <td>https://itsm.tools/build-valued-process-library-itsm/; https://bpmcommunity.org/common-challenges-in-process-documentation/; https://www.ctms-itsm.com/blogs/how-itsm-are-using-process-maps/</td>
+  <td>High</td>
+  <td>[fact] — multiple independent sources agree</td>
+</tr>
+<tr>
+  <td>Three-board governance structure (strategic/portfolio/technical)</td>
+  <td>https://www.servicenow.com/content/dam/servicenow-assets/public/en-us/doc-type/success/workbook/governance-basics.pdf</td>
+  <td>High</td>
+  <td>[fact] — primary vendor source</td>
+</tr>
+<tr>
+  <td>Named process owners + RACI matrices required for documentation currency</td>
+  <td>https://glydepath.com.au/governance; https://us.fitgap.com/stack-guides/building-a-repeatable-governance-model-for-process-changes-across-business-units</td>
+  <td>High</td>
+  <td>[fact] — two independent practitioner sources</td>
+</tr>
+<tr>
+  <td>Change-triggered updates more reliable than calendar-only reviews</td>
+  <td>https://us.fitgap.com/stack-guides/building-a-repeatable-governance-model-for-process-changes-across-business-units</td>
+  <td>Medium</td>
+  <td>[inference] from governance literature</td>
+</tr>
+<tr>
+  <td>MVP: out-of-box templates + delta + RACI + exception/escalation paths</td>
+  <td>https://us.fitgap.com/stack-guides/standardize-it-process-requirements-with-a-minimum-viable-process-blueprint</td>
+  <td>Medium</td>
+  <td>[fact] + [inference]</td>
+</tr>
+<tr>
+  <td>No native linkage between process docs and CSDM records</td>
+  <td>Inferred across all consulted sources</td>
+  <td>Medium</td>
+  <td>[inference] — absence of evidence</td>
+</tr>
+<tr>
+  <td>CSDM change management uses service relationships for process impact computation</td>
+  <td>https://www.servicenow.com/community/common-service-data-model/how-the-common-service-data-model-transforms-change-management/ta-p/3434257</td>
+  <td>High</td>
+  <td>[fact] — primary vendor community source</td>
+</tr>
+<tr>
+  <td>Process Mining cannot substitute for governance documentation</td>
+  <td>https://www.thedigitaliceberg.com/post/how-does-process-mining-work-in-servicenow; https://servicenowspectaculars.com/servicenow-process-mining-implementation-issues-2026/; https://govcio.com/resources/article/servicenow-process-mining/</td>
+  <td>High</td>
+  <td>[fact] — three independent sources</td>
+</tr>
+<tr>
+  <td>Process Mining degrades on inconsistent event logs</td>
+  <td>https://servicenowspectaculars.com/servicenow-process-mining-implementation-issues-2026/</td>
+  <td>High</td>
+  <td>[fact]</td>
+</tr>
+<tr>
+  <td>Playbooks are more decay-resistant than static documents because agents encounter them during execution</td>
+  <td>Behavioural inference from tool design</td>
+  <td>Medium</td>
+  <td>[inference]</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li><p><strong>Assumption:</strong> ServiceNow has not introduced a dedicated BPM-style process documentation tool (separate from Process Universe, Flow Designer, Playbooks, and Process Mining) in releases not covered by the sources consulted. <strong>Justification:</strong> No evidence of such a tool was found across multiple independent sources; a major new capability would likely appear in community and documentation sources.</p>
+</li>
+<li><p><strong>Assumption:</strong> The CTMS/Ivanti LIVE practitioner survey is broadly representative of ITSM practitioners and not skewed toward a specific sector or tool set. <strong>Justification:</strong> The Ivanti LIVE event is a cross-sector ITSM event, not ServiceNow-specific; the 80% figure is consistent with the qualitative consensus across other sources even if the exact percentage is uncertain.</p>
+</li>
+<li><p><strong>Assumption:</strong> Organisations that adopt the governance model described (named owners, change-triggered updates, three-board structure) will materially reduce documentation decay compared to organisations that do not. <strong>Justification:</strong> The decay causes identified are structural; the governance model directly addresses each cause. However, this causal claim is not empirically validated in the sources — it is an inference from the alignment between identified causes and proposed remedies.</p>
+</li>
+</ul>
+<h3>Analysis</h3>
+<p>ServiceNow's tooling strategy represents a deliberate choice to embed process logic in executable artefacts (Playbooks, Flows) rather than separate documentation systems. [inference] This eliminates the risk of documentation that is never consulted during work, but ties process updates to developer resource and makes process logic non-portable. Organisations that require audit-friendly, tool-independent process records carry higher risk under this model.</p>
+<p>The minimum viable approach is economically rational because it concentrates maintenance effort on the elements most likely to change (local configuration, escalation paths, RACIs) while relying on ServiceNow's own updates to the Process Universe to refresh the underlying best-practice templates. An organisation following this approach is implicitly delegating the maintenance of standard process documentation to ServiceNow's product team — which is sustainable as long as the organisation stays close to out-of-box configuration.</p>
+<p>The evidence strongly supports treating the governance model (named owners, change-triggered updates) as a prerequisite, not an optional enhancement. The 80% decay rate under current practice is the baseline outcome without deliberate governance. The governance model described is the remediation path, but its effectiveness over multi-year timescales is not empirically validated in the sources consulted.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li><strong>Evidence gap:</strong> Gartner research on ITSM process governance sustainability was not accessible. Gartner is the most systematic source of enterprise ITSM adoption data, and its absence leaves the evidence base reliant on practitioner surveys and vendor sources.</li>
+<li><strong>Evidence gap:</strong> No empirical case studies of organisations maintaining ServiceNow process documentation accurately over 3+ years were found. All governance recommendations are normative, not empirically validated.</li>
+<li><strong>Currency risk:</strong> ServiceNow releases a new platform version every six months (Yokohama, Xanadu, etc.). The Process Universe and Playbook capabilities may have evolved beyond what is described in the sources consulted. Organisations should verify capability descriptions against the current release documentation.</li>
+<li><strong>CSDM linkage:</strong> The absence of a native structural linkage between process documentation and CSDM records is inferred from evidence, not confirmed by ServiceNow documentation explicitly stating no such linkage exists. This should be verified against current ServiceNow documentation before relying on it as a design constraint.</li>
+<li><strong>Process Mining data quality:</strong> The extent to which typical ServiceNow installations have the event log consistency required for reliable Process Mining output is unclear. If most installations have significant log gaps or customisation, Process Mining's value as a conformance tool is more limited than described.</li>
+</ul>
+<h3>Open Questions</h3>
+<ol>
+<li>Has ServiceNow added a native BPM-style process authoring tool (distinct from Playbooks and Flow Designer) in recent platform releases? If so, this would change the capability inventory and potentially the minimum viable documentation approach.</li>
+<li>Is there a native mechanism in ServiceNow change management to enforce a documentation update check before a change can be closed, or does this require custom scripting? The answer determines whether change-triggered updates can be enforced without developer resource.</li>
+<li>How does ServiceNow Process Mining integrate with Playbook authoring — specifically, can mining output surface which Playbook steps are most frequently bypassed, enabling targeted documentation updates rather than broad reviews?</li>
+<li>For regulated financial services organisations, what specific evidence does a Playbook provide in an audit (version history, approval records, conformance rates) versus what a BPMN diagram provides? This affects whether Playbooks alone satisfy regulatory documentation requirements or whether additional documentation is required.</li>
+<li>What is the specific data model for the relationship between Playbooks and Business Services in CSDM? If Playbooks can be formally linked to CSDM Business Service records, the coordination gap between process documentation and CSDM may be partially addressed natively.</li>
+</ol>
+<hr />
+
+
+  </div>
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-08-slack-bot-memory-capture-retrieval.html">Slack as a mobile memory capture and retrieval channel</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-08-servicenow-platform-strategy.html">ServiceNow Platform Strategy: Holistic Integration of CSDM, Modules, Process, and AI</a></div>
+  </div>
+</main>
+</body>
+</html>

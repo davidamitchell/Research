@@ -1,0 +1,596 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>RBNZ AI Supervisory Expectations: What Do Regulated Entities Need to Know? — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #141414;
+  --surface-2:       #1c1c1c;
+  --border:          #2a2a2a;
+  --text:            #e8e8e8;
+  --text-muted:      #666;
+  --accent:          #e8e8e8;
+  --accent-dim:      #333;
+  --tag-bg:          #1e1e1e;
+  --tag-text:        #999;
+  --tag-active-bg:   #e8e8e8;
+  --tag-active-text: #0d0d0d;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--accent); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+}
+.card:hover { border-color: var(--accent); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+}
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+.item-content pre code { background: none; padding: 0; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--text); text-decoration: underline; }
+.item-content a:hover { color: var(--text-muted); }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  main { padding: 72px 1rem 3rem; }
+  nav { padding: 0 1rem; }
+}
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/">Research</a>
+    <div class="nav-links">
+      <a href="/Research/tags/">Tags</a>
+      <a href="/Research/search.html">Search</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>RBNZ AI Supervisory Expectations: What Do Regulated Entities Need to Know?</span>
+  </div>
+  <h1 class="item-title">RBNZ AI Supervisory Expectations: What Do Regulated Entities Need to Know?</h1>
+  <div class="meta-bar">
+    <span>2026-02-28</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/rbnz.html">rbnz</a> <a class="tag" href="/Research/tags/ai-strategy.html">ai-strategy</a> <a class="tag" href="/Research/tags/financial-services.html">financial-services</a> <a class="tag" href="/Research/tags/prudential-regulation.html">prudential-regulation</a> <a class="tag" href="/Research/tags/model-risk.html">model-risk</a> <a class="tag" href="/Research/tags/nz-specific.html">nz-specific</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-02-28-rbnz-ai-supervisory-expectations.md" target="_blank" rel="noopener">source →</a>
+  </div>
+  <div class="item-content">
+    <h2>Research Question</h2>
+<p>What are the Reserve Bank of New Zealand's specific supervisory expectations for AI use by regulated entities, and how do these align with or diverge from the expectations of comparator regulators (APRA, FCA, ECB/EBA)?</p>
+
+<h2>Findings</h2>
+<h3>Executive Summary</h3>
+<p>RBNZ has no standalone AI supervisory framework; its first substantive AI-focused publication is the May 2025 &quot;Rise of the Machines&quot; article in the Financial Stability Report, which maps systemic risks but announces no new regulatory requirements. AI risk for RBNZ-regulated entities is currently governed through existing principles-based frameworks: BS11/BPR operational risk and outsourcing requirements, Banking Prudential Requirements on board governance, and mandatory cyber incident reporting (effective April 2024). APRA is the highest-value comparator: CPS 230 (effective July 2025) and CPS 234 together constitute a de facto AI risk framework for operational and information security risk, and RBNZ has explicitly modelled its own cyber regime on APRA's design. For the majority of large NZ banks — subsidiaries of APRA-regulated Australian parents — APRA CPS 230 compliance will propagate AI governance into NZ operations regardless of RBNZ's gap, but NZ-only entities (non-bank deposit takers, NZ-owned insurers, fintechs) face genuine governance vacuum.</p>
+<h3>Key Findings</h3>
+<ol>
+<li><p><strong>RBNZ has published no standalone AI supervisory guidance, policy, or regulatory standard as of March 2026</strong>, making it one of the most silent major central banks on AI-specific prudential expectations relative to its size and the sophistication of NZ's financial sector.</p>
+</li>
+<li><p><strong>The May 2025 &quot;Rise of the Machines&quot; FSR article is RBNZ's first substantive AI publication</strong> and is explicitly a monitoring report, not rule-making: Kerry Watt (Director of Financial Stability Assessment and Strategy) confirmed RBNZ will &quot;continue to closely monitor developments&quot; rather than announcing new obligations.</p>
+</li>
+<li><p><strong>RBNZ's four identified AI systemic risk concerns</strong> — system errors amplifying existing vulnerabilities, data privacy breaches, market distortions from correlated AI model behaviour, and concentration risk from reliance on a small number of third-party AI providers — mirror the FSB's November 2024 framework exactly, confirming RBNZ is tracking international standard-setter positions rather than developing independent analysis.</p>
+</li>
+<li><p><strong>BS11/BPR frameworks implicitly regulate AI</strong> through technology-neutral operational risk, outsourcing, and critical operations requirements: AI systems in critical operations require local control and documented governance; material AI vendors are subject to concentration risk management and exit planning obligations under BS11 principles.</p>
+</li>
+<li><p><strong>RBNZ mandatory cyber incident reporting (April 2024) extends to AI system failures</strong>: any cyber event adversely affecting an entity or its stakeholders — including AI system errors, data poisoning, or model manipulation attacks — must be reported within 72 hours for material incidents, with periodic reporting for all incidents.</p>
+</li>
+<li><p><strong>APRA CPS 230 (effective 1 July 2025) is the highest-value comparator framework</strong> for NZ-regulated entities: it requires explicit operational risk scenario analysis, critical operation identification, and material service provider management that, applied to AI, produces specific governance obligations RBNZ has not yet articulated. RBNZ has explicitly modelled its cyber incident reporting regime on APRA's design, establishing a precedent for borrowing APRA standards when NZ-specific guidance is absent.</p>
+</li>
+<li><p><strong>FCA/PRA's principles-based response to DP5/22 (confirmed in FS23/6, November 2023) is the closest rhetorical match to RBNZ's position</strong>, but the FCA has gone further by explicitly engaging industry, publishing feedback, and articulating how existing principles (SMCR, consumer duty, operational resilience) apply to AI — something RBNZ has not done.</p>
+</li>
+<li><p><strong>EBA's 2023 ML for IRB Models report is the most technically demanding AI guidance from any comparator</strong>, requiring ML credit models to be interpretable, explainable, fully documented, independently validated, and aligned with CRR. ML credit models are likely &quot;high-risk AI&quot; under the EU AI Act, requiring formal conformity assessment. NZ entities with EU personal data exposure in ML credit scoring systems may face EU AI Act obligations regardless of RBNZ guidance.</p>
+</li>
+<li><p><strong>NZ-only entities face the sharpest governance gap</strong>: APRA-group NZ banks will implement CPS 230 AI governance via parent compliance; NZ-owned non-bank deposit takers, domestic insurers, and fintechs have no analogous pressure point and must rely on voluntary adoption of best practice.</p>
+</li>
+<li><p><strong>An OIA request to RBNZ is warranted and feasible</strong> to surface any non-public internal supervisory frameworks, thematic review results, or international coordination correspondence on AI risk.</p>
+</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+  <th>Claim</th>
+  <th>Source</th>
+  <th>Confidence</th>
+  <th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>RBNZ has no standalone AI supervisory framework</td>
+  <td>Prior AI strategy item (2026-02-28); absence of any RBNZ AI policy document across all searches</td>
+  <td>High</td>
+  <td>Confirmed by prior research and absence of any source citing such a document</td>
+</tr>
+<tr>
+  <td>&quot;Rise of the Machines&quot; is RBNZ's first substantive AI publication, May 2025</td>
+  <td>Multiple secondary sources: investinglive.com, insurancebusinessmag.com, miragenews.com</td>
+  <td>Medium-high</td>
+  <td>Primary PDF inaccessible (403); content confirmed across ≥4 independent sources</td>
+</tr>
+<tr>
+  <td>Kerry Watt quotation on monitoring</td>
+  <td>investinglive.com coverage of May 2025 FSR pre-release</td>
+  <td>Medium</td>
+  <td>Secondary attribution; direct source inaccessible</td>
+</tr>
+<tr>
+  <td>BS11 compliance achieved by all major banks by end-2023</td>
+  <td>interest.co.nz, business.scoop.co.nz</td>
+  <td>High</td>
+  <td>Primary RBNZ page confirms BS11 policy; compliance news from multiple outlets</td>
+</tr>
+<tr>
+  <td>RBNZ mandatory cyber incident reporting from April 2024, 72-hour window</td>
+  <td>Chapman Tripp, Bell Gully, digitalpolicyalert.org</td>
+  <td>High</td>
+  <td>Multiple law firm client alerts confirm; aligned with RBNZ cyber page</td>
+</tr>
+<tr>
+  <td>APRA CPS 230 effective 1 July 2025, captures AI via technology-neutral provisions</td>
+  <td>KPMG, DLA Piper, Minter Ellison briefings on CPS 230</td>
+  <td>High</td>
+  <td>APRA handbook confirmed; effective date and scope confirmed</td>
+</tr>
+<tr>
+  <td>FCA DP5/22 feedback confirms no new AI-specific rules, principles-based approach</td>
+  <td>FCA FS23/6, BoE/PRA FS2/23, multiple law firm analyses</td>
+  <td>High</td>
+  <td>Both primary publications accessible via secondary sources; consistent across all</td>
+</tr>
+<tr>
+  <td>EBA 2023 ML IRB report requires explainability, CRR alignment, independent validation</td>
+  <td>EBA press release, EBA PDF, regulationtomorrow.com</td>
+  <td>High</td>
+  <td>EBA press release directly confirms publication and scope</td>
+</tr>
+<tr>
+  <td>ML credit models likely &quot;high-risk AI&quot; under EU AI Act</td>
+  <td>Advisense (2025), EBA special topic page</td>
+  <td>Medium</td>
+  <td>EU AI Act classification is analytical inference applied to EBA guidance; consistent across sources</td>
+</tr>
+<tr>
+  <td>FSB November 2024 identifies 4 AI systemic risk categories</td>
+  <td>fsb.org (primary, accessed directly)</td>
+  <td>High</td>
+  <td>Direct primary source access</td>
+</tr>
+<tr>
+  <td>RBNZ cyber regime modelled on APRA</td>
+  <td>Chapman Tripp, interest.co.nz (banker interviews)</td>
+  <td>Medium</td>
+  <td>Stated design intent; not formally documented in RBNZ policy</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li><p><strong>Assumption:</strong> RBNZ's silence on AI-specific guidance reflects a deliberate policy choice to await maturation of the technology and international standard-setting, consistent with NZ's broader &quot;Investing with Confidence&quot; AI strategy. <strong>Justification:</strong> This is supported by the pattern across NZ government (light-touch, principles-based, rely on existing law) confirmed in the AI strategy item, and by the monitoring rather than prescriptive tone of the &quot;Rise of the Machines&quot; article. An alternative explanation — that RBNZ has internal non-public AI guidelines — is possible but unconfirmable without an OIA request.</p>
+</li>
+<li><p><strong>Assumption:</strong> The APRA CPS 230 framework will propagate into NZ subsidiaries of APRA-regulated Australian banks through group-level compliance. <strong>Justification:</strong> ANZ, ASB (CBA subsidiary), BNZ (NAB subsidiary), and Westpac NZ are all subsidiaries of APRA-regulated entities implementing CPS 230 by 1 July 2025. Group operational risk frameworks typically apply across jurisdictions. No source directly confirms NZ subsidiary application, but this is standard group risk management practice.</p>
+</li>
+</ul>
+<h3>Analysis</h3>
+<p>The evidence supports a clear analytical conclusion: RBNZ is behind its comparators in AI supervisory specificity, and this gap is structural rather than accidental. NZ's prudential regulatory philosophy prioritises principles over prescription. RBNZ has historically issued narrower, lighter guidance than APRA for equivalent risk categories, and AI is following that pattern.</p>
+<p>The gap matters most for NZ-only entities. The four major banks face minimal effective gap because APRA group compliance fills it. NZ-only fintechs, non-bank deposit takers, and NZ-owned insurers deploying AI in credit decisioning, underwriting, or fraud detection have no external pressure to adopt the equivalent of APRA CPS 230 AI governance. The risk is not a compliance risk in NZ (no rules to breach) but a governance risk: poorly governed AI models in these entities could produce biased credit outcomes, unexplained adverse decisions, or operational failures without triggering any supervisory consequence until a material incident occurs.</p>
+<p>The FCA comparison is instructive for RBNZ's likely next step. FCA's response to DP5/22 was to articulate how existing principles apply to AI (SMCR accountability for AI systems, consumer duty outcomes from AI), not to create new rules. RBNZ's equivalent would be a speech or guidance note explaining how BPR governance requirements, BS11 outsourcing standards, and cyber resilience expectations apply to AI specifically. This is the minimum gap-closure action available to RBNZ without new regulation.</p>
+<p>The EBA comparison is relevant for entities with EU exposure and is the benchmark for model risk sophistication. NZ's IRB credit model banks (the major four) should be applying EBA-equivalent documentation and validation standards to ML models as a matter of sound practice, regardless of RBNZ's silence.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li><p><strong>Primary source access:</strong> RBNZ's &quot;Rise of the Machines&quot; PDF was inaccessible during research (403 error). The characterisation relies on secondary press coverage from four independent sources. There may be specific supervisory language or guidance in the full FSR that secondary sources did not capture.</p>
+</li>
+<li><p><strong>Non-public internal guidance:</strong> RBNZ may have internal supervisory guidance, thematic review results, or correspondence with regulated entities that is not in the public domain. An OIA request is the only mechanism to surface this.</p>
+</li>
+<li><p><strong>Insurer-specific gap:</strong> The research focused primarily on the bank sector. RBNZ-supervised insurers under the Insurance (Prudential Supervision) Act 2010 have specific model risk exposures (actuarial models, underwriting algorithms) that were not investigated in detail. APRA's insurer-specific operational risk standards (CPS 230 applies to general and life insurers) provide the most relevant comparator.</p>
+</li>
+<li><p><strong>Timeline uncertainty:</strong> RBNZ's posture may change rapidly. The May 2025 &quot;Rise of the Machines&quot; article could be a precursor to a thematic review or consultation in late 2025 or 2026. The FSB's call for national authorities to &quot;assess framework adequacy&quot; creates international pressure for RBNZ to respond.</p>
+</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li><strong>Does RBNZ have non-public AI supervisory guidance?</strong> An OIA request seeking any internal frameworks, thematic review results, or correspondence on AI risk would determine whether the public gap reflects a genuine absence or a transparency gap.</li>
+<li><strong>How are NZ-only non-bank deposit takers and fintechs managing AI model risk without any regulatory signal?</strong> A practitioner survey or interview-based study of NZ's fintech and challenger bank sector would surface the practical governance vacuum.</li>
+<li><strong>What is the regulatory status of AI-generated actuarial models for NZ insurers?</strong> The RBNZ/IPSA regime and its intersection with AI-driven underwriting and reserving is an under-investigated area.</li>
+<li><strong>When will RBNZ issue its first prescriptive AI guidance?</strong> The trajectory of comparator regulators suggests 2026–2027 is plausible. Monitoring RBNZ's response to FSB pressure and any signals in the full May 2025 FSR or November 2025 FSR would provide early indicators.</li>
+</ul>
+<hr />
+
+
+  </div>
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-02-28-transcript-via-gemini-api.html">YouTube transcripts via Gemini API (native YouTube URL support)</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-02-28-predictive-processing-active-inference.html">Predictive processing and active inference: the brain as prediction machine</a></div>
+  </div>
+</main>
+</body>
+</html>

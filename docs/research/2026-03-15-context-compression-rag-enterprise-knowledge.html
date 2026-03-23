@@ -1,0 +1,608 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Context Compression and RAG Techniques for Organisational Knowledge — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #141414;
+  --surface-2:       #1c1c1c;
+  --border:          #2a2a2a;
+  --text:            #e8e8e8;
+  --text-muted:      #666;
+  --accent:          #e8e8e8;
+  --accent-dim:      #333;
+  --tag-bg:          #1e1e1e;
+  --tag-text:        #999;
+  --tag-active-bg:   #e8e8e8;
+  --tag-active-text: #0d0d0d;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--accent); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+}
+.card:hover { border-color: var(--accent); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+}
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+.item-content pre code { background: none; padding: 0; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--text); text-decoration: underline; }
+.item-content a:hover { color: var(--text-muted); }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  main { padding: 72px 1rem 3rem; }
+  nav { padding: 0 1rem; }
+}
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/">Research</a>
+    <div class="nav-links">
+      <a href="/Research/tags/">Tags</a>
+      <a href="/Research/search.html">Search</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>Context Compression and RAG Techniques for Organisational Knowledge</span>
+  </div>
+  <h1 class="item-title">Context Compression and RAG Techniques for Organisational Knowledge</h1>
+  <div class="meta-bar">
+    <span>2026-03-15</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/rag.html">rag</a> <a class="tag" href="/Research/tags/context-management.html">context-management</a> <a class="tag" href="/Research/tags/compression.html">compression</a> <a class="tag" href="/Research/tags/llm.html">llm</a> <a class="tag" href="/Research/tags/knowledge-architecture.html">knowledge-architecture</a> <a class="tag" href="/Research/tags/enterprise-ai.html">enterprise-ai</a> <a class="tag" href="/Research/tags/context-window.html">context-window</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-15-context-compression-rag-enterprise-knowledge.md" target="_blank" rel="noopener">source →</a>
+  </div>
+  <div class="item-content">
+    <h2>Research Question</h2>
+<p>What are the current best practices and bleeding-edge techniques  -  including Retrieval-Augmented Generation (RAG), context compression, and context architecture  -  for selectively surfacing the right slice of a large organisational knowledge corpus (regulations, policies, strategy, current state) into a Large Language Model (LLM) context window at decision time?</p>
+
+<h2>Findings</h2>
+<p><em>(Populated from §6 Synthesis above.)</em></p>
+<h3>Executive Summary</h3>
+<p>Advanced Retrieval-Augmented Generation (RAG)  -  combining hybrid search, re-ranking, hierarchical indexing (Recursive Abstractive Processing for Tree-Organized Retrieval (RAPTOR)), and modular pipeline architecture  -  is the current best practice for surfacing organisational knowledge into a Large Language Model (LLM) context window at decision time. Extending the context window to 1M tokens does not substitute for structured retrieval; NVIDIA's RULER benchmark (2024) confirms all models degrade significantly on complex reasoning tasks with increasing context length. LLMLingua-2 (4x compression, 3–6x faster than its predecessor) and LongLLMLingua (question-aware multi-document compression) are the best available tools for reducing retrieved context volume. The primary unsolved challenge is governance of the underlying knowledge corpus: retrieval quality is bounded by source document quality, and no retrieval technique compensates for outdated or contradictory organisational knowledge.</p>
+<h3>Key Findings</h3>
+<ol>
+<li><p>Naive RAG fails for hierarchical organisational knowledge because a single cosine-similarity query cannot distinguish regulatory, strategic, and operational knowledge tiers; Advanced RAG with hybrid search and cross-encoder re-ranking is the minimum viable baseline for multi-tier retrieval.</p>
+</li>
+<li><p>Extending the LLM context window to 1M tokens does not eliminate the need for structured retrieval; NVIDIA's RULER benchmark (arXiv:2404.06654, 2024) shows all tested models degrade significantly on complex reasoning and aggregation tasks as context length increases, with effective performance failing at 60–70% of the advertised window.</p>
+</li>
+<li><p>LLMLingua-2 (ACL 2024, arXiv:2403.12968) is a task-agnostic prompt compression method that runs 3–6x faster than the original LLMLingua and accelerates end-to-end latency by 1.6–2.9x at 2–5x compression ratios, making it the most production-ready context compression tool currently available.</p>
+</li>
+<li><p>LongLLMLingua, a question-aware extension of LLMLingua, achieves ~75% accuracy on NaturalQuestions at 3.9x token compression across 20-document retrieval tasks  -  the most relevant compression technique for surfacing organisational knowledge at query time.</p>
+</li>
+<li><p>RAPTOR (ICLR 2024, arXiv:2401.18059) builds a hierarchical tree of text summaries through recursive clustering and abstractive summarisation, achieving 82.6% accuracy on the QuALITY benchmark with GPT-4 versus 62.3% for prior state-of-the-art, a 20+ percentage point improvement on multi-document reasoning tasks.</p>
+</li>
+<li><p>Modular RAG with tier-specific routing logic is the correct architectural pattern for multi-layer organisational knowledge because it separates query routing (which knowledge tier to query) from retrieval quality (how to search within a tier), eliminating cross-tier noise that degrades Naive RAG responses.</p>
+</li>
+<li><p>Microsoft GraphRAG enables relationship-aware retrieval by building a knowledge graph from unstructured text with hierarchical community summaries, but its indexing cost is approximately 100–1000x higher than vector RAG, making it appropriate only when inter-entity relationships are primary to the decision query.</p>
+</li>
+<li><p>LlamaIndex provides the best out-of-the-box hierarchical retrieval primitives (HierarchicalNodeParser, AutoMergingRetriever, and structured auto-retrieval with metadata filters) for implementing a tiered organisational knowledge architecture, while Haystack offers the strongest production-reliability guarantees for regulated-industry deployments.</p>
+</li>
+<li><p>The RAGAS (RAG Assessment) framework is the dominant open-source evaluation standard, measuring faithfulness, context precision, context recall, and answer relevance, but its correlation with manual human evaluation reaches only ~0.55 harmonic mean  -  sufficient for continuous monitoring but insufficient as a sole quality gate for compliance-critical decisions.</p>
+</li>
+<li><p>Governance of the source knowledge corpus  -  specifically, freshness verification, contradiction resolution, and ownership assignment for each document  -  is the primary determinant of RAG retrieval quality and cannot be substituted by any combination of retrieval or compression techniques.</p>
+</li>
+<li><p>Summarisation-based compression (map-reduce) applied offline at indexing time is appropriate for stable, slow-changing documents such as regulations and strategy papers; token-pruning compression using LLMLingua-2 is more appropriate for dynamic context injected at query time where offline processing is not viable.</p>
+</li>
+<li><p>MemGPT/Letta's three-tier memory model (core memory always in context, recall memory for recent history, archival memory for long-term storage) is the closest operational approximation of a layered organisational context architecture, but it lacks the access control, provenance tracking, and audit trail capabilities required for compliance-sensitive enterprise deployments.</p>
+</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+  <th>Claim</th>
+  <th>Source</th>
+  <th>Confidence</th>
+  <th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Naive RAG fails for tiered knowledge  -  hybrid search + re-ranking is minimum baseline</td>
+  <td>arXiv:2312.10997 (Gao et al. RAG Survey, 2024); Weaviate Advanced RAG (2024)</td>
+  <td>high</td>
+  <td>Survey documents failure modes; Weaviate confirms in production context</td>
+</tr>
+<tr>
+  <td>Context window degradation: all models degrade, effective failure at 60–70%</td>
+  <td>arXiv:2404.06654 (RULER, NVIDIA 2024); community empirical reports (2024)</td>
+  <td>high</td>
+  <td>Benchmark paper plus independent empirical confirmation</td>
+</tr>
+<tr>
+  <td>LLMLingua-2: 3–6x faster, 1.6–2.9x latency reduction, task-agnostic</td>
+  <td>arXiv:2403.12968 (Pan et al., ACL 2024)</td>
+  <td>high</td>
+  <td>Peer-reviewed conference paper with benchmark tables</td>
+</tr>
+<tr>
+  <td>LongLLMLingua: ~75% accuracy at 3.9x compression on 20-document tasks</td>
+  <td>arXiv:2403.12968 PDF; Microsoft Research LongLLMLingua page</td>
+  <td>high</td>
+  <td>Benchmark table in paper reproduced by Microsoft Research</td>
+</tr>
+<tr>
+  <td>RAPTOR: 82.6% accuracy (GPT-4), 20pp over prior state-of-the-art</td>
+  <td>arXiv:2401.18059; ICLR 2024 proceedings</td>
+  <td>high</td>
+  <td>Conference paper results</td>
+</tr>
+<tr>
+  <td>Modular RAG routing separates tier selection from within-tier retrieval</td>
+  <td>arXiv:2312.10997 (RAG Survey); Meilisearch Modular RAG guide</td>
+  <td>medium</td>
+  <td>Survey taxonomy + practitioner documentation</td>
+</tr>
+<tr>
+  <td>GraphRAG indexing cost: 100–1000x vector RAG</td>
+  <td>articsledge.com, citing Microsoft Research 2025</td>
+  <td>medium</td>
+  <td>Single practitioner source; directionally consistent with LLM-based entity extraction costs</td>
+</tr>
+<tr>
+  <td>LlamaIndex hierarchical primitives: HierarchicalNodeParser, AutoMergingRetriever</td>
+  <td>LlamaIndex official documentation; NVIDIA GenerativeAI examples</td>
+  <td>medium</td>
+  <td>Documentation confirmed in two independent sources</td>
+</tr>
+<tr>
+  <td>RAGAS correlation with manual evaluation: ~0.55 harmonic mean</td>
+  <td>tech.beatrust.com Ragas evaluation study (2024)</td>
+  <td>medium</td>
+  <td>Single empirical study; no direct replication found</td>
+</tr>
+<tr>
+  <td>Knowledge governance as primary RAG quality determinant</td>
+  <td>Research/completed/2026-03-02-agent-memory-management-context-injection.md; Research/completed/2026-03-08-servicenow-ai-knowledge-rag-agents.md</td>
+  <td>high</td>
+  <td>Two independent internal research items with empirical evidence</td>
+</tr>
+<tr>
+  <td>Summarisation offline for stable docs; LLMLingua-2 online for dynamic</td>
+  <td>Enterprise RAG Architecture guide (applied-ai.com); LangChain docs</td>
+  <td>medium</td>
+  <td>Practitioner inference from documented latency/cost patterns</td>
+</tr>
+<tr>
+  <td>MemGPT/Letta lacks enterprise governance</td>
+  <td>arXiv:2310.08560 (MemGPT paper); medium.com Letta deep dive</td>
+  <td>medium</td>
+  <td>Paper scope is research system; governance features absent from documentation</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li><p><strong>Assumption:</strong> Regulatory and policy documents contain sufficient natural language redundancy for LLMLingua-style compression at 4x with acceptable quality loss. <strong>Justification:</strong> LLMLingua achieves 20x compression on reasoning benchmarks (GSM8K, BBH) with 1.5% loss; Shannon (1951) established general natural language redundancy; policy text's defined terms, cross-references, and boilerplate represent structured redundancy typically higher than general prose. This is an extrapolation  -  direct evidence for regulatory text specifically is absent.</p>
+</li>
+<li><p><strong>Assumption:</strong> The &quot;lost in the middle&quot; performance degradation documented in benchmarks applies to organisational document retrieval in the same way as measured for needle-in-a-haystack and multi-hop reasoning tasks. <strong>Justification:</strong> The effect has been documented consistently across multiple model families and task types (RULER benchmark, community reports); no counter-evidence found for structured policy document tasks specifically. Applies until domain-specific benchmarks show otherwise.</p>
+</li>
+<li><p><strong>Assumption:</strong> LlamaIndex hierarchical primitives (HierarchicalNodeParser, AutoMergingRetriever) can be configured to implement a full four-tier regulatory/strategy/policy/operational architecture without fundamental limitation of the framework. <strong>Justification:</strong> The primitives support arbitrary metadata tagging and routing by metadata label; the tier configuration is a software engineering implementation task, not a research-level gap. Confirmed by documentation review.</p>
+</li>
+</ul>
+<h3>Analysis</h3>
+<p>The central tension in context management for organisational decision support is completeness versus quality. Extending the context window resolves availability but worsens reasoning quality and incurs prohibitive cost at scale. The evidence from the RULER benchmark and production reports is clear: adding more undifferentiated context degrades the model's ability to reason about what is relevant.</p>
+<p>Structured retrieval resolves this tension by selecting relevant content before it reaches the model. Advanced RAG techniques (hybrid search, re-ranking) address retrieval precision within a knowledge tier. Modular RAG with routing logic addresses tier selection. RAPTOR addresses cross-level summarisation. Each technique attacks a specific failure mode; they compose rather than substitute.</p>
+<p>Context compression (LLMLingua-2, LongLLMLingua) is complementary to structured retrieval, not an alternative. The correct pipeline: (i) route query to relevant tier(s); (ii) retrieve within tier using Advanced RAG; (iii) apply compression to retrieved chunks before injection. This reduces both context noise and token cost.</p>
+<p>GraphRAG occupies a genuine niche for relationship-heavy queries  -  when the question is &quot;which regulation governs which process&quot; rather than &quot;what does this regulation say&quot;  -  but is not a general-purpose replacement. The indexing cost discourages broad adoption.</p>
+<p>The governance gap is the most important finding that the technical literature underweights. Every retrieval system is bounded by source quality. The historical pattern (enterprise search, SharePoint, Confluence) shows that organisations repeatedly invest in retrieval technology while neglecting knowledge governance, producing the same failure mode under each successive technology generation.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li><strong>No benchmark for RAPTOR on structured policy/regulatory documents.</strong> The ICLR 2024 results use literary and general knowledge corpora. Transfer to structured, hierarchically-organised organisational knowledge is an inference.</li>
+<li><strong>RAGAS is an approximation.</strong> For compliance-critical deployments, ~0.55 correlation with human evaluation is insufficient as the sole quality gate. Domain-specific human evaluation benchmarks are required.</li>
+<li><strong>GraphRAG cost figure is from a single practitioner source</strong> (citing Microsoft Research). The 100–1000x range is plausible but not independently corroborated at the specific multiple.</li>
+<li><strong>LLMLingua compression on regulatory text is unvalidated.</strong> The 20x claim applies to reasoning benchmarks; regulatory/policy text may compress more or less favourably. Direct experimentation is required before relying on this in production.</li>
+<li><strong>Governance prerequisite is under-documented.</strong> No academic framework provides a structured methodology for assessing knowledge corpus governance readiness for RAG deployment. Practitioners work from ad hoc checklists.</li>
+<li><strong>Multi-tier metadata tagging discipline.</strong> A tiered RAG system only provides routing benefits if source documents are accurately and consistently tagged with their knowledge tier. The operational challenge of maintaining this taxonomy at scale is not addressed in the literature.</li>
+</ul>
+<h3>Open Questions</h3>
+<ol>
+<li>Does explicitly tiered RAG  -  with regulatory/strategy/policy/operational metadata labels and routing logic  -  measurably outperform flat vector search over the same corpus on compliance-relevant queries? (→ warrants experimental validation; could become a new backlog item)</li>
+<li>What provenance and audit trail infrastructure is required alongside a RAG system for retrieved context to be considered auditable evidence in a regulated financial services environment?</li>
+<li>What compression ratio is achievable on standard regulatory texts (e.g., Basel III, MiFID II, PRA SS10/18) using LLMLingua-2 before meaningful content loss occurs?</li>
+<li>Can the MemGPT/Letta memory architecture be extended with access control and provenance tracking to serve as an enterprise-grade organisational knowledge agent without replacing the underlying framework?</li>
+</ol>
+<hr />
+
+
+  </div>
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-15-context-layers-aligned-decisions-synthesis.html">Aligned Decision-Making: Context Architecture for AI Agents in Organisations</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-15-adam-smith-org-design-desire-paths-ai.html">Adam Smith, Organisational Design, Desire Paths, and AI Strategy</a></div>
+  </div>
+</main>
+</body>
+</html>

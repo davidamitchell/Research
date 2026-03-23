@@ -1,0 +1,828 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Agent Memory Management and Context Injection — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #141414;
+  --surface-2:       #1c1c1c;
+  --border:          #2a2a2a;
+  --text:            #e8e8e8;
+  --text-muted:      #666;
+  --accent:          #e8e8e8;
+  --accent-dim:      #333;
+  --tag-bg:          #1e1e1e;
+  --tag-text:        #999;
+  --tag-active-bg:   #e8e8e8;
+  --tag-active-text: #0d0d0d;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--accent); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+}
+.card:hover { border-color: var(--accent); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+}
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+.item-content pre code { background: none; padding: 0; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--text); text-decoration: underline; }
+.item-content a:hover { color: var(--text-muted); }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  main { padding: 72px 1rem 3rem; }
+  nav { padding: 0 1rem; }
+}
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/">Research</a>
+    <div class="nav-links">
+      <a href="/Research/tags/">Tags</a>
+      <a href="/Research/search.html">Search</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>Agent Memory Management and Context Injection</span>
+  </div>
+  <h1 class="item-title">Agent Memory Management and Context Injection</h1>
+  <div class="meta-bar">
+    <span>2026-03-02</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/memory.html">memory</a> <a class="tag" href="/Research/tags/context-injection.html">context-injection</a> <a class="tag" href="/Research/tags/rag.html">rag</a> <a class="tag" href="/Research/tags/agents.html">agents</a> <a class="tag" href="/Research/tags/knowledge-management.html">knowledge-management</a> <a class="tag" href="/Research/tags/architecture.html">architecture</a> <a class="tag" href="/Research/tags/governance.html">governance</a> <a class="tag" href="/Research/tags/dikw.html">dikw</a> <a class="tag" href="/Research/tags/obsidian.html">obsidian</a> <a class="tag" href="/Research/tags/pkm.html">pkm</a> <a class="tag" href="/Research/tags/knowledge-graphs.html">knowledge-graphs</a> <a class="tag" href="/Research/tags/embeddings.html">embeddings</a> <a class="tag" href="/Research/tags/graph-of-thoughts.html">graph-of-thoughts</a> <a class="tag" href="/Research/tags/portability.html">portability</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-02-agent-memory-management-context-injection.md" target="_blank" rel="noopener">source →</a>
+  </div>
+  <div class="item-content">
+    <h2>Research Question</h2>
+<p>What is the current state of agent memory management systems — beyond RAG — and which approaches best address the real constraints of latency, knowledge freshness, scoping, governance, quality, and distribution without degenerating into an ungardened wiki?</p>
+
+<h2>Findings</h2>
+<h3>Executive Summary</h3>
+<p>Agent memory is a solved problem in the narrow sense (RAG works for retrieval) and an open problem in the broad sense (RAG is not a memory architecture). A more precise reframe, from Letta and Anthropic independently: <strong>memory is context engineering</strong> — what the agent &quot;remembers&quot; is whatever is in its context window at inference time; the design question is which tokens go there and when. This reframe unifies the fragmented space. The five distinct approaches (in-context stuffing, vector retrieval, episodic/temporal knowledge graphs, hybrid vector+graph, and structured paging via MemGPT/Letta) are not competing architectures; they are different answers to the same context management question across different time horizons. Critically, <strong>larger context windows do not solve the problem</strong>: Chroma Research (2025) empirically demonstrated &quot;context rot&quot; — LLM recall accuracy degrades non-uniformly as context length increases due to the quadratic cost of self-attention. The practical implication is that careful context curation is always required.</p>
+<p>The Cognition (&quot;Don't Build Multi-Agents&quot;) vs. Anthropic debate resolves to a use-case split, not a fundamental disagreement: both sides independently concluded that memory/context management is the #1 challenge in agent reliability. Cognition favours single-agent + context engineering for coding and dialogue tasks; Anthropic favours multi-agent + distributed memory for deep research. The MongoDB analysis is correct: both are right for their respective application modes.</p>
+<p>Letta's sleep-time compute (arXiv:2504.13171) represents the most architecturally interesting 2025 advance: asynchronous background memory agents that consolidate and improve memory blocks during idle periods, achieving up to 5x inference cost reduction and 18% accuracy improvement on stateful benchmarks. This is structurally similar to biological memory consolidation during sleep.</p>
+<p>Governance and quality testing remain largely unsolved in open-source deployments; only commercial tiers of Mem0 and Zep approach enterprise-grade access control and audit. The &quot;ungardened wiki&quot; failure mode is real, accelerated by agents that write at machine speed, and the only architectures that resist it are those with TTL, confidence decay, or explicit conflict resolution built into the write path.</p>
+<h3>Key Findings</h3>
+<ol>
+<li><p><strong>RAG is retrieval, not memory.</strong> RAG answers &quot;find text similar to this query&quot; but does not address staleness, conflicting knowledge, write-path governance, scoping by role or context, or provenance tracking. Less than 15% of studied RAG deployments support production-level integration (arXiv systematic review, 2025). GraphRAG and agentic RAG narrow the gap for structured relationship retrieval but do not solve governance or the write path.</p>
+</li>
+<li><p><strong>Memory architecture has five distinct layers in practice.</strong> In production systems (GitHub Copilot, Cursor Memory Bank, Devin): (a) in-context working memory (sub-millisecond, linear cost growth), (b) vector retrieval / RAG (1–50ms, ~90% token savings vs full context), (c) episodic/temporal knowledge graphs (10–100ms for 1–2 hops, relationship-aware), (d) structured paging (MemGPT/Letta: OS-inspired, agent-controlled swap), and (e) parametric (fine-tuning, out of scope). Systems that mix (a)+(b)+(c) achieve 70–91% latency reduction and ~90% cost reduction versus pure in-context approaches.</p>
+</li>
+<li><p><strong>Zep (Graphiti engine) is the most technically mature temporal memory system.</strong> arXiv:2501.13956 (Jan 2025). Outperforms MemGPT on Deep Memory Retrieval (94.8% vs 93.4%) and achieves 18.5% higher accuracy / 90% lower latency than prior systems on LongMemEval. Core innovation: every fact carries explicit temporal validity intervals, enabling &quot;what was true at time T?&quot; queries. Supports user threads, user graphs, and shared (org-wide) graphs. Commercial tier adds SOC2/HIPAA. Open-source tier has no access control.</p>
+</li>
+<li><p><strong>Mem0 is the most adopted open-source memory layer.</strong> Claims +26% accuracy over OpenAI native memory in LOCOMO, 91% faster response, 90% lower token costs. Supports user/session/agent memory scoping, graph-based entity relationships, TTL/confidence filtering, and async operations. Enterprise tier adds SOC2/HIPAA, BYOK encryption, and audit trails. Open-source tier (Apache 2.0) has no governance features.</p>
+</li>
+<li><p><strong>LangMem provides the cleanest semantic/episodic/procedural taxonomy.</strong> Three memory types map directly to &quot;facts about the world&quot; (semantic), &quot;notable past events&quot; (episodic), and &quot;learned strategies and rules&quot; (procedural). Flexible storage backend (SQL, vector, key-value). Memory Manager API handles extraction, deduplication, and pruning. Integrates natively with LangGraph. Namespacing provides multi-tenant safety but is not access-controlled.</p>
+</li>
+<li><p><strong>Scoping is achievable but not combinatorial-explosion-free.</strong> Cognee implements per-user, per-conversation, and per-workspace isolation backed by dedicated graph + vector stores (LanceDB). Graphiti supports agent-level, workspace-level, and global graph scoping. Both avoid combinatorial explosion by isolating at the graph/store level rather than filtering a shared index. The trade-off is storage cost (N copies) versus query safety (no cross-contamination). Fine-grained scoping at the row/column/cell level inside a shared store remains unsolved without significant engineering.</p>
+</li>
+<li><p><strong>GraphRAG (Microsoft) solves multi-hop reasoning but not agent memory.</strong> Community detection (Leiden algorithm) + LLM-generated summaries create a hierarchical memory of topic clusters. Useful for &quot;what does the entire corpus say about X&quot; queries. Does not support incremental real-time updates (batch-rebuild model). Does not address write-path governance or temporal validity. Graphiti is the real-time counterpart that does support live updates.</p>
+</li>
+<li><p><strong>Governance is absent in open-source, partial in commercial.</strong> No open-source agent memory system has access control, audit trails, provenance-weighted retrieval, or a quality feedback loop beyond cosine similarity. Commercial tiers (Mem0 Enterprise, Zep Cloud) add SOC2/HIPAA and audit logging. AWS's Agentic AI Security Scoping Matrix (2025) defines a governance framework for agent write-path operations (no-agency/read-only → prescribed → supervised → full-agency), but no memory system implements it natively.</p>
+</li>
+<li><p><strong>The wiki failure mode applies and is accelerated.</strong> Enterprise wiki post-mortems confirm: without assigned ownership, lifecycle management, and deletion policies, knowledge stores accumulate stale, duplicated, and contradictory entries. AI agents that write at machine speed will reach this failure mode orders of magnitude faster than human-edited wikis. TTL-based expiry, confidence decay, and explicit conflict resolution on the write path are the architectural countermeasures; temporal knowledge graphs (Zep/Graphiti) are the only current systems that model this explicitly.</p>
+</li>
+<li><p><strong>Production deployments use pragmatic memory-bank patterns.</strong> GitHub Copilot memory is repo-scoped, opt-in, and updated just-in-time (not pre-curated). Cursor uses structured markdown memory-bank files inside the repository. Devin uses <code>.devin-memory/</code> structured files. None of these systems use a temporal knowledge graph in production; they use the simplest mechanism that gives consistent cross-session context with acceptable governance (opt-in, repo-scoped, human-readable files).</p>
+</li>
+<li><p><strong>Quality benchmarks exist but are not standardised.</strong> LOCOMO (Snap Research) and LongMemEval (arXiv:2410.10813) are the current gold standards. Best 2025 scores: EverMemOS 92.3% on LOCOMO; Zep 94.8% on Deep Memory Retrieval; Mem0 +26% vs OpenAI on LOCOMO. A unified evaluation framework (EverMind AI, 2025) is emerging but not yet adopted as industry standard. No benchmark covers governance, provenance, or scoping correctness — only recall accuracy.</p>
+</li>
+<li><p><strong>Memory IS context engineering (Letta/Anthropic reframe).</strong> Letta's canonical architecture blog articulates the clearest framework: memory is not a database problem but a context window management problem. The message buffer (recent messages), core memory blocks (editable in-context units pinned to the context window), recall memory (searchable history not always in context), and archival memory (external vector/graph storage) are all mechanisms for deciding which tokens are in the context window at inference time. The design question is not &quot;which database?&quot; but &quot;what tokens, when, and in what order?&quot; This directly extends to context injection: injection is the act of pulling archival or recall memory back into the context window via tool calls.</p>
+</li>
+<li><p><strong>The four context engineering operations (LangChain framework).</strong> LangChain's taxonomy unifies all practical memory techniques under four operations: (a) <strong>Write</strong> — saving information outside the context window (scratchpads, memory files, long-term stores); (b) <strong>Select</strong> — pulling relevant context back in (RAG, tool calls, rules files like CLAUDE.md); (c) <strong>Compress</strong> — reducing tokens while preserving signal (summarisation, trimming, compaction); (d) <strong>Isolate</strong> — preventing irrelevant or dangerous context from entering (scoping, sandboxing, tool constraints). All memory architectures are combinations of these four operations. This taxonomy makes the design space tractable and directly maps to the four failure modes: context poisoning, context distraction, context confusion, context clash.</p>
+</li>
+<li><p><strong>Context rot makes larger context windows insufficient (Chroma Research 2025).</strong> Chroma's empirical study demonstrated that LLM accuracy degrades non-uniformly as context length increases, even before reaching the maximum window size. Information position matters: facts buried deep in the context are less reliably retrieved than recent facts (consistent with the &quot;lost in the middle&quot; phenomenon). Structured, well-organised documents can paradoxically perform worse than unstructured input. All major models (GPT-4.1, Claude 4, Gemini 2.5, Qwen3) exhibit context rot. The practical implication: increasing context window size is not a substitute for good context engineering. Chroma's framing is directly consistent with Anthropic's &quot;attention budget&quot; model — context is a finite resource with diminishing marginal returns per additional token.</p>
+</li>
+<li><p><strong>The Cognition vs. Anthropic debate resolves to application mode, not fundamental architecture.</strong> Cognition's &quot;Don't Build Multi-Agents&quot; (2025) argues that context fragmentation across agents destroys reliability — each agent has only a slice of context, leading to misaligned decisions and compounding errors. Anthropic's multi-agent deep research system achieves reliability through sophisticated context distribution (compression, external memory, fresh agent spawning). The MongoDB synthesis is correct: for deep research (parallelisable, long-running), multi-agent + memory distribution works; for coding and dialogue (continuity-critical), single-agent + context engineering wins. Both camps independently concluded that <strong>memory/context management is the #1 engineering challenge for agent reliability</strong>. Cognition states it directly: &quot;Context engineering is effectively the #1 job of engineers building AI agents.&quot;</p>
+</li>
+<li><p><strong>Sleep-time compute is the most architecturally novel 2025 advance (Letta + UC Berkeley, arXiv:2504.13171).</strong> Sleep-time agents are a dual-agent pattern: a primary agent handles real-time interactions; a background &quot;sleep-time&quot; agent runs asynchronously during idle periods to consolidate, reorganise, and improve shared memory blocks. This mirrors biological memory consolidation during sleep. Results: up to 5x inference cost reduction; 18% accuracy improvement on stateful agent benchmarks. The mechanism is &quot;anticipatory computation&quot; — the sleep-time agent pre-processes contexts likely to be relevant in future queries, making memory retrieval faster and more accurate. Sleep-time compute resolves the real-time vs. memory quality trade-off that afflicts synchronous memory systems.</p>
+</li>
+<li><p><strong>MemoryOS (BAI-LAB, EMNLP 2025 Oral) demonstrates a three-tier OS-inspired hierarchy.</strong> MemoryOS explicitly applies operating system memory management principles to agents: short-term (recent dialogue), mid-term (dialogue-chain FIFO buffer), and long-term (segmented page organisation). Dynamic promotion policies move facts up the hierarchy. Results on LoCoMo: +49.11% F1, +46.18% BLEU-1 over GPT-4o-mini baseline — the largest absolute improvement of any evaluated system. Four core modules: Storage, Updating, Retrieval, Generation. Plug-and-play integration with any LLM (OpenAI, DeepSeek, Qwen). arXiv:2506.06326. This is the strongest evidence that OS-inspired memory hierarchies (not just flat vector stores) produce measurably better recall in long-horizon agent tasks.</p>
+</li>
+<li><p><strong>Claude Code's hybrid approach is the current production gold standard for coding agents.</strong> Claude Code combines: (1) CLAUDE.md files in context up-front (procedural memory — always available, human-authored); (2) just-in-time file retrieval via grep/glob (avoids stale indexing and complex AST parsing); (3) auto-compact at 95% context usage (hierarchical summarisation preserving architectural decisions, recent files, and unresolved issues); (4) to-do lists persisted outside the context window (structured note-taking). This is the Anthropic hybrid strategy in production: some pre-loaded context (CLAUDE.md) + most context just-in-time. The pattern confirms that for coding tasks, a simple combination of human-authored rules + just-in-time file access outperforms any purely retrieval-based memory system.</p>
+</li>
+<li><p><strong>Memory portability is an emerging first-class concern, not an afterthought.</strong> Current agent memory systems are almost universally locked to a single vendor or framework — ChatGPT memories don't export to Claude, Cursor rules don't transfer to Windsurf, Mem0 schemas don't import into Zep. This creates compounding switching costs as organisational knowledge accumulates in proprietary formats. Three emerging vectors: (a) <strong>MCP RFC #2043 (Memory Interchange Format, MIF)</strong> proposes a portable JSON/JSONL/YAML format including semantic embeddings, knowledge graph snapshots, and PII-redaction hooks — not yet merged but actively discussed; (b) <strong>Google's Agent2Agent (A2A) protocol</strong> defines cross-vendor agent communication including context handoff, applicable to memory sharing across agent boundaries; (c) <strong>GDPR Article 20 (right to data portability)</strong> establishes a legal expectation that agent memories are user data and subject to export/import rights in EU jurisdictions. Memory portability is not purely a technical problem; it is governance, privacy, and data sovereignty simultaneously. No production-ready open standard exists as of 2025, but the pressure is building rapidly.</p>
+</li>
+<li><p><strong>The DIKW progression (Data → Information → Knowledge → Wisdom) is the right evaluative lens for memory system design.</strong> The DIKW hierarchy (Ackoff 1989; updated Springer 2024) maps directly onto memory tiers: raw event logs and embeddings are data; structured facts with entity relationships are information; inferred rules, patterns, and reusable insights are knowledge; context-aware judgment applied to novel situations is wisdom. Current agent memory systems optimise heavily for data → information (vector retrieval, entity extraction) and partially for information → knowledge (knowledge graphs, temporal validity). The <strong>knowledge → wisdom gap</strong> is the hardest: wisdom requires applying learned knowledge with judgment in novel contexts, accounting for conflicting goals, ethical constraints, and long-term consequences. No current agent memory system approaches wisdom-level memory. The design implication is directional: memory systems should prefer &quot;distilled insights&quot; over &quot;raw interactions&quot; — favour knowledge-form storage (structured facts, rules, verified inferences) over log-form storage (raw conversation history, unprocessed tool outputs). This directly connects to progressive summarisation (Forte) and evergreen note principles (Matuschak): the goal is compounding knowledge, not compounding data.</p>
+</li>
+<li><p><strong>Obsidian/PKM principles offer a mature human-tested blueprint for agent memory architecture.</strong> Obsidian's design philosophy — and the broader PKM (Personal Knowledge Management) tradition it embodies — has solved many of the same problems that agent memory systems are now encountering. Key transferable principles: (a) <strong>Atomic notes</strong> (one concept per unit) — maps directly to the claim that agent memory should prefer knowledge-form entries over raw interaction logs; (b) <strong>Bi-directional linking</strong> — maps to knowledge graph edges; the insight that a note's value comes primarily from its connections, not its content alone, has direct implications for how agent memory should weight retrieval of connected facts vs. isolated facts; (c) <strong>Evergreen notes</strong> (Andy Matuschak) — notes are perpetually refined and link-dense; stale notes are updated, not archived; this is architecturally identical to what Zep/Graphiti's temporal validity model provides at scale; (d) <strong>Progressive summarisation</strong> (Tiago Forte) — layered processing from raw capture through highlighting to distillation; maps exactly to the memory consolidation model (raw → episodic → semantic → procedural); (e) <strong>Graph view and Maps of Content (MOCs)</strong> — high-degree connector nodes that provide navigational structure; GraphRAG's community summaries serve the same function at scale. The failure mode Obsidian users most commonly report — &quot;I have thousands of notes but can't find or use most of them&quot; — is the same wiki rot problem identified in enterprise knowledge bases and agent memory. The PKM community's answer (disciplined atomic linking, evergreen updates, progressive distillation) is the manual analogue of the automated countermeasures in Zep/Graphiti/MemoryOS. Local Markdown + Git (Obsidian's storage model) is also directly what GitHub Copilot and Claude Code use in production — not coincidentally.</p>
+</li>
+<li><p><strong>Word embeddings + knowledge graphs + Graph of Thoughts (GoT) form a convergent architecture for high-quality agent reasoning memory.</strong> These three techniques, which appear separate, are increasingly understood as complementary layers of the same problem: (a) <strong>Word/sentence embeddings</strong> provide dense semantic similarity over unstructured text — fast approximate retrieval, but no explicit structure; (b) <strong>Knowledge graphs</strong> provide explicit relational structure — entity-relationship triples with types, confidence scores, and temporal validity — but require structured ingestion; (c) <strong>Graph of Thoughts</strong> (ETH Zurich, AAAI 2024, arXiv:2308.09687) extends the reasoning paradigm from Chain-of-Thought (linear) and Tree of Thoughts (branching) to arbitrary directed graphs — allowing thought units to merge, backtrack, and form cycles, matching how knowledge actually accumulates rather than how questions are answered. The convergent architecture is: embeddings provide the retrieval index into the knowledge graph; the knowledge graph provides relational structure for retrieval; GoT provides the reasoning framework for traversing and synthesising knowledge graph paths during inference. Results: GoT achieves 62% quality improvement and 31% cost reduction over Tree of Thoughts on complex reasoning tasks (AAAI 2024). Applied to memory: the reasoning trace itself becomes a memory artefact — a named graph node — that can be retrieved, reused, and refined in future sessions. This is the architectural path toward knowledge-form and wisdom-form memory: not just storing facts but storing verified reasoning chains over those facts.</p>
+</li>
+<li><p><strong>Knowledge Graph of Thoughts (KGoT) and MindMap are the first concrete implementations of the convergent architecture.</strong> Two production-adjacent systems make the embeddings + KG + GoT convergence real: (a) <strong>KGoT</strong> (ETH Zurich, 2024 thesis) is a hybrid LLM agent that maintains a dynamic knowledge graph during GoT reasoning — each reasoning step can query, update, or traverse the KG, and the KG state persists across turns as structured memory. It combines Neo4j/graph storage with PyKEEN-style KG embeddings and LLM orchestration; (b) <strong>MindMap</strong> (ACL 2024) takes the opposite entry point — it explicitly prompts LLMs to utilise KG paths as the scaffold for their internal reasoning, effectively inducing GoT-style graph traversal through prompting alone rather than a custom controller. Both demonstrate that the convergent architecture is achievable without retraining models. The open-source GoT framework (PyPI: <code>graph-of-thoughts</code>) provides the controller layer. The practical minimum viable stack is: Neo4j or FalkorDB (KG storage) + text-embedding-3-small (embedding index) + GoT controller (orchestration) + any frontier LLM (reasoning). Healthcare question answering is the most documented production domain, where the reasoning graph doubles as an auditable decision trace.</p>
+</li>
+<li><p><strong>Obsidian Smart Connections is the production embodiment of PKM-as-agent-memory.</strong> Smart Connections (GitHub: brianpetro/obsidian-smart-connections, smartconnections.app) is an open-source Obsidian plugin that converts a user's entire note vault into a live agent memory system using AI embeddings. Core capabilities: (a) <strong>Local-first semantic search</strong> — notes are embedded using lightweight local models (bge-micro-v2 via Transformers.js) for offline, privacy-preserving semantic similarity; cloud APIs (OpenAI, Anthropic, Gemini) are optional for higher-quality embeddings; (b) <strong>Smart View sidebar</strong> — real-time display of the most semantically related notes as you write, implementing just-in-time retrieval against personal knowledge; (c) <strong>Smart Chat</strong> — conversational Q&amp;A with full access to the note vault, using retrieved notes as grounded context; (d) <strong>Smart Context</strong> — multi-note context packing for LLM calls, mirroring how agent context injection works in code-focused memory systems. This is the most direct evidence that the PKM principles identified in Finding 21 (atomic notes, bi-directional linking, evergreen refinement) are not just theoretically analogous to agent memory — they are literally being implemented as an agent memory system today. Smart Connections is the Obsidian vault as a personal RAG system, with the user as the curator. The governance gap identified in other memory systems does not apply: the user is both the writer and the owner; all data stays local.</p>
+</li>
+<li><p><strong>The write-path governance gap is beginning to close with three distinct approaches.</strong> The claim (Finding 8) that &quot;no open-source memory system has write-path access control or audit trails&quot; remains true for the major memory systems surveyed (Zep, Mem0, LangMem). However, three governance-focused approaches are now emerging that address this directly: (a) <strong>Constitutional Memory</strong> (GitHub: MihaiCiprianChezan/Constitutional-memory-for-AI-agents, 2024) defines explicit policy rules governing what an AI agent can write to memory — retention policies, tiered credentialing, lifecycle management, and right-to-erasure support for GDPR compliance. This is the first open-source library explicitly designed as a write-path governance layer for agent memory; (b) <strong>OpenPort Protocol</strong> (arXiv:2602.20196, 2026) is a security governance specification for AI agent systems that mandates policy-gated write operations, idempotency enforcement, state revalidation at execution time, and immutable audit logs with SHA-256 chaining. Human-in-the-loop review is required for high-risk writes above a configurable risk threshold; (c) <strong>Agentic Trust Framework</strong> (Cloud Security Alliance, Feb 2026) applies Zero Trust principles to AI agents: continuous authentication, dynamic permission scoping, least-privilege write access, and tamper-proof decision logs. Staged autonomy tiers (no-agency → read-only → prescribed → supervised → full-agency) directly implement the AWS Agentic Security Scoping Matrix identified in Finding 8. None of these three frameworks has been integrated into a major memory system (Zep, Mem0, LangMem) as of 2025 — governance remains bolt-on rather than built-in, but the foundational specifications now exist.</p>
+</li>
+<li><p><strong>Explainable AI (XAI) is the operational bridge between knowledge-level and wisdom-level memory.</strong> The 2025 Springer chapter &quot;Data, Information, Knowledge, Wisdom, and Explainable Artificial Intelligence&quot; identifies XAI as the mechanism that makes the DIKW knowledge→wisdom transition tractable: to act with wisdom requires not just retrieving the right knowledge but being able to explain why that knowledge applies in context, how confident the system is, and what values are being balanced. FAIR principles (Findable, Accessible, Interoperable, Reusable) govern the data→information transition; XAI governs the knowledge→wisdom transition. The IEEE DIKW conference series (2024 at HUST, 2025 at Exeter) is actively developing evaluation standards for this progression. For agent memory design, the implication is that wisdom-level memory cannot be stored as static text — it must be stored as a reasoning trace with confidence scores, source provenance, and an explanation of the decision context. This is precisely what the KGoT and GoT-with-KG architectures produce: auditable reasoning graphs that encode not just the conclusion but the path to it. The XAI connection closes the loop: the same reasoning trace that satisfies governance/audit requirements (Finding 25) is also the data structure required to approach wisdom-level memory (Finding 26).</p>
+</li>
+<li><p><strong>Temporal decay (TTL) is a weak signal for memory quality; outcome-based utility ranking is superior.</strong> The current dominant approach to memory eviction — time-to-live and last-accessed timestamps — is analogous to a PageRank that uses only one weak dimension. Research and engineering practice are converging on a richer utility score that combines: (a) <strong>outcome signal</strong> — did retrieving this memory contribute to successful goal completion? (Goal Completion Rate, GCR); (b) <strong>impact</strong> — did applying this knowledge reduce transaction costs or improve the quality of the agent's decision?; (c) <strong>temporal recency</strong> — a contributing factor, but not the primary signal; (d) <strong>access frequency</strong> — useful as a secondary signal but can entrench stale popular memories. The key insight from @davidamitchell's framing is that memory quality should be validated by its <strong>consequences</strong>, not its age. This is precisely the signal that reinforcement learning methods use: Memory-R1 (arXiv:2508.19828) trains a Memory Manager agent end-to-end with correctness of downstream answers as the reward — the agent learns which memories to ADD, UPDATE, DELETE, or ignore (NOOP) based on whether keeping them improved outcomes. EMG-RAG (EMNLP 2024, arXiv:2409.19401) applies RL to the structure of an Editable Memory Graph, learning which memory edges to keep or prune based on personalised task performance. AssoMem (arXiv:2510.10397) fuses importance, recency, and similarity into a composite retrieval score, directly outperforming single-signal retrieval on multi-session benchmarks. The practical implication: a memory system that records &quot;this memory was retrieved and the subsequent action achieved its goal&quot; is building the signal needed to implement true utility-based ranking. No production memory system (Zep, Mem0, LangMem) closes this feedback loop by default — it requires custom instrumentation.</p>
+</li>
+<li><p><strong>Memory-R1 is the most rigorous current implementation of outcome-driven memory management.</strong> Memory-R1 (arXiv:2508.19828, Aug 2025) is a dual-agent RL system that directly operationalises the &quot;did this memory help?&quot; signal. Architecture: (a) a <strong>Memory Manager agent</strong> trained with PPO/GRPO to perform ADD, UPDATE, DELETE, or NOOP on an external memory store, with reward signal tied to answer correctness on downstream tasks; (b) an <strong>Answer Agent</strong> that retrieves and filters candidate memories (up to 60 candidates), selecting the most useful subset for reasoning. Both agents are trained end-to-end — the Memory Manager learns adaptive memory curation without explicit rules or heuristics. Critically, Memory-R1 demonstrates that the right training signal automatically produces good memory hygiene: the agent learns to delete or not-add memories that consistently correlate with wrong answers, and to preserve and update memories that consistently correlate with correct answers. This is the closest existing system to what @davidamitchell describes as &quot;did using that knowledge help or hurt my goal.&quot; The limitation: Memory-R1 requires a labelled task environment with a computable reward — it is not a general-purpose self-improving memory system. M-RAG (ACL 2024) provides a complementary multi-agent RL approach where multiple retrieval agents are rewarded based on generation quality metrics, enabling coordinated memory management at scale.</p>
+</li>
+<li><p><strong>Human memory is an inspiration but also a flawed blueprint with dangerous anti-patterns.</strong> The cognitive science literature on human memory contains a cautionary taxonomy of biases that agent memory systems should explicitly design against: (a) <strong>Availability bias</strong> — humans overweight information that is easy to recall. In AI agents, the equivalent is over-retrieval of high-frequency embeddings from training data, regardless of their current relevance. Agent memory should not inherit this — frequency in the past is not a reliable proxy for utility now; (b) <strong>Recency bias</strong> — humans over-weight recent events. In AI agents, this manifests as architectural prioritisation of recent context tokens. Research (arXiv:2503.10248, &quot;LLM Agents Display Human Biases but Exhibit Distinct Learning Patterns&quot;) confirms LLM agents display recency effects structurally but through different mechanisms than human memory — LLM recency comes from attention architecture, not evolutionary heuristics. The important finding: AI recency bias is a worse version of human recency bias because it lacks the compensatory mechanisms humans have evolved (e.g., the &quot;wavy recency effect&quot; — humans actually reduce recency weighting for surprising events; LLMs do not); (c) <strong>Forgetting as a feature, not a bug</strong> — human forgetting is adaptive, pruning low-utility information. AI systems that don't forget by default accumulate conflicting, outdated, and low-utility memories that degrade retrieval quality. However, @davidamitchell's observation is subtler: <strong>human memory sometimes forgets things that are actually important</strong> (trauma, low-arousal but relevant events). This is the strongest argument against mimicking human memory architecture — the goal is not to replicate human memory's forgetting curve but to build a <strong>utility-calibrated forgetting curve</strong> based on outcome signals rather than evolutionary proxies. Frontiers in Big Data 2025 notes that AI biases as asymmetries can sometimes be useful rather than harmful — the design task is to deliberately choose which asymmetries to preserve.</p>
+</li>
+<li><p><strong>Memory must be periodically re-assessed against both world-state changes AND model-version changes.</strong> The standard approach to memory staleness (TTL, temporal validity) addresses only one dimension of decay: the external world has changed and the stored fact may no longer be true. There is a second, underappreciated dimension: <strong>the base model has changed</strong>, and memories that were correctly interpreted by model version N may be misinterpreted by model version N+1. When a model provider updates a model (capability change, safety tuning, RLHF updates), the semantic meaning a model attributes to the same stored text can shift — a memory that told GPT-4o &quot;use Tool X for Y&quot; may be interpreted differently by a successor model with different capability boundaries. &quot;Memory in the Age of AI Agents&quot; (arXiv:2512.13564) identifies this as an open research problem: memory systems generally assume a fixed interpretive model. The &quot;Managing AI Agent Drift&quot; framework (dev.to/kuldeep_paul, 2025) proposes continuous output monitoring, explicit prompt-version tracking, and session-aware memory versioning to detect and mitigate model drift. Memory Refresh Cycles (Yodaplus, 2025) distinguishes three refresh triggers: time-based (scheduled), event-based (world change detection), and <strong>model-update-based</strong> (re-evaluate stored memories against new model). The design implication: production memory stores should tag each entry with the model version under which it was written, and run periodic re-assessment passes when models are updated — testing whether the new model interprets existing memories consistently with their intended semantics. This is analogous to a migration test in software: when the underlying engine changes, regression-test the data layer.</p>
+</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+  <th>Claim</th>
+  <th>Source</th>
+  <th>Confidence</th>
+  <th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>RAG does not address staleness, governance, or write-path</td>
+  <td>arXiv systematic review 2025; multiple industry analyses</td>
+  <td>high</td>
+  <td>Consistent across sources</td>
+</tr>
+<tr>
+  <td>Zep 94.8% on Deep Memory Retrieval, 18.5% accuracy gain on LongMemEval</td>
+  <td>arXiv:2501.13956 (Zep paper, Jan 2025)</td>
+  <td>high</td>
+  <td>Self-reported; independently benchmarked</td>
+</tr>
+<tr>
+  <td>Mem0 +26% accuracy over OpenAI memory on LOCOMO</td>
+  <td>arXiv:2504.19413; mem0.ai</td>
+  <td>medium</td>
+  <td>Self-reported benchmark; plausible given architecture</td>
+</tr>
+<tr>
+  <td>Vector retrieval achieves 1–50ms latency at scale</td>
+  <td>Pinecone/Weaviate benchmarks; multiple vendor docs</td>
+  <td>high</td>
+  <td>Well-established, consistent</td>
+</tr>
+<tr>
+  <td>Graph retrieval 10–100ms for 1–2 hops</td>
+  <td>Multiple sources; Graphiti/Zep docs</td>
+  <td>medium</td>
+  <td>Hop depth and graph size matter; range is typical</td>
+</tr>
+<tr>
+  <td>90% token savings with selective external retrieval</td>
+  <td>Mem0 production benchmarks; industry analysis</td>
+  <td>medium</td>
+  <td>Depends on conversation length; directionally correct</td>
+</tr>
+<tr>
+  <td>GitHub Copilot memory is repo-scoped and opt-in</td>
+  <td>GitHub docs (official)</td>
+  <td>high</td>
+  <td>Primary source</td>
+</tr>
+<tr>
+  <td>Cursor uses markdown memory-bank files</td>
+  <td>Community forum; agentic coding handbook</td>
+  <td>high</td>
+  <td>Widely reported pattern</td>
+</tr>
+<tr>
+  <td>No open-source memory system has governance features</td>
+  <td>Cross-survey of Zep, Mem0, LangMem, Cognee docs</td>
+  <td>high</td>
+  <td>Verified across all major systems</td>
+</tr>
+<tr>
+  <td>Wiki failure mode applies to AI memory at machine speed</td>
+  <td>Atlassian post-mortems; beefed.ai knowledge governance</td>
+  <td>high</td>
+  <td>Structural argument; direct evidence from wiki failures</td>
+</tr>
+<tr>
+  <td>EverMemOS 92.3% on LOCOMO</td>
+  <td>PR Newswire press release 2025</td>
+  <td>low</td>
+  <td>Self-reported; no independent verification</td>
+</tr>
+<tr>
+  <td>Memory is context engineering (not database selection)</td>
+  <td>Letta blog; Anthropic context engineering article</td>
+  <td>high</td>
+  <td>Both sources reach same conclusion independently</td>
+</tr>
+<tr>
+  <td>Context rot — accuracy degrades non-uniformly with context length</td>
+  <td>Chroma Research (research.trychroma.com/context-rot), 2025</td>
+  <td>high</td>
+  <td>Empirical study; replicated across multiple model families</td>
+</tr>
+<tr>
+  <td>Cognition: context engineering is #1 job for agent engineers</td>
+  <td>Cognition blog &quot;Don't Build Multi-Agents&quot;</td>
+  <td>high</td>
+  <td>Primary source; widely cited</td>
+</tr>
+<tr>
+  <td>Sleep-time compute: 5x cost reduction, 18% accuracy gain</td>
+  <td>arXiv:2504.13171 (Letta + UC Berkeley, Apr 2025)</td>
+  <td>medium</td>
+  <td>Research paper; not yet widely replicated in production</td>
+</tr>
+<tr>
+  <td>MemoryOS: +49.11% F1 on LoCoMo vs GPT-4o-mini</td>
+  <td>arXiv:2506.06326; EMNLP 2025 Oral</td>
+  <td>medium</td>
+  <td>Peer-reviewed paper; comparing against weaker baselines</td>
+</tr>
+<tr>
+  <td>Claude Code uses CLAUDE.md + just-in-time retrieval + auto-compact</td>
+  <td>Anthropic engineering blog; Anthropic context engineering article</td>
+  <td>high</td>
+  <td>Primary source from model creator</td>
+</tr>
+<tr>
+  <td>Context poisoning / distraction / confusion / clash taxonomy</td>
+  <td>LangChain context engineering blog; Drew Breunig analysis</td>
+  <td>high</td>
+  <td>Widely cited framework; consistent with empirical context rot findings</td>
+</tr>
+<tr>
+  <td>No production-ready open standard for memory portability exists</td>
+  <td>MCP RFC #2043 (open, unmerged); A2A protocol (agent comms only); survey of major vendors</td>
+  <td>high</td>
+  <td>As of 2025; actively changing area</td>
+</tr>
+<tr>
+  <td>GDPR Article 20 creates legal expectation for memory portability in EU</td>
+  <td>GDPR text; New America OTI brief on MCP</td>
+  <td>high</td>
+  <td>Primary legal source; no court case yet specifically on agent memory</td>
+</tr>
+<tr>
+  <td>DIKW framework maps to agent memory tiers</td>
+  <td>Springer DIKW in AI paper 2024; MDPI Digital Twin DIKW framework</td>
+  <td>high</td>
+  <td>Theoretical mapping; no implementation directly applying DIKW to agent memory systems</td>
+</tr>
+<tr>
+  <td>Obsidian atomic + bi-directional linking = knowledge graph structure</td>
+  <td>Andy Matuschak Evergreen Notes; Obsidian community PKM at scale analysis</td>
+  <td>high</td>
+  <td>Well-documented PKM principles; mapping to agent architecture is analytical</td>
+</tr>
+<tr>
+  <td>Progressive summarisation (Forte) maps to memory consolidation</td>
+  <td>Tiago Forte &quot;Building a Second Brain&quot;; PKM community</td>
+  <td>high</td>
+  <td>Well-documented practice; agent memory parallel is analytical</td>
+</tr>
+<tr>
+  <td>GoT: 62% quality improvement, 31% cost reduction over Tree of Thoughts</td>
+  <td>arXiv:2308.09687; AAAI 2024 (ETH Zurich)</td>
+  <td>high</td>
+  <td>Peer-reviewed, published at AAAI; independently evaluated</td>
+</tr>
+<tr>
+  <td>Embeddings + KG + GoT form convergent reasoning-memory architecture</td>
+  <td>Milvus KG/embedding explainer; Springer KGE survey 2024; GoT paper</td>
+  <td>medium</td>
+  <td>Analytical synthesis; no single paper combines all three explicitly</td>
+</tr>
+<tr>
+  <td>KGoT (ETH Zurich) and MindMap (ACL 2024) implement convergent architecture</td>
+  <td>ETH Zurich thesis; ACL Anthology 2024</td>
+  <td>medium</td>
+  <td>KGoT is thesis-grade; MindMap is peer-reviewed ACL paper</td>
+</tr>
+<tr>
+  <td>Constitutional Memory provides open-source write-path policy for agent memory</td>
+  <td>GitHub: MihaiCiprianChezan/Constitutional-memory-for-AI-agents</td>
+  <td>low</td>
+  <td>Nascent project; governance completeness not independently verified</td>
+</tr>
+<tr>
+  <td>OpenPort Protocol specifies immutable audit logs + human-in-the-loop for high-risk writes</td>
+  <td>arXiv:2602.20196 (2026)</td>
+  <td>medium</td>
+  <td>Specification paper; no documented production deployment</td>
+</tr>
+<tr>
+  <td>Agentic Trust Framework applies Zero Trust staged autonomy to AI agents</td>
+  <td>CSA blog post, Feb 2026</td>
+  <td>medium</td>
+  <td>Industry framework document; adoption not yet measured</td>
+</tr>
+<tr>
+  <td>Obsidian Smart Connections implements PKM-as-agent-memory with local embeddings</td>
+  <td>smartconnections.app; GitHub: brianpetro/obsidian-smart-connections</td>
+  <td>high</td>
+  <td>Live production plugin; widely used; primary source</td>
+</tr>
+<tr>
+  <td>XAI is the knowledge→wisdom bridge in DIKW progression</td>
+  <td>Springer 2025 chapter: DIKW + XAI; IEEE DIKW 2024/2025</td>
+  <td>medium</td>
+  <td>Academic synthesis; no AI memory system has implemented this yet</td>
+</tr>
+<tr>
+  <td>Temporal decay (TTL) is a weak memory ranking signal vs. outcome-based utility</td>
+  <td>Memory-R1 (arXiv:2508.19828); EMG-RAG (arXiv:2409.19401); AssoMem (arXiv:2510.10397)</td>
+  <td>medium</td>
+  <td>Empirically demonstrated in research systems; not yet standard in production</td>
+</tr>
+<tr>
+  <td>Memory-R1 trains memory management via PPO/GRPO on downstream answer correctness</td>
+  <td>arXiv:2508.19828 (Aug 2025)</td>
+  <td>medium</td>
+  <td>Published pre-print; peer-review status not confirmed</td>
+</tr>
+<tr>
+  <td>LLM agents display human biases (recency, availability) but via different mechanisms</td>
+  <td>arXiv:2503.10248 (2025)</td>
+  <td>medium</td>
+  <td>Empirical study; confirms structural bias but via attention architecture, not evolution</td>
+</tr>
+<tr>
+  <td>Human memory weaknesses (availability, recency, maladaptive forgetting) are anti-patterns for agent memory design</td>
+  <td>arXiv:2503.10248; Frontiers Big Data 2025</td>
+  <td>medium</td>
+  <td>Analytical synthesis; no single paper directly maps all anti-patterns to design rules</td>
+</tr>
+<tr>
+  <td>Memory staleness has two dimensions: world-state change AND model-version change</td>
+  <td>arXiv:2512.13564; Yodaplus Memory Refresh Cycles 2025; dev.to model drift framework</td>
+  <td>low</td>
+  <td>Conceptual framework; model-version-triggered re-assessment not yet in any production system</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li><strong>Assumption:</strong> Benchmark scores (LOCOMO, LongMemEval) are representative of real-world agent memory quality. <strong>Justification:</strong> Both are peer-reviewed or publicly reproducible datasets. However, production workloads may have domain-specific distributions not captured in benchmarks.</li>
+<li><strong>Assumption:</strong> The wiki failure mode will apply to agent memory at machine speed. <strong>Justification:</strong> The structural conditions are identical (unowned shared write store with no lifecycle management); agent write speeds remove the one natural brake (human effort) that slowed wiki rot.</li>
+<li><strong>Assumption:</strong> Commercial-tier governance features (SOC2, HIPAA, BYOK, audit logs) are correctly implemented by vendors. <strong>Justification:</strong> SOC2 certification provides independent verification of controls; not independently audited here.</li>
+</ul>
+<h3>Analysis</h3>
+<p><strong>The reframe: memory is context engineering, not database selection.</strong> The most important conceptual shift from the Letta/Anthropic view is that agent memory design is not primarily about choosing between vector databases, knowledge graphs, or flat files. It is about deciding what tokens are in the context window at each inference step, and implementing mechanisms to move tokens in and out efficiently and safely. This reframe simplifies the design space: the question is not &quot;which memory system?&quot; but &quot;what are my Write, Select, Compress, and Isolate strategies?&quot; Every memory architecture is an answer to these four questions.</p>
+<p><strong>Context rot makes &quot;just use a bigger window&quot; a non-answer.</strong> The Chroma Research empirical study is the most important finding for practitioners who believed that increasing context window sizes (200K, 1M tokens) would make memory management unnecessary. It does not. Performance degrades before reaching the window limit, degrades non-uniformly based on token position, and degrades more severely on semantic tasks than simple retrieval tasks. The attention budget model (Anthropic) correctly predicts this: every additional token competes for finite attention capacity. The practical consequence is that compression (compaction, summarisation, trimming) remains essential regardless of window size.</p>
+<p><strong>The Cognition/Anthropic debate resolves by use case, not by technical argument.</strong> Cognition's &quot;Don't Build Multi-Agents&quot; and Anthropic's multi-agent research paper are not contradictory; they are optimised for different task types. The shared conclusion is what matters: both independently identified memory/context management as the primary failure mode for agents. The MongoDB synthesis correctly observes that the debate itself confirms the centrality of memory management. For teams choosing an architecture, the decision criterion should be: &quot;Is my task parallelisable without context fragmentation?&quot; (→ multi-agent), or &quot;Does my task require continuous coherent reasoning?&quot; (→ single-agent + context engineering).</p>
+<p><strong>The core tension is between latency and richness.</strong> In-context memory is fast but grows linearly expensive and suffers context rot. Vector retrieval scales well but cannot reason over relationships. Knowledge graphs can reason over relationships and time, but multi-hop traversal adds latency. Sleep-time compute partially resolves this: offloading memory consolidation to background asynchronous processes means the hot-path cost of retrieval is reduced without sacrificing memory quality. This is structurally analogous to how OS memory management separates fast-path cache operations from slower disk I/O.</p>
+<p><strong>The scoping problem has two solutions and neither is free.</strong> Isolation (separate stores per scope) provides safety but multiplies storage cost. Unified stores with metadata filtering provide efficiency but require query-time filtering logic and risk cross-contamination. Cognee and Graphiti use isolation; Mem0 and LangMem use namespace-based filtering. For enterprise multi-team deployments, isolation is the safer default until filtering can be formally verified.</p>
+<p><strong>The governance gap is the most serious enterprise blocker.</strong> All open-source agent memory systems lack write-path governance. An agent with write access to a shared Mem0 or LangMem store can insert false, stale, or confidential information without any audit trail. This is not a configuration issue; it is an architectural gap. Until a system provides verifiable write-path controls, enterprise deployment of shared agent memory requires a human-in-the-loop on all writes to shared stores, or restriction to read-only shared memory with agent-private writable memory.</p>
+<p><strong>The wiki rot problem is an incentive problem disguised as a technical one.</strong> TTL, confidence decay, and conflict resolution are technical countermeasures, but they require calibration. Without a feedback loop that connects &quot;this memory was retrieved and used in a response that was rated correct&quot; to &quot;this memory's confidence should increase,&quot; confidence decay becomes arbitrary. Zep/Graphiti's temporal validity model is the most principled countermeasure, but it requires a process to invalidate stale facts — and that process requires either human review or a self-modifying agent (which introduces its own governance risks). Sleep-time agents partially address this: the background agent can identify and deprecate stale memories during consolidation, but this remains research-grade rather than production-ready.</p>
+<p><strong>Production deployments have converged on the simplest viable pattern.</strong> GitHub Copilot (repo-scoped markdown), Cursor (memory-bank files), Devin (<code>.devin-memory/</code> folder), and Claude Code (CLAUDE.md + just-in-time retrieval + auto-compact) all use human-readable, version-controlled, file-based memory as the core pattern. This is not technically sophisticated, but it has three critical properties: it is auditable (git log), it is scoped (per-repo or per-task), and it does not require a running service. Claude Code's addition of just-in-time grep/glob retrieval and auto-compact is the most evolved version of this pattern. For coding agents specifically, this hybrid (human-authored procedural memory + just-in-time retrieval + context compression) may be the production optimum until write-path governance in memory services is resolved.</p>
+<p><strong>The DIKW lens reframes what &quot;better memory&quot; means.</strong> Most memory system benchmarks measure recall accuracy — essentially &quot;does the system retrieve the right data/information?&quot; But the DIKW hierarchy implies that the real goal is not better data retrieval but better knowledge accumulation and, ultimately, better judgment. A memory system optimised for DIKW progression would: (a) store distilled insights (knowledge-form) rather than raw conversation logs (data-form); (b) actively promote entries up the hierarchy as they are validated and cross-linked; (c) deprecate information-form entries that have been superseded by knowledge-form entries; (d) never attempt to store wisdom directly, since wisdom is applied judgment and cannot be stored as static text. This explains why the simplest production memory patterns (CLAUDE.md, memory-bank markdown files) often outperform more sophisticated vector/graph systems: they store knowledge-form content from the start (human-curated rules and patterns) rather than hoping that retrieval from data-form logs will synthesise knowledge at query time.</p>
+<p><strong>Obsidian/PKM principles are the human-tested version of what agent memory systems are trying to build.</strong> The parallel is not metaphorical — it is structural. Atomic notes = fact-granular memory entries. Bi-directional linking = knowledge graph edges. Evergreen refinement = temporal validity updating (Zep/Graphiti). Progressive summarisation = memory consolidation (sleep-time compute). Maps of Content = GraphRAG community summaries. The key PKM insight that transfers most directly: the value of a knowledge store comes from the density and quality of its connections, not from the volume of its entries. This is the same insight behind knowledge graph retrieval outperforming flat vector search on multi-hop reasoning tasks.</p>
+<p><strong>The convergent architecture (embeddings + knowledge graphs + GoT) is the research-frontier design for high-quality reasoning memory.</strong> Word embeddings provide the retrieval index into the KG (semantic similarity for candidate selection). The KG provides relational structure that embeddings lack (temporal validity, entity types, conflict detection, provenance). GoT provides the reasoning framework for traversing and synthesising KG paths during inference — critically, GoT reasoning traces themselves become storable, retrievable memory artefacts, enabling agents to reuse previously solved reasoning chains. The 62% quality / 31% cost improvement of GoT over Tree of Thoughts (AAAI 2024) suggests substantial headroom above current RAG-based memory systems.</p>
+<p><strong>The convergent architecture now has concrete implementations.</strong> KGoT (ETH Zurich thesis, 2024) maintains a live KG that the GoT controller reads and writes during reasoning; MindMap (ACL 2024) induces graph-of-thoughts reasoning through KG-aware prompting alone. Both demonstrate that the convergent architecture is achievable without retraining models. The minimum viable stack (Neo4j + text-embedding-3-small + GoT controller from PyPI + frontier LLM) is buildable today. The reasoning graph produced is simultaneously the answer pathway, an audit trail, and a new retrievable memory artefact — addressing both the governance gap (Finding 25) and the wisdom-level memory goal (Finding 26) with a single data structure.</p>
+<p><strong>Smart Connections closes the PKM→agent memory gap in production.</strong> The structural parallel between Obsidian PKM principles and agent memory architecture (Finding 21) is no longer just theoretical — Smart Connections implements it: local embedding index + semantic retrieval + LLM-powered chat + privacy-preserving local-first storage. The user's vault becomes an agent memory system with zero vendor lock-in, full user control, atomic knowledge-form entries (DIKW-aligned), and incremental evergreen refinement. It solves wiki rot through the only reliable mechanism: the user as curator. The next frontier is extending this pattern to shared multi-agent memory with the governance layer from Finding 25.</p>
+<p><strong>XAI connects governance to wisdom and closes the loop.</strong> Governance requires that every write to shared memory has a traceable, auditable rationale (Finding 25). Wisdom requires that every action from memory can be explained with confidence scores and value weights (Finding 26). Both requirements converge on the same data structure: a reasoning trace with provenance. KGoT and GoT-with-KG architectures produce exactly this. The implication: investing in auditable reasoning graph infrastructure solves both the compliance/governance problem and the wisdom-level memory problem simultaneously — one architectural investment, two payoffs.</p>
+<p><strong>Temporal decay is the wrong primary signal; outcome-based utility is the right one.</strong> TTL and last-accessed timestamps measure the cheapest proxy for memory relevance because they require no feedback loop. But they conflate two distinct concepts: &quot;this memory was not used recently&quot; (which may mean it's irrelevant OR that it's deep procedural knowledge that is rarely but critically needed) and &quot;this memory is no longer valid&quot; (which is a world-state question, not a temporal one). The correct signal is: did using this memory contribute to goal achievement? This is a closed-loop measurement that requires instrumenting the memory retrieval pathway with outcome tracking. Memory-R1 (arXiv:2508.19828) is the first system to implement this at scale using RL reward signals. The production path for most deployments is simpler: log which memories were retrieved for each action, and attach a binary outcome (task success/failure, user rating) to the memory IDs used in that action. Over time, this accumulates a utility distribution per memory that is strictly more informative than TTL.</p>
+<p><strong>Human memory is an inspiration to interrogate, not an authority to obey.</strong> The recurring appeal to &quot;this is how human memory works&quot; in AI agent architecture discussions deserves scrutiny. Human memory evolved under constraints (metabolic cost, social dynamics, survival relevance) that have no analogue in AI deployments. The result is a set of heuristics — recency weighting, availability bias, emotional saliency, sleep consolidation — that are adaptive in their evolutionary context but are not universally optimal for information systems. The critical insight from arXiv:2503.10248 is that LLM agents already exhibit human-like biases, but through different mechanisms (attention architecture, training data distribution) and without the compensatory mechanisms humans evolved to correct for those biases. This means AI memory systems that uncritically mimic human memory inherit the biases without the compensators. The design principle that follows: take human memory as a set of hypotheses to test against outcome signals, not as a reference architecture to copy.</p>
+<p><strong>Model-version drift is a silent memory corruption problem.</strong> Every time a model provider updates a base model, the interpretation of existing memories potentially shifts. A memory entry that says &quot;always use tool X for task Y&quot; was written assuming the current model's capability profile. If the new model has different capabilities, the same instruction may produce different or incorrect behavior — not because the memory is factually wrong, but because its implicit model-specific assumptions are no longer valid. This is structurally identical to the schema migration problem in software: when the underlying engine changes, the data layer needs a migration/verification pass. No current memory system implements this. The near-term solution is pragmatic: tag every memory entry with the model version (model name + version hash) at write time, and run a diff when models change — comparing outputs of old vs. new model on a sample of stored memories to detect interpretation drift before it silently corrupts agent behavior.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li><strong>No open-source system has a credible quality feedback loop.</strong> Confidence decay and TTL are available, but calibration requires production signal (was this retrieval useful?). No system closes this loop without custom instrumentation.</li>
+<li><strong>Benchmark scores are largely self-reported.</strong> Independent head-to-head evaluations covering all major systems on both LOCOMO and LongMemEval do not yet exist as a single authoritative source.</li>
+<li><strong>Scoping correctness is untested.</strong> No benchmark tests whether memory systems correctly isolate cross-tenant or cross-scope writes. A compromised or misbehaving agent could poison shared memory; this threat model is not addressed in any current benchmark.</li>
+<li><strong>Write-path governance is structurally absent.</strong> The AWS Security Scoping Matrix provides a framework, but no memory system implements it. Enterprise deployments should assume zero governance and apply compensating controls externally.</li>
+<li><strong>The temporal knowledge graph complexity vs. benefit trade-off is unresolved for small teams.</strong> Zep/Graphiti provide strong theoretical guarantees but require graph infrastructure (Neo4j, FalkorDB) and ongoing operational investment. For a team of 5–20 engineers, the simpler memory-bank pattern may dominate in practice.</li>
+<li><strong>Sleep-time compute is research-grade, not production-ready.</strong> arXiv:2504.13171 shows strong benchmark results, but production deployments at scale are not yet documented. The dual-agent pattern introduces coordination complexity and new failure modes (what if the background agent introduces errors into memory blocks?).</li>
+<li><strong>Context rot benchmarks may understate the problem.</strong> Chroma's study tests standard model families; custom fine-tuned or architecturally modified models may have better long-context performance. The interaction between context rot and different memory retrieval strategies is not yet well-studied.</li>
+<li><strong>The Write/Select/Compress/Isolate framework is descriptive, not prescriptive.</strong> LangChain's taxonomy describes what happens in existing systems but provides limited guidance on how to choose between strategies for a given task. No decision framework currently exists for &quot;given task X, what is the optimal combination of these operations?&quot;</li>
+<li><strong>Memory portability is structurally unsolved and has no timeline.</strong> MCP RFC #2043 is an open proposal, not a merged standard. A2A addresses agent communication, not memory migration. The Memory Interchange Format is community-proposed. Until at least one major vendor implements a standard, portability risk remains real — organisations that invest heavily in proprietary memory schemas will face migration costs.</li>
+<li><strong>The knowledge → wisdom gap in DIKW is possibly unsolvable in current LLM architectures.</strong> Current LLMs and memory systems operate at the data/information/knowledge levels. Wisdom requires value-aligned judgment in novel contexts — which requires not just retrieval but generalisation over conflicting values. This may require architectural advances (persistent world models, long-horizon reinforcement learning) that are out of scope for current agent memory systems.</li>
+<li><strong>GoT's benefits on benchmark tasks may not transfer to memory-augmented agent workloads.</strong> GoT benchmarks test synthetic reasoning tasks (sorting, set operations). Real agent workloads involve heterogeneous, ambiguous, temporal data where graph traversal strategies are much harder to tune. The convergent architecture (embeddings + KG + GoT) is theoretically compelling but KGoT and MindMap represent early-stage academic implementations, not production-hardened systems.</li>
+<li><strong>Obsidian/PKM parallels are instructive but not prescriptive.</strong> The PKM community has had decades to refine practices for human memory management. The parallels to agent memory are structurally valid but the incentive structures differ: humans are intrinsically motivated to curate their own knowledge; agents write to memory as a side effect of tasks and have no intrinsic motivation to maintain quality.</li>
+<li><strong>Constitutional Memory and OpenPort Protocol are new and unvalidated in production.</strong> Both address the governance gap, but neither has been integrated into a major memory system. Their governance completeness, performance overhead, and failure modes are not yet documented.</li>
+<li><strong>Outcome-based memory signals require a closed feedback loop that most architectures don't have.</strong> Memory-R1 and EMG-RAG demonstrate the principle but require a labelled task environment with computable rewards. General-purpose agent deployments (chat, coding, research) don't have a ground-truth reward signal available at inference time — this is the central engineering gap for utility-based memory ranking in production.</li>
+<li><strong>Human memory analogies are selectively useful but structurally dangerous.</strong> Human memory evolved for social survival under resource constraints, not for information accuracy. Mimicking the forgetting curve, the primacy/recency structure, or the consolidation schedule without verifying that these properties are desirable in the deployment context is a design error. The burden of proof should be: &quot;what outcome signal justifies this architectural choice?&quot; not &quot;humans do it this way.&quot;</li>
+<li><strong>Model-version-triggered memory re-assessment has no production implementation.</strong> The problem is well-understood theoretically but no memory system (Zep, Mem0, LangMem, MemGPT) has implemented model-version tagging of memory entries or automated re-assessment pipelines. This is a gap that compounds silently as providers update model versions — existing memories are silently interpreted by a different model than the one that wrote them.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>Does temporal validity tracking in Zep/Graphiti actually prevent wiki rot in multi-agent production deployments, or does it shift the problem to &quot;who is responsible for marking facts invalid&quot;?</li>
+<li>Is there a memory system that provides both open-source licensing and enterprise-grade write-path governance, or is this structurally a commercial-only concern?</li>
+<li>How do GitHub Copilot's repo-scoped memories handle conflicting information from different agents writing to the same memory store?</li>
+<li>Can the LOCOMO/LongMemEval benchmarks be extended to test scoping correctness and provenance tracking, or do they require fundamentally different evaluation methodologies?</li>
+<li>At what team or codebase size does the file-based memory-bank pattern break down, and what is the migration path to a graph-based memory system?</li>
+<li>Can sleep-time compute be made safe in shared multi-agent environments? If the background consolidation agent makes an error, it could systematically degrade memory quality across all future sessions.</li>
+<li>Does the context rot phenomenon interact with memory retrieval quality? Specifically, does injecting retrieved memories into the middle of a long context cause more rot than injecting them at the end?</li>
+<li>Is the Write/Select/Compress/Isolate framework complete? Are there memory operations that don't fit neatly into one of these four categories (e.g., memory verification, confidence-weighted injection, provenance tracking)?</li>
+<li>When Cognition uses a fine-tuned model for memory summarisation at agent-agent boundaries, how does the summarisation quality compare to general-purpose LLMs? Is fine-tuning necessary, or is it a workaround for context engineering failures?</li>
+<li>Will memory portability standards (MCP MIF, A2A) actually get implemented before the market consolidates around one or two dominant memory vendors, making portability moot through market dynamics rather than technical standards?</li>
+<li>Is there a memory architecture that explicitly implements the DIKW progression — storing data separately from information, information from knowledge, and tracking which entries have been promoted from one tier to the next? What would the write path look like?</li>
+<li>Can Obsidian's graph view principle (note value increases with link density) be operationalised for agent memory? Is there a computable &quot;link-weighted relevance&quot; metric that performs better than cosine similarity for knowledge-form memory?</li>
+<li>GoT treats reasoning steps as graph nodes that can be stored and retrieved. Is there a memory system that persists GoT reasoning traces as named, retrievable memory artefacts — enabling agents to re-use previously solved reasoning chains, not just previously stored facts?</li>
+<li>At what point does the convergent architecture (embeddings + KG + GoT) become a first-class production pattern vs. remaining a research-grade synthesis? What is the minimum viable production implementation?</li>
+<li>Can the KGoT or MindMap pattern be integrated with an existing production memory system (Zep, Mem0) without a full rewrite, or does the reasoning-graph data model require a different storage architecture entirely?</li>
+<li>Smart Connections solves the PKM→agent memory problem for personal/single-user vaults. What is the minimum extension needed to support shared multi-user agent memory while preserving the local-first, zero-vendor-lock-in properties?</li>
+<li>Can Constitutional Memory and OpenPort Protocol be retrofitted onto existing Zep or Mem0 deployments as middleware, or do they require changes to the memory system's core write path?</li>
+<li>XAI (Explainable AI) is identified as the knowledge→wisdom bridge. Is there a concrete benchmark task where XAI-augmented agent memory demonstrably outperforms non-XAI memory on wisdom-level decisions? What would that task look like?</li>
+<li>Can a production agent capture a reliable utility signal (goal achievement, task success, transaction cost reduction) at memory-write time, without requiring a fully labelled environment? What is the minimum viable feedback signal?</li>
+<li>Memory-R1 is trained on a fixed task environment. Does a Memory Manager trained on one domain (e.g., QA) generalise its memory management policy to a different domain (e.g., coding, planning)? Or does each deployment context require its own RL training run?</li>
+<li>Which human memory biases are worth deliberately preserving in AI memory systems (e.g., attention to surprising events), and which should be explicitly suppressed (e.g., availability bias from training data frequency)? Is there a principled framework for this selection?</li>
+<li>How should memory stores handle the model-version discontinuity problem? Should memories be re-embedded when the embedding model changes? Should they be re-interpreted when the reasoning model changes? At what scale does this become operationally infeasible?</li>
+<li>Is there a memory architecture where the same entry can serve multiple model versions without re-assessment — e.g., by storing memories in a model-agnostic intermediate representation (knowledge graph triples, structured JSON facts) rather than natural language that is model-specific in interpretation?</li>
+</ul>
+<hr />
+
+
+  </div>
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-02-ai-not-a-data-problem.html">AI capability is not a data problem - why the data/analytics department is the wrong home for organisational AI</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-01-github-wiki-research-content.html">GitHub wiki for research content: approach and tooling</a></div>
+  </div>
+</main>
+</body>
+</html>

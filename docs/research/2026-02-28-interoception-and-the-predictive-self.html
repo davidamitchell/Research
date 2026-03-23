@@ -1,0 +1,601 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Interoception and the predictive self: selfhood as bodily inference — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #141414;
+  --surface-2:       #1c1c1c;
+  --border:          #2a2a2a;
+  --text:            #e8e8e8;
+  --text-muted:      #666;
+  --accent:          #e8e8e8;
+  --accent-dim:      #333;
+  --tag-bg:          #1e1e1e;
+  --tag-text:        #999;
+  --tag-active-bg:   #e8e8e8;
+  --tag-active-text: #0d0d0d;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--accent); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+}
+.card:hover { border-color: var(--accent); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+}
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+.item-content pre code { background: none; padding: 0; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--text); text-decoration: underline; }
+.item-content a:hover { color: var(--text-muted); }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  main { padding: 72px 1rem 3rem; }
+  nav { padding: 0 1rem; }
+}
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/">Research</a>
+    <div class="nav-links">
+      <a href="/Research/tags/">Tags</a>
+      <a href="/Research/search.html">Search</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>Interoception and the predictive self: selfhood as bodily inference</span>
+  </div>
+  <h1 class="item-title">Interoception and the predictive self: selfhood as bodily inference</h1>
+  <div class="meta-bar">
+    <span>2026-02-28</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/interoception.html">interoception</a> <a class="tag" href="/Research/tags/self.html">self</a> <a class="tag" href="/Research/tags/consciousness.html">consciousness</a> <a class="tag" href="/Research/tags/embodied-cognition.html">embodied-cognition</a> <a class="tag" href="/Research/tags/anil-seth.html">anil-seth</a> <a class="tag" href="/Research/tags/predictive-processing.html">predictive-processing</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-02-28-interoception-and-the-predictive-self.md" target="_blank" rel="noopener">source →</a>
+  </div>
+  <div class="item-content">
+    <h2>Research Question</h2>
+<p>What is the evidence that the sense of self emerges from interoceptive predictive processing — and what are the implications for understanding depersonalisation, emotion, and mental illness?</p>
+
+<h2>Findings</h2>
+<h3>Executive Summary</h3>
+<p>The sense of minimal selfhood — the pre-reflective experience of being an embodied living thing — arises from the brain's predictive regulation of interoceptive signals, with the anterior insular cortex as the key anatomical hub that transforms raw visceral inputs into a continuously updated subjective &quot;global emotional moment.&quot; This is supported by convergent evidence: Craig's neuroanatomical framework, bodily ownership experiments showing that interoceptive accuracy stabilises self-attribution, and clinical findings in depersonalisation disorder where reduced insular activation directly correlates with the severity of bodily self-disruption and emotional numbing. Interoception is necessary for the minimal (bodily) self but insufficient for higher layers — perspectival, volitional, and narrative selfhood require additional exteroceptive, cognitive, and social components. The extension of interoceptive disruption to anxiety and depression is theoretically motivated but challenged by meta-analytic null results for the heartbeat counting task, indicating that coarse cardiac detection measures do not capture the precision-weighting parameters that drive emotional experience in these conditions.</p>
+<h3>Key Findings</h3>
+<ol>
+<li><p>Seth's beast machine thesis proposes that the minimal self — the basic experience of being an alive, embodied organism — is constituted by the brain's allostatic predictive regulation of internal bodily states, making homeostatic function the biological foundation of consciousness rather than abstract cognition. [high confidence]</p>
+</li>
+<li><p>The anterior insular cortex (AIC) processes interoceptive signals along a posterior-to-anterior gradient: the posterior insula receives raw visceral input; the anterior insula integrates it with emotional and cognitive context to generate a &quot;global emotional moment&quot; that constitutes the subjective present. [high confidence — from Craig 2009, multi-study fMRI convergence]</p>
+</li>
+<li><p>Craig's 2009 review identifies von Economo neurons in the AIC as a uniquely dense population found only in humans, great apes, cetaceans, and elephants, suggesting specialised architecture for the rapid integration and transmission of complex interoceptive and social-emotional signals. [high confidence — neuroanatomical data]</p>
+</li>
+<li><p>Individuals with higher cardiac interoceptive accuracy are less susceptible to the rubber hand illusion, demonstrating that interoceptive signal strength functions as a prior that stabilises bodily ownership against competing visuotactile signals. [high confidence — Tsakiris et al. 2011, replicated]</p>
+</li>
+<li><p>Cardio-visual synchrony experiments show that pairing visual stimuli with the participant's own heartbeat signal produces stronger self-attribution of those stimuli than asynchronous pairing, directly demonstrating that cardiac interoception contributes to self-recognition at a perceptual level. [medium confidence — limited replication across labs]</p>
+</li>
+<li><p>Depersonalisation disorder shows reduced AIC activation and reduced cardiac interoceptive accuracy compared to healthy controls, with clinical improvement restoring insular activity — the most direct clinical evidence that intact interoceptive processing is necessary for a stable minimal self. [high confidence — multiple fMRI studies, PLOS One 2014 HCT data]</p>
+</li>
+<li><p>The prefrontal-insular imbalance in DPD — overactive right ventrolateral prefrontal cortex suppressing limbic-insular signals — is consistent with the predictive coding account: an overweighted top-down inhibitory prior silences the interoceptive signal, producing emotional numbing and depersonalisation. [medium confidence — plausible mechanistic inference from imaging data]</p>
+</li>
+<li><p>Meta-analyses (Desmedt et al. 2022, 133 studies; Neurosci Biobehav Rev 2022; Lancet EClinicalMedicine 2024) find no robust association between cardiac interoceptive accuracy as measured by heartbeat counting tasks and trait anxiety or depression, directly challenging the assumption that impaired cardiac detection is a reliable marker of interoceptive dysfunction in these conditions. [high confidence — meta-analytic level evidence]</p>
+</li>
+<li><p>Sass &amp; Parnas's (2003) phenomenological account of schizophrenia as an ipseity disturbance — characterised by hyperreflexivity and diminished self-affection — maps conceptually onto what a failure of interoceptive self-grounding would produce, but the mechanistic link to interoceptive prediction failure is an inference requiring direct empirical testing. [low confidence — conceptual mapping only]</p>
+</li>
+<li><p>Interoception is necessary for minimal selfhood but insufficient for higher layers: bodily ownership, minimal self-experience, and emotional grounding depend on interoceptive processing; perspectival, volitional, and narrative self-layers additionally require exteroceptive, motor, cognitive, and social signals. [medium confidence — convergent inference from clinical neuropsychology and philosophical analysis]</p>
+</li>
+<li><p>The heartbeat counting task's validity as a measure of interoceptive accuracy is contested: multiple studies suggest participants may use knowledge of their typical heart rate rather than genuinely perceiving heartbeat signals, making HCT-based null results uninformative about the broader interoceptive inference architecture. [high confidence — direct methodological critique, multiple independent sources]</p>
+</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+  <th>Claim</th>
+  <th>Source</th>
+  <th>Confidence</th>
+  <th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Minimal self constituted by allostatic predictive regulation</td>
+  <td>Seth (2013, <em>Trends Cog Sci</em>); Seth (2021, <em>Being You</em>)</td>
+  <td>high</td>
+  <td>Primary theoretical source</td>
+</tr>
+<tr>
+  <td>AIC processes interoception via posterior-to-anterior gradient</td>
+  <td>Craig (2009), <em>Nature Reviews Neuroscience</em></td>
+  <td>high</td>
+  <td>Anatomical + functional imaging convergence</td>
+</tr>
+<tr>
+  <td>Von Economo neurons in AIC uniquely dense</td>
+  <td>Craig (2009)</td>
+  <td>high</td>
+  <td>Neuroanatomical data</td>
+</tr>
+<tr>
+  <td>High interoceptive accuracy reduces RHI susceptibility</td>
+  <td>Tsakiris et al. (2011), <em>Proc R Soc B</em></td>
+  <td>high</td>
+  <td>Replicated finding</td>
+</tr>
+<tr>
+  <td>Cardio-visual synchrony → stronger self-attribution</td>
+  <td>Sel et al. (2017), <em>Cerebral Cortex</em></td>
+  <td>medium</td>
+  <td>Fewer replications than RHI findings</td>
+</tr>
+<tr>
+  <td>DPD shows reduced AIC activation</td>
+  <td>Frontiers Psychology (2016) fMRI review; multiple primary fMRI studies</td>
+  <td>high</td>
+  <td>Multiple independent imaging studies</td>
+</tr>
+<tr>
+  <td>DPD shows reduced HCT performance</td>
+  <td>PLOS One (2014)</td>
+  <td>high</td>
+  <td>Direct measurement study</td>
+</tr>
+<tr>
+  <td>DPD improvement restores insular activity</td>
+  <td>Frontiers Psychology (2016)</td>
+  <td>medium</td>
+  <td>Prospective finding, smaller samples</td>
+</tr>
+<tr>
+  <td>No robust HCT-anxiety association</td>
+  <td>Desmedt et al. (2022), <em>Collabra: Psychology</em>; Neurosci Biobehav Rev (2022); Lancet EClinicalMedicine (2024)</td>
+  <td>high</td>
+  <td>Meta-analytic level, large N</td>
+</tr>
+<tr>
+  <td>HCT validity contested</td>
+  <td>ScienceDirect (2022) methodological critique</td>
+  <td>high</td>
+  <td>Multiple independent critics</td>
+</tr>
+<tr>
+  <td>Schizophrenia = ipseity disturbance</td>
+  <td>Sass &amp; Parnas (2003), <em>Schizophrenia Bulletin</em></td>
+  <td>high</td>
+  <td>Well-established phenomenological literature</td>
+</tr>
+<tr>
+  <td>Interoception necessary but not sufficient for selfhood</td>
+  <td>Tsakiris (2017), <em>Phil Trans R Soc B</em>; Seth (2021)</td>
+  <td>medium</td>
+  <td>Convergent inference, not single definitive study</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li><p><strong>Assumption:</strong> Interoceptive inference dysregulation in anxiety is better captured by precision-weighting measures than by cardiac detection accuracy (HCT). <strong>Justification:</strong> The Seth-Friston (2016) model predicts that emotional states arise from the weighting assigned to interoceptive priors relative to sensory signals; HCT measures only whether the participant can detect discrete cardiac events, which is orthogonal to this parameter. This assumption is theoretically motivated but lacks a direct meta-analytic test.</p>
+</li>
+<li><p><strong>Assumption:</strong> The ipseity disturbance in schizophrenia (Sass &amp; Parnas 2003) is mechanistically connected to interoceptive prediction failure. <strong>Justification:</strong> The phenomenological description of hyperreflexivity and diminished self-affection is consistent with what loss of interoceptive self-grounding would produce, but Sass &amp; Parnas do not invoke interoceptive mechanisms, and direct fMRI/HCT evidence in schizophrenia is limited.</p>
+</li>
+</ul>
+<h3>Analysis</h3>
+<p>The interoceptive selfhood thesis has three independent lines of supporting evidence: (1) neuroanatomical architecture — Craig's AIC gradient describes a plausible implementation substrate; (2) experimental bodily ownership paradigms — the Tsakiris line shows interoceptive accuracy stabilises self-attribution under multisensory challenge; and (3) clinical pathology — DPD neuroimaging shows the predicted insular deficit with symptom-severity correlation and treatment-restoration patterns. These lines converge on the same structure (AIC) and the same mechanism (interoceptive prediction as bodily self-anchor).</p>
+<p>The main tension is between the theoretical expectation that interoceptive disruption drives anxiety/depression and the meta-analytic null for HCT in these conditions. Two interpretations are possible: the theory is wrong about anxiety/depression, or the HCT is the wrong measure. The methodological critique of HCT (that it may measure knowledge rather than perception) supports the second interpretation; but until better interoceptive precision measures are validated and tested meta-analytically, the first cannot be fully ruled out. This is the most important unresolved question for the theory's clinical utility.</p>
+<p>The &quot;necessary but not sufficient&quot; conclusion is well-supported and theoretically satisfying: it explains why DPD (a specific bodily self disruption) produces specific symptoms without abolishing all selfhood, and why locked-in syndrome patients retain rich self-experience despite radical interoceptive signal disruption.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>The heartbeat counting task's construct validity is uncertain; the best meta-analytic evidence suggests it does not measure the interoceptive processing parameters the theory requires. The field needs validated precision-weighting measures to test the core claims.</li>
+<li>Randomised controlled trial evidence for interoceptive training (e.g., body scan, mindfulness, HRV biofeedback) as treatment for DPD is sparse. The neuroimaging evidence is promising, but translational efficacy is not established.</li>
+<li>The schizophrenia link is conceptual. The Sass-Parnas account is phenomenologically rich but mechanistically underspecified; direct interoceptive measures in schizophrenia are needed to test the mapping.</li>
+<li>Developmental evidence for the emergence of interoceptive selfhood in infants is indicative but not conclusive.</li>
+<li>The cardio-visual synchrony findings (Sel et al. 2017) rest on a relatively small number of replication studies.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>Can the precision-weighting parameters of interoceptive inference be measured directly and reliably in clinical populations, and do they track anxiety/depression severity more robustly than HCT?</li>
+<li>What is the relationship between interoceptive training (e.g., mindfulness body scan, HRV biofeedback) and self-experience in DPD — do randomised trials show efficacy?</li>
+<li>Does ipseity disturbance in schizophrenia correlate with specific interoceptive measures (AIC activation, HEP amplitude, bodily ownership susceptibility)?</li>
+<li>How does the interoceptive self account relate to Lisa Feldman Barrett's theory of constructed emotion — are they complementary, competing, or explaining different levels of the same process?</li>
+<li>Do high-level spinal cord injury patients show systematic shifts in minimal self-experience that track the loss of ascending interoceptive signal, and if so, at what level?</li>
+</ul>
+<hr />
+
+
+  </div>
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-02-28-jevons-paradox.html">Jevons Paradox: efficiency gains, demand rebound, and the falling cost of software production</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-02-28-hard-problem-vs-real-problem-consciousness.html">The hard problem vs. the real problem of consciousness</a></div>
+  </div>
+</main>
+</body>
+</html>

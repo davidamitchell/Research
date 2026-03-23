@@ -1,0 +1,609 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Exploration-synthesis gap: why people in explore mode fail to synthesise others&#39; work, and whether agent synthesis can close the gap — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #141414;
+  --surface-2:       #1c1c1c;
+  --border:          #2a2a2a;
+  --text:            #e8e8e8;
+  --text-muted:      #666;
+  --accent:          #e8e8e8;
+  --accent-dim:      #333;
+  --tag-bg:          #1e1e1e;
+  --tag-text:        #999;
+  --tag-active-bg:   #e8e8e8;
+  --tag-active-text: #0d0d0d;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--accent); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+}
+.card:hover { border-color: var(--accent); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+}
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+.item-content pre code { background: none; padding: 0; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--text); text-decoration: underline; }
+.item-content a:hover { color: var(--text-muted); }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  main { padding: 72px 1rem 3rem; }
+  nav { padding: 0 1rem; }
+}
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/">Research</a>
+    <div class="nav-links">
+      <a href="/Research/tags/">Tags</a>
+      <a href="/Research/search.html">Search</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>Exploration-synthesis gap: why people in explore mode fail to synthesise others&#39; work, and whether agent synthesis can close the gap</span>
+  </div>
+  <h1 class="item-title">Exploration-synthesis gap: why people in explore mode fail to synthesise others&#39; work, and whether agent synthesis can close the gap</h1>
+  <div class="meta-bar">
+    <span>2026-03-12</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/cognition.html">cognition</a> <a class="tag" href="/Research/tags/exploration.html">exploration</a> <a class="tag" href="/Research/tags/synthesis.html">synthesis</a> <a class="tag" href="/Research/tags/knowledge-sharing.html">knowledge-sharing</a> <a class="tag" href="/Research/tags/incentives.html">incentives</a> <a class="tag" href="/Research/tags/ego.html">ego</a> <a class="tag" href="/Research/tags/agentic-systems.html">agentic-systems</a> <a class="tag" href="/Research/tags/organisational-behaviour.html">organisational-behaviour</a> <a class="tag" href="/Research/tags/psychology.html">psychology</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-12-exploration-synthesis-gap.md" target="_blank" rel="noopener">source →</a>
+  </div>
+  <div class="item-content">
+    <h2>Research Question</h2>
+<p>During periods of rapid exploration — such as the current wave of Artificial Intelligence (AI) / Large Language Model (LLM) adoption inside organisations — individuals and teams routinely duplicate effort rather than building on what colleagues have already built or learned. What are the cognitive, genetic, incentive-level, and ego-driven mechanisms that produce this pattern? And given that the exploratory work itself is increasingly done by AI agents (meaning the human may not be able to explain or articulate what was built), is human-to-human synthesis still the right mechanism, or should synthesis be delegated to agents?</p>
+
+<h2>Findings</h2>
+<p><em>(Populated from §6 Synthesis above.)</em></p>
+<h3>Executive Summary</h3>
+<p>The exploration-synthesis gap — the systematic failure of individuals and teams in &quot;explore mode&quot; to build on colleagues' prior work — is produced by four independent, reinforcing mechanisms: a neurological reward asymmetry (exploration activates dopaminergic novelty signals; synthesis does not); a motivational misalignment under Self-Determination Theory (SDT) (exploration satisfies autonomy, competence, and novelty needs; synthesis satisfies none); incentive system failure (credit accrues to originators, not synthesisers; high pay-for-individual-performance (PFIP) empirically suppresses knowledge sharing); and the Not Invented Here (NIH) syndrome (active attitude-level resistance to external knowledge, amplified by tenure and competitive incentives). The AI wave has added a qualitatively new fifth mechanism: when AI agents perform the exploration, no human acquires the process knowledge of what was tried or why — making human-to-human synthesis logically impossible rather than merely difficult. The correct long-run response for agent-authored work is architectural [inference]: require exploration-mode agents to produce structured decision logs and deploy an agent synthesis pipeline to periodically integrate them; structural (credit redesign) and process (synthesis checkpoints) interventions remain necessary for human-authored work but are insufficient on their own.</p>
+<h3>Key Findings</h3>
+<ol>
+<li><p>Exploration activates dopaminergic novelty-reward circuits and satisfies all three Self-Determination Theory (SDT) basic psychological needs (autonomy, competence, novelty contribution); synthesis satisfies none, creating a structural motivational asymmetry that operates below the level of conscious preference or cultural attitude. [confidence: high]</p>
+</li>
+<li><p>Individual heritable variation in novelty-seeking, partly attributable to the Dopamine Receptor D4 (DRD4) gene, explains approximately 3% of phenotypic variance in novelty-seeking behaviour — too small to account for organisational-scale exploration-synthesis gaps; the dominant causes are structural rather than dispositional. [confidence: high]</p>
+</li>
+<li><p>High pay-for-individual-performance empirically reduces knowledge sharing (Jin et al. 2025), creating competitive conditions where teams rationally suppress synthesis by hoarding exploration outputs rather than integrating them with others' work. [confidence: high]</p>
+</li>
+<li><p>Credit attribution for synthesis is structurally invisibilised: synthesis produces no named, attributable artefact, while origination does; this is a predictable outcome of standard credit attribution economics (Ozerturk 2019) and explains why synthesis is rationally underinvested in competitive knowledge-work cultures. [confidence: high]</p>
+</li>
+<li><p>The NIH syndrome operates through three distinct layers — attitude (negative evaluation of external knowledge), decision, and behaviour — and is amplified by group tenure, dysfunctional intra-organisational communication, and individual incentive competition, all of which are common features of AI adoption programmes. [confidence: high]</p>
+</li>
+<li><p>Szulanski's (1996) stickiness model identifies causal ambiguity (neither source nor recipient fully understands why the knowledge works) and arduous source-recipient relationships as the two strongest predictors of intra-firm knowledge transfer failure; in AI exploration contexts, both barriers are simultaneously maximised because the knowledge producer is a transient agent, not an established human colleague. [confidence: high]</p>
+</li>
+<li><p>The agent-mediated knowledge gap is structurally distinct from the ordinary tacit knowledge problem: ordinary tacit knowledge is held implicitly by a human and hard to express; agent-mediated knowledge is held by no human at all after the session ends, making human-to-human synthesis logically impossible rather than merely difficult. [confidence: high]</p>
+</li>
+<li><p>AI agent explainability and traceability are among the top unmet needs in production agentic systems (LangChain State of AI Agents 2024, n=1,300+; IJADIS Systematic Literature Review 2025), confirming that the artefact infrastructure required to enable agent synthesis is not yet standard organisational practice. [confidence: high]</p>
+</li>
+<li><p>Agent-to-agent synthesis is technically feasible using existing Retrieval-Augmented Generation (RAG) tooling, conditional on exploration-mode agents producing structured, persisted decision logs; the primary gap is organisational practice — requiring agents to produce synthesis-ready artefacts by default — not technical capability. [confidence: medium]</p>
+</li>
+<li><p>Compliance-driven AI governance requirements (decision logs, rationale records for regulatory audit) may function as non-obvious synthesis enablers, providing organisations with a second-use case for traceability infrastructure without requiring separate synthesis-specific investment. [confidence: medium]</p>
+</li>
+<li><p>The three intervention tiers — structural (credit redesign), process (synthesis checkpoints), and architectural (agent synthesis pipelines) — are each necessary and none individually sufficient; the agent-mediated gap specifically requires the architectural tier, which the other tiers cannot address. [confidence: high]</p>
+</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+  <th>Claim</th>
+  <th>Source</th>
+  <th>Confidence</th>
+  <th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Exploration activates dopaminergic novelty-reward; synthesis does not</td>
+  <td>Ryan &amp; Deci (2000, <em>Am Psychologist</em>); Cohen et al. (2007, <em>Phil Trans R Soc B</em>); Addicott et al. (2017, <em>Neuropsychopharmacology</em>)</td>
+  <td>High</td>
+  <td>Three independent disciplines: psychology, neuroscience, psychiatry — all converge</td>
+</tr>
+<tr>
+  <td>SDT: exploration satisfies autonomy/competence/novelty; synthesis satisfies none</td>
+  <td>Gagne &amp; Deci (2005, <em>J Org Behaviour</em>); Ryan &amp; Deci (2000)</td>
+  <td>High</td>
+  <td>Primary SDT sources; structural inference from need taxonomy is well-supported</td>
+</tr>
+<tr>
+  <td>DRD4 explains ~3% of novelty-seeking variance</td>
+  <td>Munafo et al. (2007, <em>Biological Psychiatry</em>) meta-analysis</td>
+  <td>High</td>
+  <td>Meta-analytic estimate; Gelernter et al. (1997) non-replication noted as caveat</td>
+</tr>
+<tr>
+  <td>High PFIP reduces knowledge sharing empirically</td>
+  <td>Jin, Pei et al. (2025, <em>Journal of Applied Psychology</em>)</td>
+  <td>High</td>
+  <td>Primary empirical study with SDT framework; curvilinear effect confirmed</td>
+</tr>
+<tr>
+  <td>Synthesis credit is structurally invisibilised</td>
+  <td>Ozerturk (2019, SMU working paper)</td>
+  <td>High</td>
+  <td>Formal credit attribution model; consistent with NIH and SDT analyses</td>
+</tr>
+<tr>
+  <td>NIH operates through attitude/decision/behaviour</td>
+  <td>Katz &amp; Allen (1982, <em>R&amp;D Management</em>); Antons &amp; Piller (2015, <em>Academy of Management Perspectives</em>)</td>
+  <td>High</td>
+  <td>Founding paper + 434-cited elaboration</td>
+</tr>
+<tr>
+  <td>NIH antecedents include group tenure, dysfunctional comms, wrong incentives</td>
+  <td>Katz &amp; Allen (1982); Uni-Mannheim review (2011)</td>
+  <td>High</td>
+  <td>Two independent sources; consistent empirical antecedents</td>
+</tr>
+<tr>
+  <td>Causal ambiguity and arduous relationships are top stickiness barriers</td>
+  <td>Szulanski (1996, <em>Strategic Management Journal</em>)</td>
+  <td>High</td>
+  <td>Primary empirical study; widely replicated across transfer contexts</td>
+</tr>
+<tr>
+  <td>Agent-mediated gap: no human holds process knowledge after session ends</td>
+  <td>LangChain State of AI Agents (2024); Zrw et al. (2025, arXiv position paper)</td>
+  <td>High</td>
+  <td>Primary practitioner survey (n=1,300+) + primary academic paper</td>
+</tr>
+<tr>
+  <td>Agent explainability/traceability is top unmet need</td>
+  <td>LangChain (2024); IJADIS SLR (2025, 28 studies)</td>
+  <td>High</td>
+  <td>Two independent primary sources agree</td>
+</tr>
+<tr>
+  <td>RAG enables agent-to-agent synthesis</td>
+  <td>arXiv (2025) AI KM paper; MDPI Futureinternet review (2025)</td>
+  <td>Medium</td>
+  <td>Technical feasibility confirmed; production-scale quality not yet validated</td>
+</tr>
+<tr>
+  <td>Compliance traceability may enable synthesis</td>
+  <td>BCG (2025); Nature (2025); FSFP (2025)</td>
+  <td>Medium</td>
+  <td>Three secondary sources; primary empirical confirmation absent</td>
+</tr>
+<tr>
+  <td>Combined interventions required</td>
+  <td>All evidence above</td>
+  <td>High</td>
+  <td>Mechanism plurality confirmed across four independent disciplines</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li><strong>Assumption:</strong> Identity-threat mechanisms operate more strongly in individual-contributor cultures (engineering, R&amp;D, financial services strategy) than in collaborative-commons cultures. <strong>Justification:</strong> NIH evidence base is grounded in R&amp;D and technology contexts; no equivalent studies in open-source or academic co-authorship cultures were found. The assumption is directionally supported by NIH antecedent patterns (competitive incentives amplify NIH) but not empirically tested cross-culturally.</li>
+<li><strong>Assumption:</strong> Agent-to-agent synthesis failure modes (false consensus, provenance loss, hallucinated connections) are manageable with structured output formats and citation discipline. <strong>Justification:</strong> The information synthesis entropy item (<code>2026-02-27-information-synthesis-entropy.md</code>) establishes that Chain of Density (CoD) prompting and semantic deduplication reduce these failure modes in human-authored synthesis; transfer to agent-authored synthesis is assumed but not empirically validated at scale.</li>
+<li><strong>Assumption:</strong> Context window transience is the primary mechanism of the agent-mediated knowledge gap. <strong>Justification:</strong> Based on known LLM architecture (context windows are transient and not persisted by default); persistent agent memory is not yet confirmed as standard practice.</li>
+</ul>
+<h3>Analysis</h3>
+<p>The pre-AI evidence base is strong across four independent disciplines. The mechanisms do not merely coexist — they reinforce each other in a way that makes the gap self-sustaining. Neurological asymmetry creates a motivational floor; SDT misalignment ensures synthesis feels like extrinsic obligation; incentive competition activates NIH and suppresses credit-sharing; and knowledge stickiness makes even motivated synthesis difficult. [inference] These four levers operate simultaneously.</p>
+<p>The addition of the agent-mediated gap changes the problem in kind, not degree. The traditional diagnosis (&quot;people don't share because sharing is hard and unrewarded&quot;) implies that the problem is fixable through persuasion and incentive redesign. The agent-mediated diagnosis implies that the problem is fixable only by ensuring the relevant knowledge exists in a form that agents can retrieve — because no human can transfer what no human knows.</p>
+<p>Competing interpretation: one could argue that humans always develop some tacit knowledge from supervising agent work (pattern recognition from outcomes, confidence calibration, domain intuitions). This is plausible. However, this form of tacit knowledge — &quot;my agent found that approach X failed&quot; — is precisely the knowledge that is hardest to transfer under Szulanski's causal ambiguity criterion: the supervisor often does not know <em>why</em> X failed, only that it did. The agent's process knowledge (which includes the why) is what is lost.</p>
+<p>The regulatory convergence finding warrants separate investigation: if compliance-driven traceability infrastructure genuinely enables synthesis as a second use, the business case for investing in it becomes substantially stronger, and the governance and synthesis functions could be co-designed rather than siloed.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>Wang &amp; Noe (2010) and Nonaka &amp; Takeuchi (1995) were verified through secondary citation rather than primary access. Core claims from both are well-represented in the literature; direct source access would strengthen confidence.</li>
+<li>No empirical, production-scale study of agent-to-agent synthesis quality was found. Feasibility is confirmed; reliability is not.</li>
+<li>DRD4 evidence is contested across studies; the 3% figure from Munafo et al. (2007) is the most defensible estimate but should not be treated as definitive.</li>
+<li>The regulatory convergence inference (compliance traceability → synthesis enabler) is not yet documented as an organisational practice in the literature. It is a forward-looking inference from regulatory trends.</li>
+<li>The evidence base is predominantly Western (US and European organisations). Cross-cultural variation in exploration-synthesis gap magnitude is unknown.</li>
+<li>The claim that human supervisors hold &quot;no process knowledge&quot; is a claim about the modal case; exceptions likely exist for highly experienced supervisors who can reconstruct agent reasoning from outcomes. The modal case remains the organisationally relevant one.</li>
+</ul>
+<h3>Open Questions</h3>
+<ol>
+<li>What minimum artefact format must an exploration-mode agent produce for downstream synthesis to achieve acceptable quality? (Engineering backlog item candidate.)</li>
+<li>Do collaborative-commons cultures (open-source communities, academic co-authorship networks) show meaningfully lower exploration-synthesis gaps than competitive knowledge-work cultures, and if so, what structural features explain the difference?</li>
+<li>Can credit attribution systems be redesigned to make synthesis visible and rewarded without triggering the &quot;synthesis as audit burden&quot; reaction that suppresses exploration velocity?</li>
+<li>What does production-quality agent-to-agent synthesis look like empirically? What quality metrics should apply?</li>
+<li>Does compliance-driven AI traceability infrastructure actually get adopted for synthesis use cases, or does it remain siloed in governance and audit functions?</li>
+</ol>
+<hr />
+
+
+  </div>
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-12-failure-mode-taxonomy-expansion.html">Failure mode taxonomy: empirical frequency, causal mechanisms, detection signals, and cascade patterns in production agentic systems</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-12-ai-team-size-strike-team-thesis.html">AI amplified the coordination tax: the 5-person strike team as the structural unit of the AI era</a></div>
+  </div>
+</main>
+</body>
+</html>

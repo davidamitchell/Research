@@ -1,0 +1,578 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>More formal proof engineering: Leanstral and Artificial Intelligence (AI)-assisted formal verification — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #141414;
+  --surface-2:       #1c1c1c;
+  --border:          #2a2a2a;
+  --text:            #e8e8e8;
+  --text-muted:      #666;
+  --accent:          #e8e8e8;
+  --accent-dim:      #333;
+  --tag-bg:          #1e1e1e;
+  --tag-text:        #999;
+  --tag-active-bg:   #e8e8e8;
+  --tag-active-text: #0d0d0d;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--accent); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+}
+.card:hover { border-color: var(--accent); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+}
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+.item-content pre code { background: none; padding: 0; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--text); text-decoration: underline; }
+.item-content a:hover { color: var(--text-muted); }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  main { padding: 72px 1rem 3rem; }
+  nav { padding: 0 1rem; }
+}
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/">Research</a>
+    <div class="nav-links">
+      <a href="/Research/tags/">Tags</a>
+      <a href="/Research/search.html">Search</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>More formal proof engineering: Leanstral and Artificial Intelligence (AI)-assisted formal verification</span>
+  </div>
+  <h1 class="item-title">More formal proof engineering: Leanstral and Artificial Intelligence (AI)-assisted formal verification</h1>
+  <div class="meta-bar">
+    <span>2026-03-18</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/formal-methods.html">formal-methods</a> <a class="tag" href="/Research/tags/formal-verification.html">formal-verification</a> <a class="tag" href="/Research/tags/lean.html">lean</a> <a class="tag" href="/Research/tags/proof-engineering.html">proof-engineering</a> <a class="tag" href="/Research/tags/ai-agents.html">ai-agents</a> <a class="tag" href="/Research/tags/guardrails.html">guardrails</a> <a class="tag" href="/Research/tags/agent-autonomy.html">agent-autonomy</a> <a class="tag" href="/Research/tags/software-reliability.html">software-reliability</a> <a class="tag" href="/Research/tags/trustworthy-ai.html">trustworthy-ai</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-18-formal-proof-engineering-leanstral.md" target="_blank" rel="noopener">source →</a>
+  </div>
+  <div class="item-content">
+    <h2>Research Question</h2>
+<p>What does Leanstral - an open-source agent for formal proof engineering - offer as a practical path to trustworthy, formally verified software built with Artificial Intelligence (AI) assistance, and how does it synthesise with existing research on formal methods, AI agent risk, and the critical need for human oversight and guardrails?</p>
+<p>Supporting questions:</p>
+<ul>
+<li>What is Leanstral? What architecture does it use, what problem does it solve, and what is the current maturity of the project?</li>
+<li>How does Leanstral relate to the Lean 4 theorem prover and its ecosystem (mathlib and Lake)?</li>
+<li>What role can AI agents play in formal proof construction - as proof search, proof repair, or proof synthesis tools - and what are the known limits?</li>
+<li>How does this connect to the broader formal-methods landscape already investigated (Quint, Temporal Logic of Actions (TLA+), Dafny, Coq, Agda, <code>2026-03-14-reliable-software-llm-era</code>, <code>2026-03-10-formal-spec-intent-alignment-agentic-coding</code>)?</li>
+<li>What does the Claude Code data-wipe incident - and the associated Hacker News (HN) discussion of AI agent autonomy (&quot;Humans hesitate - AI agents don't&quot;) - add to the existing picture of AI agent risks and the case for explicit guardrails?</li>
+<li>Where does formal proof engineering sit on the spectrum of guardrail approaches: is it complementary to or in competition with runtime checks, policy enforcement, and human oversight?</li>
+</ul>
+
+<h2>Findings</h2>
+<h3>Executive Summary</h3>
+<ul>
+<li><strong>[inference]</strong> Leanstral is a promising but narrow advance: it can make Lean 4-based formal proof engineering more usable for AI-assisted workflows, but it only improves trust where teams can express critical behavior as machine-checkable Lean properties.</li>
+<li><strong>[fact]</strong> Its strongest foundation is Lean 4 itself, whose kernel checks proof terms and whose ecosystem includes Lake, leanchecker, and mathlib, making proof-time verification a deterministic rather than purely human-review activity. Sources: <code>https://lean-lang.org/doc/reference/latest/</code>; <code>https://lean-lang.org/doc/reference/latest/Build-Tools-and-Distribution/</code>; <code>https://lean-lang.org/doc/reference/latest/Build-Tools-and-Distribution/Lake/</code>; <code>https://reservoir.lean-lang.org/@leanprover-community/mathlib</code>.</li>
+<li><strong>[fact]</strong> Leanstral does not appear in a vacuum: LeanDojo, ReProver, Copra, and Lean Copilot already established retrieval, interactive search, and human-assist patterns in Lean, while Leanstral packages a model-and-agent release around repository-scale proof engineering. Sources: <code>https://leandojo.org/leandojo.html</code>; <code>https://github.com/lean-dojo/ReProver</code>; <code>https://arxiv.org/abs/2310.04353</code>; <code>https://arxiv.org/abs/2404.12534</code>; <code>https://mistral.ai/news/leanstral</code>.</li>
+<li><strong>[inference]</strong> The Claude Code production-loss incident shows why this remains only one layer of safety: formal proofs can guard specified logic, but they cannot by themselves compensate for over-broad permissions, missing change approvals, or unsafe production operations.</li>
+<li><strong>[inference]</strong> The practical answer is therefore layered rather than absolute: use formal proof engineering for the highest-value invariants, and combine it with ordinary operational guardrails for every action that sits outside the proof envelope.</li>
+</ul>
+<h3>Key Findings</h3>
+<ol>
+<li><strong>[inference]</strong> Leanstral is officially presented as an open-source Lean 4 proof-engineering agent with Mistral Vibe integration, a free model endpoint, and specialized training for realistic formal repositories, which makes it best understood as a focused proving tool rather than as a general-purpose safe-coding assistant. Sources: <code>https://mistral.ai/news/leanstral</code>; <code>https://docs.mistral.ai/models/leanstral-26-03</code>; <code>https://github.com/mistralai/mistral-vibe/releases/tag/v2.5.0</code>. Confidence: medium.</li>
+<li><strong>[inference]</strong> Lean 4 provides a stronger trust anchor than ordinary AI coding workflows because its kernel checks proof terms, its toolchain includes replay and build-verification tools such as leanchecker and Lake, and its ecosystem includes a mature shared library in mathlib. Sources: <code>https://lean-lang.org/doc/reference/latest/</code>; <code>https://lean-lang.org/doc/reference/latest/Build-Tools-and-Distribution/</code>; <code>https://lean-lang.org/doc/reference/latest/Build-Tools-and-Distribution/Lake/</code>; <code>https://reservoir.lean-lang.org/@leanprover-community/mathlib</code>. Confidence: high.</li>
+<li><strong>[inference]</strong> The surrounding Lean ecosystem already demonstrates multiple viable patterns for AI-assisted proving - repository tracing and retrieval in LeanDojo and ReProver, interactive backtracking search in Copra, and human-in-the-loop editor assistance in Lean Copilot - so Leanstral extends an existing trajectory rather than inventing the category. Sources: <code>https://leandojo.org/leandojo.html</code>; <code>https://github.com/lean-dojo/ReProver</code>; <code>https://arxiv.org/abs/2310.04353</code>; <code>https://github.com/trishullab/copra</code>; <code>https://arxiv.org/abs/2404.12534</code>; <code>https://github.com/lean-dojo/LeanCopilot</code>. Confidence: high.</li>
+<li><strong>[inference]</strong> Leanstral's main differentiator is likely productization and cost-focused specialization for repository-scale proof engineering, but its stronger benchmark claims should be treated as provisional until independently reproduced because the available evidence comes from vendor-controlled evaluation materials. Source: <code>https://mistral.ai/news/leanstral</code>. Confidence: medium.</li>
+<li><strong>[inference]</strong> In the repository's earlier specification research, Leanstral sits near the highest-verifiability end of the hierarchy and directly supports the &quot;LLMs translate, deterministic tools verify&quot; pattern, which reduces some forms of cognitive debt without removing the need for human property selection. Sources: <code>https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-10-formal-spec-intent-alignment-agentic-coding.md</code>; <code>https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-14-reliable-software-llm-era.md</code>; <code>https://lean-lang.org/doc/reference/latest/</code>; <code>https://mistral.ai/news/leanstral</code>. Confidence: high.</li>
+<li><strong>[inference]</strong> The Claude Code infrastructure-loss incident indicates that some of the most damaging AI-agent failures are driven by operational-control failures - shared blast radius, missing Terraform state discipline, wide permissions, and lack of manual approval - rather than by an inability to prove software logic. Sources: <code>https://www.tomshardware.com/tech-industry/artificial-intelligence/claude-code-deletes-developers-production-setup-including-its-database-and-snapshots-2-5-years-of-records-were-nuked-in-an-instant</code>; <code>https://www.ucstrategies.com/news/claude-code-wiped-out-2-5-years-of-production-data-in-minutes-the-post-mortem-every-developer-should-read/</code>; <code>https://news.ycombinator.com/item?id=47278720</code>. Confidence: high.</li>
+<li><strong>[inference]</strong> Formal proof engineering would not have prevented that Terraform incident by itself, because proving program properties is orthogonal to constraining who may execute destructive infrastructure commands or when a human must approve a plan. Sources: <code>https://www.tomshardware.com/tech-industry/artificial-intelligence/claude-code-deletes-developers-production-setup-including-its-database-and-snapshots-2-5-years-of-records-were-nuked-in-an-instant</code>; <code>https://www.ucstrategies.com/news/claude-code-wiped-out-2-5-years-of-production-data-in-minutes-the-post-mortem-every-developer-should-read/</code>; <code>https://news.ycombinator.com/item?id=47278720</code>; <code>https://lean-lang.org/doc/reference/latest/</code>. Confidence: high.</li>
+<li><strong>[inference]</strong> The most defensible engineering posture is a layered guardrail stack in which formal proofs cover the highest-value logical invariants while conventional controls such as least privilege, backup drills, remote state management, and manual approval protect production operations from high-speed agentic mistakes. Sources: <code>https://lean-lang.org/doc/reference/latest/</code>; <code>https://lean-lang.org/doc/reference/latest/Build-Tools-and-Distribution/</code>; <code>https://lean-lang.org/doc/reference/latest/Build-Tools-and-Distribution/Lake/</code>; <code>https://reservoir.lean-lang.org/@leanprover-community/mathlib</code>; <code>https://www.tomshardware.com/tech-industry/artificial-intelligence/claude-code-deletes-developers-production-setup-including-its-database-and-snapshots-2-5-years-of-records-were-nuked-in-an-instant</code>; <code>https://www.ucstrategies.com/news/claude-code-wiped-out-2-5-years-of-production-data-in-minutes-the-post-mortem-every-developer-should-read/</code>; <code>https://news.ycombinator.com/item?id=47278720</code>; <code>https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-10-formal-spec-intent-alignment-agentic-coding.md</code>; <code>https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-14-reliable-software-llm-era.md</code>; <code>https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-16-intent-driven-development.md</code>. Confidence: high.</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+  <th>Claim</th>
+  <th>Source</th>
+  <th>Confidence</th>
+  <th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Leanstral is a specialized Lean 4 proof-engineering agent with Vibe and API integration.</td>
+  <td><code>https://mistral.ai/news/leanstral</code>; <code>https://docs.mistral.ai/models/leanstral-26-03</code>; <code>https://github.com/mistralai/mistral-vibe/releases/tag/v2.5.0</code></td>
+  <td>medium</td>
+  <td>Officially documented, but independent artifact inspection is still limited.</td>
+</tr>
+<tr>
+  <td>Lean 4's kernel and toolchain make proof-time verification deterministic.</td>
+  <td><code>https://lean-lang.org/doc/reference/latest/</code>; <code>https://lean-lang.org/doc/reference/latest/Build-Tools-and-Distribution/</code>; <code>https://lean-lang.org/doc/reference/latest/Build-Tools-and-Distribution/Lake/</code></td>
+  <td>high</td>
+  <td>Core platform documentation.</td>
+</tr>
+<tr>
+  <td>mathlib makes repository-scale Lean work more practical.</td>
+  <td><code>https://reservoir.lean-lang.org/@leanprover-community/mathlib</code></td>
+  <td>high</td>
+  <td>Ecosystem and workflow evidence from the official package page.</td>
+</tr>
+<tr>
+  <td>Leanstral extends an existing Lean proof-agent landscape.</td>
+  <td><code>https://leandojo.org/leandojo.html</code>; <code>https://github.com/lean-dojo/ReProver</code>; <code>https://arxiv.org/abs/2310.04353</code>; <code>https://arxiv.org/abs/2404.12534</code>; <code>https://github.com/lean-dojo/LeanCopilot</code></td>
+  <td>high</td>
+  <td>Multiple independent project pages and papers align.</td>
+</tr>
+<tr>
+  <td>Leanstral's performance claims remain vendor-run.</td>
+  <td><code>https://mistral.ai/news/leanstral</code></td>
+  <td>medium</td>
+  <td>Strong signal, but not independently replicated here.</td>
+</tr>
+<tr>
+  <td>Leanstral fits prior repository findings on formal verification and cognitive debt.</td>
+  <td><code>https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-10-formal-spec-intent-alignment-agentic-coding.md</code>; <code>https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-14-reliable-software-llm-era.md</code>; <code>https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-16-intent-driven-development.md</code>; <code>https://lean-lang.org/doc/reference/latest/</code></td>
+  <td>high</td>
+  <td>Internal prior research lines up with current evidence.</td>
+</tr>
+<tr>
+  <td>The Claude incident was fundamentally an operational-control failure.</td>
+  <td><code>https://www.tomshardware.com/tech-industry/artificial-intelligence/claude-code-deletes-developers-production-setup-including-its-database-and-snapshots-2-5-years-of-records-were-nuked-in-an-instant</code>; <code>https://www.ucstrategies.com/news/claude-code-wiped-out-2-5-years-of-production-data-in-minutes-the-post-mortem-every-developer-should-read/</code>; <code>https://news.ycombinator.com/item?id=47278720</code></td>
+  <td>high</td>
+  <td>Independent summaries and practitioner discussion converge.</td>
+</tr>
+<tr>
+  <td>The best answer is a layered guardrail stack rather than proof-only or policy-only.</td>
+  <td><code>https://lean-lang.org/doc/reference/latest/</code>; <code>https://lean-lang.org/doc/reference/latest/Build-Tools-and-Distribution/</code>; <code>https://lean-lang.org/doc/reference/latest/Build-Tools-and-Distribution/Lake/</code>; <code>https://reservoir.lean-lang.org/@leanprover-community/mathlib</code>; <code>https://www.tomshardware.com/tech-industry/artificial-intelligence/claude-code-deletes-developers-production-setup-including-its-database-and-snapshots-2-5-years-of-records-were-nuked-in-an-instant</code>; <code>https://www.ucstrategies.com/news/claude-code-wiped-out-2-5-years-of-production-data-in-minutes-the-post-mortem-every-developer-should-read/</code>; <code>https://news.ycombinator.com/item?id=47278720</code>; <code>https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-10-formal-spec-intent-alignment-agentic-coding.md</code>; <code>https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-14-reliable-software-llm-era.md</code>; <code>https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-16-intent-driven-development.md</code></td>
+  <td>high</td>
+  <td>Cross-source synthesis with strong agreement on complementarity.</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li><strong>[assumption]</strong> Official Mistral release materials are accurate about Leanstral's intended product surface even though not every open artifact was directly retrievable. <strong>Justification:</strong> The news post, docs page, and Vibe release note are mutually reinforcing and came from first-party sources.</li>
+<li><strong>[assumption]</strong> Secondary summaries of the Claude incident preserve the major operational facts accurately enough for guardrail analysis. <strong>Justification:</strong> Multiple summaries and the HN thread agree on the same causal chain and safeguards.</li>
+<li><strong>[assumption]</strong> The consulted Lean projects are the most relevant public comparators for Leanstral at the time of writing. <strong>Justification:</strong> They are the clearest Lean-specific AI proving systems surfaced by official pages, repositories, and papers.</li>
+</ul>
+<h3>Analysis</h3>
+<ul>
+<li><strong>[inference]</strong> Leanstral matters because it pushes AI assistance into a domain where correctness is adjudicated by a proof kernel instead of by a tired reviewer scanning plausible code.</li>
+<li><strong>[inference]</strong> That advantage is real but bounded. Teams still have to decide what properties are worth formalizing, whether the formal model captures real intent, and whether the surrounding operational workflow prevents catastrophic side effects.</li>
+<li><strong>[inference]</strong> The incident comparison clarifies the boundary: proof engineering is for logical correctness inside the model; guardrails such as least privilege and manual approval are for real-world actions outside the model.</li>
+<li><strong>[inference]</strong> The synthesis therefore favors complementarity over substitution: the more capable agents become, the more value there is in both stronger formal artifacts and stronger operational controls.</li>
+</ul>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li><strong>[fact]</strong> Publicly inspectable Leanstral weights or a public repository were not directly located from official sources during this session, which limits independent reproducibility assessment. Sources: <code>https://mistral.ai/news/leanstral</code>; <code>https://docs.mistral.ai/models/leanstral-26-03</code>.</li>
+<li><strong>[inference]</strong> Benchmark leadership claims remain uncertain until independent third parties evaluate Leanstral against the same or comparable repository-scale proving tasks.</li>
+<li><strong>[fact]</strong> The original first-person incident report was not directly accessible in this environment, so the incident analysis depends on consistent secondary reporting and the HN discussion. Sources: <code>https://www.tomshardware.com/tech-industry/artificial-intelligence/claude-code-deletes-developers-production-setup-including-its-database-and-snapshots-2-5-years-of-records-were-nuked-in-an-instant</code>; <code>https://www.ucstrategies.com/news/claude-code-wiped-out-2-5-years-of-production-data-in-minutes-the-post-mortem-every-developer-should-read/</code>; <code>https://news.ycombinator.com/item?id=47278720</code>.</li>
+<li><strong>[inference]</strong> It remains unclear how much of mainstream software engineering can economically move into Lean-based proof workflows even with specialized AI agents helping.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>Can Leanstral reliably help humans formalize the right properties, not just discharge properties that were already well specified?</li>
+<li>What independent benchmark should replace or validate FLTEval for repository-scale proof engineering?</li>
+<li>How should proof-time guarantees be connected to deployment-time policy enforcement so that verified code still cannot trigger unsafe production actions?</li>
+<li>Which classes of infrastructure-as-code or distributed-systems invariants are most economically amenable to Lean-based formalization in ordinary engineering teams?</li>
+</ul>
+<hr />
+
+
+  </div>
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-18-human-brain-prediction-machines.html">Are Human Brains Just Prediction Machines? Comparing Predictive Processing and Large Language Model Next-Token Generation</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-18-explore-to-exploit-synthesis-gap.html">Explore to exploit: the synthesis step that makes exploitation pay off</a></div>
+  </div>
+</main>
+</body>
+</html>

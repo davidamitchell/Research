@@ -1,0 +1,604 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Adversarial agents with shared goals: multi-perspective coverage across competencies and time horizons — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #141414;
+  --surface-2:       #1c1c1c;
+  --border:          #2a2a2a;
+  --text:            #e8e8e8;
+  --text-muted:      #666;
+  --accent:          #e8e8e8;
+  --accent-dim:      #333;
+  --tag-bg:          #1e1e1e;
+  --tag-text:        #999;
+  --tag-active-bg:   #e8e8e8;
+  --tag-active-text: #0d0d0d;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--accent); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+}
+.card:hover { border-color: var(--accent); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+}
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+.item-content pre code { background: none; padding: 0; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--text); text-decoration: underline; }
+.item-content a:hover { color: var(--text-muted); }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  main { padding: 72px 1rem 3rem; }
+  nav { padding: 0 1rem; }
+}
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/">Research</a>
+    <div class="nav-links">
+      <a href="/Research/tags/">Tags</a>
+      <a href="/Research/search.html">Search</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>Adversarial agents with shared goals: multi-perspective coverage across competencies and time horizons</span>
+  </div>
+  <h1 class="item-title">Adversarial agents with shared goals: multi-perspective coverage across competencies and time horizons</h1>
+  <div class="meta-bar">
+    <span>2026-03-10</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/multi-agent.html">multi-agent</a> <a class="tag" href="/Research/tags/adversarial-collaboration.html">adversarial-collaboration</a> <a class="tag" href="/Research/tags/competency-coverage.html">competency-coverage</a> <a class="tag" href="/Research/tags/time-horizons.html">time-horizons</a> <a class="tag" href="/Research/tags/fitness-functions.html">fitness-functions</a> <a class="tag" href="/Research/tags/organisational-design.html">organisational-design</a> <a class="tag" href="/Research/tags/red-team.html">red-team</a> <a class="tag" href="/Research/tags/quality-assurance.html">quality-assurance</a> <a class="tag" href="/Research/tags/values-alignment.html">values-alignment</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-10-adversarial-agents-shared-goals-multi-perspective.md" target="_blank" rel="noopener">source →</a>
+  </div>
+  <div class="item-content">
+    <h2>Research Question</h2>
+<p>What is the design pattern for a system of agents — human or AI — that share a common goal but deliberately occupy different competency domains and time horizons? How does &quot;adversarial collaboration&quot; (each agent challenging from a distinct perspective) produce better outcomes than a single generalist? What are the required agent roles, the interaction protocol between them, and the conditions under which disagreement is productive rather than blocking?</p>
+
+<h2>Findings</h2>
+<p><em>(Populated from §6 Synthesis above.)</em></p>
+<h3>Executive Summary</h3>
+<p>A system of agents sharing a goal but occupying different competency domains and time horizons demonstrably outperforms a single generalist because non-overlapping perspectives have non-overlapping blind spots, and their combination covers what any single agent necessarily misses. The pattern requires four structural components: a shared goal above all individual perspectives, an agreed methodology for resolving disagreements, proportionate triage of which perspectives apply to each task, and a synthesis step that converts documented conflict into actionable knowledge. The 15-agent taxonomy maps across all three DIKW layers — Data→Information (SRE, tester, performance), Information→Knowledge (designer, architect, security), and Knowledge→Wisdom (strategic alignment, values alignment, risk assessment) — and omitting any layer produces predictable failure modes. For AI multi-agent implementation, role-differentiated LLM agents with distinct personas and a judge/synthesis step outperform single-agent reflection, with model homogeneity being the key practical constraint on perspective independence.</p>
+<h3>Key Findings</h3>
+<ol>
+<li>Adversarial collaboration between agents with different perspectives and a shared goal produces better outcomes than a single generalist because each perspective has non-overlapping blind spots, and their combination achieves coverage that no single agent can replicate — confirmed independently in academic research, AI systems, and safety engineering.</li>
+<li>Kahneman &amp; Klein (2009) formally established that productive expert disagreement requires four conditions: mutual respect and shared goal, agreed factual criteria for resolution, acceptance of documented irreconcilable differences, and commitment to convergence where evidence allows.</li>
+<li>Reason's Swiss cheese model (1990) provides the safety-engineering formalisation: independent defensive layers each cover different failure modes, and the critical design property is perspective independence — correlated perspectives provide less protection than their count implies.</li>
+<li>The 15-agent taxonomy covers all three DIKW layers, and omitting any layer produces a distinct failure mode: absent Data→Information agents produce decisions untethered from measurement; absent Information→Knowledge agents prevent pattern abstraction; absent Knowledge→Wisdom agents cause building the wrong thing well.</li>
+<li>Productive adversarial collaboration requires four interaction protocol components — triage (who reviews?), structured perspective registration (what is the concern and blocking condition?), explicit conflict surfacing (named, not implicit), and goal-anchored resolution (escalation to shared goal, not political resolution).</li>
+<li>The BBC Five Case Model is the most fully formalised instance of the adversarial-perspectives pattern, requiring five mandatory perspective agents — strategic, economic, commercial, financial, management — each with blocking rights specific to its domain, and a weakness in any one case is sufficient to reject the proposal.</li>
+<li>SRE error budgets demonstrate that converting an adversarial negotiation (reliability vs. velocity) into an objective, pre-agreed data-driven protocol eliminates political deadlock and aligns both perspectives toward the shared goal of user trust.</li>
+<li>The synthesis step — converting documented conflict into actionable knowledge — is the most frequently missing component in practice, whether in human review boards that document concerns without synthesis protocols or in AI multi-agent systems that leave aggregation to the end user.</li>
+<li>Liang et al.'s Multi-Agent Debate framework (2023) showed empirically that role-differentiated LLM agents with a judge synthesis step outperform single-agent self-reflection, with the Degeneration-of-Thought problem being the AI analogue of human single-perspective commitment bias.</li>
+<li>Productive disagreement becomes blocking when a perspective agent has veto rights but no obligation to propose an alternative, when the resolution mechanism is political rather than methodological, or when no shared goal exists above the conflicting perspectives to escalate to.</li>
+<li>LLM multi-agent implementations using the same base model with different system prompts risk shared blind spots from training-induced biases, reducing perspective independence compared to heterogeneous models or heterogeneous fine-tuning.</li>
+<li>Organisations systematically underinvest in perspectives with low near-term visibility — risk assessment, values alignment, strategic alignment — which is why the most rigorous implementations of the adversarial-perspectives pattern are regulatory mandates rather than voluntary practices.</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+  <th>Claim</th>
+  <th>Source</th>
+  <th>Confidence</th>
+  <th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Shared goal + agreed methodology = productive disagreement</td>
+  <td>Kahneman &amp; Klein (2009); Kahneman Edge.org; Nature (2025)</td>
+  <td>High</td>
+  <td>Three independent sources</td>
+</tr>
+<tr>
+  <td>Independent perspectives cover non-overlapping blind spots</td>
+  <td>Reason (1990); Wikipedia Swiss cheese model; EBSCO</td>
+  <td>High</td>
+  <td>Primary + secondary sources</td>
+</tr>
+<tr>
+  <td>DoT: single agent commits to local optimum and cannot self-challenge</td>
+  <td>Liang et al. (2023) arxiv.org/abs/2305.19118</td>
+  <td>High</td>
+  <td>Primary empirical result</td>
+</tr>
+<tr>
+  <td>MAD framework outperforms single-agent reflection</td>
+  <td>Liang et al. (2023); Li et al. (2025) aclanthology.org/2025.acl-long.1105.pdf</td>
+  <td>High</td>
+  <td>Two independent studies</td>
+</tr>
+<tr>
+  <td>ARBs productive when proportionate, cross-functional, coaching</td>
+  <td>AWS Architecture Blog; Conexiam; ProductCognizant</td>
+  <td>High</td>
+  <td>Multiple independent practitioner sources</td>
+</tr>
+<tr>
+  <td>BBC Five Case = five-perspective blocking requirement</td>
+  <td>Research/completed/2026-03-08-bbc-five-case-model.md</td>
+  <td>High</td>
+  <td>Prior completed research</td>
+</tr>
+<tr>
+  <td>SRE error budget converts political negotiation to objective protocol</td>
+  <td>Google SRE Workbook (sre.google/workbook/error-budget-policy/)</td>
+  <td>High</td>
+  <td>Primary source</td>
+</tr>
+<tr>
+  <td>Role-differentiated LLM agents outperform single agents</td>
+  <td>Park et al. (2023) arxiv.org/abs/2304.03442; Guo et al. (2024) arxiv.org/abs/2402.01680</td>
+  <td>High</td>
+  <td>Two independent large-scale studies</td>
+</tr>
+<tr>
+  <td>Purple team synthesis converts red/blue friction to improvement</td>
+  <td>DeepStrike; ThreatIntelligence.com; CrowdStrike</td>
+  <td>Medium</td>
+  <td>Practitioner sources; no controlled study</td>
+</tr>
+<tr>
+  <td>Optimal investment committee size 5–8 members</td>
+  <td>GEM Investments; Partners Capital; Springer study</td>
+  <td>Medium</td>
+  <td>Multiple sources agree on size</td>
+</tr>
+<tr>
+  <td>Model homogeneity reduces perspective independence</td>
+  <td>Liang et al. (2023)</td>
+  <td>Medium</td>
+  <td>One primary source noting the constraint</td>
+</tr>
+<tr>
+  <td>15-agent DIKW taxonomy assignment</td>
+  <td>Research item context; derived from DIKW framing</td>
+  <td>Medium</td>
+  <td>Logical derivation; not independently validated</td>
+</tr>
+<tr>
+  <td>Organisations underinvest in low-visibility perspectives</td>
+  <td>ARB, BBC Five Case, investment committee regulatory literature</td>
+  <td>Medium</td>
+  <td>Inference from regulatory mandate evidence</td>
+</tr>
+<tr>
+  <td>Synthesis step most frequently absent in practice</td>
+  <td>ARB literature; AI multi-agent surveys</td>
+  <td>Medium</td>
+  <td>Convergent inference from multiple practitioner sources</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li><strong>Assumption:</strong> The 15-agent taxonomy covers standard failure modes for software and knowledge-work systems. <strong>Justification:</strong> The taxonomy is constructed from software-organisation experience. Other domains (manufacturing, healthcare, defence) have different specialisations and may require different agent types.</li>
+<li><strong>Assumption:</strong> DIKW layer assignments for the 15 agents are correct. <strong>Justification:</strong> Assignments derived by matching each agent's primary concern to the DIKW transformation it primarily performs. Logically consistent but not empirically validated.</li>
+<li><strong>Assumption:</strong> LLM agents with heterogeneous system prompts achieve meaningful perspective independence. <strong>Justification:</strong> Assumed as the best available implementation option; empirical validation of prompt-induced independence against training-induced shared biases is limited.</li>
+</ul>
+<h3>Analysis</h3>
+<p>Adversarial collaboration is grounded at three levels: theoretical (Kahneman, Reason), empirical/AI (Liang, Park, Guo), and institutional practice (ARBs, investment committees, SRE, red/blue teams). [inference] That independent domains converge on the same four structural components points to a recurring failure mode — single-perspective commitment bias — rather than a domain-specific quirk.</p>
+<p>Coverage vs. coordination cost is the central trade-off. More independent perspectives provide more coverage but increase the cost of synthesis. The resolution is proportionate triage: not every change requires every perspective. This is confirmed in every institutional implementation examined — ARBs use risk-based triage; investment committees have materiality thresholds; SRE error budgets apply only to deployments that consume budget. The principle is: match the depth of multi-perspective review to the potential impact of the decision.</p>
+<p>The synthesis step is the underappreciated load-bearing component. Every institutional implementation documents disagreements, but few have formal protocols for converting those disagreements into shared knowledge. The BBC Five Case Model is the exception: each case must not merely present its perspective but answer a specific structured question, enabling direct comparison across perspectives. The implication for AI multi-agent systems is that the judge agent or aggregation protocol is not a post-processing step — it is the central mechanism that converts adversarial agent output into value.</p>
+<p>The regulatory pattern (BBC Five Case, financial committee governance) reveals an important meta-finding: left to voluntary choice, organisations systematically underinvest in perspectives whose failure costs are slow, diffuse, or hard to attribute. Risk assessment, values alignment, and strategic alignment failures are typically discovered late and attributed to other causes. This is the market failure that mandated multi-perspective review corrects.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li><strong>Correlated failure modes:</strong> Organisational culture can make multiple perspectives fail simultaneously. A culture that systematically discounts long-term consequences will weaken both strategic alignment and values alignment agents, defeating the independence property the pattern depends on.</li>
+<li><strong>Synthesis step absent:</strong> Most real implementations document conflict without synthesising it. The learning value of the adversarial process is captured only by the synthesis step.</li>
+<li><strong>LLM model homogeneity:</strong> Prompt-differentiated instances of the same base model share training-induced biases. The degree of actual perspective independence is not well characterised empirically.</li>
+<li><strong>Taxonomy completeness:</strong> The 15-agent taxonomy is not derived from a systematic survey of failure modes. Domain-specific agent types (regulatory compliance, accessibility, localisation) may be absent.</li>
+<li><strong>Time-horizon conflict resolution:</strong> The protocol handles perspective conflicts but does not fully specify resolution for cases where different time horizons produce incompatible recommendations about the same trade-off.</li>
+</ul>
+<h3>Open Questions</h3>
+<ol>
+<li><strong>Optimal perspective count by task type:</strong> What is the empirical relationship between number of required perspectives and decision quality, net of coordination cost? (New backlog item candidate — medium priority)</li>
+<li><strong>Synthesis protocol formalisation:</strong> What is the formal specification of the synthesis step — how do structured perspective artefacts map to a resolution decision? (New backlog item candidate — high priority, directly enables agent implementation)</li>
+<li><strong>Prompt-induced perspective independence:</strong> Do LLM agents with heterogeneous prompts achieve meaningfully independent perspectives compared to those with the same base model and fine-tuning? (New backlog item candidate — medium priority)</li>
+<li><strong>Failure mode rates by DIKW layer coverage:</strong> What is the empirical failure rate for organisations covering 1, 2, or 3 DIKW layers? (New backlog item candidate — low priority, empirical research gap)</li>
+<li><strong>Dynamic role assignment in AI multi-agent systems:</strong> Does allowing agent roles to adapt mid-task (Li et al. 2025 approach) outperform fixed-role assignment for adversarial-collaboration tasks? (New backlog item candidate — medium priority)</li>
+</ol>
+<hr />
+
+
+  </div>
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-10-agent-evaluation-cross-repo-analysis.html">Agent evaluation framework: cross-repo pattern analysis, commonality detection, and regression identification</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-08-telegram-bot-memory-capture-retrieval.html">Telegram bot as mobile memory capture and retrieval channel</a></div>
+  </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,565 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Prompt injection threat landscape: exploits, defences, and active research in agentic artificial intelligence (AI) systems — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #141414;
+  --surface-2:       #1c1c1c;
+  --border:          #2a2a2a;
+  --text:            #e8e8e8;
+  --text-muted:      #666;
+  --accent:          #e8e8e8;
+  --accent-dim:      #333;
+  --tag-bg:          #1e1e1e;
+  --tag-text:        #999;
+  --tag-active-bg:   #e8e8e8;
+  --tag-active-text: #0d0d0d;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--accent); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+}
+.card:hover { border-color: var(--accent); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+}
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+.item-content pre code { background: none; padding: 0; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--text); text-decoration: underline; }
+.item-content a:hover { color: var(--text-muted); }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  main { padding: 72px 1rem 3rem; }
+  nav { padding: 0 1rem; }
+}
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/">Research</a>
+    <div class="nav-links">
+      <a href="/Research/tags/">Tags</a>
+      <a href="/Research/search.html">Search</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>Prompt injection threat landscape: exploits, defences, and active research in agentic artificial intelligence (AI) systems</span>
+  </div>
+  <h1 class="item-title">Prompt injection threat landscape: exploits, defences, and active research in agentic artificial intelligence (AI) systems</h1>
+  <div class="meta-bar">
+    <span>2026-03-15</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/prompt-injection.html">prompt-injection</a> <a class="tag" href="/Research/tags/security.html">security</a> <a class="tag" href="/Research/tags/llm.html">llm</a> <a class="tag" href="/Research/tags/agents.html">agents</a> <a class="tag" href="/Research/tags/adversarial.html">adversarial</a> <a class="tag" href="/Research/tags/owasp.html">owasp</a> <a class="tag" href="/Research/tags/mitre-atlas.html">mitre-atlas</a> <a class="tag" href="/Research/tags/red-team.html">red-team</a> <a class="tag" href="/Research/tags/ai-governance.html">ai-governance</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-15-prompt-injection-threat-landscape.md" target="_blank" rel="noopener">source →</a>
+  </div>
+  <div class="item-content">
+    <h2>Research Question</h2>
+<p>What is the current state of the prompt injection threat in agentic artificial intelligence (AI) systems: who is exploiting it, who is defending against it, and what does the research community consider unsolved?</p>
+<p>Supporting questions:</p>
+<ul>
+<li>What attack types exist (direct, indirect, compositional) and which are most dangerous for agents that can take real-world actions?</li>
+<li>Which threat actors are conducting prompt injection attacks, and what real-world incidents have been disclosed?</li>
+<li>Which organisations and researchers are building defences, and how effective are those defences?</li>
+<li>What are the 5-10 most significant papers or findings from 2024-2025, and what open problems remain?</li>
+</ul>
+
+<h2>Findings</h2>
+<h3>Executive Summary</h3>
+<p><strong>[inference]</strong> Prompt injection is now an operational security problem for agentic AI systems - AI systems that pursue goals with limited supervision and use tools or external software - rather than a hypothetical edge case. (Sources: https://www.congress.gov/crs-product/IF13151 ; https://genai.owasp.org/llmrisk/llm01-prompt-injection/ ; https://arxiv.org/abs/2302.12173 ; https://unit42.paloaltonetworks.com/ai-agent-prompt-injection/) <strong>[inference]</strong> Documented incidents mostly begin with poisoned external content, while the strongest public evidence still points to researchers, bug hunters, and malicious publishers more than to clearly attributed state or organised-crime campaigns. (Sources: https://arxiv.org/abs/2302.12173 ; https://unit42.paloaltonetworks.com/ai-agent-prompt-injection/) <strong>[inference]</strong> The practical consequence is that organisations should prioritize containment, approval gates, and least privilege, because existing defences lower attack success without making fully autonomous agents trustworthy by default. (Sources: https://www.anthropic.com/news/constitutional-classifiers ; https://aclanthology.org/2025.findings-naacl.395/ ; https://arxiv.org/abs/2503.18813)</p>
+<h3>Key Findings</h3>
+<ol>
+<li><strong>[inference] Confidence: high.</strong> Once an agent ingests external text or tool output, prompt injection stops looking like a simple chat misuse and instead becomes a boundary failure between trusted instructions and untrusted data inside the control flow. (Sources: https://genai.owasp.org/llmrisk/llm01-prompt-injection/ ; https://arxiv.org/abs/2302.12173 ; https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-2e2023.pdf)</li>
+<li><strong>[inference] Confidence: high.</strong> Among the documented attack families, indirect prompt injection matters most in practice because malicious instructions can ride through web pages, documents, repositories, or tool responses without the attacker ever touching the main chat turn. (Sources: https://arxiv.org/abs/2302.12173 ; https://genai.owasp.org/llmrisk/llm01-prompt-injection/ ; https://unit42.paloaltonetworks.com/ai-agent-prompt-injection/)</li>
+<li><strong>[inference] Confidence: medium.</strong> The public evidence base already includes disclosed vulnerabilities, malicious web payloads, and observed exploitation paths, yet attribution remains concentrated in researcher, bug-hunter, and malicious-publisher activity rather than in clearly documented nation-state campaigns. (Sources: https://arxiv.org/abs/2302.12173 ; https://genai.owasp.org/llmrisk/llm01-prompt-injection/ ; https://unit42.paloaltonetworks.com/ai-agent-prompt-injection/)</li>
+<li><strong>[inference] Confidence: high.</strong> Vendor and standards guidance converges on the same operational message: reducing prompt-injection risk requires layered architecture, privilege limits, and policy enforcement, not confidence that clever prompt wording will close the vulnerability by itself. (Sources: https://www.anthropic.com/research/many-shot-jailbreaking ; https://www.anthropic.com/news/constitutional-classifiers ; https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/jailbreak-detection ; https://genai.owasp.org/llmrisk/llm01-prompt-injection/)</li>
+<li><strong>[inference] Confidence: high.</strong> Reported defence improvements in constrained environments are meaningful, but the same papers and benchmarks show accompanying costs in compute, refusals, or secure-task completion, so capability and security still move together rather than independently. (Sources: https://www.anthropic.com/news/constitutional-classifiers ; https://arxiv.org/abs/2503.18813 ; https://github.com/lakeraai/pint-benchmark)</li>
+<li><strong>[inference] Confidence: high.</strong> Research published in 2025 raised the evaluation bar by showing that attackers who adapt to the defence can overturn reassuring benchmark results, which makes static success rates weak evidence of production robustness. (Sources: https://aclanthology.org/2025.findings-naacl.395/ ; https://storage.googleapis.com/deepmind-media/Security%20and%20Privacy/Gemini_Security_Paper.pdf)</li>
+<li><strong>[inference] Confidence: medium.</strong> The most credible near-term operating model is constrained autonomy, where least privilege, isolated tools, deterministic checks, segmented untrusted content, and human approval for irreversible actions shrink blast radius even when model robustness remains incomplete. (Sources: https://genai.owasp.org/llmrisk/llm01-prompt-injection/ ; https://arxiv.org/abs/2503.18813 ; https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/jailbreak-detection)</li>
+<li><strong>[inference] Confidence: high.</strong> The field still lacks an accepted definition of solved prompt-injection safety for general-purpose agents because the hardest problems remain instruction/data separation, multimodal attacks, long-term memory safety, adaptive benchmarks, and enforceable tool constraints. (Sources: https://arxiv.org/abs/2503.18813 ; https://aclanthology.org/2025.findings-naacl.395/ ; https://www.anthropic.com/research/many-shot-jailbreaking ; https://genai.owasp.org/llmrisk/llm01-prompt-injection/)</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+  <th>Claim</th>
+  <th>Source</th>
+  <th>Confidence</th>
+  <th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>KF1</td>
+  <td>https://genai.owasp.org/llmrisk/llm01-prompt-injection/ ; https://arxiv.org/abs/2302.12173 ; https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-2e2023.pdf</td>
+  <td>high</td>
+  <td><strong>[inference]</strong> Structural framing of the control-system failure.</td>
+</tr>
+<tr>
+  <td>KF2</td>
+  <td>https://arxiv.org/abs/2302.12173 ; https://genai.owasp.org/llmrisk/llm01-prompt-injection/ ; https://unit42.paloaltonetworks.com/ai-agent-prompt-injection/</td>
+  <td>high</td>
+  <td><strong>[inference]</strong> External-content channels dominate practical agent risk.</td>
+</tr>
+<tr>
+  <td>KF3</td>
+  <td>https://arxiv.org/abs/2302.12173 ; https://genai.owasp.org/llmrisk/llm01-prompt-injection/ ; https://unit42.paloaltonetworks.com/ai-agent-prompt-injection/ ; https://simonwillison.net/series/prompt-injection/</td>
+  <td>medium</td>
+  <td><strong>[inference]</strong> Exploitation evidence is real, but public attribution is uneven.</td>
+</tr>
+<tr>
+  <td>KF4</td>
+  <td>https://www.anthropic.com/research/many-shot-jailbreaking ; https://www.anthropic.com/news/constitutional-classifiers ; https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/jailbreak-detection ; https://genai.owasp.org/llmrisk/llm01-prompt-injection/</td>
+  <td>high</td>
+  <td><strong>[inference]</strong> Layered controls are the shared direction of current defensive guidance.</td>
+</tr>
+<tr>
+  <td>KF5</td>
+  <td>https://www.anthropic.com/news/constitutional-classifiers ; https://arxiv.org/abs/2503.18813 ; https://github.com/lakeraai/pint-benchmark</td>
+  <td>high</td>
+  <td><strong>[inference]</strong> Measured defence gains come with utility trade-offs.</td>
+</tr>
+<tr>
+  <td>KF6</td>
+  <td>https://aclanthology.org/2025.findings-naacl.395/ ; https://storage.googleapis.com/deepmind-media/Security%20and%20Privacy/Gemini_Security_Paper.pdf</td>
+  <td>high</td>
+  <td><strong>[inference]</strong> Adaptive testing exposes weak static robustness claims.</td>
+</tr>
+<tr>
+  <td>KF7</td>
+  <td>https://genai.owasp.org/llmrisk/llm01-prompt-injection/ ; https://arxiv.org/abs/2503.18813 ; https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/jailbreak-detection ; https://simonwillison.net/series/prompt-injection/</td>
+  <td>medium</td>
+  <td><strong>[inference]</strong> Blast-radius reduction is the strongest near-term design choice.</td>
+</tr>
+<tr>
+  <td>KF8</td>
+  <td>https://arxiv.org/abs/2503.18813 ; https://aclanthology.org/2025.findings-naacl.395/ ; https://www.anthropic.com/research/many-shot-jailbreaking ; https://genai.owasp.org/llmrisk/llm01-prompt-injection/</td>
+  <td>high</td>
+  <td><strong>[inference]</strong> Core architecture and evaluation questions remain open.</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li><strong>Assumption:</strong> High-privilege agent operators should prefer bounded autonomy over maximum autonomy. <strong>Justification:</strong> This is consistent with OWASP least-privilege and human-approval guidance, but it remains an operational design choice rather than an independently measured universal fact. (Source: https://genai.owasp.org/llmrisk/llm01-prompt-injection/)</li>
+</ul>
+<h3>Analysis</h3>
+<p><strong>[inference]</strong> Attacker attribution received lower confidence than architectural conclusions because the public record is rich in disclosed incidents and demonstrations but thinner on independently verified attribution to specific state or criminal campaigns. (Sources: https://unit42.paloaltonetworks.com/ai-agent-prompt-injection/ ; https://simonwillison.net/series/prompt-injection/ ; https://arxiv.org/abs/2302.12173)</p>
+<p><strong>[inference]</strong> Static benchmark wins were weighted cautiously when adaptive-attack evidence was available, because papers that let attackers optimise against the defence show that non-adaptive evaluation can overstate real-world robustness. (Sources: https://aclanthology.org/2025.findings-naacl.395/ ; https://storage.googleapis.com/deepmind-media/Security%20and%20Privacy/Gemini_Security_Paper.pdf)</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li><strong>[inference]</strong> Public attribution data is weak for nation-state and organised-criminal prompt-injection campaigns compared with researcher disclosures and vendor-reported incidents. (Sources: https://unit42.paloaltonetworks.com/ai-agent-prompt-injection/ ; https://simonwillison.net/series/prompt-injection/)</li>
+<li><strong>[inference]</strong> Multimodal prompt injection has credible demonstrations, but far less production evidence than text and document-based indirect prompt injection. (Sources: https://storage.googleapis.com/deepmind-media/Security%20and%20Privacy/Gemini_Security_Paper.pdf ; https://genai.owasp.org/llmrisk/llm01-prompt-injection/)</li>
+<li><strong>[inference]</strong> Benchmark scores for detectors can overstate robustness if attackers are not adapting to the defence or if the benchmark distribution differs from production workloads. (Sources: https://aclanthology.org/2025.findings-naacl.395/ ; https://storage.googleapis.com/deepmind-media/Security%20and%20Privacy/Gemini_Security_Paper.pdf)</li>
+<li><strong>[inference]</strong> Vendor write-ups can mix product positioning with research results, so they were weighted most heavily when they included concrete metrics or limitations. (Sources: https://www.anthropic.com/news/constitutional-classifiers ; https://learn.microsoft.com/en-us/azure/ai-services/content-safety/concepts/jailbreak-detection)</li>
+<li><strong>[fact]</strong> MITRE ATLAS provides background context on adversarial tactics and techniques against AI-enabled systems. (Source: https://atlas.mitre.org/)</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>What does a practically deployable, formally enforceable policy language for agent tool use look like in general-purpose systems?</li>
+<li>How should long-lived agent memory be partitioned so that injected state does not persist across sessions or users?</li>
+<li>Which benchmark design best predicts production resilience against indirect and multimodal prompt injection rather than benchmark-specific performance?</li>
+<li>What evidence, if any, will emerge that prompt injection is being adopted systematically by large-scale cybercriminal or nation-state operators?</li>
+</ul>
+<hr />
+
+
+  </div>
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-15-saas-banking-invariants.html">Invariants in Software as a Service (SaaS) Banking Software</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-15-neurological-context-management.html">Neurological Basis of Contextual Reasoning and Relevance Filtering</a></div>
+  </div>
+</main>
+</body>
+</html>

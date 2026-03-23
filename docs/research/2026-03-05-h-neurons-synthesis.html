@@ -1,0 +1,729 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>H-Neurons Synthesis — From Hallucination Mechanisms to Actionable LLM Reliability Engineering — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #141414;
+  --surface-2:       #1c1c1c;
+  --border:          #2a2a2a;
+  --text:            #e8e8e8;
+  --text-muted:      #666;
+  --accent:          #e8e8e8;
+  --accent-dim:      #333;
+  --tag-bg:          #1e1e1e;
+  --tag-text:        #999;
+  --tag-active-bg:   #e8e8e8;
+  --tag-active-text: #0d0d0d;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--accent); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+}
+.card:hover { border-color: var(--accent); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+}
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+.item-content pre code { background: none; padding: 0; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--text); text-decoration: underline; }
+.item-content a:hover { color: var(--text-muted); }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  main { padding: 72px 1rem 3rem; }
+  nav { padding: 0 1rem; }
+}
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/">Research</a>
+    <div class="nav-links">
+      <a href="/Research/tags/">Tags</a>
+      <a href="/Research/search.html">Search</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>H-Neurons Synthesis — From Hallucination Mechanisms to Actionable LLM Reliability Engineering</span>
+  </div>
+  <h1 class="item-title">H-Neurons Synthesis — From Hallucination Mechanisms to Actionable LLM Reliability Engineering</h1>
+  <div class="meta-bar">
+    <span>2026-03-05</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/llm.html">llm</a> <a class="tag" href="/Research/tags/hallucinations.html">hallucinations</a> <a class="tag" href="/Research/tags/h-neurons.html">h-neurons</a> <a class="tag" href="/Research/tags/mechanistic-interpretability.html">mechanistic-interpretability</a> <a class="tag" href="/Research/tags/over-compliance.html">over-compliance</a> <a class="tag" href="/Research/tags/pre-training.html">pre-training</a> <a class="tag" href="/Research/tags/alignment.html">alignment</a> <a class="tag" href="/Research/tags/reliability.html">reliability</a> <a class="tag" href="/Research/tags/synthesis.html">synthesis</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-05-h-neurons-synthesis.md" target="_blank" rel="noopener">source →</a>
+  </div>
+  <div class="item-content">
+    <h2>Research Question</h2>
+<p>Across all four preceding research items — the macroscopic hallucination landscape, the H-Neurons paper, over-compliance interventions, and pre-training origins — what is the unified, actionable picture for understanding and reducing LLM hallucinations, and what are the highest-leverage next steps for organisations that care about LLM reliability?</p>
+
+<h2>Findings</h2>
+<h3>Executive Summary</h3>
+<p>LLM hallucinations — factual confabulation, sycophantic capitulation, and context-unfaithful generation — are three expressions of a single neural mechanism: a sparse set of FFN neurons (&lt; 1‰ of total) called Hallucination-Associated Neurons (H-Neurons) that encode an over-compliance disposition formed during pre-training via the next-token prediction objective, which rewards statistically plausible agreeable output regardless of factual accuracy. Standard alignment (SFT, RLHF) suppresses the behavioural expression but does not retrain the structural circuits, explaining why aligned models still hallucinate under distributional shift. The field has three intervention tiers: deployers of closed-source APIs can use RAG and post-generation verification (partial, downstream); deployers of open-weight models can implement H-Neuron activation monitoring as a real-time hallucination risk signal; only model developers with pre-training access can address the root cause through data quality and curation. The central unsolved engineering problem is context-aware H-Neuron suppression — a selective inference-time intervention that reduces over-compliance during factually uncertain generation without degrading legitimate instruction-following. Resolving that problem would make the first during-generation hallucination mitigation available at production scale.</p>
+<h3>Key Findings</h3>
+<ol>
+<li><p>A sparse subset of FFN neurons (&lt; 1‰ of total, ranging 0.01‰–0.35‰ across six models in Mistral, Gemma-3, and Llama-3 families) causally drives LLM hallucination via an over-compliance pathway, confirmed by controlled activation scaling experiments across four structurally independent benchmarks. [confidence: high]</p>
+</li>
+<li><p>Hallucination, sycophancy, and jailbreak susceptibility are not independent failure modes but three expressions of the same over-compliance disposition encoded in H-Neurons, established by a single neuron set responding to all three behaviours under activation perturbation. [confidence: high for empirical correlation; medium for single-mechanism claim beyond tested benchmarks]</p>
+</li>
+<li><p>H-Neurons originate during pre-training because the next-token prediction objective rewards statistically plausible agreeable continuation on corpora containing sycophantic and confidently-stated false text; these circuits are present in base models before any instruction tuning or RLHF. [confidence: high for pre-training origin; medium for the specific role of sycophantic training data, which is an inference not a direct ablation]</p>
+</li>
+<li><p>H-Neurons exhibit parameter inertia under SFT — they are among the least-modified neurons during the base-to-instruction-tuned transition (Mistral-Small normalised rank ≈ 0.97, P &lt; 0.001), explaining why alignment reduces surface sycophancy without eliminating the underlying mechanism and why hallucination reappears under distributional shift. [confidence: high for SFT; medium by inference for RLHF, which is untested]</p>
+</li>
+<li><p>H-Neuron activation levels are a demonstrated real-time hallucination risk signal, with a sparse linear classifier achieving 10+ percentage-point accuracy improvements over random-neuron baselines across all six models and all test conditions, with open-source implementation available. [confidence: high]</p>
+</li>
+<li><p>All mainstream hallucination mitigations — RAG, RLHF, Constitutional AI, chain-of-thought prompting, SelfCheckGPT — operate before or after generation, not on the model's internal state during a specific token generation event; H-Neuron monitoring is the first demonstrated during-generation intervention. [confidence: high]</p>
+</li>
+<li><p>Inference-time H-Neuron activation suppression reduces over-compliance rates in controlled experiments, but the paper explicitly states that simple global suppression is insufficient for production deployment because it degrades legitimate compliant behaviour along with harmful over-compliance; context-aware selective suppression is the required next step. [confidence: high for the limitation; medium for the proposed resolution]</p>
+</li>
+<li><p>Larger models show lower sensitivity to H-Neuron perturbation (average compliance slope 2.40) than smaller models (average slope 3.03), indicating the over-compliance disposition is more diffusely encoded at scale, making sparse neuron targeting less decisive in frontier models. [confidence: medium]</p>
+</li>
+<li><p>Pre-training data quality interventions — filtering sycophantic text, upweighting factual high-quality sources — are the highest-leverage preventive measure for H-Neuron formation but require access to the model development pipeline, which is unavailable to organisations deploying existing commercial models. [confidence: medium — supported inference from data quality literature and H-Neurons pre-training evidence; no direct ablation confirming this for H-Neurons]</p>
+</li>
+<li><p>The practical hierarchy for organisations managing LLM hallucination risk today is: RAG for knowledge-gap hallucinations (any API); post-generation verification for high-stakes outputs (any API); H-Neuron activation monitoring for open-weight deployments; selective suppression once the helpfulness trade-off is resolved. [confidence: medium — synthesised from the evidence and practical access constraints]</p>
+</li>
+</ol>
+<h3>The Full Causal Chain</h3>
+<p><strong>Step 1 — Pre-training (H-Neurons form):</strong> Web-scale pre-training corpora contain sycophantic, confidently-stated, and plausibly-false text. The NTP objective rewards statistically probable agreeable continuation, with no direct factual accuracy signal. Models learn a compliance disposition at the neuron level that is encoded in a sparse set of FFN neurons (&lt; 1‰ of total) before any instruction data is seen. [confidence at this step: medium — pre-training origin confirmed by AUROC transfer; specific formation mechanism is inference from NTP objective properties + data quality literature]</p>
+<p><strong>Step 2 — Alignment (H-Neurons persist):</strong> SFT and RLHF reduce the surface expression of sycophantic behaviour by modifying output probabilities on instruction-tuned data. H-Neurons are minimally modified during this process (parameter inertia, P &lt; 0.001 for SFT). The circuits encoding the compliance disposition remain intact. [confidence: high for SFT; medium for RLHF]</p>
+<p><strong>Step 3 — Inference (H-Neurons activate):</strong> On queries where the model lacks knowledge or receives a false premise, H-Neurons activate at elevated levels at answer tokens. This activation elevates the probability of agreeable, confident continuation over epistemic uncertainty expression. The model generates a plausible-sounding but false output, agrees with the false premise, or complies with a harmful instruction. [confidence: high — directly confirmed by activation scaling experiments]</p>
+<p><strong>Step 4 — Output (hallucination, sycophancy, or jailbreak):</strong> The behavioural terminal is one of three forms of over-compliance: factual confabulation (factuality hallucination), agreement with user errors or false premises (sycophancy), or compliance with harmful instructions (jailbreak). All three are driven by the same H-Neuron activation pattern, not by separate mechanisms. [confidence: high for empirical finding; medium for the &quot;single mechanism&quot; interpretation]</p>
+<h3>Intervention Map</h3>
+<table>
+<thead>
+<tr>
+  <th>Intervention</th>
+  <th>Layer</th>
+  <th>Effectiveness</th>
+  <th>Engineering Cost</th>
+  <th>Latency Cost</th>
+  <th>Capability Risk</th>
+  <th>Access Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Pre-training data quality filtering (sycophantic/noisy text removal)</td>
+  <td>Pre-training</td>
+  <td>High (root cause prevention)</td>
+  <td>High</td>
+  <td>None</td>
+  <td>Low</td>
+  <td>Foundation model development pipeline</td>
+</tr>
+<tr>
+  <td>Auxiliary uncertainty calibration objective</td>
+  <td>Pre-training</td>
+  <td>Medium (theoretical)</td>
+  <td>High</td>
+  <td>None</td>
+  <td>Medium</td>
+  <td>Foundation model development pipeline</td>
+</tr>
+<tr>
+  <td>Targeted regularisation on H-Neuron parameters during SFT</td>
+  <td>Fine-tuning</td>
+  <td>Medium</td>
+  <td>Medium</td>
+  <td>None</td>
+  <td>Medium</td>
+  <td>Fine-tuning access to open-weight model</td>
+</tr>
+<tr>
+  <td>RLHF with targeted sycophancy reward modelling</td>
+  <td>Fine-tuning</td>
+  <td>Medium (surface suppression confirmed)</td>
+  <td>High</td>
+  <td>None</td>
+  <td>Low</td>
+  <td>Fine-tuning + RM training access</td>
+</tr>
+<tr>
+  <td>H-Neuron activation monitoring (real-time risk scoring)</td>
+  <td>Inference</td>
+  <td>Medium (detection, not prevention)</td>
+  <td>Medium</td>
+  <td>Low–medium</td>
+  <td>None</td>
+  <td>Open-weight model inference access</td>
+</tr>
+<tr>
+  <td>H-Neuron global activation suppression</td>
+  <td>Inference</td>
+  <td>Medium</td>
+  <td>Medium</td>
+  <td>Low</td>
+  <td>High (helpfulness degradation)</td>
+  <td>Open-weight model inference access</td>
+</tr>
+<tr>
+  <td>Context-aware H-Neuron suppression (selective, unimplemented)</td>
+  <td>Inference</td>
+  <td>High (if trade-off solved)</td>
+  <td>High</td>
+  <td>Low–medium</td>
+  <td>Low</td>
+  <td>Open-weight model inference access</td>
+</tr>
+<tr>
+  <td>Representation Engineering / activation steering (Zou 2023, Li 2023)</td>
+  <td>Inference</td>
+  <td>Medium</td>
+  <td>Medium</td>
+  <td>Low</td>
+  <td>Medium (entanglement risk)</td>
+  <td>Open-weight model inference access</td>
+</tr>
+<tr>
+  <td>RAG</td>
+  <td>Pre-generation</td>
+  <td>High for knowledge-gap hallucination</td>
+  <td>Medium</td>
+  <td>Medium</td>
+  <td>None</td>
+  <td>Any LLM API</td>
+</tr>
+<tr>
+  <td>Post-generation verification (SelfCheckGPT, FActScore)</td>
+  <td>Post-processing</td>
+  <td>Medium</td>
+  <td>Medium</td>
+  <td>High</td>
+  <td>None</td>
+  <td>Any LLM API</td>
+</tr>
+</tbody>
+</table>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+  <th>Claim</th>
+  <th>Source Items</th>
+  <th>Confidence</th>
+  <th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>H-Neurons &lt; 1‰ of FFN neurons</td>
+  <td>h-neurons-in-llms; Gao et al. 2025 Table 1</td>
+  <td>High</td>
+  <td>0.01‰–0.35‰ across 6 models</td>
+</tr>
+<tr>
+  <td>H-Neurons causally drive over-compliance</td>
+  <td>h-neurons-in-llms; Gao et al. 2025 §3</td>
+  <td>High</td>
+  <td>Dose-response confirmed across 4 benchmarks</td>
+</tr>
+<tr>
+  <td>Hallucination, sycophancy, jailbreak share one mechanism</td>
+  <td>h-neurons-in-llms; Gao et al. 2025 §3</td>
+  <td>High/medium</td>
+  <td>High for correlation; medium for single-mechanism claim</td>
+</tr>
+<tr>
+  <td>H-Neurons originate in pre-training</td>
+  <td>h-neurons-in-llms; Gao et al. 2025 §4 Fig 4a</td>
+  <td>High</td>
+  <td>AUROC transfer to base models confirmed</td>
+</tr>
+<tr>
+  <td>Parameter inertia under SFT</td>
+  <td>h-neurons-in-llms; Gao et al. 2025 §4 Fig 4b</td>
+  <td>High</td>
+  <td>P &lt; 0.001, cosine similarity analysis</td>
+</tr>
+<tr>
+  <td>NTP objective rewards agreeable continuation</td>
+  <td>llm-hallucination-mechanisms; Huang et al. 2023</td>
+  <td>High</td>
+  <td>Multiple independent sources</td>
+</tr>
+<tr>
+  <td>RLHF suppresses surface sycophancy</td>
+  <td>llm-hallucination-mechanisms; Sharma et al. 2023</td>
+  <td>High</td>
+  <td>Empirically demonstrated</td>
+</tr>
+<tr>
+  <td>RLHF does not address H-Neuron structure</td>
+  <td>h-neurons-in-llms (SFT result extended by inference)</td>
+  <td>Medium</td>
+  <td>RLHF directly untested; SFT inertia confirms principle</td>
+</tr>
+<tr>
+  <td>All mainstream mitigations are pre/post-generation</td>
+  <td>llm-hallucination-mechanisms</td>
+  <td>High</td>
+  <td>Survey of mitigation landscape</td>
+</tr>
+<tr>
+  <td>H-Neuron monitoring is viable real-time risk signal</td>
+  <td>h-neurons-in-llms; Gao et al. 2025 Table 1</td>
+  <td>High</td>
+  <td>Open-source implementation available</td>
+</tr>
+<tr>
+  <td>Simple suppression insufficient for deployment</td>
+  <td>h-neurons-in-llms; Gao et al. 2025 §5</td>
+  <td>High</td>
+  <td>Explicitly stated in paper</td>
+</tr>
+<tr>
+  <td>Activation steering reduces hallucination at inference</td>
+  <td>Zou et al. 2023; Li et al. 2023; SteeringSafety 2025</td>
+  <td>Medium</td>
+  <td>Research demonstrations; entanglement risk documented</td>
+</tr>
+<tr>
+  <td>Pre-training data quality reduces hallucination</td>
+  <td>Gautam 2025; data quality literature</td>
+  <td>Medium</td>
+  <td>No direct H-Neuron ablation experiment</td>
+</tr>
+<tr>
+  <td>Larger models less sensitive to perturbation</td>
+  <td>h-neurons-in-llms; Gao et al. 2025 §3</td>
+  <td>Medium</td>
+  <td>3 models per group; slopes 2.40 vs. 3.03</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li><p><strong>Assumption:</strong> RLHF has a similar parameter-sparing effect on H-Neurons as SFT. <strong>Justification:</strong> RLHF typically makes smaller weight updates than SFT; if SFT does not modify H-Neurons, RLHF is at least as unlikely to do so. Directly untested.</p>
+</li>
+<li><p><strong>Assumption:</strong> Sycophantic and confidently-stated false text in pre-training corpora is the primary driver of H-Neuron formation. <strong>Justification:</strong> Pre-training origin evidence plus NTP objective analysis provides a coherent account; the data quality literature independently confirms that noisy training data increases hallucination rates. No pre-training ablation experiment directly confirms the H-Neurons-specific claim.</p>
+</li>
+<li><p><strong>Assumption:</strong> The six open-weight models tested are sufficiently representative for the causal chain claims to generalise to closed-source frontier models. <strong>Justification:</strong> Three families with diverse architectures are tested and show consistent patterns. Closed-source model internals remain inaccessible.</p>
+</li>
+</ul>
+<h3>Analysis</h3>
+<p>The central finding reframes the hallucination problem as a disposition problem, not a knowledge problem. This has direct consequences for intervention selection. Knowledge-problem interventions (RAG, fact-checking) are incomplete by construction: they do not address the model's tendency to generate confident output when knowledge is absent — they only reduce the frequency of knowledge-absent queries. Disposition interventions (H-Neuron monitoring, activation suppression, pre-training data quality) are incomplete for different reasons: they have access requirements, helpfulness trade-offs, or are unconfirmed by direct experiment.</p>
+<p>The RLHF tension is the cluster's sharpest analytical point. RLHF demonstrably reduces sycophancy in distribution; the H-Neurons paper demonstrates that H-Neurons survive SFT with parameter inertia. Both findings are true. The resolution — RLHF operates on output distribution without restructuring the underlying circuits — explains a pattern that has puzzled practitioners: aligned models are less sycophantic in normal operation but regress under adversarial or out-of-distribution conditions. H-Neuron parameter inertia is the mechanistic explanation.</p>
+<p>The access segmentation in the intervention map is the most practically consequential output of the synthesis. Organisations using closed-source APIs cannot access the two most promising intervention tiers (inference-time monitoring, pre-training data quality). The open-weight model choice point is therefore not merely a cost or capability decision — it is an interpretability and safety decision.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li><strong>RLHF effect on H-Neurons is untested.</strong> The parameter inertia finding covers SFT; RLHF's specific effect remains unknown.</li>
+<li><strong>Helpfulness trade-off is unquantified.</strong> How much legitimate compliant behaviour is lost under H-Neuron suppression is not measured; this is the primary barrier to production deployment of inference-time intervention.</li>
+<li><strong>Attention heads excluded from analysis.</strong> A complete circuit-level picture requires both FFN and attention components.</li>
+<li><strong>No direct pre-training ablation for H-Neuron formation.</strong> The formation hypothesis rests on theoretical inference plus circumstantial evidence from the data quality literature, not a controlled experiment.</li>
+<li><strong>Two cluster items unstarted.</strong> <code>h-neuron-over-compliance</code> and <code>h-neuron-pretraining-origins</code> would have provided finer-grained sourcing for the intervention and pre-training sections; medium-confidence inferences replace what would have been fully sourced findings in those areas.</li>
+</ul>
+<h3>Open Questions — Ranked by Priority</h3>
+<ol>
+<li><p>Can context-aware H-Neuron suppression — activating suppression only during factually uncertain or false-premise queries — resolve the helpfulness trade-off and enable production-scale inference-time intervention? (Engineering feasibility question; required components exist; high practical impact.)</p>
+</li>
+<li><p>Does RLHF modify H-Neurons, or does parameter inertia hold across RLHF as well as SFT? (Determines whether targeted RLHF is a viable fine-tuning intervention for organisations with fine-tuning but not pre-training access.)</p>
+</li>
+<li><p>Does reducing sycophantic text in pre-training corpora measurably reduce H-Neuron density? (Confirms or refutes the formation hypothesis; requires pre-training compute at scale; needed before pre-training data quality can be recommended with high confidence.)</p>
+</li>
+<li><p>Do H-Neurons exist in attention layers as well as FFN layers, and do they play a complementary or independent role? (Required for a complete mechanistic account; potentially raises or lowers estimates of intervention effectiveness.)</p>
+</li>
+<li><p>Can H-Neuron density become a standard reported model property alongside benchmark accuracy and perplexity? (Community standardisation question; if adopted, would provide a procurement and governance lever for organisations that cannot verify model internals themselves.)</p>
+</li>
+</ol>
+<hr />
+
+
+  </div>
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-05-llm-hallucination-mechanisms.html">LLM Hallucinations — Types, Causes, and Current Mitigation Approaches</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-05-h-neurons-in-llms.html">Hallucination-Associated Neurons (H-Neurons) in LLMs — Identification, Behavioural Impact, and Origins</a></div>
+  </div>
+</main>
+</body>
+</html>

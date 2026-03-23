@@ -1,0 +1,605 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Adam Smith, Organisational Design, Desire Paths, and AI Strategy — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #141414;
+  --surface-2:       #1c1c1c;
+  --border:          #2a2a2a;
+  --text:            #e8e8e8;
+  --text-muted:      #666;
+  --accent:          #e8e8e8;
+  --accent-dim:      #333;
+  --tag-bg:          #1e1e1e;
+  --tag-text:        #999;
+  --tag-active-bg:   #e8e8e8;
+  --tag-active-text: #0d0d0d;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--accent); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+}
+.card:hover { border-color: var(--accent); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+}
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+.item-content pre code { background: none; padding: 0; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--text); text-decoration: underline; }
+.item-content a:hover { color: var(--text-muted); }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  main { padding: 72px 1rem 3rem; }
+  nav { padding: 0 1rem; }
+}
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/">Research</a>
+    <div class="nav-links">
+      <a href="/Research/tags/">Tags</a>
+      <a href="/Research/search.html">Search</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>Adam Smith, Organisational Design, Desire Paths, and AI Strategy</span>
+  </div>
+  <h1 class="item-title">Adam Smith, Organisational Design, Desire Paths, and AI Strategy</h1>
+  <div class="meta-bar">
+    <span>2026-03-15</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/economics.html">economics</a> <a class="tag" href="/Research/tags/adam-smith.html">adam-smith</a> <a class="tag" href="/Research/tags/org-design.html">org-design</a> <a class="tag" href="/Research/tags/desire-paths.html">desire-paths</a> <a class="tag" href="/Research/tags/ai-strategy.html">ai-strategy</a> <a class="tag" href="/Research/tags/moral-philosophy.html">moral-philosophy</a> <a class="tag" href="/Research/tags/human-nature.html">human-nature</a> <a class="tag" href="/Research/tags/behaviour.html">behaviour</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-15-adam-smith-org-design-desire-paths-ai.md" target="_blank" rel="noopener">source →</a>
+  </div>
+  <div class="item-content">
+    <h2>Research Question</h2>
+<p>What can Adam Smith's insights into human nature and morality - drawn from <em>The Theory of Moral Sentiments</em> (ToMS) and <em>The Wealth of Nations</em> (WoN) - teach us about designing organisations that align with how people naturally behave (desire paths), and how does this intersect with Artificial Intelligence (AI) strategy?</p>
+
+<h2>Findings</h2>
+<p><em>(Populated from §6 Synthesis above.)</em></p>
+<h3>Executive Summary</h3>
+<p>Smith's two books together provide the most coherent extant model of how informal order emerges from human behaviour in groups, and therefore the best theoretical basis for organisational design that works with actual human behaviour rather than against it. <em>The Theory of Moral Sentiments</em> (ToMS, 1759) establishes that norms arise bottom-up through sympathy and the impartial spectator, not from top-down rules; <em>The Wealth of Nations</em> (WoN, 1776) establishes that self-interest selects the path of least friction, producing emergent order when - and only when - appropriate institutional conditions obtain. Desire paths are the visible footprint of this combined mechanism: self-interest creates informal routes (WoN), and those routes acquire moral legitimacy once widely adopted (ToMS). Applied to AI strategy, this framework predicts that shadow AI adoption is inevitable and self-reinforcing, that prohibition will fail where legitimacy has already accumulated, and that the effective strategic response is to map actual desire paths, formalise the productive ones, and redesign incentive conditions for the harmful ones rather than mandating compliance with officially designed workflows.</p>
+<h3>Key Findings</h3>
+<ol>
+<li><p><em>The Theory of Moral Sentiments</em> (ToMS, 1759) establishes that human moral norms emerge bottom-up through sympathy - the imaginative act of placing oneself in another's situation - and become consolidated into the internalised impartial spectator, making norm legitimacy a prerequisite for sustained compliance that no formal rule can substitute for at the same cost.</p>
+</li>
+<li><p>The impartial spectator is invoked 66 times in ToMS versus once in WoN, demonstrating that Smith regarded the moral-social architecture as more central to his system than the economic mechanism, and that the popular reduction of Smith to &quot;self-interest is good&quot; misrepresents his actual priorities.</p>
+</li>
+<li><p><em>The Wealth of Nations</em> (WoN, 1776) establishes that the invisible hand - the mechanism by which individual self-interest produces socially beneficial outcomes - is conditional on three institutional prerequisites: secure property rights, competitive markets free from monopoly capture, and tolerable administration of justice; absent these, self-interest becomes predatory.</p>
+</li>
+<li><p>Michael Munger's TAITC (&quot;The Answer Is Transaction Costs&quot;) podcast establishes that transaction costs provide the key to integrating ToMS and WoN: ToMS describes how sympathy-based norms reduce social coordination costs, while WoN describes how markets reduce economic coordination costs, making the two books a unified model of friction reduction in human cooperation.</p>
+</li>
+<li><p>Desire paths in organisations - informal communication channels, shadow processes, cross-functional workarounds - are the empirically documented manifestation of Smith's WoN mechanism operating at the organisational level: individuals choose the path of least friction, and once widely adopted, those paths acquire the social legitimacy that Smith's ToMS predicts.</p>
+</li>
+<li><p>Organisations that suppress desire paths rather than studying them pay sustained enforcement costs equivalent to monopoly regulation in Smith's model: a deadweight loss that depletes morale and coordination capacity without producing genuine alignment, because legitimacy cannot be manufactured by decree.</p>
+</li>
+<li><p>Shadow AI - employees using Large Language Model (LLM) tools outside officially sanctioned systems - is the current expression of the shadow-IT desire-path dynamic, consistent with a 2025 survey finding that 89% of workers use personal devices or apps for work because they find them easier than company-provided tools.</p>
+</li>
+<li><p>The 74% failure rate in AI value realisation reflects the predictable outcome of deploying AI into formally designed workflows rather than into the actual desire-path workflows employees use, a Smithian prediction: tools introduced to serve the official path rather than the lived path will remain unused or be worked around.</p>
+</li>
+<li><p>The impartial spectator mechanism predicts that AI adoption will accelerate through peer legitimacy and informal &quot;AI champions&quot; within reference groups far more effectively than through top-down mandates that lack the social endorsement the impartial spectator requires.</p>
+</li>
+<li><p>Division of labour in knowledge work carries the dark side Smith identified in WoN Book V: excessive specialisation into narrow task lanes destroys the engagement and breadth of social contact that the sympathy mechanism requires to maintain healthy norm infrastructure within organisations.</p>
+</li>
+<li><p>The Smithian AI governance model is observe-evaluate-formalise: map shadow AI behaviour, distinguish productive desire paths from governance-risk paths, formalise the productive ones before prohibition drives them underground, and address problematic paths through institutional incentive redesign rather than mandate.</p>
+</li>
+<li><p>Smith's framework directly grounds North's institutional economics claim (from the prior <em>Nature of the Firm</em> research item) that informal institutions are the primary transaction cost reducers: ToMS explains the generative mechanism - informal institutions emerge from the sympathy-and-impartial-spectator process - which is why they carry moral legitimacy that formal contracts cannot replicate at equivalent cost.</p>
+</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+  <th>Claim</th>
+  <th>Source</th>
+  <th>Confidence</th>
+  <th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>ToMS establishes norms emerge through sympathy (Finding 1)</td>
+  <td>ToMS Part I (Smith 1759); Lauren Hall, adamsmithworks.org; Stanford Encyclopedia of Philosophy</td>
+  <td>High</td>
+  <td>Primary text plus independent secondary analyses</td>
+</tr>
+<tr>
+  <td>Impartial spectator invoked 66 times vs. once (Finding 2)</td>
+  <td>Avner Offer, Nuffield College Discussion Paper 101 (2012)</td>
+  <td>High</td>
+  <td>Quantitative count from peer-reviewed source</td>
+</tr>
+<tr>
+  <td>Invisible hand is conditional on institutional prerequisites (Finding 3)</td>
+  <td>Munger, adamsmithworks.org; Britannica WoN entry</td>
+  <td>High</td>
+  <td>Consistent across independent sources</td>
+</tr>
+<tr>
+  <td>Transaction costs integrate ToMS and WoN (Finding 4)</td>
+  <td>Munger, TAITC podcast (taitc.buzzsprout.com); adamsmithworks.org</td>
+  <td>High</td>
+  <td>Consistent across multiple episodes and essays</td>
+</tr>
+<tr>
+  <td>Desire paths are documented in organisational settings (Finding 5)</td>
+  <td>Caredda, newsletter.sergiocaredda.eu; Springer formal/informal org paper [full citation NEEDED: author, title, URL/DOI required]; Wikipedia desire path</td>
+  <td>High</td>
+  <td>Convergent evidence from urban planning, org design, UX</td>
+</tr>
+<tr>
+  <td>Suppression of desire paths creates deadweight loss (Finding 6)</td>
+  <td>[inference] from Smith WoN on monopoly regulation + desire-path enforcement literature</td>
+  <td>Medium</td>
+  <td>Inference from structural analogy; no direct study of enforcement cost</td>
+</tr>
+<tr>
+  <td>89% of workers use personal devices for work (Finding 7)</td>
+  <td>Diversified survey (2025) via hrexecutive.com</td>
+  <td>Medium</td>
+  <td>Single survey, large sample; self-report</td>
+</tr>
+<tr>
+  <td>74% of companies fail to achieve AI value (Finding 8)</td>
+  <td>ScienceDirect peer-reviewed article (2025)</td>
+  <td>High</td>
+  <td>Peer-reviewed; consistent with industry reports</td>
+</tr>
+<tr>
+  <td>AI adoption accelerates via peer legitimacy (Finding 9)</td>
+  <td>Wharton Knowledge; Fogg Behaviour Model adapted for AI</td>
+  <td>High</td>
+  <td>Consistent across adoption research streams</td>
+</tr>
+<tr>
+  <td>Excessive specialisation destroys engagement (Finding 10)</td>
+  <td>WoN Book V (Smith 1776); adamsmithworks.org on costs of division of labour</td>
+  <td>High</td>
+  <td>Smith's own text; confirmed by Human Resources (HR) literature</td>
+</tr>
+<tr>
+  <td>Observe-evaluate-formalise as AI governance model (Finding 11)</td>
+  <td>[inference] synthesis of Smith WoN/ToMS + Deloitte agentic AI research (2026)</td>
+  <td>Medium</td>
+  <td>Inference from Smithian framework + empirical AI deployment evidence</td>
+</tr>
+<tr>
+  <td>Smith grounds North's informal institutions claim (Finding 12)</td>
+  <td>ToMS (Smith 1759); North (1990) via prior research item; Munger TAITC</td>
+  <td>High</td>
+  <td>Both sources confirm; the connection is an inference, but well-grounded</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li><p><strong>Assumption:</strong> The desire-path concept generalises from physical space to organisational and digital space. <strong>Justification:</strong> This is the basis of a well-established body of UX and org-design literature, adopted by practitioners and researchers independently. It is not Smith's own claim but is treated here as a valid generalisation.</p>
+</li>
+<li><p><strong>Assumption:</strong> Smith's sympathy-and-impartial-spectator mechanism is the generative mechanism behind what North (1990) calls &quot;informal institutions.&quot; <strong>Justification:</strong> The two frameworks describe the same phenomenon at different levels of abstraction (moral-psychological vs. transaction-cost economic). The identification is an inference drawn from structural compatibility; North does not cite Smith as the mechanism.</p>
+</li>
+<li><p><strong>Assumption:</strong> Munger's TAITC framing represents a credible and consistent interpretive position on integrating ToMS and WoN. <strong>Justification:</strong> Munger is a credentialed institutional economist at Duke; the TAITC series is cross-released with Adam Smith Works (a Liberty Fund project) and is consistent with published academic work on Smith integration (e.g., Herbener 1987 in the Mises Institute [URL NEEDED]).</p>
+</li>
+</ul>
+<h3>Analysis</h3>
+<p>The central analytical claim is that Smith provides a <em>two-level</em> model of emergent order that is uniquely well-suited to diagnosing and responding to desire-path dynamics in organisations. The economic level (WoN) explains the <em>initiation</em> of desire paths through self-interest; the moral-social level (ToMS) explains their <em>persistence and legitimisation</em> through the sympathy mechanism. This two-level account is more powerful than either a purely economic account (which would predict desire paths emerge but not why they are so resistant to suppression) or a purely social-norm account (which would explain persistence but not the initial emergence or direction of the paths).</p>
+<p>The key trade-off in applying this framework is between &quot;pave early&quot; (formalise desire paths quickly to reduce uncertainty and enable governance) and &quot;observe longer&quot; (avoid locking in immature patterns that have not yet stabilised into genuinely functional norms). Deloitte's warning - &quot;don't simply pave the cow path&quot; in the context of agentic AI - is the correct correction to a naive reading of the framework. Smith's own system implies this: the impartial spectator sets standards that may diverge from current majority practice, and organisations should not uncritically formalise every informal pattern just because it is widely adopted.</p>
+<p>The competing interpretation is that desire paths are primarily a symptom of bad design rather than stable signals of human behaviour - i.e. that if systems were better designed, desire paths would not emerge. This is partially true (better design reduces unnecessary desire paths) but does not undermine the core claim: even optimally designed systems will have desire paths because human self-interest and the impartial spectator standard evolve faster than formal systems can adapt.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>Smith's sympathy mechanism is a theoretical model with no direct modern empirical validation as a causal account. Behavioural economics and social network theory offer complementary accounts with more experimental evidence.</li>
+<li>The connection between Smith's specific mechanisms and desire-path dynamics is an inference constructed in this research, not an existing body of literature. Future work could test whether Smithian concepts add predictive power.</li>
+<li>Survey data on shadow IT and AI adoption failure rates are self-reported and may overstate problems or undercount hidden success.</li>
+<li>Munger's TAITC series was still active as of March 2026; the full integration claim may be further developed or qualified in subsequent episodes.</li>
+<li>The dark side of the &quot;pave the cowpath&quot; recommendation - that it can lock in sub-optimal norms - is acknowledged but not fully resolved. A decision-procedure for distinguishing mature/productive desire paths from immature/dysfunctional ones is an open design question.</li>
+</ul>
+<h3>Open Questions</h3>
+<ol>
+<li>Does Smith's model of norm legitimacy through the impartial spectator explain the <em>speed</em> at which AI desire paths acquire peer legitimacy compared with prior technology waves - and if so, what does that imply for AI governance timelines?</li>
+<li>What minimum level of social contact is required to maintain the sympathy mechanism (and therefore healthy informal norm infrastructure) in highly remote or asynchronous organisations - and has that threshold been crossed in some post-pandemic knowledge-work organisations?</li>
+<li>Can the Smithian org-design framework be operationalised into a practical diagnostic instrument - a &quot;desire-path audit&quot; - that maps informal behaviour against the impartial spectator standard (legitimacy check) and the WoN mechanism (friction check)?</li>
+<li>How does the desire-path model interact with the Ricardian Contract model (from <code>2026-03-14-ricardian-contract-model</code>): can machine-readable contracts serve as a mechanism for paving organisational desire paths at lower cost than traditional policy documents?</li>
+</ol>
+<hr />
+
+
+  </div>
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-15-context-compression-rag-enterprise-knowledge.html">Context Compression and RAG Techniques for Organisational Knowledge</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-14-ricardian-contract-model.html">Ricardian Contract model: history, current state, and latest research</a></div>
+  </div>
+</main>
+</body>
+</html>

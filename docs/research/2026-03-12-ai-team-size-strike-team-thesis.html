@@ -1,0 +1,636 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>AI amplified the coordination tax: the 5-person strike team as the structural unit of the AI era — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #141414;
+  --surface-2:       #1c1c1c;
+  --border:          #2a2a2a;
+  --text:            #e8e8e8;
+  --text-muted:      #666;
+  --accent:          #e8e8e8;
+  --accent-dim:      #333;
+  --tag-bg:          #1e1e1e;
+  --tag-text:        #999;
+  --tag-active-bg:   #e8e8e8;
+  --tag-active-text: #0d0d0d;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--accent); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+}
+.card:hover { border-color: var(--accent); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+}
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+.item-content pre code { background: none; padding: 0; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--text); text-decoration: underline; }
+.item-content a:hover { color: var(--text-muted); }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  main { padding: 72px 1rem 3rem; }
+  nav { padding: 0 1rem; }
+}
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/">Research</a>
+    <div class="nav-links">
+      <a href="/Research/tags/">Tags</a>
+      <a href="/Research/search.html">Search</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>AI amplified the coordination tax: the 5-person strike team as the structural unit of the AI era</span>
+  </div>
+  <h1 class="item-title">AI amplified the coordination tax: the 5-person strike team as the structural unit of the AI era</h1>
+  <div class="meta-bar">
+    <span>2026-03-12</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/team-size.html">team-size</a> <a class="tag" href="/Research/tags/ai.html">ai</a> <a class="tag" href="/Research/tags/coordination-overhead.html">coordination-overhead</a> <a class="tag" href="/Research/tags/strike-team.html">strike-team</a> <a class="tag" href="/Research/tags/organisational-design.html">organisational-design</a> <a class="tag" href="/Research/tags/productivity.html">productivity</a> <a class="tag" href="/Research/tags/ai-native.html">ai-native</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-12-ai-team-size-strike-team-thesis.md" target="_blank" rel="noopener">source →</a>
+  </div>
+  <div class="item-content">
+    <h2>Research Question</h2>
+<p>Artificial Intelligence (AI) has increased per-person output by 5–10x. If coordination cost scales with the square of team size
+(see <code>2026-03-12-team-size-limits-brooks-dunbar-network-theory.md</code>), what is the correct structural
+unit for an AI-augmented organisation, and how does the increased per-person output change the
+economics of every additional hire?</p>
+<p>Specifically: does the evidence support the thesis that the penalty for exceeding a 5-person team
+has risen by the same order of magnitude as per-person productivity — and what does that imply for
+how organisations should be designed today?</p>
+
+<h2>Findings</h2>
+<h3>Executive Summary</h3>
+<p>AI increased per-person output by 5–10x without reducing coordination overhead per person; this makes the economic penalty for over-staffing above five proportionally larger than in the pre-AI era. The n(n-1)/2 communication-channel formula (Brooks, 1975) is unchanged — a 5-to-6 person expansion adds 50% more channels — but when each channel taxes individuals now worth $2M/year rather than $250K/year, the coordination cost of a single additional hire becomes comparable to that person's marginal output. AI-native companies implicitly validate this by operating at 4–36x the private SaaS median revenue per employee while keeping teams small. The scout (solo) and strike team (5-person) archetypes represent the operationally correct structural units: the scout proves viability; the strike team executes at scale.</p>
+<h3>Key Findings</h3>
+<ol>
+<li><p><strong>The communication-channel formula from Frederick Brooks' <em>The Mythical Man-Month</em> (1975) — n(n-1)/2 — establishes that expanding a 5-person team to 6 people increases coordination pathways by 50%, from 10 channels to 15, while adding only one additional contributor.</strong> (high confidence)</p>
+</li>
+<li><p><strong>When AI multiplies per-person productive output from approximately $250K/year to $2M/year, the economic cost of each additional coordination channel rises by the same multiple, making the penalty for each hire above the 5-person threshold approximately 5–10x more expensive than in the pre-AI era.</strong> (medium confidence — inference from the formula; the proportional cost relationship is logically derived and not directly measured)</p>
+</li>
+<li><p><strong>Midjourney operated at approximately $4.6M in revenue per employee in 2025 — approximately 107 employees generating $500M in annual revenue — a ratio approximately 35x the private SaaS median revenue per employee of $129,724.</strong> (high confidence — multiple consistent sources)</p>
+</li>
+<li><p><strong>ElevenLabs operated at $569K–$825K in ARR per employee as of late 2025 ($330M ARR, 400–580 employees depending on source), representing 4–6x the private SaaS median, achieved by maintaining a small team relative to revenue scale.</strong> (medium confidence — headcount is contested across sources)</p>
+</li>
+<li><p><strong>Shopify CEO Toby Lütke's April 2025 memo requires every team to demonstrate why AI cannot perform a required task before requesting additional headcount, operationalising a substitution-before-hiring mandate at scale for one of the world's largest e-commerce platforms.</strong> (high confidence — three independent news sources confirming memo text; X post by Lütke)</p>
+</li>
+<li><p><strong>The Lütke memo does not contain the specific claim that team additions beyond five produce a &quot;10x loss of productivity&quot;; that specific quantification appears in the primary video source and is not independently corroborated in the memo text itself.</strong> (high confidence — the memo text is verified; the &quot;10x&quot; figure is unverified against the primary source)</p>
+</li>
+<li><p><strong>Peter Steinberger built OpenClaw as a solo developer in November 2025 — an open-source AI agent that reached 196,000 GitHub stars and 2 million visitors in one week — providing a concrete existence proof that a single person with advanced AI fluency can achieve outputs formerly requiring large engineering teams.</strong> (high confidence — Fortune; Yahoo Finance; Nate Jones newsletter)</p>
+</li>
+<li><p><strong>Management research independently converges on 5–10 as the optimal team size ceiling: J. Richard Hackman's rule of thumb is &quot;no double digits&quot;; Amazon's two-pizza rule caps teams at approximately 6–10; Supercell built its top-grossing games with teams of five and six people; the AI-era argument is that the ceiling tightens toward 5 because coordination channels are now economically more expensive.</strong> (medium confidence — converging independent sources on the range; the AI-era tightening to specifically 5 is an inference)</p>
+</li>
+<li><p><strong>Meeting proliferation in oversized organisations is a structural symptom of the n(n-1)/2 coordination pathway count rather than a cultural problem: reducing team size eliminates pathways, while meeting-culture interventions address the symptom without changing the underlying pathway count.</strong> (medium confidence — follows from the formula; no direct empirical study of meeting frequency as a function of team size vs culture was found)</p>
+</li>
+<li><p><strong>The scout/strike team framework maps structurally onto military small-unit doctrine: RAND's 1960s Vietnam-era strike team research and US Army Field Manual 7-85 both identify smallness and specific high-value mission targets as defining characteristics of effective strike units, pre-figuring the AI-era framework.</strong> (medium confidence — the parallel is substantiated by primary doctrine sources; the direct applicability to commercial AI-era teams is an inference)</p>
+</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+  <th>Claim</th>
+  <th>Source</th>
+  <th>Confidence</th>
+  <th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>n(n-1)/2 communication-channel formula</td>
+  <td>Brooks (1975) <em>The Mythical Man-Month</em>; 8thlight.com; Shortform; blog.nuclino.com</td>
+  <td>High</td>
+  <td>Primary source well-established; three independent secondary sources agree</td>
+</tr>
+<tr>
+  <td>Economic cost per channel rises with per-person output</td>
+  <td>Logical derivation from formula; no direct empirical study</td>
+  <td>Medium</td>
+  <td>[inference] — proportional cost logic is sound but not directly measured</td>
+</tr>
+<tr>
+  <td>Midjourney ~$4.6M revenue/employee (107 employees, $500M revenue)</td>
+  <td>ElectroIQ; AboutChromebooks; Latka</td>
+  <td>High</td>
+  <td>Multiple consistent public sources</td>
+</tr>
+<tr>
+  <td>ElevenLabs $569K–$825K ARR/employee</td>
+  <td>Latka (580 employees); X @aakashgupta (400 employees); Reddit r/SaaS</td>
+  <td>Medium</td>
+  <td>Headcount contested; range documented</td>
+</tr>
+<tr>
+  <td>Private SaaS median $129,724/employee</td>
+  <td>SaaS Capital 2025 survey (1,000+ companies)</td>
+  <td>High</td>
+  <td>Established in prior completed item; primary survey</td>
+</tr>
+<tr>
+  <td>Shopify mandate — AI substitution before headcount</td>
+  <td>TechCrunch; CNBC; Forbes; X @tobi (April 2025)</td>
+  <td>High</td>
+  <td>Three independent news sources; original X post confirmed</td>
+</tr>
+<tr>
+  <td>Lütke memo does NOT contain &quot;10x beyond five&quot; claim</td>
+  <td>TechCrunch; CNBC; X @tobi</td>
+  <td>High</td>
+  <td>Memo text verified; specific quantification absent</td>
+</tr>
+<tr>
+  <td>Steinberger/OpenClaw solo build, 196K GitHub stars, 2M weekly visitors</td>
+  <td>Fortune (Feb 2026); Yahoo Finance; Nate Jones newsletter</td>
+  <td>High</td>
+  <td>Multiple consistent sources; Fortune is primary news source</td>
+</tr>
+<tr>
+  <td>Hackman &quot;no double digits&quot; team size rule</td>
+  <td>buffer.com; blog.nuclino.com citing Hackman/Wageman</td>
+  <td>Medium</td>
+  <td>Secondary sources; primary academic work not directly accessed</td>
+</tr>
+<tr>
+  <td>Amazon two-pizza rule (~6–10 people)</td>
+  <td>Guardian; Buffer; Yahoo Finance</td>
+  <td>High</td>
+  <td>Widely confirmed primary practice</td>
+</tr>
+<tr>
+  <td>Supercell 5–6 person teams, top-grossing games</td>
+  <td>buffer.com</td>
+  <td>Medium</td>
+  <td>Single secondary source; not independently confirmed</td>
+</tr>
+<tr>
+  <td>Military doctrine: small unit = strike team</td>
+  <td>GlobalSecurity.org (FM 7-85); RAND P3987</td>
+  <td>Medium</td>
+  <td>Primary doctrine documents; applicability to commercial context is inference</td>
+</tr>
+<tr>
+  <td>Meeting proliferation = coordination symptom</td>
+  <td>Inference from n(n-1)/2</td>
+  <td>Medium</td>
+  <td>No direct empirical study; logically derived</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Identified but not consulted:</strong></p>
+<ul>
+<li>Original Brooks (1975) <em>The Mythical Man-Month</em> (primary book — accessed via secondary sources only)</li>
+<li>Hackman/Wageman primary academic publications</li>
+<li>Video transcript https://youtu.be/hnwM01CpzmA (not directly accessible as transcript)</li>
+</ul>
+<h3>Assumptions</h3>
+<ol>
+<li><p><strong>[assumption]</strong> The Nate Jones video primary source makes specific claims about 5-person strike teams and quantified productivity penalties for team expansion. Justification: the GitHub digest summary explicitly describes the video as being about &quot;AI team efficiency and small teams achieving massive revenues,&quot; and the item context was authored by someone who watched the video. The specific &quot;10x loss&quot; figure cannot be verified from available sources.</p>
+</li>
+<li><p><strong>[assumption]</strong> Each communication channel in the n(n-1)/2 formula costs each participant a roughly constant fraction of their working time. Justification: this is the standard interpretation of Brooks' model and is the basis for the proportional economic cost argument. If channels become cheaper with AI tools (asynchronous AI-mediated communication), the coordination penalty could be lower than the formula implies — acknowledged in Risks/Gaps.</p>
+</li>
+<li><p><strong>[assumption]</strong> The revenue-per-employee figures for AI-native companies reflect team structural design choices rather than other factors (regulatory environment, market timing, product type). Justification: the consistent pattern across multiple AI-native companies with different products (image generation, voice AI, developer tools) reduces the probability that any single confounding factor explains the pattern.</p>
+</li>
+</ol>
+<h3>Analysis</h3>
+<p>The central thesis — that the coordination penalty for team sizes above 5 has risen proportionally with AI-driven productivity gains — is well-supported at the logical level but not yet directly measured. The supporting evidence is convergent from three independent directions: (1) the mathematical formula (Brooks, 1975) establishes that coordination pathways scale quadratically; (2) AI-native company data shows that small teams achieve 4–36x the revenue efficiency of median SaaS firms; and (3) management research independently confirms 5–10 as the optimal team size ceiling.</p>
+<p>The gap in the evidence is that no study has directly measured the economic coordination cost before and after AI productivity gains at the same firm or team. The argument is structural inference, not empirical observation. This should not be read as weakening the thesis — the math is arithmetically sound — but it means the specific claim that the penalty has risen &quot;by the same order of magnitude&quot; as per-person productivity cannot be offered as a measured fact.</p>
+<p>The Lütke mandate is the strongest real-world institutional evidence: it operationalises AI substitution before headcount expansion at scale, which is consistent with the thesis that coordination overhead (in the form of unnecessary headcount) is now economically punishing enough to warrant a CEO-level mandate. The memo's absence of the specific &quot;10x&quot; figure is relevant context: Lütke's framing is about AI capability substitution, not specifically about team size as a structural variable.</p>
+<p>The Steinberger/OpenClaw case is the strongest existence proof for the scout model but is a single outlier instance. Its generalisability depends on the &quot;Steinberger Threshold&quot; — whether the organisation has people with sufficient AI fluency to direct rather than be directed by AI agents.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ol>
+<li><p><strong>AI may reduce channel cost.</strong> If AI tools enable asynchronous, low-overhead communication (AI-mediated status updates, AI-written summaries, agent-to-agent coordination), the n(n-1)/2 formula may overstate the coordination cost in AI-native environments. This would reduce, but not eliminate, the penalty for team sizes above 5.</p>
+</li>
+<li><p><strong>The &quot;Steinberger Threshold&quot; is a selection bias risk.</strong> The scout model requires someone with the capability to direct AI agents effectively. If most team members cannot yet operate at this level, the scout archetype is not deployable and the strike team threshold effectively rises.</p>
+</li>
+<li><p><strong>AI-native company data is confounded by product type.</strong> Midjourney (image generation) and ElevenLabs (voice AI) operate Application Programming Interface (API)-first, infrastructure-light, zero-sales-force business models. These structures are inherently high revenue-per-employee regardless of AI productivity gains. The comparison to traditional SaaS medians includes companies with enterprise sales teams and professional services — both of which are inherently headcount-intensive.</p>
+</li>
+<li><p><strong>No direct before/after measurement.</strong> No study was found that measured coordination cost at the same organisation before and after AI productivity gains. The thesis relies on cross-sectional comparison (AI-native vs traditional SaaS) and mathematical derivation, not longitudinal measurement.</p>
+</li>
+<li><p><strong>Primary video source unverifiable.</strong> The specific quantitative claims from the Nate Jones video (including the &quot;10x loss&quot; figure) could not be verified from a transcript.</p>
+</li>
+</ol>
+<h3>Open Questions</h3>
+<ol>
+<li><p><strong>Does AI tooling (AI-mediated communication, agent-to-agent coordination) reduce the per-channel cost in the n(n-1)/2 formula?</strong> If yes, this would shift the optimal team ceiling upward. Suitable for a new research item.</p>
+</li>
+<li><p><strong>What is the empirical distribution of the &quot;Steinberger Threshold&quot; in the current workforce?</strong> What fraction of knowledge workers can currently direct AI agents effectively, and how is this changing quarter-over-quarter?</p>
+</li>
+<li><p><strong>How do the Midjourney/ElevenLabs revenue-per-employee figures decompose when controlling for product type (platform/API-first vs enterprise/services)?</strong> The comparison to traditional SaaS medians includes product-type confounds.</p>
+</li>
+<li><p><strong>Does the 5-person ceiling hold for hardware, manufacturing, or regulated-service businesses?</strong> The evidence base is almost entirely software/AI-native. Physical-world coordination constraints may differ.</p>
+</li>
+</ol>
+<h3>Output</h3>
+<p><strong>Type:</strong> knowledge<br />
+<strong>Description:</strong> Structured analysis of the economic argument for the 5-person strike team in AI-augmented organisations, grounded in the Brooks coordination formula, AI-native revenue-per-employee data, and the scout/strike team archetype framework.</p>
+<p><strong>Three most important sources:</strong></p>
+<ol>
+<li>Brooks, F.P. (1975). <em>The Mythical Man-Month.</em> — https://www.historyofinformation.com/detail.php?id=2298 (establishes the coordination overhead formula)</li>
+<li>ElectroIQ &quot;Midjourney Statistics&quot; (2025) — https://electroiq.com/stats/midjourney-statistics/ (primary data on AI-native revenue efficiency)</li>
+<li>Shopify CEO Lütke memo, TechCrunch (April 7, 2025) — https://techcrunch.com/2025/04/07/shopify-ceo-tells-teams-to-consider-using-ai-before-growing-headcount/ (operationalised institutional response)</li>
+</ol>
+
+
+  </div>
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-12-exploration-synthesis-gap.html">Exploration-synthesis gap: why people in explore mode fail to synthesise others&#39; work, and whether agent synthesis can close the gap</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-12-ai-force-multiplier-ambition-expansion.html">Force multiplier, not cost reducer: expanding organisational ambition when AI multiplies per-person output</a></div>
+  </div>
+</main>
+</body>
+</html>

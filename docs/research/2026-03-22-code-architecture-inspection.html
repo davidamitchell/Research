@@ -1,0 +1,568 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Code Architecture Inspection Across Repositories — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #141414;
+  --surface-2:       #1c1c1c;
+  --border:          #2a2a2a;
+  --text:            #e8e8e8;
+  --text-muted:      #666;
+  --accent:          #e8e8e8;
+  --accent-dim:      #333;
+  --tag-bg:          #1e1e1e;
+  --tag-text:        #999;
+  --tag-active-bg:   #e8e8e8;
+  --tag-active-text: #0d0d0d;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--accent); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+}
+.card:hover { border-color: var(--accent); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+}
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+.item-content pre code { background: none; padding: 0; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--text); text-decoration: underline; }
+.item-content a:hover { color: var(--text-muted); }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  main { padding: 72px 1rem 3rem; }
+  nav { padding: 0 1rem; }
+}
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/">Research</a>
+    <div class="nav-links">
+      <a href="/Research/tags/">Tags</a>
+      <a href="/Research/search.html">Search</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>Code Architecture Inspection Across Repositories</span>
+  </div>
+  <h1 class="item-title">Code Architecture Inspection Across Repositories</h1>
+  <div class="meta-bar">
+    <span>2026-03-22</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/architecture.html">architecture</a> <a class="tag" href="/Research/tags/static-analysis.html">static-analysis</a> <a class="tag" href="/Research/tags/multi-repo.html">multi-repo</a> <a class="tag" href="/Research/tags/coupling.html">coupling</a> <a class="tag" href="/Research/tags/standards.html">standards</a> <a class="tag" href="/Research/tags/github-copilot.html">github-copilot</a> <a class="tag" href="/Research/tags/tooling.html">tooling</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-22-code-architecture-inspection.md" target="_blank" rel="noopener">source →</a>
+  </div>
+  <div class="item-content">
+    <h2>Research Question</h2>
+<p>What practical implementation approaches exist for automatically inspecting and understanding how a set of repositories is architected, how they relate to and couple with each other, and whether they are following standards or drifting out of alignment — and which of these approaches can be operationalised using GitHub Copilot skills, agents, or adjacent tooling such as RepoSwarm?</p>
+
+<h2>Findings</h2>
+<p><em>(Populated from §6 Synthesis above.)</em></p>
+<h3>Executive Summary</h3>
+<p>[inference] The best-supported answer is that multi-repository architecture inspection should be implemented as a layered system in which deterministic tools extract structural and governance facts first, and a Large Language Model (LLM) layer produces the human-readable blueprint second. Sources: https://raw.githubusercontent.com/sverweij/dependency-cruiser/main/README.md ; https://docs.github.com/api/article/body?pathname=/en/rest/dependency-graph ; https://www.openpolicyagent.org/docs/latest/ ; https://raw.githubusercontent.com/github/awesome-copilot/main/skills/architecture-blueprint-generator/SKILL.md</p>
+<p>[inference] GitHub Copilot skills such as architecture-blueprint-generator and adjacent systems such as RepoSwarm are valuable because they package explanation, documentation, and workflow orchestration, but they are not strong enough on their own to serve as the primary truth source for coupling or standards drift. Sources: https://raw.githubusercontent.com/github/awesome-copilot/main/skills/architecture-blueprint-generator/SKILL.md ; https://raw.githubusercontent.com/reposwarm/reposwarm/main/README.md</p>
+<p>[inference] The practical implementation seam is therefore <code>extract -&gt; normalize -&gt; evaluate -&gt; synthesize</code>, with GitHub Actions running scanners and policy checks, versioned artifacts preserving provenance, and the synthesis layer turning those artifacts into reviewable architectural summaries. Sources: https://docs.github.com/api/article/body?pathname=/en/rest/dependency-graph ; https://raw.githubusercontent.com/sverweij/dependency-cruiser/main/README.md ; https://www.openpolicyagent.org/docs/latest/ ; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-10-agent-evaluation-cross-repo-analysis.md ; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-22-applied-context-engineering-agent-workflows.md</p>
+<p>[inference] This matters because architecture understanding, standards enforcement, and cross-repository remediation require different mechanisms, and mixing them into one opaque agent step removes the provenance needed for drift analysis, trust, and repeatable governance. Sources: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-21-dependency-mapping-dotnet-terraform-dynatrace.md ; https://www.openpolicyagent.org/docs/latest/ ; https://docs.openrewrite.org</p>
+<h3>Key Findings</h3>
+<ol>
+<li>[inference] [high confidence] A reliable multi-repository architecture inspection system should separate deterministic extraction from LLM-based synthesis, because reproducible graphs, manifests, and policy facts are required before any narrative blueprint can be trusted, compared across runs, or used for governance decisions. Sources: https://raw.githubusercontent.com/sverweij/dependency-cruiser/main/README.md ; https://docs.github.com/api/article/body?pathname=/en/rest/dependency-graph ; https://www.openpolicyagent.org/docs/latest/ ; https://raw.githubusercontent.com/github/awesome-copilot/main/skills/architecture-blueprint-generator/SKILL.md</li>
+<li>[fact] [high confidence] The architecture-blueprint-generator skill is a comprehensive architecture-documentation prompt covering technology detection, diagrams, layer rules, cross-cutting concerns, governance, and decision records, but it does not ship any native mechanism for cross-repository graph extraction or standards enforcement. Source: https://raw.githubusercontent.com/github/awesome-copilot/main/skills/architecture-blueprint-generator/SKILL.md</li>
+<li>[inference] [medium confidence] RepoSwarm is the strongest open-source portfolio-analysis example in this evidence base because it performs multi-repository investigations, applies type-aware prompts, emits standardized <code>.arch.md</code> outputs, supports incremental updates, and keeps searchable results for later comparison. Source: https://raw.githubusercontent.com/reposwarm/reposwarm/main/README.md</li>
+<li>[inference] [high confidence] dependency-cruiser, GitHub dependency graph and Software Bill of Materials (SBOM) exports, Renovate, and Sourcegraph each reveal a different structural layer — code imports, package manifests, dependency drift, and cross-repo search or bulk edits — so none of them alone is a complete architecture inspector. Sources: https://raw.githubusercontent.com/sverweij/dependency-cruiser/main/README.md ; https://docs.github.com/api/article/body?pathname=/en/rest/dependency-graph ; https://docs.github.com/api/article/body?pathname=/en/rest/dependency-graph/sboms ; https://docs.renovatebot.com ; https://sourcegraph.com/docs ; https://sourcegraph.com/docs/code-insights ; https://sourcegraph.com/docs/batch_changes</li>
+<li>[inference] [high confidence] Standards alignment should be implemented as machine-checkable architecture fitness functions and policy rules over normalized facts, while architectural decision records (ADRs) remain the durable source for rationale and trade-off context that code graphs cannot express alone. Sources: https://www.openpolicyagent.org/docs/latest/ ; https://adr.github.io ; https://nealford.com/books/buildingevolutionaryarchitectures.html ; https://evolutionaryarchitecture.com</li>
+<li>[inference] [medium confidence] OpenRewrite and Sourcegraph Batch Changes are better treated as remediation engines than as discovery systems, because they become valuable only after an earlier layer has already identified the drift pattern or forbidden dependency that must be corrected across repositories. Sources: https://docs.openrewrite.org ; https://sourcegraph.com/docs/batch_changes</li>
+<li>[fact] [high confidence] Prior repository research shows that any credible cross-repo architecture map must preserve provenance, freshness, semantic type, and confidence metadata on each edge, because declared structure, observed behavior, and documented intent are different kinds of truth rather than competing measurements of one truth. Source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-21-dependency-mapping-dotnet-terraform-dynatrace.md</li>
+<li>[inference] [high confidence] In a GitHub-first operating model, the rollout that best matches this repository's constraints is to run repository scanners and normalizers in GitHub Actions, store the outputs as reviewable versioned artifacts, evaluate standards with policy-as-code, and then use a Copilot skill or RepoSwarm-style agent to generate the human-facing blueprint and remediation summary. Sources: https://docs.github.com/api/article/body?pathname=/en/rest/dependency-graph ; https://raw.githubusercontent.com/sverweij/dependency-cruiser/main/README.md ; https://www.openpolicyagent.org/docs/latest/ ; https://raw.githubusercontent.com/github/awesome-copilot/main/skills/architecture-blueprint-generator/SKILL.md ; https://raw.githubusercontent.com/reposwarm/reposwarm/main/README.md</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+  <th>Claim</th>
+  <th>Source</th>
+  <th>Confidence</th>
+  <th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>[inference] Deterministic extraction before LLM synthesis is the recommended trust boundary for architecture inspection.</td>
+  <td>https://raw.githubusercontent.com/sverweij/dependency-cruiser/main/README.md ; https://docs.github.com/api/article/body?pathname=/en/rest/dependency-graph ; https://www.openpolicyagent.org/docs/latest/ ; https://raw.githubusercontent.com/github/awesome-copilot/main/skills/architecture-blueprint-generator/SKILL.md</td>
+  <td>high</td>
+  <td>[inference] Reproducibility and drift comparison depend on stable extracted evidence.</td>
+</tr>
+<tr>
+  <td>[fact] architecture-blueprint-generator is a synthesis prompt, not a native extractor or policy engine.</td>
+  <td>https://raw.githubusercontent.com/github/awesome-copilot/main/skills/architecture-blueprint-generator/SKILL.md</td>
+  <td>high</td>
+  <td>[inference] The documented scope emphasizes output structure and governance prompts rather than raw evidence capture.</td>
+</tr>
+<tr>
+  <td>[inference] RepoSwarm provides the clearest open-source multi-repo architecture workflow in this evidence base.</td>
+  <td>https://raw.githubusercontent.com/reposwarm/reposwarm/main/README.md</td>
+  <td>medium</td>
+  <td>Workflow evidence is strong; live deployment evidence was not inspected.</td>
+</tr>
+<tr>
+  <td>[inference] dependency-cruiser, GitHub dependency graph, Renovate, and Sourcegraph cover different structural layers.</td>
+  <td>https://raw.githubusercontent.com/sverweij/dependency-cruiser/main/README.md ; https://docs.github.com/api/article/body?pathname=/en/rest/dependency-graph ; https://docs.github.com/api/article/body?pathname=/en/rest/dependency-graph/sboms ; https://docs.renovatebot.com ; https://sourcegraph.com/docs ; https://sourcegraph.com/docs/code-insights ; https://sourcegraph.com/docs/batch_changes</td>
+  <td>high</td>
+  <td>Complementary coverage is the main pattern.</td>
+</tr>
+<tr>
+  <td>[inference] Standards alignment belongs in policy rules and architecture fitness functions, with ADRs preserving rationale.</td>
+  <td>https://www.openpolicyagent.org/docs/latest/ ; https://adr.github.io ; https://nealford.com/books/buildingevolutionaryarchitectures.html ; https://evolutionaryarchitecture.com</td>
+  <td>high</td>
+  <td>[inference] Policy checks detect drift, while ADRs retain the boundary rationale that code alone does not expose.</td>
+</tr>
+<tr>
+  <td>[inference] OpenRewrite and Batch Changes are remediation layers.</td>
+  <td>https://docs.openrewrite.org ; https://sourcegraph.com/docs/batch_changes</td>
+  <td>medium</td>
+  <td>Useful after violations are detected.</td>
+</tr>
+<tr>
+  <td>[fact] Cross-repo architecture maps need provenance, freshness, semantic type, and confidence metadata on each edge.</td>
+  <td>https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-21-dependency-mapping-dotnet-terraform-dynatrace.md</td>
+  <td>high</td>
+  <td>Reuses established repository pattern.</td>
+</tr>
+<tr>
+  <td>[inference] A GitHub-native rollout with versioned artifacts best matches this repository's operating constraints.</td>
+  <td>https://docs.github.com/api/article/body?pathname=/en/rest/dependency-graph ; https://raw.githubusercontent.com/sverweij/dependency-cruiser/main/README.md ; https://www.openpolicyagent.org/docs/latest/ ; https://raw.githubusercontent.com/github/awesome-copilot/main/skills/architecture-blueprint-generator/SKILL.md ; https://raw.githubusercontent.com/reposwarm/reposwarm/main/README.md</td>
+  <td>high</td>
+  <td>[inference] The repository's web-first operating model favors reviewable workflow outputs over ad hoc local tooling.</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li>[assumption] Public documentation is sufficiently current to support an implementation-plan recommendation. <strong>Justification:</strong> this item is scoped to public capability discovery, not private deployment verification. Sources: https://raw.githubusercontent.com/reposwarm/reposwarm/main/README.md ; https://raw.githubusercontent.com/github/awesome-copilot/main/skills/architecture-blueprint-generator/SKILL.md</li>
+<li>[assumption] The target repositories can tolerate small repository-local configuration files for scanners, policies, or generated outputs. <strong>Justification:</strong> every practical approach here requires at least one local configuration or artifact format. Sources: https://raw.githubusercontent.com/sverweij/dependency-cruiser/main/README.md ; https://www.openpolicyagent.org/docs/latest/</li>
+<li>[assumption] RepoSwarm's repository overview is representative of its present practical behavior. <strong>Justification:</strong> no live RepoSwarm instance was deployed during this item. Source: https://raw.githubusercontent.com/reposwarm/reposwarm/main/README.md</li>
+</ul>
+<h3>Analysis</h3>
+<ul>
+<li>[inference] The evidence supports a four-stage operating model: <strong>extract -&gt; normalize -&gt; evaluate -&gt; synthesize</strong>. That structure is the smallest one that preserves provenance while still producing a usable architectural narrative. Sources: https://raw.githubusercontent.com/sverweij/dependency-cruiser/main/README.md ; https://docs.github.com/api/article/body?pathname=/en/rest/dependency-graph ; https://www.openpolicyagent.org/docs/latest/ ; https://raw.githubusercontent.com/github/awesome-copilot/main/skills/architecture-blueprint-generator/SKILL.md</li>
+<li>[inference] Extraction should remain deterministic whenever possible, because architecture inspection loses organizational trust quickly when it cannot explain why an edge or violation was reported. Sources: https://raw.githubusercontent.com/sverweij/dependency-cruiser/main/README.md ; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-10-agent-evaluation-cross-repo-analysis.md</li>
+<li>[inference] Synthesis is the natural place for Copilot skills and RepoSwarm-style agents, because they add clear value when translating structured evidence into diagrams, boundary explanations, onboarding context, and prioritized remediation advice. Sources: https://raw.githubusercontent.com/github/awesome-copilot/main/skills/architecture-blueprint-generator/SKILL.md ; https://raw.githubusercontent.com/reposwarm/reposwarm/main/README.md</li>
+<li>[inference] Remediation should remain separable from synthesis, because policy violations and dependency drift often need code changes that can be automated independently of the documentation pass. Sources: https://docs.openrewrite.org ; https://sourcegraph.com/docs/batch_changes ; https://www.openpolicyagent.org/docs/latest/</li>
+<li>[inference] The core design decision is therefore not which single product wins, but where the repository draws the boundary between evidence production and interpretation. Sources: https://raw.githubusercontent.com/github/awesome-copilot/main/skills/architecture-blueprint-generator/SKILL.md ; https://raw.githubusercontent.com/reposwarm/reposwarm/main/README.md ; https://raw.githubusercontent.com/sverweij/dependency-cruiser/main/README.md ; https://www.openpolicyagent.org/docs/latest/</li>
+</ul>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>[fact] The public evidence base is weaker on mature, language-agnostic open-source call-graph extraction across heterogeneous estates than it is on package, manifest, and repository-level metadata extraction. Sources: https://raw.githubusercontent.com/sverweij/dependency-cruiser/main/README.md ; https://docs.github.com/api/article/body?pathname=/en/rest/dependency-graph ; https://raw.githubusercontent.com/reposwarm/reposwarm/main/README.md</li>
+<li>[fact] RepoSwarm's repository overview is strong on end-to-end workflow shape, but weaker on the exact internal normalization model it uses before prompt generation. Source: https://raw.githubusercontent.com/reposwarm/reposwarm/main/README.md</li>
+<li>[fact] GitHub dependency-graph data is package-focused, so teams can misread package visibility as service-architecture visibility if they do not distinguish those semantics explicitly. Sources: https://docs.github.com/api/article/body?pathname=/en/rest/dependency-graph ; https://docs.github.com/api/article/body?pathname=/en/rest/dependency-graph/sboms</li>
+<li>[inference] A rollout that lets an agent inspect raw repository portfolios without first creating normalized evidence artifacts will likely become expensive, hard to review, and difficult to trust as repo count grows. Sources: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-10-agent-evaluation-cross-repo-analysis.md ; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-21-dependency-mapping-dotnet-terraform-dynatrace.md ; https://raw.githubusercontent.com/reposwarm/reposwarm/main/README.md</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>What is the thinnest normalized architecture schema that can represent imports, package dependencies, ownership, standards violations, ADR references, and generated blueprint links without becoming another heavyweight enterprise metamodel?</li>
+<li>Which open-source extractors outside the JavaScript and Java ecosystems are mature enough to provide equivalent structural evidence for Python, .NET, Go, and Infrastructure as Code (IaC) repositories?</li>
+<li>What is the minimum evaluation harness needed to measure false-positive and false-negative rates for cross-repository coupling detection before the system is trusted as a governance control?</li>
+<li>Should the synthesized output live primarily as per-repo architecture files, a central results hub, or both?</li>
+</ul>
+<hr />
+
+
+  </div>
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-22-coding-ai-agent-skills-survey.html">Coding AI Agent Skills Survey: Existing Vendor and OSS Prompt Libraries for Software Engineering Domains</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-22-applied-context-engineering-agent-workflows.html">Applied context engineering: skills, workflows, and best practices for agent development</a></div>
+  </div>
+</main>
+</body>
+</html>

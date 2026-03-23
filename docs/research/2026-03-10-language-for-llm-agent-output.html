@@ -1,0 +1,588 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Language designed for LLM agents to produce: addressing generation-layer failure modes in agentic systems — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #141414;
+  --surface-2:       #1c1c1c;
+  --border:          #2a2a2a;
+  --text:            #e8e8e8;
+  --text-muted:      #666;
+  --accent:          #e8e8e8;
+  --accent-dim:      #333;
+  --tag-bg:          #1e1e1e;
+  --tag-text:        #999;
+  --tag-active-bg:   #e8e8e8;
+  --tag-active-text: #0d0d0d;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--accent); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+}
+.card:hover { border-color: var(--accent); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+}
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+.item-content pre code { background: none; padding: 0; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--text); text-decoration: underline; }
+.item-content a:hover { color: var(--text-muted); }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  main { padding: 72px 1rem 3rem; }
+  nav { padding: 0 1rem; }
+}
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/">Research</a>
+    <div class="nav-links">
+      <a href="/Research/tags/">Tags</a>
+      <a href="/Research/search.html">Search</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>Language designed for LLM agents to produce: addressing generation-layer failure modes in agentic systems</span>
+  </div>
+  <h1 class="item-title">Language designed for LLM agents to produce: addressing generation-layer failure modes in agentic systems</h1>
+  <div class="meta-bar">
+    <span>2026-03-10</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/agentic-systems.html">agentic-systems</a> <a class="tag" href="/Research/tags/programming-languages.html">programming-languages</a> <a class="tag" href="/Research/tags/dsl.html">dsl</a> <a class="tag" href="/Research/tags/failure-modes.html">failure-modes</a> <a class="tag" href="/Research/tags/intent-alignment.html">intent-alignment</a> <a class="tag" href="/Research/tags/reward-hacking.html">reward-hacking</a> <a class="tag" href="/Research/tags/formal-methods.html">formal-methods</a> <a class="tag" href="/Research/tags/output-language.html">output-language</a> <a class="tag" href="/Research/tags/llm-code-generation.html">llm-code-generation</a> <a class="tag" href="/Research/tags/structured-output.html">structured-output</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-10-language-for-llm-agent-output.md" target="_blank" rel="noopener">source →</a>
+  </div>
+  <div class="item-content">
+    <h2>Research Question</h2>
+<p>Is anyone actively developing a programming language or structured output format specifically designed for LLM agents to generate — rather than humans to write — that structurally addresses generation-layer and goal-layer failure modes (hallucination, intent mismatch, reward hacking, under-specification, instruction conflict, tool misuse) as classified in the failure mode taxonomy and the specification hierarchy established in the two referenced completed items? If so: what is the design rationale, what failure modes does each approach target, and how mature is the work?</p>
+
+<h2>Findings</h2>
+<h3>Executive Summary</h3>
+<p>No programming language or structured output format designed specifically for large language model (LLM) agents to produce has been identified in the 2022–2025 research literature; the design space for such a language at specification hierarchy levels 4–5 is unoccupied and faces theoretical and economic barriers that explain the absence. The structured generation field has reached production maturity at level 2 (schema and grammar enforcement via Outlines and Guidance), with one published research prototype at level 3 (type-constrained decoding for TypeScript, ETH Zurich PLDI 2025). All current approaches address only Layer 1 structural failures from the five-layer failure mode taxonomy; intent mismatch (Layer 2), reward hacking (Layer 3), tool misuse beyond parameter typing (Layer 4), and instruction conflict (Layer 5) remain unaddressed by any output grammar or language design. The primary barrier to a level 4–5 LLM-output language is that encoding verifiable intent in a checkable form requires a complete formal specification of the goal — which is a level 5 requirement that cannot be reduced to a grammar.</p>
+<h3>Key Findings</h3>
+<ol>
+<li><p><strong>[High]</strong> Outlines (dottxt-ai, ~13,500 GitHub stars, $11.9M funding) and Guidance (Microsoft, ~21,000 GitHub stars) are production-grade structured generation tools at specification hierarchy level 2, enforcing JSON Schema, regular expressions, and context-free grammars at token-generation time via finite state machines to eliminate structurally invalid LLM output. Sources: https://github.com/dottxt-ai/outlines; https://github.com/guidance-ai/guidance</p>
+</li>
+<li><p><strong>[High]</strong> ETH Zurich PLDI 2025 (Muendler et al., arXiv:2504.09246) is the sole published approach at specification hierarchy level 3, enforcing TypeScript type safety at decoding time using prefix automata and incremental type-checking, reducing compilation errors by more than half on HumanEval and MBPP benchmarks without requiring human-specified type annotations in the prompt. Source: https://arxiv.org/abs/2504.09246</p>
+</li>
+<li><p><strong>[High]</strong> No paper or production system in 2022–2025 describes a programming language designed from the ground up for LLM agents to produce as their primary output format, with language constructs chosen to structurally address generation-layer or goal-layer failure modes — the LLM-as-primary-author framing is absent from all current language and format design work. Source: Comprehensive search of arXiv, PLDI, NeurIPS, ICML, ICLR 2022–2025 (this investigation, 2026-03-11).</p>
+</li>
+<li><p><strong>[High]</strong> All current structured generation tools address Layer 1 structural failure modes only; semantic hallucination within a valid schema, intent mismatch (Layer 2), reward hacking (Layer 3), tool misuse beyond parameter typing (Layer 4), and instruction conflict (Layer 5) remain entirely outside the scope of output grammar or language design in 2025. Source: Cross-reference with taxonomy from <code>Research/completed/2026-03-10-ai-concept-classification-taxonomy.md</code>; confirmed by Outlines documentation explicitly acknowledging that semantic hallucination is not prevented.</p>
+</li>
+<li><p><strong>[High]</strong> LMQL (&quot;Prompting Is Programming&quot;, Beurer-Kellner et al., arXiv:2212.06094, PLDI 2023) is the academic progenitor of the constrained LLM generation field, introducing constraint-guided decoding with stopping phrases, type constraints, and set-membership constraints enforced at decoding time; it directly influenced subsequent production tools including Outlines and SGLang. Source: https://arxiv.org/abs/2212.06094</p>
+</li>
+<li><p><strong>[High]</strong> SGLang (Zheng et al., arXiv:2312.07104, NeurIPS 2024) is a Python-embedded domain-specific language (DSL) for multi-step LLM workflows with RadixAttention for key-value (KV) cache reuse and compressed finite state machines for structured output decoding, operating at specification hierarchy level 2 as a high-performance inference framework rather than introducing new LLM-output language semantics. Source: https://proceedings.neurips.cc/paper_files/paper/2024/file/724be4472168f31ba1c9ac630f15dec8-Paper-Conference.pdf</p>
+</li>
+<li><p><strong>[Medium]</strong> &quot;Code as Policies&quot; (Liang et al., arXiv:2209.07753, 2023) and &quot;Dafny as Verification-Aware Intermediate Representation&quot; (arXiv:2501.06283, 2025) both repurpose existing human-designed languages as LLM output targets — Python for robot policy generation and Dafny for mechanical verification — demonstrating the pattern of LLM-as-author but not designing a new language with LLM-native properties. Sources: https://arxiv.org/abs/2209.07753; https://arxiv.org/pdf/2501.06283v1</p>
+</li>
+<li><p><strong>[High]</strong> ReAct, Modular Reasoning Knowledge and Language (MRKL), and Toolformer (arXiv:2302.04761) tool-call output conventions occupy specification hierarchy level 1–2 weakly, as informal text format patterns embedded in prompts or fine-tuning without grammar enforcement, making structurally non-conforming outputs possible and routinely observed in practice. Source: https://arxiv.org/abs/2302.04761</p>
+</li>
+<li><p><strong>[Medium]</strong> The economic and computational barrier to advancing past level 3 in production is that schema enforcement (level 2) operates at near-zero inference overhead, type-constrained decoding (level 3) requires a per-token type-checking pass increasing latency, and formal verification (level 4–5) would require a per-token verification pass that is computationally prohibitive at current inference hardware speeds. Source: [inference] from ETH Zurich paper methodology and economic analysis of inference costs.</p>
+</li>
+<li><p><strong>[Medium]</strong> A purpose-built LLM-output language at levels 4–5 would need to include a type system expressive enough to encode behavioural invariants beyond field types, a decidable verification procedure executable at token-generation time, and a mechanically checkable representation of intent — the last of which faces a fundamental undecidability barrier because encoding &quot;the human's true goal&quot; in a checkable form requires a complete formal specification of that goal. Source: [inference] from specification hierarchy in <code>Research/completed/2026-03-10-formal-spec-intent-alignment-agentic-coding.md</code> and computability theory.</p>
+</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+  <th>Claim</th>
+  <th>Source</th>
+  <th>Confidence</th>
+  <th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Outlines: ~13,500 GitHub stars, FSM-based schema enforcement, level 2</td>
+  <td>https://github.com/dottxt-ai/outlines; https://techcrunch.com/2024/10/17/with-11-9-million-in-funding-dottxt-tells-ai-models-how-to-answer/</td>
+  <td>High</td>
+  <td>Verified via web search 2026-03-11</td>
+</tr>
+<tr>
+  <td>Guidance: ~21,000 GitHub stars, LLGuidance engine adopted by OpenAI API</td>
+  <td>https://github.com/guidance-ai/guidance; https://www.microsoft.com/en-us/research/project/guidance-control-lm-output/</td>
+  <td>High</td>
+  <td>Verified via web search 2026-03-11</td>
+</tr>
+<tr>
+  <td>ETH Zurich PLDI 2025: arXiv:2504.09246, compilation errors halved, level 3</td>
+  <td>https://arxiv.org/abs/2504.09246; https://pldi25.sigplan.org/details/pldi-2025-papers/25/Type-Constrained-Code-Generation-with-Language-Models</td>
+  <td>High</td>
+  <td>Primary source; PLDI 2025 proceedings confirmed</td>
+</tr>
+<tr>
+  <td>No purpose-built LLM-output language at levels 4–5</td>
+  <td>Web search across arXiv, PLDI, NeurIPS, ICML, ICLR 2022–2025 (this investigation)</td>
+  <td>High (inference)</td>
+  <td>Absence-of-evidence claim; cannot be 100% certain; all named source-list items checked</td>
+</tr>
+<tr>
+  <td>LMQL: PLDI 2023, arXiv:2212.06094, constraint-guided decoding</td>
+  <td>https://arxiv.org/abs/2212.06094</td>
+  <td>High</td>
+  <td>Primary source</td>
+</tr>
+<tr>
+  <td>SGLang: NeurIPS 2024, arXiv:2312.07104, Python-embedded DSL, RadixAttention</td>
+  <td>https://proceedings.neurips.cc/paper_files/paper/2024/file/724be4472168f31ba1c9ac630f15dec8-Paper-Conference.pdf</td>
+  <td>High</td>
+  <td>Primary source</td>
+</tr>
+<tr>
+  <td>Code as Policies: arXiv:2209.07753, Python as LLM output for robot control</td>
+  <td>https://arxiv.org/abs/2209.07753</td>
+  <td>High</td>
+  <td>Primary source</td>
+</tr>
+<tr>
+  <td>Dafny as IR: arXiv:2501.06283, LLM generates Dafny for mechanical verification</td>
+  <td>https://arxiv.org/pdf/2501.06283v1</td>
+  <td>Medium</td>
+  <td>Primary source; 2025 preprint</td>
+</tr>
+<tr>
+  <td>All current tools address Layer 1 structural failures only</td>
+  <td><code>Research/completed/2026-03-10-ai-concept-classification-taxonomy.md</code>; https://dottxt-ai.github.io/outlines/latest/</td>
+  <td>High</td>
+  <td>Consistent across all sources; Outlines docs explicitly confirm semantic hallucination remains</td>
+</tr>
+<tr>
+  <td>Level 4–5 LLM-output language faces undecidability barrier</td>
+  <td>[inference] from <code>Research/completed/2026-03-10-formal-spec-intent-alignment-agentic-coding.md</code> + computability theory</td>
+  <td>Medium</td>
+  <td>Logically derivable; no single primary source</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ol>
+<li><p>The publication venue search (arXiv, PLDI, NeurIPS, ICML, ICLR 2022–2025) is sufficiently comprehensive that a purpose-built LLM-output language, if it existed as an active research programme, would have appeared in at least one of these venues. This assumption would be violated if such work appeared only in domain-specific workshop proceedings not indexed by arXiv or the major venue searches.</p>
+</li>
+<li><p>Jsonformer is adequately represented by the Outlines and Guidance findings, as both supersede it in functionality (Outlines supports regex, JSON Schema, and context-free grammars; Jsonformer supports JSON only) and adoption (Outlines has 3M+ downloads; Jsonformer has no equivalent adoption signal). Checking Jsonformer separately would not change any finding.</p>
+</li>
+</ol>
+<h3>Analysis</h3>
+<p>The structured generation field has undergone a cycle of rapid tool development (2022–2025) that mirrors the historical arc of compiler-enforced safety in conventional programming languages, compressed from decades into three years by the commercial urgency of LLM deployment. LMQL (PLDI 2023) established the theoretical framing; Outlines and Guidance built production tools at level 2; ETH Zurich PLDI 2025 advanced to level 3 for code generation specifically.</p>
+<p>The key analytical finding is that the failure mode taxonomy from <code>2026-03-10-ai-concept-classification-taxonomy.md</code> cleanly explains why the level 2 tools dominate: structural controls address Layer 1 structural failures, which is exactly where schema/grammar enforcement operates. The deeper failure modes (Layers 2–5) require semantic, procedural, or architectural controls — not structural ones. No structural (grammar-level) intervention can address intent mismatch because intent is not a structural property of the output.</p>
+<p>The distinction between &quot;language for orchestrating LLM agents&quot; (designed by humans, e.g. PayPal declarative DSL, IntentLang) and &quot;language LLM agents produce&quot; (the LLM is the primary author) is the critical framing that the literature does not maintain. Most 2024–2025 work on &quot;agent languages&quot; addresses the orchestration side — which is a software engineering problem — rather than the LLM-output format side, which is a programming language design problem. This framing gap explains why the research question has not been posed directly by any existing paper.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ol>
+<li><strong>Recency gap</strong>: NeurIPS 2025 and ICML 2025 workshop proceedings were not comprehensively indexed as of 2026-03-11. A purpose-built LLM-output language paper may have been submitted to a 2025 conference or workshop not yet discoverable.</li>
+<li><strong>Industrial unpublished work</strong>: Large AI labs (Google DeepMind, Anthropic, Meta AI) may be developing purpose-built output languages for internal agentic systems without publishing. No evidence of this was found, but absence of public evidence does not confirm absence of work.</li>
+<li><strong>Domain-specific tractability</strong>: The undecidability argument for level 4–5 applies to general-purpose languages. A restricted-domain level-4 language (e.g. for SQL generation, infrastructure-as-code, or configuration management) may be tractable and remains unexamined.</li>
+<li><strong>Specification hierarchy level 3 breadth</strong>: The ETH Zurich PLDI 2025 paper covers TypeScript only. Whether type-constrained decoding generalises to other typed languages (Rust, Go, Java) without prohibitive overhead is an open empirical question.</li>
+</ol>
+<h3>Open Questions</h3>
+<ol>
+<li><p><strong>Restricted-domain level-4 LLM-output language</strong>: Is a purpose-built level-4 language (rich type system encoding behavioural invariants) tractable for a specific restricted domain such as database query generation or infrastructure-as-code? This is a narrower, potentially tractable version of the current research question and could yield a concrete design candidate. Priority: medium (advances understanding; does not immediately block other work).</p>
+</li>
+<li><p><strong>Evaluation benchmarks for Layer 2 failure mode coverage</strong>: How would one measure whether an LLM-output language or structured format reduces intent mismatch (Layer 2) rather than just structural conformance (Layer 1)? No benchmark currently distinguishes these two layers in the structured generation literature. Priority: medium (needed to evaluate any future level-3 or level-4 approach).</p>
+</li>
+<li><p><strong>Fine-tuning vs. grammar enforcement trade-off</strong>: Does fine-tuning LLMs on schema-conforming output corpora produce models that internalise structural constraints at the weight level, reducing or eliminating the need for grammar enforcement at inference time? If so, the inference overhead of type-constrained decoding could be amortised into training cost. Priority: low (exploratory; no clear downstream dependency).</p>
+</li>
+<li><p><strong>LLM-native language design principles</strong>: What properties would a language designed for LLM authorship (rather than human authorship) optimise for — and how would these differ from human-designed languages? This is a foundational design question that could seed a new research programme. Priority: low (speculative; no immediate application).</p>
+</li>
+</ol>
+
+
+  </div>
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-10-nature-of-the-firm-coase-organisations.html">The Nature of the Firm: why organisations exist, their fitness functions, and invariants</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-10-formal-spec-intent-alignment-agentic-coding.html">Formal intent specification and language choice for AI alignment in agentic coding systems</a></div>
+  </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,584 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Evaluating and improving autonomous research loop quality: prompt engineering and output assessment — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #141414;
+  --surface-2:       #1c1c1c;
+  --border:          #2a2a2a;
+  --text:            #e8e8e8;
+  --text-muted:      #666;
+  --accent:          #e8e8e8;
+  --accent-dim:      #333;
+  --tag-bg:          #1e1e1e;
+  --tag-text:        #999;
+  --tag-active-bg:   #e8e8e8;
+  --tag-active-text: #0d0d0d;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--accent); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+}
+.card:hover { border-color: var(--accent); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+}
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+.item-content pre code { background: none; padding: 0; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--text); text-decoration: underline; }
+.item-content a:hover { color: var(--text-muted); }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  main { padding: 72px 1rem 3rem; }
+  nav { padding: 0 1rem; }
+}
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/">Research</a>
+    <div class="nav-links">
+      <a href="/Research/tags/">Tags</a>
+      <a href="/Research/search.html">Search</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>Evaluating and improving autonomous research loop quality: prompt engineering and output assessment</span>
+  </div>
+  <h1 class="item-title">Evaluating and improving autonomous research loop quality: prompt engineering and output assessment</h1>
+  <div class="meta-bar">
+    <span>2026-03-03</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/research-loop.html">research-loop</a> <a class="tag" href="/Research/tags/prompt-engineering.html">prompt-engineering</a> <a class="tag" href="/Research/tags/quality.html">quality</a> <a class="tag" href="/Research/tags/autonomous-research.html">autonomous-research</a> <a class="tag" href="/Research/tags/evaluation.html">evaluation</a> <a class="tag" href="/Research/tags/research-prompt.html">research-prompt</a> <a class="tag" href="/Research/tags/github-actions.html">github-actions</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-03-research-loop-quality-prompt-engineering.md" target="_blank" rel="noopener">source →</a>
+  </div>
+  <div class="item-content">
+    <h2>Research Question</h2>
+<p>How can the quality of research items produced by the <code>research-loop.yml</code> autonomous pipeline be systematically evaluated, and what changes to <code>research-prompt.md</code> and the loop's prompting strategy would produce higher-quality, deeper, more synthesis-rich research outputs?</p>
+
+<h2>Findings</h2>
+<h3>Executive Summary</h3>
+<p>The quality variation in autonomous research loop output is prompt-caused, not model-caused: the model is capable of high-quality synthesis, and corpus evidence demonstrates this directly. The Research Skill Output section (§0–§7) added to <code>research-prompt.md</code> increased source engagement from 3.1 to 12.8 sources per item and key finding counts from 14 to 43, making it the single most impactful quality change to date. Three residual failure patterns persist in the pre-2026-03-03 corpus: sources listed but not consulted (40% of items), executive summaries that lack specific claims, and no cross-item integration with prior completed research — all three are addressable by five targeted additions to <code>research-prompt.md</code>. A four-check shell quality gate (completed date, ≥80-word executive summary, ≥2 substantive findings, ≥1 checked source) detects the most severe failures and can be implemented as a non-blocking GitHub Actions annotation step.</p>
+<h3>Key Findings</h3>
+<ol>
+<li><p>Items with the Research Skill Output section (§0–§7) produce dramatically better outputs: avg 12.8 sources checked vs. 3.1 without it, and avg 43 key findings vs. 14. The section is the most impactful quality lever already deployed. <strong>[high confidence]</strong></p>
+</li>
+<li><p>40% of pre-2026-03-03 items have at least some sources listed but not consulted; 20% (4/20) have all sources unchecked. This is the primary source engagement failure and is prompt-caused: no explicit instruction existed to mark sources <code>[x]</code> when consulted. <strong>[high confidence]</strong></p>
+</li>
+<li><p>The current <code>research-prompt.md</code> lacks an instruction to search <code>Research/completed/</code> for prior related work before starting a new item. As the corpus grows beyond 20 items this gap becomes a structural deficiency: each new item that ignores prior completed work duplicates effort and misses synthesis opportunities. <strong>[high confidence]</strong></p>
+</li>
+<li><p>Priority ordering in the loop is correct and respected in practice: <code>research-prompt.md</code> contains explicit <code>priority: high → medium → low</code> rules, confirmed by both document inspection and observed execution order. No fix required. <strong>[high confidence]</strong></p>
+</li>
+<li><p>Chain-of-thought prompting in the form of structured step decomposition (§1 → §2 → §6) is the mechanism behind the Research Skill Output section's quality improvement, consistent with The Prompt Report (arXiv:2406.06608) documenting CoT as one of 58+ validated techniques. <strong>[high confidence]</strong></p>
+</li>
+<li><p>Negative constraints work better when paired with positive instructions. &quot;Do not reproduce template headings without substantive content&quot; should be paired with &quot;each section must contain defensible prose before the next heading.&quot; <strong>[medium confidence]</strong></p>
+</li>
+<li><p>The Fabric <code>extract_wisdom</code> pattern's use of minimum output counts per section is a more reliable specificity enforcement mechanism than negative constraints alone. Adapting this to Key Findings — requiring each finding to be ≥ 20 words — is the direct route to eliminating one-line vague findings. <strong>[medium confidence]</strong></p>
+</li>
+<li><p>A four-check shell quality gate detects the three primary failure modes at low false-positive cost: completed date populated, executive summary word count ≥ 80, ≥ 2 key findings with ≥ 15 words each, and ≥ 1 source marked <code>[x]</code>. <strong>[high confidence]</strong></p>
+</li>
+<li><p>The &quot;Lost in the Middle&quot; effect (arXiv:2307.03172) means critical instructions should be placed near the top of the relevant step in <code>research-prompt.md</code>. The source-marking discipline instruction (addition 2) and prior-research cross-reference instruction (addition 1) must each appear as the first instruction in their respective steps to maximise compliance. <strong>[medium confidence]</strong></p>
+</li>
+<li><p>Fifteen items in <code>Research/completed/</code> (pre-2026-03-03) have suboptimal source coverage due to the pre-Research Skill Output prompt. A targeted re-enrichment pass on the strategically most important items is a separate task worth adding to the backlog. <strong>[medium confidence]</strong></p>
+</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+  <th>Claim</th>
+  <th>Source</th>
+  <th>Confidence</th>
+  <th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Research Skill Output section increases avg sources checked from 3.1 to 12.8</td>
+  <td>Corpus audit: 20 items inspected</td>
+  <td>high</td>
+  <td>Direct measurement from checklist counts</td>
+</tr>
+<tr>
+  <td>40% of items have some sources unchecked</td>
+  <td>Corpus audit: 8/20 items with unchecked</td>
+  <td>high</td>
+  <td>Direct count</td>
+</tr>
+<tr>
+  <td>20% of items have all sources unchecked</td>
+  <td>Corpus audit: 4/20 items all unchecked</td>
+  <td>high</td>
+  <td>ai-line-1, ai-strategy-risk, indexing, information-synthesis</td>
+</tr>
+<tr>
+  <td>Priority ordering correct and respected</td>
+  <td><code>research-prompt.md</code> Step 1; 2026-03-03 execution order</td>
+  <td>high</td>
+  <td>Both primary sources agree</td>
+</tr>
+<tr>
+  <td><code>research-prompt.md</code> lacks prior-research instruction</td>
+  <td>Direct inspection of all steps</td>
+  <td>high</td>
+  <td>Absence confirmed by search for &quot;completed&quot;</td>
+</tr>
+<tr>
+  <td>CoT / step decomposition drives quality improvement</td>
+  <td>The Prompt Report arXiv:2406.06608; corpus audit correlation</td>
+  <td>high</td>
+  <td>Literature + empirical evidence</td>
+</tr>
+<tr>
+  <td>Negative constraints better with positive pairing</td>
+  <td>Anthropic prompting guide; web search synthesis</td>
+  <td>medium</td>
+  <td>Practitioner consensus</td>
+</tr>
+<tr>
+  <td>Fabric minimum output counts improve specificity</td>
+  <td>extract_wisdom documentation</td>
+  <td>medium</td>
+  <td>Pattern analysis from single source</td>
+</tr>
+<tr>
+  <td>Four structural checks detect primary failure modes</td>
+  <td>Logical derivation from audit; shell script design</td>
+  <td>high</td>
+  <td>Derived from empirical failure patterns</td>
+</tr>
+<tr>
+  <td>&quot;Lost in the Middle&quot; applies to long prompts</td>
+  <td>arXiv:2307.03172 (Liu et al., Stanford 2023)</td>
+  <td>medium</td>
+  <td>Different model than Copilot CLI; applicable in principle</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li><strong>Assumption:</strong> The model follows the revised prompt's instructions at quality comparable to the 2026-03-03 items. <strong>Justification:</strong> The 2026-03-03 items demonstrate the model is capable of compliance with multi-step structured instructions; proposed additions are incremental extensions.</li>
+<li><strong>Assumption:</strong> The structural quality gate's false-positive rate is acceptably low. <strong>Justification:</strong> Conservative thresholds (80 words, 2 findings, 1 checked source) — any genuine research effort produces outputs well above these minima.</li>
+</ul>
+<h3>Analysis</h3>
+<p>The corpus audit produces a clean before/after split at 2026-03-03. The Research Skill Output section addition was decisive; the proposed five additions are incremental refinements targeting the residual gaps it does not fully close. The most impactful addition is the prior research cross-reference instruction: it transforms the corpus from a collection of isolated items into a connected knowledge base, compounding in value as item count grows.</p>
+<p>Prompt length management is straightforward: from ~800 to ~1,100 words, within the range where instruction-following remains reliable. The critical placement guidance (instructions near the top of their steps) mitigates the &quot;Lost in the Middle&quot; risk without restructuring the prompt.</p>
+<p>The quality gate is designed as an informational signal initially. This avoids the risk of a conservative threshold blocking a legitimate item and stalling the loop. After calibration (confirming zero false positives across 5+ loop runs), it can be made blocking.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>The source engagement improvement correlation with the Research Skill Output section may partly reflect that 2026-03-03 items had more internal (repository) sources than earlier items. The causal effect on web-source engagement cannot be cleanly isolated without a controlled experiment.</li>
+<li>The five proposed additions have not been tested against a live session. The recommended next step is a controlled test: run the revised prompt on one <code>medium</code>-priority backlog item and compare against a pre-revision item of similar complexity.</li>
+<li>The &quot;Lost in the Middle&quot; finding is from research on GPT-3.5/4 models. The Copilot CLI model may have different attention characteristics. Placement guidance is precautionary.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li><p><strong>Structural cross-item integration check</strong>: Can a regex for <code>Research/completed/</code> links in the Findings section serve as a proxy for cross-item integration without LLM reasoning? This would add a fifth check to the quality gate. Recommend adding as a stretch goal once the four-check gate is validated. [medium priority]</p>
+</li>
+<li><p><strong>Re-enrichment of pre-2026-03-03 items</strong>: Should the 15 suboptimal items in <code>Research/completed/</code> be re-enriched with additional source coverage? This is a separate task requiring a new backlog item. High-value candidates: <code>ai-line-1-line-2-risk-agents.md</code> (0/10 sources checked, strategically relevant), <code>ai-strategy-risk-reduction-focus.md</code> (0/8 sources checked). [medium priority]</p>
+</li>
+<li><p><strong>Quality gate blocking vs. informational threshold</strong>: After how many loop runs with zero false positives should the quality gate become blocking? A proposed criterion: 5 consecutive passing runs before enabling the blocking mode. [low priority]</p>
+</li>
+</ul>
+<hr />
+
+
+  </div>
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-04-sdlc-ai-prompt-patterns.html">Emergent Patterns in Software Engineering Prompts and SDLC Guidance</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-03-research-agenda-curation-coverage.html">Research agenda curation: prioritisation, coverage analysis, and avoiding research drift</a></div>
+  </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,605 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>YouTube transcripts via yt-dlp audio + Whisper transcription — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #141414;
+  --surface-2:       #1c1c1c;
+  --border:          #2a2a2a;
+  --text:            #e8e8e8;
+  --text-muted:      #666;
+  --accent:          #e8e8e8;
+  --accent-dim:      #333;
+  --tag-bg:          #1e1e1e;
+  --tag-text:        #999;
+  --tag-active-bg:   #e8e8e8;
+  --tag-active-text: #0d0d0d;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--accent); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+}
+.card:hover { border-color: var(--accent); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+}
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+.item-content pre code { background: none; padding: 0; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--text); text-decoration: underline; }
+.item-content a:hover { color: var(--text-muted); }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  main { padding: 72px 1rem 3rem; }
+  nav { padding: 0 1rem; }
+}
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/">Research</a>
+    <div class="nav-links">
+      <a href="/Research/tags/">Tags</a>
+      <a href="/Research/search.html">Search</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>YouTube transcripts via yt-dlp audio + Whisper transcription</span>
+  </div>
+  <h1 class="item-title">YouTube transcripts via yt-dlp audio + Whisper transcription</h1>
+  <div class="meta-bar">
+    <span>2026-02-28</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/youtube.html">youtube</a> <a class="tag" href="/Research/tags/transcripts.html">transcripts</a> <a class="tag" href="/Research/tags/whisper.html">whisper</a> <a class="tag" href="/Research/tags/yt-dlp.html">yt-dlp</a> <a class="tag" href="/Research/tags/tooling.html">tooling</a> <a class="tag" href="/Research/tags/automation.html">automation</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-02-28-transcript-via-yt-dlp-whisper.md" target="_blank" rel="noopener">source →</a>
+  </div>
+  <div class="item-content">
+    <h2>Research Question</h2>
+<p>Can we bypass YouTube's IP-based transcript block by downloading the <strong>audio track</strong> with
+<code>yt-dlp</code> (a different endpoint from the transcript API) and then transcribing it with
+OpenAI Whisper?</p>
+
+<h2>Findings</h2>
+<h3>Executive Summary</h3>
+<p>The hypothesis that yt-dlp audio CDN downloads are less restricted than the transcript API on GitHub Actions IPs is false: audio and video both traverse the same YouTube CDN infrastructure and are subject to the same cloud IP block. This means the proposed fallback chain (caption fetch fails → audio download → local Whisper) fails at the second step from any GitHub Actions runner. If the audio download barrier is cleared — most likely via browser cookies stored as a GitHub secret — <code>faster-whisper</code> with int8 quantization on the <code>small</code> model provides a practical transcription path (~7–15 min per 60-min talk, free). Option B (Whisper API) is blocked by the credential gate: <code>OPENAI_API_KEY</code> is not an approved credential.</p>
+<h3>Key Findings</h3>
+<ol>
+<li><strong>[high]</strong> YouTube delivers audio and video streams via the same CDN infrastructure; cloud IP restrictions that block <code>yt-dlp</code> video downloads also block <code>yt-dlp</code> audio-only downloads from GitHub Actions runners running on AWS IP ranges.</li>
+<li><strong>[high]</strong> As of 2024–2025, yt-dlp downloads from cloud/datacenter IPs (including GitHub Actions) are actively blocked by YouTube, producing HTTP 403 errors or &quot;Sign in to confirm you're not a bot&quot; challenges, regardless of whether the requested format is video or audio.</li>
+<li><strong>[high]</strong> The only currently identified workaround that avoids paid third-party infrastructure is passing browser-exported cookies to yt-dlp via <code>--cookies</code>, stored as a base64-encoded GitHub Actions secret — but this requires periodic manual maintenance as cookies expire within weeks to months.</li>
+<li><strong>[high]</strong> Using vanilla <code>openai-whisper</code> with the <code>small</code> model on a CPU-only GitHub Actions runner, transcribing a 60-minute audio file takes approximately 72–120 minutes — not the &quot;3–5 minutes&quot; estimated in the original item, which appears to assume GPU availability.</li>
+<li><strong>[high]</strong> <code>faster-whisper</code> with int8 quantization delivers 4–7x speedup over vanilla <code>openai-whisper</code> on CPU, reducing the same 60-min audio to ~7–15 minutes of runner time, making the approach economically viable on the free Actions tier.</li>
+<li><strong>[medium]</strong> The Whisper <code>small</code> model achieves 3.2–3.4% WER on clean English speech; <code>medium</code> achieves 2.7–2.9% WER — a 0.5–0.7 percentage point improvement that widens for noisy or accented audio but is modest for well-recorded English talks.</li>
+<li><strong>[high]</strong> The <code>small</code> model requires ~461 MB download; <code>medium</code> requires ~1.5 GB. Both should be cached via <code>actions/cache</code> to avoid re-downloading on every workflow run.</li>
+<li><strong>[high]</strong> Option B (OpenAI Whisper API at <code>whisper-1</code>, $0.006/min) requires <code>OPENAI_API_KEY</code>, which is not in the AGENTS.md approved credentials table; it cannot be implemented without explicit owner approval.</li>
+<li><strong>[medium]</strong> The OpenAI Whisper API <code>whisper-1</code> model is equivalent in quality to <code>large-v2</code> locally, delivering higher accuracy than any local model size runnable on GitHub Actions CPU within a reasonable time budget.</li>
+<li><strong>[medium]</strong> Third-party transcript APIs (the companion backlog item <code>2026-02-28-transcript-via-third-party-apis.md</code>) sidestep the cloud IP block entirely and may offer a better cost/complexity tradeoff than maintaining YouTube cookies in a GitHub secret.</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+  <th>Claim</th>
+  <th>Source</th>
+  <th>Confidence</th>
+  <th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Audio and video share same CDN</td>
+  <td>RapidSeedbox yt-dlp guide; yt-dlp issue tracker</td>
+  <td>high</td>
+  <td>No evidence of separate audio CDN</td>
+</tr>
+<tr>
+  <td>Cloud IPs blocked for yt-dlp (2024–2025)</td>
+  <td>yt-dlp GitHub issue #9890; Reddit r/youtubedl; Linux Mint Forums</td>
+  <td>high</td>
+  <td>Multiple independent reports</td>
+</tr>
+<tr>
+  <td>Audio block same as video block</td>
+  <td>CodeTriage yt-dlp issues synthesis</td>
+  <td>high</td>
+  <td>Consistent with CDN architecture</td>
+</tr>
+<tr>
+  <td>Cookies workaround is viable but not maintenance-free</td>
+  <td>yt-dlp wiki; community guides</td>
+  <td>medium</td>
+  <td>Cookies expire; needs periodic refresh</td>
+</tr>
+<tr>
+  <td>Cloudflare WARP provides partial relief</td>
+  <td>arfevrier.fr blog</td>
+  <td>low</td>
+  <td>Not guaranteed long-term</td>
+</tr>
+<tr>
+  <td>Vanilla whisper-small: 1.2–2 min per 1 min audio on CPU</td>
+  <td>Nikolas.blog benchmark</td>
+  <td>high</td>
+  <td>Xeon-class CPU matches GitHub runner</td>
+</tr>
+<tr>
+  <td>faster-whisper int8 small: ~8 sec per 1 min audio on CPU</td>
+  <td>faster-whisper PyPI; Nikolas.blog</td>
+  <td>high</td>
+  <td>~7–15x real-time, multiple benchmarks</td>
+</tr>
+<tr>
+  <td>GitHub Actions ubuntu-latest: 4 vCPU, 16 GB RAM (public repos)</td>
+  <td>GitHub blog runner upgrade announcement</td>
+  <td>high</td>
+  <td>Upgraded in late 2024</td>
+</tr>
+<tr>
+  <td>Whisper small WER: 3.2–3.4% (LibriSpeech clean)</td>
+  <td>OpenWhisper; Artificial Analysis AA-WER</td>
+  <td>high</td>
+  <td>Standard benchmark, well-replicated</td>
+</tr>
+<tr>
+  <td>Whisper medium WER: 2.7–2.9% (LibriSpeech clean)</td>
+  <td>OpenWhisper; Artificial Analysis AA-WER</td>
+  <td>high</td>
+  <td>~0.5–0.7pp better than small</td>
+</tr>
+<tr>
+  <td>Small model download size ~461 MB</td>
+  <td>OpenWhisper; StarWhisper download page</td>
+  <td>high</td>
+  <td>Consistent across sources</td>
+</tr>
+<tr>
+  <td>Medium model download size ~1.5 GB</td>
+  <td>OpenWhisper; StarWhisper download page</td>
+  <td>high</td>
+  <td>Consistent across sources</td>
+</tr>
+<tr>
+  <td>Whisper API cost: $0.006/min</td>
+  <td>OpenAI pricing page</td>
+  <td>high</td>
+  <td>$0.36 per 60-min video</td>
+</tr>
+<tr>
+  <td>whisper-1 equivalent to large-v2</td>
+  <td>OpenAI Whisper announcement</td>
+  <td>high</td>
+  <td>Official OpenAI statement</td>
+</tr>
+<tr>
+  <td>OPENAI_API_KEY not in approved credentials</td>
+  <td>AGENTS.md credentials table</td>
+  <td>high</td>
+  <td>Hard stop per policy</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li><strong>[assumption] GitHub Actions runners use AWS IP ranges.</strong> Justification: GitHub-hosted runners are known to run on Azure and AWS infrastructure; both are in cloud IP ranges that YouTube blocks. This assumption is consistent with the prior research item's documented block.</li>
+<li><strong>[assumption] The cookies workaround would require the owner to use a personal Google account.</strong> Justification: The research corpus does not specify a dedicated YouTube account. Using a personal account exposes personal cookies to GitHub Secrets, which is a security consideration.</li>
+</ul>
+<h3>Analysis</h3>
+<p>The evidence converges on a clear conclusion: the hypothesis is false, and the proposed architecture cannot work without first solving the same cloud IP block problem that the transcript API approach already fails on.</p>
+<p>The yt-dlp + Whisper approach has genuine merit as a Tier 2 fallback if audio download succeeds — the <code>faster-whisper</code> int8 optimisation resolves the runtime concern entirely, and the <code>small</code> model accuracy is adequate for research transcription. The approach becomes viable under one of: (a) the cookies workaround is accepted by the owner with its maintenance requirements; (b) a third-party proxy is interposed; or (c) YouTube's blocking policy changes.</p>
+<p>The original item's runtime estimate (&quot;~3–5 min for a 60-min talk on a free GitHub runner&quot;) deserves correction: it appears to have assumed GPU availability. The <code>ubuntu-latest</code> free runner is CPU-only, and vanilla whisper-small takes 72–120 minutes on that hardware. <code>faster-whisper</code> resolves this but was not mentioned in the original design. Any implementation should use <code>faster-whisper</code>, not <code>openai-whisper</code>.</p>
+<p>Option B was correctly identified as the simpler path, but it introduces an unapproved credential. The cost ($0.36/hour) is low enough to be acceptable for a personal research workflow, but the credential gate must be addressed first.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li><strong>Empirical testing not performed.</strong> The blocking of yt-dlp from GitHub Actions is well-documented in community reports but not tested in this specific repository's workflow. A 5-minute test step in <code>fetch-transcript.yml</code> would confirm the block definitively.</li>
+<li><strong>Cookies lifespan is variable.</strong> There is no community consensus on the exact expiry window; some report weeks, others months. The operational burden of the cookies approach is therefore uncertain.</li>
+<li><strong>faster-whisper accuracy at int8.</strong> The benchmark comparison between float32 and int8 Whisper small shows negligible WER difference in most tests, but this is not universally verified for domain-specific technical vocabulary in research talks.</li>
+<li><strong>Sources marked <code>[ ]</code>:</strong> The three primary sources in the item's Sources section (yt-dlp GitHub, openai/whisper GitHub, OpenAI platform docs) were not directly read; they are represented by secondary evidence. Their content is well-characterised in the literature.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>Should the owner approve <code>OPENAI_API_KEY</code> for the Whisper API path? At $0.006/min, a year of weekly 60-min talk transcriptions would cost ~$18.72 — a low barrier for the accuracy gain.</li>
+<li>Does the third-party API research item (<code>2026-02-28-transcript-via-third-party-apis.md</code>) yield a cleaner solution that avoids cookies maintenance entirely?</li>
+<li>What is the empirical yt-dlp exit code from this repository's GitHub Actions runner? A single test step would close the uncertainty about whether this runner's IPs are actually blocked.</li>
+</ul>
+<hr />
+
+
+  </div>
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-02-28-youtube-video-hyuos0gkgcs-concepts.html">Reality Is A Controlled Hallucination — Anil Seth (Essentia Foundation): concept extraction and synthesis</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-02-28-transcript-via-third-party-apis.html">YouTube transcripts via third-party transcript APIs (AssemblyAI / Supadata)</a></div>
+  </div>
+</main>
+</body>
+</html>

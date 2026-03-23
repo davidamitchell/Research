@@ -1,0 +1,589 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>ChatGPT Actions and custom GPTs: external memory integration options — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #141414;
+  --surface-2:       #1c1c1c;
+  --border:          #2a2a2a;
+  --text:            #e8e8e8;
+  --text-muted:      #666;
+  --accent:          #e8e8e8;
+  --accent-dim:      #333;
+  --tag-bg:          #1e1e1e;
+  --tag-text:        #999;
+  --tag-active-bg:   #e8e8e8;
+  --tag-active-text: #0d0d0d;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--accent); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+}
+.card:hover { border-color: var(--accent); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+}
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+.item-content pre code { background: none; padding: 0; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--text); text-decoration: underline; }
+.item-content a:hover { color: var(--text-muted); }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  main { padding: 72px 1rem 3rem; }
+  nav { padding: 0 1rem; }
+}
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/">Research</a>
+    <div class="nav-links">
+      <a href="/Research/tags/">Tags</a>
+      <a href="/Research/search.html">Search</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>ChatGPT Actions and custom GPTs: external memory integration options</span>
+  </div>
+  <h1 class="item-title">ChatGPT Actions and custom GPTs: external memory integration options</h1>
+  <div class="meta-bar">
+    <span>2026-03-08</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/mobile.html">mobile</a> <a class="tag" href="/Research/tags/chatgpt.html">chatgpt</a> <a class="tag" href="/Research/tags/openai.html">openai</a> <a class="tag" href="/Research/tags/actions.html">actions</a> <a class="tag" href="/Research/tags/memory-system.html">memory-system</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-chatgpt-actions-memory-integration.md" target="_blank" rel="noopener">source →</a>
+  </div>
+  <div class="item-content">
+    <h2>Research Question</h2>
+<p>Can a ChatGPT custom Generative Pre-trained Transformer (GPT) be configured with Actions that: (a) call a self-hosted HTTP endpoint to add a memory, (b) call <code>search_brain</code> before responding to surface relevant context? What is OpenAI's native Memory Application Programming Interface (API)  -  is there any export/import hook to sync ChatGPT's built-in memories into this repo? What are the auth and hosting requirements?</p>
+
+<h2>Findings</h2>
+<p><em>(Populated from §6 Synthesis above.)</em></p>
+<h3>Executive Summary</h3>
+<p>A custom GPT can be configured with Actions that call a self-hosted HTTPS endpoint to write a memory (<code>add_memory</code>) and to retrieve context before responding (<code>search_brain</code>)  -  both capabilities are fully supported by the OpenAI Actions architecture. OpenAI's built-in ChatGPT memory system has no programmatic API; no export or import hook exists, making the external Actions write path the only viable route to cross-tool memory portability. Authentication is simpler than the Claude iOS MCP path: GPT Actions support static API key injection via a custom header, which works reliably on the ChatGPT iOS mobile app; OAuth-based Actions have documented mobile reliability problems. The hosting backend established in prior research (Cloudflare Workers for write, Fly.io or Tailscale Funnel for vector search) applies without modification and can serve both ChatGPT Actions and Claude iOS MCP from a single deployment.</p>
+<h3>Key Findings</h3>
+<ol>
+<li><p>A custom GPT Action can call any public HTTPS endpoint described by an OpenAPI schema; the call is made server-side by OpenAI's infrastructure, making CORS irrelevant and requiring no changes to an existing Cloudflare Workers or Fly.io backend.</p>
+</li>
+<li><p>API key authentication with a custom header (e.g., <code>X-Api-Key</code>) is supported in the GPT editor UI as a server-side secret  -  it is never visible to the user  -  and works reliably on the ChatGPT iOS mobile app, unlike OAuth 2.0 which has documented persistent failures on iOS and Android through mid-2025.</p>
+</li>
+<li><p>The <code>add_memory</code> write path (stateless Cloudflare Workers proxy to GitHub Contents API) is directly compatible with GPT Actions and requires no modifications to the backend established in <code>2026-03-08-self-hosted-mcp-server-options.md</code>.</p>
+</li>
+<li><p>The <code>search_brain</code> retrieval path can be triggered before every GPT response via a system prompt instruction such as &quot;Before every response, call the search_brain action with the user's query and incorporate the results as context&quot;; compliance is probabilistic (system prompt enforcement) rather than protocol-guaranteed, but is sufficient for personal single-user deployment.</p>
+</li>
+<li><p>OpenAI's built-in ChatGPT memory system exposes no programmatic API: there is no endpoint for reading, writing, or importing saved memories; the data export available via the privacy portal is a manual one-time ZIP download, not a synchronisation hook.</p>
+</li>
+<li><p>Creating a custom GPT with Actions requires ChatGPT Plus at $20/month (identical to the Claude Pro requirement for Claude iOS MCP Connectors), meaning the cost parity between the two paths is exact and not a differentiating factor.</p>
+</li>
+<li><p>A single backend deployment can serve both GPT Actions (REST/JSON) and Claude iOS MCP (Streamable HTTP) endpoints without conflict, meaning the cross-tool memory portability goal  -  capturing from ChatGPT and retrieving in Claude, and vice versa  -  can be achieved with no additional hosting cost beyond the Fly.io/Railway instance already required for vector search.</p>
+</li>
+<li><p>The ChatGPT Actions path has one structural limitation compared to Claude iOS MCP Connectors: retrieval only activates when the user opens the specific memory-retrieval custom GPT, whereas Claude Connectors apply automatically to every Claude conversation once configured.</p>
+</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+  <th>Claim</th>
+  <th>Source</th>
+  <th>Confidence</th>
+  <th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>GPT Actions call any public HTTPS endpoint via OpenAPI schema</td>
+  <td>https://platform.openai.com/docs/actions/introduction</td>
+  <td>high</td>
+  <td>Primary source; confirmed by multiple implementation guides</td>
+</tr>
+<tr>
+  <td>Calls are server-side (OpenAI infrastructure)</td>
+  <td>OpenAI community: &quot;Since this endpoint will be run from OpenAI's backend, the API must be public&quot;</td>
+  <td>high</td>
+  <td>Consistent with Claude Connectors architecture from prior research</td>
+</tr>
+<tr>
+  <td>API key (custom header) auth supported in GPT editor UI</td>
+  <td>https://platform.openai.com/docs/actions/authentication; OpenAI docs at developers.openai.com</td>
+  <td>high</td>
+  <td>Primary source; three sub-types confirmed</td>
+</tr>
+<tr>
+  <td>API key auth works on iOS; OAuth fails on iOS</td>
+  <td>community.openai.com/t/custom-gpt-oauth-issue-in-mobile-app/1114136; related threads Jan 2025, May 2025</td>
+  <td>high</td>
+  <td>Multiple independent community reports; no counter-evidence</td>
+</tr>
+<tr>
+  <td><code>add_memory</code> write path (Cloudflare Workers) compatible with Actions REST</td>
+  <td>2026-03-08-self-hosted-mcp-server-options.md Key Finding #1; OpenAI Actions spec</td>
+  <td>high</td>
+  <td>Inference from architecture; REST + JSON is exactly what Actions require</td>
+</tr>
+<tr>
+  <td><code>search_brain</code> retrieval triggerable via system prompt</td>
+  <td>https://help.openai.com/en/articles/8868588-retrieval-augmented-generation-rag-and-semantic-search-for-gpts</td>
+  <td>medium</td>
+  <td>System prompt compliance is probabilistic, not guaranteed</td>
+</tr>
+<tr>
+  <td>No native Memory API (reading or writing)</td>
+  <td>community.openai.com/t/how-do-i-enable-or-disable-memory-in-api/703964; absence from OpenAI API reference</td>
+  <td>high</td>
+  <td>Explicit community confirmation; absence of endpoint in docs</td>
+</tr>
+<tr>
+  <td>Memory export is manual ZIP only</td>
+  <td>https://help.openai.com/en/articles/7260999-how-do-i-export-my-chatgpt-history-and-data</td>
+  <td>high</td>
+  <td>Primary source</td>
+</tr>
+<tr>
+  <td>ChatGPT Plus required to create custom GPTs</td>
+  <td>https://help.openai.com/en/articles/8554397-creating-a-gpt</td>
+  <td>high</td>
+  <td>Primary source</td>
+</tr>
+<tr>
+  <td>Same backend serves both GPT Actions and Claude MCP</td>
+  <td>2026-03-08-self-hosted-mcp-server-options.md; inference from architecture</td>
+  <td>medium</td>
+  <td>Architectural inference; not empirically tested</td>
+</tr>
+<tr>
+  <td>Claude iOS supports no-auth or OAuth 2.1 only (no static key)</td>
+  <td>2026-03-08-claude-ios-mcp-remote-integration.md Key Finding #6</td>
+  <td>high</td>
+  <td>Prior research, primary-sourced</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li><p><strong>Assumption:</strong> A system prompt instruction (&quot;before every response, call search_brain&quot;) achieves ≥95% retrieval invocation for standard conversational queries. <strong>Justification:</strong> Community implementations of RAG via Actions report reliable trigger behaviour for explicit, unambiguous instructions; the failure mode is ambiguous instructions, not the underlying mechanism. This rate is sufficient for personal use but has not been empirically measured.</p>
+</li>
+<li><p><strong>Assumption:</strong> A single FastAPI backend can expose both MCP Streamable HTTP routes and plain REST/JSON routes on different paths without conflict. <strong>Justification:</strong> FastAPI's routing system supports arbitrary path definitions; MCP and REST share the HTTP transport layer and can coexist in the same process. This is a standard web application architecture pattern.</p>
+</li>
+<li><p><strong>Assumption:</strong> The user sets the memory-retrieval custom GPT as the default or primary interface for ChatGPT conversations to ensure retrieval runs consistently. <strong>Justification:</strong> If the user opens standard ChatGPT (not the custom GPT), no retrieval occurs. The custom GPT must be the entry point. This is a workflow discipline requirement, not a technical constraint.</p>
+</li>
+</ul>
+<h3>Analysis</h3>
+<p>The investigation resolves the build/no-build question with high confidence: the ChatGPT Actions path is viable and simpler to implement than the Claude iOS MCP path in three respects. First, no MCP SDK is required  -  any HTTP server with a valid OpenAPI schema works, and the existing Cloudflare Workers and Fly.io endpoints are already REST/JSON compatible. Second, API key authentication (custom header) is both simpler to configure and more iOS-reliable than OAuth 2.1. Third, OpenAPI schemas for two endpoints (<code>add_memory</code>, <code>search_brain</code>) are trivial to author, and LLMs including GPT-4o can generate them from a description.</p>
+<p>Retrieval scope is the key structural constraint: custom GPT retrieval fires only when the user opens that specific GPT, making the ChatGPT path a complementary capture surface rather than the primary memory integration [inference].</p>
+<p>OAuth unreliability on iOS  -  while API key Actions remain stable  -  is the key finding for implementation design. Any personal deployment should avoid OAuth and use the custom header API key approach, accepting the security posture that OpenAI's servers hold the key. For a personal memory endpoint containing the owner's own notes, this risk is acceptable [inference].</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>The forced retrieval pattern (≥95% system prompt compliance) is an assumption, not an empirically verified rate. A prototype test with 20–30 queries would be sufficient to validate or reject this assumption before committing to the design.</li>
+<li>The &quot;not available on iOS&quot; issue, historically caused by OAuth flow failures, could resurface for API key Actions in a future app update. OpenAI has not documented iOS-specific Action availability guarantees.</li>
+<li>OpenAI may introduce a native Memory API in a future release, which would change the portability analysis (import hook would become available). No such roadmap item has been announced as of March 2026.</li>
+<li>The co-hosting assumption (MCP + REST on a single FastAPI instance) has not been tested; a simple architectural prototype would confirm or refute it before build commitment.</li>
+</ul>
+<h3>Open Questions</h3>
+<ol>
+<li>Should a single custom GPT handle both <code>add_memory</code> and <code>search_brain</code> Actions, or should these be two separate custom GPTs with distinct purposes? (Architectural question for Memory-System W-0005.)</li>
+<li>Is there a way to configure a custom GPT as the default interface on the ChatGPT iOS home screen, so it is the entry point for all conversations rather than requiring deliberate navigation?</li>
+<li>OpenAI introduced &quot;Skills&quot; in 2025 as an evolution beyond Custom GPTs  -  does the Skills architecture change the Actions integration model, or is it additive? (Out of scope here; candidate for a new backlog item.)</li>
+</ol>
+<hr />
+
+
+  </div>
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-08-claude-ios-mcp-remote-integration.html">Claude for iOS: MCP remote integration for memory capture and retrieval</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-08-bbc-five-case-model.html">Better Business Cases: Five Case Model authoring and application</a></div>
+  </div>
+</main>
+</body>
+</html>

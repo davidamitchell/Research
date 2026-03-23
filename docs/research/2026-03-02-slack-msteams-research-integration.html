@@ -1,0 +1,598 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Slack and MS Teams integration for research delivery and capture — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #141414;
+  --surface-2:       #1c1c1c;
+  --border:          #2a2a2a;
+  --text:            #e8e8e8;
+  --text-muted:      #666;
+  --accent:          #e8e8e8;
+  --accent-dim:      #333;
+  --tag-bg:          #1e1e1e;
+  --tag-text:        #999;
+  --tag-active-bg:   #e8e8e8;
+  --tag-active-text: #0d0d0d;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--accent); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+}
+.card:hover { border-color: var(--accent); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+}
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+.item-content pre code { background: none; padding: 0; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--text); text-decoration: underline; }
+.item-content a:hover { color: var(--text-muted); }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  main { padding: 72px 1rem 3rem; }
+  nav { padding: 0 1rem; }
+}
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/">Research</a>
+    <div class="nav-links">
+      <a href="/Research/tags/">Tags</a>
+      <a href="/Research/search.html">Search</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>Slack and MS Teams integration for research delivery and capture</span>
+  </div>
+  <h1 class="item-title">Slack and MS Teams integration for research delivery and capture</h1>
+  <div class="meta-bar">
+    <span>2026-03-02</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/slack.html">slack</a> <a class="tag" href="/Research/tags/ms-teams.html">ms-teams</a> <a class="tag" href="/Research/tags/integration.html">integration</a> <a class="tag" href="/Research/tags/delivery.html">delivery</a> <a class="tag" href="/Research/tags/notifications.html">notifications</a> <a class="tag" href="/Research/tags/bot.html">bot</a> <a class="tag" href="/Research/tags/interface.html">interface</a> <a class="tag" href="/Research/tags/distribution.html">distribution</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-02-slack-msteams-research-integration.md" target="_blank" rel="noopener">source →</a>
+  </div>
+  <div class="item-content">
+    <h2>Research Question</h2>
+<p>What is the most practical way to integrate the research corpus with Slack and/or Microsoft Teams — for both outbound delivery (notifying when new research is completed) and inbound capture (receiving new research requests or queries via chat) — given the constraints of a personal, GitHub-hosted repository with no server infrastructure?</p>
+
+<h2>Findings</h2>
+<h3>Executive Summary</h3>
+<p>Outbound push delivery to Slack or MS Teams is viable, low-complexity, and immediately implementable using a single new GitHub Actions workflow file and one new secret per platform (<code>SLACK_WEBHOOK_URL</code> for Slack, or a Power Automate webhook URL for Teams). The same trigger pattern as <code>publish-wiki.yml</code> (<code>push</code> to <code>main</code> touching <code>Research/completed/**</code>) applies directly; the official <code>slackapi/slack-github-action@v2.1.1</code> action handles the Slack POST. Inbound capture via Slack slash commands is blocked under the no-server constraint — Slack requires a 3-second HTTP response that GitHub Actions cannot provide — but a GitHub-issues-as-backlog-proxy workflow achieves equivalent inbound capture with zero new secrets. MS Teams Incoming Webhooks (old connector model) are deprecated; the supported replacement is a Power Automate workflow with a webhook trigger. Query-in-chat capability requires a persistent bot server and is out of scope without additional approved infrastructure.</p>
+<h3>Key Findings</h3>
+<ol>
+<li><p><strong><code>slackapi/slack-github-action@v2.1.1</code> is the only actively maintained official Slack notification action for GitHub Actions; <code>8398a7/action-slack</code> was archived on 2025-09-13 and its own README recommends migrating to the Slack-maintained action.</strong> The Slack action supports incoming webhook delivery in four lines of workflow YAML.</p>
+</li>
+<li><p><strong>Outbound Slack notification requires exactly one new secret (<code>SLACK_WEBHOOK_URL</code>) stored as a GitHub Actions repository secret; this secret is the only new credential needed for per-item delivery and requires explicit owner approval before the workflow can be implemented.</strong></p>
+</li>
+<li><p><strong>The MS Teams Office 365 Connector model is deprecated; new Teams webhook integrations must use Power Automate with the &quot;When a Teams webhook request is received&quot; trigger, which produces a functionally equivalent HTTPS webhook URL.</strong> The Power Automate URL is stored as <code>TEAMS_WEBHOOK_URL</code> and called via <code>curl</code> in the Actions step.</p>
+</li>
+<li><p><strong>The <code>publish-wiki.yml</code> trigger pattern (<code>push</code> to <code>main</code> touching `Research/completed/</strong><code>+</code>workflow_dispatch`) is directly reusable for the notification workflow, requiring no new trigger logic and ensuring the notification fires on the same commit that adds the completed research item.**</p>
+</li>
+<li><p><strong>Slack slash commands cannot be implemented under the no-server constraint because Slack requires an HTTPS endpoint that responds within 3 seconds of command invocation, and GitHub Actions <code>workflow_dispatch</code> has a typical queue latency of 5–30 seconds that makes it structurally incompatible as a direct slash command handler.</strong></p>
+</li>
+<li><p><strong>A GitHub-issues-as-proxy workflow achieves equivalent inbound capture with zero new secrets: the owner creates a GitHub issue (accessible from the iOS app) with the research question as the title, and a workflow triggered on <code>issues: [opened]</code> converts it to a <code>Research/backlog/</code> file and closes the issue.</strong> This fits the owner's existing interaction model and costs nothing to implement.</p>
+</li>
+<li><p><strong>A weekly digest can be implemented by adding a <code>schedule: cron: '0 8 * * 1'</code> trigger to the notification workflow, which reads <code>Research/completed/</code> files with <code>completed:</code> dates in the past 7 days and posts a consolidated summary; digest and per-item notifications are not mutually exclusive.</strong></p>
+</li>
+<li><p><strong>Full query-in-chat capability (asking the bot &quot;what have I researched about X?&quot;) requires a persistent bot server to receive the query, call the research MCP server, and post the reply; this is out of scope without approved persistent infrastructure and is already addressed architecturally by the <code>2026-03-02-chat-conversational-interface.md</code> MCP server item.</strong></p>
+</li>
+<li><p><strong>The existing <code>src/wiki/publish.py</code> <code>load_frontmatter()</code> function is directly reusable for the notification workflow's metadata extraction step, eliminating the need for a new library; the notification script reads the changed file paths via <code>git diff --name-only HEAD~1</code>, loads their front-matter, and formats the payload.</strong></p>
+</li>
+<li><p><strong>Per-item notification is the correct default delivery mode for a personal research system where each completed item is discrete and actionable; the weekly digest is an additive option, not a replacement.</strong></p>
+</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+  <th>Claim</th>
+  <th>Source</th>
+  <th>Confidence</th>
+  <th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><code>slackapi/slack-github-action@v2.1.1</code> is the current recommended action</td>
+  <td>github.com/slackapi/slack-github-action README; 8398a7/action-slack archive notice</td>
+  <td>high</td>
+  <td>Both sources agree</td>
+</tr>
+<tr>
+  <td><code>8398a7/action-slack</code> archived 2025-09-13</td>
+  <td>github.com/8398a7/action-slack (direct fetch)</td>
+  <td>high</td>
+  <td>Primary source; explicit archive notice</td>
+</tr>
+<tr>
+  <td>Outbound Slack requires <code>SLACK_WEBHOOK_URL</code> as the only new secret</td>
+  <td>api.slack.com/messaging/webhooks; slackapi/slack-github-action docs</td>
+  <td>high</td>
+  <td>Confirmed by both sources</td>
+</tr>
+<tr>
+  <td>MS Teams connectors deprecated; Power Automate is the replacement</td>
+  <td>learn.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook (updated 2025-06-10)</td>
+  <td>high</td>
+  <td>Primary Microsoft source; confirmed deprecation</td>
+</tr>
+<tr>
+  <td>Power Automate webhook URL is functionally equivalent to old connector URL</td>
+  <td>Microsoft Learn, same page</td>
+  <td>high</td>
+  <td>Described in the replacement instructions</td>
+</tr>
+<tr>
+  <td>Slack slash commands require 3-second HTTPS response</td>
+  <td>api.slack.com/interactivity/slash-commands</td>
+  <td>high</td>
+  <td>Slack developer documentation (partially fetched)</td>
+</tr>
+<tr>
+  <td>GitHub Actions workflow_dispatch latency exceeds 3 seconds</td>
+  <td>GitHub Actions queue behaviour; established community knowledge</td>
+  <td>medium</td>
+  <td>Not independently cited in a single source; derived from known Actions behaviour</td>
+</tr>
+<tr>
+  <td>GitHub issue → workflow inbound capture requires zero new secrets</td>
+  <td>Direct inference from <code>GITHUB_TOKEN</code> capability + <code>publish-wiki.yml</code> pattern</td>
+  <td>high</td>
+  <td><code>GITHUB_TOKEN</code> with <code>contents: write</code> confirmed sufficient by wiki item</td>
+</tr>
+<tr>
+  <td><code>publish-wiki.yml</code> trigger pattern is reusable</td>
+  <td>Direct file inspection: <code>.github/workflows/publish-wiki.yml</code></td>
+  <td>high</td>
+  <td>Confirmed by reading the file</td>
+</tr>
+<tr>
+  <td><code>src/wiki/publish.py</code> <code>load_frontmatter()</code> is reusable</td>
+  <td>Direct file inspection: <code>src/wiki/publish.py</code></td>
+  <td>high</td>
+  <td>Confirmed by reading the file</td>
+</tr>
+<tr>
+  <td>Query-in-chat requires persistent bot server</td>
+  <td>2026-03-02-chat-conversational-interface.md Key Finding 2; MCP stdio transport spec</td>
+  <td>high</td>
+  <td>Cross-confirmed by two sources</td>
+</tr>
+<tr>
+  <td>Per-item notification is correct default for personal system</td>
+  <td>Inference from user interaction model</td>
+  <td>medium</td>
+  <td>No independent source; derived from context</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li><p><strong>Assumption:</strong> The owner uses either Slack or MS Teams personally (not as enterprise admin). <strong>Justification:</strong> The research question specifically asks about Slack and MS Teams; if the owner uses neither, the integration question is moot. This assumption is flagged as the top unknown.</p>
+</li>
+<li><p><strong>Assumption:</strong> The research loop continues to complete 3–5 items per run. <strong>Justification:</strong> Based on observed behaviour from prior loop runs; per-item notifications at this volume are not burdensome in a personal Slack channel.</p>
+</li>
+<li><p><strong>Assumption:</strong> The Power Automate webhook URL generated by the Teams flow is stable (does not rotate automatically). <strong>Justification:</strong> Microsoft's documentation does not indicate automatic rotation; the URL behaves like an API key — stable until explicitly deleted or regenerated.</p>
+</li>
+</ul>
+<h3>Analysis</h3>
+<p>Evidence weight: Slack Incoming Webhook documentation (api.slack.com) and the <code>slackapi/slack-github-action</code> README are primary sources with high authority. The MS Teams deprecation notice is a primary source from Microsoft Learn and is unambiguous. The <code>8398a7/action-slack</code> archive notice is a primary source. The GitHub Actions workflow_dispatch latency claim is an inference supported by general community knowledge but not a single citable source — it is the weakest link in the inbound capture analysis, though the direction of the conclusion (slack commands require a faster endpoint than Actions can provide) is well-established in practice.</p>
+<p>The inbound capture analysis identifies three options and recommends Option A (GitHub issue proxy) on the basis that it requires no new credentials. Options B and C are documented but deferred pending owner approval. This is the conservative choice consistent with AGENTS.md constraints, not the most user-friendly choice — a Zapier bridge (Option B) would provide one-step Slack-to-backlog creation.</p>
+<p>Digest vs. per-item is not a significant trade-off at the current research volume. Per-item is recommended as the default because it is simpler to implement (same trigger, no scheduling logic) and delivers findings immediately.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li><strong>Owner's platform is unknown.</strong> All recommendations require the owner to confirm which platform (Slack, Teams, or both) is in use before any implementation begins. Without this, the credential approval request cannot be scoped.</li>
+<li><strong>Slack slash command endpoint gap.</strong> The 3-second acknowledgement requirement was noted in the Slack slash commands page but the full documentation was only partially fetched. The latency-based incompatibility with Actions is an inference, not a confirmed benchmark.</li>
+<li><strong>Power Automate dependency.</strong> Teams webhook URLs via Power Automate depend on the user maintaining an active Power Automate flow. If the flow is disabled or the user's Power Automate environment is restricted by an enterprise policy, the integration breaks silently.</li>
+<li><strong>Notification payload design is unspecified.</strong> The research identifies what metadata to include (title, tags, executive summary excerpt, wiki link) but does not specify the exact Block Kit JSON structure. This is implementation detail, not a research gap, but the payload must be validated against Slack's message size limits (not defined in this item).</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li><strong>Which platform does the owner use — Slack, Teams, or both?</strong> This is the prerequisite question for all implementation work. Recommend the owner answer this before any workflow is built. Could become a new backlog item: <code>2026-03-08-owner-platform-selection-chat-integration.md</code>, though it is more appropriate as a direct question to the owner.</li>
+<li><strong>Should the inbound GitHub issue workflow replace or extend the existing backlog item creation process?</strong> If implemented, the issue-to-backlog workflow would create files automatically; the owner's current manual process would become optional.</li>
+<li><strong>Is digest mode wanted at all, or is per-item notification sufficient?</strong> This is an owner preference question. No new backlog item needed — it can be decided when the notification workflow is implemented.</li>
+</ul>
+<hr />
+
+
+  </div>
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-02-transaction-costs.html">Transaction Cost Economics: foundations and speculative integration with SWE, AI, knowledge management, and context engineering</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-02-semantic-full-text-search.html">Semantic and full-text search over the research corpus</a></div>
+  </div>
+</main>
+</body>
+</html>

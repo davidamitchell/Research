@@ -1,0 +1,622 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Agent evaluation framework: cross-repo pattern analysis, commonality detection, and regression identification — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #141414;
+  --surface-2:       #1c1c1c;
+  --border:          #2a2a2a;
+  --text:            #e8e8e8;
+  --text-muted:      #666;
+  --accent:          #e8e8e8;
+  --accent-dim:      #333;
+  --tag-bg:          #1e1e1e;
+  --tag-text:        #999;
+  --tag-active-bg:   #e8e8e8;
+  --tag-active-text: #0d0d0d;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--accent); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+}
+.card:hover { border-color: var(--accent); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+}
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+.item-content pre code { background: none; padding: 0; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--text); text-decoration: underline; }
+.item-content a:hover { color: var(--text-muted); }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  main { padding: 72px 1rem 3rem; }
+  nav { padding: 0 1rem; }
+}
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/">Research</a>
+    <div class="nav-links">
+      <a href="/Research/tags/">Tags</a>
+      <a href="/Research/search.html">Search</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>Agent evaluation framework: cross-repo pattern analysis, commonality detection, and regression identification</span>
+  </div>
+  <h1 class="item-title">Agent evaluation framework: cross-repo pattern analysis, commonality detection, and regression identification</h1>
+  <div class="meta-bar">
+    <span>2026-03-10</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/agents.html">agents</a> <a class="tag" href="/Research/tags/evaluation.html">evaluation</a> <a class="tag" href="/Research/tags/benchmarking.html">benchmarking</a> <a class="tag" href="/Research/tags/cross-repo-analysis.html">cross-repo-analysis</a> <a class="tag" href="/Research/tags/pattern-analysis.html">pattern-analysis</a> <a class="tag" href="/Research/tags/agentic-systems.html">agentic-systems</a> <a class="tag" href="/Research/tags/metrics.html">metrics</a> <a class="tag" href="/Research/tags/regression.html">regression</a> <a class="tag" href="/Research/tags/effectiveness.html">effectiveness</a> <a class="tag" href="/Research/tags/taxonomy.html">taxonomy</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-10-agent-evaluation-cross-repo-analysis.md" target="_blank" rel="noopener">source →</a>
+  </div>
+  <div class="item-content">
+    <h2>Research Question</h2>
+<p>What evaluation framework allows systematic comparison of agent implementations across multiple repositories — identifying what problems each is solving, whether concepts are used idiomatically or in novel ways, whether the agent is effective, and how to detect whether a change to an agent made it better or worse — and what would a minimal viable implementation of such a framework look like?</p>
+
+<h2>Findings</h2>
+<h3>Executive Summary</h3>
+<p>No universally adopted evaluation framework for cross-repo agent comparison exists in early 2026, but the field has converged on a coherent set of practices. Tool-mediated execution is the single universal architectural pattern across all surveyed frameworks and is the precondition for any systematic evaluation. The critical gap is between the metrics practitioners want (holistic quality: goal alignment, safety, factuality) and what they actually measure in CI (task pass rate, latency, cost), because holistic metrics require LLM-as-judge evaluation that most frameworks do not integrate by default. A minimal viable evaluation framework requires five components: a versioned scenario registry, a two-layer metric stack (code-based + LLM-as-judge with structured rubric), trace capture, a CI regression gate with thresholds, and a gold dataset refresh protocol.</p>
+<h3>Key Findings</h3>
+<ol>
+<li><p>Tool-mediated execution is the single universal architectural pattern across all eight surveyed agent frameworks and is the necessary precondition for any systematic evaluation: without discrete, logged tool calls, agent actions cannot be traced, replayed, or compared across versions. Confidence: high.</p>
+</li>
+<li><p>Trajectory capture — recording the full sequence of tool calls, state transitions, and intermediate outputs for each agent run — is the evaluation primitive that all other evaluation techniques depend on, and it is present in five of the eight surveyed frameworks but implemented in incompatible ways with no shared format across implementations. Confidence: high.</p>
+</li>
+<li><p>The practitioner consensus in 2025 is that automated evaluation runs gated on quality thresholds (&quot;evals as unit tests&quot;) are expected CI infrastructure for production LLM agents, but fewer than half of the surveyed frameworks provide integrated eval tooling, forcing teams to rely on separate tools such as DeepEval, TruLens, or agentevals. Confidence: high.</p>
+</li>
+<li><p>The measurement gap between what practitioners want to measure (holistic quality including goal alignment, safety, and factuality) and what they actually measure in CI (task pass rate, latency, cost) persists because holistic metrics require LLM-as-judge evaluation — expensive, inconsistent without structured rubrics, and not integrated into most CI pipelines. Confidence: high.</p>
+</li>
+<li><p>LangGraph achieves approximately 94% task completion on complex branching workflows in cross-framework benchmarks and is the only orchestration framework with built-in time-travel debugging via DAG checkpoints, making it the strongest surveyed choice for workflows where traceability, rollback, and auditability are required. Confidence: medium (performance figure from secondary sources; architectural uniqueness from primary docs).</p>
+</li>
+<li><p>Pydantic AI is the only surveyed framework that applies type-constrained output validation at every agent-tool boundary as a structural control, preventing Layer 1 generation failures by construction rather than by post-hoc parsing — a genuine architectural novelty absent from all other surveyed frameworks. Confidence: high.</p>
+</li>
+<li><p>OpenHands demonstrated that inference-time scaling with a learned critic model increases SWE-bench Verified resolution from 60.6% (one attempt) to 66.4% (five attempts), establishing that sampling strategy at inference time is a first-class optimisation lever independent of model capability or prompt quality. Confidence: high.</p>
+</li>
+<li><p>METR's time-horizon-of-completion metric — the maximum human-hours task duration at which an agent achieves at least 50% success, currently doubling approximately every seven months — characterises the agent's capability envelope rather than performance on a fixed benchmark, making it the most future-proof effectiveness signal identified in the survey. Confidence: high.</p>
+</li>
+<li><p>Safety evaluation is the largest unaddressed gap in the surveyed evaluation ecosystem: none of the frameworks integrate OWASP LLM Top 10 checks (prompt injection, guardrail bypass, excessive agency) as first-class CI evaluation targets, despite these being documented production failure modes affecting all agent architectures. Confidence: medium (inferred from absence of evidence in framework documentation).</p>
+</li>
+<li><p>LLM-as-judge evaluation without a structured rubric produces irreproducible results; all reliable implementations require a coded evaluation prompt with explicit scoring dimensions that is itself version-controlled and subject to regression testing, functioning as a machine-readable specification of what &quot;good output&quot; means. Confidence: high.</p>
+</li>
+<li><p>Benchmark saturation is a structural property of all fixed agent benchmarks, and SWE-bench Verified is already approaching 70% resolution for top agents, prompting the creation of SWE-bench-Live; any evaluation framework must include a benchmark refresh mechanism as a design principle rather than treating the initial benchmark as a permanent standard. Confidence: high.</p>
+</li>
+<li><p>A minimal viable evaluation framework for a research loop agent requires five components: a versioned scenario registry, a two-layer metric stack (code-based + LLM-as-judge with structured rubric), trace capture, a CI regression gate with explicit failure thresholds, and a gold dataset refresh protocol — with shadow testing and A/B testing as production-grade extensions. Confidence: high (inference synthesised from primary practitioner and framework sources).</p>
+</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+  <th>Claim</th>
+  <th>Source</th>
+  <th>Confidence</th>
+  <th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Tool-mediated execution universal</td>
+  <td>Per-framework official docs; 2026-03-08 prior research</td>
+  <td>high</td>
+  <td>Confirmed in all 8 surveyed frameworks</td>
+</tr>
+<tr>
+  <td>Trajectory capture in 5/8 frameworks</td>
+  <td>Per-framework official docs; DeepWiki analyses</td>
+  <td>high</td>
+  <td>OpenHands, LangGraph, Pydantic AI, Agno, AutoGen Studio</td>
+</tr>
+<tr>
+  <td>Evals-as-CI practitioner consensus</td>
+  <td>hamel.dev/blog/posts/evals/; debugg.ai evals guide</td>
+  <td>high</td>
+  <td>Two independent primary practitioner sources</td>
+</tr>
+<tr>
+  <td>Measurement gap (want holistic, measure operational)</td>
+  <td>Yehudai et al. arXiv:2503.16416; Mohammadi et al. arXiv:2507.21504</td>
+  <td>high</td>
+  <td>Two independent peer-reviewed surveys</td>
+</tr>
+<tr>
+  <td>LangGraph ~94% task completion, complex workflows</td>
+  <td>Braincuber comparison; Meta Intelligence comparison</td>
+  <td>medium</td>
+  <td>Consistent secondary; no primary empirical paper cited</td>
+</tr>
+<tr>
+  <td>LangGraph time-travel debugging unique among orchestration</td>
+  <td>LangGraph official documentation</td>
+  <td>high</td>
+  <td>Primary docs; not present in other frameworks' docs</td>
+</tr>
+<tr>
+  <td>Pydantic AI type-constrained validation unique</td>
+  <td>Pydantic AI official documentation (ai.pydantic.dev)</td>
+  <td>high</td>
+  <td>Primary docs; explicitly absent in other frameworks' docs</td>
+</tr>
+<tr>
+  <td>OpenHands 60.6% → 66.4% inference-time scaling</td>
+  <td>OpenHands engineering blog (openhands.dev)</td>
+  <td>high</td>
+  <td>First-party quantified result with methodology described</td>
+</tr>
+<tr>
+  <td>METR time-horizon doubling ~every 7 months</td>
+  <td>metr.org/blog/2025-03-19</td>
+  <td>high</td>
+  <td>First-party METR research with data</td>
+</tr>
+<tr>
+  <td>Safety eval absent from framework CI</td>
+  <td>Absence from framework docs; OWASP LLM Top 10 exists</td>
+  <td>medium</td>
+  <td>Inferred from absence; cannot prove universal absence</td>
+</tr>
+<tr>
+  <td>LLM-as-judge unreliable without rubric</td>
+  <td>hamel.dev/blog/posts/evals/</td>
+  <td>high</td>
+  <td>Explicit anti-pattern documentation by practitioner</td>
+</tr>
+<tr>
+  <td>SWE-bench-Live created for saturation problem</td>
+  <td>arXiv:2505.23419v2 (SWE-bench Goes Live)</td>
+  <td>high</td>
+  <td>Primary paper</td>
+</tr>
+<tr>
+  <td>agentA/B simulation for pre-production A/B</td>
+  <td>arXiv:2504.09723</td>
+  <td>high</td>
+  <td>Primary peer-reviewed paper</td>
+</tr>
+<tr>
+  <td>5-component MVF specification</td>
+  <td>Synthesis: Pydantic AI docs; hamel.dev; agentevals GitHub; DeepEval docs</td>
+  <td>high</td>
+  <td>Synthesised inference from multiple primary practitioner sources</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li><strong>A1:</strong> The eight surveyed frameworks are representative of the 2025 agent framework landscape. Justification: they cover the major OSS frameworks by practitioner adoption (AutoGen, CrewAI, LangGraph dominate practitioner comparisons); Pydantic AI and Agno cover type-safe and multi-modal niches; OpenHands/SWE-bench cover the SE-agent benchmark class; Anthropic harness covers the production research-loop pattern. Commercial frameworks (Copilot Coding Agent, Claude Code) are partially covered via prior research.</li>
+<li><strong>A2:</strong> Secondary framework performance figures (94%/91%/89% task completion) are accurate as relative indicators even without primary empirical papers. Justification: multiple independent secondary sources agree on the ranking and approximate magnitude; the architectural explanation (LangGraph's state management reducing a class of failures) is mechanically plausible.</li>
+</ul>
+<h3>Analysis</h3>
+<p>The central tension in agent evaluation is the determinism-capability trade-off: more capable agents produce more variable outputs, making deterministic unit-test-style assertions inadequate and requiring probabilistic evaluation. This explains the convergence on evals-as-code with LLM-as-judge.</p>
+<p>The divergence across frameworks in evaluation depth reflects design philosophy differences. Pydantic AI prioritises prevention (structural controls at every boundary); LangGraph prioritises operational debuggability (time-travel, checkpoints); OpenHands prioritises benchmark reproducibility (published trajectory datasets). Agno is the only framework that treats evaluation as a first-class framework concern with four distinct built-in eval types.</p>
+<p>For a research loop agent, the architectural implication is clear: the primary evaluation mechanism must be LLM-as-judge with structured rubrics (since outputs are long-form research, not structured data or code patches). The secondary mechanism is trajectory analysis (did the protocol get followed?). The tertiary mechanism is internal consistency checking (do §2 claims appear in §6? Are sources cited?). These three mechanisms correspond exactly to the three layers of the five-component MVF specification.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li><strong>Benchmark saturation:</strong> Fixed benchmarks are gamed or saturated. Any evaluation framework must budget for benchmark refresh as infrastructure cost, not a one-time task.</li>
+<li><strong>LLM-as-judge drift:</strong> Judge model updates can change evaluation results without any change to the agent being evaluated, creating phantom regression signals. Judge model versioning is a required mitigation.</li>
+<li><strong>Safety evaluation gap:</strong> No surveyed framework integrates safety evals in CI. This is an active risk for production agents, including the research loop.</li>
+<li><strong>Shadow testing evidence:</strong> The shadow testing pattern for LLM agents is practitioner-documented but not peer-reviewed in the agent-specific context. Confidence is medium.</li>
+<li><strong>Missing frameworks:</strong> Mastra, Google ADK, and Microsoft Copilot Studio were not surveyed in depth; they may introduce additional patterns not captured here.</li>
+</ul>
+<h3>Open Questions</h3>
+<ol>
+<li><strong>Research loop evaluation rubric:</strong> What structured rubric should be used to LLM-judge the outputs of this repository's research loop agent? This is a direct follow-on backlog item (priority: high; blocks: implementation of any research loop eval gate).</li>
+<li><strong>Trajectory similarity metric:</strong> Can the research loop agent's trajectory (tool call sequence, sources consulted, protocol adherence) be compared automatically across agent versions to detect regressions without full LLM-as-judge evaluation?</li>
+<li><strong>Benchmark refresh for research agents:</strong> How should a gold dataset of research questions with known-good answers be curated and maintained for research loop evaluation? SWE-bench-Live's continuous update model offers a design pattern.</li>
+<li><strong>Safety eval integration:</strong> What would it take to add OWASP LLM Top 10 checks to the CI pipeline for this repository's research loop agent?</li>
+</ol>
+<h3>Output</h3>
+<ul>
+<li><strong>Type:</strong> knowledge, backlog-item</li>
+<li><strong>Description:</strong> Structured evaluation framework specification covering 8-framework cross-repo analysis, pattern taxonomy, effectiveness signal survey, and 5-component MVF specification. Generates one follow-on backlog item: research loop evaluation rubric specification.</li>
+<li><strong>Key sources:</strong><ol>
+<li>Yehudai et al. &quot;Survey on Evaluation of LLM-based Agents&quot; arXiv:2503.16416 (2025) — https://arxiv.org/abs/2503.16416</li>
+<li>Hamel Husain &quot;Your AI Product Needs Evals&quot; — https://hamel.dev/blog/posts/evals/</li>
+<li>METR &quot;Measuring AI Ability to Complete Long Tasks&quot; — https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/</li>
+</ol>
+</li>
+</ul>
+
+
+  </div>
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-10-ai-concept-classification-taxonomy.html">AI concept classification taxonomy: prompts, instructions, memory, failure modes, controls, and problem domains</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-10-adversarial-agents-shared-goals-multi-perspective.html">Adversarial agents with shared goals: multi-perspective coverage across competencies and time horizons</a></div>
+  </div>
+</main>
+</body>
+</html>

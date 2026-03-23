@@ -1,0 +1,1008 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Tags — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #141414;
+  --surface-2:       #1c1c1c;
+  --border:          #2a2a2a;
+  --text:            #e8e8e8;
+  --text-muted:      #666;
+  --accent:          #e8e8e8;
+  --accent-dim:      #333;
+  --tag-bg:          #1e1e1e;
+  --tag-text:        #999;
+  --tag-active-bg:   #e8e8e8;
+  --tag-active-text: #0d0d0d;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--accent); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+}
+.card:hover { border-color: var(--accent); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+}
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+.item-content pre code { background: none; padding: 0; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--text); text-decoration: underline; }
+.item-content a:hover { color: var(--text-muted); }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  main { padding: 72px 1rem 3rem; }
+  nav { padding: 0 1rem; }
+}
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/">Research</a>
+    <div class="nav-links">
+      <a href="/Research/tags/">Tags</a>
+      <a href="/Research/search.html">Search</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="tag-page-header">
+    <h1>Tags</h1>
+    <p class="page-subtitle">564 tags</p>
+    <a class="back-link" href="/Research/">← all research</a>
+  </div>
+  <ul class="tags-list">
+    <li><a class="tag" href="/Research/tags/access-control.html">access-control</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/actions.html">actions</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/active-inference.html">active-inference</a> <span class="tag-count">(2)</span></li>
+<li><a class="tag" href="/Research/tags/active-recall.html">active-recall</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/activity-based-costing.html">activity-based-costing</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/adam-smith.html">adam-smith</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/ado.html">ado</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/advanced-analytics.html">advanced-analytics</a> <span class="tag-count">(2)</span></li>
+<li><a class="tag" href="/Research/tags/adversarial.html">adversarial</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/adversarial-ai.html">adversarial-ai</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/adversarial-collaboration.html">adversarial-collaboration</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/agent.html">agent</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/agent-automation.html">agent-automation</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/agent-autonomy.html">agent-autonomy</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/agent-frameworks.html">agent-frameworks</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/agent-instructions.html">agent-instructions</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/agent-skills.html">agent-skills</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/agent-tooling.html">agent-tooling</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/agentic-ai.html">agentic-ai</a> <span class="tag-count">(2)</span></li>
+<li><a class="tag" href="/Research/tags/agentic-coding.html">agentic-coding</a> <span class="tag-count">(3)</span></li>
+<li><a class="tag" href="/Research/tags/agentic-swe.html">agentic-swe</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/agentic-systems.html">agentic-systems</a> <span class="tag-count">(8)</span></li>
+<li><a class="tag" href="/Research/tags/agentic-tarpit.html">agentic-tarpit</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/agents.html">agents</a> <span class="tag-count">(11)</span></li>
+<li><a class="tag" href="/Research/tags/ai.html">ai</a> <span class="tag-count">(7)</span></li>
+<li><a class="tag" href="/Research/tags/ai-agents.html">ai-agents</a> <span class="tag-count">(8)</span></li>
+<li><a class="tag" href="/Research/tags/ai-architecture.html">ai-architecture</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/ai-coding.html">ai-coding</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/ai-governance.html">ai-governance</a> <span class="tag-count">(3)</span></li>
+<li><a class="tag" href="/Research/tags/ai-native.html">ai-native</a> <span class="tag-count">(2)</span></li>
+<li><a class="tag" href="/Research/tags/ai-platform.html">ai-platform</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/ai-strategy.html">ai-strategy</a> <span class="tag-count">(11)</span></li>
+<li><a class="tag" href="/Research/tags/aider.html">aider</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/airflow.html">airflow</a> <span class="tag-count">(2)</span></li>
+<li><a class="tag" href="/Research/tags/algorithms.html">algorithms</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/alignment.html">alignment</a> <span class="tag-count">(8)</span></li>
+<li><a class="tag" href="/Research/tags/ambition.html">ambition</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/analytics.html">analytics</a> <span class="tag-count">(2)</span></li>
+<li><a class="tag" href="/Research/tags/anil-seth.html">anil-seth</a> <span class="tag-count">(5)</span></li>
+<li><a class="tag" href="/Research/tags/ansible.html">ansible</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/anthropic.html">anthropic</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/api-design.html">api-design</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/api-discovery.html">api-discovery</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/api-integration.html">api-integration</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/api-layer.html">api-layer</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/apm.html">apm</a> <span class="tag-count">(2)</span></li>
+<li><a class="tag" href="/Research/tags/application.html">application</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/application-portfolio.html">application-portfolio</a> <span class="tag-count">(2)</span></li>
+<li><a class="tag" href="/Research/tags/architecture.html">architecture</a> <span class="tag-count">(6)</span></li>
+<li><a class="tag" href="/Research/tags/architecture-governance.html">architecture-governance</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/artificial-intelligence.html">artificial-intelligence</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/artificial-intelligence-vendors.html">artificial-intelligence-vendors</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/arxiv.html">arxiv</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/assemblyai.html">assemblyai</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/assumptions.html">assumptions</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/attention.html">attention</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/authorization.html">authorization</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/automation.html">automation</a> <span class="tag-count">(3)</span></li>
+<li><a class="tag" href="/Research/tags/autonomous-development.html">autonomous-development</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/autonomous-research.html">autonomous-research</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/awesome-copilot.html">awesome-copilot</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/aws.html">aws</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/azure.html">azure</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/backlinks.html">backlinks</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/backlog-management.html">backlog-management</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/banking.html">banking</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/bbc.html">bbc</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/beast-machine.html">beast-machine</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/behaviour.html">behaviour</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/benchmarking.html">benchmarking</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/benchmarks.html">benchmarks</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/best-practices.html">best-practices</a> <span class="tag-count">(3)</span></li>
+<li><a class="tag" href="/Research/tags/bian.html">bian</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/blockchain.html">blockchain</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/bot.html">bot</a> <span class="tag-count">(3)</span></li>
+<li><a class="tag" href="/Research/tags/bpm.html">bpm</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/brooks-law.html">brooks-law</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/build-vs-buy.html">build-vs-buy</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/business-capability-model.html">business-capability-model</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/business-case.html">business-case</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/business-efficiency.html">business-efficiency</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/cannot-do-now.html">cannot-do-now</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/capability-modelling.html">capability-modelling</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/capacity-expansion.html">capacity-expansion</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/capture.html">capture</a> <span class="tag-count">(5)</span></li>
+<li><a class="tag" href="/Research/tags/case-studies.html">case-studies</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/chalmers.html">chalmers</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/change-management.html">change-management</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/chat.html">chat</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/chatgpt.html">chatgpt</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/checkpoint-resume.html">checkpoint-resume</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/ci.html">ci</a> <span class="tag-count">(2)</span></li>
+<li><a class="tag" href="/Research/tags/classification.html">classification</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/claude.html">claude</a> <span class="tag-count">(2)</span></li>
+<li><a class="tag" href="/Research/tags/claude-code.html">claude-code</a> <span class="tag-count">(3)</span></li>
+<li><a class="tag" href="/Research/tags/clean-architecture.html">clean-architecture</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/cline.html">cline</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/cloudflare.html">cloudflare</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/cmdb.html">cmdb</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/coase.html">coase</a> <span class="tag-count">(2)</span></li>
+<li><a class="tag" href="/Research/tags/code-generation.html">code-generation</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/codeql.html">codeql</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/coding.html">coding</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/cognition.html">cognition</a> <span class="tag-count">(3)</span></li>
+<li><a class="tag" href="/Research/tags/cognitive-debt.html">cognitive-debt</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/cognitive-science.html">cognitive-science</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/competency-coverage.html">competency-coverage</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/compliance.html">compliance</a> <span class="tag-count">(4)</span></li>
+<li><a class="tag" href="/Research/tags/compliance-automation.html">compliance-automation</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/compression.html">compression</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/concept-generation.html">concept-generation</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/concept-maps.html">concept-maps</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/concept-prediction.html">concept-prediction</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/configuration-management.html">configuration-management</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/confluence.html">confluence</a> <span class="tag-count">(3)</span></li>
+<li><a class="tag" href="/Research/tags/consciousness.html">consciousness</a> <span class="tag-count">(6)</span></li>
+<li><a class="tag" href="/Research/tags/consistency-checking.html">consistency-checking</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/context.html">context</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/context-architecture.html">context-architecture</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/context-engineering.html">context-engineering</a> <span class="tag-count">(4)</span></li>
+<li><a class="tag" href="/Research/tags/context-hub.html">context-hub</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/context-injection.html">context-injection</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/context-layering.html">context-layering</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/context-management.html">context-management</a> <span class="tag-count">(5)</span></li>
+<li><a class="tag" href="/Research/tags/context-window.html">context-window</a> <span class="tag-count">(3)</span></li>
+<li><a class="tag" href="/Research/tags/contracts.html">contracts</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/control-testing.html">control-testing</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/controlled-hallucination.html">controlled-hallucination</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/conversational-interface.html">conversational-interface</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/coordination-overhead.html">coordination-overhead</a> <span class="tag-count">(2)</span></li>
+<li><a class="tag" href="/Research/tags/copilot.html">copilot</a> <span class="tag-count">(2)</span></li>
+<li><a class="tag" href="/Research/tags/copilot-extension.html">copilot-extension</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/corpus.html">corpus</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/corpus-contamination.html">corpus-contamination</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/correctness.html">correctness</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/cost-allocation.html">cost-allocation</a> <span class="tag-count">(2)</span></li>
+<li><a class="tag" href="/Research/tags/coupling.html">coupling</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/coverage.html">coverage</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/cqrs.html">cqrs</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/cross-references.html">cross-references</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/cross-repo-analysis.html">cross-repo-analysis</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/cryptography.html">cryptography</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/csdm.html">csdm</a> <span class="tag-count">(4)</span></li>
+<li><a class="tag" href="/Research/tags/curation.html">curation</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/cursor.html">cursor</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/customisation.html">customisation</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/cybersecurity.html">cybersecurity</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/data-pipelines.html">data-pipelines</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/data-platform.html">data-platform</a> <span class="tag-count">(2)</span></li>
+<li><a class="tag" href="/Research/tags/data-visualisation.html">data-visualisation</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/dbt.html">dbt</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/ddd.html">ddd</a> <span class="tag-count">(2)</span></li>
+<li><a class="tag" href="/Research/tags/decision-framework.html">decision-framework</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/decision-making.html">decision-making</a> <span class="tag-count">(4)</span></li>
+<li><a class="tag" href="/Research/tags/declarative-agent.html">declarative-agent</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/deep-learning.html">deep-learning</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/delivery.html">delivery</a> <span class="tag-count">(4)</span></li>
+<li><a class="tag" href="/Research/tags/dependency-map.html">dependency-map</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/dependency-mapping.html">dependency-mapping</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/design-methodology.html">design-methodology</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/desire-paths.html">desire-paths</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/developer-productivity.html">developer-productivity</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/developer-tooling.html">developer-tooling</a> <span class="tag-count">(3)</span></li>
+<li><a class="tag" href="/Research/tags/dia.html">dia</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/dikw.html">dikw</a> <span class="tag-count">(3)</span></li>
+<li><a class="tag" href="/Research/tags/dimensionality-reduction.html">dimensionality-reduction</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/discovery.html">discovery</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/distribution.html">distribution</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/document-compression.html">document-compression</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/documentation.html">documentation</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/dora.html">dora</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/dotnet.html">dotnet</a> <span class="tag-count">(3)</span></li>
+<li><a class="tag" href="/Research/tags/dsl.html">dsl</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/dspy.html">dspy</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/dunbar-number.html">dunbar-number</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/dynatrace.html">dynatrace</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/economics.html">economics</a> <span class="tag-count">(3)</span></li>
+<li><a class="tag" href="/Research/tags/effectiveness.html">effectiveness</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/ego.html">ego</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/embeddings.html">embeddings</a> <span class="tag-count">(3)</span></li>
+<li><a class="tag" href="/Research/tags/embodied-cognition.html">embodied-cognition</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/enterprise.html">enterprise</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/enterprise-ai.html">enterprise-ai</a> <span class="tag-count">(3)</span></li>
+<li><a class="tag" href="/Research/tags/enterprise-architecture.html">enterprise-architecture</a> <span class="tag-count">(3)</span></li>
+<li><a class="tag" href="/Research/tags/entropy.html">entropy</a> <span class="tag-count">(2)</span></li>
+<li><a class="tag" href="/Research/tags/episodic-memory.html">episodic-memory</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/epistemics.html">epistemics</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/epistemology.html">epistemology</a> <span class="tag-count">(2)</span></li>
+<li><a class="tag" href="/Research/tags/error-bars.html">error-bars</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/evaluation.html">evaluation</a> <span class="tag-count">(5)</span></li>
+<li><a class="tag" href="/Research/tags/eventing.html">eventing</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/evidence.html">evidence</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/evolutionary-computation.html">evolutionary-computation</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/evolutionary-psychology.html">evolutionary-psychology</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/exploit-explore.html">exploit-explore</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/exploitation.html">exploitation</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/exploration.html">exploration</a> <span class="tag-count">(2)</span></li>
+<li><a class="tag" href="/Research/tags/failure-modes.html">failure-modes</a> <span class="tag-count">(4)</span></li>
+<li><a class="tag" href="/Research/tags/feasibility.html">feasibility</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/financial-forecasting.html">financial-forecasting</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/financial-services.html">financial-services</a> <span class="tag-count">(4)</span></li>
+<li><a class="tag" href="/Research/tags/fine-tuning.html">fine-tuning</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/fintech.html">fintech</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/first-principles.html">first-principles</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/fitness-functions.html">fitness-functions</a> <span class="tag-count">(2)</span></li>
+<li><a class="tag" href="/Research/tags/five-case-model.html">five-case-model</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/flow-designer.html">flow-designer</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/flow-metrics.html">flow-metrics</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/force-multiplier.html">force-multiplier</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/formal-methods.html">formal-methods</a> <span class="tag-count">(5)</span></li>
+<li><a class="tag" href="/Research/tags/formal-verification.html">formal-verification</a> <span class="tag-count">(2)</span></li>
+<li><a class="tag" href="/Research/tags/free-energy.html">free-energy</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/free-energy-principle.html">free-energy-principle</a> <span class="tag-count">(3)</span></li>
+<li><a class="tag" href="/Research/tags/free-tier.html">free-tier</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/frontier-models.html">frontier-models</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/fso.html">fso</a> <span class="tag-count">(2)</span></li>
+<li><a class="tag" href="/Research/tags/full-text-search.html">full-text-search</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/funding.html">funding</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/gartner.html">gartner</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/gemini.html">gemini</a> <span class="tag-count">(2)</span></li>
+<li><a class="tag" href="/Research/tags/genai.html">genai</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/genetic-algorithms.html">genetic-algorithms</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/ghas.html">ghas</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/git.html">git</a> <span class="tag-count">(2)</span></li>
+<li><a class="tag" href="/Research/tags/gitagent.html">gitagent</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/github.html">github</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/github-actions.html">github-actions</a> <span class="tag-count">(3)</span></li>
+<li><a class="tag" href="/Research/tags/github-api.html">github-api</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/github-copilot.html">github-copilot</a> <span class="tag-count">(6)</span></li>
+<li><a class="tag" href="/Research/tags/goal-alignment.html">goal-alignment</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/goal-modelling.html">goal-modelling</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/golang.html">golang</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/governance.html">governance</a> <span class="tag-count">(5)</span></li>
+<li><a class="tag" href="/Research/tags/graph-api.html">graph-api</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/graph-of-thoughts.html">graph-of-thoughts</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/graph-theory.html">graph-theory</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/graphrag.html">graphrag</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/grc.html">grc</a> <span class="tag-count">(3)</span></li>
+<li><a class="tag" href="/Research/tags/grounding.html">grounding</a> <span class="tag-count">(2)</span></li>
+<li><a class="tag" href="/Research/tags/guardrails.html">guardrails</a> <span class="tag-count">(2)</span></li>
+<li><a class="tag" href="/Research/tags/h-neurons.html">h-neurons</a> <span class="tag-count">(4)</span></li>
+<li><a class="tag" href="/Research/tags/hallucination.html">hallucination</a> <span class="tag-count">(2)</span></li>
+<li><a class="tag" href="/Research/tags/hallucinations.html">hallucinations</a> <span class="tag-count">(5)</span></li>
+<li><a class="tag" href="/Research/tags/hard-problem.html">hard-problem</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/headcount.html">headcount</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/headless-agents.html">headless-agents</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/hoshin-kanri.html">hoshin-kanri</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/hosting.html">hosting</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/human-nature.html">human-nature</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/iac.html">iac</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/ian-grigg.html">ian-grigg</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/ide.html">ide</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/idempotency.html">idempotency</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/identity.html">identity</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/incentives.html">incentives</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/indexing.html">indexing</a> <span class="tag-count">(2)</span></li>
+<li><a class="tag" href="/Research/tags/information-theory.html">information-theory</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/information-to-wisdom.html">information-to-wisdom</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/infrastructure.html">infrastructure</a> <span class="tag-count">(2)</span></li>
+<li><a class="tag" href="/Research/tags/infrastructure-as-code.html">infrastructure-as-code</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/infrastructure-costing.html">infrastructure-costing</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/inspiration.html">inspiration</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/institutional-economics.html">institutional-economics</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/institutions.html">institutions</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/instructions.html">instructions</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/integration.html">integration</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/intent.html">intent</a> <span class="tag-count">(3)</span></li>
+<li><a class="tag" href="/Research/tags/intent-alignment.html">intent-alignment</a> <span class="tag-count">(3)</span></li>
+<li><a class="tag" href="/Research/tags/intent-engineering.html">intent-engineering</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/interface.html">interface</a> <span class="tag-count">(4)</span></li>
+<li><a class="tag" href="/Research/tags/internal-audit.html">internal-audit</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/interoception.html">interoception</a> <span class="tag-count">(2)</span></li>
+<li><a class="tag" href="/Research/tags/interventions.html">interventions</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/invariants.html">invariants</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/ios.html">ios</a> <span class="tag-count">(3)</span></li>
+<li><a class="tag" href="/Research/tags/irm.html">irm</a> <span class="tag-count">(2)</span></li>
+<li><a class="tag" href="/Research/tags/iso-27001.html">iso-27001</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/it-architecture.html">it-architecture</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/it-finance.html">it-finance</a> <span class="tag-count">(2)</span></li>
+<li><a class="tag" href="/Research/tags/it-run-costs.html">it-run-costs</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/it-strategy.html">it-strategy</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/itsm.html">itsm</a> <span class="tag-count">(3)</span></li>
+<li><a class="tag" href="/Research/tags/jepa.html">jepa</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/jevons-paradox.html">jevons-paradox</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/jira.html">jira</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/jupyter.html">jupyter</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/kafka.html">kafka</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/karl-friston.html">karl-friston</a> <span class="tag-count">(2)</span></li>
+<li><a class="tag" href="/Research/tags/knowledge.html">knowledge</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/knowledge-architecture.html">knowledge-architecture</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/knowledge-base.html">knowledge-base</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/knowledge-decay.html">knowledge-decay</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/knowledge-graph.html">knowledge-graph</a> <span class="tag-count">(2)</span></li>
+<li><a class="tag" href="/Research/tags/knowledge-graphs.html">knowledge-graphs</a> <span class="tag-count">(2)</span></li>
+<li><a class="tag" href="/Research/tags/knowledge-integration.html">knowledge-integration</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/knowledge-layering.html">knowledge-layering</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/knowledge-management.html">knowledge-management</a> <span class="tag-count">(10)</span></li>
+<li><a class="tag" href="/Research/tags/knowledge-sharing.html">knowledge-sharing</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/kubernetes.html">kubernetes</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/lancedb.html">lancedb</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/large-language-model.html">large-language-model</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/latent-concepts.html">latent-concepts</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/layer-5.html">layer-5</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/layered-llm.html">layered-llm</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/lean.html">lean</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/learning.html">learning</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/least-privilege.html">least-privilege</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/legal-technology.html">legal-technology</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/life.html">life</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/line-1.html">line-1</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/line-2.html">line-2</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/linking.html">linking</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/lisa-planning.html">lisa-planning</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/llm.html">llm</a> <span class="tag-count">(13)</span></li>
+<li><a class="tag" href="/Research/tags/llm-as-judge.html">llm-as-judge</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/llm-code-generation.html">llm-code-generation</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/log-aggregation.html">log-aggregation</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/loop-reliability.html">loop-reliability</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/lsa.html">lsa</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/lse.html">lse</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/lsp.html">lsp</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/machine-learning.html">machine-learning</a> <span class="tag-count">(3)</span></li>
+<li><a class="tag" href="/Research/tags/maturity-assessment.html">maturity-assessment</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/mbie.html">mbie</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/mcp.html">mcp</a> <span class="tag-count">(6)</span></li>
+<li><a class="tag" href="/Research/tags/mechanistic-interpretability.html">mechanistic-interpretability</a> <span class="tag-count">(5)</span></li>
+<li><a class="tag" href="/Research/tags/memory.html">memory</a> <span class="tag-count">(5)</span></li>
+<li><a class="tag" href="/Research/tags/memory-system.html">memory-system</a> <span class="tag-count">(8)</span></li>
+<li><a class="tag" href="/Research/tags/memory-systems.html">memory-systems</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/meta.html">meta</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/metrics.html">metrics</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/microsoft-365.html">microsoft-365</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/military.html">military</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/mitre-atlas.html">mitre-atlas</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/mobile.html">mobile</a> <span class="tag-count">(7)</span></li>
+<li><a class="tag" href="/Research/tags/model-context-protocol.html">model-context-protocol</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/model-risk.html">model-risk</a> <span class="tag-count">(2)</span></li>
+<li><a class="tag" href="/Research/tags/model-selection.html">model-selection</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/monitoring.html">monitoring</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/moral-philosophy.html">moral-philosophy</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/ms-teams.html">ms-teams</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/multi-agent.html">multi-agent</a> <span class="tag-count">(3)</span></li>
+<li><a class="tag" href="/Research/tags/multi-repo.html">multi-repo</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/multi-session.html">multi-session</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/munger.html">munger</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/ncino.html">ncino</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/network-theory.html">network-theory</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/neuroscience.html">neuroscience</a> <span class="tag-count">(5)</span></li>
+<li><a class="tag" href="/Research/tags/new-zealand.html">new-zealand</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/next-token-prediction.html">next-token-prediction</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/nist.html">nist</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/nlp.html">nlp</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/normative-systems.html">normative-systems</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/north.html">north</a> <span class="tag-count">(2)</span></li>
+<li><a class="tag" href="/Research/tags/notifications.html">notifications</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/now-assist.html">now-assist</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/nz-specific.html">nz-specific</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/observability.html">observability</a> <span class="tag-count">(2)</span></li>
+<li><a class="tag" href="/Research/tags/obsidian.html">obsidian</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/okrs.html">okrs</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/openai.html">openai</a> <span class="tag-count">(2)</span></li>
+<li><a class="tag" href="/Research/tags/opencode.html">opencode</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/operational-failures.html">operational-failures</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/operational-risk.html">operational-risk</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/operations.html">operations</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/optimisation.html">optimisation</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/optimization.html">optimization</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/org-design.html">org-design</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/organisational-behaviour.html">organisational-behaviour</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/organisational-context.html">organisational-context</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/organisational-design.html">organisational-design</a> <span class="tag-count">(5)</span></li>
+<li><a class="tag" href="/Research/tags/organisational-learning.html">organisational-learning</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/organisational-strategy.html">organisational-strategy</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/organisational-theory.html">organisational-theory</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/organisations.html">organisations</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/organizational-learning.html">organizational-learning</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/oss.html">oss</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/ostrom.html">ostrom</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/out-of-the-tar-pit.html">out-of-the-tar-pit</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/output.html">output</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/output-language.html">output-language</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/over-compliance.html">over-compliance</a> <span class="tag-count">(3)</span></li>
+<li><a class="tag" href="/Research/tags/owasp.html">owasp</a> <span class="tag-count">(2)</span></li>
+<li><a class="tag" href="/Research/tags/parameter-efficient-fine-tuning.html">parameter-efficient-fine-tuning</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/pattern-analysis.html">pattern-analysis</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/pca.html">pca</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/peer-review.html">peer-review</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/perception.html">perception</a> <span class="tag-count">(2)</span></li>
+<li><a class="tag" href="/Research/tags/performance.html">performance</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/phenomenology.html">phenomenology</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/philosophy-of-mind.html">philosophy-of-mind</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/pkm.html">pkm</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/platform-strategy.html">platform-strategy</a> <span class="tag-count">(2)</span></li>
+<li><a class="tag" href="/Research/tags/policy.html">policy</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/policy-as-code.html">policy-as-code</a> <span class="tag-count">(3)</span></li>
+<li><a class="tag" href="/Research/tags/policy-enforcement.html">policy-enforcement</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/portability.html">portability</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/portfolio.html">portfolio</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/portfolio-planning.html">portfolio-planning</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/pre-training.html">pre-training</a> <span class="tag-count">(3)</span></li>
+<li><a class="tag" href="/Research/tags/predictive-coding.html">predictive-coding</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/predictive-processing.html">predictive-processing</a> <span class="tag-count">(5)</span></li>
+<li><a class="tag" href="/Research/tags/prefrontal-cortex.html">prefrontal-cortex</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/prioritisation.html">prioritisation</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/process-mapping.html">process-mapping</a> <span class="tag-count">(2)</span></li>
+<li><a class="tag" href="/Research/tags/process-mining.html">process-mining</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/procter-and-gamble-study.html">procter-and-gamble-study</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/procurement.html">procurement</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/production-agents.html">production-agents</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/productivity.html">productivity</a> <span class="tag-count">(3)</span></li>
+<li><a class="tag" href="/Research/tags/programming-languages.html">programming-languages</a> <span class="tag-count">(2)</span></li>
+<li><a class="tag" href="/Research/tags/project-development.html">project-development</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/prompt-engineering.html">prompt-engineering</a> <span class="tag-count">(5)</span></li>
+<li><a class="tag" href="/Research/tags/prompt-injection.html">prompt-injection</a> <span class="tag-count">(3)</span></li>
+<li><a class="tag" href="/Research/tags/prompting-techniques.html">prompting-techniques</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/prompts.html">prompts</a> <span class="tag-count">(2)</span></li>
+<li><a class="tag" href="/Research/tags/proof-driven-development.html">proof-driven-development</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/proof-engineering.html">proof-engineering</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/provenance.html">provenance</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/prudential-regulation.html">prudential-regulation</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/psychology.html">psychology</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/public-sector.html">public-sector</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/python.html">python</a> <span class="tag-count">(2)</span></li>
+<li><a class="tag" href="/Research/tags/quality.html">quality</a> <span class="tag-count">(2)</span></li>
+<li><a class="tag" href="/Research/tags/quality-assurance.html">quality-assurance</a> <span class="tag-count">(2)</span></li>
+<li><a class="tag" href="/Research/tags/quality-gate.html">quality-gate</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/quint.html">quint</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/rag.html">rag</a> <span class="tag-count">(12)</span></li>
+<li><a class="tag" href="/Research/tags/ralph-loop.html">ralph-loop</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/rbnz.html">rbnz</a> <span class="tag-count">(2)</span></li>
+<li><a class="tag" href="/Research/tags/rds.html">rds</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/react.html">react</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/rebound-effect.html">rebound-effect</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/recall.html">recall</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/red-team.html">red-team</a> <span class="tag-count">(2)</span></li>
+<li><a class="tag" href="/Research/tags/regression.html">regression</a> <span class="tag-count">(2)</span></li>
+<li><a class="tag" href="/Research/tags/regulation.html">regulation</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/regulatory.html">regulatory</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/reinforcement-learning.html">reinforcement-learning</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/reliability.html">reliability</a> <span class="tag-count">(6)</span></li>
+<li><a class="tag" href="/Research/tags/repo-setup.html">repo-setup</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/reporting.html">reporting</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/research-agenda.html">research-agenda</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/research-drift.html">research-drift</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/research-loop.html">research-loop</a> <span class="tag-count">(2)</span></li>
+<li><a class="tag" href="/Research/tags/research-methodology.html">research-methodology</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/research-prompt.html">research-prompt</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/resource-allocation.html">resource-allocation</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/rest-api.html">rest-api</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/retention.html">retention</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/retrieval.html">retrieval</a> <span class="tag-count">(2)</span></li>
+<li><a class="tag" href="/Research/tags/retrieval-augmented-generation.html">retrieval-augmented-generation</a> <span class="tag-count">(3)</span></li>
+<li><a class="tag" href="/Research/tags/revenue-per-employee.html">revenue-per-employee</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/reward-hacking.html">reward-hacking</a> <span class="tag-count">(3)</span></li>
+<li><a class="tag" href="/Research/tags/ricardian-contracts.html">ricardian-contracts</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/risk-agents.html">risk-agents</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/risk-management.html">risk-management</a> <span class="tag-count">(3)</span></li>
+<li><a class="tag" href="/Research/tags/rlhf.html">rlhf</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/rubric.html">rubric</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/run-build.html">run-build</a> <span class="tag-count">(2)</span></li>
+<li><a class="tag" href="/Research/tags/saas.html">saas</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/sabsa.html">sabsa</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/safety.html">safety</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/salesforce.html">salesforce</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/sarif.html">sarif</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/sdlc.html">sdlc</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/search.html">search</a> <span class="tag-count">(3)</span></li>
+<li><a class="tag" href="/Research/tags/security.html">security</a> <span class="tag-count">(5)</span></li>
+<li><a class="tag" href="/Research/tags/self.html">self</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/self-hosted.html">self-hosted</a> <span class="tag-count">(3)</span></li>
+<li><a class="tag" href="/Research/tags/self-improvement.html">self-improvement</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/semantic-search.html">semantic-search</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/serverless.html">serverless</a> <span class="tag-count">(2)</span></li>
+<li><a class="tag" href="/Research/tags/servicenow.html">servicenow</a> <span class="tag-count">(4)</span></li>
+<li><a class="tag" href="/Research/tags/shared-context.html">shared-context</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/sharepoint.html">sharepoint</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/shortcuts.html">shortcuts</a> <span class="tag-count">(2)</span></li>
+<li><a class="tag" href="/Research/tags/siri.html">siri</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/skills.html">skills</a> <span class="tag-count">(5)</span></li>
+<li><a class="tag" href="/Research/tags/slack.html">slack</a> <span class="tag-count">(2)</span></li>
+<li><a class="tag" href="/Research/tags/smart-contracts.html">smart-contracts</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/snowflake.html">snowflake</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/software-engineering.html">software-engineering</a> <span class="tag-count">(8)</span></li>
+<li><a class="tag" href="/Research/tags/software-reliability.html">software-reliability</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/solid.html">solid</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/spaced-repetition.html">spaced-repetition</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/specification-driven-development.html">specification-driven-development</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/specify.html">specify</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/spm.html">spm</a> <span class="tag-count">(2)</span></li>
+<li><a class="tag" href="/Research/tags/standards.html">standards</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/state-management.html">state-management</a> <span class="tag-count">(2)</span></li>
+<li><a class="tag" href="/Research/tags/static-analysis.html">static-analysis</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/static-site.html">static-site</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/statistics.html">statistics</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/steering.html">steering</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/strategy.html">strategy</a> <span class="tag-count">(5)</span></li>
+<li><a class="tag" href="/Research/tags/strike-team.html">strike-team</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/structured-output.html">structured-output</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/supadata.html">supadata</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/superpowers.html">superpowers</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/swarm-intelligence.html">swarm-intelligence</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/swat.html">swat</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/swe.html">swe</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/sycophancy.html">sycophancy</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/synthesis.html">synthesis</a> <span class="tag-count">(5)</span></li>
+<li><a class="tag" href="/Research/tags/synthetic-data.html">synthetic-data</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/taxonomy.html">taxonomy</a> <span class="tag-count">(3)</span></li>
+<li><a class="tag" href="/Research/tags/tbc-framework.html">tbc-framework</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/tbm.html">tbm</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/tco.html">tco</a> <span class="tag-count">(2)</span></li>
+<li><a class="tag" href="/Research/tags/tdd.html">tdd</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/team-size.html">team-size</a> <span class="tag-count">(2)</span></li>
+<li><a class="tag" href="/Research/tags/team-topologies.html">team-topologies</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/technical-capability-model.html">technical-capability-model</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/technology-adoption.html">technology-adoption</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/technology-forecasting.html">technology-forecasting</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/telegram.html">telegram</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/terraform.html">terraform</a> <span class="tag-count">(2)</span></li>
+<li><a class="tag" href="/Research/tags/test-driven-development.html">test-driven-development</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/testing.html">testing</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/thermodynamics.html">thermodynamics</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/threat-detection.html">threat-detection</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/three-lines-model.html">three-lines-model</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/throughput.html">throughput</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/time-horizons.html">time-horizons</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/tmf.html">tmf</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/togaf.html">togaf</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/token-prediction.html">token-prediction</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/tool-design.html">tool-design</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/tooling.html">tooling</a> <span class="tag-count">(7)</span></li>
+<li><a class="tag" href="/Research/tags/tools.html">tools</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/total-cost-of-ownership.html">total-cost-of-ownership</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/training-dynamics.html">training-dynamics</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/transaction-costs.html">transaction-costs</a> <span class="tag-count">(2)</span></li>
+<li><a class="tag" href="/Research/tags/transcripts.html">transcripts</a> <span class="tag-count">(3)</span></li>
+<li><a class="tag" href="/Research/tags/triage.html">triage</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/trust.html">trust</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/trustworthy-ai.html">trustworthy-ai</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/type-theory.html">type-theory</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/uncertainty-modelling.html">uncertainty-modelling</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/use-cases.html">use-cases</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/ux.html">ux</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/values-alignment.html">values-alignment</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/vector-db.html">vector-db</a> <span class="tag-count">(2)</span></li>
+<li><a class="tag" href="/Research/tags/vector-search.html">vector-search</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/verification.html">verification</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/vision-language.html">vision-language</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/volume.html">volume</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/waivers.html">waivers</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/web-search.html">web-search</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/whisper.html">whisper</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/wiki.html">wiki</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/williamson.html">williamson</a> <span class="tag-count">(2)</span></li>
+<li><a class="tag" href="/Research/tags/wisdom.html">wisdom</a> <span class="tag-count">(2)</span></li>
+<li><a class="tag" href="/Research/tags/work-tracking.html">work-tracking</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/workflow.html">workflow</a> <span class="tag-count">(3)</span></li>
+<li><a class="tag" href="/Research/tags/workflows.html">workflows</a> <span class="tag-count">(2)</span></li>
+<li><a class="tag" href="/Research/tags/working-memory.html">working-memory</a> <span class="tag-count">(2)</span></li>
+<li><a class="tag" href="/Research/tags/world-models.html">world-models</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/yann-lecun.html">yann-lecun</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/youtube.html">youtube</a> <span class="tag-count">(4)</span></li>
+<li><a class="tag" href="/Research/tags/yt-dlp.html">yt-dlp</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/zero-trust.html">zero-trust</a> <span class="tag-count">(1)</span></li>
+<li><a class="tag" href="/Research/tags/zettelkasten.html">zettelkasten</a> <span class="tag-count">(1)</span></li>
+
+  </ul>
+</main>
+</body>
+</html>

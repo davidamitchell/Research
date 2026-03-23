@@ -1,0 +1,1949 @@
+[
+  {
+    "slug": "2026-03-22-using-awesome-copilot-across-repos",
+    "title": "How to best use awesome-copilot in this repo and across personal repos",
+    "tags": [
+      "github-copilot",
+      "awesome-copilot",
+      "instructions",
+      "skills",
+      "agents",
+      "workflows",
+      "tooling",
+      "repo-setup"
+    ],
+    "added": "2026-03-22",
+    "question_excerpt": "What resources from `davidamitchell/awesome-copilot` — GitHub Copilot (GHC) instructions, skills, agents, workflows, hooks, and plugins — provide the most leverage when applied to this Research repo a",
+    "url": "/Research/research/2026-03-22-using-awesome-copilot-across-repos.html"
+  },
+  {
+    "slug": "2026-03-22-cross-scanner-compliance-evidence-normalisation",
+    "title": "Cross-Scanner Compliance Evidence and Waiver Normalisation in GitHub Actions",
+    "tags": [
+      "github-actions",
+      "compliance",
+      "policy-as-code",
+      "evidence",
+      "waivers",
+      "sarif",
+      "governance",
+      "reporting"
+    ],
+    "added": "2026-03-22",
+    "question_excerpt": "How should an organisation running multiple compliance scanners in GitHub Actions normalise evidence, severity, waiver handling, and developer-facing output so that heterogeneous tools behave like one",
+    "url": "/Research/research/2026-03-22-cross-scanner-compliance-evidence-normalisation.html"
+  },
+  {
+    "slug": "2026-03-22-compliance-scanning-gh-actions",
+    "title": "Compliance Scanning via GitHub Actions — Broad Policy as Code Across a Heterogeneous Stack",
+    "tags": [
+      "github-actions",
+      "policy-as-code",
+      "compliance",
+      "codeql",
+      "ghas",
+      "dotnet",
+      "kubernetes",
+      "eventing",
+      "rest-api",
+      "graph-api",
+      "python",
+      "react",
+      "airflow",
+      "dbt",
+      "snowflake",
+      "rds",
+      "golang",
+      "terraform",
+      "ansible"
+    ],
+    "added": "2026-03-22",
+    "question_excerpt": "How can GitHub Actions (with GitHub Advanced Security (GHAS) and CodeQL already enabled) be extended to enforce a broad, organisation-wide compliance policy — covering naming conventions, architectura",
+    "url": "/Research/research/2026-03-22-compliance-scanning-gh-actions.html"
+  },
+  {
+    "slug": "2026-03-22-coding-ai-agent-skills-survey",
+    "title": "Coding AI Agent Skills Survey: Existing Vendor and OSS Prompt Libraries for Software Engineering Domains",
+    "tags": [
+      "ai-agents",
+      "copilot",
+      "skills",
+      "prompts",
+      "software-engineering",
+      "dotnet",
+      "python",
+      "ddd",
+      "cqrs",
+      "clean-architecture",
+      "solid",
+      "api-design",
+      "testing",
+      "security",
+      "kafka",
+      "airflow",
+      "data-pipelines",
+      "data-visualisation",
+      "jupyter"
+    ],
+    "added": "2026-03-22",
+    "question_excerpt": "What actively maintained, publicly available agent skills, prompt libraries, instructions files, and system prompts exist — from vendors such as Microsoft and from the Open Source Software (OSS) commu",
+    "url": "/Research/research/2026-03-22-coding-ai-agent-skills-survey.html"
+  },
+  {
+    "slug": "2026-03-22-code-architecture-inspection",
+    "title": "Code Architecture Inspection Across Repositories",
+    "tags": [
+      "architecture",
+      "static-analysis",
+      "multi-repo",
+      "coupling",
+      "standards",
+      "github-copilot",
+      "tooling"
+    ],
+    "added": "2026-03-22",
+    "question_excerpt": "What practical implementation approaches exist for automatically inspecting and understanding how a set of repositories is architected, how they relate to and couple with each other, and whether they",
+    "url": "/Research/research/2026-03-22-code-architecture-inspection.html"
+  },
+  {
+    "slug": "2026-03-22-applied-context-engineering-agent-workflows",
+    "title": "Applied context engineering: skills, workflows, and best practices for agent development",
+    "tags": [
+      "context-engineering",
+      "agent-skills",
+      "workflows",
+      "best-practices",
+      "multi-agent",
+      "memory-systems",
+      "tool-design",
+      "project-development",
+      "evaluation",
+      "production-agents"
+    ],
+    "added": "2026-03-22",
+    "question_excerpt": "What practical patterns, workflow best practices, and agent development guidelines emerge from synthesising the `muratcankoylan/Agent-Skills-for-Context-Engineering` skill library with the context eng",
+    "url": "/Research/research/2026-03-22-applied-context-engineering-agent-workflows.html"
+  },
+  {
+    "slug": "2026-03-21-technology-capability-models",
+    "title": "Technology Capability Models: Survey, Comparison, and Recommendation for Multi-Level IT Capability Mapping",
+    "tags": [
+      "capability-modelling",
+      "enterprise-architecture",
+      "togaf",
+      "sabsa",
+      "bian",
+      "tmf",
+      "csdm",
+      "business-capability-model",
+      "technical-capability-model",
+      "dependency-map",
+      "maturity-assessment",
+      "it-architecture",
+      "it-strategy"
+    ],
+    "added": "2026-03-21",
+    "question_excerpt": "What established and emerging IT capability models define a complete, multi-level set of technical capabilities - such as authentication, networking, Application Programming Interface (API) gateways,",
+    "url": "/Research/research/2026-03-21-technology-capability-models.html"
+  },
+  {
+    "slug": "2026-03-21-dependency-mapping-dotnet-terraform-dynatrace",
+    "title": "Dependency Mapping Across .NET Codebases, Terraform, Dynatrace, Confluence, Log Aggregation, and the Configuration and Service Data Model (CSDM)",
+    "tags": [
+      "dependency-mapping",
+      "dotnet",
+      "terraform",
+      "dynatrace",
+      "confluence",
+      "log-aggregation",
+      "csdm",
+      "architecture",
+      "discovery",
+      "agents",
+      "observability",
+      "infrastructure-as-code"
+    ],
+    "added": "2026-03-21",
+    "question_excerpt": "What practical tools and methodologies are being used to map dependencies across .NET codebases, Terraform configurations, Dynatrace Application Performance Management (APM) monitoring, and solution d",
+    "url": "/Research/research/2026-03-21-dependency-mapping-dotnet-terraform-dynatrace.html"
+  },
+  {
+    "slug": "2026-03-19-layered-org-llm-architecture",
+    "title": "Layered Organisation Large Language Model: Feasibility and Architecture of Organisation-Customised LLMs",
+    "tags": [
+      "llm",
+      "rag",
+      "fine-tuning",
+      "enterprise-ai",
+      "knowledge-management",
+      "organisational-context",
+      "architecture",
+      "feasibility",
+      "concept-generation",
+      "customisation",
+      "layered-llm",
+      "retrieval-augmented-generation",
+      "parameter-efficient-fine-tuning"
+    ],
+    "added": "2026-03-19",
+    "question_excerpt": "Is it technically feasible and economically viable for an organisation to build a customised Large Language Model (LLM) layer that injects and optimises over organisation-specific context - internal k",
+    "url": "/Research/research/2026-03-19-layered-org-llm-architecture.html"
+  },
+  {
+    "slug": "2026-03-18-stateless-agent-assumption-failure",
+    "title": "Stateless-agent assumption failure: causes, detection, and recovery patterns for orphaned state in multi-session agentic workflows",
+    "tags": [
+      "failure-modes",
+      "agentic-systems",
+      "operational-failures",
+      "layer-5",
+      "state-management",
+      "idempotency",
+      "checkpoint-resume",
+      "multi-session",
+      "workflow"
+    ],
+    "added": "2026-03-18",
+    "question_excerpt": "When an agentic workflow spans multiple session boundaries — each session starting with a fresh context window and no memory of prior runs — what are the mechanisms by which external state becomes orp",
+    "url": "/Research/research/2026-03-18-stateless-agent-assumption-failure.html"
+  },
+  {
+    "slug": "2026-03-18-human-brain-prediction-machines",
+    "title": "Are Human Brains Just Prediction Machines? Comparing Predictive Processing and Large Language Model Next-Token Generation",
+    "tags": [
+      "neuroscience",
+      "cognitive-science",
+      "llm",
+      "predictive-processing",
+      "predictive-coding",
+      "next-token-prediction",
+      "world-models",
+      "consciousness",
+      "free-energy-principle"
+    ],
+    "added": "2026-03-18",
+    "question_excerpt": "What is the fundamental difference between the predictive processing account of human cognition — in which the brain continuously generates and updates a generative model of the world — and Large Lang",
+    "url": "/Research/research/2026-03-18-human-brain-prediction-machines.html"
+  },
+  {
+    "slug": "2026-03-18-formal-proof-engineering-leanstral",
+    "title": "More formal proof engineering: Leanstral and Artificial Intelligence (AI)-assisted formal verification",
+    "tags": [
+      "formal-methods",
+      "formal-verification",
+      "lean",
+      "proof-engineering",
+      "ai-agents",
+      "guardrails",
+      "agent-autonomy",
+      "software-reliability",
+      "trustworthy-ai"
+    ],
+    "added": "2026-03-18",
+    "question_excerpt": "What does Leanstral - an open-source agent for formal proof engineering - offer as a practical path to trustworthy, formally verified software built with Artificial Intelligence (AI) assistance, and h",
+    "url": "/Research/research/2026-03-18-formal-proof-engineering-leanstral.html"
+  },
+  {
+    "slug": "2026-03-18-explore-to-exploit-synthesis-gap",
+    "title": "Explore to exploit: the synthesis step that makes exploitation pay off",
+    "tags": [
+      "strategy",
+      "exploration",
+      "exploitation",
+      "synthesis",
+      "technology-adoption",
+      "portfolio",
+      "decision-making",
+      "organizational-learning"
+    ],
+    "added": "2026-03-18",
+    "question_excerpt": "When technology is moving fast, what is the synthesis step between exploration and exploitation, why is it so commonly skipped, what are the costs of skipping it, and what strategies allow organisatio",
+    "url": "/Research/research/2026-03-18-explore-to-exploit-synthesis-gap.html"
+  },
+  {
+    "slug": "2026-03-18-api-context-hubs-rag-mcp",
+    "title": "Application Programming Interface (API) Context Hubs, Retrieval-Augmented Generation, and the Model Context Protocol: How Agents Discover and Use APIs",
+    "tags": [
+      "api-discovery",
+      "context-hub",
+      "rag",
+      "mcp",
+      "model-context-protocol",
+      "retrieval-augmented-generation",
+      "agents",
+      "tooling",
+      "ai-agents",
+      "api-integration"
+    ],
+    "added": "2026-03-18",
+    "question_excerpt": "What approaches are being used to enable Artificial Intelligence (AI) agents to discover, understand, and invoke external Application Programming Interfaces (APIs), and how do the three major emerging",
+    "url": "/Research/research/2026-03-18-api-context-hubs-rag-mcp.html"
+  },
+  {
+    "slug": "2026-03-17-ai-memory-systems-rag-neuroscience",
+    "title": "Artificial Intelligence (AI) Memory Systems: Retrieval-Augmented Generation (RAG), Vendor Implementations, and Neuroscience Foundations",
+    "tags": [
+      "memory",
+      "retrieval-augmented-generation",
+      "neuroscience",
+      "artificial-intelligence-vendors",
+      "github-copilot",
+      "gemini",
+      "claude",
+      "episodic-memory",
+      "working-memory",
+      "knowledge-management"
+    ],
+    "added": "2026-03-17",
+    "question_excerpt": "What is the current state of Artificial Intelligence (AI) memory systems — across Retrieval-Augmented Generation (RAG) research, commercial AI vendor implementations (GitHub Copilot, Gemini, Claude, a",
+    "url": "/Research/research/2026-03-17-ai-memory-systems-rag-neuroscience.html"
+  },
+  {
+    "slug": "2026-03-16-vl-jepa-concept-prediction",
+    "title": "Vision-Language Joint Embedding Predictive Architecture (VL-JEPA) and concept prediction: background and options for leveraging with frontier models",
+    "tags": [
+      "machine-learning",
+      "vision-language",
+      "jepa",
+      "meta",
+      "yann-lecun",
+      "concept-prediction",
+      "frontier-models",
+      "github-copilot",
+      "claude-code",
+      "agentic-coding",
+      "ai-architecture"
+    ],
+    "added": "2026-03-16",
+    "question_excerpt": "What is Vision-Language Joint Embedding Predictive Architecture (VL-JEPA) - specifically its concept prediction mechanism - and what practical options exist for a developer consumer of existing fronti",
+    "url": "/Research/research/2026-03-16-vl-jepa-concept-prediction.html"
+  },
+  {
+    "slug": "2026-03-16-intent-driven-development",
+    "title": "Intent Driven Development: context and concept layering to bound the solution space",
+    "tags": [
+      "intent",
+      "software-engineering",
+      "test-driven-development",
+      "specification-driven-development",
+      "context-layering",
+      "agentic-coding",
+      "artificial-intelligence",
+      "developer-tooling",
+      "design-methodology"
+    ],
+    "added": "2026-03-16",
+    "question_excerpt": "What is Intent Driven Development (IDD) — as a methodology that moves past Test Driven Development (TDD) and Specification Driven Development (SDD) — and what context and concept layering mechanisms a",
+    "url": "/Research/research/2026-03-16-intent-driven-development.html"
+  },
+  {
+    "slug": "2026-03-16-gitagent-declarative-agent-definition",
+    "title": "GitAgent and declarative agent definition: concepts, adoption, and cross-platform integration",
+    "tags": [
+      "agent",
+      "declarative-agent",
+      "gitagent",
+      "copilot",
+      "aws",
+      "azure",
+      "microsoft-365",
+      "git",
+      "ai-platform",
+      "multi-agent"
+    ],
+    "added": "2026-03-16",
+    "question_excerpt": "What is GitAgent (https://github.com/open-gitagent/gitagent), how can it be used in this repository, what concepts does it build on and produce, and how does the broader idea of declarative agent defi",
+    "url": "/Research/research/2026-03-16-gitagent-declarative-agent-definition.html"
+  },
+  {
+    "slug": "2026-03-16-adaptive-policy-authorization-compliance",
+    "title": "Adaptive Policy-Based Authorization (APBA): compliance alignment with National Institute of Standards and Technology (NIST) Special Publication (SP) 800-53 and International Organization for Standardization (ISO) / International Electrotechnical Commission (IEC) 27001, and impact on Policy as Code (PaC) and Artificial Intelligence (AI)-generated authorization code",
+    "tags": [
+      "authorization",
+      "policy-as-code",
+      "compliance",
+      "nist",
+      "iso-27001",
+      "ai",
+      "governance",
+      "least-privilege",
+      "access-control",
+      "iac"
+    ],
+    "added": "2026-03-16",
+    "question_excerpt": "How does Adaptive Policy-Based Authorization (APBA) align with the dynamic access-control requirements of National Institute of Standards and Technology (NIST) Special Publication (SP) 800-53 and ISO/",
+    "url": "/Research/research/2026-03-16-adaptive-policy-authorization-compliance.html"
+  },
+  {
+    "slug": "2026-03-15-trusting-trust-ai-corpus-contamination",
+    "title": "Trusting Trust and AI Corpus Contamination",
+    "tags": [
+      "ai",
+      "epistemology",
+      "trust",
+      "corpus-contamination",
+      "prompt-injection",
+      "large-language-model",
+      "knowledge",
+      "security"
+    ],
+    "added": "2026-03-15",
+    "question_excerpt": "Ken Thompson's \"Trusting Trust\" argument shows that you cannot verify a compiler by reading its source code if the compiler was compiled by a compromised toolchain — the contamination lives in the bin",
+    "url": "/Research/research/2026-03-15-trusting-trust-ai-corpus-contamination.html"
+  },
+  {
+    "slug": "2026-03-15-tracking-work-across-systems",
+    "title": "Tracking How Work Travels Across Organisational Systems",
+    "tags": [
+      "knowledge-management",
+      "work-tracking",
+      "sharepoint",
+      "confluence",
+      "ado",
+      "jira",
+      "git",
+      "monitoring",
+      "data-platform",
+      "provenance"
+    ],
+    "added": "2026-03-15",
+    "question_excerpt": "Can we track how a unit of 'Work' -- an idea or concept -- travels across organisational systems (SharePoint, Confluence, Azure DevOps (ADO)/Jira, Git, monitoring systems, and data platforms), and wha",
+    "url": "/Research/research/2026-03-15-tracking-work-across-systems.html"
+  },
+  {
+    "slug": "2026-03-15-saas-banking-invariants",
+    "title": "Invariants in Software as a Service (SaaS) Banking Software",
+    "tags": [
+      "saas",
+      "banking",
+      "enterprise",
+      "build-vs-buy",
+      "tco",
+      "salesforce",
+      "ncino",
+      "architecture",
+      "ddd",
+      "total-cost-of-ownership"
+    ],
+    "added": "2026-03-15",
+    "question_excerpt": "What capabilities do enterprise Software as a Service (SaaS) banking platforms (principally Salesforce Financial Services Cloud (FSC) and nCino) provide as true invariants - independent of customer im",
+    "url": "/Research/research/2026-03-15-saas-banking-invariants.html"
+  },
+  {
+    "slug": "2026-03-15-prompt-injection-threat-landscape",
+    "title": "Prompt injection threat landscape: exploits, defences, and active research in agentic artificial intelligence (AI) systems",
+    "tags": [
+      "prompt-injection",
+      "security",
+      "llm",
+      "agents",
+      "adversarial",
+      "owasp",
+      "mitre-atlas",
+      "red-team",
+      "ai-governance"
+    ],
+    "added": "2026-03-15",
+    "question_excerpt": "What is the current state of the prompt injection threat in agentic artificial intelligence (AI) systems: who is exploiting it, who is defending against it, and what does the research community consid",
+    "url": "/Research/research/2026-03-15-prompt-injection-threat-landscape.html"
+  },
+  {
+    "slug": "2026-03-15-neurological-context-management",
+    "title": "Neurological Basis of Contextual Reasoning and Relevance Filtering",
+    "tags": [
+      "neuroscience",
+      "cognition",
+      "context-management",
+      "working-memory",
+      "attention",
+      "prefrontal-cortex",
+      "decision-making"
+    ],
+    "added": "2026-03-15",
+    "question_excerpt": "How do human brains store, compress, retrieve, and dynamically layer multiple types of contextual knowledge — values, goals, rules, current state, and immediate task — when making decisions, and what",
+    "url": "/Research/research/2026-03-15-neurological-context-management.html"
+  },
+  {
+    "slug": "2026-03-15-latent-concept-extraction-confluence",
+    "title": "Latent Concept Extraction from Confluence: Embeddings, Knowledge Graphs, and Epistemic Evaluation",
+    "tags": [
+      "confluence",
+      "embeddings",
+      "vector-db",
+      "knowledge-graph",
+      "nlp",
+      "epistemics",
+      "rag",
+      "latent-concepts"
+    ],
+    "added": "2026-03-15",
+    "question_excerpt": "What are the best approaches for extracting latent concepts from a Confluence wiki, representing them as word embeddings in a vector database (VDB) and as a knowledge graph (KG), and how can the resul",
+    "url": "/Research/research/2026-03-15-latent-concept-extraction-confluence.html"
+  },
+  {
+    "slug": "2026-03-15-context-layers-aligned-decisions-synthesis",
+    "title": "Aligned Decision-Making: Context Architecture for AI Agents in Organisations",
+    "tags": [
+      "context-architecture",
+      "alignment",
+      "decision-making",
+      "enterprise-ai",
+      "rag",
+      "knowledge-management",
+      "organisational-strategy",
+      "synthesis"
+    ],
+    "added": "2026-03-15",
+    "question_excerpt": "What framework should an organisation adopt to ensure that AI agents making or supporting decisions have access to the right layered organisational context — spanning regulatory boundaries, values and",
+    "url": "/Research/research/2026-03-15-context-layers-aligned-decisions-synthesis.html"
+  },
+  {
+    "slug": "2026-03-15-context-compression-rag-enterprise-knowledge",
+    "title": "Context Compression and RAG Techniques for Organisational Knowledge",
+    "tags": [
+      "rag",
+      "context-management",
+      "compression",
+      "llm",
+      "knowledge-architecture",
+      "enterprise-ai",
+      "context-window"
+    ],
+    "added": "2026-03-15",
+    "question_excerpt": "What are the current best practices and bleeding-edge techniques  -  including Retrieval-Augmented Generation (RAG), context compression, and context architecture  -  for selectively surfacing the rig",
+    "url": "/Research/research/2026-03-15-context-compression-rag-enterprise-knowledge.html"
+  },
+  {
+    "slug": "2026-03-15-adam-smith-org-design-desire-paths-ai",
+    "title": "Adam Smith, Organisational Design, Desire Paths, and AI Strategy",
+    "tags": [
+      "economics",
+      "adam-smith",
+      "org-design",
+      "desire-paths",
+      "ai-strategy",
+      "moral-philosophy",
+      "human-nature",
+      "behaviour"
+    ],
+    "added": "2026-03-15",
+    "question_excerpt": "What can Adam Smith's insights into human nature and morality - drawn from *The Theory of Moral Sentiments* (ToMS) and *The Wealth of Nations* (WoN) - teach us about designing organisations that align",
+    "url": "/Research/research/2026-03-15-adam-smith-org-design-desire-paths-ai.html"
+  },
+  {
+    "slug": "2026-03-14-ricardian-contract-model",
+    "title": "Ricardian Contract model: history, current state, and latest research",
+    "tags": [
+      "contracts",
+      "legal-technology",
+      "cryptography",
+      "blockchain",
+      "smart-contracts",
+      "fintech",
+      "ian-grigg",
+      "ricardian-contracts"
+    ],
+    "added": "2026-03-14",
+    "question_excerpt": "What is the Ricardian Contract model proposed by Ian Grigg in 1996, how has it evolved over the past three decades, who is actively building with it today, and what does the latest academic and applie",
+    "url": "/Research/research/2026-03-14-ricardian-contract-model.html"
+  },
+  {
+    "slug": "2026-03-14-reliable-software-llm-era",
+    "title": "Reliable Software in the LLM Era",
+    "tags": [
+      "llm",
+      "formal-methods",
+      "reliability",
+      "software-engineering",
+      "quint",
+      "formal-verification",
+      "cognitive-debt",
+      "ai"
+    ],
+    "added": "2026-03-14",
+    "question_excerpt": "What strategies and formal-methods tooling exist for maintaining software reliability in the Large Language Model (LLM) era, and what does the Quint formal specification language ecosystem - including",
+    "url": "/Research/research/2026-03-14-reliable-software-llm-era.html"
+  },
+  {
+    "slug": "2026-03-14-organisational-intent-formal-specification",
+    "title": "Can organisational intent be expressed as a formally structured specification from which artefacts are derived and consistency is machine-checked?",
+    "tags": [
+      "formal-methods",
+      "strategy",
+      "okrs",
+      "goal-modelling",
+      "normative-systems",
+      "hoshin-kanri",
+      "resource-allocation",
+      "consistency-checking",
+      "funding",
+      "intent"
+    ],
+    "added": "2026-03-14",
+    "question_excerpt": "Can organisational intent — mission, values, strategy, resource allocation — be expressed as a formally structured specification from which human-readable artefacts are derived, and against which Obje",
+    "url": "/Research/research/2026-03-14-organisational-intent-formal-specification.html"
+  },
+  {
+    "slug": "2026-03-13-financial-forecasting-it-run-costs",
+    "title": "Best practices in financial forecasting for IT operational run costs: assumptions, uncertainty, and regulatory considerations",
+    "tags": [
+      "financial-forecasting",
+      "it-run-costs",
+      "uncertainty-modelling",
+      "regulatory",
+      "error-bars",
+      "infrastructure-costing",
+      "assumptions"
+    ],
+    "added": "2026-03-13",
+    "question_excerpt": "What are the established best practices for financially responsible forecasting of Information Technology (IT) operational run costs — covering cost estimation by technology and infrastructure type, r",
+    "url": "/Research/research/2026-03-13-financial-forecasting-it-run-costs.html"
+  },
+  {
+    "slug": "2026-03-12-volume-vs-correctness-ai-era",
+    "title": "AI inverted the knowledge-work scarcity equation: volume is free, correctness is the scarce resource",
+    "tags": [
+      "correctness",
+      "quality",
+      "throughput",
+      "volume",
+      "ai",
+      "productivity",
+      "verification",
+      "shared-context",
+      "agentic-tarpit",
+      "procter-and-gamble-study"
+    ],
+    "added": "2026-03-12",
+    "question_excerpt": "Before Artificial Intelligence (AI), throughput (volume of output) was the binding constraint on knowledge work. AI has\ndramatically reduced the cost of generating output. Does the evidence support th",
+    "url": "/Research/research/2026-03-12-volume-vs-correctness-ai-era.html"
+  },
+  {
+    "slug": "2026-03-12-team-size-limits-brooks-dunbar-network-theory",
+    "title": "Three disciplines, one answer: Brooks, Dunbar, and network theory on why 5 is the coordination limit",
+    "tags": [
+      "brooks-law",
+      "dunbar-number",
+      "network-theory",
+      "team-size",
+      "coordination-overhead",
+      "graph-theory",
+      "evolutionary-psychology",
+      "software-engineering",
+      "military"
+    ],
+    "added": "2026-03-12",
+    "question_excerpt": "Software engineering (Fred Brooks, 1975), evolutionary psychology (Robin Dunbar, 1992), and graph\ntheory each independently arrive at the same structural limit: approximately 5 people for a\nhigh-coord",
+    "url": "/Research/research/2026-03-12-team-size-limits-brooks-dunbar-network-theory.html"
+  },
+  {
+    "slug": "2026-03-12-swat-technique-loop-fresh-context",
+    "title": "SWAT technique in a fresh-context loop: reliability, drift, and the effect of web search and org RAG on blind-acceptance outcomes",
+    "tags": [
+      "swat",
+      "prompting-techniques",
+      "agentic-systems",
+      "rag",
+      "web-search",
+      "hallucination",
+      "context-window",
+      "loop-reliability",
+      "grounding"
+    ],
+    "added": "2026-03-12",
+    "question_excerpt": "When the SWAT (Strengths, Weaknesses, Assumptions, Threats) technique is executed repeatedly in a loop where each invocation uses a fresh Large Language Model (LLM) context window and the caller blind",
+    "url": "/Research/research/2026-03-12-swat-technique-loop-fresh-context.html"
+  },
+  {
+    "slug": "2026-03-12-superpowers-integration-analysis",
+    "title": "Superpowers as inspiration: what obra/superpowers can teach us about improving agent workflows across davidamitchell repos",
+    "tags": [
+      "superpowers",
+      "skills",
+      "claude-code",
+      "github-copilot",
+      "agent-tooling",
+      "tdd",
+      "workflow",
+      "inspiration"
+    ],
+    "added": "2026-03-12",
+    "question_excerpt": "What ideas, patterns, and workflow practices from `davidamitchell/superpowers` (a fork of `obra/superpowers`) can be used as inspiration for improving agent tooling in `davidamitchell/Latest-developme",
+    "url": "/Research/research/2026-03-12-superpowers-integration-analysis.html"
+  },
+  {
+    "slug": "2026-03-12-hosting-options-for-the-research-repo",
+    "title": "Hosting options for the Research repo",
+    "tags": [
+      "hosting",
+      "static-site",
+      "search",
+      "vector-db",
+      "infrastructure",
+      "free-tier"
+    ],
+    "added": "2026-03-12",
+    "question_excerpt": "What is the best free or very-low-cost hosting option for this research repository that supports full-text search, and optionally vector/graph database capabilities, without requiring SEO, custom DNS,",
+    "url": "/Research/research/2026-03-12-hosting-options-for-the-research-repo.html"
+  },
+  {
+    "slug": "2026-03-12-failure-mode-taxonomy-expansion",
+    "title": "Failure mode taxonomy: empirical frequency, causal mechanisms, detection signals, and cascade patterns in production agentic systems",
+    "tags": [
+      "failure-modes",
+      "taxonomy",
+      "hallucination",
+      "reward-hacking",
+      "prompt-injection",
+      "alignment",
+      "agentic-systems",
+      "owasp",
+      "safety",
+      "observability"
+    ],
+    "added": "2026-03-12",
+    "question_excerpt": "The five-layer failure mode taxonomy established in `2026-03-10-ai-concept-classification-taxonomy.md` (Q5) provides a structurally sound classification, but leaves three empirical gaps unanswered: (1",
+    "url": "/Research/research/2026-03-12-failure-mode-taxonomy-expansion.html"
+  },
+  {
+    "slug": "2026-03-12-exploration-synthesis-gap",
+    "title": "Exploration-synthesis gap: why people in explore mode fail to synthesise others' work, and whether agent synthesis can close the gap",
+    "tags": [
+      "cognition",
+      "exploration",
+      "synthesis",
+      "knowledge-sharing",
+      "incentives",
+      "ego",
+      "agentic-systems",
+      "organisational-behaviour",
+      "psychology"
+    ],
+    "added": "2026-03-12",
+    "question_excerpt": "During periods of rapid exploration — such as the current wave of Artificial Intelligence (AI) / Large Language Model (LLM) adoption inside organisations — individuals and teams routinely duplicate ef",
+    "url": "/Research/research/2026-03-12-exploration-synthesis-gap.html"
+  },
+  {
+    "slug": "2026-03-12-ai-team-size-strike-team-thesis",
+    "title": "AI amplified the coordination tax: the 5-person strike team as the structural unit of the AI era",
+    "tags": [
+      "team-size",
+      "ai",
+      "coordination-overhead",
+      "strike-team",
+      "organisational-design",
+      "productivity",
+      "ai-native"
+    ],
+    "added": "2026-03-12",
+    "question_excerpt": "Artificial Intelligence (AI) has increased per-person output by 5–10x. If coordination cost scales with the square of team size\n(see `2026-03-12-team-size-limits-brooks-dunbar-network-theory.md`), wha",
+    "url": "/Research/research/2026-03-12-ai-team-size-strike-team-thesis.html"
+  },
+  {
+    "slug": "2026-03-12-ai-force-multiplier-ambition-expansion",
+    "title": "Force multiplier, not cost reducer: expanding organisational ambition when AI multiplies per-person output",
+    "tags": [
+      "force-multiplier",
+      "ambition",
+      "organisational-design",
+      "ai-native",
+      "strategy",
+      "headcount",
+      "revenue-per-employee",
+      "cannot-do-now",
+      "capacity-expansion"
+    ],
+    "added": "2026-03-12",
+    "question_excerpt": "When Artificial Intelligence (AI) multiplies the productive capacity of each person by 5–10x, organisations face a\nstrategic choice: reduce headcount to cut costs, or redeploy the same people against",
+    "url": "/Research/research/2026-03-12-ai-force-multiplier-ambition-expansion.html"
+  },
+  {
+    "slug": "2026-03-10-research-loop-evaluation-rubric",
+    "title": "Research loop evaluation rubric: LLM-as-judge specification for this repository's research loop agent",
+    "tags": [
+      "agents",
+      "evaluation",
+      "rubric",
+      "research-loop",
+      "llm-as-judge",
+      "regression",
+      "quality-gate",
+      "ci"
+    ],
+    "added": "2026-03-10",
+    "question_excerpt": "What structured rubric should be used to evaluate the outputs of this repository's research loop agent — and what does a minimal viable implementation of a Continuous Integration (CI)-integrated eval",
+    "url": "/Research/research/2026-03-10-research-loop-evaluation-rubric.html"
+  },
+  {
+    "slug": "2026-03-10-nature-of-the-firm-coase-organisations",
+    "title": "The Nature of the Firm: why organisations exist, their fitness functions, and invariants",
+    "tags": [
+      "organisational-theory",
+      "transaction-costs",
+      "coase",
+      "williamson",
+      "north",
+      "institutions",
+      "team-topologies",
+      "fitness-functions",
+      "invariants",
+      "platform-strategy"
+    ],
+    "added": "2026-03-10",
+    "question_excerpt": "Why do organisations (firms and business units) exist when markets are theoretically efficient? What are the fitness functions and invariants that determine when organisational form is the correct coo",
+    "url": "/Research/research/2026-03-10-nature-of-the-firm-coase-organisations.html"
+  },
+  {
+    "slug": "2026-03-10-language-for-llm-agent-output",
+    "title": "Language designed for LLM agents to produce: addressing generation-layer failure modes in agentic systems",
+    "tags": [
+      "agentic-systems",
+      "programming-languages",
+      "dsl",
+      "failure-modes",
+      "intent-alignment",
+      "reward-hacking",
+      "formal-methods",
+      "output-language",
+      "llm-code-generation",
+      "structured-output"
+    ],
+    "added": "2026-03-10",
+    "question_excerpt": "Is anyone actively developing a programming language or structured output format specifically designed for LLM agents to generate — rather than humans to write — that structurally addresses generation",
+    "url": "/Research/research/2026-03-10-language-for-llm-agent-output.html"
+  },
+  {
+    "slug": "2026-03-10-formal-spec-intent-alignment-agentic-coding",
+    "title": "Formal intent specification and language choice for AI alignment in agentic coding systems",
+    "tags": [
+      "formal-methods",
+      "intent-alignment",
+      "reward-hacking",
+      "agentic-systems",
+      "programming-languages",
+      "type-theory",
+      "out-of-the-tar-pit"
+    ],
+    "added": "2026-03-10",
+    "question_excerpt": "Can formal specification of task intent structurally eliminate reward hacking and intent mismatch in agentic coding systems? What is the expressiveness-verifiability tradeoff at each level of the spec",
+    "url": "/Research/research/2026-03-10-formal-spec-intent-alignment-agentic-coding.html"
+  },
+  {
+    "slug": "2026-03-10-dikw-transformation-functions",
+    "title": "The DIKW pyramid: transformation functions from data to information to knowledge to wisdom",
+    "tags": [
+      "dikw",
+      "knowledge-management",
+      "epistemology",
+      "information-theory",
+      "wisdom",
+      "cognition",
+      "organisations",
+      "learning"
+    ],
+    "added": "2026-03-10",
+    "question_excerpt": "What are the transformation functions that move between the levels of the DIKW pyramid — Data → Information → Knowledge → Wisdom? What cognitive, computational, and organisational mechanisms perform e",
+    "url": "/Research/research/2026-03-10-dikw-transformation-functions.html"
+  },
+  {
+    "slug": "2026-03-10-ai-concept-classification-taxonomy",
+    "title": "AI concept classification taxonomy: prompts, instructions, memory, failure modes, controls, and problem domains",
+    "tags": [
+      "taxonomy",
+      "classification",
+      "prompt-engineering",
+      "context-engineering",
+      "intent-engineering",
+      "memory",
+      "failure-modes",
+      "guardrails",
+      "skills",
+      "tools",
+      "agents",
+      "agentic-systems"
+    ],
+    "added": "2026-03-10",
+    "question_excerpt": "What is a coherent, internally consistent classification taxonomy for the core concepts in AI-assisted and agentic systems — covering prompt types, instruction types, prompt/content/intent engineering",
+    "url": "/Research/research/2026-03-10-ai-concept-classification-taxonomy.html"
+  },
+  {
+    "slug": "2026-03-10-agent-evaluation-cross-repo-analysis",
+    "title": "Agent evaluation framework: cross-repo pattern analysis, commonality detection, and regression identification",
+    "tags": [
+      "agents",
+      "evaluation",
+      "benchmarking",
+      "cross-repo-analysis",
+      "pattern-analysis",
+      "agentic-systems",
+      "metrics",
+      "regression",
+      "effectiveness",
+      "taxonomy"
+    ],
+    "added": "2026-03-10",
+    "question_excerpt": "What evaluation framework allows systematic comparison of agent implementations across multiple repositories — identifying what problems each is solving, whether concepts are used idiomatically or in",
+    "url": "/Research/research/2026-03-10-agent-evaluation-cross-repo-analysis.html"
+  },
+  {
+    "slug": "2026-03-10-adversarial-agents-shared-goals-multi-perspective",
+    "title": "Adversarial agents with shared goals: multi-perspective coverage across competencies and time horizons",
+    "tags": [
+      "multi-agent",
+      "adversarial-collaboration",
+      "competency-coverage",
+      "time-horizons",
+      "fitness-functions",
+      "organisational-design",
+      "red-team",
+      "quality-assurance",
+      "values-alignment"
+    ],
+    "added": "2026-03-10",
+    "question_excerpt": "What is the design pattern for a system of agents — human or AI — that share a common goal but deliberately occupy different competency domains and time horizons? How does \"adversarial collaboration\"",
+    "url": "/Research/research/2026-03-10-adversarial-agents-shared-goals-multi-perspective.html"
+  },
+  {
+    "slug": "2026-03-08-telegram-bot-memory-capture-retrieval",
+    "title": "Telegram bot as mobile memory capture and retrieval channel",
+    "tags": [
+      "mobile",
+      "telegram",
+      "bot",
+      "capture",
+      "retrieval",
+      "memory-system",
+      "self-hosted"
+    ],
+    "added": "2026-03-08",
+    "question_excerpt": "Can a Telegram bot serve as a low-friction mobile capture and retrieval surface for the Memory-System? Specifically: (a) message received → file written to GitHub repo via API, (b) messages starting w",
+    "url": "/Research/research/2026-03-08-telegram-bot-memory-capture-retrieval.html"
+  },
+  {
+    "slug": "2026-03-08-slack-bot-memory-capture-retrieval",
+    "title": "Slack as a mobile memory capture and retrieval channel",
+    "tags": [
+      "mobile",
+      "slack",
+      "bot",
+      "capture",
+      "retrieval",
+      "memory-system"
+    ],
+    "added": "2026-03-08",
+    "question_excerpt": "Can a Slack bot in a personal or team workspace serve as a memory capture and retrieval surface? What is the minimum viable setup: slash command vs bot, incoming webhook vs Socket Mode, and does a fre",
+    "url": "/Research/research/2026-03-08-slack-bot-memory-capture-retrieval.html"
+  },
+  {
+    "slug": "2026-03-08-servicenow-process-mapping",
+    "title": "ServiceNow Process Mapping: Maintainable Process Documentation in SNOW",
+    "tags": [
+      "servicenow",
+      "process-mapping",
+      "bpm",
+      "workflow",
+      "flow-designer",
+      "process-mining",
+      "itsm",
+      "documentation"
+    ],
+    "added": "2026-03-08",
+    "question_excerpt": "What options exist within ServiceNow for documenting, mapping, and maintaining business and IT processes — and which approaches are sustainable enough in practice to stay meaningful, current, and actu",
+    "url": "/Research/research/2026-03-08-servicenow-process-mapping.html"
+  },
+  {
+    "slug": "2026-03-08-servicenow-platform-strategy",
+    "title": "ServiceNow Platform Strategy: Holistic Integration of CSDM, Modules, Process, and AI",
+    "tags": [
+      "servicenow",
+      "platform-strategy",
+      "csdm",
+      "itsm",
+      "apm",
+      "spm",
+      "irm",
+      "grc",
+      "fso",
+      "ai",
+      "process-mapping",
+      "enterprise-architecture",
+      "tco"
+    ],
+    "added": "2026-03-08",
+    "question_excerpt": "Given the findings from the Common Service Data Model (CSDM) data modelling, process mapping, and AI capability research, how should an organisation develop a coherent, practical ServiceNow platform s",
+    "url": "/Research/research/2026-03-08-servicenow-platform-strategy.html"
+  },
+  {
+    "slug": "2026-03-08-servicenow-csdm-data-modelling",
+    "title": "ServiceNow CSDM: Practical Data Modelling Across ITSM, APM, SPM, IRM, and FSO",
+    "tags": [
+      "servicenow",
+      "csdm",
+      "cmdb",
+      "configuration-management",
+      "itsm",
+      "apm",
+      "spm",
+      "irm",
+      "grc",
+      "fso",
+      "enterprise-architecture",
+      "application-portfolio"
+    ],
+    "added": "2026-03-08",
+    "question_excerpt": "How should organisations model their enterprise data in ServiceNow to meet the CSDM standard while keeping the model maintainable and accurate — and what are the practical patterns for aligning IT Ser",
+    "url": "/Research/research/2026-03-08-servicenow-csdm-data-modelling.html"
+  },
+  {
+    "slug": "2026-03-08-servicenow-ai-knowledge-rag-agents",
+    "title": "ServiceNow AI: Knowledge Management, RAG Pipelines, and Agent Frameworks",
+    "tags": [
+      "servicenow",
+      "ai",
+      "now-assist",
+      "rag",
+      "knowledge-management",
+      "agent-frameworks",
+      "genai",
+      "llm",
+      "knowledge-base"
+    ],
+    "added": "2026-03-08",
+    "question_excerpt": "How is ServiceNow evolving its platform to support AI-powered knowledge management, retrieval-augmented generation (RAG), and agent frameworks — and what should an organisation investing in ServiceNow",
+    "url": "/Research/research/2026-03-08-servicenow-ai-knowledge-rag-agents.html"
+  },
+  {
+    "slug": "2026-03-08-self-hosted-mcp-server-options",
+    "title": "Self-hosted MCP server options: enabling mobile AI app integration",
+    "tags": [
+      "mcp",
+      "self-hosted",
+      "infrastructure",
+      "mobile",
+      "memory-system",
+      "cloudflare",
+      "serverless"
+    ],
+    "added": "2026-03-08",
+    "question_excerpt": "What is the minimum viable self-hosted deployment of `mcp_server.py` (or a write-only HTTP wrapper) that: (a) is reachable from the public internet, (b) has zero or near-zero ongoing cost, (c) require",
+    "url": "/Research/research/2026-03-08-self-hosted-mcp-server-options.html"
+  },
+  {
+    "slug": "2026-03-08-lancedb-index-rebuild-from-git",
+    "title": "LanceDB index rebuild speed from git: enabling stateless deployment",
+    "tags": [
+      "lancedb",
+      "performance",
+      "indexing",
+      "serverless",
+      "memory-system"
+    ],
+    "added": "2026-03-08",
+    "question_excerpt": "Can the LanceDB index be rebuilt from the `.md` files in the repo on startup fast enough to enable stateless (per-request) deployment? Measure rebuild time at: current corpus size, 100 files, 500 file",
+    "url": "/Research/research/2026-03-08-lancedb-index-rebuild-from-git.html"
+  },
+  {
+    "slug": "2026-03-08-ios-shortcuts-github-api-memory-capture",
+    "title": "iOS Shortcuts + GitHub API: zero-infrastructure mobile memory capture",
+    "tags": [
+      "mobile",
+      "ios",
+      "shortcuts",
+      "github-api",
+      "capture",
+      "memory-system"
+    ],
+    "added": "2026-03-08",
+    "question_excerpt": "Can an iOS Shortcut write a timestamped `.md` file directly to a GitHub repo via the Contents API (`PUT /repos/{owner}/{repo}/contents/{path}`) with a stored Personal Access Token (PAT), with enough r",
+    "url": "/Research/research/2026-03-08-ios-shortcuts-github-api-memory-capture.html"
+  },
+  {
+    "slug": "2026-03-08-inbox-folder-capture-triage-pattern",
+    "title": "Inbox folder pattern: frictionless capture without forced structure",
+    "tags": [
+      "capture",
+      "ux",
+      "memory-system",
+      "triage",
+      "agent-automation"
+    ],
+    "added": "2026-03-08",
+    "question_excerpt": "Does removing the folder-selection decision from the capture path meaningfully reduce friction? Design and evaluate an `inbox/` folder pattern where: (a) any capture tool writes unstructured notes to",
+    "url": "/Research/research/2026-03-08-inbox-folder-capture-triage-pattern.html"
+  },
+  {
+    "slug": "2026-03-08-context-engineering-first-principles",
+    "title": "Context engineering: first principles of steering LLM output without control",
+    "tags": [
+      "context-engineering",
+      "prompt-engineering",
+      "llm",
+      "token-prediction",
+      "first-principles",
+      "steering",
+      "goal-alignment",
+      "rag",
+      "agent-instructions",
+      "compliance"
+    ],
+    "added": "2026-03-08",
+    "question_excerpt": "What are the first principles of context engineering — and what novel approaches emerge when it is understood as two distinct but coupled mechanisms: (1) making the next predicted token more likely to",
+    "url": "/Research/research/2026-03-08-context-engineering-first-principles.html"
+  },
+  {
+    "slug": "2026-03-08-claude-ios-mcp-remote-integration",
+    "title": "Claude for iOS: MCP remote integration for memory capture and retrieval",
+    "tags": [
+      "mobile",
+      "claude",
+      "ios",
+      "mcp",
+      "memory-system",
+      "self-hosted"
+    ],
+    "added": "2026-03-08",
+    "question_excerpt": "Does the Claude iOS app support MCP connections to a remote server? If so: (a) what transport is supported (HTTP/SSE vs stdio), (b) does it require the same `.mcp.json` config as Claude Desktop, (c) w",
+    "url": "/Research/research/2026-03-08-claude-ios-mcp-remote-integration.html"
+  },
+  {
+    "slug": "2026-03-08-chatgpt-actions-memory-integration",
+    "title": "ChatGPT Actions and custom GPTs: external memory integration options",
+    "tags": [
+      "mobile",
+      "chatgpt",
+      "openai",
+      "actions",
+      "memory-system"
+    ],
+    "added": "2026-03-08",
+    "question_excerpt": "Can a ChatGPT custom Generative Pre-trained Transformer (GPT) be configured with Actions that: (a) call a self-hosted HTTP endpoint to add a memory, (b) call `search_brain` before responding to surfac",
+    "url": "/Research/research/2026-03-08-chatgpt-actions-memory-integration.html"
+  },
+  {
+    "slug": "2026-03-08-bbc-five-case-model",
+    "title": "Better Business Cases: Five Case Model authoring and application",
+    "tags": [
+      "business-case",
+      "bbc",
+      "five-case-model",
+      "public-sector",
+      "strategy",
+      "economics",
+      "procurement"
+    ],
+    "added": "2026-03-08",
+    "question_excerpt": "What is the Better Business Cases (BBC) Five Case Model framework, what are the requirements and standards for each of the five cases, and how should an AI agent apply this framework to author, review",
+    "url": "/Research/research/2026-03-08-bbc-five-case-model.html"
+  },
+  {
+    "slug": "2026-03-08-ai-coding-harnesses-agent-philosophy",
+    "title": "AI coding harnesses: agent execution model, memory, and context management across commercial and OSS tools",
+    "tags": [
+      "ai-agents",
+      "coding",
+      "ide",
+      "anthropic",
+      "openai",
+      "cursor",
+      "opencode",
+      "aider",
+      "cline",
+      "context-management",
+      "memory",
+      "state-management",
+      "oss"
+    ],
+    "added": "2026-03-08",
+    "question_excerpt": "What are the core architectural and philosophical principles behind the AI coding harnesses (agentic IDEs and agent runtimes) published or released by Anthropic, OpenAI, and the broader ecosystem of c",
+    "url": "/Research/research/2026-03-08-ai-coding-harnesses-agent-philosophy.html"
+  },
+  {
+    "slug": "2026-03-07-run-vs-build-it-spending-allocation",
+    "title": "RUN vs BUILD IT spending allocation in non-IT primary businesses",
+    "tags": [
+      "it-finance",
+      "run-build",
+      "cost-allocation",
+      "gartner",
+      "activity-based-costing",
+      "flow-metrics",
+      "tbc-framework"
+    ],
+    "added": "2026-03-07",
+    "question_excerpt": "How do non-IT primary businesses (manufacturing, retail, finance) calculate and apportion IT spending between RUN (nondiscretionary operational sustainment) and BUILD (discretionary strategic enhancem",
+    "url": "/Research/research/2026-03-07-run-vs-build-it-spending-allocation.html"
+  },
+  {
+    "slug": "2026-03-07-run-build-it-allocation-implementation-how",
+    "title": "How organisations practically implement IT RUN vs BUILD cost allocation",
+    "tags": [
+      "it-finance",
+      "run-build",
+      "cost-allocation",
+      "application-portfolio",
+      "change-management",
+      "organisational-design",
+      "tbm"
+    ],
+    "added": "2026-03-07",
+    "question_excerpt": "How have organisations actually implemented a working RUN vs BUILD IT cost allocation — specifically: how did they agree on what counts as an \"application\", how did they get consistent work-item taggi",
+    "url": "/Research/research/2026-03-07-run-build-it-allocation-implementation-how.html"
+  },
+  {
+    "slug": "2026-03-05-swarm-pca-genetic-reinforcement-learning",
+    "title": "Swarm Intelligence, PCA, Genetic Algorithms, and Reinforcement Learning — advanced techniques for analytics teams",
+    "tags": [
+      "machine-learning",
+      "analytics",
+      "swarm-intelligence",
+      "pca",
+      "dimensionality-reduction",
+      "genetic-algorithms",
+      "evolutionary-computation",
+      "reinforcement-learning",
+      "optimisation",
+      "advanced-analytics"
+    ],
+    "added": "2026-03-05",
+    "question_excerpt": "What is the structured, decision-oriented landscape of four advanced technique families — Swarm Intelligence, Principal Component Analysis (PCA) and its modern extensions, Genetic Algorithms and Evolu",
+    "url": "/Research/research/2026-03-05-swarm-pca-genetic-reinforcement-learning.html"
+  },
+  {
+    "slug": "2026-03-05-llm-hallucination-mechanisms",
+    "title": "LLM Hallucinations — Types, Causes, and Current Mitigation Approaches",
+    "tags": [
+      "llm",
+      "hallucinations",
+      "reliability",
+      "alignment",
+      "grounding",
+      "mechanistic-interpretability"
+    ],
+    "added": "2026-03-05",
+    "question_excerpt": "What are the established types, root causes, and current mitigation strategies for hallucinations in large language models, and what does the macroscopic (training-level) view leave unexplained that m",
+    "url": "/Research/research/2026-03-05-llm-hallucination-mechanisms.html"
+  },
+  {
+    "slug": "2026-03-05-h-neurons-synthesis",
+    "title": "H-Neurons Synthesis — From Hallucination Mechanisms to Actionable LLM Reliability Engineering",
+    "tags": [
+      "llm",
+      "hallucinations",
+      "h-neurons",
+      "mechanistic-interpretability",
+      "over-compliance",
+      "pre-training",
+      "alignment",
+      "reliability",
+      "synthesis"
+    ],
+    "added": "2026-03-05",
+    "question_excerpt": "Across all four preceding research items — the macroscopic hallucination landscape, the H-Neurons paper, over-compliance interventions, and pre-training origins — what is the unified, actionable pictu",
+    "url": "/Research/research/2026-03-05-h-neurons-synthesis.html"
+  },
+  {
+    "slug": "2026-03-05-h-neurons-in-llms",
+    "title": "Hallucination-Associated Neurons (H-Neurons) in LLMs — Identification, Behavioural Impact, and Origins",
+    "tags": [
+      "llm",
+      "hallucinations",
+      "h-neurons",
+      "mechanistic-interpretability",
+      "over-compliance",
+      "pre-training",
+      "alignment",
+      "reliability",
+      "arxiv"
+    ],
+    "added": "2026-03-05",
+    "question_excerpt": "What are Hallucination-Associated Neurons (H-Neurons) in large language models, how can they be identified, what behaviours do they cause, where do they come from, and what do these findings imply for",
+    "url": "/Research/research/2026-03-05-h-neurons-in-llms.html"
+  },
+  {
+    "slug": "2026-03-05-h-neuron-pretraining-origins",
+    "title": "Pre-Training Origins of Hallucination-Associated Neurons — Implications for LLM Development",
+    "tags": [
+      "llm",
+      "hallucinations",
+      "h-neurons",
+      "pre-training",
+      "alignment",
+      "rlhf",
+      "training-dynamics",
+      "mechanistic-interpretability",
+      "reliability"
+    ],
+    "added": "2026-03-05",
+    "question_excerpt": "Given that Hallucination-Associated Neurons (H-Neurons) emerge during pre-training rather than instruction tuning or RLHF, what does this reveal about how hallucination-prone behaviour is encoded duri",
+    "url": "/Research/research/2026-03-05-h-neuron-pretraining-origins.html"
+  },
+  {
+    "slug": "2026-03-05-h-neuron-over-compliance",
+    "title": "Over-Compliance in LLMs — How H-Neurons Drive Sycophancy and What Interventions Are Possible",
+    "tags": [
+      "llm",
+      "hallucinations",
+      "h-neurons",
+      "over-compliance",
+      "sycophancy",
+      "interventions",
+      "alignment",
+      "reliability",
+      "mechanistic-interpretability"
+    ],
+    "added": "2026-03-05",
+    "question_excerpt": "What exactly is over-compliance behaviour in LLMs, how do Hallucination-Associated Neurons (H-Neurons) cause it, and what neuron-level and inference-time interventions are feasible to reduce it withou",
+    "url": "/Research/research/2026-03-05-h-neuron-over-compliance.html"
+  },
+  {
+    "slug": "2026-03-05-general-agent-optimization-framework",
+    "title": "General Agent Optimization Framework",
+    "tags": [
+      "ai-agents",
+      "optimization",
+      "benchmarks",
+      "dspy",
+      "evaluation",
+      "self-improvement",
+      "prompt-engineering",
+      "synthetic-data"
+    ],
+    "added": "2026-03-05",
+    "question_excerpt": "What is the most principled architecture for a Self-Improving AI Agent Evaluation Loop — specifically, how should a nested inner/outer loop be designed so that a \"Meta-Optimizer\" rewrites system promp",
+    "url": "/Research/research/2026-03-05-general-agent-optimization-framework.html"
+  },
+  {
+    "slug": "2026-03-04-sdlc-ai-prompt-patterns",
+    "title": "Emergent Patterns in Software Engineering Prompts and SDLC Guidance",
+    "tags": [
+      "ai-agents",
+      "prompts",
+      "sdlc",
+      "software-engineering",
+      "best-practices",
+      "prompt-engineering",
+      "developer-tooling"
+    ],
+    "added": "2026-03-04",
+    "question_excerpt": "What are the current and emergent best practices for crafting AI agent prompts and tooling guidance tailored to each phase of the Software Development Life Cycle (SDLC) — covering discovery, requireme",
+    "url": "/Research/research/2026-03-04-sdlc-ai-prompt-patterns.html"
+  },
+  {
+    "slug": "2026-03-03-research-loop-quality-prompt-engineering",
+    "title": "Evaluating and improving autonomous research loop quality: prompt engineering and output assessment",
+    "tags": [
+      "research-loop",
+      "prompt-engineering",
+      "quality",
+      "autonomous-research",
+      "evaluation",
+      "research-prompt",
+      "github-actions"
+    ],
+    "added": "2026-03-03",
+    "question_excerpt": "How can the quality of research items produced by the `research-loop.yml` autonomous pipeline be systematically evaluated, and what changes to `research-prompt.md` and the loop's prompting strategy wo",
+    "url": "/Research/research/2026-03-03-research-loop-quality-prompt-engineering.html"
+  },
+  {
+    "slug": "2026-03-03-research-agenda-curation-coverage",
+    "title": "Research agenda curation: prioritisation, coverage analysis, and avoiding research drift",
+    "tags": [
+      "research-agenda",
+      "prioritisation",
+      "coverage",
+      "curation",
+      "strategy",
+      "backlog-management",
+      "research-drift"
+    ],
+    "added": "2026-03-03",
+    "question_excerpt": "How should the research backlog be maintained and prioritised to ensure balanced coverage of important domains, detect over-concentration in one area (research drift), and surface high-value gaps — ra",
+    "url": "/Research/research/2026-03-03-research-agenda-curation-coverage.html"
+  },
+  {
+    "slug": "2026-03-03-ml-techniques-and-algorithms",
+    "title": "ML techniques, algorithms, and advanced analytics — a systematic reference for analytics teams",
+    "tags": [
+      "machine-learning",
+      "analytics",
+      "algorithms",
+      "statistics",
+      "deep-learning",
+      "advanced-analytics",
+      "best-practices",
+      "model-selection"
+    ],
+    "added": "2026-03-03",
+    "question_excerpt": "What is the complete, structured landscape of machine learning techniques and algorithms that an advanced analytics department should know, use, and actively pursue — covering foundational concepts, w",
+    "url": "/Research/research/2026-03-03-ml-techniques-and-algorithms.html"
+  },
+  {
+    "slug": "2026-03-03-knowledge-retention-active-recall",
+    "title": "Knowledge retention: mechanisms for ensuring completed research is recalled and applied over time",
+    "tags": [
+      "retention",
+      "recall",
+      "spaced-repetition",
+      "knowledge-decay",
+      "application",
+      "active-recall",
+      "knowledge-management"
+    ],
+    "added": "2026-03-03",
+    "question_excerpt": "What mechanisms ensure that knowledge from completed research items is retained, recalled when contextually relevant, and applied to decisions — rather than being archived indefinitely with no re-enga",
+    "url": "/Research/research/2026-03-03-knowledge-retention-active-recall.html"
+  },
+  {
+    "slug": "2026-03-03-knowledge-representation-agent-context",
+    "title": "Knowledge Representation for Agent Context: LSE, Knowledge Graphs, Concept Maps, and Document Compression for Large-Scale Context Management",
+    "tags": [
+      "lse",
+      "lsa",
+      "knowledge-graphs",
+      "concept-maps",
+      "document-compression",
+      "context-management",
+      "rag",
+      "agents",
+      "knowledge-layering",
+      "intent-alignment",
+      "graphrag"
+    ],
+    "added": "2026-03-03",
+    "question_excerpt": "What techniques — latent semantic extraction, knowledge graphs, concept maps, hierarchical document compression, and layered abstraction — most effectively represent and compress large knowledge corpo",
+    "url": "/Research/research/2026-03-03-knowledge-representation-agent-context.html"
+  },
+  {
+    "slug": "2026-03-03-knowledge-linking-connected-corpus",
+    "title": "Knowledge linking: building a connected research corpus via explicit cross-references and a knowledge graph",
+    "tags": [
+      "knowledge-graph",
+      "zettelkasten",
+      "cross-references",
+      "linking",
+      "synthesis",
+      "backlinks",
+      "corpus"
+    ],
+    "added": "2026-03-03",
+    "question_excerpt": "What is the minimum viable approach to making the `Research/completed/` corpus a connected knowledge network — where items explicitly reference related items, contradictions and confirmations are surf",
+    "url": "/Research/research/2026-03-03-knowledge-linking-connected-corpus.html"
+  },
+  {
+    "slug": "2026-03-02-transaction-costs",
+    "title": "Transaction Cost Economics: foundations and speculative integration with SWE, AI, knowledge management, and context engineering",
+    "tags": [
+      "transaction-costs",
+      "institutional-economics",
+      "coase",
+      "williamson",
+      "north",
+      "ostrom",
+      "munger",
+      "swe",
+      "ai-agents",
+      "knowledge-management",
+      "context-engineering"
+    ],
+    "added": "2026-03-02",
+    "question_excerpt": "What are the foundational concepts of transaction cost economics (Coase → Williamson → North → Ostrom), and how might the analytical framework map onto software engineering organisation, AI agent desi",
+    "url": "/Research/research/2026-03-02-transaction-costs.html"
+  },
+  {
+    "slug": "2026-03-02-slack-msteams-research-integration",
+    "title": "Slack and MS Teams integration for research delivery and capture",
+    "tags": [
+      "slack",
+      "ms-teams",
+      "integration",
+      "delivery",
+      "notifications",
+      "bot",
+      "interface",
+      "distribution"
+    ],
+    "added": "2026-03-02",
+    "question_excerpt": "What is the most practical way to integrate the research corpus with Slack and/or Microsoft Teams — for both outbound delivery (notifying when new research is completed) and inbound capture (receiving",
+    "url": "/Research/research/2026-03-02-slack-msteams-research-integration.html"
+  },
+  {
+    "slug": "2026-03-02-semantic-full-text-search",
+    "title": "Semantic and full-text search over the research corpus",
+    "tags": [
+      "search",
+      "semantic-search",
+      "full-text-search",
+      "vector-search",
+      "embeddings",
+      "indexing",
+      "rag"
+    ],
+    "added": "2026-03-02",
+    "question_excerpt": "What combination of full-text search (keyword/BM25) and semantic search (embeddings/vector) is most appropriate for querying the `Research/completed/` corpus, given the constraints of a git-based, loc",
+    "url": "/Research/research/2026-03-02-semantic-full-text-search.html"
+  },
+  {
+    "slug": "2026-03-02-research-quality-assurance-methodology",
+    "title": "Research Quality Assurance and Knowledge Integration Methodology",
+    "tags": [
+      "research-methodology",
+      "quality-assurance",
+      "peer-review",
+      "knowledge-integration",
+      "information-to-wisdom",
+      "ci",
+      "skills"
+    ],
+    "added": "2026-03-02",
+    "question_excerpt": "What review methodology is required to reliably move from information gathering through to applied knowledge and wisdom — and which of those steps can be automated in a CI pipeline versus requiring hu",
+    "url": "/Research/research/2026-03-02-research-quality-assurance-methodology.html"
+  },
+  {
+    "slug": "2026-03-02-ios-shortcuts-research",
+    "title": "iOS Shortcuts for research capture and query",
+    "tags": [
+      "ios",
+      "shortcuts",
+      "mobile",
+      "capture",
+      "interface",
+      "delivery",
+      "siri"
+    ],
+    "added": "2026-03-02",
+    "question_excerpt": "What iOS Shortcuts workflows provide the most value for a personal research system hosted on GitHub — covering both low-friction research capture (adding a URL or idea to the backlog from anywhere on",
+    "url": "/Research/research/2026-03-02-ios-shortcuts-research.html"
+  },
+  {
+    "slug": "2026-03-02-integrative-framework-agent-decision-making",
+    "title": "An Integrative Framework for Agent Decision-Making: Aligning Knowledge Management, Intent Understanding, and Contextual Decision Frameworks",
+    "tags": [
+      "agents",
+      "decision-making",
+      "dikw",
+      "knowledge-management",
+      "intent",
+      "memory",
+      "context",
+      "alignment",
+      "governance",
+      "wisdom"
+    ],
+    "added": "2026-03-02",
+    "question_excerpt": "How can the DIKW (Data → Information → Knowledge → Wisdom) progression be operationalised within agentic systems to produce intent-aligned, context-aware decisions that reconcile conflicting knowledge",
+    "url": "/Research/research/2026-03-02-integrative-framework-agent-decision-making.html"
+  },
+  {
+    "slug": "2026-03-02-chat-conversational-interface",
+    "title": "Conversational and chat interface for querying the research corpus",
+    "tags": [
+      "chat",
+      "conversational-interface",
+      "mcp",
+      "rag",
+      "search",
+      "interface",
+      "delivery",
+      "copilot-extension"
+    ],
+    "added": "2026-03-02",
+    "question_excerpt": "What is the best approach to expose the `Research/completed/` corpus as a queryable, conversational interface — so that a user (or an AI agent) can ask \"what do I know about X?\" and receive a grounded",
+    "url": "/Research/research/2026-03-02-chat-conversational-interface.html"
+  },
+  {
+    "slug": "2026-03-02-ai-not-a-data-problem",
+    "title": "AI capability is not a data problem - why the data/analytics department is the wrong home for organisational AI",
+    "tags": [
+      "ai-strategy",
+      "architecture",
+      "data-platform",
+      "api-layer",
+      "agents",
+      "organisational-design",
+      "governance",
+      "mcp",
+      "zero-trust",
+      "identity"
+    ],
+    "added": "2026-03-02",
+    "question_excerpt": "What is the strongest case - technical, architectural, organisational, legal, and regulatory - that an organisation's AI capability should NOT be owned by or coupled to its data/analytics department o",
+    "url": "/Research/research/2026-03-02-ai-not-a-data-problem.html"
+  },
+  {
+    "slug": "2026-03-02-agent-memory-management-context-injection",
+    "title": "Agent Memory Management and Context Injection",
+    "tags": [
+      "memory",
+      "context-injection",
+      "rag",
+      "agents",
+      "knowledge-management",
+      "architecture",
+      "governance",
+      "dikw",
+      "obsidian",
+      "pkm",
+      "knowledge-graphs",
+      "embeddings",
+      "graph-of-thoughts",
+      "portability"
+    ],
+    "added": "2026-03-02",
+    "question_excerpt": "What is the current state of agent memory management systems — beyond RAG — and which approaches best address the real constraints of latency, knowledge freshness, scoping, governance, quality, and di",
+    "url": "/Research/research/2026-03-02-agent-memory-management-context-injection.html"
+  },
+  {
+    "slug": "2026-03-01-github-wiki-research-content",
+    "title": "GitHub wiki for research content: approach and tooling",
+    "tags": [
+      "wiki",
+      "github",
+      "delivery",
+      "interface",
+      "output"
+    ],
+    "added": "2026-03-01",
+    "question_excerpt": "What is the best approach for publishing completed research items from `Research/completed/` into the GitHub wiki, and what tooling is needed to keep it current and readable?",
+    "url": "/Research/research/2026-03-01-github-wiki-research-content.html"
+  },
+  {
+    "slug": "2026-03-01-github-specify-ralph-loop-lisa-planning",
+    "title": "GitHub Specify, Ralph Loops, and Lisa Planning: Proof-Driven Development with AI Agents",
+    "tags": [
+      "proof-driven-development",
+      "ai-agents",
+      "ralph-loop",
+      "lisa-planning",
+      "specify",
+      "autonomous-development",
+      "github-copilot",
+      "software-engineering"
+    ],
+    "added": "2026-03-01",
+    "question_excerpt": "What is \"Specify\" in the context of GitHub-integrated AI development workflows, how does the Ralph loop implement proof-driven development in practice, and what role does Lisa planning play in the spe",
+    "url": "/Research/research/2026-03-01-github-specify-ralph-loop-lisa-planning.html"
+  },
+  {
+    "slug": "2026-03-01-context-mode-llm-context-compression",
+    "title": "Context Mode: MCP tool output compression and the LLM context window management problem",
+    "tags": [
+      "llm",
+      "context-window",
+      "mcp",
+      "claude-code",
+      "context-management",
+      "tooling"
+    ],
+    "added": "2026-03-01",
+    "question_excerpt": "What is Context Mode's architecture and actual effectiveness for compressing MCP tool outputs in Claude Code, what are its real-world limitations (especially regarding MCP tool interception), and what",
+    "url": "/Research/research/2026-03-01-context-mode-llm-context-compression.html"
+  },
+  {
+    "slug": "2026-03-01-agent-lsp-policy-enforcement",
+    "title": "Guiding Headless Agents via LSP-Like Mechanisms for Org Policy Conformance",
+    "tags": [
+      "agentic-coding",
+      "lsp",
+      "policy-enforcement",
+      "headless-agents",
+      "architecture-governance",
+      "security",
+      "developer-tooling"
+    ],
+    "added": "2026-03-01",
+    "question_excerpt": "Who is building solutions that allow headless autonomous coding agents to be guided in real time by LSP-like mechanisms — rather than CI gates or pre-commit hooks — to conform to an organisation's sec",
+    "url": "/Research/research/2026-03-01-agent-lsp-policy-enforcement.html"
+  },
+  {
+    "slug": "2026-02-28-youtube-video-hyuos0gkgcs-concepts",
+    "title": "Reality Is A Controlled Hallucination — Anil Seth (Essentia Foundation): concept extraction and synthesis",
+    "tags": [
+      "youtube",
+      "consciousness",
+      "predictive-processing",
+      "anil-seth",
+      "perception",
+      "interoception",
+      "beast-machine",
+      "free-energy",
+      "entropy"
+    ],
+    "added": "2026-02-28",
+    "question_excerpt": "What are the key concepts presented in Anil Seth's \"Reality Is A Controlled Hallucination\" (https://youtu.be/HYUoS0GkGCs), and how do they relate to and reinforce each other when synthesised?",
+    "url": "/Research/research/2026-02-28-youtube-video-hyuos0gkgcs-concepts.html"
+  },
+  {
+    "slug": "2026-02-28-transcript-via-yt-dlp-whisper",
+    "title": "YouTube transcripts via yt-dlp audio + Whisper transcription",
+    "tags": [
+      "youtube",
+      "transcripts",
+      "whisper",
+      "yt-dlp",
+      "tooling",
+      "automation"
+    ],
+    "added": "2026-02-28",
+    "question_excerpt": "Can we bypass YouTube's IP-based transcript block by downloading the **audio track** with\n`yt-dlp` (a different endpoint from the transcript API) and then transcribing it with\nOpenAI Whisper?",
+    "url": "/Research/research/2026-02-28-transcript-via-yt-dlp-whisper.html"
+  },
+  {
+    "slug": "2026-02-28-transcript-via-third-party-apis",
+    "title": "YouTube transcripts via third-party transcript APIs (AssemblyAI / Supadata)",
+    "tags": [
+      "youtube",
+      "transcripts",
+      "assemblyai",
+      "supadata",
+      "tooling",
+      "automation"
+    ],
+    "added": "2026-02-28",
+    "question_excerpt": "Can a third-party transcript API (AssemblyAI, Supadata, Kagi, or similar) retrieve YouTube\ntranscripts from a GitHub Actions runner, bypassing YouTube's IP-based block on the\ninternal transcript endpo",
+    "url": "/Research/research/2026-02-28-transcript-via-third-party-apis.html"
+  },
+  {
+    "slug": "2026-02-28-transcript-via-gemini-api",
+    "title": "YouTube transcripts via Gemini API (native YouTube URL support)",
+    "tags": [
+      "youtube",
+      "transcripts",
+      "gemini",
+      "tooling",
+      "automation"
+    ],
+    "added": "2026-02-28",
+    "question_excerpt": "Can we use the Gemini API (already configured in `davidamitchell/Latest-developments-`) to\nextract full transcripts from YouTube videos without being blocked by YouTube's IP restrictions?",
+    "url": "/Research/research/2026-02-28-transcript-via-gemini-api.html"
+  },
+  {
+    "slug": "2026-02-28-rbnz-ai-supervisory-expectations",
+    "title": "RBNZ AI Supervisory Expectations: What Do Regulated Entities Need to Know?",
+    "tags": [
+      "rbnz",
+      "ai-strategy",
+      "financial-services",
+      "prudential-regulation",
+      "model-risk",
+      "nz-specific"
+    ],
+    "added": "2026-02-28",
+    "question_excerpt": "What are the Reserve Bank of New Zealand's specific supervisory expectations for AI use by regulated entities, and how do these align with or diverge from the expectations of comparator regulators (AP",
+    "url": "/Research/research/2026-02-28-rbnz-ai-supervisory-expectations.html"
+  },
+  {
+    "slug": "2026-02-28-predictive-processing-active-inference",
+    "title": "Predictive processing and active inference: the brain as prediction machine",
+    "tags": [
+      "predictive-processing",
+      "active-inference",
+      "free-energy-principle",
+      "karl-friston",
+      "neuroscience"
+    ],
+    "added": "2026-02-28",
+    "question_excerpt": "What exactly is the predictive processing / active inference framework, how does it differ from classical feedforward models of perception, and what is the empirical status of the free energy principl",
+    "url": "/Research/research/2026-02-28-predictive-processing-active-inference.html"
+  },
+  {
+    "slug": "2026-02-28-jevons-paradox",
+    "title": "Jevons Paradox: efficiency gains, demand rebound, and the falling cost of software production",
+    "tags": [
+      "jevons-paradox",
+      "rebound-effect",
+      "economics",
+      "software-engineering",
+      "ai-coding",
+      "technology-forecasting"
+    ],
+    "added": "2026-02-28",
+    "question_excerpt": "How does Jevons Paradox operate across different sectors historically, what are the conditions under which cost or efficiency improvements *do not* increase total demand, and what do current thinkers",
+    "url": "/Research/research/2026-02-28-jevons-paradox.html"
+  },
+  {
+    "slug": "2026-02-28-interoception-and-the-predictive-self",
+    "title": "Interoception and the predictive self: selfhood as bodily inference",
+    "tags": [
+      "interoception",
+      "self",
+      "consciousness",
+      "embodied-cognition",
+      "anil-seth",
+      "predictive-processing"
+    ],
+    "added": "2026-02-28",
+    "question_excerpt": "What is the evidence that the sense of self emerges from interoceptive predictive processing — and what are the implications for understanding depersonalisation, emotion, and mental illness?",
+    "url": "/Research/research/2026-02-28-interoception-and-the-predictive-self.html"
+  },
+  {
+    "slug": "2026-02-28-hard-problem-vs-real-problem-consciousness",
+    "title": "The hard problem vs. the real problem of consciousness",
+    "tags": [
+      "consciousness",
+      "hard-problem",
+      "philosophy-of-mind",
+      "anil-seth",
+      "chalmers",
+      "phenomenology"
+    ],
+    "added": "2026-02-28",
+    "question_excerpt": "What is the difference between Chalmers' \"hard problem\" and Seth's \"real problem\" of consciousness — is the real-problem strategy a genuine advance or a deferrment of the original question?",
+    "url": "/Research/research/2026-02-28-hard-problem-vs-real-problem-consciousness.html"
+  },
+  {
+    "slug": "2026-02-28-free-energy-entropy-and-life",
+    "title": "Free energy, entropy, and life: why organisms predict — from Schrödinger to Friston to Seth",
+    "tags": [
+      "free-energy-principle",
+      "entropy",
+      "predictive-processing",
+      "active-inference",
+      "karl-friston",
+      "anil-seth",
+      "consciousness",
+      "thermodynamics",
+      "life"
+    ],
+    "added": "2026-02-28",
+    "question_excerpt": "Why do living organisms need predictive brains? What is the precise relationship between the thermodynamic concept of entropy (disorder), the information-theoretic concept of free energy (surprise), K",
+    "url": "/Research/research/2026-02-28-free-energy-entropy-and-life.html"
+  },
+  {
+    "slug": "2026-02-28-exploit-explore-ai-portfolio-framework",
+    "title": "Exploit vs Explore: A Decision Framework for AI Portfolio Planning",
+    "tags": [
+      "ai-strategy",
+      "exploit-explore",
+      "portfolio-planning",
+      "organisational-learning",
+      "decision-framework"
+    ],
+    "added": "2026-02-28",
+    "question_excerpt": "How should organisations distinguish between exploitation and exploration AI investments in practice, and what diagnostic criteria and portfolio tools enable that distinction to be applied at budget a",
+    "url": "/Research/research/2026-02-28-exploit-explore-ai-portfolio-framework.html"
+  },
+  {
+    "slug": "2026-02-28-controlled-hallucination-perception-as-construction",
+    "title": "Controlled hallucination: perception as active brain construction",
+    "tags": [
+      "consciousness",
+      "perception",
+      "controlled-hallucination",
+      "anil-seth",
+      "neuroscience"
+    ],
+    "added": "2026-02-28",
+    "question_excerpt": "What is the evidence that perception is a generative, top-down process rather than a bottom-up readout of the world — and what are the strongest objections to Seth's \"controlled hallucination\" framing",
+    "url": "/Research/research/2026-02-28-controlled-hallucination-perception-as-construction.html"
+  },
+  {
+    "slug": "2026-02-28-ai-strategy",
+    "title": "AI Strategy: global and NZ examples, policy frameworks, regulations, and use-case typologies",
+    "tags": [
+      "ai-strategy",
+      "policy",
+      "regulation",
+      "new-zealand",
+      "rbnz",
+      "dia",
+      "mbie",
+      "dora",
+      "use-cases",
+      "agentic-ai"
+    ],
+    "added": "2026-02-28",
+    "question_excerpt": "What do leading global AI strategies look like, how does New Zealand's regulatory and policy landscape (RBNZ, DIA, MBIE, and others) compare, and what use-case typology — from human augmentation throu",
+    "url": "/Research/research/2026-02-28-ai-strategy.html"
+  },
+  {
+    "slug": "2026-02-28-ai-strategy-swe-focus",
+    "title": "AI Strategy Examples: Software Engineering Focus",
+    "tags": [
+      "ai-strategy",
+      "software-engineering",
+      "developer-productivity",
+      "code-generation",
+      "agentic-swe"
+    ],
+    "added": "2026-02-28",
+    "question_excerpt": "Which organisations have published or disclosed coherent AI strategies specifically targeting software engineering, what outcomes have they measured, and what does the trajectory from AI-assisted codi",
+    "url": "/Research/research/2026-02-28-ai-strategy-swe-focus.html"
+  },
+  {
+    "slug": "2026-02-28-ai-strategy-security-focus",
+    "title": "AI Strategy Examples: Security Focus",
+    "tags": [
+      "ai-strategy",
+      "security",
+      "cybersecurity",
+      "threat-detection",
+      "adversarial-ai",
+      "ai-governance"
+    ],
+    "added": "2026-02-28",
+    "question_excerpt": "Which organisations have developed coherent AI strategies with security as the primary objective — either using AI to enhance security posture or governing the security risks that AI systems themselve",
+    "url": "/Research/research/2026-02-28-ai-strategy-security-focus.html"
+  },
+  {
+    "slug": "2026-02-28-ai-strategy-risk-reduction-focus",
+    "title": "AI Strategy Examples: Risk Reduction Focus",
+    "tags": [
+      "ai-strategy",
+      "risk-management",
+      "operational-risk",
+      "model-risk",
+      "ai-governance",
+      "financial-services"
+    ],
+    "added": "2026-02-28",
+    "question_excerpt": "Which organisations have developed AI strategies explicitly framed around risk reduction — operational risk, credit risk, fraud, compliance, model risk — and what governance structures, outcome metric",
+    "url": "/Research/research/2026-02-28-ai-strategy-risk-reduction-focus.html"
+  },
+  {
+    "slug": "2026-02-28-ai-strategy-business-efficiency-examples",
+    "title": "AI Strategy Examples: Business Efficiency Focus",
+    "tags": [
+      "ai-strategy",
+      "business-efficiency",
+      "productivity",
+      "operations",
+      "case-studies"
+    ],
+    "added": "2026-02-28",
+    "question_excerpt": "Which published AI strategies — corporate, national, or sector-specific — are explicitly designed around business efficiency as the primary objective, what measurable outcomes have they produced, and",
+    "url": "/Research/research/2026-02-28-ai-strategy-business-efficiency-examples.html"
+  },
+  {
+    "slug": "2026-02-28-ai-line-1-line-2-risk-agents",
+    "title": "AI Line 1 and Line 2 Risk Agents: Who Is Building Them?",
+    "tags": [
+      "ai-strategy",
+      "risk-agents",
+      "line-1",
+      "line-2",
+      "three-lines-model",
+      "agentic-ai",
+      "financial-services",
+      "risk-management"
+    ],
+    "added": "2026-02-28",
+    "question_excerpt": "Who is currently building or deploying AI agents specifically positioned to operate within the three lines of defence model — line 1 (business/operational risk management) and line 2 (risk and complia",
+    "url": "/Research/research/2026-02-28-ai-line-1-line-2-risk-agents.html"
+  },
+  {
+    "slug": "2026-02-28-ai-control-testing-and-assurance",
+    "title": "AI for Control Testing, Gap Identification, and Policies/Standards Reviews",
+    "tags": [
+      "ai-strategy",
+      "grc",
+      "control-testing",
+      "compliance-automation",
+      "internal-audit",
+      "risk-management",
+      "financial-services"
+    ],
+    "added": "2026-02-28",
+    "question_excerpt": "Which organisations are using AI to automate control testing, identify control gaps, or conduct policies and standards reviews — and what does the current vendor, practitioner, and regulatory landscap",
+    "url": "/Research/research/2026-02-28-ai-control-testing-and-assurance.html"
+  }
+]

@@ -1,0 +1,613 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>RUN vs BUILD IT spending allocation in non-IT primary businesses — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #141414;
+  --surface-2:       #1c1c1c;
+  --border:          #2a2a2a;
+  --text:            #e8e8e8;
+  --text-muted:      #666;
+  --accent:          #e8e8e8;
+  --accent-dim:      #333;
+  --tag-bg:          #1e1e1e;
+  --tag-text:        #999;
+  --tag-active-bg:   #e8e8e8;
+  --tag-active-text: #0d0d0d;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--accent); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+}
+.card:hover { border-color: var(--accent); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+}
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+.item-content pre code { background: none; padding: 0; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--text); text-decoration: underline; }
+.item-content a:hover { color: var(--text-muted); }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  main { padding: 72px 1rem 3rem; }
+  nav { padding: 0 1rem; }
+}
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/">Research</a>
+    <div class="nav-links">
+      <a href="/Research/tags/">Tags</a>
+      <a href="/Research/search.html">Search</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>RUN vs BUILD IT spending allocation in non-IT primary businesses</span>
+  </div>
+  <h1 class="item-title">RUN vs BUILD IT spending allocation in non-IT primary businesses</h1>
+  <div class="meta-bar">
+    <span>2026-03-07</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/it-finance.html">it-finance</a> <a class="tag" href="/Research/tags/run-build.html">run-build</a> <a class="tag" href="/Research/tags/cost-allocation.html">cost-allocation</a> <a class="tag" href="/Research/tags/gartner.html">gartner</a> <a class="tag" href="/Research/tags/activity-based-costing.html">activity-based-costing</a> <a class="tag" href="/Research/tags/flow-metrics.html">flow-metrics</a> <a class="tag" href="/Research/tags/tbc-framework.html">tbc-framework</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-07-run-vs-build-it-spending-allocation.md" target="_blank" rel="noopener">source →</a>
+  </div>
+  <div class="item-content">
+    <h2>Research Question</h2>
+<p>How do non-IT primary businesses (manufacturing, retail, finance) calculate and apportion IT spending between RUN (nondiscretionary operational sustainment) and BUILD (discretionary strategic enhancement) activities, using documented industry frameworks and real-world productionised examples with quantitative outcomes?</p>
+
+<h2>Findings</h2>
+<h3>Executive Summary</h3>
+<p>Non-IT primary businesses (manufacturing, retail, finance) calculate the RUN vs BUILD IT spending split using a converged methodology centred on the TBM Council's ATUM taxonomy as the operational framework, with Gartner's Run-Grow-Transform model providing the benchmarking and communication layer. Typical benchmarks are 65–70% RUN by total IT cost for manufacturing and retail, 75–80% for financial services, and up to 90% by FTE-allocation at heavily legacy-burdened institutions. Activity-based costing is the correct technique for apportioning shared/indirect IT costs; FTE time logging is the primary proxy where ABC cannot be fully implemented. The primary quantified value of establishing this classification is not the ratio shift itself but the benchmarked optimisation it enables: National Grid achieved $47M in first-year IT savings using TBM-sourced benchmark data, and MassMutual eliminated $75M in application costs during a divestiture using TBM allocation data.</p>
+<h3>Key Findings</h3>
+<ol>
+<li>Gartner's Run-Grow-Transform model and TBM Council's ATUM model define RUN identically as all costs sustaining existing IT operations at current service levels, differing only in calling the discretionary-enhancement middle tier &quot;Grow&quot; (Gartner) versus &quot;Build&quot; (TBM); for non-IT primary businesses the practical distinction is immaterial.</li>
+<li>Industry benchmarks from Gartner-aligned secondary sources place the RUN ratio for non-IT primary businesses at approximately 65–70% of total IT spend, trending gradually toward 60% as digital transformation investment increases across 2019–2023.</li>
+<li>Financial services organisations (banking, insurance) carry RUN ratios of 75–80% of total IT cost, driven by legacy system maintenance, mandatory regulatory compliance infrastructure, and risk management system sustainment requirements.</li>
+<li>Manufacturing and retail sectors benchmark at 65–70% RUN, with BUILD allocations accelerating since 2020 due to e-commerce, supply chain digitisation, IoT, and smart manufacturing investments.</li>
+<li>McKinsey's &quot;flip the ratio&quot; study found that FTE-based RUN ratios at financial services institutions were approximately 90% before transformation programmes — substantially higher than the cost-based 75–80% benchmark — because knowledge workers concentrate in operational support roles while large vendor and infrastructure costs inflate the apparent BUILD share.</li>
+<li>Activity-based costing is the technically correct apportionment method for shared IT overhead (security, architecture, management, coaching): each team's total cost pool is split RUN/BUILD in proportion to measured activities, using time logs as the primary driver and manager-estimated ratios as an accepted fallback.</li>
+<li>Software licence renewals, managed service BAU contracts, and cybersecurity operational spend are classified as RUN; initial licence acquisition, project-phase implementation fees, and new system deployments are BUILD; mandatory vendor-forced end-of-life migrations are classified as RUN based on purpose (operational continuity, not new capability).</li>
+<li>FTE time logging is the most defensible proxy measure for indirect cost allocation; ticket-type ratios (incident/service request = RUN; project delivery = BUILD) provide a secondary check; Flow Distribution from the Flow Framework provides a real-time team-level signal where product delivery is organised around value streams.</li>
+<li>National Grid (energy utility) implemented TBM using Apptio in 2018, initiated approximately 130 benchmark-driven optimisations across its application, network, cloud, and technical debt portfolios, and achieved $47M in annual IT savings in the first year, exceeding its target, toward a $100M three-year savings goal.</li>
+<li>MassMutual (insurance) implemented TBM consumption-driven cost allocation across 450+ applications and used the resulting data to eliminate $75M in costs during a major business divestiture, demonstrating the value of RUN/BUILD transparency beyond routine portfolio management.</li>
+<li>The critical unmodelled failure mode in RUN/BUILD classification is the multi-year RUN tail of BUILD investments: each BUILD project creates a permanent annual RUN cost increment that, if not modelled at approval time, systematically inflates the RUN ratio in future periods and crowds out further BUILD investment.</li>
+<li>No publicly available standard driver ratios for shared IT services (security, architecture, management) exist in the literature; organisations must establish their own ratios from time studies or annually reviewed manager estimates, documented as cost model assumptions.</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+  <th>Claim</th>
+  <th>Source</th>
+  <th>Confidence</th>
+  <th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Gartner RGT: RUN = keep lights on; GROW = scale; TRANSFORM = innovate</td>
+  <td>Leapfrog Services (2023) citing Gartner doc 3357425; Nicus (2025)</td>
+  <td>high</td>
+  <td>Gartner primary paywalled; secondary sources consistent</td>
+</tr>
+<tr>
+  <td>TBM ATUM: RUN/BUILD/TRANSFORM with ABC</td>
+  <td>TBM Council (tbmcouncil.org/framework/tbm-model/); Apptio ATUM white paper</td>
+  <td>high</td>
+  <td>Primary source accessible</td>
+</tr>
+<tr>
+  <td>Industry benchmark 65–70% RUN for non-IT primary businesses</td>
+  <td>Leapfrog Services (2023); web synthesis from CIO Wiki, Gartner-aligned sources</td>
+  <td>medium</td>
+  <td>Secondary sources aggregating Gartner paywalled data</td>
+</tr>
+<tr>
+  <td>Financial services 75–80% RUN ratio</td>
+  <td>getacon.com; simpleworkload.com (2026)</td>
+  <td>medium</td>
+  <td>Secondary synthesis; no single primary source</td>
+</tr>
+<tr>
+  <td>Manufacturing/Retail 65–70% RUN ratio</td>
+  <td>getacon.com; simpleworkload.com (2026)</td>
+  <td>medium</td>
+  <td>Secondary synthesis</td>
+</tr>
+<tr>
+  <td>McKinsey: ~90% FTE-based RUN ratio at financial services pre-transformation</td>
+  <td>McKinsey &quot;Flip the ratio&quot; (paywalled, confirmed via multiple secondary citations)</td>
+  <td>medium</td>
+  <td>Original article not directly fetchable</td>
+</tr>
+<tr>
+  <td>McKinsey: 30–40% labour cost freed within 18–24 months</td>
+  <td>McKinsey &quot;Flip the ratio&quot; via secondary citations</td>
+  <td>medium</td>
+  <td>Same inaccessibility caveat</td>
+</tr>
+<tr>
+  <td>Licence renewals/BAU managed services = RUN; initial licence/project services = BUILD</td>
+  <td>TBM ATUM taxonomy; Leapfrog Services (2023)</td>
+  <td>high</td>
+  <td>Consistent across all frameworks</td>
+</tr>
+<tr>
+  <td>Mandatory end-of-life migrations classified as RUN</td>
+  <td>TBM Council guidance (inferred); Markonsolutions ABC blog (2020)</td>
+  <td>medium</td>
+  <td>Purpose-based classification logic</td>
+</tr>
+<tr>
+  <td>ABC is the correct method for shared/indirect IT costs</td>
+  <td>Markonsolutions (2020); Workday; NetSuite</td>
+  <td>high</td>
+  <td>Standard accounting methodology</td>
+</tr>
+<tr>
+  <td>FTE time logging as primary proxy for indirect cost allocation</td>
+  <td>TBM Council ATUM; web synthesis</td>
+  <td>high</td>
+  <td>Widely documented across frameworks</td>
+</tr>
+<tr>
+  <td>National Grid: $47M first-year savings, $100M+ three-year target, ~400 apps rationalised</td>
+  <td>TBM Council case study; Apptio case study</td>
+  <td>high</td>
+  <td>Primary case study sources</td>
+</tr>
+<tr>
+  <td>MassMutual: $75M cost elimination using TBM during divestiture</td>
+  <td>TBM Council case study PDF; Apptio case study</td>
+  <td>high</td>
+  <td>Primary case study sources</td>
+</tr>
+<tr>
+  <td>Flow Distribution: Features ≈ BUILD; Defects + Risks + TechDebt ≈ RUN</td>
+  <td>Planview Flow Framework guide; getdx.com; Allstacks</td>
+  <td>medium</td>
+  <td>Logical inference; Flow Framework does not use RUN/BUILD vocabulary</td>
+</tr>
+<tr>
+  <td>No standard driver ratios for shared IT services exist</td>
+  <td>Absence across all sources searched</td>
+  <td>medium</td>
+  <td>Assumption from exhaustive search</td>
+</tr>
+<tr>
+  <td>Trend: RUN share declining from ~70% toward ~60% (2019–2023)</td>
+  <td>TBM Council State of TBM annual reports (web synthesis)</td>
+  <td>medium</td>
+  <td>Directional trend; specific figures secondary</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li><strong>Assumption:</strong> Driver ratios for shared IT services (security, architecture, management) are organisation-specific and must be established from time studies or manager estimates. <strong>Justification:</strong> No publicly available standardised ratio tables found across Gartner, TBM Council, McKinsey, or any other source despite targeted searching.</li>
+<li><strong>Assumption:</strong> The Flow Framework's four item types map approximately to RUN (Defects, Risks, Technical Debt) and BUILD (Features). <strong>Justification:</strong> Definitional alignment: Defects and Technical Debt address existing functionality; Risks address operational compliance and security sustainment; Features deliver new capability. Flow Framework does not itself use RUN/BUILD vocabulary.</li>
+<li><strong>Assumption:</strong> McKinsey's 90% FTE-based RUN finding from financial services institutions reflects a pattern that extends with variation to manufacturing and retail (at lower intensity due to less legacy burden). <strong>Justification:</strong> The structural cause — knowledge workers concentrated in operational support — applies across sectors; only the degree varies.</li>
+</ul>
+<h3>Analysis</h3>
+<p>Three frameworks approach the same question from complementary angles. Gartner RGT provides the executive communication vocabulary and industry benchmarks. TBM ATUM provides the operational cost classification machinery, including the IT Tower hierarchy, activity-based allocation rules, and integration guidance for GL/CMDB/HR data. McKinsey's FTE-ratio method provides a workforce diagnostic that captures what cost-based measures obscure: the concentration of human effort in operational support.</p>
+<p>The evidence resolves the central methodology question unambiguously: TBM ATUM is the most complete and most widely adopted framework for non-IT primary businesses. It has the largest published case study base, an active industry council maintaining the standard, and tooling support (Apptio, ServiceNow ITFM) that connects financial classification to operational data. For organisations without ITFM tooling, Gartner's simpler RGT model provides adequate structure for executive-level reporting and benchmarking, at the cost of precision in shared-cost apportionment.</p>
+<p>The most significant tension in the evidence is between precision and practicality. ABC-based apportionment of shared IT costs is technically correct but requires time-study data, activity mapping, and cost driver maintenance. Organisations that cannot sustain this invest level use fixed management-estimated ratios — less accurate but operationally sustainable. The evidence from federal TBM adoption (Markonsolutions, US Army, OMB mandate) shows that even large organisations often start with simplified allocation models and mature toward ABC over time.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li><strong>Gartner benchmark inaccessibility:</strong> The 65–70% RUN benchmark is medium-confidence because it derives from secondary sources. Organisations with Gartner subscriptions should validate against the current IT Key Metrics Data for their sector.</li>
+<li><strong>Absence of standard ABC driver ratios:</strong> The literature contains no standardised table of RUN/BUILD split ratios for shared IT services. This is a genuine gap that creates variability and potential political distortion in the allocation model.</li>
+<li><strong>Case study methodology opacity:</strong> National Grid and MassMutual case studies confirm quantitative savings but do not disclose the detailed calculation methodology or resulting RUN/BUILD ratios. The cases show <em>outcomes</em>, not <em>calculation mechanics</em>.</li>
+<li><strong>McKinsey article inaccessibility:</strong> The &quot;Flip the ratio&quot; source could not be fetched. Medium-confidence claims from this source should be treated as directionally reliable but not primary-source verified.</li>
+<li><strong>Secular trend uncertainty:</strong> The drift from 70% to 60% RUN (2019–2023) may reflect genuine portfolio rebalancing or may reflect reclassification of existing work as BUILD to satisfy executive pressure. Without primary benchmark data, the two explanations cannot be distinguished.</li>
+</ul>
+<h3>Open Questions</h3>
+<ol>
+<li><strong>Detailed step-by-step calculation methodology for a non-IT primary business</strong> — what is the full process for apportioning a complete IT budget (including blended vendor contracts, partially allocated roles, and contested upgrade classifications) to RUN/BUILD/TRANSFORM? This directly unblocks <code>2026-03-07-run-build-it-allocation-implementation-how</code>.</li>
+<li><strong>Published ABC driver ratios for shared IT services</strong> — is there any Gartner, TBM Council, or consulting firm publication that provides empirical benchmarks for the RUN/BUILD split of security, enterprise architecture, management, and coaching teams?</li>
+<li><strong>Multi-year RUN tail modelling</strong> — what are the standard financial modelling templates or TBM tools for projecting the ongoing RUN cost increment created by each approved BUILD investment at approval time?</li>
+<li><strong>ITFM tooling comparison</strong> — what are the implementation cost, capability, and suitability profiles of Apptio, ServiceNow ITFM, Broadcom Clarity, and spreadsheet-based approaches for non-IT primary businesses of different scale?</li>
+</ol>
+<hr />
+
+
+  </div>
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-08-ai-coding-harnesses-agent-philosophy.html">AI coding harnesses: agent execution model, memory, and context management across commercial and OSS tools</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-07-run-build-it-allocation-implementation-how.html">How organisations practically implement IT RUN vs BUILD cost allocation</a></div>
+  </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,566 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>GitHub wiki for research content: approach and tooling — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #141414;
+  --surface-2:       #1c1c1c;
+  --border:          #2a2a2a;
+  --text:            #e8e8e8;
+  --text-muted:      #666;
+  --accent:          #e8e8e8;
+  --accent-dim:      #333;
+  --tag-bg:          #1e1e1e;
+  --tag-text:        #999;
+  --tag-active-bg:   #e8e8e8;
+  --tag-active-text: #0d0d0d;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--accent); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+}
+.card:hover { border-color: var(--accent); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+}
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+.item-content pre code { background: none; padding: 0; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--text); text-decoration: underline; }
+.item-content a:hover { color: var(--text-muted); }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  main { padding: 72px 1rem 3rem; }
+  nav { padding: 0 1rem; }
+}
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/">Research</a>
+    <div class="nav-links">
+      <a href="/Research/tags/">Tags</a>
+      <a href="/Research/search.html">Search</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>GitHub wiki for research content: approach and tooling</span>
+  </div>
+  <h1 class="item-title">GitHub wiki for research content: approach and tooling</h1>
+  <div class="meta-bar">
+    <span>2026-03-01</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/wiki.html">wiki</a> <a class="tag" href="/Research/tags/github.html">github</a> <a class="tag" href="/Research/tags/delivery.html">delivery</a> <a class="tag" href="/Research/tags/interface.html">interface</a> <a class="tag" href="/Research/tags/output.html">output</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-01-github-wiki-research-content.md" target="_blank" rel="noopener">source →</a>
+  </div>
+  <div class="item-content">
+    <h2>Research Question</h2>
+<p>What is the best approach for publishing completed research items from <code>Research/completed/</code> into the GitHub wiki, and what tooling is needed to keep it current and readable?</p>
+
+<h2>Findings</h2>
+<h3>Executive Summary</h3>
+<p>The GitHub wiki is a separate, flat git repository (<code>{repo}.wiki.git</code>) that can be cloned and pushed by any Actions workflow with <code>contents: write</code> permission using the built-in <code>GITHUB_TOKEN</code> — no PAT required. A full-rebuild approach (delete all pages, regenerate from <code>Research/completed/</code> on each push) is correct for this repository's volume and eliminates incremental state complexity. A Python script strips YAML front-matter, writes one wiki page per completed item, and generates <code>Home.md</code> (date-sorted index) and <code>_Sidebar.md</code> (tag navigation). The workflow triggers on any push to <code>main</code> that touches <code>Research/completed/**</code>, and also supports <code>workflow_dispatch</code> for manual runs. The wiki must be enabled once in repository Settings.</p>
+<h3>Key Findings</h3>
+<ol>
+<li><p><strong>The GitHub wiki is a distinct git repo.</strong> Every repository's wiki lives at <code>https://github.com/{owner}/{repo}.wiki.git</code>. It can be cloned and pushed like any git repository. <code>actions/checkout@v4</code> supports a <code>repository:</code> parameter that accepts <code>${{ github.repository }}.wiki</code>, making checkout straightforward.</p>
+</li>
+<li><p><strong><code>GITHUB_TOKEN</code> is sufficient — no PAT needed.</strong> Actions workflows with <code>permissions: contents: write</code> can push to the wiki repo of the same repository using <code>${{ secrets.GITHUB_TOKEN }}</code>. No additional secrets are required.</p>
+</li>
+<li><p><strong>Pages are flat — no subdirectories.</strong> The wiki URL structure is <code>/{owner}/{repo}/wiki/{Page-Name}</code>. Filenames map directly to page names; slashes in filenames are not supported. The constraint is acceptable for research items because each item already has a unique date-prefixed filename.</p>
+</li>
+<li><p><strong>Three special pages control structure.</strong> <code>Home.md</code> is the landing page for the Wiki tab. <code>_Sidebar.md</code> renders a persistent sidebar on every page. <code>_Footer.md</code> renders a persistent footer. These are the only navigation primitives the GitHub wiki natively supports.</p>
+</li>
+<li><p><strong>Internal wiki links use <code>[[Page Name]]</code> syntax.</strong> Cross-references between wiki pages use double-bracket notation: <code>[[2026-02-28-ai-strategy]]</code> or <code>[[2026-02-28-ai-strategy|AI Strategy]]</code> for aliased display text.</p>
+</li>
+<li><p><strong>Full rebuild is simpler than incremental.</strong> The wiki repo is wiped and rebuilt on every workflow run. At the current volume (tens of items), this takes under a second. It eliminates the need to track renames, deletions, or status changes — the completed directory is the authoritative source.</p>
+</li>
+<li><p><strong>YAML front-matter must be stripped.</strong> Wiki readers should see the research content directly, not raw YAML. Stripping the front-matter block (everything between the opening and closing <code>---</code>) and using the parsed metadata for the index and sidebar is the correct approach.</p>
+</li>
+<li><p><strong>The wiki must be enabled before the first push.</strong> GitHub wikis are disabled by default on new repositories. The owner must enable it once via Settings → Features → Wikis. After that, the automated workflow maintains it.</p>
+</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+  <th>Claim</th>
+  <th>Source</th>
+  <th>Confidence</th>
+  <th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Wiki lives at <code>{repo}.wiki.git</code></td>
+  <td>GitHub Docs (Wikis)</td>
+  <td>high</td>
+  <td>Documented API and community practice</td>
+</tr>
+<tr>
+  <td><code>GITHUB_TOKEN</code> + <code>contents: write</code> is sufficient</td>
+  <td>GitHub Docs (GITHUB_TOKEN permissions)</td>
+  <td>high</td>
+  <td>Confirmed for same-repo wiki push</td>
+</tr>
+<tr>
+  <td>Pages are flat (no subdirectories)</td>
+  <td>GitHub Docs (Wiki page naming)</td>
+  <td>high</td>
+  <td>URL structure confirms</td>
+</tr>
+<tr>
+  <td><code>Home.md</code>, <code>_Sidebar.md</code>, <code>_Footer.md</code> are special</td>
+  <td>GitHub Docs (Customising sidebar)</td>
+  <td>high</td>
+  <td>Documented behaviour</td>
+</tr>
+<tr>
+  <td><code>[[Page]]</code> internal link syntax</td>
+  <td>GitHub Docs (Wiki links)</td>
+  <td>high</td>
+  <td>Standard GitHub wiki Markdown extension</td>
+</tr>
+<tr>
+  <td>Full rebuild is simpler than incremental</td>
+  <td>Analysis</td>
+  <td>medium</td>
+  <td>Validated at current item volume; re-evaluate if &gt; 500 items</td>
+</tr>
+<tr>
+  <td>Wiki disabled by default</td>
+  <td>GitHub Docs (Enabling wikis)</td>
+  <td>high</td>
+  <td>Repository settings requirement</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li><strong>Assumption:</strong> The <code>davidamitchell/Research</code> wiki is currently empty or does not exist. <strong>Justification:</strong> No wiki content has been referenced in any session log or PROGRESS.md entry; the wiki tab was not mentioned as populated.</li>
+<li><strong>Assumption:</strong> PyYAML (already a project dependency) is sufficient for front-matter parsing in the Actions runner. <strong>Justification:</strong> <code>PyYAML&gt;=6.0</code> is listed in <code>pyproject.toml</code> dependencies.</li>
+<li><strong>Assumption:</strong> The publish step can run with Python installed from <code>actions/setup-python@v5</code> using the project's existing <code>pip install -e .</code> pattern. <strong>Justification:</strong> This is the pattern used by <code>ci.yml</code> and <code>fetch-transcript.yml</code>.</li>
+</ul>
+<h3>Analysis</h3>
+<p>Two pipeline designs were considered:</p>
+<p><strong>Option A — Full rebuild:</strong> On each trigger, checkout the wiki repo, delete all <code>.md</code> files, regenerate all pages from <code>Research/completed/</code>, push. Simple, stateless, correct by construction. Handles renames and deletions automatically.</p>
+<p><strong>Option B — Incremental:</strong> Track which research items have been published (by hash or mtime), only push changed pages. More complex, requires state, and the benefit (faster push) is negligible at the current volume.</p>
+<p>Full rebuild (Option A) was selected. The research corpus is small (currently ~10 completed items) and grows slowly. Rebuilding the entire wiki takes milliseconds. Eliminating incremental state complexity is worth more than the marginal speed gain.</p>
+<p>For navigation, two structures were designed:</p>
+<ul>
+<li><code>Home.md</code>: date-sorted table of all completed items with title, date, tags, and a wiki link</li>
+<li><code>_Sidebar.md</code>: tag-grouped navigation list</li>
+</ul>
+<p>Both are regenerated on every rebuild.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li><strong>Wiki must be enabled manually first.</strong> If the wiki has never been enabled, the first <code>git push</code> to the wiki URL will fail. The workflow cannot enable it programmatically. The owner must click Settings → Features → Wikis once.</li>
+<li><strong>Rate limits on wiki pushes.</strong> The GitHub API rate limit applies to authenticated pushes. At one push per main branch commit, this is not a concern in practice.</li>
+<li><strong>Wiki page names and GitHub's canonicalisation.</strong> GitHub normalises wiki page names (spaces become hyphens, etc.). The date-prefixed filename convention (<code>2026-02-27-...</code>) is safe — all characters are URL-safe.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>Should <code>Research/in-progress/</code> items also be published to the wiki with a &quot;work in progress&quot; label? (Out of scope for this item — start with completed only.)</li>
+<li>Should research items with <code>output: [knowledge]</code> be tagged differently from those with <code>output: [tool]</code>? (Possible future enhancement.)</li>
+</ul>
+<hr />
+
+
+  </div>
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-02-agent-memory-management-context-injection.html">Agent Memory Management and Context Injection</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-01-github-specify-ralph-loop-lisa-planning.html">GitHub Specify, Ralph Loops, and Lisa Planning: Proof-Driven Development with AI Agents</a></div>
+  </div>
+</main>
+</body>
+</html>

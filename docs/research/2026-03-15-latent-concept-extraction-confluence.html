@@ -1,0 +1,646 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Latent Concept Extraction from Confluence: Embeddings, Knowledge Graphs, and Epistemic Evaluation — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #141414;
+  --surface-2:       #1c1c1c;
+  --border:          #2a2a2a;
+  --text:            #e8e8e8;
+  --text-muted:      #666;
+  --accent:          #e8e8e8;
+  --accent-dim:      #333;
+  --tag-bg:          #1e1e1e;
+  --tag-text:        #999;
+  --tag-active-bg:   #e8e8e8;
+  --tag-active-text: #0d0d0d;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--accent); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+}
+.card:hover { border-color: var(--accent); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+}
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+.item-content pre code { background: none; padding: 0; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--text); text-decoration: underline; }
+.item-content a:hover { color: var(--text-muted); }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  main { padding: 72px 1rem 3rem; }
+  nav { padding: 0 1rem; }
+}
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/">Research</a>
+    <div class="nav-links">
+      <a href="/Research/tags/">Tags</a>
+      <a href="/Research/search.html">Search</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>Latent Concept Extraction from Confluence: Embeddings, Knowledge Graphs, and Epistemic Evaluation</span>
+  </div>
+  <h1 class="item-title">Latent Concept Extraction from Confluence: Embeddings, Knowledge Graphs, and Epistemic Evaluation</h1>
+  <div class="meta-bar">
+    <span>2026-03-15</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/confluence.html">confluence</a> <a class="tag" href="/Research/tags/embeddings.html">embeddings</a> <a class="tag" href="/Research/tags/vector-db.html">vector-db</a> <a class="tag" href="/Research/tags/knowledge-graph.html">knowledge-graph</a> <a class="tag" href="/Research/tags/nlp.html">nlp</a> <a class="tag" href="/Research/tags/epistemics.html">epistemics</a> <a class="tag" href="/Research/tags/rag.html">rag</a> <a class="tag" href="/Research/tags/latent-concepts.html">latent-concepts</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-15-latent-concept-extraction-confluence.md" target="_blank" rel="noopener">source →</a>
+  </div>
+  <div class="item-content">
+    <h2>Research Question</h2>
+<p>What are the best approaches for extracting latent concepts from a Confluence wiki, representing them as word embeddings in a vector database (VDB) and as a knowledge graph (KG), and how can the resulting knowledge base be evaluated for truth and utility  -  and is there a meaningful distinction between the two?</p>
+
+<h2>Findings</h2>
+<p><em>(Populated from §6 Synthesis above.)</em></p>
+<h3>Executive Summary</h3>
+<p>BERTopic combined with NER + relation extraction (mREBEL) is the current best-practice approach for latent concept extraction from a Confluence wiki; these techniques are complementary and should be run in parallel, not chosen between. For the embedding layer, SBERT models (<code>all-mpnet-base-v2</code> or INSTRUCTOR variants) selected via the MTEB leaderboard are the correct starting point, with domain adaptation reserved for confirmed retrieval degradation on Confluence-specific evaluation data. The VDB choice depends on existing infrastructure: Weaviate for combined VDB + KG pipelines, Qdrant for standalone vector search, pgvector if PostgreSQL is already in use. The truth/utility distinction is practically meaningful and maps directly to four required metadata fields  -  provenance, approval status, recency signal, and superseded-by graph edge  -  whose absence makes a Confluence RAG system epistemically undefendable in regulated contexts.</p>
+<h3>Key Findings</h3>
+<ol>
+<li><p>BERTopic's four-stage pipeline (transformer embeddings → UMAP dimensionality reduction → HDBSCAN clustering → c-TF-IDF topic representation) outperforms LDA on topic coherence metrics for longer-form text and does not require pre-specifying the number of topics, making it appropriate for unsupervised topic discovery across Confluence wiki pages without prior domain knowledge of the corpus. Confidence: high.</p>
+</li>
+<li><p>BERTopic and NER (via mREBEL or spaCy) are structurally complementary and should be run in parallel: BERTopic extracts latent topical clusters for document-level metadata tagging; NER extracts explicit named entities and typed relations for knowledge graph population; neither technique alone provides both topic-level and entity-level concept representation. Confidence: high.</p>
+</li>
+<li><p>The MTEB leaderboard is the standard selection criterion for embedding models; <code>all-mpnet-base-v2</code> and INSTRUCTOR models from SBERT are strong production baselines for technical organisational prose, and domain adaptation via TSDAE or GPL adds retrieval quality only worth its engineering cost when a held-out Confluence evaluation set confirms measurable degradation. Confidence: high.</p>
+</li>
+<li><p>Confluence's native hierarchical structure (spaces → page trees → section headings) should guide chunking: section-boundary splitting with Confluence hierarchy as parent metadata enables hierarchical retrieval, with factoid queries served at 256–512 token chunks and analytical queries served by merging to 1,024+ token parent chunks, based on NVIDIA's 2024 chunking benchmark results across five datasets. Confidence: medium.</p>
+</li>
+<li><p>HybridRAG (arXiv:2408.04948, 2024) outperforms both VectorRAG and GraphRAG individually on retrieval accuracy and answer quality, confirming that a VDB and knowledge graph are structurally complementary: the VDB handles semantic similarity retrieval; the KG handles precise entity-relationship queries; the hybrid pattern uses vector search to identify knowledge graph entry nodes and graph traversal for relational context. Confidence: high.</p>
+</li>
+<li><p>Weaviate is the optimal single-system store for Confluence-to-KG pipelines because it natively supports built-in hybrid search (BM25 + vector), object classes aligning with KG node types, and embedded vectorisation of graph nodes  -  eliminating the operational cost of running a separate VDB and a separate graph database concurrently. Confidence: medium.</p>
+</li>
+<li><p>Qdrant achieves 50.3% lower p50 query latency than pgvector at 90% recall (4.74ms vs. 9.54ms) and is the optimal standalone high-performance vector search store; pgvector achieves 11.4× higher throughput at 99% recall (471.57 vs. 41.47 QPS) and is optimal when PostgreSQL is already the organisation's data platform. Confidence: high.</p>
+</li>
+<li><p>mREBEL  -  a joint NER and relation extraction model trained on Wikipedia–Wikidata aligned pairs  -  generates entity-relation triples without a predefined ontology and achieves 1.8× the triple coverage of traditional rule-based extraction approaches, enabling incremental knowledge graph construction from Confluence pages as they are indexed rather than requiring an upfront full-corpus batch process. Confidence: medium.</p>
+</li>
+<li><p>The truth/utility distinction in an organisational knowledge base is both philosophically grounded in Goldman's veritistic social epistemology and practically meaningful: a Confluence document can simultaneously be historically accurate, operationally stale, and utility-negative when retrieved in a current compliance query  -  three states that require distinct metadata fields to distinguish at retrieval time. Confidence: high.</p>
+</li>
+<li><p>The truth/utility distinction is operationalised through four metadata fields per indexed chunk: provenance (Confluence page ID, author, space, creation date), approval status (approved/team/personal, mapping to high/medium/low confidence), recency signal (days since last edit, staleness flag above a threshold), and superseded-by relationship as a knowledge graph edge pointing to the successor document. Confidence: high (inference grounded in veritistic epistemology + knowledge governance literature).</p>
+</li>
+<li><p>Knowledge corpus governance  -  accuracy, currency, and ownership of source documents  -  is the primary determinant of retrieval quality in any RAG system built over Confluence, independently confirmed by two completed research items in this repository, and cannot be substituted by any combination of BERTopic, MTEB-leading embedding models, or hybrid VDB + KG retrieval architecture. Confidence: high.</p>
+</li>
+<li><p>Late chunking (Jina AI, 2024) embeds full documents before splitting so each chunk carries context from the entire page, potentially resolving pronoun and reference problems across chunk boundaries in Confluence pages where context is established in the introduction; this technique has not been benchmarked on structured wiki content and should be monitored for future adoption. Confidence: low (novel technique, single source, no Confluence-specific benchmark).</p>
+</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+  <th>Claim</th>
+  <th>Source</th>
+  <th>Confidence</th>
+  <th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>BERTopic outperforms LDA on coherence for longer text</td>
+  <td>AGILE GIScience 6(6) 2025; arXiv:2401.12990</td>
+  <td>high</td>
+  <td>Two independent studies</td>
+</tr>
+<tr>
+  <td>BERTopic does not require pre-specifying topic count</td>
+  <td>BERTopic documentation (maartengr.github.io/BERTopic)</td>
+  <td>high</td>
+  <td>Primary documentation</td>
+</tr>
+<tr>
+  <td>BERTopic supports incremental online learning</td>
+  <td>BERTopic documentation</td>
+  <td>high</td>
+  <td>Primary documentation</td>
+</tr>
+<tr>
+  <td>mREBEL: joint NER + relation extraction, no predefined ontology</td>
+  <td>CHIIR 2024 (arXiv:2401.07683); PMC 2025</td>
+  <td>high</td>
+  <td>Two sources</td>
+</tr>
+<tr>
+  <td>mREBEL 1.8× triple coverage vs. traditional</td>
+  <td>PMC 2025 KG construction survey</td>
+  <td>medium</td>
+  <td>Single source</td>
+</tr>
+<tr>
+  <td>NV-Embed tops MTEB at 69.32 (2024)</td>
+  <td>NVIDIA developer blog</td>
+  <td>high</td>
+  <td>Primary source</td>
+</tr>
+<tr>
+  <td>SBERT <code>all-mpnet-base-v2</code> production baseline</td>
+  <td>sbert.net documentation</td>
+  <td>high</td>
+  <td>Primary documentation</td>
+</tr>
+<tr>
+  <td>TSDAE/GPL unsupervised domain adaptation</td>
+  <td>sbert.net domain adaptation docs</td>
+  <td>high</td>
+  <td>Primary documentation</td>
+</tr>
+<tr>
+  <td>Semantic chunking recall 0.919 vs. 0.854–0.895 fixed</td>
+  <td>Chroma Research, cited in firecrawl.dev 2025</td>
+  <td>medium</td>
+  <td>Secondary citation</td>
+</tr>
+<tr>
+  <td>Factoid 256–512 tokens; analytical 1024+</td>
+  <td>NVIDIA 2024 chunking study, cited in firecrawl.dev 2025</td>
+  <td>medium</td>
+  <td>Secondary citation</td>
+</tr>
+<tr>
+  <td>HybridRAG outperforms VectorRAG and GraphRAG individually</td>
+  <td>arXiv:2408.04948 (2024)</td>
+  <td>high</td>
+  <td>Peer-reviewed</td>
+</tr>
+<tr>
+  <td>Weaviate: built-in hybrid search + KG node vectorisation</td>
+  <td>useparagon.com; Weaviate docs</td>
+  <td>high</td>
+  <td>Two independent sources</td>
+</tr>
+<tr>
+  <td>Qdrant 50.3% lower p50 latency at 90% recall</td>
+  <td>tigerdata.com benchmark 2024</td>
+  <td>high</td>
+  <td>Published benchmark</td>
+</tr>
+<tr>
+  <td>pgvector 11.4× throughput at 99% recall</td>
+  <td>tigerdata.com benchmark 2024</td>
+  <td>high</td>
+  <td>Same benchmark</td>
+</tr>
+<tr>
+  <td>KG cold-start challenge</td>
+  <td>machinelearningmastery.com; CHIIR 2024</td>
+  <td>high</td>
+  <td>Two independent sources</td>
+</tr>
+<tr>
+  <td>Goldman veritistic V-value framework</td>
+  <td>Rysiew (web.uvic.ca); Stanford SEP</td>
+  <td>high</td>
+  <td>Two academic sources</td>
+</tr>
+<tr>
+  <td>Stich pragmatist collapse of truth/utility</td>
+  <td>Rysiew (web.uvic.ca)</td>
+  <td>high</td>
+  <td>Academic source</td>
+</tr>
+<tr>
+  <td>Knowledge governance as primary RAG quality determinant</td>
+  <td>Research/completed/2026-03-15-context-compression-rag-enterprise-knowledge.md KF10; Research/completed/2026-03-08-servicenow-ai-knowledge-rag-agents.md</td>
+  <td>high</td>
+  <td>Two internal research items</td>
+</tr>
+<tr>
+  <td>Late chunking (Jina AI 2024)</td>
+  <td>firecrawl.dev 2025</td>
+  <td>low</td>
+  <td>Single practitioner citation; novel technique</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li><p><strong>Assumption:</strong> Domain adaptation (TSDAE/GPL) is not required for Confluence prototype-scale deployments on mixed-domain technical prose. <strong>Justification:</strong> General-purpose SBERT models demonstrate adequate retrieval quality on broad technical domains; domain adaptation adds engineering cost that is justified only when retrieval degradation is demonstrated on a Confluence-specific evaluation set.</p>
+</li>
+<li><p><strong>Assumption:</strong> A composite confidence score combining provenance quality, approval status, and recency signal is an adequate practical proxy for veritistic value in an organisational knowledge base. <strong>Justification:</strong> Direct measurement of V-value (belief change in users) is operationally infeasible at enterprise scale; metadata-based trust scoring is the industry-standard approximation, as documented in data governance literature and the Alation composite trust score model.</p>
+</li>
+</ul>
+<h3>Analysis</h3>
+<p>The central design tension in a Confluence concept extraction architecture is between completeness and precision. The VDB optimises for completeness through broad semantic retrieval; the KG optimises for precision through typed entity-relationship queries. Neither resolves the epistemics problem alone: the VDB retrieves semantically similar content regardless of currency; the KG models relationships regardless of whether the underlying claims are still accurate.</p>
+<p>The epistemic metadata layer  -  provenance, approval status, recency signal, and superseded-by  -  is the bridge between the technical retrieval infrastructure and the philosophical distinction between truth and utility. Without this layer, the system cannot distinguish a deprecated policy document from a current one; RAG responses inherit this blindness. With this layer, retrieval can be filtered by approval status and freshness before ranking by semantic similarity.</p>
+<p>The practical implication for implementation priority is: build provenance metadata collection into the Confluence ingestion pipeline before the VDB goes into production, not after. Retrofitting provenance metadata to an existing index is more expensive than collecting it at ingestion time.</p>
+<p>The BERTopic + NER combination reflects a separation of concerns that matches the downstream consumption pattern: BERTopic topics serve the navigation and discovery use case (what topics does the wiki cover? which pages are about X?); the knowledge graph serves the reasoning use case (what entities are related to X? who owns policy Y?). These are different consumer experiences served by the same ingestion pipeline.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li><strong>No Confluence-specific chunking benchmark.</strong> NVIDIA's chunking study uses general document corpora; transfer to Confluence wiki structure (macros, tables, infoboxes, structured templates) is an inference from general results.</li>
+<li><strong>mREBEL triple coverage claim (1.8×) is from a single source.</strong> Performance on Confluence technical prose (which differs from Wikipedia–Wikidata aligned training data) is unvalidated.</li>
+<li><strong>Weaviate's combined KG + VDB performance at wiki scale is not independently benchmarked.</strong> The recommendation is based on feature documentation; production throughput and latency figures for this configuration were not found.</li>
+<li><strong>Epistemic metadata maintenance cost is not quantified.</strong> The operational cost of assigning and maintaining approval status, recency flags, and superseded-by edges at enterprise Confluence scale (10,000–100,000+ pages) is unknown and likely to be the dominant total cost of ownership for the epistemics layer.</li>
+<li><strong>Late chunking (Jina AI 2024) has not been evaluated on Confluence-style structured wiki content.</strong> Its pronoun-reference resolution benefit may not apply uniformly to structured wiki pages with macros, tables, and headings.</li>
+</ul>
+<h3>Open Questions</h3>
+<ol>
+<li>At what Confluence wiki scale does the knowledge graph cold-start become a delivery blocker vs. a manageable incremental build? Candidate new backlog item; priority: medium.</li>
+<li>What is the minimum viable epistemic metadata schema for a Confluence RAG system to be defensible in a regulated (financial services, healthcare) compliance context? Priority: high if applied in regulated industries  -  candidate new backlog item.</li>
+<li>Does BERTopic's incremental online learning maintain topic coherence as Confluence wikis evolve over months with shifting topic distributions (new products, regulatory changes)? Priority: medium  -  candidate empirical study.</li>
+<li>Can late chunking (Jina AI 2024) be applied to Confluence pages with mixed structured/prose content, and what is its recall improvement on Confluence-specific retrieval benchmarks? Priority: low.</li>
+</ol>
+<hr />
+
+
+  </div>
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-15-neurological-context-management.html">Neurological Basis of Contextual Reasoning and Relevance Filtering</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-15-context-layers-aligned-decisions-synthesis.html">Aligned Decision-Making: Context Architecture for AI Agents in Organisations</a></div>
+  </div>
+</main>
+</body>
+</html>

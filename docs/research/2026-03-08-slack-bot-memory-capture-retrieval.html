@@ -1,0 +1,604 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Slack as a mobile memory capture and retrieval channel — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #141414;
+  --surface-2:       #1c1c1c;
+  --border:          #2a2a2a;
+  --text:            #e8e8e8;
+  --text-muted:      #666;
+  --accent:          #e8e8e8;
+  --accent-dim:      #333;
+  --tag-bg:          #1e1e1e;
+  --tag-text:        #999;
+  --tag-active-bg:   #e8e8e8;
+  --tag-active-text: #0d0d0d;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--accent); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+}
+.card:hover { border-color: var(--accent); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+}
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+.item-content pre code { background: none; padding: 0; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--text); text-decoration: underline; }
+.item-content a:hover { color: var(--text-muted); }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  main { padding: 72px 1rem 3rem; }
+  nav { padding: 0 1rem; }
+}
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/">Research</a>
+    <div class="nav-links">
+      <a href="/Research/tags/">Tags</a>
+      <a href="/Research/search.html">Search</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>Slack as a mobile memory capture and retrieval channel</span>
+  </div>
+  <h1 class="item-title">Slack as a mobile memory capture and retrieval channel</h1>
+  <div class="meta-bar">
+    <span>2026-03-08</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/mobile.html">mobile</a> <a class="tag" href="/Research/tags/slack.html">slack</a> <a class="tag" href="/Research/tags/bot.html">bot</a> <a class="tag" href="/Research/tags/capture.html">capture</a> <a class="tag" href="/Research/tags/retrieval.html">retrieval</a> <a class="tag" href="/Research/tags/memory-system.html">memory-system</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-slack-bot-memory-capture-retrieval.md" target="_blank" rel="noopener">source →</a>
+  </div>
+  <div class="item-content">
+    <h2>Research Question</h2>
+<p>Can a Slack bot in a personal or team workspace serve as a memory capture and retrieval surface? What is the minimum viable setup: slash command vs bot, incoming webhook vs Socket Mode, and does a free Slack workspace support enough API access? Can the bot call <code>search_brain</code> and return results into a thread?</p>
+
+<h2>Findings</h2>
+<p><em>(Populated from §6 Synthesis above.)</em></p>
+<h3>Executive Summary</h3>
+<p>A free Slack workspace fully supports a memory capture and retrieval bot using Socket Mode, which eliminates the public URL requirement via an outbound WebSocket connection. The minimum viable implementation is a Bolt for Python process that subscribes to <code>message.channels</code> for capture and handles a <code>/brain</code> slash command for retrieval via <code>search_brain</code>, with the 3-second ACK requirement satisfied cleanly by the <code>ack()</code> + <code>respond()</code> async pattern. The binding constraint is hosting: Railway, Render, and Fly.io (new accounts) do not sustain always-on WebSocket processes on free tiers; Oracle Cloud's Always Free ARM A1 VM is the only genuinely zero-cost always-on option. Slack is the correct channel [inference] when it is already the user's ambient environment. For a purely personal bot with no existing Slack workspace, Telegram is strictly simpler.</p>
+<h3>Key Findings</h3>
+<ol>
+<li><p><strong>Socket Mode is available on free Slack workspaces, requires no public URL, and is the correct transport [inference] for a personal memory bot — the bot process connects outward to Slack via WebSocket without needing any inbound HTTP endpoint.</strong></p>
+</li>
+<li><p><strong>A single Slack app handles both capture (message event subscription) and retrieval (slash command), counts as 1 of 10 allowed integrations on a free workspace, and satisfies both use cases with no free-tier API feature restrictions.</strong></p>
+</li>
+<li><p><strong>The minimum viable bot scope set is <code>channels:history</code>, <code>channels:read</code>, <code>chat:write</code>, and an App Token with <code>connections:write</code>; the full capture and retrieval handler is approximately 15–20 lines of Bolt for Python using the <code>message.channels</code> event and a slash command.</strong></p>
+</li>
+<li><p><strong>The 3-second Slack slash command ACK requirement is satisfied by the <code>ack(&quot;Searching…&quot;)</code> + <code>respond()</code> async pattern: the bot acknowledges immediately with interim feedback, runs <code>search_brain</code> asynchronously, and posts results within 30 minutes using the <code>response_url</code> provided in the command payload.</strong></p>
+</li>
+<li><p><strong>The free workspace's 90-day message history limit is irrelevant to this use case because GitHub is the canonical memory store and each captured message is committed to the repository immediately; no memory is stored in or retrieved from Slack's message history.</strong></p>
+</li>
+<li><p><strong>Railway, Render, and Fly.io do not provide reliably always-on free hosting in 2024–2025 for a Socket Mode bot that requires a persistent WebSocket process; new Fly.io accounts (post October 2024) have no free tier, and legacy-free accounts face autosuspend risk for outbound-only connections.</strong></p>
+</li>
+<li><p><strong>Oracle Cloud's Always Free ARM A1 Compute is the only genuinely zero-cost always-on host: up to 4 OCPUs and 24 GB RAM across 1–4 VMs, no expiry, suitable for a Python bot running as a systemd service; the trade-off is Do It Yourself (DIY) setup (SSH, systemd) rather than PaaS one-click deployment.</strong></p>
+</li>
+<li><p><strong>End-to-end capture latency is approximately 200 ms–1 s (Socket Mode event delivery 50–200 ms, GitHub Contents API write 100–800 ms), and retrieval UX feedback is sub-second because the ACK posts &quot;Searching…&quot; immediately; full results follow when <code>search_brain</code> completes.</strong></p>
+</li>
+<li><p><strong>Telegram long-polling is functionally equivalent to Socket Mode for the no-public-URL requirement, has no workspace or integration limit, requires a single BotFather token (vs. two Slack tokens), and is strictly simpler to set up for a purely personal bot; Slack is the better choice only when it is already the user's ambient mobile environment.</strong></p>
+</li>
+<li><p><strong>iOS Shortcuts (direct GitHub Contents API write from lock screen) and a Slack bot capture path are complementary surfaces: Shortcuts handles spontaneous ambient capture from Apple Watch or lock screen; Slack handles deliberate capture with conversational context from within an existing Slack workflow.</strong></p>
+</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+  <th>Claim</th>
+  <th>Source</th>
+  <th>Confidence</th>
+  <th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Socket Mode available on free workspace</td>
+  <td>Slack Help Center; Slack Socket Mode docs</td>
+  <td>high</td>
+  <td>Both primary sources confirm</td>
+</tr>
+<tr>
+  <td>10-app integration limit on free workspace</td>
+  <td>Slack Help Center free plan limits</td>
+  <td>high</td>
+  <td>Primary source</td>
+</tr>
+<tr>
+  <td>90-day history limit irrelevant to GitHub-backed memory</td>
+  <td>Inference from architecture; Slack Help Center</td>
+  <td>high</td>
+  <td>Mechanistically sound</td>
+</tr>
+<tr>
+  <td>Events API 30,000/hour; chat.postMessage 1 msg/sec</td>
+  <td>Slack rate limits docs</td>
+  <td>high</td>
+  <td>Primary source</td>
+</tr>
+<tr>
+  <td>Socket Mode: no public URL, outbound WebSocket</td>
+  <td>Slack Socket Mode docs (docs.slack.dev)</td>
+  <td>high</td>
+  <td>Primary source</td>
+</tr>
+<tr>
+  <td>Required scopes for capture + retrieval</td>
+  <td>Slack scope reference docs</td>
+  <td>high</td>
+  <td>Primary source</td>
+</tr>
+<tr>
+  <td>3-second ACK resolved by ack() + respond()</td>
+  <td>Slack slash commands docs; Vercel Academy</td>
+  <td>high</td>
+  <td>Two independent primary sources</td>
+</tr>
+<tr>
+  <td>Capture implementation pattern (Bolt + GitHub API)</td>
+  <td>Slack Bolt for Python docs; GitHub REST API docs</td>
+  <td>medium</td>
+  <td>Pattern established; no live test</td>
+</tr>
+<tr>
+  <td>Railway/Render always-on failure</td>
+  <td>Platform docs; web search 2024–2025</td>
+  <td>high</td>
+  <td>Multiple sources agree</td>
+</tr>
+<tr>
+  <td>Fly.io free tier removed for new accounts Oct 2024</td>
+  <td>Fly.io changelog; srvrlss.io blog</td>
+  <td>high</td>
+  <td>Two independent sources</td>
+</tr>
+<tr>
+  <td>Oracle Cloud ARM A1 Always Free genuinely always-on</td>
+  <td>Oracle Always Free docs; community corroboration</td>
+  <td>high</td>
+  <td>Primary + multiple secondary sources</td>
+</tr>
+<tr>
+  <td>Capture latency 200 ms–1 s</td>
+  <td>Inference: Socket Mode docs + GitHub API performance</td>
+  <td>medium</td>
+  <td>No single published benchmark</td>
+</tr>
+<tr>
+  <td>Telegram equivalent (long-polling, no limit)</td>
+  <td>Telegram Bot API; Slack vs Telegram comparison</td>
+  <td>high</td>
+  <td>Well-established pattern</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li><strong>Assumption:</strong> The user has a Slack workspace or is willing to create one. <strong>Justification:</strong> Research is conditional on Slack being used; without a workspace, Telegram is unambiguously better.</li>
+<li><strong>Assumption:</strong> <code>search_brain</code> is invocable as a Python function or subprocess from the bot process. <strong>Justification:</strong> Required for the retrieval path; implementation is out of scope for this item.</li>
+<li><strong>Assumption:</strong> A fine-grained GitHub PAT with <code>Contents: write</code> on the Memory-System repository exists or can be created. <strong>Justification:</strong> Same credential established by the iOS Shortcuts research; no additional approval needed.</li>
+</ul>
+<h3>Analysis</h3>
+<p>The key architectural question — Socket Mode vs. webhook — resolves conclusively to Socket Mode for any deployment that cannot expose a persistent public HTTPS endpoint. Socket Mode requires no inbound connectivity; the bot process connects outward to Slack. The cost is that the process must run continuously. The prior research finding (slash commands incompatible with GitHub Actions) does not apply here because this item uses a dedicated bot process.</p>
+<p>The hosting analysis is the most practically important finding [inference]: free PaaS options fail the always-on requirement. Oracle Cloud's ARM VM is the only credible free path, and it is genuinely powerful (6 GB RAM for a single VM vs. the 256 MB of typical free PaaS containers). The setup cost is higher (manual SSH/systemd configuration), but this is a one-time cost.</p>
+<p>Slack vs. Telegram resolves to usage context: Telegram is simpler to set up with no workspace overhead, while Slack has the advantage for users already in it all day. One empirical question determines the answer [inference]: does the user already use Slack?</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li><strong><code>search_brain</code> is unimplemented.</strong> The retrieval path depends on a callable <code>search_brain</code> function whose latency and output format are unknown. Memory-System W-0003 implementation work must define this interface.</li>
+<li><strong>No on-process test conducted.</strong> Implementation patterns are documentation-derived, not device-validated.</li>
+<li><strong>Fly.io autosuspend risk for outbound-only processes.</strong> Autosuspend is documented as triggered by absence of inbound HTTP traffic, which a Socket Mode bot never receives; legacy free users may find the bot autosuspends anyway.</li>
+<li><strong>Socket Mode connection loss.</strong> Events during WebSocket reconnection windows can be missed. Acceptable for personal use; unacceptable for high-reliability systems.</li>
+<li><strong>Oracle Cloud capacity availability.</strong> ARM A1 free capacity can be exhausted in high-demand regions, requiring retries or region selection at sign-up time.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li><strong>Does the user already use Slack for work?</strong> This single question determines whether Slack or Telegram is the better channel. If yes, Slack. If no, Telegram.</li>
+<li><strong>Should the bot confirm each capture with a reply?</strong> A &quot;✓ Captured&quot; reply increases user confidence but adds one <code>chat.postMessage</code> call per capture event.</li>
+<li><strong>Should captures go to <code>inbox/</code> or <code>notes/</code> in the Memory-System repo?</strong> The <code>inbox/</code> pattern matches the established approach; <code>notes/</code> skips a processing step.</li>
+<li><strong>Can the same Oracle Cloud VM host both the Slack bot and the Telegram bot?</strong> Both are lightweight Python processes; co-hosting on a single 1 OCPU/6 GB VM is trivially feasible.</li>
+</ul>
+<hr />
+
+
+  </div>
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-08-telegram-bot-memory-capture-retrieval.html">Telegram bot as mobile memory capture and retrieval channel</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-08-servicenow-process-mapping.html">ServiceNow Process Mapping: Maintainable Process Documentation in SNOW</a></div>
+  </div>
+</main>
+</body>
+</html>

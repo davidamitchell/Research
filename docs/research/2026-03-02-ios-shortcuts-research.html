@@ -1,0 +1,599 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>iOS Shortcuts for research capture and query — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #141414;
+  --surface-2:       #1c1c1c;
+  --border:          #2a2a2a;
+  --text:            #e8e8e8;
+  --text-muted:      #666;
+  --accent:          #e8e8e8;
+  --accent-dim:      #333;
+  --tag-bg:          #1e1e1e;
+  --tag-text:        #999;
+  --tag-active-bg:   #e8e8e8;
+  --tag-active-text: #0d0d0d;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--accent); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+}
+.card:hover { border-color: var(--accent); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+}
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+.item-content pre code { background: none; padding: 0; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--text); text-decoration: underline; }
+.item-content a:hover { color: var(--text-muted); }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  main { padding: 72px 1rem 3rem; }
+  nav { padding: 0 1rem; }
+}
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/">Research</a>
+    <div class="nav-links">
+      <a href="/Research/tags/">Tags</a>
+      <a href="/Research/search.html">Search</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>iOS Shortcuts for research capture and query</span>
+  </div>
+  <h1 class="item-title">iOS Shortcuts for research capture and query</h1>
+  <div class="meta-bar">
+    <span>2026-03-02</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/ios.html">ios</a> <a class="tag" href="/Research/tags/shortcuts.html">shortcuts</a> <a class="tag" href="/Research/tags/mobile.html">mobile</a> <a class="tag" href="/Research/tags/capture.html">capture</a> <a class="tag" href="/Research/tags/interface.html">interface</a> <a class="tag" href="/Research/tags/delivery.html">delivery</a> <a class="tag" href="/Research/tags/siri.html">siri</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-02-ios-shortcuts-research.md" target="_blank" rel="noopener">source →</a>
+  </div>
+  <div class="item-content">
+    <h2>Research Question</h2>
+<p>What iOS Shortcuts workflows provide the most value for a personal research system hosted on GitHub — covering both low-friction research capture (adding a URL or idea to the backlog from anywhere on iOS) and lightweight query (checking recent research or asking a question against the corpus) — and what GitHub APIs or existing delivery channels do they depend on?</p>
+
+<h2>Findings</h2>
+<h3>Executive Summary</h3>
+<p>iOS Shortcuts calling the GitHub Issues API via &quot;Get Contents of URL&quot; is the correct and simplest path for mobile research capture — three to five Shortcut actions create a labeled GitHub issue from any iOS context, including the Safari Share Sheet and Siri voice dictation. The same design handles both Share Sheet and Siri entry points by branching on whether a URL was passed as input. Authentication requires a GitHub fine-grained PAT (Issues: write scope) hardcoded in the Shortcut definition, which is the only practical on-device storage mechanism for API tokens in iOS Shortcuts. Wiki query is covered for free by a one-action &quot;Open URLs&quot; shortcut pointing to the published wiki Home page. A search-capable query shortcut is deferred, blocked on a <code>workflow_dispatch</code>-triggered search workflow that does not yet exist.</p>
+<h3>Key Findings</h3>
+<ol>
+<li><p><strong>iOS Shortcuts &quot;Get Contents of URL&quot; supports arbitrary HTTP methods, custom headers, and JSON request bodies, making GitHub REST API calls fully feasible from iOS without any intermediary app or service.</strong> This is confirmed by a GitHub employee's published working shortcut (island94.org, January 2024) and independently by a tutorial at theporteur.com.</p>
+</li>
+<li><p><strong>Issue creation (POST <code>/repos/{owner}/{repo}/issues</code>) is the recommended capture implementation path because it requires no base64 encoding, no filename construction, and no Markdown template assembly — only a title and optional body are needed in the JSON request body.</strong> The direct file creation path (Contents API) requires 3–4 additional Shortcuts actions including the Encode action (Base64, Line Wrap: None) and is significantly more fragile.</p>
+</li>
+<li><p><strong>Share Sheet integration requires enabling &quot;Show in Share Sheet&quot; with Accepted Types: URL in the Shortcut's settings; the shared URL is received as the Shortcut's input via the Shortcut Input magic variable.</strong> A single shortcut handles both the Share Sheet path (URL provided) and the Siri/tap path (no URL) via conditional logic.</p>
+</li>
+<li><p><strong>When a Shortcut is triggered via &quot;Hey Siri, [shortcut name]&quot;, the &quot;Ask for Input&quot; action reads the prompt aloud and accepts voice-dictated text hands-free without any screen interaction.</strong> When triggered by tapping in the Shortcuts app, the same action shows an on-screen text input field; dictation requires tapping the microphone icon.</p>
+</li>
+<li><p><strong>A GitHub fine-grained PAT with Issues: write scope on the target repository is the minimum credential required for the capture shortcut; Contents: write is required only if direct file creation is used instead of issue creation.</strong> Neither scope grants read access to other repositories or allows workflow triggers — the blast radius of a leaked token is minimal.</p>
+</li>
+<li><p><strong>iOS Shortcuts has no native access to the iOS Keychain, so the PAT must be stored as a hardcoded text value in the Shortcut definition.</strong> The standard community practice is to store the token inline, keep the Shortcut private (not shared via iCloud link), and use a fine-grained PAT with minimal scope and a reasonable expiry (90–365 days).</p>
+</li>
+<li><p><strong>The GitHub wiki quick-access shortcut is a single &quot;Open URLs&quot; action pointing to <code>https://github.com/davidamitchell/Research/wiki/Home</code>; this is trivially implementable and adds Siri invocability over a plain Safari bookmark.</strong> The wiki is already published and maintained by the <code>publish-wiki.yml</code> workflow established in <code>2026-03-01-github-wiki-research-content.md</code>.</p>
+</li>
+<li><p><strong>GitHub Actions <code>workflow_dispatch</code> is triggerable from iOS Shortcuts using the same &quot;Get Contents of URL&quot; pattern as issue creation, with endpoint <code>POST /repos/{owner}/{repo}/actions/workflows/{workflow_file}/dispatches</code> and JSON body <code>{&quot;ref&quot;: &quot;main&quot;, &quot;inputs&quot;: {...}}</code>.</strong> This pattern is confirmed by the island94.org GitHub employee post and independently by theporteur.com.</p>
+</li>
+<li><p><strong>The GitHub iOS app does not provide a native &quot;Dispatch Workflow&quot; Siri Shortcuts action; all workflow automation from iOS Shortcuts requires constructing the API call manually in &quot;Get Contents of URL&quot;.</strong> This was confirmed by web search — no native Shortcuts action for workflow dispatch exists in the GitHub iOS app as of March 2026.</p>
+</li>
+<li><p><strong>The query shortcut using <code>workflow_dispatch</code> is feasible but asynchronous — the Shortcut triggers the workflow, which must run and post results (as an issue or comment) before the user can view them.</strong> For synchronous query, opening the wiki and using Safari's built-in find-in-page covers the primary use case at zero implementation cost.</p>
+</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+  <th>Claim</th>
+  <th>Source</th>
+  <th>Confidence</th>
+  <th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>&quot;Get Contents of URL&quot; supports arbitrary HTTP methods and JSON bodies</td>
+  <td>Apple Shortcuts User Guide (support.apple.com/guide/shortcuts); island94.org (primary working example)</td>
+  <td>high</td>
+  <td>Independently confirmed by GitHub employee and tutorial author</td>
+</tr>
+<tr>
+  <td>GitHub Issues API: POST with title+body</td>
+  <td>docs.github.com/en/rest/issues/issues; web search cross-confirmation</td>
+  <td>high</td>
+  <td>Standard API endpoint, unchanged since 2018</td>
+</tr>
+<tr>
+  <td>Base64 encoding requires &quot;Encode&quot; action, Line Wrap: None</td>
+  <td>Apple Community discussions.apple.com/thread/251563782</td>
+  <td>high</td>
+  <td>Failure mode confirmed; fix is specific and verified by community</td>
+</tr>
+<tr>
+  <td>Share Sheet input: Show in Share Sheet, Accepted Types: URL</td>
+  <td>support.apple.com/guide/shortcuts/input-types-apd7644168e1/ios</td>
+  <td>high</td>
+  <td>Apple primary documentation</td>
+</tr>
+<tr>
+  <td>Siri trigger + &quot;Ask for Input&quot; = hands-free voice dictation</td>
+  <td>macmost.com/creating-shortcuts-that-accept-voice-input.html; apple.stackexchange.com/questions/336799</td>
+  <td>high</td>
+  <td>Two independent secondary sources, consistent</td>
+</tr>
+<tr>
+  <td>Fine-grained PAT: Issues: write minimum for issue creation</td>
+  <td>GitHub docs (web search); GitHub PAT documentation</td>
+  <td>high</td>
+  <td>Consistent with GitHub's fine-grained token model</td>
+</tr>
+<tr>
+  <td>No native Keychain access from iOS Shortcuts</td>
+  <td>Web search (multiple security-focused sources)</td>
+  <td>high</td>
+  <td>No Apple documentation contradicts this; community consensus</td>
+</tr>
+<tr>
+  <td>Wiki URL: https://github.com/davidamitchell/Research/wiki/Home</td>
+  <td>Research/completed/2026-03-01-github-wiki-research-content.md Key Finding #3</td>
+  <td>high</td>
+  <td>Derived from prior research on wiki structure</td>
+</tr>
+<tr>
+  <td>workflow_dispatch API endpoint and body format</td>
+  <td>docs.github.com/en/rest/actions/workflows; island94.org (working example)</td>
+  <td>high</td>
+  <td>Primary source + practitioner confirmation</td>
+</tr>
+<tr>
+  <td>No native &quot;Dispatch Workflow&quot; action in GitHub iOS app</td>
+  <td>Web search (March 2026)</td>
+  <td>medium</td>
+  <td>Absence of evidence; could change with a future GitHub app update</td>
+</tr>
+<tr>
+  <td>Query shortcut is asynchronous via workflow_dispatch</td>
+  <td>Derived from workflow_dispatch mechanics</td>
+  <td>high</td>
+  <td>Mechanistically sound: workflow runs on runner, not inline</td>
+</tr>
+<tr>
+  <td>Issue creation path: 4–5 actions vs. direct file creation: 7–9 actions</td>
+  <td>Derived from action enumeration in §2 Investigation</td>
+  <td>medium</td>
+  <td>Estimated; exact count depends on implementation choices</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li><p><strong>Assumption:</strong> The issue-to-backlog GitHub Actions workflow identified in <code>2026-02-27-simple-process-for-adding-research-item.md</code> is implemented or will be implemented. <strong>Justification:</strong> The prior research item recommended this workflow as the owner's capture path; if it is not yet built, the capture shortcut still creates a labeled issue that is visible in the GitHub iOS app and on the web, requiring only a manual move rather than automatic conversion.</p>
+</li>
+<li><p><strong>Assumption:</strong> The repository wiki is enabled in GitHub Settings (required for the wiki quick-access shortcut to return a page rather than a 404). <strong>Justification:</strong> The completed <code>2026-03-01-github-wiki-research-content.md</code> item notes that the wiki must be enabled once in Settings; the publish workflow's existence implies this has been done.</p>
+</li>
+<li><p><strong>Assumption:</strong> The owner's iPhone is running iOS 13 or later. <strong>Justification:</strong> &quot;Get Contents of URL&quot; with custom headers and JSON body requires iOS 13+. iOS 13 was released in 2019; any current iPhone runs iOS 16 or later.</p>
+</li>
+</ul>
+<h3>Analysis</h3>
+<p>The primary design decision — issue creation vs. direct file creation — resolves clearly in favour of issue creation on two axes: simplicity (fewer actions, no base64 encoding, no filename construction) and integration (leverages the existing issue-to-backlog workflow, preserving the clean capture-then-structure separation validated by Zettelkasten principles in prior research). The direct file creation path is not wrong but creates a single-responsibility Shortcut that duplicates logic already present in the Python CLI and the Actions workflow, without adding value.</p>
+<p>The query shortcut decision resolves as: wiki first (synchronous, zero-cost, good enough for most queries), workflow_dispatch second (asynchronous, requires a new search workflow, higher value for non-trivial queries). The MCP server approach (from <code>2026-03-02-chat-conversational-interface.md</code>) is explicitly not applicable to iOS users — the MCP server serves AI agent sessions, not mobile browser or Shortcuts contexts.</p>
+<p>The PAT storage constraint is a real limitation but not a blocker. The security posture (fine-grained, minimal scope, on a personal device protected by biometrics) is adequate. The absence of native Keychain support in iOS Shortcuts is a platform limitation that Apple has not addressed; the community workaround (inline storage) is the only viable option.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li><strong>Issue-to-backlog workflow gap:</strong> If the <code>issues: [opened]</code>-triggered workflow is not implemented, the capture shortcut produces an issue that requires manual conversion. The shortcut itself is still valuable (it creates a record in GitHub Issues accessible from the iOS app), but the fully automated pipeline requires the Actions workflow.</li>
+<li><strong>PAT expiry:</strong> A fine-grained PAT with a 90-day expiry requires editing the Shortcut every 90 days. This is a minor but real maintenance burden. A PAT with no expiry removes the burden but increases risk.</li>
+<li><strong>Query shortcut unimplemented:</strong> The search <code>workflow_dispatch</code> shortcut requires a GitHub Actions workflow that accepts a query string, searches <code>Research/completed/</code>, and posts results as an issue. This workflow does not currently exist; building it is a reasonable follow-on.</li>
+<li><strong>GitHub iOS app future changes:</strong> The GitHub app may add native Shortcuts actions in future releases, making the manual API approach obsolete. This is unlikely to be a problem — the manual approach would continue to work even if native actions are added.</li>
+<li><strong>Siri recognition reliability:</strong> Hands-free capture depends on Siri correctly recognising the title dictation. For technical titles with acronyms or unusual terms, Siri may produce transcription errors. The &quot;Ask for Input&quot; dialog appears on screen to allow correction before submission.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>Should the issue-to-backlog GitHub Actions workflow be added to the backlog as a concrete implementation item, or is it already covered by the existing issue form (from <code>2026-02-27-simple-process-for-adding-research-item.md</code>)?</li>
+<li>Would a <code>workflow_dispatch</code>-triggered search workflow (accepting a <code>query</code> input and posting results as an issue) be worth building? This is the &quot;Option A query shortcut&quot; from the Approach section. If yes, it warrants a backlog item.</li>
+<li>Is there value in a &quot;Start Research&quot; shortcut that moves a specific backlog item to in-progress by triggering the <code>python -m src.main research start</code> CLI via a <code>workflow_dispatch</code> event? This would give the owner a one-tap &quot;start&quot; action from iOS for items visible in the GitHub Issues list.</li>
+</ul>
+<hr />
+
+
+  </div>
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-02-research-quality-assurance-methodology.html">Research Quality Assurance and Knowledge Integration Methodology</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-02-integrative-framework-agent-decision-making.html">An Integrative Framework for Agent Decision-Making: Aligning Knowledge Management, Intent Understanding, and Contextual Decision Frameworks</a></div>
+  </div>
+</main>
+</body>
+</html>

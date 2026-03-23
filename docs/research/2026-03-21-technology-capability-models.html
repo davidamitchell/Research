@@ -1,0 +1,571 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Technology Capability Models: Survey, Comparison, and Recommendation for Multi-Level IT Capability Mapping — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #141414;
+  --surface-2:       #1c1c1c;
+  --border:          #2a2a2a;
+  --text:            #e8e8e8;
+  --text-muted:      #666;
+  --accent:          #e8e8e8;
+  --accent-dim:      #333;
+  --tag-bg:          #1e1e1e;
+  --tag-text:        #999;
+  --tag-active-bg:   #e8e8e8;
+  --tag-active-text: #0d0d0d;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--accent); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+}
+.card:hover { border-color: var(--accent); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+}
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+.item-content pre code { background: none; padding: 0; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--text); text-decoration: underline; }
+.item-content a:hover { color: var(--text-muted); }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  main { padding: 72px 1rem 3rem; }
+  nav { padding: 0 1rem; }
+}
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/">Research</a>
+    <div class="nav-links">
+      <a href="/Research/tags/">Tags</a>
+      <a href="/Research/search.html">Search</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>Technology Capability Models: Survey, Comparison, and Recommendation for Multi-Level IT Capability Mapping</span>
+  </div>
+  <h1 class="item-title">Technology Capability Models: Survey, Comparison, and Recommendation for Multi-Level IT Capability Mapping</h1>
+  <div class="meta-bar">
+    <span>2026-03-21</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/capability-modelling.html">capability-modelling</a> <a class="tag" href="/Research/tags/enterprise-architecture.html">enterprise-architecture</a> <a class="tag" href="/Research/tags/togaf.html">togaf</a> <a class="tag" href="/Research/tags/sabsa.html">sabsa</a> <a class="tag" href="/Research/tags/bian.html">bian</a> <a class="tag" href="/Research/tags/tmf.html">tmf</a> <a class="tag" href="/Research/tags/csdm.html">csdm</a> <a class="tag" href="/Research/tags/business-capability-model.html">business-capability-model</a> <a class="tag" href="/Research/tags/technical-capability-model.html">technical-capability-model</a> <a class="tag" href="/Research/tags/dependency-map.html">dependency-map</a> <a class="tag" href="/Research/tags/maturity-assessment.html">maturity-assessment</a> <a class="tag" href="/Research/tags/it-architecture.html">it-architecture</a> <a class="tag" href="/Research/tags/it-strategy.html">it-strategy</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-21-technology-capability-models.md" target="_blank" rel="noopener">source →</a>
+  </div>
+  <div class="item-content">
+    <h2>Research Question</h2>
+<p>What established and emerging IT capability models define a complete, multi-level set of technical capabilities - such as authentication, networking, Application Programming Interface (API) gateways, and data storage - and which model or combination of models best supports: (a) designing new and existing solutions without tying to specific implementation details, and (b) assessing capability maturity against a standardised framework to identify where investment is needed?</p>
+<p>Supporting questions:</p>
+<ul>
+<li>What multi-level capability taxonomy models currently exist across both traditional architecture frameworks and modern engineering-focused approaches?</li>
+<li>What are the strengths and weaknesses of each model for the purposes of abstract capability design and maturity assessment?</li>
+<li>How do these models handle the traceability link from business functions down through IT services to technical capabilities?</li>
+<li>How does ServiceNow's Common Service Data Model (CSDM) relate to or complement these capability models?</li>
+<li>Which single model or which combination would best serve as a foundation for a capability map that is implementation-agnostic and assessable for maturity?</li>
+</ul>
+
+<h2>Findings</h2>
+<p><em>(Populated from Section 6 Synthesis above.)</em></p>
+<h3>Executive Summary</h3>
+<p><strong>[inference]</strong> No single surveyed public framework can serve as both the enterprise-wide technical capability taxonomy and the maturity model, so the strongest answer is a layered stack that combines a generic taxonomy backbone, a maturity overlay, and an operational traceability model. Sources: <code>https://www.opengroup.org/togaf</code>; <code>https://ivi.ie/it-capability-maturity-framework/</code>; <code>https://cmmiinstitute.com/learning/appraisals/levels</code>.</p>
+<p><strong>[inference]</strong> The most defensible composition is a TOGAF-style backbone plus IT-CMF plus CSDM, because TOGAF contributes reusable implementation-agnostic structure, IT-CMF contributes maturity mechanics, and prior repository work shows that CSDM contributes the operational traceability layers needed to anchor the model in ServiceNow. Sources: <code>https://www.opengroup.org/togaf</code>; <code>https://www.opengroup.org/architecture/0210can/togaf8/doc-review/togaf8cr/c/p3/iii-rm/concepts.htm</code>; <code>https://ivi.ie/it-capability-maturity-framework/</code>; <code>https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-servicenow-csdm-data-modelling.md</code>; <code>https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-servicenow-platform-strategy.md</code>.</p>
+<p><strong>[inference]</strong> Sector, security, and engineering frameworks such as BIAN, TM Forum TAM, SABSA, NIST CSF 2.0, ZTA, DORA, Team Topologies, Wardley Mapping, and the cloud well-architected frameworks should improve or specialise the map rather than replace the enterprise-wide backbone. Sources: <code>https://bian.org/service-landscape/</code>; <code>https://www.tmforum.org/open-digital-architecture/process-framework-etom/</code>; <code>https://sabsa.org/sabsa-executive-summary/</code>; <code>https://csrc.nist.gov/pubs/cswp/29/the-nist-cybersecurity-framework-csf-20/final</code>; <code>https://csrc.nist.gov/pubs/sp/800/207/final</code>; <code>https://dora.dev/</code>; <code>https://teamtopologies.com/key-concepts</code>; <code>https://learnwardleymapping.com/</code>; <code>https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html</code>; <code>https://learn.microsoft.com/en-us/azure/well-architected/</code>; <code>https://cloud.google.com/architecture/framework</code>.</p>
+<h3>Key Findings</h3>
+<ol>
+<li><strong>[inference][high]</strong> No surveyed public framework is simultaneously a modern enterprise-wide technical capability taxonomy and a robust maturity model, so organisations that need both outcomes must combine at least one classification framework with at least one maturity overlay. Sources: <code>https://www.opengroup.org/togaf</code>; <code>https://ivi.ie/it-capability-maturity-framework/</code>; <code>https://cmmiinstitute.com/learning/appraisals/levels</code>.</li>
+<li><strong>[inference][medium]</strong> TOGAF's Technical Reference Model and Integrated Information Infrastructure Reference Model are the best general-purpose public backbone in the set because they provide reusable cross-industry structural categories without binding the capability map to specific vendors or implementations. Sources: <code>https://www.opengroup.org/togaf</code>; <code>https://www.opengroup.org/architecture/0210can/togaf8/doc-review/togaf8cr/c/p3/iii-rm/concepts.htm</code>.</li>
+<li><strong>[inference][high]</strong> IT-CMF is the strongest enterprise-level maturity companion in the survey because IVI explicitly positions it as a 37-capability framework with maturity profiles, assessments, and improvement roadmaps that complement other domain-specific frameworks rather than replace them. Source: <code>https://ivi.ie/it-capability-maturity-framework/</code>.</li>
+<li><strong>[fact][medium]</strong> DoDAF, NAF, BIAN, and TM Forum TAM all provide meaningful multi-level decomposition or traceability, but each does so inside a bounded defence, banking, or telecom context rather than as a neutral enterprise technology stack. Sources: <code>https://dodcio.defense.gov/Portals/0/Documents/DODAF/DoDAF_v2-02_web.pdf</code>; <code>https://fachglossar.platinus.at/assets/files/NAFv4_2020.09-ed0964cf26fb5f5d0c23a54bc073b5ea.pdf</code>; <code>https://bian.org/service-landscape/</code>; <code>https://www.tmforum.org/open-digital-architecture/process-framework-etom/</code>.</li>
+<li><strong>[fact][high]</strong> SABSA, NIST CSF 2.0, and ZTA are valuable security overlays because they describe security attributes, outcomes, or logical security components, but they do not attempt to describe the full technical capability stack for the rest of enterprise IT. Sources: <code>https://sabsa.org/sabsa-executive-summary/</code>; <code>https://csrc.nist.gov/pubs/cswp/29/the-nist-cybersecurity-framework-csf-20/final</code>; <code>https://csrc.nist.gov/pubs/sp/800/207/final</code>.</li>
+<li><strong>[fact][high]</strong> Team Topologies, DORA, Wardley Mapping, and the well-architected frameworks contribute team-design, performance, strategy, or review discipline rather than a canonical enterprise capability taxonomy, so they should challenge and improve the map instead of defining it. Sources: <code>https://teamtopologies.com/key-concepts</code>; <code>https://dora.dev/</code>; <code>https://learnwardleymapping.com/</code>; <code>https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html</code>; <code>https://learn.microsoft.com/en-us/azure/well-architected/</code>; <code>https://cloud.google.com/architecture/framework</code>.</li>
+<li><strong>[inference][high]</strong> CSDM should be used as the operational representation layer for the capability map, with shared technical capabilities anchored first to Technical Services and then traced down to Configuration Items, because prior repository work shows that CSDM is strong on traceability but not on capability definition. Sources: <code>https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-servicenow-csdm-data-modelling.md</code>; <code>https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-servicenow-platform-strategy.md</code>.</li>
+<li><strong>[inference][high]</strong> The most defensible rollout path is to stabilise CSDM ownership and service layers first, define a small implementation-agnostic enterprise capability backbone next, map Technical Services and Application Services onto it, and only then apply IT-CMF and targeted overlays for maturity and design review. Sources: <code>https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-servicenow-csdm-data-modelling.md</code>; <code>https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-servicenow-platform-strategy.md</code>; <code>https://ivi.ie/it-capability-maturity-framework/</code>.</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+  <th>Claim</th>
+  <th>Source</th>
+  <th>Confidence</th>
+  <th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>[inference]</strong> No single public framework covers both taxonomy and maturity well.</td>
+  <td><code>https://www.opengroup.org/togaf</code>; <code>https://ivi.ie/it-capability-maturity-framework/</code>; <code>https://cmmiinstitute.com/learning/appraisals/levels</code></td>
+  <td>high</td>
+  <td>Cross-framework comparison rather than a single-source statement.</td>
+</tr>
+<tr>
+  <td><strong>[inference]</strong> TOGAF is the best generic backbone in the set.</td>
+  <td><code>https://www.opengroup.org/togaf</code>; <code>https://www.opengroup.org/architecture/0210can/togaf8/doc-review/togaf8cr/c/p3/iii-rm/concepts.htm</code></td>
+  <td>medium</td>
+  <td>Reference-model details are partly older public material.</td>
+</tr>
+<tr>
+  <td><strong>[inference]</strong> IT-CMF is the strongest maturity companion.</td>
+  <td><code>https://ivi.ie/it-capability-maturity-framework/</code></td>
+  <td>high</td>
+  <td>Official IVI statement is explicit.</td>
+</tr>
+<tr>
+  <td><strong>[fact]</strong> DoDAF, NAF, BIAN, and TAM are domain-bounded decompositions.</td>
+  <td><code>https://dodcio.defense.gov/Portals/0/Documents/DODAF/DoDAF_v2-02_web.pdf</code>; <code>https://fachglossar.platinus.at/assets/files/NAFv4_2020.09-ed0964cf26fb5f5d0c23a54bc073b5ea.pdf</code>; <code>https://bian.org/service-landscape/</code>; <code>https://www.tmforum.org/open-digital-architecture/process-framework-etom/</code></td>
+  <td>medium</td>
+  <td>Stronger for DoDAF and BIAN than for TM Forum due access limits.</td>
+</tr>
+<tr>
+  <td><strong>[fact]</strong> SABSA, NIST CSF 2.0, and ZTA are overlays or slices, not full-stack maps.</td>
+  <td><code>https://sabsa.org/sabsa-executive-summary/</code>; <code>https://csrc.nist.gov/pubs/cswp/29/the-nist-cybersecurity-framework-csf-20/final</code>; <code>https://csrc.nist.gov/pubs/sp/800/207/final</code></td>
+  <td>high</td>
+  <td>Security-specific scope is explicit in the sources.</td>
+</tr>
+<tr>
+  <td><strong>[fact]</strong> Team Topologies, DORA, Wardley Mapping, and well-architected frameworks are improvement or design lenses.</td>
+  <td><code>https://teamtopologies.com/key-concepts</code>; <code>https://dora.dev/</code>; <code>https://learnwardleymapping.com/</code>; <code>https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html</code>; <code>https://learn.microsoft.com/en-us/azure/well-architected/</code>; <code>https://cloud.google.com/architecture/framework</code></td>
+  <td>high</td>
+  <td>Multiple independent sources agree on role.</td>
+</tr>
+<tr>
+  <td><strong>[inference]</strong> CSDM should hold the map, not define the taxonomy.</td>
+  <td><code>https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-servicenow-csdm-data-modelling.md</code>; <code>https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-servicenow-platform-strategy.md</code></td>
+  <td>high</td>
+  <td>Strong repository-specific evidence.</td>
+</tr>
+<tr>
+  <td><strong>[inference]</strong> A phased rollout should be CSDM-first, taxonomy-second, maturity-third.</td>
+  <td><code>https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-servicenow-csdm-data-modelling.md</code>; <code>https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-servicenow-platform-strategy.md</code>; <code>https://ivi.ie/it-capability-maturity-framework/</code></td>
+  <td>high</td>
+  <td>Synthesises repository sequencing with maturity overlay evidence.</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li><strong>[assumption]</strong> TM Forum TAM remains application-centric in the current public standard even though the official TAM detail page was inaccessible in this environment. <strong>Justification:</strong> accessible public explainers and official TM Forum references consistently describe eTOM as process architecture and TAM as the application architecture companion. Sources: <code>https://www.tmforum.org/open-digital-architecture/process-framework-etom/</code>; <code>https://www.ntt-review.jp/archive/ntttechnical.php?contents=ntr202307gls_s.html</code>; <code>https://www.telecom-expertise.com/areas-of-expertise/</code>.</li>
+<li><strong>[assumption]</strong> SABSA's current public executive-summary content still reflects the six-layer, business-attribute-driven structure described in accessible secondary sources. <strong>Justification:</strong> direct fetch of the official page returned 403, but public SABSA descriptions were consistent and aligned with long-standing SABSA structure. Sources: <code>https://sabsa.org/sabsa-executive-summary/</code>; <code>https://en.wikipedia.org/wiki/Sherwood_Applied_Business_Security_Architecture</code>; <code>https://davidlynas.com/sabsa/</code>.</li>
+<li><strong>[assumption]</strong> A local enterprise capability map will need extension for modern platform areas such as internal developer platforms, event streaming, and artificial intelligence operations because the generic public frameworks do not normalise those areas consistently. <strong>Justification:</strong> the most general frameworks are reference models or overlays rather than contemporary exhaustive technical libraries. Sources: <code>https://www.opengroup.org/togaf</code>; <code>https://teamtopologies.com/key-concepts</code>; <code>https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html</code>.</li>
+</ul>
+<h3>Analysis</h3>
+<ul>
+<li><strong>[inference]</strong> The evidence points to a layered architecture because the frameworks answer different questions: TOGAF and sector models classify capability structure, IT-CMF and CMMI score maturity, CSDM provides traceability, and DORA or Team Topologies shape how capabilities are operated. Sources: <code>https://www.opengroup.org/togaf</code>; <code>https://ivi.ie/it-capability-maturity-framework/</code>; <code>https://cmmiinstitute.com/learning/appraisals/levels</code>; <code>https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-servicenow-csdm-data-modelling.md</code>; <code>https://dora.dev/</code>; <code>https://teamtopologies.com/key-concepts</code>.</li>
+<li><strong>[inference]</strong> The main trade-off is breadth versus specificity: general frameworks are reusable but coarse, while sector frameworks are precise but hard to generalise beyond their native industries. Sources: <code>https://www.opengroup.org/togaf</code>; <code>https://bian.org/service-landscape/</code>; <code>https://www.tmforum.org/open-digital-architecture/process-framework-etom/</code>; <code>https://dodcio.defense.gov/Portals/0/Documents/DODAF/DoDAF_v2-02_web.pdf</code>.</li>
+<li><strong>[inference]</strong> The recommendation therefore favours composition over purity: use one backbone for stable capability names, one operational model for traceability, and targeted overlays for risk, design quality, or engineering performance. Sources: <code>https://www.opengroup.org/togaf</code>; <code>https://ivi.ie/it-capability-maturity-framework/</code>; <code>https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-servicenow-csdm-data-modelling.md</code>; <code>https://csrc.nist.gov/pubs/cswp/29/the-nist-cybersecurity-framework-csf-20/final</code>; <code>https://dora.dev/</code>; <code>https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html</code>.</li>
+</ul>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li><strong>[fact]</strong> Official SABSA and TM Forum detail pages were partially inaccessible from this environment, so the conclusions on those frameworks rest on mixed official metadata and public supporting summaries rather than on fully fetched primary text. Sources: <code>https://sabsa.org/sabsa-executive-summary/</code>; <code>https://www.tmforum.org/open-digital-architecture/process-framework-etom/</code>.</li>
+<li><strong>[inference]</strong> TOGAF's public material is sufficient to justify its role as the generic backbone, but a production rollout would still need licensed or internal detail to define the exact level-2 and level-3 capability families. Sources: <code>https://www.opengroup.org/togaf</code>; <code>https://www.opengroup.org/togaf-standard-10th-edition-downloads</code>.</li>
+<li><strong>[inference]</strong> The recommendation does not eliminate local design work, because modern platform capabilities are not normalised consistently across the surveyed public frameworks. Sources: <code>https://www.opengroup.org/togaf</code>; <code>https://teamtopologies.com/key-concepts</code>; <code>https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html</code>.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>Which concrete level-2 and level-3 capability families should be standardised first for this repository's likely enterprise context: identity, networking, integration, observability, or data?</li>
+<li>What is the cleanest way to attach IT-CMF maturity scoring to individual Technical Services in CSDM without creating duplicate governance structures?</li>
+<li>How much local extension is needed to represent platform engineering, internal developer platform, and artificial intelligence operations capabilities cleanly on top of a TOGAF-style backbone?</li>
+</ul>
+<hr />
+
+
+  </div>
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-22-applied-context-engineering-agent-workflows.html">Applied context engineering: skills, workflows, and best practices for agent development</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-21-dependency-mapping-dotnet-terraform-dynatrace.html">Dependency Mapping Across .NET Codebases, Terraform, Dynatrace, Confluence, Log Aggregation, and the Configuration and Service Data Model (CSDM)</a></div>
+  </div>
+</main>
+</body>
+</html>

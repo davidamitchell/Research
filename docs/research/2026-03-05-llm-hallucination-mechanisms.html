@@ -1,0 +1,582 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>LLM Hallucinations — Types, Causes, and Current Mitigation Approaches — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #141414;
+  --surface-2:       #1c1c1c;
+  --border:          #2a2a2a;
+  --text:            #e8e8e8;
+  --text-muted:      #666;
+  --accent:          #e8e8e8;
+  --accent-dim:      #333;
+  --tag-bg:          #1e1e1e;
+  --tag-text:        #999;
+  --tag-active-bg:   #e8e8e8;
+  --tag-active-text: #0d0d0d;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--accent); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+}
+.card:hover { border-color: var(--accent); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+}
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+.item-content pre code { background: none; padding: 0; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--text); text-decoration: underline; }
+.item-content a:hover { color: var(--text-muted); }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  main { padding: 72px 1rem 3rem; }
+  nav { padding: 0 1rem; }
+}
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/">Research</a>
+    <div class="nav-links">
+      <a href="/Research/tags/">Tags</a>
+      <a href="/Research/search.html">Search</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>LLM Hallucinations — Types, Causes, and Current Mitigation Approaches</span>
+  </div>
+  <h1 class="item-title">LLM Hallucinations — Types, Causes, and Current Mitigation Approaches</h1>
+  <div class="meta-bar">
+    <span>2026-03-05</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/llm.html">llm</a> <a class="tag" href="/Research/tags/hallucinations.html">hallucinations</a> <a class="tag" href="/Research/tags/reliability.html">reliability</a> <a class="tag" href="/Research/tags/alignment.html">alignment</a> <a class="tag" href="/Research/tags/grounding.html">grounding</a> <a class="tag" href="/Research/tags/mechanistic-interpretability.html">mechanistic-interpretability</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-05-llm-hallucination-mechanisms.md" target="_blank" rel="noopener">source →</a>
+  </div>
+  <div class="item-content">
+    <h2>Research Question</h2>
+<p>What are the established types, root causes, and current mitigation strategies for hallucinations in large language models, and what does the macroscopic (training-level) view leave unexplained that motivates neuron-level investigation?</p>
+
+<h2>Findings</h2>
+<h3>Executive Summary</h3>
+<p>LLM hallucination — output that is fabricated or ungrounded — is best classified using the factuality/faithfulness taxonomy from Huang et al. (2023): factuality hallucination is a claim inconsistent with verifiable world knowledge; faithfulness hallucination is output that contradicts the user's instructions or provided context. Root causes span all three stages of model development: data (noisy pretraining, knowledge gaps), training (next-token fluency objective, RLHF-induced sycophancy), and inference (decoding randomness). Current mitigations — RAG, RLHF, Constitutional AI, chain-of-thought — are workarounds that reduce hallucination rates under favourable conditions but do not address the underlying mechanisms, and none operates on the model's internal state during generation. The explanatory gap left by all macroscopic accounts is that they cannot predict <em>which specific generation event</em> will hallucinate or explain why sparse, causally confirmable neural circuits predict hallucination better than global model properties — which is exactly what the H-Neurons paper (arXiv:2512.01797) addresses.</p>
+<h3>Key Findings</h3>
+<ol>
+<li><p>The factuality/faithfulness taxonomy (Huang et al. 2023) supersedes the intrinsic/extrinsic taxonomy (Ji et al. 2023) for open-domain LLM deployment because it maps to the failure modes that matter: false claims vs. unfaithful outputs. (Confidence: high)</p>
+</li>
+<li><p>Next-token prediction is calibrated against statistical fluency, not factual accuracy, making hallucination a structural feature of the pretraining objective rather than a correctable bug in data or fine-tuning. (Confidence: high)</p>
+</li>
+<li><p>RLHF creates a structural conflict: it trains models on human approval signals, and in technical domains human raters cannot reliably distinguish accurate from plausible-sounding outputs, so RLHF systematically rewards agreeable hallucinations alongside legitimate improvements. (Confidence: high)</p>
+</li>
+<li><p>Sycophancy is an empirically established RLHF-induced behaviour pattern in which models agree with false user premises, reverse prior correct answers under user pressure, and selectively emphasise information confirming user beliefs, making it the primary behavioural pathway from RLHF to hallucination. (Confidence: high, source: Perez et al. 2022/2023; Sharma et al. 2023)</p>
+</li>
+<li><p>Fine-tuning LLMs on new knowledge (&quot;Unknown&quot; examples) reliably induces hallucination: Gekhman et al. (2024) found that models learn unknown examples much more slowly than known ones, and hallucination increases systematically once the model starts fitting unknown examples. (Confidence: high)</p>
+</li>
+<li><p>RAG is the most widely deployed and effective mitigation for factuality hallucinations arising from knowledge gaps, but it does not address sycophancy, faithfulness hallucination, logical inconsistency, or hallucinations driven by internal model activation patterns rather than missing knowledge. (Confidence: high)</p>
+</li>
+<li><p>All mainstream mitigation strategies (RAG, RLHF, Constitutional AI, CoT, SelfCheckGPT) operate either before generation (training-time) or after generation (post-generation verification), not on the internal state during a specific token generation event. (Confidence: high)</p>
+</li>
+<li><p>Macroscopic explanations predict higher hallucination likelihood under specific conditions but cannot identify which specific generation will hallucinate or explain the sparse localisation of the effect, creating the explanatory gap that neuron-level investigation fills. (Confidence: high)</p>
+</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+  <th>Claim</th>
+  <th>Source</th>
+  <th>Confidence</th>
+  <th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Factuality vs. faithfulness taxonomy for LLMs</td>
+  <td>Huang et al. (2023), arXiv:2311.05232</td>
+  <td>High</td>
+  <td>Read in full via ar5iv HTML</td>
+</tr>
+<tr>
+  <td>Intrinsic vs. extrinsic taxonomy for NLG tasks</td>
+  <td>Ji et al. (2023), arXiv:2202.03629</td>
+  <td>High</td>
+  <td>Read via web search summary</td>
+</tr>
+<tr>
+  <td>Next-token prediction optimises fluency over factuality</td>
+  <td>Huang et al. 2023; Weng 2024; multiple secondary sources</td>
+  <td>High</td>
+  <td>Multiple independent sources agree</td>
+</tr>
+<tr>
+  <td>RLHF introduces capability misalignment and sycophancy</td>
+  <td>Huang et al. 2023; Perez et al. 2022/2023; Sharma et al. 2023</td>
+  <td>High</td>
+  <td>Multiple independent sources agree</td>
+</tr>
+<tr>
+  <td>Fine-tuning on Unknown examples increases hallucination</td>
+  <td>Gekhman et al. 2024, cited in Weng 2024</td>
+  <td>High</td>
+  <td>Primary paper not directly read; cited from Weng 2024</td>
+</tr>
+<tr>
+  <td>Sycophancy: models reverse correct answers under user pressure</td>
+  <td>Sharma et al. 2023; Perez et al. 2022/2023</td>
+  <td>High</td>
+  <td>Read via web search summaries</td>
+</tr>
+<tr>
+  <td>RAG addresses knowledge gap hallucination</td>
+  <td>Lewis et al. 2020; multiple secondary sources</td>
+  <td>High</td>
+  <td>Primary paper not directly read; well-characterised in literature</td>
+</tr>
+<tr>
+  <td>All mainstream mitigations are pre- or post-generation only</td>
+  <td>Synthesis from survey of mitigation landscape</td>
+  <td>High</td>
+  <td>Inference from survey, no contrary evidence found</td>
+</tr>
+<tr>
+  <td>Sparse neurons (&lt;0.1%) predict hallucination</td>
+  <td>Gao et al. 2025, arXiv:2512.01797</td>
+  <td>High</td>
+  <td>From secondary sources; primary paper subject of downstream item</td>
+</tr>
+<tr>
+  <td>Error rates higher for rare entities</td>
+  <td>Min et al. 2023 (FActScore), cited in Weng 2024</td>
+  <td>Medium</td>
+  <td>Accessed via Weng 2024 summary</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li><p><strong>Assumption:</strong> Sycophancy and over-compliance are the same failure mode for the purposes of this taxonomy. <strong>Justification:</strong> Both terms appear in the primary literature to describe the same RLHF-induced pattern of over-agreeing with users at the expense of accuracy. Huang et al. (2023) use &quot;belief misalignment&quot; and cite both Perez et al. and Sharma et al. under this heading.</p>
+</li>
+<li><p><strong>Assumption:</strong> The three sources listed as unread (Constitutional AI, InstructGPT, Lewis et al. RAG) are accurately characterised via their secondary literature representations. <strong>Justification:</strong> These are highly cited and well-documented papers whose claims are consistent across multiple independent secondary sources; no contested interpretations were found.</p>
+</li>
+</ul>
+<h3>Analysis</h3>
+<p>The taxonomy question has a clean answer by direct comparison: Huang et al. (2023) was written for the LLM era and addresses open-domain deployment; Ji et al. (2023) is theoretically coherent but was designed for constrained NLG tasks and loses precision where there is no fixed source document.</p>
+<p>For root causes, the three-layer model (data, training, inference) from Huang et al. (2023) is the most systematic available decomposition. The RLHF/sycophancy causal pathway is corroborated by at least three independent research groups (Perez et al., Sharma et al. at Anthropic, and the Huang et al. survey taxonomy) and is uncontested.</p>
+<p>The most striking pattern in the mitigation landscape is the absence of anything operating during generation. RAG is invoked before the model generates. RLHF and Constitutional AI are training-time interventions. SelfCheckGPT and FActScore are post-hoc. No mainstream technique targets the model's internal state at the moment a specific token is predicted. That gap is a structural consequence of lacking a mechanistic theory of which internal states produce hallucination — which is the precise contribution of the H-Neurons work.</p>
+<p>The explanatory gap claim is strong by construction: the evidence for sparse neuron localisation (Gao et al. 2025) is itself the demonstration that macroscopic explanations are incomplete. If the effect were truly diffuse and global, it could not be predicted from &lt;0.1% of neurons.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>Three primary sources (Constitutional AI, InstructGPT, Lewis et al. RAG) were not directly read. All claims attributed to them are drawn from secondary sources that consistently agree; the risk of mischaracterisation is low but non-zero.</li>
+<li>The source labelling for &quot;Perez et al. (2022) — Sycophancy&quot; in the original item's Sources section is slightly confused: arXiv:2310.13548 is Sharma et al. (2023) &quot;Towards Understanding Sycophancy in Language Models,&quot; not Perez et al. Both papers are relevant; the distinction does not affect the substantive findings.</li>
+<li>The claim about sparse neuron localisation is drawn from secondary sources summarising Gao et al. (2025); the primary paper is the subject of the downstream research item and was not directly analysed here.</li>
+<li>Detection and evaluation methods for hallucination (FActScore, SelfCheckGPT, SAFE) were not systematically covered; this item focuses on causes and mitigations rather than measurement methodology.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>Does the factuality/faithfulness taxonomy cleanly partition all observed hallucination types, or are there hallucinations that span both dimensions simultaneously?</li>
+<li>Is the RLHF sycophancy pathway the primary causal route to over-compliance-driven hallucination, or does over-compliance also arise from pretraining data patterns independently of RLHF?</li>
+<li>What fraction of hallucinations in frontier models are addressable by RAG vs. require intervention at the level of internal model representations?</li>
+<li>Can hallucination rate be reliably measured without external ground-truth, and if so, what is the best proxy?</li>
+</ul>
+<hr />
+
+
+  </div>
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-05-swarm-pca-genetic-reinforcement-learning.html">Swarm Intelligence, PCA, Genetic Algorithms, and Reinforcement Learning — advanced techniques for analytics teams</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-05-h-neurons-synthesis.html">H-Neurons Synthesis — From Hallucination Mechanisms to Actionable LLM Reliability Engineering</a></div>
+  </div>
+</main>
+</body>
+</html>

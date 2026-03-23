@@ -1,0 +1,577 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Knowledge retention: mechanisms for ensuring completed research is recalled and applied over time — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #141414;
+  --surface-2:       #1c1c1c;
+  --border:          #2a2a2a;
+  --text:            #e8e8e8;
+  --text-muted:      #666;
+  --accent:          #e8e8e8;
+  --accent-dim:      #333;
+  --tag-bg:          #1e1e1e;
+  --tag-text:        #999;
+  --tag-active-bg:   #e8e8e8;
+  --tag-active-text: #0d0d0d;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--accent); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+}
+.card:hover { border-color: var(--accent); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+}
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+.item-content pre code { background: none; padding: 0; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--text); text-decoration: underline; }
+.item-content a:hover { color: var(--text-muted); }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  main { padding: 72px 1rem 3rem; }
+  nav { padding: 0 1rem; }
+}
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/">Research</a>
+    <div class="nav-links">
+      <a href="/Research/tags/">Tags</a>
+      <a href="/Research/search.html">Search</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>Knowledge retention: mechanisms for ensuring completed research is recalled and applied over time</span>
+  </div>
+  <h1 class="item-title">Knowledge retention: mechanisms for ensuring completed research is recalled and applied over time</h1>
+  <div class="meta-bar">
+    <span>2026-03-03</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/retention.html">retention</a> <a class="tag" href="/Research/tags/recall.html">recall</a> <a class="tag" href="/Research/tags/spaced-repetition.html">spaced-repetition</a> <a class="tag" href="/Research/tags/knowledge-decay.html">knowledge-decay</a> <a class="tag" href="/Research/tags/application.html">application</a> <a class="tag" href="/Research/tags/active-recall.html">active-recall</a> <a class="tag" href="/Research/tags/knowledge-management.html">knowledge-management</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-03-knowledge-retention-active-recall.md" target="_blank" rel="noopener">source →</a>
+  </div>
+  <div class="item-content">
+    <h2>Research Question</h2>
+<p>What mechanisms ensure that knowledge from completed research items is retained, recalled when contextually relevant, and applied to decisions — rather than being archived indefinitely with no re-engagement pattern?</p>
+
+<h2>Findings</h2>
+<h3>Executive Summary</h3>
+<p>Knowledge from completed research items will decay significantly within 2–4 weeks without re-engagement, even given the deeper initial encoding that research writing provides (via semantic processing per Craik &amp; Lockhart 1972). Four complementary mechanisms address this at increasing friction levels: an agent recall instruction in <code>research-prompt.md</code> (zero infrastructure cost, immediate effect); a weekly periodic digest GitHub Actions workflow posting 3–5 items for passive review as a GitHub issue; cross-reference embedding (inlining the key conclusion of referenced completed items rather than linking only); and active recall via the conversational interface once it is implemented. The agent recall instruction is the highest-priority action — it directly addresses the structural failure mode where each research session starts without access to prior completed research.</p>
+<h3>Key Findings</h3>
+<ol>
+<li>Knowledge from completed research items decays without re-engagement, but slower than Ebbinghaus's rote-memorisation baseline — research writing involves deep semantic processing (Craik &amp; Lockhart levels of processing) that provides more durable initial encoding than passive reading. (confidence: high)</li>
+<li>Retrieval practice (active recall) produces stronger long-term retention than re-reading; applying a finding to a real decision produces the strongest retention. A periodic digest provides recognition-level recall; the conversational &quot;what do I know about X?&quot; interface provides desirable-difficulty active recall. (confidence: high)</li>
+<li>The current <code>research-prompt.md</code> contains no instruction to search <code>Research/completed/</code> before starting a new item — each agent session starts from zero with respect to prior research. A &quot;Prior Research&quot; step costs nothing and should be added immediately. (confidence: high)</li>
+<li>Spaced repetition scheduling principles (expanding review intervals: 7/30/90 days) apply at research item level as a pragmatic adaptation of SM-2, using fixed intervals rather than adaptive difficulty scaling. The Obsidian Spaced Repetition plugin demonstrates the whole-document review pattern for Markdown. (confidence: high)</li>
+<li>Cross-references in backlog items embed only filename, not the referenced item's key finding. Inlining the key conclusion at point of reference embeds prior research in active working context; this is a direct implementation of the Zettelkasten cross-linking principle. (confidence: high)</li>
+<li>A weekly GitHub Actions workflow selecting 3–5 completed items by time-since-review and posting them as a GitHub issue (label: <code>retention-digest</code>) is the lowest-friction passive delivery mechanism within the system's constraints. (confidence: high)</li>
+<li>The minimum effective re-engagement action per item is reading the executive summary + 2–3 key findings (~2–3 minutes). A &quot;Does this affect your current work?&quot; prompt in the digest converts recognition recall into prompted active recall, increasing retention benefit without additional friction. (confidence: medium)</li>
+<li>Synthesis outputs (cross-item) have higher initial encoding depth than individual items and should be assigned longer initial review intervals (30/90/180 days) in the digest, not shorter. (confidence: medium)</li>
+<li>Tracking <code>last_reviewed</code> per item in a <code>state/reviews.json</code> file is technically trivial (atomic write pattern already established) and provides scheduling data for the digest workflow. Time-since-completion is sufficient at the current corpus size; adaptive scheduling is deferred until ~200+ items. (confidence: medium)</li>
+<li>The conversational &quot;what do I know about X?&quot; interface is a downstream dependency of <code>2026-03-02-semantic-full-text-search.md</code> and should be designed with memory-first prompting (owner recalls before corpus is surfaced) to maximise retention benefit. (confidence: medium)</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+  <th>Claim</th>
+  <th>Source</th>
+  <th>Confidence</th>
+  <th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Research writing is deep semantic processing → more durable memory</td>
+  <td>Craik &amp; Lockhart 1972 (Wikipedia/Levels_of_processing_effect)</td>
+  <td>high</td>
+  <td>Generation effect applies; active content creation vs. passive reading</td>
+</tr>
+<tr>
+  <td>Retrieval practice &gt; re-reading for long-term retention</td>
+  <td>Testing effect literature (Wikipedia/Testing_effect)</td>
+  <td>high</td>
+  <td>Multiple replications; Roediger, Pashler et al.; effects lasting years</td>
+</tr>
+<tr>
+  <td>Applying findings to decisions produces strongest retention</td>
+  <td>Wikipedia/Testing_effect: &quot;transfer strongest with application to practice&quot;</td>
+  <td>high</td>
+  <td>Transfer-appropriate processing; inference questions</td>
+</tr>
+<tr>
+  <td>SM-2 intervals adaptable to document-level review</td>
+  <td>Wikipedia/Spaced_repetition; Obsidian SR plugin (stephenmwangi.com)</td>
+  <td>high</td>
+  <td>Whole-note review is established PKM pattern</td>
+</tr>
+<tr>
+  <td>Current research-prompt.md: no prior-research search instruction</td>
+  <td>Direct inspection of research-prompt.md</td>
+  <td>high</td>
+  <td>Verified by direct file read; confirmed absence of <code>Research/completed/</code> reference</td>
+</tr>
+<tr>
+  <td>Cross-references embed filename only, not key findings</td>
+  <td>Direct inspection of Research/backlog/2026-03-02-chat-conversational-interface.md</td>
+  <td>high</td>
+  <td>Pattern consistent across multiple backlog items</td>
+</tr>
+<tr>
+  <td>GitHub Actions schedule trigger enables weekly automation</td>
+  <td>GitHub Actions (general; existing publish-wiki.yml, research-loop.yml)</td>
+  <td>high</td>
+  <td>Already used in this repository</td>
+</tr>
+<tr>
+  <td>Minimum effective re-engagement: executive summary + key findings</td>
+  <td>Retrieval effort hypothesis; SR review practice</td>
+  <td>medium</td>
+  <td>Conservative assumption; not directly measured</td>
+</tr>
+<tr>
+  <td>Synthesis items have higher encoding depth than individual items</td>
+  <td>Levels of processing; generation effect (Wikipedia)</td>
+  <td>medium</td>
+  <td>Inference from encoding depth principles</td>
+</tr>
+<tr>
+  <td>state/reviews.json extension feasibility</td>
+  <td>src/state.py StateStore inspection (repository memory)</td>
+  <td>high</td>
+  <td>Atomic write pattern established; schema extension is trivial</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li><strong>Assumption:</strong> Research writing provides generation-effect-level encoding depth. <strong>Justification:</strong> Research writing involves active content generation, structuring, and cross-linking — all characteristics of the generation effect. Not directly measured for this system's specific corpus type.</li>
+<li><strong>Assumption:</strong> Reading executive summary + key findings (~2–3 min) is sufficient as a re-engagement event. <strong>Justification:</strong> Aligned with minimum viable review in SR practice; conservative estimate that prioritises low friction while still providing a re-engagement signal.</li>
+<li><strong>Assumption:</strong> Weekly 3–5 item digest schedule is appropriate at current corpus size (~20–100 items). <strong>Justification:</strong> Balances re-engagement benefit against notification fatigue; should be recalibrated when corpus exceeds ~200 items.</li>
+</ul>
+<h3>Analysis</h3>
+<p>The central trade-off is between retention quality (active recall &gt; cued recognition &gt; passive re-reading) and delivery friction. The system's constraints (no persistent process, owner uses GitHub website/iOS app only) force lower-friction mechanisms. The resolution is a layered stack: passive digest for baseline recognition-level re-engagement; agent recall instruction for zero-friction active use of prior research during each session; conversational interface for on-demand high-quality active recall once the search layer is built.</p>
+<p>The agent recall instruction is the highest-leverage change because it addresses agent-side retention at zero infrastructure cost. Every subsequent research session benefits from prior completed research. The compounding value of this change grows with corpus size.</p>
+<p>The periodic digest is the next highest-leverage change. It requires a new GitHub Actions workflow but no new dependencies (PyYAML already in requirements, GITHUB_TOKEN already available). It produces a navigable archive of re-engagement events (GitHub issues with <code>retention-digest</code> label), enabling the owner to track which items have been reviewed.</p>
+<p>Cross-reference embedding is a convention change requiring no workflow automation — only an AGENTS.md addition and an agent instruction. This should be the second implementation step.</p>
+<p>SM-2 adaptive scheduling is explicitly deferred. Fixed intervals are sufficient at current corpus size. Adaptive scheduling requires tracking owner engagement quality, which is not technically available without additional tooling beyond what is scoped here.</p>
+<p>The <code>semantic-full-text-search</code> item is a prerequisite for contextual recall (&quot;what do I know about X?&quot;) and for the agent recall instruction to work reliably at scale. As long as <code>Research/completed/</code> contains fewer than ~50 items, the agent can scan all items directly; beyond that, a search layer is needed.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>The claim that &quot;conceptual knowledge decays within 2–4 weeks&quot; is an inference from the Ebbinghaus baseline, not a direct measurement for research-level understanding. The actual decay timeline could be longer (deep initial encoding) or shorter (low personal relevance of some items).</li>
+<li>Passive digest delivery assumes the owner reads GitHub issues. Notification fatigue or issue inbox clutter could render the digest ineffective. No monitoring mechanism is designed here.</li>
+<li>The conversational recall mechanism depends on <code>2026-03-02-semantic-full-text-search.md</code> being completed first. Until then, contextual recall is limited to what the agent can find via direct file inspection.</li>
+<li>The design assumes a single owner. If multiple agents or users access the corpus, the <code>state/reviews.json</code> approach requires coordination.</li>
+<li>No mechanism is designed to handle dismissed or low-value items that should not cycle through the digest indefinitely.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>Should the periodic digest workflow also create a wiki page (persistent record) in addition to the GitHub issue (transient notification)? May become a backlog item for the digest workflow implementation.</li>
+<li>At what corpus size does fixed-interval scheduling become insufficient and adaptive scheduling (requiring owner engagement tracking) become necessary? Estimated ~200–500 items; not validated.</li>
+<li>Should the agent recall instruction also surface <code>Research/in-progress/</code> items (parallel work in flight), not just <code>Research/completed/</code>?</li>
+</ul>
+<hr />
+
+
+  </div>
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-03-ml-techniques-and-algorithms.html">ML techniques, algorithms, and advanced analytics — a systematic reference for analytics teams</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-03-knowledge-representation-agent-context.html">Knowledge Representation for Agent Context: LSE, Knowledge Graphs, Concept Maps, and Document Compression for Large-Scale Context Management</a></div>
+  </div>
+</main>
+</body>
+</html>

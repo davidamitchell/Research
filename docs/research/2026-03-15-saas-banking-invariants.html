@@ -1,0 +1,574 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Invariants in Software as a Service (SaaS) Banking Software — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #141414;
+  --surface-2:       #1c1c1c;
+  --border:          #2a2a2a;
+  --text:            #e8e8e8;
+  --text-muted:      #666;
+  --accent:          #e8e8e8;
+  --accent-dim:      #333;
+  --tag-bg:          #1e1e1e;
+  --tag-text:        #999;
+  --tag-active-bg:   #e8e8e8;
+  --tag-active-text: #0d0d0d;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--accent); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+}
+.card:hover { border-color: var(--accent); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+}
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+.item-content pre code { background: none; padding: 0; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--text); text-decoration: underline; }
+.item-content a:hover { color: var(--text-muted); }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  main { padding: 72px 1rem 3rem; }
+  nav { padding: 0 1rem; }
+}
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/">Research</a>
+    <div class="nav-links">
+      <a href="/Research/tags/">Tags</a>
+      <a href="/Research/search.html">Search</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>Invariants in Software as a Service (SaaS) Banking Software</span>
+  </div>
+  <h1 class="item-title">Invariants in Software as a Service (SaaS) Banking Software</h1>
+  <div class="meta-bar">
+    <span>2026-03-15</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/saas.html">saas</a> <a class="tag" href="/Research/tags/banking.html">banking</a> <a class="tag" href="/Research/tags/enterprise.html">enterprise</a> <a class="tag" href="/Research/tags/build-vs-buy.html">build-vs-buy</a> <a class="tag" href="/Research/tags/tco.html">tco</a> <a class="tag" href="/Research/tags/salesforce.html">salesforce</a> <a class="tag" href="/Research/tags/ncino.html">ncino</a> <a class="tag" href="/Research/tags/architecture.html">architecture</a> <a class="tag" href="/Research/tags/ddd.html">ddd</a> <a class="tag" href="/Research/tags/total-cost-of-ownership.html">total-cost-of-ownership</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-15-saas-banking-invariants.md" target="_blank" rel="noopener">source →</a>
+  </div>
+  <div class="item-content">
+    <h2>Research Question</h2>
+<p>What capabilities do enterprise Software as a Service (SaaS) banking platforms (principally Salesforce Financial Services Cloud (FSC) and nCino) provide as true invariants - independent of customer implementation effort - and when full lifecycle costs are considered, how do these platforms compare economically to bespoke software built using modern engineering practices, before and after the arrival of Artificial Intelligence (AI)-assisted development?</p>
+
+<h2>Findings</h2>
+<h3>Executive Summary</h3>
+<p><strong>[inference]</strong> Enterprise banking Software as a Service (SaaS) platforms deliver durable value as reusable domain and operating primitives, not as implementation-free banking outcomes. Sources: https://resources.docs.salesforce.com/latest/latest/en-us/sfdc/pdf/financial_services.pdf ; https://resources.docs.salesforce.com/latest/latest/en-us/sfdc/pdf/salesforce_finserv_admin_guide.pdf ; https://www.ncino.com/our-platform ; https://developer.ncino.com/</p>
+<p><strong>[fact]</strong> Banks adopting Salesforce Financial Services Cloud (FSC) or nCino still carry lifecycle work for integration, migration, testing, training, and platform administration, even when the packaged functionality is substantial. Sources: https://resources.docs.salesforce.com/latest/latest/en-us/sfdc/pdf/salesforce_finserv_admin_guide.pdf ; https://www.ncino.com/implementation ; https://developer.salesforce.com/docs/atlas.en-us.financial_services_cloud_admin_guide.meta/financial_services_cloud_admin_guide</p>
+<p><strong>[inference]</strong> Before Artificial Intelligence (AI)-assisted development, vendor platforms usually retained an economic advantage for broad banking capability because they amortized domain and platform investment across many customers. Sources: https://www.aba.com/news-research/analysis-guides/2024-core-platforms-survey ; https://www.pwc.com/us/en/industries/financial-services/library/cloud-banking-trends.html ; https://www.seerene.com/news-research/banks-dilemma</p>
+<p><strong>[fact]</strong> GitHub's published research on the economic impact of AI-powered development shows gains in coding, explanation, and task throughput, while Deloitte's banking analysis still highlights legacy integration, governance, and risk-management constraints. Sources: https://github.blog/news-insights/research/the-economic-impact-of-the-ai-powered-developer-lifecycle-and-lessons-from-github-copilot/ ; https://www.deloitte.com/us/en/insights/industry/financial-services/future-of-software-engineering-in-banks.html</p>
+<p><strong>[inference]</strong> The strongest conclusion is a layered buy-plus-build model: rent commodity platform capability and broad banking workflows, then build differentiated layers only where the remaining lifecycle cost is justified. Sources: https://www.cio.com/article/242681/calculating-the-total-cost-of-ownership-for-enterprise-software.html ; https://github.blog/news-insights/research/the-economic-impact-of-the-ai-powered-developer-lifecycle-and-lessons-from-github-copilot/ ; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-13-financial-forecasting-it-run-costs.md</p>
+<h3>Key Findings</h3>
+<ol>
+<li><p><strong>Confidence: high. [inference]</strong> Salesforce Financial Services Cloud (FSC) and nCino provide invariant value mainly through reusable financial-services data models, packaged workflow shells, open integration surfaces, and vendor-operated platform services, rather than through institution-specific end-to-end banking outcomes. Sources: https://resources.docs.salesforce.com/latest/latest/en-us/sfdc/pdf/financial_services.pdf ; https://www.ncino.com/our-platform ; https://developer.ncino.com/</p>
+</li>
+<li><p><strong>Confidence: high. [fact]</strong> The vendors' own implementation materials show that integration with core systems, data mapping and migration, configuration, testing, training, and platform administration are normal and unavoidable parts of adoption, which means customer effort remains a structural part of value realization. Sources: https://www.ncino.com/implementation ; https://resources.docs.salesforce.com/latest/latest/en-us/sfdc/pdf/salesforce_finserv_admin_guide.pdf ; https://developer.salesforce.com/docs/atlas.en-us.financial_services_cloud_admin_guide.meta/financial_services_cloud_admin_guide</p>
+</li>
+<li><p><strong>Confidence: high. [fact]</strong> Salesforce's strongest invariants come from the Lightning Platform and trust model - multitenant infrastructure, shared security and compliance documentation, shared tooling, and centrally managed operations - while Financial Services Cloud adds domain-specific objects and process scaffolding on top of those primitives. Sources: https://www.salesforce.com/products/platform/overview/ ; https://www.salesforce.com/company/legal/trust-and-compliance-documentation/ ; https://admin.salesforce.com/blog/2025/the-apartment-analogy-making-sense-of-salesforces-multitenant-architecture ; https://resources.docs.salesforce.com/latest/latest/en-us/sfdc/pdf/financial_services.pdf</p>
+</li>
+<li><p><strong>Confidence: medium. [fact]</strong> nCino's strongest invariants are packaged banking workflows for onboarding, account opening, lending, and portfolio management plus an implementation and integration model tuned to banking institutions, but these remain dependent on local core connectivity and operating-model fit. Sources: https://www.ncino.com/our-platform/commercial-banking ; https://www.ncino.com/implementation ; https://developer.ncino.com/ ; https://appexchange.salesforce.com/appxListingDetail?listingId=ab4e62c0-5000-4053-a26b-9eeab9d1853f</p>
+</li>
+<li><p><strong>Confidence: high. [fact]</strong> Comparable vendors such as Temenos and Thought Machine market the same underlying invariant pattern - configurable domain engines, vendor-maintained core capabilities, and exposed integration surfaces - showing that these invariants are industry-wide characteristics of modern banking platforms rather than unique properties of Salesforce Financial Services Cloud or nCino. Sources: https://www.temenos.com/products/core-banking/ ; https://www.thoughtmachine.net/vault-core ; https://www.ncino.com/our-platform</p>
+</li>
+<li><p><strong>Confidence: medium. [inference]</strong> Before Artificial Intelligence (AI)-assisted development, buying or renting broad banking platform capability was economically attractive for many banks because vendor products bundled proven domain functionality, ecosystem leverage, and ongoing platform investment that many institutions would struggle to reproduce internally at acceptable speed and risk. Sources: https://www.aba.com/news-research/analysis-guides/2024-core-platforms-survey ; https://www.pwc.com/us/en/industries/financial-services/library/cloud-banking-trends.html ; https://www.seerene.com/news-research/banks-dilemma</p>
+</li>
+<li><p><strong>Confidence: high. [fact]</strong> Full lifecycle Total Cost of Ownership (TCO) for banking Software as a Service (SaaS) platforms must include not only subscription or license spend but also integration, migration, security review, process redesign, regression testing, training, administration, and retirement or export work, because those categories recur across both vendor guidance and independent Total Cost of Ownership (TCO) literature. Sources: https://www.cio.com/article/242681/calculating-the-total-cost-of-ownership-for-enterprise-software.html ; https://www.ncino.com/implementation ; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-13-financial-forecasting-it-run-costs.md</p>
+</li>
+<li><p><strong>Confidence: medium. [inference]</strong> Artificial Intelligence (AI)-assisted development narrows the economic gap for bespoke software by reducing coding, legacy-code explanation, and test-authoring effort, but it does not proportionally reduce data migration, integration, governance, adoption, or regulatory assurance costs, so it shifts the threshold rather than eliminating the case for buying platforms. Sources: https://github.blog/news-insights/research/the-economic-impact-of-the-ai-powered-developer-lifecycle-and-lessons-from-github-copilot/ ; https://www.deloitte.com/us/en/insights/industry/financial-services/future-of-software-engineering-in-banks.html ; https://www.cio.com/article/242681/calculating-the-total-cost-of-ownership-for-enterprise-software.html</p>
+</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+  <th>Claim</th>
+  <th>Source</th>
+  <th>Confidence</th>
+  <th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>[fact] Reusable vendor-supplied domain models and workflow scaffolds exist for Salesforce Financial Services Cloud (FSC) and nCino</td>
+  <td>https://resources.docs.salesforce.com/latest/latest/en-us/sfdc/pdf/financial_services.pdf ; https://resources.docs.salesforce.com/latest/latest/en-us/sfdc/pdf/salesforce_finserv_admin_guide.pdf ; https://trailhead.salesforce.com ; https://www.ncino.com/our-platform</td>
+  <td>high</td>
+  <td>Official documentation aligned across vendors</td>
+</tr>
+<tr>
+  <td>[fact] Customer-side integration, migration, testing, training, and administration remain required lifecycle work</td>
+  <td>https://www.ncino.com/implementation ; https://www.cio.com/article/242681/calculating-the-total-cost-of-ownership-for-enterprise-software.html ; https://developer.salesforce.com/docs/atlas.en-us.financial_services_cloud_admin_guide.meta/financial_services_cloud_admin_guide</td>
+  <td>high</td>
+  <td>Explicitly documented in implementation and lifecycle material</td>
+</tr>
+<tr>
+  <td>[fact] Salesforce's durable invariants sit mainly in shared platform operations and compliance envelope</td>
+  <td>https://www.salesforce.com/products/platform/overview/ ; https://www.salesforce.com/company/legal/trust-and-compliance-documentation/ ; https://admin.salesforce.com/blog/2025/the-apartment-analogy-making-sense-of-salesforces-multitenant-architecture</td>
+  <td>high</td>
+  <td>Strong separation between platform primitives and the FSC domain layer</td>
+</tr>
+<tr>
+  <td>[fact] nCino packages banking workflow patterns and bank-specific integration surfaces</td>
+  <td>https://www.ncino.com/our-platform ; https://www.ncino.com/our-platform/commercial-banking ; https://developer.ncino.com/ ; https://appexchange.salesforce.com/appxListingDetail?listingId=ab4e62c0-5000-4053-a26b-9eeab9d1853f</td>
+  <td>medium</td>
+  <td>Strong official evidence on capability shape; less precise on economics</td>
+</tr>
+<tr>
+  <td>[fact] Similar invariant structures appear across Temenos, Thought Machine, and nCino materials</td>
+  <td>https://www.temenos.com/products/core-banking/ ; https://www.thoughtmachine.net/vault-core ; https://www.ncino.com/our-platform</td>
+  <td>high</td>
+  <td>Cross-vendor validation</td>
+</tr>
+<tr>
+  <td>[inference] Pre-AI economics favored rented broad capability more often than full bespoke reproduction</td>
+  <td>https://www.aba.com/news-research/analysis-guides/2024-core-platforms-survey ; https://www.pwc.com/us/en/industries/financial-services/library/cloud-banking-trends.html ; https://www.seerene.com/news-research/banks-dilemma</td>
+  <td>medium</td>
+  <td>Direction strongly supported; exact magnitude less certain</td>
+</tr>
+<tr>
+  <td>[fact] Banking platform TCO includes recurring lifecycle categories beyond subscription price</td>
+  <td>https://www.cio.com/article/242681/calculating-the-total-cost-of-ownership-for-enterprise-software.html ; https://www.ncino.com/implementation ; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-13-financial-forecasting-it-run-costs.md</td>
+  <td>high</td>
+  <td>Strong cross-source agreement</td>
+</tr>
+<tr>
+  <td>[inference] AI lowers code-heavy bespoke costs without removing transformation-heavy cost categories</td>
+  <td>https://github.blog/news-insights/research/the-economic-impact-of-the-ai-powered-developer-lifecycle-and-lessons-from-github-copilot/ ; https://www.deloitte.com/us/en/insights/industry/financial-services/future-of-software-engineering-in-banks.html ; https://www.cio.com/article/242681/calculating-the-total-cost-of-ownership-for-enterprise-software.html</td>
+  <td>medium</td>
+  <td>Development productivity well supported; transformation-cost conclusion remains inferential</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li><p><strong>Assumption:</strong> Proprietary vendor price sheets and private implementation budgets would materially improve precision on exact break-even economics, but their absence does not prevent a robust structural comparison. <strong>Justification:</strong> The public evidence is sufficient to compare cost categories and relative advantage, but not to compute a universal numeric winner.</p>
+</li>
+<li><p><strong>Assumption:</strong> The bespoke baseline assumes a bank with access to competent domain experts and engineering leadership capable of applying Domain-Driven Design (DDD), Single Responsibility, Open-Closed, Liskov Substitution, Interface Segregation, Dependency Inversion (SOLID), and Clean Architecture in practice. <strong>Justification:</strong> Without that baseline capability, bespoke would fail for reasons unrelated to Software as a Service (SaaS) economics.</p>
+</li>
+</ul>
+<h3>Analysis</h3>
+<p><strong>[inference]</strong> The evidence is strongest when the question is reframed from &quot;what feature exists?&quot; to &quot;what kind of thing is actually invariant?&quot; Official Salesforce and nCino materials consistently distinguish packaged domain capability from institution-specific execution, which supports treating reusable models, workflows, and platform mechanics as the invariant layer rather than treating customer outcomes as invariant. Sources: https://resources.docs.salesforce.com/latest/latest/en-us/sfdc/pdf/financial_services.pdf ; https://resources.docs.salesforce.com/latest/latest/en-us/sfdc/pdf/salesforce_finserv_admin_guide.pdf ; https://www.ncino.com/our-platform ; https://www.ncino.com/implementation</p>
+<p><strong>[fact]</strong> The cross-vendor check reduces the risk of overstating Salesforce Financial Services Cloud (FSC) or nCino as uniquely privileged because Temenos and Thought Machine describe the same pattern of configurable domain engines, exposed integration surfaces, and vendor-maintained platform mechanics. Sources: https://www.temenos.com/products/core-banking/ ; https://www.thoughtmachine.net/vault-core ; https://www.ncino.com/our-platform</p>
+<p><strong>[inference]</strong> The economic comparison is most persuasive when separated into pre-AI and AI-assisted eras: GitHub's published developer-productivity research supports lower coding and explanation effort, but CIO Total Cost of Ownership (TCO) guidance and Deloitte's banking analysis imply that migration, integration, process design, user adoption, governance, and assurance remain stubborn cost categories. Sources: https://github.blog/news-insights/research/the-economic-impact-of-the-ai-powered-developer-lifecycle-and-lessons-from-github-copilot/ ; https://www.cio.com/article/242681/calculating-the-total-cost-of-ownership-for-enterprise-software.html ; https://www.deloitte.com/us/en/insights/industry/financial-services/future-of-software-engineering-in-banks.html</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li><strong>[fact]</strong> Gartner, Forrester, and directly fetched McKinsey banking articles were not accessible in this session, so the evidence base leans more heavily on official vendor documentation and accessible secondary banking-industry commentary. Sources: https://www.gartner.com/en/banking-financial-services ; https://www.forrester.com/research/financial-services-technology/ ; https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights</li>
+<li><strong>[fact]</strong> Public sources do not expose enough pricing detail to calculate a generally valid numeric Total Cost of Ownership (TCO) crossover point between named vendor platforms and bespoke systems. Sources: https://www.cio.com/article/242681/calculating-the-total-cost-of-ownership-for-enterprise-software.html ; https://www.pwc.com/us/en/industries/financial-services/library/cloud-banking-trends.html</li>
+<li><strong>[fact]</strong> nCino's original <code>/products</code> web address returned status code 429 in this session, so the research used other official nCino pages that were accessible instead. Source: https://ncino.com/products</li>
+<li><strong>[inference]</strong> Vendor case material is structurally biased toward benefit claims, so confidence is lower on any conclusion that relies primarily on vendor marketing rather than on implementation mechanics or independent lifecycle-cost evidence. Sources: https://www.salesforce.com/products/financial-services-cloud/overview/ ; https://www.ncino.com/our-platform ; https://www.cio.com/article/242681/calculating-the-total-cost-of-ownership-for-enterprise-software.html</li>
+<li><strong>[fact]</strong> The exact effect of Artificial Intelligence (AI) on regulated-software assurance cost remains uncertain because the available public evidence is stronger on development productivity than on audit or regulatory-review compression. Sources: https://github.blog/news-insights/research/the-economic-impact-of-the-ai-powered-developer-lifecycle-and-lessons-from-github-copilot/ ; https://www.deloitte.com/us/en/insights/industry/financial-services/future-of-software-engineering-in-banks.html</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>For a named mid-tier bank, what is the five-year numeric break-even point between Salesforce Financial Services Cloud (FSC) plus nCino-style configuration and a bespoke platform built on a modern cloud stack with AI-assisted development?</li>
+<li>How large is the regression-testing and release-management burden created by vendor-driven upgrade cycles in mature Salesforce Financial Services Cloud (FSC) and nCino estates?</li>
+<li>Which banking capabilities most consistently remain worth building in-house even when the institution buys a broader platform - pricing, decisioning, customer journeys, or servicing orchestration?</li>
+<li>How should exit costs and vendor-lock-in risk be incorporated into a full platform Total Cost of Ownership (TCO) model for banking Software as a Service (SaaS)?</li>
+</ul>
+<hr />
+
+
+  </div>
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-15-tracking-work-across-systems.html">Tracking How Work Travels Across Organisational Systems</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-15-prompt-injection-threat-landscape.html">Prompt injection threat landscape: exploits, defences, and active research in agentic artificial intelligence (AI) systems</a></div>
+  </div>
+</main>
+</body>
+</html>

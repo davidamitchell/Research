@@ -1,0 +1,617 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>AI inverted the knowledge-work scarcity equation: volume is free, correctness is the scarce resource — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #141414;
+  --surface-2:       #1c1c1c;
+  --border:          #2a2a2a;
+  --text:            #e8e8e8;
+  --text-muted:      #666;
+  --accent:          #e8e8e8;
+  --accent-dim:      #333;
+  --tag-bg:          #1e1e1e;
+  --tag-text:        #999;
+  --tag-active-bg:   #e8e8e8;
+  --tag-active-text: #0d0d0d;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--accent); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+}
+.card:hover { border-color: var(--accent); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+}
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+.item-content pre code { background: none; padding: 0; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--text); text-decoration: underline; }
+.item-content a:hover { color: var(--text-muted); }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  main { padding: 72px 1rem 3rem; }
+  nav { padding: 0 1rem; }
+}
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/">Research</a>
+    <div class="nav-links">
+      <a href="/Research/tags/">Tags</a>
+      <a href="/Research/search.html">Search</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>AI inverted the knowledge-work scarcity equation: volume is free, correctness is the scarce resource</span>
+  </div>
+  <h1 class="item-title">AI inverted the knowledge-work scarcity equation: volume is free, correctness is the scarce resource</h1>
+  <div class="meta-bar">
+    <span>2026-03-12</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/correctness.html">correctness</a> <a class="tag" href="/Research/tags/quality.html">quality</a> <a class="tag" href="/Research/tags/throughput.html">throughput</a> <a class="tag" href="/Research/tags/volume.html">volume</a> <a class="tag" href="/Research/tags/ai.html">ai</a> <a class="tag" href="/Research/tags/productivity.html">productivity</a> <a class="tag" href="/Research/tags/verification.html">verification</a> <a class="tag" href="/Research/tags/shared-context.html">shared-context</a> <a class="tag" href="/Research/tags/agentic-tarpit.html">agentic-tarpit</a> <a class="tag" href="/Research/tags/procter-and-gamble-study.html">procter-and-gamble-study</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-12-volume-vs-correctness-ai-era.md" target="_blank" rel="noopener">source →</a>
+  </div>
+  <div class="item-content">
+    <h2>Research Question</h2>
+<p>Before Artificial Intelligence (AI), throughput (volume of output) was the binding constraint on knowledge work. AI has
+dramatically reduced the cost of generating output. Does the evidence support the thesis that
+correctness — whether a given output is architecturally sound, strategically coherent, and fit for
+production — is now the primary scarce resource? And if so, what practices and team structures
+actually increase correctness rather than merely volume?</p>
+<p>Specifically: how does shared mental model size (a function of team size) interact with the volume
+of AI-generated output to determine a team's real productivity — and what does this imply for how
+quality should be managed in the AI era?</p>
+
+<h2>Findings</h2>
+<h3>Executive Summary</h3>
+<p>Correctness — whether output is production-ready, strategically coherent, or factually accurate — has become the primary constraint in AI-augmented knowledge work; volume generation is no longer the limiting factor. Faros AI's 2025 telemetry study of 10,000+ developers recorded individual task completion up 21% and PR merges up 98%, yet organisational delivery metrics remained flat — the &quot;AI Productivity Paradox.&quot; The Dell'Acqua et al. (2025) pre-registered RCT at P&amp;G explains why: AI-assisted teams were approximately three times more likely to produce top-10% quality outputs, but only when human judgment was structurally embedded through training, guided prompting, and expert evaluation; without that structure, AI generates volume at machine speed while verification remains bottlenecked by human attention. Wes McKinney named this the &quot;agentic tarpit&quot; — parallel AI sessions produce contradictory, bloated outputs faster than human judgment can triage them — and industry researchers documented its organisational expression as &quot;workslop&quot;: AI-generated content that looks professional but lacks substance, received by approximately 40% of workers in the past month. Increasing correctness requires the same disciplined practices that always mattered — small batches, explicit quality standards, domain expertise — which organisations that master them can use to differentiate when competitors are focused on volume. <strong>[inference — derived from evidence convergence; the competitive advantage framing is interpretive]</strong></p>
+<h3>Key Findings</h3>
+<ol>
+<li><p><strong>Volume up, delivery flat:</strong> AI coding assistants increased individual task completion by 21% and PR merges by 98% across 10,000+ developers in the Faros AI 2025 telemetry study, yet organisational delivery metrics — throughput, stability, change failure rate — remained flat. [high confidence]</p>
+</li>
+<li><p><strong>3x top-decile quality with structured AI use:</strong> In the Dell'Acqua et al. (2025) pre-registered RCT at P&amp;G, teams using AI were 9.2 percentage points more likely to produce solutions rated in the top decile by expert judges, compared to a control mean of 5.8%, corresponding to approximately three times more chances of reaching top-decile quality. [high confidence]</p>
+</li>
+<li><p><strong>AI substitutes for average collaboration, not peak collaboration:</strong> AI-enabled individuals in the P&amp;G RCT matched the average quality of two-person human teams working without AI, but the highest quality outputs still came from human teams augmented by AI; peak collaborative judgment, not average competence, is the differentiating constraint. [high confidence]</p>
+</li>
+<li><p><strong>The verification bottleneck is empirically measured:</strong> Faros AI 2025 data shows PR review time increased 91% and PR size grew 154% alongside high AI adoption; the human review step did not accelerate to match AI generation speed. [high confidence]</p>
+</li>
+<li><p><strong>The agentic tarpit names the multi-agent correctness failure mode:</strong> Wes McKinney's 2025 blog post &quot;The Mythical Agent-Month&quot; identified that parallel AI agent sessions produce contradictory and bloated outputs at machine speed, requiring human reconciliation that cannot be accelerated by adding more agents, creating a hard bottleneck at human conceptual integrity. [high confidence]</p>
+</li>
+<li><p><strong>Workslop is a measurable organisational consequence of volume without correctness discipline:</strong> Research published via Harvard Business Review in 2025 found approximately 40% of workers received poor-quality AI-generated content in the past month, estimated at 15% of total workplace content, generating coordination overhead and eroding interpersonal trust. [medium confidence]</p>
+</li>
+<li><p><strong>The prototype-to-production gap is structural and unresolved:</strong> AI has dramatically compressed the time from blank slate to working proof of concept, but judgment-intensive production work — requirements translation, architectural trade-offs, distributed system debugging, and production-readiness validation — remains human-bottlenecked and has not been equivalently accelerated by current AI tooling. [high confidence]</p>
+</li>
+<li><p><strong>AI breaks functional silos in innovation tasks:</strong> The P&amp;G RCT found that AI-assisted Research and Development (R&amp;D) and commercial professionals independently produced balanced, integrated proposals regardless of professional background, demonstrating that AI can reduce quality losses from siloed domain expertise by giving individuals access to cross-functional competency. [high confidence]</p>
+</li>
+<li><p><strong>No universal cross-domain correctness index exists:</strong> A search across empirical literature and industry practice found no standardised measurement framework for correctness applicable across code, strategy, and content domains; organisations lack the tooling to measure the constraint they must now manage most urgently. [medium confidence]</p>
+</li>
+<li><p><strong>Small batches and explicit quality standards are the evidence-backed correctness practices:</strong> DORA 2025 identifies working in small batches as the practice most reliably associated with amplifying AI's positive effects; Shopify CEO Toby Lütke's 2025 AI mandate frames explicit taste standards and proof-of-concept discipline as the structural complement to AI-generated output, but no systematic effectiveness study has been published on either practice in the AI context. [medium confidence]</p>
+</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+  <th>Claim</th>
+  <th>Source</th>
+  <th>Confidence</th>
+  <th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Tasks +21%, PRs +98%, DORA metrics flat</td>
+  <td>Faros AI &quot;AI Productivity Paradox&quot; 2025</td>
+  <td>High</td>
+  <td>Telemetry from 10,000+ devs, 1,255 teams</td>
+</tr>
+<tr>
+  <td>Teams with AI 3x more likely in top-10% quality</td>
+  <td>Dell'Acqua et al., 2025 NBER w33641</td>
+  <td>High</td>
+  <td>Pre-registered RCT; 776 P&amp;G professionals; expert judging</td>
+</tr>
+<tr>
+  <td>AI individuals match average team quality</td>
+  <td>Dell'Acqua et al., 2025</td>
+  <td>High</td>
+  <td>Same study</td>
+</tr>
+<tr>
+  <td>Review time +91%, PR size +154%</td>
+  <td>Faros AI 2025</td>
+  <td>High</td>
+  <td>Telemetry data</td>
+</tr>
+<tr>
+  <td>Agentic tarpit: contradictory/bloated agent output</td>
+  <td>McKinney, &quot;Mythical Agent-Month&quot; 2025</td>
+  <td>High</td>
+  <td>Primary source; draws on Brooks 1975 The Mythical Man-Month (TMMM)</td>
+</tr>
+<tr>
+  <td>Workslop: 40% workers received poor AI content</td>
+  <td>BetterUp Labs / Microsoft New Future of Work 2025</td>
+  <td>Medium</td>
+  <td>Survey data; estimation methodology not detailed</td>
+</tr>
+<tr>
+  <td>AI breaks functional silos in innovation</td>
+  <td>Dell'Acqua et al., 2025 NBER w33641</td>
+  <td>High</td>
+  <td>Pre-registered RCT</td>
+</tr>
+<tr>
+  <td>Prototype-to-production gap</td>
+  <td>O'Brien (Medium 2025), METR RCT 2025, mindstudio.ai 2025</td>
+  <td>High</td>
+  <td>Multiple independent converging sources</td>
+</tr>
+<tr>
+  <td>No cross-domain correctness metric exists</td>
+  <td>Absence in literature search</td>
+  <td>Medium</td>
+  <td>Negative evidence</td>
+</tr>
+<tr>
+  <td>DORA: AI amplifies existing team patterns</td>
+  <td>DORA 2025 / Faros AI 2025</td>
+  <td>High</td>
+  <td>Combined survey + telemetry</td>
+</tr>
+<tr>
+  <td>Small batches amplify AI quality effects</td>
+  <td>DORA 2025</td>
+  <td>Medium</td>
+  <td>Survey finding; no controlled RCT on this specific practice</td>
+</tr>
+<tr>
+  <td>Lütke constitution as shared correctness standard</td>
+  <td>Lütke, Acquired podcast 2025; betakit.com 2025</td>
+  <td>Low</td>
+  <td>Single practitioner source; no effectiveness study</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ol>
+<li><p>The P&amp;G RCT findings (3x top-decile quality) generalise directionally to other knowledge-work domains, though the specific magnitude applies only to consumer goods innovation tasks structured under experimental conditions. <em>Justification:</em> The mechanism (structured AI access + domain expertise + evaluation framework) is domain-agnostic; the magnitude is domain-specific.</p>
+</li>
+<li><p>&quot;Correctness&quot; is interpreted as &quot;fitness for purpose&quot; in the relevant domain — expert-judged quality for innovation, bug-free production-ready delivery for software, accuracy + utility for content — not as formal mathematical correctness. <em>Justification:</em> No domain-agnostic definition of correctness was found; all empirical measures are domain-specific operationalisations.</p>
+</li>
+<li><p>The Faros AI sample (mid-to-large engineering organisations) may over-represent enterprise software teams. AI-native startups with different team structures and higher domain expertise per capita may show different patterns. <em>Justification:</em> No AI-native startup telemetry study of comparable scale was found.</p>
+</li>
+</ol>
+<h3>Analysis</h3>
+<p>AI accelerates the generation phase of knowledge work without equivalently accelerating the verification phase. <strong>[inference — derived from Faros AI telemetry showing flat DORA metrics despite volume increases, and from the P&amp;G RCT showing quality improvements only when verification scaffolding is present]</strong> Because verification is the binding constraint, organisational throughput does not improve commensurately with volume. <strong>[inference — derived from the same evidence]</strong> The P&amp;G RCT establishes this experimentally; Faros AI and DORA data measure it at scale; McKinney's agentic tarpit explains the mechanism.</p>
+<p>A critical distinction emerges from the P&amp;G study: AI substitutes for <em>average</em> peer collaboration, not peak collaborative quality. <strong>[inference — derived from Dell'Acqua et al. 2025 treatment arm comparisons]</strong> Solo practitioners using AI can compete with unaugmented teams on typical tasks, meaning the baseline of acceptable output has been raised for everyone. Organisations and teams that differentiate on quality are those that combine strong human judgment with AI — not those that substitute AI for human judgment. <strong>[inference — extrapolated from P&amp;G study design; not directly tested as an organisational strategy]</strong></p>
+<p>The competing interpretation — that flat organisational metrics reflect adoption friction rather than a structural constraint — is not supported by the evidence. DORA 2024 data shows <em>degradation</em> under high adoption, not improvement. The verification bottleneck is cognitive, not technical: no amount of faster AI makes domain expertise faster to acquire or contextual judgment faster to exercise. <strong>[inference — derived from evidence; the cognitive-bottleneck characterisation is analytical, not empirically measured]</strong></p>
+<p>Investing in human judgment capacity is the higher-leverage response to the volume-correctness inversion — particularly the judgment required for verification, architectural decision-making, and domain expertise. <strong>[inference — derived from evidence synthesis; prescriptive framing is the authors' interpretation, not a finding from any single study]</strong> Practices, hiring, and tooling calibrated to this constraint will be more effective than those calibrated to maximising AI-generated volume.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li><strong>No cross-domain correctness metric:</strong> The most critical practical gap. Organisations cannot manage what they cannot measure. Developing correctness metrics for strategy and content domains (analogous to bug rate for code) is a prerequisite for managing the new binding constraint.</li>
+<li><strong>P&amp;G RCT generalisability:</strong> The study was conducted under experimental conditions with trained participants, expert judges, and real business stakes. Deployments without equivalent scaffolding may not reproduce the quality improvement. The 3x figure should be treated as an upper bound under ideal conditions, not a baseline expectation.</li>
+<li><strong>Workslop magnitude uncertain:</strong> The 40% / 15% estimates are survey-derived and not independently replicated. The direction (low-quality AI content is a measurable phenomenon) is credible; the magnitude should be treated as indicative.</li>
+<li><strong>Long-term expertise decay risk (speculative):</strong> If AI automation of entry-level tasks eliminates the positions where future expert verifiers develop their judgment, the system undermines its own verification capacity over a 5–10 year horizon. No longitudinal study yet exists; this remains a credible structural risk rather than a demonstrated finding.</li>
+</ul>
+<h3>Open Questions</h3>
+<ol>
+<li>Can AI-assisted verification tools (automated review, AI code auditors, fact-checking agents) close the verification bottleneck, or is the bottleneck fundamentally cognitive and therefore not addressable by adding more AI? If the latter, what is the correct investment model?</li>
+<li>How should organisations operationalise &quot;correctness&quot; measurement in strategy and content domains at scale, given the absence of a standardised framework?</li>
+<li>What is the correct ratio of AI-output volume to human-review capacity, and how does this ratio change as AI model quality improves?</li>
+<li>Does the P&amp;G finding (non-core employees reaching expert-quality outputs with AI) imply that small teams can maintain correctness standards on cross-functional tasks by relying on AI for the competence they lack? If so, what are the failure modes when that reliance exceeds a threshold?</li>
+</ol>
+<h3>Output</h3>
+<ul>
+<li><strong>Type:</strong> knowledge</li>
+<li><strong>Description:</strong> Evidence-based synthesis of the volume-vs-correctness inversion thesis, with primary empirical grounding in the Dell'Acqua et al. (2025) P&amp;G RCT (NBER w33641) and the Faros AI 2025 productivity paradox study. Establishes that correctness is the binding constraint in AI-augmented knowledge work and identifies the verification bottleneck and agentic tarpit as the two key mechanisms.</li>
+<li><strong>Key sources:</strong><ol>
+<li>Dell'Acqua et al. (2025), &quot;The Cybernetic Teammate: A Field Experiment on Generative AI Reshaping Teamwork and Expertise,&quot; NBER Working Paper w33641 — https://www.nber.org/system/files/working_papers/w33641/w33641.pdf</li>
+<li>Wes McKinney, &quot;The Mythical Agent-Month&quot; (2025) — https://wesmckinney.com/blog/mythical-agent-month/</li>
+<li>Faros AI, &quot;The AI Productivity Paradox&quot; (2025) — https://www.faros.ai/blog/ai-software-engineering</li>
+</ol>
+</li>
+</ul>
+
+
+  </div>
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-13-financial-forecasting-it-run-costs.html">Best practices in financial forecasting for IT operational run costs: assumptions, uncertainty, and regulatory considerations</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-12-team-size-limits-brooks-dunbar-network-theory.html">Three disciplines, one answer: Brooks, Dunbar, and network theory on why 5 is the coordination limit</a></div>
+  </div>
+</main>
+</body>
+</html>

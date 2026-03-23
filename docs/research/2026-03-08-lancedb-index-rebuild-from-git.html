@@ -1,0 +1,595 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>LanceDB index rebuild speed from git: enabling stateless deployment — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #141414;
+  --surface-2:       #1c1c1c;
+  --border:          #2a2a2a;
+  --text:            #e8e8e8;
+  --text-muted:      #666;
+  --accent:          #e8e8e8;
+  --accent-dim:      #333;
+  --tag-bg:          #1e1e1e;
+  --tag-text:        #999;
+  --tag-active-bg:   #e8e8e8;
+  --tag-active-text: #0d0d0d;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--accent); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+}
+.card:hover { border-color: var(--accent); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+}
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+.item-content pre code { background: none; padding: 0; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--text); text-decoration: underline; }
+.item-content a:hover { color: var(--text-muted); }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  main { padding: 72px 1rem 3rem; }
+  nav { padding: 0 1rem; }
+}
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/">Research</a>
+    <div class="nav-links">
+      <a href="/Research/tags/">Tags</a>
+      <a href="/Research/search.html">Search</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>LanceDB index rebuild speed from git: enabling stateless deployment</span>
+  </div>
+  <h1 class="item-title">LanceDB index rebuild speed from git: enabling stateless deployment</h1>
+  <div class="meta-bar">
+    <span>2026-03-08</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/lancedb.html">lancedb</a> <a class="tag" href="/Research/tags/performance.html">performance</a> <a class="tag" href="/Research/tags/indexing.html">indexing</a> <a class="tag" href="/Research/tags/serverless.html">serverless</a> <a class="tag" href="/Research/tags/memory-system.html">memory-system</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-lancedb-index-rebuild-from-git.md" target="_blank" rel="noopener">source →</a>
+  </div>
+  <div class="item-content">
+    <h2>Research Question</h2>
+<p>Can the LanceDB index be rebuilt from the <code>.md</code> files in the repo on startup fast enough to enable stateless (per-request) deployment? Measure rebuild time at: current corpus size, 100 files, 500 files, 1000 files. Is the embedding model load time (BAAI/bge-small-en-v1.5) the bottleneck or the LanceDB write operations? Would a lighter embedding model (e.g. MiniLM) or pre-computed embeddings stored in git change the equation?</p>
+
+<h2>Findings</h2>
+<p><em>(Populated from §6 Synthesis above.)</em></p>
+<h3>Executive Summary</h3>
+<p>The embedding model — not LanceDB — is the bottleneck in cold-start index rebuilds: LanceDB write operations consume under 1% of total startup time at all tested corpus sizes. BAAI/bge-small-en-v1.5 takes 11.5s to rebuild the current 61-item research corpus from Markdown text (10.8s embedding, 0.68s model load), already exceeding the 5–10s target. Pre-computed embeddings stored as JSON in git reduce startup to under 0.2s regardless of corpus size, making stateless deployment viable immediately. Model2Vec (identified in prior semantic-search research as ~200× faster than MiniLM on CPU) would enable per-request rebuild without pre-computed storage and should be evaluated as the production embedding model.</p>
+<h3>Key Findings</h3>
+<ol>
+<li><p>LanceDB write operations take under 30ms even at 1000 documents; the embedding model accounts for 99%+ of cold-start rebuild time at every tested corpus size. [high]</p>
+</li>
+<li><p>BAAI/bge-small-en-v1.5 loads from disk cache in 0.68s; the model file is 133 MB, giving a first-download load time of ~2.25s from HuggingFace Hub on a typical connection. [high]</p>
+</li>
+<li><p>BGE-small-en-v1.5 embeds at ~34.5ms/doc for short synthetic texts but ~177ms/doc for real research items; BERT's O(n²) attention cost means document length — not document count — is the primary driver of embedding time. [high]</p>
+</li>
+<li><p>At the current corpus size of 61 items with full Markdown text, cold-start rebuild takes 11.5s with BGE-small, already exceeding the 5–10s target and with no improvement path as the corpus grows. [high]</p>
+</li>
+<li><p>Pre-computed embeddings stored as JSON in git (7.74 KB per 384-dim document) load and write into LanceDB in under 0.2s for 1000 documents, making startup time effectively O(1) with respect to corpus size. [high]</p>
+</li>
+<li><p>JSON storage cost for pre-computed BGE-small embeddings is 7.74 MB for 1000 documents; for a personal research corpus of 200–300 items, this is under 2.5 MB, an acceptable git repository size. [high]</p>
+</li>
+<li><p>all-MiniLM-L6-v2 is approximately 2× faster than BGE-small at embedding (16.4ms/doc vs 34.5ms/doc for short texts) but does not change the fundamental scaling failure: at 500 real research items, MiniLM would still require over 20s to rebuild. [high]</p>
+</li>
+<li><p>GitHub code search is rate-limited to 10 requests per minute, is keyword-only with no semantic understanding, and may return incomplete results for large queries; it is not a viable replacement for vector search and only useful as a supplementary lexical search layer. [high]</p>
+</li>
+<li><p>Model2Vec (potion-base-8M), identified in prior semantic-search research as ~200× faster than MiniLM on CPU with 91–93% of MiniLM's MTEB accuracy and no PyTorch dependency, would reduce rebuild time to under 1s for 500 items — making per-request stateless rebuild viable without pre-computed embedding storage. [medium — requires direct LanceDB benchmark to confirm]</p>
+</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+  <th>Claim</th>
+  <th>Source</th>
+  <th>Confidence</th>
+  <th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>LanceDB write &lt;30ms at 1000 docs</td>
+  <td>Direct benchmark, lancedb v0.29.2</td>
+  <td>high</td>
+  <td>Reproducible; O(n) columnar append</td>
+</tr>
+<tr>
+  <td>BGE-small cached load = 0.68s</td>
+  <td>Direct benchmark</td>
+  <td>high</td>
+  <td>Consistent across 3 measurements</td>
+</tr>
+<tr>
+  <td>MiniLM cached load = 0.50s</td>
+  <td>Direct benchmark</td>
+  <td>high</td>
+  <td>Consistent across 2 measurements</td>
+</tr>
+<tr>
+  <td>BGE-small ~34.5ms/doc (synthetic)</td>
+  <td>Direct benchmark, 10–1000 items</td>
+  <td>high</td>
+  <td>Linear scaling confirmed across range</td>
+</tr>
+<tr>
+  <td>BGE-small ~177ms/doc (real items)</td>
+  <td>Direct benchmark, 61 items</td>
+  <td>high</td>
+  <td>5× slowdown explained by doc length</td>
+</tr>
+<tr>
+  <td>Current 61-item corpus = 11.5s cold start</td>
+  <td>Direct benchmark</td>
+  <td>high</td>
+  <td>Measured against Research/completed/</td>
+</tr>
+<tr>
+  <td>JSON 7.74 KB/doc at 384 dims</td>
+  <td>Direct measurement</td>
+  <td>high</td>
+  <td>Deterministic from float32 × 384 dims</td>
+</tr>
+<tr>
+  <td>JSON load+write 0.13s at 1000 docs</td>
+  <td>Direct benchmark</td>
+  <td>high</td>
+  <td>Dominated by JSON parse</td>
+</tr>
+<tr>
+  <td>MiniLM 2× faster embedding than BGE</td>
+  <td>Direct benchmark</td>
+  <td>high</td>
+  <td>Consistent across all corpus sizes</td>
+</tr>
+<tr>
+  <td>GitHub code search 10 req/min limit</td>
+  <td>GitHub Docs; GitHub Changelog Mar 2023</td>
+  <td>high</td>
+  <td>Two independent authoritative sources</td>
+</tr>
+<tr>
+  <td>GitHub code search keyword-only</td>
+  <td>GitHub API docs (github.apidog.io)</td>
+  <td>high</td>
+  <td>Official documentation</td>
+</tr>
+<tr>
+  <td>Model2Vec ~200× faster than MiniLM</td>
+  <td>Research/completed/2026-03-02-semantic-full-text-search.md</td>
+  <td>high</td>
+  <td>Prior research; primary MTEB benchmarks cited</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li><strong>Assumption:</strong> GitHub Actions runner hardware is representative of free-tier deployment targets. <strong>Justification:</strong> GitHub Actions 2-core runners are comparable to Fly.io free tier CPU; RAM (7 GB vs 256 MB) differs and may slow PyTorch model load on memory-constrained targets.</li>
+<li><strong>Assumption:</strong> Document content truncated to 2000 characters per file represents a reasonable upper bound for embedding input length in this corpus. <strong>Justification:</strong> Research items are structured Markdown; semantic content is front-loaded in title, executive summary, and key findings.</li>
+<li><strong>Assumption:</strong> Pre-computed JSON embeddings would be committed alongside <code>.md</code> files as part of the <code>add_memory</code> write path. <strong>Justification:</strong> The natural implementation; any other approach (separate batch job) introduces synchronisation complexity between stored files and their embeddings.</li>
+</ul>
+<h3>Analysis</h3>
+<p>The benchmark data makes a clear recommendation. The rebuild-from-text approach fails the target at the current corpus size and degrades further as the corpus grows — there is no configuration of the current stack (batch size, model choice within bge/MiniLM family) that fixes this without switching to a fundamentally faster embedding approach.</p>
+<p>Pre-computed embeddings eliminate the bottleneck at the cost of a model-version coupling constraint (all stored embeddings must be regenerated if the model changes). For a single-owner personal project, this cost is low and manageable. The storage overhead (~2.5 MB for 300 items) is negligible in git terms.</p>
+<p>Model2Vec represents a possible third path — one that avoids both the storage overhead of pre-computed embeddings and the latency of bge-small/MiniLM. Given that prior research already recommends Model2Vec for Phase 2 of the semantic search system, evaluating it for the LanceDB rebuild path simultaneously would be efficient. The recommendation is to pursue both paths in parallel: implement pre-computed embeddings as the near-term fix (eliminates the latency problem immediately), and benchmark Model2Vec against LanceDB as an input to the production embedding model decision.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>Model2Vec's rebuild time in the LanceDB context has not been directly benchmarked; the 200× speedup is well-sourced but measured in a different evaluation context.</li>
+<li>Fly.io free tier (1 vCPU, 256 MB RAM) may exhibit worse model load times than the GitHub Actions runner due to RAM pressure during PyTorch initialisation.</li>
+<li>The pre-computed JSON approach requires a code change to <code>mcp_server.py</code> that is not implemented; the benchmark demonstrates feasibility, not production readiness.</li>
+<li>JSON float precision (default Python repr) may introduce minor rounding differences vs the model's native float32 output; this is unlikely to affect retrieval quality but has not been tested.</li>
+</ul>
+<h3>Open Questions</h3>
+<ol>
+<li>What is Model2Vec (potion-base-8M) actual rebuild time for the current 61-item research corpus? Should become a backlog item for the Memory-System.</li>
+<li>Should embeddings be stored as JSON (human-readable, diffable in GitHub web UI) or numpy binary (5× smaller)? Decision depends on operational tooling preferences.</li>
+<li>How should the <code>add_memory</code> write path in <code>mcp_server.py</code> be modified to persist embeddings as a JSON sidecar alongside each <code>.md</code> file? This is the concrete implementation question for W-0015.</li>
+<li>What is the RAM footprint of Model2Vec on a 256 MB Fly.io instance during inference?</li>
+</ol>
+<hr />
+
+
+  </div>
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-08-self-hosted-mcp-server-options.html">Self-hosted MCP server options: enabling mobile AI app integration</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-08-ios-shortcuts-github-api-memory-capture.html">iOS Shortcuts + GitHub API: zero-infrastructure mobile memory capture</a></div>
+  </div>
+</main>
+</body>
+</html>

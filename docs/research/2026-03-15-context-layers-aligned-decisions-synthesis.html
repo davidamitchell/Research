@@ -1,0 +1,612 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Aligned Decision-Making: Context Architecture for AI Agents in Organisations — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #141414;
+  --surface-2:       #1c1c1c;
+  --border:          #2a2a2a;
+  --text:            #e8e8e8;
+  --text-muted:      #666;
+  --accent:          #e8e8e8;
+  --accent-dim:      #333;
+  --tag-bg:          #1e1e1e;
+  --tag-text:        #999;
+  --tag-active-bg:   #e8e8e8;
+  --tag-active-text: #0d0d0d;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--accent); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+}
+.card:hover { border-color: var(--accent); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+}
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+.item-content pre code { background: none; padding: 0; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--text); text-decoration: underline; }
+.item-content a:hover { color: var(--text-muted); }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  main { padding: 72px 1rem 3rem; }
+  nav { padding: 0 1rem; }
+}
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/">Research</a>
+    <div class="nav-links">
+      <a href="/Research/tags/">Tags</a>
+      <a href="/Research/search.html">Search</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>Aligned Decision-Making: Context Architecture for AI Agents in Organisations</span>
+  </div>
+  <h1 class="item-title">Aligned Decision-Making: Context Architecture for AI Agents in Organisations</h1>
+  <div class="meta-bar">
+    <span>2026-03-15</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/context-architecture.html">context-architecture</a> <a class="tag" href="/Research/tags/alignment.html">alignment</a> <a class="tag" href="/Research/tags/decision-making.html">decision-making</a> <a class="tag" href="/Research/tags/enterprise-ai.html">enterprise-ai</a> <a class="tag" href="/Research/tags/rag.html">rag</a> <a class="tag" href="/Research/tags/knowledge-management.html">knowledge-management</a> <a class="tag" href="/Research/tags/organisational-strategy.html">organisational-strategy</a> <a class="tag" href="/Research/tags/synthesis.html">synthesis</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-15-context-layers-aligned-decisions-synthesis.md" target="_blank" rel="noopener">source →</a>
+  </div>
+  <div class="item-content">
+    <h2>Research Question</h2>
+<p>What framework should an organisation adopt to ensure that AI agents making or supporting decisions have access to the right layered organisational context — spanning regulatory boundaries, values and purpose, vision and mission, strategy, policies and standards, current operating position, and immediate task intent — without relying on an impractically large context window?</p>
+<p>What insights from cognitive science and state-of-the-art context-management techniques (Retrieval-Augmented Generation (RAG), compression, context architecture) inform the design and sequencing of that framework?</p>
+
+<h2>Findings</h2>
+<p><em>(Populated from §6 Synthesis above.)</em></p>
+<h3>Executive Summary</h3>
+<p>A layered organisational context architecture should partition organisational knowledge into eight distinct layers — regulatory, values/purpose, vision/mission, strategy, policies/standards, current operating position, intent/priorities, and immediate task — each requiring a different storage, retrieval, and compression strategy determined by its update frequency, volume, and authority weight. Layers 2–3 (values and vision) must always be resident in the core context window as a Constitutional AI (CAI)-style organisational constitution of approximately 300 tokens; they cannot be reliably retrieved on demand because their relevance is universal, not query-dependent. Layers 1 and 5 (regulatory and policies) are indexed offline using Recursive Abstractive Processing for Tree-Organized Retrieval (RAPTOR) hierarchical summarisation, retrieved via Modular Retrieval-Augmented Generation (RAG) with tier-specific routing, and compressed at query time using LLMLingua-2; the Cynefin framework provides the meta-routing layer that maps decision complexity to retrieval depth. Neurological research on prefrontal cortex (PFC) hierarchical organisation and schema theory confirms the architecture's structural validity, with the PFC hierarchy (rostral regions for abstract goals, caudal regions for immediate context) mirroring the Layer 1–4 versus Layer 7–8 split. Knowledge corpus governance — ownership assignment, freshness verification, and contradiction resolution at each layer — remains the primary unsolved prerequisite; no retrieval or compression technique compensates for an ungoverned source layer.</p>
+<h3>Key Findings</h3>
+<ol>
+<li><p>The eight-layer context hierarchy (regulatory → immediate task) has a defined authority ordering — Layer 1 (Regulatory) overrides all others; Layer 8 (Task) is subordinate to all others — validated by the independent convergence of Constitutional AI design, enterprise AI architecture literature, and the neuroscience of PFC hierarchical control.</p>
+</li>
+<li><p>Layers 2 and 3 (values/purpose and vision/mission) must always be resident in the core context window as an organisational constitutional document of approximately 300 tokens, because they are the highest-authority non-regulatory constraints and their relevance cannot be determined by query routing — they apply to every decision regardless of task type.</p>
+</li>
+<li><p>RAPTOR hierarchical tree indexing (ICLR 2024, arXiv:2401.18059) is the correct offline indexing technique for Layers 1 (regulatory) and 5 (policies/standards), because both layers consist of large, hierarchically structured document corpora where multi-level reasoning is required and offline preprocessing is feasible given low update frequency.</p>
+</li>
+<li><p>The Cynefin framework provides the meta-routing layer that maps decision complexity (Clear/Complicated/Complex/Chaotic) to retrieval depth across layers: Clear decisions require only Layers 7–8 and a cached policy summary; Complex decisions require deep retrieval from Layers 1–5; Chaotic decisions bypass retrieval entirely and use Layer 2 (values) as the anchor for immediate action.</p>
+</li>
+<li><p>The PFC's hierarchical organisation — rostral regions for abstract, temporally remote goals; caudal regions for immediate stimulus-response — provides a neurological validation for the context layer hierarchy: abstract constraints (Layers 1–4) must be actively maintained as the goal structure within which concrete task context (Layers 7–8) is interpreted.</p>
+</li>
+<li><p>Schema theory from cognitive science validates RAPTOR indexing as the computational analogue of schema formation: RAPTOR compresses a large document corpus into a tree of increasingly abstract summaries, mirroring the brain's organisation of experience into hierarchical schemas that guide inference and pattern-completion without requiring recall of raw experiences.</p>
+</li>
+<li><p>Working memory gating — the cortico-striatal mechanism that selectively admits task-relevant information into active processing — is the neurological analogue of modular RAG query routing; both perform selective filtering of a large information space based on task relevance, suppressing cross-domain noise that would degrade reasoning quality.</p>
+</li>
+<li><p>Constitutional AI (CAI, Anthropic, arXiv:2212.08073) provides the operational mechanism for encoding Layer 2 (values/purpose): a compact organisational constitution embedded in the agent's system prompt, against which the agent evaluates its outputs before delivering them — the architectural countermeasure for the sycophancy failure mode (token-level compliance at the expense of values alignment).</p>
+</li>
+<li><p>The current operating position (Layer 6) is best represented as a structured, pre-compressed Wardley Map or equivalent situational-awareness artefact encoding the evolution stage of key capabilities, current budget constraints, in-flight projects, and strategic priorities — rather than as raw operational documents — because structured representation is smaller, more reliably retrievable, and reduces the risk of stale data from high-frequency document churn.</p>
+</li>
+<li><p>Knowledge corpus governance — ownership assignment, freshness verification, and contradiction resolution for each layer — is the primary prerequisite for the architecture's effectiveness; this is the same failure mode that has caused every prior generation of enterprise retrieval technology to under-deliver, and no retrieval or compression technique compensates for ungoverned source layers.</p>
+</li>
+<li><p>Provenance tracking — tagging each context chunk with its source layer, document identity, version, and timestamp — is the mechanism that makes an AI-assisted decision auditable under EU AI Act Articles 9 and 13, transforming the layered context architecture into a compliance asset rather than merely a technical component.</p>
+</li>
+<li><p>Automatic Cynefin domain classification for enterprise decision queries is not yet a solved problem; the meta-routing step currently requires either human classification or a separately trained classifier, which represents a deployment gap that limits full automation of the context composition pipeline.</p>
+</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+  <th>Claim</th>
+  <th>Source</th>
+  <th>Confidence</th>
+  <th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Eight-layer hierarchy with defined authority ordering</td>
+  <td><code>2026-03-02-integrative-framework-agent-decision-making.md</code> KF3; Anthropic CAI 2026 constitution (bisi.org.uk); §2 A5</td>
+  <td>high</td>
+  <td>Three independent sources converge on same authority ordering</td>
+</tr>
+<tr>
+  <td>Layers 2–3 must always be core context</td>
+  <td>MemGPT/Letta core-memory model (arXiv:2310.08560); RULER context-rot benchmark (arXiv:2404.06654); Shannon entropy principle</td>
+  <td>high</td>
+  <td>Core context principle established; low token cost of Layers 2–3 makes it trivially affordable</td>
+</tr>
+<tr>
+  <td>RAPTOR for Layers 1 and 5</td>
+  <td>arXiv:2401.18059 (ICLR 2024); <code>2026-03-15-context-compression-rag-enterprise-knowledge.md</code> KF5</td>
+  <td>high</td>
+  <td>Paper results + prior research; document-structure match is [inference]</td>
+</tr>
+<tr>
+  <td>Cynefin as meta-routing layer</td>
+  <td>thecynefin.co; wardleymaps.com Cynefin-Wardley guide</td>
+  <td>medium</td>
+  <td>Cynefin not designed for RAG routing; mapping is structural [inference]</td>
+</tr>
+<tr>
+  <td>PFC rostral→abstract / caudal→concrete hierarchy</td>
+  <td>Nature Reviews Neuroscience PFC review; Science MIT McGovern PFC paper; Badre lab talk</td>
+  <td>high</td>
+  <td>Multiple neuroscience sources agree; AI analogy is [inference]</td>
+</tr>
+<tr>
+  <td>Schema theory validates RAPTOR indexing</td>
+  <td>EBSCO schema theory; MIT schema theory PDF; PMC NIH hierarchical concept learning</td>
+  <td>high</td>
+  <td>Schema theory well-established; RAPTOR-as-schema is structural [inference]</td>
+</tr>
+<tr>
+  <td>Working memory gating = modular RAG router</td>
+  <td>PMC 2015 PFC WM review (Goldman-Rakic et al.); <code>2026-03-15-context-compression-rag-enterprise-knowledge.md</code> KF6; Badre lab</td>
+  <td>high</td>
+  <td>Both mechanisms perform selective filtering; analogy is [inference]</td>
+</tr>
+<tr>
+  <td>CAI for Layer 2 values encoding</td>
+  <td>arXiv:2212.08073; bisi.org.uk Claude 2026 constitution; <code>2026-03-02-integrative-framework-agent-decision-making.md</code> KF7</td>
+  <td>high</td>
+  <td>Three independent sources; enterprise-specific constitution content gap flagged</td>
+</tr>
+<tr>
+  <td>Wardley Maps for Layer 6 operating position</td>
+  <td>theuncertaintyproject.org; lethain.com; wardleymaps.com</td>
+  <td>medium</td>
+  <td>Wardley Maps provide the concept; enterprise AI use is practitioner-level inference</td>
+</tr>
+<tr>
+  <td>Knowledge governance as primary prerequisite</td>
+  <td><code>2026-03-15-context-compression-rag-enterprise-knowledge.md</code> KF10; learnings.md Thread 5; DataHub CONTEXT 2025</td>
+  <td>high</td>
+  <td>Three independent sources confirm</td>
+</tr>
+<tr>
+  <td>Provenance tracking for EU AI Act compliance</td>
+  <td>EU AI Act Arts 9+13; <code>2026-03-02-integrative-framework-agent-decision-making.md</code> Evidence Map</td>
+  <td>high</td>
+  <td>Binding regulation; confirmed by prior research</td>
+</tr>
+<tr>
+  <td>Cynefin classification not yet automated</td>
+  <td>Absence of published automated classifier; gap identified</td>
+  <td>medium</td>
+  <td>Confirmed as gap by absence of evidence</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li><p><strong>Assumption:</strong> Layers 2–3 (values, vision/mission) can be compressed into approximately 300 tokens without material loss of alignment fidelity. <strong>Justification:</strong> Vision/mission statements are typically 1–3 sentences in canonical form; values can be encoded as a 10–15 principle constitutional document following the CAI model. No direct validation of this threshold exists; the figure is an operational estimate.</p>
+</li>
+<li><p><strong>Assumption:</strong> RAPTOR's performance on literary/general knowledge benchmarks (82.6% on QuALITY) transfers to structured regulatory/policy document corpora. <strong>Justification:</strong> Both involve hierarchically structured text with multi-level reasoning requirements. RAPTOR's recursive clustering operates on semantic similarity, not document type; policy documents have comparably rich semantic structure. Transfer is an [inference] — no direct benchmark on regulatory/policy text found.</p>
+</li>
+<li><p><strong>Assumption:</strong> Cynefin domain classification applied to individual decision queries (rather than organisational domains) provides meaningful routing differentiation. <strong>Justification:</strong> The Cynefin framework was designed for decision-context classification; query-level application is an extension, but the causal logic (query type → context depth needed) is structurally sound.</p>
+</li>
+<li><p><strong>Assumption:</strong> The architecture's effectiveness is primarily limited by knowledge corpus governance quality, not by the technical retrieval and compression components. <strong>Justification:</strong> Directly confirmed by the completed prerequisite item (KF10) and consistent with the historical pattern of enterprise retrieval technology.</p>
+</li>
+</ul>
+<h3>Analysis</h3>
+<p>The architecture unifies three independent frameworks developed in isolation: the AI context management literature (RAG, compression, memory architectures), cognitive neuroscience (PFC hierarchy, schema theory, working memory gating), and enterprise knowledge management frameworks (TOGAF, Cynefin, Wardley Maps, Constitutional AI). The convergence is striking: each framework independently arrives at the same structural conclusion — that effective decision-making requires a hierarchical, layered representation of constraints, ranging from the most abstract and stable (regulatory, values) to the most concrete and dynamic (task, intent), with selective filtering mechanisms that activate only what is relevant to the immediate decision.</p>
+<p>The primary design tension — completeness versus focus — is resolved not by technology but by governance. The organisation must invest in curating each layer independently, with defined ownership and update processes. Without this, the context architecture degrades to a well-indexed, poorly maintained knowledge base — better search over the same poor-quality sources.</p>
+<p>The second tension — timeliness versus stability — is resolved by the offline/online compression partition. Stable layers (1–4) are pre-processed and indexed; dynamic layers (6–8) are composed fresh at query time. This requires clear freshness Service Level Agreements (SLAs) for each layer and automated invalidation of offline indexes when source documents change.</p>
+<p>The third tension — general values versus specific task constraints — is resolved by the authority hierarchy plus the CAI self-evaluation step. Values (Layer 2) are not retrieved on demand; they are always present. The CAI mechanism ensures the agent evaluates each output against Layer 2 before delivering it, catching sycophancy and values-task conflicts that the precedence engine would not flag as explicit rule violations.</p>
+<p>Competing interpretation considered: that Constitutional AI and Reinforcement Learning from Human Feedback (RLHF) alignment training can internalise all necessary organisational constraints at model level, eliminating the need for runtime context layers. This interpretation is not supported by evidence for enterprise-specific constraints. Alignment training can encode general harmlessness; it cannot encode a specific organisation's regulatory posture, risk tolerance, or strategic priorities without enterprise-specific training data and validation — which most deployments lack.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li><strong>Cynefin classification is not automated.</strong> The meta-routing step currently requires human or separately trained classifier input. At scale, this is a bottleneck; a simpler proxy heuristic may be required as an interim measure.</li>
+<li><strong>Values-encoding fidelity gap.</strong> Compressing an organisation's values and purpose into a 300-token CAI constitution loses nuance. High-stakes decisions in ethical grey areas will require human escalation; the architecture cannot resolve novel value conflicts autonomously.</li>
+<li><strong>RAPTOR on policy/regulatory text is unvalidated.</strong> The benchmark results apply to literary corpora. A pilot evaluation on regulatory/policy documents is required before production deployment.</li>
+<li><strong>Cross-layer contradiction detection at composition time is absent.</strong> The architecture detects conflicts at decision time (via the precedence engine) but not when context from multiple layers is assembled. A Layer 5 policy that contradicts the current operating position (Layer 6) would be injected without flagging.</li>
+<li><strong>Organisational knowledge engineering function.</strong> The architecture requires a dedicated function responsible for curating each layer — assigning ownership, maintaining freshness, resolving contradictions. This function does not currently exist in most enterprise AI deployment teams.</li>
+<li><strong>Temporal validity of indexed layers.</strong> Regulatory changes, strategy pivots, or major policy updates can invalidate offline indexes without immediate detection. An automated change-detection and index-invalidation pipeline is required but not currently part of any standard RAG toolchain.</li>
+</ul>
+<h3>Open Questions</h3>
+<ol>
+<li>Can a lightweight Cynefin-domain classifier be trained on labelled enterprise decision queries to automate the meta-routing step? This is a candidate high-priority backlog item that directly blocks full automation of the context composition pipeline.</li>
+<li>What is the minimum constitutional document size for an organisational values layer that maintains meaningful alignment fidelity under CAI self-evaluation? (100 / 200 / 500 tokens — empirically determinable)</li>
+<li>Does RAPTOR applied to regulatory/policy corpora (Basel III, MiFID II, PRA SS10/18, ISO 27001) achieve comparable accuracy to its literary benchmark? A direct evaluation is required before relying on RAPTOR in regulated-industry deployments.</li>
+<li>What governance function design — roles, processes, tooling — is sufficient to maintain an eight-layer context architecture at enterprise scale? No published playbook currently exists.</li>
+<li>How should cross-layer contradiction detection be implemented at context-composition time rather than at decision time?</li>
+</ol>
+<hr />
+
+
+  </div>
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-15-latent-concept-extraction-confluence.html">Latent Concept Extraction from Confluence: Embeddings, Knowledge Graphs, and Epistemic Evaluation</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-15-context-compression-rag-enterprise-knowledge.html">Context Compression and RAG Techniques for Organisational Knowledge</a></div>
+  </div>
+</main>
+</body>
+</html>

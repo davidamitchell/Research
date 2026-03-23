@@ -1,0 +1,573 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Claude for iOS: MCP remote integration for memory capture and retrieval — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #141414;
+  --surface-2:       #1c1c1c;
+  --border:          #2a2a2a;
+  --text:            #e8e8e8;
+  --text-muted:      #666;
+  --accent:          #e8e8e8;
+  --accent-dim:      #333;
+  --tag-bg:          #1e1e1e;
+  --tag-text:        #999;
+  --tag-active-bg:   #e8e8e8;
+  --tag-active-text: #0d0d0d;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--accent); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+}
+.card:hover { border-color: var(--accent); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+}
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+.item-content pre code { background: none; padding: 0; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--text); text-decoration: underline; }
+.item-content a:hover { color: var(--text-muted); }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  main { padding: 72px 1rem 3rem; }
+  nav { padding: 0 1rem; }
+}
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/">Research</a>
+    <div class="nav-links">
+      <a href="/Research/tags/">Tags</a>
+      <a href="/Research/search.html">Search</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>Claude for iOS: MCP remote integration for memory capture and retrieval</span>
+  </div>
+  <h1 class="item-title">Claude for iOS: MCP remote integration for memory capture and retrieval</h1>
+  <div class="meta-bar">
+    <span>2026-03-08</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/mobile.html">mobile</a> <a class="tag" href="/Research/tags/claude.html">claude</a> <a class="tag" href="/Research/tags/ios.html">ios</a> <a class="tag" href="/Research/tags/mcp.html">mcp</a> <a class="tag" href="/Research/tags/memory-system.html">memory-system</a> <a class="tag" href="/Research/tags/self-hosted.html">self-hosted</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-claude-ios-mcp-remote-integration.md" target="_blank" rel="noopener">source →</a>
+  </div>
+  <div class="item-content">
+    <h2>Research Question</h2>
+<p>Does the Claude iOS app support MCP connections to a remote server? If so: (a) what transport is supported (HTTP/SSE vs stdio), (b) does it require the same <code>.mcp.json</code> config as Claude Desktop, (c) what is the minimum self-hosted deployment that would make <code>mcp_server.py</code> reachable from the app? What is Anthropic's roadmap for remote MCP and personal context/memory features?</p>
+
+<h2>Findings</h2>
+<h3>Executive Summary</h3>
+<p>The Claude iOS app supports remote MCP connections via Anthropic's Connectors system, which is live and explicitly listed as available across &quot;Claude web, Claude Desktop, mobile apps, Claude Code, and the API.&quot; The transport is Streamable HTTP over HTTPS (not stdio — that is Desktop-only for local subprocess servers); configuration is done once via the claude.ai web UI (not <code>.mcp.json</code>), and the connector syncs to iOS at next login. Deploying <code>mcp_server.py</code> as a remote connector requires an HTTPS endpoint, a Python MCP SDK transport switch from stdio to Streamable HTTP, and a Claude Pro subscription or higher. There is no public Anthropic roadmap for built-in persistent memory; the connector ecosystem is Anthropic's answer to personal memory extensibility.</p>
+<h3>Key Findings</h3>
+<ol>
+<li>The Claude iOS app accesses remote MCP servers through Anthropic's Connectors system, explicitly listed in official Anthropic documentation as available across &quot;Claude web, Claude Desktop, our Claude mobile apps, Claude Code, and our API.&quot;</li>
+<li>Remote MCP uses Streamable HTTP transport (the current MCP standard) or backwards-compatible legacy HTTP+SSE; stdio transport is architecturally impossible for iOS because it requires launching a subprocess on the client device.</li>
+<li>Configuration for remote connectors is done via the claude.ai web Settings → Connectors → &quot;Add custom connector&quot; UI, not <code>.mcp.json</code>; that file is exclusively a Claude Desktop mechanism for local stdio servers.</li>
+<li>Connectors configured on the claude.ai web UI sync to the Claude iOS app at login; there is no native iOS connector configuration UI — the iOS app consumes connector state set up on the web.</li>
+<li>The server must be HTTPS (explicitly required by the Anthropic MCP connector API: URL &quot;must start with https://&quot;) and publicly reachable from Anthropic's infrastructure, which acts as relay between the iOS app and the remote MCP server.</li>
+<li>Authentication is optional per the MCP specification; the claude.ai custom connector UI supports no-auth (open endpoint) or OAuth 2.1; static bearer tokens (not OAuth) are available only through the Messages API and do not apply to the claude.ai/iOS connector path.</li>
+<li>Custom connectors require a paid Claude plan (Pro at $20/month minimum); the free plan cannot add custom connector URLs.</li>
+<li>A no-auth remote MCP server is accessible to any caller who discovers the URL; for personal memory data, IP allowlisting to Anthropic's published IP ranges or OAuth 2.1 is the minimum security measure.</li>
+<li>Migrating <code>mcp_server.py</code> from stdio to Streamable HTTP requires changing the transport runner (from <code>stdio_server()</code> to the Streamable HTTP ASGI transport in the Python MCP SDK) and deploying on a cloud host with HTTPS — the tool logic (add_memory, search_brain) requires no changes.</li>
+<li>There is no public Anthropic roadmap for built-in persistent memory in Claude; MCP RFC #2043 (Memory Interchange Format) is a community GitHub issue with no Anthropic commitment or timeline, and Anthropic's documented approach is to provide connector infrastructure for self-hosted or third-party memory servers rather than a first-party memory feature.</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+  <th>Claim</th>
+  <th>Source</th>
+  <th>Confidence</th>
+  <th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>iOS supports remote MCP via Connectors</td>
+  <td>Connectors Directory FAQ; &quot;Use connectors&quot; article; App Store listing</td>
+  <td>high</td>
+  <td>Three independent Anthropic sources; explicit platform listing</td>
+</tr>
+<tr>
+  <td>Transport is Streamable HTTP (not stdio)</td>
+  <td>MCP spec; MCP connector API docs; Cloudflare guide</td>
+  <td>high</td>
+  <td>Consistent across all sources; stdio is architecturally excluded for iOS</td>
+</tr>
+<tr>
+  <td>Config is web UI (not .mcp.json)</td>
+  <td>&quot;Getting Started&quot; article; &quot;When to use desktop vs web&quot; article; Local MCP article</td>
+  <td>high</td>
+  <td>.mcp.json scope is unambiguously Desktop/local only per multiple sources</td>
+</tr>
+<tr>
+  <td>Connector state syncs to iOS at login</td>
+  <td>&quot;Use connectors&quot; Anthropic support article</td>
+  <td>high</td>
+  <td>Explicit statement: &quot;available the next time you log in to your account on Claude for iOS or Android&quot;</td>
+</tr>
+<tr>
+  <td>HTTPS mandatory for remote connectors</td>
+  <td>MCP connector API docs (&quot;must start with https://&quot;)</td>
+  <td>high</td>
+  <td>Direct quote</td>
+</tr>
+<tr>
+  <td>Auth optional; OAuth 2.1 or no-auth via web UI</td>
+  <td>MCP auth spec; Connectors Directory FAQ; &quot;Getting Started&quot; article</td>
+  <td>high</td>
+  <td>All three sources consistent</td>
+</tr>
+<tr>
+  <td>Static bearer token is API-only</td>
+  <td>MCP connector API docs; absence of web UI bearer token option</td>
+  <td>medium</td>
+  <td>API docs confirm <code>authorization_token</code>; web UI docs describe only OAuth or no-auth</td>
+</tr>
+<tr>
+  <td>Pro plan required for custom connectors</td>
+  <td>Connectors Directory FAQ</td>
+  <td>high</td>
+  <td>Explicit: &quot;custom connectors, which are available for paid plans only (Pro, Max, Team, and Enterprise)&quot;</td>
+</tr>
+<tr>
+  <td>No first-party memory roadmap</td>
+  <td>App Store listing; Anthropic news site; MCP RFC #2043 issue</td>
+  <td>medium</td>
+  <td>Absence of announcement; MCP RFC #2043 has no Anthropic response</td>
+</tr>
+<tr>
+  <td>Tool logic unchanged for Streamable HTTP migration</td>
+  <td>MCP SDK design (transport/tool separation)</td>
+  <td>medium</td>
+  <td>Follows from SDK architecture; not directly tested</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li><strong>Assumption:</strong> The iOS app has no native connector configuration UI. <strong>Justification:</strong> All Anthropic documentation describes the web UI as the configuration point; iOS is described as consuming synced state. No source mentions an iOS-specific configuration flow. If this assumption is wrong, the configuration path described in Key Finding #3 is incomplete — but the transport and deployment requirements remain unchanged.</li>
+<li><strong>Assumption:</strong> The Python MCP SDK's Streamable HTTP transport shares the same tool definition interface as the stdio transport. <strong>Justification:</strong> The MCP Python SDK separates transport from tool registration; tool definitions use <code>@server.tool()</code> decorators regardless of transport. This is consistent with the SDK's architecture as documented.</li>
+</ul>
+<h3>Analysis</h3>
+<p>The research question is resolved with high confidence for the first three sub-questions (iOS support: yes; transport: Streamable HTTP over HTTPS; configuration: web UI not <code>.mcp.json</code>). The minimum deployment question is answered at the architecture level; specific hosting options are out of scope and covered by the sibling item <code>2026-03-08-self-hosted-mcp-server-options.md</code>.</p>
+<p>The auth question has one remaining uncertainty: whether a static bearer token (not OAuth) can be configured through the claude.ai web UI. All documentation describes OAuth 2.1 as the auth path for authenticated custom connectors, and static bearer tokens appear in the Messages API documentation only. This means a practical personal deployment faces a binary choice: no-auth (with URL obscurity as the only protection) or a full OAuth 2.1 implementation. Opinion: For a first iteration, no-auth with IP allowlisting to Anthropic's server ranges is the most pragmatic option.</p>
+<p>[inference] The remote MCP connector path is superior to all other iOS memory access options identified in prior research (Shortcuts via GitHub API, Telegram bot, iOS Shortcuts calling workflow_dispatch): it enables both memory capture (<code>add_memory</code>) and semantic retrieval (<code>search_brain</code>) within a Claude conversation on iOS, without a custom app, a bespoke bot, or a separate interface.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>The iOS connector UI is not directly verified through live app inspection; documentation is the sole evidence source. Anthropic may have introduced or removed features between documentation updates and the current app version.</li>
+<li>Anthropic's server relay introduces a network hop between the iOS Claude client and the remote MCP server that does not exist for Claude Desktop's local stdio connection. Real-world latency for tool calls from iOS has not been tested.</li>
+<li>OAuth 2.1 implementation for a single-user self-hosted server is disproportionately complex relative to the value — but no-auth leaves personal memory data exposed to URL discovery. A pragmatic middle path (hard-to-guess URL + IP allowlisting) is documented but not officially endorsed by Anthropic.</li>
+<li>Anthropic could introduce first-party memory to Claude at any time, which would reduce the value of a self-hosted connector deployment. No signals indicate this is imminent.</li>
+</ul>
+<h3>Open Questions</h3>
+<ol>
+<li><strong>Bearer token via web UI:</strong> Can the claude.ai custom connector UI be configured with a static Authorization header (bearer token, not OAuth)? This would be the simplest auth option for a personal server. Requires direct testing by attempting to add a connector URL and observing whether the UI prompts for OAuth or allows a custom header.</li>
+<li><strong>Per-conversation toggle:</strong> Does the user need to manually enable each connector per conversation in the iOS app, or is there a &quot;always on&quot; mode? The web app has per-conversation toggles; if iOS requires the same, it adds friction to the memory use case.</li>
+<li><strong>Tool call latency from iOS:</strong> What is the round-trip time for a memory tool call from Claude iOS → Anthropic relay → self-hosted server → response? Acceptable for retrieval (≤2s) or prohibitive?</li>
+<li><strong>Self-hosted server hosting options:</strong> Covered by <code>2026-03-08-self-hosted-mcp-server-options.md</code> — which hosting option (Cloudflare Workers, Railway, Render, VPS) is most appropriate for a Python-based MCP server with low traffic?</li>
+</ol>
+<hr />
+
+
+  </div>
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-08-context-engineering-first-principles.html">Context engineering: first principles of steering LLM output without control</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-08-chatgpt-actions-memory-integration.html">ChatGPT Actions and custom GPTs: external memory integration options</a></div>
+  </div>
+</main>
+</body>
+</html>

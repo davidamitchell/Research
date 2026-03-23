@@ -1,0 +1,627 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>The Nature of the Firm: why organisations exist, their fitness functions, and invariants — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #141414;
+  --surface-2:       #1c1c1c;
+  --border:          #2a2a2a;
+  --text:            #e8e8e8;
+  --text-muted:      #666;
+  --accent:          #e8e8e8;
+  --accent-dim:      #333;
+  --tag-bg:          #1e1e1e;
+  --tag-text:        #999;
+  --tag-active-bg:   #e8e8e8;
+  --tag-active-text: #0d0d0d;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--accent); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+}
+.card:hover { border-color: var(--accent); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+}
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+.item-content pre code { background: none; padding: 0; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--text); text-decoration: underline; }
+.item-content a:hover { color: var(--text-muted); }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  main { padding: 72px 1rem 3rem; }
+  nav { padding: 0 1rem; }
+}
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/">Research</a>
+    <div class="nav-links">
+      <a href="/Research/tags/">Tags</a>
+      <a href="/Research/search.html">Search</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>The Nature of the Firm: why organisations exist, their fitness functions, and invariants</span>
+  </div>
+  <h1 class="item-title">The Nature of the Firm: why organisations exist, their fitness functions, and invariants</h1>
+  <div class="meta-bar">
+    <span>2026-03-10</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/organisational-theory.html">organisational-theory</a> <a class="tag" href="/Research/tags/transaction-costs.html">transaction-costs</a> <a class="tag" href="/Research/tags/coase.html">coase</a> <a class="tag" href="/Research/tags/williamson.html">williamson</a> <a class="tag" href="/Research/tags/north.html">north</a> <a class="tag" href="/Research/tags/institutions.html">institutions</a> <a class="tag" href="/Research/tags/team-topologies.html">team-topologies</a> <a class="tag" href="/Research/tags/fitness-functions.html">fitness-functions</a> <a class="tag" href="/Research/tags/invariants.html">invariants</a> <a class="tag" href="/Research/tags/platform-strategy.html">platform-strategy</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-10-nature-of-the-firm-coase-organisations.md" target="_blank" rel="noopener">source →</a>
+  </div>
+  <div class="item-content">
+    <h2>Research Question</h2>
+<p>Why do organisations (firms and business units) exist when markets are theoretically efficient? What are the fitness functions and invariants that determine when organisational form is the correct coordination mechanism? How does Coase's transaction cost theory — extended by Williamson and North — explain the boundary conditions, and what do these theories imply for software organisations, platform strategy, and Application Programming Interface (API) design?</p>
+
+<h2>Findings</h2>
+<p><em>(Populated from §6 Synthesis above.)</em></p>
+<h3>Executive Summary</h3>
+<p>Organisations exist because markets have friction. Coase (1937) identified three transaction cost categories — search and information, bargaining, and enforcement — and established that a firm internalises an activity when the cost of internal coordination falls below the market alternative. Williamson (1981) formalised this around asset specificity as the dominant internalisation driver: when a relationship-specific investment creates hold-up risk, hierarchy is the efficient governance response. North (1990) extended the framework to show that informal institutions — norms, culture, conventions — are the primary transaction cost reducers, operating without codification overhead, but subject to path-dependent lock-in. Applied to software organisations, these three frameworks jointly explain Team Topologies' team types and interaction modes as governance choices, API boundaries as transaction cost minimisation artefacts, and engineering culture as a North-style informal institution. An organisation's long-run fitness depends on four structural invariants — residual claimancy clarity, authority-accountability alignment, information-decision right alignment, and shared purpose — and on its capacity to reconfigure its boundaries as the transaction cost landscape changes.</p>
+<h3>Key Findings</h3>
+<ol>
+<li><p>Coase (1937) proved that firms exist because using the price mechanism carries three non-zero friction costs — search and information, bargaining and negotiation, policing and enforcement — and internal administrative coordination is cheaper for activities where these costs exceed the management overhead of internalisation; the firm boundary sits at the cost-equalisation margin.</p>
+</li>
+<li><p>Williamson (1981) identified asset specificity as the dominant transaction dimension: when an investment is relationship-specific and a counterparty could exploit the investor's lock-in post-commitment (the hold-up problem), vertical integration is the efficient governance response; market governance is correct only when asset specificity is low.</p>
+</li>
+<li><p>Williamson's discriminating alignment hypothesis states that the efficient governance structure for each category of transaction must be matched to its asset specificity, uncertainty, and frequency; a firm that consistently mismatches governance to transaction characteristics is burning unnecessary coordination cost.</p>
+</li>
+<li><p>North (1990) established that informal institutions — norms, customs, conventions, codes of conduct — reduce transaction costs at lower total cost than formal contracts because they require no codification or enforcement apparatus, but are slow to change deliberately due to path-dependent lock-in in the social fabric that sustains them.</p>
+</li>
+<li><p><strong>[inference]</strong> Team Topologies' three interaction modes (collaboration, X-as-a-Service, facilitation) map directly and consistently onto Williamson's three governance structures (hybrid, market, quasi-hierarchical), providing a practical translation of TCE theory into software team design with real-world validation at Amazon (two-pizza teams) and Spotify (squads-tribes model).</p>
+</li>
+<li><p><strong>[inference]</strong> API boundaries are transaction cost artefacts: a well-designed API reduces consumer search costs through documentation and discoverability, negotiation costs through stable versioning and clear contracts, and enforcement costs through automated integration testing and schema validation; an API that fails any dimension externalises transaction costs onto consumers.</p>
+</li>
+<li><p>Engineering culture — conventions, coding standards, architectural decision records, agent-instruction files — functions as North's informal institutions: it reduces per-interaction coordination cost without explicit negotiation, and is a more reliable predictor of team coordination efficiency than formal documentation mandates alone.</p>
+</li>
+<li><p><strong>[inference]</strong> Four structural invariants are necessary conditions for any stable, purpose-serving organisation: (i) residual claimancy clarity — someone bears the upside and downside of each decision; (ii) authority commensurate with accountability — the accountable party controls the relevant resources; (iii) information flows matching decision rights — information reaches whoever must act on it; (iv) shared purpose as informal institution — without it, internal coordination costs approach market-contracting costs.</p>
+</li>
+<li><p><strong>[inference]</strong> The correct fitness functions for a firm, derived from TCE and institutional theory, are: coordination efficiency (internal cost &lt; market cost for internalised activities), governance-transaction alignment (governance mode matches transaction dimensions), institutional coherence (formal and informal institutions reinforce each other), and institutional adaptability (the firm can reconfigure boundaries as the cost landscape changes).</p>
+</li>
+<li><p>Platform teams function as internal markets — the platform is the supplier, stream-aligned teams are consumers, and the API is the price mechanism — and the platform form is Coasean-correct when the platform's asset specificity (accumulated internal context knowledge) makes external providers systematically inferior, and the platform team holds clear residual claimancy for platform reliability.</p>
+</li>
+<li><p>The business unit is the correct internal abstraction when it has high mutual asset specificity with adjacent firm activities, a distinct and coherent fitness function from neighbouring BUs, and maintained authority-accountability alignment; it should be dissolved, merged, or outsourced when any of these conditions fail.</p>
+</li>
+<li><p>Conway's Law — organisations produce system designs that mirror their communication structures — provides empirical grounding for TCE in software: deliberate team-boundary design (the inverse Conway manoeuvre) is simultaneously an architectural decision and a governance decision, and misaligned team boundaries predictably produce misaligned system boundaries.</p>
+</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+  <th>Claim</th>
+  <th>Source</th>
+  <th>Confidence</th>
+  <th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Three transaction cost categories: search, bargaining, enforcement</td>
+  <td>Coase (1937); EBSCO TCE article; Kellogg lecture</td>
+  <td>high</td>
+  <td>Primary source; foundational and uncontested</td>
+</tr>
+<tr>
+  <td>Firm boundary at cost-equalisation margin</td>
+  <td>Coase (1937); QuantEcon; EBSCO</td>
+  <td>high</td>
+  <td>Standard textbook statement of Coase</td>
+</tr>
+<tr>
+  <td>Asset specificity → hold-up → internalisation</td>
+  <td>Williamson (1981) via AcaWiki, Springer, CAUL</td>
+  <td>high</td>
+  <td>Core TCE claim; empirically well-supported</td>
+</tr>
+<tr>
+  <td>Discriminating alignment hypothesis</td>
+  <td>Williamson (1981) via AcaWiki, Springer</td>
+  <td>high</td>
+  <td>Core governance prediction</td>
+</tr>
+<tr>
+  <td>Informal institutions as primary TCE reducers</td>
+  <td>North (1990) via JSTOR JEP 1991, Nobel lecture</td>
+  <td>high</td>
+  <td>Nobel-recognised contribution</td>
+</tr>
+<tr>
+  <td>Path dependence in institutional change</td>
+  <td>North (1990) via Nobel lecture, Ideasthesia</td>
+  <td>high</td>
+  <td>Well-established in institutional economics</td>
+</tr>
+<tr>
+  <td>Fitness functions as architectural guardrails</td>
+  <td>Ford, Parsons, Kua (2017) via derekarmstrong.dev, InfoQ</td>
+  <td>high</td>
+  <td>Directly from the book</td>
+</tr>
+<tr>
+  <td>Team Topologies four types and three interaction modes</td>
+  <td>teamtopologies.com; Fowler bliki; Atlassian</td>
+  <td>high</td>
+  <td>Primary publication; widely validated</td>
+</tr>
+<tr>
+  <td>Amazon two-pizza teams → microservice API boundaries</td>
+  <td>AWS Executive Insights; Fowler bliki</td>
+  <td>high</td>
+  <td>First-party Amazon source</td>
+</tr>
+<tr>
+  <td>Spotify squads-tribes model</td>
+  <td>Umbrex; Peerdom; Ingentis; Atlassian</td>
+  <td>high</td>
+  <td>Well-documented organisational history</td>
+</tr>
+<tr>
+  <td>Penrose effect: growth bounded by managerial capacity</td>
+  <td>Penrose (1959) via Oxford Academic; Kor &amp; Mahoney (2004)</td>
+  <td>high</td>
+  <td>Foundational resource-based view</td>
+</tr>
+<tr>
+  <td>Team Topologies modes ↔ Williamson governance modes</td>
+  <td>Inference; structural correspondence</td>
+  <td>medium</td>
+  <td>Not stated by original authors; this item's structural mapping</td>
+</tr>
+<tr>
+  <td>Four invariants (residual claimancy, authority-accountability, information-decision, shared purpose)</td>
+  <td>Inference from Coase, Williamson, North, prior corpus</td>
+  <td>medium</td>
+  <td>Synthesised; not a single primary claim</td>
+</tr>
+<tr>
+  <td>BU dissolution criteria</td>
+  <td>Inference from TCE framework</td>
+  <td>medium</td>
+  <td>Analytical extension; no direct empirical test</td>
+</tr>
+<tr>
+  <td>Engineering conventions as North-style informal institutions</td>
+  <td>Inference; North (1990); prior corpus (adversarial agents item)</td>
+  <td>medium</td>
+  <td>Mechanism maps; scale difference noted</td>
+</tr>
+<tr>
+  <td>Platform team as internal market</td>
+  <td>Inference from Team Topologies + Williamson</td>
+  <td>medium</td>
+  <td>Structural mapping confirmed by Spotify/Amazon cases</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li><strong>[assumption] TCE transfers to software organisational design.</strong> Justification: the underlying mechanisms (coordination costs, asset specificity, bounded rationality, opportunism) are domain-general. Amazon and Spotify independently converged on TCE-consistent structures before the theory was widely read in engineering management, suggesting the mechanisms are real rather than merely metaphorical.</li>
+<li><strong>[assumption] Engineering conventions function as North-style informal institutions.</strong> Justification: the mechanism is structurally identical (unwritten norms reduce enforcement costs without codification overhead); the scale difference (team vs. society) affects magnitude and speed of change but not the underlying mechanism.</li>
+<li><strong>[assumption] The four invariants are necessary conditions for organisational stability.</strong> Justification: each invariant maps to a well-understood failure mode with documented real-world examples; their absence produces the predicted dysfunction in the TCE literature and in management practice.</li>
+</ul>
+<h3>Analysis</h3>
+<p>The Coase/Williamson/North framework is unusually robust: three Nobel-recognised contributions build directly on one another, and all have extensive empirical support. The application to software organisations is inferential, not empirical — but the inference is tight. Amazon and Spotify independently designed team structures consistent with TCE logic without explicitly citing Coase, which suggests the underlying mechanisms are real constraints rather than theoretical constructs.</p>
+<p>The most important practical insight is the <strong>governance-transaction alignment</strong> imperative. Most poorly-scoped team structures are not failures of intention but failures of alignment: a team is using collaboration mode (hybrid governance) for an interaction that should be X-as-a-Service (market governance), incurring unnecessary coordination costs. The Team Topologies framework makes this tractable by providing the vocabulary for explicit governance choices.</p>
+<p>North's informal institution insight is the hardest to operationalise but possibly the most important for software engineering. Strong engineering culture — not as a vague aspiration but as a specific set of shared norms that reduce per-interaction negotiation — is a measurable competitive advantage. Teams with strong conventions ship faster, review code more efficiently, and onboard new members at lower cost. The mechanism is North's: the informal norm eliminates the need for explicit contract-like negotiation at each interaction.</p>
+<p>The fitness function framing adds a practical layer the TCE literature alone does not provide: rather than only diagnosing whether an organisational form is correct, it enables continuous monitoring and correction. An organisation that monitors coordination efficiency, governance-transaction alignment, institutional coherence, and adaptability against defined thresholds is implementing an evolutionary architecture for itself — the organisational analogue of the Ford et al. approach to software systems.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li><strong>TCE measurement in software is not operationalised.</strong> The framework is analytically powerful but hard to quantify in engineering contexts. &quot;Asset specificity&quot; for a codebase capability is intuitive but not formally measured. Empirical research directly testing TCE predictions in software organisations is scarce.</li>
+<li><strong>Dynamic boundary calibration is under-specified.</strong> Coase describes equilibrium boundaries; the dynamic version — when and how to restructure as the cost landscape changes — is not fully addressed by the framework. Building Evolutionary Architectures addresses architectural evolvability but not the full organisational equivalent.</li>
+<li><strong>Informal institutions are hard to design deliberately.</strong> North's insight that informal norms are primary cost reducers also implies they are slow to create. A leader can mandate a convention but cannot directly create the informal norm that makes the convention self-reinforcing. The gap between formal mandate and informal adoption is where many engineering culture change programmes fail.</li>
+<li><strong>Conway's Law directionality is bidirectional.</strong> The inverse Conway manoeuvre assumes team structure drives system architecture. In legacy contexts, existing system architecture constrains team structure as much as team structure constrains systems. Restructuring requires addressing both simultaneously.</li>
+</ul>
+<h3>Open Questions</h3>
+<ol>
+<li>Is there a published empirical study directly measuring transaction costs in software development — e.g., cost per pull request (PR) review cycle, specification uncertainty costs, make-vs-buy decision outcomes at technology organisations?</li>
+<li>How should asset specificity be operationalised for software capabilities to make the Williamson governance prediction empirically testable in an engineering context?</li>
+<li>What is the decision-trigger framework for organisational boundary restructuring — when the transaction cost landscape changes, what observable signals should prompt a governance review?</li>
+<li>Can DIKW learning velocity (how fast Data→Information→Knowledge→Wisdom transformations run in an organisation) serve as a proxy indicator for the institutional adaptability fitness function?</li>
+<li>What governance structures prevent platform team capture — the failure mode where a platform team optimises for platform complexity rather than consumer success?</li>
+</ol>
+<hr />
+
+
+  </div>
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-10-research-loop-evaluation-rubric.html">Research loop evaluation rubric: LLM-as-judge specification for this repository&#39;s research loop agent</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-10-language-for-llm-agent-output.html">Language designed for LLM agents to produce: addressing generation-layer failure modes in agentic systems</a></div>
+  </div>
+</main>
+</body>
+</html>
