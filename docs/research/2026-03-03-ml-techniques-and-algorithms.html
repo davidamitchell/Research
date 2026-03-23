@@ -1,0 +1,771 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>ML techniques, algorithms, and advanced analytics — a systematic reference for… — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #141414;
+  --surface-2:       #1c1c1c;
+  --border:          #2a2a2a;
+  --text:            #e8e8e8;
+  --text-muted:      #666;
+  --accent:          #e8e8e8;
+  --accent-dim:      #333;
+  --tag-bg:          #1e1e1e;
+  --tag-text:        #999;
+  --tag-active-bg:   #e8e8e8;
+  --tag-active-text: #0d0d0d;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--accent); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+}
+.card:hover { border-color: var(--accent); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+}
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+.item-content pre code { background: none; padding: 0; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--text); text-decoration: underline; }
+.item-content a:hover { color: var(--text-muted); }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); }
+.key-claims li:last-child { border-bottom: none; }
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); }
+.related-entry:last-child { border-bottom: none; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--text); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-entry { padding: 1rem; border: 1px solid var(--border); border-bottom: none; text-decoration: none; color: var(--text); display: block; }
+.thread-entry:last-child { border-bottom: 1px solid var(--border); }
+.thread-entry:hover { background: var(--surface); text-decoration: none; }
+.thread-entry-title { font-size: var(--text-base); font-weight: 500; }
+.thread-entry-meta { font-size: var(--text-xs); color: var(--text-muted); margin-top: 0.25rem; letter-spacing: 0.05em; }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/">Research</a>
+    <div class="nav-links">
+      <a href="/Research/browse.html">Browse</a>
+      <a href="/Research/threads.html">Threads</a>
+      <a href="/Research/tags/">Tags</a>
+      <a href="/Research/search.html">Search</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <a href="/Research/browse.html">Browse</a>
+    <span>/</span>
+    <span>ML techniques, algorithms, and advanced analytics — a systematic reference for…</span>
+  </div>
+  <h1 class="item-title">ML techniques, algorithms, and advanced analytics — a systematic reference for…</h1>
+  <p class="full-title-subtitle">ML techniques, algorithms, and advanced analytics — a systematic reference for analytics teams</p>
+  <div class="meta-bar">
+    <span>2026-03-03</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/machine-learning.html">machine-learning</a> <a class="tag" href="/Research/tags/analytics.html">analytics</a> <a class="tag" href="/Research/tags/advanced-analytics.html">advanced-analytics</a> <a class="tag" href="/Research/tags/best-practices.html">best-practices</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-03-ml-techniques-and-algorithms.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-03-ml-techniques-and-algorithms" target="_blank" rel="noopener">wiki →</a>
+  </div>
+  
+  <div class="item-content">
+    <h2>Research Question</h2>
+<p>What is the complete, structured landscape of machine learning techniques and algorithms that an advanced analytics department should know, use, and actively pursue — covering foundational concepts, when to use each technique, when not to, best practices, and the latest advancements — and what distinguishes &quot;normal&quot; analytics model construction from genuinely advanced practice?</p>
+
+<h2>Findings</h2>
+<h3>Executive Summary</h3>
+<p>Gradient-boosted decision trees (GBDTs — XGBoost, LightGBM, CatBoost) are the correct default algorithm for tabular analytics, outperforming alternatives including deep learning on the majority of benchmarked datasets (111-dataset comparison, arXiv:2408.14817; Kaggle AI Report 2023). The single most common technique failing that elevates &quot;normal&quot; analytics to &quot;advanced&quot; is out-of-time validation: any analytics team evaluating temporally-ordered models with standard k-fold cross-validation is operating below the floor for regulated financial services. The 2023–2025 advancements most immediately actionable for an analytics team are: conformal prediction for calibrated uncertainty intervals (now production-deployed via MAPIE), causal ML libraries (DoWhy, EconML, CausalML) for treatment effect estimation, AutoML frameworks (AutoGluon, H2O, FLAML) for rapid model development, and TabPFN-2.5 as a tuning-free strong baseline for datasets under 50,000 rows. RBNZ's model risk management expectations are principles-based rather than prescriptive, but require that AI/ML models be explainable, validated, and governed — SHAP satisfies the explainability requirement, and an MLflow + Evidently AI + GitHub Actions stack satisfies the MLOps requirement at minimum viable level.</p>
+<h3>Key Findings</h3>
+<ol>
+<li><p>Gradient-boosted decision trees (XGBoost, LightGBM, CatBoost) outperform all other algorithm families on the majority of real-world tabular datasets, and any analytics team not using them as the default supervised learning method is operating below the competency floor. (confidence: high)</p>
+</li>
+<li><p>Deep learning architectures for tabular data (FT-Transformer, TabR, SAINT) outperform GBDTs specifically on &quot;hard&quot; datasets — those with high dimensionality, non-linear interactions, or very large sample counts — but not on the majority of analytics datasets, which are lower-dimensional and smaller. (confidence: high)</p>
+</li>
+<li><p>TabPFN-2.5 (November 2024) achieves 100% win rate over default XGBoost on datasets up to 10,000 rows using a single, training-free forward pass with no hyperparameter tuning, making it the strongest out-of-the-box baseline for small-to-medium analytics datasets. (confidence: high, caveat: benchmarked on i.i.d. splits; temporal financial data requires separate validation)</p>
+</li>
+<li><p>Out-of-time validation — evaluating model performance on data from a later time period than training, with no temporal leakage — is the single most important evaluation practice for temporally-ordered analytics data, and using standard k-fold cross-validation for such data produces systematically inflated performance estimates. (confidence: high)</p>
+</li>
+<li><p>SHAP (Shapley Additive Explanations) is the current standard for model explainability in regulated industries, providing both global feature importance and per-prediction attribution that satisfies RBNZ's principles-based requirement for explainable model decisions; LIME is adequate for rapid local debugging but less rigorous and less consistent across runs. (confidence: high)</p>
+</li>
+<li><p>Conformal prediction provides finite-sample, distribution-free prediction intervals with guaranteed coverage, is production-deployed (Husqvarna demand forecasting, credit risk) via the MAPIE Python library, and represents the most technically sound approach to uncertainty quantification for analytics teams that must communicate model uncertainty to decision-makers or regulators. (confidence: high)</p>
+</li>
+<li><p>Causal ML libraries — DoWhy (causal graph modelling), EconML (heterogeneous treatment effects), and CausalML (Uber, uplift modelling) — are production-stable and enable analytics teams to move from average treatment effects to personalised intervention analysis for A/B testing, marketing attribution, and policy evaluation. (confidence: high)</p>
+</li>
+<li><p>AutoML frameworks (AutoGluon for AWS environments and best ensemble accuracy, H2O AutoML for regulated industries requiring strong explainability, FLAML for resource-constrained or Azure-native environments) are production-ready in 2024 and appropriately used to accelerate prototyping and provide strong baselines before manual model development. (confidence: high)</p>
+</li>
+<li><p>The Temporal Fusion Transformer (TFT) is the strongest deep learning approach for multivariate, multi-horizon time series forecasting with external covariates, while N-HiTS is preferred for long-horizon univariate forecasting at lower computational cost; ARIMA and Prophet remain appropriate for simple univariate series where interpretability and minimal data are constraints. (confidence: high)</p>
+</li>
+<li><p>ML systems accumulate hidden technical debt (Sculley et al. 2015) through data dependency entanglement, hidden feedback loops, and undeclared consumers — the &quot;CACE&quot; principle (Changing Anything Changes Everything) — and this debt is the primary cause of silent production failures in analytics ML deployments. (confidence: high)</p>
+</li>
+<li><p>RBNZ's model risk management expectations require regulated entities to apply existing risk frameworks to AI/ML models, including validation, explainability, and outcome monitoring, but impose no specific technical method requirements; the practical standard that satisfies these expectations is SHAP for explainability, out-of-time validation for temporal models, and an MLflow-based experiment tracking and registry workflow. (confidence: high)</p>
+</li>
+<li><p>The minimum viable MLOps stack for an analytics team — MLflow (experiment tracking + model registry), DVC (data versioning), Evidently AI (drift detection), and GitHub Actions (CI/CD for model retraining) — is entirely open-source, cloud-portable, and sufficient to meet the operational requirements of a regulated analytics function. (confidence: high)</p>
+</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+  <th>Claim</th>
+  <th>Source</th>
+  <th>Confidence</th>
+  <th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>GBDTs dominate tabular data benchmarks</td>
+  <td>Lazebnik et al. arXiv:2408.14817; Kaggle AI Report 2023</td>
+  <td>high</td>
+  <td>111-dataset comparison; practitioner survey</td>
+</tr>
+<tr>
+  <td>DL outperforms GBDTs on &quot;hard&quot; datasets</td>
+  <td>NeurIPS 2023 &quot;When Do Neural Nets Outperform Boosted Trees?&quot;</td>
+  <td>high</td>
+  <td>Consistent with arXiv:2408.14817</td>
+</tr>
+<tr>
+  <td>TabPFN-2.5 100% win rate over XGBoost ≤10K rows</td>
+  <td>Prior Labs TabPFN-2.5 Model Report; arXiv:2511.08667</td>
+  <td>medium-high</td>
+  <td>Developer-reported; TabArena independently corroborates</td>
+</tr>
+<tr>
+  <td>Out-of-time validation essential for temporal data</td>
+  <td>Practitioner consensus; Sculley et al. 2015</td>
+  <td>high</td>
+  <td>Foundational time series ML practice</td>
+</tr>
+<tr>
+  <td>SHAP is regulated-industry explainability standard</td>
+  <td>arXiv:2305.02012; johal.in 2024 comparative guide</td>
+  <td>high</td>
+  <td>Multiple independent sources</td>
+</tr>
+<tr>
+  <td>Conformal prediction is production-deployed</td>
+  <td>PMLR 2023 Husqvarna case study; arXiv:2107.07511</td>
+  <td>high</td>
+  <td>Industrial implementation confirmed</td>
+</tr>
+<tr>
+  <td>DoWhy/EconML/CausalML are production-stable</td>
+  <td>PyWhy docs; Microsoft EconML Research; arXiv:2308.09066</td>
+  <td>high</td>
+  <td>Active maintenance; documented production use</td>
+</tr>
+<tr>
+  <td>AutoML frameworks are production-ready 2024</td>
+  <td>RapidCanvas benchmark; AutoGluon docs; H2O docs; FLAML GitHub</td>
+  <td>high</td>
+  <td>Multiple independent validation sources</td>
+</tr>
+<tr>
+  <td>TFT strongest for multivariate forecasting</td>
+  <td>Lim et al. 2021 (Int. J. Forecasting); PyTorch Forecasting docs</td>
+  <td>high</td>
+  <td>Original paper confirmed by downstream benchmarks</td>
+</tr>
+<tr>
+  <td>ML hidden technical debt (CACE principle)</td>
+  <td>Sculley et al. 2015 NeurIPS</td>
+  <td>high</td>
+  <td>Foundational paper; widely cited</td>
+</tr>
+<tr>
+  <td>RBNZ principles-based approach to ML risk</td>
+  <td>RBNZ FSR Nov 2024; RBNZ &quot;Rise of the Machines&quot; May 2025</td>
+  <td>high</td>
+  <td>Primary RBNZ publications</td>
+</tr>
+<tr>
+  <td>MLflow + Evidently AI viable MLOps stack</td>
+  <td>MLflow docs; Evidently AI docs; practitioner guides</td>
+  <td>high</td>
+  <td>Widely adopted open-source tooling</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li><strong>Assumption:</strong> TabPFN-2.5's benchmark results (i.i.d. splits) translate to meaningful performance advantage on financial analytics datasets with temporal structure. <strong>Justification:</strong> TabPFN's in-context learning mechanism is not specifically designed for temporal data; the i.i.d. assumption is strong for financial data. Conservative assumption: treat TabPFN-2.5 as a strong first-pass baseline requiring out-of-time validation before accepting its predictions.</li>
+<li><strong>Assumption:</strong> RBNZ's principles-based approach will not shift to prescriptive method requirements in the near term. <strong>Justification:</strong> RBNZ's published guidance (November 2024, May 2025) is explicitly principles-based. No published consultation paper indicates movement toward prescriptive technical standards.</li>
+<li><strong>Assumption:</strong> The minimum viable MLOps stack (open-source tools) is adequate for regulatory scrutiny. <strong>Justification:</strong> RBNZ expects adequate governance, not a specific tooling stack. The adequacy of any stack is determined by the audit trail it produces, not the tools used.</li>
+</ul>
+<h3>Analysis</h3>
+<p>Three sources of evidence were weighted most heavily: the Lazebnik et al. 2024 arXiv benchmark (111 datasets, 20 models) for the tabular DL vs. GBDT question; the Kaggle AI Report 2023 for practitioner behaviour; and RBNZ's own primary publications for the regulatory picture. The NeurIPS 2023 study and TabArena living benchmark corroborate the DL findings.</p>
+<p>The primary tension in the evidence is between benchmark performance and production context. Benchmarks optimise for i.i.d. accuracy on held-out datasets. Analytics in regulated financial services has temporal ordering, concept drift, regulatory constraints on model complexity, and interpretability requirements that benchmarks do not capture. Where these tensions exist, this analysis prioritises production context over benchmark ranking — hence the conservative framing of TabPFN-2.5's advantage for financial data.</p>
+<p>The &quot;normal vs. advanced&quot; distinction is treated as an empirical question (what do top-quartile analytics practitioners actually do?) rather than a normative one (what should they do in theory?). Competition benchmarks and survey data are more relevant evidence for this question than textbooks.</p>
+<p>The regulatory analysis is confined to RBNZ primary sources rather than comparator regulators (APRA, FCA, ECB/EBA) — that comparative analysis is covered by the separate backlog item on RBNZ supervisory expectations.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li><strong>Temporal validity of benchmark results:</strong> The tabular ML landscape evolves rapidly. The NeurIPS 2023 and arXiv:2408.14817 results will be superseded by new architectures. TabArena's living benchmark is the appropriate monitoring mechanism.</li>
+<li><strong>TabPFN financial data validity:</strong> No published study directly measures TabPFN-2.5 performance on financial time series with temporal leakage controls. This is a genuine gap — not a disqualifying one, but one requiring empirical validation before adoption.</li>
+<li><strong>RBNZ regulatory evolution:</strong> RBNZ explicitly acknowledged it is monitoring AI developments and may update its guidance. The principles-based position is current as of May 2025 but could shift.</li>
+<li><strong>Causal ML adoption barriers not quantified:</strong> The evidence for causal ML adoption is strong for technology companies (Uber, Microsoft, Netflix scale) but thinner for NZ-scale analytics teams. Minimum viable team size and data volume for causal ML to be productive have not been studied.</li>
+<li><strong>O'Reilly AI survey not directly accessed:</strong> The Kaggle 2023 report was used as the primary practitioner survey source; the O'Reilly survey may contain complementary or divergent findings.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>Is AutoML mature enough to replace manual model construction for routine analytics tasks (credit scoring, demand forecasting, churn), and what does that mean for the skills composition of an analytics team? (Suggested priority: medium — this is the make-or-buy question for analytics capability)</li>
+<li>What does a minimum viable causal ML adoption look like for a 5-person analytics team in financial services, and what data volume is required before heterogeneous treatment effects are estimable? (Suggested priority: medium)</li>
+<li>How should conformal prediction intervals be communicated to non-technical decision-makers, and what does a regulatory-grade uncertainty disclosure look like? (Suggested priority: medium)</li>
+<li>What is the right model governance artefact standard for RBNZ-regulated entities — are model cards sufficient, or is a more formal validation report required? (Suggested priority: high — directly unblocks the RBNZ supervisory expectations item)</li>
+<li>Does LLM-assisted automated feature engineering (generating features from text fields or suggesting interactions) produce net positive outcomes for structured tabular analytics, or does the noise introduced exceed the signal gained? (Suggested priority: low — horizon capability)</li>
+</ul>
+<h3>Output section</h3>
+<ul>
+<li>Type: knowledge, backlog-item</li>
+<li>Description: A structured taxonomy of ML techniques with decision guides (when to use / not to use), normal-vs-advanced maturity benchmark, best practices, regulatory compliance mapping (RBNZ), and a capability self-assessment framework. Three follow-on backlog items are identified: minimum viable causal ML for regulated analytics, model governance artefact standards for RBNZ compliance, and AutoML vs. manual construction for routine analytics tasks.</li>
+<li>Links:<ul>
+<li><a href="https://arxiv.org/abs/2408.14817">arxiv.org/abs/2408.14817</a> — Lazebnik et al. (2024) comprehensive tabular ML benchmark</li>
+<li><a href="https://www.kaggle.com/AI-Report-2023">www.kaggle.com</a> — Kaggle AI Report 2023, tabular data section</li>
+<li><a href="https://proceedings.neurips.cc/paper/2015/file/86df7dcfd896fcaf2674f757a2463eba-Paper.pdf">proceedings.neurips.cc</a> — Sculley et al. (2015), hidden technical debt in ML systems</li>
+</ul>
+</li>
+</ul>
+
+
+  </div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-03-05-swarm-pca-genetic-reinforcement-learning.html">Swarm Intelligence, PCA, Genetic Algorithms, and Reinforcement Learning — advanced techniques for analytics teams</a> <span class="related-note">via advanced-analytics, analytics, machine-learning</span></div>
+</div></div>
+
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-03-research-agenda-curation-coverage.html">Research agenda curation</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-03-knowledge-retention-active-recall.html">Knowledge retention</a></div>
+  </div>
+</main>
+</body>
+</html>

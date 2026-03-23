@@ -1,0 +1,770 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Emergent Patterns in Software Engineering Prompts and SDLC Guidance — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #141414;
+  --surface-2:       #1c1c1c;
+  --border:          #2a2a2a;
+  --text:            #e8e8e8;
+  --text-muted:      #666;
+  --accent:          #e8e8e8;
+  --accent-dim:      #333;
+  --tag-bg:          #1e1e1e;
+  --tag-text:        #999;
+  --tag-active-bg:   #e8e8e8;
+  --tag-active-text: #0d0d0d;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--accent); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+}
+.card:hover { border-color: var(--accent); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+}
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+.item-content pre code { background: none; padding: 0; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--text); text-decoration: underline; }
+.item-content a:hover { color: var(--text-muted); }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); }
+.key-claims li:last-child { border-bottom: none; }
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); }
+.related-entry:last-child { border-bottom: none; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--text); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-entry { padding: 1rem; border: 1px solid var(--border); border-bottom: none; text-decoration: none; color: var(--text); display: block; }
+.thread-entry:last-child { border-bottom: 1px solid var(--border); }
+.thread-entry:hover { background: var(--surface); text-decoration: none; }
+.thread-entry-title { font-size: var(--text-base); font-weight: 500; }
+.thread-entry-meta { font-size: var(--text-xs); color: var(--text-muted); margin-top: 0.25rem; letter-spacing: 0.05em; }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/">Research</a>
+    <div class="nav-links">
+      <a href="/Research/browse.html">Browse</a>
+      <a href="/Research/threads.html">Threads</a>
+      <a href="/Research/tags/">Tags</a>
+      <a href="/Research/search.html">Search</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <a href="/Research/browse.html">Browse</a>
+    <span>/</span>
+    <span>Emergent Patterns in Software Engineering Prompts and SDLC Guidance</span>
+  </div>
+  <h1 class="item-title">Emergent Patterns in Software Engineering Prompts and SDLC Guidance</h1>
+    <div class="meta-bar">
+    <span>2026-03-04</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/ai-agents.html">ai-agents</a> <a class="tag" href="/Research/tags/prompts.html">prompts</a> <a class="tag" href="/Research/tags/software-engineering.html">software-engineering</a> <a class="tag" href="/Research/tags/best-practices.html">best-practices</a> <a class="tag" href="/Research/tags/prompt-engineering.html">prompt-engineering</a> <a class="tag" href="/Research/tags/developer-tooling.html">developer-tooling</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-04-sdlc-ai-prompt-patterns.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-04-sdlc-ai-prompt-patterns" target="_blank" rel="noopener">wiki →</a>
+  </div>
+  <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Peng et al</li>
+<li>Li et al</li>
+<li>White et al</li>
+<li>Barke et al</li>
+<li>GitHub Copilot Workspace (launched April 2024) operationalises phase-aware decomposition with a task-centric flow from GitHub Issue through specification, plan, code, test execution, and PR — with developer editability at every step and distinct Copilot agents for each phase transition</li>
+<li>DORA (DevOps Research and Assessment) 2024 found that a 25% increase in AI adoption correlates with +2.1% productivity and +3.4% code quality, but also -1.5% delivery throughput and -7.2% delivery stability, attributing the stability decrease to the larger code batch sizes that AI-assisted Building produces</li>
+<li>The persistent context file ecosystem is fragmented across AGENTS.md, CLAUDE.md, `.cursorrules`, and `.github/copilot-instructions.md`, with no format universally supported; AGENTS.md is the emerging cross-tool convergence point but tool support remains uneven as of early 2025</li>
+<li>MCP (Model Context Protocol), introduced by Anthropic in November 2024, provides a `prompts` primitive that enables reusable, dynamically delivered prompt templates as part of a standardised tool-integration protocol, making runtime phase-aware prompt injection technically feasible without static context files</li>
+</ol></div>
+
+  <div class="item-content">
+    <h2>Research Question</h2>
+<p>What are the current and emergent best practices for crafting AI agent prompts and tooling guidance tailored to each phase of the Software Development Life Cycle (SDLC) — covering discovery, requirements, design, planning, building, testing, reviewing, and iteration — and how can a structured prompt framework improve AI-assisted SDLC efficiency?</p>
+
+<h2>Findings</h2>
+<h3>Executive Summary</h3>
+<p>Phase-aware prompting produces measurable gains in the Build phase — Peng et al. (2023) measured 55.8% faster task completion — but whole-SDLC evidence remains thin, with Discovery, Requirements, and Design phases resting on practitioner accounts rather than controlled experiments. Three mechanisms drive improvements: context selection (provide only relevant files and instructions), reasoning structure (SCoT (Structured Chain-of-Thought) outperforms standard CoT (Chain-of-Thought) by up to 13.79% Pass@1 for code generation), and mode matching (Barke et al.'s acceleration vs. exploration bimodal finding predicts prompt failure when mode and phase are mismatched). The DORA (DevOps Research and Assessment) 2024 report's finding that AI adoption simultaneously improves code quality (+3.4%) and degrades delivery stability (-7.2%) is the strongest empirical argument for formalising Review-phase prompts: gains in Build without rigorous Review produce deployment instability. Tooling alignment via persistent context files (AGENTS.md, <code>.github/copilot-instructions.md</code>) encodes phase guidance statically; MCP (Model Context Protocol) servers enable the next step — runtime-injected, dynamically selected phase-appropriate prompt templates.</p>
+<h3>Key Findings</h3>
+<ol>
+<li><p><strong>Peng et al. (2023) measured a 55.8% task completion speed increase using GitHub Copilot in a controlled Build-phase experiment; this figure is phase-specific and does not extend to whole-SDLC efficiency claims.</strong> Source: arXiv:2302.06590. Confidence: high.</p>
+</li>
+<li><p><strong>Li et al. (2023) SCoT (Structured Chain-of-Thought) prompting outperforms standard CoT by up to 13.79% Pass@1 on code generation benchmarks by structuring intermediate reasoning steps using program constructs (sequence, branch, loop) rather than natural-language narrative.</strong> Source: arXiv:2305.06599. Confidence: high.</p>
+</li>
+<li><p><strong>White et al. (2023) formalised prompt engineering patterns as software patterns — reusable solutions to recurring LLM (Large Language Model) interaction problems — and the catalog includes persona, context manager, chain-of-thought, alternative approaches, and fact-check-list patterns all applicable to SDLC phase tasks.</strong> Source: arXiv:2302.11382. Confidence: high.</p>
+</li>
+<li><p><strong>Barke et al. (2022) found that AI coding assistant use is bimodal: acceleration mode (developer knows what to do, uses AI to execute faster) vs. exploration mode (developer is uncertain, uses AI to discover options); prompt patterns optimised for one mode underperform in the other, and SDLC phase strongly predicts mode.</strong> Source: arXiv:2206.15000. Confidence: high.</p>
+</li>
+<li><p><strong>GitHub Copilot Workspace (launched April 2024) operationalises phase-aware decomposition with a task-centric flow from GitHub Issue through specification, plan, code, test execution, and PR — with developer editability at every step and distinct Copilot agents for each phase transition.</strong> Source: github.blog/news-insights/product-news/github-copilot-workspace/. Confidence: high.</p>
+</li>
+<li><p><strong>DORA (DevOps Research and Assessment) 2024 found that a 25% increase in AI adoption correlates with +2.1% productivity and +3.4% code quality, but also -1.5% delivery throughput and -7.2% delivery stability, attributing the stability decrease to the larger code batch sizes that AI-assisted Building produces.</strong> Source: DORA executive summary, services.google.com/fh/files/misc/dora_one_pager_2024.pdf. Confidence: high.</p>
+</li>
+<li><p><strong>The persistent context file ecosystem is fragmented across AGENTS.md, CLAUDE.md, <code>.cursorrules</code>, and <code>.github/copilot-instructions.md</code>, with no format universally supported; AGENTS.md is the emerging cross-tool convergence point but tool support remains uneven as of early 2025.</strong> Source: everydev.ai/p/blog-ai-coding-agent-rules-files-fragmentation; aruniyer.github.io/blog/agents-md-instruction-files.html. Confidence: medium (based on practitioner accounts, not formal studies).</p>
+</li>
+<li><p><strong>MCP (Model Context Protocol), introduced by Anthropic in November 2024, provides a <code>prompts</code> primitive that enables reusable, dynamically delivered prompt templates as part of a standardised tool-integration protocol, making runtime phase-aware prompt injection technically feasible without static context files.</strong> Source: modelcontextprotocol.io/docs/learn/server-concepts. Confidence: high for capability; [inference] for the implication that it will replace static context files.</p>
+</li>
+<li><p><strong>Stack Overflow Developer Survey 2024 found that 62% of developers currently use AI tools and 43% trust AI output accuracy; 45% consider AI poor at complex tasks, consistent with the evidence that gains concentrate in well-scoped, lower-ambiguity Build and Testing tasks rather than complex Discovery and Design tasks.</strong> Source: survey.stackoverflow.co/2024/ai. Confidence: high for survey statistics; [inference] for the SDLC phase interpretation.</p>
+</li>
+<li><p><strong>Aider's published prompting principles — provide only relevant files, decompose goals into single steps, plan before generating code — encode context-selection and batch-size discipline that directly counteracts the DORA-observed stability degradation caused by AI-generated large code batches.</strong> Source: aider.chat/docs/usage/tips.html. Confidence: medium (practitioner documentation, not controlled study).</p>
+</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+  <th>Claim</th>
+  <th>Source</th>
+  <th>Confidence</th>
+  <th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>55.8% faster task completion with Copilot</td>
+  <td>Peng et al. 2023, arXiv:2302.06590</td>
+  <td>high</td>
+  <td>Build phase only, JavaScript HTTP server task</td>
+</tr>
+<tr>
+  <td>SCoT +13.79% Pass@1 over CoT</td>
+  <td>Li et al. 2023, arXiv:2305.06599</td>
+  <td>high</td>
+  <td>HumanEval, MBPP, MBCPP benchmarks</td>
+</tr>
+<tr>
+  <td>Prompt patterns as software patterns</td>
+  <td>White et al. 2023, arXiv:2302.11382</td>
+  <td>high</td>
+  <td>Pattern catalog, CS.SE paper</td>
+</tr>
+<tr>
+  <td>Bimodal use: acceleration vs. exploration</td>
+  <td>Barke et al. 2022, arXiv:2206.15000</td>
+  <td>high</td>
+  <td>Grounded theory, 20 participants</td>
+</tr>
+<tr>
+  <td>Copilot Workspace phase-aware flow</td>
+  <td>GitHub Blog, github.blog/news-insights/product-news/github-copilot-workspace/</td>
+  <td>high</td>
+  <td>April 2024 technical preview</td>
+</tr>
+<tr>
+  <td>DORA AI effects on throughput and stability</td>
+  <td>DORA 2024, services.google.com/fh/files/misc/dora_one_pager_2024.pdf</td>
+  <td>high</td>
+  <td>75%+ respondents using AI daily</td>
+</tr>
+<tr>
+  <td>Context file ecosystem fragmentation</td>
+  <td>everydev.ai; aruniyer.github.io</td>
+  <td>medium</td>
+  <td>Practitioner accounts, no formal study</td>
+</tr>
+<tr>
+  <td>MCP prompts primitive capability</td>
+  <td>modelcontextprotocol.io/docs/learn/server-concepts</td>
+  <td>high</td>
+  <td>Primary protocol documentation</td>
+</tr>
+<tr>
+  <td>62% using AI; 43% trust AI output</td>
+  <td>Stack Overflow 2024, survey.stackoverflow.co/2024/ai</td>
+  <td>high</td>
+  <td>Survey statistics, ~65,000 respondents</td>
+</tr>
+<tr>
+  <td>Aider context-selection principles</td>
+  <td>Aider docs, aider.chat/docs/usage/tips.html</td>
+  <td>medium</td>
+  <td>Practitioner documentation</td>
+</tr>
+<tr>
+  <td>CoT improves complex reasoning at scale</td>
+  <td>Wei et al. 2022, arXiv:2201.11903</td>
+  <td>high</td>
+  <td>Controlled experiments on three LLMs</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li><p><strong>Assumption:</strong> The eight-phase SDLC taxonomy used here (Discovery, Requirements, Design, Planning, Building, Testing, Reviewing, Iteration) is a reasonable working decomposition. <strong>Justification:</strong> No universally standardised taxonomy exists; this decomposition aligns with the GitHub Copilot Workspace flow and the phases distinguishable by their dominant prompt mode (exploration vs. acceleration). Different organisations may use fewer phases without invalidating the underlying pattern-to-phase mapping.</p>
+</li>
+<li><p><strong>Assumption:</strong> Prompt patterns that improve performance on code generation benchmarks (HumanEval, MBPP) also improve real-world SDLC task performance. <strong>Justification:</strong> Benchmark tasks are proxies for real tasks; the assumption is standard in the prompt engineering literature but has not been validated by a study that measures both benchmark and production outcomes simultaneously.</p>
+</li>
+<li><p><strong>Assumption:</strong> MCP's <code>prompts</code> primitive can deliver phase-specific prompt templates in a way that meaningfully improves over static context files. <strong>Justification:</strong> The capability exists in the protocol (modelcontextprotocol.io/docs/learn/server-concepts); no published case study of phase-aware MCP prompt delivery in an SDLC context was found.</p>
+</li>
+</ul>
+<h3>Analysis</h3>
+<p>Build-phase and Testing-phase tasks show the strongest evidence: SCoT's +13.79% gain over CoT is consistent with the structural alignment hypothesis — code is composed of sequences, branches, and loops, and asking the LLM to reason in those terms reduces the cognitive translation gap. Peng et al.'s 55.8% speed gain, while large, is from a single task type; the DORA whole-workflow picture (+2.1%) is more conservative and likely more representative of aggregate gains.</p>
+<p>[inference] The Barke et al. bimodal finding is the most practically actionable result for prompt framework design. The practical design rule is to match prompt style to the developer's cognitive mode: precise output-specification prompts for well-defined tasks; open-ended, persona-grounded prompts for exploratory or ambiguous tasks. Applying acceleration-mode prompts to exploration tasks constrains the AI's generative range precisely when breadth is needed. The SDLC phase largely determines which mode is appropriate: Building and Testing are predominantly acceleration; Discovery and Requirements are predominantly exploration; Design and Planning are mixed, depending on the maturity of the specification.</p>
+<p>DORA's throughput-stability gap is a consequence of AI's Build-phase efficiency advantage: if Building accelerates without corresponding changes to Planning (smaller task scope) and Reviewing (more rigorous prompts), batch sizes grow and deployment risk increases. Opinion: this makes the Reviewing phase the highest-leverage under-invested phase for phase-aware prompt design — most practitioner discussion focuses on Build and Test, while Review prompts receive less attention.</p>
+<p>The context file fragmentation problem is structural, not temporary. Each tool (GitHub Copilot, Cursor, Claude Code, Aider) has developed its own format because each has different context-loading architecture. [inference] MCP's standardised <code>prompts</code> primitive is the most plausible long-term resolution, but adoption requires tooling vendors to implement the primitive consistently — which had not happened uniformly as of early 2025.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li><p><strong>Inaccessible sources:</strong> OpenAI Prompt Engineering Guide (HTTP 403), Cursor documentation (JavaScript-rendered, inaccessible as plain text), Vaithilingam et al. CHI 2022 (no URL provided), and Anthropic's Claude extended thinking docs were all inaccessible during investigation. The OpenAI guide in particular is a primary practitioner source; its absence means this item does not cover OpenAI-specific prompt design recommendations.</p>
+</li>
+<li><p><strong>No whole-SDLC controlled study:</strong> Every controlled experiment found covers one to two SDLC phases. There is no study that instruments all eight phases with the same team, tool, and evaluation method. The cross-phase efficiency framework in §6 is a synthesis from independent evidence, not a directly validated framework.</p>
+</li>
+<li><p><strong>DORA causality:</strong> DORA 2024 reports correlations between AI adoption and delivery outcomes; it does not identify which specific AI practices drive the stability decrease. The batch-size attribution is DORA's own inference from the data, not a direct causal measurement.</p>
+</li>
+<li><p><strong>Benchmark-to-production gap:</strong> SCoT and CoT comparisons are on standardised benchmarks (HumanEval, MBPP). Real SDLC tasks involve existing codebases, domain-specific constraints, and coordination overhead not captured in benchmarks.</p>
+</li>
+<li><p><strong>MCP adoption maturity:</strong> MCP was introduced in November 2024. Evidence for MCP <code>prompts</code> primitive use in production SDLC workflows is absent; claims about its capability are based on the protocol specification, not deployment experience.</p>
+</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>How do phase-specific prompt patterns interact with context-window constraints in long-running agent sessions? At what context length does phase framing become noise rather than signal?</li>
+<li>Is there a measurable defect-rate or velocity improvement attributable specifically to phase-aware prompting vs. baseline Copilot usage in production codebases?</li>
+<li>What is the optimal granularity for SDLC phase decomposition in an autonomous agent loop — eight phases vs. coarser (plan/build/ship) or finer splits?</li>
+<li>How should prompt templates be versioned and evolved as underlying model capabilities change? The SCoT advantage over CoT was measured on 2022–2023 models; it may be smaller or absent in more recent models with stronger reasoning capabilities.</li>
+<li>Can MCP <code>prompts</code> primitives be used to implement the full phase-aware framework described in §6, and what is the implementation effort vs. static context files?</li>
+</ul>
+<hr />
+
+
+  </div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-03-22-coding-ai-agent-skills-survey.html">Coding AI Agent Skills Survey: Existing Vendor and OSS Prompt Libraries for Software Engineering Domains</a> <span class="related-note">via ai-agents, prompts, software-engineering</span></div>
+<div class="related-entry"><a href="/Research/research/2026-03-16-intent-driven-development.html">Intent Driven Development: context and concept layering to bound the solution space</a> <span class="related-note">via developer-tooling, software-engineering</span></div>
+<div class="related-entry"><a href="/Research/research/2026-03-05-general-agent-optimization-framework.html">General Agent Optimization Framework</a> <span class="related-note">via ai-agents, prompt-engineering</span></div>
+<div class="related-entry"><a href="/Research/research/2026-03-01-github-specify-ralph-loop-lisa-planning.html">GitHub Specify, Ralph Loops, and Lisa Planning: Proof-Driven Development with AI Agents</a> <span class="related-note">via ai-agents, software-engineering</span></div>
+</div></div>
+
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-05-general-agent-optimization-framework.html">General Agent Optimization Framework</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-03-research-loop-quality-prompt-engineering.html">Evaluating and improving autonomous research loop quality</a></div>
+  </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,799 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Best practices in financial forecasting for IT operational run costs — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #141414;
+  --surface-2:       #1c1c1c;
+  --border:          #2a2a2a;
+  --text:            #e8e8e8;
+  --text-muted:      #666;
+  --accent:          #e8e8e8;
+  --accent-dim:      #333;
+  --tag-bg:          #1e1e1e;
+  --tag-text:        #999;
+  --tag-active-bg:   #e8e8e8;
+  --tag-active-text: #0d0d0d;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--accent); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+}
+.card:hover { border-color: var(--accent); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+}
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+.item-content pre code { background: none; padding: 0; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--text); text-decoration: underline; }
+.item-content a:hover { color: var(--text-muted); }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); }
+.key-claims li:last-child { border-bottom: none; }
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); }
+.related-entry:last-child { border-bottom: none; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--text); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-entry { padding: 1rem; border: 1px solid var(--border); border-bottom: none; text-decoration: none; color: var(--text); display: block; }
+.thread-entry:last-child { border-bottom: 1px solid var(--border); }
+.thread-entry:hover { background: var(--surface); text-decoration: none; }
+.thread-entry-title { font-size: var(--text-base); font-weight: 500; }
+.thread-entry-meta { font-size: var(--text-xs); color: var(--text-muted); margin-top: 0.25rem; letter-spacing: 0.05em; }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/">Research</a>
+    <div class="nav-links">
+      <a href="/Research/browse.html">Browse</a>
+      <a href="/Research/threads.html">Threads</a>
+      <a href="/Research/tags/">Tags</a>
+      <a href="/Research/search.html">Search</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <a href="/Research/browse.html">Browse</a>
+    <span>/</span>
+    <span>Best practices in financial forecasting for IT operational run costs</span>
+  </div>
+  <h1 class="item-title">Best practices in financial forecasting for IT operational run costs</h1>
+  <p class="full-title-subtitle">Best practices in financial forecasting for IT operational run costs: assumptions, uncertainty, and regulatory considerations</p>
+  <div class="meta-bar">
+    <span>2026-03-13</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/financial-forecasting.html">financial-forecasting</a> <a class="tag" href="/Research/tags/it-run-costs.html">it-run-costs</a> <a class="tag" href="/Research/tags/uncertainty-modelling.html">uncertainty-modelling</a> <a class="tag" href="/Research/tags/regulatory.html">regulatory</a> <a class="tag" href="/Research/tags/error-bars.html">error-bars</a> <a class="tag" href="/Research/tags/infrastructure-costing.html">infrastructure-costing</a> <a class="tag" href="/Research/tags/assumptions.html">assumptions</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-13-financial-forecasting-it-run-costs.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-13-financial-forecasting-it-run-costs" target="_blank" rel="noopener">wiki →</a>
+  </div>
+  <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>The TBM Council V4 taxonomy is the de facto industry standard for categorising IT operational costs, providing a cost pool layer — labour, Software-as-a-Service (SaaS), cloud services, hardware, telecom, and facilities — that forms the required structure for building auditable run-cost estimates across all deployment models</li>
+<li>Infrastructure-as-a-Service (IaaS) cloud compute costs are consumption-driven and metered by the second, making them the highest-volatility IT cost category: cloud spend can increase 20–30% annually without active governance, driven by usage growth that outpaces the per-unit price reductions that cloud providers have historically delivered</li>
+<li>Eight canonical assumptions must be documented for an IT run-cost estimate to be auditable: consumption growth rate by category, unit prices and vendor escalation clauses, staffing headcount and grade mix, currency and exchange rate assumptions, vendor contract terms and renewal dates, capitalisation versus expense treatment, hardware refresh cycle schedule, and planned organisational changes such as cloud migrations or divestitures</li>
+<li>Scenario analysis, sensitivity analysis (tornado charts), and Monte Carlo simulation are complementary uncertainty modelling techniques addressing different aspects of forecast uncertainty: scenario analysis describes qualitatively different futures; sensitivity analysis identifies which assumptions drive the most variance; Monte Carlo produces a probability distribution of outcomes required for regulatory or board-level defensibility</li>
+<li>Most IT cost uncertainties are positively correlated — macro-economic inflation, foreign exchange movements, and vendor price cycles affect multiple cost categories simultaneously — so arithmetic addition of percentage uncertainty ranges is more conservative and appropriate than root-sum-square (RSS) combination, which systematically underestimates combined uncertainty when inputs are correlated</li>
+<li>In multi-year total cost of ownership (TCO) forecasts, errors in year-one growth rate assumptions compound through later years: an annual uncertainty of ±15% produces approximately ±34% five-year uncertainty under the independence assumption and up to ±75% under full correlation, meaning that the stated uncertainty range for a five-year forecast must be substantially wider than the stated annual uncertainty</li>
+<li>IFRS IAS 1 paragraph 125 requires disclosure of assumptions with a significant risk of resulting in a material adjustment to asset or liability carrying amounts within the next financial year; UK FRC thematic reviews conducted in 2017 and 2022 found widespread non-compliance characterised by generic boilerplate text, missing quantitative sensitivity disclosures, and failure to distinguish short-term from longer-term estimation uncertainties</li>
+<li>US GAAP ASC 275 triggers disclosure when it is at least &quot;reasonably possible&quot; that an estimate will change materially in the near term, a lower threshold than IFRS IAS 1.125&#39;s &quot;significant risk&quot; standard, making ASC 275 more easily triggered for IT cost commitments such as cloud minimum spend obligations and prepaid licence agreements</li>
+</ol></div>
+
+  <div class="item-content">
+    <h2>Research Question</h2>
+<p>What are the established best practices for financially responsible forecasting of Information Technology (IT) operational run costs — covering cost estimation by technology and infrastructure type, required assumptions, uncertainty modelling (error bars and compounding estimate impact), and the regulatory and governance considerations that apply when these projections appear in financial filings or are used for planning and investment decisions?</p>
+
+<h2>Findings</h2>
+<h3>Executive Summary</h3>
+<p>Financially responsible forecasting of IT operational run costs requires three interlocking practices: a structured cost taxonomy aligned to the Technology Business Management (TBM) Council standard or ITIL (IT Infrastructure Library) 4 cost types; stated and documented assumptions for each material cost driver (consumption growth, unit prices, contract terms, labour rates, and exchange rates); and quantified uncertainty modelling that reflects the correlated nature of most IT cost risks. The dominant external disclosure frameworks — International Accounting Standard (IAS) 1 paragraph 125, US Generally Accepted Accounting Principles (GAAP) ASC 275, Securities and Exchange Commission (SEC) Management Discussion and Analysis (MD&amp;A) Item 303, Sarbanes-Oxley Act (SOX) Sections 302/404, the UK Financial Reporting Council (FRC) guidance, and EU Prospectus Regulation 2017/1129 — converge on the principle that material forward-looking cost estimates must be accompanied by their assumptions and a quantification of the uncertainty that attaches to those estimates. The key distinction between internal planning standards and external disclosure standards is one of threshold: internal good practice is conservative and range-based; external disclosure is legally required when uncertainty is material and the estimate is reasonably likely to change materially. Organisations that present single-point IT cost estimates in board papers or regulatory filings without stated assumptions and uncertainty ranges are neither meeting best practice standards nor, where the estimate is material, meeting their disclosure obligations.</p>
+<h3>Key Findings</h3>
+<ol>
+<li><p><strong>The TBM Council V4 taxonomy is the de facto industry standard for categorising IT operational costs, providing a cost pool layer — labour, Software-as-a-Service (SaaS), cloud services, hardware, telecom, and facilities — that forms the required structure for building auditable run-cost estimates across all deployment models.</strong> Confidence: high.</p>
+</li>
+<li><p><strong>Infrastructure-as-a-Service (IaaS) cloud compute costs are consumption-driven and metered by the second, making them the highest-volatility IT cost category: cloud spend can increase 20–30% annually without active governance, driven by usage growth that outpaces the per-unit price reductions that cloud providers have historically delivered.</strong> Confidence: high.</p>
+</li>
+<li><p><strong>Eight canonical assumptions must be documented for an IT run-cost estimate to be auditable: consumption growth rate by category, unit prices and vendor escalation clauses, staffing headcount and grade mix, currency and exchange rate assumptions, vendor contract terms and renewal dates, capitalisation versus expense treatment, hardware refresh cycle schedule, and planned organisational changes such as cloud migrations or divestitures.</strong> Consumption growth rate and unit price assumptions are typically the most material. Confidence: high.</p>
+</li>
+<li><p><strong>Scenario analysis, sensitivity analysis (tornado charts), and Monte Carlo simulation are complementary uncertainty modelling techniques addressing different aspects of forecast uncertainty: scenario analysis describes qualitatively different futures; sensitivity analysis identifies which assumptions drive the most variance; Monte Carlo produces a probability distribution of outcomes required for regulatory or board-level defensibility.</strong> Confidence: high.</p>
+</li>
+<li><p><strong>Most IT cost uncertainties are positively correlated — macro-economic inflation, foreign exchange movements, and vendor price cycles affect multiple cost categories simultaneously — so arithmetic addition of percentage uncertainty ranges is more conservative and appropriate than root-sum-square (RSS) combination, which systematically underestimates combined uncertainty when inputs are correlated.</strong> Confidence: medium.</p>
+</li>
+<li><p><strong>In multi-year total cost of ownership (TCO) forecasts, errors in year-one growth rate assumptions compound through later years: an annual uncertainty of ±15% produces approximately ±34% five-year uncertainty under the independence assumption and up to ±75% under full correlation, meaning that the stated uncertainty range for a five-year forecast must be substantially wider than the stated annual uncertainty.</strong> Confidence: medium.</p>
+</li>
+<li><p><strong>IFRS IAS 1 paragraph 125 requires disclosure of assumptions with a significant risk of resulting in a material adjustment to asset or liability carrying amounts within the next financial year; UK FRC thematic reviews conducted in 2017 and 2022 found widespread non-compliance characterised by generic boilerplate text, missing quantitative sensitivity disclosures, and failure to distinguish short-term from longer-term estimation uncertainties.</strong> Confidence: high.</p>
+</li>
+<li><p><strong>US GAAP ASC 275 triggers disclosure when it is at least &quot;reasonably possible&quot; that an estimate will change materially in the near term, a lower threshold than IFRS IAS 1.125's &quot;significant risk&quot; standard, making ASC 275 more easily triggered for IT cost commitments such as cloud minimum spend obligations and prepaid licence agreements.</strong> Confidence: high.</p>
+</li>
+<li><p><strong>SEC MD&amp;A Item 303 (FR-72) classifies disclosure of known trends reasonably likely to cause a material change in cost-revenue relationships as a required disclosure, not optional forward-looking information — explicitly covering known or reasonably likely increases in labour, materials, or vendor prices, which encompasses IT labour cost escalation and software vendor price increases at contract renewal.</strong> Confidence: high.</p>
+</li>
+<li><p><strong>SOX Sections 302 and 404 require that internal controls over financial reporting (ICFR) extend to the processes underlying all material financial estimates; for organisations where IT operational costs are material to reported financial figures, the IT cost estimation process itself must be assessed as part of ICFR by management (Section 404(a)) and attested by external auditors (Section 404(b)).</strong> Confidence: high.</p>
+</li>
+<li><p><strong>EU Prospectus Regulation (Regulation (EU) 2017/1129) requires material, issuer-specific risk factors categorised by significance; generic IT cost risk factors that apply to all technology companies are non-compliant, and a material IT operational cost uncertainty must be disclosed with specific quantification and placed prominently according to its materiality ranking.</strong> Confidence: high.</p>
+</li>
+<li><p><strong>The structural gap between internal planning practice — which commonly uses single-point optimistic estimates to secure budget approval — and external disclosure requirements — which require range-based, assumption-transparent, specifically quantified disclosures — creates regulatory risk for organisations that submit internal forecast outputs directly into prospectuses or annual reports without upgrading disclosure quality to the applicable standard.</strong> Confidence: medium.</p>
+</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+  <th>Claim</th>
+  <th>Source</th>
+  <th>Confidence</th>
+  <th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>TBM Council V4 is de facto standard for IT cost categorisation</td>
+  <td>TBM Council <a href="https://www.tbmcouncil.org/taxonomy/">www.tbmcouncil.org</a> [x]</td>
+  <td>High</td>
+  <td>Primary source from industry standard body</td>
+</tr>
+<tr>
+  <td>IaaS costs can increase 20–30% annually without governance</td>
+  <td>InfoTech &quot;Invest in Realistic Project Costing&quot; <a href="https://www.infotech.com/research/ss/invest-in-realistic-and-comprehensive-project-costing">www.infotech.com</a> [x]</td>
+  <td>High</td>
+  <td>Practitioner source; consistent with cloud billing literature</td>
+</tr>
+<tr>
+  <td>Eight canonical required assumptions</td>
+  <td>ITIL 4 Practice Guide <a href="https://uat2.axelos.com/resource-hub/practice/service-financial-management-itil-4-practice-guide">uat2.axelos.com</a> [x]; TBM Council [x]; COBIT (Control Objectives for Information and Related Technologies) 2019 APO06 <a href="https://nextstepac.com/wp-content/uploads/2025/12/COBIT-2019-Design-Guide-by-ISACA.pdf">nextstepac.com</a> [x]</td>
+  <td>High</td>
+  <td>Synthesised from three independent practitioner frameworks</td>
+</tr>
+<tr>
+  <td>Monte Carlo produces probability distribution; scenarios do not</td>
+  <td>Toptal <a href="https://www.toptal.com/management-consultants/financial-forecasting/monte-carlo-simulation">www.toptal.com</a> [x]; FinancialModelsLab <a href="https://financialmodelslab.com/blogs/blog/monte-carlo-simulation-financial-modelling">financialmodelslab.com</a> [x]; Investopedia <a href="https://www.investopedia.com/terms/m/montecarlosimulation.asp">www.investopedia.com</a> [x]</td>
+  <td>High</td>
+  <td>Three independent secondary sources agree</td>
+</tr>
+<tr>
+  <td>Positive IT cost correlation → arithmetic addition more conservative than RSS</td>
+  <td>Wikipedia &quot;Propagation of uncertainty&quot; <a href="https://en.wikipedia.org/wiki/Propagation_of_uncertainty">en.wikipedia.org</a> [x]; WSU error propagation PDF <a href="https://s3.wp.wsu.edu/uploads/sites/2621/2021/06/A-3-Data-Analysis-4-Error-Propagation.pdf">s3.wp.wsu.edu</a> [x]</td>
+  <td>Medium</td>
+  <td>Mathematical basis established; correlation direction is inference applied to IT domain</td>
+</tr>
+<tr>
+  <td>Early-stage errors amplified in multi-stage forecasts</td>
+  <td>TTI/Texas A&amp;M &quot;Propagation of Uncertainty Through Travel Demand Models&quot; <a href="https://static.tti.tamu.edu/swutc.tamu.edu/publications/technicalreports/167804-1.pdf">static.tti.tamu.edu</a> [x]</td>
+  <td>Medium</td>
+  <td>Adjacent field; directly applicable mathematical mechanism</td>
+</tr>
+<tr>
+  <td>IAS 1.125 requires near-term material adjustment uncertainty disclosure</td>
+  <td>IFRS Foundation staff paper <a href="https://www.ifrs.org/content/dam/ifrs/meetings/2023/january/issb/ap3b-general-sustainability-related-disclosures-s1-disclosure-of-judgements-assumptions-and-estimates.pdf">www.ifrs.org</a> [x]; dreport.cz IAS 1.125 explainer <a href="https://www.dreport.cz/en/blog/disclosure-of-significant-judgements-and-key-sources-of-estimation-uncertainty/">www.dreport.cz</a> [x]</td>
+  <td>High</td>
+  <td>Primary and secondary sources consistent</td>
+</tr>
+<tr>
+  <td>FRC found widespread IAS 1.125 non-compliance (2017, 2022)</td>
+  <td>FRC July 2022 thematic review <a href="https://www.frc.org.uk/news-and-events/news/2022/07/frc-publishes-review-of-judgements-and-estimates/">www.frc.org.uk</a> [x]</td>
+  <td>High</td>
+  <td>Regulatory body's own published finding</td>
+</tr>
+<tr>
+  <td>GAAP ASC 275 &quot;reasonably possible&quot; lower trigger than IFRS</td>
+  <td>PwC Viewpoint 24.3 <a href="https://viewpoint.pwc.com/dt/us/en/pwc/accounting_guides/financial_statement_/financial_statement___18_US/chapter_24_risks_and_US/243_disclosure_US.html">viewpoint.pwc.com</a> [x]; SEC SAB Topic 5 <a href="https://www.sec.gov/interps/account/sabcodet5.htm">www.sec.gov</a> [x]</td>
+  <td>High</td>
+  <td>Two independent accounting guidance sources</td>
+</tr>
+<tr>
+  <td>SEC MD&amp;A Item 303 requires known cost trend disclosure</td>
+  <td>SEC FR-72 (2003) <a href="https://www.sec.gov/rules-regulations/2003/12/commission-guidance-regarding-managements-discussion-analysis-financial-condition-results-operations">www.sec.gov</a> [x]; Federal Register 2021 amendments <a href="https://www.federalregister.gov/documents/2021/01/11/2020-26090/managements-discussion-and-analysis-selected-financial-data-and-supplementary-financial-information">www.federalregister.gov</a> [x]</td>
+  <td>High</td>
+  <td>Primary regulatory sources</td>
+</tr>
+<tr>
+  <td>SOX 302/404 applies to ICFR for material IT cost estimation</td>
+  <td>AuditBoard SOX overview <a href="https://auditboard.com/blog/sarbanes-oxley-act">auditboard.com</a> [x]; UpGuard SOX guide <a href="https://www.upguard.com/blog/sox-compliance">www.upguard.com</a> [x]</td>
+  <td>High</td>
+  <td>Multiple independent secondary sources</td>
+</tr>
+<tr>
+  <td>EU Prospectus Regulation requires specific, quantified IT risk factors</td>
+  <td>EUR-Lex Regulation (EU) 2017/1129 <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:02017R1129-20191231">eur-lex.europa.eu</a> [x]; Travers Smith overview <a href="https://www.traverssmith.com/knowledge/knowledge-container/eu-prospectus-regulation-what-fund-managers-and-investment-companies-sponsors-need-to-know/">www.traverssmith.com</a> [x]</td>
+  <td>High</td>
+  <td>Primary regulatory source and legal practitioner commentary</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Identified but not consulted:</strong></p>
+<ul>
+<li>Vose, D. — <em>Risk Analysis: A Quantitative Guide</em> (3rd ed., Wiley) [ ]</li>
+<li>Hubbard, D.W. — <em>How to Measure Anything</em> (3rd ed., Wiley) [ ]</li>
+<li>RICS Professional Standards — Uncertainty of Valuation [ ]</li>
+<li>PCAOB AS 2101 full text [ ]</li>
+<li>ISACA COBIT 2019 full publication text [ ]</li>
+<li>IFRS Practice Statement 1 on Materiality Judgements [ ]</li>
+</ul>
+<h3>Assumptions</h3>
+<ol>
+<li><p><strong>[assumption]</strong> The TBM Council V4 taxonomy is sufficiently representative of industry practice to serve as the reference taxonomy for IT cost categorisation. Justification: cited by multiple independent practitioner sources and adopted by US government agencies; no competing standard of equal authority was found.</p>
+</li>
+<li><p><strong>[assumption]</strong> Error propagation mathematics from engineering and travel demand modelling applies to IT cost forecasting. Justification: the mathematical mechanism (correlated vs. independent errors, compounding through multiplicative models) is domain-independent. Specific correlation coefficient values for IT cost categories are not empirically calibrated from this investigation.</p>
+</li>
+<li><p><strong>[assumption]</strong> The 20–30% annual IaaS cost increase figure applies to organisations without active cloud cost governance. Justification: the source explicitly conditions the figure on unmanaged cloud spending; it is not a universal rate and should not be applied to organisations with active FinOps (Financial Operations) practices.</p>
+</li>
+</ol>
+<h3>Analysis</h3>
+<p>The evidence supports a two-tier framework for IT operational run-cost forecasting.</p>
+<p><em>Tier 1 — Internal planning standard:</em> A well-constructed internal IT run-cost forecast uses the TBM taxonomy to categorise costs, documents the eight canonical assumptions for each material category, applies sensitivity analysis to identify the critical assumptions, and presents a range (minimum/base/maximum) rather than a single point. This is the standard that ITIL 4 Service Financial Management, COBIT 2019 APO06, and the TBM Council collectively endorse.</p>
+<p><em>Tier 2 — External disclosure standard:</em> When IT cost estimates appear in financial filings, regulatory requirements add further obligations: assumptions must be specifically disclosed (not generic boilerplate), sensitivity must be quantified, and the uncertainty must be characterised in terms of near-term material adjustment risk (IFRS/FRC) or reasonable possibility of material change (GAAP/SEC MD&amp;A). The EU Prospectus Regulation requires issuer-specific quantified risk factors where IT costs are material.</p>
+<p>The governance mechanism linking Tier 1 and Tier 2 is SOX 302/404: the Chief Executive Officer (CEO) and Chief Financial Officer (CFO) certification obligation means the internal estimation process itself must be subject to internal controls. [inference] The quality of Tier 1 is therefore a prerequisite for the integrity of Tier 2.</p>
+<p>[inference] The most significant practical gap is in uncertainty treatment. Organisations commonly present single-point IT cost forecasts with qualitative uncertainty acknowledgment. IAS 1.125 (confirmed by FRC enforcement) and ASC 275 both require quantitative uncertainty disclosure where it is material. Bridging this gap requires building range-based models internally and translating them into the specific disclosure language required by the applicable standard.</p>
+<p>The correlation structure of IT cost uncertainties is the technically decisive issue that most practitioners overlook. Assuming independence (and applying RSS) when inputs are actually correlated produces overconfident uncertainty ranges that understate the true risk. For a board or regulatory audience, this is a material disclosure failure. [inference] The correct approach is Monte Carlo with an explicit correlation matrix, or, more conservatively, arithmetic addition of percentage ranges where correlation is suspected but not quantified.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ol>
+<li><p><strong>Correlation coefficients not standardised:</strong> No authoritative standard specifies how IT cost category correlations should be estimated or disclosed. The direction (positive correlation for most categories) is well-reasoned; the magnitude must be estimated from organisation-specific historical data or expert calibration.</p>
+</li>
+<li><p><strong>Multi-year uncertainty disclosure gap:</strong> No specific standard (IFRS, GAAP, FRC) directly addresses how multi-year compounding uncertainty in IT cost forecasts should be disclosed. Existing guidance focuses on near-term (next financial year) material adjustment risk, leaving a gap for 3–5 year TCO projections in business cases and investment papers.</p>
+</li>
+<li><p><strong>Internal vs. external document consistency:</strong> The risk that internal business case forecasts and external filings use inconsistent assumptions without explanation is real but was not quantified from enforcement data in the consulted sources.</p>
+</li>
+<li><p><strong>Jurisdiction coverage gap:</strong> Only IFRS, US GAAP, SEC, UK FRC, and EU Prospectus Regulation were investigated. Australian, Canadian, Japanese, and other regulatory frameworks may have different requirements.</p>
+</li>
+<li><p><strong>Practitioner framework depth:</strong> COBIT 2019, ITIL 4, and TBM Council were accessed via secondary summaries and online practice guides. Full publication text may contain more specific uncertainty quantification guidance than captured here.</p>
+</li>
+</ol>
+<h3>Open Questions</h3>
+<ol>
+<li><p>How do organisations listed under both IFRS and US GAAP (dual-listing) reconcile the different disclosure thresholds for IT cost uncertainty, where ASC 275 triggers at &quot;reasonably possible&quot; and IAS 1.125 at &quot;significant risk of material adjustment&quot;? (Suggested priority: medium — relevant to dual-listed technology companies)</p>
+</li>
+<li><p>Does PCAOB AS 2101 or AICPA AU-C 540 contain guidance specifically applicable to auditing IT operational run-cost estimates as a category of accounting estimate? (Suggested priority: medium — relevant to audit preparedness for listed companies)</p>
+</li>
+<li><p>Does the RICS uncertainty of valuation methodology provide a directly portable disclosure model for IT cost uncertainty, given its mature practice for quantifying estimation ranges in professional standards? (Suggested priority: low — exploratory)</p>
+</li>
+</ol>
+<h3>Output</h3>
+<ul>
+<li><strong>Type:</strong> knowledge</li>
+<li><strong>Description:</strong> Structured reference on IT operational run-cost forecasting best practices, covering cost taxonomy, required assumptions, uncertainty modelling techniques, compounding error propagation, and regulatory disclosure requirements across IFRS, GAAP, SEC MD&amp;A, SOX, FRC, and EU Prospectus Regulation.</li>
+<li><strong>Key sources:</strong><ul>
+<li>TBM Council V4 Taxonomy (primary IT cost taxonomy standard): <a href="https://www.tbmcouncil.org/taxonomy/</li>">www.tbmcouncil.org</a>
+<li>SEC FR-72 / Item 303 MD&amp;A guidance (regulatory disclosure standard): <a href="https://www.sec.gov/rules-regulations/2003/12/commission-guidance-regarding-managements-discussion-analysis-financial-condition-results-operations</li>">www.sec.gov</a>
+<li>FRC July 2022 Thematic Review: Judgements and Estimates (enforcement evidence): <a href="https://www.frc.org.uk/news-and-events/news/2022/07/frc-publishes-review-of-judgements-and-estimates/</li>">www.frc.org.uk</a>
+</ul>
+</li>
+</ul>
+<hr />
+
+
+  </div>
+  
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-14-organisational-intent-formal-specification.html">Can organisational intent be expressed as a formally structured specification…</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-12-volume-vs-correctness-ai-era.html">AI inverted the knowledge-work scarcity equation</a></div>
+  </div>
+</main>
+</body>
+</html>

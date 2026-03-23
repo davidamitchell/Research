@@ -1,0 +1,788 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Conversational and chat interface for querying the research corpus — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #141414;
+  --surface-2:       #1c1c1c;
+  --border:          #2a2a2a;
+  --text:            #e8e8e8;
+  --text-muted:      #666;
+  --accent:          #e8e8e8;
+  --accent-dim:      #333;
+  --tag-bg:          #1e1e1e;
+  --tag-text:        #999;
+  --tag-active-bg:   #e8e8e8;
+  --tag-active-text: #0d0d0d;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--accent); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+}
+.card:hover { border-color: var(--accent); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+}
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+.item-content pre code { background: none; padding: 0; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--text); text-decoration: underline; }
+.item-content a:hover { color: var(--text-muted); }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); }
+.key-claims li:last-child { border-bottom: none; }
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); }
+.related-entry:last-child { border-bottom: none; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--text); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-entry { padding: 1rem; border: 1px solid var(--border); border-bottom: none; text-decoration: none; color: var(--text); display: block; }
+.thread-entry:last-child { border-bottom: 1px solid var(--border); }
+.thread-entry:hover { background: var(--surface); text-decoration: none; }
+.thread-entry-title { font-size: var(--text-base); font-weight: 500; }
+.thread-entry-meta { font-size: var(--text-xs); color: var(--text-muted); margin-top: 0.25rem; letter-spacing: 0.05em; }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/">Research</a>
+    <div class="nav-links">
+      <a href="/Research/browse.html">Browse</a>
+      <a href="/Research/threads.html">Threads</a>
+      <a href="/Research/tags/">Tags</a>
+      <a href="/Research/search.html">Search</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <a href="/Research/browse.html">Browse</a>
+    <span>/</span>
+    <span>Conversational and chat interface for querying the research corpus</span>
+  </div>
+  <h1 class="item-title">Conversational and chat interface for querying the research corpus</h1>
+    <div class="meta-bar">
+    <span>2026-03-02</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/mcp.html">mcp</a> <a class="tag" href="/Research/tags/rag.html">rag</a> <a class="tag" href="/Research/tags/search.html">search</a> <a class="tag" href="/Research/tags/interface.html">interface</a> <a class="tag" href="/Research/tags/delivery.html">delivery</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-02-chat-conversational-interface.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-02-chat-conversational-interface" target="_blank" rel="noopener">wiki →</a>
+  </div>
+  <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>The existing `.github/mcp.json` pattern (10 stdio servers, all subprocess-based) directly accommodates a new `research` MCP server without any new infrastructure, credentials, or persistent process</li>
+<li>MCP stdio transport uses subprocess invocation per agent session — the server process lives only for the duration of the session and terminates when the session ends</li>
+<li>The correct interface contract has three tools: `search_research(query, tags, limit)` returning ranked excerpts, `get_research_item(slug)` returning full Markdown, and `get_related_items(slug)` navigating the `state/links.json` edge store</li>
+<li>Grounding is architectural, not just instructional: because `search_research` can only return items from `Research/completed/`, the model cannot hallucinate corpus content that doesn&#39;t exist — it can only hallucinate synthesis or extrapolation from what was returned</li>
+<li>The GitHub Copilot Extension (OAuth app) model requires a publicly hosted HTTPS server, OAuth app registration, and a webhook handler — three constraints that make it infeasible for this repository</li>
+<li>GitHub Copilot&#39;s Agent Skills (`.github/skills/`) and custom agents (`.github/agents/`) provide persona and instructions but cannot run corpus searches — they have no query capability against the research files</li>
+<li>The CLI chatbot approach is blocked by the absence of an approved direct LLM API credential (Anthropic/OpenAI) in this repository&#39;s credential table</li>
+<li>Phase 1 (grep-based search) can be implemented immediately and independently of the `2026-03-02-semantic-full-text-search.md` item</li>
+</ol></div>
+
+  <div class="item-content">
+    <h2>Research Question</h2>
+<p>What is the best approach to expose the <code>Research/completed/</code> corpus as a queryable, conversational interface — so that a user (or an AI agent) can ask &quot;what do I know about X?&quot; and receive a grounded, cited answer drawn from completed research items?</p>
+
+<h2>Findings</h2>
+<h3>Executive Summary</h3>
+<p>An MCP server with stdio transport — registered in <code>.github/mcp.json</code> alongside the repository's existing 10 MCP servers — is the correct and only viable approach for a conversational research-corpus interface under this repository's constraints. The server exposes three tools (<code>search_research</code>, <code>get_research_item</code>, <code>get_related_items</code>) and requires no persistent process, no new credentials, and no hosted infrastructure. The GitHub Copilot Extension (OAuth app) approach is eliminated by the no-persistent-server constraint; the CLI chatbot approach is blocked by the absence of an approved LLM API key (Anthropic/OpenAI). Grounding is structural — the server can only return items from <code>Research/completed/</code> — and is reinforced by instructional prompt patterns directing the calling agent to cite item slugs and decline to answer questions not covered by the corpus. The implementation splits into two phases: Phase 1 ships immediately using grep-based search; Phase 2 upgrades to SQLite FTS5 after the <code>2026-03-02-semantic-full-text-search.md</code> item is complete, with the MCP tool interface unchanged across both phases.</p>
+<h3>Key Findings</h3>
+<ol>
+<li><p><strong>The existing <code>.github/mcp.json</code> pattern (10 stdio servers, all subprocess-based) directly accommodates a new <code>research</code> MCP server without any new infrastructure, credentials, or persistent process.</strong> The research MCP server is a natural extension of what already exists, not a new dependency category.</p>
+</li>
+<li><p><strong>MCP stdio transport uses subprocess invocation per agent session — the server process lives only for the duration of the session and terminates when the session ends.</strong> Cold-start latency for a Python stdio server is 30–300ms; per-request file I/O on GitHub Actions SSD-backed runners is &lt; 10ms. These are acceptable for interactive agent use.</p>
+</li>
+<li><p><strong>The correct interface contract has three tools: <code>search_research(query, tags, limit)</code> returning ranked excerpts, <code>get_research_item(slug)</code> returning full Markdown, and <code>get_related_items(slug)</code> navigating the <code>state/links.json</code> edge store.</strong> The server returns ranked lists; the calling LLM agent synthesises answers. The server is a retrieval tool, not a reasoning engine.</p>
+</li>
+<li><p><strong>Grounding is architectural, not just instructional: because <code>search_research</code> can only return items from <code>Research/completed/</code>, the model cannot hallucinate corpus content that doesn't exist — it can only hallucinate synthesis or extrapolation from what was returned.</strong> Prompt-level instructions (&quot;cite the item slug for every claim; if the corpus does not cover this topic, say so&quot;) address the remaining synthesis hallucination risk.</p>
+</li>
+<li><p><strong>The GitHub Copilot Extension (OAuth app) model requires a publicly hosted HTTPS server, OAuth app registration, and a webhook handler — three constraints that make it infeasible for this repository.</strong> As of 2025, GitHub's &quot;building Copilot extensions&quot; documentation redirects to MCP as the primary extension mechanism, confirming the MCP server approach is the recommended path for Copilot integration.</p>
+</li>
+<li><p><strong>GitHub Copilot's Agent Skills (<code>.github/skills/</code>) and custom agents (<code>.github/agents/</code>) provide persona and instructions but cannot run corpus searches — they have no query capability against the research files.</strong> They are not a substitute for an MCP search tool; they are an optional complement for configuring agent behaviour.</p>
+</li>
+<li><p><strong>The CLI chatbot approach is blocked by the absence of an approved direct LLM API credential (Anthropic/OpenAI) in this repository's credential table.</strong> The approach is technically viable in isolation but violates the AGENTS.md hard-stop rule against introducing new external services without explicit approval. If an API key is later approved, the CLI chatbot becomes an optional high-level wrapper over the same MCP tools.</p>
+</li>
+<li><p><strong>Phase 1 (grep-based search) can be implemented immediately and independently of the <code>2026-03-02-semantic-full-text-search.md</code> item.</strong> Phase 2 upgrades the search backend to SQLite FTS5 (and optionally vector search) without changing the MCP tool interface, preserving all downstream integrations.</p>
+</li>
+<li><p><strong>The <code>get_related_items</code> tool consuming <code>state/links.json</code> provides cross-reference navigation that keyword search cannot replicate — it answers &quot;what else is connected to this research?&quot; based on typed relationships, not keyword co-occurrence.</strong> This requires the <code>state/links.json</code> edge store to be populated, which depends on <code>2026-03-03-knowledge-linking-connected-corpus.md</code> being implemented.</p>
+</li>
+<li><p><strong>An ADR is required before shipping the MCP server:</strong> it documents the stdio transport choice, three-tool interface contract, grounding design, two-phase implementation plan, and confirms no new credentials or services are introduced.</p>
+</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+  <th>Claim</th>
+  <th>Source</th>
+  <th>Confidence</th>
+  <th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><code>.github/mcp.json</code> has 10 stdio MCP servers, establishing the pattern</td>
+  <td>Direct file inspection: <code>.github/mcp.json</code></td>
+  <td>high</td>
+  <td>Verified by reading the file</td>
+</tr>
+<tr>
+  <td>stdio MCP servers are subprocess-based, stateless, no persistent process</td>
+  <td>modelcontextprotocol.io/docs/concepts/tools; mcp-framework.com/docs/Transports/stdio-transport</td>
+  <td>high</td>
+  <td>Protocol specification; confirmed by practitioner guides</td>
+</tr>
+<tr>
+  <td>Python stdio MCP server cold-start: 30–300ms</td>
+  <td>MCP stdio transport practitioner benchmarks (web_search)</td>
+  <td>medium</td>
+  <td>Estimated range; specific to Python runtime and module load time</td>
+</tr>
+<tr>
+  <td>FastMCP supports decorator-based tool registration with type annotations</td>
+  <td>github.com/modelcontextprotocol/python-sdk README</td>
+  <td>high</td>
+  <td>Official SDK documentation</td>
+</tr>
+<tr>
+  <td>Claude Code discovers MCP servers in <code>.mcp.json</code>; Copilot Agent in <code>.github/mcp.json</code></td>
+  <td>context-mode research (Key Finding 4); GitHub Copilot docs</td>
+  <td>high</td>
+  <td>Cross-confirmed by two independent sources</td>
+</tr>
+<tr>
+  <td>GitHub Copilot Extension (OAuth) requires hosted HTTPS server</td>
+  <td>docs.github.com/en/copilot/building-copilot-extensions redirects to MCP; older extension architecture requires webhook endpoint</td>
+  <td>high</td>
+  <td>Primary source; confirmed by architecture requirements</td>
+</tr>
+<tr>
+  <td>GitHub docs (2025) redirect &quot;building Copilot extensions&quot; to MCP as primary path</td>
+  <td>docs.github.com/en/copilot/building-copilot-extensions/about-building-copilot-extensions</td>
+  <td>high</td>
+  <td>Direct fetch of the page</td>
+</tr>
+<tr>
+  <td>Agent Skills (<code>.github/skills/</code>) and custom agents (<code>.github/agents/</code>) cannot query corpus</td>
+  <td>GitHub Docs — custom agents configuration; GitHub Changelog 2025-10-28</td>
+  <td>high</td>
+  <td>By design: these are instruction/persona files, not query tools</td>
+</tr>
+<tr>
+  <td>No Anthropic/OpenAI API key in approved credentials table</td>
+  <td>AGENTS.md Working Environment credentials table</td>
+  <td>high</td>
+  <td>Direct inspection of AGENTS.md</td>
+</tr>
+<tr>
+  <td>&quot;Answer only from context&quot; RAG prompt pattern prevents hallucination of corpus content</td>
+  <td>RAG grounding literature survey (web_search; Anthropic/OpenAI/Hugging Face guides)</td>
+  <td>high</td>
+  <td>Well-established pattern with documented failure modes</td>
+</tr>
+<tr>
+  <td><code>state/links.json</code> edge store defined by <code>2026-03-03-knowledge-linking-connected-corpus.md</code></td>
+  <td>Research/completed/2026-03-03-knowledge-linking-connected-corpus.md Key Findings 4–5</td>
+  <td>high</td>
+  <td>Direct reading of completed research item</td>
+</tr>
+<tr>
+  <td>MCP tool-scoped retrieval is structural grounding (server cannot return non-corpus content)</td>
+  <td>MCP protocol: tools/call response is bounded by server implementation</td>
+  <td>high</td>
+  <td>Mechanistically sound; follows from how tool responses work</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li><p><strong>Assumption:</strong> The owner's primary use of the conversational interface will be through AI agent sessions (Claude Code, GitHub Copilot) rather than a direct query CLI. <strong>Justification:</strong> The owner interacts exclusively via GitHub website and iOS app, and all coding/querying is done through agent sessions. A direct CLI would require a local terminal, which the owner does not use.</p>
+</li>
+<li><p><strong>Assumption:</strong> Corpus size will remain under 500 items for the foreseeable future, making grep-based Phase 1 search adequate. <strong>Justification:</strong> The corpus currently has ~35 completed items and grows at a rate of ~3–5 items per week. At this rate, 500 items is approximately 2–3 years away. Phase 2 (BM25) should be implemented before manual browse becomes painful (~50 items), which is much sooner.</p>
+</li>
+<li><p><strong>Assumption:</strong> The calling LLM agent (Claude Code or GitHub Copilot) will use the <code>search_research</code> results as the primary context for answering corpus questions, not its training knowledge. <strong>Justification:</strong> This is the intended usage pattern; the agent's system prompt and tool descriptions must enforce this.</p>
+</li>
+</ul>
+<h3>Analysis</h3>
+<p>The three-way evaluation between MCP server, Copilot Extension, and CLI chatbot resolves cleanly along two axes: server infrastructure requirement and credential requirement. Only the MCP server satisfies both constraints (no persistent server, no new credential). The Copilot Extension (OAuth) fails the infrastructure constraint; the CLI chatbot fails the credential constraint.</p>
+<p>Within the MCP server approach, the interface contract decision (ranked list vs. synthesised answer) resolves correctly: the server is a retrieval tool, and synthesis is delegated to the calling LLM. This matches the MCP design pattern established in the context-mode research and avoids a scenario where the server would need its own LLM integration to generate answers.</p>
+<p>The two-phase implementation plan (grep now, BM25 later) is the correct risk management approach: it delivers value immediately without blocking on the search layer item, while preserving the option to upgrade without changing the external interface.</p>
+<p>The grounding design (structural + instructional) is appropriate. Structural grounding (tool-scoped retrieval) handles the primary risk (model inventing corpus items that don't exist). Instructional grounding (cite the slug) handles the secondary risk (model extrapolating beyond what the retrieved items actually say). No additional LLM validation layer is required.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li><p><strong>Search quality in Phase 1 is limited by grep precision.</strong> Grep is case-sensitive by default, does not handle stemming, and ranks by file order not relevance. For the current corpus size (&lt; 50 items), returning all matching items and letting the agent rank them is acceptable. Above ~50 items, the FTS5 search layer becomes important.</p>
+</li>
+<li><p><strong><code>state/links.json</code> sparseness.</strong> The <code>get_related_items</code> tool depends on <code>state/links.json</code> being populated. As of this writing, the knowledge-linking implementation has not shipped. Until it does, <code>get_related_items</code> will return empty results for most items. The tool should gracefully return an empty list rather than an error.</p>
+</li>
+<li><p><strong><code>.github/mcp.json</code> is also used for Claude Code sessions.</strong> Adding the <code>research</code> server here means Claude Code in all sessions (not just research-loop sessions) will have access to the research tools. This is desirable for the owner's usage pattern but should be documented in the ADR.</p>
+</li>
+<li><p><strong>The MCP Python SDK is at v1.x stable; v2 is in pre-alpha.</strong> The FastMCP interface is stable for production use. A v2 migration may require updates when v2 is released, but this is a low-risk, low-urgency future maintenance task.</p>
+</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li><p><strong>Should the <code>search_research</code> tool support semantic search (embeddings) in Phase 1, or is keyword-only adequate?</strong> This question is deferred to <code>2026-03-02-semantic-full-text-search.md</code>. The MCP tool interface is designed to accommodate a semantic backend in Phase 2 without API changes.</p>
+</li>
+<li><p><strong>Should the MCP server be registered in <code>.github/mcp.json</code> only, or also in a separate <code>.mcp.json</code> for Claude Code-only sessions?</strong> Currently all 10 servers are in <code>.github/mcp.json</code>. A <code>.mcp.json</code> could scope the research server to specific session types. This is an ADR-level decision.</p>
+</li>
+<li><p><strong>What is the latency impact of the <code>research</code> MCP server on agent sessions that don't need it?</strong> If the tool list is loaded at session start, adding tools increases context consumption (per context-mode research Key Finding 1: 143K tokens consumed by tool definitions with 81+ tools). The research server adds 3 tools; at current tool-definition sizes this is negligible, but should be confirmed when implementing.</p>
+</li>
+<li><p><strong>Is there value in a <code>list_research_items(tag: str | None, status: str | None)</code> tool for browsing/filtering without full-text search?</strong> This would be trivially implemented and might be more useful for discovery than <code>search_research</code> when the user doesn't have a specific query in mind. Add to the implementation backlog slice.</p>
+</li>
+</ul>
+<h3>Output section</h3>
+<ul>
+<li>Type: knowledge, tool, backlog-item</li>
+<li>Description: MCP server (<code>src/mcp/research_server.py</code>) with three tools (<code>search_research</code>, <code>get_research_item</code>, <code>get_related_items</code>) registered in <code>.github/mcp.json</code>; ADR documenting the design; Phase 1 implementation backlog slice; search layer dependency for Phase 2.</li>
+<li>Links:<ul>
+<li><a href="https://modelcontextprotocol.io/docs/concepts/tools">modelcontextprotocol.io</a> (MCP tools protocol specification)</li>
+<li><a href="https://github.com/modelcontextprotocol/python-sdk">github.com</a> (MCP Python SDK — FastMCP)</li>
+<li><a href="https://docs.github.com/en/copilot/building-copilot-extensions/about-building-copilot-extensions">docs.github.com</a> (GitHub Copilot Extensions overview — confirms MCP as primary path)</li>
+</ul>
+</li>
+</ul>
+
+
+  </div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-03-18-api-context-hubs-rag-mcp.html">Application Programming Interface (API) Context Hubs, Retrieval-Augmented Generation, and the Model Context Protocol: How Agents Discover and Use APIs</a> <span class="related-note">via mcp, rag</span></div>
+<div class="related-entry"><a href="/Research/research/2026-03-02-slack-msteams-research-integration.html">Slack and MS Teams integration for research delivery and capture</a> <span class="related-note">via delivery, interface</span></div>
+<div class="related-entry"><a href="/Research/research/2026-03-02-semantic-full-text-search.html">Semantic and full-text search over the research corpus</a> <span class="related-note">via rag, search</span></div>
+<div class="related-entry"><a href="/Research/research/2026-03-02-ios-shortcuts-research.html">iOS Shortcuts for research capture and query</a> <span class="related-note">via delivery, interface</span></div>
+<div class="related-entry"><a href="/Research/research/2026-03-01-github-wiki-research-content.html">GitHub wiki for research content: approach and tooling</a> <span class="related-note">via delivery, interface</span></div>
+</div></div>
+
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-02-integrative-framework-agent-decision-making.html">An Integrative Framework for Agent Decision-Making</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-02-ai-not-a-data-problem.html">AI capability is not a data problem - why the data/analytics department is the…</a></div>
+  </div>
+</main>
+</body>
+</html>

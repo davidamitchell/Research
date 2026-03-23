@@ -1,0 +1,785 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>AI Line 1 and Line 2 Risk Agents — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #141414;
+  --surface-2:       #1c1c1c;
+  --border:          #2a2a2a;
+  --text:            #e8e8e8;
+  --text-muted:      #666;
+  --accent:          #e8e8e8;
+  --accent-dim:      #333;
+  --tag-bg:          #1e1e1e;
+  --tag-text:        #999;
+  --tag-active-bg:   #e8e8e8;
+  --tag-active-text: #0d0d0d;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--accent); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+}
+.card:hover { border-color: var(--accent); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+}
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+.item-content pre code { background: none; padding: 0; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--text); text-decoration: underline; }
+.item-content a:hover { color: var(--text-muted); }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); }
+.key-claims li:last-child { border-bottom: none; }
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); }
+.related-entry:last-child { border-bottom: none; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--text); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-entry { padding: 1rem; border: 1px solid var(--border); border-bottom: none; text-decoration: none; color: var(--text); display: block; }
+.thread-entry:last-child { border-bottom: 1px solid var(--border); }
+.thread-entry:hover { background: var(--surface); text-decoration: none; }
+.thread-entry-title { font-size: var(--text-base); font-weight: 500; }
+.thread-entry-meta { font-size: var(--text-xs); color: var(--text-muted); margin-top: 0.25rem; letter-spacing: 0.05em; }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/">Research</a>
+    <div class="nav-links">
+      <a href="/Research/browse.html">Browse</a>
+      <a href="/Research/threads.html">Threads</a>
+      <a href="/Research/tags/">Tags</a>
+      <a href="/Research/search.html">Search</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <a href="/Research/browse.html">Browse</a>
+    <span>/</span>
+    <span>AI Line 1 and Line 2 Risk Agents</span>
+  </div>
+  <h1 class="item-title">AI Line 1 and Line 2 Risk Agents</h1>
+  <p class="full-title-subtitle">AI Line 1 and Line 2 Risk Agents: Who Is Building Them?</p>
+  <div class="meta-bar">
+    <span>2026-02-28</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/ai-strategy.html">ai-strategy</a> <a class="tag" href="/Research/tags/agentic-ai.html">agentic-ai</a> <a class="tag" href="/Research/tags/financial-services.html">financial-services</a> <a class="tag" href="/Research/tags/risk-management.html">risk-management</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-02-28-ai-line-1-line-2-risk-agents.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-02-28-ai-line-1-line-2-risk-agents" target="_blank" rel="noopener">wiki →</a>
+  </div>
+  <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Vendor platforms dominate line 2 AI agent deployment</li>
+<li>Line 1 agents focus on real-time operational risk detection</li>
+<li>Accountability architecture is universally &quot;human reviewer&quot; in current deployments</li>
+<li>NICE Actimize SURVEIL-X with generative AI reduces false positives by up to 85% and detects up to four times more misconduct than traditional systems</li>
+<li>McKinsey estimates agentic AI can automate up to 70% of manual compliance work in financial crime compliance, with pilot implementations reporting fourfold improvements in true risk detection</li>
+<li>FCA/PRA DP5/22 considered but did not introduce an SMCR prescribed responsibility for AI oversight</li>
+<li>APRA is applying CPS 220 and enhanced governance proposals to AI agents, not creating a new AI-specific standard</li>
+<li>RBNZ has no AI-specific interpretive guidance for line 1 or line 2 agents</li>
+</ol></div>
+
+  <div class="item-content">
+    <h2>Research Question</h2>
+<p>Who is currently building or deploying AI agents specifically positioned to operate within the three lines of defence model — line 1 (business/operational risk management) and line 2 (risk and compliance oversight) — and what are the architecture, governance, and accountability patterns for these agents?</p>
+
+<h2>Findings</h2>
+<h3>Executive Summary</h3>
+<p>AI agents performing line 1 and line 2 risk functions in financial services are deployed today, but almost exclusively in the &quot;tool output&quot; mode: the agent produces flags, alerts, or recommendations, and a named human remains accountable for the determination. The dominant delivery mechanism is commercial vendor platforms (NICE Actimize SURVEIL-X, Behavox, Nasdaq Trade Surveillance, IBM OpenPages) rather than bespoke in-house builds. Regulators across all major jurisdictions — FCA/PRA, APRA, BIS, RBNZ — are applying existing frameworks (SMCR, CPS 220, three-lines model) to AI agents and have not published agent-specific guidance for line 1 or line 2 oversight functions. The core governance question — who is accountable when an AI agent performs an independent oversight function at machine speed — remains unresolved in prudential guidance, and no major regulator has addressed the nominal-review problem where human review is formally present but substantively impossible at scale.</p>
+<h3>Key Findings</h3>
+<ol>
+<li><p><strong>Vendor platforms dominate line 2 AI agent deployment.</strong> NICE Actimize SURVEIL-X (generative AI-augmented), Behavox (voice and communications surveillance), Nasdaq Trade Surveillance, and IBM OpenPages (model risk governance) are the primary commercial platforms deployed in second-line financial crime and compliance functions. These are production systems at scale, not pilots.</p>
+</li>
+<li><p><strong>Line 1 agents focus on real-time operational risk detection.</strong> Transaction monitoring agents, trading desk risk alerts, AML screening, and sanctions checks are the dominant line 1 use cases. These agents operate at machine speed with human review triggered by agent-generated alerts — placing substantive risk identification firmly in the agent's domain.</p>
+</li>
+<li><p><strong>Accountability architecture is universally &quot;human reviewer&quot; in current deployments.</strong> Every documented deployment positions the agent output as a tool output, not a determination. A named compliance officer, risk manager, or senior manager retains formal accountability for final decisions. No disclosed deployment positions an agent as making binding risk determinations without mandatory human sign-off.</p>
+</li>
+<li><p><strong>NICE Actimize SURVEIL-X with generative AI reduces false positives by up to 85% and detects up to four times more misconduct than traditional systems.</strong> This is a vendor claim from a 2024 release announcement; independent validation is not available in public sources.</p>
+</li>
+<li><p><strong>McKinsey estimates agentic AI can automate up to 70% of manual compliance work</strong> in financial crime compliance, with pilot implementations reporting fourfold improvements in true risk detection. Oliver Wyman (February 2026) has separately documented agentic AI reshaping compliance at financial institutions, with the transition from alert-based to end-to-end autonomous workflow already underway.</p>
+</li>
+<li><p><strong>FCA/PRA DP5/22 considered but did not introduce an SMCR prescribed responsibility for AI oversight.</strong> The 2022 discussion paper asked whether there should be a named senior manager prescribed responsibility for AI. Industry feedback was mixed; the FCA/PRA concluded existing SMCR accountability is sufficient, with existing senior managers (CRO, CTO) accountable for AI risk within their domains. No new prescribed responsibility was created.</p>
+</li>
+<li><p><strong>APRA is applying CPS 220 and enhanced governance proposals to AI agents, not creating a new AI-specific standard.</strong> APRA's March 2025 enhanced governance proposals address board oversight of technology including AI, requiring clear accountability, independent validation, and escalation paths. The three-lines model is explicitly recommended but not AI-agent-specific.</p>
+</li>
+<li><p><strong>RBNZ has no AI-specific interpretive guidance for line 1 or line 2 agents.</strong> BS11 (outsourcing) and the corporate governance policy apply implicitly — banks must retain control, ensure stand-alone operability, and maintain board-level accountability for outsourced AI functions. There is no RBNZ interpretive material addressing the accountability question for agentic oversight functions.</p>
+</li>
+<li><p><strong>IBM OpenPages 9.1.3 explicitly markets itself as &quot;the first step toward agentic GRC.&quot;</strong> This framing acknowledges the gap: current deployments are not agentic in the autonomous-determination sense. AI assists human workflows; it does not replace human accountability for risk determinations.</p>
+</li>
+<li><p><strong>Three documented failure modes in agentic compliance agents:</strong> (a) overconfidence/hallucination producing plausible but incorrect risk narratives; (b) alert fatigue from false positives masking genuine risk signals (false negatives); (c) explainability gaps making it impossible to audit why the agent failed to flag an event. AI incident reports in financial services rose over 50% between 2023 and 2025.</p>
+</li>
+<li><p><strong>JPMorgan Chase is the most advanced bank in documented agentic risk integration.</strong> Its proprietary LLM Suite and OmniAI platforms support agentic multistep tasks across legal, regulatory, and compliance workflows with multi-level human-in-the-loop oversight. No public disclosure confirms line 2 determinations are made by agent without human sign-off.</p>
+</li>
+<li><p><strong>No regulator has published guidance specifically addressing the nominal-review problem.</strong> When agents operate at a scale and speed where human review is formally present but substantively impossible, the traditional accountability model (human reviewer is accountable) is strained but no supervisor has defined what constitutes adequate oversight in this scenario.</p>
+</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+  <th>Claim</th>
+  <th>Source</th>
+  <th>Confidence</th>
+  <th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>NICE Actimize SURVEIL-X deployed in line 2 compliance surveillance with generative AI</td>
+  <td>NICE press release, 2024; A-Team Insight</td>
+  <td>high</td>
+  <td>Production deployment confirmed</td>
+</tr>
+<tr>
+  <td>SURVEIL-X reduces false positives by 85%, detects 4x more misconduct</td>
+  <td>NICE press release, 2024</td>
+  <td>medium</td>
+  <td>Vendor claim; no independent validation</td>
+</tr>
+<tr>
+  <td>Behavox and Nasdaq Surveillance are production line 2 tools</td>
+  <td>Industry analysis, multiple sources</td>
+  <td>high</td>
+  <td>Well-established products</td>
+</tr>
+<tr>
+  <td>IBM OpenPages 9.1.3 is &quot;first step toward agentic GRC&quot;</td>
+  <td>IBM announcement, 2024</td>
+  <td>high</td>
+  <td>Direct vendor statement</td>
+</tr>
+<tr>
+  <td>Accountability architecture universally requires named human reviewer</td>
+  <td>McKinsey, Oliver Wyman, NICE, IBM documentation</td>
+  <td>high</td>
+  <td>No counterexample found in disclosed deployments</td>
+</tr>
+<tr>
+  <td>McKinsey: agentic AI can automate 70% of manual compliance work</td>
+  <td>McKinsey, 2024</td>
+  <td>medium</td>
+  <td>Estimate based on modelling, not completed deployments</td>
+</tr>
+<tr>
+  <td>FCA/PRA did not create a new SMCR prescribed responsibility for AI</td>
+  <td>FCA FS23/6, PRA FS2/23</td>
+  <td>high</td>
+  <td>Direct regulatory statement</td>
+</tr>
+<tr>
+  <td>FCA/PRA: existing SMCR is sufficient for AI accountability</td>
+  <td>FCA/PRA AI update, April 2024</td>
+  <td>high</td>
+  <td>Direct regulatory position</td>
+</tr>
+<tr>
+  <td>APRA applying CPS 220 to AI, not creating AI-specific standard</td>
+  <td>APRA enhanced governance proposals, March 2025</td>
+  <td>high</td>
+  <td>Confirmed by regulatory analysis</td>
+</tr>
+<tr>
+  <td>RBNZ has no AI-specific interpretive guidance for risk agents</td>
+  <td>RBNZ BS11, corporate governance policy</td>
+  <td>high</td>
+  <td>Absence confirmed by review of RBNZ publications</td>
+</tr>
+<tr>
+  <td>JPMorgan Chase most advanced bank in agentic risk integration</td>
+  <td>CNBC, multiple financial press, 2024–2025</td>
+  <td>medium</td>
+  <td>Based on public disclosures; actual internal architecture not independently verified</td>
+</tr>
+<tr>
+  <td>Three failure modes in agentic compliance: overconfidence, alert fatigue, explainability gap</td>
+  <td>Sardine.ai analysis, Aveni.ai, McKinsey</td>
+  <td>high</td>
+  <td>Consistent across multiple independent sources</td>
+</tr>
+<tr>
+  <td>AI incident reports in financial services up 50%+ 2023–2025</td>
+  <td>Aveni.ai industry analysis</td>
+  <td>medium</td>
+  <td>Cited by vendor; no independent audit body confirmation</td>
+</tr>
+<tr>
+  <td>Nominal-review problem unaddressed by regulators</td>
+  <td>Review of FCA, PRA, APRA, BIS, RBNZ guidance</td>
+  <td>high</td>
+  <td>Absence of guidance confirmed across all reviewed regulators</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li><strong>Assumption:</strong> Public disclosures by major banks accurately reflect their governance architecture for AI risk agents. <strong>Justification:</strong> Banks are subject to regulatory disclosure requirements and litigation risk that discourage misrepresentation of governance structures in public filings and annual reports.</li>
+<li><strong>Assumption:</strong> Vendor capability claims (NICE Actimize 85% false positive reduction) reflect operational results at some client sites, not hypothetical performance. <strong>Justification:</strong> Regulatory environment creates liability for false marketing in financial services; claims of this specificity are unlikely to be fabricated. However, generalisation to all deployments is not warranted.</li>
+<li><strong>Assumption:</strong> The absence of RBNZ-specific AI agent guidance reflects a policy choice to apply existing frameworks, not a gap in RBNZ's awareness of the issue. <strong>Justification:</strong> RBNZ has engaged actively on operational resilience and technology governance; the silence on AI-specific standards is consistent with its principles-based supervisory style.</li>
+</ul>
+<h3>Analysis</h3>
+<p>The landscape splits cleanly into two deployment types. Established commercial platforms (NICE Actimize, Behavox, Nasdaq, IBM OpenPages) represent mature line 2 tooling — these agents have been operating in compliance surveillance for years, and the generative AI upgrades in 2023–2024 increased detection capability while maintaining the same human-reviewer accountability architecture. The &quot;first step toward agentic GRC&quot; framing from IBM is telling: vendors are clearly positioning for a world where agents make determinations, but are not there yet.</p>
+<p>The in-house bespoke build category is dominated by JPMorgan Chase at the disclosed end. Their scale and proprietary platform investment makes them genuinely different from peers. HSBC and ING show standard vendor-reliance patterns; ANZ's AI risk management posture is not publicly documented in sufficient detail to characterise.</p>
+<p>The accountability gap is the central unresolved problem. All current deployments resolve it the same way: the agent flags, the human decides. This is defensible when human review is substantive. It becomes legally and prudentially problematic when agent throughput exceeds human review capacity — which is precisely the efficiency case for deploying agents at scale. Regulators have not addressed this tension directly. The FCA/PRA's decision not to create a new SMCR prescribed responsibility for AI means the accountability burden falls on whoever owns the risk function — the CRO, CCO, or analogous senior manager. This person is accountable for a determination process they may not be able to review in any meaningful sense.</p>
+<p>The three-lines model itself faces structural stress from agentic AI. When an AI agent performs a line 2 function (independent oversight and challenge of line 1), the independence of the second line is a function of the agent's training, objective function, and governance — not the organisational separation of the human reviewer. This is a qualitatively different accountability problem from human second-line oversight, and no existing prudential framework addresses it.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li><strong>Bespoke in-house build disclosure gap</strong>: The research is heavily weighted toward disclosed vendor deployments and high-profile institutions. It is plausible that mid-tier banks have built or bought line 2 agents with significantly different governance architectures that have not been publicly documented.</li>
+<li><strong>Regulatory silence may be temporary</strong>: FCA's AI Strategy, the EU AI Act's application to high-risk financial services use cases, and APRA's governance enhancement proposals all suggest more prescriptive guidance is coming. The current &quot;existing frameworks apply&quot; position may change materially in 2025–2026.</li>
+<li><strong>Vendor claims lack independent validation</strong>: The 85% false-positive reduction and 4x detection improvement claims from NICE Actimize are not independently validated in academic or regulatory publications found in this research.</li>
+<li><strong>JPMorgan Chase</strong>: The &quot;fully AI-powered megabank&quot; framing (CNBC, 2025) includes some details that may reflect intended future state rather than current production deployment.</li>
+<li><strong>RBNZ-specific gap</strong>: RBNZ has not published any supervisory speeches, Q&amp;As, or guidance notes addressing AI agents in risk functions. This is a genuine regulatory gap for NZ-incorporated entities and their boards.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>When agent throughput in compliance surveillance exceeds human review capacity, at what point does nominal human sign-off cease to constitute adequate oversight under prudential law? No regulator has addressed this threshold.</li>
+<li>How should independent validation of line 2 AI agents be structured when the agent's role is itself independent validation of line 1 activities? (The circular dependency problem in AI-mediated second-line oversight.)</li>
+<li>Are there any documented cases where a regulator has held an institution accountable specifically because an AI agent's oversight failure was attributed to inadequate human oversight rather than the agent itself? This would clarify the supervisory threshold.</li>
+<li>Should RBNZ-supervised entities proactively seek interpretive guidance on AI agent governance under BS11 and the corporate governance policy, or wait for formal standard updates?</li>
+<li>What is the appropriate escalation trigger threshold in an agentic line 2 oversight function — and who has the authority to set it?</li>
+</ul>
+<hr />
+
+
+  </div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-02-28-ai-strategy-risk-reduction-focus.html">AI Strategy Examples: Risk Reduction Focus</a> <span class="related-note">via ai-strategy, financial-services, risk-management</span></div>
+<div class="related-entry"><a href="/Research/research/2026-02-28-ai-control-testing-and-assurance.html">AI for Control Testing, Gap Identification, and Policies/Standards Reviews</a> <span class="related-note">via ai-strategy, financial-services, risk-management</span></div>
+<div class="related-entry"><a href="/Research/research/2026-02-28-rbnz-ai-supervisory-expectations.html">RBNZ AI Supervisory Expectations: What Do Regulated Entities Need to Know?</a> <span class="related-note">via ai-strategy, financial-services</span></div>
+<div class="related-entry"><a href="/Research/research/2026-02-28-ai-strategy.html">AI Strategy: global and NZ examples, policy frameworks, regulations, and use-case typologies</a> <span class="related-note">via agentic-ai, ai-strategy</span></div>
+</div></div>
+
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-02-28-ai-strategy-business-efficiency-examples.html">AI Strategy Examples</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-02-28-ai-control-testing-and-assurance.html">AI for Control Testing, Gap Identification, and Policies/Standards Reviews</a></div>
+  </div>
+</main>
+</body>
+</html>

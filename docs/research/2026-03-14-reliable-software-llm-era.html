@@ -1,0 +1,759 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Reliable Software in the LLM Era — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #141414;
+  --surface-2:       #1c1c1c;
+  --border:          #2a2a2a;
+  --text:            #e8e8e8;
+  --text-muted:      #666;
+  --accent:          #e8e8e8;
+  --accent-dim:      #333;
+  --tag-bg:          #1e1e1e;
+  --tag-text:        #999;
+  --tag-active-bg:   #e8e8e8;
+  --tag-active-text: #0d0d0d;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--accent); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+}
+.card:hover { border-color: var(--accent); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+}
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+.item-content pre code { background: none; padding: 0; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--text); text-decoration: underline; }
+.item-content a:hover { color: var(--text-muted); }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); }
+.key-claims li:last-child { border-bottom: none; }
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); }
+.related-entry:last-child { border-bottom: none; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--text); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-entry { padding: 1rem; border: 1px solid var(--border); border-bottom: none; text-decoration: none; color: var(--text); display: block; }
+.thread-entry:last-child { border-bottom: 1px solid var(--border); }
+.thread-entry:hover { background: var(--surface); text-decoration: none; }
+.thread-entry-title { font-size: var(--text-base); font-weight: 500; }
+.thread-entry-meta { font-size: var(--text-xs); color: var(--text-muted); margin-top: 0.25rem; letter-spacing: 0.05em; }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/">Research</a>
+    <div class="nav-links">
+      <a href="/Research/browse.html">Browse</a>
+      <a href="/Research/threads.html">Threads</a>
+      <a href="/Research/tags/">Tags</a>
+      <a href="/Research/search.html">Search</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <a href="/Research/browse.html">Browse</a>
+    <span>/</span>
+    <span>Reliable Software in the LLM Era</span>
+  </div>
+  <h1 class="item-title">Reliable Software in the LLM Era</h1>
+    <div class="meta-bar">
+    <span>2026-03-14</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/llm.html">llm</a> <a class="tag" href="/Research/tags/formal-methods.html">formal-methods</a> <a class="tag" href="/Research/tags/reliability.html">reliability</a> <a class="tag" href="/Research/tags/software-engineering.html">software-engineering</a> <a class="tag" href="/Research/tags/formal-verification.html">formal-verification</a> <a class="tag" href="/Research/tags/ai.html">ai</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-14-reliable-software-llm-era.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-14-reliable-software-llm-era" target="_blank" rel="noopener">wiki →</a>
+  </div>
+  
+  <div class="item-content">
+    <h2>Research Question</h2>
+<p>What strategies and formal-methods tooling exist for maintaining software reliability in the Large Language Model (LLM) era, and what does the Quint formal specification language ecosystem - including its LLM kit and the related concept of cognitive debt - offer as a response to AI-introduced reliability risks?</p>
+
+<h2>Findings</h2>
+<h3>Executive Summary</h3>
+<p>See §6 Synthesis (Executive summary) for the full narrative. In brief: the Quint ecosystem offers a technically sound, single-case-study-supported answer to LLM-era reliability risks by confining LLMs to translation tasks and delegating all reasoning to deterministic Quint tools. Applied to the Malachite Byzantine Fault Tolerant (BFT) consensus engine, the workflow completed a change estimated at months in approximately one week, uncovering two bugs in the English protocol description before any implementation began. The &quot;cognitive debt&quot; concept names the trust and understanding deficit that makes this matter urgently. Significant adoption barriers remain: the quint-llm-kit is explicitly not validated for external use, the workflow requires learning a formal specification language, and no independent replication of the speedup claim exists.</p>
+<h3>Key Findings</h3>
+<ol>
+<li><p>[fact] Large Language Models produce text that <em>looks</em> correct, making validation - not code generation - the central reliability challenge in LLM-assisted software development; executable specifications provide a mechanically verifiable ground truth between prose requirements and implementation code. [Confidence: high]</p>
+</li>
+<li><p>[fact] Quint is a programming-style formal specification language grounded in the Temporal Logic of Actions (TLA) - the same underlying logic as TLA+ - but with added type checking, C-style syntax, a simulator, model checker, and Read-Eval-Print Loop (REPL), making it more familiar to working engineers than TLA+. [Confidence: high]</p>
+</li>
+<li><p>[fact] The four-step Quint LLM workflow divides labour by competence: LLMs handle translation tasks (English to spec, spec to code, spec to test glue), while Quint's deterministic tools handle reasoning (reachability checks, invariant verification, model-based test execution). [Confidence: high]</p>
+</li>
+<li><p>[fact] A production case study on the Malachite BFT consensus engine found two bugs in the English protocol description during spec validation and completed the full change in approximately one week (self-reported 4–10× reduction vs. traditional estimate); see Research Skill Output §2 A4 for the primary evidence. Single self-reported data point from the tool's creators. [Confidence: medium]</p>
+</li>
+<li><p>[fact] Cognitive debt is the accumulated trust and understanding deficit that arises when LLM code generation replaces understand-while-coding, the informal design process embedded in hand-written code; it accumulates silently as LLM-generated code becomes the primary artifact that engineers neither wrote nor fully reason through. [Confidence: high]</p>
+</li>
+<li><p>[fact] Natural language (English) specifications fail as a cognitive-debt remedy on three specific grounds: contradiction detection is intractable, meaning is ambiguous, and the spec is not executable - meaning engineers cannot mechanically explore edge cases or reachability - all three limitations that Quint directly addresses. [Confidence: high]</p>
+</li>
+<li><p>[fact] The quint-llm-kit is a Docker-packaged Claude Code environment containing Quint CLI, Language Server Protocol (LSP) integration, and specialised agents (analyzer, implementer, verifier), with an explicit maintainer disclaimer that it has not been validated for general external use and is provided without warranty. [Confidence: high]</p>
+</li>
+<li><p>[fact] Spectacle - a Haskell-embedded temporal-logic specification and model-checking library from Arista Networks - addresses the same verification problem as Quint but has failed builds since 2022, requires GHC 8.10.3, and has 147 lifetime downloads, demonstrating that embedding formal verification in a niche host language severely limits adoption regardless of technical quality. [Confidence: high]</p>
+</li>
+<li><p>[fact] Practitioner reaction to the primary article split between endorsement of spec-driven validation as genuinely underrated (one practitioner reported spending 10–20× more tokens on spec refinement than code generation) and scepticism about novelty or marketing tone, with no respondent disputing the technical soundness of executable specifications as a validation mechanism. [Confidence: medium]</p>
+</li>
+<li><p>[inference] Model-version drift - the risk that a silent LLM update changes code generation behaviour in ways that model-based tests do not catch - is an identified reliability gap not addressed in any of the source material, representing a real-world failure mode for spec-based LLM workflows that depend on stable model behaviour. [Confidence: medium]</p>
+</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+  <th>Claim</th>
+  <th>Source</th>
+  <th>Confidence</th>
+  <th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>LLMs produce text that looks correct; validation is the core challenge</td>
+  <td>quint-lang.org/posts/llm_era (Moreira, Nov 2025)</td>
+  <td>high</td>
+  <td>Direct quote; primary source</td>
+</tr>
+<tr>
+  <td>Quint is TLA+ with programming-style syntax, type checking, and toolchain</td>
+  <td>github.com/informalsystems/quint FAQ; r/tlaplus discussion</td>
+  <td>high</td>
+  <td>Two independent sources agree</td>
+</tr>
+<tr>
+  <td>Four-step Quint LLM workflow with LLM as translator, tools as reasoner</td>
+  <td>quint-lang.org/posts/llm_era</td>
+  <td>high</td>
+  <td>Step-by-step description with tooling commands</td>
+</tr>
+<tr>
+  <td>Malachite case study: months estimate → ~1 week actual; two bugs found in English spec</td>
+  <td>quint-lang.org/posts/llm_era</td>
+  <td>medium</td>
+  <td>Self-reported; single data point; no independent verification</td>
+</tr>
+<tr>
+  <td>Cognitive debt = understanding/trust deficit from bypassed understand-while-coding</td>
+  <td>quint-lang.org/posts/cognitive_debt (Widder &amp; Moreira, March 2026)</td>
+  <td>high</td>
+  <td>Primary source; detailed definition and framing</td>
+</tr>
+<tr>
+  <td>Three failures of natural language: contradiction detection, ambiguity, not executable</td>
+  <td>quint-lang.org/posts/cognitive_debt</td>
+  <td>high</td>
+  <td>Explicit enumeration in primary source</td>
+</tr>
+<tr>
+  <td>quint-llm-kit: Docker + Claude Code CLI + Quint agents + MCP servers, Apache-2.0</td>
+  <td>github.com/informalsystems/quint-llm-kit README</td>
+  <td>high</td>
+  <td>Directly observable</td>
+</tr>
+<tr>
+  <td>quint-llm-kit: not validated for general use; explicit disclaimer</td>
+  <td>github.com/informalsystems/quint-llm-kit README</td>
+  <td>high</td>
+  <td>Verbatim disclaimer in repository</td>
+</tr>
+<tr>
+  <td>Spectacle: failed builds since 2022, GHC 8.10.3 only, 147 lifetime downloads</td>
+  <td>hackage.haskell.org/package/spectacle</td>
+  <td>high</td>
+  <td>Directly observable from Hackage</td>
+</tr>
+<tr>
+  <td>Spec validation is underrated; 10–20× tokens on spec refinement vs. code generation</td>
+  <td>HN item 47350152 (OutOfHere)</td>
+  <td>medium</td>
+  <td>Single practitioner account</td>
+</tr>
+<tr>
+  <td>Model-update drift is an unaddressed gap</td>
+  <td>HN item 47360857 (shanjai_raj7)</td>
+  <td>medium</td>
+  <td>Identified gap; no counter-evidence in sources</td>
+</tr>
+<tr>
+  <td>Formal methods + LLMs roadmap for Requirements Engineering (RE) correctness guarantees</td>
+  <td>ACM Infsof 2025 (dl.acm.org/doi/10.1016/j.infsof.2025.107697)</td>
+  <td>medium</td>
+  <td>Consistent direction; independent academic source</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li><strong>Assumption:</strong> The 4–10× speedup for the Malachite BFT consensus change generalises beyond distributed consensus protocols to other complex software systems. <strong>Justification:</strong> The article asserts this generalisation but cites no additional data. Adopted as a working medium-confidence assumption pending independent evidence.</li>
+<li><strong>Assumption:</strong> The quint-llm-kit disclaimer (&quot;not for general use&quot;) does not invalidate the underlying workflow, only its external productisation maturity. <strong>Justification:</strong> The core Quint CLI and model checker are independently maintained and released. The kit is a convenience automation layer over the core toolchain.</li>
+</ul>
+<h3>Analysis</h3>
+<p>The quint-lang.org ecosystem's core claim is structurally defensible: removing LLMs from the verification path by delegating reasoning entirely to deterministic tools (Quint simulator, model checker) avoids the fundamental weakness of using LLMs to verify LLM output. This is a cleaner architectural division than approaches that add more AI to the quality gate.</p>
+<p>The cognitive debt framing adds genuine value by naming a previously unarticulated phenomenon. Engineers using LLMs have experienced the anxiety of receiving a large AI-generated diff they cannot fully reason through; &quot;cognitive debt&quot; provides vocabulary for why that anxiety is structurally different from the challenge of reviewing human-written code. This vocabulary is useful for teams making the case for investment in specification tooling.</p>
+<p>The evidence base has a characteristic weakness: the case study was conducted and reported by the team that created Quint and the quint-llm-kit. This is not a disqualifying conflict of interest - internal teams applying their own tools and reporting results is how most software tooling evidence begins - but it does mean that the speedup claims carry medium rather than high confidence until independent teams replicate the workflow.</p>
+<p>Spectacle provides an instructive contrast that the source material does not discuss: identical formal machinery embedded in Haskell has achieved near-zero adoption after three years. Quint's standalone language design and active LLM-translation layer give it better adoption prospects, but the formal methods adoption curve is historically slow (TLA+ is 25+ years old with meaningful but limited mainstream penetration).</p>
+<p>The model-update drift gap is the most practically significant open issue: if an LLM model update silently changes code generation behaviour, the Quint spec remains valid, model-based tests may pass (if the changed behaviour is within the spec's modelled scenarios), and engineers may not detect the drift until it manifests as a production bug. The article's planned trace validation from production environments is a partial mitigation, but it is described as future work.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li><strong>Evidence thinness:</strong> The Malachite speedup claim rests on a single self-reported case study by the tool's creators. External replication does not exist in the literature as of this writing.</li>
+<li><strong>Model-update drift:</strong> Silent LLM model version updates can change code generation behaviour without triggering model-based test failures if the changed behaviour falls within the spec's scenario coverage. This is an unmitigated risk in the current workflow.</li>
+<li><strong>External tooling maturity:</strong> The quint-llm-kit carries an explicit disclaimer of non-fitness for general use. Teams adopting the workflow without Informal Systems' internal tooling would need to replicate the agent and MCP server setup independently.</li>
+<li><strong>Adoption barrier:</strong> The workflow requires engineers to learn Quint. The article acknowledges this cost (&quot;a few days of work for a complex protocol&quot; for an initial spec) but does not address teams with no prior formal-methods exposure.</li>
+<li><strong>Domain generalisability:</strong> All evidence is from distributed consensus protocols - a domain where formal specification is already established practice. Applicability to CRUD applications, data pipelines, or UI logic is asserted but unevidenced.</li>
+</ul>
+<h3>Open Questions</h3>
+<ol>
+<li>Does the Quint workflow produce measurable reliability improvements in domains outside distributed protocols - e.g., financial transaction processing, API contract checking, data pipeline correctness - and what is the learning-curve cost for teams without formal methods background?</li>
+<li>How does trace validation from production environments (described as planned future work in the llm_era post) mitigate the model-update drift gap, and at what operational cost?</li>
+<li>What is the actual adoption pattern for the quint-llm-kit outside Informal Systems - are there external teams using it, and what are their results?</li>
+<li>As LLMs improve at generating formally verifiable code (e.g., Lean 4, Dafny proofs), does the Quint-as-validation-layer approach converge with or diverge from LLM-native formal verification approaches?</li>
+</ol>
+<hr />
+
+
+  </div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-03-18-formal-proof-engineering-leanstral.html">More formal proof engineering: Leanstral and Artificial Intelligence (AI)-assisted formal verification</a> <span class="related-note">via formal-methods, formal-verification</span></div>
+<div class="related-entry"><a href="/Research/research/2026-03-08-servicenow-ai-knowledge-rag-agents.html">ServiceNow AI: Knowledge Management, RAG Pipelines, and Agent Frameworks</a> <span class="related-note">via ai, llm</span></div>
+<div class="related-entry"><a href="/Research/research/2026-03-05-llm-hallucination-mechanisms.html">LLM Hallucinations — Types, Causes, and Current Mitigation Approaches</a> <span class="related-note">via llm, reliability</span></div>
+<div class="related-entry"><a href="/Research/research/2026-03-05-h-neurons-synthesis.html">H-Neurons Synthesis — From Hallucination Mechanisms to Actionable LLM Reliability Engineering</a> <span class="related-note">via llm, reliability</span></div>
+<div class="related-entry"><a href="/Research/research/2026-03-05-h-neurons-in-llms.html">Hallucination-Associated Neurons (H-Neurons) in LLMs — Identification, Behavioural Impact, and Origins</a> <span class="related-note">via llm, reliability</span></div>
+</div></div>
+
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-14-ricardian-contract-model.html">Ricardian Contract model</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-14-organisational-intent-formal-specification.html">Can organisational intent be expressed as a formally structured specification…</a></div>
+  </div>
+</main>
+</body>
+</html>

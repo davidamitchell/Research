@@ -1,0 +1,747 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>General Agent Optimization Framework — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #141414;
+  --surface-2:       #1c1c1c;
+  --border:          #2a2a2a;
+  --text:            #e8e8e8;
+  --text-muted:      #666;
+  --accent:          #e8e8e8;
+  --accent-dim:      #333;
+  --tag-bg:          #1e1e1e;
+  --tag-text:        #999;
+  --tag-active-bg:   #e8e8e8;
+  --tag-active-text: #0d0d0d;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--accent); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+}
+.card:hover { border-color: var(--accent); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+}
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+.item-content pre code { background: none; padding: 0; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--text); text-decoration: underline; }
+.item-content a:hover { color: var(--text-muted); }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); }
+.key-claims li:last-child { border-bottom: none; }
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); }
+.related-entry:last-child { border-bottom: none; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--text); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-entry { padding: 1rem; border: 1px solid var(--border); border-bottom: none; text-decoration: none; color: var(--text); display: block; }
+.thread-entry:last-child { border-bottom: 1px solid var(--border); }
+.thread-entry:hover { background: var(--surface); text-decoration: none; }
+.thread-entry-title { font-size: var(--text-base); font-weight: 500; }
+.thread-entry-meta { font-size: var(--text-xs); color: var(--text-muted); margin-top: 0.25rem; letter-spacing: 0.05em; }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/">Research</a>
+    <div class="nav-links">
+      <a href="/Research/browse.html">Browse</a>
+      <a href="/Research/threads.html">Threads</a>
+      <a href="/Research/tags/">Tags</a>
+      <a href="/Research/search.html">Search</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <a href="/Research/browse.html">Browse</a>
+    <span>/</span>
+    <span>General Agent Optimization Framework</span>
+  </div>
+  <h1 class="item-title">General Agent Optimization Framework</h1>
+    <div class="meta-bar">
+    <span>2026-03-05</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/ai-agents.html">ai-agents</a> <a class="tag" href="/Research/tags/evaluation.html">evaluation</a> <a class="tag" href="/Research/tags/prompt-engineering.html">prompt-engineering</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-05-general-agent-optimization-framework.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-05-general-agent-optimization-framework" target="_blank" rel="noopener">wiki →</a>
+  </div>
+  
+  <div class="item-content">
+    <h2>Research Question</h2>
+<p>What is the most principled architecture for a Self-Improving AI Agent Evaluation Loop — specifically, how should a nested inner/outer loop be designed so that a &quot;Meta-Optimizer&quot; rewrites system prompts based on failure analysis without causing instruction drift or overfitting to specific training questions?</p>
+
+<h2>Findings</h2>
+<h3>Executive Summary</h3>
+<p>DSPy (Khattab et al., 2023) is the most principled foundation for a Self-Improving AI Agent Evaluation Loop because it is the only surveyed framework providing native support for both an inner loop (instruction and demonstration optimization) and an outer loop (evaluation against a held-out metric) within a single pip-installable Python package. The canonical architecture pairs MIPRO as the inner-loop optimizer — searching instruction-demo combinations via Bayesian optimization at ~370 LLM calls per run — with an LLM-prompted paraphrase engine as the outer-loop variation mechanism. Instruction drift is managed by incorporating a token-count Brevity Penalty into MIPRO's objective and applying LLMLingua compression before each update, grounded in empirical evidence that prompt length degrades recall accuracy through context rot and the lost-in-the-middle effect. The Chambers &amp; Partners Golden Set path is blocked by copyright with no self-service licensing available; the open alternative stack is AgentBench (inner-loop bootstrap), GAIA (tool-use robustness), FinBen (finance), and LegalBench plus legislation.govt.nz statute text (NZ legal domain). The primary open architectural question — how to refresh the outer-loop test set before it itself overfits — is unresolved in any surveyed framework.</p>
+<h3>Key Findings</h3>
+<ol>
+<li>DSPy is the only surveyed automated prompt optimization framework that provides both inner-loop instruction search and outer-loop metric-based evaluation within a single codebase, making it the correct integration target for a Self-Improving Agent Evaluation Loop. (Confidence: high)</li>
+<li>APE automated instruction generation outperformed human-annotated prompts on 19 of 24 NLP tasks and matched on the remaining 5, establishing that systematic instruction search has materially higher ceiling than hand-tuning. (Confidence: high)</li>
+<li>OPRO's meta-prompt optimization outperforms human-designed prompts by up to 8% on GSM8K and up to 50% on Big-Bench Hard tasks, with gains attributable to accumulated optimization history in the meta-prompt rather than any single instruction change. (Confidence: high)</li>
+<li>TextGrad's text-backpropagation mechanism improved GPT-4o GPQA accuracy from 51% to 55% zero-shot, but its per-update LLM call overhead makes it a poor fit for repeated self-improvement cycles in API-cost-constrained environments. (Confidence: medium)</li>
+<li>DSPy MIPRO with default settings (~4 candidates, 4 demos, 10 trials, batch of 35) requires approximately 370 LLM API calls per optimization run, placing weekly automated runs within operational budget but ruling out per-commit CI integration. (Confidence: high)</li>
+<li>AgentBench is the only benchmark in the surveyed set with an explicit training split across 8 interactive environments, making it the best-suited source for DSPy inner-loop bootstrapping as opposed to evaluation-only use. (Confidence: high)</li>
+<li>Chambers and Partners Global Practice Guides are copyright-protected and their terms explicitly prohibit bulk extraction and redistribution for AI training purposes, requiring direct commercial negotiation for any Golden Set use — a path that is not self-serviceable. (Confidence: high)</li>
+<li>FinBen (36 datasets, 24 financial tasks, NeurIPS 2024) is open-source and directly applicable as a domain Golden Set for NZ financial services agents, though it requires NZ-specific regulatory supplementation because its tasks are US-centric. (Confidence: medium)</li>
+<li>Prompt length degrades LLM recall accuracy non-uniformly through context rot and the lost-in-the-middle effect; every Meta-Optimizer instruction update must include a compression step — LLMLingua achieves up to 20× compression with negligible performance loss. (Confidence: high)</li>
+<li>LLM-prompted paraphrase generation is the lowest-cost outer-loop variation method, but answer-consistency validation is mandatory because paraphrase generation can silently alter the semantically correct answer. Adversarial paraphrasing (NeurIPS 2025) is more effective at surface coverage but requires additional quality gates. (Confidence: medium)</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+  <th>Claim</th>
+  <th>Source</th>
+  <th>Confidence</th>
+  <th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>DSPy provides native inner + outer loop support</td>
+  <td>Khattab et al., 2023 (arXiv:2310.03714)</td>
+  <td>high</td>
+  <td>Confirmed from abstract; outer loop is evaluation metric layer</td>
+</tr>
+<tr>
+  <td>APE outperforms human prompts on 19/24 NLP tasks</td>
+  <td>Zhou et al., 2023 (arXiv:2211.01910)</td>
+  <td>high</td>
+  <td>Directly from paper abstract</td>
+</tr>
+<tr>
+  <td>OPRO achieves up to 50% improvement on Big-Bench Hard</td>
+  <td>Yang et al., 2024 (arXiv:2309.03409)</td>
+  <td>high</td>
+  <td>Directly from paper abstract</td>
+</tr>
+<tr>
+  <td>TextGrad: GPQA 51% → 55% zero-shot (GPT-4o)</td>
+  <td>Yuksekgonul et al., 2024 (arXiv:2406.07496)</td>
+  <td>high</td>
+  <td>Directly from paper abstract</td>
+</tr>
+<tr>
+  <td>DSPy MIPRO ~370 LLM calls per default-settings run</td>
+  <td>DSPy documentation (dspy.ai) + web search synthesis</td>
+  <td>high</td>
+  <td>Formula confirmed; specific figure is synthesis of documented parameters</td>
+</tr>
+<tr>
+  <td>AgentBench is the only benchmark with a training split</td>
+  <td>Liu et al., 2023 (arXiv:2308.03688) + benchmark comparison web search</td>
+  <td>high</td>
+  <td>All other surveyed benchmarks are evaluation-only</td>
+</tr>
+<tr>
+  <td>Chambers GPG copyright prohibits bulk AI training extraction</td>
+  <td>practiceguides.chambers.com + assets.chambers.com/pdfs/gpg_brochure.pdf</td>
+  <td>high</td>
+  <td>Terms explicitly prohibit automated scraping and redistribution</td>
+</tr>
+<tr>
+  <td>FinBen: 36 datasets, 24 financial tasks, open-source</td>
+  <td>Xie et al., 2024 (arXiv:2402.12659); NeurIPS 2024 proceedings</td>
+  <td>medium</td>
+  <td>US-centric tasks; NZ supplementation required</td>
+</tr>
+<tr>
+  <td>Context rot: recall degrades with prompt length</td>
+  <td>Chroma Research 2025 (cited in prior item 2026-03-02); PromptLayer; MLOps blog</td>
+  <td>high</td>
+  <td>Cross-referenced across 3+ independent sources</td>
+</tr>
+<tr>
+  <td>LLMLingua achieves up to 20× compression with negligible loss</td>
+  <td>Web search citing LLMLingua documentation</td>
+  <td>medium</td>
+  <td>Specific compression ratio from vendor claim; independent replication not verified</td>
+</tr>
+<tr>
+  <td>LLM paraphrase can alter correct answer silently</td>
+  <td>Synthesis of ACL 2024 synthetic data survey and adversarial paraphrasing work</td>
+  <td>medium</td>
+  <td>Inferred from quality-control literature, not a single primary claim</td>
+</tr>
+<tr>
+  <td>Adversarial paraphrasing exposes model weaknesses</td>
+  <td>NeurIPS 2025 Adversarial Paraphrasing framework (chengez/Adversarial-Paraphrasing)</td>
+  <td>medium</td>
+  <td>Demonstrated on AI text detection tasks; transfer to general agent eval is inference</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li><strong>Assumption:</strong> The Self-Improving Loop operates against LLM APIs only (no local GPU compute). <strong>Justification:</strong> Explicitly stated in scope constraints; all cost estimates derived accordingly.</li>
+<li><strong>Assumption:</strong> A weekly optimization cadence is the appropriate operational schedule. <strong>Justification:</strong> Derived from cost calculation (~370 API calls × weekly frequency = manageable; daily frequency becomes expensive); not empirically validated for this specific repo.</li>
+<li><strong>Assumption:</strong> NZ legislation.govt.nz text is freely usable for LLM training. <strong>Justification:</strong> New Zealand government publications are typically Crown copyright with open licensing for non-commercial use, but specific terms should be confirmed before building a Golden Set from this source.</li>
+<li><strong>Assumption:</strong> Brevity Penalty and Prompt Pruning can be implemented as MIPRO objective modifications. <strong>Justification:</strong> DSPy's modular objective design supports custom metric functions; the specific implementation is untested in this context.</li>
+</ul>
+<h3>Analysis</h3>
+<p>The four frameworks (APE, OPRO, TextGrad, DSPy) form a progression from simple search (APE) to history-aware search (OPRO) to gradient-analogue feedback (TextGrad) to full pipeline programming (DSPy). The key discriminator for this repo's use case is not raw performance ceiling — all four show substantial gains over hand-tuning — but operational fit: weekly API-accessible runs, Python integration into <code>src/</code>, and explicit outer-loop support. DSPy wins on all three criteria.</p>
+<p>The benchmark landscape divides cleanly into three tiers for an optimization loop: bootstrapping sources (AgentBench — has training splits), evaluation harnesses (GPQA, MMLU-Pro, HLE, GAIA — held-out test sets), and domain Golden Sets (FinBen, LegalBench, SWE-bench). The absence of a training split in most benchmarks is a deliberate design choice to prevent contamination; this means the inner loop can only bootstrap from actual agent interaction traces, not from benchmark training data for most benchmarks.</p>
+<p>The Chambers &amp; Partners assessment is a clear no-go for unilateral action. The structured Q&amp;A format of the Guides is ideal for a Golden Set, but the copyright barrier is absolute without a negotiated license. The open-source alternative (LegalBench + NZ statute text) is less curated but immediately actionable.</p>
+<p>Instruction drift is the central reliability risk of iterative prompt optimization. Every update that adds a new rule without removing redundant prior rules will lengthen the prompt and degrade performance through context rot. The mitigation architecture — Brevity Penalty in the objective + LLMLingua compression post-update — is grounded in empirical evidence but its specific implementation in DSPy is an engineering task, not a research question.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li><strong>Outer-loop test set refresh policy is unresolved.</strong> No surveyed framework specifies when or how to replace the variation set to prevent the outer loop itself from overfitting. This is a first-order architectural gap.</li>
+<li><strong>NZ-specific regulatory content is absent from all open benchmarks.</strong> FinBen is US-centric; LegalBench covers common law principles but not NZ statutes. A custom Golden Set is required for production NZ financial/legal agent evaluation.</li>
+<li><strong>Brevity Penalty formulation is an inference, not a published technique.</strong> The concept is sound and grounded in compression literature, but no primary paper implements it as a DSPy objective term specifically. This requires prototyping.</li>
+<li><strong>LLMLingua 20× compression claim is from vendor documentation.</strong> Independent third-party validation of the compression-without-loss claim is not confirmed in this review.</li>
+<li><strong>Adversarial paraphrasing transfer to agent evaluation is an inference.</strong> NeurIPS 2025 work demonstrated effectiveness on AI detection tasks; whether the same approach generalises to research agent Q&amp;A is not empirically established.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>What is the correct policy for rotating the outer-loop variation test set — by age, by accuracy saturation, or by explicit adversarial gap analysis? (Candidate backlog item)</li>
+<li>Can legislation.govt.nz content be used as LLM training data under NZ Crown copyright terms, and what is the procedure for establishing this? (Candidate backlog item)</li>
+<li>Is TextGrad's text-backpropagation approach viable for a multi-component agent pipeline where individual modules (retrieval, synthesis, citation) need independent optimization? (Future research item)</li>
+<li>What is the practical accuracy ceiling for GAIA level-3 tasks with a DSPy-optimized agent using only LLM API calls and web search? (Evaluation question)</li>
+</ul>
+<hr />
+
+
+  </div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-03-04-sdlc-ai-prompt-patterns.html">Emergent Patterns in Software Engineering Prompts and SDLC Guidance</a> <span class="related-note">via ai-agents, prompt-engineering</span></div>
+<div class="related-entry"><a href="/Research/research/2026-03-03-research-loop-quality-prompt-engineering.html">Evaluating and improving autonomous research loop quality: prompt engineering and output assessment</a> <span class="related-note">via evaluation, prompt-engineering</span></div>
+</div></div>
+
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-05-h-neuron-over-compliance.html">Over-Compliance in LLMs — How H-Neurons Drive Sycophancy and What Interventions…</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-04-sdlc-ai-prompt-patterns.html">Emergent Patterns in Software Engineering Prompts and SDLC Guidance</a></div>
+  </div>
+</main>
+</body>
+</html>

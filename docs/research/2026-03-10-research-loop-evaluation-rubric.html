@@ -1,0 +1,783 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Research loop evaluation rubric — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #141414;
+  --surface-2:       #1c1c1c;
+  --border:          #2a2a2a;
+  --text:            #e8e8e8;
+  --text-muted:      #666;
+  --accent:          #e8e8e8;
+  --accent-dim:      #333;
+  --tag-bg:          #1e1e1e;
+  --tag-text:        #999;
+  --tag-active-bg:   #e8e8e8;
+  --tag-active-text: #0d0d0d;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--accent); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+}
+.card:hover { border-color: var(--accent); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+}
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+.item-content pre code { background: none; padding: 0; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--text); text-decoration: underline; }
+.item-content a:hover { color: var(--text-muted); }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); }
+.key-claims li:last-child { border-bottom: none; }
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); }
+.related-entry:last-child { border-bottom: none; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--text); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-entry { padding: 1rem; border: 1px solid var(--border); border-bottom: none; text-decoration: none; color: var(--text); display: block; }
+.thread-entry:last-child { border-bottom: 1px solid var(--border); }
+.thread-entry:hover { background: var(--surface); text-decoration: none; }
+.thread-entry-title { font-size: var(--text-base); font-weight: 500; }
+.thread-entry-meta { font-size: var(--text-xs); color: var(--text-muted); margin-top: 0.25rem; letter-spacing: 0.05em; }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/">Research</a>
+    <div class="nav-links">
+      <a href="/Research/browse.html">Browse</a>
+      <a href="/Research/threads.html">Threads</a>
+      <a href="/Research/tags/">Tags</a>
+      <a href="/Research/search.html">Search</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <a href="/Research/browse.html">Browse</a>
+    <span>/</span>
+    <span>Research loop evaluation rubric</span>
+  </div>
+  <h1 class="item-title">Research loop evaluation rubric</h1>
+  <p class="full-title-subtitle">Research loop evaluation rubric: LLM-as-judge specification for this repository&#39;s research loop agent</p>
+  <div class="meta-bar">
+    <span>2026-03-10</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/agents.html">agents</a> <a class="tag" href="/Research/tags/evaluation.html">evaluation</a> <a class="tag" href="/Research/tags/research-loop.html">research-loop</a> <a class="tag" href="/Research/tags/regression.html">regression</a> <a class="tag" href="/Research/tags/ci.html">ci</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-10-research-loop-evaluation-rubric.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-10-research-loop-evaluation-rubric" target="_blank" rel="noopener">wiki →</a>
+  </div>
+  
+  <div class="item-content">
+    <h2>Research Question</h2>
+<p>What structured rubric should be used to evaluate the outputs of this repository's research loop agent — and what does a minimal viable implementation of a Continuous Integration (CI)-integrated eval gate for that rubric look like? The rubric must be specific enough to produce reproducible Large Language Model (LLM)-as-judge scores, version-controlled alongside the agent prompt, and executable in CI without prohibitive cost.</p>
+
+<h2>Findings</h2>
+<h3>Executive Summary</h3>
+<p>This repository should implement its research loop eval gate as a custom 9-dimension rubric prompt passed to the GitHub Copilot CLI, extending the existing <code>research-review.yml</code> pattern rather than adopting a third-party evaluation framework, because all named frameworks (DeepEval, Pydantic Evals, agentevals) require OpenAI or Anthropic API keys that are not approved credentials in this repository. The rubric separates structural compliance (5 dimensions, deterministic) from semantic quality (4 dimensions, LLM-judged), with three hard FAIL conditions — acronym non-expansion, Executive Summary restating the question, and Evidence Map gaps — because these are the most frequent and most diagnostic agent failure modes. The implementation requires one new prompt file (<code>docs/eval/research-rubric-prompt.md</code>) and one new CI workflow, with zero additional credentials and per-item cost under $0.05 in runner fees. A gold dataset of 3–5 manually audited completed items provides the regression baseline and must be refreshed whenever the research protocol changes.</p>
+<h3>Key Findings</h3>
+<ol>
+<li><p>The only tooling approach satisfying this repository's no-new-credentials constraint is a custom GitHub Copilot CLI-based implementation, because DeepEval, Pydantic Evals, and agentevals each require OpenAI or Anthropic API keys not listed in the approved credentials table in AGENTS.md. Confidence: high.</p>
+</li>
+<li><p>The research loop agent's three most structurally significant failure modes per the protocol specification — acronym non-expansion on first use, Executive Summary restating the research question instead of answering it, and Key Findings present without a corresponding Evidence Map row — should be hard FAIL conditions rather than scored dimensions, providing the clearest CI signal of incomplete protocol execution. Confidence: high.</p>
+</li>
+<li><p>A 9-dimension rubric separating structural compliance (deterministic, 5 dimensions: section presence, Evidence Map coverage, Key Finding word count, source consultation, acronym expansion) from semantic quality (LLM-judged, 4 dimensions: executive summary first sentence, claim-to-source accuracy, epistemic labeling, Key Finding specificity) is more reproducible than a single holistic score because structural dimensions can be evaluated without LLM cost. Confidence: high.</p>
+</li>
+<li><p>Pydantic Evals defaults to GPT-4o as its LLM judge and provides no documented integration with the GitHub Copilot Application Programming Interface (API), making it unsuitable for this repository without a custom adapter that adds engineering complexity without delivering benefits beyond a direct Copilot CLI prompt approach. Confidence: high.</p>
+</li>
+<li><p>The rubric prompt should instruct the judge to output a machine-parseable structured table (dimension | score 1–5 | reasoning) followed by a single <code>OVERALL: PASS</code> or <code>OVERALL: FAIL</code> line, enabling CI parsing with a simple <code>grep</code> command — the same approach proven reliable in the existing <code>research-review.yml</code> workflow. Confidence: high.</p>
+</li>
+<li><p>A 1–5 scoring scale per dimension provides quality trend-tracking signal across items over time, but any dimension scoring 1 (absent or containing only template placeholder text) must trigger a hard FAIL regardless of the mean score because structural absence is a protocol violation that invalidates the item. Confidence: high.</p>
+</li>
+<li><p>A gold dataset of 3–5 completed items manually audited against all 9 rubric dimensions is the minimum viable regression baseline, and must be re-evaluated whenever <code>research-prompt.md</code> or <code>SKILL.md</code> changes, following the same benchmark-refresh principle identified in the agent evaluation cross-repo analysis for SWE-bench-Live. Confidence: medium.</p>
+</li>
+<li><p>The marginal API cost of the CI eval gate is zero because the Copilot subscription is already paid; runner cost is approximately $0.04 per evaluation (5 minutes at $0.008/minute on a GitHub Actions Linux runner), making the per-item cost effectively non-binding for this use case. Confidence: medium.</p>
+</li>
+<li><p>The eval gate should trigger on push to main where the diff includes files in <code>Research/completed/</code>, complementing rather than replacing the existing <code>research-review.yml</code> which runs on draft items; the two workflows cover different lifecycle stages (pre-complete vs post-complete) and different failure mode classes (prose quality vs structural completeness). Confidence: high.</p>
+</li>
+<li><p>The three structural hard FAILs (acronym expansion, executive summary quality, Evidence Map coverage) represent the most actionable additions to the current quality gate because the existing <code>research-review.yml</code> already checks citation discipline, speculation control, and AI slop removal — the new gate closes the gaps not covered by the existing workflow. Confidence: high.</p>
+</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+  <th>Claim</th>
+  <th>Source</th>
+  <th>Confidence</th>
+  <th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Custom Copilot CLI is only feasible approach</td>
+  <td>AGENTS.md credentials table; DeepEval docs; Pydantic Evals docs; agentevals README</td>
+  <td>high</td>
+  <td>Credential constraint is explicit in AGENTS.md</td>
+</tr>
+<tr>
+  <td>Acronym non-expansion is most frequent failure</td>
+  <td>research-prompt.md Step 6 header (&quot;#1 cause of review failures&quot;)</td>
+  <td>high</td>
+  <td>Explicit statement in the protocol document</td>
+</tr>
+<tr>
+  <td>Executive Summary first-sentence quality is diagnostic</td>
+  <td>research-prompt.md Step 5 Executive Summary spec</td>
+  <td>high</td>
+  <td>Protocol specifies &quot;first sentence must state the answer as a specific, falsifiable claim&quot;</td>
+</tr>
+<tr>
+  <td>Evidence Map gaps are a documented failure mode</td>
+  <td>research-prompt.md Rules (&quot;Do not skip the Evidence Map&quot;)</td>
+  <td>high</td>
+  <td>Hard rule in the research protocol</td>
+</tr>
+<tr>
+  <td>Pydantic Evals defaults to GPT-4o</td>
+  <td><a href="https://pydantic.dev/articles/llm-as-a-judge</td>">pydantic.dev</a>
+  <td>high</td>
+  <td>&quot;GPT-4o by default&quot; stated explicitly</td>
+</tr>
+<tr>
+  <td>Pydantic Evals has no Copilot API integration</td>
+  <td><a href="https://ai.pydantic.dev/evals/">ai.pydantic.dev</a> documentation</td>
+  <td>high</td>
+  <td>No mention of Copilot API in docs</td>
+</tr>
+<tr>
+  <td>Two-level evaluation (deterministic + LLM)</td>
+  <td><a href="https://hamel.dev/blog/posts/evals/</td>">hamel.dev</a>
+  <td>high</td>
+  <td>Hamel Level 1 (unit tests) + Level 2 (model eval) framework</td>
+</tr>
+<tr>
+  <td>Hard FAIL on score 1 + 1–5 scale for trend tracking</td>
+  <td><a href="https://ai.pydantic.dev/evals/">ai.pydantic.dev</a> (binary more reproducible); <a href="https://hamel.dev/blog/posts/evals/">hamel.dev</a> (pass rate is product decision)</td>
+  <td>high</td>
+  <td>Inference combining two primary practitioner sources</td>
+</tr>
+<tr>
+  <td>agentevals designed for tool-call trajectory matching</td>
+  <td><a href="https://github.com/langchain-ai/agentevals</td>">github.com</a>
+  <td>high</td>
+  <td>README describes trajectory as &quot;list of tool calls&quot;</td>
+</tr>
+<tr>
+  <td>Gold set must refresh with protocol changes</td>
+  <td>Research/completed/2026-03-10-agent-evaluation-cross-repo-analysis.md KF 11</td>
+  <td>high</td>
+  <td>Benchmark saturation principle applied to gold sets</td>
+</tr>
+<tr>
+  <td>Machine-parseable output pattern proven in existing workflow</td>
+  <td>.github/workflows/research-review.yml</td>
+  <td>high</td>
+  <td>grep &quot;^OVERALL: FAIL&quot; pattern already in production</td>
+</tr>
+<tr>
+  <td>Runner cost $0.008/minute → $0.04 per 5-min run</td>
+  <td>GitHub Actions pricing documentation (<a href="https://docs.github.com/en/billing/managing-billing-for-your-products/managing-billing-for-github-actions/about-billing-for-github-actions)</td>">docs.github.com</a>
+  <td>medium</td>
+  <td>Estimate; actual runtime may vary</td>
+</tr>
+<tr>
+  <td>DeepEval requires OpenAI/Anthropic key</td>
+  <td><a href="https://www.confident-ai.com/blog/llm-agent-evaluation-complete-guide</td>">www.confident-ai.com</a>
+  <td>high</td>
+  <td>Documented LLM API requirement</td>
+</tr>
+<tr>
+  <td>Research-review.yml applies three skills in sequence</td>
+  <td>.github/workflows/research-review.yml</td>
+  <td>high</td>
+  <td>Source code directly inspected</td>
+</tr>
+<tr>
+  <td>Copilot subscription already paid / COPILOT_GITHUB_TOKEN in use</td>
+  <td>AGENTS.md approved credentials table; research-loop.yml</td>
+  <td>high</td>
+  <td>Confirmed credential exists in repository secrets</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li><strong>A1:</strong> The Copilot CLI can evaluate a 9-dimension rubric prompt for a 10,000-word research item within 5 minutes. Justification: the existing review workflow applies three separate skill checks on similarly sized items within the 30-minute timeout; a single rubric prompt of comparable length is unlikely to exceed 5 minutes.</li>
+<li><strong>A2:</strong> A gold dataset of 3–5 manually audited items is sufficient for an initial regression baseline. Justification: minimum viable approach for a single-agent system with a stable protocol; more items increase coverage but are not required to start.</li>
+<li><strong>A3:</strong> The owner will not approve OpenAI or Anthropic API credentials for this use case. Justification: the AGENTS.md constraint explicitly requires owner approval for new credentials, and the Copilot CLI approach provides equivalent functionality without new credentials.</li>
+</ul>
+<h3>Analysis</h3>
+<p>The credential constraint is the binding design decision. All named evaluation frameworks require credentials beyond those available, so the tooling selection is deterministic given the constraints. The evaluation framework design question then becomes: how to maximise rubric quality using only the Copilot CLI?</p>
+<p>The answer is a two-layer design. The first layer is structural compliance: five deterministic checks that the CI step can perform without LLM evaluation (checking for section heading presence using <code>grep</code>, Evidence Map row count using <code>awk</code>, Key Finding word count using a simple script). These checks are fast, cheap, and unambiguous — if any fail, the item is immediately rejected without invoking the LLM judge. The second layer is semantic quality: four LLM-judged dimensions that assess whether the agent followed the spirit of the protocol, not just its letter.</p>
+<p>The hardest design decision is which failures to treat as scored dimensions (recoverable) vs. hard FAILs (immediate rejection). The three chosen hard FAILs — acronym expansion, executive summary first sentence, Evidence Map gaps — share two properties: they are explicitly named in the research protocol as required behaviours, and they are consistently the most common failure modes observed in research review runs [inference]. This makes them the most diagnostic indicators of incomplete protocol execution.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li><strong>Judge model drift:</strong> The Copilot CLI model may change without notice, causing score drift over time. Accepted risk; mitigated by versioning the rubric prompt and monitoring score distributions.</li>
+<li><strong>Rubric calibration:</strong> The 1–5 anchors need calibration against real items. If 80%+ of items score 4–5 on a given dimension, the anchors are too loose and should be tightened.</li>
+<li><strong>Copilot API availability:</strong> The eval gate has the same COPILOT_GITHUB_TOKEN dependency as the existing review workflow; if access changes, both fail. Accepted risk.</li>
+<li><strong>Gold set refresh discipline:</strong> The gold set refresh requirement is easy to forget when <code>research-prompt.md</code> is updated. A TODO comment in the research protocol or a <code>CODEOWNERS</code> rule linking protocol changes to gold set reviews would reduce this risk.</li>
+</ul>
+<h3>Open Questions</h3>
+<ol>
+<li><strong>Rubric prompt text:</strong> Writing the exact prompt text (dimension definitions, scoring anchors, output format specification) is the primary implementation task and is out of scope for this research item. A separate task should produce <code>docs/eval/research-rubric-prompt.md</code>.</li>
+<li><strong>CI workflow YAML:</strong> The CI workflow design is specified here in prose; the YAML implementation is a separate backlog task.</li>
+<li><strong>Score history:</strong> Should dimension scores be persisted in a JavaScript Object Notation (JSON) file in the repository for trend tracking? This would enable automated detection of systematic quality degradation across items.</li>
+<li><strong>First three gold items:</strong> Which completed items in <code>Research/completed/</code> should be designated as the initial gold set? This requires a manual audit pass.</li>
+</ol>
+<h3>Output</h3>
+<ul>
+<li><strong>Type:</strong> knowledge, artefact</li>
+<li><strong>Description:</strong> Full specification of the 9-dimension LLM-as-judge evaluation rubric and CI workflow design for this repository's research loop agent, with tooling selection rationale and gold dataset requirements. The rubric specification is suitable for extraction to <code>docs/eval/research-rubric-prompt.md</code>.</li>
+<li><strong>Key sources:</strong><ol>
+<li>Hamel Husain &quot;Your AI Product Needs Evals&quot; — <a href="https://hamel.dev/blog/posts/evals/</li>">hamel.dev</a>
+<li>Pydantic LLM-as-a-Judge guide — <a href="https://pydantic.dev/articles/llm-as-a-judge</li>">pydantic.dev</a>
+<li>Research/completed/2026-03-10-agent-evaluation-cross-repo-analysis.md (prior art: 5-component MVF framework and tooling survey)</li>
+</ol>
+</li>
+</ul>
+
+
+  </div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-03-10-agent-evaluation-cross-repo-analysis.html">Agent evaluation framework: cross-repo pattern analysis, commonality detection, and regression identification</a> <span class="related-note">via agents, evaluation, regression</span></div>
+<div class="related-entry"><a href="/Research/research/2026-03-03-research-loop-quality-prompt-engineering.html">Evaluating and improving autonomous research loop quality: prompt engineering and output assessment</a> <span class="related-note">via evaluation, research-loop</span></div>
+</div></div>
+
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-12-ai-force-multiplier-ambition-expansion.html">Force multiplier, not cost reducer</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-10-nature-of-the-firm-coase-organisations.html">The Nature of the Firm</a></div>
+  </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,759 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Swarm Intelligence, PCA, Genetic Algorithms, and Reinforcement Learning —… — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #141414;
+  --surface-2:       #1c1c1c;
+  --border:          #2a2a2a;
+  --text:            #e8e8e8;
+  --text-muted:      #666;
+  --accent:          #e8e8e8;
+  --accent-dim:      #333;
+  --tag-bg:          #1e1e1e;
+  --tag-text:        #999;
+  --tag-active-bg:   #e8e8e8;
+  --tag-active-text: #0d0d0d;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--accent); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+}
+.card:hover { border-color: var(--accent); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+}
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+.item-content pre code { background: none; padding: 0; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--text); text-decoration: underline; }
+.item-content a:hover { color: var(--text-muted); }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); }
+.key-claims li:last-child { border-bottom: none; }
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); }
+.related-entry:last-child { border-bottom: none; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--text); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-entry { padding: 1rem; border: 1px solid var(--border); border-bottom: none; text-decoration: none; color: var(--text); display: block; }
+.thread-entry:last-child { border-bottom: 1px solid var(--border); }
+.thread-entry:hover { background: var(--surface); text-decoration: none; }
+.thread-entry-title { font-size: var(--text-base); font-weight: 500; }
+.thread-entry-meta { font-size: var(--text-xs); color: var(--text-muted); margin-top: 0.25rem; letter-spacing: 0.05em; }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/">Research</a>
+    <div class="nav-links">
+      <a href="/Research/browse.html">Browse</a>
+      <a href="/Research/threads.html">Threads</a>
+      <a href="/Research/tags/">Tags</a>
+      <a href="/Research/search.html">Search</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <a href="/Research/browse.html">Browse</a>
+    <span>/</span>
+    <span>Swarm Intelligence, PCA, Genetic Algorithms, and Reinforcement Learning —…</span>
+  </div>
+  <h1 class="item-title">Swarm Intelligence, PCA, Genetic Algorithms, and Reinforcement Learning —…</h1>
+  <p class="full-title-subtitle">Swarm Intelligence, PCA, Genetic Algorithms, and Reinforcement Learning — advanced techniques for analytics teams</p>
+  <div class="meta-bar">
+    <span>2026-03-05</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/machine-learning.html">machine-learning</a> <a class="tag" href="/Research/tags/analytics.html">analytics</a> <a class="tag" href="/Research/tags/advanced-analytics.html">advanced-analytics</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-05-swarm-pca-genetic-reinforcement-learning.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-05-swarm-pca-genetic-reinforcement-learning" target="_blank" rel="noopener">wiki →</a>
+  </div>
+  
+  <div class="item-content">
+    <h2>Research Question</h2>
+<p>What is the structured, decision-oriented landscape of four advanced technique families — Swarm Intelligence, Principal Component Analysis (PCA) and its modern extensions, Genetic Algorithms and Evolutionary Computation, and Reinforcement Learning — that analytics teams in regulated industries should understand deeply: covering when to use each, when not to, best practices, current advancements, and how they fit within a broader analytics capability framework?</p>
+
+<h2>Findings</h2>
+<h3>Executive Summary</h3>
+<p>PCA remains the correct dimensionality reduction choice for analytics model families sensitive to feature collinearity — standardise features first, use cumulative explained variance (90–95%) to select components — but is unnecessary for tree-based models like GBDTs that handle correlated features natively. For regulated contexts requiring feature attribution disclosure, Sparse PCA produces interpretable sparse loadings that standard PCA cannot provide. Genetic algorithms (GA) and Particle Swarm Optimisation (PSO) are the appropriate optimisation choice when the fitness landscape is non-differentiable, discrete, or combinatorial; Bayesian optimisation (Optuna) remains faster for continuous hyperparameter spaces. Contextual bandits are the correct default for the explore/exploit problems most analytics teams encounter — one-shot pricing, offer, and recommendation decisions — with full RL justified only when sequential state-transition effects dominate. Offline RL (CQL, IQL) is the appropriate RL entry point for regulated industries, enabling policy learning from static historical data without live experimentation, accessible via d3rlpy.</p>
+<h3>Key Findings</h3>
+<ol>
+<li><p>PCA is appropriate for preprocessing when features are highly correlated and the downstream model is sensitive to collinearity (logistic regression, SVMs, linear neural networks); for tree-based models like GBDTs, PCA preprocessing is unnecessary and may reduce performance by discarding non-linear feature interactions that trees exploit directly. (confidence: high)</p>
+</li>
+<li><p>Standard PCA requires features to be standardised to mean zero and unit variance before application; failure to standardise causes principal components to be dominated by high-variance features regardless of predictive relevance, producing systematically misleading component structures. (confidence: high)</p>
+</li>
+<li><p>For regulated contexts where feature contributions must be disclosable to auditors or regulators, Sparse PCA is preferable to standard PCA because its sparse loadings assign near-zero weight to most original features, making each input's contribution legible; standard PCA dense loadings distribute influence across all features and are difficult to attribute. (confidence: high)</p>
+</li>
+<li><p>PCA on LLM embedding spaces is a production-validated 2024–2025 technique that compresses 3,072-dimensional embeddings to ~100 dimensions, yielding up to 60× retrieval speedup while preserving semantic structure in RAG pipelines and anomaly detection workflows. (confidence: high)</p>
+</li>
+<li><p>For analytics hyperparameter search on continuous, smooth spaces, Bayesian optimisation (Optuna) outperforms GA and PSO; for discrete, combinatorial, or highly multimodal search spaces — including feature mask selection and pipeline architecture search — GA and PSO outperform Bayesian optimisation by navigating non-differentiable fitness landscapes that Bayesian methods handle poorly. (confidence: high)</p>
+</li>
+<li><p>NSGA-II is the benchmark multi-objective evolutionary algorithm for portfolio optimisation, enabling explicit Pareto-front trade-offs between return and risk, with production-applicable results validated in the EvoFolio system (Springer, 2024) and in hybrid RL-guided NSGA-II portfolio work on NASDAQ data. (confidence: high)</p>
+</li>
+<li><p>Contextual bandits (Thompson Sampling, UCB) are the correct default for analytics explore/exploit problems — dynamic pricing, personalised offers, product recommendations — when decisions are one-shot per customer context and rewards are near-immediate; full RL is warranted only when today's action materially shifts the distribution of future states over multiple time steps. (confidence: high)</p>
+</li>
+<li><p>Offline RL (Conservative Q-Learning and Implicit Q-Learning) trains policies from static historical datasets without live experimentation, making it the only viable RL approach for regulated analytics teams that cannot conduct online experiments; both algorithms are production-accessible via the d3rlpy Python library. (confidence: high)</p>
+</li>
+<li><p>RL policy explainability in regulated industries is a material open gap: post-hoc SHAP can explain individual action recommendations but does not explain temporal credit assignment or the long-term policy objective, creating a disclosure challenge for high-stakes automated decisions that regulators may probe. (confidence: high)</p>
+</li>
+<li><p>Neural combinatorial optimisation (transformer-based attention models trained with deep RL) achieves near-optimal solutions for routing and scheduling problems faster than classical heuristics at benchmark scale; GA and ACO remain the appropriate starting point for teams without deep learning infrastructure, given their maturity and interpretability. (confidence: medium)</p>
+</li>
+<li><p>PSO is preferable to ACO for continuous and neural architecture search applications; ACO is preferable for discrete graph-based combinatorial problems (routing, scheduling with dependency graphs) where its pheromone-trail construction maps naturally to the problem structure. (confidence: high)</p>
+</li>
+<li><p>Across all four families, adoption maturity varies widely: PCA is table-stakes; contextual bandits are industry-ready; GAs/PSO for hyperparameter search are specialist tools; online RL requires simulation infrastructure and is experimental for most analytics teams; offline RL is accessible via d3rlpy but remains a specialist capability. (confidence: high)</p>
+</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+  <th>Claim</th>
+  <th>Source</th>
+  <th>Confidence</th>
+  <th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>PCA unnecessary for GBDTs</td>
+  <td>ML techniques reference item (GBDT collinearity handling); scikit-learn docs</td>
+  <td>high</td>
+  <td>GBDTs' split-based learning does not penalise correlated features</td>
+</tr>
+<tr>
+  <td>PCA requires prior standardisation</td>
+  <td>scikit-learn decomposition docs; statisticsbyjim.com PCA guide</td>
+  <td>high</td>
+  <td>Fundamental PCA property</td>
+</tr>
+<tr>
+  <td>Sparse PCA preferred for regulated attribution</td>
+  <td>scikit-learn docs (SparsePCA); inference from RBNZ explainability principles</td>
+  <td>high</td>
+  <td>Inference labelled</td>
+</tr>
+<tr>
+  <td>PCA on LLM embeddings: 60× speedup</td>
+  <td>arxiv.org/abs/2508.04307; arxiv.org/abs/2504.08386</td>
+  <td>high</td>
+  <td>Two independent empirical papers</td>
+</tr>
+<tr>
+  <td>Bayesian optimisation vs. GA/PSO trade-off by space type</td>
+  <td>Springer 2025 PSO review; IEEE 2024 comparison; Optuna docs</td>
+  <td>high</td>
+  <td>Consistent across sources</td>
+</tr>
+<tr>
+  <td>NSGA-II for portfolio Pareto fronts</td>
+  <td>EvoFolio (link.springer.com/article/10.1007/s00521-024-09456-w); MDPI NSGA-II RL paper</td>
+  <td>high</td>
+  <td>Two independent 2024/2025 sources</td>
+</tr>
+<tr>
+  <td>Contextual bandits for one-shot analytics</td>
+  <td>meegle.com; geteppo.com; NeurIPS 2024 dynamic pricing paper</td>
+  <td>high</td>
+  <td>Consistent across practitioner and research sources</td>
+</tr>
+<tr>
+  <td>Offline RL (CQL/IQL) for regulated industries</td>
+  <td>Springer 2024 chapter; d3rlpy docs; openreview.net IQL</td>
+  <td>high</td>
+  <td>Multiple independent sources including primary papers</td>
+</tr>
+<tr>
+  <td>RL explainability gap</td>
+  <td>Absence of SHAP + temporal credit assignment in literature; practitioner consensus</td>
+  <td>high</td>
+  <td>Gap confirmed by non-existence of solution</td>
+</tr>
+<tr>
+  <td>Neural combinatorial optimisation state of art</td>
+  <td>NeurIPS 2024; Springer 2025 review; PLoS ONE 2025</td>
+  <td>medium</td>
+  <td>Benchmark results; analytics team applicability is an inference</td>
+</tr>
+<tr>
+  <td>PSO vs. ACO domain partition</td>
+  <td>arxiv.org/html/2403.03781v1 (NAS); IEEE 2024 comparison</td>
+  <td>high</td>
+  <td>Two independent experimental comparisons</td>
+</tr>
+<tr>
+  <td>Adoption maturity gradient</td>
+  <td>Reference ML item (practitioner survey); d3rlpy docs; Stable Baselines3 docs</td>
+  <td>high</td>
+  <td>Practitioner-informed inference</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li><strong>Assumption:</strong> Analytics teams in regulated financial services do not have dedicated GPU clusters for training RL agents from scratch. <strong>Justification:</strong> The reference item's minimum viable MLOps stack (open-source, cloud-portable) was explicitly designed for teams without specialised infrastructure; this item inherits that assumption.</li>
+<li><strong>Assumption:</strong> RBNZ's principles-based approach to model risk management applies to RL policy explainability in the same way it applies to supervised ML models. <strong>Justification:</strong> RBNZ has not published specific guidance on RL; the principles (explainability, validation, outcome monitoring) are stated as technology-agnostic in RBNZ's primary publications.</li>
+<li><strong>Assumption:</strong> Offline RL policy quality is adequate for analytics use cases when the historical logged dataset has reasonable coverage of the state-action space. <strong>Justification:</strong> CQL and IQL papers confirm this; the caveat about coverage gaps is an explicit limitation noted in Findings.</li>
+</ul>
+<h3>Analysis</h3>
+<p>Three evidence hierarchies structure this research. For PCA: textbook formulations (Bishop, Jolliffe &amp; Cadima) establish the mechanics; scikit-learn documentation establishes the implementation; practitioner sources (statisticsbyjim, crunchingthedata) establish decision heuristics; and recent arxiv work establishes the LLM embedding frontier application. For GAs/PSO: the primary papers (Kennedy &amp; Eberhart 1995, Deb et al. NSGA-II) are inaccessible behind paywalls but their findings are confirmed in multiple secondary sources and validated in recent 2024–2025 empirical work. For RL: the primary algorithm papers (PPO, SAC, CQL, IQL) are all accessible via arxiv; Stable Baselines3 documentation confirms implementation maturity; practitioner sources confirm the bandits-first heuristic.</p>
+<p>The primary tension is between academic enthusiasm for RL applications in analytics and the practical constraints that most analytics teams face. Academic papers routinely demonstrate RL advantages for dynamic pricing, recommendations, and resource allocation — but nearly all use idealised simulation environments with millions of training steps. For regulated analytics teams without simulation infrastructure, those results do not translate. The resolution applied here: offline RL is the correct bridging technique (no simulation required), and contextual bandits are the correct default below the full RL threshold. This resolution is well-supported by the offline RL literature and the contextual bandits evidence.</p>
+<p>For GA/swarm vs. Bayesian optimisation, the resolution is a problem-type partition rather than a ranking. There is no single superior method — the correct choice depends on whether the search space is continuous or combinatorial, which is a property the practitioner knows before selecting the algorithm.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li><strong>RL explainability in regulated contexts:</strong> No published solution adequately bridges SHAP-style feature attribution and temporal credit assignment for RL policies. This is not a near-term resolution gap — it is a research frontier, not a missing practitioner tutorial.</li>
+<li><strong>Swarm Intelligence at analytics scale:</strong> The evidence base for swarm methods (PSO, ACO) in financial analytics specifically is thinner than for general machine learning. Most empirical results are from manufacturing, engineering, and image classification. The transfer to financial analytics is plausible but not directly validated.</li>
+<li><strong>Offline RL dataset coverage:</strong> The effectiveness of CQL/IQL is contingent on the logging policy having explored enough of the relevant state-action space. For organisations whose historical decisions were highly concentrated (e.g., always charged a fixed price), offline RL will not learn better policies from that data.</li>
+<li><strong>Neural combinatorial optimisation training cost:</strong> The transformer-based NCO models (NeurIPS 2024) require significant training on problem instances before deployment. The compute cost for initial training may be prohibitive for analytics teams with small-scale routing/scheduling problems — the GA/ACO baseline remains more accessible.</li>
+<li><strong>Contextual bandits primary sources not directly accessed:</strong> The practitioner evidence for contextual bandits (geteppo.com, meegle.com) is secondary; the underlying algorithms (Thompson Sampling, UCB) are well-established but no primary experimental paper on financial services bandit applications was directly retrieved.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>What is the minimum dataset coverage (as a fraction of state-action space) required for offline RL to produce policies reliably better than the historical logging policy? This would define the data viability threshold for analytics teams considering offline RL adoption. (Suggested priority: medium)</li>
+<li>Is there a regulatory-grade explainability framework that bridges SHAP-style local attribution and RL's temporal credit assignment — and if not, what compliance proxies (e.g., decision trees fitted to approximate the RL policy) are acceptable to RBNZ? (Suggested priority: high — directly relevant to RL adoption in regulated industries)</li>
+<li>What does a minimum viable contextual bandit deployment look like for a 5–10 person analytics team in financial services — what data pipeline, infrastructure, and evaluation protocol is required? (Suggested priority: medium)</li>
+<li>Do NSGA-II portfolio optimisation results from academic papers (EvoFolio, 2024) generalise to NZ-market equities and fixed income, which have different liquidity profiles and lower transaction volumes than the NASDAQ datasets used in those papers? (Suggested priority: low — exploratory)</li>
+</ul>
+<hr />
+
+
+  </div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-03-03-ml-techniques-and-algorithms.html">ML techniques, algorithms, and advanced analytics — a systematic reference for analytics teams</a> <span class="related-note">via advanced-analytics, analytics, machine-learning</span></div>
+</div></div>
+
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-07-run-build-it-allocation-implementation-how.html">How organisations practically implement IT RUN vs BUILD cost allocation</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-05-llm-hallucination-mechanisms.html">LLM Hallucinations — Types, Causes, and Current Mitigation Approaches</a></div>
+  </div>
+</main>
+</body>
+</html>

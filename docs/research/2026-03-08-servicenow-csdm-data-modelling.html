@@ -1,0 +1,747 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>ServiceNow CSDM — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #141414;
+  --surface-2:       #1c1c1c;
+  --border:          #2a2a2a;
+  --text:            #e8e8e8;
+  --text-muted:      #666;
+  --accent:          #e8e8e8;
+  --accent-dim:      #333;
+  --tag-bg:          #1e1e1e;
+  --tag-text:        #999;
+  --tag-active-bg:   #e8e8e8;
+  --tag-active-text: #0d0d0d;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--accent); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+}
+.card:hover { border-color: var(--accent); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+}
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+.item-content pre code { background: none; padding: 0; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--text); text-decoration: underline; }
+.item-content a:hover { color: var(--text-muted); }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); }
+.key-claims li:last-child { border-bottom: none; }
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); }
+.related-entry:last-child { border-bottom: none; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--text); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-entry { padding: 1rem; border: 1px solid var(--border); border-bottom: none; text-decoration: none; color: var(--text); display: block; }
+.thread-entry:last-child { border-bottom: 1px solid var(--border); }
+.thread-entry:hover { background: var(--surface); text-decoration: none; }
+.thread-entry-title { font-size: var(--text-base); font-weight: 500; }
+.thread-entry-meta { font-size: var(--text-xs); color: var(--text-muted); margin-top: 0.25rem; letter-spacing: 0.05em; }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/">Research</a>
+    <div class="nav-links">
+      <a href="/Research/browse.html">Browse</a>
+      <a href="/Research/threads.html">Threads</a>
+      <a href="/Research/tags/">Tags</a>
+      <a href="/Research/search.html">Search</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <a href="/Research/browse.html">Browse</a>
+    <span>/</span>
+    <span>ServiceNow CSDM</span>
+  </div>
+  <h1 class="item-title">ServiceNow CSDM</h1>
+  <p class="full-title-subtitle">ServiceNow CSDM: Practical Data Modelling Across ITSM, APM, SPM, IRM, and FSO</p>
+  <div class="meta-bar">
+    <span>2026-03-08</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/servicenow.html">servicenow</a> <a class="tag" href="/Research/tags/csdm.html">csdm</a> <a class="tag" href="/Research/tags/itsm.html">itsm</a> <a class="tag" href="/Research/tags/apm.html">apm</a> <a class="tag" href="/Research/tags/spm.html">spm</a> <a class="tag" href="/Research/tags/irm.html">irm</a> <a class="tag" href="/Research/tags/grc.html">grc</a> <a class="tag" href="/Research/tags/fso.html">fso</a> <a class="tag" href="/Research/tags/enterprise-architecture.html">enterprise-architecture</a> <a class="tag" href="/Research/tags/application-portfolio.html">application-portfolio</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-servicenow-csdm-data-modelling.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-08-servicenow-csdm-data-modelling" target="_blank" rel="noopener">wiki →</a>
+  </div>
+  
+  <div class="item-content">
+    <h2>Research Question</h2>
+<p>How should organisations model their enterprise data in ServiceNow to meet the CSDM standard while keeping the model maintainable and accurate — and what are the practical patterns for aligning IT Service Management (ITSM), EA/APM (Application Portfolio Management), SPM (Strategic Portfolio Management), Integrated Risk Management (IRM)/Governance, Risk and Compliance (GRC), and FSO to that shared data foundation?</p>
+
+<h2>Findings</h2>
+<h3>Executive Summary</h3>
+<p>A maintainable ServiceNow CSDM implementation requires the Manage Technical Services layer (Application Services, CI relationships) to reach &quot;walk&quot; maturity before ITSM, IRM/GRC, and ITFM cost allocation produce reliable output, and the Design layer (Business Applications, Business Capabilities) before APM and SPM deliver portfolio-level value. CSDM resolves the &quot;what is an application&quot; governance problem by separating Business Application (the strategic portfolio asset), Application Service (the operational deployment), and Technical Service (the shared infrastructure capability) into distinct tables with distinct ownership and distinct process attachment points. Sustaining accuracy at these layers requires structural governance — explicit ownership assignment, scheduled certification cycles, and active use of the Data Foundations Dashboard — because neither Discovery automation nor the CSDM data model itself enforces accuracy at the Business Application layer. For in-scope financial services firms, DORA compliance converts CSDM walk-level maturity in the Manage Technical Services layer from a best practice into a legal obligation, because DORA Articles 6 and 8 mandate a documented ICT risk register with traceable linkage to critical business functions.</p>
+<h3>Key Findings</h3>
+<ol>
+<li>CSDM's three-layer application definition — Business Application (strategic portfolio asset), Application Service (operational deployment in a specific environment), and Technical Service (shared infrastructure platform) — provides a specific, implementable answer to the &quot;what is an application&quot; boundary problem, assigning distinct ownership and process attachment to each layer.</li>
+<li>Foundation Data accuracy (users, cost centres, departments, locations) is a prerequisite for every CSDM layer above it; errors at this layer propagate misattribution into incident routing, cost allocation, and risk assignment throughout all dependent modules.</li>
+<li>ITSM service-affected data, impact analysis, and change advisory board decisions require Application Services mapped to underlying CIs and Business Services marked operational — the Manage Technical Services &quot;crawl&quot; minimum — before those processes can operate against reliable service records rather than free-text fields.</li>
+<li>APM portfolio rationalisation, application scoring, and strategic investment decisions require Business Applications populated with lifecycle status, business owner, and cost centre before the tool can produce structured portfolio output rather than unstructured flat lists.</li>
+<li>SPM demand management and investment-to-capability linkage require Business Application and Business Capability records aligned in CSDM; without them, project investment records reference free-text application names that do not connect to operational services or incidents.</li>
+<li>IRM risk-to-CI linkage for continuous monitoring requires a complete Business Application → Application Service → CI relationship chain; incomplete chains reduce risk records to point-in-time assessments without automated scope or coverage tracking.</li>
+<li>DORA compliance for in-scope financial entities requires a documented ICT risk register with traceable linkage from ICT risks to critical business functions — which is architecturally dependent on CSDM walk-level maturity in the Manage Technical Services layer, making CSDM completion a regulatory obligation for those firms. (medium confidence — DORA geographic scope is EU; NZ equivalent is unclear)</li>
+<li>The TCO cost allocation data path (CI → Application Service → Business Application → ITFM cost model) produces reliable output only when Application Service → Business Application relationships are complete; gaps systematically misallocate costs into unattributed shared pools, overstating shared infrastructure costs and undercounting application-specific spend.</li>
+<li>Data elements that consistently decay without structural governance are CI ownership records, Application Service → Business Application relationships, lifecycle status fields, and dependency maps — none have automation equivalents; all require human governance cycles.</li>
+<li>Einar &amp; Partners' benchmark data from 35+ implementations found organisations treating CSDM as a cultural shift rather than a technical project achieved 2.2× faster outcomes — consistent with the People-dimension failure pattern identified in RUN/BUILD cost allocation research. (medium confidence — single benchmark study)</li>
+<li>Over-customisation of CSDM tables and relationships is the primary preventable structural failure: it blocks upgrade paths, disables built-in health dashboards, and prevents access to new ServiceNow features that increasingly assume CSDM-aligned data structures.</li>
+<li>CSDM 5 (released Knowledge 2025) generalises Application Service to Service Instance, enabling network, data, facility, and operational process services to be modelled within the same framework — significantly expanding the model's applicability for FSO, DORA-scoped estates, and non-IT service portfolios. (medium confidence — design documentation, limited production experience available)</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+  <th>Claim</th>
+  <th>Source</th>
+  <th>Confidence</th>
+  <th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Three-layer application definition (Business Application / Application Service / Technical Service)</td>
+  <td>ServiceNow Community types of services; ITNow Inc</td>
+  <td>high</td>
+  <td>Consistent across official and practitioner sources</td>
+</tr>
+<tr>
+  <td>Foundation Data as prerequisite for all upper layers</td>
+  <td>ServiceNow Community CSDM data foundations; Bright Consulting</td>
+  <td>high</td>
+  <td>Practitioner consensus</td>
+</tr>
+<tr>
+  <td>ITSM requires Application Services mapped to CIs</td>
+  <td>The Cloud People implementing CSDM; [SOURCE NEEDED]</td>
+  <td>high</td>
+  <td>Consistent across multiple sources</td>
+</tr>
+<tr>
+  <td>APM requires Business Application with owner/lifecycle/cost centre</td>
+  <td>ServiceNow Community APM/CSDM; Jade Global SPM/APM</td>
+  <td>high</td>
+  <td>Official and partner sources agree</td>
+</tr>
+<tr>
+  <td>SPM demand/investment requires BA and Business Capability records</td>
+  <td>Jade Global; Beyond20 SPM integration</td>
+  <td>high</td>
+  <td>Multiple partner sources</td>
+</tr>
+<tr>
+  <td>IRM risk-to-CI requires complete BA → AS → CI chain</td>
+  <td>ServiceNow Community DORA compliance; Sofigate DORA</td>
+  <td>high</td>
+  <td>DORA compliance context makes explicit</td>
+</tr>
+<tr>
+  <td>DORA mandates ICT risk linkage to business functions via asset register</td>
+  <td>Sofigate DORA; Plat4mation NIS2/DORA; Infocenter DORA</td>
+  <td>high</td>
+  <td>Multiple regulatory sources</td>
+</tr>
+<tr>
+  <td>TCO data path requires complete AS → BA relationships</td>
+  <td>TBM Council CSDM integration; IBM Apptio documentation</td>
+  <td>high</td>
+  <td>Standards-body and vendor documentation agree</td>
+</tr>
+<tr>
+  <td>CI ownership, lifecycle status, dependency maps consistently decay</td>
+  <td>Meyerwire CMDB decay; ServiceNow Community data foundations</td>
+  <td>high</td>
+  <td>Multiple practitioner and official sources</td>
+</tr>
+<tr>
+  <td>2.2× faster outcomes for cultural approach</td>
+  <td>Einar &amp; Partners Benchmark Report 2024</td>
+  <td>medium</td>
+  <td>Single benchmark study; methodology not fully disclosed</td>
+</tr>
+<tr>
+  <td>Over-customisation blocks upgrade and feature access</td>
+  <td>Einar &amp; Partners Masterclass; Bright Consulting</td>
+  <td>high</td>
+  <td>Consistent across practitioner sources</td>
+</tr>
+<tr>
+  <td>CSDM 5 generalises Application Service to Service Instance</td>
+  <td>JAVC Management CSDM 5; Data Content Manager CSDM 4 vs 5</td>
+  <td>high</td>
+  <td>Based on Knowledge 2025 release documentation</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li><strong>Assumption:</strong> Vendor bundle boundary decisions (Oracle E-Business Suite as one vs. many Business Applications) are governance outputs rather than system-enforced constraints. <strong>Justification:</strong> No primary source found that specifies a CSDM-native rule for vendor bundle decomposition; practitioner sources uniformly describe this as an organisational decision documented in the application register.</li>
+<li><strong>Assumption:</strong> CSDM 5 practitioner impact findings reflect intended design rather than proven operational experience. <strong>Justification:</strong> CSDM 5 released at Knowledge 2025, close to research date; no large-scale practitioner case studies at CSDM 5 level available.</li>
+</ul>
+<h3>Analysis</h3>
+<p>Activating modules on top of incomplete CSDM layers does not fail silently — they produce misleading output (stale service-affected data, miscategorised costs, unconnected risk records) that erodes confidence in the platform and [inference] typically triggers expensive data remediation projects. The sequencing logic is therefore not advisory but structural: Foundation Data → Manage Technical Services → Design → Sell/Consume. Each layer is a prerequisite for the one above it.</p>
+<p>Governance failure follows a consistent pattern across both CSDM and RUN/BUILD cost allocation programmes: [inference] accountability gaps at the record level cause accuracy to decay. [inference] When the person who maintains a record is different from the person who bears the consequence of its inaccuracy, the record drifts. ITOM Discovery automation partially closes this gap at the infrastructure CI layer, but has no equivalent for the Business Application layer. Sustaining Design-layer accuracy therefore requires human governance structures — ownership reviews, lifecycle certifications, application rationalisation programmes — rather than tooling alone.</p>
+<p>For financial services firms in scope for DORA, the calculus has shifted materially: CSDM completion is no longer a capability investment with uncertain ROI but a compliance obligation with defined audit scope. Organisations that deferred CSDM completion now face a specific regulatory driver that their ITSM or cost allocation business cases did not create.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>ServiceNow CSDM 4.0 whitepaper PDF (login-walled) and Gartner CMDB governance research (paywalled) were not accessed; adoption rate statistics from these sources are absent.</li>
+<li>CSDM 5 findings are based on design documentation rather than at-scale production experience; the practitioner impact of Service Instance generalisation, Dynamic CI Groups, and SBOM support is not yet evidenced.</li>
+<li>All three case study outcome metrics (Novavax 126K integrations, Binmile 40% root-cause improvement) are vendor-reported without independent verification.</li>
+<li>DORA's ICT asset register obligation applies to EU-domiciled financial entities; the equivalent obligation for NZ entities under RBNZ resilience requirements is not addressed here.</li>
+<li>The &quot;minimum viable CSDM&quot; threshold for each module is characterised qualitatively from practitioner guidance; no controlled study establishes the precise completeness percentage at which each module transitions from unreliable to reliable output.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>What percentage of ServiceNow customers licensed for ITSM and APM have achieved CSDM Design-layer walk maturity, and what is the median time to reach that state? This would be a follow-on item for the platform strategy research.</li>
+<li>What CSDM data quality is required before ServiceNow Now Assist and AIOps (Artificial Intelligence for IT Operations) predictive features deliver reliable output? CSDM 5 positions clean CSDM data as the AI readiness prerequisite, but the specific thresholds are not documented.</li>
+<li>Does RBNZ BS11 or the RBNZ resilience framework create an equivalent obligation to DORA's ICT risk register requirement for NZ-supervised financial entities? This is relevant to the servicenow-platform-strategy item that this research unblocks.</li>
+</ul>
+<hr />
+
+
+  </div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-03-08-servicenow-platform-strategy.html">ServiceNow Platform Strategy: Holistic Integration of CSDM, Modules, Process, and AI</a> <span class="related-note">via apm, csdm, enterprise-architecture, fso, grc, irm, itsm, servicenow, spm</span></div>
+<div class="related-entry"><a href="/Research/research/2026-03-21-technology-capability-models.html">Technology Capability Models: Survey, Comparison, and Recommendation for Multi-Level IT Capability Mapping</a> <span class="related-note">via csdm, enterprise-architecture</span></div>
+<div class="related-entry"><a href="/Research/research/2026-03-08-servicenow-process-mapping.html">ServiceNow Process Mapping: Maintainable Process Documentation in SNOW</a> <span class="related-note">via itsm, servicenow</span></div>
+</div></div>
+
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-08-servicenow-platform-strategy.html">ServiceNow Platform Strategy</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-08-servicenow-ai-knowledge-rag-agents.html">ServiceNow AI</a></div>
+  </div>
+</main>
+</body>
+</html>

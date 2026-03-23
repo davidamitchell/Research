@@ -1,0 +1,784 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>ServiceNow AI — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #141414;
+  --surface-2:       #1c1c1c;
+  --border:          #2a2a2a;
+  --text:            #e8e8e8;
+  --text-muted:      #666;
+  --accent:          #e8e8e8;
+  --accent-dim:      #333;
+  --tag-bg:          #1e1e1e;
+  --tag-text:        #999;
+  --tag-active-bg:   #e8e8e8;
+  --tag-active-text: #0d0d0d;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--accent); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+}
+.card:hover { border-color: var(--accent); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+}
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+.item-content pre code { background: none; padding: 0; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--text); text-decoration: underline; }
+.item-content a:hover { color: var(--text-muted); }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); }
+.key-claims li:last-child { border-bottom: none; }
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); }
+.related-entry:last-child { border-bottom: none; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--text); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-entry { padding: 1rem; border: 1px solid var(--border); border-bottom: none; text-decoration: none; color: var(--text); display: block; }
+.thread-entry:last-child { border-bottom: 1px solid var(--border); }
+.thread-entry:hover { background: var(--surface); text-decoration: none; }
+.thread-entry-title { font-size: var(--text-base); font-weight: 500; }
+.thread-entry-meta { font-size: var(--text-xs); color: var(--text-muted); margin-top: 0.25rem; letter-spacing: 0.05em; }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/">Research</a>
+    <div class="nav-links">
+      <a href="/Research/browse.html">Browse</a>
+      <a href="/Research/threads.html">Threads</a>
+      <a href="/Research/tags/">Tags</a>
+      <a href="/Research/search.html">Search</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <a href="/Research/browse.html">Browse</a>
+    <span>/</span>
+    <span>ServiceNow AI</span>
+  </div>
+  <h1 class="item-title">ServiceNow AI</h1>
+  <p class="full-title-subtitle">ServiceNow AI: Knowledge Management, RAG Pipelines, and Agent Frameworks</p>
+  <div class="meta-bar">
+    <span>2026-03-08</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/servicenow.html">servicenow</a> <a class="tag" href="/Research/tags/ai.html">ai</a> <a class="tag" href="/Research/tags/rag.html">rag</a> <a class="tag" href="/Research/tags/knowledge-management.html">knowledge-management</a> <a class="tag" href="/Research/tags/llm.html">llm</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-servicenow-ai-knowledge-rag-agents.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-08-servicenow-ai-knowledge-rag-agents" target="_blank" rel="noopener">wiki →</a>
+  </div>
+  
+  <div class="item-content">
+    <h2>Research Question</h2>
+<p>How is ServiceNow evolving its platform to support AI-powered knowledge management, retrieval-augmented generation (RAG), and agent frameworks — and what should an organisation investing in ServiceNow today understand about this direction in order to make durable architectural and investment decisions?</p>
+
+<h2>Findings</h2>
+<h3>Executive Summary</h3>
+<p>ServiceNow's AI capabilities as of March 2025 are production-ready for organisations that have invested in knowledge base governance and CMDB accuracy, but will produce unreliable, confident-sounding wrong answers for those that have not. Now Assist features for ITSM, Customer Service Management, and HR are generally available from Xanadu (September 2024); the Yokohama release (March 12, 2025) adds AI Agent Orchestrator and Agent Studio for multi-step agentic workflows with human-in-the-loop controls. ServiceNow's AI grounding advantage over standalone RAG deployments depends on CSDM accuracy and knowledge base quality — organisations must sequence data remediation before AI activation, not after. The $2.85 billion Moveworks acquisition signals further investment in conversational AI capability, but full platform integration is not yet available.</p>
+<h3>Key Findings</h3>
+<ol>
+<li><p>Now Assist for ITSM, Customer Service Management, and Human Resources is generally available as of Xanadu (September 2024), covering incident summarisation, resolution recommendations grounded in knowledge articles, change risk analysis, knowledge article generation from incidents, and AI Search &quot;Genius Results&quot;; advanced features require ITSM Pro Plus or Enterprise Plus licensing. [high confidence]</p>
+</li>
+<li><p>The Yokohama release (generally available March 12, 2025) introduced AI Agent Orchestrator and Agent Studio as GA features, enabling multi-step cross-domain agent workflows that invoke ServiceNow-native actions — record creation, workflow triggers, and approval routing — with configurable human-in-the-loop checkpoints at each consequential step. [high confidence]</p>
+</li>
+<li><p>ServiceNow AI Search uses a hybrid BM25 keyword plus dense vector (Dense Passage Retrieval) architecture with a relevancy re-ranker; knowledge articles are split into chunks of approximately 750 words; the Now LLM (or configured external LLM) generates grounded answers only from retrieved passages, with source article citations on each Genius Result. [high confidence]</p>
+</li>
+<li><p>AI response quality is directly and architecturally coupled to knowledge article quality — duplicate articles, stale content, jargon-heavy writing, and taxonomy gaps degrade RAG retrieval in ways that produce confident-sounding but incorrect AI answers, which are operationally worse than no AI answer at all. [high confidence]</p>
+</li>
+<li><p>External LLMs — OpenAI, Azure OpenAI, Anthropic Claude, Google Gemini, and AWS Bedrock — are connectable via ServiceNow's GenAI Controller in a Bring Your Own LLM (BYOLLM) architecture; Azure OpenAI is the correct choice for regulated financial services organisations requiring regional data residency, since it constrains data processing to the selected Azure region (e.g., Australia East for APRA-regulated entities). [high confidence]</p>
+</li>
+<li><p>Now LLM, ServiceNow's proprietary model, keeps all data within the ServiceNow platform boundary and outperforms general-purpose external LLMs for ServiceNow-specific workflow tasks; external LLMs are preferable for advanced multilingual support or when the organisation holds an existing enterprise LLM agreement with specific governance commitments. [medium confidence]</p>
+</li>
+<li><p>The minimum viable knowledge base for reliable Now Assist performance requires coverage of the top 20–30% of recurring incident types, a single authoritative article per topic with no duplicates, jargon-free writing, articles reviewed within the past 12 months, and a category taxonomy aligned to the CI and service hierarchy. [high confidence]</p>
+</li>
+<li><p>Now Assist Guardian (generally available in Yokohama) provides content moderation guardrails, sensitive data detection, and policy enforcement on AI outputs; combined with Now Assist Analytics and Data Kit for accuracy benchmarking, these tools constitute a model governance layer applicable to regulated industry AI governance requirements. [medium confidence]</p>
+</li>
+<li><p>ServiceNow GRC and IRM modules natively support APRA CPS 234 and CPS 230 and RBNZ control framework alignment; any Now Assist AI features used to generate formal regulatory artefacts — audit evidence, risk assessments — require human attestation before filing to satisfy the human oversight requirements of these prudential standards. [high confidence]</p>
+</li>
+<li><p>ServiceNow's $2.85 billion acquisition of Moveworks (completed March 2025) adds conversational AI and cross-platform enterprise search capabilities that will extend the agent framework beyond ServiceNow-native actions; full platform integration is a roadmap item and not yet generally available. [high confidence]</p>
+</li>
+<li><p>Agent Studio's no-code agent creation lowers the barrier to deploying AI agents across the organisation, which also lowers the barrier to deploying poorly-governed agents with overlapping or conflicting behaviour; organisations activating Agent Studio at scale require an explicit governance model covering permitted actions, human-in-the-loop thresholds, and agent lifecycle ownership. [medium confidence]</p>
+</li>
+<li><p>ServiceNow's agent framework is more tightly integrated with operational context — incident records, CMDB relationships, approval chains — than general-purpose frameworks such as LangChain or Autogen, but is narrower in scope, bounded to ServiceNow-native actions in the absence of Moveworks integration. [medium confidence]</p>
+</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+  <th>Claim</th>
+  <th>Source</th>
+  <th>Confidence</th>
+  <th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Now Assist for ITSM GA features in Xanadu</td>
+  <td>ServiceNow Xanadu release notes (docs); ServiceNow Xanadu blog; ServiceNow Store ITSM listing</td>
+  <td>High</td>
+  <td>[x] Consulted</td>
+</tr>
+<tr>
+  <td>Yokohama GA March 12, 2025; Orchestrator + Studio GA</td>
+  <td>ServiceNow newsroom press release; CIO.com; ITOpsTimes</td>
+  <td>High</td>
+  <td>[x] Three independent sources</td>
+</tr>
+<tr>
+  <td>Hybrid BM25 + DPR + re-ranker; 750-word chunking</td>
+  <td>ServiceNow Community — Now Assist in AI Search; The Digital Iceberg; Crossfuze Insights; eesel.ai</td>
+  <td>High</td>
+  <td>[x] Four sources; chunk size medium — may vary</td>
+</tr>
+<tr>
+  <td>KB quality directly determines RAG accuracy</td>
+  <td>ServiceNow Community best practices; TEKsystems; Xenonstack</td>
+  <td>High</td>
+  <td>[x] Three practitioner sources</td>
+</tr>
+<tr>
+  <td>External LLM via GenAI Controller</td>
+  <td>ServiceNow Community — Using external LLMs; RapDev; Kanini</td>
+  <td>High</td>
+  <td>[x] Multiple practitioner sources</td>
+</tr>
+<tr>
+  <td>Azure OpenAI preferred for regulated industries</td>
+  <td>Microsoft Azure OpenAI gateway guide; SmartDev Enterprise Compliance; Equal Experts</td>
+  <td>High</td>
+  <td>[x] Three independent sources</td>
+</tr>
+<tr>
+  <td>Now LLM data stays within ServiceNow</td>
+  <td>ServiceNow Community NowLLM post; Fujitsu blog</td>
+  <td>High</td>
+  <td>[x] Primary vendor + secondary</td>
+</tr>
+<tr>
+  <td>HITL in Orchestrator</td>
+  <td>CIO.com Orchestrator/Studio; Constellation Research Yokohama</td>
+  <td>High</td>
+  <td>[x] Two analyst sources</td>
+</tr>
+<tr>
+  <td>Now Assist Guardian GA Yokohama</td>
+  <td>No Jitter 150+ GenAI; ServiceNow BusinessWire Nov 2024</td>
+  <td>Medium</td>
+  <td>[x] Guardian GA confirmed; feature detail partially confirmed</td>
+</tr>
+<tr>
+  <td>APRA / RBNZ alignment in ServiceNow GRC</td>
+  <td>AC3 NZ; AC3 AU; Edgile ArC</td>
+  <td>High</td>
+  <td>[x] NZ/AU-specific practitioner sources</td>
+</tr>
+<tr>
+  <td>Moveworks acquisition $2.85B, completed March 2025</td>
+  <td>ServiceNow newsroom; Everest Group; Verdantix</td>
+  <td>High</td>
+  <td>[x] Primary press release + analysts</td>
+</tr>
+<tr>
+  <td>Moveworks integration not yet fully available</td>
+  <td>Workativ; Rezolve.ai</td>
+  <td>High</td>
+  <td>[inference] Consistent analyst commentary</td>
+</tr>
+<tr>
+  <td>Minimum viable KB requirements</td>
+  <td>ServiceNow Community; TEKsystems; vSoft Consulting</td>
+  <td>High</td>
+  <td>[x] Three practitioner sources</td>
+</tr>
+<tr>
+  <td>Agent Studio no-code governance risk</td>
+  <td>CIO.com; Constellation Research; inMorphis</td>
+  <td>Medium</td>
+  <td>[inference] No practitioner failure case cited</td>
+</tr>
+<tr>
+  <td>Pro Plus / Enterprise Plus licensing</td>
+  <td>ServiceNow Store listing</td>
+  <td>High</td>
+  <td>[x] Primary source</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li><strong>Assumption:</strong> The ~750-word chunk size is the default configuration, not a universal constant. <strong>Justification:</strong> Multiple sources quote this figure as representative; the Semantic Index Config allows tuning.</li>
+<li><strong>Assumption:</strong> Full Moveworks integration will extend the ServiceNow agent framework to cross-platform conversational AI. <strong>Justification:</strong> The stated acquisition rationale is to create an &quot;AI-native front door&quot; to ServiceNow workflows; however, the integration roadmap has not been published.</li>
+<li><strong>Assumption:</strong> ITSM Pro Plus / Enterprise Plus licensing requirements apply as documented; specific entitlements for Orchestrator and Agent Studio may vary by existing contract. <strong>Justification:</strong> Licensing details are contract-specific and not fully disclosed publicly.</li>
+</ul>
+<h3>Analysis</h3>
+<p>[inference] ServiceNow's AI architecture makes a defensible bet: the platform already holds the operational ground truth (incident records, CMDB relationships, change history, approval chains) that generic RAG deployments must reconstruct from scratch. The hybrid search model and LLM-grounded Genius Results represent sound engineering applied to that advantage.</p>
+<p>The critical variable is data quality. Two organisations on identical Yokohama instances with identical licences will see materially different AI outcomes based solely on knowledge base and CMDB governance. Poor data quality produces confident hallucinations; this is not a product defect — it is RAG behaving correctly on bad inputs.</p>
+<p>The Yokohama agent framework represents a qualitative step change: from domain-scoped summarisation tools to multi-step cross-domain agents with governance controls. The HITL model is practical and configurable. The sequencing risk is the same as for Now Assist generally: organisations that activate agents before the knowledge base and CMDB are reliable will build agents that confidently execute wrong actions.</p>
+<p>[inference] For regulated financial services, the compliance architecture is mature. ServiceNow GRC/IRM supports APRA and RBNZ alignment natively; third-party content libraries automate standard mapping. The data residency question is resolved by Azure OpenAI for external LLM use cases. The remaining governance gap is model documentation: Now LLM's architecture and training data are not publicly disclosed, which limits what can be put in a model risk register. Organisations using Now LLM for consequential decisions should document this limitation and apply compensating controls (mandatory human review of AI-generated content before filing).</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li><strong>Moveworks integration timeline:</strong> Acquisition closed March 2025; integration depth and timeline unconfirmed. Do not include Moveworks-derived capabilities in near-term architectural plans.</li>
+<li><strong>Now LLM transparency:</strong> Model architecture, training data, and update cadence are not publicly disclosed. Limits model governance documentation for regulated firms; document as a known gap in the technology risk register.</li>
+<li><strong>Licence cost justification gap:</strong> No independently audited deflection rate data is publicly available. Build business cases on conservative internal assumptions, not ServiceNow marketing data.</li>
+<li><strong>Knowledge base remediation timeline:</strong> Bringing a poorly governed knowledge base to minimum viable state is typically a 6–12 month programme. Organisations should not activate Now Assist in production until this work is done.</li>
+<li><strong>Agent governance at scale:</strong> Agent Studio's low-code interface enables proliferation without governance if not actively managed. Guardian and Analytics address this but require configuration; the default state is not self-governing.</li>
+<li><strong>CPS 230 (effective July 2025) intersection:</strong> APRA CPS 230 may impose additional requirements on AI features within material technology services. No specific published guidance at time of research; organisations should obtain legal advice on applicability.</li>
+</ul>
+<h3>Open Questions</h3>
+<ol>
+<li>What is the Moveworks platform integration roadmap — specifically, which conversational AI features will become native to the Now Platform and on what timeline?</li>
+<li>How does ServiceNow's agent framework compare in practice to Microsoft Copilot Studio combined with Power Automate for organisations already heavily invested in the Microsoft ecosystem?</li>
+<li>What deflection rates do organisations actually achieve with Now Assist in the first 12 months, controlling for knowledge base quality at activation?</li>
+<li>How does the Yokohama agent framework handle multi-instance or federated ServiceNow environments common in large financial services firms?</li>
+<li>What is ServiceNow's roadmap for grounding Now Assist against external data sources — Confluence, SharePoint, internal policy repositories — outside ServiceNow's own tables?</li>
+</ol>
+<hr />
+
+
+  </div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-03-19-layered-org-llm-architecture.html">Layered Organisation Large Language Model: Feasibility and Architecture of Organisation-Customised LLMs</a> <span class="related-note">via knowledge-management, llm, rag</span></div>
+<div class="related-entry"><a href="/Research/research/2026-03-15-context-layers-aligned-decisions-synthesis.html">Aligned Decision-Making: Context Architecture for AI Agents in Organisations</a> <span class="related-note">via knowledge-management, rag</span></div>
+<div class="related-entry"><a href="/Research/research/2026-03-15-context-compression-rag-enterprise-knowledge.html">Context Compression and RAG Techniques for Organisational Knowledge</a> <span class="related-note">via llm, rag</span></div>
+<div class="related-entry"><a href="/Research/research/2026-03-14-reliable-software-llm-era.html">Reliable Software in the LLM Era</a> <span class="related-note">via ai, llm</span></div>
+<div class="related-entry"><a href="/Research/research/2026-03-08-servicenow-platform-strategy.html">ServiceNow Platform Strategy: Holistic Integration of CSDM, Modules, Process, and AI</a> <span class="related-note">via ai, servicenow</span></div>
+</div></div>
+
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-08-servicenow-csdm-data-modelling.html">ServiceNow CSDM</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-08-self-hosted-mcp-server-options.html">Self-hosted MCP server options</a></div>
+  </div>
+</main>
+</body>
+</html>

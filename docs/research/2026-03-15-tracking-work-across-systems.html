@@ -1,0 +1,731 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Tracking How Work Travels Across Organisational Systems — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #141414;
+  --surface-2:       #1c1c1c;
+  --border:          #2a2a2a;
+  --text:            #e8e8e8;
+  --text-muted:      #666;
+  --accent:          #e8e8e8;
+  --accent-dim:      #333;
+  --tag-bg:          #1e1e1e;
+  --tag-text:        #999;
+  --tag-active-bg:   #e8e8e8;
+  --tag-active-text: #0d0d0d;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--accent); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+}
+.card:hover { border-color: var(--accent); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+}
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+.item-content pre code { background: none; padding: 0; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--text); text-decoration: underline; }
+.item-content a:hover { color: var(--text-muted); }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); }
+.key-claims li:last-child { border-bottom: none; }
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); }
+.related-entry:last-child { border-bottom: none; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--text); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-entry { padding: 1rem; border: 1px solid var(--border); border-bottom: none; text-decoration: none; color: var(--text); display: block; }
+.thread-entry:last-child { border-bottom: 1px solid var(--border); }
+.thread-entry:hover { background: var(--surface); text-decoration: none; }
+.thread-entry-title { font-size: var(--text-base); font-weight: 500; }
+.thread-entry-meta { font-size: var(--text-xs); color: var(--text-muted); margin-top: 0.25rem; letter-spacing: 0.05em; }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/">Research</a>
+    <div class="nav-links">
+      <a href="/Research/browse.html">Browse</a>
+      <a href="/Research/threads.html">Threads</a>
+      <a href="/Research/tags/">Tags</a>
+      <a href="/Research/search.html">Search</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <a href="/Research/browse.html">Browse</a>
+    <span>/</span>
+    <span>Tracking How Work Travels Across Organisational Systems</span>
+  </div>
+  <h1 class="item-title">Tracking How Work Travels Across Organisational Systems</h1>
+    <div class="meta-bar">
+    <span>2026-03-15</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/knowledge-management.html">knowledge-management</a> <a class="tag" href="/Research/tags/confluence.html">confluence</a> <a class="tag" href="/Research/tags/git.html">git</a> <a class="tag" href="/Research/tags/data-platform.html">data-platform</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-15-tracking-work-across-systems.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-15-tracking-work-across-systems" target="_blank" rel="noopener">wiki →</a>
+  </div>
+  <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>[high confidence] Azure Boards, Jira Software, and GitHub all support explicit issue-to-code linkage, but they rely on product-specific identifiers and text conventions such as `AB#123`, Jira issue keys, and pull request closing keywords instead of one shared cross-system work identifier</li>
+<li>[high confidence] SharePoint and Confluence expose stable, addressable artefacts that can anchor provenance, but their public documentation positions them primarily as content surfaces and link renderers rather than as authoritative registries for the lifecycle of engineering work</li>
+<li>[high confidence] Deployment-stage traceability becomes materially stronger when deployments are modelled as first-class records, because GitHub deployment objects tie an environment and status history to a specific ref while Azure Boards can return build evidence to the originating work item</li>
+<li>[medium confidence] Monitoring-stage linkage is usually correlation-based rather than strictly deterministic, because PagerDuty connects incidents to recent changes by time, related service, and machine-learning similarity instead of requiring every incident to carry the original issue or deployment identifier</li>
+<li>[high confidence] OpenLineage provides a mature provenance model for the data-platform segment through Jobs, Runs, Datasets, and extensible facets, but its native entity set stops short of documents, pull requests, deployments, and incidents</li>
+<li>[medium confidence] Commercial products such as LinearB and the older Sleuth positioning create value mainly by standardising existing keys and correlating signals across systems, which means their effectiveness still depends on disciplined issue references, deployment records, and service-mapping data upstream</li>
+<li>[high confidence] The most defensible organisation-wide architecture is a provenance graph with typed nodes and edges, because each platform owns only one segment of the lifecycle and no reviewed standard already spans document intent, tracked work, code change, release, incident, and data lineage together</li>
+<li>[high confidence] A minimum viable implementation should start at the issue layer as the canonical work key, capture deterministic joins first, and treat semantic matching or correlation as a secondary repair strategy for missing document-origin, incident, or downstream data-job links</li>
+</ol></div>
+
+  <div class="item-content">
+    <h2>Research Question</h2>
+<p>Can we track how a unit of 'Work' -- an idea or concept -- travels across organisational systems (SharePoint, Confluence, Azure DevOps (ADO)/Jira, Git, monitoring systems, and data platforms), and what mechanisms or patterns exist to trace its full lifecycle from inception to delivery and beyond?</p>
+
+<h2>Findings</h2>
+<h3>Executive Summary</h3>
+<ul>
+<li><strong>[inference]</strong> End-to-end tracking of organisational work is achievable, but only by building a graph of work artefacts and typed evidence links (a provenance graph) that stitches together local identifiers, web links, and event records from multiple systems rather than by discovering a single native identifier that already follows the work everywhere. Sources: <a href="https://learn.microsoft.com/en-us/graph/api/resources/driveitem?view=graph-rest-1.0">learn.microsoft.com</a> <a href="https://learn.microsoft.com/en-us/azure/devops/boards/github/link-to-from-github">learn.microsoft.com</a> <a href="https://docs.github.com/en/rest/deployments/deployments">docs.github.com</a> <a href="https://support.pagerduty.com/main/docs/recent-changes">support.pagerduty.com</a> <a href="https://openlineage.io/docs/spec/object-model/</li>">openlineage.io</a>
+<li><strong>[inference]</strong> The strongest native traceability today sits in the issue-to-code-to-build or deployment path, where GitHub, Azure Boards, and Jira all provide explicit mechanisms for linking work items, branches, commits, pull requests, and builds. Sources: <a href="https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue">docs.github.com</a> <a href="https://learn.microsoft.com/en-us/azure/devops/boards/github/link-to-from-github">learn.microsoft.com</a> <a href="https://support.atlassian.com/jira-software-cloud/docs/process-issues-with-smart-commits/</li>">support.atlassian.com</a>
+<li><strong>[fact]</strong> SharePoint, Confluence, monitoring systems, and data platforms can all contribute important lifecycle evidence, but they do so through weaker document links, service correlations, or specialised standards such as OpenLineage rather than through one shared work-tracking schema. Sources: <a href="https://learn.microsoft.com/en-us/graph/api/resources/driveitem?view=graph-rest-1.0">learn.microsoft.com</a> <a href="https://support.atlassian.com/platform-experiences/docs/use-smart-links-to-view-projects-in-confluence/">support.atlassian.com</a> <a href="https://support.pagerduty.com/main/docs/recent-changes">support.pagerduty.com</a> <a href="https://openlineage.io/docs/spec/object-model/</li>">openlineage.io</a>
+<li><strong>[inference]</strong> The best minimum viable approach is to choose the issue layer as the canonical work key, ingest every deterministic native link the tools already expose, and then attach provenance plus confidence to any correlation-based or inferred joins that extend the lifecycle into documents, incidents, and data jobs. Sources: <a href="https://learn.microsoft.com/en-us/azure/devops/boards/github/link-to-from-github">learn.microsoft.com</a> <a href="https://support.atlassian.com/jira-software-cloud/docs/process-issues-with-smart-commits/">support.atlassian.com</a> <a href="https://support.pagerduty.com/main/docs/recent-changes">support.pagerduty.com</a> <a href="https://openlineage.io/docs/spec/object-model/</li>">openlineage.io</a>
+</ul>
+<h3>Key Findings</h3>
+<ol>
+<li><strong>[fact][high confidence]</strong> Azure Boards, Jira Software, and GitHub all support explicit issue-to-code linkage, but they rely on product-specific identifiers and text conventions such as <code>AB#123</code>, Jira issue keys, and pull request closing keywords instead of one shared cross-system work identifier. Sources: <a href="https://learn.microsoft.com/en-us/azure/devops/boards/github/link-to-from-github">learn.microsoft.com</a> <a href="https://support.atlassian.com/jira-software-cloud/docs/process-issues-with-smart-commits/">support.atlassian.com</a> <a href="https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue</li>">docs.github.com</a>
+<li><strong>[fact][high confidence]</strong> SharePoint and Confluence expose stable, addressable artefacts that can anchor provenance, but their public documentation positions them primarily as content surfaces and link renderers rather than as authoritative registries for the lifecycle of engineering work. Sources: <a href="https://learn.microsoft.com/en-us/graph/api/resources/driveitem?view=graph-rest-1.0">learn.microsoft.com</a> <a href="https://support.atlassian.com/platform-experiences/docs/use-smart-links-to-view-projects-in-confluence/</li>">support.atlassian.com</a>
+<li><strong>[inference][high confidence]</strong> Deployment-stage traceability becomes materially stronger when deployments are modelled as first-class records, because GitHub deployment objects tie an environment and status history to a specific ref while Azure Boards can return build evidence to the originating work item. Sources: <a href="https://docs.github.com/en/rest/deployments/deployments">docs.github.com</a> <a href="https://learn.microsoft.com/en-us/azure/devops/boards/github/link-to-from-github</li>">learn.microsoft.com</a>
+<li><strong>[inference][medium confidence]</strong> Monitoring-stage linkage is usually correlation-based rather than strictly deterministic, because PagerDuty connects incidents to recent changes by time, related service, and machine-learning similarity instead of requiring every incident to carry the original issue or deployment identifier. Sources: <a href="https://support.pagerduty.com/main/docs/recent-changes</li>">support.pagerduty.com</a>
+<li><strong>[fact][high confidence]</strong> OpenLineage provides a mature provenance model for the data-platform segment through Jobs, Runs, Datasets, and extensible facets, but its native entity set stops short of documents, pull requests, deployments, and incidents. Sources: <a href="https://openlineage.io/docs/spec/object-model/">openlineage.io</a> <a href="https://openlineage.io/docs/1.38.0/guides/facets</li>">openlineage.io</a>
+<li><strong>[fact][medium confidence]</strong> Commercial products such as LinearB and the older Sleuth positioning create value mainly by standardising existing keys and correlating signals across systems, which means their effectiveness still depends on disciplined issue references, deployment records, and service-mapping data upstream. Sources: <a href="https://linearb.zendesk.com/hc/en-us/articles/45768080630043-Integrating-Jira-Cloud-into-LinearB-OAuth-2-0">linearb.zendesk.com</a> <a href="https://www.sleuth.io/post/dora-metrics-explained/">www.sleuth.io</a> <a href="https://support.pagerduty.com/main/docs/recent-changes</li>">support.pagerduty.com</a>
+<li><strong>[inference][high confidence]</strong> The most defensible organisation-wide architecture is a provenance graph with typed nodes and edges, because each platform owns only one segment of the lifecycle and no reviewed standard already spans document intent, tracked work, code change, release, incident, and data lineage together. Sources: <a href="https://learn.microsoft.com/en-us/graph/api/resources/driveitem?view=graph-rest-1.0">learn.microsoft.com</a> <a href="https://docs.github.com/en/rest/deployments/deployments">docs.github.com</a> <a href="https://openlineage.io/docs/spec/object-model/</li>">openlineage.io</a>
+<li><strong>[inference][high confidence]</strong> A minimum viable implementation should start at the issue layer as the canonical work key, capture deterministic joins first, and treat semantic matching or correlation as a secondary repair strategy for missing document-origin, incident, or downstream data-job links. Sources: <a href="https://learn.microsoft.com/en-us/azure/devops/boards/github/link-to-from-github">learn.microsoft.com</a> <a href="https://support.atlassian.com/jira-software-cloud/docs/process-issues-with-smart-commits/">support.atlassian.com</a> <a href="https://support.pagerduty.com/main/docs/recent-changes">support.pagerduty.com</a> <a href="https://openlineage.io/docs/spec/object-model/</li>">openlineage.io</a>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+  <th>Claim</th>
+  <th>Source</th>
+  <th>Confidence</th>
+  <th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>[fact] Issue-to-code links are strong but product-specific.</td>
+  <td><a href="https://learn.microsoft.com/en-us/azure/devops/boards/github/link-to-from-github">learn.microsoft.com</a> <a href="https://support.atlassian.com/jira-software-cloud/docs/process-issues-with-smart-commits/">support.atlassian.com</a> <a href="https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue</td>">docs.github.com</a>
+  <td>high</td>
+  <td>Three independent primary docs converge.</td>
+</tr>
+<tr>
+  <td>[fact] Documents are stable provenance nodes but weak lifecycle authorities.</td>
+  <td><a href="https://learn.microsoft.com/en-us/graph/api/resources/driveitem?view=graph-rest-1.0">learn.microsoft.com</a> <a href="https://support.atlassian.com/platform-experiences/docs/use-smart-links-to-view-projects-in-confluence/</td>">support.atlassian.com</a>
+  <td>high</td>
+  <td>Good support for addressability, weaker support for lifecycle ownership.</td>
+</tr>
+<tr>
+  <td>[inference] Deployment records strengthen traceability.</td>
+  <td><a href="https://docs.github.com/en/rest/deployments/deployments">docs.github.com</a> <a href="https://learn.microsoft.com/en-us/azure/devops/boards/github/link-to-from-github</td>">learn.microsoft.com</a>
+  <td>high</td>
+  <td>Deployment objects and build links are explicit machine-readable joins.</td>
+</tr>
+<tr>
+  <td>[inference] Incident linkage is correlation-heavy.</td>
+  <td><a href="https://support.pagerduty.com/main/docs/recent-changes</td>">support.pagerduty.com</a>
+  <td>medium</td>
+  <td>Strong primary source, but vendor-specific implementation.</td>
+</tr>
+<tr>
+  <td>[fact] OpenLineage is strong for data jobs but narrow for broader work provenance.</td>
+  <td><a href="https://openlineage.io/docs/spec/object-model/">openlineage.io</a> <a href="https://openlineage.io/docs/1.38.0/guides/facets</td>">openlineage.io</a>
+  <td>high</td>
+  <td>Clear entity-boundary evidence.</td>
+</tr>
+<tr>
+  <td>[inference] Commercial tools depend on upstream identifier discipline.</td>
+  <td><a href="https://linearb.zendesk.com/hc/en-us/articles/45768080630043-Integrating-Jira-Cloud-into-LinearB-OAuth-2-0">linearb.zendesk.com</a> <a href="https://www.sleuth.io/post/dora-metrics-explained/">www.sleuth.io</a> <a href="https://support.pagerduty.com/main/docs/recent-changes</td>">support.pagerduty.com</a>
+  <td>medium</td>
+  <td>Good directional evidence, but partly product-positioning material.</td>
+</tr>
+<tr>
+  <td>[inference] A provenance graph is the best synthesis layer.</td>
+  <td><a href="https://learn.microsoft.com/en-us/graph/api/resources/driveitem?view=graph-rest-1.0">learn.microsoft.com</a> <a href="https://docs.github.com/en/rest/deployments/deployments">docs.github.com</a> <a href="https://openlineage.io/docs/spec/object-model/</td>">openlineage.io</a>
+  <td>high</td>
+  <td>Inference directly supported by heterogeneous node and edge types.</td>
+</tr>
+<tr>
+  <td>[inference] The minimum viable approach should start with canonical issue keys and deterministic joins.</td>
+  <td><a href="https://learn.microsoft.com/en-us/azure/devops/boards/github/link-to-from-github">learn.microsoft.com</a> <a href="https://support.atlassian.com/jira-software-cloud/docs/process-issues-with-smart-commits/">support.atlassian.com</a> <a href="https://support.pagerduty.com/main/docs/recent-changes">support.pagerduty.com</a> <a href="https://openlineage.io/docs/spec/object-model/</td>">openlineage.io</a>
+  <td>high</td>
+  <td>Best-supported practical implementation path.</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li><strong>[assumption]</strong> The issue or work-item layer is the best canonical key for most organisations. <strong>Justification:</strong> the strongest reviewed native joins cluster around Azure Boards and Jira issue identifiers. Sources: <a href="https://learn.microsoft.com/en-us/azure/devops/boards/github/link-to-from-github">learn.microsoft.com</a> <a href="https://support.atlassian.com/jira-software-cloud/docs/process-issues-with-smart-commits/</li>">support.atlassian.com</a>
+<li><strong>[assumption]</strong> Documents should be modelled as contextual provenance nodes even when they are not authoritative identifiers. <strong>Justification:</strong> SharePoint and Confluence both expose stable, linkable artefacts that can preserve origin and decision context. Sources: <a href="https://learn.microsoft.com/en-us/graph/api/resources/driveitem?view=graph-rest-1.0">learn.microsoft.com</a> <a href="https://support.atlassian.com/platform-experiences/docs/use-smart-links-to-view-projects-in-confluence/</li>">support.atlassian.com</a>
+<li><strong>[assumption]</strong> Semantic inference should be reserved for explicit-link gaps rather than used as the default join strategy. <strong>Justification:</strong> deterministic identifiers and event objects exist across much of the lifecycle, while confidence drops noticeably at the correlation layer. Sources: <a href="https://docs.github.com/en/rest/deployments/deployments">docs.github.com</a> <a href="https://support.pagerduty.com/main/docs/recent-changes">support.pagerduty.com</a> <a href="https://openlineage.io/docs/spec/object-model/</li>">openlineage.io</a>
+</ul>
+<h3>Analysis</h3>
+<ul>
+<li><strong>[fact]</strong> The evidence supports a layered traceability model: deterministic reference links at the issue and code layer, first-class event objects at the deployment and data layer, and weaker explicit-link or correlation logic at the document and incident layer. Sources: <a href="https://learn.microsoft.com/en-us/azure/devops/boards/github/link-to-from-github">learn.microsoft.com</a> <a href="https://docs.github.com/en/rest/deployments/deployments">docs.github.com</a> <a href="https://support.pagerduty.com/main/docs/recent-changes">support.pagerduty.com</a> <a href="https://openlineage.io/docs/spec/object-model/</li>">openlineage.io</a>
+<li><strong>[inference]</strong> This layered model explains why organisations can usually answer &quot;which ticket drove this pull request?&quot; more confidently than &quot;which document started this work?&quot; or &quot;which deployment caused this incident?&quot; because the latter questions rely on looser metadata or probabilistic correlation. Sources: <a href="https://learn.microsoft.com/en-us/graph/api/resources/driveitem?view=graph-rest-1.0">learn.microsoft.com</a> <a href="https://support.atlassian.com/platform-experiences/docs/use-smart-links-to-view-projects-in-confluence/">support.atlassian.com</a> <a href="https://support.pagerduty.com/main/docs/recent-changes</li>">support.pagerduty.com</a>
+<li><strong>[inference]</strong> OpenLineage's success inside data platforms suggests that broader work provenance should also be event-centric and extensible, but the broader problem needs a super-graph because the lifecycle crosses entity types that were never designed to share one canonical schema. Sources: <a href="https://openlineage.io/docs/spec/object-model/">openlineage.io</a> <a href="https://openlineage.io/docs/1.38.0/guides/facets</li>">openlineage.io</a>
+<li><strong>[inference]</strong> The minimum viable design choice is therefore organisational rather than purely technical: choose a canonical issue key, enforce identifier hygiene, emit deployments and change events, and preserve edge provenance so that downstream graphs expose certainty and ambiguity separately. Sources: <a href="https://learn.microsoft.com/en-us/azure/devops/boards/github/link-to-from-github">learn.microsoft.com</a> <a href="https://docs.github.com/en/rest/deployments/deployments">docs.github.com</a> <a href="https://support.pagerduty.com/main/docs/recent-changes</li>">support.pagerduty.com</a>
+</ul>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li><strong>[fact]</strong> The reviewed public sources do not define one vendor-neutral standard that covers documents, tracked work, code changes, deployments, incidents, and data lineage together. Sources: <a href="https://openlineage.io/docs/spec/object-model/">openlineage.io</a> <a href="https://learn.microsoft.com/en-us/graph/api/resources/driveitem?view=graph-rest-1.0">learn.microsoft.com</a> <a href="https://support.pagerduty.com/main/docs/recent-changes</li>">support.pagerduty.com</a>
+<li><strong>[fact]</strong> Several originally listed sources had drifted or moved, which means product-level evidence in this domain can become stale quickly and must be revalidated before implementation decisions. Sources: <a href="https://support.atlassian.com/jira-software-cloud/docs/process-issues-with-smart-commits/">support.atlassian.com</a> <a href="https://learn.microsoft.com/en-us/azure/devops/pipelines/release/deployment-gates">learn.microsoft.com</a> <a href="https://www.sleuth.io</li>">www.sleuth.io<</a>
+<li><strong>[inference]</strong> The real operational risk is false confidence: a graph that hides whether an edge is declared, correlated, or inferred will look more precise than the evidence actually warrants. Sources: <a href="https://support.pagerduty.com/main/docs/recent-changes">support.pagerduty.com</a> <a href="https://openlineage.io/docs/1.38.0/guides/facets</li>">openlineage.io</a>
+<li><strong>[inference]</strong> Organisations with inconsistent branch naming, missing issue keys, or absent deployment or change-event instrumentation will only recover a partial lifecycle regardless of how good the graph technology is. Sources: <a href="https://support.atlassian.com/jira-software-cloud/docs/process-issues-with-smart-commits/">support.atlassian.com</a> <a href="https://docs.github.com/en/rest/deployments/deployments">docs.github.com</a> <a href="https://support.pagerduty.com/main/docs/recent-changes</li>">support.pagerduty.com</a>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li><strong>[inference]</strong> What is the smallest metadata contract that would let SharePoint and Confluence pages declare themselves as the origin or justification of a specific work item without forcing a new authoring workflow?</li>
+<li><strong>[inference]</strong> Which public monitoring and observability APIs provide the cleanest deterministic deployment-to-incident joins beyond PagerDuty's correlation model?</li>
+<li><strong>[inference]</strong> What graph query patterns are most useful for users once the lifecycle graph exists: origin tracing, blast-radius analysis, compliance evidence, or onboarding explanations?</li>
+</ul>
+<hr />
+
+
+  </div>
+  
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-15-trusting-trust-ai-corpus-contamination.html">Trusting Trust and AI Corpus Contamination</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-15-saas-banking-invariants.html">Invariants in Software as a Service (SaaS) Banking Software</a></div>
+  </div>
+</main>
+</body>
+</html>

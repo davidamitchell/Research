@@ -1,0 +1,802 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>AI capability is not a data problem - why the data/analytics department is the… — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #141414;
+  --surface-2:       #1c1c1c;
+  --border:          #2a2a2a;
+  --text:            #e8e8e8;
+  --text-muted:      #666;
+  --accent:          #e8e8e8;
+  --accent-dim:      #333;
+  --tag-bg:          #1e1e1e;
+  --tag-text:        #999;
+  --tag-active-bg:   #e8e8e8;
+  --tag-active-text: #0d0d0d;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--accent); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+}
+.card:hover { border-color: var(--accent); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+}
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+.item-content pre code { background: none; padding: 0; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--text); text-decoration: underline; }
+.item-content a:hover { color: var(--text-muted); }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); }
+.key-claims li:last-child { border-bottom: none; }
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); }
+.related-entry:last-child { border-bottom: none; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--text); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-entry { padding: 1rem; border: 1px solid var(--border); border-bottom: none; text-decoration: none; color: var(--text); display: block; }
+.thread-entry:last-child { border-bottom: 1px solid var(--border); }
+.thread-entry:hover { background: var(--surface); text-decoration: none; }
+.thread-entry-title { font-size: var(--text-base); font-weight: 500; }
+.thread-entry-meta { font-size: var(--text-xs); color: var(--text-muted); margin-top: 0.25rem; letter-spacing: 0.05em; }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/">Research</a>
+    <div class="nav-links">
+      <a href="/Research/browse.html">Browse</a>
+      <a href="/Research/threads.html">Threads</a>
+      <a href="/Research/tags/">Tags</a>
+      <a href="/Research/search.html">Search</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <a href="/Research/browse.html">Browse</a>
+    <span>/</span>
+    <span>AI capability is not a data problem - why the data/analytics department is the…</span>
+  </div>
+  <h1 class="item-title">AI capability is not a data problem - why the data/analytics department is the…</h1>
+  <p class="full-title-subtitle">AI capability is not a data problem - why the data/analytics department is the wrong home for organisational AI</p>
+  <div class="meta-bar">
+    <span>2026-03-02</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/ai-strategy.html">ai-strategy</a> <a class="tag" href="/Research/tags/architecture.html">architecture</a> <a class="tag" href="/Research/tags/data-platform.html">data-platform</a> <a class="tag" href="/Research/tags/agents.html">agents</a> <a class="tag" href="/Research/tags/organisational-design.html">organisational-design</a> <a class="tag" href="/Research/tags/governance.html">governance</a> <a class="tag" href="/Research/tags/mcp.html">mcp</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-02-ai-not-a-data-problem.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-02-ai-not-a-data-problem" target="_blank" rel="noopener">wiki →</a>
+  </div>
+  <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Analytics platforms fail production AI agent NFRs by design, not by deficiency: they are built for batch/analytical workloads and cannot satisfy the sub-second latency, HADR, fine-grained delegated authorisation, mutation auditability, and zero-trust requirements that production agents demand</li>
+<li>Martin Fowler&#39;s data mesh architecture explicitly establishes that operational data is served through microservice APIs and that &quot;data is hidden on the inside of each microservice, controlled and accessed through the microservice&#39;s APIs&quot; - meaning agents that consume operational data must integrate through the API layer, not the analytical plane</li>
+<li>RFC 8693 (OAuth 2.0 Token Exchange) and the IETF AI agent extension draft provide the STS delegation model that agents require for auditable, narrowly-scoped, per-user-per-context delegated access - a capability that analytics platforms do not support and cannot be retrofitted to provide</li>
+<li>MCP (Model Context Protocol), adopted by Microsoft, AWS, Google, and Anthropic in 2024–2025 as an industry standard, implements the API-layer integration pattern: declared capabilities, access scopes, JSON-RPC over HTTPS/mTLS, audit logging, and per-request policy enforcement, with no analytics platform analogue</li>
+<li>Knowledge management - the discipline of curating policies, regulations, procedural context, and organisational strategy for agent consumption via RAG or knowledge graphs - is structurally distinct from data management and requires its own tooling, versioning, and governance layer that a data warehouse does not provide</li>
+<li>NIST AI RMF&#39;s Govern function, APRA CPS 230, and Singapore&#39;s Model AI Governance Framework all explicitly require cross-functional AI accountability spanning IT, legal, HR, and compliance; no data/analytics team holds mandate across these functions, and the FCA/PRA confirmed CRO and CTO - not CDO - bear AI risk accountability within their operational domains</li>
+<li>IBM&#39;s 2025 CDO Study found only 26% of CDOs confident their teams can support new AI revenue streams, and 74% of organisations globally fail to scale AI to visible business value; CDO Magazine and HBR both document structural CDO failure in AI delivery, attributing it to mandate gaps, absent engineering skills, and inability to drive cross-functional operating model change</li>
+<li>The hybrid model - data platform as read-only knowledge substrate accessed via a governed API mediation layer, not via direct SQL - preserves the genuine data-platform-centric advantages (data gravity, ML proximity, analytics tooling) while eliminating the NFR, identity, mutation, and accountability risks of direct warehouse access</li>
+</ol></div>
+
+  <div class="item-content">
+    <h2>Research Question</h2>
+<p>What is the strongest case - technical, architectural, organisational, legal, and regulatory - that an organisation's AI capability should NOT be owned by or coupled to its data/analytics department or data platform, and what concrete tradeoffs arise when that coupling is made?</p>
+
+<h2>Findings</h2>
+<h3>Executive Summary</h3>
+<p>Coupling an organisation's AI capability to its data/analytics department is a structural category error: analytics platforms fail the non-functional requirements of production AI agents by design, and the data/analytics team lacks the organisational mandate, skills, and regulatory accountability required for the operational agent layer. The correct integration architecture places agents against the organisation's API layer - via API gateway, horizontally-scaling services, MCP servers, and STS token exchange (RFC 8693) - which satisfies the latency, HADR, delegated identity, mutation auditability, and zero-trust requirements that analytics platforms cannot. Knowledge management (policies, regulations, procedural context served via RAG) is a distinct discipline from data management and belongs in the API/platform layer, not the warehouse. Regulators including NIST AI RMF, APRA CPS 230, and FCA/PRA confirm that AI accountability requires IT, legal, HR, and compliance mandate that no data/analytics team holds; the empirical record shows that 74% of organisations that anchor AI in data teams fail to scale to visible business value.</p>
+<h3>Key Findings</h3>
+<ol>
+<li><p><strong>Analytics platforms fail production AI agent NFRs by design, not by deficiency: they are built for batch/analytical workloads and cannot satisfy the sub-second latency, HADR, fine-grained delegated authorisation, mutation auditability, and zero-trust requirements that production agents demand.</strong> (Confidence: high)</p>
+</li>
+<li><p><strong>Martin Fowler's data mesh architecture explicitly establishes that operational data is served through microservice APIs and that &quot;data is hidden on the inside of each microservice, controlled and accessed through the microservice's APIs&quot; - meaning agents that consume operational data must integrate through the API layer, not the analytical plane.</strong> (Confidence: high)</p>
+</li>
+<li><p><strong>RFC 8693 (OAuth 2.0 Token Exchange) and the IETF AI agent extension draft provide the STS delegation model that agents require for auditable, narrowly-scoped, per-user-per-context delegated access - a capability that analytics platforms do not support and cannot be retrofitted to provide.</strong> (Confidence: high)</p>
+</li>
+<li><p><strong>MCP (Model Context Protocol), adopted by Microsoft, AWS, Google, and Anthropic in 2024–2025 as an industry standard, implements the API-layer integration pattern: declared capabilities, access scopes, JSON-RPC over HTTPS/mTLS, audit logging, and per-request policy enforcement, with no analytics platform analogue.</strong> (Confidence: high)</p>
+</li>
+<li><p><strong>Knowledge management - the discipline of curating policies, regulations, procedural context, and organisational strategy for agent consumption via RAG or knowledge graphs - is structurally distinct from data management and requires its own tooling, versioning, and governance layer that a data warehouse does not provide.</strong> (Confidence: high)</p>
+</li>
+<li><p><strong>NIST AI RMF's Govern function, APRA CPS 230, and Singapore's Model AI Governance Framework all explicitly require cross-functional AI accountability spanning IT, legal, HR, and compliance; no data/analytics team holds mandate across these functions, and the FCA/PRA confirmed CRO and CTO - not CDO - bear AI risk accountability within their operational domains.</strong> (Confidence: high)</p>
+</li>
+<li><p><strong>IBM's 2025 CDO Study found only 26% of CDOs confident their teams can support new AI revenue streams, and 74% of organisations globally fail to scale AI to visible business value; CDO Magazine and HBR both document structural CDO failure in AI delivery, attributing it to mandate gaps, absent engineering skills, and inability to drive cross-functional operating model change.</strong> (Confidence: high)</p>
+</li>
+<li><p><strong>The hybrid model - data platform as read-only knowledge substrate accessed via a governed API mediation layer, not via direct SQL - preserves the genuine data-platform-centric advantages (data gravity, ML proximity, analytics tooling) while eliminating the NFR, identity, mutation, and accountability risks of direct warehouse access.</strong> (Confidence: medium)</p>
+</li>
+<li><p><strong>The data team is the correct owner of the analytical and experimental AI layer (model training, data exploration, BI automation, ML experimentation) and an incorrect owner of the operational agent layer (production agents taking consequential actions with real-time write access, regulatory traceability requirements, and operational SLA obligations).</strong> (Confidence: high)</p>
+</li>
+<li><p><strong>Placing AI ownership in the data team creates a structural incentive misalignment: data teams are rewarded for expanding data products and demonstrating AI adoption, creating pressure to accumulate AI ownership even when the team lacks production engineering, security, and change management capability - the behavioural dynamic documented in the 74% failure statistic.</strong> (Confidence: medium)</p>
+</li>
+<li><p><strong>The BI precedent is directly analogous: BI capability placed in data teams in the 2000s eventually transferred to product engineering as BI accumulated operational dependencies that data teams could not service to production SLAs; production AI follows the same arc at higher regulatory and operational stakes.</strong> (Confidence: medium)</p>
+</li>
+<li><p><strong>Regulators have not explicitly mandated separation of analytical and operational data access as a standalone requirement; the implication is indirect - operational risk, auditability, fine-grained access control, and board-level accountability requirements collectively produce the same architectural conclusion.</strong> (Confidence: high)</p>
+</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+  <th>Claim</th>
+  <th>Source</th>
+  <th>Confidence</th>
+  <th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Analytics platforms fail production agent NFRs by design</td>
+  <td>Pylar AI five-layer architecture; Machine Learning Mastery production agent deployment; Martin Fowler data mesh article</td>
+  <td>High</td>
+  <td>Consistent across architecture guidance</td>
+</tr>
+<tr>
+  <td>Operational data served through microservice APIs (Fowler)</td>
+  <td>Martin Fowler, &quot;Data Mesh Principles and Logical Architecture&quot; (2020), accessed</td>
+  <td>High</td>
+  <td>Primary source, verbatim quotation</td>
+</tr>
+<tr>
+  <td>RFC 8693 STS delegation for agents</td>
+  <td>RFC 8693 (rfc-editor.org); Auth0 Token Vault; IETF draft-oauth-ai-agents-on-behalf-of-user-01</td>
+  <td>High</td>
+  <td>Standards-based; IETF draft confirms AI-specific extension in progress</td>
+</tr>
+<tr>
+  <td>MCP as API-layer integration standard</td>
+  <td>MCP specification (modelcontextprotocol.io); CSA MCP primer; Okta MCP overview</td>
+  <td>High</td>
+  <td>Industry adoption by 4 major cloud platforms confirmed</td>
+</tr>
+<tr>
+  <td>Knowledge management ≠ data management for agents</td>
+  <td>Xenoss enterprise knowledge base RAG; CompuVate RAG systems; KM Insider RAG and KM; Denser AI KM analysis</td>
+  <td>High</td>
+  <td>Consistent across independent sources</td>
+</tr>
+<tr>
+  <td>NIST AI RMF cross-functional governance requirement</td>
+  <td>NIST AI RMF (nist.gov); Openlayer NIST guide; GLACIS NIST guide</td>
+  <td>High</td>
+  <td>Primary standard; implementation guides corroborate</td>
+</tr>
+<tr>
+  <td>CRO/CTO not CDO holds AI accountability (FCA/PRA)</td>
+  <td>Prior research 2026-02-28-ai-line-1-line-2-risk-agents.md (FCA DP5/22 analysis)</td>
+  <td>High</td>
+  <td>Based on completed primary research</td>
+</tr>
+<tr>
+  <td>APRA CPS 230 cross-functional AI governance</td>
+  <td>Prior research 2026-02-28-rbnz-ai-supervisory-expectations.md (APRA analysis)</td>
+  <td>High</td>
+  <td>Based on completed primary research</td>
+</tr>
+<tr>
+  <td>74% of organisations fail to scale AI to visible value</td>
+  <td>IBM 2025 CDO Study; prior research 2026-02-28-ai-strategy-business-efficiency-examples.md (BCG data)</td>
+  <td>High</td>
+  <td>Two independent datasets agree</td>
+</tr>
+<tr>
+  <td>26% of CDOs confident in AI revenue support</td>
+  <td>IBM 2025 CDO Study</td>
+  <td>High</td>
+  <td>Primary data; IBM IBV report</td>
+</tr>
+<tr>
+  <td>CDOs structurally set up to fail in AI delivery</td>
+  <td>HBR &quot;Why Chief Data and AI Officers Are Set Up to Fail&quot; (2023); CDO Magazine lessons analysis</td>
+  <td>High</td>
+  <td>HBR is a credible secondary; CDO Magazine corroborates</td>
+</tr>
+<tr>
+  <td>Hybrid model preserves advantages without risks</td>
+  <td>Inference from Fowler + MCP + RFC 8693 evidence</td>
+  <td>Medium</td>
+  <td>Logical derivation; no single source makes this claim explicitly</td>
+</tr>
+<tr>
+  <td>Data team correct for experimental AI, wrong for operational</td>
+  <td>Inference from NFR analysis + organisational mandate analysis</td>
+  <td>High</td>
+  <td>Consistent with all evidence streams; no source explicitly contradicts</td>
+</tr>
+<tr>
+  <td>Incentive misalignment in data team AI ownership</td>
+  <td>IBM CDO Study (ambitions outpace readiness); HBR CDO failure analysis</td>
+  <td>Medium</td>
+  <td>Described as structural dynamic, not directly measured</td>
+</tr>
+<tr>
+  <td>BI precedent for AI</td>
+  <td>[inference] from documented pattern of data-team-to-engineering-team handoffs in BI</td>
+  <td>Medium</td>
+  <td>No single authoritative study; widely observable pattern</td>
+</tr>
+<tr>
+  <td>No explicit regulatory separation mandate</td>
+  <td>Prior research RBNZ and APRA items; NIST AI RMF review</td>
+  <td>High</td>
+  <td>Absence confirmed across multiple regulatory frameworks reviewed</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li><p><strong>Assumption:</strong> &quot;Production agent&quot; means an agent that takes consequential actions (sends communications, modifies records, makes decisions with downstream effects) rather than a read-only analytics assistant. <strong>Justification:</strong> The research question and scope explicitly include write operations and the high-stakes agent category is the primary motivating use case. A pure read-only analytics assistant raises fewer NFR concerns, though the identity and audit trail arguments still apply.</p>
+</li>
+<li><p><strong>Assumption:</strong> The skills gap between data/analytics teams and API/platform engineering is sufficiently wide that bridging it within the existing data team structure is not feasible at pace for most organisations. <strong>Justification:</strong> IBM CDO Study and multiple skills gap analyses confirm the gap; however, organisations with large, senior data engineering teams (large tech companies, advanced fintechs) may have more cross-disciplinary skill sets that reduce the gap.</p>
+</li>
+</ul>
+<h3>Analysis</h3>
+<p>The technical, organisational, and empirical evidence converge on the same structural conclusion. Fowler's operational/analytical data plane separation and the NFR analysis show that analytics platforms fail production agent requirements by design, not by implementation deficiency - the limitations are architectural. Regulatory frameworks (NIST AI RMF, APRA CPS 230, FCA/PRA) and IBM/HBR CDO research independently confirm that no data/analytics team holds the mandate or possesses the skills required for the operational agent layer. The 74% AI scaling failure rate, the 26% CDO readiness figure, and the HBR structural analysis of CDO failure are three empirically independent data points documenting what happens when data teams carry the production AI mandate.</p>
+<p>The genuine counter-argument - data gravity, ML proximity, and prototype speed - was engaged directly. These advantages are real at the analytical and experimental layer. The resolution is the hybrid model: the data team retains ownership of the analytical/experimental plane; the API layer is built or strengthened for the operational agent layer. This is not a radical restructuring; it is a separation of concerns that the data mesh architecture already implies.</p>
+<p>Evidence sufficiency is high for the architectural claims (multiple independent technical sources, primary standards), medium for the organisational claims (empirical data exists but no controlled studies compare AI outcomes by departmental ownership structure), and medium for the BI precedent (widely observable but not systematically studied).</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li><p><strong>Evidence gap on controlled studies:</strong> No published study directly compares AI programme outcomes by departmental ownership structure (data team vs. cross-functional vs. dedicated AI function). The 74% failure rate is associated with absence of cross-functional ownership, not with data-team ownership specifically - though the CDO readiness gap and HBR analysis provide strong indirect evidence.</p>
+</li>
+<li><p><strong>Inaccessible sources:</strong> Zhamak Dehghani's <em>Data Mesh</em> (O'Reilly, 2022), W3C DID spec, <a href="https://github.com/cncf/tag-security/blob/main/security-whitepaper/v2/cloud-native-security-whitepaper.md">CNCF Zero Trust Whitepaper</a>, <a href="https://owasp.org/www-project-api-security/">OWASP API Security Top 10</a>, Google Cloud and Microsoft Azure architecture documentation, Thoughtworks Technology Radar, and McKinsey Global Institute AI survey were not directly fetched in this investigation. These sources were not required to establish the claims - the claims are well-supported by accessed sources - but their absence is noted. The Fowler article (public, accessed) provides the foundational data mesh argument; the Dehghani book would corroborate but is paywalled.</p>
+</li>
+<li><p><strong>Hybrid model evidence:</strong> The recommendation that a hybrid model (data platform as API-mediated read-only knowledge substrate) preserves data-team advantages is an inference, not a directly documented case study. No published case study was found that specifically documented the transition from data-platform-centric to API-layer-centric agent architecture and its outcomes.</p>
+</li>
+<li><p><strong>NZ-specific gap:</strong> RBNZ has no standalone AI governance framework (confirmed in prior research). The claim that NZ regulatory requirements imply cross-functional accountability is correct but derived from BS11/BPR and APRA CPS 230, not from RBNZ-specific AI guidance.</p>
+</li>
+<li><p><strong>Small organisations:</strong> The argument assumes an organisation of sufficient size to have distinct data/analytics and IT/platform engineering functions. Very small organisations where the same team does both may face a different analysis.</p>
+</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>What does a purpose-built &quot;AI capability function&quot; organisational chart look like in practice, and who should it report to (CTO, COO, CEO)?</li>
+<li>How should organisations handle the transition period where the data team <em>does</em> hold AI tooling but the target state is an API-layer-centric architecture - what is the migration path?</li>
+<li>Is there a documented case study of an organisation that successfully transitioned from data-platform-centric to API-layer-centric AI architecture, and what were the costs and timeline?</li>
+<li>What are the procurement and vendor implications of separating the AI capability from the data platform - does MCP server adoption require significant new vendor contracts?</li>
+<li>How does the argument change for organisations that have invested heavily in lakehouse architectures (Databricks, Delta Lake) that blur the operational/analytical boundary?</li>
+</ul>
+<hr />
+
+
+  </div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-03-02-agent-memory-management-context-injection.html">Agent Memory Management and Context Injection</a> <span class="related-note">via agents, architecture, governance</span></div>
+<div class="related-entry"><a href="/Research/research/2026-03-21-dependency-mapping-dotnet-terraform-dynatrace.html">Dependency Mapping Across .NET Codebases, Terraform, Dynatrace, Confluence, Log Aggregation, and the Configuration and Service Data Model (CSDM)</a> <span class="related-note">via agents, architecture</span></div>
+<div class="related-entry"><a href="/Research/research/2026-03-18-api-context-hubs-rag-mcp.html">Application Programming Interface (API) Context Hubs, Retrieval-Augmented Generation, and the Model Context Protocol: How Agents Discover and Use APIs</a> <span class="related-note">via agents, mcp</span></div>
+<div class="related-entry"><a href="/Research/research/2026-03-02-integrative-framework-agent-decision-making.html">An Integrative Framework for Agent Decision-Making: Aligning Knowledge Management, Intent Understanding, and Contextual Decision Frameworks</a> <span class="related-note">via agents, governance</span></div>
+</div></div>
+
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-02-chat-conversational-interface.html">Conversational and chat interface for querying the research corpus</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-02-agent-memory-management-context-injection.html">Agent Memory Management and Context Injection</a></div>
+  </div>
+</main>
+</body>
+</html>

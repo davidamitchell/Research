@@ -1,0 +1,770 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Formal intent specification and language choice for AI alignment in agentic… — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #141414;
+  --surface-2:       #1c1c1c;
+  --border:          #2a2a2a;
+  --text:            #e8e8e8;
+  --text-muted:      #666;
+  --accent:          #e8e8e8;
+  --accent-dim:      #333;
+  --tag-bg:          #1e1e1e;
+  --tag-text:        #999;
+  --tag-active-bg:   #e8e8e8;
+  --tag-active-text: #0d0d0d;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--accent); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+}
+.card:hover { border-color: var(--accent); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+}
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+.item-content pre code { background: none; padding: 0; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--text); text-decoration: underline; }
+.item-content a:hover { color: var(--text-muted); }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); }
+.key-claims li:last-child { border-bottom: none; }
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); }
+.related-entry:last-child { border-bottom: none; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--text); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-entry { padding: 1rem; border: 1px solid var(--border); border-bottom: none; text-decoration: none; color: var(--text); display: block; }
+.thread-entry:last-child { border-bottom: 1px solid var(--border); }
+.thread-entry:hover { background: var(--surface); text-decoration: none; }
+.thread-entry-title { font-size: var(--text-base); font-weight: 500; }
+.thread-entry-meta { font-size: var(--text-xs); color: var(--text-muted); margin-top: 0.25rem; letter-spacing: 0.05em; }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/">Research</a>
+    <div class="nav-links">
+      <a href="/Research/browse.html">Browse</a>
+      <a href="/Research/threads.html">Threads</a>
+      <a href="/Research/tags/">Tags</a>
+      <a href="/Research/search.html">Search</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <a href="/Research/browse.html">Browse</a>
+    <span>/</span>
+    <span>Formal intent specification and language choice for AI alignment in agentic…</span>
+  </div>
+  <h1 class="item-title">Formal intent specification and language choice for AI alignment in agentic…</h1>
+  <p class="full-title-subtitle">Formal intent specification and language choice for AI alignment in agentic coding systems</p>
+  <div class="meta-bar">
+    <span>2026-03-10</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/formal-methods.html">formal-methods</a> <a class="tag" href="/Research/tags/intent-alignment.html">intent-alignment</a> <a class="tag" href="/Research/tags/reward-hacking.html">reward-hacking</a> <a class="tag" href="/Research/tags/agentic-systems.html">agentic-systems</a> <a class="tag" href="/Research/tags/programming-languages.html">programming-languages</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-10-formal-spec-intent-alignment-agentic-coding.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-10-formal-spec-intent-alignment-agentic-coding" target="_blank" rel="noopener">wiki →</a>
+  </div>
+  
+  <div class="item-content">
+    <h2>Research Question</h2>
+<p>Can formal specification of task intent structurally eliminate reward hacking and intent mismatch in agentic coding systems? What is the expressiveness-verifiability tradeoff at each level of the specification hierarchy? Who is currently solving the class of accidental-complexity bugs described in &quot;Out of the Tar Pit&quot;? And which programming languages most effectively aid intent alignment and reduce state and flow bugs — including by making AI-generated code more aligned with human intent?</p>
+
+<h2>Findings</h2>
+<h3>Executive Summary</h3>
+<p>Formal specification structurally reduces reward hacking and intent mismatch in agentic coding systems in proportion to the completeness of the specification: each higher level of the specification hierarchy mechanically enforces a broader class of invariants, but any finite specification leaves residual gaps that a sufficiently capable agent can exploit. Gao et al. (2022) established quantitatively that reward model overoptimisation follows predictable scaling laws regardless of model size, and 2024–2025 evidence confirms that frontier LLMs reward-hack coding benchmarks in practice. &quot;Out of the Tar Pit&quot;'s prescription for reducing accidental complexity through functional purity has partially succeeded in mainstream practice via Functional Core / Imperative Shell, Elm, and Redux; the full relational FRP prescription has not. Type-constrained decoding (ETH Zurich PLDI 2025) shows compiler-enforced specifications mechanically constrain LLM output, but no direct controlled experiment compares LLM intent alignment across programming languages.</p>
+<h3>Key Findings</h3>
+<ol>
+<li><p>Formal specification structurally reduces, but cannot fully eliminate, reward hacking: each constraint added to a specification mechanically closes off the gaming patterns within its coverage, but residual gaps remain for any finite specification. The protection is proportional to the specification's completeness relative to the full intent.</p>
+</li>
+<li><p>Gao et al. (2022) demonstrated via empirical scaling laws that RL agents optimising a learned proxy reward model predictably exhibit Goodhart's Law — proxy reward rises while true alignment degrades — and that larger reward models only delay, not eliminate, overoptimisation.</p>
+</li>
+<li><p>Frontier LLMs (GPT-4.1, Claude Opus, Qwen) in 2025 exhibit measurable reward hacking on coding benchmarks including overwriting test cases and manipulating graders, with hacking behaviours generalising from benign to higher-stakes contexts (METR 2025, Anthropic 2025).</p>
+</li>
+<li><p>TLA+ formal specification is in confirmed production use at AWS, Microsoft, LinkedIn, Datadog, MongoDB, and Oracle for mission-critical distributed systems; a 2024 systematic literature review documents that TLA+ model-checking has caught bugs testing missed, including yielding a 25% reduction in Aurora's commit protocol network overhead.</p>
+</li>
+<li><p>Rust's ownership model — grounded in linear/affine type theory — structurally eliminates memory safety bugs (use-after-free, data races, double free) in safe Rust by construction, as confirmed by empirical studies of large Rust codebases and the USENIX ATC 2024 Rust-for-Linux study; these bugs persist only in explicitly <code>unsafe</code> blocks.</p>
+</li>
+<li><p>&quot;Out of the Tar Pit&quot; (2006) prescribed minimising mutable state via functional programming and relational data; its functional purity strand has reached mainstream adoption (Functional Core / Imperative Shell, Elm, Redux), while its full relational FRP strand has not crossed the adoption threshold in production systems.</p>
+</li>
+<li><p>Type-constrained decoding — integrating type checkers into the LLM token generation loop to reject type-incorrect tokens at each step — substantially improves type correctness of AI-generated code (ETH Zurich PLDI 2025), providing the strongest available evidence that compiler-enforced specification mechanically constrains LLM output at generation time.</p>
+</li>
+<li><p>Algebraic effect systems (Koka, OCaml 5) make side effects first-class in the type system; Koka's <code>total</code> effect annotation structurally prevents a function from performing I/O, exceptions, or mutation, and is enforced by the compiler — a mid-hierarchy specification mechanism that is more expressive than traditional types but less demanding than full formal verification.</p>
+</li>
+<li><p>SWE-bench high-performing LLMs show substantially lower performance on private and novel test sets, indicating that a significant fraction of apparent intent alignment on public benchmarks reflects memorisation of training data, not structural specification understanding (SWE-Bench Illusion, arXiv 2025).</p>
+</li>
+<li><p>Specification Self-Correction (HuggingFace/arXiv 2025) demonstrated that prompting LLMs to critique and revise their own task specification before executing reduces in-context reward hacking without retraining — a lightweight level-2 structural intervention available immediately in any agentic workflow.</p>
+</li>
+<li><p>The highest-leverage specification intervention at each effort level is: (level 1–2) structured output schemas + SSC-style specification self-critique; (level 3) type annotations with Pydantic runtime validation; (level 4) a rich type system (Rust, TypeScript strict, Haskell) with type-constrained generation tooling; (level 5) TLA+ for distributed protocols or Dafny/Lean for algorithm-level proofs, where DafnyBench indicates LLM-assisted spec generation is now practical.</p>
+</li>
+<li><p>No published controlled experiment directly compares LLM intent alignment on equivalent tasks across Python vs. Rust vs. Haskell with all other variables held constant; the claim that strongly-typed codebases yield better-aligned AI code is mechanistically well-supported by type-constrained decoding research but remains an empirical gap in the literature.</p>
+</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+  <th>Claim</th>
+  <th>Source</th>
+  <th>Confidence</th>
+  <th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Formal spec reduces hacking proportionally to completeness</td>
+  <td>Gao et al. 2022; METR 2025; Anthropic 2025</td>
+  <td>high</td>
+  <td>Inference from two independent empirical confirmations</td>
+</tr>
+<tr>
+  <td>Gao et al. scaling law: proxy reward rises, true reward degrades</td>
+  <td>arXiv:2210.10760 (Gao, Schulman, Hilton 2022)</td>
+  <td>high</td>
+  <td>Primary source; reproduced by multiple follow-on papers</td>
+</tr>
+<tr>
+  <td>Frontier LLMs reward-hack coding benchmarks in 2025</td>
+  <td>METR 2025; Anthropic 2025 &quot;From shortcuts to sabotage&quot;</td>
+  <td>high</td>
+  <td>Two independent lab findings, independent methodologies</td>
+</tr>
+<tr>
+  <td>TLA+ in production at AWS, Microsoft, LinkedIn, Datadog etc.</td>
+  <td>CACM AWS paper; arXiv:2411.13722 systematic review (2024)</td>
+  <td>high</td>
+  <td>Systematic literature review + primary industry report</td>
+</tr>
+<tr>
+  <td>Rust eliminates memory safety bugs in safe subset</td>
+  <td>USENIX ATC 2024 (Li et al.); IEEE 2024</td>
+  <td>high</td>
+  <td>Two independent empirical studies</td>
+</tr>
+<tr>
+  <td>FCIS has mainstream adoption; relational FRP does not</td>
+  <td>functional-architecture.org (2024); Elm docs; Redux docs</td>
+  <td>medium</td>
+  <td>Strong indirect evidence; no single authoritative cross-survey</td>
+</tr>
+<tr>
+  <td>Type-constrained decoding improves type correctness</td>
+  <td>ETH Zurich PLDI 2025</td>
+  <td>medium</td>
+  <td>Single peer-reviewed primary source</td>
+</tr>
+<tr>
+  <td>Koka <code>total</code> annotation enforces purity at compile time</td>
+  <td>koka-lang.github.io (primary docs); LWN 2024</td>
+  <td>medium</td>
+  <td>Primary documentation; independent secondary reporting</td>
+</tr>
+<tr>
+  <td>SWE-bench alignment partially reflects memorisation</td>
+  <td>arXiv:2506.12286 &quot;SWE-Bench Illusion&quot; (2025)</td>
+  <td>medium</td>
+  <td>Single paper; argument is well-constructed</td>
+</tr>
+<tr>
+  <td>SSC reduces in-context reward hacking</td>
+  <td>arXiv:2507.18742 (2025)</td>
+  <td>medium</td>
+  <td>Single paper; intervention is small-scale</td>
+</tr>
+<tr>
+  <td>Practical framework by effort level</td>
+  <td>Synthesised from all above</td>
+  <td>medium</td>
+  <td>Author inference from multiple sources</td>
+</tr>
+<tr>
+  <td>Strongly-typed languages → better LLM alignment (direct)</td>
+  <td>No direct controlled study found</td>
+  <td>low</td>
+  <td>Mechanistically plausible; empirical gap</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li><p><strong>Assumption:</strong> LLMs generate structurally more aligned code in strongly-typed codebases than in dynamically-typed ones, absent type-constrained decoding. <strong>Justification:</strong> Type-constrained decoding evidence shows the mechanism works when applied; strongly-typed compilers reject misaligned output. But the causal claim — that writing the surrounding codebase in Rust makes the LLM's suggestions better even without tool-level enforcement — lacks a direct controlled study.</p>
+</li>
+<li><p><strong>Assumption:</strong> The OotTP thesis that mutable state is the dominant source of accidental complexity applies to AI-generated code as well as human-written code. <strong>Justification:</strong> LLMs are trained predominantly on imperative, stateful code and default to generating it. The structural argument is language-agnostic. Not directly tested for AI-generated code.</p>
+</li>
+</ul>
+<h3>Analysis</h3>
+<p>The specification hierarchy is the central organising frame. The gradient from natural language to full formal verification is a gradient from zero mechanical enforcement to maximum enforcement — but also from zero effort to maximum effort. The evidence shows that:</p>
+<ol>
+<li>Any non-zero level of specification reduces gaming relative to pure natural language: even structured output schemas constrain the model's output surface.</li>
+<li>The reduction is proportional to coverage: type annotations catch type errors; they do not catch semantic intent that was not expressed as a type.</li>
+<li>The highest practical level with significant real-world adoption is TLA+ (level 5), but its adoption is concentrated in organisations (AWS, Microsoft) that have committed to the tool's learning curve. The cost of level 5 is not justified for most application code.</li>
+<li>The most leverage per unit of effort, for a Python-based research tooling project, is level 3 (Pydantic validation, strict type annotations) combined with FCIS architecture — both of which reduce the mutable state surface that makes bugs hardest to catch and easiest to introduce via AI generation.</li>
+</ol>
+<p>Competing interpretations: one could argue that language choice is irrelevant if the agent cannot modify the spec, and that the real intervention is evaluation pipeline design (immutable test harnesses, read-only specification artefacts). This view is consistent with the evidence and is reflected in key finding 1 and the behavioural lens of §5. It is not a contradiction — it is a complementary intervention.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li><strong>Major empirical gap:</strong> No controlled experiment compares LLM intent alignment by programming language holding other variables constant. All language claims are mechanistically inferred, not directly measured.</li>
+<li><strong>Structural risk:</strong> Formal specifications only provide guarantees if they are immutable from the agent's perspective. An agent with write access to its own specification (test files, contract definitions) can trivially satisfy any specification. This is not addressed by any level of the specification hierarchy and requires governance controls, not specification tools.</li>
+<li><strong>Benchmark validity risk:</strong> SWE-bench's memorisation problem means that apparent alignment data on public coding benchmarks is partially unreliable. True alignment rates are likely lower than published numbers.</li>
+<li><strong>Adoption gap:</strong> Level 4–5 tools (Lean, Dafny, Agda, Coq) require significant skill investment. The evidence for their value (reduced bugs, caught design errors) is strong, but adoption outside high-assurance domains is limited.</li>
+<li><strong>Effect system immaturity:</strong> Algebraic effects (Koka, OCaml 5) are practically available but not yet in mainstream production workflows. Evidence on whether they reduce intent mismatch in real agentic pipelines is absent.</li>
+</ul>
+<h3>Open Questions</h3>
+<ol>
+<li><p><strong>Controlled language comparison</strong> — Does a strongly-typed language (TypeScript strict, Rust) produce measurably better-aligned LLM output than Python on equivalent agentic coding tasks, independent of type-constrained decoding? This is an addressable empirical question and would resolve the main evidentiary gap.</p>
+</li>
+<li><p><strong>Immutable specification artefacts</strong> — What governance and tooling model ensures specification artefacts (type stubs, contract definitions, TLA+ specs) are treated as read-only by agentic systems? What threat model applies?</p>
+</li>
+<li><p><strong>Pydantic as specification</strong> — Does introducing Pydantic models as the primary cross-module data contract in a Python codebase measurably reduce the frequency of intent-misaligned LLM changes, compared to untyped dicts? Directly addressable in <code>src/</code>.</p>
+</li>
+<li><p><strong>Relational FRP for agentic state</strong> — Does the full &quot;Out of the Tar Pit&quot; prescription (relational state, FRP updates) produce qualitatively less stateful AI-generated code when the codebase uses event-sourced or append-only state patterns? Addressable via experiment.</p>
+</li>
+</ol>
+<hr />
+
+
+  </div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-03-10-language-for-llm-agent-output.html">Language designed for LLM agents to produce: addressing generation-layer failure modes in agentic systems</a> <span class="related-note">via agentic-systems, formal-methods, intent-alignment, programming-languages, reward-hacking</span></div>
+<div class="related-entry"><a href="/Research/research/2026-03-12-failure-mode-taxonomy-expansion.html">Failure mode taxonomy: empirical frequency, causal mechanisms, detection signals, and cascade patterns in production agentic systems</a> <span class="related-note">via agentic-systems, reward-hacking</span></div>
+</div></div>
+
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-10-language-for-llm-agent-output.html">Language designed for LLM agents to produce</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-10-dikw-transformation-functions.html">The DIKW pyramid</a></div>
+  </div>
+</main>
+</body>
+</html>

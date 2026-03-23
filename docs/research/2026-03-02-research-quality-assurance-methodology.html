@@ -1,0 +1,758 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Research Quality Assurance and Knowledge Integration Methodology — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #141414;
+  --surface-2:       #1c1c1c;
+  --border:          #2a2a2a;
+  --text:            #e8e8e8;
+  --text-muted:      #666;
+  --accent:          #e8e8e8;
+  --accent-dim:      #333;
+  --tag-bg:          #1e1e1e;
+  --tag-text:        #999;
+  --tag-active-bg:   #e8e8e8;
+  --tag-active-text: #0d0d0d;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--accent); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+}
+.card:hover { border-color: var(--accent); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+}
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+.item-content pre code { background: none; padding: 0; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--text); text-decoration: underline; }
+.item-content a:hover { color: var(--text-muted); }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); }
+.key-claims li:last-child { border-bottom: none; }
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); }
+.related-entry:last-child { border-bottom: none; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--text); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-entry { padding: 1rem; border: 1px solid var(--border); border-bottom: none; text-decoration: none; color: var(--text); display: block; }
+.thread-entry:last-child { border-bottom: 1px solid var(--border); }
+.thread-entry:hover { background: var(--surface); text-decoration: none; }
+.thread-entry-title { font-size: var(--text-base); font-weight: 500; }
+.thread-entry-meta { font-size: var(--text-xs); color: var(--text-muted); margin-top: 0.25rem; letter-spacing: 0.05em; }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/">Research</a>
+    <div class="nav-links">
+      <a href="/Research/browse.html">Browse</a>
+      <a href="/Research/threads.html">Threads</a>
+      <a href="/Research/tags/">Tags</a>
+      <a href="/Research/search.html">Search</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <a href="/Research/browse.html">Browse</a>
+    <span>/</span>
+    <span>Research Quality Assurance and Knowledge Integration Methodology</span>
+  </div>
+  <h1 class="item-title">Research Quality Assurance and Knowledge Integration Methodology</h1>
+    <div class="meta-bar">
+    <span>2026-03-02</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/quality-assurance.html">quality-assurance</a> <a class="tag" href="/Research/tags/ci.html">ci</a> <a class="tag" href="/Research/tags/skills.html">skills</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-02-research-quality-assurance-methodology.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-02-research-quality-assurance-methodology" target="_blank" rel="noopener">wiki →</a>
+  </div>
+  <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>The three existing skills leave logical coherence, alternative explanations, and cross-item integration uncovered</li>
+<li>LLM agents can check logical coherence and missing alternative explanations at a quality level matching median human peer reviewers</li>
+<li>A four-tier quality review pipeline sequenced by automation cost is the correct architecture: structural checks → single-item agent review → cross-item agent review → human domain review</li>
+<li>The existing `research-review.yml` Tier 2 agent review should be extended with two new checks: logical coherence (does §6 Synthesis follow from §2 Investigation?) and evidence sufficiency (is the confidence level calibrated to source count and independence?)</li>
+<li>[fact + inference] The DIKW and SECI frameworks map to three distinct workflow stages in this repository: Information→Knowledge (individual item research and review), Knowledge→Wisdom (cross-item synthesis via the planned `synthesise.yml`), and Wisdom application (internalisation via the knowledge-retention mechanisms)</li>
+<li>Cross-item integration is a quality dimension for individual items, not only a synthesis-layer concern</li>
+<li>A `peer-review` skill with three checks is the correct scope addition to `davidamitchell/Skills`</li>
+<li>Bloom&#39;s revised taxonomy (2001) maps directly onto the four automation tiers: Remember/Understand levels map to structural checks; Apply/Analyse levels map to agent reasoning; Evaluate/Create levels map to human judgment</li>
+</ol></div>
+
+  <div class="item-content">
+    <h2>Research Question</h2>
+<p>What review methodology is required to reliably move from information gathering through to applied knowledge and wisdom — and which of those steps can be automated in a CI pipeline versus requiring human or peer-level judgement?</p>
+
+<h2>Findings</h2>
+<h3>Executive Summary</h3>
+<p>The three existing quality skills (citation-discipline, speculation-control, remove-ai-slop) cover factual hygiene and writing quality but leave three critical gaps: logical coherence (do conclusions follow from evidence?), alternative explanations (were competing interpretations considered?), and cross-item integration (does this item connect to the wider corpus?). A four-tier quality review pipeline, sequenced by automation cost, closes these gaps: Tier 1 structural checks (fully automatable Python scripts), Tier 2 single-item agent review (existing skills plus new logical coherence and evidence sufficiency checks), Tier 3 cross-item integration checks (agent with corpus access), and Tier 4 domain-specific human review. A new <code>peer-review</code> skill for <code>davidamitchell/Skills</code> is warranted to formalise the logical coherence and evidence sufficiency checks; an <code>integration</code> skill is not yet warranted. The DIKW and SECI frameworks confirm that the Wisdom level requires cross-item synthesis (Combination) and application to real decisions (Internalisation) — steps that the existing individual-item review pipeline does not address and which are covered by the synthesis and knowledge-retention work already designed in this corpus.</p>
+<h3>Key Findings</h3>
+<ol>
+<li><p><strong>[fact] The three existing skills leave logical coherence, alternative explanations, and cross-item integration uncovered.</strong> Citation-discipline checks source presence; speculation-control checks label presence; remove-ai-slop checks prose surface patterns — none checks whether a conclusion follows from the evidence, whether competing interpretations were considered, or whether the item connects to related completed items in the corpus.</p>
+</li>
+<li><p><strong>[fact] LLM agents can check logical coherence and missing alternative explanations at a quality level matching median human peer reviewers.</strong> REMOR (arXiv:2505.11718) and DeepReview (ACL 2025) demonstrate this on scientific manuscripts; the Copilot CLI agent already demonstrates equivalent behaviour in <code>research-review.yml</code>. The boundary between agent-automatable and human-only is coherence vs. domain plausibility — not &quot;agent vs. human.&quot;</p>
+</li>
+<li><p><strong>[inference] A four-tier quality review pipeline sequenced by automation cost is the correct architecture: structural checks → single-item agent review → cross-item agent review → human domain review.</strong> Each tier gates the next; cheaper checks run first to fail fast before running expensive LLM calls or requiring human attention.</p>
+</li>
+<li><p><strong>[inference] The existing <code>research-review.yml</code> Tier 2 agent review should be extended with two new checks: logical coherence (does §6 Synthesis follow from §2 Investigation?) and evidence sufficiency (is the confidence level calibrated to source count and independence?).</strong> These are the highest-impact missing checks — they catch the failure mode where a well-sourced item misinterprets its own evidence and reaches an incorrect conclusion.</p>
+</li>
+<li><p><strong>[fact + inference] The DIKW and SECI frameworks map to three distinct workflow stages in this repository: Information→Knowledge (individual item research and review), Knowledge→Wisdom (cross-item synthesis via the planned <code>synthesise.yml</code>), and Wisdom application (internalisation via the knowledge-retention mechanisms).</strong> Individual item quality review only covers the first transition; the second and third require separate workflows that are designed but not yet built.</p>
+</li>
+<li><p><strong>[inference] Cross-item integration is a quality dimension for individual items, not only a synthesis-layer concern.</strong> A research item that references no related completed items and creates no links in <code>state/links.json</code> is a quality failure — the Zettelkasten principle (connection generates insight) means isolated items accumulate information without advancing knowledge.</p>
+</li>
+<li><p><strong>[inference] A <code>peer-review</code> skill with three checks is the correct scope addition to <code>davidamitchell/Skills</code>.</strong> The three checks: (1) the Executive Summary conclusion is supported by §2 Investigation evidence; (2) at least one major alternative explanation was considered or explicitly excluded; (3) confidence levels are calibrated to source count and independence per the research skill's confidence table.</p>
+</li>
+<li><p><strong>[fact] Bloom's revised taxonomy (2001) maps directly onto the four automation tiers: Remember/Understand levels map to structural checks; Apply/Analyse levels map to agent reasoning; Evaluate/Create levels map to human judgment.</strong> This is not a loose analogy — cognitive complexity at each Bloom level correlates with the computational cost and contextual requirements of the corresponding automation tier.</p>
+</li>
+<li><p><strong>[inference] The human review tier covers only domain plausibility and strategic relevance, not logical validity.</strong> In the NZ financial services context, acting on a finding without domain plausibility review carries RBNZ supervisory risk; this makes Tier 4 non-optional for decisions with compliance implications, even though it is narrow in scope.</p>
+</li>
+<li><p><strong>[inference] An <code>integration</code> skill is not yet warranted; it becomes necessary once <code>Research/synthesis/</code> documents exist and require quality review of their own.</strong> The peer-review skill's cross-item reference check and the existing synthesis workflow design are sufficient for current corpus size and state.</p>
+</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+  <th>Claim</th>
+  <th>Source</th>
+  <th>Confidence</th>
+  <th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Existing three skills leave logical coherence uncovered</td>
+  <td>Direct reading of citation-discipline, speculation-control, remove-ai-slop SKILL.md files</td>
+  <td>high</td>
+  <td>Claim verified by reading all three skill files; none addresses conclusion-evidence relationship</td>
+</tr>
+<tr>
+  <td>LLM agents match median human peer reviewer quality on coherence</td>
+  <td>REMOR arXiv:2505.11718; DeepReview ACL 2025; ICLR 2025 LLM feedback blog</td>
+  <td>high</td>
+  <td>Multiple independent primary sources (arXiv paper, ACL proceedings, ICLR blog)</td>
+</tr>
+<tr>
+  <td>Springer Nature requires reviewers to check alternative explanations</td>
+  <td>Springer Nature How to Peer Review guidelines (2025)</td>
+  <td>high</td>
+  <td>Primary source; official journal policy documentation</td>
+</tr>
+<tr>
+  <td>DIKW hierarchy: 4 levels, non-linear with feedback</td>
+  <td>Ackoff 1989 (via secondary: EBSCO, DataCamp, Springer)</td>
+  <td>high</td>
+  <td>Well-established; secondary sourcing acceptable given paywalled primary</td>
+</tr>
+<tr>
+  <td>SECI model: 4 modes, Internalisation requires application not reading</td>
+  <td>Nonaka &amp; Takeuchi 1995 (via secondary: Wikipedia, Frontiers in Psychology, ASCN)</td>
+  <td>high</td>
+  <td>Well-established; secondary sourcing acceptable</td>
+</tr>
+<tr>
+  <td>Bloom's revised taxonomy maps to automation tiers</td>
+  <td>Anderson &amp; Krathwohl 2001 (via CDC, Cornell, Yale secondary sources)</td>
+  <td>high</td>
+  <td>Standard educational framework; secondary sources are authoritative institutional references</td>
+</tr>
+<tr>
+  <td>Zettelkasten: connection generates insight, archiving does not</td>
+  <td>zettelkasten.de introduction (Sascha, 2020); cross-item synthesis completed item</td>
+  <td>high</td>
+  <td>Primary web source accessed; corroborated by completed research item</td>
+</tr>
+<tr>
+  <td>Four-tier pipeline with cost-ordered sequencing</td>
+  <td>Inference from REMOR/DeepReview LLM cost data + CI pipeline patterns research</td>
+  <td>medium</td>
+  <td>Design inference; the specific tier boundaries and cost estimates are reasonable but not empirically validated for this repo</td>
+</tr>
+<tr>
+  <td><code>peer-review</code> skill scope (three checks)</td>
+  <td>Inference from Springer Nature review dimensions + existing skill gap analysis</td>
+  <td>medium</td>
+  <td>Scope is derived; the specific checks are defensible but other framings are possible</td>
+</tr>
+<tr>
+  <td>Cross-item integration is an individual item quality dimension</td>
+  <td>Prior research: knowledge-linking item, cross-item synthesis item; Zettelkasten principle</td>
+  <td>medium</td>
+  <td>Inference from multiple prior items; not directly stated in any single source</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li><strong>Assumption:</strong> The Copilot CLI agent running <code>research-review.yml</code> has sufficient reasoning capability to perform logical coherence checks on research items. <strong>Justification:</strong> REMOR and DeepReview demonstrate that current LLM-class models match median human reviewer quality on coherence; the Copilot CLI uses Claude Sonnet, which is in the same capability class. Direct empirical validation in this specific repo would be needed to confirm.</li>
+<li><strong>Assumption:</strong> The existing <code>research-review.yml</code> agent prompt can be extended with logical coherence and evidence sufficiency instructions without degrading the quality of the existing three skill checks. <strong>Justification:</strong> The existing prompt already chains three separate skill checks; adding two more checks in the same format is consistent with the established pattern. The risk is prompt length degradation, but the existing prompt is already ~120 lines and functions correctly.</li>
+<li><strong>Assumption:</strong> &quot;Domain plausibility&quot; checks (Tier 4) are not LLM-automatable for NZ financial services context. <strong>Justification:</strong> The ICLR 2025 feedback confirms agents underperform on domain-specific novelty and plausibility; the RBNZ supervisory expectations item confirms that NZ-specific regulatory context is required for correct domain assessment. This is a strong inference given the evidence, not an empirically proven claim about this specific agent.</li>
+</ul>
+<h3>Analysis</h3>
+<p>The skills gap analysis is the foundational finding: all subsequent design choices follow from identifying exactly what the existing three skills check and what they miss. The peer review literature (Springer Nature, REMOR, DeepReview) provides external validation that the identified gaps — logical coherence and alternative explanations — are the same dimensions academic peer review prioritises. This convergence across independent frameworks (skill analysis + academic peer review + LLM research) gives high confidence in the gap identification.</p>
+<p>The DIKW/SECI mapping resolves a potential confusion: &quot;quality review&quot; and &quot;knowledge integration&quot; are often conflated, but they operate at different pipeline stages. Quality review is an individual-item concern; knowledge integration is a cross-item concern; wisdom requires application beyond the repository. The four-tier pipeline reflects this: Tiers 1–2 address individual item quality; Tier 3 addresses integration; Tier 4 addresses domain-specific applicability. The tiers are not just ordered by cost but by epistemic depth — each tier catches failures the previous cannot.</p>
+<p>The decision not to create an <code>integration</code> skill reflects scope discipline: the synthesis workflow already covers Combination, and the peer-review skill's cross-reference check is sufficient for Tier 3. Adding a third new skill without a concrete failing case would be premature abstraction.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li><strong>Ahrens (2017)</strong> was not accessed (book inaccessible). The Zettelkasten findings are corroborated by zettelkasten.de primary documentation and two prior completed items; this gap does not affect any Key Finding.</li>
+<li><strong>Empirical validation of LLM coherence checking in this specific repo</strong> has not been done. The claim that the Copilot CLI agent can perform logical coherence checks is supported by REMOR/DeepReview but not validated against this repo's items. The first run of the extended <code>research-review-prompt.md</code> will provide this validation.</li>
+<li><strong>Tier 3 cross-item check implementation complexity</strong> is uncertain. Requiring the agent to list <code>Research/completed/</code> and compare tags requires either filesystem access in the CI context (currently available via <code>actions/checkout</code>) or a pre-built tag index. The detail design is left to BACKLOG.md W-0031.</li>
+<li><strong>The <code>peer-review</code> skill scope</strong> is the right starting point but may require iteration once used in practice. The three checks (conclusion-evidence support, alternative explanations, confidence calibration) are defensible but a first run may surface additional edge cases.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li><strong>Should Tier 1 structural checks block the research loop commit itself, or only gate the post-commit review workflow?</strong> Blocking the loop commit on structural failures would catch malformed items earlier but would require integrating structural checks into <code>research-loop.yml</code>, increasing its complexity.</li>
+<li><strong>What is the correct trigger for Tier 4 human review?</strong> CI cannot enforce human review, but a GitHub issue template for &quot;domain plausibility review needed&quot; could make it visible. Whether this should be automatically created for every completed item or only for items tagged with specific domains (e.g., <code>rbnz</code>, <code>financial-services</code>) is a design choice for BACKLOG.md W-0031.</li>
+<li><strong>When does an <code>integration</code> skill become warranted?</strong> The threshold is: when <code>Research/synthesis/</code> documents exist and need their own quality review. This should be tracked as a condition in the synthesis workflow backlog item.</li>
+<li><strong>Can Tier 4 human review be partially automated for the NZ context</strong> by injecting the RBNZ supervisory expectations findings and the AI strategy completed items as context into the agent prompt? This would make domain plausibility partially agent-automatable for the documented NZ context, though it would still require owner validation for novel decisions.</li>
+</ul>
+<h3>Output section</h3>
+<ul>
+<li>Type: skill, knowledge, backlog-item</li>
+<li>Description: Four-tier quality review pipeline taxonomy with automation classification; <code>peer-review</code> skill scope; DIKW/SECI mapping to repository workflows. The direct input to BACKLOG.md W-0031 (research review CI step implementation).</li>
+<li>Links:<ul>
+<li><a href="https://www.springernature.com/gp/authors/campaigns/how-to-peer-review-3">www.springernature.com</a> (Springer Nature peer review guidelines — defines what reviewers check)</li>
+<li><a href="https://arxiv.org/html/2505.11718v1">arxiv.org</a> (REMOR — LLM peer review matching human quality on coherence)</li>
+<li><a href="https://zettelkasten.de/introduction/">zettelkasten.de</a> (Zettelkasten introduction — integration methodology foundation)</li>
+</ul>
+</li>
+</ul>
+
+
+  </div>
+  
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-02-semantic-full-text-search.html">Semantic and full-text search over the research corpus</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-02-ios-shortcuts-research.html">iOS Shortcuts for research capture and query</a></div>
+  </div>
+</main>
+</body>
+</html>

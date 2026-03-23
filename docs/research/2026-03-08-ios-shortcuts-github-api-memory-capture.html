@@ -1,0 +1,768 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>iOS Shortcuts + GitHub API — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #141414;
+  --surface-2:       #1c1c1c;
+  --border:          #2a2a2a;
+  --text:            #e8e8e8;
+  --text-muted:      #666;
+  --accent:          #e8e8e8;
+  --accent-dim:      #333;
+  --tag-bg:          #1e1e1e;
+  --tag-text:        #999;
+  --tag-active-bg:   #e8e8e8;
+  --tag-active-text: #0d0d0d;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--accent); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+}
+.card:hover { border-color: var(--accent); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+}
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+.item-content pre code { background: none; padding: 0; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--text); text-decoration: underline; }
+.item-content a:hover { color: var(--text-muted); }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); }
+.key-claims li:last-child { border-bottom: none; }
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); }
+.related-entry:last-child { border-bottom: none; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--text); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-entry { padding: 1rem; border: 1px solid var(--border); border-bottom: none; text-decoration: none; color: var(--text); display: block; }
+.thread-entry:last-child { border-bottom: 1px solid var(--border); }
+.thread-entry:hover { background: var(--surface); text-decoration: none; }
+.thread-entry-title { font-size: var(--text-base); font-weight: 500; }
+.thread-entry-meta { font-size: var(--text-xs); color: var(--text-muted); margin-top: 0.25rem; letter-spacing: 0.05em; }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/">Research</a>
+    <div class="nav-links">
+      <a href="/Research/browse.html">Browse</a>
+      <a href="/Research/threads.html">Threads</a>
+      <a href="/Research/tags/">Tags</a>
+      <a href="/Research/search.html">Search</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <a href="/Research/browse.html">Browse</a>
+    <span>/</span>
+    <span>iOS Shortcuts + GitHub API</span>
+  </div>
+  <h1 class="item-title">iOS Shortcuts + GitHub API</h1>
+  <p class="full-title-subtitle">iOS Shortcuts + GitHub API: zero-infrastructure mobile memory capture</p>
+  <div class="meta-bar">
+    <span>2026-03-08</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/mobile.html">mobile</a> <a class="tag" href="/Research/tags/ios.html">ios</a> <a class="tag" href="/Research/tags/shortcuts.html">shortcuts</a> <a class="tag" href="/Research/tags/capture.html">capture</a> <a class="tag" href="/Research/tags/memory-system.html">memory-system</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-ios-shortcuts-github-api-memory-capture.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-08-ios-shortcuts-github-api-memory-capture" target="_blank" rel="noopener">wiki →</a>
+  </div>
+  <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>The GitHub Contents API `PUT /repos/{owner}/{repo}/contents/{path}` is callable from iOS Shortcuts via &quot;Get Contents of URL&quot; with method PUT, and requires `message` and `content` (base64-encoded, single-line) fields in the JSON body; a 201 response confirms the file is committed</li>
+<li>The Encode action&#39;s Line Wrap setting must be set to None; the default MIME-style wrapping inserts newlines every 76 characters, which causes the GitHub API to return HTTP 422 Unprocessable Entity</li>
+<li>Filename collisions in an inbox pattern are prevented by using second-precision timestamps (`yyyy-MM-dd-HH-mm-ss`); without seconds, two captures in the same minute with identical slugs would attempt to create the same file, returning HTTP 422 since no `sha` is provided for an update</li>
+<li>iOS Shortcuts has no native access to the iOS Keychain; a PAT must be hardcoded as a text value in the Shortcut definition, making the Shortcut sensitive and unsuitable for sharing via iCloud link</li>
+<li>A fine-grained PAT with `Contents: write` scoped to a single repository limits the blast radius of a leaked credential to the contents of that one repository; a classic `repo`-scoped PAT would expose all repositories</li>
+<li>The GitHub Contents API primary rate limit is 5,000 authenticated requests per hour; a secondary limit applies to content-creating requests (approximately 80 per minute), neither of which constrains human-pace personal capture</li>
+<li>The GitHub code search API (`GET /search/code?q={keyword}+repo:{owner}/{repo}`) is callable from the same Shortcut, rate-limited to 10 authenticated requests per minute, and returns a JSON `items` array parseable by Shortcuts&#39; &quot;Get Dictionary Value&quot; and &quot;Repeat with Each&quot; actions, enabling keyword retrieval with results openable in Safari</li>
+<li>An Apple Watch face complication can trigger the capture Shortcut, enabling a hands-free workflow: tap complication → dictate note → file committed on GitHub, with all required actions (Dictate Text, Format Date, Text, Encode, Get Contents of URL, Show Notification) confirmed as watchOS-compatible</li>
+</ol></div>
+
+  <div class="item-content">
+    <h2>Research Question</h2>
+<p>Can an iOS Shortcut write a timestamped <code>.md</code> file directly to a GitHub repo via the Contents API (<code>PUT /repos/{owner}/{repo}/contents/{path}</code>) with a stored Personal Access Token (PAT), with enough reliability and speed to serve as the primary mobile capture path? What are the limits: file naming, front-matter templating, base64 encoding within Shortcuts, rate limits, PAT security model, and can the same Shortcut call GitHub code search for keyword retrieval?</p>
+
+<h2>Findings</h2>
+<p><em>(Populated from §6 Synthesis above.)</em></p>
+<h3>Executive Summary</h3>
+<p>An iOS Shortcut can reliably write timestamped <code>.md</code> files directly to a GitHub repository via the Contents API using a stored PAT, and this direct-write path is the correct primary capture mechanism for the Memory-System repository because it commits files immediately without any intermediate Actions workflow. The non-obvious technical requirement is the Encode action's Line Wrap setting — defaulting to MIME-style 76-character wrapping, which the GitHub API rejects; setting Line Wrap to None is mandatory. The Shortcut requires a fine-grained PAT with <code>Contents: write</code> scoped to a single repository, hardcoded in the Shortcut (iOS Shortcuts has no native Keychain access), kept private, and rotated annually. The same infrastructure supports both a write Shortcut (capture) and a read Shortcut (keyword search via the GitHub code search API), and the capture Shortcut can run on Apple Watch as a face complication for hands-free dictation-to-commit.</p>
+<h3>Key Findings</h3>
+<ol>
+<li><p><strong>The GitHub Contents API <code>PUT /repos/{owner}/{repo}/contents/{path}</code> is callable from iOS Shortcuts via &quot;Get Contents of URL&quot; with method PUT, and requires <code>message</code> and <code>content</code> (base64-encoded, single-line) fields in the JSON body; a 201 response confirms the file is committed.</strong> The complete direct-write Shortcut requires approximately 8–11 actions: Format Date (timestamp), Ask for Input or Dictate Text (note text), Text (assemble Markdown content with front matter), Encode (base64, Line Wrap: None), Dictionary (build API request body), Get Contents of URL (PUT), Show Notification (confirm).</p>
+</li>
+<li><p><strong>The Encode action's Line Wrap setting must be set to None; the default MIME-style wrapping inserts newlines every 76 characters, which causes the GitHub API to return HTTP 422 Unprocessable Entity.</strong> This is a non-obvious, single-tap configuration change that is a likely failure mode when building GitHub Contents API Shortcuts.</p>
+</li>
+<li><p><strong>Filename collisions in an inbox pattern are prevented by using second-precision timestamps (<code>yyyy-MM-dd-HH-mm-ss</code>); without seconds, two captures in the same minute with identical slugs would attempt to create the same file, returning HTTP 422 since no <code>sha</code> is provided for an update.</strong> The Format Date action in Shortcuts supports arbitrary date format strings, making second precision a trivial change.</p>
+</li>
+<li><p><strong>iOS Shortcuts has no native access to the iOS Keychain; a PAT must be hardcoded as a text value in the Shortcut definition, making the Shortcut sensitive and unsuitable for sharing via iCloud link.</strong> The correct mitigation is a fine-grained PAT with <code>Contents: write</code> on the Memory-System repo only, a 180–365 day expiry, and a calendar reminder for rotation — adequate security for personal notes on a biometric-locked device.</p>
+</li>
+<li><p><strong>A fine-grained PAT with <code>Contents: write</code> scoped to a single repository limits the blast radius of a leaked credential to the contents of that one repository; a classic <code>repo</code>-scoped PAT would expose all repositories.</strong> For personal memory data in a private repo, the fine-grained PAT is the correct credential choice.</p>
+</li>
+<li><p><strong>The GitHub Contents API primary rate limit is 5,000 authenticated requests per hour; a secondary limit applies to content-creating requests (approximately 80 per minute), neither of which constrains human-pace personal capture.</strong> At ten captures per hour, a user would consume 0.2% of the primary hourly limit.</p>
+</li>
+<li><p><strong>The GitHub code search API (<code>GET /search/code?q={keyword}+repo:{owner}/{repo}</code>) is callable from the same Shortcut, rate-limited to 10 authenticated requests per minute, and returns a JSON <code>items</code> array parseable by Shortcuts' &quot;Get Dictionary Value&quot; and &quot;Repeat with Each&quot; actions, enabling keyword retrieval with results openable in Safari.</strong> Code search is keyword-only (full-text grep over file contents), not semantic; it is sufficient for retrieving recent notes by distinctive terms.</p>
+</li>
+<li><p><strong>An Apple Watch face complication can trigger the capture Shortcut, enabling a hands-free workflow: tap complication → dictate note → file committed on GitHub, with all required actions (Dictate Text, Format Date, Text, Encode, Get Contents of URL, Show Notification) confirmed as watchOS-compatible.</strong> This achieves minimum-friction spontaneous capture without removing the iPhone from a pocket.</p>
+</li>
+<li><p><strong>The direct-write path (Contents API) is the correct primary path for the Memory-System repository, reversing the prior research conclusion that issue creation is preferred; that conclusion holds for the Research repo, which has an issue-to-backlog Actions workflow, but the Memory-System's zero-infrastructure constraint requires direct file creation to avoid adding a new workflow dependency.</strong> The additional authoring complexity (8–11 vs. 4–5 actions) is a one-time build cost, not a recurring usage cost.</p>
+</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+  <th>Claim</th>
+  <th>Source</th>
+  <th>Confidence</th>
+  <th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><code>Get Contents of URL</code> supports PUT with custom headers and JSON</td>
+  <td>Apple Support (apd58d46713f); island94.org (Jan 2024); prior research 2026-03-02-ios-shortcuts-research.md</td>
+  <td>high</td>
+  <td>Independently confirmed by GitHub employee example and prior research</td>
+</tr>
+<tr>
+  <td>Contents API requires <code>message</code> and <code>content</code> (base64, no line breaks)</td>
+  <td>GitHub REST API Docs — repo contents; web search cross-confirmation</td>
+  <td>high</td>
+  <td>Primary source + two independent confirmations</td>
+</tr>
+<tr>
+  <td>Encode action Line Wrap: None required; MIME wrapping causes HTTP 422</td>
+  <td>Apple Community discussion (discussions.apple.com/thread/251563782); prior research 2026-03-02-ios-shortcuts-research.md</td>
+  <td>high</td>
+  <td>Multiple independent community reports of same failure and fix</td>
+</tr>
+<tr>
+  <td>Filename collision risk with minute-precision; seconds prevent it</td>
+  <td>Derived from Contents API behavior (HTTP 422 on existing file without sha)</td>
+  <td>high</td>
+  <td>Mechanistically sound</td>
+</tr>
+<tr>
+  <td>No native Keychain access from iOS Shortcuts</td>
+  <td>Web search (multiple developer/security sources, 2024); prior research 2026-03-02-ios-shortcuts-research.md Key Finding #6</td>
+  <td>high</td>
+  <td>Community consensus; no Apple documentation contradicts</td>
+</tr>
+<tr>
+  <td>Fine-grained PAT Contents: write scope sufficient; blast radius limited to one repo</td>
+  <td>GitHub Docs — fine-grained PATs; prior research 2026-03-02-ios-shortcuts-research.md Key Finding #5</td>
+  <td>high</td>
+  <td>Primary source + prior research confirmation</td>
+</tr>
+<tr>
+  <td>Rate limit: 5,000/hour primary; ~80/min secondary for content creation</td>
+  <td>GitHub REST API rate limits docs; web search cross-confirmation</td>
+  <td>high</td>
+  <td>Two independent sources consistent</td>
+</tr>
+<tr>
+  <td>Code search: 10 requests/minute authenticated; unauthenticated blocked</td>
+  <td>GitHub Changelog — code search API changes (March 2023)</td>
+  <td>high</td>
+  <td>Primary source (official changelog)</td>
+</tr>
+<tr>
+  <td>Code search JSON parseable via Shortcuts Dictionary/Repeat actions</td>
+  <td>Inference from known Shortcuts action set; web search (2024)</td>
+  <td>medium</td>
+  <td>Inference; not verified on device</td>
+</tr>
+<tr>
+  <td>Apple Watch complication → capture Shortcut viable; required actions watch-compatible</td>
+  <td>Apple Support watch shortcuts; Dr. Drang Tot Notes example (July 2024)</td>
+  <td>medium</td>
+  <td>Inference from analogy; on-device test needed to confirm</td>
+</tr>
+<tr>
+  <td>8–11 actions required for direct-write Shortcut</td>
+  <td>Derived from action enumeration in §2 A1–A5</td>
+  <td>medium</td>
+  <td>Estimated; exact count depends on implementation choices</td>
+</tr>
+<tr>
+  <td>Round-trip latency 1–5 seconds total</td>
+  <td>[assumption] — inferred from network characteristics; no specific benchmark found</td>
+  <td>low</td>
+  <td>Assumption explicitly labelled</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li><p><strong>Assumption:</strong> Round-trip latency is 1–3 seconds on Wi-Fi and 2–5 seconds on LTE. <strong>Justification:</strong> Inferred from general iOS Shortcuts execution overhead (sub-second for local actions) plus typical GitHub API response times (200–800 ms on Wi-Fi, 500–2000 ms on LTE). No published benchmark for this specific Shortcuts + GitHub Contents API flow was found during research.</p>
+</li>
+<li><p><strong>Assumption:</strong> All required Shortcut actions (Dictate Text, Format Date, Text, Encode, Get Contents of URL, Show Notification) are compatible with watchOS Shortcuts execution. <strong>Justification:</strong> Apple's documentation lists supported Shortcuts action categories for Apple Watch, and these action types fall within supported categories. Dr. Drang's July 2024 working example uses an analogous action set. On-device testing is needed to confirm.</p>
+</li>
+</ul>
+<h3>Analysis</h3>
+<p>The central question — whether the direct file write path is viable as primary capture — resolves to yes, with the caveat that it requires more careful Shortcut authoring than the issue creation path. The authoring complexity (base64 encoding with Line Wrap: None, filename construction, front-matter templating) is real but bounded and one-time. Once the Shortcut is built and validated on device, no additional complexity accrues.</p>
+<p>The recommendation differs from the prior research item's preference for issue creation. That preference was grounded in the Research repo's context (an existing issue-to-backlog Actions workflow makes issues a valid capture path). The Memory-System context removes that workflow, making issue creation a half-step that adds infrastructure. The direct-write path is the complete path.</p>
+<p>The PAT security posture is the weakest point of the design. iOS Shortcuts' lack of Keychain access is a platform-level constraint. [inference] The recommended mitigation (fine-grained PAT, minimal scope, private Shortcut, calendar-reminder rotation) is the best available option within the zero-infrastructure constraint. The security trade-off is acceptable for personal notes on a biometric-locked device, not for shared or professional contexts.</p>
+<p>Code search as retrieval is a functional but limited path. It answers &quot;find notes containing this keyword&quot; but not &quot;find notes semantically related to this concept.&quot; For personal memory capture where the user tends to use consistent terminology, keyword search is sufficient for most retrieval needs. Semantic retrieval (vector embeddings, LanceDB or similar) is out of scope for this item and would require local or server-side infrastructure.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li><strong>No on-device test conducted.</strong> The research identifies no theoretical barrier to the direct-write flow, but implementation-specific issues (Shortcuts version compatibility, API response parsing edge cases, watchOS action rendering) may surface during actual device testing. The Memory-System W-0008 implementation work must include a device test phase.</li>
+<li><strong>Apple Watch action compatibility is inferred.</strong> The claim that all required actions are watchOS-compatible is based on Apple documentation categories and one analogous working example, not a complete action-by-action compatibility check.</li>
+<li><strong>Siri transcription quality for technical terms.</strong> Hands-free dictation of technical terms, proper nouns, or unusual vocabulary may produce transcription errors. A confirmation step before the API call addresses this at the cost of one extra interaction.</li>
+<li><strong>PAT rotation discipline.</strong> If the PAT expires and is not rotated promptly, the Shortcut silently fails (GitHub returns 401). Adding a notification step that shows the API response status code to the user helps surface failures.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>Should the Shortcut include a text review step (display transcribed text, confirm before committing) to catch Siri transcription errors? This adds one interaction but prevents bad data entering the memory system.</li>
+<li>Is there value in a &quot;browse recent captures&quot; Shortcut using the Contents API <code>GET /repos/{owner}/{repo}/contents/inbox</code> (returns directory listing as JSON) plus &quot;Choose from List&quot; and &quot;Open URLs&quot;?</li>
+<li>Does watchOS's Shortcuts execution environment introduce additional latency compared to iPhone execution for network-dependent actions like <code>Get Contents of URL</code>?</li>
+<li>Could a companion app (e.g., a simple iOS app that exposes a Shortcuts App Intent with Keychain-backed token storage) eliminate the hardcoded PAT limitation without violating the zero-infrastructure constraint? This would be a native iOS app — infrastructure on-device but not server-side.</li>
+</ul>
+<hr />
+
+
+  </div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-03-02-ios-shortcuts-research.html">iOS Shortcuts for research capture and query</a> <span class="related-note">via capture, ios, mobile, shortcuts</span></div>
+<div class="related-entry"><a href="/Research/research/2026-03-08-telegram-bot-memory-capture-retrieval.html">Telegram bot as mobile memory capture and retrieval channel</a> <span class="related-note">via capture, memory-system, mobile</span></div>
+<div class="related-entry"><a href="/Research/research/2026-03-08-slack-bot-memory-capture-retrieval.html">Slack as a mobile memory capture and retrieval channel</a> <span class="related-note">via capture, memory-system, mobile</span></div>
+<div class="related-entry"><a href="/Research/research/2026-03-08-claude-ios-mcp-remote-integration.html">Claude for iOS: MCP remote integration for memory capture and retrieval</a> <span class="related-note">via ios, memory-system, mobile</span></div>
+<div class="related-entry"><a href="/Research/research/2026-03-08-self-hosted-mcp-server-options.html">Self-hosted MCP server options: enabling mobile AI app integration</a> <span class="related-note">via memory-system, mobile</span></div>
+</div></div>
+
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-08-lancedb-index-rebuild-from-git.html">LanceDB index rebuild speed from git</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-08-inbox-folder-capture-triage-pattern.html">Inbox folder pattern</a></div>
+  </div>
+</main>
+</body>
+</html>

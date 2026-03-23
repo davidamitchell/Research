@@ -1,0 +1,726 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Are Human Brains Just Prediction Machines? Comparing Predictive Processing and… — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #141414;
+  --surface-2:       #1c1c1c;
+  --border:          #2a2a2a;
+  --text:            #e8e8e8;
+  --text-muted:      #666;
+  --accent:          #e8e8e8;
+  --accent-dim:      #333;
+  --tag-bg:          #1e1e1e;
+  --tag-text:        #999;
+  --tag-active-bg:   #e8e8e8;
+  --tag-active-text: #0d0d0d;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--accent); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+}
+.card:hover { border-color: var(--accent); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+}
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+.item-content pre code { background: none; padding: 0; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--text); text-decoration: underline; }
+.item-content a:hover { color: var(--text-muted); }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  main {
+    padding: 0 1rem;
+    padding-top: 64px;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); }
+.key-claims li:last-child { border-bottom: none; }
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); }
+.related-entry:last-child { border-bottom: none; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--text); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-entry { padding: 1rem; border: 1px solid var(--border); border-bottom: none; text-decoration: none; color: var(--text); display: block; }
+.thread-entry:last-child { border-bottom: 1px solid var(--border); }
+.thread-entry:hover { background: var(--surface); text-decoration: none; }
+.thread-entry-title { font-size: var(--text-base); font-weight: 500; }
+.thread-entry-meta { font-size: var(--text-xs); color: var(--text-muted); margin-top: 0.25rem; letter-spacing: 0.05em; }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/">Research</a>
+    <div class="nav-links">
+      <a href="/Research/browse.html">Browse</a>
+      <a href="/Research/threads.html">Threads</a>
+      <a href="/Research/tags/">Tags</a>
+      <a href="/Research/search.html">Search</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <a href="/Research/browse.html">Browse</a>
+    <span>/</span>
+    <span>Are Human Brains Just Prediction Machines? Comparing Predictive Processing and…</span>
+  </div>
+  <h1 class="item-title">Are Human Brains Just Prediction Machines? Comparing Predictive Processing and…</h1>
+  <p class="full-title-subtitle">Are Human Brains Just Prediction Machines? Comparing Predictive Processing and Large Language Model Next-Token Generation</p>
+  <div class="meta-bar">
+    <span>2026-03-18</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/neuroscience.html">neuroscience</a> <a class="tag" href="/Research/tags/llm.html">llm</a> <a class="tag" href="/Research/tags/predictive-processing.html">predictive-processing</a> <a class="tag" href="/Research/tags/consciousness.html">consciousness</a> <a class="tag" href="/Research/tags/free-energy-principle.html">free-energy-principle</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-18-human-brain-prediction-machines.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-18-human-brain-prediction-machines" target="_blank" rel="noopener">wiki →</a>
+  </div>
+  
+  <div class="item-content">
+    <h2>Research Question</h2>
+<p>What is the fundamental difference between the predictive processing account of human cognition — in which the brain continuously generates and updates a generative model of the world — and Large Language Model (LLM) next-token prediction, and does this difference matter for understanding intelligence, meaning, and consciousness?</p>
+<p>Supporting questions:</p>
+<ul>
+<li>What does the Predictive Processing (PP) / Predictive Coding (PC) framework say about how the brain works, and how well is it supported by neuroscience evidence?</li>
+<li>How does LLM next-token generation actually work, and in what specific ways does it differ from the PP account?</li>
+<li>Is &quot;generating a model of the world&quot; meaningfully different from &quot;predicting the next token in a sequence&quot;?</li>
+<li>What role does embodiment, action, and the Free Energy Principle (FEP) play in the PP account that has no analogue in LLMs?</li>
+<li>What do the similarities and differences imply about consciousness, understanding, and the plausibility of general intelligence emerging from next-token prediction?</li>
+</ul>
+
+<h2>Findings</h2>
+<p><em>(Populated from §6 Synthesis above.)</em></p>
+<h3>Executive Summary</h3>
+<p>[inference] Human brains are not just next-token predictors in a richer medium; predictive processing is an embodied control architecture that uses hierarchical generative models to regulate perception, action, and bodily viability, whereas current Large Language Models (LLMs) optimize auto-regressive text prediction over symbol sequences. Sources: <a href="https://doi.org/10.1038/nrn2787">doi.org</a> ; <a href="https://www.fil.ion.ucl.ac.uk/~karl/Whatever%20next.pdf">www.fil.ion.ucl.ac.uk</a> ; <a href="https://papers.neurips.cc/paper/7181-attention-is-all-you-need.pdf">papers.neurips.cc</a> ; <a href="https://arxiv.org/pdf/2005.14165</p>">arxiv.org</a>
+<p>[fact] The neuroscience evidence supports predictive coding as a substantive account of cortical organization, and the machine-learning evidence supports next-token prediction as a powerful route to broad latent structure in text models. Sources: <a href="https://www.cs.utexas.edu/~dana/nn.pdf">www.cs.utexas.edu</a> ; <a href="https://proceedings.iclr.cc/paper_files/paper/2024/file/0a6059857ae5c82ea9726ee9282a7145-Paper-Conference.pdf</p>">proceedings.iclr.cc</a>
+<p>[inference] The overlap matters because it explains why LLMs can exhibit partial world-model-like structure and surprisingly general competence, but the difference matters more because text-only sequence prediction lacks embodiment, online action, interoception, and survival-grounded error correction. Sources: <a href="https://proceedings.iclr.cc/paper_files/paper/2024/file/0a6059857ae5c82ea9726ee9282a7145-Paper-Conference.pdf">proceedings.iclr.cc</a> ; <a href="https://doi.org/10.1111/nyas.15125">doi.org</a> ; <a href="https://www.quantamagazine.org/anil-seth-finds-consciousness-in-lifes-push-against-entropy-20210930/</p>">www.quantamagazine.org</a>
+<p>[inference] For intelligence, the best-supported conclusion is that next-token prediction can generate meaningful competence without closing the whole gap to embodied understanding; for consciousness, Seth's own framework points away from treating current LLMs as candidates simply because they predict well. Sources: <a href="https://doi.org/10.1145/3442188.3445922">doi.org</a> ; <a href="https://www.cccb.org/en/w/articles/anil-seth-reality-is-a-controlled-hallucination">www.cccb.org</a> ; <a href="https://www.quantamagazine.org/anil-seth-finds-consciousness-in-lifes-push-against-entropy-20210930/</p>">www.quantamagazine.org</a>
+<h3>Key Findings</h3>
+<ol>
+<li>[inference] <strong>Confidence: high.</strong> Predictive Processing (PP) and Large Language Model (LLM) next-token prediction share a generic commitment to prediction, but they solve different problems because PP uses prediction to control perception and action in an embodied organism while LLMs use prediction to continue token sequences in text. Sources: <a href="https://doi.org/10.1038/nrn2787">doi.org</a> ; <a href="https://www.fil.ion.ucl.ac.uk/~karl/Whatever%20next.pdf">www.fil.ion.ucl.ac.uk</a> ; <a href="https://papers.neurips.cc/paper/7181-attention-is-all-you-need.pdf">papers.neurips.cc</a> ; <a href="https://arxiv.org/pdf/2005.14165</li>">arxiv.org</a>
+<li>[fact] <strong>Confidence: high.</strong> The strongest neuroscience evidence supports predictive coding at the cortical-architecture level, where top-down pathways carry predictions and bottom-up pathways carry residual error signals in hierarchical processing. Sources: <a href="https://www.cs.utexas.edu/~dana/nn.pdf">www.cs.utexas.edu</a> ; <a href="https://www.fil.ion.ucl.ac.uk/~karl/Whatever%20next.pdf</li>">www.fil.ion.ucl.ac.uk</a>
+<li>[fact] <strong>Confidence: high.</strong> Transformer language models generate outputs auto-regressively from prior tokens and can improve through scale into broad in-context competence, but their documented mechanism remains sequence modeling over text rather than embodied active inference. Sources: <a href="https://papers.neurips.cc/paper/7181-attention-is-all-you-need.pdf">papers.neurips.cc</a> ; <a href="https://arxiv.org/pdf/2005.14165</li>">arxiv.org</a>
+<li>[inference] <strong>Confidence: medium.</strong> Evidence that LLMs encode linear spatial and temporal structure shows that next-token prediction can induce partial world-model ingredients, but that evidence stops short of demonstrating a grounded, dynamic, action-ready model of the world. Sources: <a href="https://proceedings.iclr.cc/paper_files/paper/2024/file/0a6059857ae5c82ea9726ee9282a7145-Paper-Conference.pdf">proceedings.iclr.cc</a> ; <a href="https://doi.org/10.1111/nyas.15125</li>">doi.org</a>
+<li>[inference] <strong>Confidence: high.</strong> The strongest current critiques are persuasive that text-only prediction alone does not warrant claims of principled reasoning, planning, or human-like understanding, because success on completion tasks can coexist with non-veridical memory and weak grounding. Sources: <a href="https://doi.org/10.1145/3442188.3445922">doi.org</a> ; <a href="https://doi.org/10.1111/nyas.15125</li>">doi.org</a>
+<li>[inference] <strong>Confidence: medium.</strong> Prediction can support intelligence-like competence in both brains and LLMs, but the meaning of that competence differs because brains predict to keep an organism viable in the world whereas LLMs predict to compress and continue symbol streams. Sources: <a href="https://doi.org/10.1038/nrn2787">doi.org</a> ; <a href="https://arxiv.org/pdf/2005.14165">arxiv.org</a> ; <a href="https://oecs.mit.edu/pub/my8vpqih</li>">oecs.mit.edu</a>
+<li>[inference] <strong>Confidence: high.</strong> Seth's account of consciousness strengthens the conclusion that current LLMs should not be treated as conscious on the basis of next-token prediction alone, because his theory ties experience to embodied, interoceptive regulation in living systems rather than to generic predictive success. Sources: <a href="https://www.quantamagazine.org/anil-seth-finds-consciousness-in-lifes-push-against-entropy-20210930/">www.quantamagazine.org</a> ; <a href="https://www.cccb.org/en/w/articles/anil-seth-reality-is-a-controlled-hallucination</li>">www.cccb.org</a>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+  <th>Claim</th>
+  <th>Source</th>
+  <th>Confidence</th>
+  <th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>[inference] PP and LLMs are both predictive but not functionally equivalent systems.</td>
+  <td><a href="https://doi.org/10.1038/nrn2787">doi.org</a> ; <a href="https://www.fil.ion.ucl.ac.uk/~karl/Whatever%20next.pdf">www.fil.ion.ucl.ac.uk</a> ; <a href="https://papers.neurips.cc/paper/7181-attention-is-all-you-need.pdf">papers.neurips.cc</a> ; <a href="https://arxiv.org/pdf/2005.14165</td>">arxiv.org</a>
+  <td>high</td>
+  <td>Common prediction vocabulary hides different objectives and feedback loops.</td>
+</tr>
+<tr>
+  <td>[fact] Predictive coding has direct support from hierarchical cortical modeling with prediction/error pathway separation.</td>
+  <td><a href="https://www.cs.utexas.edu/~dana/nn.pdf">www.cs.utexas.edu</a> ; <a href="https://www.fil.ion.ucl.ac.uk/~karl/Whatever%20next.pdf</td>">www.fil.ion.ucl.ac.uk</a>
+  <td>high</td>
+  <td>Rao and Ballard plus Clark give both model detail and synthesis.</td>
+</tr>
+<tr>
+  <td>[fact] Transformer LLMs are auto-regressive token predictors with broad in-context competence.</td>
+  <td><a href="https://papers.neurips.cc/paper/7181-attention-is-all-you-need.pdf">papers.neurips.cc</a> ; <a href="https://arxiv.org/pdf/2005.14165</td>">arxiv.org</a>
+  <td>high</td>
+  <td>Mechanism is clear and well documented.</td>
+</tr>
+<tr>
+  <td>[inference] LLMs learn some world-model ingredients, but not a full grounded world model.</td>
+  <td><a href="https://proceedings.iclr.cc/paper_files/paper/2024/file/0a6059857ae5c82ea9726ee9282a7145-Paper-Conference.pdf">proceedings.iclr.cc</a> ; <a href="https://doi.org/10.1111/nyas.15125</td>">doi.org</a>
+  <td>medium</td>
+  <td>Probe evidence is real but limited by what it demonstrates.</td>
+</tr>
+<tr>
+  <td>[inference] Text-only prediction does not by itself establish principled reasoning or human-like understanding.</td>
+  <td><a href="https://doi.org/10.1145/3442188.3445922">doi.org</a> ; <a href="https://doi.org/10.1111/nyas.15125</td>">doi.org</a>
+  <td>high</td>
+  <td>Independent skeptical lines converge on this point.</td>
+</tr>
+<tr>
+  <td>[inference] Brain-style prediction and LLM-style prediction yield different kinds of intelligence because their tasks differ.</td>
+  <td><a href="https://doi.org/10.1038/nrn2787">doi.org</a> ; <a href="https://arxiv.org/pdf/2005.14165">arxiv.org</a> ; <a href="https://oecs.mit.edu/pub/my8vpqih</td>">oecs.mit.edu</a>
+  <td>medium</td>
+  <td>Strong conceptual support, but still partly interpretive.</td>
+</tr>
+<tr>
+  <td>[inference] Seth's framework does not support treating current LLMs as conscious predictors.</td>
+  <td><a href="https://www.quantamagazine.org/anil-seth-finds-consciousness-in-lifes-push-against-entropy-20210930/">www.quantamagazine.org</a> ; <a href="https://www.cccb.org/en/w/articles/anil-seth-reality-is-a-controlled-hallucination</td>">www.cccb.org</a>
+  <td>high</td>
+  <td>Consciousness is tied to embodied interoceptive regulation, not generic prediction.</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li>[assumption] Clark's 2013 open-access paper is a sufficient proxy for the inaccessible 2016 <em>Surfing Uncertainty</em> book. <strong>Justification:</strong> the core hierarchical-generative-model and action-oriented claims used here appear directly in the 2013 paper.</li>
+<li>[assumption] Seth's public interviews are sufficient to support the consciousness comparison in this item. <strong>Justification:</strong> the comparison depends on his explicit public claims that consciousness is rooted in biological embodiment and that the FEP is not itself a theory of consciousness.</li>
+</ul>
+<h3>Analysis</h3>
+<p>[inference] The fairest comparison is not &quot;brains versus autocomplete&quot; or &quot;brains and LLMs are the same.&quot; The evidence supports a middle position: next-token prediction can recover surprisingly rich internal structure, but the structure is learned under a fundamentally different control problem than the one predictive processing is designed to explain. Sources: <a href="https://proceedings.iclr.cc/paper_files/paper/2024/file/0a6059857ae5c82ea9726ee9282a7145-Paper-Conference.pdf">proceedings.iclr.cc</a> ; <a href="https://doi.org/10.1038/nrn2787</p>">doi.org</a>
+<p>[inference] For meaning, predictive processing treats representation as inseparable from active engagement with the world, whereas LLM training allows useful abstraction to emerge without direct worldly action but also leaves grounding and truth-tracking fragile. Sources: <a href="https://www.fil.ion.ucl.ac.uk/~karl/Whatever%20next.pdf">www.fil.ion.ucl.ac.uk</a> ; <a href="https://doi.org/10.1145/3442188.3445922</p>">doi.org</a>
+<p>[inference] For intelligence, many tasks reward latent structure and pattern compression, so LLMs can appear broadly capable, but planning- and embodiment-heavy domains reveal the absence of the sensorimotor loop that predictive processing treats as central. Sources: <a href="https://arxiv.org/pdf/2005.14165">arxiv.org</a> ; <a href="https://doi.org/10.1111/nyas.15125</p>">doi.org</a>
+<p>[inference] For consciousness, Seth's argument runs from life and bodily self-maintenance to experience, not from generic predictive accuracy to experience. Sources: <a href="https://www.quantamagazine.org/anil-seth-finds-consciousness-in-lifes-push-against-entropy-20210930/">www.quantamagazine.org</a> ; <a href="https://www.cccb.org/en/w/articles/anil-seth-reality-is-a-controlled-hallucination</p>">www.cccb.org</a>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>[fact] This item did not consult the full books by Clark, Hohwy, or Seth directly because they were not publicly accessible within the session constraints. Sources: <a href="https://www.fil.ion.ucl.ac.uk/~karl/Whatever%20next.pdf">www.fil.ion.ucl.ac.uk</a> ; <a href="https://www.quantamagazine.org/anil-seth-finds-consciousness-in-lifes-push-against-entropy-20210930/">www.quantamagazine.org</a> ; <a href="https://www.cccb.org/en/w/articles/anil-seth-reality-is-a-controlled-hallucination</li>">www.cccb.org</a>
+<li>[fact] Gurnee and Tegmark's evidence is probe-based and therefore supports decodability more directly than causal use. Sources: <a href="https://proceedings.iclr.cc/paper_files/paper/2024/file/0a6059857ae5c82ea9726ee9282a7145-Paper-Conference.pdf</li>">proceedings.iclr.cc</a>
+<li>[fact] Kambhampati's paper is an important skeptical synthesis, but it argues at a conceptual level more than through a single decisive benchmark. Sources: <a href="https://doi.org/10.1111/nyas.15125</li>">doi.org</a>
+<li>[inference] Future multimodal or embodied AI systems could narrow some of the gaps identified here, so the conclusions are strongest for current text-only autoregressive LLMs rather than for all conceivable predictive AI systems. Sources: <a href="https://www.cccb.org/en/w/articles/anil-seth-reality-is-a-controlled-hallucination">www.cccb.org</a> ; <a href="https://doi.org/10.1111/nyas.15125</li>">doi.org</a>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>Which empirical benchmark would best distinguish latent world structure from grounded action-ready world model in a way both mechanistic interpretability and planning researchers would accept?</li>
+<li>How much embodiment is actually necessary for meaning-like understanding: sensorimotor grounding, persistent tool use, interoception analogues, or full biological self-maintenance?</li>
+<li>Could an artificial system satisfy Seth-like consciousness criteria without biology if it possessed robust interoceptive self-modeling and survival-relevant embodiment?</li>
+</ul>
+<hr />
+
+
+  </div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-02-28-predictive-processing-active-inference.html">Predictive processing and active inference: the brain as prediction machine</a> <span class="related-note">via free-energy-principle, neuroscience, predictive-processing</span></div>
+<div class="related-entry"><a href="/Research/research/2026-02-28-free-energy-entropy-and-life.html">Free energy, entropy, and life: why organisms predict — from Schrödinger to Friston to Seth</a> <span class="related-note">via consciousness, free-energy-principle, predictive-processing</span></div>
+<div class="related-entry"><a href="/Research/research/2026-02-28-youtube-video-hyuos0gkgcs-concepts.html">Reality Is A Controlled Hallucination — Anil Seth (Essentia Foundation): concept extraction and synthesis</a> <span class="related-note">via consciousness, predictive-processing</span></div>
+<div class="related-entry"><a href="/Research/research/2026-02-28-interoception-and-the-predictive-self.html">Interoception and the predictive self: selfhood as bodily inference</a> <span class="related-note">via consciousness, predictive-processing</span></div>
+<div class="related-entry"><a href="/Research/research/2026-02-28-controlled-hallucination-perception-as-construction.html">Controlled hallucination: perception as active brain construction</a> <span class="related-note">via consciousness, neuroscience</span></div>
+</div></div>
+
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-18-stateless-agent-assumption-failure.html">Stateless-agent assumption failure</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-18-formal-proof-engineering-leanstral.html">More formal proof engineering</a></div>
+  </div>
+</main>
+</body>
+</html>

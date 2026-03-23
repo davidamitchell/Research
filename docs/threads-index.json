@@ -1,0 +1,327 @@
+[
+  {
+    "slug": "rag-knowledge-management-llm",
+    "title": "rag / knowledge-management / llm",
+    "kind": "implicit",
+    "tag_cluster": [
+      "rag",
+      "knowledge-management",
+      "llm"
+    ],
+    "item_count": 5,
+    "items": [
+      {
+        "slug": "2026-03-02-agent-memory-management-context-injection",
+        "title": "Agent Memory Management and Context Injection",
+        "added": "2026-03-02"
+      },
+      {
+        "slug": "2026-03-08-servicenow-ai-knowledge-rag-agents",
+        "title": "ServiceNow AI: Knowledge Management, RAG Pipelines, and Agent Frameworks",
+        "added": "2026-03-08"
+      },
+      {
+        "slug": "2026-03-15-context-layers-aligned-decisions-synthesis",
+        "title": "Aligned Decision-Making: Context Architecture for AI Agents in Organisations",
+        "added": "2026-03-15"
+      },
+      {
+        "slug": "2026-03-15-context-compression-rag-enterprise-knowledge",
+        "title": "Context Compression and RAG Techniques for Organisational Knowledge",
+        "added": "2026-03-15"
+      },
+      {
+        "slug": "2026-03-19-layered-org-llm-architecture",
+        "title": "Layered Organisation Large Language Model: Feasibility and Architecture of Organisation-Customised LLMs",
+        "added": "2026-03-19"
+      }
+    ],
+    "url": "/Research/threads/rag-knowledge-management-llm.html"
+  },
+  {
+    "slug": "mobile-memory-system-capture",
+    "title": "mobile / memory-system / capture",
+    "kind": "implicit",
+    "tag_cluster": [
+      "mobile",
+      "memory-system",
+      "capture"
+    ],
+    "item_count": 5,
+    "items": [
+      {
+        "slug": "2026-03-08-telegram-bot-memory-capture-retrieval",
+        "title": "Telegram bot as mobile memory capture and retrieval channel",
+        "added": "2026-03-08"
+      },
+      {
+        "slug": "2026-03-08-slack-bot-memory-capture-retrieval",
+        "title": "Slack as a mobile memory capture and retrieval channel",
+        "added": "2026-03-08"
+      },
+      {
+        "slug": "2026-03-08-self-hosted-mcp-server-options",
+        "title": "Self-hosted MCP server options: enabling mobile AI app integration",
+        "added": "2026-03-08"
+      },
+      {
+        "slug": "2026-03-08-ios-shortcuts-github-api-memory-capture",
+        "title": "iOS Shortcuts + GitHub API: zero-infrastructure mobile memory capture",
+        "added": "2026-03-08"
+      },
+      {
+        "slug": "2026-03-08-claude-ios-mcp-remote-integration",
+        "title": "Claude for iOS: MCP remote integration for memory capture and retrieval",
+        "added": "2026-03-08"
+      }
+    ],
+    "url": "/Research/threads/mobile-memory-system-capture.html"
+  },
+  {
+    "slug": "llm-hallucinations-reliability",
+    "title": "llm / hallucinations / reliability",
+    "kind": "implicit",
+    "tag_cluster": [
+      "llm",
+      "hallucinations",
+      "reliability"
+    ],
+    "item_count": 5,
+    "items": [
+      {
+        "slug": "2026-03-05-llm-hallucination-mechanisms",
+        "title": "LLM Hallucinations — Types, Causes, and Current Mitigation Approaches",
+        "added": "2026-03-05"
+      },
+      {
+        "slug": "2026-03-05-h-neurons-synthesis",
+        "title": "H-Neurons Synthesis — From Hallucination Mechanisms to Actionable LLM Reliability Engineering",
+        "added": "2026-03-05"
+      },
+      {
+        "slug": "2026-03-05-h-neurons-in-llms",
+        "title": "Hallucination-Associated Neurons (H-Neurons) in LLMs — Identification, Behavioural Impact, and Origins",
+        "added": "2026-03-05"
+      },
+      {
+        "slug": "2026-03-05-h-neuron-pretraining-origins",
+        "title": "Pre-Training Origins of Hallucination-Associated Neurons — Implications for LLM Development",
+        "added": "2026-03-05"
+      },
+      {
+        "slug": "2026-03-05-h-neuron-over-compliance",
+        "title": "Over-Compliance in LLMs — How H-Neurons Drive Sycophancy and What Interventions Are Possible",
+        "added": "2026-03-05"
+      }
+    ],
+    "url": "/Research/threads/llm-hallucinations-reliability.html"
+  },
+  {
+    "slug": "ai-strategy-financial-services-risk-management",
+    "title": "ai-strategy / financial-services / risk-management",
+    "kind": "implicit",
+    "tag_cluster": [
+      "ai-strategy",
+      "financial-services",
+      "risk-management"
+    ],
+    "item_count": 4,
+    "items": [
+      {
+        "slug": "2026-02-28-ai-strategy-risk-reduction-focus",
+        "title": "AI Strategy Examples: Risk Reduction Focus",
+        "added": "2026-02-28"
+      },
+      {
+        "slug": "2026-02-28-rbnz-ai-supervisory-expectations",
+        "title": "RBNZ AI Supervisory Expectations: What Do Regulated Entities Need to Know?",
+        "added": "2026-02-28"
+      },
+      {
+        "slug": "2026-02-28-ai-line-1-line-2-risk-agents",
+        "title": "AI Line 1 and Line 2 Risk Agents: Who Is Building Them?",
+        "added": "2026-02-28"
+      },
+      {
+        "slug": "2026-02-28-ai-control-testing-and-assurance",
+        "title": "AI for Control Testing, Gap Identification, and Policies/Standards Reviews",
+        "added": "2026-02-28"
+      }
+    ],
+    "url": "/Research/threads/ai-strategy-financial-services-risk-management.html"
+  },
+  {
+    "slug": "compliance-policy-as-code-github-actions",
+    "title": "compliance / policy-as-code / github-actions",
+    "kind": "implicit",
+    "tag_cluster": [
+      "compliance",
+      "policy-as-code",
+      "github-actions"
+    ],
+    "item_count": 3,
+    "items": [
+      {
+        "slug": "2026-03-16-adaptive-policy-authorization-compliance",
+        "title": "Adaptive Policy-Based Authorization (APBA): compliance alignment with National Institute of Standards and Technology (NIST) Special Publication (SP) 800-53 and International Organization for Standardization (ISO) / International Electrotechnical Commission (IEC) 27001, and impact on Policy as Code (PaC) and Artificial Intelligence (AI)-generated authorization code",
+        "added": "2026-03-16"
+      },
+      {
+        "slug": "2026-03-22-cross-scanner-compliance-evidence-normalisation",
+        "title": "Cross-Scanner Compliance Evidence and Waiver Normalisation in GitHub Actions",
+        "added": "2026-03-22"
+      },
+      {
+        "slug": "2026-03-22-compliance-scanning-gh-actions",
+        "title": "Compliance Scanning via GitHub Actions — Broad Policy as Code Across a Heterogeneous Stack",
+        "added": "2026-03-22"
+      }
+    ],
+    "url": "/Research/threads/compliance-policy-as-code-github-actions.html"
+  },
+  {
+    "slug": "predictive-processing-free-energy-principle-neuroscience",
+    "title": "predictive-processing / free-energy-principle / neuroscience",
+    "kind": "implicit",
+    "tag_cluster": [
+      "predictive-processing",
+      "free-energy-principle",
+      "neuroscience"
+    ],
+    "item_count": 3,
+    "items": [
+      {
+        "slug": "2026-02-28-predictive-processing-active-inference",
+        "title": "Predictive processing and active inference: the brain as prediction machine",
+        "added": "2026-02-28"
+      },
+      {
+        "slug": "2026-02-28-free-energy-entropy-and-life",
+        "title": "Free energy, entropy, and life: why organisms predict — from Schrödinger to Friston to Seth",
+        "added": "2026-02-28"
+      },
+      {
+        "slug": "2026-03-18-human-brain-prediction-machines",
+        "title": "Are Human Brains Just Prediction Machines? Comparing Predictive Processing and Large Language Model Next-Token Generation",
+        "added": "2026-03-18"
+      }
+    ],
+    "url": "/Research/threads/predictive-processing-free-energy-principle-neuroscience.html"
+  },
+  {
+    "slug": "failure-modes-agentic-systems-taxonomy",
+    "title": "failure-modes / agentic-systems / taxonomy",
+    "kind": "implicit",
+    "tag_cluster": [
+      "failure-modes",
+      "agentic-systems",
+      "taxonomy"
+    ],
+    "item_count": 3,
+    "items": [
+      {
+        "slug": "2026-03-10-language-for-llm-agent-output",
+        "title": "Language designed for LLM agents to produce: addressing generation-layer failure modes in agentic systems",
+        "added": "2026-03-10"
+      },
+      {
+        "slug": "2026-03-10-ai-concept-classification-taxonomy",
+        "title": "AI concept classification taxonomy: prompts, instructions, memory, failure modes, controls, and problem domains",
+        "added": "2026-03-10"
+      },
+      {
+        "slug": "2026-03-12-failure-mode-taxonomy-expansion",
+        "title": "Failure mode taxonomy: empirical frequency, causal mechanisms, detection signals, and cascade patterns in production agentic systems",
+        "added": "2026-03-12"
+      }
+    ],
+    "url": "/Research/threads/failure-modes-agentic-systems-taxonomy.html"
+  },
+  {
+    "slug": "servicenow-itsm-csdm",
+    "title": "servicenow / itsm / csdm",
+    "kind": "implicit",
+    "tag_cluster": [
+      "servicenow",
+      "itsm",
+      "csdm"
+    ],
+    "item_count": 3,
+    "items": [
+      {
+        "slug": "2026-03-08-servicenow-platform-strategy",
+        "title": "ServiceNow Platform Strategy: Holistic Integration of CSDM, Modules, Process, and AI",
+        "added": "2026-03-08"
+      },
+      {
+        "slug": "2026-03-08-servicenow-process-mapping",
+        "title": "ServiceNow Process Mapping: Maintainable Process Documentation in SNOW",
+        "added": "2026-03-08"
+      },
+      {
+        "slug": "2026-03-08-servicenow-csdm-data-modelling",
+        "title": "ServiceNow CSDM: Practical Data Modelling Across ITSM, APM, SPM, IRM, and FSO",
+        "added": "2026-03-08"
+      }
+    ],
+    "url": "/Research/threads/servicenow-itsm-csdm.html"
+  },
+  {
+    "slug": "consciousness-anil-seth-predictive-processing",
+    "title": "consciousness / anil-seth / predictive-processing",
+    "kind": "implicit",
+    "tag_cluster": [
+      "consciousness",
+      "anil-seth",
+      "predictive-processing"
+    ],
+    "item_count": 3,
+    "items": [
+      {
+        "slug": "2026-02-28-youtube-video-hyuos0gkgcs-concepts",
+        "title": "Reality Is A Controlled Hallucination — Anil Seth (Essentia Foundation): concept extraction and synthesis",
+        "added": "2026-02-28"
+      },
+      {
+        "slug": "2026-02-28-interoception-and-the-predictive-self",
+        "title": "Interoception and the predictive self: selfhood as bodily inference",
+        "added": "2026-02-28"
+      },
+      {
+        "slug": "2026-02-28-controlled-hallucination-perception-as-construction",
+        "title": "Controlled hallucination: perception as active brain construction",
+        "added": "2026-02-28"
+      }
+    ],
+    "url": "/Research/threads/consciousness-anil-seth-predictive-processing.html"
+  },
+  {
+    "slug": "youtube-transcripts-tooling",
+    "title": "youtube / transcripts / tooling",
+    "kind": "implicit",
+    "tag_cluster": [
+      "youtube",
+      "transcripts",
+      "tooling"
+    ],
+    "item_count": 3,
+    "items": [
+      {
+        "slug": "2026-02-28-transcript-via-yt-dlp-whisper",
+        "title": "YouTube transcripts via yt-dlp audio + Whisper transcription",
+        "added": "2026-02-28"
+      },
+      {
+        "slug": "2026-02-28-transcript-via-third-party-apis",
+        "title": "YouTube transcripts via third-party transcript APIs (AssemblyAI / Supadata)",
+        "added": "2026-02-28"
+      },
+      {
+        "slug": "2026-02-28-transcript-via-gemini-api",
+        "title": "YouTube transcripts via Gemini API (native YouTube URL support)",
+        "added": "2026-02-28"
+      }
+    ],
+    "url": "/Research/threads/youtube-transcripts-tooling.html"
+  }
+]
