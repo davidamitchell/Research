@@ -28,5 +28,12 @@ Built on the previous session's `build_site.py` rewrite. This session added:
 - 112 research pages, 564 tag pages, 10 thread pages
 - All generated cleanly with no errors
 
+### Post-session fix: search index completeness
+- Added `load_metadata()` to `build_site.py`
+- Updated `build_search_index()` to include `full_text` (all section text + named_concepts) and `thread_slugs`
+- Search JS now uses `full_text` for broader coverage
+- Search result cards show `findings_excerpt` instead of `question_excerpt`
+
 ## Commits
 - `206947b` feat: add extract_metadata.py, rewrite build_site.py with threads/landing/browse, update workflow
+- `9432fd0` fix: add full_text and thread_slugs to search index, add load_metadata()
