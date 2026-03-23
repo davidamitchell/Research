@@ -23,7 +23,7 @@ What are the transformation functions that move between the levels of the DIKW p
 - The **Data → Information** transformation: what adds context, structure, and relevance to raw data? (Signal extraction, noise reduction, indexing, tagging, schema imposition)
 - The **Information → Knowledge** transformation: what turns information into generalised, applicable understanding? (Pattern recognition, inference, abstraction, categorisation, causal modelling)
 - The **Knowledge → Wisdom** transformation: what elevates knowledge to value-directed, context-sensitive judgement? (Ethical grounding, purpose alignment, long-term consequence modelling, knowing when *not* to act)
-- Formal and computational analogues at each level: information theory, Bayesian inference, symbolic AI, LLM capabilities
+- Formal and computational analogues at each level: information theory, Bayesian inference, symbolic AI, large language model (LLM) capabilities
 - Organisational analogues: data systems → analytics → institutional knowledge → strategic wisdom
 - Relationship to learning: what distinguishes a knowledgeable organisation from a wise one?
 
@@ -101,7 +101,7 @@ The DIKW pyramid is one of the most-cited frameworks in information science and 
 **Output format:** Full structured research skill output per §6, seeding a Findings section.
 
 **Prior work check (§0 mandatory):**
-- `2026-02-27-information-synthesis-entropy.md`: establishes that Shannon entropy (H) measures information density in text; Chain of Density (CoD) prompting is the leading LLM synthesis technique; Information Bottleneck and MDL provide the theoretical basis for compressing data while preserving causal relevance. **Directly relevant to D→I.**
+- `2026-02-27-information-synthesis-entropy.md`: establishes that Shannon entropy (H) measures information density in text; Chain of Density (CoD) prompting is the leading LLM synthesis technique; Information Bottleneck and Minimum Description Length (MDL) provide the theoretical basis for compressing data while preserving causal relevance. **Directly relevant to D→I.**
 - `2026-03-03-knowledge-representation-agent-context.md`: establishes that dense embeddings + knowledge graphs + RAPTOR-style hierarchical summaries form the best agent-accessible knowledge stack; GraphRAG solves global-query problems via community summaries. **Directly relevant to I→K (machine side).**
 - `2026-03-10-formal-spec-intent-alignment-agentic-coding.md`: establishes that reward model overoptimisation follows predictable scaling laws (Gao et al. 2022); formal specification structurally reduces but cannot fully eliminate reward hacking; wisdom-level alignment (knowing which goals are worth pursuing) is structurally harder than knowledge-level alignment. **Directly relevant to K→W.**
 
@@ -315,7 +315,7 @@ The DIKW pyramid is one of the most-cited frameworks in information science and 
 
 **Check 2: D→I formalisation consistent with prior item?** The Information Bottleneck formalisation here is consistent with `2026-02-27-information-synthesis-entropy.md`'s finding that "the Information Bottleneck, MDL all converge on the same principle: discard what is predictable/redundant, preserve what is novel and causally relevant." Consistent.
 
-**Check 3: I→K gap (human vs machine) consistent with knowledge representation item?** The claim that machines are weak at abstraction and causal inference is consistent with `2026-03-03-knowledge-representation-agent-context.md`'s finding that "LSA discards word order, sentence structure, and contextual disambiguation" and that knowledge graphs are needed to capture relational knowledge beyond statistical co-occurrence. Consistent.
+**Check 3: I→K gap (human vs machine) consistent with knowledge representation item?** The claim that machines are weak at abstraction and causal inference is consistent with `2026-03-03-knowledge-representation-agent-context.md`'s finding that "Latent Semantic Analysis (LSA) discards word order, sentence structure, and contextual disambiguation" and that knowledge graphs are needed to capture relational knowledge beyond statistical co-occurrence. Consistent.
 
 **Check 4: K→W = intent alignment consistent with prior item?** The claim that K→W cannot be fully automated maps precisely onto `2026-03-10-formal-spec-intent-alignment-agentic-coding.md`'s finding that "any finite specification leaves residual gaps that a sufficiently capable agent can exploit." Consistent.
 
@@ -337,10 +337,10 @@ Organisations invest heavily in D→I (data pipelines, analytics tools) but syst
 The DIKW model's intellectual lineage runs from Aristotle (episteme/techne/phronesis = information/knowledge/wisdom), through T.S. Eliot's 1934 lament, to Zeleny and Ackoff's 1987–1989 formalisations, to modern knowledge management and AI alignment discourse. The persistence of the same structure across 2,400 years suggests the hierarchy reflects something genuine about cognition rather than being an arbitrary classification.
 
 **Behavioural lens:**
-The K→W transformation is blocked as much by psychology as by formal difficulty. Epistemic hubris — the tendency of experts to overestimate the completeness of their knowledge — is a documented cognitive bias (Dunning-Kruger effect at the expert end, overconfidence in forecasting literature). Organisations that institutionalise epistemic humility (pre-mortems, devil's advocate roles, red-teaming) perform K→W more reliably.
+The K→W transformation is blocked as much by psychology as by formal difficulty. [inference] Epistemic hubris — the tendency of experts to overestimate the completeness of their knowledge — is a documented cognitive bias (Dunning-Kruger effect at the expert end, overconfidence in forecasting literature). Organisations that institutionalise epistemic humility (pre-mortems, devil's advocate roles, red-teaming) perform K→W more reliably.
 
 **Regulatory lens:**
-Regulatory frameworks (GDPR, EU AI Act) can be read as mandatory D→I and I→K transformation requirements: GDPR's data minimisation principle enforces the Information Bottleneck objective (discard what is irrelevant). The EU AI Act's explainability requirements attempt to make I→K transparent — requiring that decision-relevant knowledge be articulable, not just statistical. Neither framework addresses K→W (value alignment in high-stakes AI is still largely voluntary).
+Regulatory frameworks (General Data Protection Regulation (GDPR), EU AI Act) can be read as mandatory D→I and I→K transformation requirements: GDPR's data minimisation principle enforces the Information Bottleneck objective (discard what is irrelevant). The EU AI Act's explainability requirements attempt to make I→K transparent — requiring that decision-relevant knowledge be articulable, not just statistical. Neither framework addresses K→W (value alignment in high-stakes AI is still largely voluntary).
 
 **Relationship to this research corpus:**
 The research skill itself (§1 decomposition, §2 evidence gathering, §3 reasoning, §4 consistency, §5 expansion, §6 synthesis) is a structured implementation of the I→K transformation applied to a research question. The skill converts information (gathered evidence) into knowledge (structured findings with labelled confidence) and partially gestures toward wisdom (§5 multi-lens expansion introduces value-laden judgements about what matters). This meta-observation strengthens the practical applicability of the framework.

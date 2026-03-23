@@ -288,7 +288,7 @@ The research corpus requires two parallel delivery channels, one per consumer ty
 
 5. **The email digest path via the `davidamitchell/Latest-developments-` pattern requires at minimum two new credentials (`RESEND_API_KEY` and `EMAIL_RECIPIENT`) that do not appear in the approved credentials table, making it a hard-stop blocked item under the non-negotiable constraints.** [High confidence]
 
-6. **Outbound Slack notification (one completed item per push) is low-complexity — four lines of workflow YAML using `slackapi/slack-github-action@v2.1.1` — but is equally blocked pending explicit owner approval of the `SLACK_WEBHOOK_URL` secret.** [High confidence]
+6. **Outbound Slack notification (one completed item per push) is low-complexity — four lines of workflow YAML Ain't Markup Language (YAML) using `slackapi/slack-github-action@v2.1.1` — but is equally blocked pending explicit owner approval of the `SLACK_WEBHOOK_URL` secret.** [High confidence]
 
 7. **The human and agent consumers have structurally different access patterns: the human researcher performs discovery (browsing by date and tag), while the AI agent performs retrieval (querying by keyword to locate specific items for synthesis); no single interface serves both optimally, making the two-layer strategy the correct design.** [Medium confidence — inference from usage patterns]
 

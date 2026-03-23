@@ -127,7 +127,7 @@ Cross-reference: `Research/completed/2026-03-02-agent-memory-management-context-
 - E3. Railway free tier ($1 credit/month): can it sustain an always-on Python process?
 - E4. Fly.io: does it have a genuine free tier for Machines as of March 2026?
 - E5. Raspberry Pi + Tailscale: what is the cost and operational model?
-- E6. Oracle Cloud Always Free Arm (ARM) VM: is it a viable zero-cost always-on host?
+- E6. Oracle Cloud Always Free Advanced RISC Machine (ARM) VM: is it a viable zero-cost always-on host?
 
 **F. Latency estimation**
 - F1. What is the capture latency (Telegram message → GitHub commit)?
@@ -232,7 +232,7 @@ Source: Fly.io pricing docs (https://fly.io/docs/about/pricing/) — no free tie
 A Raspberry Pi running at home provides a genuinely always-on process at zero ongoing cost (assuming the hardware is already owned and the electricity cost is negligible: ~$1–3/year at typical RPi power consumption). The bot runs as a systemd service, restarting automatically on failure. Tailscale is required only if the owner wants to SSH into the Pi remotely — the bot itself does not need Tailscale, as it only makes outbound connections to Telegram and GitHub. Tailscale's personal plan is free for up to 3 users and 100 devices.
 Source: Tailscale pricing (tailscale.com/kb/1017/install — Personal plan, 3 free users); Raspberry Pi power consumption data (inference from published specs)
 
-**E6. Oracle Cloud Always Free ARM VM** [fact]
+**E6. Oracle Cloud Always Free ARM VM** [inference]
 Oracle Cloud's Always Free tier includes two ARM-based Ampere A1 Compute instances (total: up to 4 OCPUs and 24GB RAM shared across all Always Free VMs). These instances never expire and have no billing as long as the account remains active. Oracle Cloud Always Free is the most capable genuinely-free always-on hosting option for a Telegram bot. The only cost is ongoing account maintenance and Oracle's identity verification.
 Source: Oracle Cloud Always Free docs [SOURCE NEEDED] (inference from well-established knowledge of the Oracle Cloud free tier; confirmed by general knowledge of the program's 2021 launch and ongoing status as of 2026)
 
