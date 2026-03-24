@@ -1,9 +1,10 @@
 # Research Master Document
 
-Generated on: 2026-03-23 22:05 UTC
+Generated on: 2026-03-24 08:13 UTC
 
 ## Table of Contents
 
+* [Agent orchestration patterns: lessons from Anvil, Max, and Burke Holland's multi-model orchestration gist](#2026-03-23-agent-orchestration-anvil-max-md)
 * [How to best use awesome-copilot in this repo and across personal repos](#2026-03-22-using-awesome-copilot-across-repos-md)
 * [Cross-Scanner Compliance Evidence and Waiver Normalisation in GitHub Actions](#2026-03-22-cross-scanner-compliance-evidence-normalisation-md)
 * [Compliance Scanning via GitHub Actions — Broad Policy as Code Across a Heterogeneous Stack](#2026-03-22-compliance-scanning-gh-actions-md)
@@ -117,6 +118,94 @@ Generated on: 2026-03-23 22:05 UTC
 * [AI Strategy Examples: Business Efficiency Focus](#2026-02-28-ai-strategy-business-efficiency-examples-md)
 * [AI Line 1 and Line 2 Risk Agents: Who Is Building Them?](#2026-02-28-ai-line-1-line-2-risk-agents-md)
 * [AI for Control Testing, Gap Identification, and Policies/Standards Reviews](#2026-02-28-ai-control-testing-and-assurance-md)
+
+---
+
+<a name="2026-03-23-agent-orchestration-anvil-max-md"></a>
+
+## Agent orchestration patterns: lessons from Anvil, Max, and Burke Holland's multi-model orchestration gist
+
+**Tags:** [agents, orchestration, personal-assistant, multi-model, copilot-sdk, verification, adversarial-review, skills]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-23-agent-orchestration-anvil-max.md
+
+## Research Question
+
+What agent orchestration patterns, verification strategies, and multi-model delegation techniques are demonstrated by Burke Holland's Anvil, Max, and the orchestrator/planner/coder/designer multi-agent gist — and which of these can be directly applied or adapted to build a personal AI assistant that operates without a local IDE?
+
+Supporting questions:
+- How does Anvil's "prove it, don't promise it" philosophy (SQL (Structured Query Language) verification ledger, baseline snapshots, adversarial multi-model review) differ from simpler single-agent coding loops, and what does that mean for trust in autonomous agents?
+- What is the Orchestrator->Planner->Coder->Designer delegation pattern in the multi-agent gist, and how does parallelisation by file-disjoint phases work in practice?
+- How does Max's persistent-daemon model — spinning up GitHub Copilot CLI (Command-Line Interface) workers, routing tasks, learning skills from skills.sh — differ from session-scoped agent invocations?
+- What design choices would allow a personal assistant inspired by Max to work entirely through GitHub website interactions and mobile (no local IDE, no Codespace)?
+- What are the failure modes and trust boundaries of adversarial multi-model review (as used in Anvil's "Forge" step)?
+- How does session memory backed by SQL (as in Anvil and Max) compare to in-context memory for long-running autonomous tasks?
+
+## Findings
+
+### Executive Summary
+
+[inference] The best-fit architecture for this repository is a GitHub-native assistant that uses durable verification artifacts, specialist delegation, and persistent external memory instead of a laptop-resident Max-style daemon. Sources: https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/create-a-pr ; https://docs.github.com/en/copilot/how-tos/chat-with-copilot/chat-in-github ; https://burkeholland.github.io/max/docs.html ; https://raw.githubusercontent.com/davidamitchell/Research/main/.github/copilot-instructions.md
+
+[fact] Anvil's published design centers trust on recorded checks, baseline-versus-after comparison, and a SQLite evidence bundle rather than on unverified agent prose. Source: https://burkeholland.github.io/anvil/
+
+[fact] Burke Holland's four-agent gist separates orchestration, planning, coding, and design, and it only parallelizes work when file ownership does not overlap. Sources: https://gist.githubusercontent.com/burkeholland/0e68481f96e94bbb98134fa6efd00436/raw/orchestrator.agent.md ; https://gist.githubusercontent.com/burkeholland/0e68481f96e94bbb98134fa6efd00436/raw/planner.agent.md
+
+[inference] Max shows that long-running assistants need layered continuity, but this repository must realize that continuity through GitHub-managed surfaces, repository state, and approved credentials rather than through an always-on personal machine. Sources: https://burkeholland.github.io/max/docs.html ; https://docs.github.com/en/copilot/how-tos/chat-with-copilot/chat-in-mobile ; https://raw.githubusercontent.com/davidamitchell/Research/main/.github/copilot-instructions.md
+
+### Key Findings
+
+1. **[high]** [inference] Anvil demonstrates that an autonomous assistant becomes more trustworthy when it records builds, tests, lint checks, baselines, and reviewer verdicts as durable evidence artifacts that can be inspected independently of the model's narrative summary. Sources: https://burkeholland.github.io/anvil/ ; https://raw.githubusercontent.com/davidamitchell/Research/main/Research/completed/2026-03-18-stateless-agent-assumption-failure.md
+2. **[high]** [fact] Burke Holland's four-agent gist enforces a delegation boundary in which the orchestrator coordinates phases and conflict avoidance, the planner researches and decomposes, and the specialists execute within explicitly scoped domains and files. Sources: https://gist.githubusercontent.com/burkeholland/0e68481f96e94bbb98134fa6efd00436/raw/orchestrator.agent.md ; https://gist.githubusercontent.com/burkeholland/0e68481f96e94bbb98134fa6efd00436/raw/planner.agent.md
+3. **[medium]** [inference] The gist's assignment of Claude Opus to orchestration, GPT-5.3-Codex to coding, and Gemini to design should be treated as a role-routing heuristic tied to workload shape rather than as a universal fixed mapping for every repository. Sources: https://gist.githubusercontent.com/burkeholland/0e68481f96e94bbb98134fa6efd00436/raw/coder.agent.md ; https://gist.githubusercontent.com/burkeholland/0e68481f96e94bbb98134fa6efd00436/raw/designer.agent.md
+4. **[high]** [inference] Max's three-layer continuity model of persistent live session, SQLite long-term memory, and conversation logging addresses different failure modes, making it more robust for long-running work than relying on in-context memory alone. Sources: https://burkeholland.github.io/max/docs.html ; https://raw.githubusercontent.com/burkeholland/max/main/README.md
+5. **[high]** [inference] skills.sh, GitHub Copilot skills, and Max's learn-skill mechanism all converge on `SKILL.md`-based packaging, which means the repository can adopt community skill structure while still curating actual project skills through its separate upstream submodule. Sources: https://skills.sh/docs ; https://vercel.com/kb/guide/agent-skills-creating-installing-and-sharing-reusable-agent-context ; https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/create-skills ; https://raw.githubusercontent.com/davidamitchell/Research/main/.github/copilot-instructions.md
+6. **[high]** [fact] The repository's browser-first operating model already exposes documented assistant entry points in GitHub issues, the agents panel, GitHub web chat, GitHub Mobile chat, repository instructions, custom agents, and project skills. Sources: https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/create-a-pr ; https://docs.github.com/en/copilot/how-tos/chat-with-copilot/chat-in-github ; https://docs.github.com/en/copilot/how-tos/chat-with-copilot/chat-in-mobile ; https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/create-custom-agents ; https://docs.github.com/en/copilot/how-tos/configure-custom-instructions/add-repository-instructions
+7. **[high]** [inference] Max's local daemon and Telegram bot are not directly portable to this repository because they depend on a continuously running machine and credentials that are outside the repository's approved credential table. Sources: https://burkeholland.github.io/max/docs.html ; https://raw.githubusercontent.com/davidamitchell/Research/main/.github/copilot-instructions.md
+8. **[medium]** [inference] Adversarial multi-model review is a valuable critique layer after execution, but it cannot replace executable verification because reviewers can still miss state-specific, environment-specific, or integration-specific failures that only real checks expose. Sources: https://burkeholland.github.io/anvil/ ; https://raw.githubusercontent.com/davidamitchell/Research/main/Research/completed/2026-03-18-stateless-agent-assumption-failure.md
+
+### Evidence Map
+
+| claim | source | confidence | notes |
+| --- | --- | --- | --- |
+| [fact] Anvil increases trust by recording objective evidence instead of relying on prose. | https://burkeholland.github.io/anvil/ | high | The site explicitly describes the SQLite ledger, baseline snapshots, and evidence bundle. |
+| [fact] The gist enforces non-coding orchestration plus file-disjoint parallel phases. | https://gist.githubusercontent.com/burkeholland/0e68481f96e94bbb98134fa6efd00436/raw/orchestrator.agent.md | high | The orchestrator instructions define planner-first delegation and file-overlap rules. |
+| [inference] Model assignment in the gist is heuristic role routing, not a universal law. | https://gist.githubusercontent.com/burkeholland/0e68481f96e94bbb98134fa6efd00436/raw/coder.agent.md ; https://gist.githubusercontent.com/burkeholland/0e68481f96e94bbb98134fa6efd00436/raw/designer.agent.md | medium | The files show explicit role-to-model choices, but generalization beyond the example is inferential. |
+| [fact] Max uses layered continuity rather than only live context. | https://burkeholland.github.io/max/docs.html ; https://raw.githubusercontent.com/burkeholland/max/main/README.md | high | The docs explicitly define persistent session, SQLite memory, and conversation logging. |
+| [fact] `SKILL.md` packaging is shared across skills.sh, GitHub Copilot skills, and Max. | https://skills.sh/docs ; https://vercel.com/kb/guide/agent-skills-creating-installing-and-sharing-reusable-agent-context ; https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/create-skills ; https://burkeholland.github.io/max/docs.html | high | The packaging convergence is directly documented across all three systems. |
+| [fact] GitHub web and mobile already expose owner-usable assistant entry points. | https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/create-a-pr ; https://docs.github.com/en/copilot/how-tos/chat-with-copilot/chat-in-github ; https://docs.github.com/en/copilot/how-tos/chat-with-copilot/chat-in-mobile | high | The docs explicitly list web, mobile, issues, agents panel, and chat entry points. |
+| [fact] Max's daemon and Telegram model conflict with this repository's documented operating constraints. | https://burkeholland.github.io/max/docs.html ; https://raw.githubusercontent.com/davidamitchell/Research/main/.github/copilot-instructions.md | high | Max requires local runtime and optional Telegram credentials; the repo forbids assuming unlisted credentials and local-IDE assumptions. |
+| [inference] Adversarial review should follow execution rather than replace it. | https://burkeholland.github.io/anvil/ ; https://raw.githubusercontent.com/davidamitchell/Research/main/Research/completed/2026-03-18-stateless-agent-assumption-failure.md | medium | Anvil itself pairs review with executable proof; the stronger claim about failure coverage is inferential but well grounded. |
+
+### Assumptions
+
+- [assumption] The repository's published operating constraints remain authoritative during implementation planning, especially the owner's GitHub-website-plus-iOS workflow and the approved-credentials table. Source: https://raw.githubusercontent.com/davidamitchell/Research/main/.github/copilot-instructions.md
+- [assumption] GitHub's documented web and mobile surfaces are sufficient as the user-facing control plane for an assistant even if they are less feature-rich than Max's daemon-plus-Telegram experience. Sources: https://docs.github.com/en/copilot/how-tos/chat-with-copilot/chat-in-github ; https://docs.github.com/en/copilot/how-tos/chat-with-copilot/chat-in-mobile ; https://burkeholland.github.io/max/docs.html
+
+### Analysis
+
+- [inference] Deployability should be weighted more heavily than feature richness in this repository, because the owner's fixed control surfaces are GitHub web and iOS rather than a continuously running personal machine. Sources: https://raw.githubusercontent.com/davidamitchell/Research/main/.github/copilot-instructions.md ; https://docs.github.com/en/copilot/how-tos/chat-with-copilot/chat-in-github ; https://docs.github.com/en/copilot/how-tos/chat-with-copilot/chat-in-mobile
+- [inference] Anvil's verification pattern deserves priority over sophisticated model routing, because evidence artifacts mitigate session-boundary and trust risks more directly than choosing among specialist models does. Sources: https://burkeholland.github.io/anvil/ ; https://raw.githubusercontent.com/davidamitchell/Research/main/Research/completed/2026-03-18-stateless-agent-assumption-failure.md
+- [inference] Max's continuity design is worth adapting only at the durable-state layer, because GitHub-native surfaces can reproduce instruction, memory, and workflow state without reproducing a laptop daemon's ambient presence. Sources: https://burkeholland.github.io/max/docs.html ; https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/create-a-pr ; https://raw.githubusercontent.com/davidamitchell/Research/main/.github/copilot-instructions.md
+
+### Risks, Gaps, and Uncertainties
+
+- [fact] Max's public documentation is sufficient to establish the architecture pattern but not every internal implementation detail, so claims about exact internal routing logic or storage schema would overreach the available evidence. Source: https://burkeholland.github.io/max/docs.html
+- [fact] Anvil's public site documents the philosophy and loop structure strongly, but deeper implementation details beyond the published description were not required to answer the transferability question. Source: https://burkeholland.github.io/anvil/
+- [fact] GitHub Mobile has documented limitations around repository indexing and context quality, so a browser-first assistant may need repository preparation work to get the best possible answers in mobile contexts. Source: https://docs.github.com/en/copilot/how-tos/chat-with-copilot/chat-in-mobile
+- [inference] The exact boundary where GitHub-native workflows stop being sufficient and a dedicated long-running service becomes necessary remains unresolved and depends on how proactive or cross-channel the desired assistant must become. Sources: https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/create-a-pr ; https://raw.githubusercontent.com/davidamitchell/Research/main/.github/copilot-instructions.md
+
+### Open Questions
+
+- [inference] At what point does a GitHub-native assistant need a dedicated service layer for proactive reminders, scheduled follow-up, or cross-repository memory instead of repository and workflow state alone? Sources: https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/create-a-pr ; https://raw.githubusercontent.com/davidamitchell/Research/main/.github/copilot-instructions.md
+- [inference] Which assistant functions should be encoded as project skills versus repository instructions versus custom agents so that the system stays discoverable without becoming brittle? Sources: https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/create-skills ; https://docs.github.com/en/copilot/how-tos/configure-custom-instructions/add-repository-instructions ; https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/create-custom-agents
+- [inference] Can Anvil-style evidence bundles be expressed as a reusable GitHub workflow or skill pattern for this repository without adding new credentials or external infrastructure? Sources: https://burkeholland.github.io/anvil/ ; https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/create-skills ; https://raw.githubusercontent.com/davidamitchell/Research/main/.github/copilot-instructions.md
+
+### Output
+
+- **Type:** knowledge
+- **Description:** Transferable design patterns from Anvil, Max, and Burke Holland's multi-agent gist, with a concrete recommendation to implement a GitHub-native assistant that uses evidence-first verification, explicit role delegation, and durable external memory rather than a local daemon.
+- **Links:** https://burkeholland.github.io/anvil/ ; https://burkeholland.github.io/max/docs.html ; https://gist.githubusercontent.com/burkeholland/0e68481f96e94bbb98134fa6efd00436/raw/orchestrator.agent.md
 
 ---
 
