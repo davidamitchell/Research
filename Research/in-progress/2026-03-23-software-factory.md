@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "The Software Factory: Organisational Transformation When the Cost of Quality Software Approaches Zero"
 added: 2026-03-23
 status: reviewing
