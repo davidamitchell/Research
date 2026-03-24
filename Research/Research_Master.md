@@ -1,9 +1,10 @@
 # Research Master Document
 
-Generated on: 2026-03-24 22:25 UTC
+Generated on: 2026-03-24 22:49 UTC
 
 ## Table of Contents
 
+* [The Software Factory: Organisational Transformation When the Cost of Quality Software Approaches Zero](#2026-03-23-software-factory-md)
 * [Agent orchestration patterns: lessons from Anvil, Max, and Burke Holland's multi-model orchestration gist](#2026-03-23-agent-orchestration-anvil-max-md)
 * [How to best use awesome-copilot in this repo and across personal repos](#2026-03-22-using-awesome-copilot-across-repos-md)
 * [Cross-Scanner Compliance Evidence and Waiver Normalisation in GitHub Actions](#2026-03-22-cross-scanner-compliance-evidence-normalisation-md)
@@ -118,6 +119,105 @@ Generated on: 2026-03-24 22:25 UTC
 * [AI Strategy Examples: Business Efficiency Focus](#2026-02-28-ai-strategy-business-efficiency-examples-md)
 * [AI Line 1 and Line 2 Risk Agents: Who Is Building Them?](#2026-02-28-ai-line-1-line-2-risk-agents-md)
 * [AI for Control Testing, Gap Identification, and Policies/Standards Reviews](#2026-02-28-ai-control-testing-and-assurance-md)
+
+---
+
+<a name="2026-03-23-software-factory-md"></a>
+
+## The Software Factory: Organisational Transformation When the Cost of Quality Software Approaches Zero
+
+**Tags:** [software-factory, ai-native, organisations, theory-of-constraints, banking, cost-of-software]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-23-software-factory.md
+
+## Research Question
+
+If the cost of producing high-quality, standardised, integrated software is approaching zero — as Artificial Intelligence (AI) coding agents and software factory patterns suggest — what must organisations change in how they structure themselves, invest, and prioritise, and what specific challenges and opportunities does this create for mid-tier banks?
+
+## Findings
+
+[fact] This section is populated from §6 Synthesis above and does not introduce new substantive claims.
+
+### Executive Summary
+
+[assumption] Mid-tier banks that do not redesign software delivery around AI factory patterns by 2028 face a compounding competitive disadvantage.
+
+[fact] Stripe's Minions shows that software-factory patterns can operate in production at enterprise scale, while DORA 2024 shows that adding AI tools without redesigning the operating model harms team outcomes. Sources: https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents, https://services.google.com/fh/files/misc/2024_final_dora_report.pdf
+
+[inference] The binding constraint therefore shifts upstream to requirement quality, prioritisation velocity, and factory design capability rather than raw coding capacity. Source: https://velocityschedulingsystem.com/blog/theory-of-constraints-ai
+
+[inference] Mid-tier banks still hold domain-data and regulatory advantages, but they must use that window to modernise before AI-native competitors close the gap. Sources: https://www.finastra.com/viewpoints/articles/modernization-or-bust-critical-moment-us-mid-tier-banks, https://www.ibm.com/thought-leadership/institute-business-value/en-us/report/core-banking-modernization-makers, https://www.mckinsey.com/industries/financial-services/our-insights/extracting-value-from-ai-in-banking-rewiring-the-enterprise
+
+### Key Findings
+
+1. [fact] The software factory pattern is production-validated at enterprise scale because Stripe's Minions system merges more than 1,300 AI-authored PRs per week using blueprints, a 500-tool Model Context Protocol (MCP) server, and isolated cloud devboxes. Source: https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents
+
+2. [fact] DORA 2024 found that adding AI tools to existing team structures produces net negative team delivery outcomes, with lower delivery stability and lower throughput, so tool adoption alone does not deliver software-factory benefits. Source: https://services.google.com/fh/files/misc/2024_final_dora_report.pdf
+
+3. [inference] Theory of Constraints (TOC) predicts that when AI dramatically reduces software-engineering cost, the bottleneck moves upstream to requirement quality, decision-making velocity, and factory design, which shifts investment toward specification discipline and backpressure infrastructure. Sources: https://velocityschedulingsystem.com/blog/theory-of-constraints-ai, https://theagilemindset.co.uk/theory-of-constraints-in-software-development/
+
+4. [inference] Current governance mechanisms such as SAFe, Program Increment (PI) planning, investment boards, QA teams, and project-management front doors are largely responses to software scarcity and become less valuable as software execution becomes cheaper and faster. Source: https://alexop.dev/posts/the-software-factory/
+
+5. [inference] "AI-native" is an organisational design choice rather than a technology attribute because AI-native organisations redesign team structure, governance, and incentives around AI execution, while AI-assisted organisations layer tools onto older structures. Sources: https://online.hbs.edu/blog/post/ai-native, https://www.forbes.com/councils/forbesbusinesscouncil/2025/10/22/what-it-really-means-to-be-an-ai-native-company/
+
+6. [inference] Mid-tier banks face a compounded challenge because they combine legacy complexity with tighter resource constraints, yet they still retain domain data depth and regulatory relationships that take years for new entrants to build. Sources: https://www.finastra.com/viewpoints/articles/modernization-or-bust-critical-moment-us-mid-tier-banks, https://www.ibm.com/thought-leadership/institute-business-value/en-us/report/core-banking-modernization-makers, https://www.mckinsey.com/industries/financial-services/our-insights/extracting-value-from-ai-in-banking-rewiring-the-enterprise
+
+7. [inference] The highest-leverage investments for a factory transition are backpressure infrastructure, specification discipline, and factory-architecture expertise because those investments improve every agent-executed task rather than only a single team or workflow. Sources: https://alexop.dev/posts/the-software-factory/, https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents
+
+8. [inference] The dark factory variant, meaning full autonomous deployment without human code review, is not viable for regulated environments because the OctopusGarden practitioner identified compliance, debuggability, and security as unresolved challenges. Source: https://news.ycombinator.com/item?id=47226107
+
+9. [inference] Cognitive debt, the understanding deficit created when Large Language Model (LLM) code generation replaces understand-while-coding, is the main reliability risk at factory scale, and formal specification remains the strongest structural countermeasure. Sources: https://quint-lang.org/posts/cognitive_debt, https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents
+
+10. [inference] The Jevons Paradox risk is real for the software-factory transition because cheaper software production is likely to increase demand for features, which turns governance into a prioritisation problem rather than a budget-allocation problem. Sources: https://www.economicshelp.org/blog/220917/economics/jevons-paradox-definition-and-explanation/, https://alexop.dev/posts/the-software-factory/
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| Software factory pattern is production-validated | https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents | high | Primary engineering disclosure from Stripe |
+| Tool adoption without redesign harms team outcomes | https://services.google.com/fh/files/misc/2024_final_dora_report.pdf | high | Primary DORA report |
+| Constraint shifts upstream when execution gets cheaper | https://velocityschedulingsystem.com/blog/theory-of-constraints-ai ; https://theagilemindset.co.uk/theory-of-constraints-in-software-development/ | medium | Theory-backed inference, not a controlled study |
+| Governance mechanisms become less valuable under low software scarcity | https://alexop.dev/posts/the-software-factory/ | medium | Inference drawn from the practitioner essay |
+| AI-native is an organisational design choice | https://online.hbs.edu/blog/post/ai-native ; https://www.forbes.com/councils/forbesbusinesscouncil/2025/10/22/what-it-really-means-to-be-an-ai-native-company/ | medium | Definitional alignment across two external sources |
+| Mid-tier banks retain advantages but face a compounded challenge | https://www.finastra.com/viewpoints/articles/modernization-or-bust-critical-moment-us-mid-tier-banks ; https://www.ibm.com/thought-leadership/institute-business-value/en-us/report/core-banking-modernization-makers ; https://www.mckinsey.com/industries/financial-services/our-insights/extracting-value-from-ai-in-banking-rewiring-the-enterprise | medium | Multiple industry sources align |
+| Backpressure, spec quality, and factory architecture are the highest-leverage investments | https://alexop.dev/posts/the-software-factory/ ; https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents | medium | Inference from recurring architecture patterns |
+| Dark factory is not viable for regulated environments | https://news.ycombinator.com/item?id=47226107 | high | First-person practitioner account |
+| Cognitive debt is the primary reliability risk at factory scale | https://quint-lang.org/posts/cognitive_debt ; https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents | medium | Inference grounded in throughput plus reliability mechanism |
+| Jevons Paradox makes prioritisation the next governance problem | https://www.economicshelp.org/blog/220917/economics/jevons-paradox-definition-and-explanation/ ; https://alexop.dev/posts/the-software-factory/ | medium | Economic inference applied to software production |
+
+### Assumptions
+
+- [assumption] Software engineering capacity is the primary constraint in most knowledge-economy organisations today. **Justification:** Consistent with the observable governance apparatus (investment boards, SAFe, QA functions, "front doors") but not empirically verified at scale. Treated as a stylised fact.
+- [assumption] The opportunity window for mid-tier banks is approximately 2–4 years (2025–2028). **Justification:** Based on regulatory banking licence acquisition pace and current open banking trajectory. No empirical data on this specific timeline.
+- [assumption] Factory model speed benefits apply broadly to enterprise software beyond simple CRUD applications. **Justification:** Stripe's Minions is the strongest evidence because it covers a large, complex, proprietary codebase. But Stripe's custom tooling investment is not immediately replicable.
+
+### Analysis
+
+[inference] Stripe's production evidence and DORA's negative results point to the same conclusion: software factories require an operating-model redesign rather than simple tool adoption. Sources: https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents, https://services.google.com/fh/files/misc/2024_final_dora_report.pdf
+
+[inference] For mid-tier banks, the strategic choice is whether to use AI to modernise while their data assets and regulatory relationships still matter more than delivery speed. Sources: https://www.finastra.com/viewpoints/articles/modernization-or-bust-critical-moment-us-mid-tier-banks, https://www.ibm.com/thought-leadership/institute-business-value/en-us/report/core-banking-modernization-makers, https://www.mckinsey.com/industries/financial-services/our-insights/extracting-value-from-ai-in-banking-rewiring-the-enterprise
+
+[inference] Transaction-cost theory explains why investment boards, SAFe, and project-management front doors were rational under scarcity and why lighter prioritisation mechanisms become more appropriate as software execution gets cheaper. Sources: https://alexop.dev/posts/the-software-factory/, https://velocityschedulingsystem.com/blog/theory-of-constraints-ai
+
+[inference] Reliability risk grows with factory throughput, so backpressure infrastructure and formal specification should be treated as core controls. Sources: https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents, https://quint-lang.org/posts/cognitive_debt
+
+### Risks, Gaps, and Uncertainties
+
+- [inference] No empirical study directly measures whether software engineering is the primary organisational constraint before and after AI adoption at the same organisation, so the TOC analysis remains theoretical.
+- [fact] The dark-factory compliance problem is unresolved for regulated environments. Source: https://news.ycombinator.com/item?id=47226107
+- [fact] The 5–10x team-size figures cited by practitioners are estimates rather than controlled study results. Source: https://alexop.dev/posts/the-software-factory/
+- [inference] The Jevons Paradox risk is widely discussed but not yet measured empirically in AI-native software contexts. Source: https://www.economicshelp.org/blog/220917/economics/jevons-paradox-definition-and-explanation/
+- [inference] Stripe's results relied on large bespoke tooling investments that mid-tier banks cannot replicate immediately. Sources: https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents, https://www.ibm.com/thought-leadership/institute-business-value/en-us/report/core-banking-modernization-makers
+
+### Open Questions
+
+1. What is the minimum viable factory architecture for a mid-tier bank that delivers speed benefits while remaining compliant with financial services regulations?
+2. How should mid-tier banks sequence the transition to factory patterns: which software domains should be migrated first, and what sequencing criteria apply?
+3. What governance model replaces the investment board when software production is cheap, and what is the right prioritisation mechanism when scarcity is no longer the binding constraint?
+4. How does the Jevons Paradox play out empirically in organisations that have adopted factory patterns: do they reduce total software investment or increase total output?
+5. Can automated compliance checking (static analysis, formal verification, holdout scenario scoring) close the gap between dark factory throughput and regulated-environment compliance requirements?
+
+---
 
 ---
 
