@@ -21,6 +21,8 @@
   --tag-text:        #999;
   --tag-active-bg:   #e8e8e8;
   --tag-active-text: #0d0d0d;
+  --link:            #E8006F;
+  --teal:            #2DD4BF;
 
   --text-xs:   0.7rem;
   --text-sm:   0.8rem;
@@ -73,6 +75,9 @@ nav {
   font-weight: 500;
   color: var(--text);
   letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
 }
 .nav-links {
   display: flex;
@@ -82,8 +87,12 @@ nav {
   font-size: var(--text-sm);
   color: var(--text-muted);
   letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
 }
 .nav-links a:hover { color: var(--text); text-decoration: none; }
+.nav-links a.active { color: var(--teal); }
 
 /* Main content */
 main {
@@ -327,7 +336,7 @@ main {
   color: var(--text-muted);
   margin-top: 0.8rem;
 }
-.item-content a { color: var(--text); text-decoration: underline; }
+.item-content a { color: var(--link); text-decoration: underline; }
 .item-content a:hover { color: var(--text-muted); }
 .item-content strong { font-weight: 600; }
 .item-content em { font-style: italic; }
@@ -534,7 +543,7 @@ main {
 /* Featured sections on landing page */
 .landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
 .featured-section { margin: 2rem 0; }
-.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4em; }
 .featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 .thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
 .thread-pill:hover { border-color: var(--text); text-decoration: none; }
@@ -570,12 +579,12 @@ main {
         <body>
 <nav>
   <div class="nav-inner">
-    <a class="nav-brand" href="/Research/">Research</a>
+    <a class="nav-brand" href="/Research/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#2DD4BF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Research</a>
     <div class="nav-links">
-      <a href="/Research/threads.html">Threads</a>
-      <a href="/Research/tags/">Tags</a>
-      <a href="/Research/search.html">Search</a>
-      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener">GitHub</a>
+      <a href="/Research/threads.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#2DD4BF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>Threads</a>
+      <a href="/Research/tags/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#2DD4BF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>Tags</a>
+      <a href="/Research/search.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#2DD4BF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#2DD4BF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M8 1.5C4.41 1.5 1.5 4.41 1.5 8c0 2.87 1.86 5.3 4.44 6.16.32.06.44-.14.44-.31v-1.09c-1.8.39-2.18-.87-2.18-.87-.3-.75-.72-.95-.72-.95-.59-.4.04-.4.04-.4.65.05 1 .67 1 .67.58 1 1.53.71 1.9.54.06-.42.23-.71.41-.87-1.44-.16-2.95-.72-2.95-3.2 0-.71.25-1.28.67-1.74-.07-.16-.29-.82.06-1.71 0 0 .55-.18 1.8.67a6.27 6.27 0 0 1 3.28 0c1.25-.85 1.8-.67 1.8-.67.35.89.13 1.55.06 1.71.42.46.67 1.03.67 1.74 0 2.49-1.51 3.04-2.96 3.2.23.2.44.6.44 1.21v1.8c0 .17.12.37.44.31A6.5 6.5 0 0 0 14.5 8 6.5 6.5 0 0 0 8 1.5z"/></svg>GitHub</a>
     </div>
   </div>
 </nav>
@@ -591,11 +600,11 @@ main {
     <div id="landing-search-results" class="search-preview-results"></div>
   </div>
   <div class="featured-section">
-    <div class="featured-label">threads</div>
+    <div class="featured-label"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#2DD4BF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>threads</div>
     <div class="featured-pills"><a class="thread-pill" href="/Research/threads/rag-knowledge-management-llm.html">rag / knowledge-management / llm <span class="thread-pill-count">5</span></a><a class="thread-pill" href="/Research/threads/mobile-memory-system-capture.html">mobile / memory-system / capture <span class="thread-pill-count">5</span></a><a class="thread-pill" href="/Research/threads/llm-hallucinations-reliability.html">llm / hallucinations / reliability <span class="thread-pill-count">5</span></a><a class="thread-pill" href="/Research/threads/ai-strategy-financial-services-risk-management.html">ai-strategy / financial-services / risk-management <span class="thread-pill-count">4</span></a><a class="thread-pill" href="/Research/threads/compliance-policy-as-code-github-actions.html">compliance / policy-as-code / github-actions <span class="thread-pill-count">3</span></a><a class="thread-pill" href="/Research/threads/predictive-processing-free-energy-principle-neuroscience.html">predictive-processing / free-energy-principle / neuroscience <span class="thread-pill-count">3</span></a><a class="thread-pill" href="/Research/threads/failure-modes-agentic-systems-taxonomy.html">failure-modes / agentic-systems / taxonomy <span class="thread-pill-count">3</span></a><a class="thread-pill" href="/Research/threads/servicenow-itsm-csdm.html">servicenow / itsm / csdm <span class="thread-pill-count">3</span></a></div>
   </div>
   <div class="featured-section">
-    <div class="featured-label">topics</div>
+    <div class="featured-label"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#2DD4BF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>topics</div>
     <div class="featured-pills"><a class="tag-pill-link tag" href="/Research/tags/agents.html">agents</a><a class="tag-pill-link tag" href="/Research/tags/llm.html">llm</a><a class="tag-pill-link tag" href="/Research/tags/rag.html">rag</a><a class="tag-pill-link tag" href="/Research/tags/ai-strategy.html">ai-strategy</a><a class="tag-pill-link tag" href="/Research/tags/knowledge-management.html">knowledge-management</a><a class="tag-pill-link tag" href="/Research/tags/ai-agents.html">ai-agents</a><a class="tag-pill-link tag" href="/Research/tags/software-engineering.html">software-engineering</a><a class="tag-pill-link tag" href="/Research/tags/agentic-systems.html">agentic-systems</a><a class="tag-pill-link tag" href="/Research/tags/alignment.html">alignment</a><a class="tag-pill-link tag" href="/Research/tags/memory-system.html">memory-system</a><a class="tag-pill-link tag" href="/Research/tags/tooling.html">tooling</a><a class="tag-pill-link tag" href="/Research/tags/ai.html">ai</a><a class="tag-pill-link tag" href="/Research/tags/mobile.html">mobile</a><a class="tag-pill-link tag" href="/Research/tags/skills.html">skills</a><a class="tag-pill-link tag" href="/Research/tags/github-copilot.html">github-copilot</a><a class="tag-pill-link tag" href="/Research/tags/architecture.html">architecture</a><a class="tag-pill-link tag" href="/Research/tags/synthesis.html">synthesis</a><a class="tag-pill-link tag" href="/Research/tags/consciousness.html">consciousness</a><a class="tag-pill-link tag" href="/Research/tags/mcp.html">mcp</a><a class="tag-pill-link tag" href="/Research/tags/reliability.html">reliability</a></div>
   </div>
 </main>
