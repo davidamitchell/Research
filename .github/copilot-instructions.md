@@ -33,6 +33,8 @@ These two concerns are intentionally separate. Research items in `Research/` are
 - **DO NOT introduce new external services or credentials without explicit owner approval.** If your design requires something not already listed in the "Available credentials and services" table below, that is a hard stop — surface the gap and ask, do not proceed.
 - **Treat undocumented capabilities as unknown.** If a credential, service, or tool is in the approved table but its Notes column does not explicitly state it can do what your design requires, apply the same hard stop as for an unlisted item — do not assume, do not proceed, ask first.
 - **`.github/skills/` is a read-only submodule.** Never edit files inside `.github/skills/`. It is overwritten on every sync. All skill changes go to `davidamitchell/Skills` (open a PR there). Then advance the submodule pointer in this repo after the Skills PR merges.
+- **New backlog items must be created in `Research/backlog/`**, never in `Research/in-progress/` or the repo root. Use the filename format `YYYY-MM-DD-<slug>.md`.
+- **`Research/backlog/`, `Research/in-progress/`, and `Research/completed/` each contain a `.gitkeep` file. Never delete it.** Git drops empty directories; the `.gitkeep` keeps each directory tracked so workflow `find` commands do not fail.
 
 ---
 
@@ -106,9 +108,9 @@ If a workflow you are designing requires a credential not in this table, **ask b
 Research/
 ├── README.md           # Research workflow documentation
 ├── _template.md        # Template for a new research item
-├── backlog/            # Items not yet started
-├── in-progress/        # Items actively being researched
-├── completed/          # Finished research with findings
+├── backlog/            # Items not yet started (always contains .gitkeep)
+├── in-progress/        # Items actively being researched (always contains .gitkeep)
+├── completed/          # Finished research with findings (always contains .gitkeep)
 └── transcripts/        # Plain-text transcripts committed by fetch-transcript workflow
 
 src/

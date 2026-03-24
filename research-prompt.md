@@ -276,3 +276,5 @@ portion of the filename (e.g. `research: complete - ai-strategy-swe-focus`).
   - `medium` — useful, advances understanding, but does not immediately block other work.
   - `low` — exploratory, no clear downstream dependency, nice-to-have.
   Set `blocks: []` unless the new item is a clear prerequisite for one or more other backlog items, in which case list their slugs (filename without `.md`).
+- **New backlog items must be created in `Research/backlog/`**, never in `Research/in-progress/` or the repo root. Use the filename format `YYYY-MM-DD-<slug>.md`.
+- **`Research/backlog/`, `Research/in-progress/`, and `Research/completed/` each contain a `.gitkeep` file. Never delete it.** Git drops empty directories; the `.gitkeep` keeps each directory tracked so the workflow `find` commands do not fail.
