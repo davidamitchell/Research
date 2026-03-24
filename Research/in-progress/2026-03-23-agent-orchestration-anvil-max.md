@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "Agent orchestration patterns: lessons from Anvil, Max, and Burke Holland's multi-model orchestration gist"
 added: 2026-03-23
 status: reviewing
