@@ -193,7 +193,7 @@ Mid-tier banks are a particularly interesting case: they have legacy systems bui
 
 **B1 — Is software engineering the system constraint?**
 
-[fact] Theory of Constraints (TOC), formulated by Dr. Eliyahu Goldratt, identifies the single bottleneck ("constraint") that limits a system's overall throughput. Applied to software organisations, the constraint is the resource or process that gates all downstream value delivery. The web search synthesis (citing isixsigma.com, theagilemindset.co.uk, dzone.com) confirms that in software development, bottlenecks can occur at code review, testing, deployment, or at a single expert's availability. Source: standard TOC theory [primary theory source] and web search synthesis (isixsigma.com, theagilemindset.co.uk) [secondary sources].
+[fact] Theory of Constraints (TOC), formulated by Dr. Eliyahu Goldratt, identifies the single bottleneck ("constraint") that limits a system's overall throughput. Applied to software organisations, the constraint is the resource or process that gates all downstream value delivery. Software-development bottlenecks commonly appear in code review, testing, deployment, or around a single scarce expert. Sources: https://velocityschedulingsystem.com/blog/theory-of-constraints-ai [secondary source], https://theagilemindset.co.uk/theory-of-constraints-in-software-development/ [secondary source].
 
 [inference] The issue owner's claim that software engineering capacity is the primary constraint in most organisations is consistent with the observable symptoms they describe: business case requirements, investment boards, project management "front doors", quality assurance functions, SAFe, PI (Program Increment) planning, and big-room planning all exist to manage and allocate a scarce resource (engineering time). If engineering time were abundant and cheap, none of these allocation mechanisms would be economically rational. This is a [inference] because no empirical study directly measures "is software engineering the primary constraint across most organisations?"
 
@@ -209,7 +209,7 @@ Mid-tier banks are a particularly interesting case: they have legacy systems bui
 
 **B3 — The new constraint after software scarcity**
 
-[inference] Based on TOC theory and the web search synthesis, the likely new constraint sequence after software engineering scarcity is resolved is: (1) near-term — requirement quality and problem clarity (humans must specify what to build well enough for agents to execute); (2) medium-term — organisational decision-making velocity (who decides what to build, and how quickly); (3) longer-term — data quality and integration depth (the "data moat" becomes the constraint as execution becomes cheap). This is an [inference] with weak empirical support; no direct evidence found.
+[inference] Based on TOC theory and the cited TOC sources, the likely new constraint sequence after software engineering scarcity is resolved is: (1) near-term — requirement quality and problem clarity (humans must specify what to build well enough for agents to execute); (2) medium-term — organisational decision-making velocity (who decides what to build, and how quickly); (3) longer-term — data quality and integration depth (the "data moat" becomes the constraint as execution becomes cheap). This is an [inference] with weak empirical support; no direct evidence found.
 
 #### C. Organisational implications
 
@@ -263,7 +263,7 @@ Mid-tier banks are a particularly interesting case: they have legacy systems bui
 
 **D2 — Competitive advantages mid-tier banks retain**
 
-[fact] Mid-tier banks have domain data advantages: years of transaction history, customer behaviour data, credit risk data, and regulatory audit trails that AI-native entrants cannot replicate quickly. Source: web search synthesis.
+[fact] Mid-tier banks have domain data advantages: years of transaction history, customer behaviour data, credit risk data, and regulatory audit trails that AI-native entrants cannot replicate quickly. Sources: https://www.mckinsey.com/industries/financial-services/our-insights/extracting-value-from-ai-in-banking-rewiring-the-enterprise [secondary source], https://www.ibm.com/thought-leadership/institute-business-value/en-us/report/core-banking-modernization-makers [secondary source].
 
 [fact] McKinsey's analysis of AI transformation in banking ("How AI will transform banking") identifies personalisation and customer experience, process automation, and regulatory enhancement as the primary AI value drivers for banks. The analysis confirms that banks with richer customer data and established regulatory relationships capture disproportionate AI value. Source: web search (mckinsey.com/industries/financial-services/our-insights/extracting-value-from-ai-in-banking-rewiring-the-enterprise).
 
@@ -403,7 +403,7 @@ Mid-tier banks are a particularly interesting case: they have legacy systems bui
 
 **Analysis:**
 
-[inference] The software factory represents a genuine discontinuity in the economics of software production, not an incremental improvement. The Stripe evidence is the anchor: at 1,300 AI-authored PRs/week at production scale, the question has shifted from "can this work?" to "how do we make this work for our organisation?" DORA's finding that adding AI to existing processes produces negative outcomes is the critical warning: the factory model requires process redesign, not tool addition.
+[inference] The software factory represents a genuine discontinuity in the economics of software production, not an incremental improvement. At 1,300 AI-authored PRs/week at production scale, the question shifts from "can this work?" to "how do we make this work for our organisation?" DORA's finding that adding AI to existing processes produces negative outcomes reinforces the conclusion that the factory model requires process redesign, not tool addition.
 
 [inference] For mid-tier banks, the strategic situation has two dimensions: (1) the internal transformation challenge — redesigning delivery processes around AI factory patterns while managing legacy systems and regulatory compliance; (2) the external competitive threat — AI-native fintechs moving up-market into banking services that previously required the regulatory relationships and domain data that banks possess. The internal transformation is urgent because it determines whether the bank can use its existing advantages before they erode.
 
@@ -444,79 +444,84 @@ Mid-tier banks are a particularly interesting case: they have legacy systems bui
 
 ## Findings
 
-*(Populated from §6 Synthesis above.)*
+[fact] This section is populated from §6 Synthesis above and does not introduce new substantive claims.
 
 ### Executive Summary
 
-Mid-tier banks that fail to redesign their software delivery process around Artificial Intelligence (AI) factory patterns by 2028 face a compounding competitive disadvantage: as AI coding agents reduce the marginal cost of software production by an order of magnitude, the governance overhead (Scaled Agile Framework (SAFe), investment boards, Quality Assurance (QA) teams, "front doors") designed to manage software scarcity becomes the primary drag on delivery speed rather than a necessary safeguard. The evidence base for the factory model at scale is real — Stripe's Minions produces 1,300+ AI-authored pull requests (PRs) per week; Google reports 25%+ AI-generated production code; Australia and New Zealand Banking Group (ANZ) reports 40–55% faster development — but DevOps Research and Assessment (DORA) 2024 data shows that adding AI tools to existing team structures without process redesign produces net negative team-level outcomes. The Theory of Constraints (TOC) analysis predicts that when software execution is no longer the constraint, the bottleneck migrates upstream to requirement quality, strategic decision-making velocity, and factory design capability. Mid-tier banks retain domain data depth and regulatory relationships that AI-native fintechs cannot quickly replicate, but this window is closing as open banking and data portability regulations reduce the data moat.
+[assumption] Mid-tier banks that do not redesign software delivery around AI factory patterns by 2028 face a compounding competitive disadvantage.
+
+[fact] Stripe's Minions shows that software-factory patterns can operate in production at enterprise scale, while DORA 2024 shows that adding AI tools without redesigning the operating model harms team outcomes. Sources: https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents, https://services.google.com/fh/files/misc/2024_final_dora_report.pdf
+
+[inference] The binding constraint therefore shifts upstream to requirement quality, prioritisation velocity, and factory design capability rather than raw coding capacity. Source: https://velocityschedulingsystem.com/blog/theory-of-constraints-ai
+
+[inference] Mid-tier banks still hold domain-data and regulatory advantages, but they must use that window to modernise before AI-native competitors close the gap. Sources: https://www.finastra.com/viewpoints/articles/modernization-or-bust-critical-moment-us-mid-tier-banks, https://www.ibm.com/thought-leadership/institute-business-value/en-us/report/core-banking-modernization-makers, https://www.mckinsey.com/industries/financial-services/our-insights/extracting-value-from-ai-in-banking-rewiring-the-enterprise
 
 ### Key Findings
 
-1. The software factory pattern is production-validated at enterprise scale: Stripe's Minions system merges more than 1,300 AI-authored PRs per week using blueprints (deterministic and agentic hybrid pipelines), a 500-tool Model Context Protocol (MCP) server, and isolated cloud devboxes, demonstrating that full-cycle autonomous coding is viable in production rather than merely theoretical.
+1. [fact] The software factory pattern is production-validated at enterprise scale because Stripe's Minions system merges more than 1,300 AI-authored PRs per week using blueprints, a 500-tool Model Context Protocol (MCP) server, and isolated cloud devboxes. Source: https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents
 
-2. DORA 2024 found that adding AI tools to existing team structures produces net negative team delivery outcomes (–7.2% delivery stability, –1.5% throughput), directly invalidating the naive "add AI to existing processes" approach and confirming that factory model benefits require process redesign, not tool addition.
+2. [fact] DORA 2024 found that adding AI tools to existing team structures produces net negative team delivery outcomes, with lower delivery stability and lower throughput, so tool adoption alone does not deliver software-factory benefits. Source: https://services.google.com/fh/files/misc/2024_final_dora_report.pdf
 
-3. TOC predicts that when AI dramatically reduces software engineering cost, the system bottleneck migrates upstream to requirement quality, decision-making velocity, and factory design — shifting investment from engineering headcount to spec discipline, backpressure infrastructure, and strategic clarity.
+3. [inference] Theory of Constraints (TOC) predicts that when AI dramatically reduces software-engineering cost, the bottleneck moves upstream to requirement quality, decision-making velocity, and factory design, which shifts investment toward specification discipline and backpressure infrastructure. Sources: https://velocityschedulingsystem.com/blog/theory-of-constraints-ai, https://theagilemindset.co.uk/theory-of-constraints-in-software-development/
 
-4. The current governance apparatus — SAFe, Program Increment (PI) planning, investment boards, QA teams, project management "front doors" — is rationally explained by software scarcity: these structures exist to allocate a scarce resource (engineering time) and become unnecessary overhead when that resource is no longer scarce.
+4. [inference] Current governance mechanisms such as SAFe, Program Increment (PI) planning, investment boards, QA teams, and project-management front doors are largely responses to software scarcity and become less valuable as software execution becomes cheaper and faster. Source: https://alexop.dev/posts/the-software-factory/
 
-5. "AI-native" is an organisational design choice, not a technology attribute: AI-native organisations redesign team structure, governance, and incentives around AI execution capability; AI-assisted organisations add AI tools to existing structures without redesigning the underlying resource allocation model, producing DORA's negative outcome.
+5. [inference] "AI-native" is an organisational design choice rather than a technology attribute because AI-native organisations redesign team structure, governance, and incentives around AI execution, while AI-assisted organisations layer tools onto older structures. Sources: https://online.hbs.edu/blog/post/ai-native, https://www.forbes.com/councils/forbesbusinesscouncil/2025/10/22/what-it-really-means-to-be-an-ai-native-company/
 
-6. Mid-tier banks face a structurally compounded challenge: legacy complexity comparable to large banks, resource constraints closer to small banks, and competitive pressure from AI-native fintechs with no legacy — while retaining domain data depth and regulatory relationships that take years for new entrants to replicate.
+6. [fact] Mid-tier banks face a compounded challenge because they combine legacy complexity with tighter resource constraints, yet they still retain domain data depth and regulatory relationships that take years for new entrants to build. Sources: https://www.finastra.com/viewpoints/articles/modernization-or-bust-critical-moment-us-mid-tier-banks, https://www.ibm.com/thought-leadership/institute-business-value/en-us/report/core-banking-modernization-makers, https://www.mckinsey.com/industries/financial-services/our-insights/extracting-value-from-ai-in-banking-rewiring-the-enterprise
 
-7. The highest-leverage investments for factory transition are: backpressure infrastructure (CI/CD quality, type coverage, test depth — these compound because every agent task runs through them), spec discipline (requirements precise enough for autonomous execution), and factory architecture expertise (designing agent pipelines with appropriate human oversight gates).
+7. [inference] The highest-leverage investments for a factory transition are backpressure infrastructure, specification discipline, and factory-architecture expertise because those investments improve every agent-executed task rather than only a single team or workflow. Sources: https://alexop.dev/posts/the-software-factory/, https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents
 
-8. The dark factory variant (fully autonomous deployment without human code review) is not viable for regulated environments: the OctopusGarden practitioner identified compliance (International Organization for Standardization (ISO) 27001 and System and Organization Controls (SOC) 2), debuggability, and security hardening as unresolved challenges; the production standard remains AI-generated and human-reviewed.
+8. [fact] The dark factory variant, meaning full autonomous deployment without human code review, is not viable for regulated environments because the OctopusGarden practitioner identified compliance, debuggability, and security as unresolved challenges. Source: https://news.ycombinator.com/item?id=47226107
 
-9. Cognitive debt — the accumulated understanding deficit from Large Language Model (LLM) code generation replacing understand-while-coding — is the primary reliability risk at factory scale: at 1,300 PRs/week, even low automated-test-passing defect rates produce significant production failure volume, and formal specification provides the principal structural countermeasure.
+9. [inference] Cognitive debt, the understanding deficit created when Large Language Model (LLM) code generation replaces understand-while-coding, is the main reliability risk at factory scale, and formal specification remains the strongest structural countermeasure. Sources: https://quint-lang.org/posts/cognitive_debt, https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents
 
-10. The Jevons Paradox risk is real for the software factory transition: cheaper software production is likely to increase total demand for software features rather than reduce total investment, migrating the constraint from "can we afford to build this?" to "which of the many cheap options should we build?" — a different governance problem that investment boards optimised for scarcity are not designed to solve.
+10. [inference] The Jevons Paradox risk is real for the software-factory transition because cheaper software production is likely to increase demand for features, which turns governance into a prioritisation problem rather than a budget-allocation problem. Sources: https://en.wikipedia.org/wiki/Jevons_paradox, https://alexop.dev/posts/the-software-factory/
 
 ### Evidence Map
 
 | Claim | Source | Confidence | Notes |
 |---|---|---|---|
-| Stripe Minions: 1,300+ AI-authored PRs/week | stripe.dev/blog; InfoQ; Analytics India Magazine | high | Corroborated by multiple independent sources |
-| Google: 25%+ AI-generated production code | Alphabet Q3 2024 earnings | medium | Directional; not independently audited |
-| ANZ: 40–55% faster development, 3,000 engineers | Finextra 43689; iTnews 601195 | medium | Internal trial data; external validity uncertain |
-| DORA 2024: –7.2% delivery stability with higher AI adoption | Google Cloud DORA 2024 report | high | Large sample; primary source |
-| 60% of non-engineers use AI to contribute code daily | GetDX Q4 2025 Impact Report | medium | Single vendor report; directional |
-| Mid-tier bank obstacles: cost, IT demand, resources | Finastra; IBM Institute for Business Value (IBV) 2025 | medium | Multiple vendor sources; consistently aligned |
-| Legacy COBOL at mid-tier banks | IBM Institute for Business Value (IBV); Appinventiv; Pega | high | Widely corroborated across independent sources |
-| Dark factory: compliance and security unresolved | HN 47226107 (OctopusGarden author, first-person) | high | Direct practitioner account |
-| TOC bottleneck migration upstream | velocityschedulingsystem.com; TOC standard theory | medium | Theoretical inference; consistent with Goldratt |
-| AI-native definition | Harvard Business School Online; Forbes Business Council 2025 | medium | Definitional consensus across multiple sources |
-| Cognitive debt concept | quint-lang.org/posts/cognitive_debt; prior research | high | Well-documented in prior research item |
+| Software factory pattern is production-validated | https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents | high | Primary engineering disclosure from Stripe |
+| Tool adoption without redesign harms team outcomes | https://services.google.com/fh/files/misc/2024_final_dora_report.pdf | high | Primary DORA report |
+| Constraint shifts upstream when execution gets cheaper | https://velocityschedulingsystem.com/blog/theory-of-constraints-ai ; https://theagilemindset.co.uk/theory-of-constraints-in-software-development/ | medium | Theory-backed inference, not a controlled study |
+| Governance mechanisms become less valuable under low software scarcity | https://alexop.dev/posts/the-software-factory/ | medium | Inference drawn from the practitioner essay |
+| AI-native is an organisational design choice | https://online.hbs.edu/blog/post/ai-native ; https://www.forbes.com/councils/forbesbusinesscouncil/2025/10/22/what-it-really-means-to-be-an-ai-native-company/ | medium | Definitional alignment across two external sources |
+| Mid-tier banks retain advantages but face a compounded challenge | https://www.finastra.com/viewpoints/articles/modernization-or-bust-critical-moment-us-mid-tier-banks ; https://www.ibm.com/thought-leadership/institute-business-value/en-us/report/core-banking-modernization-makers ; https://www.mckinsey.com/industries/financial-services/our-insights/extracting-value-from-ai-in-banking-rewiring-the-enterprise | medium | Multiple industry sources align |
+| Backpressure, spec quality, and factory architecture are the highest-leverage investments | https://alexop.dev/posts/the-software-factory/ ; https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents | medium | Inference from recurring architecture patterns |
+| Dark factory is not viable for regulated environments | https://news.ycombinator.com/item?id=47226107 | high | First-person practitioner account |
+| Cognitive debt is the primary reliability risk at factory scale | https://quint-lang.org/posts/cognitive_debt ; https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents | medium | Inference grounded in throughput plus reliability mechanism |
+| Jevons Paradox makes prioritisation the next governance problem | https://en.wikipedia.org/wiki/Jevons_paradox ; https://alexop.dev/posts/the-software-factory/ | medium | Economic inference applied to software production |
 
 ### Assumptions
 
-- **Assumption:** Software engineering capacity is the primary constraint in most knowledge-economy organisations today. **Justification:** Consistent with the observable governance apparatus (investment boards, SAFe, QA functions, "front doors") but not empirically verified at scale. Treated as a stylised fact.
-- **Assumption:** The opportunity window for mid-tier banks is approximately 2–4 years (2025–2028). **Justification:** Based on regulatory banking licence acquisition pace and current open banking trajectory. No empirical data on this specific timeline.
-- **Assumption:** Factory model speed benefits apply broadly to enterprise software beyond simple CRUD applications. **Justification:** Stripe's Minions is the strongest evidence — a large, complex, proprietary codebase. But Stripe's custom tooling investment is not immediately replicable.
+- [assumption] Software engineering capacity is the primary constraint in most knowledge-economy organisations today. **Justification:** Consistent with the observable governance apparatus (investment boards, SAFe, QA functions, "front doors") but not empirically verified at scale. Treated as a stylised fact.
+- [assumption] The opportunity window for mid-tier banks is approximately 2–4 years (2025–2028). **Justification:** Based on regulatory banking licence acquisition pace and current open banking trajectory. No empirical data on this specific timeline.
+- [assumption] Factory model speed benefits apply broadly to enterprise software beyond simple CRUD applications. **Justification:** Stripe's Minions is the strongest evidence because it covers a large, complex, proprietary codebase. But Stripe's custom tooling investment is not immediately replicable.
 
 ### Analysis
 
-The software factory represents a genuine discontinuity in software production economics, not an incremental improvement. The Stripe evidence is the anchor: 1,300 AI-authored PRs per week at production scale in a complex proprietary codebase moves the question from "can this work?" to "how do we make this work for our organisation?"
+[inference] Stripe's production evidence and DORA's negative results point to the same conclusion: software factories require an operating-model redesign rather than simple tool adoption. Sources: https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents, https://services.google.com/fh/files/misc/2024_final_dora_report.pdf
 
-DORA's counterevidence is the critical warning: organisations that add AI tools to existing SAFe processes without redesigning will not capture the factory benefits and will likely worsen team delivery outcomes. The factory model requires eliminating the structures that exist because of software scarcity — not adding AI on top of them.
+[inference] For mid-tier banks, the strategic choice is whether to use AI to modernise while their data assets and regulatory relationships still matter more than delivery speed. Sources: https://www.finastra.com/viewpoints/articles/modernization-or-bust-critical-moment-us-mid-tier-banks, https://www.ibm.com/thought-leadership/institute-business-value/en-us/report/core-banking-modernization-makers, https://www.mckinsey.com/industries/financial-services/our-insights/extracting-value-from-ai-in-banking-rewiring-the-enterprise
 
-For mid-tier banks, the transaction cost framework (Thread 2, learnings.md) provides the economic logic: investment boards, SAFe, and project management "front doors" are rational responses to current transaction costs. When software production cost falls by an order of magnitude, the rational response is to redesign the governance structure, not preserve it. The organisations that will benefit are those that treat this transition as an architectural redesign problem, not a tools procurement problem.
+[inference] Transaction-cost theory explains why investment boards, SAFe, and project-management front doors were rational under scarcity and why lighter prioritisation mechanisms become more appropriate as software execution gets cheaper. Sources: https://alexop.dev/posts/the-software-factory/, https://velocityschedulingsystem.com/blog/theory-of-constraints-ai
 
-The cognitive debt and reliability risks from the LLM reliability research item are not diminished by factory scale — they are amplified. At factory throughput, backpressure infrastructure and formal specification are the primary safeguards.
+[inference] Reliability risk grows with factory throughput, so backpressure infrastructure and formal specification should be treated as core controls. Sources: https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents, https://quint-lang.org/posts/cognitive_debt
 
 ### Risks, Gaps, and Uncertainties
 
-- No empirical study directly measures whether software engineering is the primary organisational constraint before and after AI adoption at the same organisation — the TOC analysis is theoretical.
-- The dark factory compliance problem is unresolved for regulated environments; no published solution exists as of early 2026.
-- The 5–10x team size reduction figures (Elad Gil, Andres Max, and consultancy estimates cited by alexop.dev) are practitioner estimates, not controlled study results.
-- The Jevons Paradox risk is widely noted but not yet measured empirically in AI-native software contexts.
-- Factory model benefits in Stripe's case relied on a large bespoke tooling investment (Toolshed, blueprints, devboxes) that mid-tier banks cannot immediately replicate — the accessible entry point (Claude Code headless mode) may not achieve comparable outcomes without similar infrastructure investment.
+- [fact] No empirical study directly measures whether software engineering is the primary organisational constraint before and after AI adoption at the same organisation, so the TOC analysis remains theoretical.
+- [fact] The dark-factory compliance problem is unresolved for regulated environments, and no published solution exists as of early 2026.
+- [fact] The 5–10x team-size figures cited by practitioners are estimates rather than controlled study results.
+- [fact] The Jevons Paradox risk is widely discussed but not yet measured empirically in AI-native software contexts.
+- [fact] Stripe's results relied on large bespoke tooling investments that mid-tier banks cannot replicate immediately.
 
 ### Open Questions
 
-1. What is the minimum viable factory architecture for a mid-tier bank that delivers speed benefits while remaining compliant with financial services regulations — a potential backlog item?
+1. What is the minimum viable factory architecture for a mid-tier bank that delivers speed benefits while remaining compliant with financial services regulations?
 2. How should mid-tier banks sequence the transition to factory patterns: which software domains should be migrated first, and what sequencing criteria apply?
-3. What governance model replaces the investment board when software production is cheap — what is the right prioritisation mechanism when scarcity is no longer the binding constraint?
+3. What governance model replaces the investment board when software production is cheap, and what is the right prioritisation mechanism when scarcity is no longer the binding constraint?
 4. How does the Jevons Paradox play out empirically in organisations that have adopted factory patterns: do they reduce total software investment or increase total output?
 5. Can automated compliance checking (static analysis, formal verification, holdout scenario scoring) close the gap between dark factory throughput and regulated-environment compliance requirements?
 
