@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Public sentiment on AI in banking and high-trust institutions"
 added: 2026-03-24
 status: reviewing
