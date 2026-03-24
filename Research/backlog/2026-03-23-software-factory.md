@@ -1,11 +1,11 @@
 ---
 title: "The Software Factory: Organisational Transformation When the Cost of Quality Software Approaches Zero"
 added: 2026-03-23
-status: reviewing
+status: backlog
 priority: high
 blocks: []
 tags: [software-factory, ai-native, organisations, theory-of-constraints, banking, cost-of-software]
-started: 2026-03-23
+started: ~
 completed: ~
 output: [knowledge]
 ---
