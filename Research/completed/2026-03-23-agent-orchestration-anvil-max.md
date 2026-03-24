@@ -2,12 +2,12 @@
 review_count: 2
 title: "Agent orchestration patterns: lessons from Anvil, Max, and Burke Holland's multi-model orchestration gist"
 added: 2026-03-23
-status: reviewing
+status: completed
 priority: high  # low | medium | high
 blocks: []
 tags: [agents, orchestration, personal-assistant, multi-model, copilot-sdk, verification, adversarial-review, skills]
 started: 2026-03-24
-completed: ~
+completed: 2026-03-24
 output: [knowledge, backlog-item]
 ---
 
@@ -48,15 +48,17 @@ Supporting questions:
 
 ## Context
 
-Burke Holland (Developer Advocate at GitHub) has published three complementary artefacts that together represent an unusually concrete and practical take on multi-agent orchestration:
+[fact] Burke Holland's published materials cover three closely related artefacts relevant to multi-agent orchestration in software work. Sources: https://burkeholland.github.io/anvil/ ; https://burkeholland.github.io/max/ ; https://gist.github.com/burkeholland/0e68481f96e94bbb98134fa6efd00436
 
-1. **Anvil** is a GitHub Copilot CLI chat mode that addresses a core failure of AI coding agents — claiming completion without verification. Its SQL ledger and adversarial review loop (up to three models attacking each change) shift the trust model: evidence replaces prose assertions.
+1. [fact] **Anvil** is a GitHub Copilot Command Line Interface (CLI) chat mode built around verified completion rather than unverified assertions. Its Structured Query Language (SQL) ledger and adversarial review loop are documented as evidence-first controls. Source: https://burkeholland.github.io/anvil/
 
-2. **The multi-agent gist** is a minimal but fully wired orchestrator/planner/coder/designer system for Visual Studio Code (VS Code). The orchestrator (Opus) never writes code itself; it delegates, parallelises, and integrates. Each specialist runs the best-fit model for its role.
+2. [fact] **The multi-agent gist** is a minimal orchestrator/planner/coder/designer system for Visual Studio Code (VS Code). The orchestrator is instructed to delegate, parallelize, and integrate rather than write code directly, while specialist files define role-specific model assignments. Sources: https://gist.githubusercontent.com/burkeholland/0e68481f96e94bbb98134fa6efd00436/raw/orchestrator.agent.md ; https://gist.githubusercontent.com/burkeholland/0e68481f96e94bbb98134fa6efd00436/raw/coder.agent.md ; https://gist.githubusercontent.com/burkeholland/0e68481f96e94bbb98134fa6efd00436/raw/designer.agent.md
 
-3. **Max** is a persistent personal AI assistant that uses the GitHub Copilot Software Development Kit (SDK) and CLI as its execution substrate. It runs as a daemon, dispatches workers, integrates with Telegram for mobile interaction, and learns new skills on demand from skills.sh. This is the closest published example of the "always-on personal assistant" pattern relevant to this research repo's broader goals.
+3. [fact] **Max** is a persistent personal Artificial Intelligence (AI) assistant that uses the GitHub Copilot Software Development Kit (SDK) and CLI as its execution substrate. Its public documentation describes a daemon process, worker dispatch, Telegram integration, and on-demand skill learning from skills.sh. Sources: https://burkeholland.github.io/max/docs.html ; https://raw.githubusercontent.com/burkeholland/max/main/README.md
 
-These three artefacts are closely related to the existing backlog item on agents-as-finishers-and-synthesisers. They offer concrete implementation reference points rather than abstract frameworks.
+[inference] Taken together, these artefacts provide unusually concrete implementation references for this repository's assistant-design questions because they cover verification, delegation, and continuity as separate but compatible layers. Sources: https://burkeholland.github.io/anvil/ ; https://gist.githubusercontent.com/burkeholland/0e68481f96e94bbb98134fa6efd00436/raw/orchestrator.agent.md ; https://burkeholland.github.io/max/docs.html
+
+[fact] This topic is also adjacent to the repository's prior completed item on agents as finishers and synthesisers, which asked a closely related orchestration question from a different angle. Source: https://raw.githubusercontent.com/davidamitchell/Research/main/Research/completed/2026-03-22-agents-as-finishers-and-synthesisers.md
 
 ## Approach
 
@@ -311,14 +313,14 @@ Claims:
 
 | claim | source | confidence | notes |
 | --- | --- | --- | --- |
-| Anvil increases trust by recording objective evidence instead of relying on prose. | https://burkeholland.github.io/anvil/ | high | The site explicitly describes the SQLite ledger, baseline snapshots, and evidence bundle. |
-| The gist enforces non-coding orchestration plus file-disjoint parallel phases. | https://gist.githubusercontent.com/burkeholland/0e68481f96e94bbb98134fa6efd00436/raw/orchestrator.agent.md | high | The orchestrator instructions define planner-first delegation and file-overlap rules. |
-| Model assignment in the gist is heuristic role routing, not a universal law. | https://gist.githubusercontent.com/burkeholland/0e68481f96e94bbb98134fa6efd00436/raw/coder.agent.md ; https://gist.githubusercontent.com/burkeholland/0e68481f96e94bbb98134fa6efd00436/raw/designer.agent.md | medium | The files show explicit role-to-model choices, but generalization beyond the example is inferential. |
-| Max uses layered continuity rather than only live context. | https://burkeholland.github.io/max/docs.html ; https://raw.githubusercontent.com/burkeholland/max/main/README.md | high | The docs explicitly define persistent session, SQLite memory, and conversation logging. |
-| `SKILL.md` packaging is shared across skills.sh, GitHub Copilot skills, and Max. | https://skills.sh/docs ; https://vercel.com/kb/guide/agent-skills-creating-installing-and-sharing-reusable-agent-context ; https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/create-skills ; https://burkeholland.github.io/max/docs.html | high | The packaging convergence is directly documented across all three systems. |
-| GitHub web and mobile already expose owner-usable assistant entry points. | https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/create-a-pr ; https://docs.github.com/en/copilot/how-tos/chat-with-copilot/chat-in-github ; https://docs.github.com/en/copilot/how-tos/chat-with-copilot/chat-in-mobile | high | The docs explicitly list web, mobile, issues, agents panel, and chat entry points. |
-| Max's daemon and Telegram model conflict with this repository's documented operating constraints. | https://burkeholland.github.io/max/docs.html ; https://raw.githubusercontent.com/davidamitchell/Research/main/.github/copilot-instructions.md | high | Max requires local runtime and optional Telegram credentials; the repo forbids assuming unlisted credentials and local-IDE assumptions. |
-| Adversarial review should follow execution rather than replace it. | https://burkeholland.github.io/anvil/ ; https://raw.githubusercontent.com/davidamitchell/Research/main/Research/completed/2026-03-18-stateless-agent-assumption-failure.md | medium | Anvil itself pairs review with executable proof; the stronger claim about failure coverage is inferential but well grounded. |
+| [fact] Anvil increases trust by recording objective evidence instead of relying on prose. | https://burkeholland.github.io/anvil/ | high | The site explicitly describes the SQLite ledger, baseline snapshots, and evidence bundle. |
+| [fact] The gist enforces non-coding orchestration plus file-disjoint parallel phases. | https://gist.githubusercontent.com/burkeholland/0e68481f96e94bbb98134fa6efd00436/raw/orchestrator.agent.md | high | The orchestrator instructions define planner-first delegation and file-overlap rules. |
+| [inference] Model assignment in the gist is heuristic role routing, not a universal law. | https://gist.githubusercontent.com/burkeholland/0e68481f96e94bbb98134fa6efd00436/raw/coder.agent.md ; https://gist.githubusercontent.com/burkeholland/0e68481f96e94bbb98134fa6efd00436/raw/designer.agent.md | medium | The files show explicit role-to-model choices, but generalization beyond the example is inferential. |
+| [fact] Max uses layered continuity rather than only live context. | https://burkeholland.github.io/max/docs.html ; https://raw.githubusercontent.com/burkeholland/max/main/README.md | high | The docs explicitly define persistent session, SQLite memory, and conversation logging. |
+| [fact] `SKILL.md` packaging is shared across skills.sh, GitHub Copilot skills, and Max. | https://skills.sh/docs ; https://vercel.com/kb/guide/agent-skills-creating-installing-and-sharing-reusable-agent-context ; https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/create-skills ; https://burkeholland.github.io/max/docs.html | high | The packaging convergence is directly documented across all three systems. |
+| [fact] GitHub web and mobile already expose owner-usable assistant entry points. | https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/create-a-pr ; https://docs.github.com/en/copilot/how-tos/chat-with-copilot/chat-in-github ; https://docs.github.com/en/copilot/how-tos/chat-with-copilot/chat-in-mobile | high | The docs explicitly list web, mobile, issues, agents panel, and chat entry points. |
+| [fact] Max's daemon and Telegram model conflict with this repository's documented operating constraints. | https://burkeholland.github.io/max/docs.html ; https://raw.githubusercontent.com/davidamitchell/Research/main/.github/copilot-instructions.md | high | Max requires local runtime and optional Telegram credentials; the repo forbids assuming unlisted credentials and local-IDE assumptions. |
+| [inference] Adversarial review should follow execution rather than replace it. | https://burkeholland.github.io/anvil/ ; https://raw.githubusercontent.com/davidamitchell/Research/main/Research/completed/2026-03-18-stateless-agent-assumption-failure.md | medium | Anvil itself pairs review with executable proof; the stronger claim about failure coverage is inferential but well grounded. |
 
 ### Assumptions
 
@@ -353,5 +355,5 @@ Claims:
 ## Output
 
 - **Type:** knowledge, backlog-item
-- **Description:** Distilled orchestration patterns, verification strategies, and memory/skill architectures from Anvil, Max, and the multi-agent gist — with a practical assessment of which apply to a no-local-IDE personal assistant setup.
+- **Description:** Distilled orchestration patterns, verification strategies, and memory/skill architectures from Anvil, Max, and the multi-agent gist, with a practical assessment of which apply to a no-local-IDE personal assistant setup.
 - **Links:** https://burkeholland.github.io/anvil/ ; https://burkeholland.github.io/max/docs.html ; https://gist.githubusercontent.com/burkeholland/0e68481f96e94bbb98134fa6efd00436/raw/orchestrator.agent.md
