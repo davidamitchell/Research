@@ -2,12 +2,12 @@
 review_count: 2
 title: "The Software Factory: Organisational Transformation When the Cost of Quality Software Approaches Zero"
 added: 2026-03-23
-status: reviewing
+status: completed
 priority: high
 blocks: []
 tags: [software-factory, ai-native, organisations, theory-of-constraints, banking, cost-of-software]
 started: 2026-03-24
-completed: ~
+completed: 2026-03-24
 output: [knowledge]
 ---
 
@@ -91,15 +91,14 @@ Mid-tier banks are a particularly interesting case: they have legacy systems bui
 
 [fact] **Prior work check:** I searched `Research/completed/` for adjacent work before extending this item. The most directly related completed items are `2026-02-28-ai-strategy-swe-focus.md`, `2026-03-14-reliable-software-llm-era.md`, `2026-03-21-technology-capability-models.md`, `2026-03-10-nature-of-the-firm-coase-organisations.md`, and `2026-02-28-jevons-paradox.md`.
 
-[fact] `2026-02-28-ai-strategy-swe-focus.md` established that DORA 2024 found individual AI productivity gains do not translate to team-level delivery improvement without process redesign; it also documented Google 25%+ AI-generated code, ANZ 40–55% faster development, and SWE-bench trajectory.
+[fact] Related internal items identified during the prior-work check:
+- `2026-02-28-ai-strategy-swe-focus.md` for prior measurements on AI-assisted software delivery.
+- `2026-03-14-reliable-software-llm-era.md` for the cognitive-debt and formal-specification thread.
+- `2026-03-21-technology-capability-models.md` for capability-model context.
+- `2026-03-10-nature-of-the-firm-coase-organisations.md` and Thread 2 in `learnings.md` for transaction-cost framing.
+- `2026-02-28-jevons-paradox.md` for the demand-expansion lens.
 
-[fact] `2026-03-14-reliable-software-llm-era.md` established cognitive debt from LLM code generation and formal specification as a structural countermeasure.
-
-[fact] `2026-03-21-technology-capability-models.md` established capability-taxonomy frameworks relevant to organisations rebuilding their technology capability stack.
-
-[fact] `2026-03-10-nature-of-the-firm-coase-organisations.md` and Thread 2 in `learnings.md` established transaction-cost theory as the economic explanation for governance overhead under software scarcity.
-
-[fact] `2026-02-28-jevons-paradox.md` established the relevant demand-expansion mechanism for cases where the marginal cost of software production collapses.
+[fact] These local items were used only to avoid duplicating prior repository work and to connect cross-item themes; the external evidence for this item is cited separately with independently verifiable URLs.
 
 [inference] This item adds new ground by tying those earlier threads to the software-factory operating model itself, production-scale evidence from Stripe's Minions system, and a banking-specific analysis of timing, constraints, and governance redesign.
 
@@ -201,7 +200,7 @@ Mid-tier banks are a particularly interesting case: they have legacy systems bui
 
 **B2 — What does TOC predict when the constraint is removed?**
 
-[fact] TOC's five focusing steps: (1) identify the constraint, (2) exploit the constraint (maximise its output), (3) subordinate everything else to the constraint, (4) elevate the constraint (increase its capacity), (5) return to step 1 when the constraint shifts. If step 4 succeeds completely, the system must return to step 1 because a new constraint will have emerged. Source: standard TOC theory (Goldratt).
+[fact] TOC's five focusing steps are: (1) identify the constraint, (2) exploit the constraint, (3) subordinate everything else to the constraint, (4) elevate the constraint, and (5) return to step 1 when the constraint shifts. If step 4 succeeds completely, the system must return to step 1 because a new constraint will have emerged. Sources: https://www.tocinstitute.org/five-focusing-steps.html, https://www.toc-goldratt.com/en/toc-application/five-focusing-steps
 
 [inference] TOC predicts that when AI dramatically reduces software engineering cost and cycle time, the bottleneck shifts upstream — to requirement clarity, business problem definition, strategy, and organisational decision-making. The governance apparatus (investment boards, SAFe planning) that exists to manage engineering scarcity would need to be redesigned to manage the new constraint: the quality of problem definition and the ability to decide what to build and why. This is a structural prediction, not an empirical finding.
 
@@ -468,15 +467,15 @@ Mid-tier banks are a particularly interesting case: they have legacy systems bui
 
 5. [inference] "AI-native" is an organisational design choice rather than a technology attribute because AI-native organisations redesign team structure, governance, and incentives around AI execution, while AI-assisted organisations layer tools onto older structures. Sources: https://online.hbs.edu/blog/post/ai-native, https://www.forbes.com/councils/forbesbusinesscouncil/2025/10/22/what-it-really-means-to-be-an-ai-native-company/
 
-6. [fact] Mid-tier banks face a compounded challenge because they combine legacy complexity with tighter resource constraints, yet they still retain domain data depth and regulatory relationships that take years for new entrants to build. Sources: https://www.finastra.com/viewpoints/articles/modernization-or-bust-critical-moment-us-mid-tier-banks, https://www.ibm.com/thought-leadership/institute-business-value/en-us/report/core-banking-modernization-makers, https://www.mckinsey.com/industries/financial-services/our-insights/extracting-value-from-ai-in-banking-rewiring-the-enterprise
+6. [inference] Mid-tier banks face a compounded challenge because they combine legacy complexity with tighter resource constraints, yet they still retain domain data depth and regulatory relationships that take years for new entrants to build. Sources: https://www.finastra.com/viewpoints/articles/modernization-or-bust-critical-moment-us-mid-tier-banks, https://www.ibm.com/thought-leadership/institute-business-value/en-us/report/core-banking-modernization-makers, https://www.mckinsey.com/industries/financial-services/our-insights/extracting-value-from-ai-in-banking-rewiring-the-enterprise
 
 7. [inference] The highest-leverage investments for a factory transition are backpressure infrastructure, specification discipline, and factory-architecture expertise because those investments improve every agent-executed task rather than only a single team or workflow. Sources: https://alexop.dev/posts/the-software-factory/, https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents
 
-8. [fact] The dark factory variant, meaning full autonomous deployment without human code review, is not viable for regulated environments because the OctopusGarden practitioner identified compliance, debuggability, and security as unresolved challenges. Source: https://news.ycombinator.com/item?id=47226107
+8. [inference] The dark factory variant, meaning full autonomous deployment without human code review, is not viable for regulated environments because the OctopusGarden practitioner identified compliance, debuggability, and security as unresolved challenges. Source: https://news.ycombinator.com/item?id=47226107
 
 9. [inference] Cognitive debt, the understanding deficit created when Large Language Model (LLM) code generation replaces understand-while-coding, is the main reliability risk at factory scale, and formal specification remains the strongest structural countermeasure. Sources: https://quint-lang.org/posts/cognitive_debt, https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents
 
-10. [inference] The Jevons Paradox risk is real for the software-factory transition because cheaper software production is likely to increase demand for features, which turns governance into a prioritisation problem rather than a budget-allocation problem. Sources: https://en.wikipedia.org/wiki/Jevons_paradox, https://alexop.dev/posts/the-software-factory/
+10. [inference] The Jevons Paradox risk is real for the software-factory transition because cheaper software production is likely to increase demand for features, which turns governance into a prioritisation problem rather than a budget-allocation problem. Sources: https://www.economicshelp.org/blog/220917/economics/jevons-paradox-definition-and-explanation/, https://alexop.dev/posts/the-software-factory/
 
 ### Evidence Map
 
@@ -491,7 +490,7 @@ Mid-tier banks are a particularly interesting case: they have legacy systems bui
 | Backpressure, spec quality, and factory architecture are the highest-leverage investments | https://alexop.dev/posts/the-software-factory/ ; https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents | medium | Inference from recurring architecture patterns |
 | Dark factory is not viable for regulated environments | https://news.ycombinator.com/item?id=47226107 | high | First-person practitioner account |
 | Cognitive debt is the primary reliability risk at factory scale | https://quint-lang.org/posts/cognitive_debt ; https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents | medium | Inference grounded in throughput plus reliability mechanism |
-| Jevons Paradox makes prioritisation the next governance problem | https://en.wikipedia.org/wiki/Jevons_paradox ; https://alexop.dev/posts/the-software-factory/ | medium | Economic inference applied to software production |
+| Jevons Paradox makes prioritisation the next governance problem | https://www.economicshelp.org/blog/220917/economics/jevons-paradox-definition-and-explanation/ ; https://alexop.dev/posts/the-software-factory/ | medium | Economic inference applied to software production |
 
 ### Assumptions
 
@@ -511,11 +510,11 @@ Mid-tier banks are a particularly interesting case: they have legacy systems bui
 
 ### Risks, Gaps, and Uncertainties
 
-- [fact] No empirical study directly measures whether software engineering is the primary organisational constraint before and after AI adoption at the same organisation, so the TOC analysis remains theoretical.
-- [fact] The dark-factory compliance problem is unresolved for regulated environments, and no published solution exists as of early 2026.
-- [fact] The 5–10x team-size figures cited by practitioners are estimates rather than controlled study results.
-- [fact] The Jevons Paradox risk is widely discussed but not yet measured empirically in AI-native software contexts.
-- [fact] Stripe's results relied on large bespoke tooling investments that mid-tier banks cannot replicate immediately.
+- [inference] No empirical study directly measures whether software engineering is the primary organisational constraint before and after AI adoption at the same organisation, so the TOC analysis remains theoretical.
+- [fact] The dark-factory compliance problem is unresolved for regulated environments. Source: https://news.ycombinator.com/item?id=47226107
+- [fact] The 5–10x team-size figures cited by practitioners are estimates rather than controlled study results. Source: https://alexop.dev/posts/the-software-factory/
+- [inference] The Jevons Paradox risk is widely discussed but not yet measured empirically in AI-native software contexts. Source: https://www.economicshelp.org/blog/220917/economics/jevons-paradox-definition-and-explanation/
+- [inference] Stripe's results relied on large bespoke tooling investments that mid-tier banks cannot replicate immediately. Sources: https://stripe.dev/blog/minions-stripes-one-shot-end-to-end-coding-agents, https://www.ibm.com/thought-leadership/institute-business-value/en-us/report/core-banking-modernization-makers
 
 ### Open Questions
 
