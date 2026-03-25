@@ -3,7 +3,7 @@
         <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>servicenow / itsm / csdm — Threads — Research</title>
+          <title>delivery / interface / slack — Threads — Research</title>
           <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -605,11 +605,14 @@ main {
 
 /* Threads listing */
 .thread-list { display: flex; flex-direction: column; gap: 0; }
-.thread-entry { padding: 1rem; border: 1px solid var(--border); border-bottom: none; text-decoration: none; color: var(--text); display: block; }
-.thread-entry:last-child { border-bottom: 1px solid var(--border); }
-.thread-entry:hover { background: var(--surface); text-decoration: none; }
-.thread-entry-title { font-size: var(--text-base); font-weight: 500; }
-.thread-entry-meta { font-size: var(--text-xs); color: var(--text-muted); margin-top: 0.25rem; letter-spacing: 0.05em; }
+.thread-card-link { text-decoration: none; color: var(--text); display: block; }
+.thread-card-link:hover .thread-card { background: var(--surface-2); }
+.thread-card { background: var(--surface); border: 1px solid var(--border); padding: 1.25rem 1.5rem; }
+.thread-card-title { font-size: var(--text-base); font-weight: 600; margin-bottom: 0.4rem; }
+.thread-card-meta { font-size: var(--text-xs); color: var(--text-muted); margin-bottom: 0.6rem; letter-spacing: 0.05em; }
+.thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.6rem; }
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.55; }
+.thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 0; }
 </style>
 
         </head>
@@ -631,31 +634,31 @@ main {
     <span>/</span>
     <a href="/Research/threads.html">Threads</a>
     <span>/</span>
-    <span>servicenow / itsm / csdm</span>
+    <span>delivery / interface / slack</span>
   </div>
-  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>servicenow / itsm / csdm</h1>
+  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>delivery / interface / slack</h1>
   <p class="page-subtitle" style="margin-bottom:1.5rem">3 items</p>
-  <div class="featured-pills" style="margin-bottom:1.5rem"><a class="tag-pill-link tag" href="/Research/tags/servicenow.html">servicenow</a><a class="tag-pill-link tag" href="/Research/tags/itsm.html">itsm</a><a class="tag-pill-link tag" href="/Research/tags/csdm.html">csdm</a></div>
+  <div class="featured-pills" style="margin-bottom:1.5rem"><a class="tag-pill-link tag" href="/Research/tags/delivery.html">delivery</a><a class="tag-pill-link tag" href="/Research/tags/interface.html">interface</a><a class="tag-pill-link tag" href="/Research/tags/slack.html">slack</a></div>
   <div class="card-grid">
-    <a class="card" href="/Research/research/2026-03-08-servicenow-platform-strategy.html" data-title="servicenow platform strategy" data-question="given the findings from the common service data model (csdm) data modelling, process mapping, and ai capability research, how should an organisation develop a coherent, practical servicenow platform s" data-tags="servicenow,platform-strategy,csdm,itsm,apm,spm,irm,grc,fso,ai,process-mapping,enterprise-architecture,tco">
-  <div class="card-title">ServiceNow Platform Strategy</div>
-  <div class="card-meta">2026-03-08</div>
-  <div class="card-tags"><span class="tag">servicenow</span><span class="tag">platform-strategy</span><span class="tag">csdm</span><span class="tag">itsm</span><span class="tag">apm</span><span class="tag">spm</span><span class="tag">irm</span><span class="tag">grc</span><span class="tag">fso</span><span class="tag">ai</span><span class="tag">process-mapping</span><span class="tag">enterprise-architecture</span><span class="tag">tco</span></div>
-  <div class="card-excerpt">Given the findings from the Common Service Data Model (CSDM) data modelling, process mapping, and AI capability research, how should an organisation develop a coherent, practical ServiceNow platform s…</div>
+    <a class="card" href="/Research/research/2026-03-01-github-wiki-research-content.html" data-title="github wiki for research content" data-question="what is the best approach for publishing completed research items from `research/completed/` into the github wiki, and what tooling is needed to keep it current and readable?" data-tags="delivery,interface">
+  <div class="card-title">GitHub wiki for research content</div>
+  <div class="card-meta">2026-03-01</div>
+  <div class="card-tags"><span class="tag">delivery</span><span class="tag">interface</span></div>
+  <div class="card-excerpt">What is the best approach for publishing completed research items from `Research/completed/` into the GitHub wiki, and what tooling is needed to keep it current and readable?</div>
 </a>
 <div class="thread-connector">↓</div>
-<a class="card" href="/Research/research/2026-03-08-servicenow-process-mapping.html" data-title="servicenow process mapping" data-question="what options exist within servicenow for documenting, mapping, and maintaining business and it processes — and which approaches are sustainable enough in practice to stay meaningful, current, and actu" data-tags="servicenow,process-mapping,workflow,itsm">
-  <div class="card-title">ServiceNow Process Mapping</div>
-  <div class="card-meta">2026-03-08</div>
-  <div class="card-tags"><span class="tag">servicenow</span><span class="tag">process-mapping</span><span class="tag">workflow</span><span class="tag">itsm</span></div>
-  <div class="card-excerpt">What options exist within ServiceNow for documenting, mapping, and maintaining business and IT processes — and which approaches are sustainable enough in practice to stay meaningful, current, and actu…</div>
+<a class="card" href="/Research/research/2026-03-02-slack-msteams-research-integration.html" data-title="slack and ms teams integration for research delivery and capture" data-question="what is the most practical way to integrate the research corpus with slack and/or microsoft teams — for both outbound delivery (notifying when new research is completed) and inbound capture (receiving" data-tags="slack,delivery,bot,interface">
+  <div class="card-title">Slack and MS Teams integration for research delivery and capture</div>
+  <div class="card-meta">2026-03-02</div>
+  <div class="card-tags"><span class="tag">slack</span><span class="tag">delivery</span><span class="tag">bot</span><span class="tag">interface</span></div>
+  <div class="card-excerpt">What is the most practical way to integrate the research corpus with Slack and/or Microsoft Teams — for both outbound delivery (notifying when new research is completed) and inbound capture (receiving…</div>
 </a>
 <div class="thread-connector">↓</div>
-<a class="card" href="/Research/research/2026-03-08-servicenow-csdm-data-modelling.html" data-title="servicenow csdm" data-question="how should organisations model their enterprise data in servicenow to meet the csdm standard while keeping the model maintainable and accurate — and what are the practical patterns for aligning it ser" data-tags="servicenow,csdm,itsm,apm,spm,irm,grc,fso,enterprise-architecture,application-portfolio">
-  <div class="card-title">ServiceNow CSDM</div>
-  <div class="card-meta">2026-03-08</div>
-  <div class="card-tags"><span class="tag">servicenow</span><span class="tag">csdm</span><span class="tag">itsm</span><span class="tag">apm</span><span class="tag">spm</span><span class="tag">irm</span><span class="tag">grc</span><span class="tag">fso</span><span class="tag">enterprise-architecture</span><span class="tag">application-portfolio</span></div>
-  <div class="card-excerpt">How should organisations model their enterprise data in ServiceNow to meet the CSDM standard while keeping the model maintainable and accurate — and what are the practical patterns for aligning IT Ser…</div>
+<a class="card" href="/Research/research/2026-03-02-chat-conversational-interface.html" data-title="conversational and chat interface for querying the research corpus" data-question="what is the best approach to expose the `research/completed/` corpus as a queryable, conversational interface — so that a user (or an ai agent) can ask &quot;what do i know about x?&quot; and receive a grounded" data-tags="mcp,rag,search,interface,delivery">
+  <div class="card-title">Conversational and chat interface for querying the research corpus</div>
+  <div class="card-meta">2026-03-02</div>
+  <div class="card-tags"><span class="tag">mcp</span><span class="tag">rag</span><span class="tag">search</span><span class="tag">interface</span><span class="tag">delivery</span></div>
+  <div class="card-excerpt">What is the best approach to expose the `Research/completed/` corpus as a queryable, conversational interface — so that a user (or an AI agent) can ask &quot;what do I know about X?&quot; and receive a grounded…</div>
 </a>
 
   </div>

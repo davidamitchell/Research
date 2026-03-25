@@ -605,11 +605,14 @@ main {
 
 /* Threads listing */
 .thread-list { display: flex; flex-direction: column; gap: 0; }
-.thread-entry { padding: 1rem; border: 1px solid var(--border); border-bottom: none; text-decoration: none; color: var(--text); display: block; }
-.thread-entry:last-child { border-bottom: 1px solid var(--border); }
-.thread-entry:hover { background: var(--surface); text-decoration: none; }
-.thread-entry-title { font-size: var(--text-base); font-weight: 500; }
-.thread-entry-meta { font-size: var(--text-xs); color: var(--text-muted); margin-top: 0.25rem; letter-spacing: 0.05em; }
+.thread-card-link { text-decoration: none; color: var(--text); display: block; }
+.thread-card-link:hover .thread-card { background: var(--surface-2); }
+.thread-card { background: var(--surface); border: 1px solid var(--border); padding: 1.25rem 1.5rem; }
+.thread-card-title { font-size: var(--text-base); font-weight: 600; margin-bottom: 0.4rem; }
+.thread-card-meta { font-size: var(--text-xs); color: var(--text-muted); margin-bottom: 0.6rem; letter-spacing: 0.05em; }
+.thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.6rem; }
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.55; }
+.thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 0; }
 </style>
 
         </head>
@@ -630,7 +633,7 @@ main {
     <h1><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Research</h1>
     <p class="page-subtitle">notes, findings, and threads</p>
   </div>
-  <div class="stats-block"><div class="stat-item"><span class="stat-number">116</span><span class="stat-label">items</span></div><div class="stat-item"><span class="stat-number">172</span><span class="stat-label">tags</span></div><div class="stat-item"><span class="stat-number">10</span><span class="stat-label">threads</span></div></div>
+  <div class="stats-block"><div class="stat-item"><span class="stat-number">116</span><span class="stat-label">items</span></div><div class="stat-item"><span class="stat-number">172</span><span class="stat-label">tags</span></div><div class="stat-item"><span class="stat-number">16</span><span class="stat-label">threads</span></div></div>
   <div class="search-preview-wrap">
     <input id="landing-search" class="search-input" type="text"
            placeholder="search research items…" autocomplete="off">
@@ -638,7 +641,7 @@ main {
   </div>
   <div class="featured-section">
     <div class="featured-label"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>threads</div>
-    <div class="featured-pills"><a class="thread-pill" href="/Research/threads/rag-knowledge-management-llm.html">rag / knowledge-management / llm <span class="thread-pill-count">5</span></a><a class="thread-pill" href="/Research/threads/mobile-memory-system-capture.html">mobile / memory-system / capture <span class="thread-pill-count">5</span></a><a class="thread-pill" href="/Research/threads/llm-hallucinations-reliability.html">llm / hallucinations / reliability <span class="thread-pill-count">5</span></a><a class="thread-pill" href="/Research/threads/ai-strategy-financial-services-risk-management.html">ai-strategy / financial-services / risk-management <span class="thread-pill-count">4</span></a><a class="thread-pill" href="/Research/threads/compliance-policy-as-code-github-actions.html">compliance / policy-as-code / github-actions <span class="thread-pill-count">3</span></a><a class="thread-pill" href="/Research/threads/predictive-processing-free-energy-principle-neuroscience.html">predictive-processing / free-energy-principle / neuroscience <span class="thread-pill-count">3</span></a><a class="thread-pill" href="/Research/threads/failure-modes-agentic-systems-taxonomy.html">failure-modes / agentic-systems / taxonomy <span class="thread-pill-count">3</span></a><a class="thread-pill" href="/Research/threads/servicenow-itsm-csdm.html">servicenow / itsm / csdm <span class="thread-pill-count">3</span></a></div>
+    <div class="featured-pills"><a class="thread-pill" href="/Research/threads/mobile-memory-system-capture.html">mobile / memory-system / capture <span class="thread-pill-count">8</span></a><a class="thread-pill" href="/Research/threads/rag-llm-knowledge-management.html">rag / llm / knowledge-management <span class="thread-pill-count">7</span></a><a class="thread-pill" href="/Research/threads/llm-reliability-hallucinations.html">llm / reliability / hallucinations <span class="thread-pill-count">7</span></a><a class="thread-pill" href="/Research/threads/predictive-processing-consciousness-anil-seth.html">predictive-processing / consciousness / anil-seth <span class="thread-pill-count">6</span></a><a class="thread-pill" href="/Research/threads/ai-strategy-financial-services-risk-management.html">ai-strategy / financial-services / risk-management <span class="thread-pill-count">5</span></a><a class="thread-pill" href="/Research/threads/agents-skills-orchestration.html">agents / skills / orchestration <span class="thread-pill-count">4</span></a><a class="thread-pill" href="/Research/threads/team-size-ai-coordination-overhead.html">team-size / ai / coordination-overhead <span class="thread-pill-count">4</span></a><a class="thread-pill" href="/Research/threads/compliance-policy-as-code-github-actions.html">compliance / policy-as-code / github-actions <span class="thread-pill-count">3</span></a></div>
   </div>
   <div class="featured-section">
     <div class="featured-label"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>topics</div>
