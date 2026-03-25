@@ -1695,6 +1695,7 @@ def build_item_page(
     sources_text = item.get("_sources_text", "")
     if sources_text:
         rendered_sources = md(sources_text)
+        rendered_sources = autolink_html(rendered_sources, source_refs)
         rendered_sources = _STRAY_CLOSE_TAGS_RE.sub("", rendered_sources)
         sections_html += f"<h2>{ICON_TAG_H2}sources</h2>\n{rendered_sources}\n"
 

@@ -40,9 +40,10 @@ Decompose the question into sub-questions and describe how each will be investig
 ## Sources
 
 Starting points — papers, articles, videos, repos, docs.
+**Every source must include a URL.** Use `[Display Name](https://url)` for named sources or a bare `https://url` for direct links. Sources without URLs cannot be verified or linked on the site.
 
-- [ ] Source 1
-- [ ] Source 2
+- [ ] [Source Title](https://url) — brief description of what this source provides
+- [ ] https://url — brief description
 
 ---
 
