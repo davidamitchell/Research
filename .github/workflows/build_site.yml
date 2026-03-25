@@ -8,6 +8,15 @@ name: Build and Deploy Research Site
 # Triggers:
 #   - Push to main that touches any file in Research/completed/ or scripts/
 #   - Manual dispatch from the Actions tab
+#
+# ── IMPORTANT FOR AGENTS ────────────────────────────────────────────────────
+# docs/ must NEVER be committed on a feature branch.
+# This workflow is the sole mechanism that writes docs/ to the repository.
+# Feature PRs must only touch scripts/, Research/, or config files.
+# Running `python scripts/build_site.py` locally is fine for verification,
+# but the output must not be staged or committed.  A PR containing docs/
+# changes produces 300+ unreadable file diffs and will be rejected.
+# ────────────────────────────────────────────────────────────────────────────
 
 on:
   workflow_dispatch:
