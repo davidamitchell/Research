@@ -10,19 +10,20 @@
   <style>
 :root {
   --bg:              #0d0d0d;
-  --surface:         #141414;
-  --surface-2:       #1c1c1c;
-  --border:          #2a2a2a;
-  --text:            #e8e8e8;
+  --surface:         #0f1115;
+  --surface-2:       #161b22;
+  --border:          #252b33;
+  --text:            #e6e6e6;
   --text-muted:      #666;
-  --accent:          #e8e8e8;
+  --accent:          #e6e6e6;
   --accent-dim:      #333;
-  --tag-bg:          #1e1e1e;
+  --tag-bg:          #161b22;
   --tag-text:        #999;
-  --tag-active-bg:   #e8e8e8;
-  --tag-active-text: #0d0d0d;
-  --link:            #E8006F;
-  --teal:            #2DD4BF;
+  --tag-active-bg:   #e6e6e6;
+  --tag-active-text: #0f1115;
+  --link:            #00C3A5;
+  --teal:            #00C3A5;
+  --dusk:            #E8A1A8;
 
   --text-xs:   0.7rem;
   --text-sm:   0.8rem;
@@ -43,6 +44,7 @@ body {
   font-size: var(--text-base);
   line-height: 1.6;
   letter-spacing: 0.02em;
+  overflow-x: clip;
 }
 
 a { color: var(--text); text-decoration: none; }
@@ -77,11 +79,11 @@ nav {
   letter-spacing: 0.05em;
   display: inline-flex;
   align-items: center;
-  gap: 0.35em;
+  gap: 0.5em;
 }
 .nav-links {
   display: flex;
-  gap: 1.5rem;
+  gap: 1.75rem;
 }
 .nav-links a {
   font-size: var(--text-sm);
@@ -89,7 +91,7 @@ nav {
   letter-spacing: 0.05em;
   display: inline-flex;
   align-items: center;
-  gap: 0.35em;
+  gap: 0.5em;
 }
 .nav-links a:hover { color: var(--text); text-decoration: none; }
 .nav-links a.active { color: var(--teal); }
@@ -110,6 +112,9 @@ main {
   font-weight: 500;
   line-height: 1.2;
   letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
 }
 .page-subtitle {
   font-size: var(--text-sm);
@@ -133,7 +138,7 @@ main {
   border-radius: 0;
   letter-spacing: 0.02em;
 }
-.search-input:focus { border-color: var(--accent); }
+.search-input:focus { border-color: var(--teal); }
 .search-input::placeholder { color: var(--text-muted); }
 
 /* Tag filter bar */
@@ -199,13 +204,15 @@ main {
   gap: 0.6rem;
   text-decoration: none;
   color: var(--text);
+  min-width: 0;
 }
-.card:hover { border-color: var(--accent); text-decoration: none; }
+.card:hover { border-color: var(--teal); text-decoration: none; }
 .card-title {
   font-size: var(--text-base);
   font-weight: 500;
   line-height: 1.3;
   letter-spacing: 0.02em;
+  word-break: break-word;
 }
 .card-meta {
   font-size: var(--text-xs);
@@ -217,6 +224,8 @@ main {
   color: var(--text-muted);
   line-height: 1.5;
   flex: 1;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 .card-tags {
   display: flex;
@@ -245,12 +254,18 @@ main {
 .breadcrumb span { margin: 0 0.4em; }
 
 .item-title {
-  font-size: var(--text-xl);
+  font-size: var(--text-2xl);
   font-weight: 500;
   line-height: 1.2;
   letter-spacing: 0.02em;
   margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4em;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
+.item-title svg { flex-shrink: 0; margin-top: 0.2em; }
 
 .meta-bar {
   font-size: var(--text-xs);
@@ -279,6 +294,9 @@ main {
   border-bottom: 1px solid var(--border);
   padding-bottom: 0.5rem;
   font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
 }
 .item-content h3 {
   font-size: var(--text-base);
@@ -292,17 +310,20 @@ main {
   margin-top: 1.2rem;
   letter-spacing: 0.02em;
 }
-.item-content p { margin-top: 0.8rem; }
+.item-content p { margin-top: 0.8rem; word-break: break-word; overflow-wrap: break-word; }
 .item-content ul, .item-content ol {
   margin-top: 0.8rem;
   padding-left: 1.5rem;
 }
-.item-content li { margin-top: 0.3rem; }
+.item-content li { margin-top: 0.3rem; word-break: break-word; overflow-wrap: break-word; }
 .item-content table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 1rem;
   font-size: var(--text-xs);
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
 }
 .item-content th, .item-content td {
   border: 1px solid var(--border);
@@ -321,6 +342,7 @@ main {
   padding: 0.1em 0.3em;
   font-family: 'IBM Plex Mono', monospace;
   font-size: 0.9em;
+  word-break: break-all;
 }
 .item-content pre {
   background: var(--surface-2);
@@ -328,21 +350,22 @@ main {
   padding: 1rem;
   overflow-x: auto;
   margin-top: 1rem;
+  max-width: 100%;
 }
-.item-content pre code { background: none; padding: 0; }
+.item-content pre code { background: none; padding: 0; word-break: normal; }
 .item-content blockquote {
   border-left: 2px solid var(--border);
   padding-left: 1rem;
   color: var(--text-muted);
   margin-top: 0.8rem;
 }
-.item-content a { color: var(--link); text-decoration: underline; }
-.item-content a:hover { color: var(--text-muted); }
+.item-content a { color: var(--teal); text-decoration: underline; }
+.item-content a:hover { color: var(--text); text-decoration: underline; }
 .item-content strong { font-weight: 600; }
 .item-content em { font-style: italic; }
 .item-content hr {
   border: none;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid var(--dusk);
   margin: 2rem 0;
 }
 
@@ -373,9 +396,12 @@ main {
   margin-bottom: 2rem;
 }
 .tag-page-header h1 {
-  font-size: var(--text-xl);
+  font-size: var(--text-2xl);
   font-weight: 500;
   letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
 }
 .back-link {
   font-size: var(--text-sm);
@@ -390,9 +416,12 @@ main {
   margin-bottom: 1.5rem;
 }
 .search-page-header h1 {
-  font-size: var(--text-xl);
+  font-size: var(--text-2xl);
   font-weight: 500;
   letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
 }
 .search-results-count {
   font-size: var(--text-xs);
@@ -433,17 +462,22 @@ main {
   }
   nav {
     position: sticky;
+    top: 0;
     height: auto;
-    padding: 0.75rem 1rem;
-    flex-wrap: wrap;
+    padding: 0.5rem 1rem;
+  }
+  .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
     gap: 0.5rem;
   }
-  .container {
-    padding: 0 1rem;
+  .nav-links {
+    width: 100%;
+    gap: 0.75rem;
+    flex-wrap: wrap;
   }
   main {
-    padding: 0 1rem;
-    padding-top: 64px;
+    padding: 1.5rem 1rem 4rem;
   }
   .card-grid {
     grid-template-columns: 1fr;
@@ -517,11 +551,13 @@ main {
 .stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
 
 /* Key claims block */
-.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; }
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; overflow: hidden; }
 .key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
 .key-claims ol { list-style: none; padding: 0; margin: 0; }
-.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); word-break: break-word; overflow-wrap: break-word; }
 .key-claims li:last-child { border-bottom: none; }
+.key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
+.key-claims a:hover { color: var(--text); }
 
 /* Relationship type pill */
 .rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
@@ -530,8 +566,9 @@ main {
 .related-section { margin-top: 2.5rem; }
 .related-group { margin-top: 1rem; }
 .related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
-.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); flex-wrap: wrap; }
 .related-entry:last-child { border-bottom: none; }
+.related-entry a { color: var(--teal); word-break: break-word; }
 .related-note { color: var(--text-muted); font-size: var(--text-xs); }
 
 /* Thread connector */
@@ -546,7 +583,7 @@ main {
 .featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4em; }
 .featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 .thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
-.thread-pill:hover { border-color: var(--text); text-decoration: none; }
+.thread-pill:hover { border-color: var(--teal); text-decoration: none; }
 .thread-pill-count { color: var(--text-muted); }
 .tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
 .tag-pill-link:hover { color: var(--text); text-decoration: none; }
@@ -579,12 +616,12 @@ main {
         <body>
 <nav>
   <div class="nav-inner">
-    <a class="nav-brand" href="/Research/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#2DD4BF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Research</a>
+    <a class="nav-brand" href="/Research/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Research</a>
     <div class="nav-links">
-      <a href="/Research/threads.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#2DD4BF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>Threads</a>
-      <a href="/Research/tags/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#2DD4BF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>Tags</a>
-      <a href="/Research/search.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#2DD4BF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Search</a>
-      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#2DD4BF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M8 1.5C4.41 1.5 1.5 4.41 1.5 8c0 2.87 1.86 5.3 4.44 6.16.32.06.44-.14.44-.31v-1.09c-1.8.39-2.18-.87-2.18-.87-.3-.75-.72-.95-.72-.95-.59-.4.04-.4.04-.4.65.05 1 .67 1 .67.58 1 1.53.71 1.9.54.06-.42.23-.71.41-.87-1.44-.16-2.95-.72-2.95-3.2 0-.71.25-1.28.67-1.74-.07-.16-.29-.82.06-1.71 0 0 .55-.18 1.8.67a6.27 6.27 0 0 1 3.28 0c1.25-.85 1.8-.67 1.8-.67.35.89.13 1.55.06 1.71.42.46.67 1.03.67 1.74 0 2.49-1.51 3.04-2.96 3.2.23.2.44.6.44 1.21v1.8c0 .17.12.37.44.31A6.5 6.5 0 0 0 14.5 8 6.5 6.5 0 0 0 8 1.5z"/></svg>GitHub</a>
+      <a href="/Research/threads.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>Threads</a>
+      <a href="/Research/tags/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>Tags</a>
+      <a href="/Research/search.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M8 1.5C4.41 1.5 1.5 4.41 1.5 8c0 2.87 1.86 5.3 4.44 6.16.32.06.44-.14.44-.31v-1.09c-1.8.39-2.18-.87-2.18-.87-.3-.75-.72-.95-.72-.95-.59-.4.04-.4.04-.4.65.05 1 .67 1 .67.58 1 1.53.71 1.9.54.06-.42.23-.71.41-.87-1.44-.16-2.95-.72-2.95-3.2 0-.71.25-1.28.67-1.74-.07-.16-.29-.82.06-1.71 0 0 .55-.18 1.8.67a6.27 6.27 0 0 1 3.28 0c1.25-.85 1.8-.67 1.8-.67.35.89.13 1.55.06 1.71.42.46.67 1.03.67 1.74 0 2.49-1.51 3.04-2.96 3.2.23.2.44.6.44 1.21v1.8c0 .17.12.37.44.31A6.5 6.5 0 0 0 14.5 8 6.5 6.5 0 0 0 8 1.5z"/></svg>GitHub</a>
     </div>
   </div>
 </nav>
@@ -594,7 +631,7 @@ main {
     <span>/</span>
     <span>Compliance Scanning via GitHub Actions — Broad Policy as Code Across a…</span>
   </div>
-  <h1 class="item-title">Compliance Scanning via GitHub Actions — Broad Policy as Code Across a…</h1>
+  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Compliance Scanning via GitHub Actions — Broad Policy as Code Across a…</h1>
   <p class="full-title-subtitle">Compliance Scanning via GitHub Actions — Broad Policy as Code Across a Heterogeneous Stack</p>
   <div class="meta-bar">
     <span>2026-03-22</span>
@@ -607,27 +644,27 @@ main {
   </div>
   
   <div class="item-content">
-    <h2>Research Question</h2>
+    <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
 <p>How can GitHub Actions (with GitHub Advanced Security (GHAS) and CodeQL already enabled) be extended to enforce a broad, organisation-wide compliance policy — covering naming conventions, architectural patterns, directory layout, Application Programming Interface (API) specifications, event schemas, and technology-stack-specific usage rules — across a heterogeneous estate of .NET, Kubernetes (k8s), Python, React, Go, Airflow, DBT (Data Build Tool), Snowflake, Relational Database Service (RDS), Terraform, Ansible, Representational State Transfer (REST) APIs, Graph APIs (GraphQL), and event-driven systems, where policies are defined once and shared across multiple enforcement points?</p>
 
-<h2>Findings</h2>
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Findings</h2>
 <h3>Executive Summary</h3>
 <ul>
-<li>[inference] The most defensible way to extend GHAS and CodeQL into broad compliance scanning is to treat them as the supported-language security layer inside a larger GitHub Actions architecture that also governs manifests, schemas, SQL, and project structure. Basis: <a href="https://docs.github.com/en/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql">docs.github.com</a> ; <a href="https://docs.github.com/en/actions/sharing-automations/reusing-workflows">docs.github.com</a> ; <a href="https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets#require-workflows-to-pass-before-merging">docs.github.com</a>
-<li>[fact] GitHub already provides the cross-repository control-plane primitives needed for that design: reusable workflows centralise execution logic, while organisation rulesets and required status checks make shared checks mandatory. Sources: <a href="https://docs.github.com/en/actions/sharing-automations/reusing-workflows">docs.github.com</a> ; <a href="https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-organization-settings/creating-rulesets-for-repositories-in-your-organization">docs.github.com</a>
-<li>[inference] The correct operating model is a multi-tool policy portfolio organised by artefact type, not an attempt to stretch CodeQL into every compliance domain named in the question. Basis: <a href="https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/">codeql.github.com</a> ; <a href="https://github.com/bridgecrewio/checkov">github.com</a> ; <a href="https://github.com/stoplightio/spectral">github.com</a> ; <a href="https://the-guild.dev/graphql/inspector/docs/index">the-guild.dev</a> ; <a href="https://sqlfluff.com/">sqlfluff.com</a> ; <a href="https://github.com/dbt-labs/dbt-project-evaluator">github.com</a>
-<li>[inference] The safest adoption path is to centralise policy artefacts, run them first in Evaluate or soft-fail mode, and only then promote them into merge-blocking rulesets after outputs, ownership, and exceptions are stable. Basis: <a href="https://wellarchitected.github.com/library/governance/recommendations/managing-repositories-at-scale/rulesets-best-practices/">wellarchitected.github.com</a> ; <a href="https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/centralized-custom-checkov-scanning.html">docs.aws.amazon.com</a>
+<li>[inference] The most defensible way to extend GHAS and CodeQL into broad compliance scanning is to treat them as the supported-language security layer inside a larger GitHub Actions architecture that also governs manifests, schemas, SQL, and project structure. Basis: <a href="https://docs.github.com/en/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql">x] GitHub Docs — About code scanning with CodeQL</a> ; <a href="https://docs.github.com/en/actions/sharing-automations/reusing-workflows">x] GitHub Docs — Reusable workflows</a> ; <a href="https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets#require-workflows-to-pass-before-merging">docs.github.com</a>
+<li>[fact] GitHub already provides the cross-repository control-plane primitives needed for that design: reusable workflows centralise execution logic, while organisation rulesets and required status checks make shared checks mandatory. Sources: <a href="https://docs.github.com/en/actions/sharing-automations/reusing-workflows">x] GitHub Docs — Reusable workflows</a> ; <a href="https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-organization-settings/creating-rulesets-for-repositories-in-your-organization">docs.github.com</a>
+<li>[inference] The correct operating model is a multi-tool policy portfolio organised by artefact type, not an attempt to stretch CodeQL into every compliance domain named in the question. Basis: <a href="https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/">x] CodeQL docs — Supported languages and frameworks</a> ; <a href="https://github.com/bridgecrewio/checkov">github.com</a> ; <a href="https://github.com/stoplightio/spectral">x] Spectral repository and documentation entry point</a> ; <a href="https://the-guild.dev/graphql/inspector/docs/index">x] GraphQL Inspector docs</a> ; <a href="https://sqlfluff.com/">x] SQLFluff documentation</a> ; <a href="https://github.com/dbt-labs/dbt-project-evaluator">github.com</a>
+<li>[inference] The safest adoption path is to centralise policy artefacts, run them first in Evaluate or soft-fail mode, and only then promote them into merge-blocking rulesets after outputs, ownership, and exceptions are stable. Basis: <a href="https://wellarchitected.github.com/library/governance/recommendations/managing-repositories-at-scale/rulesets-best-practices/">x] GitHub Well-Architected — Rulesets best practices</a> ; <a href="https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/centralized-custom-checkov-scanning.html">docs.aws.amazon.com</a>
 </ul>
 <h3>Key Findings</h3>
 <ol>
-<li>[inference][high] Because the CodeQL support matrix is language-centric, any estate that also needs Terraform, Kubernetes, OpenAPI, AsyncAPI, SQL, or dbt governance must add dedicated artefact scanners instead of expecting GHAS alone to enforce those surfaces. Basis: <a href="https://docs.github.com/en/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql">docs.github.com</a> ; <a href="https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/">codeql.github.com</a>
-<li>[fact][high] GitHub separates shared execution from shared enforcement: reusable workflows encapsulate the shared scanning logic, while organisation rulesets and required checks apply merge-blocking governance across targeted repositories. Sources: <a href="https://docs.github.com/en/actions/sharing-automations/reusing-workflows">docs.github.com</a> ; <a href="https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-organization-settings/creating-rulesets-for-repositories-in-your-organization">docs.github.com</a> ; <a href="https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets#require-workflows-to-pass-before-merging">docs.github.com</a>
-<li>[fact][high] CodeQL packs are an important extension point for supported languages, but the official pack model still assumes CodeQL-compatible artefacts and therefore cannot replace specialised validation tools for schemas, manifests, and SQL-focused repositories. Sources: <a href="https://docs.github.com/en/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/publishing-and-using-codeql-packs">docs.github.com</a> ; <a href="https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/">codeql.github.com</a>
-<li>[fact][high] The open-source toolchain retrieved in this item is already broad enough to cover most of the named estate when organised by artefact type, combining Semgrep and Conftest for generic policy, Checkov and kube-score for IaC and Kubernetes, Spectral and AsyncAPI CLI for API and event contracts, GraphQL Inspector for GraphQL, and SQLFluff plus dbt-project-evaluator for data-platform governance. Sources: <a href="https://semgrep.dev/docs/writing-rules/overview">semgrep.dev</a> ; <a href="https://www.conftest.dev/">www.conftest.dev</a> ; <a href="https://github.com/bridgecrewio/checkov">github.com</a> ; <a href="https://github.com/zegl/kube-score">github.com</a> ; <a href="https://github.com/stoplightio/spectral">github.com</a> ; <a href="https://www.asyncapi.com/tools/cli">www.asyncapi.com</a> ; <a href="https://the-guild.dev/graphql/inspector/docs/index">the-guild.dev</a> ; <a href="https://sqlfluff.com/">sqlfluff.com</a> ; <a href="https://github.com/dbt-labs/dbt-project-evaluator">github.com</a>
-<li>[inference][medium] A central policy-repository model is more maintainable than embedding scanner logic in every application repository, because central rule bundles and reusable workflows reduce drift, simplify ownership, and let policy teams update standards without mass copy-editing downstream repositories. Basis: <a href="https://docs.github.com/en/actions/sharing-automations/reusing-workflows">docs.github.com</a> ; <a href="https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/centralized-custom-checkov-scanning.html">docs.aws.amazon.com</a> ; <a href="https://wellarchitected.github.com/library/governance/recommendations/managing-repositories-at-scale/rulesets-best-practices/">wellarchitected.github.com</a>
-<li>[inference][high] A staged rollout with Evaluate mode, soft-fail where appropriate, rule insights, and explicit bypass governance is not just a convenience feature but the operational control that prevents multi-scanner compliance programmes from collapsing under false positives and unstable checks. Basis: <a href="https://wellarchitected.github.com/library/governance/recommendations/managing-repositories-at-scale/rulesets-best-practices/">wellarchitected.github.com</a> ; <a href="https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/centralized-custom-checkov-scanning.html">docs.aws.amazon.com</a>
-<li>[inference][medium] The minimum viable architecture for this problem is a portfolio of four reusable workflow domains — code, infrastructure, APIs/events, and data — each backed by centrally versioned policies and attached to repository tiers through organisation rulesets. Basis: <a href="https://docs.github.com/en/actions/sharing-automations/reusing-workflows">docs.github.com</a> ; <a href="https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets#require-workflows-to-pass-before-merging">docs.github.com</a> ; <a href="https://wellarchitected.github.com/library/governance/recommendations/managing-repositories-at-scale/rulesets-best-practices/">wellarchitected.github.com</a>
-<li>[inference][medium] GraphQL and event-driven contract governance deserve first-class treatment in the compliance model, because the retrieved evidence shows dedicated schema-aware tools for those artefacts and does not support treating them as a by-product of generic source-code scanning. Basis: <a href="https://the-guild.dev/graphql/inspector/docs/index">the-guild.dev</a> ; <a href="https://www.asyncapi.com/tools/cli">www.asyncapi.com</a> ; <a href="https://github.com/stoplightio/spectral">github.com</a>
+<li>[inference][high] Because the CodeQL support matrix is language-centric, any estate that also needs Terraform, Kubernetes, OpenAPI, AsyncAPI, SQL, or dbt governance must add dedicated artefact scanners instead of expecting GHAS alone to enforce those surfaces. Basis: <a href="https://docs.github.com/en/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql">x] GitHub Docs — About code scanning with CodeQL</a> ; <a href="https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/">codeql.github.com</a>
+<li>[fact][high] GitHub separates shared execution from shared enforcement: reusable workflows encapsulate the shared scanning logic, while organisation rulesets and required checks apply merge-blocking governance across targeted repositories. Sources: <a href="https://docs.github.com/en/actions/sharing-automations/reusing-workflows">x] GitHub Docs — Reusable workflows</a> ; <a href="https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-organization-settings/creating-rulesets-for-repositories-in-your-organization">x] GitHub Docs — Creating organisation rulesets</a> ; <a href="https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets#require-workflows-to-pass-before-merging">docs.github.com</a>
+<li>[fact][high] CodeQL packs are an important extension point for supported languages, but the official pack model still assumes CodeQL-compatible artefacts and therefore cannot replace specialised validation tools for schemas, manifests, and SQL-focused repositories. Sources: <a href="https://docs.github.com/en/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/publishing-and-using-codeql-packs">x] GitHub Docs — CodeQL custom queries and packs</a> ; <a href="https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/">codeql.github.com</a>
+<li>[fact][high] The open-source toolchain retrieved in this item is already broad enough to cover most of the named estate when organised by artefact type, combining Semgrep and Conftest for generic policy, Checkov and kube-score for IaC and Kubernetes, Spectral and AsyncAPI CLI for API and event contracts, GraphQL Inspector for GraphQL, and SQLFluff plus dbt-project-evaluator for data-platform governance. Sources: <a href="https://semgrep.dev/docs/writing-rules/overview">x] Semgrep rule-writing overview</a> ; <a href="https://www.conftest.dev/">x] Open Policy Agent (OPA) / Conftest</a> ; <a href="https://github.com/bridgecrewio/checkov">github.com</a> ; <a href="https://github.com/zegl/kube-score">x] kube-score repository</a> ; <a href="https://github.com/stoplightio/spectral">x] Spectral repository and documentation entry point</a> ; <a href="https://www.asyncapi.com/tools/cli">x] AsyncAPI Command Line Interface (CLI)</a> ; <a href="https://the-guild.dev/graphql/inspector/docs/index">x] GraphQL Inspector docs</a> ; <a href="https://sqlfluff.com/">x] SQLFluff documentation</a> ; <a href="https://github.com/dbt-labs/dbt-project-evaluator">github.com</a>
+<li>[inference][medium] A central policy-repository model is more maintainable than embedding scanner logic in every application repository, because central rule bundles and reusable workflows reduce drift, simplify ownership, and let policy teams update standards without mass copy-editing downstream repositories. Basis: <a href="https://docs.github.com/en/actions/sharing-automations/reusing-workflows">x] GitHub Docs — Reusable workflows</a> ; <a href="https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/centralized-custom-checkov-scanning.html">x] AWS Prescriptive Guidance — centralised custom Checkov scanning</a> ; <a href="https://wellarchitected.github.com/library/governance/recommendations/managing-repositories-at-scale/rulesets-best-practices/">wellarchitected.github.com</a>
+<li>[inference][high] A staged rollout with Evaluate mode, soft-fail where appropriate, rule insights, and explicit bypass governance is not just a convenience feature but the operational control that prevents multi-scanner compliance programmes from collapsing under false positives and unstable checks. Basis: <a href="https://wellarchitected.github.com/library/governance/recommendations/managing-repositories-at-scale/rulesets-best-practices/">x] GitHub Well-Architected — Rulesets best practices</a> ; <a href="https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/centralized-custom-checkov-scanning.html">docs.aws.amazon.com</a>
+<li>[inference][medium] The minimum viable architecture for this problem is a portfolio of four reusable workflow domains — code, infrastructure, APIs/events, and data — each backed by centrally versioned policies and attached to repository tiers through organisation rulesets. Basis: <a href="https://docs.github.com/en/actions/sharing-automations/reusing-workflows">x] GitHub Docs — Reusable workflows</a> ; <a href="https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets#require-workflows-to-pass-before-merging">x] GitHub Docs — Available rules for rulesets / require workflows to pass before merging</a> ; <a href="https://wellarchitected.github.com/library/governance/recommendations/managing-repositories-at-scale/rulesets-best-practices/">wellarchitected.github.com</a>
+<li>[inference][medium] GraphQL and event-driven contract governance deserve first-class treatment in the compliance model, because the retrieved evidence shows dedicated schema-aware tools for those artefacts and does not support treating them as a by-product of generic source-code scanning. Basis: <a href="https://the-guild.dev/graphql/inspector/docs/index">x] GraphQL Inspector docs</a> ; <a href="https://www.asyncapi.com/tools/cli">x] AsyncAPI Command Line Interface (CLI)</a> ; <a href="https://github.com/stoplightio/spectral">github.com</a>
 </ol>
 <h3>Assumptions</h3>
 <ul>
@@ -636,14 +673,14 @@ main {
 </ul>
 <h3>Analysis</h3>
 <ul>
-<li>[inference] The evidence supports a compositional architecture rather than a monolithic scanner strategy. GitHub supplies the orchestration and enforcement layer, while specialised tools supply the domain semantics. Basis: <a href="https://docs.github.com/en/actions/sharing-automations/reusing-workflows">docs.github.com</a> ; <a href="https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets#require-workflows-to-pass-before-merging">docs.github.com</a> ; <a href="https://github.com/bridgecrewio/checkov">github.com</a> ; <a href="https://github.com/stoplightio/spectral">github.com</a> ; <a href="https://sqlfluff.com/">sqlfluff.com</a>
-<li>[inference] That compositional design also fits realistic ownership boundaries, because platform or security teams can own shared rules and workflows while application teams remain responsible only for repository-local adoption and exception handling. Basis: <a href="https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/centralized-custom-checkov-scanning.html">docs.aws.amazon.com</a> ; <a href="https://wellarchitected.github.com/library/governance/recommendations/managing-repositories-at-scale/rulesets-best-practices/">wellarchitected.github.com</a>
-<li>[inference] The main remaining architecture gap is not scanner availability but result normalisation: a serious enterprise rollout will eventually need a common severity, waiver, and reporting model across these otherwise independent tools. Basis: <a href="https://github.com/bridgecrewio/checkov">github.com</a> ; <a href="https://github.com/stoplightio/spectral">github.com</a> ; <a href="https://the-guild.dev/graphql/inspector/docs/index">the-guild.dev</a> ; <a href="https://sqlfluff.com/">sqlfluff.com</a> ; <a href="https://github.com/dbt-labs/dbt-project-evaluator">github.com</a>
+<li>[inference] The evidence supports a compositional architecture rather than a monolithic scanner strategy. GitHub supplies the orchestration and enforcement layer, while specialised tools supply the domain semantics. Basis: <a href="https://docs.github.com/en/actions/sharing-automations/reusing-workflows">x] GitHub Docs — Reusable workflows</a> ; <a href="https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets#require-workflows-to-pass-before-merging">x] GitHub Docs — Available rules for rulesets / require workflows to pass before merging</a> ; <a href="https://github.com/bridgecrewio/checkov">github.com</a> ; <a href="https://github.com/stoplightio/spectral">x] Spectral repository and documentation entry point</a> ; <a href="https://sqlfluff.com/">sqlfluff.com</a>
+<li>[inference] That compositional design also fits realistic ownership boundaries, because platform or security teams can own shared rules and workflows while application teams remain responsible only for repository-local adoption and exception handling. Basis: <a href="https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/centralized-custom-checkov-scanning.html">x] AWS Prescriptive Guidance — centralised custom Checkov scanning</a> ; <a href="https://wellarchitected.github.com/library/governance/recommendations/managing-repositories-at-scale/rulesets-best-practices/">wellarchitected.github.com</a>
+<li>[inference] The main remaining architecture gap is not scanner availability but result normalisation: a serious enterprise rollout will eventually need a common severity, waiver, and reporting model across these otherwise independent tools. Basis: <a href="https://github.com/bridgecrewio/checkov">github.com</a> ; <a href="https://github.com/stoplightio/spectral">x] Spectral repository and documentation entry point</a> ; <a href="https://the-guild.dev/graphql/inspector/docs/index">x] GraphQL Inspector docs</a> ; <a href="https://sqlfluff.com/">x] SQLFluff documentation</a> ; <a href="https://github.com/dbt-labs/dbt-project-evaluator">github.com</a>
 </ul>
 <h3>Risks, Gaps, and Uncertainties</h3>
 <ul>
-<li>[fact] The original Spectral documentation page supplied in the item was inaccessible during retrieval, so Spectral capability claims rely on the project readme rather than the exact seed page. Sources: <a href="https://docs.stoplight.io/docs/spectral/">docs.stoplight.io</a> ; <a href="https://github.com/stoplightio/spectral">github.com</a>
-<li>[inference] GitHub's required-workflows feature history is partially split between older launch posts and newer rulesets documentation, so any implementation should validate plan support against current product docs for the target organisation. Basis: <a href="https://github.blog/enterprise-software/devops/introducing-required-workflows-and-configuration-variables-to-github-actions/">github.blog</a> ; <a href="https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets#require-workflows-to-pass-before-merging">docs.github.com</a>
+<li>[fact] The original Spectral documentation page supplied in the item was inaccessible during retrieval, so Spectral capability claims rely on the project readme rather than the exact seed page. Sources: <a href="https://docs.stoplight.io/docs/spectral/">Original Stoplight Spectral documentation page in the seed item returned 404 at retrieval time</a> ; <a href="https://github.com/stoplightio/spectral">github.com</a>
+<li>[inference] GitHub's required-workflows feature history is partially split between older launch posts and newer rulesets documentation, so any implementation should validate plan support against current product docs for the target organisation. Basis: <a href="https://github.blog/enterprise-software/devops/introducing-required-workflows-and-configuration-variables-to-github-actions/">x] GitHub Blog — Required workflows and configuration variables</a> ; <a href="https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets#require-workflows-to-pass-before-merging">docs.github.com</a>
 <li>[inference] GraphQL governance beyond schema diffing and document validation remains underexplored in this item and would benefit from a dedicated follow-up on style, naming, and resolver policy tooling. Basis: <a href="https://the-guild.dev/graphql/inspector/docs/index">the-guild.dev</a>
 <li>[inference] A common evidence and waiver layer for multi-scanner GitHub Actions compliance remains an open design problem not resolved by the retrieved sources. Basis: gap across the retrieved tool documentation.</li>
 </ul>
@@ -652,6 +689,34 @@ main {
 <li>[inference] How should heterogeneous scanner outputs be normalised into one durable evidence model for audit, waiver management, and developer triage inside GitHub?</li>
 <li>[inference] What is the best open-source governance toolchain for GraphQL style and schema policy beyond change detection and operation validation?</li>
 <li>[inference] When central workflows become merge-blocking, which checks should emit GitHub code-scanning alerts versus regular check-run summaries so that developers see one coherent signal instead of many parallel failure surfaces?</li>
+</ul>
+<hr />
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
+<ul>
+<li>[x] GitHub Docs — Available rules for rulesets / require workflows to pass before merging: https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets#require-workflows-to-pass-before-merging</li>
+<li>[x] GitHub Docs — Reusable workflows: https://docs.github.com/en/actions/sharing-automations/reusing-workflows</li>
+<li>[x] GitHub Docs — Creating organisation rulesets: https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-organization-settings/creating-rulesets-for-repositories-in-your-organization</li>
+<li>[x] GitHub Docs — About code scanning with CodeQL: https://docs.github.com/en/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql</li>
+<li>[x] CodeQL docs — Supported languages and frameworks: https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/</li>
+<li>[x] GitHub Docs — CodeQL custom queries and packs: https://docs.github.com/en/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/publishing-and-using-codeql-packs</li>
+<li>[x] GitHub Blog — Required workflows and configuration variables: https://github.blog/enterprise-software/devops/introducing-required-workflows-and-configuration-variables-to-github-actions/</li>
+<li>[x] GitHub Well-Architected — Rulesets best practices: https://wellarchitected.github.com/library/governance/recommendations/managing-repositories-at-scale/rulesets-best-practices/</li>
+<li>[x] Open Policy Agent (OPA) / Conftest: https://www.conftest.dev/</li>
+<li>[x] Semgrep rule-writing overview: https://semgrep.dev/docs/writing-rules/overview</li>
+<li>[x] Spectral repository and documentation entry point: https://github.com/stoplightio/spectral</li>
+<li>[ ] Original Stoplight Spectral documentation page in the seed item returned 404 at retrieval time: https://docs.stoplight.io/docs/spectral/</li>
+<li>[x] Checkov documentation and repository: https://www.checkov.io/ ; https://github.com/bridgecrewio/checkov</li>
+<li>[x] AWS Prescriptive Guidance — centralised custom Checkov scanning: https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/centralized-custom-checkov-scanning.html</li>
+<li>[x] dbt-project-evaluator repository: https://github.com/dbt-labs/dbt-project-evaluator</li>
+<li>[x] SQLFluff documentation: https://sqlfluff.com/</li>
+<li>[x] golangci-lint documentation and repository: https://golangci-lint.run/ ; https://github.com/golangci/golangci-lint</li>
+<li>[x] kube-score repository: https://github.com/zegl/kube-score</li>
+<li>[x] AsyncAPI Command Line Interface (CLI): https://www.asyncapi.com/tools/cli</li>
+<li>[x] GraphQL Inspector docs: https://the-guild.dev/graphql/inspector/docs/index</li>
+<li>[x] Ruff docs: https://docs.astral.sh/ruff/</li>
+<li>[x] Prior related item — adaptive policy authorisation compliance: <code>Research/completed/2026-03-16-adaptive-policy-authorization-compliance.md</code></li>
+<li>[x] Prior related item — agent Language Server Protocol (LSP) policy enforcement: <code>Research/completed/2026-03-01-agent-lsp-policy-enforcement.md</code></li>
 </ul>
 <hr />
 
