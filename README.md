@@ -12,7 +12,9 @@ A place to hold a backlog of research to be done, research underway, and complet
 | `Research/Research_Master.md` | Auto-generated consolidated view of all completed research (titles, questions, tags, findings) |
 | `src/` | Python tooling to support research (transcript fetcher, indexing, etc.) |
 | `tests/` | Tests for `src/` |
+| `scripts/` | Site build pipeline (`build_site.py`, `extract_metadata.py`) — edit these to change the site |
 | `config/` | Configuration for sources and tooling |
+| `docs/` | **Auto-generated.** Static GitHub Pages site — built by the `build_site.yml` workflow. Do not edit files here directly; changes will be overwritten on the next build. Edit `scripts/build_site.py` instead. |
 | `docs-adr/` | Architecture Decision Records |
 | `.github/copilot-instructions.md` | Instructions for all AI coding agents |
 | `BACKLOG.md` | Repo improvement backlog (separate from research item backlog) |

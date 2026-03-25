@@ -84,6 +84,8 @@ CSS = """
   --tag-text:        #999;
   --tag-active-bg:   #e8e8e8;
   --tag-active-text: #0d0d0d;
+  --link:            #E8006F;
+  --teal:            #2DD4BF;
 
   --text-xs:   0.7rem;
   --text-sm:   0.8rem;
@@ -136,6 +138,9 @@ nav {
   font-weight: 500;
   color: var(--text);
   letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
 }
 .nav-links {
   display: flex;
@@ -145,8 +150,12 @@ nav {
   font-size: var(--text-sm);
   color: var(--text-muted);
   letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
 }
 .nav-links a:hover { color: var(--text); text-decoration: none; }
+.nav-links a.active { color: var(--teal); }
 
 /* Main content */
 main {
@@ -390,7 +399,7 @@ main {
   color: var(--text-muted);
   margin-top: 0.8rem;
 }
-.item-content a { color: var(--text); text-decoration: underline; }
+.item-content a { color: var(--link); text-decoration: underline; }
 .item-content a:hover { color: var(--text-muted); }
 .item-content strong { font-weight: 600; }
 .item-content em { font-style: italic; }
@@ -597,7 +606,7 @@ main {
 /* Featured sections on landing page */
 .landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
 .featured-section { margin: 2rem 0; }
-.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4em; }
 .featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 .thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
 .thread-pill:hover { border-color: var(--text); text-decoration: none; }
@@ -630,6 +639,56 @@ main {
 """
 
 # ---------------------------------------------------------------------------
+# SVG icons — 16×16, stroke-based, teal (#2DD4BF)
+# ---------------------------------------------------------------------------
+
+_SVG_ATTRS = 'width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#2DD4BF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"'
+
+# Note / Finding — document with corner fold
+ICON_NOTE = (
+    f'<svg xmlns="http://www.w3.org/2000/svg" {_SVG_ATTRS}>'
+    '<path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/>'
+    '<path d="M9 2v4h4"/>'
+    "</svg>"
+)
+
+# Thread — chain link (interlocked arcs)
+ICON_THREAD = (
+    f'<svg xmlns="http://www.w3.org/2000/svg" {_SVG_ATTRS}>'
+    '<path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/>'
+    '<path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/>'
+    "</svg>"
+)
+
+# Tag — price-tag shape with dot
+ICON_TAG = (
+    f'<svg xmlns="http://www.w3.org/2000/svg" {_SVG_ATTRS}>'
+    '<path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/>'
+    '<circle cx="6" cy="6" r="1"/>'
+    "</svg>"
+)
+
+# Search — magnifying glass
+ICON_SEARCH = (
+    f'<svg xmlns="http://www.w3.org/2000/svg" {_SVG_ATTRS}>'
+    '<circle cx="7" cy="7" r="4.5"/>'
+    '<path d="m10.5 10.5 3 3"/>'
+    "</svg>"
+)
+
+# GitHub — simplified octocat outline
+ICON_GITHUB = (
+    f'<svg xmlns="http://www.w3.org/2000/svg" {_SVG_ATTRS}>'
+    '<path d="M8 1.5C4.41 1.5 1.5 4.41 1.5 8c0 2.87 1.86 5.3 4.44 6.16.32.06.44-.14.44-.31'
+    "v-1.09c-1.8.39-2.18-.87-2.18-.87-.3-.75-.72-.95-.72-.95-.59-.4.04-.4.04-.4.65.05 1 .67"
+    " 1 .67.58 1 1.53.71 1.9.54.06-.42.23-.71.41-.87-1.44-.16-2.95-.72-2.95-3.2 0-.71.25-1.28"
+    ".67-1.74-.07-.16-.29-.82.06-1.71 0 0 .55-.18 1.8.67a6.27 6.27 0 0 1 3.28 0c1.25-.85"
+    " 1.8-.67 1.8-.67.35.89.13 1.55.06 1.71.42.46.67 1.03.67 1.74 0 2.49-1.51 3.04-2.96"
+    ' 3.2.23.2.44.6.44 1.21v1.8c0 .17.12.37.44.31A6.5 6.5 0 0 0 14.5 8 6.5 6.5 0 0 0 8 1.5z"/>'
+    "</svg>"
+)
+
+# ---------------------------------------------------------------------------
 # HTML helpers
 # ---------------------------------------------------------------------------
 
@@ -655,20 +714,24 @@ def html_head(title: str, extra_head: str = "") -> str:
         """)
 
 
-def html_nav() -> str:
-    return textwrap.dedent("""\
-        <nav>
-          <div class="nav-inner">
-            <a class="nav-brand" href="/Research/">Research</a>
-            <div class="nav-links">
-              <a href="/Research/threads.html">Threads</a>
-              <a href="/Research/tags/">Tags</a>
-              <a href="/Research/search.html">Search</a>
-              <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener">GitHub</a>
-            </div>
-          </div>
-        </nav>
-        """)
+def html_nav(active: str = "") -> str:
+    def _cls(page: str) -> str:
+        return ' class="active"' if active == page else ""
+
+    return (
+        "<nav>\n"
+        '  <div class="nav-inner">\n'
+        f'    <a class="nav-brand" href="/Research/">{ICON_NOTE}Research</a>\n'
+        '    <div class="nav-links">\n'
+        f'      <a href="/Research/threads.html"{_cls("threads")}>{ICON_THREAD}Threads</a>\n'
+        f'      <a href="/Research/tags/"{_cls("tags")}>{ICON_TAG}Tags</a>\n'
+        f'      <a href="/Research/search.html"{_cls("search")}>{ICON_SEARCH}Search</a>\n'
+        '      <a href="https://github.com/davidamitchell/Research"'
+        f' target="_blank" rel="noopener">{ICON_GITHUB}GitHub</a>\n'
+        "    </div>\n"
+        "  </div>\n"
+        "</nav>\n"
+    )
 
 
 def html_foot() -> str:
@@ -1420,11 +1483,11 @@ def build_landing(items: list[dict], threads: list[dict]) -> str:
     <div id="landing-search-results" class="search-preview-results"></div>
   </div>
   <div class="featured-section">
-    <div class="featured-label">threads</div>
+    <div class="featured-label">{ICON_THREAD}threads</div>
     <div class="featured-pills">{thread_pills}</div>
   </div>
   <div class="featured-section">
-    <div class="featured-label">topics</div>
+    <div class="featured-label">{ICON_TAG}topics</div>
     <div class="featured-pills">{tag_pills}</div>
   </div>
 </main>
@@ -1615,7 +1678,7 @@ def build_tag_page(tag: str, tag_items: list[dict]) -> str:
     count = len(tag_items)
     return (
         html_head(f"Tagged: {escape(tag)} — Research")
-        + html_nav()
+        + html_nav("tags")
         + f"""\
 <main>
   <div class="tag-page-header">
@@ -1657,7 +1720,7 @@ def build_tags_index(tags_map: dict[str, list[dict]]) -> str:
 """
     return (
         html_head("Tags — Research")
-        + html_nav()
+        + html_nav("tags")
         + f"""\
 <main>
   <div class="tag-page-header">
@@ -1692,7 +1755,7 @@ def build_threads_listing(threads: list[dict]) -> str:
     count = len(threads)
     return (
         html_head("Threads — Research")
-        + html_nav()
+        + html_nav("threads")
         + f"""\
 <main>
   <div class="page-header">
@@ -1727,7 +1790,7 @@ def build_thread_page(thread: dict) -> str:
 
     return (
         html_head(f"{escape(thread['title'])} — Threads — Research")
-        + html_nav()
+        + html_nav("threads")
         + f"""\
 <main>
   <div class="breadcrumb">
@@ -1754,7 +1817,7 @@ def build_search_page() -> str:
     """Generate docs/search.html."""
     return (
         html_head("Search — Research")
-        + html_nav()
+        + html_nav("search")
         + f"""\
 <main>
   <div class="search-page-header">
