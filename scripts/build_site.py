@@ -73,19 +73,20 @@ _STRAY_CLOSE_TAGS_RE = re.compile(r"</(?:p|li|td|div)>(?=[\"'>])")
 CSS = """
 :root {
   --bg:              #0d0d0d;
-  --surface:         #141414;
-  --surface-2:       #1c1c1c;
-  --border:          #2a2a2a;
-  --text:            #e8e8e8;
+  --surface:         #0f1115;
+  --surface-2:       #161b22;
+  --border:          #252b33;
+  --text:            #e6e6e6;
   --text-muted:      #666;
-  --accent:          #e8e8e8;
+  --accent:          #e6e6e6;
   --accent-dim:      #333;
-  --tag-bg:          #1e1e1e;
+  --tag-bg:          #161b22;
   --tag-text:        #999;
-  --tag-active-bg:   #e8e8e8;
-  --tag-active-text: #0d0d0d;
-  --link:            #E8006F;
-  --teal:            #2DD4BF;
+  --tag-active-bg:   #e6e6e6;
+  --tag-active-text: #0f1115;
+  --link:            #00C3A5;
+  --teal:            #00C3A5;
+  --dusk:            #E8A1A8;
 
   --text-xs:   0.7rem;
   --text-sm:   0.8rem;
@@ -106,6 +107,7 @@ body {
   font-size: var(--text-base);
   line-height: 1.6;
   letter-spacing: 0.02em;
+  overflow-x: clip;
 }
 
 a { color: var(--text); text-decoration: none; }
@@ -140,11 +142,11 @@ nav {
   letter-spacing: 0.05em;
   display: inline-flex;
   align-items: center;
-  gap: 0.35em;
+  gap: 0.5em;
 }
 .nav-links {
   display: flex;
-  gap: 1.5rem;
+  gap: 1.75rem;
 }
 .nav-links a {
   font-size: var(--text-sm);
@@ -152,7 +154,7 @@ nav {
   letter-spacing: 0.05em;
   display: inline-flex;
   align-items: center;
-  gap: 0.35em;
+  gap: 0.5em;
 }
 .nav-links a:hover { color: var(--text); text-decoration: none; }
 .nav-links a.active { color: var(--teal); }
@@ -173,6 +175,9 @@ main {
   font-weight: 500;
   line-height: 1.2;
   letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
 }
 .page-subtitle {
   font-size: var(--text-sm);
@@ -196,7 +201,7 @@ main {
   border-radius: 0;
   letter-spacing: 0.02em;
 }
-.search-input:focus { border-color: var(--accent); }
+.search-input:focus { border-color: var(--teal); }
 .search-input::placeholder { color: var(--text-muted); }
 
 /* Tag filter bar */
@@ -262,13 +267,15 @@ main {
   gap: 0.6rem;
   text-decoration: none;
   color: var(--text);
+  min-width: 0;
 }
-.card:hover { border-color: var(--accent); text-decoration: none; }
+.card:hover { border-color: var(--teal); text-decoration: none; }
 .card-title {
   font-size: var(--text-base);
   font-weight: 500;
   line-height: 1.3;
   letter-spacing: 0.02em;
+  word-break: break-word;
 }
 .card-meta {
   font-size: var(--text-xs);
@@ -280,6 +287,8 @@ main {
   color: var(--text-muted);
   line-height: 1.5;
   flex: 1;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 .card-tags {
   display: flex;
@@ -308,12 +317,18 @@ main {
 .breadcrumb span { margin: 0 0.4em; }
 
 .item-title {
-  font-size: var(--text-xl);
+  font-size: var(--text-2xl);
   font-weight: 500;
   line-height: 1.2;
   letter-spacing: 0.02em;
   margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4em;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
+.item-title svg { flex-shrink: 0; margin-top: 0.2em; }
 
 .meta-bar {
   font-size: var(--text-xs);
@@ -342,6 +357,9 @@ main {
   border-bottom: 1px solid var(--border);
   padding-bottom: 0.5rem;
   font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
 }
 .item-content h3 {
   font-size: var(--text-base);
@@ -355,17 +373,20 @@ main {
   margin-top: 1.2rem;
   letter-spacing: 0.02em;
 }
-.item-content p { margin-top: 0.8rem; }
+.item-content p { margin-top: 0.8rem; word-break: break-word; overflow-wrap: break-word; }
 .item-content ul, .item-content ol {
   margin-top: 0.8rem;
   padding-left: 1.5rem;
 }
-.item-content li { margin-top: 0.3rem; }
+.item-content li { margin-top: 0.3rem; word-break: break-word; overflow-wrap: break-word; }
 .item-content table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 1rem;
   font-size: var(--text-xs);
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
 }
 .item-content th, .item-content td {
   border: 1px solid var(--border);
@@ -384,6 +405,7 @@ main {
   padding: 0.1em 0.3em;
   font-family: 'IBM Plex Mono', monospace;
   font-size: 0.9em;
+  word-break: break-all;
 }
 .item-content pre {
   background: var(--surface-2);
@@ -391,21 +413,22 @@ main {
   padding: 1rem;
   overflow-x: auto;
   margin-top: 1rem;
+  max-width: 100%;
 }
-.item-content pre code { background: none; padding: 0; }
+.item-content pre code { background: none; padding: 0; word-break: normal; }
 .item-content blockquote {
   border-left: 2px solid var(--border);
   padding-left: 1rem;
   color: var(--text-muted);
   margin-top: 0.8rem;
 }
-.item-content a { color: var(--link); text-decoration: underline; }
-.item-content a:hover { color: var(--text-muted); }
+.item-content a { color: var(--teal); text-decoration: underline; }
+.item-content a:hover { color: var(--text); text-decoration: underline; }
 .item-content strong { font-weight: 600; }
 .item-content em { font-style: italic; }
 .item-content hr {
   border: none;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid var(--dusk);
   margin: 2rem 0;
 }
 
@@ -436,9 +459,12 @@ main {
   margin-bottom: 2rem;
 }
 .tag-page-header h1 {
-  font-size: var(--text-xl);
+  font-size: var(--text-2xl);
   font-weight: 500;
   letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
 }
 .back-link {
   font-size: var(--text-sm);
@@ -453,9 +479,12 @@ main {
   margin-bottom: 1.5rem;
 }
 .search-page-header h1 {
-  font-size: var(--text-xl);
+  font-size: var(--text-2xl);
   font-weight: 500;
   letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
 }
 .search-results-count {
   font-size: var(--text-xs);
@@ -496,17 +525,22 @@ main {
   }
   nav {
     position: sticky;
+    top: 0;
     height: auto;
-    padding: 0.75rem 1rem;
-    flex-wrap: wrap;
+    padding: 0.5rem 1rem;
+  }
+  .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
     gap: 0.5rem;
   }
-  .container {
-    padding: 0 1rem;
+  .nav-links {
+    width: 100%;
+    gap: 0.75rem;
+    flex-wrap: wrap;
   }
   main {
-    padding: 0 1rem;
-    padding-top: 64px;
+    padding: 1.5rem 1rem 4rem;
   }
   .card-grid {
     grid-template-columns: 1fr;
@@ -580,11 +614,13 @@ main {
 .stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
 
 /* Key claims block */
-.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; }
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; overflow: hidden; }
 .key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
 .key-claims ol { list-style: none; padding: 0; margin: 0; }
-.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); word-break: break-word; overflow-wrap: break-word; }
 .key-claims li:last-child { border-bottom: none; }
+.key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
+.key-claims a:hover { color: var(--text); }
 
 /* Relationship type pill */
 .rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
@@ -593,8 +629,9 @@ main {
 .related-section { margin-top: 2.5rem; }
 .related-group { margin-top: 1rem; }
 .related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
-.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); flex-wrap: wrap; }
 .related-entry:last-child { border-bottom: none; }
+.related-entry a { color: var(--teal); word-break: break-word; }
 .related-note { color: var(--text-muted); font-size: var(--text-xs); }
 
 /* Thread connector */
@@ -609,7 +646,7 @@ main {
 .featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4em; }
 .featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 .thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
-.thread-pill:hover { border-color: var(--text); text-decoration: none; }
+.thread-pill:hover { border-color: var(--teal); text-decoration: none; }
 .thread-pill-count { color: var(--text-muted); }
 .tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
 .tag-pill-link:hover { color: var(--text); text-decoration: none; }
@@ -639,54 +676,69 @@ main {
 """
 
 # ---------------------------------------------------------------------------
-# SVG icons — 16×16, stroke-based, teal (#2DD4BF)
+# SVG icons — stroke-based, teal (#00C3A5), multiple size variants
 # ---------------------------------------------------------------------------
 
-_SVG_ATTRS = 'width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#2DD4BF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"'
-
-# Note / Finding — document with corner fold
-ICON_NOTE = (
-    f'<svg xmlns="http://www.w3.org/2000/svg" {_SVG_ATTRS}>'
-    '<path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/>'
-    '<path d="M9 2v4h4"/>'
-    "</svg>"
+# SVG path data for each icon
+_ICON_NOTE_PATHS = (
+    '<path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/>'
 )
-
-# Thread — chain link (interlocked arcs)
-ICON_THREAD = (
-    f'<svg xmlns="http://www.w3.org/2000/svg" {_SVG_ATTRS}>'
+_ICON_THREAD_PATHS = (
     '<path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/>'
     '<path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/>'
-    "</svg>"
 )
-
-# Tag — price-tag shape with dot
-ICON_TAG = (
-    f'<svg xmlns="http://www.w3.org/2000/svg" {_SVG_ATTRS}>'
-    '<path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/>'
-    '<circle cx="6" cy="6" r="1"/>'
-    "</svg>"
-)
-
-# Search — magnifying glass
-ICON_SEARCH = (
-    f'<svg xmlns="http://www.w3.org/2000/svg" {_SVG_ATTRS}>'
-    '<circle cx="7" cy="7" r="4.5"/>'
-    '<path d="m10.5 10.5 3 3"/>'
-    "</svg>"
-)
-
-# GitHub — simplified octocat outline
-ICON_GITHUB = (
-    f'<svg xmlns="http://www.w3.org/2000/svg" {_SVG_ATTRS}>'
+_ICON_TAG_PATHS = '<path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/>'
+_ICON_SEARCH_PATHS = '<circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/>'
+_ICON_GITHUB_PATHS = (
     '<path d="M8 1.5C4.41 1.5 1.5 4.41 1.5 8c0 2.87 1.86 5.3 4.44 6.16.32.06.44-.14.44-.31'
     "v-1.09c-1.8.39-2.18-.87-2.18-.87-.3-.75-.72-.95-.72-.95-.59-.4.04-.4.04-.4.65.05 1 .67"
     " 1 .67.58 1 1.53.71 1.9.54.06-.42.23-.71.41-.87-1.44-.16-2.95-.72-2.95-3.2 0-.71.25-1.28"
     ".67-1.74-.07-.16-.29-.82.06-1.71 0 0 .55-.18 1.8.67a6.27 6.27 0 0 1 3.28 0c1.25-.85"
     " 1.8-.67 1.8-.67.35.89.13 1.55.06 1.71.42.46.67 1.03.67 1.74 0 2.49-1.51 3.04-2.96"
     ' 3.2.23.2.44.6.44 1.21v1.8c0 .17.12.37.44.31A6.5 6.5 0 0 0 14.5 8 6.5 6.5 0 0 0 8 1.5z"/>'
-    "</svg>"
 )
+
+
+def _make_svg(paths: str, size: int = 16) -> str:
+    """Generate a teal SVG icon at the given pixel size."""
+    return (
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="{size}" height="{size}" '
+        f'viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" '
+        f'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" '
+        f'style="flex-shrink:0">{paths}</svg>'
+    )
+
+
+# Nav icons (16px)
+ICON_NOTE = _make_svg(_ICON_NOTE_PATHS)
+ICON_THREAD = _make_svg(_ICON_THREAD_PATHS)
+ICON_TAG = _make_svg(_ICON_TAG_PATHS)
+ICON_SEARCH = _make_svg(_ICON_SEARCH_PATHS)
+ICON_GITHUB = _make_svg(_ICON_GITHUB_PATHS)
+
+# Page h1 icons (20px)
+ICON_NOTE_H1 = _make_svg(_ICON_NOTE_PATHS, 20)
+ICON_THREAD_H1 = _make_svg(_ICON_THREAD_PATHS, 20)
+ICON_TAG_H1 = _make_svg(_ICON_TAG_PATHS, 20)
+ICON_SEARCH_H1 = _make_svg(_ICON_SEARCH_PATHS, 20)
+
+# Section h2 icons (12px)
+ICON_NOTE_H2 = _make_svg(_ICON_NOTE_PATHS, 12)
+ICON_TAG_H2 = _make_svg(_ICON_TAG_PATHS, 12)
+ICON_SEARCH_H2 = _make_svg(_ICON_SEARCH_PATHS, 12)
+
+# Section name → icon mapping for h2 headers
+_SECTION_ICONS: dict[str, str] = {
+    "Research Question": ICON_SEARCH_H2,
+    "Findings": ICON_NOTE_H2,
+    "Methodology": ICON_NOTE_H2,
+    "Technical Architecture": ICON_NOTE_H2,
+    "Implementation Logic": ICON_NOTE_H2,
+    "Strategic Choice": ICON_NOTE_H2,
+    "Decision Log": ICON_NOTE_H2,
+    "Schema": ICON_NOTE_H2,
+    "Sources": ICON_TAG_H2,
+}
 
 # ---------------------------------------------------------------------------
 # HTML helpers
@@ -872,12 +924,16 @@ def autolink_html(html: str, source_refs: dict[str, str]) -> str:
         m = re.match(r"https?://([^/]+)", url)
         return m.group(1) if m else url
 
+    # Build reverse URL→name map so bare URLs can display their source title
+    url_to_name = {url: name for name, url in source_refs.items() if name and url}
+
     def autolink_bare_urls(html_text: str) -> str:
         url_pattern = re.compile(r"https://\S+")
 
         def replace_url(um: re.Match) -> str:
             url = um.group(0).rstrip(".,;)")
-            return f'<a href="{url}">{get_display_domain(url)}</a>'
+            display = escape(url_to_name[url]) if url in url_to_name else get_display_domain(url)
+            return f'<a href="{url}">{display}</a>'
 
         result = []
         last_end = 0
@@ -1473,7 +1529,7 @@ def build_landing(items: list[dict], threads: list[dict]) -> str:
         + f"""\
 <main>
   <div class="page-header">
-    <h1>Research</h1>
+    <h1>{ICON_NOTE_H1}Research</h1>
     <p class="page-subtitle">notes, findings, and threads</p>
   </div>
   {stats_html}
@@ -1516,7 +1572,7 @@ def build_browse(items: list[dict]) -> str:
         + f"""\
 <main>
   <div class="page-header">
-    <h1>Browse</h1>
+    <h1>{ICON_NOTE_H1}Browse</h1>
     <p class="page-subtitle">{count} items</p>
   </div>
   <div class="search-wrap">
@@ -1539,11 +1595,32 @@ def build_browse(items: list[dict]) -> str:
     )
 
 
+def _render_claim(text: str) -> str:
+    """Render a single claim string, converting markdown links to <a> tags."""
+
+    # Convert [title](url) markdown links to anchor tags without a full md parse
+    def _link_repl(m: re.Match) -> str:
+        title = m.group(1)
+        url = m.group(2)
+        return f'<a href="{url.replace(chr(34), "&quot;")}">{escape(title)}</a>'
+
+    # First escape HTML entities in the plain text portions, then apply links
+    # We do this by splitting on link patterns, escaping non-link parts
+    parts = []
+    last = 0
+    for m in re.finditer(r"\[([^\]]+)\]\((https?://[^)]+)\)", text):
+        parts.append(escape(text[last : m.start()]))
+        parts.append(_link_repl(m))
+        last = m.end()
+    parts.append(escape(text[last:]))
+    return "".join(parts)
+
+
 def _render_key_claims(meta_claims: list[str]) -> str:
     """Render key claims block from pre-extracted, clean claim sentences."""
     if not meta_claims:
         return ""
-    items_html = "".join(f"<li>{escape(c)}</li>\n" for c in meta_claims)
+    items_html = "".join(f"<li>{_render_claim(c)}</li>\n" for c in meta_claims)
     return (
         '<div class="key-claims">'
         '<div class="key-claims-label">key claims</div>'
@@ -1608,7 +1685,15 @@ def build_item_page(
         rendered = md(content)
         rendered = autolink_html(rendered, source_refs)
         rendered = _STRAY_CLOSE_TAGS_RE.sub("", rendered)
-        sections_html += f"<h2>{escape(section_name)}</h2>\n{rendered}\n"
+        icon = _SECTION_ICONS.get(section_name, ICON_NOTE_H2)
+        sections_html += f"<h2>{icon}{escape(section_name)}</h2>\n{rendered}\n"
+
+    # Render Sources section so links appear as proper <a> tags on the page
+    sources_text = item.get("_sources_text", "")
+    if sources_text:
+        rendered_sources = md(sources_text)
+        rendered_sources = _STRAY_CLOSE_TAGS_RE.sub("", rendered_sources)
+        sections_html += f"<h2>{ICON_TAG_H2}sources</h2>\n{rendered_sources}\n"
 
     related_html = _render_related(related or [])
 
@@ -1647,7 +1732,7 @@ def build_item_page(
     <span>/</span>
     <span>{escape(display_title)}</span>
   </div>
-  <h1 class="item-title">{escape(display_title)}</h1>
+  <h1 class="item-title">{ICON_NOTE_H1}{escape(display_title)}</h1>
   {subtitle_html}  <div class="meta-bar">
     <span>{item["added_str"]}</span>
     <span class="meta-sep">·</span>
@@ -1682,7 +1767,7 @@ def build_tag_page(tag: str, tag_items: list[dict]) -> str:
         + f"""\
 <main>
   <div class="tag-page-header">
-    <h1>Tagged: {escape(tag)}</h1>
+    <h1>{ICON_TAG_H1}Tagged: {escape(tag)}</h1>
     <p class="page-subtitle">{count} item{"s" if count != 1 else ""}</p>
     <a class="back-link" href="/Research/tags/">← all tags</a>
   </div>
@@ -1724,7 +1809,7 @@ def build_tags_index(tags_map: dict[str, list[dict]]) -> str:
         + f"""\
 <main>
   <div class="tag-page-header">
-    <h1>Tags</h1>
+    <h1>{ICON_TAG_H1}Tags</h1>
     <p class="page-subtitle">{len(sorted_tags)} tags</p>
   </div>
   <div class="search-wrap" style="margin-bottom:1.5rem">
@@ -1759,7 +1844,7 @@ def build_threads_listing(threads: list[dict]) -> str:
         + f"""\
 <main>
   <div class="page-header">
-    <h1>Threads</h1>
+    <h1>{ICON_THREAD_H1}Threads</h1>
     <p class="page-subtitle">{count} thread{"s" if count != 1 else ""}</p>
   </div>
   <div class="thread-list">
@@ -1800,7 +1885,7 @@ def build_thread_page(thread: dict) -> str:
     <span>/</span>
     <span>{escape(thread["title"])}</span>
   </div>
-  <h1 class="item-title">{escape(thread["title"])}</h1>
+  <h1 class="item-title">{ICON_THREAD_H1}{escape(thread["title"])}</h1>
   <p class="page-subtitle" style="margin-bottom:1.5rem">{len(items)} items</p>
   {tag_cluster_html}
   <div class="card-grid">
@@ -1821,7 +1906,7 @@ def build_search_page() -> str:
         + f"""\
 <main>
   <div class="search-page-header">
-    <h1>Search</h1>
+    <h1>{ICON_SEARCH_H1}Search</h1>
   </div>
   <div class="search-wrap">
     <input id="search-input" class="search-input" type="text"

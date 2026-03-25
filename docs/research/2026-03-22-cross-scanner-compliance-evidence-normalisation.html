@@ -10,19 +10,20 @@
   <style>
 :root {
   --bg:              #0d0d0d;
-  --surface:         #141414;
-  --surface-2:       #1c1c1c;
-  --border:          #2a2a2a;
-  --text:            #e8e8e8;
+  --surface:         #0f1115;
+  --surface-2:       #161b22;
+  --border:          #252b33;
+  --text:            #e6e6e6;
   --text-muted:      #666;
-  --accent:          #e8e8e8;
+  --accent:          #e6e6e6;
   --accent-dim:      #333;
-  --tag-bg:          #1e1e1e;
+  --tag-bg:          #161b22;
   --tag-text:        #999;
-  --tag-active-bg:   #e8e8e8;
-  --tag-active-text: #0d0d0d;
-  --link:            #E8006F;
-  --teal:            #2DD4BF;
+  --tag-active-bg:   #e6e6e6;
+  --tag-active-text: #0f1115;
+  --link:            #00C3A5;
+  --teal:            #00C3A5;
+  --dusk:            #E8A1A8;
 
   --text-xs:   0.7rem;
   --text-sm:   0.8rem;
@@ -43,6 +44,7 @@ body {
   font-size: var(--text-base);
   line-height: 1.6;
   letter-spacing: 0.02em;
+  overflow-x: clip;
 }
 
 a { color: var(--text); text-decoration: none; }
@@ -77,11 +79,11 @@ nav {
   letter-spacing: 0.05em;
   display: inline-flex;
   align-items: center;
-  gap: 0.35em;
+  gap: 0.5em;
 }
 .nav-links {
   display: flex;
-  gap: 1.5rem;
+  gap: 1.75rem;
 }
 .nav-links a {
   font-size: var(--text-sm);
@@ -89,7 +91,7 @@ nav {
   letter-spacing: 0.05em;
   display: inline-flex;
   align-items: center;
-  gap: 0.35em;
+  gap: 0.5em;
 }
 .nav-links a:hover { color: var(--text); text-decoration: none; }
 .nav-links a.active { color: var(--teal); }
@@ -110,6 +112,9 @@ main {
   font-weight: 500;
   line-height: 1.2;
   letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
 }
 .page-subtitle {
   font-size: var(--text-sm);
@@ -133,7 +138,7 @@ main {
   border-radius: 0;
   letter-spacing: 0.02em;
 }
-.search-input:focus { border-color: var(--accent); }
+.search-input:focus { border-color: var(--teal); }
 .search-input::placeholder { color: var(--text-muted); }
 
 /* Tag filter bar */
@@ -199,13 +204,15 @@ main {
   gap: 0.6rem;
   text-decoration: none;
   color: var(--text);
+  min-width: 0;
 }
-.card:hover { border-color: var(--accent); text-decoration: none; }
+.card:hover { border-color: var(--teal); text-decoration: none; }
 .card-title {
   font-size: var(--text-base);
   font-weight: 500;
   line-height: 1.3;
   letter-spacing: 0.02em;
+  word-break: break-word;
 }
 .card-meta {
   font-size: var(--text-xs);
@@ -217,6 +224,8 @@ main {
   color: var(--text-muted);
   line-height: 1.5;
   flex: 1;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 .card-tags {
   display: flex;
@@ -245,12 +254,18 @@ main {
 .breadcrumb span { margin: 0 0.4em; }
 
 .item-title {
-  font-size: var(--text-xl);
+  font-size: var(--text-2xl);
   font-weight: 500;
   line-height: 1.2;
   letter-spacing: 0.02em;
   margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4em;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
+.item-title svg { flex-shrink: 0; margin-top: 0.2em; }
 
 .meta-bar {
   font-size: var(--text-xs);
@@ -279,6 +294,9 @@ main {
   border-bottom: 1px solid var(--border);
   padding-bottom: 0.5rem;
   font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
 }
 .item-content h3 {
   font-size: var(--text-base);
@@ -292,17 +310,20 @@ main {
   margin-top: 1.2rem;
   letter-spacing: 0.02em;
 }
-.item-content p { margin-top: 0.8rem; }
+.item-content p { margin-top: 0.8rem; word-break: break-word; overflow-wrap: break-word; }
 .item-content ul, .item-content ol {
   margin-top: 0.8rem;
   padding-left: 1.5rem;
 }
-.item-content li { margin-top: 0.3rem; }
+.item-content li { margin-top: 0.3rem; word-break: break-word; overflow-wrap: break-word; }
 .item-content table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 1rem;
   font-size: var(--text-xs);
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
 }
 .item-content th, .item-content td {
   border: 1px solid var(--border);
@@ -321,6 +342,7 @@ main {
   padding: 0.1em 0.3em;
   font-family: 'IBM Plex Mono', monospace;
   font-size: 0.9em;
+  word-break: break-all;
 }
 .item-content pre {
   background: var(--surface-2);
@@ -328,21 +350,22 @@ main {
   padding: 1rem;
   overflow-x: auto;
   margin-top: 1rem;
+  max-width: 100%;
 }
-.item-content pre code { background: none; padding: 0; }
+.item-content pre code { background: none; padding: 0; word-break: normal; }
 .item-content blockquote {
   border-left: 2px solid var(--border);
   padding-left: 1rem;
   color: var(--text-muted);
   margin-top: 0.8rem;
 }
-.item-content a { color: var(--link); text-decoration: underline; }
-.item-content a:hover { color: var(--text-muted); }
+.item-content a { color: var(--teal); text-decoration: underline; }
+.item-content a:hover { color: var(--text); text-decoration: underline; }
 .item-content strong { font-weight: 600; }
 .item-content em { font-style: italic; }
 .item-content hr {
   border: none;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid var(--dusk);
   margin: 2rem 0;
 }
 
@@ -373,9 +396,12 @@ main {
   margin-bottom: 2rem;
 }
 .tag-page-header h1 {
-  font-size: var(--text-xl);
+  font-size: var(--text-2xl);
   font-weight: 500;
   letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
 }
 .back-link {
   font-size: var(--text-sm);
@@ -390,9 +416,12 @@ main {
   margin-bottom: 1.5rem;
 }
 .search-page-header h1 {
-  font-size: var(--text-xl);
+  font-size: var(--text-2xl);
   font-weight: 500;
   letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
 }
 .search-results-count {
   font-size: var(--text-xs);
@@ -433,17 +462,22 @@ main {
   }
   nav {
     position: sticky;
+    top: 0;
     height: auto;
-    padding: 0.75rem 1rem;
-    flex-wrap: wrap;
+    padding: 0.5rem 1rem;
+  }
+  .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
     gap: 0.5rem;
   }
-  .container {
-    padding: 0 1rem;
+  .nav-links {
+    width: 100%;
+    gap: 0.75rem;
+    flex-wrap: wrap;
   }
   main {
-    padding: 0 1rem;
-    padding-top: 64px;
+    padding: 1.5rem 1rem 4rem;
   }
   .card-grid {
     grid-template-columns: 1fr;
@@ -517,11 +551,13 @@ main {
 .stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
 
 /* Key claims block */
-.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; }
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; overflow: hidden; }
 .key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
 .key-claims ol { list-style: none; padding: 0; margin: 0; }
-.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); word-break: break-word; overflow-wrap: break-word; }
 .key-claims li:last-child { border-bottom: none; }
+.key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
+.key-claims a:hover { color: var(--text); }
 
 /* Relationship type pill */
 .rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
@@ -530,8 +566,9 @@ main {
 .related-section { margin-top: 2.5rem; }
 .related-group { margin-top: 1rem; }
 .related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
-.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); flex-wrap: wrap; }
 .related-entry:last-child { border-bottom: none; }
+.related-entry a { color: var(--teal); word-break: break-word; }
 .related-note { color: var(--text-muted); font-size: var(--text-xs); }
 
 /* Thread connector */
@@ -546,7 +583,7 @@ main {
 .featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4em; }
 .featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 .thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
-.thread-pill:hover { border-color: var(--text); text-decoration: none; }
+.thread-pill:hover { border-color: var(--teal); text-decoration: none; }
 .thread-pill-count { color: var(--text-muted); }
 .tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
 .tag-pill-link:hover { color: var(--text); text-decoration: none; }
@@ -579,12 +616,12 @@ main {
         <body>
 <nav>
   <div class="nav-inner">
-    <a class="nav-brand" href="/Research/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#2DD4BF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Research</a>
+    <a class="nav-brand" href="/Research/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Research</a>
     <div class="nav-links">
-      <a href="/Research/threads.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#2DD4BF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>Threads</a>
-      <a href="/Research/tags/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#2DD4BF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>Tags</a>
-      <a href="/Research/search.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#2DD4BF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Search</a>
-      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#2DD4BF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M8 1.5C4.41 1.5 1.5 4.41 1.5 8c0 2.87 1.86 5.3 4.44 6.16.32.06.44-.14.44-.31v-1.09c-1.8.39-2.18-.87-2.18-.87-.3-.75-.72-.95-.72-.95-.59-.4.04-.4.04-.4.65.05 1 .67 1 .67.58 1 1.53.71 1.9.54.06-.42.23-.71.41-.87-1.44-.16-2.95-.72-2.95-3.2 0-.71.25-1.28.67-1.74-.07-.16-.29-.82.06-1.71 0 0 .55-.18 1.8.67a6.27 6.27 0 0 1 3.28 0c1.25-.85 1.8-.67 1.8-.67.35.89.13 1.55.06 1.71.42.46.67 1.03.67 1.74 0 2.49-1.51 3.04-2.96 3.2.23.2.44.6.44 1.21v1.8c0 .17.12.37.44.31A6.5 6.5 0 0 0 14.5 8 6.5 6.5 0 0 0 8 1.5z"/></svg>GitHub</a>
+      <a href="/Research/threads.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>Threads</a>
+      <a href="/Research/tags/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>Tags</a>
+      <a href="/Research/search.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M8 1.5C4.41 1.5 1.5 4.41 1.5 8c0 2.87 1.86 5.3 4.44 6.16.32.06.44-.14.44-.31v-1.09c-1.8.39-2.18-.87-2.18-.87-.3-.75-.72-.95-.72-.95-.59-.4.04-.4.04-.4.65.05 1 .67 1 .67.58 1 1.53.71 1.9.54.06-.42.23-.71.41-.87-1.44-.16-2.95-.72-2.95-3.2 0-.71.25-1.28.67-1.74-.07-.16-.29-.82.06-1.71 0 0 .55-.18 1.8.67a6.27 6.27 0 0 1 3.28 0c1.25-.85 1.8-.67 1.8-.67.35.89.13 1.55.06 1.71.42.46.67 1.03.67 1.74 0 2.49-1.51 3.04-2.96 3.2.23.2.44.6.44 1.21v1.8c0 .17.12.37.44.31A6.5 6.5 0 0 0 14.5 8 6.5 6.5 0 0 0 8 1.5z"/></svg>GitHub</a>
     </div>
   </div>
 </nav>
@@ -594,7 +631,7 @@ main {
     <span>/</span>
     <span>Cross-Scanner Compliance Evidence and Waiver Normalisation in GitHub Actions</span>
   </div>
-  <h1 class="item-title">Cross-Scanner Compliance Evidence and Waiver Normalisation in GitHub Actions</h1>
+  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Cross-Scanner Compliance Evidence and Waiver Normalisation in GitHub Actions</h1>
     <div class="meta-bar">
     <span>2026-03-22</span>
     <span class="meta-sep">·</span>
@@ -606,46 +643,46 @@ main {
   </div>
   
   <div class="item-content">
-    <h2>Research Question</h2>
+    <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
 <p>How should an organisation running multiple compliance scanners in GitHub Actions normalise evidence, severity, waiver handling, and developer-facing output so that heterogeneous tools behave like one coherent compliance system rather than a collection of unrelated failing checks?</p>
 
-<h2>Findings</h2>
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Findings</h2>
 <h3>Executive Summary</h3>
 <ul>
-<li>[inference] A coherent multi-scanner compliance system in GitHub Actions should normalize every scanner result into a shared SARIF-aligned evidence contract and keep waivers in a separate organization-owned registry, because the retrieved tools expose incompatible severity models and incompatible suppression syntaxes. Sources: <a href="https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html">docs.oasis-open.org</a> ; <a href="https://docs.github.com/en/code-security/reference/code-scanning/sarif-files/sarif-support-for-code-scanning">docs.github.com</a> ; <a href="https://semgrep.dev/docs/ignoring-files-folders-code">semgrep.dev</a> ; <a href="https://www.checkov.io/2.Basics/Suppressing%20and%20Skipping%20Policies.html">www.checkov.io</a> ; <a href="https://the-guild.dev/graphql/inspector/docs/products/action">the-guild.dev</a>
-<li>[inference] The recommended normalization strategy is to split severity into presentation level, business severity, and merge-gate policy instead of forcing GraphQL Inspector, Spectral, Checkov, Semgrep, and GitHub code scanning into one ordinal ladder. Sources: <a href="https://docs.github.com/en/code-security/concepts/code-scanning/about-code-scanning-alerts">docs.github.com</a> ; <a href="https://docs.stoplight.io/docs/spectral/branches/develop/9ffa04e052cc1-spectral-cli">docs.stoplight.io</a> ; <a href="https://www.checkov.io/2.Basics/CLI%20Command%20Reference.html">www.checkov.io</a> ; <a href="https://the-guild.dev/graphql/inspector/docs/products/action">the-guild.dev</a>
-<li>[inference] GitHub code scanning should host only SARIF-capable, location-aware findings with stable identifiers, while check runs, annotations, and job summaries should carry scanner outputs that do not naturally behave like persistent source-code alerts. Sources: <a href="https://docs.github.com/en/code-security/concepts/code-scanning/about-code-scanning-alerts">docs.github.com</a> ; <a href="https://docs.github.com/en/code-security/how-tos/scan-code-for-vulnerabilities/integrate-with-existing-tools/uploading-a-sarif-file-to-github">docs.github.com</a> ; <a href="https://the-guild.dev/graphql/inspector/docs/products/action">the-guild.dev</a> ; <a href="https://docs.sqlfluff.com/en/stable/reference/cli.html">docs.sqlfluff.com</a>
-<li>[inference] The practical implementation path is to build adapters first, then stabilize fingerprinting and categories, then enforce central waiver expiry, and only then make normalized policy outcomes blocking for merges. Sources: <a href="https://docs.github.com/en/code-security/reference/code-scanning/sarif-files/sarif-support-for-code-scanning">docs.github.com</a> ; <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-22-compliance-scanning-gh-actions.md">github.com</a>
+<li>[inference] A coherent multi-scanner compliance system in GitHub Actions should normalize every scanner result into a shared SARIF-aligned evidence contract and keep waivers in a separate organization-owned registry, because the retrieved tools expose incompatible severity models and incompatible suppression syntaxes. Sources: <a href="https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html">docs.oasis-open.org</a> ; <a href="https://docs.github.com/en/code-security/reference/code-scanning/sarif-files/sarif-support-for-code-scanning">x] GitHub Docs — SARIF support for code scanning</a> ; <a href="https://semgrep.dev/docs/ignoring-files-folders-code">x] Semgrep docs — Ignoring files, folders, and code</a> ; <a href="https://www.checkov.io/2.Basics/Suppressing%20and%20Skipping%20Policies.html">x] Checkov docs — Suppressing and Skipping Policies</a> ; <a href="https://the-guild.dev/graphql/inspector/docs/products/action">the-guild.dev</a>
+<li>[inference] The recommended normalization strategy is to split severity into presentation level, business severity, and merge-gate policy instead of forcing GraphQL Inspector, Spectral, Checkov, Semgrep, and GitHub code scanning into one ordinal ladder. Sources: <a href="https://docs.github.com/en/code-security/concepts/code-scanning/about-code-scanning-alerts">x] GitHub Docs — About code scanning alerts</a> ; <a href="https://docs.stoplight.io/docs/spectral/branches/develop/9ffa04e052cc1-spectral-cli">x] Spectral docs — CLI</a> ; <a href="https://www.checkov.io/2.Basics/CLI%20Command%20Reference.html">x] Checkov docs — Command Line Interface (CLI) reference</a> ; <a href="https://the-guild.dev/graphql/inspector/docs/products/action">the-guild.dev</a>
+<li>[inference] GitHub code scanning should host only SARIF-capable, location-aware findings with stable identifiers, while check runs, annotations, and job summaries should carry scanner outputs that do not naturally behave like persistent source-code alerts. Sources: <a href="https://docs.github.com/en/code-security/concepts/code-scanning/about-code-scanning-alerts">x] GitHub Docs — About code scanning alerts</a> ; <a href="https://docs.github.com/en/code-security/how-tos/scan-code-for-vulnerabilities/integrate-with-existing-tools/uploading-a-sarif-file-to-github">x] GitHub Docs — Uploading a SARIF file to GitHub</a> ; <a href="https://the-guild.dev/graphql/inspector/docs/products/action">x] GraphQL Inspector docs — GitHub Action</a> ; <a href="https://docs.sqlfluff.com/en/stable/reference/cli.html">docs.sqlfluff.com</a>
+<li>[inference] The practical implementation path is to build adapters first, then stabilize fingerprinting and categories, then enforce central waiver expiry, and only then make normalized policy outcomes blocking for merges. Sources: <a href="https://docs.github.com/en/code-security/reference/code-scanning/sarif-files/sarif-support-for-code-scanning">x] GitHub Docs — SARIF support for code scanning</a> ; <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-22-compliance-scanning-gh-actions.md">github.com</a>
 </ul>
 <h3>Key Findings</h3>
 <ol>
 <li>[inference] <strong>Confidence: high.</strong> An organization should treat SARIF as the shared interchange backbone for multi-scanner compliance evidence because OASIS designed it for cross-tool aggregation and GitHub already ingests SARIF 2.1.0 into code scanning without requiring a custom user interface. Sources: <a href="https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html">docs.oasis-open.org</a> ; <a href="https://docs.github.com/en/code-security/reference/code-scanning/sarif-files/sarif-support-for-code-scanning">docs.github.com</a>
-<li>[inference] <strong>Confidence: high.</strong> A single normalized severity field is the wrong abstraction for a heterogeneous scanner estate, because GitHub code scanning uses <code>Error</code> or <code>Warning</code> or <code>Note</code>, Spectral uses lint severities, Checkov uses thresholdable policy severities, and GraphQL Inspector signals breaking-change impact instead of security risk. Sources: <a href="https://docs.github.com/en/code-security/concepts/code-scanning/about-code-scanning-alerts">docs.github.com</a> ; <a href="https://docs.stoplight.io/docs/spectral/branches/develop/9ffa04e052cc1-spectral-cli">docs.stoplight.io</a> ; <a href="https://www.checkov.io/2.Basics/CLI%20Command%20Reference.html">www.checkov.io</a> ; <a href="https://the-guild.dev/graphql/inspector/docs/products/action">the-guild.dev</a>
-<li>[inference] <strong>Confidence: high.</strong> The minimum viable normalized evidence record should preserve stable rule identity, artifact location, fingerprint, presentation level, business severity, workflow category, and policy version, because those are the fields that enable deduplication, routing, auditability, and user interface placement across scanner boundaries. Sources: <a href="https://docs.github.com/en/code-security/reference/code-scanning/sarif-files/sarif-support-for-code-scanning">docs.github.com</a> ; <a href="https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html">docs.oasis-open.org</a> ; <a href="https://semgrep.dev/docs/semgrep-appsec-platform/json-and-sarif">semgrep.dev</a>
-<li>[inference] <strong>Confidence: high.</strong> Waivers should be keyed to the normalized finding identity in a central registry with approver, justification, expiry, and policy-version metadata, because scanner-native suppressions such as <code>nosemgrep</code>, <code>checkov:skip</code>, and <code>noqa</code> are useful locally but do not provide a uniform audit contract. Sources: <a href="https://semgrep.dev/docs/ignoring-files-folders-code">semgrep.dev</a> ; <a href="https://www.checkov.io/2.Basics/Suppressing%20and%20Skipping%20Policies.html">www.checkov.io</a> ; <a href="https://docs.sqlfluff.com/en/latest/configuration/ignoring_configuration.html">docs.sqlfluff.com</a> ; <a href="https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html">docs.oasis-open.org</a>
-<li>[inference] <strong>Confidence: high.</strong> CodeQL, Semgrep, Checkov, and Spectral findings that already fit SARIF should be uploaded into GitHub code scanning under distinct categories, because GitHub otherwise treats same-tool same-category uploads as replacements and because location-aware alerts benefit from the native security tab and pull request surfaces. Sources: <a href="https://docs.github.com/en/code-security/how-tos/scan-code-for-vulnerabilities/integrate-with-existing-tools/uploading-a-sarif-file-to-github">docs.github.com</a> ; <a href="https://www.checkov.io/8.Outputs/SARIF.html">www.checkov.io</a> ; <a href="https://semgrep.dev/docs/semgrep-appsec-platform/json-and-sarif">semgrep.dev</a> ; <a href="https://docs.stoplight.io/docs/spectral/branches/develop/9ffa04e052cc1-spectral-cli">docs.stoplight.io</a>
+<li>[inference] <strong>Confidence: high.</strong> A single normalized severity field is the wrong abstraction for a heterogeneous scanner estate, because GitHub code scanning uses <code>Error</code> or <code>Warning</code> or <code>Note</code>, Spectral uses lint severities, Checkov uses thresholdable policy severities, and GraphQL Inspector signals breaking-change impact instead of security risk. Sources: <a href="https://docs.github.com/en/code-security/concepts/code-scanning/about-code-scanning-alerts">x] GitHub Docs — About code scanning alerts</a> ; <a href="https://docs.stoplight.io/docs/spectral/branches/develop/9ffa04e052cc1-spectral-cli">x] Spectral docs — CLI</a> ; <a href="https://www.checkov.io/2.Basics/CLI%20Command%20Reference.html">x] Checkov docs — Command Line Interface (CLI) reference</a> ; <a href="https://the-guild.dev/graphql/inspector/docs/products/action">the-guild.dev</a>
+<li>[inference] <strong>Confidence: high.</strong> The minimum viable normalized evidence record should preserve stable rule identity, artifact location, fingerprint, presentation level, business severity, workflow category, and policy version, because those are the fields that enable deduplication, routing, auditability, and user interface placement across scanner boundaries. Sources: <a href="https://docs.github.com/en/code-security/reference/code-scanning/sarif-files/sarif-support-for-code-scanning">x] GitHub Docs — SARIF support for code scanning</a> ; <a href="https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html">docs.oasis-open.org</a> ; <a href="https://semgrep.dev/docs/semgrep-appsec-platform/json-and-sarif">semgrep.dev</a>
+<li>[inference] <strong>Confidence: high.</strong> Waivers should be keyed to the normalized finding identity in a central registry with approver, justification, expiry, and policy-version metadata, because scanner-native suppressions such as <code>nosemgrep</code>, <code>checkov:skip</code>, and <code>noqa</code> are useful locally but do not provide a uniform audit contract. Sources: <a href="https://semgrep.dev/docs/ignoring-files-folders-code">x] Semgrep docs — Ignoring files, folders, and code</a> ; <a href="https://www.checkov.io/2.Basics/Suppressing%20and%20Skipping%20Policies.html">x] Checkov docs — Suppressing and Skipping Policies</a> ; <a href="https://docs.sqlfluff.com/en/latest/configuration/ignoring_configuration.html">x] SQLFluff docs — Ignoring Errors and Files</a> ; <a href="https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html">docs.oasis-open.org</a>
+<li>[inference] <strong>Confidence: high.</strong> CodeQL, Semgrep, Checkov, and Spectral findings that already fit SARIF should be uploaded into GitHub code scanning under distinct categories, because GitHub otherwise treats same-tool same-category uploads as replacements and because location-aware alerts benefit from the native security tab and pull request surfaces. Sources: <a href="https://docs.github.com/en/code-security/how-tos/scan-code-for-vulnerabilities/integrate-with-existing-tools/uploading-a-sarif-file-to-github">x] GitHub Docs — Uploading a SARIF file to GitHub</a> ; <a href="https://www.checkov.io/8.Outputs/SARIF.html">x] Checkov docs — SARIF output</a> ; <a href="https://semgrep.dev/docs/semgrep-appsec-platform/json-and-sarif">x] Semgrep docs — JavaScript Object Notation (JSON) and SARIF fields</a> ; <a href="https://docs.stoplight.io/docs/spectral/branches/develop/9ffa04e052cc1-spectral-cli">docs.stoplight.io</a>
 <li>[inference] <strong>Confidence: medium.</strong> GraphQL Inspector should remain a check-and-annotation adapter instead of being forced into the same alert channel as every other tool, because its documented model is schema-diff feedback with <code>fail-on-breaking</code> and label-based approval rather than SARIF-based persistent alert lifecycle. Source: <a href="https://the-guild.dev/graphql/inspector/docs/products/action">the-guild.dev</a>
-<li>[inference] <strong>Confidence: medium.</strong> SQLFluff should start as a check-run or job-summary signal until the team proves that a maintained converter is worth the effort, because the retrieved official SQLFluff documentation emphasizes rule selection and <code>noqa</code> suppression rather than native SARIF output. Sources: <a href="https://docs.sqlfluff.com/en/latest/configuration/ignoring_configuration.html">docs.sqlfluff.com</a> ; <a href="https://docs.sqlfluff.com/en/stable/reference/cli.html">docs.sqlfluff.com</a>
-<li>[inference] <strong>Confidence: high.</strong> The safest rollout sequence is normalize first, observe duplicate and category stability second, centralize waivers third, and enforce blocking policy last, because fingerprint churn or weak mappings create developer distrust when they are introduced directly as hard merge gates. Sources: <a href="https://docs.github.com/en/code-security/reference/code-scanning/sarif-files/sarif-support-for-code-scanning">docs.github.com</a> ; <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-22-compliance-scanning-gh-actions.md">github.com</a>
+<li>[inference] <strong>Confidence: medium.</strong> SQLFluff should start as a check-run or job-summary signal until the team proves that a maintained converter is worth the effort, because the retrieved official SQLFluff documentation emphasizes rule selection and <code>noqa</code> suppression rather than native SARIF output. Sources: <a href="https://docs.sqlfluff.com/en/latest/configuration/ignoring_configuration.html">x] SQLFluff docs — Ignoring Errors and Files</a> ; <a href="https://docs.sqlfluff.com/en/stable/reference/cli.html">docs.sqlfluff.com</a>
+<li>[inference] <strong>Confidence: high.</strong> The safest rollout sequence is normalize first, observe duplicate and category stability second, centralize waivers third, and enforce blocking policy last, because fingerprint churn or weak mappings create developer distrust when they are introduced directly as hard merge gates. Sources: <a href="https://docs.github.com/en/code-security/reference/code-scanning/sarif-files/sarif-support-for-code-scanning">x] GitHub Docs — SARIF support for code scanning</a> ; <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-22-compliance-scanning-gh-actions.md">github.com</a>
 </ol>
 <h3>Assumptions</h3>
 <ul>
-<li>[assumption] The organization can keep normalized <code>rule_id</code> values and workflow categories stable across tool upgrades. Justification: GitHub's duplicate-prevention logic depends on stable identifiers, but the retrieved documentation cannot guarantee internal governance discipline. Sources: <a href="https://docs.github.com/en/code-security/reference/code-scanning/sarif-files/sarif-support-for-code-scanning">docs.github.com</a> ; <a href="https://docs.github.com/en/code-security/how-tos/scan-code-for-vulnerabilities/integrate-with-existing-tools/uploading-a-sarif-file-to-github">docs.github.com</a>
-<li>[assumption] The waiver registry can be implemented as either a repository-governed manifest or an external system, provided it is queryable in workflows and keeps historical state. Justification: the public sources define interoperable result and alert constraints, but they do not prescribe a single storage architecture for waivers. Sources: <a href="https://docs.github.com/en/code-security/concepts/code-scanning/about-code-scanning-alerts">docs.github.com</a> ; <a href="https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html">docs.oasis-open.org</a>
+<li>[assumption] The organization can keep normalized <code>rule_id</code> values and workflow categories stable across tool upgrades. Justification: GitHub's duplicate-prevention logic depends on stable identifiers, but the retrieved documentation cannot guarantee internal governance discipline. Sources: <a href="https://docs.github.com/en/code-security/reference/code-scanning/sarif-files/sarif-support-for-code-scanning">x] GitHub Docs — SARIF support for code scanning</a> ; <a href="https://docs.github.com/en/code-security/how-tos/scan-code-for-vulnerabilities/integrate-with-existing-tools/uploading-a-sarif-file-to-github">docs.github.com</a>
+<li>[assumption] The waiver registry can be implemented as either a repository-governed manifest or an external system, provided it is queryable in workflows and keeps historical state. Justification: the public sources define interoperable result and alert constraints, but they do not prescribe a single storage architecture for waivers. Sources: <a href="https://docs.github.com/en/code-security/concepts/code-scanning/about-code-scanning-alerts">x] GitHub Docs — About code scanning alerts</a> ; <a href="https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html">docs.oasis-open.org</a>
 </ul>
 <h3>Analysis</h3>
 <ul>
 <li>[inference] The central design choice is to normalize evidence more aggressively than user interface behavior. This works because a shared record can drive several surfaces at once, while a shared surface cannot recover semantics that were discarded during ingestion. Sources: <a href="https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html">docs.oasis-open.org</a> ; <a href="https://docs.github.com/en/code-security/concepts/code-scanning/about-code-scanning-alerts">docs.github.com</a>
-<li>[inference] Keeping <code>presentation_level</code>, <code>business_severity</code>, and <code>merge_gate</code> separate turns severity into a translation layer instead of a lossy compromise, which is the only way to accommodate both policy scanners and schema-change scanners under one governance model. Sources: <a href="https://docs.github.com/en/code-security/concepts/code-scanning/about-code-scanning-alerts">docs.github.com</a> ; <a href="https://the-guild.dev/graphql/inspector/docs/products/action">the-guild.dev</a> ; <a href="https://docs.stoplight.io/docs/spectral/branches/develop/9ffa04e052cc1-spectral-cli">docs.stoplight.io</a> ; <a href="https://www.checkov.io/2.Basics/CLI%20Command%20Reference.html">www.checkov.io</a>
-<li>[inference] Centralizing waivers reduces long-term compliance drift because expiry, approver identity, and policy-version traceability become first-class metadata instead of comments hidden inside unrelated source files. Sources: <a href="https://www.checkov.io/2.Basics/Suppressing%20and%20Skipping%20Policies.html">www.checkov.io</a> ; <a href="https://semgrep.dev/docs/ignoring-files-folders-code">semgrep.dev</a> ; <a href="https://docs.sqlfluff.com/en/latest/configuration/ignoring_configuration.html">docs.sqlfluff.com</a>
-<li>[inference] The platform should prefer native GitHub surfaces when they match the scanner's semantics and avoid forced conversions when they do not, because every adapter choice trades implementation simplicity against user-context quality. Sources: <a href="https://docs.github.com/en/code-security/concepts/code-scanning/about-code-scanning-alerts">docs.github.com</a> ; <a href="https://the-guild.dev/graphql/inspector/docs/products/action">the-guild.dev</a> ; <a href="https://docs.sqlfluff.com/en/stable/reference/cli.html">docs.sqlfluff.com</a>
+<li>[inference] Keeping <code>presentation_level</code>, <code>business_severity</code>, and <code>merge_gate</code> separate turns severity into a translation layer instead of a lossy compromise, which is the only way to accommodate both policy scanners and schema-change scanners under one governance model. Sources: <a href="https://docs.github.com/en/code-security/concepts/code-scanning/about-code-scanning-alerts">x] GitHub Docs — About code scanning alerts</a> ; <a href="https://the-guild.dev/graphql/inspector/docs/products/action">x] GraphQL Inspector docs — GitHub Action</a> ; <a href="https://docs.stoplight.io/docs/spectral/branches/develop/9ffa04e052cc1-spectral-cli">x] Spectral docs — CLI</a> ; <a href="https://www.checkov.io/2.Basics/CLI%20Command%20Reference.html">www.checkov.io</a>
+<li>[inference] Centralizing waivers reduces long-term compliance drift because expiry, approver identity, and policy-version traceability become first-class metadata instead of comments hidden inside unrelated source files. Sources: <a href="https://www.checkov.io/2.Basics/Suppressing%20and%20Skipping%20Policies.html">x] Checkov docs — Suppressing and Skipping Policies</a> ; <a href="https://semgrep.dev/docs/ignoring-files-folders-code">x] Semgrep docs — Ignoring files, folders, and code</a> ; <a href="https://docs.sqlfluff.com/en/latest/configuration/ignoring_configuration.html">docs.sqlfluff.com</a>
+<li>[inference] The platform should prefer native GitHub surfaces when they match the scanner's semantics and avoid forced conversions when they do not, because every adapter choice trades implementation simplicity against user-context quality. Sources: <a href="https://docs.github.com/en/code-security/concepts/code-scanning/about-code-scanning-alerts">x] GitHub Docs — About code scanning alerts</a> ; <a href="https://the-guild.dev/graphql/inspector/docs/products/action">x] GraphQL Inspector docs — GitHub Action</a> ; <a href="https://docs.sqlfluff.com/en/stable/reference/cli.html">docs.sqlfluff.com</a>
 </ul>
 <h3>Risks, Gaps, and Uncertainties</h3>
 <ul>
-<li>[fact] GitHub code scanning only shows pull request alerts when the identified lines are present in the diff, so repository-level governance findings without precise locations will need a different surface. Sources: <a href="https://docs.github.com/en/code-security/concepts/code-scanning/about-code-scanning-alerts">docs.github.com</a> ; <a href="https://docs.github.com/en/code-security/reference/code-scanning/sarif-files/sarif-support-for-code-scanning">docs.github.com</a>
+<li>[fact] GitHub code scanning only shows pull request alerts when the identified lines are present in the diff, so repository-level governance findings without precise locations will need a different surface. Sources: <a href="https://docs.github.com/en/code-security/concepts/code-scanning/about-code-scanning-alerts">x] GitHub Docs — About code scanning alerts</a> ; <a href="https://docs.github.com/en/code-security/reference/code-scanning/sarif-files/sarif-support-for-code-scanning">docs.github.com</a>
 <li>[inference] Fingerprint instability or category drift will create duplicate or disappearing alerts, which will undermine trust before the platform's governance model matures. Source: <a href="https://docs.github.com/en/code-security/reference/code-scanning/sarif-files/sarif-support-for-code-scanning">docs.github.com</a>
-<li>[inference] The public sources leave open whether maintaining custom SARIF converters for non-native tools is cheaper than keeping mixed surfaces. That trade-off depends on internal engineering capacity and desired user experience consistency. Sources: <a href="https://the-guild.dev/graphql/inspector/docs/products/action">the-guild.dev</a> ; <a href="https://docs.sqlfluff.com/en/stable/reference/cli.html">docs.sqlfluff.com</a>
-<li>[inference] Inline suppressions remain a governance risk even under a central registry if workflows do not reconcile source-level suppressions back to the registry on every run. Sources: <a href="https://semgrep.dev/docs/ignoring-files-folders-code">semgrep.dev</a> ; <a href="https://www.checkov.io/2.Basics/Suppressing%20and%20Skipping%20Policies.html">www.checkov.io</a> ; <a href="https://docs.sqlfluff.com/en/latest/configuration/ignoring_configuration.html">docs.sqlfluff.com</a>
+<li>[inference] The public sources leave open whether maintaining custom SARIF converters for non-native tools is cheaper than keeping mixed surfaces. That trade-off depends on internal engineering capacity and desired user experience consistency. Sources: <a href="https://the-guild.dev/graphql/inspector/docs/products/action">x] GraphQL Inspector docs — GitHub Action</a> ; <a href="https://docs.sqlfluff.com/en/stable/reference/cli.html">docs.sqlfluff.com</a>
+<li>[inference] Inline suppressions remain a governance risk even under a central registry if workflows do not reconcile source-level suppressions back to the registry on every run. Sources: <a href="https://semgrep.dev/docs/ignoring-files-folders-code">x] Semgrep docs — Ignoring files, folders, and code</a> ; <a href="https://www.checkov.io/2.Basics/Suppressing%20and%20Skipping%20Policies.html">x] Checkov docs — Suppressing and Skipping Policies</a> ; <a href="https://docs.sqlfluff.com/en/latest/configuration/ignoring_configuration.html">docs.sqlfluff.com</a>
 </ul>
 <h3>Open Questions</h3>
 <ul>
@@ -656,9 +693,29 @@ main {
 <h3>Output</h3>
 <ul>
 <li>[fact] <strong>Type:</strong> knowledge. Source: <a href="https://github.com/davidamitchell/Research/blob/main/research-prompt.md">github.com</a>
-<li>[inference] <strong>Description:</strong> This item defines a hub-and-adapter operating model for multi-scanner compliance in GitHub Actions, centered on a SARIF-aligned evidence schema, a separate waiver registry, split severity dimensions, and layered GitHub presentation surfaces. Sources: <a href="https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html">docs.oasis-open.org</a> ; <a href="https://docs.github.com/en/code-security/reference/code-scanning/sarif-files/sarif-support-for-code-scanning">docs.github.com</a> ; <a href="https://docs.github.com/en/code-security/concepts/code-scanning/about-code-scanning-alerts">docs.github.com</a>
-<li>[fact] <strong>Three key sources:</strong> <a href="https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html">docs.oasis-open.org</a> ; <a href="https://docs.github.com/en/code-security/reference/code-scanning/sarif-files/sarif-support-for-code-scanning">docs.github.com</a> ; <a href="https://docs.github.com/en/code-security/concepts/code-scanning/about-code-scanning-alerts">docs.github.com</a>
+<li>[inference] <strong>Description:</strong> This item defines a hub-and-adapter operating model for multi-scanner compliance in GitHub Actions, centered on a SARIF-aligned evidence schema, a separate waiver registry, split severity dimensions, and layered GitHub presentation surfaces. Sources: <a href="https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html">docs.oasis-open.org</a> ; <a href="https://docs.github.com/en/code-security/reference/code-scanning/sarif-files/sarif-support-for-code-scanning">x] GitHub Docs — SARIF support for code scanning</a> ; <a href="https://docs.github.com/en/code-security/concepts/code-scanning/about-code-scanning-alerts">docs.github.com</a>
+<li>[fact] <strong>Three key sources:</strong> <a href="https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html">docs.oasis-open.org</a> ; <a href="https://docs.github.com/en/code-security/reference/code-scanning/sarif-files/sarif-support-for-code-scanning">x] GitHub Docs — SARIF support for code scanning</a> ; <a href="https://docs.github.com/en/code-security/concepts/code-scanning/about-code-scanning-alerts">docs.github.com</a>
 </ul>
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
+<ul>
+<li>[x] GitHub Docs — About code scanning alerts: https://docs.github.com/en/code-security/concepts/code-scanning/about-code-scanning-alerts</li>
+<li>[x] GitHub Docs — SARIF support for code scanning: https://docs.github.com/en/code-security/reference/code-scanning/sarif-files/sarif-support-for-code-scanning</li>
+<li>[x] GitHub Docs — Uploading a SARIF file to GitHub: https://docs.github.com/en/code-security/how-tos/scan-code-for-vulnerabilities/integrate-with-existing-tools/uploading-a-sarif-file-to-github</li>
+<li>[x] Organization for the Advancement of Structured Information Standards (OASIS) SARIF 2.1.0 specification: https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html</li>
+<li>[x] Semgrep docs — Ignoring files, folders, and code: https://semgrep.dev/docs/ignoring-files-folders-code</li>
+<li>[x] Semgrep docs — JavaScript Object Notation (JSON) and SARIF fields: https://semgrep.dev/docs/semgrep-appsec-platform/json-and-sarif</li>
+<li>[x] Checkov docs — Command Line Interface (CLI) reference: https://www.checkov.io/2.Basics/CLI%20Command%20Reference.html</li>
+<li>[x] Checkov docs — Suppressing and Skipping Policies: https://www.checkov.io/2.Basics/Suppressing%20and%20Skipping%20Policies.html</li>
+<li>[x] Checkov docs — SARIF output: https://www.checkov.io/8.Outputs/SARIF.html</li>
+<li>[x] Spectral docs — CLI: https://docs.stoplight.io/docs/spectral/branches/develop/9ffa04e052cc1-spectral-cli</li>
+<li>[x] Spectral repository: https://github.com/stoplightio/spectral</li>
+<li>[x] GraphQL Inspector docs — GitHub Action: https://the-guild.dev/graphql/inspector/docs/products/action</li>
+<li>[x] SQLFluff docs — Ignoring Errors and Files: https://docs.sqlfluff.com/en/latest/configuration/ignoring_configuration.html</li>
+<li>[x] SQLFluff docs — CLI reference: https://docs.sqlfluff.com/en/stable/reference/cli.html</li>
+<li>[x] Prior related item — <code>Research/completed/2026-03-22-compliance-scanning-gh-actions.md</code>: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-22-compliance-scanning-gh-actions.md</li>
+</ul>
+<hr />
 
 
   </div>
