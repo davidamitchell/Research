@@ -635,7 +635,7 @@ main {
 .related-note { color: var(--text-muted); font-size: var(--text-xs); }
 
 /* Thread connector */
-.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; padding: 0.5rem 0; }
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--dusk); letter-spacing: 0.05em; padding: 0.5rem 0; }
 
 /* Thread card variant */
 .thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
