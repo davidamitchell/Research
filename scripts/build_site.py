@@ -681,21 +681,14 @@ main {
 
 # SVG path data for each icon
 _ICON_NOTE_PATHS = (
-    '<path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/>'
-    '<path d="M9 2v4h4"/>'
+    '<path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/>'
 )
 _ICON_THREAD_PATHS = (
     '<path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/>'
     '<path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/>'
 )
-_ICON_TAG_PATHS = (
-    '<path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/>'
-    '<circle cx="6" cy="6" r="1"/>'
-)
-_ICON_SEARCH_PATHS = (
-    '<circle cx="7" cy="7" r="4.5"/>'
-    '<path d="m10.5 10.5 3 3"/>'
-)
+_ICON_TAG_PATHS = '<path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/>'
+_ICON_SEARCH_PATHS = '<circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/>'
 _ICON_GITHUB_PATHS = (
     '<path d="M8 1.5C4.41 1.5 1.5 4.41 1.5 8c0 2.87 1.86 5.3 4.44 6.16.32.06.44-.14.44-.31'
     "v-1.09c-1.8.39-2.18-.87-2.18-.87-.3-.75-.72-.95-.72-.95-.59-.4.04-.4.04-.4.65.05 1 .67"
@@ -939,11 +932,7 @@ def autolink_html(html: str, source_refs: dict[str, str]) -> str:
 
         def replace_url(um: re.Match) -> str:
             url = um.group(0).rstrip(".,;)")
-            # Use source ref title when available, otherwise fall back to domain
-            if url in url_to_name:
-                display = escape(url_to_name[url])
-            else:
-                display = get_display_domain(url)
+            display = escape(url_to_name[url]) if url in url_to_name else get_display_domain(url)
             return f'<a href="{url}">{display}</a>'
 
         result = []
@@ -1608,6 +1597,7 @@ def build_browse(items: list[dict]) -> str:
 
 def _render_claim(text: str) -> str:
     """Render a single claim string, converting markdown links to <a> tags."""
+
     # Convert [title](url) markdown links to anchor tags without a full md parse
     def _link_repl(m: re.Match) -> str:
         title = m.group(1)
