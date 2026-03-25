@@ -668,11 +668,14 @@ main {
 
 /* Threads listing */
 .thread-list { display: flex; flex-direction: column; gap: 0; }
-.thread-entry { padding: 1rem; border: 1px solid var(--border); border-bottom: none; text-decoration: none; color: var(--text); display: block; }
-.thread-entry:last-child { border-bottom: 1px solid var(--border); }
-.thread-entry:hover { background: var(--surface); text-decoration: none; }
-.thread-entry-title { font-size: var(--text-base); font-weight: 500; }
-.thread-entry-meta { font-size: var(--text-xs); color: var(--text-muted); margin-top: 0.25rem; letter-spacing: 0.05em; }
+.thread-card-link { text-decoration: none; color: var(--text); display: block; }
+.thread-card-link:hover .thread-card { background: var(--surface-2); }
+.thread-card { background: var(--surface); border: 1px solid var(--border); padding: 1.25rem 1.5rem; }
+.thread-card-title { font-size: var(--text-base); font-weight: 600; margin-bottom: 0.4rem; }
+.thread-card-meta { font-size: var(--text-xs); color: var(--text-muted); margin-bottom: 0.6rem; letter-spacing: 0.05em; }
+.thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.6rem; }
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.55; }
+.thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 0; }
 """
 
 # ---------------------------------------------------------------------------
@@ -1212,14 +1215,14 @@ def detect_threads(items: list[dict]) -> list[dict]:
             }
         )
 
-    # Implicit threads: items sharing 3+ tags
+    # Implicit threads: items sharing 2+ tags
     explicit_slugs = {item["slug"] for t in threads for item in t["items"]}
     remaining = [item for item in items if item["slug"] not in explicit_slugs]
 
     # Find dense tag clusters
     processed: set[str] = set()
     for item in remaining:
-        if item["slug"] in processed or len(item["tags"]) < 3:
+        if item["slug"] in processed or len(item["tags"]) < 2:
             continue
         item_tags = set(item["tags"])
         cluster = [item]
@@ -1227,7 +1230,7 @@ def detect_threads(items: list[dict]) -> list[dict]:
             if other["slug"] == item["slug"] or other["slug"] in processed:
                 continue
             shared = item_tags & set(other["tags"])
-            if len(shared) >= 3:
+            if len(shared) >= 2:
                 cluster.append(other)
         if len(cluster) >= 3:
             for c in cluster:
@@ -1826,17 +1829,39 @@ def build_tags_index(tags_map: dict[str, list[dict]]) -> str:
     )
 
 
+def _thread_date_range(items: list[dict]) -> str:
+    """Return 'YYYY-MM-DD → YYYY-MM-DD' or single date if all the same."""
+    dates = sorted(item["added"] for item in items)
+    if dates[0] == dates[-1]:
+        return dates[0].isoformat()
+    return f"{dates[0].isoformat()} → {dates[-1].isoformat()}"
+
+
 def build_threads_listing(threads: list[dict]) -> str:
     """Generate docs/threads.html — all threads."""
     entries_html = ""
-    for t in threads:
-        kind_label = "explicit" if t["kind"] == "explicit" else "tag cluster"
-        entries_html += (
-            f'<a class="thread-entry" href="/Research/threads/{t["slug"]}.html">'
-            f'<div class="thread-entry-title">{escape(t["title"])}</div>'
-            f'<div class="thread-entry-meta">{len(t["items"])} items · {kind_label}</div>'
-            f"</a>\n"
+    for idx, t in enumerate(threads):
+        n = len(t["items"])
+        date_range = _thread_date_range(t["items"])
+        meta = f"{n} item{'s' if n != 1 else ''} · {date_range}"
+        tag_pills = "".join(
+            f'<span class="tag">{escape(tag)}</span>'
+            for tag in t["tag_cluster"]
         )
+        excerpt = t["items"][0]["question_excerpt"]
+        if len(t["items"][0]["question"]) > 200:
+            excerpt = excerpt.rstrip() + "…"
+        entries_html += (
+            f'<a class="thread-card-link" href="/Research/threads/{t["slug"]}.html">'
+            f'<div class="thread-card">'
+            f'<div class="thread-card-title">{escape(t["title"])}</div>'
+            f'<div class="thread-card-meta">{escape(meta)}</div>'
+            + (f'<div class="thread-card-tags">{tag_pills}</div>' if tag_pills else "")
+            + (f'<div class="thread-card-excerpt">{escape(excerpt)}</div>' if excerpt else "")
+            + f"</div></a>\n"
+        )
+        if idx < len(threads) - 1:
+            entries_html += '<hr class="thread-card-hr">\n'
     count = len(threads)
     return (
         html_head("Threads — Research")

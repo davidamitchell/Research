@@ -605,11 +605,14 @@ main {
 
 /* Threads listing */
 .thread-list { display: flex; flex-direction: column; gap: 0; }
-.thread-entry { padding: 1rem; border: 1px solid var(--border); border-bottom: none; text-decoration: none; color: var(--text); display: block; }
-.thread-entry:last-child { border-bottom: 1px solid var(--border); }
-.thread-entry:hover { background: var(--surface); text-decoration: none; }
-.thread-entry-title { font-size: var(--text-base); font-weight: 500; }
-.thread-entry-meta { font-size: var(--text-xs); color: var(--text-muted); margin-top: 0.25rem; letter-spacing: 0.05em; }
+.thread-card-link { text-decoration: none; color: var(--text); display: block; }
+.thread-card-link:hover .thread-card { background: var(--surface-2); }
+.thread-card { background: var(--surface); border: 1px solid var(--border); padding: 1.25rem 1.5rem; }
+.thread-card-title { font-size: var(--text-base); font-weight: 600; margin-bottom: 0.4rem; }
+.thread-card-meta { font-size: var(--text-xs); color: var(--text-muted); margin-bottom: 0.6rem; letter-spacing: 0.05em; }
+.thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.6rem; }
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.55; }
+.thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 0; }
 </style>
 
         </head>
@@ -634,10 +637,17 @@ main {
     <span>mobile / memory-system / capture</span>
   </div>
   <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>mobile / memory-system / capture</h1>
-  <p class="page-subtitle" style="margin-bottom:1.5rem">5 items</p>
+  <p class="page-subtitle" style="margin-bottom:1.5rem">8 items</p>
   <div class="featured-pills" style="margin-bottom:1.5rem"><a class="tag-pill-link tag" href="/Research/tags/mobile.html">mobile</a><a class="tag-pill-link tag" href="/Research/tags/memory-system.html">memory-system</a><a class="tag-pill-link tag" href="/Research/tags/capture.html">capture</a></div>
   <div class="card-grid">
-    <a class="card" href="/Research/research/2026-03-08-telegram-bot-memory-capture-retrieval.html" data-title="telegram bot as mobile memory capture and retrieval channel" data-question="can a telegram bot serve as a low-friction mobile capture and retrieval surface for the memory-system? specifically: (a) message received → file written to github repo via api, (b) messages starting w" data-tags="mobile,bot,capture,retrieval,memory-system,self-hosted">
+    <a class="card" href="/Research/research/2026-03-02-ios-shortcuts-research.html" data-title="ios shortcuts for research capture and query" data-question="what ios shortcuts workflows provide the most value for a personal research system hosted on github — covering both low-friction research capture (adding a url or idea to the backlog from anywhere on" data-tags="ios,shortcuts,mobile,capture,interface,delivery">
+  <div class="card-title">iOS Shortcuts for research capture and query</div>
+  <div class="card-meta">2026-03-02</div>
+  <div class="card-tags"><span class="tag">ios</span><span class="tag">shortcuts</span><span class="tag">mobile</span><span class="tag">capture</span><span class="tag">interface</span><span class="tag">delivery</span></div>
+  <div class="card-excerpt">What iOS Shortcuts workflows provide the most value for a personal research system hosted on GitHub — covering both low-friction research capture (adding a URL or idea to the backlog from anywhere on…</div>
+</a>
+<div class="thread-connector">↓</div>
+<a class="card" href="/Research/research/2026-03-08-telegram-bot-memory-capture-retrieval.html" data-title="telegram bot as mobile memory capture and retrieval channel" data-question="can a telegram bot serve as a low-friction mobile capture and retrieval surface for the memory-system? specifically: (a) message received → file written to github repo via api, (b) messages starting w" data-tags="mobile,bot,capture,retrieval,memory-system,self-hosted">
   <div class="card-title">Telegram bot as mobile memory capture and retrieval channel</div>
   <div class="card-meta">2026-03-08</div>
   <div class="card-tags"><span class="tag">mobile</span><span class="tag">bot</span><span class="tag">capture</span><span class="tag">retrieval</span><span class="tag">memory-system</span><span class="tag">self-hosted</span></div>
@@ -665,11 +675,25 @@ main {
   <div class="card-excerpt">Can an iOS Shortcut write a timestamped `.md` file directly to a GitHub repo via the Contents API (`PUT /repos/{owner}/{repo}/contents/{path}`) with a stored Personal Access Token (PAT), with enough r…</div>
 </a>
 <div class="thread-connector">↓</div>
+<a class="card" href="/Research/research/2026-03-08-inbox-folder-capture-triage-pattern.html" data-title="inbox folder pattern" data-question="does removing the folder-selection decision from the capture path meaningfully reduce friction? design and evaluate an `inbox/` folder pattern where: (a) any capture tool writes unstructured notes to" data-tags="capture,memory-system">
+  <div class="card-title">Inbox folder pattern</div>
+  <div class="card-meta">2026-03-08</div>
+  <div class="card-tags"><span class="tag">capture</span><span class="tag">memory-system</span></div>
+  <div class="card-excerpt">Does removing the folder-selection decision from the capture path meaningfully reduce friction? Design and evaluate an `inbox/` folder pattern where: (a) any capture tool writes unstructured notes to…</div>
+</a>
+<div class="thread-connector">↓</div>
 <a class="card" href="/Research/research/2026-03-08-claude-ios-mcp-remote-integration.html" data-title="claude for ios" data-question="does the claude ios app support mcp connections to a remote server? if so: (a) what transport is supported (http/sse vs stdio), (b) does it require the same `.mcp.json` config as claude desktop, (c) w" data-tags="mobile,claude,ios,mcp,memory-system,self-hosted">
   <div class="card-title">Claude for iOS</div>
   <div class="card-meta">2026-03-08</div>
   <div class="card-tags"><span class="tag">mobile</span><span class="tag">claude</span><span class="tag">ios</span><span class="tag">mcp</span><span class="tag">memory-system</span><span class="tag">self-hosted</span></div>
   <div class="card-excerpt">Does the Claude iOS app support MCP connections to a remote server? If so: (a) what transport is supported (HTTP/SSE vs stdio), (b) does it require the same `.mcp.json` config as Claude Desktop, (c) w…</div>
+</a>
+<div class="thread-connector">↓</div>
+<a class="card" href="/Research/research/2026-03-08-chatgpt-actions-memory-integration.html" data-title="chatgpt actions and custom gpts" data-question="can a chatgpt custom generative pre-trained transformer (gpt) be configured with actions that: (a) call a self-hosted http endpoint to add a memory, (b) call `search_brain` before responding to surfac" data-tags="mobile,openai,memory-system">
+  <div class="card-title">ChatGPT Actions and custom GPTs</div>
+  <div class="card-meta">2026-03-08</div>
+  <div class="card-tags"><span class="tag">mobile</span><span class="tag">openai</span><span class="tag">memory-system</span></div>
+  <div class="card-excerpt">Can a ChatGPT custom Generative Pre-trained Transformer (GPT) be configured with Actions that: (a) call a self-hosted HTTP endpoint to add a memory, (b) call `search_brain` before responding to surfac…</div>
 </a>
 
   </div>
