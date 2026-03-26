@@ -635,7 +635,7 @@ main {
 .related-note { color: var(--text-muted); font-size: var(--text-xs); }
 
 /* Thread connector */
-.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; padding: 0.5rem 0; }
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--dusk); letter-spacing: 0.05em; padding: 0.5rem 0; }
 
 /* Thread card variant */
 .thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
@@ -1695,6 +1695,7 @@ def build_item_page(
     sources_text = item.get("_sources_text", "")
     if sources_text:
         rendered_sources = md(sources_text)
+        rendered_sources = autolink_html(rendered_sources, source_refs)
         rendered_sources = _STRAY_CLOSE_TAGS_RE.sub("", rendered_sources)
         sections_html += f"<h2>{ICON_TAG_H2}sources</h2>\n{rendered_sources}\n"
 
