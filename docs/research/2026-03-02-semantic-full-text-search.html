@@ -572,7 +572,7 @@ main {
 .related-note { color: var(--text-muted); font-size: var(--text-xs); }
 
 /* Thread connector */
-.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; padding: 0.5rem 0; }
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--dusk); letter-spacing: 0.05em; padding: 0.5rem 0; }
 
 /* Thread card variant */
 .thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
@@ -716,13 +716,13 @@ main {
 <ul>
 <li>[x] <code>Research/completed/2026-02-27-indexing-and-tracking-method.md</code> — prior decision: JSON + YAML front-matter; deferred vector search (Key Finding 5)</li>
 <li>[x] <code>Research/completed/2026-03-01-context-mode-llm-context-compression.md</code> — hybrid BM25+Model2Vec+sqlite-vec+RRF pattern (Key Finding 6)</li>
-<li>[x] <code>Research/backlog/2026-02-27-local-database.md</code> — database technology options including sqlite-vec, ChromaDB, LanceDB (now in completed/)</li>
-<li>[x] sqlite-vec: https://github.com/asg017/sqlite-vec — vector search extension for SQLite</li>
-<li>[x] SQLite FTS5: https://www.sqlite.org/fts5.html — full-text search</li>
-<li>[x] sentence-transformers (all-MiniLM-L6-v2): https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2</li>
-<li>[x] Model2Vec (potion-base-8M): https://github.com/MinishLab/model2vec — small, fast, static sentence embeddings</li>
-<li>[ ] <code>tantivy</code> Python bindings: https://github.com/quickwit-oss/tantivy — Rust-based BM25 search library</li>
-<li>[ ] LanceDB: https://lancedb.github.io/lancedb/ — embedded vector store with full-text search</li>
+<li>[x] <code>Research/backlog/2026-02-27-local-database.md</code> — database technology options including sqlite-vec, ChromaDB, <a href="https://lancedb.github.io/lancedb/">LanceDB</a> (now in completed/)</li>
+<li>[<a href="https://github.com/asg017/sqlite-vec">x] sqlite-vec</a>: <a href="https://github.com/asg017/sqlite-vec">x] sqlite-vec</a> — vector search extension for SQLite</li>
+<li>[<a href="https://www.sqlite.org/fts5.html">x] SQLite FTS5</a>: <a href="https://www.sqlite.org/fts5.html">x] SQLite FTS5</a> — full-text search</li>
+<li>[<a href="https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2">x] sentence-transformers (all-MiniLM-L6-v2)</a>: <a href="https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2">huggingface.co</a>
+<li>[<a href="https://github.com/MinishLab/model2vec">x] Model2Vec (potion-base-8M)</a>: <a href="https://github.com/MinishLab/model2vec">x] Model2Vec (potion-base-8M)</a> — small, fast, static sentence embeddings</li>
+<li>[ ] <code>tantivy</code> Python bindings: <a href="https://github.com/quickwit-oss/tantivy">`tantivy` Python bindings</a> — Rust-based BM25 search library</li>
+<li>[ ] LanceDB: <a href="https://lancedb.github.io/lancedb/">LanceDB</a> — embedded vector store with full-text search</li>
 </ul>
 <hr />
 
