@@ -6,35 +6,34 @@ name: Research Loop
 # the GitHub Copilot CLI. Each Copilot invocation is a fresh session (new context
 # window), matching the Ralph Wiggum pattern.
 #
-# Commits go directly to main — no pull requests.
+# Commits go directly to main -- no pull requests.
 #
 # Required repository secrets:
-#   COPILOT_GITHUB_TOKEN — PAT with Copilot access; mapped to GITHUB_TOKEN so the
-#     Copilot CLI can authenticate. Settings → Secrets → New repository secret.
-#   TAVILY_API_KEY — Tavily web search API key; used by the tavily-mcp MCP server
+#   COPILOT_GITHUB_TOKEN -- PAT with Copilot access; mapped to GITHUB_TOKEN so the
+#     Copilot CLI can authenticate. Settings -> Secrets -> New repository secret.
+#   TAVILY_API_KEY -- Tavily web search API key; used by the tavily-mcp MCP server
 #     (see .github/mcp.json). Without this, all Tavily searches fail silently.
-#   YOUTUBE_DATA_API — YouTube Data API key; used by src/fetchers/youtube.py to
+#   YOUTUBE_DATA_API -- YouTube Data API key; used by src/fetchers/youtube.py to
 #     fetch transcripts and metadata. Without this, YouTube fetches fail silently.
 #
 # Safety controls (see ADR-0004):
 #   - Job-level timeout: 90 minutes hard ceiling per run.
 #   - Per-run cap: scheduled runs process at most 3 items; dispatch default is 1.
-#   - Absolute iteration ceiling: HARD_MAX_ITERATIONS (10) — stops regardless of
-#     MAX_ITEMS to prevent runaway loops from configuration errors.
-#   - Failure limit: 2 consecutive Copilot failures abort the run immediately.
-#     Rate limit hits are NOT counted as failures — they break the loop cleanly.
+#   - Absolute iteration ceiling: HARD_MAX_ITERATIONS (10).
+#   - Failure limit: 2 consecutive Copilot failures abort the run.
+#     Rate limit hits are NOT counted as failures -- they break the loop cleanly.
 #   - Inter-iteration sleep: 30 s between iterations.
 #   - No cancel-in-progress: a running loop is never killed by a new trigger.
 #
 # Trigger options:
-#   1. Manual: Actions tab → "Research Loop" → Run workflow → set max_items
+#   1. Manual: Actions tab -> "Research Loop" -> Run workflow -> set max_items
 #   2. Scheduled: runs automatically on weekday mornings (processes 3 items)
 
 on:
   workflow_dispatch:
     inputs:
       max_items:
-        description: "Max items to process (1–5). Defaults to 1 for safety."
+        description: "Max items to process (1-5). Defaults to 1 for safety."
         required: false
         default: "1"
         type: choice
@@ -46,7 +45,7 @@ on:
           - "5"
 
   schedule:
-    # Weekdays at 07:00 UTC — runs after the skills sync (Monday 06:00 UTC)
+    # Weekdays at 07:00 UTC -- runs after the skills sync (Monday 06:00 UTC)
     - cron: "0 7 * * 1-5"
 
 # Only one research loop runs at a time. Don't cancel in-progress runs.
@@ -124,10 +123,10 @@ jobs:
           ITERATION=0
           CONSECUTIVE_FAILURES=0
 
-          # Temp file to capture copilot CLI output for rate-limit detection.
-          # Output is tee'd so it still streams live to the Actions log.
+          # Temp files cleaned up on exit.
           COPILOT_OUT=$(mktemp)
-          trap 'rm -f "$COPILOT_OUT"' EXIT
+          INJECTED_PROMPT=$(mktemp)
+          trap 'rm -f "$COPILOT_OUT" "$INJECTED_PROMPT"' EXIT
 
           while true; do
             # ---------------------------------------------------------------- #
@@ -162,53 +161,80 @@ jobs:
             # Sync with remote                                                  #
             # ---------------------------------------------------------------- #
             if ! git pull --rebase origin main; then
-              echo "::error::git pull --rebase failed — possible conflict or network issue. Stopping loop."
+              echo "::error::git pull --rebase failed -- possible conflict or network issue. Stopping loop."
               exit 1
             fi
 
             # ---------------------------------------------------------------- #
-            # Backlog check                                                     #
+            # Pick next item (pure code -- zero LLM calls)                     #
             # ---------------------------------------------------------------- #
-            BACKLOG_COUNT=$(find Research/backlog -name '*.md' -not -name 'README.md' | wc -l | tr -d ' ')
+            # Applies priority rules: in-progress first, then backlog by
+            # priority/blocks/date. Returns JSON context or {} if nothing to do.
+            PICK=$(python -m src.main research pick)
+            PICK_FILENAME=$(python3 -c "
+import sys, json
+print(json.loads(sys.argv[1]).get('filename', ''))
+" "$PICK")
 
-            if [ "$BACKLOG_COUNT" -eq 0 ]; then
+            if [ -z "$PICK_FILENAME" ]; then
               echo "Backlog is empty. Nothing more to do."
               break
             fi
 
-            echo "Backlog items remaining: $BACKLOG_COUNT"
+            PICK_STATUS=$(python3 -c "
+import sys, json
+print(json.loads(sys.argv[1])['status'])
+" "$PICK")
+            echo "Selected item: $PICK_FILENAME (status: $PICK_STATUS)"
+
+            # ---------------------------------------------------------------- #
+            # Start item if it is still in the backlog                         #
+            # ---------------------------------------------------------------- #
+            if [ "$PICK_STATUS" = "backlog" ]; then
+              echo "Starting backlog item: $PICK_FILENAME"
+              python -m src.main research start "$PICK_FILENAME"
+            fi
+
+            # ---------------------------------------------------------------- #
+            # Inject pre-computed context into the prompt                      #
+            # ---------------------------------------------------------------- #
+            # Eliminates the agent's discovery phase (item selection, frontmatter
+            # parsing, status/review_count checks) -- those were 8-15 LLM calls.
+            # Python handles the substitution to avoid bash escaping issues with
+            # backticks and special characters in the markdown context block.
+            python3 -c "
+import sys, json
+pick = json.loads(sys.argv[1])
+prompt = open('research-prompt.md').read()
+print(prompt.replace('{{ITEM_CONTEXT}}', pick['context_block']))
+" "$PICK" > "$INJECTED_PROMPT"
+
             echo ""
             echo "========================================"
             echo "  Research iteration $((ITERATION + 1)) of $MAX_ITEMS"
+            echo "  Item: $PICK_FILENAME"
             echo "========================================"
             echo ""
 
             # ---------------------------------------------------------------- #
             # Run Copilot session                                               #
             # ---------------------------------------------------------------- #
-            # Tee output to $COPILOT_OUT so we can inspect it for rate-limit
-            # messages after the session exits. pipefail means the pipe exits
-            # non-zero if copilot exits non-zero, so the if-branch is correct.
+            # Tee output to $COPILOT_OUT for rate-limit detection.
+            # pipefail propagates a non-zero Copilot exit through the pipe.
             # shellcheck disable=SC2094
-            if copilot -p "$(cat research-prompt.md)" \
+            if copilot -p "$(cat "$INJECTED_PROMPT")" \
                 --autopilot \
                 --allow-all 2>&1 | tee "$COPILOT_OUT"; then
               CONSECUTIVE_FAILURES=0
             else
               # ------------------------------------------------------------ #
               # Distinguish rate-limit errors from genuine failures.          #
-              #                                                                #
               # Rate limits are a capacity constraint, not a code error.      #
               # Retrying immediately is useless (3-hour cooldown). Counting   #
               # them as consecutive failures wastes the failure budget and    #
               # causes the job to abort with exit 1 on the next attempt.     #
-              #                                                                #
-              # When rate-limited: clean state, break cleanly (exit 0).      #
-              # When genuinely failed: existing consecutive-failure logic.    #
               # ------------------------------------------------------------ #
               if grep -qi "rate limit" "$COPILOT_OUT"; then
-                # Parse the suggested wait duration from the message, e.g.
-                # "Please try again in 3 hours" or "try again in 30 minutes".
                 WAIT_HOURS=$(grep -oi 'try again in [0-9]\+ hour' "$COPILOT_OUT" | grep -o '[0-9]\+' || true)
                 WAIT_MINS=$(grep -oi 'try again in [0-9]\+ minute' "$COPILOT_OUT" | grep -o '[0-9]\+' || true)
                 if [ -n "$WAIT_HOURS" ]; then
@@ -218,22 +244,19 @@ jobs:
                 else
                   COOLDOWN_MSG="cooldown duration not parsed from message"
                 fi
-                echo "::warning::Copilot rate limit hit ($COOLDOWN_MSG). Stopping loop — re-trigger when quota resets."
-                # Clean any partial writes the session left behind.
+                echo "::warning::Copilot rate limit hit ($COOLDOWN_MSG). Stopping loop -- re-trigger when quota resets."
                 if ! git diff --quiet || ! git diff --cached --quiet; then
                   echo "::warning::Dirty working tree/index after rate-limited session. Discarding uncommitted changes."
                   git reset --hard HEAD
                   git clean -fd
                 fi
-                # Push any commits the agent completed before hitting the limit.
                 git push origin main || true
                 break
               fi
 
-              # Not a rate limit — treat as a genuine session failure.
+              # Not a rate limit -- treat as a genuine session failure.
               CONSECUTIVE_FAILURES=$((CONSECUTIVE_FAILURES + 1))
               echo "::warning::Copilot session failed (consecutive failures: $CONSECUTIVE_FAILURES/$FAILURE_THRESHOLD)"
-              # A failed session may have left partial writes on disk.
               # Use reset --hard (not checkout -- .) so staged index changes
               # are also cleared; otherwise the next git pull --rebase fails
               # with "index contains uncommitted changes".
@@ -268,7 +291,9 @@ jobs:
             # ---------------------------------------------------------------- #
             # Inter-iteration sleep                                             #
             # ---------------------------------------------------------------- #
-            if [ "$ITERATION" -lt "$MAX_ITEMS" ] && [ "$BACKLOG_COUNT" -gt 1 ]; then
+            # Sleep unconditionally between iterations; if the pick is empty
+            # next time we will break before doing any real work.
+            if [ "$ITERATION" -lt "$MAX_ITEMS" ]; then
               echo "Sleeping ${INTER_ITERATION_SLEEP}s before next iteration..."
               sleep "$INTER_ITERATION_SLEEP"
             fi
