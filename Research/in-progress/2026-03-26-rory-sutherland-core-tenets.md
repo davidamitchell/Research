@@ -247,13 +247,13 @@ The research question decomposes into five primary branches, each branching into
 
 **Narrative removed; reasoning distilled to structure:**
 
-The evidence from primary sources converges on a single underlying claim: the dominant logic of modern large organisations (finance-led, data-driven, efficiency-oriented) that systematically destroy value by excluding from consideration anything that cannot be quickly and cheaply measured. Sutherland's tenets are not independent ideas; they are applications of one root diagnosis to different domains.
+[inference] The evidence from primary sources converges on a single underlying claim: the dominant logic of modern large organisations (finance-led, data-driven, efficiency-oriented) systematically destroys value by excluding from consideration anything that cannot be quickly and cheaply measured. Sutherland's tenets are not independent ideas; they are applications of one root diagnosis to different domains.
 
 The psycho-logic tenet is the epistemological foundation. If human value is determined by perception rather than objective function, then all downstream prescriptions follow: reframing is valid; pricing signals are real; bureaucratic compliance functions produce the wrong outcomes; customer contact is a high-value moment rather than a cost.
 
 The anti-bureaucracy argument does not require unique evidence: Pournelle's iron law provides the mechanism, and Sutherland's examples (procurement, compliance, HR) are applications of it. The claim that finance has colonised business strategy is well-evidenced across his primary sources and confirmed by the two completed related items in this repository.
 
-The weakest link in the reasoning is: Sutherland asserts that counterintuitive solutions outperform conventional ones, but he argues this from analogy and selective examples. His own acknowledgement that "behavioral science improves the odds; it doesn't determine outcomes" is honest about this.
+[inference] The weakest link in the reasoning is: Sutherland asserts that counterintuitive solutions outperform conventional ones, but he argues this from analogy and selective examples. His own acknowledgement that "behavioral science improves the odds; it doesn't determine outcomes" is honest about this.
 
 ---
 
@@ -287,7 +287,7 @@ One unresolved tension noted: Sutherland champions perception-driven value creat
 
 **Organisational lens:** Sutherland's anti-bureaucracy argument connects to a strand of organisational theory that advocates for mission-led structures over compliance-led ones. Gary Hamel's concept of "the management tax" (https://www.mckinsey.com/capabilities/people-and-organizational-performance/our-insights/the-future-of-management) describes the same pathology: overhead that consumes resources without creating customer value. [inference] Sutherland draws on this tradition whether or not he cites it directly; the structural parallel reinforces that his anti-bureaucracy diagnosis is not idiosyncratic opinion but a named pattern in management literature.
 
-**Regulatory/risk lens:** One gap: Sutherland largely dismisses compliance functions as bureaucratic overhead. But some compliance requirements (financial regulation, data protection, safety standards) exist because markets failed in their absence. His argument has most force in contexts where compliance is internally-generated risk aversion rather than externally mandated. This distinction is not one he makes explicitly.
+**Regulatory/risk lens:** [inference] Sutherland's anti-bureaucracy argument has most force in contexts where compliance is internally-generated risk aversion rather than externally mandated. Some compliance requirements (financial regulation, data protection, safety standards) exist because markets failed in their absence; his diagnosis applies less cleanly to those cases. This distinction is not one he makes explicitly.
 
 ---
 
@@ -295,7 +295,7 @@ One unresolved tension noted: Sutherland champions perception-driven value creat
 
 **Executive summary:**
 
-Rory Sutherland's intellectual output across 15+ years of talks, *Alchemy* (2019), and recent interviews resolves to eight recurring tenets, each an application of a single root diagnosis: that human value is determined by psychology and context, not by objective function or cost. [inference] Organisations built around financial measurement systematically suppress psychology-driven value creation because perceived quality, trust, and brand are incalculable in spreadsheet terms and therefore treated as zero. The research finds high confidence in the psycho-logic, finance-mindset, and customer-contact tenets (multiple independent primary sources); medium confidence in the signalling and psychological-moonshot tenets (argued from analogy, consistent with behavioral science but not formally measured in business contexts); and lower confidence in Sutherland's AI and founder-led-business predictions (primary sources only, predictive not documented).
+Rory Sutherland's intellectual output across 15+ years of talks, *Alchemy* (2019), and recent interviews resolves to eight recurring tenets, each an application of a single root diagnosis: that human value is determined by psychology and context, not by objective function or cost. [inference] Organisations built around financial measurement systematically suppress psychology-driven value creation because perceived quality, trust, and brand are incalculable in spreadsheet terms and therefore treated as zero. [inference] The research finds high confidence in the psycho-logic, finance-mindset, and customer-contact tenets (multiple independent primary sources); medium confidence in the signalling and psychological-moonshot tenets (argued from analogy, consistent with behavioral science but not formally measured in business contexts); and lower confidence in Sutherland's AI and founder-led-business predictions (primary sources only, predictive not documented).
 
 **Key findings:**
 
@@ -333,11 +333,11 @@ Rory Sutherland's intellectual output across 15+ years of talks, *Alchemy* (2019
 
 **Analysis:**
 
-Sutherland's work is strongest as diagnosis and weakest as prescription. His analysis of why organisations systematically under-invest in psychology-driven value is well-evidenced and consistent across 15 years of primary sources. His prescriptions (reframe problems, measure what matters, protect counterintuitive thinking) are [inference] directionally sound but lack the specificity needed for implementation. The practitioner gap is real: Sutherland identifies what finance-dominated organisations get wrong, but leaves the question of how to change incentive structures substantially open.
+[inference] Sutherland's work is strongest as diagnosis and weakest as prescription. His analysis of why organisations systematically under-invest in psychology-driven value is well-evidenced and consistent across 15 years of primary sources. His prescriptions (reframe problems, measure what matters, protect counterintuitive thinking) are directionally sound but lack the specificity needed for implementation. The practitioner gap is real: Sutherland identifies what finance-dominated organisations get wrong, but leaves the question of how to change incentive structures substantially open.
 
-Behavioral economics literature supports his epistemological claims (System 1 dominates System 2 under uncertainty; anchoring, framing, and context effects are robust). His business applications are extensions of this foundation, not independent hypotheses. [inference] He is more bullish than the experimental literature warrants about the value-creation potential of psychological interventions, which is appropriate for a practitioner-advocate but should be noted by readers drawing strategic conclusions.
+[fact] Behavioral economics research confirms the epistemological claims he draws on: System 1 dominates System 2 under uncertainty; anchoring, framing, and context effects replicate reliably (Kahneman, *Thinking, Fast and Slow*, 2011; https://en.wikipedia.org/wiki/Thinking,_Fast_and_Slow). His business applications extend this foundation. [inference] He is more bullish than the experimental literature warrants about the value-creation potential of psychological interventions, which is appropriate for a practitioner-advocate but should be noted by readers drawing strategic conclusions.
 
-His anti-bureaucracy argument is the most contentious. Compliance functions exist partly because of genuine regulatory requirements; his analysis treats all compliance overhead as Pournelle pathology, which overstates the case. The strongest version of his argument is about internally-generated risk aversion, not externally mandated compliance.
+[inference] His anti-bureaucracy argument is most contentious where applied to regulated industries. Compliance functions exist partly because of genuine market failures; his analysis is most accurate about internally-generated risk aversion and [inference] overstates when applied to externally mandated compliance. The strongest form of his argument targets self-imposed bureaucratic overhead, not legislated requirements.
 
 **Risks, gaps, and uncertainties:**
 
@@ -374,7 +374,7 @@ His anti-bureaucracy argument is the most contentious. Compliance functions exis
 
 ### Executive Summary
 
-Rory Sutherland's core intellectual position is that human value is determined by psychology and perception, not by objective function or cost, and that modern business systematically destroys value by excluding psychological considerations from measurement, strategy, and design. His eight recurring tenets (psycho-logic, perceived value, reframing, signalling, anti-bureaucracy, finance-mindset critique, customer thinking, and psychological moonshots) are applications of one root diagnosis to different business domains. The practical prescription is to measure slow and diffuse outcomes (trust, retention, perceived quality), design for psycho-logic, and protect the space for counterintuitive thinking that efficiency-focused organisations will systematically exclude. Organisations willing to operate this way can achieve outsized returns from low-cost psychological interventions that their finance-dominated competitors will overlook.
+Rory Sutherland's core intellectual position is that human value is determined by psychology and perception, not by objective function or cost, and that modern business systematically destroys value by excluding psychological considerations from measurement, strategy, and design. His eight recurring tenets (psycho-logic, perceived value, reframing, signalling, anti-bureaucracy, finance-mindset critique, customer thinking, and psychological moonshots) are applications of one root diagnosis to different business domains. The practical prescription is to measure slow and diffuse outcomes (trust, retention, perceived quality), design for psycho-logic, and protect the space for counterintuitive thinking that efficiency-focused organisations will systematically exclude. [inference] Organisations willing to operate this way can achieve outsized returns from low-cost psychological interventions that their finance-dominated competitors will overlook.
 
 ### Key Findings
 
@@ -412,13 +412,13 @@ Rory Sutherland's core intellectual position is that human value is determined b
 
 ### Analysis
 
-Sutherland's framework is strongest as diagnosis and weakest as prescription. His analysis of why organisations systematically under-invest in psychology-driven value creation is well-evidenced and consistent across 15 years of primary sources. His prescriptions (reframe problems, measure what matters, protect counterintuitive thinking) are [inference] directionally sound but leave the question of how to change incentive structures open.
+[inference] Sutherland's framework contributes most as an explanatory lens for why organisations make systematically bad decisions about intangible value. The diagnosis (finance-dominated measurement crowds out psychology-driven value creation) is well-evidenced across 15 years of primary sources. The prescriptions (reframe problems, measure what matters, protect counterintuitive thinking) point in the right direction but stop short of specifying how to change incentive structures within existing organisational hierarchies.
 
-Behavioral economics literature supports his epistemological claims. Where Sutherland diverges from academic behavioral economics is in his optimism about the value-creation potential of psychological interventions. [inference] He is more bullish than the experimental literature warrants, appropriate for a practitioner-advocate position, but the gap between lab effect sizes and real-world business results is a genuine uncertainty.
+[fact] Behavioral economics research confirms the underlying mechanisms Sutherland draws on (Kahneman, *Thinking, Fast and Slow*, 2011; https://en.wikipedia.org/wiki/Thinking,_Fast_and_Slow). [inference] He extrapolates from laboratory effect sizes to business strategy more confidently than the empirical literature supports, which is appropriate for a practitioner-advocate but should be factored in when applying his prescriptions to regulated or risk-managed contexts.
 
-[inference] The anti-bureaucracy argument is most compelling in contexts of internally-generated risk aversion. Compliance functions exist partly because of genuine regulatory failures in their absence; his argument overstates when applied to externally mandated compliance in regulated industries.
+[inference] The anti-bureaucracy argument carries most weight where compliance is self-imposed organisational risk aversion. Where compliance is externally mandated (financial regulation, data protection, safety standards), his diagnosis fits less cleanly. Readers in regulated industries should apply his framework to the internally-generated overhead rather than treating all compliance functions as Pournelle pathology.
 
-[inference] The finance vs. marketing argument is well-supported across primary sources and consistent with the observed displacement of brand and relationship investment by short-term financial metrics under quarterly reporting pressure.
+[inference] The finance-versus-marketing tension he identifies is corroborated by the two related completed items in this repository and by his primary sources, but the causal direction (quarterly reporting pressure causes under-investment in brand) is structural inference, not experimentally verified.
 
 ### Risks, Gaps, and Uncertainties
 
