@@ -1,9 +1,10 @@
 # Research Master Document
 
-Generated on: 2026-03-27 11:35 UTC
+Generated on: 2026-03-27 12:07 UTC
 
 ## Table of Contents
 
+* [Rory Sutherland's core tenets: anti-bureaucracy, customer thinking, and behavioral economics](#2026-03-26-rory-sutherland-core-tenets-md)
 * [The measurement asymmetry: why we cut costs but can't see lost opportunities](#2026-03-26-measuring-opportunity-cost-md)
 * [Customer contact as strategic signal: why people call and whether they want self-service](#2026-03-26-customer-contact-and-delight-md)
 * [Cost reduction is not a strategy: the opportunity vs efficiency mindset](#2026-03-26-cost-reduction-is-not-strategy-md)
@@ -125,6 +126,86 @@ Generated on: 2026-03-27 11:35 UTC
 * [AI Strategy Examples: Business Efficiency Focus](#2026-02-28-ai-strategy-business-efficiency-examples-md)
 * [AI Line 1 and Line 2 Risk Agents: Who Is Building Them?](#2026-02-28-ai-line-1-line-2-risk-agents-md)
 * [AI for Control Testing, Gap Identification, and Policies/Standards Reviews](#2026-02-28-ai-control-testing-and-assurance-md)
+
+---
+
+<a name="2026-03-26-rory-sutherland-core-tenets-md"></a>
+
+## Rory Sutherland's core tenets: anti-bureaucracy, customer thinking, and behavioral economics
+
+**Tags:** [behavioral-economics, marketing, strategy, rory-sutherland, customer-thinking, anti-bureaucracy]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-26-rory-sutherland-core-tenets.md
+
+## Research Question
+
+What are Rory Sutherland's core intellectual tenets, particularly around anti-bureaucracy, customer thinking, and behavioral economics, and what practical implications do they hold for business strategy and organisational design?
+
+## Findings
+
+### Executive Summary
+
+Rory Sutherland's core intellectual position is that human value is determined by psychology and perception, not by objective function or cost, and that modern business systematically destroys value by excluding psychological considerations from measurement, strategy, and design. His eight recurring tenets (psycho-logic, perceived value, reframing, signalling, anti-bureaucracy, finance-mindset critique, customer thinking, and psychological moonshots) are applications of one root diagnosis to different business domains. The practical prescription is to measure slow and diffuse outcomes (trust, retention, perceived quality), design for psycho-logic, and protect the space for counterintuitive thinking that efficiency-focused organisations will systematically exclude. [inference] Organisations willing to operate this way can achieve outsized returns from low-cost psychological interventions that their finance-dominated competitors will overlook.
+
+### Key Findings
+
+1. Sutherland's master concept is "psycho-logic", a parallel operating system in human cognition that is systematic, predictable, and often orthogonal to economic rationality; businesses that design for it rather than against it gain structural asymmetric advantage. [high confidence]
+2. Perceived value is functionally equivalent to real value in consumer experience: framing, context, and social meaning are legitimate levers for value creation, not manipulative shortcuts, and Sutherland's TED talks demonstrate this with examples from Prussian agricultural history to Eurostar train pricing. [high confidence]
+3. Reframing is the most cost-effective tool in Sutherland's framework: changing the description of a problem (not its technical solution) resolves it at near-zero cost, as illustrated by the carrot/potato peeler example (Sainsbury's) and the royal potato patch (Frederick the Great). [high confidence]
+4. Costly signals (high prices, inconvenience, visible effort) carry genuine information that cheap signals cannot: they convey quality credibly because they are expensive to fake, which means artificially reducing price or friction can destroy the perceived quality of a product or service. [medium confidence]
+5. Pournelle's iron law of bureaucracy describes the organisational failure mode Sutherland identifies: ancillary functions (human resources (HR), procurement, compliance) systematically displace mission functions because bureaucratic self-preservation is more reliably rewarded than mission achievement. [medium confidence]
+6. The finance mindset's defining failure is treating immeasurable value as zero: if something cannot be placed on a spreadsheet it is effectively ignored, producing systematic under-investment in brand equity, customer trust, relationship depth, and long-term retention. [high confidence]
+7. Customer contact is a high-value signal moment, not a cost: the customer chose to call, making this a self-selected high-stakes relationship event, and James Dyson's reframe ("we should treat it as an honour") implies that the best call-centre agents could justify six-figure salaries if retention and conversion were properly attributed. [high confidence]
+8. Psychological moonshots (small, counterintuitive behavioral interventions) consistently produce larger effects per unit of cost than engineering moonshots in domains where perception drives satisfaction, and Sutherland argues behavioural science improves the odds of finding them without guaranteeing outcomes. [medium confidence]
+9. Artificial intelligence (AI) is being sold in the wrong frame: positioning AI as headcount reduction applies the finance mindset to a technology that could instead create differentiated, high-trust customer experiences, and the organisations that use it to improve experience rather than strip cost will build durable competitive advantage in the second phase of adoption. [medium confidence]
+10. Founder-led and family-owned businesses have a structural advantage over public companies in sustaining psychological and marketing investments: they can tolerate ambiguous payoffs, measure slow outcomes, and make counterintuitive bets that quarterly reporting cycles and bureaucratic risk-aversion make impossible in listed companies. [medium confidence]
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| Psycho-logic as parallel operating system | *Alchemy* (2019); https://www.californiaemploymentlawreport.com/2025/08/five-takeaways-from-rory-sutherlands-alchemy/ | high | Direct quote from primary source |
+| Perceived value as real value | TED "Life Lessons from an Ad Man" (2009); https://www.ted.com/speakers/rory_sutherland | high | Foundational argument in first TED talk |
+| Reframing: potato / royal vegetable | TEDGlobal 2009; https://blog.ted.com/session_2_runni_6/ | high | Primary; canonical illustrative example |
+| Reframing: carrot/potato peeler | https://www.ankitmorajkar.com/post/rory-sutherland-solving-commercial-challenges-through-human-irrationality-and-behavioral-science | high | Secondary analysis of primary example |
+| Costly signalling: price as quality signal | *Alchemy* via https://www.zachbinkley.com/distillations/alchemy-rory-sutherland | medium | Argued from analogy; consistent with evolutionary signalling theory |
+| Pournelle's iron law in business | https://thoughteconomics.com/rory-sutherland/ | medium | Primary interview; mechanism plausible; examples anecdotal |
+| Finance mindset treats unquantifiable as zero | https://www.youtube.com/watch?v=PfQRHM6rL-M; http://www.thedrum.com/news/rory-sutherland-why-marketing-s-biggest-risk-in-2026-is-mistaking-efficiency-for-progress | high | Multiple primary sources; Peter Drucker citation adds authority |
+| Customer contact as signal | https://shows.acast.com/business-leader-podcast/episodes/rory-sutherland-the-advertising-gurus-tips | high | Primary; cross-referenced in completed item 2026-03-26-customer-contact-and-delight.md |
+| Psychological moonshots: Eurostar example | https://www.ted.com/talks/rory_sutherland_sweat_the_small_stuff | medium | Primary; illustrative, not randomised controlled trial |
+| AI as cost-cutting vs. experience-building | http://www.thedrum.com/news/rory-sutherland-why-marketing-s-biggest-risk-in-2026-is-mistaking-efficiency-for-progress; https://shows.acast.com/business-leader-podcast/episodes/rory-sutherland-the-advertising-gurus-tips | medium | Primary; predictive, not yet empirically verified |
+| Founder-led structural advantage | http://www.thedrum.com/news/rory-sutherland-why-marketing-s-biggest-risk-in-2026-is-mistaking-efficiency-for-progress | medium | Primary; inference from bureaucracy argument |
+
+### Assumptions
+
+- **Assumption:** Sutherland's examples are representative illustrations, not statistically valid evidence. **Justification:** He presents them explicitly as illustrative of mechanisms, not as controlled experiments. The structural argument does not depend on any single example; examples serve to make the mechanism visible and memorable.
+- **Assumption:** The three TED talks (2009, 2010, 2012), *Alchemy* (2019), and the 2025/26 interviews represent a stable, coherent intellectual position. **Justification:** His central arguments appear consistently across all sources spanning 15+ years. No significant recantation or revision found across the sources surveyed.
+
+### Analysis
+
+[inference] Sutherland's framework contributes most as an explanatory lens for why organisations make systematically bad decisions about intangible value. The diagnosis (finance-dominated measurement crowds out psychology-driven value creation) is well-evidenced across 15 years of primary sources. The prescriptions (reframe problems, measure what matters, protect counterintuitive thinking) point in the right direction but stop short of specifying how to change incentive structures within existing organisational hierarchies.
+
+[fact] Behavioral economics research confirms the underlying mechanisms Sutherland draws on (Kahneman, *Thinking, Fast and Slow*, 2011; https://en.wikipedia.org/wiki/Thinking,_Fast_and_Slow). [inference] He extrapolates from laboratory effect sizes to business strategy more confidently than the empirical literature supports, which is appropriate for a practitioner-advocate but should be factored in when applying his prescriptions to regulated or risk-managed contexts.
+
+[inference] The anti-bureaucracy argument carries most weight where compliance is self-imposed organisational risk aversion. Where compliance is externally mandated (financial regulation, data protection, safety standards), his diagnosis fits less cleanly. Readers in regulated industries should apply his framework to the internally-generated overhead rather than treating all compliance functions as Pournelle pathology.
+
+[inference] The finance-versus-marketing tension he identifies is corroborated by the two related completed items in this repository and by his primary sources, but the causal direction (quarterly reporting pressure causes under-investment in brand) is structural inference, not experimentally verified.
+
+### Risks, Gaps, and Uncertainties
+
+- Sutherland's evidence base is primarily anecdotal. He does not cite meta-analyses or controlled experiments for most claims. Behavioral economics supports the mechanisms; business-context effect sizes are variable.
+- The regulatory caveat is understated in his work: internally-generated risk aversion (his main target) and externally mandated compliance are distinct, and he often conflates them.
+- His three-phase AI adoption model is a prediction, not a documented pattern. Phase two and three have not been systematically observed.
+- The founder-led structural advantage claim is plausible but not systematically verified across a sample of businesses.
+
+### Open Questions
+
+- What specific organisational mechanisms reliably protect the space for counterintuitive thinking within large bureaucratic organisations? (Candidate backlog item)
+- How do you measure trust, retention, and perceived quality in ways that can compete with fast metrics in internal resource allocation? (Candidate backlog item)
+- Has Nudgestock or Ogilvy's behavioral science practice published documented case studies with measurable business outcomes?
+- What is the empirical evidence for the IKEA effect and Betty Crocker effect in real commercial contexts beyond laboratory settings?
+
+---
 
 ---
 
