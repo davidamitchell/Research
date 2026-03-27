@@ -51,7 +51,7 @@ The talk builds on the broader predictive-processing framework developed by Karl
 - [x] https://biologyinsights.com/anil-seth-on-consciousness-as-a-controlled-hallucination/ — detailed synthesis of Seth's framework
 - [x] https://www.unpluggedpsych.com/the-controlled-hallucination-theory-anil-seths-perspective/ — theory breakdown
 - [x] Seth, A.K. (2021). *Being You: A New Science of Consciousness*. Dutton/Faber.
-- [x] Seth, A.K. (2013). "Interoceptive inference, emotion, and the embodied self." *Trends in Cognitive Sciences*.
+- [x] Seth, A.K. (2013). "Interoceptive inference, emotion, and the embodied self." *Trends in Cognitive Sciences*. — https://doi.org/10.1016/j.tics.2013.09.007
 - [x] Nautilus: "We Are Beast Machines" — Seth on the beast machine thesis
 
 ---

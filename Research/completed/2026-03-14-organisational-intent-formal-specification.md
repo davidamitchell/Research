@@ -68,22 +68,22 @@ Two adjacent fields have partially solved related problems: formal contract lang
 
 ## Sources
 
-- [ ] **Yu, E. (1995) — Modelling Strategic Relationships for Process Reengineering.** PhD thesis, University of Toronto. Original iStar thesis — SD and SR models.
-- [ ] **Yu, E. & Mylopoulos, J. (1994) — Understanding "Why" in Software Process Modelling, Analysis and Design.** ICSE 1994. Foundational goal-orientation in requirements.
-- [ ] **Catala language documentation and Merigoux et al. (2021) — Catala: A Programming Language for the Law.** ICFP 2021. Prose/spec inversion methodology.
-- [ ] **Clack, C.D., Bakshi, V.A., & Braine, L. (2016) — Smart Contract Templates: foundations, design landscape and research directions.** arXiv. Ricardian contracts and dual-artefact generation.
-- [ ] **EOSIO Ricardian Template Toolkit — documentation and specification.** (github.com/EOSIO/ricardian-template-toolkit)
-- [ ] **Governatori, G. et al. (2016) — Detecting Semantic Inconsistencies in Business Process Models.** Norm conflict detection methodology.
-- [ ] **Governatori, G. & Rotolo, A. (2008) — Logic of Violation: A Gentzen System for Reasoning with Contrary-to-Duty Obligations.** Australasian Journal of Logic. Normative consistency foundations.
-- [ ] **Deon Digital — Contract Specification Language (CSL) documentation.** deon.digital. Normative obligation language separating intent from execution.
-- [ ] **Hoshin Kanri X-matrix method** — Hutchins, G. (2008) *Hoshin Kanri: The Strategic Approach to Continuous Improvement*; Jackson, T.L. (2006) *Hoshin Kanri for the Lean Enterprise*.
-- [ ] **Hope, J. & Fraser, R. (2003) — Beyond Budgeting: How Managers Can Break Free from the Annual Performance Trap.** Harvard Business School Press. Structural critique of funding cycle decoupling.
-- [ ] **Trigeorgis, L. (1996) — Real Options: Managerial Flexibility and Strategy in Resource Allocation.** MIT Press. Real options applied to initiative portfolios.
-- [ ] **Rumelt, R. (2011) — Good Strategy / Bad Strategy: The Difference and Why It Matters.** Crown Business. Kernel model and falsifiability of strategy.
-- [ ] **Teece, D.J., Pisano, G., & Shuen, A. (1997) — Dynamic Capabilities and Strategic Management.** Strategic Management Journal 18(7). Build-vs-buy derivability from strategic position.
-- [ ] **Simon, H.A. (1962) — The Architecture of Complexity.** Proceedings of the American Philosophical Society 106(6). Near-decomposability applied to intent propagation.
-- [ ] **van Lamsweerde, A. (2001) — Goal-Oriented Requirements Engineering: A Guided Tour.** RE 2001. Survey of Goal-Oriented Requirements Engineering (GORE) methods including formal properties.
-- [ ] **Fuxman, A. et al. (2004) — Specifying and Analyzing Early Requirements in Tropos.** Requirements Engineering 9(2). Formal analysis in i*/Tropos.
+- [ ] **Yu, E. (1995) — Modelling Strategic Relationships for Process Reengineering.** PhD thesis, University of Toronto. Original iStar thesis — SD and SR models. — https://www.cs.toronto.edu/km/tropos/
+- [ ] **Yu, E. & Mylopoulos, J. (1994) — Understanding "Why" in Software Process Modelling, Analysis and Design.** ICSE 1994. Foundational goal-orientation in requirements. — https://dl.acm.org/doi/10.5555/257734.257738
+- [ ] **Catala language documentation and Merigoux et al. (2021) — Catala: A Programming Language for the Law.** ICFP 2021. Prose/spec inversion methodology. — https://catala-lang.org/ and https://dl.acm.org/doi/10.1145/3473582
+- [ ] **Clack, C.D., Bakshi, V.A., & Braine, L. (2016) — Smart Contract Templates: foundations, design landscape and research directions.** arXiv. Ricardian contracts and dual-artefact generation. — https://arxiv.org/abs/1612.04496
+- [ ] **EOSIO Ricardian Template Toolkit — documentation and specification.** — https://github.com/EOSIO/ricardian-template-toolkit
+- [ ] **Governatori, G. et al. (2016) — Detecting Semantic Inconsistencies in Business Process Models.** Norm conflict detection methodology. — https://doi.org/10.1007/s10270-014-0395-8
+- [ ] **Governatori, G. & Rotolo, A. (2008) — Logic of Violation: A Gentzen System for Reasoning with Contrary-to-Duty Obligations.** Australasian Journal of Logic. Normative consistency foundations. — https://ojs.victoria.ac.nz/ajl/article/view/1779
+- [ ] **Deon Digital — Contract Specification Language (CSL) documentation.** Normative obligation language separating intent from execution. — https://github.com/Deon-Digital/deon
+- [ ] **Hoshin Kanri X-matrix method** — Hutchins, G. (2008) *Hoshin Kanri: The Strategic Approach to Continuous Improvement* — https://www.routledge.com/Hoshin-Kanri-The-Strategic-Approach-to-Continuous-Improvement/Hutchins/p/book/9780566088582
+- [ ] **Hope, J. & Fraser, R. (2003) — Beyond Budgeting: How Managers Can Break Free from the Annual Performance Trap.** Harvard Business School Press. Structural critique of funding cycle decoupling. — https://store.hbr.org/product/beyond-budgeting-how-managers-can-break-free-from-the-annual-performance-trap/2151
+- [ ] **Trigeorgis, L. (1996) — Real Options: Managerial Flexibility and Strategy in Resource Allocation.** MIT Press. Real options applied to initiative portfolios. — https://mitpress.mit.edu/9780262200738/real-options/
+- [ ] **Rumelt, R. (2011) — Good Strategy / Bad Strategy: The Difference and Why It Matters.** Crown Business. Kernel model and falsifiability of strategy. — https://goodbadstrategy.com/
+- [ ] **Teece, D.J., Pisano, G., & Shuen, A. (1997) — Dynamic Capabilities and Strategic Management.** Strategic Management Journal 18(7). Build-vs-buy derivability from strategic position. — https://doi.org/10.1002/smj.4250180904
+- [ ] **Simon, H.A. (1962) — The Architecture of Complexity.** Proceedings of the American Philosophical Society 106(6). Near-decomposability applied to intent propagation. — https://doi.org/10.2307/985654
+- [ ] **van Lamsweerde, A. (2001) — Goal-Oriented Requirements Engineering: A Guided Tour.** RE 2001. Survey of Goal-Oriented Requirements Engineering (GORE) methods including formal properties. — https://doi.org/10.1109/ISRE.2001.948567
+- [ ] **Fuxman, A. et al. (2004) — Specifying and Analyzing Early Requirements in Tropos.** Requirements Engineering 9(2). Formal analysis in i*/Tropos. — https://doi.org/10.1007/s00766-003-0185-8
 
 ---
 

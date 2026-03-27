@@ -48,7 +48,7 @@ Transaction cost economics is one of the most practically generative traditions 
 - [x] Coase, R.H. (1937). "The Nature of the Firm." *Economica* — via secondary analyses and [Stanford SEP: Ronald Coase](https://plato.stanford.edu/entries/coase/)
 - [x] Coase, R.H. (1960). "The Problem of Social Cost." *Journal of Law and Economics* — widely cited; consulted via secondary sources
 - [x] Williamson, O.E. (1985). *The Economic Institutions of Capitalism*. Free Press — consulted via secondary analyses
-- [x] North, D.C. (1990). *Institutions, Institutional Change, and Economic Performance*. Cambridge — consulted via secondary analyses
+- [x] North, D.C. (1990). *Institutions, Institutional Change, and Economic Performance*. Cambridge — consulted via secondary analyses — https://www.cambridge.org/core/books/institutions-institutional-change-and-economic-performance/AAE1E43E55B0BB9B99E16AFF6E3E2F69
 - [x] Ostrom, E. (1990). *Governing the Commons*. Cambridge — consulted via secondary analyses; Ostrom's 8 design principles widely documented
 - [x] Munger, M.C. — "The Answer Is Transaction Costs" podcast; public lectures available via Duke University and EconTalk
 - [x] Nobel summaries: 1991 (Coase), 1993 (North), 2009 (Williamson, Ostrom) via [nobelprize.org](https://www.nobelprize.org)

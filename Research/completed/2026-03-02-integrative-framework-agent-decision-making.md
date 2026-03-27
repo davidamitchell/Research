@@ -67,10 +67,10 @@ It depends on those items being completed before it can be fully operationalised
 ## Sources
 
 - [x] DIKW literature: Ackoff (1989) "From Data to Wisdom" — original DIKW formulation; Rowley (2007) critique and refinement
-- [x] Organisational knowledge management: Nonaka & Takeuchi (1995) "The Knowledge-Creating Company" — tacit/explicit knowledge and socialisation, externalisation, combination, internalisation (SECI)
+- [x] Organisational knowledge management: Nonaka & Takeuchi (1995) "The Knowledge-Creating Company" — tacit/explicit knowledge and socialisation, externalisation, combination, internalisation (SECI) — https://global.oup.com/academic/product/the-knowledge-creating-company-9780195092691
 - [ ] Decision theory under constraint: Simon (1955) bounded rationality; Kahneman (2011) "Thinking, Fast and Slow" — dual-process decision-making
 - [x] Agent alignment literature: Constitutional AI (Anthropic), RLHF alignment approaches, value alignment surveys (2023–2025 on arXiv)
-- [x] Policy/regulation as knowledge: NIST AI RMF (2023), EU AI Act (2024) — how regulatory requirements are structured for machine interpretation
+- [x] Policy/regulation as knowledge: NIST AI RMF (2023), EU AI Act (2024) — how regulatory requirements are structured for machine interpretation — https://doi.org/10.6028/NIST.AI.100-1
 - [x] Intent understanding in LLMs: arXiv survey papers on instruction following, goal inference, and constraint satisfaction in LLM agents
 - [x] Memory + decision integration: MemGPT/Letta, Zep temporal knowledge graphs, Cognee knowledge graphs — how memory retrieval is connected to downstream decisions (not just retrieval accuracy)
 - [x] `Research/completed/2026-03-01-agent-lsp-policy-enforcement.md` — prior findings on policy guardrails

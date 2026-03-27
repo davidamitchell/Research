@@ -69,7 +69,7 @@ Prior research: `2026-03-08-claude-ios-mcp-remote-integration.md` establishes th
 - [x] GitHub Actions `repository_dispatch` event docs: https://docs.github.com/en/rest/repos/repos#create-a-repository-dispatch-event
 - [ ] LanceDB docs: https://lancedb.github.io/lancedb/
 - [x] `2026-03-08-lancedb-index-rebuild-from-git.md` — related item on rebuild speed as deployment constraint
-- [ ] `davidamitchell/Memory-System` BACKLOG.md W-0014 — the corresponding discovery item that this research informs
+- [ ] `davidamitchell/Memory-System` BACKLOG.md W-0014 — the corresponding discovery item that this research informs — https://github.com/davidamitchell/Memory-System
 
 ---
 

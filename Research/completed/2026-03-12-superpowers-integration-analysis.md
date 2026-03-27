@@ -46,12 +46,12 @@ The owner forked `obra/superpowers` as a reference point. Superpowers embeds a m
 
 ## Sources
 
-- [x] `davidamitchell/superpowers` — README, plugin.json, skill catalogue, commit history
-- [x] `davidamitchell/Latest-developments-` — repo root, .github/
-- [x] `davidamitchell/Agent-Evaluation` — repo root, .github/
-- [x] `davidamitchell/Memory-System` — 404 Not Found
-- [x] `davidamitchell/Research` — local clone, .github/skills/, copilot-instructions.md
-- [x] `davidamitchell/Skills` — local submodule (via Research repo clone)
+- [x] `davidamitchell/superpowers` — README, plugin.json, skill catalogue, commit history — https://github.com/davidamitchell/superpowers
+- [x] `davidamitchell/Latest-developments-` — repo root, .github/ — https://github.com/davidamitchell/Latest-developments-
+- [x] `davidamitchell/Agent-Evaluation` — repo root, .github/ — https://github.com/davidamitchell/Agent-Evaluation
+- [x] `davidamitchell/Memory-System` — 404 Not Found — https://github.com/davidamitchell/Memory-System
+- [x] `davidamitchell/Research` — local clone, .github/skills/, copilot-instructions.md — https://github.com/davidamitchell/Research
+- [x] `davidamitchell/Skills` — local submodule (via Research repo clone) — https://github.com/davidamitchell/Skills
 
 ---
 

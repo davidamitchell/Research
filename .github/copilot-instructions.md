@@ -263,7 +263,9 @@ Research can produce one or more of the following outputs (record in the `output
 
 ## Adding an ADR
 
-ADRs follow the [MADR format](https://adr.github.io/madr/). File naming: `docs-adr/NNNN-short-title.md` (zero-padded 4 digits). Update `docs-adr/README.md` after adding.
+**Use the `adr` skill** — `.github/skills/adr/SKILL.md` — whenever writing or updating an ADR. The skill provides the exact format, section structure, coded-bullet identifiers, and quality checklist.
+
+ADRs are stored in `docs-adr/`. File naming: `NNNN-short-title.md` (zero-padded 4 digits). Update `docs-adr/README.md` after adding.
 
 Status values: `proposed` → `accepted` → `superseded` / `deprecated`
 
@@ -306,6 +308,7 @@ A weekly workflow (`.github/workflows/sync-skills.yml`) advances the submodule p
 
 | Skill | When it applies | GitHub Copilot |
 |---|---|---|
+| `adr` | Creating or updating Architecture Decision Records | read `SKILL.md` and apply manually |
 | `backlog-manager` | Adding, prioritising, or reviewing backlog items | read `SKILL.md` and apply manually |
 | `citation-discipline` | Ensuring claims are sourced and referenced | read `SKILL.md` and apply manually |
 | `remove-ai-slop` | Reviewing output for hollow filler language | read `SKILL.md` and apply manually |

@@ -72,7 +72,7 @@ Cross-reference: `Research/completed/2026-03-02-agent-memory-management-context-
 - [x] Cloudflare remote MCP server guide: https://developers.cloudflare.com/agents/guides/remote-mcp-server/
 - [x] SimpleScraper: How to build a remote MCP server: https://simplescraper.io/blog/how-to-mcp
 - [ ] `2026-03-08-self-hosted-mcp-server-options.md` — prerequisite infrastructure research (backlog, not yet completed)
-- [ ] `davidamitchell/Memory-System` BACKLOG.md W-0004 — the corresponding discovery item (requires direct repo access not available in this session)
+- [ ] `davidamitchell/Memory-System` BACKLOG.md W-0004 — the corresponding discovery item (requires direct repo access not available in this session) — https://github.com/davidamitchell/Memory-System
 
 ---
 

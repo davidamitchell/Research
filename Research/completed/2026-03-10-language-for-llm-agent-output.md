@@ -509,4 +509,3 @@ The distinction between "language for orchestrating LLM agents" (designed by hum
 
 4. **LLM-native language design principles**: What properties would a language designed for LLM authorship (rather than human authorship) optimise for — and how would these differ from human-designed languages? This is a foundational design question that could seed a new research programme. Priority: low (speculative; no immediate application).
 
-

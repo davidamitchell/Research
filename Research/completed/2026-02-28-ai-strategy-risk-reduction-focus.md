@@ -47,14 +47,14 @@ Type 3 (delegated authority agents) in the four-type typology is most prevalent 
 
 ## Sources
 
-- [ ] RBNZ: BS11, BS2A, and any AI-related supervisory letters or speeches
-- [ ] APRA CPG 234 and CPS 230 — AI implications for NZ institutions with Australian parents
-- [ ] US Federal Reserve / OCC SR 11-7: Model Risk Management guidance
+- [ ] RBNZ: BS11, BS2A, and any AI-related supervisory letters or speeches — https://www.rbnz.govt.nz/
+- [ ] APRA CPG 234 and CPS 230 — AI implications for NZ institutions with Australian parents — https://www.apra.gov.au/cpg-234-information-security
+- [ ] US Federal Reserve / OCC SR 11-7: Model Risk Management guidance — https://www.federalreserve.gov/supervisionreg/srletters/sr1107.htm
 - [ ] BIS: "Machine learning in central banking" and "AI in financial stability" papers
-- [ ] DORA Regulation 2022/2554 — ICT risk and AI operational resilience
+- [ ] DORA Regulation 2022/2554 — ICT risk and AI operational resilience — https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022R2554
 - [ ] NZ banks' Pillar 3 disclosures: any AI model risk disclosures (ANZ NZ, ASB, BNZ, Westpac NZ)
 - [ ] McKinsey / Oliver Wyman: AI in financial risk management case studies
-- [ ] IIF (Institute of International Finance): AI governance in banking reports
+- [ ] IIF (Institute of International Finance): AI governance in banking reports — https://www.iif.com/
 
 ---
 

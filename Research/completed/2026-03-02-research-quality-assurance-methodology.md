@@ -60,7 +60,7 @@ There is a related repo improvement item (BACKLOG.md W-0031) to implement a rese
 ## Sources
 
 - [x] Ackoff (1989) — "From Data to Wisdom": https://doi.org/10.1111/j.1467-9310.1989.tb00072.x — foundational DIKW hierarchy (secondary sources consulted; primary DOI paywalled)
-- [x] Nonaka & Takeuchi (1995) — *The Knowledge-Creating Company* — SECI model (secondary sources consulted)
+- [x] Nonaka & Takeuchi (1995) — *The Knowledge-Creating Company* — SECI model (secondary sources consulted) — https://global.oup.com/academic/product/the-knowledge-creating-company-9780195092691
 - [x] Bloom's Taxonomy (1956, revised 2001) — cognitive levels as a framework for knowledge depth vs applicability
 - [x] Zettelkasten method — https://zettelkasten.de/introduction/ — atomic notes, linking, emergence of insight through connection
 - [ ] Ahrens (2017) — *How to Take Smart Notes* — practical Zettelkasten for researchers; integration as a first-class practice (book not accessible)

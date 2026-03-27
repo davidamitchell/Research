@@ -44,9 +44,9 @@ Spawned from the synthesis of https://youtu.be/HYUoS0GkGCs ("Reality Is A Contro
 
 ## Sources
 
-- [x] Seth, A.K. (2021). *Being You*. Ch. 9–11 ("Beast Machine" section). — accessed via secondary review and Seth's own published summaries
-- [x] Seth, A.K. (2013). "Interoceptive inference, emotion, and the embodied self." *Trends in Cognitive Sciences.* — synthesised from multiple academic descriptions and the UCL-hosted PDF
-- [x] Craig, A.D. (2009). "How do you feel — now? The anterior insula and human awareness." *Nature Reviews Neuroscience.* — accessed via Nature PDF (nrn2555.pdf), EuropePMC, and secondary synthesis
+- [x] Seth, A.K. (2021). *Being You*. Ch. 9–11 ("Beast Machine" section). — accessed via secondary review and Seth's own published summaries — https://www.penguin.co.uk/books/316558/being-you-by-anil-seth/9781529404777
+- [x] Seth, A.K. (2013). "Interoceptive inference, emotion, and the embodied self." *Trends in Cognitive Sciences.* — synthesised from multiple academic descriptions and the UCL-hosted PDF — https://doi.org/10.1016/j.tics.2013.09.007
+- [x] Craig, A.D. (2009). "How do you feel — now? The anterior insula and human awareness." *Nature Reviews Neuroscience.* — accessed via Nature PDF (nrn2555.pdf), EuropePMC, and secondary synthesis — https://doi.org/10.1038/nrn2555
 - [x] Tsakiris, M. & Haggard, P. (2005). "The rubber hand illusion revisited." *Journal of Experimental Psychology: Human Perception and Performance.* — accessed via APA PsycNet and open-access PDF
 - [x] Sass, L. & Parnas, J. (2003). "Schizophrenia, consciousness, and the self." *Schizophrenia Bulletin.* — accessed via Oxford Academic and ResearchGate PDF
 - [x] Seth, A.K. & Friston, K.J. (2016). "Active interoceptive inference and the emotional brain." *Phil. Trans. R. Soc. B* 371. — accessed via Royal Society Publishing and UWisconsin PDF

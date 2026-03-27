@@ -68,7 +68,7 @@ Cross-reference: `Research/completed/2026-03-02-agent-memory-management-context-
 - [ ] Apple iOS Shortcuts User Guide: https://support.apple.com/guide/shortcuts/welcome/ios
 - [x] iOS Shortcuts HTTP action docs (Get Contents of URL / Set Variable)
 - [x] GitHub REST API rate limits: https://docs.github.com/en/rest/using-the-rest-api/rate-limits-for-the-rest-api
-- [ ] `davidamitchell/Memory-System` BACKLOG.md W-0008 — the corresponding discovery item that this research informs
+- [ ] `davidamitchell/Memory-System` BACKLOG.md W-0008 — the corresponding discovery item that this research informs — https://github.com/davidamitchell/Memory-System
 
 ---
 
