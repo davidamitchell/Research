@@ -1,4 +1,4 @@
-"""Research item CLI commands: add, list, start, draft, complete."""
+"""Research item CLI commands: add, list, start, draft, complete, pick."""
 
 from __future__ import annotations
 
@@ -210,6 +210,142 @@ def cmd_complete(filename: str, research_root: Path | None = None) -> Path:
     return dest
 
 
+def cmd_pick(research_root: Path | None = None) -> None:
+    """Select the next research item and print its JSON context to stdout.
+
+    Applies the same priority rules as the research prompt:
+      1. In-progress items take priority over backlog (oldest first).
+      2. Backlog: high > medium > low priority.
+      3. Tie-break: non-empty ``blocks`` list first.
+      4. Final tie-break: oldest filename (earliest date).
+
+    Outputs a JSON object with keys:
+      filename      -- basename of the selected file
+      path          -- repo-relative path the agent should use (always the
+                       in-progress location, even for backlog items, because
+                       the workflow calls ``research start`` before the session)
+      status        -- current status from frontmatter
+      review_count  -- integer review_count from frontmatter (0 if absent)
+      context_block -- formatted markdown for {{ITEM_CONTEXT}} substitution
+
+    Prints ``{}`` and exits 0 if no work is available.
+    """
+    import json as _json
+
+    root = _research_root(research_root)
+
+    # In-progress items always take priority -- resume oldest first.
+    in_prog_files = sorted(p for p in (root / "in-progress").glob("*.md") if p.name != "README.md")
+    if in_prog_files:
+        path = in_prog_files[0]
+        item = ResearchItem.from_file(path)
+        print(_json.dumps(_pick_context(item, path, root)))
+        return
+
+    # Select highest-priority backlog item.
+    backlog: list[ResearchItem] = []
+    for p in sorted((root / "backlog").glob("*.md")):
+        if p.name == "README.md":
+            continue
+        try:
+            backlog.append(ResearchItem.from_file(p))
+        except (ValueError, OSError) as exc:
+            logger.warning("Skipping %s: %s", p.name, exc)
+
+    if not backlog:
+        print(_json.dumps({}))
+        return
+
+    _prio = {"high": 0, "medium": 1, "low": 2}
+    backlog.sort(
+        key=lambda i: (
+            _prio.get(i.priority, 1),
+            0 if i.blocks else 1,  # non-empty blocks list comes first
+            i.path.name,  # oldest filename (YYYY-MM-DD prefix) first
+        )
+    )
+    item = backlog[0]
+    print(_json.dumps(_pick_context(item, item.path, root)))
+
+
+def _pick_context(item: ResearchItem, path: Path, root: Path) -> dict:  # type: ignore[type-arg]
+    """Build the JSON context dict for the selected item.
+
+    ``root`` is the Research directory (e.g. ``<repo>/Research``).
+    The repo root is ``root.parent``.
+    """
+    text = path.read_text(encoding="utf-8")
+    rc_val = _get_frontmatter_field(text, "review_count")
+    review_count = int(rc_val) if rc_val and rc_val.isdigit() else 0
+
+    status = item.status
+
+    # For backlog items the workflow calls `research start` before the Copilot
+    # session, which moves the file to in-progress.  Show the post-start path
+    # so the agent uses the right location from the outset.
+    if status == "backlog":
+        display_path = f"Research/in-progress/{path.name}"
+    else:
+        try:
+            display_path = str(path.relative_to(root.parent))
+        except ValueError:
+            display_path = str(path)
+
+    # Determine where the agent should resume (references the new prompt step
+    # numbers: Step 1 = Read, Step 2 = Research, Step 7 = Draft+Review,
+    # Step 8 = Handle review, Step 9 = Complete).
+    if status == "backlog":
+        action = (
+            "Begin at **Step 1** — the item has been moved to `in-progress`. "
+            "Read it in full, then start research from \u00a7\u00a70 in Step 2."
+        )
+    elif status == "in-progress":
+        action = (
+            "Begin at **Step 1** — read the item in full. It is already "
+            "`in-progress`; check the \u00a7\u00a70\u2013\u00a7\u00a77 sections for "
+            "existing work and resume from where it left off in Step 2, "
+            "or restart from \u00a7\u00a70 if they are empty."
+        )
+    elif status == "reviewing":
+        if review_count == 0:
+            action = (
+                "Begin at **Step 7** — status is `reviewing` but `review_count` "
+                "is 0. The review workflow was not triggered. Trigger it now."
+            )
+        elif review_count == 1:
+            action = (
+                "Begin at **Step 8** — one review pass has run. Check the latest "
+                "review workflow log for `OVERALL` result. If `PASS`, proceed to "
+                "Step 9. If `FAIL`, fix violations and re-trigger."
+            )
+        else:
+            action = (
+                f"Begin at **Step 9** — `review_count` is {review_count} (≥ 2), "
+                f"auto-passes. Run `python -m src.main research complete "
+                f"{path.name}` and proceed with Steps 10\u201312."
+            )
+    else:
+        action = (
+            "Begin at **Step 1** — unrecognised status, treat as in-progress. "
+            "Read the item, then resume or restart research in Step 2."
+        )
+
+    context_block = (
+        f"**Item:** `{display_path}`  \n"
+        f"**Status:** `{status}`  \n"
+        f"**Review count:** {review_count}  \n"
+        f"**Action:** {action}"
+    )
+
+    return {
+        "filename": path.name,
+        "path": display_path,
+        "status": status,
+        "review_count": review_count,
+        "context_block": context_block,
+    }
+
+
 def _set_frontmatter_field(text: str, key: str, value: str) -> str:
     """Update a single YAML front-matter field value in-place."""
     pattern = re.compile(rf"^({re.escape(key)}:\s*)(.*)$", re.MULTILINE)
@@ -258,6 +394,15 @@ def register_subparser(subparsers: object) -> None:  # type: ignore[type-arg]
     complete_p = sub.add_parser("complete", help="Move an in-progress item to completed")
     complete_p.add_argument("filename", help="Filename of the research item to complete")
 
+    # pick
+    sub.add_parser(
+        "pick",
+        help=(
+            "Select the next item to work on and print JSON context for prompt "
+            "injection. Prints {} if no work is available."
+        ),
+    )
+
 
 def dispatch(args: object) -> None:  # type: ignore[type-arg]
     """Dispatch parsed args to the appropriate research command."""
@@ -275,6 +420,8 @@ def dispatch(args: object) -> None:  # type: ignore[type-arg]
         cmd_draft(a.filename)
     elif cmd == "complete":
         cmd_complete(a.filename)
+    elif cmd == "pick":
+        cmd_pick()
     else:
-        print("Usage: research research <add|list|start|draft|complete>", file=sys.stderr)
+        print("Usage: research research <add|list|start|draft|complete|pick>", file=sys.stderr)
         sys.exit(1)

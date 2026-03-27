@@ -6,109 +6,141 @@ Your task: complete **exactly one** research item.
 
 ---
 
+## Pre-Selected Item
+
+The item selection and setup have already been handled by the workflow.
+Work on this item only:
+
+{{ITEM_CONTEXT}}
+
+Begin exactly at the step indicated in the **Action** line above. Do not
+re-run earlier steps unless the Action explicitly says to.
+
+---
+
 ## Steps
 
-### 1. Pick the next item
+### 1. Read the item
 
-**First, check for work already in progress:**
-
-```bash
-ls Research/in-progress/*.md 2>/dev/null | grep -v README
-```
-
-If any `.md` files exist in `Research/in-progress/` (excluding README), pick the
-oldest one (earliest date in filename) and resume it — skip the backlog entirely.
-Note its `status` field so you know where to re-enter:
-- `status: in-progress` → resume from Step 4 (research is incomplete)
-- `status: reviewing` → the review workflow already ran; check `review_count` in
-  the frontmatter. If `review_count` is 0 or absent, re-trigger the review from
-  Step 9. If `review_count >= 1`, treat the review as done and proceed to Step 11.
-
-**If `Research/in-progress/` is empty**, pick from the backlog:
-
-List `Research/backlog/` and read the front matter of each `.md` file.
-Select the **highest-priority** item by applying these rules in order:
-1. `priority: high` before `priority: medium` before `priority: low`
-2. For equal priority, prefer items with a non-empty `blocks` list — these unblock other work and should be done first.
-3. For remaining ties, pick the **oldest** item (earliest date in filename).
-
-Note the filename (e.g. `2026-02-28-ai-strategy-swe-focus.md`).
-
-### 2. Start the item
-
-```bash
-python -m src.main research start <filename>
-```
-
-This moves the file from `Research/backlog/<filename>` to `Research/in-progress/<filename>` and updates its `status` and `started` fields.
-
-### 3. Read the item
-
-Read `Research/in-progress/<filename>` in full. Understand:
+Read the file at the path given above in full. Understand:
 - The **Research Question** (what needs to be answered)
 - The **Scope** (what is in/out)
 - The **Approach** (sub-questions to investigate)
-- The **Sources** (starting points — check all of them)
+- The **Sources** (starting points -- check all of them)
 
-**Prior research cross-reference (mandatory):** Apply the prior work check defined in `.github/skills/research/SKILL.md §0`. Search `Research/completed/` for related items before beginning §2 Investigation.
+**Prior research cross-reference (mandatory):** Apply the prior work check
+defined in `.github/skills/research/SKILL.md §0`. Search `Research/completed/`
+for related items before beginning §2 Investigation.
 
-### 4. Research the item — follow the research skill in full
+### 2. Research the item -- follow the research skill in full
 
-Open `.github/skills/research/SKILL.md` and run every section. Write the complete output into the `## Research Skill Output` section of the item as you go. **This output is retained verbatim in the completed item.**
+Open `.github/skills/research/SKILL.md` and run every section. Write the
+complete output into the `## Research Skill Output` section of the item as you
+go. **This output is retained verbatim in the completed item.**
 
-**§0 Initialise:** Restate the research question. Confirm scope, constraints, and output format. Write into `### §0 Initialise`.
+**§0 Initialise:** Restate the research question. Confirm scope, constraints,
+and output format. Write into `### §0 Initialise`.
 
-**§1 Question Decomposition:** Recursively break the Approach sub-questions into atomic questions — each answerable with a single evidence-based claim. Write the decomposition tree into `### §1 Question Decomposition`.
+**§1 Question Decomposition:** Recursively break the Approach sub-questions into
+atomic questions -- each answerable with a single evidence-based claim. Write
+the decomposition tree into `### §1 Question Decomposition`.
 
-**§2 Investigation:** For each atomic question, run an iterative evidence-gathering loop: gather sources, classify them (primary / secondary / tertiary), extract claims, cross-verify across independent sources, identify contradictions, update the evidence map. Use available web tools (`WebSearch`, `WebFetch`, or `Bash` with curl) to check every source listed in the item and follow leads they produce. Apply source-marking discipline as defined in `.github/skills/research/SKILL.md §2 Source Marking`. Write into `### §2 Investigation`.
+**§2 Investigation:** For each atomic question, run an iterative
+evidence-gathering loop: gather sources, classify them (primary / secondary /
+tertiary), extract claims, cross-verify across independent sources, identify
+contradictions, update the evidence map. Use available web tools (`WebSearch`,
+`WebFetch`, or `Bash` with curl) to check every source listed in the item and
+follow leads they produce. Apply source-marking discipline as defined in
+`.github/skills/research/SKILL.md §2 Source Marking`. Write into
+`### §2 Investigation`.
 
 **Evidence discipline:**
 - Label every claim as **[fact]**, **[inference]**, or **[assumption]**.
-- Every **[fact]** must map to a source. If a source is inaccessible, note it in Risks/Gaps.
-- **[inference]** = derived from evidence; **[assumption]** = not verified, state the justification.
-- Evidence sufficiency: at least two independent credible sources agree, or a primary source is definitive.
+- Every **[fact]** must map to a source. If a source is inaccessible, note it
+  in Risks/Gaps.
+- **[inference]** = derived from evidence; **[assumption]** = not verified,
+  state the justification.
+- Evidence sufficiency: at least two independent credible sources agree, or a
+  primary source is definitive.
 
-**Output quality:** Apply the output quality rules defined in `.github/skills/research/SKILL.md §6 Output Quality`.
+**Output quality:** Apply the output quality rules defined in
+`.github/skills/research/SKILL.md §6 Output Quality`.
 
-**§3 Reasoning:** Remove narrative glue and unsupported generalisations. Write into `### §3 Reasoning`.
+**§3 Reasoning:** Remove narrative glue and unsupported generalisations. Write
+into `### §3 Reasoning`.
 
-**§4 Consistency Check:** Scan for internal contradictions and unsupported leaps. Resolve or explicitly flag unresolvable contradictions. Write into `### §4 Consistency Check`.
+**§4 Consistency Check:** Scan for internal contradictions and unsupported
+leaps. Resolve or explicitly flag unresolvable contradictions. Write into
+`### §4 Consistency Check`.
 
-**§5 Depth and Breadth Expansion:** Re-evaluate findings through relevant lenses (technical, regulatory, economic, historical, behavioural). Add any new insights. Write into `### §5 Depth and Breadth Expansion`.
+**§5 Depth and Breadth Expansion:** Re-evaluate findings through relevant lenses
+(technical, regulatory, economic, historical, behavioural). Add any new
+insights. Write into `### §5 Depth and Breadth Expansion`.
 
-**§6 Synthesis:** Produce the structured synthesis output and write it into `### §6 Synthesis` in the Research Skill Output section.
+**§6 Synthesis:** Produce the structured synthesis output and write it into
+`### §6 Synthesis` in the Research Skill Output section.
 
-**§7 Recursive Review:** Validate that every section is justified, all threads synthesised, every claim sourced or labelled, all uncertainties explicit. Record the outcome in `### §7 Recursive Review`.
+**§7 Recursive Review:** Validate that every section is justified, all threads
+synthesised, every claim sourced or labelled, all uncertainties explicit.
+Record the outcome in `### §7 Recursive Review`.
 
-### 5. Seed the Findings section from §6
+### 3. Seed the Findings section from §6
 
-With `## Research Skill Output` complete, copy the §6 Synthesis content into `## Findings` — expanding each component into the full structured subsections. No new claims may appear in Findings that are not already in the Research Skill Output.
+With `## Research Skill Output` complete, copy the §6 Synthesis content into
+`## Findings` -- expanding each component into the full structured subsections.
+No new claims may appear in Findings that are not already in the Research Skill
+Output.
 
-- **Executive Summary** — 3–5 sentences. Direct answer to the research question. **The first sentence must state the answer as a specific, falsifiable claim — not a restatement of the question, not a description of what the item covers, not a hedged "it depends." If the answer is genuinely uncertain, state the best-supported conclusion followed by the primary uncertainty.** State the key conclusion first.
-- **Key Findings** — ordered list, 6–12 items. Each is a specific, evidence-backed claim with confidence label (high / medium / low). **Each Key Finding must be a complete sentence of at least 20 words containing a subject, a verb, and a specific object or complement.** Do not include findings that are reformulations of the research question, findings that apply generically to all research items, or findings that consist only of a label without a claim.
-- **Evidence Map** — table: claim | source | confidence | notes. Every Key Finding must appear here.
-- **Assumptions** — each assumption and its justification. Must match **[assumption]** labels in §2 Investigation.
-- **Analysis** — how evidence was weighed, trade-offs identified, competing interpretations resolved.
-- **Risks, Gaps, and Uncertainties** — what is still unknown; where evidence is thin.
-- **Open Questions** — questions that surfaced but are out of scope; may become new backlog items.
-- **Output section** — type (`knowledge`), description, and links to the three most important sources.
+- **Executive Summary** -- 3-5 sentences. Direct answer to the research
+  question. **The first sentence must state the answer as a specific,
+  falsifiable claim -- not a restatement of the question, not a description of
+  what the item covers, not a hedged "it depends." If the answer is genuinely
+  uncertain, state the best-supported conclusion followed by the primary
+  uncertainty.** State the key conclusion first.
+- **Key Findings** -- ordered list, 6-12 items. Each is a specific,
+  evidence-backed claim with confidence label (high / medium / low). **Each Key
+  Finding must be a complete sentence of at least 20 words containing a subject,
+  a verb, and a specific object or complement.** Do not include findings that are
+  reformulations of the research question, findings that apply generically to all
+  research items, or findings that consist only of a label without a claim.
+- **Evidence Map** -- table: claim | source | confidence | notes. Every Key
+  Finding must appear here.
+- **Assumptions** -- each assumption and its justification. Must match
+  **[assumption]** labels in §2 Investigation.
+- **Analysis** -- how evidence was weighed, trade-offs identified, competing
+  interpretations resolved.
+- **Risks, Gaps, and Uncertainties** -- what is still unknown; where evidence
+  is thin.
+- **Open Questions** -- questions that surfaced but are out of scope; may become
+  new backlog items.
+- **Output section** -- type (`knowledge`), description, and links to the three
+  most important sources.
 
 **Writing style:**
-- Direct, declarative prose. State findings as facts or clearly labelled inferences.
-- No filler phrases ("it is worth noting", "importantly", "it should be said", "in conclusion").
+- Direct, declarative prose. State findings as facts or clearly labelled
+  inferences.
+- No filler phrases ("it is worth noting", "importantly", "it should be said",
+  "in conclusion").
 - No sycophantic transitions. Each section earns its content.
 
-### 6. Companion skill checks
+### 4. Companion skill checks
 
-Apply all three companion skill pre-output checks defined in `.github/skills/research/SKILL.md §8 Output Finalisation`. All three must pass before proceeding. Fix any violations in the item before moving on.
+Apply all three companion skill pre-output checks defined in
+`.github/skills/research/SKILL.md §8 Output Finalisation`. All three must pass
+before proceeding. Fix any violations in the item before moving on.
 
-**Critical: acronym expansion audit (run inline — do not defer to the skill file).**
-This is the most common citation-discipline failure. 19+ research reviews have failed for this reason alone. Run it now, before Step 7:
+**Critical: acronym expansion audit (run inline -- do not defer to the skill
+file).**
+This is the most common citation-discipline failure. 19+ research reviews have
+failed for this reason alone. Run it now, before Step 5:
 
-1. List every acronym, initialism, and abbreviation used in `## Research Skill Output` and `## Findings`.
-2. For **each one**, confirm it is expanded on its **first use in the entire document** — not just in each section.
+1. List every acronym, initialism, and abbreviation used in
+   `## Research Skill Output` and `## Findings`.
+2. For **each one**, confirm it is expanded on its **first use in the entire
+   document** -- not just in each section.
 3. Format: `Full Name (ABBR)` at first use; `ABBR` alone thereafter.
-4. These abbreviations have failed review most often — check each one explicitly:
+4. These abbreviations have failed review most often -- check each one
+   explicitly:
 
 | Abbreviation | Required expansion on first use |
 |---|---|
@@ -126,36 +158,64 @@ This is the most common citation-discipline failure. 19+ research reviews have f
 | MECE | Mutually Exclusive, Collectively Exhaustive (MECE) |
 | PR | pull request (PR) |
 
-Also expand any domain-specific abbreviation introduced in this item's topic area. Fix every violation before moving on.
+Also expand any domain-specific abbreviation introduced in this item's topic
+area. Fix every violation before moving on.
 
-### 7. Sense check
+### 5. Sense check
 
-Re-read the completed item as a critical reader, not as its author. Apply all four checks:
+Re-read the completed item as a critical reader, not as its author. Apply all
+four checks:
 
-- **Logic** — Are the conclusions actually supported by the evidence gathered? Could an informed reader challenge any causal link or inference?
-- **Consistency** — Do the numbers, dates, claims, and confidence levels agree across sections (§2, Key Findings, Evidence Map)? Do the conclusions align with what the sources actually say?
-- **Reality** — Does the overall picture match how the domain works in practice? Are there obvious real-world constraints, counterexamples, or mainstream positions that the item ignores or contradicts without explanation?
-- **Clarity** — Would a knowledgeable non-specialist understand the argument and reach the same conclusion? Are there unstated assumptions that a reader would need to fill in themselves?
+- **Logic** -- Are the conclusions actually supported by the evidence gathered?
+  Could an informed reader challenge any causal link or inference?
+- **Consistency** -- Do the numbers, dates, claims, and confidence levels agree
+  across sections (§2, Key Findings, Evidence Map)? Do the conclusions align
+  with what the sources actually say?
+- **Reality** -- Does the overall picture match how the domain works in
+  practice? Are there obvious real-world constraints, counterexamples, or
+  mainstream positions that the item ignores or contradicts without explanation?
+- **Clarity** -- Would a knowledgeable non-specialist understand the argument
+  and reach the same conclusion? Are there unstated assumptions that a reader
+  would need to fill in themselves?
 
 If any check surfaces a problem, fix it before proceeding.
 
-### 8. Self-review before draft commit
+### 6. Self-review before draft commit
 
-Before committing, run an inline self-review to catch the most common violations. This avoids spending a full external review cycle on easily-detectable issues.
+Before committing, run an inline self-review to catch the most common
+violations. This avoids spending a full external review cycle on
+easily-detectable issues.
 
 **Check all of the following before proceeding:**
 
-1. **Acronym/abbreviation expansion** — scan every section of `## Research Skill Output` and `## Findings`. List every abbreviation used. Confirm each is expanded at its **first occurrence in the entire document** (not per-section). The most commonly failed ones are: LLM, API, CLI, SDK, PAT, MCP, RAG, CoT, PDF, GPT, SRE, PR, ITSM, PINT, CVE, OWASP. Fix every unexpanded abbreviation before proceeding.
+1. **Acronym/abbreviation expansion** -- scan every section of
+   `## Research Skill Output` and `## Findings`. List every abbreviation used.
+   Confirm each is expanded at its **first occurrence in the entire document**
+   (not per-section). The most commonly failed ones are: LLM, API, CLI, SDK,
+   PAT, MCP, RAG, CoT, PDF, GPT, SRE, PR, ITSM, PINT, CVE, OWASP. Fix every
+   unexpanded abbreviation before proceeding.
 
-2. **Claim labels** — every factual or inferential claim in `## Research Skill Output` must carry a `[fact]`, `[inference]`, or `[assumption]` label. Headings and question decomposition sub-headings are exempt. Fix any unlabelled claims.
+2. **Claim labels** -- every factual or inferential claim in
+   `## Research Skill Output` must carry a `[fact]`, `[inference]`, or
+   `[assumption]` label. Headings and question decomposition sub-headings are
+   exempt. Fix any unlabelled claims.
 
-3. **Vague quantifiers** — check for unsourced "many", "most", "significant", "state-of-the-art". Replace with specific numbers or add a source, or qualify as `[inference]`.
+3. **Vague quantifiers** -- check for unsourced "many", "most", "significant",
+   "state-of-the-art". Replace with specific numbers or add a source, or
+   qualify as `[inference]`.
 
-4. **AI slop phrases** — scan `## Findings` for: "Furthermore", "Additionally", "It is important to note", "In conclusion", "It is worth noting", "Importantly". Remove or rewrite each occurrence.
+4. **AI slop phrases** -- scan `## Findings` for: "Furthermore",
+   "Additionally", "It is important to note", "In conclusion", "It is worth
+   noting", "Importantly". Remove or rewrite each occurrence.
 
-If you fix anything in this self-review, re-read the affected sentences to confirm the fix did not introduce a new violation before proceeding.
+5. **Em-dashes** -- scan the entire document for `—` (U+2014 em-dash). Every
+   occurrence is a violation. Replace each with a comma, colon, or restructured
+   sentence. Em-dashes are prohibited without exception.
 
-### 9. Mark as draft and trigger review
+If you fix anything in this self-review, re-read the affected sentences to
+confirm the fix did not introduce a new violation before proceeding.
+
+### 7. Mark as draft and trigger review
 
 ```bash
 SLUG=$(basename <filename> .md)
@@ -165,7 +225,8 @@ git commit -m "research: draft - ${SLUG}"
 git push origin main
 ```
 
-This updates the item's `status` to `reviewing` in place (no file move). The file remains in `Research/in-progress/`.
+This updates the item's `status` to `reviewing` in place (no file move). The
+file remains in `Research/in-progress/`.
 
 Then trigger the review workflow and **wait for it to complete**:
 
@@ -177,7 +238,7 @@ RUN_ID=$(gh run list --workflow=research-review.yml --branch=main --limit=1 --js
 gh run watch "$RUN_ID" --exit-status || true
 ```
 
-### 10. Handle review outcome
+### 8. Handle review outcome
 
 Pull the latest version of the item (the review workflow commits `review_count`
 back to the file):
@@ -192,50 +253,61 @@ Read the `review_count` field from the item's YAML frontmatter:
 REVIEW_COUNT=$(grep -m1 '^review_count:' Research/in-progress/<filename> | awk '{print $2}')
 ```
 
-- **If `REVIEW_COUNT` is absent or 0:** the review workflow did not run or did not
-  commit — re-trigger from Step 9.
-- **If `REVIEW_COUNT >= 1`:** the review ran. Check the latest review workflow log
-  for `OVERALL: FAIL` to decide whether to fix anything before completing:
+- **If `REVIEW_COUNT` is absent or 0:** the review workflow did not run or did
+  not commit -- re-trigger from Step 7.
+- **If `REVIEW_COUNT >= 1`:** the review ran. Check the latest review workflow
+  log for `OVERALL: FAIL` to decide whether to fix anything before completing:
 
   ```bash
   LAST_RUN=$(gh run list --workflow=research-review.yml --limit=1 --json databaseId --jq '.[0].databaseId')
   gh run view "$LAST_RUN" --log | grep -E "OVERALL:|VIOLATION:" || true
   ```
 
-  - **OVERALL: PASS** (or `review_count >= 2`, which auto-passes): proceed to Step 11.
-  - **OVERALL: FAIL and `review_count` is 1:** fix the flagged violations in the
-    item, apply the Step 8 self-review, then loop back to Step 9 to trigger one
-    final review pass. After that second pass the item will auto-pass regardless.
+  - **OVERALL: PASS** (or `review_count >= 2`, which auto-passes): proceed to
+    Step 9.
+  - **OVERALL: FAIL and `review_count` is 1:** fix the flagged violations in
+    the item, apply the Step 6 self-review, then loop back to Step 7 to trigger
+    one final review pass. After that second pass the item will auto-pass
+    regardless.
 
-### 11. Complete the item
+### 9. Complete the item
 
 ```bash
 python -m src.main research complete <filename>
 ```
 
-This moves the file to `Research/completed/<filename>` and updates `status` and `completed` fields.
+This moves the file to `Research/completed/<filename>` and updates `status` and
+`completed` fields.
 
-### 12. Update learnings.md
+### 10. Update learnings.md
 
-Read `learnings.md`. Check whether any finding from this item adds signal to an existing cross-cutting thread:
+Read `learnings.md`. Check whether any finding from this item adds signal to an
+existing cross-cutting thread:
 
-- If a finding **strengthens, extends, or contradicts** an existing thread → update that thread's **The learning** claim and add the item to its **Evidence** list.
-- If the item establishes a **genuinely new cross-cutting theme** → add a new numbered thread entry.
-- If no findings are cross-cutting → skip this step (no update needed).
+- If a finding **strengthens, extends, or contradicts** an existing thread ->
+  update that thread's **The learning** claim and add the item to its
+  **Evidence** list.
+- If the item establishes a **genuinely new cross-cutting theme** -> add a new
+  numbered thread entry.
+- If no findings are cross-cutting -> skip this step (no update needed).
 
-Do not add findings that are already captured or that apply only to this item. `learnings.md` is a synthesis layer across items, not a per-item summary.
+Do not add findings that are already captured or that apply only to this item.
+`learnings.md` is a synthesis layer across items, not a per-item summary.
 
-### 13. Create session log
+### 11. Create session log
 
-Create a new file `progress/YYYY-MM-DD-{slug}.md` where `{slug}` is the short-title portion of the research item filename (e.g. `slack-msteams-research-integration` from `2026-03-02-slack-msteams-research-integration.md`) with this content:
+Create a new file `progress/YYYY-MM-DD-{slug}.md` where `{slug}` is the
+short-title portion of the research item filename (e.g.
+`slack-msteams-research-integration` from
+`2026-03-02-slack-msteams-research-integration.md`) with this content:
 
 ```markdown
-# YYYY-MM-DD — Research Loop ({slug})
+# YYYY-MM-DD -- Research Loop ({slug})
 
 **Completed:**
 
 Research item:
-- `Research/completed/<filename>` — completed; <2–3 sentence summary of key findings>
+- `Research/completed/<filename>` -- completed; <2-3 sentence summary of key findings>
 
 Sources consulted:
 - <url 1> (<description>)
@@ -246,11 +318,11 @@ Sources consulted:
 
 1. **Did the process work?** <answer>
 2. **What slowed down or went wrong?** <answer>
-3. **What single change would prevent this next time?** <answer — if nothing, say so>
-4. **Is this a pattern?** <answer — if yes, note whether it matches a known pattern in the instructions or warrants adding a new one>
+3. **What single change would prevent this next time?** <answer -- if nothing, say so>
+4. **Is this a pattern?** <answer -- if yes, note whether it matches a known pattern in the instructions or warrants adding a new one>
 ```
 
-### 14. Commit to main
+### 12. Commit to main
 
 ```bash
 git add .
@@ -258,8 +330,9 @@ git commit -m "research: complete - <short-title-from-filename>"
 git push origin main
 ```
 
-The commit message format is `research: complete - <slug>` where `<slug>` is the date-and-slug
-portion of the filename (e.g. `research: complete - ai-strategy-swe-focus`).
+The commit message format is `research: complete - <slug>` where `<slug>` is
+the date-and-slug portion of the filename (e.g.
+`research: complete - ai-strategy-swe-focus`).
 
 ---
 
@@ -267,14 +340,27 @@ portion of the filename (e.g. `research: complete - ai-strategy-swe-focus`).
 
 - Do **one item** only. Stop after the commit.
 - Commit **directly to `main`**. Do not open a pull request.
-- Do **not** edit `PROGRESS.md` — it is now static and conflict-free by design. Session logs go in `progress/` only.
-- The session log in `progress/` is **mandatory**. It must be in the same commit as the completed item.
+- Do **not** edit `PROGRESS.md` -- it is now static and conflict-free by
+  design. Session logs go in `progress/` only.
+- The session log in `progress/` is **mandatory**. It must be in the same
+  commit as the completed item.
 - Do not skip the Evidence Map. Every Key Finding needs a row.
-- If the backlog is empty, print "Backlog is empty." and exit without committing.
-- **When creating new backlog items** from Open Questions, assign `priority` using this heuristic:
-  - `high` — the item answers a question that directly unblocks tooling, infrastructure, or other research (set `blocks` to list what it unblocks); or the item is strategically urgent and has clear downstream impact.
-  - `medium` — useful, advances understanding, but does not immediately block other work.
-  - `low` — exploratory, no clear downstream dependency, nice-to-have.
-  Set `blocks: []` unless the new item is a clear prerequisite for one or more other backlog items, in which case list their slugs (filename without `.md`).
-- **New backlog items must be created in `Research/backlog/`**, never in `Research/in-progress/` or the repo root. Use the filename format `YYYY-MM-DD-<slug>.md`.
-- **`Research/backlog/`, `Research/in-progress/`, and `Research/completed/` each contain a `.gitkeep` file. Never delete it.** Git drops empty directories; the `.gitkeep` keeps each directory tracked so the workflow `find` commands do not fail.
+- If no item is available, print "Backlog is empty." and exit without
+  committing.
+- **When creating new backlog items** from Open Questions, assign `priority`
+  using this heuristic:
+  - `high` -- the item answers a question that directly unblocks tooling,
+    infrastructure, or other research (set `blocks` to list what it unblocks);
+    or the item is strategically urgent and has clear downstream impact.
+  - `medium` -- useful, advances understanding, but does not immediately block
+    other work.
+  - `low` -- exploratory, no clear downstream dependency, nice-to-have.
+  Set `blocks: []` unless the new item is a clear prerequisite for one or more
+  other backlog items, in which case list their slugs (filename without `.md`).
+- **New backlog items must be created in `Research/backlog/`**, never in
+  `Research/in-progress/` or the repo root. Use the filename format
+  `YYYY-MM-DD-<slug>.md`.
+- **`Research/backlog/`, `Research/in-progress/`, and `Research/completed/`
+  each contain a `.gitkeep` file. Never delete it.** Git drops empty
+  directories; the `.gitkeep` keeps each directory tracked so the workflow
+  `find` commands do not fail.
