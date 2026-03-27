@@ -1,12 +1,12 @@
 ---
 title: "Customer contact as strategic signal: why people call and whether they want self-service"
 added: 2026-03-26
-status: reviewing
+status: completed
 priority: high
 blocks: []
 tags: [customer-service, strategy, behavioral-economics, ai, self-service, customer-delight, rory-sutherland]
 started: 2026-03-27
-completed: ~
+completed: 2026-03-27
 output: [knowledge]
 review_count: 2
 ---
@@ -176,7 +176,7 @@ This research item connects directly to the AI adoption question: as AI is deplo
 
 [fact] Octopus Energy achieved 90% customer satisfaction in the Ofgem/Citizens Advice nationwide survey (December 2025), against a Great Britain (GB) average of 82%, and recorded 84% for customer service versus the 76% national average. ([Source: Octopus Energy press release](https://octopus.energy/press/more-news-press-releases/octopus-energy-achieves-record-customer-satisfaction-levels-in-ofgem-survey/))
 
-[fact] Octopus has the lowest complaints of any large UK energy supplier across the last three quarters before December 2025, receiving 31% fewer complaints than the next best supplier and 61% fewer than the worst performer. ([Source: Octopus Energy press release](https://octopus.energy/press/more-news-press-releases/octopus-energy-achieves-record-customer-satisfaction-levels-in-ofgem-survey/))
+[fact] Octopus has the lowest complaints of any large United Kingdom (UK) energy supplier across the last three quarters before December 2025, receiving 31% fewer complaints than the next best supplier and 61% fewer than the worst performer. ([Source: Octopus Energy press release](https://octopus.energy/press/more-news-press-releases/octopus-energy-achieves-record-customer-satisfaction-levels-in-ofgem-survey/))
 
 [fact] Octopus's Kraken platform enables teams of 12–15 customer specialists per customer group, providing familiarity and continuity rather than faceless interactions, at 40% lower cost than rivals according to Stevie Awards submission data. ([Source: Stevie Awards](https://mobile.stevieawards.com/sales/octopus-energy-london-england-united-kingdom-customer-reward-scheme))
 
@@ -200,7 +200,7 @@ This research item connects directly to the AI adoption question: as AI is deplo
 
 [fact] Chewy, the online pet food retailer, demonstrates the same principle at scale: when a customer's pet dies and they forget to cancel a subscription, Chewy cannot take back the food, so it suggests donating to a shelter and sends flowers as a condolence gesture. ([Source: Big Think](https://bigthink.com/business/unreasonable-hospitality-548071/))
 
-[inference] The Guidara framework and the Chewy/DoubleTree examples collectively demonstrate that discretionary generosity is effective precisely because it is unexpected — it triggers the psychological peak-end rule (customers remember the peak and the end of an experience, not the average). The ROI operates through memory, word-of-mouth, and long-term loyalty, not same-session conversion — which is why it is systematically undervalued by organisations measuring only direct attribution.
+[inference] The Guidara framework and the Chewy/DoubleTree examples collectively demonstrate that discretionary generosity is effective precisely because it is unexpected — it triggers the psychological peak-end rule ([Kahneman et al., 1993](https://en.wikipedia.org/wiki/Peak%E2%80%93end_rule): people remember experiences by their emotional peak and final moment, not the average). The ROI operates through memory, word-of-mouth, and long-term loyalty, not same-session conversion — which is why it is systematically undervalued by organisations measuring only direct attribution.
 
 #### 2.4 Amazon "call me back" — an undercopied pattern
 
@@ -247,7 +247,7 @@ This research item connects directly to the AI adoption question: as AI is deplo
 1. Most customers attempt self-service first, but most self-service attempts for non-trivial issues fail — creating compounded frustration compared to customers who never tried.
 2. When self-service fails or the contact is emotionally significant, customers strongly prefer humans: 75–83% prefer human agents across studies from 2024 and 2025.
 3. Fully connected customers are worth 52% more in CLV than merely satisfied customers, and emotional connection is measurably linked to retention and advocacy.
-4. Octopus Energy demonstrates at scale (7 million UK customers) that a people-led model, empowered by technology, achieves category-best service quality at 40% lower cost than rivals through team structure and autonomy rather than rigid efficiency metrics.
+4. Octopus Energy demonstrates at scale (7 million UK customers ([Source: KPMG 2025](https://assets.kpmg.com/content/dam/kpmgsites/uk/pdf/2025/11/cee-uk-2025-case-studies-octopus.pdf.coredownload.inline.pdf))) that a people-led model, empowered by technology, achieves category-best service quality at 40% lower cost than rivals through team structure and autonomy rather than rigid efficiency metrics.
 5. Klarna demonstrates that AI automation can handle routine, transaction-type contacts at scale with matched satisfaction scores — but that the absence of a human option degrades perceived quality and requires correction.
 6. The Amazon callback feature has persisted because Amazon measures what competitors do not: the longitudinal retention effect of resolving contact moments well. Competitors do not copy it because they cannot easily attribute its value.
 7. The DoubleTree cookie and Guidara's 95/5 Rule both illustrate the same mechanism: low-cost, unexpected positive gestures create disproportionate emotional memory, which drives loyalty and advocacy beyond what transaction satisfaction alone predicts.
@@ -337,9 +337,9 @@ Organisations face a systematic bias toward automating customer contact because 
 
 **Analysis:**
 
-The evidence points to a structural misalignment between how organisations measure customer contact and the actual value it creates. The standard efficiency model (minimise contact volume, reduce handle time, deflect to self-service, automate) optimises for costs that are immediate and attributable. The value it destroys (retention, loyalty uplift, CLV) is distributed over months and years and cannot be tied to a single call. This is why the Amazon callback feature is not copied even by organisations that admire Amazon: they cannot build the business case because their measurement systems do not capture the return.
+The evidence points to a structural misalignment between how organisations measure customer contact and the actual value it creates. The standard efficiency model (minimise contact volume, reduce handle time, deflect to self-service, automate) optimises for costs that are immediate and attributable. The value it destroys (retention, loyalty uplift, CLV) is distributed over months and years and cannot be tied to a single call. [inference] This is why the Amazon callback feature is not copied even by organisations that admire Amazon: they cannot build the business case because their measurement systems do not capture the return.
 
-The Klarna case is the clearest live experiment: AI automation on routine contacts is proven and economically compelling. But the human fallback is required: not as a legacy option, but as a genuine quality component. The question is not whether to use AI but whether the AI-first organisation has preserved the human infrastructure for the contacts that matter most.
+[inference] The Klarna case is an instructive live experiment: AI automation on routine contacts is proven and economically compelling. But the human fallback is required: not as a legacy option, but as a genuine quality component. The question is not whether to use AI but whether the AI-first organisation has preserved the human infrastructure for the contacts that matter most.
 
 Octopus Energy's model resolves the apparent tension: technology (Kraken platform) enables the team-based, human-led service structure at scale and lower cost. The technology does not replace humans; it empowers them to work in smaller, more accountable teams. This is the hybrid model done correctly: AI as infrastructure for human excellence, not as replacement.
 
@@ -395,7 +395,7 @@ Organisations systematically underinvest in human customer service quality becau
 
 4. Customers who are fully emotionally connected to a brand generate CLV 52% higher than merely satisfied customers, and emotional connection has been linked to up to eight times more visits and sales in loyalty programme analysis, creating a direct financial case for service that exceeds transactional adequacy. [inference, medium confidence]
 
-5. Octopus Energy demonstrates at 7 million UK customer scale that a people-led, technology-enabled service model achieves 90% satisfaction (versus 82% GB average), the lowest complaints of any large UK energy supplier, and 40% lower operating costs than rivals, achieved by using teams of 12–15 dedicated specialists with genuine autonomy rather than rigid call-time targets. [fact, high confidence]
+5. Octopus Energy demonstrates at 7 million UK customer scale (KPMG 2025) that a people-led, technology-enabled service model achieves 90% satisfaction (versus 82% GB average), the lowest complaints of any large UK energy supplier, and 40% lower operating costs than rivals, achieved by using teams of 12–15 dedicated specialists with genuine autonomy rather than rigid call-time targets. [fact, high confidence]
 
 6. Klarna's AI customer service assistant handled two-thirds of all customer service chats within its first month (2.3 million conversations), matched human satisfaction scores on routine transaction contacts, reduced resolution time from 11 minutes to under 2 minutes, and was projected to deliver $40 million in annual profit improvement, demonstrating that AI automation is economically compelling for routine, transaction-type contacts. [fact, high confidence]
 
@@ -447,7 +447,7 @@ The strategic framework that resolves this, which could be called the "signal no
 
 3. **Measurement infrastructure:** The investment in human service quality cannot be defended against cost-cutting pressure without measurement systems that track retention and CLV uplift at the individual interaction level. This is the unfixed prerequisite.
 
-The Klarna case is instructive as a boundary condition: AI automation works at scale for routine transaction contacts and is economically compelling. But Klarna's subsequent rehiring decision reveals that the human option has symbolic value beyond its operational role: customers trust an organisation differently when they know a human is available. [inference] This is a perception effect, exactly the category of value that Sutherland argues is systematically underweighted by efficiency-focused organisations.
+Klarna's experience illustrates the boundary condition: AI automation works at scale for routine transaction contacts and is economically compelling. [inference] Klarna's subsequent rehiring decision reveals that the human option has symbolic value beyond its operational role: customers trust an organisation differently when they know a human is available. [inference] This is a perception effect, exactly the category of value that Sutherland argues is systematically underweighted by efficiency-focused organisations.
 
 ### Risks, Gaps, and Uncertainties
 
