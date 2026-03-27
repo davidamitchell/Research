@@ -12,6 +12,7 @@ For AI coding agents working on this repository.
 > 7. **MUST run `make check` (ruff lint + format) and `python -m pytest tests/ -q` and confirm both pass before claiming any coding task is finished.** Do not push or declare done without a clean CI run.
 > 8. **Never commit `docs/` changes on a feature branch.** Run `python scripts/build_site.py` locally to verify the build, but do not stage or commit `docs/`. The workflow regenerates the full site on merge to `main`. Committing `docs/` in a PR creates 300+ file diffs that cannot be reviewed.
 > 9. **Every source in a research item's `## Sources` section must include a URL** — `[Display Name](https://url)` or bare `https://url`. Sources without URLs cannot be verified or linked on the published site. A completed item with URL-free sources is not done.
+> 10. **For any non-trivial development work, follow the mandatory development loop: `swe` (design) → `tdd` (implement) → `code-review` (verify).** All three skills must be applied in sequence. Trivial = a single-line config change or typo fix with no logic. When in doubt, use the loop.
 
 ---
 
@@ -311,11 +312,14 @@ A weekly workflow (`.github/workflows/sync-skills.yml`) advances the submodule p
 | `adr` | Creating or updating Architecture Decision Records | read `SKILL.md` and apply manually |
 | `backlog-manager` | Adding, prioritising, or reviewing backlog items | read `SKILL.md` and apply manually |
 | `citation-discipline` | Ensuring claims are sourced and referenced | read `SKILL.md` and apply manually |
+| `code-review` | Reviewing code after implementation — correctness, security, performance, maintainability, style | **mandatory** after every non-trivial implementation; read `SKILL.md` and apply |
 | `remove-ai-slop` | Reviewing output for hollow filler language | read `SKILL.md` and apply manually |
 | `research` | Conducting structured research on a topic | read `SKILL.md` and apply manually |
 | `speculation-control` | Flagging uncertain claims vs established facts | read `SKILL.md` and apply manually |
 | `strategic-persuasion` | Building audience-targeted persuasive content | read `SKILL.md` and apply manually |
 | `strategy-author` | Producing or reviewing strategy documents | read `SKILL.md` and apply manually |
+| `swe` | Designing or implementing software — applies SOLID principles, design patterns, REST constraints | **mandatory** before writing any non-trivial implementation; read `SKILL.md` and apply |
+| `tdd` | Implementing any feature, bug fix, or behaviour change using Red-Green-Refactor | **mandatory** for all non-trivial code changes; read `SKILL.md` and apply |
 
 ### Invoking skills
 
@@ -451,6 +455,9 @@ Before marking a backlog slice as done:
 - [ ] `make test` passes — **run this locally before every push**
 - [ ] Both checks confirmed clean — do not declare finished until you have seen passing output
 - [ ] **`docs/` NOT staged or committed** — run `git status` and confirm no `docs/` changes are staged
+- [ ] For non-trivial work: `swe` skill applied before implementation (design documented or stated)
+- [ ] For non-trivial work: `tdd` Red-Green-Refactor cycle followed — every new behaviour had a failing test first
+- [ ] For non-trivial work: `code-review` skill applied — all `Critical` and `High` findings resolved
 - [ ] Session log created in `progress/YYYY-MM-DD-{slug}.md`
 - [ ] Any new ADRs written and indexed
 - [ ] README updated if user-facing behaviour changed
@@ -476,6 +483,26 @@ Most problems fall into one of three categories:
 - State what you understand the problem to be. If the statement is fuzzy, stop and sharpen it.
 - Identify what you don't know. Missing information is better surfaced early.
 - Note any assumptions explicitly.
+
+### Development Loop — mandatory for non-trivial work
+
+Any change that involves logic, behaviour, or structure beyond a single-line config fix or typo correction is **non-trivial** and requires the full development loop. When in doubt, treat it as non-trivial.
+
+The three skills are applied in strict sequence:
+
+**Step 1 — Design with `swe`**
+
+Open `.github/skills/swe/SKILL.md` and apply it before writing any code. The `swe` skill applies SOLID (Single Responsibility, Open/Closed, Liskov Substitution, Interface Segregation, Dependency Inversion) principles, design patterns, and REST constraints to produce a coherent design with explicit trade-offs. Do not write production code until the design is clear.
+
+**Step 2 — Implement with `tdd`**
+
+Open `.github/skills/tdd/SKILL.md` and follow its Red-Green-Refactor cycle for every unit of new behaviour. The Iron Law applies: no production code without a failing test first. Delete any production code written before its test — do not adapt or keep it as reference.
+
+**Step 3 — Verify with `code-review`**
+
+Open `.github/skills/code-review/SKILL.md` and apply a full multi-dimensional review (correctness, security, performance, maintainability, style) to the completed implementation. Resolve all `Critical` and `High` findings before marking the work done.
+
+**Composability note:** The three skills are designed to compose. `swe` answers *how should this be structured?* `tdd` answers *does it do what it should?* `code-review` answers *is there anything wrong with what was built?* Running all three closes the design-implement-verify loop.
 
 ### When an attempt fails
 
