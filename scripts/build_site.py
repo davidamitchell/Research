@@ -1845,10 +1845,7 @@ def build_threads_listing(threads: list[dict]) -> str:
         n = len(t["items"])
         date_range = _thread_date_range(t["items"])
         meta = f"{n} item{'s' if n != 1 else ''} · {date_range}"
-        tag_pills = "".join(
-            f'<span class="tag">{escape(tag)}</span>'
-            for tag in t["tag_cluster"]
-        )
+        tag_pills = "".join(f'<span class="tag">{escape(tag)}</span>' for tag in t["tag_cluster"])
         excerpt = t["items"][0]["question_excerpt"]
         if len(t["items"][0]["question"]) > 200:
             excerpt = excerpt.rstrip() + "…"

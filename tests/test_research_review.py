@@ -233,8 +233,8 @@ def test_citation_discipline_has_context_scope_note() -> None:
     """Step 1 (citation-discipline) must have a scope note scoping it off ## Context."""
     content = PROMPT_PATH.read_text(encoding="utf-8")
     # Find Step 1 section and verify it contains both "Scope note" and "## Context"
-    step1_start = content.find("### Step 1 — citation-discipline")
-    step2_start = content.find("### Step 2 — speculation-control")
+    step1_start = content.find("### Step 1 -- citation-discipline")
+    step2_start = content.find("### Step 2 -- speculation-control")
     assert step1_start != -1, "Step 1 section must exist"
     assert step2_start != -1, "Step 2 section must exist"
     assert step1_start < step2_start, "Step 1 must appear before Step 2"
@@ -248,8 +248,8 @@ def test_citation_discipline_has_context_scope_note() -> None:
 def test_speculation_control_has_context_scope_note() -> None:
     """Step 2 (speculation-control) must have a scope note scoping it off ## Context."""
     content = PROMPT_PATH.read_text(encoding="utf-8")
-    step2_start = content.find("### Step 2 — speculation-control")
-    step3_start = content.find("### Step 3 — remove-ai-slop")
+    step2_start = content.find("### Step 2 -- speculation-control")
+    step3_start = content.find("### Step 3 -- remove-ai-slop")
     assert step2_start != -1, "Step 2 section must exist"
     assert step3_start != -1, "Step 3 section must exist"
     assert step2_start < step3_start, "Step 2 must appear before Step 3"
