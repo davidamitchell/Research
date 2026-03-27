@@ -8,7 +8,7 @@ tags: [customer-service, strategy, behavioral-economics, ai, self-service, custo
 started: 2026-03-27
 completed: ~
 output: [knowledge]
-review_count: 1
+review_count: 2
 ---
 
 # Customer contact as strategic signal: why people call and whether they want self-service
