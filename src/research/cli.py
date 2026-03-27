@@ -235,9 +235,7 @@ def cmd_pick(research_root: Path | None = None) -> None:
     root = _research_root(research_root)
 
     # In-progress items always take priority -- resume oldest first.
-    in_prog_files = sorted(
-        p for p in (root / "in-progress").glob("*.md") if p.name != "README.md"
-    )
+    in_prog_files = sorted(p for p in (root / "in-progress").glob("*.md") if p.name != "README.md")
     if in_prog_files:
         path = in_prog_files[0]
         item = ResearchItem.from_file(path)
@@ -258,12 +256,12 @@ def cmd_pick(research_root: Path | None = None) -> None:
         print(_json.dumps({}))
         return
 
-    _PRIO = {"high": 0, "medium": 1, "low": 2}
+    _prio = {"high": 0, "medium": 1, "low": 2}
     backlog.sort(
         key=lambda i: (
-            _PRIO.get(i.priority, 1),
+            _prio.get(i.priority, 1),
             0 if i.blocks else 1,  # non-empty blocks list comes first
-            i.path.name,           # oldest filename (YYYY-MM-DD prefix) first
+            i.path.name,  # oldest filename (YYYY-MM-DD prefix) first
         )
     )
     item = backlog[0]

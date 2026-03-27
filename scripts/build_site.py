@@ -1859,7 +1859,7 @@ def build_threads_listing(threads: list[dict]) -> str:
             f'<div class="thread-card-meta">{escape(meta)}</div>'
             + (f'<div class="thread-card-tags">{tag_pills}</div>' if tag_pills else "")
             + (f'<div class="thread-card-excerpt">{escape(excerpt)}</div>' if excerpt else "")
-            + f"</div></a>\n"
+            + "</div></a>\n"
         )
         if idx < len(threads) - 1:
             entries_html += '<hr class="thread-card-hr">\n'
