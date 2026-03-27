@@ -1,6 +1,163 @@
 {
-  "extracted_at": "2026-03-26T01:16:47Z",
+  "extracted_at": "2026-03-27T11:01:07Z",
   "items": {
+    "2026-03-26-customer-contact-and-delight": {
+      "named_concepts": [
+        "customer service",
+        "service quality",
+        "ai automation",
+        "emotionally significant",
+        "octopus energy",
+        "attempt self-service",
+        "transaction contacts",
+        "human service",
+        "prefer human",
+        "human contact",
+        "eight times",
+        "merely satisfied",
+        "satisfied customers",
+        "doubletree hotels",
+        "routine transaction-type",
+        "transaction-type contacts",
+        "customers attempt",
+        "preference intensifying",
+        "self-service preference",
+        "human preference"
+      ],
+      "source_urls": [
+        "https://shows.acast.com/business-leader-podcast/episodes/rory-sutherland-the-advertising-gurus-tips",
+        "https://www.willguidara.com/unreasonable-hospitality",
+        "https://octopus.energy/blog/customer-service/",
+        "https://octopus.energy/press/more-news-press-releases/octopus-energy-achieves-record-customer-satisfaction-levels-in-ofgem-survey/",
+        "https://assets.kpmg.com/content/dam/kpmgsites/uk/pdf/2025/11/cee-uk-2025-case-studies-octopus.pdf.coredownload.inline.pdf",
+        "https://www.five9.com/news/news-releases/new-five9-study-finds-75-consumers-prefer-talking-human-customer-service",
+        "https://www.answerconnect.com/blog/business-tips/human-customer-service-stats/",
+        "https://customergauge.com/blog/why-customers-prefer-self-service-support-but-only-if-its-done-right",
+        "https://stories.hilton.com/doubletree-cookie",
+        "https://bigthink.com/business/unreasonable-hospitality-548071/",
+        "https://www.klarna.com/international/press/klarna-ai-assistant-handles-two-thirds-of-customer-service-chats-in-its-first-month/",
+        "https://observer.com/2025/08/klarna-ai-use-fintech/",
+        "https://www.itagroup.com/about-us/news/emotional-connection-multiplies-customer-loyalty-program-impact",
+        "https://www.puzzel.com/blog/what-is-an-ai-co-pilot-for-contact-centres"
+      ],
+      "key_claims": []
+    },
+    "2026-03-26-cost-reduction-is-not-strategy": {
+      "named_concepts": [
+        "quantification bias",
+        "cost reduction",
+        "dow et",
+        "et al",
+        "procurement functions",
+        "empirical case",
+        "failure mode",
+        "cost leadership",
+        "conversion rate",
+        "ai deployment",
+        "conversion statistics",
+        "short-horizon investors",
+        "independent analyses",
+        "competitive advantage",
+        "structural incentive",
+        "consumer direct",
+        "direct offense",
+        "distribution reach",
+        "brand availability",
+        "efficiency gain"
+      ],
+      "source_urls": [
+        "https://shows.acast.com/business-leader-podcast/episodes/rory-sutherland-the-advertising-gurus-tips",
+        "https://www.ainvest.com/news/nike-strategic-stumbles-flawed-dtc-execution-retail-retreat-undermine-brand-dow-2512/",
+        "https://retailboss.substack.com/p/nikes-15-billion-tariff-problem-exposes",
+        "https://www.marketingweek.com/ritson-nike-big-strategic-mistakes/",
+        "https://articles.data.blog/2024/06/30/rory-sutherland-on-roi-and-opportunity-cost/",
+        "https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai",
+        "https://www.bcg.com/publications/2025/cut-costs-or-grow-great-transformations-achieve-both",
+        "https://corpgov.law.harvard.edu/2024/08/13/the-short-termism-trap-catering-to-informed-investors-with-limited-horizons/",
+        "https://www.calix.com/blog/2021/08/how-zappos-uses-customer-support-as-an-opportunity-to-wow-customers.html"
+      ],
+      "key_claims": [
+        "Porter's cost leadership strategy requires structural cost advantage, not arbitrary cutting; organisations that reduce costs without a corresponding customer-facing benefit are consuming competitive assets without replacement",
+        "Finance and procurement functions are structurally rewarded for immediate, quantifiable, attributable outcomes, which creates a systematic organisational bias against opportunity creation — a mechanism Rory Sutherland names \"quantification bias.\" [high confidence]",
+        "Quantification bias causes organisations to over-weight easily measured metrics (cost per contact, conversion rate, headcount) and under-weight harder-to-quantify value drivers (distribution reach, brand trust, customer lifetime value, discovery)",
+        "Nike's Consumer Direct Offense, launched in 2017, caused a 16% net income decline by FY2023 and required full strategic reversal by CEO Elliott Hill in 2024–25, with wholesale revenue rising 8% while direct sales fell 8% in Q2 2025",
+        "Nike's CDO failure was driven by optimising for measurable gross margin rather than customer preference evidence; the distribution, brand availability, and casual buyer losses were diffuse and slow to appear — a textbook quantification bias failure mode",
+        "Major AI consultancies (McKinsey, Accenture) predominantly frame AI to CFO and procurement audiences as 25–40% efficiency improvement, mirroring the structural incentive that creates the Nike-style failure mode in AI investment decisions",
+        "BCG's 2025 survey shows that opportunity-minded AI companies achieve twice the revenue increase and 40% greater cost reductions than cost-first laggards, confirming that opportunity-first framing dominates cost-first framing on both dimensions",
+        "Zappos' explicit reframing of customer service contact from cost centre to \"special opportunity\" — treating every human interaction as a chance to build loyalty — drove an organic growth flywheel leading to Amazon's $1.2 billion acquisition in 2009"
+      ]
+    },
+    "2026-03-26-bureaucracy-growth-and-the-boomer-generation-hypothesis": {
+      "named_concepts": [
+        "boomer cohort",
+        "boomer workforce",
+        "hr finance",
+        "management quality",
+        "department growth",
+        "hamel zanini",
+        "administrative overhead",
+        "zanini hbr",
+        "single researcher",
+        "baby boomer",
+        "population increase",
+        "james feyrer",
+        "scale degraded",
+        "hr department",
+        "workforce scale",
+        "organisational pressure",
+        "gary hamel",
+        "michele zanini",
+        "northcote parkinson",
+        "procurement bureaucracy"
+      ],
+      "source_urls": [
+        "https://www.nber.org/papers/w15474",
+        "https://hbr.org/2016/09/excess-management-is-costing-the-us-3-trillion-per-year",
+        "https://www.garyhamel.com/blog/busting-bureaucracy",
+        "https://www.ecowin.org/pdf/documents/Parkinson%20full.pdf",
+        "https://www.shrm.org/topics-tools/news/hr-magazine/50th-anniversary-hr-magazine-how-law-changed-hr",
+        "https://www.paycor.com/history-of-hr/",
+        "https://msiranniversary.wvu.edu/history/history-of-hr",
+        "https://www.stlouisfed.org/on-the-economy/2018/march/baby-boom-productivity-slowdown",
+        "https://arxiv.org/html/2412.15378v2",
+        "https://en.wikipedia.org/wiki/Parkinson%27s_law",
+        "https://www.london.edu/think/bureaucracy-where-to-liberate-3-trillion"
+      ],
+      "key_claims": []
+    },
+    "2026-03-26-against-bureaucracy-dismantling-control-systems-to-focus-on-value-and-opportunit": {
+      "named_concepts": [
+        "managerial class",
+        "opportunity cost",
+        "control systems",
+        "anti-bureaucracy manifesto",
+        "distributed accountability",
+        "direct productivity",
+        "productivity cost",
+        "advice process",
+        "failure mode",
+        "control system",
+        "toolkit process",
+        "process redesign",
+        "redesign empowerment",
+        "empowerment technology",
+        "technology communication",
+        "managerial revolution",
+        "value stream",
+        "stream mapping",
+        "mapping vsm",
+        "structural alternative"
+      ],
+      "source_urls": [
+        "https://www.peoplekult.com/post/the-anti-bureaucracy-manifesto-how-to-create-a-more-efficient-and-effective-organization",
+        "https://en.wikipedia.org/wiki/The_Managerial_Revolution",
+        "https://www.garyhamel.com/blog/3-trillion",
+        "https://www.humanocracy.com/",
+        "https://en.wikipedia.org/wiki/Reinventing_Organizations",
+        "https://kaizen.com/insights/guide-vsm-lean-manufacturing/"
+      ],
+      "key_claims": []
+    },
     "2026-03-24-public-sentiment-on-ai-in-banking-and-high-trust-institutions": {
       "named_concepts": [
         "publicis sapient",
@@ -695,7 +852,12 @@
         "fragmented deployments",
         "nearly remain"
       ],
-      "source_urls": [],
+      "source_urls": [
+        "https://www.mckinsey.com/capabilities/quantumblack/our-insights",
+        "https://hbr.org/2004/04/the-ambidextrous-organization",
+        "https://doi.org/10.1287/orsc.2.1.71",
+        "https://theleanstartup.com/"
+      ],
       "key_claims": []
     },
     "2026-03-18-api-context-hubs-rag-mcp": {
@@ -1305,7 +1467,24 @@
         "strategic ambiguity",
         "hoshin kanri"
       ],
-      "source_urls": [],
+      "source_urls": [
+        "https://www.cs.toronto.edu/km/tropos/",
+        "https://dl.acm.org/doi/10.5555/257734.257738",
+        "https://catala-lang.org/",
+        "https://arxiv.org/abs/1612.04496",
+        "https://github.com/EOSIO/ricardian-template-toolkit",
+        "https://doi.org/10.1007/s10270-014-0395-8",
+        "https://ojs.victoria.ac.nz/ajl/article/view/1779",
+        "https://github.com/Deon-Digital/deon",
+        "https://www.routledge.com/Hoshin-Kanri-The-Strategic-Approach-to-Continuous-Improvement/Hutchins/p/book/9780566088582",
+        "https://store.hbr.org/product/beyond-budgeting-how-managers-can-break-free-from-the-annual-performance-trap/2151",
+        "https://mitpress.mit.edu/9780262200738/real-options/",
+        "https://goodbadstrategy.com/",
+        "https://doi.org/10.1002/smj.4250180904",
+        "https://doi.org/10.2307/985654",
+        "https://doi.org/10.1109/ISRE.2001.948567",
+        "https://doi.org/10.1007/s00766-003-0185-8"
+      ],
       "key_claims": []
     },
     "2026-03-13-financial-forecasting-it-run-costs": {
@@ -1331,7 +1510,21 @@
         "growth rate",
         "sensitivity analysis"
       ],
-      "source_urls": [],
+      "source_urls": [
+        "https://www.ifrs.org/issued-standards/list-of-standards/practice-statement-1-making-materiality-judgements/",
+        "https://www.ifrs.org/issued-standards/list-of-standards/ias-37-provisions-contingent-liabilities-and-contingent-assets/",
+        "https://asc.fasb.org/topic/275",
+        "https://www.sec.gov/rules/interp/33-8056.htm",
+        "https://pcaobus.org/standards/auditing-standards/details/AS2101",
+        "https://www.isaca.org/resources/cobit",
+        "https://www.axelos.com/certifications/itil-4-certifications",
+        "https://www.gartner.com/en/finance/topics/it-budgeting",
+        "https://www.rics.org/uk/upholding-standards/sector-standards/valuation/red-book-guidance/",
+        "https://www.wiley.com/en-us/Risk+Analysis%3A+A+Quantitative+Guide%2C+3rd+Edition-p-9780470515778",
+        "https://www.howtomeasureanything.com/",
+        "https://www.frc.org.uk/library/standards-codes-policy/accounting-and-reporting/financial-reporting-lab/",
+        "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32017R1129"
+      ],
       "key_claims": [
         "The TBM Council V4 taxonomy is the de facto industry standard for categorising IT operational costs, providing a cost pool layer — labour, Software-as-a-Service (SaaS), cloud services, hardware, telecom, and facilities — that forms the required structure for building auditable run-cost estimates across all deployment models",
         "Infrastructure-as-a-Service (IaaS) cloud compute costs are consumption-driven and metered by the second, making them the highest-volatility IT cost category: cloud spend can increase 20–30% annually without active governance, driven by usage growth that outpaces the per-unit price reductions that cloud providers have historically delivered",
@@ -1481,7 +1674,13 @@
         "skills format",
         "skill md"
       ],
-      "source_urls": [],
+      "source_urls": [
+        "https://github.com/davidamitchell/superpowers",
+        "https://github.com/davidamitchell/Latest-developments-",
+        "https://github.com/davidamitchell/Agent-Evaluation",
+        "https://github.com/davidamitchell/Memory-System",
+        "https://github.com/davidamitchell/Skills"
+      ],
       "key_claims": []
     },
     "2026-03-12-hosting-options-for-the-research-repo": {
@@ -1719,7 +1918,14 @@
         "coordination costs",
         "governance-transaction alignment"
       ],
-      "source_urls": [],
+      "source_urls": [
+        "https://doi.org/10.1111/j.1468-0335.1937.tb00002.x",
+        "https://doi.org/10.1086/227496",
+        "https://www.cambridge.org/core/books/institutions-institutional-change-and-economic-performance/AAE1E43E55B0BB9B99E16AFF6E3E2F69",
+        "https://teamtopologies.com/book",
+        "https://www.oreilly.com/library/view/building-evolutionary-architectures/9781491986356/",
+        "https://academic.oup.com/book/39948"
+      ],
       "key_claims": [
         "Team Topologies' three interaction modes (collaboration, X-as-a-Service, facilitation) map directly and consistently onto Williamson's three governance structures (hybrid, market, quasi-hierarchical), providing a practical translation of TCE theory into software team design with real-world validation at Amazon (two-pizza teams) and Spotify (squads-tribes model)",
         "API boundaries are transaction cost artefacts: a well-designed API reduces consumer search costs through documentation and discoverability, negotiation costs through stable versioning and clear contracts, and enforcement costs through automated integration testing and schema validation; an API that fails any dimension externalises transaction costs onto consumers",
@@ -1848,7 +2054,10 @@
         "engineering disciplines",
         "six types"
       ],
-      "source_urls": [],
+      "source_urls": [
+        "https://owasp.org/www-project-top-10-for-large-language-model-applications/",
+        "https://python.langchain.com/docs/introduction/"
+      ],
       "key_claims": [
         "Prompt type is a two-dimensional concept: structural role (system/user/assistant/tool) and functional form (few-shot/CoT/meta-prompt/RAG-augmented) are orthogonal — any structural role can carry any functional form, which explains why CoT works in both system prompts and user turns without contradiction",
         "Instruction types are rhetorical functions — what a message element does to model behaviour — not structural categories, and they co-occur within a single message: a system prompt typically exercises persona definition, declarative goal, constraint, and format directive functions simultaneously, which means instruction type is a set membership relationship, not a type assignment",
@@ -1920,7 +2129,14 @@
         "model homogeneity",
         "adversarial collaboration"
       ],
-      "source_urls": [],
+      "source_urls": [
+        "https://doi.org/10.1037/0003-066X.64.6.515",
+        "https://www.cambridge.org/core/books/human-error/A779B4B0AE7B9804B769E4B3E4A5E64B",
+        "https://www.gov.uk/government/publications/the-green-book-appraisal-and-evaluation-in-central-government",
+        "https://arxiv.org/abs/2304.03442",
+        "https://arxiv.org/abs/2308.11432",
+        "https://arxiv.org/abs/2305.19118"
+      ],
       "key_claims": []
     },
     "2026-03-08-telegram-bot-memory-capture-retrieval": {
@@ -2069,7 +2285,11 @@
         "services organisations",
         "operating model"
       ],
-      "source_urls": [],
+      "source_urls": [
+        "https://www.servicenow.com/products/impact.html",
+        "https://www.gartner.com/reviews/market/itsm-tools",
+        "https://www.servicenow.com/community/"
+      ],
       "key_claims": []
     },
     "2026-03-08-servicenow-csdm-data-modelling": {
@@ -2121,7 +2341,12 @@
         "external llm",
         "financial services"
       ],
-      "source_urls": [],
+      "source_urls": [
+        "https://docs.servicenow.com/",
+        "https://developer.servicenow.com/",
+        "https://www.servicenow.com/blogs/",
+        "https://www.servicenow.com/community/"
+      ],
       "key_claims": []
     },
     "2026-03-08-self-hosted-mcp-server-options": {
@@ -2155,7 +2380,8 @@
         "https://docs.railway.app/reference/pricing",
         "https://tailscale.com/kb/1017/install",
         "https://docs.github.com/en/rest/repos/repos#create-a-repository-dispatch-event",
-        "https://lancedb.github.io/lancedb/"
+        "https://lancedb.github.io/lancedb/",
+        "https://github.com/davidamitchell/Memory-System"
       ],
       "key_claims": []
     },
@@ -2187,7 +2413,8 @@
         "https://lancedb.github.io/lancedb/python/python/",
         "https://huggingface.co/BAAI/bge-small-en-v1.5",
         "https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2",
-        "https://docs.github.com/en/rest/search/search"
+        "https://docs.github.com/en/rest/search/search",
+        "https://github.com/davidamitchell/Memory-System"
       ],
       "key_claims": []
     },
@@ -2218,7 +2445,8 @@
         "https://docs.github.com/en/rest/repos/contents",
         "https://docs.github.com/en/rest/search/search",
         "https://support.apple.com/guide/shortcuts/welcome/ios",
-        "https://docs.github.com/en/rest/using-the-rest-api/rate-limits-for-the-rest-api"
+        "https://docs.github.com/en/rest/using-the-rest-api/rate-limits-for-the-rest-api",
+        "https://github.com/davidamitchell/Memory-System"
       ],
       "key_claims": [
         "The GitHub Contents API `PUT /repos/{owner}/{repo}/contents/{path}` is callable from iOS Shortcuts via \"Get Contents of URL\" with method PUT, and requires `message` and `content` (base64-encoded, single-line) fields in the JSON body; a 201 response confirms the file is committed",
@@ -2257,7 +2485,8 @@
       "source_urls": [
         "https://notes.andymatuschak.org/Evergreen_notes",
         "https://gettingthingsdone.com/",
-        "https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule"
+        "https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule",
+        "https://github.com/davidamitchell/Memory-System"
       ],
       "key_claims": []
     },
@@ -2337,7 +2566,8 @@
         "https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization",
         "https://support.claude.com/en/articles/11596036-anthropic-connectors-directory-faq",
         "https://support.claude.com/en/articles/11725091-when-to-use-desktop-and-web-connectors",
-        "https://developers.cloudflare.com/agents/guides/remote-mcp-server/"
+        "https://developers.cloudflare.com/agents/guides/remote-mcp-server/",
+        "https://github.com/davidamitchell/Memory-System"
       ],
       "key_claims": []
     },
@@ -2368,7 +2598,8 @@
         "https://platform.openai.com/docs/actions/introduction",
         "https://platform.openai.com/docs/actions/authentication",
         "https://help.openai.com/en/articles/8590148-memory-faq",
-        "https://swagger.io/specification/"
+        "https://swagger.io/specification/",
+        "https://github.com/davidamitchell/Memory-System"
       ],
       "key_claims": []
     },
@@ -2454,7 +2685,9 @@
         "manufacturing retail",
         "atum taxonomy"
       ],
-      "source_urls": [],
+      "source_urls": [
+        "https://www.tbmcouncil.org/"
+      ],
       "key_claims": []
     },
     "2026-03-07-run-build-it-allocation-implementation-how": {
@@ -2480,7 +2713,9 @@
         "isg multi-dimensional",
         "multi-dimensional tbm"
       ],
-      "source_urls": [],
+      "source_urls": [
+        "https://www.tbmcouncil.org/"
+      ],
       "key_claims": []
     },
     "2026-03-05-swarm-pca-genetic-reinforcement-learning": {
@@ -2814,7 +3049,11 @@
         "tag analysis",
         "drift threshold"
       ],
-      "source_urls": [],
+      "source_urls": [
+        "https://fortelabs.com/blog/para/",
+        "https://hbr.org/2016/09/know-your-customers-jobs-to-be-done",
+        "https://www.whatmatters.com/faqs/okr-meaning-definition-example"
+      ],
       "key_claims": [
         "Priority inflation renders the priority field ineffective",
         "D4 Research Tooling & Delivery has drifted to 44% of backlog",
@@ -3013,7 +3252,8 @@
       ],
       "source_urls": [
         "https://plato.stanford.edu/entries/coase/",
-        "https://www.nobelprize.org"
+        "https://www.nobelprize.org",
+        "https://www.cambridge.org/core/books/institutions-institutional-change-and-economic-performance/AAE1E43E55B0BB9B99E16AFF6E3E2F69"
       ],
       "key_claims": [
         "Coase (1937, 1960): the firm exists because markets have friction",
@@ -3132,6 +3372,7 @@
       "source_urls": [
         "https://doi.org/10.1111/j.1467-9310.1989.tb00072.x",
         "https://www.springernature.com/gp/authors/campaigns/how-to-peer-review-3",
+        "https://global.oup.com/academic/product/the-knowledge-creating-company-9780195092691",
         "https://zettelkasten.de/introduction/"
       ],
       "key_claims": [
@@ -3208,7 +3449,10 @@
         "adapt adaplanner",
         "financial constraints"
       ],
-      "source_urls": [],
+      "source_urls": [
+        "https://global.oup.com/academic/product/the-knowledge-creating-company-9780195092691",
+        "https://doi.org/10.6028/NIST.AI.100-1"
+      ],
       "key_claims": [
         "The DIKW hierarchy maps directly onto the five-layer knowledge architecture established in prior research: the data tier corresponds to raw/extractive layers, the information tier to abstractive summaries, the knowledge tier to knowledge graph nodes, and the wisdom tier to the domain schema plus active conflict-resolution step",
         "Wisdom-tier operation for agents is achievable without human intervention only when conflicts are within the deterministic resolution scope of a precedence-rule engine plus temporal-authority arbitration; genuinely novel or ambiguous regulatory conflicts require escalation, which must be explicitly designed into the architecture",
@@ -3538,7 +3782,9 @@
         "seth quanta",
         "foundation talk"
       ],
-      "source_urls": [],
+      "source_urls": [
+        "https://doi.org/10.1016/j.tics.2013.09.007"
+      ],
       "key_claims": [
         "Perception is generative, not receptive",
         "Hallucination and perception are mechanistically identical",
@@ -3670,7 +3916,15 @@
         "effective july",
         "ai governance"
       ],
-      "source_urls": [],
+      "source_urls": [
+        "https://www.rbnz.govt.nz/",
+        "https://www.rbnz.govt.nz/financial-stability/financial-stability-report",
+        "https://www.apra.gov.au/prudential-standard-cps-230-operational-risk-management",
+        "https://www.apra.gov.au/cpg-234-information-security",
+        "https://www.fca.org.uk/publication/discussion/dp22-4.pdf",
+        "https://www.eba.europa.eu/regulation-and-policy/internal-governance/guidelines-internal-governance-under-crd",
+        "https://www.fsb.org/2017/11/artificial-intelligence-and-machine-learning-in-financial-service/"
+      ],
       "key_claims": [
         "RBNZ has published no standalone AI supervisory guidance, policy, or regulatory standard as of March 2026, making it one of the most silent major central banks on AI-specific prudential expectations relative to its size and the sophistication of NZ's financial sector",
         "The May 2025 \"Rise of the Machines\" FSR article is RBNZ's first substantive AI publication and is explicitly a monitoring report, not rule-making: Kerry Watt (Director of Financial Stability Assessment and Strategy) confirmed RBNZ will \"continue to closely monitor developments\" rather than announcing new obligations",
@@ -3777,7 +4031,11 @@
         "minimal selfhood",
         "interoceptive signals"
       ],
-      "source_urls": [],
+      "source_urls": [
+        "https://www.penguin.co.uk/books/316558/being-you-by-anil-seth/9781529404777",
+        "https://doi.org/10.1016/j.tics.2013.09.007",
+        "https://doi.org/10.1038/nrn2555"
+      ],
       "key_claims": []
     },
     "2026-02-28-hard-problem-vs-real-problem-consciousness": {
@@ -3803,7 +4061,13 @@
         "experiential facts",
         "direct confrontation"
       ],
-      "source_urls": [],
+      "source_urls": [
+        "https://consc.net/papers/facing.pdf",
+        "https://global.oup.com/academic/product/the-conscious-mind-9780195117899",
+        "https://www.penguin.co.uk/books/316558/being-you-by-anil-seth/9781529404777",
+        "https://www.keithfrankish.com/illusionism-as-a-theory-of-consciousness/",
+        "https://philipgoff.com/galileos-error/"
+      ],
       "key_claims": [
         "Chalmers' hard problem (1995) asks why physical processes are accompanied by phenomenal experience at all, a question that functional and mechanistic explanations cannot answer in principle even if they are complete",
         "Seth's real problem (2016, 2021) asks which specific physical properties give rise to which specific conscious qualities, a question that generates testable predictions and active research programmes in neuroscience",
@@ -3873,7 +4137,14 @@
         "mckinsey three",
         "horizons model"
       ],
-      "source_urls": [],
+      "source_urls": [
+        "https://doi.org/10.1287/orsc.2.1.71",
+        "https://doi.org/10.1002/smj.4250141009",
+        "https://doi.org/10.5465/AMR.2003.9416096",
+        "https://doi.org/10.1177/0149206308316058",
+        "https://hbr.org/2012/09/your-strategy-needs-a-strategy",
+        "https://hbr.org/2012/05/managing-your-innovation-portfolio"
+      ],
       "key_claims": [
         "March's (1991) competency trap applies directly to AI portfolios: organisations optimising exclusively for exploitation AI use cases will reach a value ceiling and face growing exposure to exploration-led competitors",
         "Levinthal & March (1993) identify three structural myopias — temporal, spatial, and failure — that predict specific AI portfolio pathologies: over-concentration in short-ROI use cases, over-investment in the existing technology stack, and selective learning from successful pilots rather than failed explorations",
@@ -3943,7 +4214,20 @@
         "existing laws",
         "privacy act"
       ],
-      "source_urls": [],
+      "source_urls": [
+        "https://oecd.ai/",
+        "https://www.data.govt.nz/toolkit/data-ethics/government-algorithm-transparency-and-accountability/algorithm-charter/",
+        "https://www.rbnz.govt.nz/",
+        "https://www.digital.govt.nz/dmsdocument/238~digital-strategy-for-aotearoa/html",
+        "https://www.mbie.govt.nz/science-and-technology/science-and-innovation/research-and-data/nz-artificial-intelligence-strategy/",
+        "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1689",
+        "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022R2554",
+        "https://doi.org/10.6028/NIST.AI.100-1",
+        "https://www.imda.gov.sg/resources/blog/2024/01/model-ai-governance-framework-second-edition",
+        "https://www.iso.org/standard/81230.html",
+        "https://doi.org/10.1287/orsc.2.1.71",
+        "https://www.nzlii.org/"
+      ],
       "key_claims": [
         "Global strategies share eight common pillars — foundational research, human-AI symbiosis, ethical/legal frameworks, trust and safety, AI infrastructure, workforce formation, governance, and export controls — but diverge significantly on enforcement model",
         "NZ's \"Investing with Confidence\" (July 2025) is a sophisticated-adopter strategy, not a leadership play",
@@ -3978,7 +4262,11 @@
         "coding tools",
         "internal trial"
       ],
-      "source_urls": [],
+      "source_urls": [
+        "https://octoverse.github.com/",
+        "https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/developer-velocity-at-work-key-lessons-from-industry-digital-leaders",
+        "https://www.swebench.com/"
+      ],
       "key_claims": [
         "The Microsoft/GitHub/MIT RCT (2023) found that developers using GitHub Copilot completed a specified JavaScript task 55.8% faster (1h11m vs 2h41m; 95% CI: 21–89%; P=0.0017), with the strongest benefit for less experienced and older developers — but the result applies to a single bounded task and does not generalize to complex multi-file enterprise work",
         "Google's CEO disclosed in 2024 earnings calls that over 25% of Google's new code is AI-generated, reviewed by human engineers before submission to production systems across Search, Cloud, and YouTube — the largest publicly disclosed AI code generation deployment",
@@ -4013,7 +4301,16 @@
         "phishing volume",
         "vectra ai"
       ],
-      "source_urls": [],
+      "source_urls": [
+        "https://atlas.mitre.org/",
+        "https://owasp.org/www-project-top-10-for-large-language-model-applications/",
+        "https://doi.org/10.6028/NIST.AI.100-2e2023",
+        "https://www.ncsc.govt.nz/publications/",
+        "https://www.microsoft.com/en-us/security/security-insider/intelligence-reports",
+        "https://www.cisa.gov/ai",
+        "https://www.imda.gov.sg/resources/blog/2024/01/model-ai-governance-framework-second-edition",
+        "https://www.rbnz.govt.nz/"
+      ],
       "key_claims": [
         "AI-enhanced phishing grew 1,265% in volume following widespread generative AI availability, with 82% of phishing emails assessed as AI-generated content in 2025, and average phishing-related breach costs now standing at $4.8–4.88 million per incident",
         "Business Email Compromise scams, substantially enabled by AI-generated content and voice deepfakes, generated $2.7 billion in US-reported losses in 2024, representing a quantifiable economic harm directly attributable to AI-enhanced social engineering",
@@ -4048,7 +4345,13 @@
         "model governance",
         "group level"
       ],
-      "source_urls": [],
+      "source_urls": [
+        "https://www.rbnz.govt.nz/",
+        "https://www.apra.gov.au/cpg-234-information-security",
+        "https://www.federalreserve.gov/supervisionreg/srletters/sr1107.htm",
+        "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022R2554",
+        "https://www.iif.com/"
+      ],
       "key_claims": [
         "HSBC's AI-driven AML system (Google Cloud Dynamic Risk Assessment) reduced false positive alerts by 60% and increased confirmed financial crime detection by 2–4×, processing billions of transactions in days rather than weeks",
         "JPMorgan Chase achieved a 95% reduction in false positives in AML/fraud detection using AI, with fraud detected 300× faster and estimated savings of $1.5 billion in 2023–2024 across 450+ AI use cases spanning risk management, surveillance, and operations",
@@ -4083,7 +4386,14 @@
         "nz businesses",
         "businesses report"
       ],
-      "source_urls": [],
+      "source_urls": [
+        "https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai",
+        "https://www.bcg.com/capabilities/artificial-intelligence/ai-at-scale",
+        "https://www.gartner.com/en/articles/what-s-new-in-artificial-intelligence-from-the-2023-gartner-hype-cycle",
+        "https://hbr.org/topic/subject/ai-and-machine-learning",
+        "https://oecd.ai/en/catalogue/tools",
+        "https://www.productivity.govt.nz/research-and-resources/"
+      ],
       "key_claims": [
         "Only 26% of organisations globally have scaled AI to generate visible business value",
         "AI leaders outperform peers by a measurable margin",
@@ -4118,7 +4428,13 @@
         "current deployments",
         "senior manager"
       ],
-      "source_urls": [],
+      "source_urls": [
+        "https://www.bis.org/",
+        "https://www.fca.org.uk/",
+        "https://www.apra.gov.au/cpg-234-information-security",
+        "https://www.rbnz.govt.nz/",
+        "https://www.iif.com/"
+      ],
       "key_claims": [
         "Vendor platforms dominate line 2 AI agent deployment",
         "Line 1 agents focus on real-time operational risk detection",
@@ -4153,7 +4469,13 @@
         "continuous monitoring",
         "iaasb pcaob"
       ],
-      "source_urls": [],
+      "source_urls": [
+        "https://www.iaasb.org/",
+        "https://pcaobus.org/",
+        "https://www.isaca.org/resources/cobit",
+        "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022R2554",
+        "https://www.rbnz.govt.nz/"
+      ],
       "key_claims": [
         "GRC platforms deliver continuous control monitoring in production",
         "All four Big-4 firms have embedded AI in their external audit platforms",
