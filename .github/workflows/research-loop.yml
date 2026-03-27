@@ -22,8 +22,8 @@ name: Research Loop
 #   - Absolute iteration ceiling: HARD_MAX_ITERATIONS (10) — stops regardless of
 #     MAX_ITEMS to prevent runaway loops from configuration errors.
 #   - Failure limit: 2 consecutive Copilot failures abort the run immediately.
-#   - Inter-iteration sleep: 30 s between iterations; gives GitHub API rate limits
-#     time to recover and makes runaway loops visible in timing logs.
+#     Rate limit hits are NOT counted as failures — they break the loop cleanly.
+#   - Inter-iteration sleep: 30 s between iterations.
 #   - No cancel-in-progress: a running loop is never killed by a new trigger.
 #
 # Trigger options:
@@ -60,8 +60,6 @@ jobs:
     runs-on: ubuntu-latest
 
     # Hard ceiling: no single run may exceed 90 minutes regardless of backlog size.
-    # Each Copilot session should complete a single research item well within 30 min.
-    # 90 min: generous for 3 items at ~25 min each; if a session hits this, something is wrong.
     timeout-minutes: 90
 
     permissions:
@@ -73,7 +71,6 @@ jobs:
         with:
           ref: main
           token: ${{ secrets.COPILOT_GITHUB_TOKEN }}
-          # Submodules not needed for research loop; skip for speed
           submodules: false
 
       - name: Set up Python
@@ -109,21 +106,13 @@ jobs:
           # ------------------------------------------------------------------ #
           # Safety constants                                                     #
           # ------------------------------------------------------------------ #
-          # Absolute ceiling: stop after this many iterations regardless of     #
-          # MAX_ITEMS. Prevents runaway loops from configuration errors.        #
           HARD_MAX_ITERATIONS=10
-          # Consecutive-failure threshold: abort if Copilot fails this many    #
-          # times in a row without making progress.                             #
           FAILURE_THRESHOLD=2
-          # Sleep between iterations (seconds). Provides rate-limit breathing  #
-          # room and makes runaway loops detectable by timing.                 #
           INTER_ITERATION_SLEEP=30
 
           # ------------------------------------------------------------------ #
           # Determine per-run item cap                                          #
           # ------------------------------------------------------------------ #
-          # workflow_dispatch: use the dropdown input (already constrained to 1–5).
-          # schedule: conservative default of 3.
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             MAX_ITEMS="${{ inputs.max_items }}"
           else
@@ -134,6 +123,11 @@ jobs:
 
           ITERATION=0
           CONSECUTIVE_FAILURES=0
+
+          # Temp file to capture copilot CLI output for rate-limit detection.
+          # Output is tee'd so it still streams live to the Actions log.
+          COPILOT_OUT=$(mktemp)
+          trap 'rm -f "$COPILOT_OUT"' EXIT
 
           while true; do
             # ---------------------------------------------------------------- #
@@ -154,8 +148,6 @@ jobs:
 
             # ---------------------------------------------------------------- #
             # Debugging: git state before rebase                               #
-            # Helps diagnose ghost-dirty-tree issues (e.g. autocrlf/fileMode  #
-            # causing the working tree to appear dirty after a clean checkout) #
             # ---------------------------------------------------------------- #
             echo "--- [DEBUG] git state before rebase (iteration $((ITERATION + 1))) ---"
             echo "core.autocrlf: $(git config core.autocrlf 2>/dev/null || echo 'not set')"
@@ -169,8 +161,6 @@ jobs:
             # ---------------------------------------------------------------- #
             # Sync with remote                                                  #
             # ---------------------------------------------------------------- #
-            # Pull latest main before each iteration so concurrent commits
-            # (e.g. from a manual trigger) don't cause push conflicts.
             if ! git pull --rebase origin main; then
               echo "::error::git pull --rebase failed — possible conflict or network issue. Stopping loop."
               exit 1
@@ -196,20 +186,57 @@ jobs:
             # ---------------------------------------------------------------- #
             # Run Copilot session                                               #
             # ---------------------------------------------------------------- #
-            # Each invocation is a fresh session — one context window per item.
+            # Tee output to $COPILOT_OUT so we can inspect it for rate-limit
+            # messages after the session exits. pipefail means the pipe exits
+            # non-zero if copilot exits non-zero, so the if-branch is correct.
+            # shellcheck disable=SC2094
             if copilot -p "$(cat research-prompt.md)" \
                 --autopilot \
-                --allow-all; then
+                --allow-all 2>&1 | tee "$COPILOT_OUT"; then
               CONSECUTIVE_FAILURES=0
             else
+              # ------------------------------------------------------------ #
+              # Distinguish rate-limit errors from genuine failures.          #
+              #                                                                #
+              # Rate limits are a capacity constraint, not a code error.      #
+              # Retrying immediately is useless (3-hour cooldown). Counting   #
+              # them as consecutive failures wastes the failure budget and    #
+              # causes the job to abort with exit 1 on the next attempt.     #
+              #                                                                #
+              # When rate-limited: clean state, break cleanly (exit 0).      #
+              # When genuinely failed: existing consecutive-failure logic.    #
+              # ------------------------------------------------------------ #
+              if grep -qi "rate limit" "$COPILOT_OUT"; then
+                # Parse the suggested wait duration from the message, e.g.
+                # "Please try again in 3 hours" or "try again in 30 minutes".
+                WAIT_HOURS=$(grep -oi 'try again in [0-9]\+ hour' "$COPILOT_OUT" | grep -o '[0-9]\+' || true)
+                WAIT_MINS=$(grep -oi 'try again in [0-9]\+ minute' "$COPILOT_OUT" | grep -o '[0-9]\+' || true)
+                if [ -n "$WAIT_HOURS" ]; then
+                  COOLDOWN_MSG="${WAIT_HOURS}h cooldown indicated"
+                elif [ -n "$WAIT_MINS" ]; then
+                  COOLDOWN_MSG="${WAIT_MINS}m cooldown indicated"
+                else
+                  COOLDOWN_MSG="cooldown duration not parsed from message"
+                fi
+                echo "::warning::Copilot rate limit hit ($COOLDOWN_MSG). Stopping loop — re-trigger when quota resets."
+                # Clean any partial writes the session left behind.
+                if ! git diff --quiet || ! git diff --cached --quiet; then
+                  echo "::warning::Dirty working tree/index after rate-limited session. Discarding uncommitted changes."
+                  git reset --hard HEAD
+                  git clean -fd
+                fi
+                # Push any commits the agent completed before hitting the limit.
+                git push origin main || true
+                break
+              fi
+
+              # Not a rate limit — treat as a genuine session failure.
               CONSECUTIVE_FAILURES=$((CONSECUTIVE_FAILURES + 1))
               echo "::warning::Copilot session failed (consecutive failures: $CONSECUTIVE_FAILURES/$FAILURE_THRESHOLD)"
-              # A failed session may have left partial writes on disk (no commit made).
-              # Discard them so the next iteration's git pull --rebase can proceed cleanly.
-              # Use `git reset --hard HEAD` (not `git checkout -- .`) so that staged
-              # changes in the index are also discarded — checkout only restores the
-              # working tree and leaves staged files untouched, which causes the next
-              # `git pull --rebase` to fail with "index contains uncommitted changes".
+              # A failed session may have left partial writes on disk.
+              # Use reset --hard (not checkout -- .) so staged index changes
+              # are also cleared; otherwise the next git pull --rebase fails
+              # with "index contains uncommitted changes".
               if ! git diff --quiet || ! git diff --cached --quiet; then
                 echo "::warning::Dirty working tree/index after failed session. Discarding uncommitted changes."
                 git reset --hard HEAD
@@ -222,7 +249,6 @@ jobs:
             fi
 
             # Push any commits the agent made.
-            # (The agent commits inside its session; this is a safety-net push.)
             git push origin main || true
 
             # ---------------------------------------------------------------- #
