@@ -1,9 +1,11 @@
 # Research Master Document
 
-Generated on: 2026-03-24 22:49 UTC
+Generated on: 2026-03-27 00:53 UTC
 
 ## Table of Contents
 
+* [Against bureaucracy: dismantling control systems to focus on value and opportunity exploration](#2026-03-26-against-bureaucracy-dismantling-control-systems-to-focus-on-value-and-opportunit-md)
+* [Public sentiment on AI in banking and high-trust institutions](#2026-03-24-public-sentiment-on-ai-in-banking-and-high-trust-institutions-md)
 * [The Software Factory: Organisational Transformation When the Cost of Quality Software Approaches Zero](#2026-03-23-software-factory-md)
 * [Agent orchestration patterns: lessons from Anvil, Max, and Burke Holland's multi-model orchestration gist](#2026-03-23-agent-orchestration-anvil-max-md)
 * [How to best use awesome-copilot in this repo and across personal repos](#2026-03-22-using-awesome-copilot-across-repos-md)
@@ -119,6 +121,163 @@ Generated on: 2026-03-24 22:49 UTC
 * [AI Strategy Examples: Business Efficiency Focus](#2026-02-28-ai-strategy-business-efficiency-examples-md)
 * [AI Line 1 and Line 2 Risk Agents: Who Is Building Them?](#2026-02-28-ai-line-1-line-2-risk-agents-md)
 * [AI for Control Testing, Gap Identification, and Policies/Standards Reviews](#2026-02-28-ai-control-testing-and-assurance-md)
+
+---
+
+<a name="2026-03-26-against-bureaucracy-dismantling-control-systems-to-focus-on-value-and-opportunit-md"></a>
+
+## Against bureaucracy: dismantling control systems to focus on value and opportunity exploration
+
+**Tags:** [bureaucracy, organisational-design, management, lean, value-creation, systems-thinking, self-management]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-26-against-bureaucracy-dismantling-control-systems-to-focus-on-value-and-opportunit.md
+
+## Research Question
+
+What does the synthesis of the Anti-Bureaucracy Manifesto and James Burnham's *The Managerial Revolution* reveal about how organisations can dismantle control systems and system waste while refocusing resources on value creation and opportunity exploration?
+
+## Findings
+
+### Executive Summary
+
+Bureaucracy is a control system whose costs are borne by the organisation and its customers, but whose benefits accrue to the managerial class that administers it — this structural asymmetry explains why bureaucracy persists despite universal agreement on its costs. The Anti-Bureaucracy Manifesto's toolkit (process redesign, empowerment, technology, communication) and James Burnham's *The Managerial Revolution* (1941) are complementary: the Manifesto quantifies the economic damage and proposes operational remedies; Burnham explains why those remedies are politically difficult and why bureaucracy re-emerges after removal efforts. The synthesis yields a complete framework: Value Stream Mapping (VSM) as the diagnostic instrument, distributed accountability structures as the structural alternative to hierarchical control, and leadership willingness to reduce its own scope of control as the necessary precondition for sustainable dismantling. Critically, the opportunity cost of bureaucracy — the strategic capacity consumed by approval processes rather than customer contact and opportunity exploration — is likely larger than the direct productivity cost, though no empirical estimate currently quantifies it.
+
+### Key Findings
+
+1. Bureaucracy imposes a $3 trillion annual productivity tax in the United States (US) and over $9 trillion globally, with companies that reduce management layers reporting 20% higher operational efficiency and 30% higher employee engagement, according to Hamel and Zanini (2020) and supporting survey data.
+2. The Anti-Bureaucracy Manifesto's five-component toolkit (process redesign, empowerment, technology, communication, leadership culture) is a necessary but insufficient remedy because it addresses bureaucracy as a process problem rather than as a power-accumulation mechanism.
+3. Burnham's *The Managerial Revolution* (1941) identifies the structural driver: a managerial class accumulates control through administrative apparatus and has direct economic and status incentives to resist dismantling it, making bureaucracy reduction a power-redistribution problem as much as an operational one.
+4. Orwell's 1946 critique of Burnham's determinism establishes that the managerial-class tendency is a real structural force but is interruptible by deliberate organisational design, as demonstrated by Laloux's Teal organisations and Hamel's humanocracy model.
+5. Laloux's Teal organisations (Buurtzorg, Morning Star) and Hamel's humanocracy framework provide convergent structural alternatives: distributed authority with peer accountability replaces hierarchical control at scale without creating new administrative layers.
+6. Value Stream Mapping (VSM) from lean management provides the operational instrument for identifying control-system waste: every process step is tested against whether it creates value for anyone outside the administrative class; steps that fail the test are removal candidates.
+7. The opportunity cost of bureaucracy is additional to and likely larger than its direct productivity cost: control systems consume the attention bandwidth of the people best positioned to identify and exploit market opportunities, creating a structural form of strategic myopia.
+8. Not all control systems are candidates for removal: regulatory compliance, fiduciary obligations, and genuine cross-system coordination have external justification; but cognitive biases (loss aversion, status quo bias) cause administrators to systematically misclassify self-serving controls in this category, making external audit by a cross-functional team a required step in any removal programme.
+9. Sustainable dismantling of control systems requires four structural conditions: an explicit definition of organisational value, distributed accountability mechanisms that do not require a control layer (e.g., the advice process, radical transparency), information access for those without formal authority, and demonstrated leadership willingness to reduce its own scope of control.
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| $3 trillion US bureaucracy productivity tax annually | [Hamel — $3 Trillion Prize](https://www.garyhamel.com/blog/3-trillion) | medium | Estimation methodology; not a direct measurement |
+| 20% higher efficiency in less bureaucratic firms | McKinsey survey (2017), cited in [PeopleKult Manifesto](https://www.peoplekult.com/post/the-anti-bureaucracy-manifesto-how-to-create-a-more-efficient-and-effective-organization) | medium | Survey self-report; correlation not causation |
+| 30% lower engagement in bureaucratic organisations | Harvard Business Review (HBR) (2016), cited in [PeopleKult Manifesto](https://www.peoplekult.com/post/the-anti-bureaucracy-manifesto-how-to-create-a-more-efficient-and-effective-organization) | medium | Survey-based; engagement measurement is contested |
+| Anti-Bureaucracy Manifesto toolkit is necessary but insufficient | Inference from [PeopleKult Manifesto](https://www.peoplekult.com/post/the-anti-bureaucracy-manifesto-how-to-create-a-more-efficient-and-effective-organization) | medium | Toolkit does not address power-accumulation incentive |
+| Managerial class accumulates power through administrative apparatus | [Wikipedia — The Managerial Revolution](https://en.wikipedia.org/wiki/The_Managerial_Revolution) | high | Structural argument; historical pattern of management layer growth |
+| Burnham's tendency is interruptible by deliberate design | [Orwell — James Burnham and the Managerial Revolution](http://george-orwell.org/James_Burnham_and_the_Managerial_Revolution/0.html) | high | Orwell's critique is well-documented and historically verified |
+| Teal organisations operate at scale without hierarchical management | [Wikipedia — Reinventing Organizations](https://en.wikipedia.org/wiki/Reinventing_Organizations) | medium | Buurtzorg and Morning Star; not universally replicable |
+| VSM identifies non-value-adding steps | [Kaizen Institute — VSM](https://kaizen.com/insights/guide-vsm-lean-manufacturing/) | high | Established lean methodology with decades of application |
+| Opportunity cost of bureaucracy exceeds direct productivity cost | Inference from attention-economics reasoning | low | No direct empirical estimate identified |
+
+### Assumptions
+
+- **Assumption:** Organisations can accurately classify control systems as legitimate (external justification) vs. administrative (self-serving) with sufficient cross-functional audit. **Justification:** VSM practice externalises classification to cross-functional teams rather than to the control-system administrators, making this tractable in practice.
+- **Assumption:** The cultural and structural conditions for Teal / humanocracy (trust, transparency, peer accountability) are achievable in most organisations with sufficient leadership commitment. **Justification:** Supported by Laloux's case studies at scale, but not demonstrated across all industry types.
+
+### Analysis
+
+The three frameworks address different failure modes in anti-bureaucracy programmes. The Anti-Bureaucracy Manifesto addresses the operational failure mode (not knowing what to remove, or lacking the tools to do so). Burnham addresses the political failure mode (the managerial class resists removal because control systems are its source of power). Hamel and Laloux address the structural failure mode (removing bureaucracy without a structural alternative allows it to re-emerge, because the underlying incentive — accumulation of administrative control — remains intact).
+
+The opportunity-exploration frame is the least-addressed by existing literature but may be the most economically significant: approval processes are not merely expensive in themselves, they are a form of strategic throttle. The organisations most capable of opportunity exploration are those in which the people closest to markets, customers, and technical capabilities can act on what they discover without routing decisions through control layers that add latency and remove accountability from those with the most relevant information.
+
+The practical synthesis is a three-step programme: (1) use VSM to audit every control system against a value-creation test; (2) remove or replace those that fail, substituting distributed accountability mechanisms; (3) implement structural safeguards (advice process, contribution-density metrics) that make re-accumulation of administrative power visible and addressable before it calcifies.
+
+### Risks, Gaps, and Uncertainties
+
+- Cost estimates are US-centric and may not translate to other regulatory or economic contexts.
+- Teal / humanocracy case studies are concentrated in industries less subject to external regulation; applicability to banking, aviation, or pharmaceuticals is uncertain.
+- The political-economy mechanism (managerial class resistance) is structurally plausible but has not been tested experimentally.
+- The opportunity cost of bureaucracy (foregone innovation and market responsiveness) is the most significant unquantified gap in current evidence.
+
+### Open Questions
+
+- Can the opportunity cost of bureaucracy (foregone innovation, delayed market response) be empirically measured, distinct from the direct productivity cost? This is a candidate new backlog item.
+- What are the minimum viable governance structures required in heavily regulated industries, and is there a systematic method for identifying and preserving only those?
+- Does Laloux's advice process or Hamel's contribution-density metric provide a better operational target for anti-bureaucracy programmes in practice?
+
+---
+
+---
+
+<a name="2026-03-24-public-sentiment-on-ai-in-banking-and-high-trust-institutions-md"></a>
+
+## Public sentiment on AI in banking and high-trust institutions
+
+**Tags:** [ai, banking, customer-trust, apac, survey-data, architecture, financial-services, regulation]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-24-public-sentiment-on-ai-in-banking-and-high-trust-institutions.md
+
+## Research Question
+
+What does current (2024–2025) survey data reveal about customer sentiment toward Artificial Intelligence (AI) in banking and high-trust Financial Services (FS) institutions — in Australia, across Asia-Pacific (APAC), and globally — and would a two-plane architecture (a "production plane" that augments human employees, and an "operational plane" that minimises direct AI involvement in binding customer-financial-data decisions) represent a viable, trust-differentiated approach that can be clearly communicated to customers?
+
+## Findings
+
+### Executive Summary
+
+- **[fact]** Australian banking customers show a severe trust-use gap: 50% use Artificial Intelligence (AI) regularly but only 36% trust it, and 96% report reservations about bank AI use ([KPMG/University of Melbourne 2025](https://assets.kpmg.com/content/dam/kpmgsites/au/pdf/2025/trust-in-ai-global-insights-2025-australia-snapshot.pdf); [Publicis Sapient 2024](https://knowledge.publicissapient.com/01/news-publicis-sapient-customer-banking-report-press-release.html)).
+- **[inference]** The contrast between broad reservations and the 96% satisfaction rate among the 21% of customers who have actually used banking AI tools suggests that unfamiliarity and control concerns matter more than observed product failure ([EPAM Continuum 2024](https://www.prnewswire.com/news-releases/epam-continuums-2024-consumer-banking-report-highlights-ai-success-with-a-96-satisfaction-rate-302065213.html); [Publicis Sapient 2024](https://knowledge.publicissapient.com/01/news-publicis-sapient-customer-banking-report-press-release.html)).
+- **[inference]** A two-plane architecture, with AI augmenting employees in a production plane and tighter constraints on AI in binding financial decisions, fits both customer preference data and current regulatory direction ([Bird & Bird](https://www.twobirds.com/en/insights/2023/australia/apras-cps-230-takes-effect); [Dentons](https://www.dentons.com/en/insights/alerts/2025/april/14/cps-230-takes-effect-soon-are-you-ready-to-comply); [ABS Handbook 2026](https://www.abs.org.sg/docs/library/abs-handbook-on-generative-ai-guardrails-in-banking-(24-march-2026).pdf)).
+- **[inference]** The architecture itself is approaching a compliance baseline, so the differentiator is clear communication, visible human review, and employee capability to deliver the promised experience ([Accenture 2025](https://www.accenture.com/us-en/insights/banking/consumer-study-banking-advocacy-powering-growth); [KPMG/University of Melbourne 2025](https://kpmg.com/au/en/insights/artificial-intelligence-ai/trust-in-ai-global-insights-2025.html)).
+
+### Key Findings
+
+1. **[fact]** 96% of Australian banking customers have reservations about AI use by their bank, with the top three concerns being preference for human interaction (58%), job displacement fear (54%), and data privacy worry (49%) per [Publicis Sapient 2024](https://knowledge.publicissapient.com/01/news-publicis-sapient-customer-banking-report-press-release.html).
+2. **[fact]** Australia records the lowest AI trust-to-use ratio in the KPMG/University of Melbourne 2025 global study: only 36% trust AI despite 50% regular use, and only 30% believe AI benefits outweigh risks, which is 18 points below the global average of 48% ([KPMG/University of Melbourne 2025](https://assets.kpmg.com/content/dam/kpmgsites/au/pdf/2025/trust-in-ai-global-insights-2025-australia-snapshot.pdf)).
+3. **[fact]** The "experience gap" is the central paradox in banking AI trust: only 21% of banking customers globally have used AI tools, but 96% of those users report satisfaction ([EPAM Continuum 2024](https://www.prnewswire.com/news-releases/epam-continuums-2024-consumer-banking-report-highlights-ai-success-with-a-96-satisfaction-rate-302065213.html)).
+4. **[fact]** Asia-Pacific (APAC) regional averages mask extreme country-level variation in AI trust: China (35% increased trust in companies using Generative AI (Gen AI)) and India (29%) are more optimistic, while Australia (19%) and Japan (10% trust per Qualtrics 2025) are much more sceptical ([Dataconomy 2024](https://dataconomy.com/2024/09/16/apac-customers-trust-in-gen-ai-2024/); [Qualtrics Experience Management (XM) Institute 2025](https://www.qualtrics.com/m/www.xminstitute.com/wp-content/uploads/2025/01/XMI_RR-DS_ConsumerSentimentAI-Global-2025.pdf)).
+5. **[fact]** Globally, only 26% of consumers trust organisations to use AI responsibly, and direct experience with AI tools raises trust by roughly 40 to 50 percentage points ([Qualtrics Experience Management (XM) Institute 2025](https://www.qualtrics.com/m/www.xminstitute.com/wp-content/uploads/2025/01/XMI_RR-DS_ConsumerSentimentAI-Global-2025.pdf); [Edelman 2025 summary](https://www.indexbox.io/blog/2025-trust-barometer-global-ai-trust-at-a-crossroads/)).
+6. **[fact]** Regulatory frameworks are converging on human-in-the-loop mandates: APRA CPS 230 (effective July 2025), the MAS AI Risk Toolkit, and the Association of Banks in Singapore (ABS) Gen AI Guardrails Handbook all require human oversight for binding financial decisions ([Bird & Bird](https://www.twobirds.com/en/insights/2023/australia/apras-cps-230-takes-effect); [Singapore Law Watch](https://www.singaporelawwatch.sg/Headlines/MAS-launches-AI-risk-toolkit-for-financial-institutions-with-case-studies-from-DBS-peers); [ABS Handbook 2026](https://www.abs.org.sg/docs/library/abs-handbook-on-generative-ai-guardrails-in-banking-(24-march-2026).pdf)).
+7. **[fact]** Banks with top-20% customer advocacy scores grow revenue 1.7x faster than peers, and 83% of Australians say responsible AI practices and assured accuracy would increase their trust ([Accenture 2025](https://www.accenture.com/us-en/insights/banking/consumer-study-banking-advocacy-powering-growth); [KPMG/University of Melbourne 2025](https://kpmg.com/au/en/insights/artificial-intelligence-ai/trust-in-ai-global-insights-2025.html)).
+8. **[inference]** The two-plane architecture directly addresses the three dominant customer concerns and aligns with regulatory direction, but it is structurally close to what regulators are beginning to require rather than a unique moat in isolation ([Publicis Sapient 2024](https://knowledge.publicissapient.com/01/news-publicis-sapient-customer-banking-report-press-release.html); [Bird & Bird](https://www.twobirds.com/en/insights/2023/australia/apras-cps-230-takes-effect); [ABS Handbook 2026](https://www.abs.org.sg/docs/library/abs-handbook-on-generative-ai-guardrails-in-banking-(24-march-2026).pdf)).
+9. **[inference]** Competitive differentiation lies in communication clarity and experience design: the first institution to make the architecture observable to customers, through concrete language and visible AI-augmented service quality, is best placed to capture the advocacy premium before the model becomes commoditised ([Accenture 2025](https://www.accenture.com/us-en/insights/banking/consumer-study-banking-advocacy-powering-growth); [EPAM Continuum 2024](https://www.prnewswire.com/news-releases/epam-continuums-2024-consumer-banking-report-highlights-ai-success-with-a-96-satisfaction-rate-302065213.html); [Edelman 2025 summary](https://www.indexbox.io/blog/2025-trust-barometer-global-ai-trust-at-a-crossroads/)).
+10. **[inference]** Younger customers (18–34) show 41 points more AI trust than older customers (55+) in Edelman 2025 United Kingdom (UK) data, and 37% of 18–34 year-olds are considering switching banks in EPAM 2024, which supports demographic segmentation in how the model is communicated ([Edelman 2025 summary](https://www.provokemedia.com/latest/article/provoke18-how-controversial-should-brands-be/latest/article/edelman-ai-adoption-depends-on-trust-not-technology); [EPAM Continuum 2024](https://www.prnewswire.com/news-releases/epam-continuums-2024-consumer-banking-report-highlights-ai-success-with-a-96-satisfaction-rate-302065213.html)).
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| Australian banking customers report 96% reservations about bank AI use, anchored in human-contact, job-loss, and privacy concerns. | [Publicis Sapient 2024](https://knowledge.publicissapient.com/01/news-publicis-sapient-customer-banking-report-press-release.html) | high | Supports Key Finding 1 |
+| Australia shows a severe trust-use gap, with 36% trust and 30% net-benefit belief despite substantial AI use. | [KPMG/University of Melbourne 2025](https://assets.kpmg.com/content/dam/kpmgsites/au/pdf/2025/trust-in-ai-global-insights-2025-australia-snapshot.pdf) | high | Supports Key Finding 2 |
+| Banking customers who have actually used AI tools report 96% satisfaction even though overall AI-tool usage remains low at 21%. | [EPAM Continuum 2024](https://www.prnewswire.com/news-releases/epam-continuums-2024-consumer-banking-report-highlights-ai-success-with-a-96-satisfaction-rate-302065213.html) | high | Supports Key Finding 3 |
+| APAC sentiment varies sharply by country, with China and India much more optimistic than Australia and Japan. | [Dataconomy 2024](https://dataconomy.com/2024/09/16/apac-customers-trust-in-gen-ai-2024/), [Qualtrics XM Institute 2025](https://www.qualtrics.com/m/www.xminstitute.com/wp-content/uploads/2025/01/XMI_RR-DS_ConsumerSentimentAI-Global-2025.pdf) | high | Supports Key Finding 4 |
+| Global trust in responsible organisational AI use is low, but direct AI experience can materially raise trust. | [Qualtrics XM Institute 2025](https://www.qualtrics.com/m/www.xminstitute.com/wp-content/uploads/2025/01/XMI_RR-DS_ConsumerSentimentAI-Global-2025.pdf), [Edelman 2025 summary](https://www.indexbox.io/blog/2025-trust-barometer-global-ai-trust-at-a-crossroads/) | medium | Supports Key Finding 5 |
+| Regulatory guidance in Australia and Singapore converges on stronger human oversight for higher-risk banking AI uses. | [Bird & Bird](https://www.twobirds.com/en/insights/2023/australia/apras-cps-230-takes-effect), [Dentons](https://www.dentons.com/en/insights/alerts/2025/april/14/cps-230-takes-effect-soon-are-you-ready-to-comply), [ABS Handbook 2026](https://www.abs.org.sg/docs/library/abs-handbook-on-generative-ai-guardrails-in-banking-(24-march-2026).pdf) | high | Supports Key Finding 6 |
+| Trust-preserving AI deployment has economic upside because advocacy correlates with faster growth and Australians say safeguards would raise trust. | [Accenture 2025](https://www.accenture.com/us-en/insights/banking/consumer-study-banking-advocacy-powering-growth), [KPMG/University of Melbourne 2025](https://kpmg.com/au/en/insights/artificial-intelligence-ai/trust-in-ai-global-insights-2025.html) | high | Supports Key Finding 7 |
+| A two-plane architecture is viable because it matches customer concern patterns and regulatory direction, but it is not a durable moat by itself. | [Publicis Sapient 2024](https://knowledge.publicissapient.com/01/news-publicis-sapient-customer-banking-report-press-release.html), [Bird & Bird](https://www.twobirds.com/en/insights/2023/australia/apras-cps-230-takes-effect), [ABS Handbook 2026](https://www.abs.org.sg/docs/library/abs-handbook-on-generative-ai-guardrails-in-banking-(24-march-2026).pdf) | medium | Supports Key Finding 8 |
+| Competitive advantage depends on making the control boundary visible through concrete language and observable customer experience. | [Accenture 2025](https://www.accenture.com/us-en/insights/banking/consumer-study-banking-advocacy-powering-growth), [EPAM Continuum 2024](https://www.prnewswire.com/news-releases/epam-continuums-2024-consumer-banking-report-highlights-ai-success-with-a-96-satisfaction-rate-302065213.html), [Edelman 2025 summary](https://www.indexbox.io/blog/2025-trust-barometer-global-ai-trust-at-a-crossroads/) | medium | Supports Key Finding 9 |
+| Age-linked trust differences and switching risk require different messaging for younger and older customer segments. | [Edelman 2025 summary](https://www.provokemedia.com/latest/article/provoke18-how-controversial-should-brands-be/latest/article/edelman-ai-adoption-depends-on-trust-not-technology), [EPAM Continuum 2024](https://www.prnewswire.com/news-releases/epam-continuums-2024-consumer-banking-report-highlights-ai-success-with-a-96-satisfaction-rate-302065213.html) | high | Supports Key Finding 10 |
+
+### Assumptions
+
+- **Assumption:** 2024–2025 survey sentiment remains directionally valid through 2026. **Justification:** AI adoption is accelerating; structural concerns (human connection, privacy, jobs) are unlikely to reverse in 12 months, though absolute trust percentages may shift.
+- **Assumption:** "Binding financial decisions" can be operationally separated from "augmentation tasks" in a production banking architecture. **Justification:** APRA CPS 230 and MAS/ABS guidance require risk-tiering of AI use cases, confirming the boundary is definable, though edge cases (AI-ranked mortgage applications reviewed by humans) may blur it.
+- **Assumption:** Customers will perceive meaningful value in an explicit two-plane articulation rather than treating it as marketing language. **Justification:** 83% of Australians say responsible practices would increase trust (KPMG 2025) and 40–50 point trust lifts from direct AI experience (Edelman 2025) suggest receptivity, though no survey has tested this specific framing.
+
+### Analysis
+
+- **[inference]** Customers are not rejecting all AI uses; they are distinguishing between AI that improves service under human control and AI that appears to act autonomously over their money ([Publicis Sapient 2024](https://knowledge.publicissapient.com/01/news-publicis-sapient-customer-banking-report-press-release.html); [F5/Twimbit 2025](https://technode.global/2025/04/09/f5-ai-adoption-accelerates-in-apac-but-consumers-struggle-with-trust-security-and-job-displacement-concerns/); [Accenture 2025](https://www.accenture.com/us-en/insights/banking/consumer-study-banking-advocacy-powering-growth)).
+- **[inference]** The production plane is attractive when it appears as better service, continuity of context, and faster human interactions, because those outcomes align with Accenture's advocacy drivers and with EPAM's high satisfaction rate among actual AI users ([Accenture 2025](https://www.accenture.com/us-en/insights/banking/consumer-study-banking-advocacy-powering-growth); [EPAM Continuum 2024](https://www.prnewswire.com/news-releases/epam-continuums-2024-consumer-banking-report-highlights-ai-success-with-a-96-satisfaction-rate-302065213.html)).
+- **[inference]** The operational plane is credible because regulators and industry guardrails already push banks toward stronger human oversight, auditability, and risk controls for higher-stakes AI uses ([Bird & Bird](https://www.twobirds.com/en/insights/2023/australia/apras-cps-230-takes-effect); [Dentons](https://www.dentons.com/en/insights/alerts/2025/april/14/cps-230-takes-effect-soon-are-you-ready-to-comply); [ABS Handbook 2026](https://www.abs.org.sg/docs/library/abs-handbook-on-generative-ai-guardrails-in-banking-(24-march-2026).pdf)).
+- **[inference]** The commercial upside depends on turning safeguards into a better customer experience before these controls are perceived as basic compliance rather than differentiation ([Accenture 2025](https://www.accenture.com/us-en/insights/banking/consumer-study-banking-advocacy-powering-growth); [KPMG/University of Melbourne 2025](https://kpmg.com/au/en/insights/artificial-intelligence-ai/trust-in-ai-global-insights-2025.html)).
+
+### Risks, Gaps, and Uncertainties
+
+- No survey has directly tested two-plane messaging with banking customers, so viability is inferred from convergent indirect evidence.
+- The boundary between "augmentation" and "decisioning" is operationally complex; edge cases such as AI that pre-scores loan applications or drafts customer correspondence may not fit cleanly into either plane.
+- Australia's low AI training rate (24% versus 39% global, KPMG 2025) means employees may struggle to credibly represent AI-augmented workflows without upskilling investment.
+- The "experience gap" thesis assumes positive AI encounters generalise to trust in the institution's broader AI use; that remains unproven at scale.
+- APAC country-level variation means a regional strategy based on averages will underperform in both high-trust and low-trust markets.
+- The competitive window may be narrow because once regulators fully mandate human oversight on binding decisions, the operational plane may be perceived as undifferentiated compliance.
+
+### Open Questions
+
+- What is the cost and timeline to implement a clean production/operational plane separation in a legacy core banking architecture?
+- Would an explicit "AI transparency report" (analogous to sustainability reporting) increase customer trust, or draw unwanted scrutiny?
+- How do customers react when they learn AI was involved in a decision that benefited them (faster approval) vs. one that disadvantaged them (fraud false positive)?
+- What employee training programme is needed to make production plane augmentation credible to front-line bank staff?
+- Could a third "innovation plane" (customer-facing AI experiments with explicit opt-in) serve younger demographics while preserving the two-plane trust boundary for risk-averse customers?
+
+---
 
 ---
 
