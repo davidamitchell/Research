@@ -60,7 +60,7 @@ The case studies from the prerequisite item (National Grid, Liberty Mutual, UPMC
 
 ## Sources
 
-- [x] TBM Council practitioner community — implementation experience, not vendor materials (tbmcouncil.org forums/publications)
+- [x] TBM Council practitioner community — implementation experience, not vendor materials (tbmcouncil.org forums/publications) — https://www.tbmcouncil.org/
 - [ ] Apptio case studies for National Grid, Liberty Mutual, UPMC, Hermes Parcel — read specifically for implementation mechanics and challenges, not outcomes
 - [ ] Gartner "Run-Grow-Transform" framework (G00308477) — application definition criteria and governance guidance
 - [ ] Mik Kersten "Project to Product" (2018) — Flow Framework® value stream and team definition, and the practical challenge of mapping work to value streams

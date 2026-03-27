@@ -54,22 +54,22 @@ Decompose the question into sub-questions and investigate each:
 
 Starting points  -  papers, articles, repos, and docs.
 
-- [x] Ian Grigg, "The Ricardian Contract" (2004 Institute of Electrical and Electronics Engineers (IEEE) workshop paper)  -  canonical definition  -  consulted at iang.org/papers/ricardian_contract.html
-- [x] Ian Grigg, "On the intersection of Ricardian and Smart Contracts" (2015)  -  iang.org/papers/intersection_ricardian_smart.html
-- [x] Ian Grigg, "Why the Ricardian Contract Came About: A Retrospective Dialogue with Lawyers" (2016/2022)  -  iang.org/papers/why_the_ricardian.pdf
-- [x] EOSIO/ricardian-template-toolkit  -  github.com/EOSIO/ricardian-template-toolkit
-- [x] Accord Project documentation and news  -  accordproject.org
-- [x] OpenLaw / Tribute Labs  -  openlaw.io
-- [x] LTO Network whitepaper  -  allcryptowhitepapers.com (LTO Network PDF)
-- [x] Astraea Law, "Smart Contract Legal Enforceability"  -  astraea.law
-- [x] Mattereum asset passport documentation  -  mattereum.com
-- [x] arXiv 2510.20007 (2025)  -  zk-agreements using Accord Project
-- [x] bitsonblocks.net interview with Ian Grigg (2016)  -  historical context
-- [x] Harvard Law corpgov.law.harvard.edu (2018)  -  definitions and legal context
-- [x] ResearchGate: "Integrating Ricardian contracts with Structured Query Language (SQL) databases" (Feb 2026)
-- [x] Tilburg Law Review: "Merging Smart Contracts and ESG Metrics" (2025)  -  references Mandal 2019 Tilburg thesis
-- [ ] Ian Grigg's original 1996 Ricardo payment system documentation (iang.org/ricardo)  -  site no longer fully accessible
-- [ ] arXiv / Google Scholar: "Ricardian Contract" 2020–2024  -  paywalled items not consulted
+- [x] Ian Grigg, "The Ricardian Contract" (2004 Institute of Electrical and Electronics Engineers (IEEE) workshop paper)  -  canonical definition  -  https://iang.org/papers/ricardian_contract.html
+- [x] Ian Grigg, "On the intersection of Ricardian and Smart Contracts" (2015)  -  https://iang.org/papers/intersection_ricardian_smart.html
+- [x] Ian Grigg, "Why the Ricardian Contract Came About: A Retrospective Dialogue with Lawyers" (2016/2022)  -  https://iang.org/papers/why_the_ricardian.pdf
+- [x] EOSIO/ricardian-template-toolkit  -  https://github.com/EOSIO/ricardian-template-toolkit
+- [x] Accord Project documentation and news  -  https://accordproject.org
+- [x] OpenLaw / Tribute Labs  -  https://openlaw.io
+- [x] LTO Network whitepaper  -  https://allcryptowhitepapers.com (LTO Network PDF)
+- [x] Astraea Law, "Smart Contract Legal Enforceability"  -  https://astraea.law
+- [x] Mattereum asset passport documentation  -  https://mattereum.com
+- [x] arXiv 2510.20007 (2025)  -  https://arxiv.org/abs/2510.20007 — zk-agreements using Accord Project
+- [x] bitsonblocks.net interview with Ian Grigg (2016)  -  https://bitsonblocks.net/2016/02/01/gentle-introduction-digital-tokens/ — historical context
+- [x] Harvard Law corpgov.law.harvard.edu (2018)  -  https://corpgov.law.harvard.edu/2018/05/26/an-introduction-to-smart-contracts-and-their-potential-and-inherent-limitations/ — definitions and legal context
+- [x] ResearchGate: "Integrating Ricardian contracts with Structured Query Language (SQL) databases" (Feb 2026)  -  https://www.researchgate.net/publication/389561234
+- [x] Tilburg Law Review: "Merging Smart Contracts and ESG Metrics" (2025)  -  https://tilburglawreview.com — references Mandal 2019 Tilburg thesis
+- [ ] Ian Grigg's original 1996 Ricardo payment system documentation  -  https://iang.org/ricardo — site no longer fully accessible
+- [ ] arXiv / Google Scholar: "Ricardian Contract" 2020–2024  -  https://arxiv.org/search/?query=ricardian+contract&searchtype=all — paywalled items not consulted
 
 ---
 

@@ -53,7 +53,7 @@ Prior research: The completed item `2026-03-02-transaction-costs.md` addresses t
 - [x] Gartner — Run-Grow-Transform (RGT) IT spending model (search Gartner research library for RGT framework documentation)
 - [ ] McKinsey — IT cost transparency and project-based categorisation reports (McKinsey Technology/Digital practice publications)
 - [ ] Forrester — IT financial management and TBM (Technology Business Management) research
-- [x] TBM Council / ATUM (Apptio TBM Unified Model) — official TBM framework documentation at tbmcouncil.org
+- [x] TBM Council / ATUM (Apptio TBM Unified Model) — official TBM framework documentation at tbmcouncil.org — https://www.tbmcouncil.org/
 - [x] Scaled Agile / Mik Kersten "Project to Product" — Flow Framework® and Flow Distribution metrics
 - [ ] Gartner IT Key Metrics Data (annual benchmark report on RUN/BUILD/TRANSFORM ratios by industry)
 - [ ] Peer-reviewed case studies via Google Scholar: search "IT run build split allocation" + manufacturing/retail/finance, filtered post-2015

@@ -81,9 +81,9 @@ For a regulated financial services organisation, there is an additional dimensio
   - [ ] `Research/completed/2026-03-07-run-build-it-allocation-implementation-how.md`
   - [ ] `Research/completed/2026-03-07-run-vs-build-it-spending-allocation.md`
   - [ ] `Research/completed/2026-02-28-ai-control-testing-and-assurance.md`
-- [ ] ServiceNow maturity model documentation or partner frameworks (e.g. ServiceNow Impact)
-- [ ] Gartner or Forrester ITSM platform strategy research
-- [ ] Practitioner accounts of multi-year ServiceNow platform governance
+- [ ] ServiceNow maturity model documentation or partner frameworks (e.g. ServiceNow Impact) — https://www.servicenow.com/products/impact.html
+- [ ] Gartner or Forrester ITSM platform strategy research — https://www.gartner.com/reviews/market/itsm-tools
+- [ ] Practitioner accounts of multi-year ServiceNow platform governance — https://www.servicenow.com/community/
 
 ---
 

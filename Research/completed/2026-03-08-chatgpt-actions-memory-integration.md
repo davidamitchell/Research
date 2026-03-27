@@ -63,7 +63,7 @@ Cross-reference: `Research/completed/2026-03-02-agent-memory-management-context-
 - [x] OpenAPI specification (for Actions schema): https://swagger.io/specification/
 - [x] `2026-03-08-self-hosted-mcp-server-options.md`  -  prerequisite infrastructure item
 - [x] `2026-03-08-claude-ios-mcp-remote-integration.md`  -  comparison item
-- [x] `davidamitchell/Memory-System` BACKLOG.md W-0005  -  the corresponding discovery item that this research informs
+- [x] `davidamitchell/Memory-System` BACKLOG.md W-0005  -  the corresponding discovery item that this research informs — https://github.com/davidamitchell/Memory-System
 
 ---
 

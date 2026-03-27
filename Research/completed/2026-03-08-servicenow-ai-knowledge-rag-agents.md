@@ -64,10 +64,10 @@ This item also covers the agent framework direction — ServiceNow is building t
 
 ## Sources
 
-- [x] ServiceNow release notes and documentation for Xanadu and Yokohama releases
-- [x] ServiceNow developer documentation on AI agent framework and Now Assist APIs
-- [x] ServiceNow blog posts and press releases on AI strategy and roadmap
-- [x] ServiceNow Community posts on Now Assist adoption experience
+- [x] ServiceNow release notes and documentation for Xanadu and Yokohama releases — https://docs.servicenow.com/
+- [x] ServiceNow developer documentation on AI agent framework and Now Assist APIs — https://developer.servicenow.com/
+- [x] ServiceNow blog posts and press releases on AI strategy and roadmap — https://www.servicenow.com/blogs/
+- [x] ServiceNow Community posts on Now Assist adoption experience — https://www.servicenow.com/community/
 - [x] External analyst and industry coverage (CIO.com, Constellation Research, No Jitter, Verdantix, Everest Group)
 - [x] Prior research: agent memory (`2026-03-02-agent-memory-management-context-injection`), knowledge representation (`2026-03-03-knowledge-representation-agent-context`), AI strategy (`2026-02-28-ai-strategy`), CSDM (`2026-03-08-servicenow-csdm-data-modelling`)
 - [ ] Gartner and Forrester research on ServiceNow AI positioning (not accessed — paywalled)

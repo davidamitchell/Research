@@ -64,7 +64,7 @@ Cross-reference: `Research/completed/2026-03-02-agent-memory-management-context-
 - [x] `sentence-transformers/all-MiniLM-L6-v2` model card: https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2
 - [x] GitHub code search API (as zero-rebuild alternative): https://docs.github.com/en/rest/search/search
 - [ ] `2026-03-08-self-hosted-mcp-server-options.md` — deployment options that depend on this benchmark (backlog, not yet researched)
-- [ ] `davidamitchell/Memory-System` BACKLOG.md W-0015 — the corresponding discovery item that this research informs
+- [ ] `davidamitchell/Memory-System` BACKLOG.md W-0015 — the corresponding discovery item that this research informs — https://github.com/davidamitchell/Memory-System
 
 ---
 

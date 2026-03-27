@@ -53,16 +53,16 @@ NZ organisations deploying Type 2, 3, and 4 AI (from the four-type typology) fac
 
 ## Sources
 
-- [x] MITRE ATLAS: Adversarial Threat Landscape for AI Systems
-- [x] OWASP LLM Top 10 (2023 / 2024 update)
-- [x] NIST AI RMF: adversarial machine learning profile (NIST AI 100-2e2023)
-- [x] GCSB / NCSC NZ: annual cyber threat reports and any AI-specific advisories
+- [x] MITRE ATLAS: Adversarial Threat Landscape for AI Systems — https://atlas.mitre.org/
+- [x] OWASP LLM Top 10 (2023 / 2024 update) — https://owasp.org/www-project-top-10-for-large-language-model-applications/
+- [x] NIST AI RMF: adversarial machine learning profile (NIST AI 100-2e2023) — https://doi.org/10.6028/NIST.AI.100-2e2023
+- [x] GCSB / NCSC NZ: annual cyber threat reports and any AI-specific advisories — https://www.ncsc.govt.nz/publications/
 - [ ] CERT NZ: threat intelligence reports referencing AI
-- [x] Microsoft Security Intelligence: AI-enhanced threat reports (2023–2025)
+- [x] Microsoft Security Intelligence: AI-enhanced threat reports (2023–2025) — https://www.microsoft.com/en-us/security/security-insider/intelligence-reports
 - [ ] Google Project Zero / DeepMind AI security research
-- [x] CISA (US): AI security guidance documents
-- [x] Singapore IMDA: security dimension of Model AI Governance Framework (2024)
-- [x] NZ financial sector: any RBNZ or FMA guidance on AI-related security obligations
+- [x] CISA (US): AI security guidance documents — https://www.cisa.gov/ai
+- [x] Singapore IMDA: security dimension of Model AI Governance Framework (2024) — https://www.imda.gov.sg/resources/blog/2024/01/model-ai-governance-framework-second-edition
+- [x] NZ financial sector: any RBNZ or FMA guidance on AI-related security obligations — https://www.rbnz.govt.nz/
 
 ---
 

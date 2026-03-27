@@ -47,12 +47,12 @@ The AI strategy research item (completed 2026-02-28) found that most NZ organisa
 
 ## Sources
 
-- [ ] McKinsey Global Institute: AI productivity reports (2023, 2024)
-- [ ] BCG "AI at Scale" case study library
-- [ ] Gartner AI hype cycle efficiency use case data
-- [ ] Harvard Business Review case studies on AI-driven operational transformation
-- [ ] OECD case study database: AI in public sector efficiency
-- [ ] NZ Productivity Commission reports referencing technology-driven productivity gains
+- [ ] McKinsey Global Institute: AI productivity reports (2023, 2024) — https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai
+- [ ] BCG "AI at Scale" case study library — https://www.bcg.com/capabilities/artificial-intelligence/ai-at-scale
+- [ ] Gartner AI hype cycle efficiency use case data — https://www.gartner.com/en/articles/what-s-new-in-artificial-intelligence-from-the-2023-gartner-hype-cycle
+- [ ] Harvard Business Review case studies on AI-driven operational transformation — https://hbr.org/topic/subject/ai-and-machine-learning
+- [ ] OECD case study database: AI in public sector efficiency — https://oecd.ai/en/catalogue/tools
+- [ ] NZ Productivity Commission reports referencing technology-driven productivity gains — https://www.productivity.govt.nz/research-and-resources/
 - [ ] Specific sectors: ANZ banking AI programme; Air NZ operational AI; Fonterra precision agriculture AI
 
 ---

@@ -88,9 +88,9 @@ The `BACKLOG.md` repo improvement backlog has its own prioritisation discipline 
 - [x] `Research/backlog/2026-02-27-sources-of-research.md` — orthogonal question: where new items come from; this item answers what to do with them once they arrive
 - [x] `Research/completed/2026-02-27-research-backlog-vs-repo-improvement-backlog.md` — the documented distinction between the two backlogs; apply the same clarity to agenda management
 - [x] `BACKLOG.md` — existing prioritisation discipline for repo improvements; patterns to adapt
-- [x] Personal Knowledge Management (PKM) literature on research agenda management: Tiago Forte's PARA method, progressive summarisation as a triage tool; relevant to deciding what to research vs. what to archive
-- [x] Jobs-to-be-done framework (Christensen): structured approach to defining value and priority by outcome rather than by topic interest — applicable to research prioritisation
-- [x] OKR (Objectives and Key Results) methodology: assess whether a quarterly research OKR (e.g., "understand the NZ AI regulatory landscape well enough to advise on compliance") provides useful top-down prioritisation constraints
+- [x] Personal Knowledge Management (PKM) literature on research agenda management: Tiago Forte's PARA method, progressive summarisation as a triage tool; relevant to deciding what to research vs. what to archive — https://fortelabs.com/blog/para/
+- [x] Jobs-to-be-done framework (Christensen): structured approach to defining value and priority by outcome rather than by topic interest — applicable to research prioritisation — https://hbr.org/2016/09/know-your-customers-jobs-to-be-done
+- [x] OKR (Objectives and Key Results) methodology: assess whether a quarterly research OKR (e.g., "understand the NZ AI regulatory landscape well enough to advise on compliance") provides useful top-down prioritisation constraints — https://www.whatmatters.com/faqs/okr-meaning-definition-example
 - [x] `Research/backlog/2026-03-02-research-quality-assurance-methodology.md` — identifies "applicability testing" as a quality dimension; agenda curation is the upstream version: only add items where the knowledge would be applicable
 - [x] `src/research/item.py` and `src/research/cli.py` — existing YAML front-matter schema and CLI; extension points for `agenda` command
 

@@ -65,7 +65,7 @@ Cross-reference: `Research/completed/2026-03-02-agent-memory-management-context-
 - [x] GitHub Actions schedule trigger docs: https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule
 - [ ] `2026-03-08-ios-shortcuts-github-api-memory-capture.md` — capture tool that would write to inbox (backlog, not yet researched)
 - [ ] `2026-03-08-telegram-bot-memory-capture-retrieval.md` — capture tool that would write to inbox (backlog, not yet researched)
-- [ ] `davidamitchell/Memory-System` BACKLOG.md W-0012 — the corresponding discovery item (inaccessible: private repo)
+- [ ] `davidamitchell/Memory-System` BACKLOG.md W-0012 — the corresponding discovery item (inaccessible: private repo) — https://github.com/davidamitchell/Memory-System
 
 ---
 
