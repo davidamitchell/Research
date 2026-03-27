@@ -8,7 +8,7 @@ tags: [strategy, cost-reduction, ai, marketing, opportunity-mindset, behavioral-
 started: 2026-03-27
 completed: ~
 output: [knowledge]
-review_count: 0
+review_count: 1
 ---
 
 # Cost reduction is not a strategy: the opportunity vs efficiency mindset
