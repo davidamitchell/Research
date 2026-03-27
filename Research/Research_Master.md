@@ -1,6 +1,6 @@
 # Research Master Document
 
-Generated on: 2026-03-27 08:57 UTC
+Generated on: 2026-03-27 10:40 UTC
 
 ## Table of Contents
 
@@ -895,7 +895,6 @@ How should an organisation running multiple compliance scanners in GitHub Action
 
 - [fact] **Type:** knowledge. Source: https://github.com/davidamitchell/Research/blob/main/research-prompt.md
 - [inference] **Description:** This item defines a hub-and-adapter operating model for multi-scanner compliance in GitHub Actions, centered on a SARIF-aligned evidence schema, a separate waiver registry, split severity dimensions, and layered GitHub presentation surfaces. Sources: https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html ; https://docs.github.com/en/code-security/reference/code-scanning/sarif-files/sarif-support-for-code-scanning ; https://docs.github.com/en/code-security/concepts/code-scanning/about-code-scanning-alerts
-- [fact] **Three key sources:** https://docs.oasis-open.org/sarif/sarif/v2.1.0/sarif-v2.1.0.html ; https://docs.github.com/en/code-security/reference/code-scanning/sarif-files/sarif-support-for-code-scanning ; https://docs.github.com/en/code-security/concepts/code-scanning/about-code-scanning-alerts
 
 ---
 
@@ -1702,7 +1701,6 @@ When an agentic workflow spans multiple session boundaries — each session star
 - [fact] Links:
   - [fact] https://docs.langchain.com/oss/python/langgraph/durable-execution — durable execution and replay requirements
   - [fact] https://docs.temporal.io/workflow-execution — durable workflow execution and replay semantics
-  - [fact] https://aws-samples.github.io/eda-on-aws/concepts/idempotency/ — idempotency and duplicate-processing guidance
 
 ---
 
@@ -3818,7 +3816,6 @@ Investing in human judgment capacity is the higher-leverage response to the volu
 - **Key sources:**
   1. Dell'Acqua et al. (2025), "The Cybernetic Teammate: A Field Experiment on Generative AI Reshaping Teamwork and Expertise," NBER Working Paper w33641 — https://www.nber.org/system/files/working_papers/w33641/w33641.pdf
   2. Wes McKinney, "The Mythical Agent-Month" (2025) — https://wesmckinney.com/blog/mythical-agent-month/
-  3. Faros AI, "The AI Productivity Paradox" (2025) — https://www.faros.ai/blog/ai-software-engineering
 
 ---
 
@@ -3919,7 +3916,6 @@ The precision of the convergence on "5" is overstated in popular treatments. Bro
 - **Key sources:**
   1. Brooks (1975), *The Mythical Man-Month* — https://web.eecs.umich.edu/~weimerw/2018-481/readings/mythical-man-month.pdf
   2. Dunbar (1993), "Coevolution of neocortical size, group size and language in humans" — https://pdodds.w3.uvm.edu/files/papers/others/1993/dunbar1993a.pdf
-  3. Lindenfors et al. (2021), "'Dunbar's Number' Deconstructed" — https://pmc.ncbi.nlm.nih.gov/articles/PMC8103230/
 
 ---
 
@@ -4289,7 +4285,6 @@ Sycophancy classification is the item's most structurally significant contributi
 - Links:
   - https://owasp.org/www-project-top-10-for-large-language-model-applications/ — OWASP LLM Top 10 2025
   - https://arxiv.org/abs/2601.17548 — Prompt injection SoK: 78-study systematic review
-  - https://openreview.net/forum?id=d24zTCznJu — Vennemeyer et al. ICLR 2026, sycophancy causal decomposition
 
 ---
 
@@ -4510,7 +4505,6 @@ The Steinberger/OpenClaw case is the strongest existence proof for the scout mod
 **Three most important sources:**
 1. Brooks, F.P. (1975). *The Mythical Man-Month.* — https://www.historyofinformation.com/detail.php?id=2298 (establishes the coordination overhead formula)
 2. ElectroIQ "Midjourney Statistics" (2025) — https://electroiq.com/stats/midjourney-statistics/ (primary data on AI-native revenue efficiency)
-3. Shopify CEO Lütke memo, TechCrunch (April 7, 2025) — https://techcrunch.com/2025/04/07/shopify-ceo-tells-teams-to-consider-using-ai-before-growing-headcount/ (operationalised institutional response)
 
 ---
 
@@ -4642,7 +4636,6 @@ One interpretation of the Midjourney and Lovable data is: "small teams are only 
 - **Key sources:**
   - TechCrunch / Business Insider on Lovable: https://techcrunch.com/2026/03/11/lovable-says-it-added-100m-in-revenue-last-month-alone-with-just-146-employees/
   - CNBC on Shopify Lütke memo: https://www.cnbc.com/2025/04/07/shopify-ceo-prove-ai-cant-do-jobs-before-asking-for-more-headcount.html
-  - Forbes on coordination theater: https://www.forbes.com/sites/jasonsnyder/2026/02/26/enterprise-ais-illusion-of-progress-coordination-theater/
 
 ---
 
@@ -4741,7 +4734,6 @@ The hardest design decision is which failures to treat as scored dimensions (rec
 - **Key sources:**
   1. Hamel Husain "Your AI Product Needs Evals" — https://hamel.dev/blog/posts/evals/
   2. Pydantic LLM-as-a-Judge guide — https://pydantic.dev/articles/llm-as-a-judge
-  3. Research/completed/2026-03-10-agent-evaluation-cross-repo-analysis.md (prior art: 5-component MVF framework and tooling survey)
 
 ---
 
@@ -5232,7 +5224,6 @@ The controls-to-failures mapping is deliberately one-to-many: structural control
 - Links:
   - https://arxiv.org/abs/2302.11382 — White et al. 2023, Prompt Pattern Catalog
   - https://arxiv.org/abs/2308.11432 — Wang et al. 2023, Survey on LLM-based Autonomous Agents
-  - https://owasp.org/www-project-top-10-for-large-language-model-applications/ — OWASP Top 10 for LLM Applications 2025
 
 ---
 
@@ -5334,7 +5325,6 @@ For a research loop agent, the architectural implication is clear: the primary e
 - **Key sources:**
   1. Yehudai et al. "Survey on Evaluation of LLM-based Agents" arXiv:2503.16416 (2025) — https://arxiv.org/abs/2503.16416
   2. Hamel Husain "Your AI Product Needs Evals" — https://hamel.dev/blog/posts/evals/
-  3. METR "Measuring AI Ability to Complete Long Tasks" — https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/
 
 ---
 
@@ -8001,7 +7991,6 @@ The regulatory analysis is confined to RBNZ primary sources rather than comparat
 - Links:
   - https://arxiv.org/abs/2408.14817 — Lazebnik et al. (2024) comprehensive tabular ML benchmark
   - https://www.kaggle.com/AI-Report-2023 — Kaggle AI Report 2023, tabular data section
-  - https://proceedings.neurips.cc/paper/2015/file/86df7dcfd896fcaf2674f757a2463eba-Paper.pdf — Sculley et al. (2015), hidden technical debt in ML systems
 
 ---
 
@@ -8674,7 +8663,6 @@ The decision not to create an `integration` skill reflects scope discipline: the
 - Links:
   - https://www.springernature.com/gp/authors/campaigns/how-to-peer-review-3 (Springer Nature peer review guidelines — defines what reviewers check)
   - https://arxiv.org/html/2505.11718v1 (REMOR — LLM peer review matching human quality on coherence)
-  - https://zettelkasten.de/introduction/ (Zettelkasten introduction — integration methodology foundation)
 
 ---
 
@@ -8973,7 +8961,6 @@ The grounding design (structural + instructional) is appropriate. Structural gro
 - Links:
   - https://modelcontextprotocol.io/docs/concepts/tools (MCP tools protocol specification)
   - https://github.com/modelcontextprotocol/python-sdk (MCP Python SDK — FastMCP)
-  - https://docs.github.com/en/copilot/building-copilot-extensions/about-building-copilot-extensions (GitHub Copilot Extensions overview — confirms MCP as primary path)
 
 ---
 
@@ -10034,7 +10021,6 @@ Competing interpretation: one source (multi-source web synthesis) suggested that
 - **Key sources:**
   1. https://ai.google.dev/gemini-api/docs/video-understanding — official YouTube URL support documentation
   2. https://vomo.ai/blog/can-gemini-transcribe-youtube-videos — independent test of transcript quality
-  3. https://ai.google.dev/gemini-api/docs/rate-limits — official free-tier rate limits
 
 ---
 
@@ -10469,7 +10455,6 @@ Seth's pragmatic strategy is consistent with the scientific record: when a quest
 - Links:
   - https://en.wikipedia.org/wiki/Hard_problem_of_consciousness (primary reference for Chalmers' formulation and survey data)
   - https://en.wikipedia.org/wiki/Being_You (primary reference for Seth's real problem and reviews)
-  - https://en.wikipedia.org/wiki/Keith_Frankish (primary reference for illusionism)
 
 ---
 
@@ -10560,7 +10545,6 @@ The key intellectual achievement of this three-layer picture is that it relocate
 - **Key sources:**
   - Seth, A.K. (2021). "Anil Seth Finds Consciousness in Life's Push Against Entropy." *Quanta Magazine*. https://www.quantamagazine.org/anil-seth-finds-consciousness-in-lifes-push-against-entropy-20210930/
   - Friston, K. et al. (2022). "The free energy principle made simpler but not too simple." arXiv:2201.06387. https://arxiv.org/abs/2201.06387
-  - Wikipedia: Free energy principle. https://en.wikipedia.org/wiki/Free_energy_principle
 
 ---
 
@@ -10658,7 +10642,6 @@ The 74% BCG finding is the most significant empirical data point: it converts th
 - Links:
   - https://hbr.org/2012/05/managing-your-innovation-portfolio (Nagji & Tuff Innovation Ambition Matrix)
   - https://umbrex.com/resources/frameworks/organization-frameworks/ambidextrous-innovation-portfolio-explore-exploit-matrix/ (Ambidextrous Portfolio Matrix with scoring rubric)
-  - https://www.bcg.com/publications/2024/wheres-value-in-ai (BCG "Where's the Value in AI?" 2024)
 
 ---
 
