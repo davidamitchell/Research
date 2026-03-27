@@ -155,7 +155,7 @@ The research question decomposes into five primary branches, each branching into
 
 [fact] In The Drum (2026), Sutherland cites the example of supermarket self-checkouts: "Finance notices it's cheaper to get customers to do the work, so it goes from being an option to more or less an obligation." The result: shoplifting, frustration, and systems that are impossible for families with large shops. Source: http://www.thedrum.com/news/rory-sutherland-why-marketing-s-biggest-risk-in-2026-is-mistaking-efficiency-for-progress (primary interview).
 
-[fact] In the Business Leader podcast, Sutherland says that in Business-to-Business (B2B) procurement: "We've made actually buying anything so bureaucratic and difficult that it's now incredibly difficult for companies to innovate." Source: https://thoughteconomics.com/rory-sutherland/ (primary; overlapping with Thought Economics interview).
+[fact] In the Thought Economics interview, Sutherland says that in Business-to-Business (B2B) procurement: "We've made actually buying anything so bureaucratic and difficult that it's now incredibly difficult for companies to innovate." Source: https://thoughteconomics.com/rory-sutherland/ (primary).
 
 #### B3: Alternatives to bureaucracy
 
@@ -205,7 +205,7 @@ The research question decomposes into five primary branches, each branching into
 
 [fact] Sutherland's pricing paradox: "The opposite of a good idea can also be a good idea." Premium pricing creates desirability; cheap pricing creates mass adoption. Both work; context determines which. "In physics, opposites contradict. In psychology, they coexist." Source: https://www.zachbinkley.com/distillations/alchemy-rory-sutherland (secondary distillation of *Alchemy*).
 
-[inference] Sutherland's signalling argument aligns with costly signalling theory in evolutionary biology (Zahavian handicap principle), but he argues from analogy rather than citing this literature directly. The practical application to pricing is that artificially reducing friction or cost may reduce perceived quality.
+[inference] Sutherland's signalling argument aligns with costly signalling theory in evolutionary biology (the Zahavian handicap principle; see https://en.wikipedia.org/wiki/Handicap_principle), but he argues from analogy rather than citing this literature directly. The practical application to pricing is that artificially reducing friction or cost may reduce perceived quality.
 
 #### D4: Psychological moonshots
 
@@ -231,7 +231,7 @@ The research question decomposes into five primary branches, each branching into
 
 [fact] In The Drum (2026), Sutherland identifies three phases of AI adoption. Phase one is the current rush toward automation and cost-cutting. Phase two would see some businesses "using AI to improve experiences rather than strip them back." Phase three is an opportunity for differentiation: "We will see such a profusion of automation that there's a genuine opportunity to do the opposite. Different is better than better." Source: http://www.thedrum.com/news/rory-sutherland-why-marketing-s-biggest-risk-in-2026-is-mistaking-efficiency-for-progress (primary).
 
-[fact] Sutherland's critique of how AI is being sold: it is framed to Chief Financial Officers (CFOs) and procurement teams primarily as headcount reduction. This framing reflects the same quantification bias that produces other strategic failures: it automates the wrong things and cuts the people who create customer value. Source: https://shows.acast.com/business-leader-podcast/episodes/rory-sutherland-the-advertising-gurus-tips (primary; Business Leader podcast).
+[fact] Sutherland's critique of how AI is being sold: it is framed to Chief Financial Officers (CFOs) and procurement teams primarily as headcount reduction. [inference] This framing reflects the same quantification bias that produces other strategic failures: it automates the wrong things and cuts the people who create customer value. Source: https://shows.acast.com/business-leader-podcast/episodes/rory-sutherland-the-advertising-gurus-tips (primary; Business Leader podcast).
 
 [fact] In the Rival podcast interview, Sutherland invokes the explore-exploit trade-off in the context of AI and resource allocation: organisations that over-index on exploitation become "completely non-resilient" and end up "shrinking." Source: https://www.wearerival.com/content-hub-articles/ep-22-how-to-apply-behavioural-economics-in-marketing-with-rory-sutherland-of-ogilvy-uk (primary interview).
 
@@ -277,15 +277,15 @@ One unresolved tension noted: Sutherland champions perception-driven value creat
 
 ### §5 Depth and Breadth Expansion
 
-**Technical lens:** Sutherland's psycho-logic framework is consistent with dual-process cognitive theory (System 1 / System 2 in Kahneman's framing). His argument that perceived cost can increase perceived quality is structurally identical to Zahavi's costly signalling / handicap principle in biology. He does not cite these formally, but the isomorphism strengthens his empirical credibility.
+**Technical lens:** Sutherland's psycho-logic framework is consistent with dual-process cognitive theory (System 1 / System 2 in Kahneman's framing; https://en.wikipedia.org/wiki/Thinking,_Fast_and_Slow). His argument that perceived cost can increase perceived quality is structurally consistent with the costly signalling / handicap principle in biology (https://en.wikipedia.org/wiki/Handicap_principle). He does not cite these formally, but the isomorphism strengthens his empirical credibility. [inference]
 
 **Economic lens:** The quantification bias argument maps to a well-known problem in principal-agent theory: agents optimise for what is measured, not for what matters. Sutherland's cure (measure retention, lifetime value, customer trust) is the standard recommendation in customer lifetime value (CLV) literature, though he arrives there via behavioral argument rather than finance.
 
 **Historical lens:** The Prussian potato example (Frederick the Great) and the cast-iron jewellery of Napoleonic Wars Prussia both appear across Sutherland's talks as historical proof points. They are presented as illustrations, not controlled experiments. Their evidential weight is anecdotal [inference], but they are vivid and replicable in structure (reframing social meaning creates genuine value).
 
-**Behavioural lens:** Sutherland's work is a practitioner application of the behavioral economics tradition (Kahneman, Ariely, Thaler). He acknowledges this lineage while positioning his contribution as applying it to business strategy and marketing specifically, which academic behavioral economics has largely avoided.
+**Behavioural lens:** Sutherland's work is a practitioner application of the behavioral economics tradition (Kahneman, Ariely, Thaler). He acknowledges this lineage while positioning his contribution as applying it to business strategy and marketing specifically. [inference] Academic behavioral economics has focused primarily on policy nudges and consumer laboratory experiments rather than business strategy applications, a gap Sutherland occupies deliberately.
 
-**Organisational lens:** Sutherland's anti-bureaucracy argument connects to a strand of organisational theory (Peters and Waterman, Gary Hamel) that advocates for "adhocracy" and mission-led structures over compliance-led ones. Pournelle's law is a concise expression of what Hamel calls "the management tax." This cross-pollination is not accidental; it reinforces that Sutherland is drawing on a genuine strand of organisational thinking, not idiosyncratic opinion.
+**Organisational lens:** Sutherland's anti-bureaucracy argument connects to a strand of organisational theory that advocates for mission-led structures over compliance-led ones. Gary Hamel's concept of "the management tax" (https://www.mckinsey.com/capabilities/people-and-organizational-performance/our-insights/the-future-of-management) describes the same pathology: overhead that consumes resources without creating customer value. [inference] Sutherland draws on this tradition whether or not he cites it directly; the structural parallel reinforces that his anti-bureaucracy diagnosis is not idiosyncratic opinion but a named pattern in management literature.
 
 **Regulatory/risk lens:** One gap: Sutherland largely dismisses compliance functions as bureaucratic overhead. But some compliance requirements (financial regulation, data protection, safety standards) exist because markets failed in their absence. His argument has most force in contexts where compliance is internally-generated risk aversion rather than externally mandated. This distinction is not one he makes explicitly.
 
@@ -295,7 +295,7 @@ One unresolved tension noted: Sutherland champions perception-driven value creat
 
 **Executive summary:**
 
-Rory Sutherland's core intellectual position is that human value is determined by perception and psychology, not by objective function or cost, and that modern business systematically destroys value by excluding psychological considerations from measurement, strategy, and design. His eight recurring tenets (psycho-logic, perceived value, reframing, signalling, anti-bureaucracy, finance-mindset critique, customer thinking, and psychological moonshots) are applications of a single root diagnosis across different business domains. The practical implication is that organisations willing to measure slow, diffuse, and subjective outcomes (trust, retention, perceived quality, customer lifetime value) can achieve outsized returns from low-cost psychological interventions that efficiency-focused competitors will systematically overlook.
+Rory Sutherland's intellectual output across 15+ years of talks, *Alchemy* (2019), and recent interviews resolves to eight recurring tenets, each an application of a single root diagnosis: that human value is determined by psychology and context, not by objective function or cost. [inference] Organisations built around financial measurement systematically suppress psychology-driven value creation because perceived quality, trust, and brand are incalculable in spreadsheet terms and therefore treated as zero. The research finds high confidence in the psycho-logic, finance-mindset, and customer-contact tenets (multiple independent primary sources); medium confidence in the signalling and psychological-moonshot tenets (argued from analogy, consistent with behavioral science but not formally measured in business contexts); and lower confidence in Sutherland's AI and founder-led-business predictions (primary sources only, predictive not documented).
 
 **Key findings:**
 
@@ -333,9 +333,9 @@ Rory Sutherland's core intellectual position is that human value is determined b
 
 **Analysis:**
 
-Sutherland's work is strongest as diagnosis and weakest as prescription. His analysis of why organisations systematically under-invest in psychology-driven value is well-evidenced and consistent across 15 years of primary sources. His prescriptions (reframe problems, measure what matters, protect counterintuitive thinking) are directionally sound but lack the specificity needed for implementation. The practitioner gap is real: Sutherland identifies what finance-dominated organisations get wrong, but leaves the question of how to change incentive structures substantially open.
+Sutherland's work is strongest as diagnosis and weakest as prescription. His analysis of why organisations systematically under-invest in psychology-driven value is well-evidenced and consistent across 15 years of primary sources. His prescriptions (reframe problems, measure what matters, protect counterintuitive thinking) are [inference] directionally sound but lack the specificity needed for implementation. The practitioner gap is real: Sutherland identifies what finance-dominated organisations get wrong, but leaves the question of how to change incentive structures substantially open.
 
-The behavioral economics literature supports his epistemological claims (System 1 dominates System 2 under uncertainty; anchoring, framing, and context effects are robust). His business applications are extensions of this foundation, not independent hypotheses. Where he diverges from academic behavioral economics is in his optimism about the value-creation potential of psychological interventions , he is more bullish than the experimental literature warrants, which is appropriate for a practitioner-advocate position but should be noted.
+Behavioral economics literature supports his epistemological claims (System 1 dominates System 2 under uncertainty; anchoring, framing, and context effects are robust). His business applications are extensions of this foundation, not independent hypotheses. [inference] He is more bullish than the experimental literature warrants about the value-creation potential of psychological interventions, which is appropriate for a practitioner-advocate but should be noted by readers drawing strategic conclusions.
 
 His anti-bureaucracy argument is the most contentious. Compliance functions exist partly because of genuine regulatory requirements; his analysis treats all compliance overhead as Pournelle pathology, which overstates the case. The strongest version of his argument is about internally-generated risk aversion, not externally mandated compliance.
 
@@ -412,13 +412,13 @@ Rory Sutherland's core intellectual position is that human value is determined b
 
 ### Analysis
 
-Sutherland's framework is strongest as diagnosis and weakest as prescription. His analysis of why organisations systematically under-invest in psychology-driven value creation is well-evidenced and consistent across 15 years of primary sources. His prescriptions (reframe problems, measure what matters, protect counterintuitive thinking) are directionally sound but leave the question of how to change incentive structures open.
+Sutherland's framework is strongest as diagnosis and weakest as prescription. His analysis of why organisations systematically under-invest in psychology-driven value creation is well-evidenced and consistent across 15 years of primary sources. His prescriptions (reframe problems, measure what matters, protect counterintuitive thinking) are [inference] directionally sound but leave the question of how to change incentive structures open.
 
-The behavioral economics literature supports his epistemological claims. Where he diverges from academic behavioral economics is in his optimism about the value-creation potential of psychological interventions , he is more bullish than the experimental literature warrants, appropriate for a practitioner-advocate position but worth noting.
+Behavioral economics literature supports his epistemological claims. Where Sutherland diverges from academic behavioral economics is in his optimism about the value-creation potential of psychological interventions. [inference] He is more bullish than the experimental literature warrants, appropriate for a practitioner-advocate position, but the gap between lab effect sizes and real-world business results is a genuine uncertainty.
 
-The anti-bureaucracy argument is the most contentious: compliance functions exist partly because of genuine regulatory requirements. His analysis has most force in domains of internally-generated risk aversion; it overstates the case when applied to externally mandated compliance in regulated industries.
+[inference] The anti-bureaucracy argument is most compelling in contexts of internally-generated risk aversion. Compliance functions exist partly because of genuine regulatory failures in their absence; his argument overstates when applied to externally mandated compliance in regulated industries.
 
-The finance vs. marketing argument is well-supported across primary sources and aligns with a documented trend in strategic management literature: the displacement of brand and relationship investment by short-term financial metrics under quarterly reporting pressure.
+[inference] The finance vs. marketing argument is well-supported across primary sources and consistent with the observed displacement of brand and relationship investment by short-term financial metrics under quarterly reporting pressure.
 
 ### Risks, Gaps, and Uncertainties
 
