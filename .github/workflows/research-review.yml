@@ -2,10 +2,11 @@ name: Research Review
 
 # Quality gate for research items under review.
 #
-# Applies three agent skills in sequence to an item marked as 'reviewing':
+# Applies four agent skills in sequence via research-reviewer orchestration:
 #   1. citation-discipline  — all factual claims are sourced
 #   2. speculation-control  — uncertain claims are explicitly labeled
 #   3. remove-ai-slop       — prose is direct and free of formulaic AI patterns
+#   4. peer-reviewer        — logical coherence, alternative explanations, cross-item integration
 #
 # The review is performed by the GitHub Copilot CLI reading
 # research-review-prompt.md.  The agent writes a structured report to
@@ -123,9 +124,18 @@ jobs:
 
             if [ "$REVIEW_COUNT" -ge "$MAX_REVIEWS" ]; then
               echo "Review cap ($MAX_REVIEWS) reached for: $ITEM — auto-passing."
-              printf 'REVIEW_TARGET: %s\ncitation-discipline: PASS\nspeculation-control: PASS\nremove-ai-slop: PASS\nOVERALL: PASS\nNOTE: review cap reached (%s/%s)\n' \
-                "$ITEM" "$REVIEW_COUNT" "$MAX_REVIEWS" \
-                > /tmp/research-review-report.txt
+              cat > /tmp/research-review-report.txt <<EOF
+REVIEW_TARGET: ${ITEM}
+citation-discipline: PASS
+speculation-control: PASS
+remove-ai-slop: PASS
+peer-reviewer: PASS
+  logical-coherence-and-evidence-sufficiency: PASS
+  alternative-explanations: PASS
+  cross-item-integration: PASS
+OVERALL: PASS
+NOTE: review cap reached (${REVIEW_COUNT}/${MAX_REVIEWS})
+EOF
               cat /tmp/research-review-report.txt
               continue
             fi

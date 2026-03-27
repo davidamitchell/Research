@@ -125,8 +125,8 @@ Output.
 
 ### 4. Companion skill checks
 
-Apply all three companion skill pre-output checks defined in
-`.github/skills/research/SKILL.md §8 Output Finalisation`. All three must pass
+Apply all four companion skill pre-output checks defined in
+`.github/skills/research/SKILL.md §8 Output Finalisation`. All four must pass
 before proceeding. Fix any violations in the item before moving on.
 
 **Critical: acronym expansion audit (run inline -- do not defer to the skill
