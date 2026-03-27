@@ -160,10 +160,10 @@ jobs:
             echo "--- [DEBUG] git state before rebase (iteration $((ITERATION + 1))) ---"
             echo "core.autocrlf: $(git config core.autocrlf 2>/dev/null || echo 'not set')"
             echo "core.fileMode: $(git config core.fileMode 2>/dev/null || echo 'not set')"
-            echo "--- git diff --stat ---"
+            echo "--- git diff --stat (working tree vs index) ---"
             git diff --stat
-            echo "--- git diff ---"
-            git diff
+            echo "--- git diff --cached --stat (index vs HEAD) ---"
+            git diff --cached --stat
             echo "--- [DEBUG] end pre-rebase state ---"
 
             # ---------------------------------------------------------------- #
@@ -206,9 +206,13 @@ jobs:
               echo "::warning::Copilot session failed (consecutive failures: $CONSECUTIVE_FAILURES/$FAILURE_THRESHOLD)"
               # A failed session may have left partial writes on disk (no commit made).
               # Discard them so the next iteration's git pull --rebase can proceed cleanly.
+              # Use `git reset --hard HEAD` (not `git checkout -- .`) so that staged
+              # changes in the index are also discarded — checkout only restores the
+              # working tree and leaves staged files untouched, which causes the next
+              # `git pull --rebase` to fail with "index contains uncommitted changes".
               if ! git diff --quiet || ! git diff --cached --quiet; then
-                echo "::warning::Dirty working tree after failed session. Discarding uncommitted changes."
-                git checkout -- .
+                echo "::warning::Dirty working tree/index after failed session. Discarding uncommitted changes."
+                git reset --hard HEAD
                 git clean -fd
               fi
               if [ "$CONSECUTIVE_FAILURES" -ge "$FAILURE_THRESHOLD" ]; then
@@ -227,10 +231,10 @@ jobs:
             echo "--- [DEBUG] git state at end of iteration $((ITERATION + 1)) ---"
             echo "core.autocrlf: $(git config core.autocrlf 2>/dev/null || echo 'not set')"
             echo "core.fileMode: $(git config core.fileMode 2>/dev/null || echo 'not set')"
-            echo "--- git diff --stat ---"
+            echo "--- git diff --stat (working tree vs index) ---"
             git diff --stat
-            echo "--- git diff ---"
-            git diff
+            echo "--- git diff --cached --stat (index vs HEAD) ---"
+            git diff --cached --stat
             echo "--- [DEBUG] end post-iteration state ---"
 
             ITERATION=$((ITERATION + 1))
