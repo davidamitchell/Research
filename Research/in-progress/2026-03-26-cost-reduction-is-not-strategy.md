@@ -118,17 +118,17 @@ Decomposed into five atomic question threads:
 
 **A1. Porter's cost leadership framework**
 
-Porter's 1985 framework identifies cost leadership as one of three generic competitive strategies (alongside differentiation and focus). Cost leadership requires being the lowest-cost producer across the industry and competing on price to capture broad market share. [fact — Porter, M.E. (1985), Competitive Advantage, Ch. 1; secondary source: https://www.ifm.eng.cam.ac.uk/research/dstools/porters-generic-competitive-strategies/]
+Porter's 1985 framework identifies cost leadership as one of three generic competitive strategies (alongside differentiation and focus). Cost leadership requires being the lowest-cost producer across the industry and competing on price to capture broad market share. [fact — Porter, M.E. (1985), Competitive Advantage, Free Press; summarised at https://www.ifm.eng.cam.ac.uk/research/dstools/porters-generic-competitive-strategies/]
 
-Porter explicitly states that cost leadership is only sustainable when the cost advantage is structural — derived from economies of scale, proprietary technology, or supply chain advantages — not from arbitrary cost-cutting. [fact — Porter, 1985, Ch. 1; corroborated by digitalleadership.com summary]
+Porter explicitly states that cost leadership is only sustainable when the cost advantage is structural — derived from economies of scale, proprietary technology, or supply chain advantages — not from arbitrary cost-cutting. [fact — Porter, 1985; summarised at https://digitalleadership.com/blog/porters-generic-strategies/]
 
-A critical condition is that cost leadership cannot operate alongside "stuck in the middle" positioning: an organisation must either be the cost leader or differentiate — not both. Firms that pursue cost leadership without genuine structural cost advantage face sustained margin destruction. [fact — Porter, 1985, p. 16: "Each point of market share is considered important because more than one potential cost leader causes high competition between companies."]
+A critical condition is that cost leadership cannot operate alongside "stuck in the middle" positioning: an organisation must either be the cost leader or differentiate — not both. Firms that pursue cost leadership without genuine structural cost advantage face sustained margin destruction. [inference — from Porter's generic strategies framework; https://www.ifm.eng.cam.ac.uk/research/dstools/porters-generic-competitive-strategies/]
 
 **A2. Limits of cost leadership as durable strategy**
 
 BCG (2025) frames the core tension explicitly: "Too often, companies cut costs indiscriminately and to the bone, stalling growth." [fact — https://www.bcg.com/publications/2025/cut-costs-or-grow-great-transformations-achieve-both]
 
-Academic research on industry life cycles finds that cost leadership produces above-average returns in industry maturity and decline but not in growth stages, where differentiation, service, and innovation strategies outperform. [fact — Beal (academic paper cited at na-businesspress.com/bealweb.pdf): "firms that pursue low cost as well as firms that differentiated on the basis of quality, innovation, image, and service all achieved higher levels of overall financial performance [in the growth stage]"]
+Academic research on industry life cycles finds that cost leadership produces above-average returns in industry maturity and decline but not in growth stages, where differentiation, service, and innovation strategies outperform. [fact — Beal, R.M. "Competing effectively: environmental scanning, competitive strategy, and organizational performance in small manufacturing firms," Journal of Small Business Management; cited at http://na-businesspress.com/bealweb.pdf]
 
 **A3. "Pure cost reduction" ≠ cost leadership**
 
@@ -142,13 +142,13 @@ Cost leadership in Porter's framework is still a customer value proposition — 
 
 Sutherland states the mechanism directly in a recorded interview on ROI and opportunity cost: "A cost is really quantifiable and really visible. And if you cut a cost, it delivers predictable gains almost instantaneously... Finance people don't really want to make the company money over time. They just thrive on certainty and predictability." [fact — verbatim quote from Sutherland, in Camille Moore interview, Articles of Interest: https://articles.data.blog/2024/06/30/rory-sutherland-on-roi-and-opportunity-cost/]
 
-Sutherland further states: "The purpose of your procurement department is to prevent you buying anything innovative. Because they need to actually have a like-for-like comparison between three identical bidders before they can appoint anybody." [fact — verbatim from Sutherland, Consumer Behavior Lab PDF interview]
+Sutherland further states: "The purpose of your procurement department is to prevent you buying anything innovative. Because they need to actually have a like-for-like comparison between three identical bidders before they can appoint anybody." [fact — verbatim from Sutherland, Consumer Behavior Lab interview: https://theconsumerbehaviorlab.com/pdf/interview-rory-sutherland-author-of-alchemy-on-why-irrational-ideas-work.pdf]
 
 McKinsey's 2024 procurement survey found only 60% of large organisations have a procure-to-pay (P2P) system despite strong evidence these reduce costs; the barrier identified is lack of focus on user experience, not absence of savings. [fact — McKinsey CPO Executive Forum data, reported at procurementmag.com: https://procurementmag.com/news/mckinsey-transforming-procurement-for-an-ai-driven-world]
 
 **B2. The asymmetry: cost visibility vs. opportunity cost visibility**
 
-The short-termism literature is direct on this mechanism. The CFA Institute (Chartered Financial Analyst Institute) documents: "An excessive short-term focus combined with insufficient regard for long-term strategy can tip the balance in value-destructive ways... Such short-term strategies are often based on accounting-driven metrics that are not fully reflective of the complexities of corporate management." [fact — CFA Institute, "Breaking the Short-Term Cycle," cited at cfainstitute.org]
+The short-termism literature is direct on this mechanism. The Chartered Financial Analyst Institute (CFA Institute) documents: "An excessive short-term focus combined with insufficient regard for long-term strategy can tip the balance in value-destructive ways... Such short-term strategies are often based on accounting-driven metrics that are not fully reflective of the complexities of corporate management." [fact — CFA Institute, "Breaking the Short-Term Cycle," https://www.cfainstitute.org/sites/default/files/-/media/documents/article/position-paper/breaking-the-short-term-cycle.pdf]
 
 Harvard Law School Corporate Governance blog (2024) models the mechanism: firms compete for short-horizon investors, which rationally leads to destroying long-term value: "The short-termism trap can be so severe that in equilibrium, some firms choose to remain private, while those that choose to list are subject to so much investor pressure that excessively short-term project choice offsets all the potential benefits of having an informative stock price." [fact — Dow et al. (2024), Journal of Financial Economics 159, summarised at corpgov.law.harvard.edu/2024/08/13/the-short-termism-trap-catering-to-informed-investors-with-limited-horizons/]
 
@@ -158,7 +158,7 @@ Sutherland names the underlying mechanism "quantification bias": the systematic 
 
 He provides a concrete example: an online travel company with a website conversion rate of 0.5% and a phone conversion rate of 30%. The quantification-biased response is to remove the phone number from the website to save call centre cost. The opportunity-minded response is to ask: "Are we really sure this is intelligent?" given the 60× conversion rate differential. [fact — Sutherland verbatim, The Drum 2026]
 
-This is consistent with the short-termism academic literature that identifies "accounting-driven metrics" as the specific mechanism crowding out long-term value creation.
+This is consistent with the short-termism academic literature that identifies "accounting-driven metrics" as the specific mechanism crowding out long-term value creation. [inference — from the CFA Institute and Dow et al. (2024) findings cited above]
 
 ---
 
@@ -170,21 +170,21 @@ Nike launched its Consumer Direct Offense strategy in 2017, aiming to grow direc
 
 The stated rationale was threefold: higher gross margins from selling direct, ownership of customer data, and cleaner brand positioning. [fact — ainvest.com; Nike investor communications cited in multiple sources]
 
-By fiscal 2023, Nike Direct contributed $21.3 billion of $51.2 billion in total revenue — DTC had grown significantly as a percentage of the mix. [fact — Nike fiscal 2023 investor reports, cited in GreatIdeasForTeachingMarketing case study PDF]
+By fiscal 2023, Nike Direct contributed $21.3 billion of $51.2 billion in total revenue — DTC had grown significantly as a percentage of the mix. [fact — Nike fiscal 2023 investor reports, cited via case study at https://www.greatideasforteachingmarketing.com/wp-content/uploads/2025/10/Nikes-Shift-to-Direct-to-Consumer-Case-Study.pdf]
 
 **C2. Financial outcomes and timeline**
 
-The strategy began generating visible negative signals by FY2023–24. In fiscal Q4 2024, Nike Direct revenue fell approximately 8% year-over-year while wholesale revenue rose approximately 5%. [fact — Nike fiscal Q4 2024 investor reports, cited in multiple sources including ainvest.com and Yahoo Finance]
+The strategy began generating visible negative signals by FY2023–24. In fiscal Q4 2024, Nike Direct revenue fell approximately 8% year-over-year while wholesale revenue rose approximately 5%. [fact — Nike fiscal Q4 2024 investor reports, cited in ainvest.com analysis: https://www.ainvest.com/news/nike-strategic-stumbles-flawed-dtc-execution-retail-retreat-undermine-brand-dow-2512/]
 
 By FY2023, Nike reported a 16% year-on-year decline in net income, attributed to excess inventory and slowing consumer demand — structural vulnerabilities created by removing the wholesale buffer. [fact — ainvest.com]
 
-Nike's stock price remained significantly depressed even as chief executive officer (CEO) Elliott Hill reversed course in late 2024–25, rebuilding wholesale relationships. In Q2 2025, wholesale revenues climbed 8% to $7.5 billion while direct sales fell 8% to $4.6 billion — confirming the wholesale channel's resilience. [fact — LinkedIn analysis by Thomas Wagenberg citing Nike Q2 2025 earnings; retailboss.substack.com]
+Nike's stock price remained significantly depressed even as chief executive officer (CEO) Elliott Hill reversed course in late 2024–25, rebuilding wholesale relationships. In Q2 2025, wholesale revenues climbed 8% to $7.5 billion while direct sales fell 8% to $4.6 billion — confirming the wholesale channel's resilience. [fact — retailboss.substack.com: https://retailboss.substack.com/p/nikes-15-billion-tariff-problem-exposes; corroborated by LinkedIn commentary citing Nike Q2 2025 earnings]
 
 **C3. Causal mechanism**
 
 Mark Ritson (Marketing Week) diagnoses the failure directly: "The decision to dramatically reduce these relationships was driven primarily by financial models showing higher margins from direct sales, rather than evidence that consumers actually preferred buying directly from Nike." [fact — Marketing Week, "Four big strategic mistakes Nike needs to reverse": https://www.marketingweek.com/ritson-nike-big-strategic-mistakes/]
 
-Nike "optimized for easily measured metrics like conversion rates and profit margins while undervaluing harder-to-quantify benefits like market presence, competitive defense, and consumer convenience." [fact — Medium/shahmm.com analysis; corroborated by Ritson]
+Nike "optimized for easily measured metrics like conversion rates and profit margins while undervaluing harder-to-quantify benefits like market presence, competitive defense, and consumer convenience." [inference — shahmm.medium.com analysis: https://shahmm.medium.com/nikes-strategic-missteps-lessons-from-a-giant-s-stumble-2017-2025-04c2e45065b8; corroborated by Ritson; labelled inference as it interprets Nike's internal decision rationale from external analysis]
 
 The failure mechanism maps precisely to Sutherland's quantification bias: Nike measured and optimised gross margin (a visible cost metric) while destroying distribution reach and brand availability (invisible, slow to manifest). The cost savings materialised immediately; the opportunity destruction (lost casual buyers, brand de-positioning, reduced product discovery) accumulated over three to four years before becoming undeniable. [inference — synthesised from Ritson's diagnosis, Nike financial data, and Sutherland's quantification bias framework]
 
@@ -208,13 +208,13 @@ BCG (2025) documents: "Future-built companies [AI leaders] accelerate value crea
 
 The paradox is that the companies with the highest cost reduction from AI are also those with the highest revenue growth — not because cost reduction produced growth, but because opportunity-minded investment in AI capabilities generated both. Companies that start from a cost-reduction mandate tend to automate the wrong things and stop before reaching the compounding returns. [inference — from BCG 2025 data and McKinsey's observation that "most organisations are still navigating the transition from experimentation to scaled deployment"]
 
-From the earlier related research item (`2026-02-28-ai-strategy-business-efficiency-examples.md`): BCG found that AI leaders achieve 1.5× higher revenue growth and 1.6× greater shareholder returns versus peers — the differentiator is not efficiency but operating model redesign. [fact — BCG October 2024 survey]
+From the earlier related research item (`2026-02-28-ai-strategy-business-efficiency-examples.md`): BCG found that AI leaders achieve 1.5× higher revenue growth and 1.6× greater shareholder returns versus peers — the differentiator is not efficiency but operating model redesign. [fact — BCG Global AI study, October 2024, "Six Ways to Win with AI": https://www.bcg.com/publications/2024/six-ways-to-win-with-ai-survey]
 
 **D3. AI deployed with an opportunity mindset — counter-examples**
 
 Zappos (Amazon subsidiary) explicitly reframed its customer service contact centre as a "customer loyalty team (CLT)" — treating every inbound customer contact not as a cost but as "a special opportunity" to "personalise the brand and wow the customer." [fact — Calix blog case study: https://www.calix.com/blog/2021/08/how-zappos-uses-customer-support-as-an-opportunity-to-wow-customers.html]
 
-The opportunity framing produced a customer flywheel: exceptional service → repeat customers → lower acquisition costs → higher long-term margins → Amazon acquisition for $1.2 billion in 2009. [fact — Chattermill/Zappos case study citing Tony Hsieh]
+The opportunity framing produced a customer flywheel: exceptional service → repeat customers → lower acquisition costs → higher long-term margins → Amazon acquisition for $1.2 billion in 2009. [fact — Chattermill/Zappos case study: https://chattermill.com/blog/zappos-customer-service; Calix blog: https://www.calix.com/blog/2021/08/how-zappos-uses-customer-support-as-an-opportunity-to-wow-customers.html]
 
 Amazon Connect's AI platform is positioned with dual framing — "How are you using AI to accelerate the business while reducing costs?" — acknowledging both dimensions. The product documentation describes AI converting "every customer touchpoint into a catalyst for growth." [fact — AWS Amazon Connect documentation: https://aws.amazon.com/blogs/contact-center/introducing-the-next-generation-of-amazon-connect/]
 
@@ -462,13 +462,13 @@ Cost reduction is insufficient as a standalone business strategy because it opti
 
 Three independent evidential streams converge on the same causal mechanism:
 
-**Stream 1 — behavioural economics:** Sutherland's quantification bias identifies an *organisational* cognitive distortion: systems inherit and amplify the human tendency to over-weight proximate, certain, measurable outcomes. Finance and procurement functions are designed to optimise exactly the wrong thing when applied to opportunity creation.
+**Stream 1 — behavioural economics:** Sutherland's quantification bias identifies an *organisational* cognitive distortion: systems inherit and amplify the human tendency to over-weight proximate, certain, measurable outcomes. [inference] Finance and procurement functions are structured to optimise for these metrics, which misaligns incentives when applied to opportunity creation.
 
 **Stream 2 — academic finance:** Dow et al. (2024) model this as a market failure at the capital markets level. Individual firms cannot rationally resist the pressure to cater to short-horizon investors even when they know it destroys long-term value. The mechanism is systemic, not individual.
 
 **Stream 3 — empirical case:** Nike's CDO failure is the cleanest large-scale corporate demonstration of the mechanism in the 2020s. The decision was internally coherent by the metrics available (gross margin, digital conversion), while the value destruction (lost casual buyers, brand de-positioning, distribution gap) was exactly the type of diffuse, slow-moving damage that quantification bias predicts would be underweighted.
 
-The AI implication is not a hypothetical: the dominant consulting framing already positions AI as efficiency gain to CFO and procurement audiences. This is the exact framing that produced the Nike outcome. The BCG data confirms the paradox: opportunity-first AI deployment produces better efficiency outcomes as well as better growth outcomes. The cost-first framing is not even correct on its own terms.
+The AI implication is not a hypothetical: the dominant consulting framing already positions AI as efficiency gain to CFO and procurement audiences. [inference] This framing shares the same structure as the Nike CDO rationale — optimising for measurable margin while discounting harder-to-quantify distribution and experience value. [inference] The BCG data confirms the paradox: opportunity-first AI deployment produces better efficiency outcomes as well as better growth outcomes. [inference] Starting from a cost question rather than an opportunity question appears to limit the scope of outcomes achievable.
 
 ### Risks, Gaps, and Uncertainties
 
