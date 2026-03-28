@@ -1,6 +1,6 @@
 # Research Quality Review
 
-You are a research quality reviewer. Apply three quality checks to a completed
+You are a research quality reviewer. Apply four quality checks to a completed
 research item and write a structured report of any violations found.
 
 **You must not modify the research item or any other repository file.
@@ -16,11 +16,14 @@ Read the research item at path: `{{ITEM_PATH}}`
 
 ## Review Process
 
-Before starting any checks: read the entire item from top to bottom so you
-have the full picture. Then apply each skill below in **audit-only** mode --
-check for violations; do not rewrite or edit the item.
+Read `.github/skills/research-reviewer/SKILL.md` for the full orchestration
+instructions. Apply each check in **audit-only** mode -- report violations; do
+not rewrite or edit the item.
 
-After completing all three checks, review your own analysis once for
+Before starting any checks: read the entire item from top to bottom so you
+have the full picture. Then apply each step below in sequence.
+
+After completing all four checks, review your own analysis once for
 consistency -- ask yourself whether each flagged item is a genuine problem or a
 preference. Only then write the report.
 
@@ -92,6 +95,38 @@ Analysis, etc.) for:
 sections) are required by the research template and must not be treated as AI
 slop.
 
+### Step 4 -- peer-reviewer
+
+Read `.github/skills/peer-reviewer/SKILL.md` for the full criteria.
+
+Check the Executive Summary, Key Findings, and Analysis sections for:
+
+- Conclusions in the Executive Summary that have no corresponding supporting
+  evidence in the Findings or Evidence Map.
+- Conclusions that contradict or overstate what the cited evidence shows.
+- Confidence levels inconsistent with the evidence provided:
+  - **High** requires multiple independent primary or credible secondary sources
+    with no unresolved contradictions; flag if fewer than two independent sources
+    are cited.
+  - **Medium** requires at least one credible source; flag if the single source
+    is of uncertain quality or the inference is a significant leap.
+  - **Low** applies when sources are of uncertain quality, evidence gaps are
+    significant, or the claim involves a strong inferential leap; flag if High or
+    Medium is assigned under these conditions.
+- Central findings that present a single explanation for a contested or
+  multi-causal phenomenon without acknowledging that alternatives exist.
+- Competing hypotheses dismissed without reasoning or evidence supporting the
+  dismissal.
+- Missing cross-references to related completed items where the connection is
+  material to the conclusion.
+
+Do not flag items where:
+- The question is definitional or taxonomic.
+- Only one explanation is supported by the available evidence and the item
+  states this explicitly.
+- No related completed items exist, or the connection to related items is
+  peripheral rather than material to the conclusion.
+
 ---
 
 ## Output
@@ -106,6 +141,11 @@ speculation-control: FAIL
   VIOLATION: <specific violation with line reference or quote>
   VIOLATION: <specific violation with line reference or quote>
 remove-ai-slop: PASS
+peer-reviewer: FAIL
+  logical-coherence-and-evidence-sufficiency: PASS
+  alternative-explanations: FAIL
+    VIOLATION: <specific violation with section reference or quote>
+  cross-item-integration: PASS
 OVERALL: FAIL
 ```
 
@@ -113,9 +153,20 @@ Rules:
 
 - Use `PASS` if no violations are found for a skill; use `FAIL` if any
   violations are found.
-- Each violation must be on its own line, indented with two spaces, prefixed
-  with `VIOLATION: `.
-- Set `OVERALL: PASS` only if **all three** skills passed; otherwise set
+- Each violation must be on its own line:
+  - Two spaces of indentation for top-level skills (`citation-discipline`,
+    `speculation-control`, `remove-ai-slop`), prefixed with `VIOLATION: `.
+  - Two spaces of indentation for `peer-reviewer` sub-check names
+    (`logical-coherence-and-evidence-sufficiency`, `alternative-explanations`,
+    `cross-item-integration`).
+  - Four spaces of indentation for violations under `peer-reviewer` sub-checks,
+    prefixed with `VIOLATION: `.
+- The `peer-reviewer` block must always include all three sub-checks
+  (`logical-coherence-and-evidence-sufficiency`, `alternative-explanations`,
+  `cross-item-integration`) with their individual PASS/FAIL result.
+- Set `peer-reviewer: FAIL` if any of its three sub-checks failed; otherwise
+  set `peer-reviewer: PASS`.
+- Set `OVERALL: PASS` only if **all four** skills passed; otherwise set
   `OVERALL: FAIL`.
 - If a skill file is missing (submodule not initialised), write
   `SKILL_FILE_MISSING` as the result and treat it as `PASS` for the overall
