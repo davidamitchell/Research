@@ -124,18 +124,18 @@ jobs:
 
             if [ "$REVIEW_COUNT" -ge "$MAX_REVIEWS" ]; then
               echo "Review cap ($MAX_REVIEWS) reached for: $ITEM — auto-passing."
-              cat > /tmp/research-review-report.txt <<EOF
-REVIEW_TARGET: ${ITEM}
-citation-discipline: PASS
-speculation-control: PASS
-remove-ai-slop: PASS
-peer-reviewer: PASS
-  logical-coherence-and-evidence-sufficiency: PASS
-  alternative-explanations: PASS
-  cross-item-integration: PASS
-OVERALL: PASS
-NOTE: review cap reached (${REVIEW_COUNT}/${MAX_REVIEWS})
-EOF
+              {
+                printf 'REVIEW_TARGET: %s\n' "${ITEM}"
+                printf 'citation-discipline: PASS\n'
+                printf 'speculation-control: PASS\n'
+                printf 'remove-ai-slop: PASS\n'
+                printf 'peer-reviewer: PASS\n'
+                printf 'logical-coherence-and-evidence-sufficiency: PASS\n'
+                printf 'alternative-explanations: PASS\n'
+                printf 'cross-item-integration: PASS\n'
+                printf 'OVERALL: PASS\n'
+                printf 'NOTE: review cap reached (%s/%s)\n' "${REVIEW_COUNT}" "${MAX_REVIEWS}"
+              } > /tmp/research-review-report.txt
               cat /tmp/research-review-report.txt
               continue
             fi
