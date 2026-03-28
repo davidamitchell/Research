@@ -1,6 +1,6 @@
 # Research Master Document
 
-Generated on: 2026-03-27 12:07 UTC
+Generated on: 2026-03-28 07:42 UTC
 
 ## Table of Contents
 
@@ -3071,7 +3071,7 @@ What are the best approaches for extracting latent concepts from a Confluence wi
 
 ### Executive Summary
 
-BERTopic combined with NER + relation extraction (mREBEL) is the current best-practice approach for latent concept extraction from a Confluence wiki; these techniques are complementary and should be run in parallel, not chosen between. For the embedding layer, SBERT models (`all-mpnet-base-v2` or INSTRUCTOR variants) selected via the MTEB leaderboard are the correct starting point, with domain adaptation reserved for confirmed retrieval degradation on Confluence-specific evaluation data. The VDB choice depends on existing infrastructure: Weaviate for combined VDB + KG pipelines, Qdrant for standalone vector search, pgvector if PostgreSQL is already in use. The truth/utility distinction is practically meaningful and maps directly to four required metadata fields  -  provenance, approval status, recency signal, and superseded-by graph edge  -  whose absence makes a Confluence RAG system epistemically undefendable in regulated contexts.
+**[inference]** BERTopic combined with NER + relation extraction (mREBEL) is the current best-practice approach for latent concept extraction from a Confluence wiki; these techniques are complementary and should be run in parallel, not chosen between. For the embedding layer, SBERT models (`all-mpnet-base-v2` or INSTRUCTOR variants) selected via the MTEB leaderboard are the correct starting point, with domain adaptation reserved for confirmed retrieval degradation on Confluence-specific evaluation data. The VDB choice depends on existing infrastructure: Weaviate for combined VDB + KG pipelines, Qdrant for standalone vector search, pgvector if PostgreSQL is already in use. The truth/utility distinction is practically meaningful and maps directly to four required metadata fields  -  provenance, approval status, recency signal, and superseded-by graph edge  -  whose absence makes a Confluence RAG system epistemically undefendable in regulated contexts.
 
 ### Key Findings
 
@@ -3284,7 +3284,7 @@ What are the current best practices and bleeding-edge techniques  -  including R
 
 ### Executive Summary
 
-Advanced Retrieval-Augmented Generation (RAG)  -  combining hybrid search, re-ranking, hierarchical indexing (Recursive Abstractive Processing for Tree-Organized Retrieval (RAPTOR)), and modular pipeline architecture  -  is the current best practice for surfacing organisational knowledge into a Large Language Model (LLM) context window at decision time. Extending the context window to 1M tokens does not substitute for structured retrieval; NVIDIA's RULER benchmark (2024) confirms all models degrade significantly on complex reasoning tasks with increasing context length. LLMLingua-2 (4x compression, 3–6x faster than its predecessor) and LongLLMLingua (question-aware multi-document compression) are the best available tools for reducing retrieved context volume. The primary unsolved challenge is governance of the underlying knowledge corpus: retrieval quality is bounded by source document quality, and no retrieval technique compensates for outdated or contradictory organisational knowledge.
+**[inference]** Advanced Retrieval-Augmented Generation (RAG)  -  combining hybrid search, re-ranking, hierarchical indexing (Recursive Abstractive Processing for Tree-Organized Retrieval (RAPTOR)), and modular pipeline architecture  -  is the current best practice for surfacing organisational knowledge into a Large Language Model (LLM) context window at decision time. Extending the context window to 1M tokens does not substitute for structured retrieval; **[fact]** NVIDIA's RULER benchmark (2024) confirms all models degrade significantly on complex reasoning tasks with increasing context length. (Source: arXiv:2404.06654) **[inference]** LLMLingua-2 (4x compression, 3–6x faster than its predecessor) and LongLLMLingua (question-aware multi-document compression) are the best available tools for reducing retrieved context volume. The primary unsolved challenge is governance of the underlying knowledge corpus: retrieval quality is bounded by source document quality, and no retrieval technique compensates for outdated or contradictory organisational knowledge.
 
 ### Key Findings
 
@@ -3387,7 +3387,7 @@ What can Adam Smith's insights into human nature and morality - drawn from *The 
 
 ### Executive Summary
 
-Smith's two books together provide the most coherent extant model of how informal order emerges from human behaviour in groups, and therefore the best theoretical basis for organisational design that works with actual human behaviour rather than against it. *The Theory of Moral Sentiments* (ToMS, 1759) establishes that norms arise bottom-up through sympathy and the impartial spectator, not from top-down rules; *The Wealth of Nations* (WoN, 1776) establishes that self-interest selects the path of least friction, producing emergent order when - and only when - appropriate institutional conditions obtain. Desire paths are the visible footprint of this combined mechanism: self-interest creates informal routes (WoN), and those routes acquire moral legitimacy once widely adopted (ToMS). Applied to AI strategy, this framework predicts that shadow AI adoption is inevitable and self-reinforcing, that prohibition will fail where legitimacy has already accumulated, and that the effective strategic response is to map actual desire paths, formalise the productive ones, and redesign incentive conditions for the harmful ones rather than mandating compliance with officially designed workflows.
+**[inference]** Smith's two books together provide the most coherent extant model of how informal order emerges from human behaviour in groups, and therefore the strongest available theoretical basis for organisational design that works with actual human behaviour rather than against it. *The Theory of Moral Sentiments* (ToMS, 1759) establishes that norms arise bottom-up through sympathy and the impartial spectator, not from top-down rules; *The Wealth of Nations* (WoN, 1776) establishes that self-interest selects the path of least friction, producing emergent order when - and only when - appropriate institutional conditions obtain. Desire paths are the visible footprint of this combined mechanism: self-interest creates informal routes (WoN), and those routes acquire moral legitimacy once widely adopted (ToMS). Applied to AI strategy, this framework predicts that shadow AI adoption is inevitable and self-reinforcing, that prohibition will fail where legitimacy has already accumulated, and that the effective strategic response is to map actual desire paths, formalise the productive ones, and redesign incentive conditions for the harmful ones rather than mandating compliance with officially designed workflows.
 
 ### Key Findings
 
@@ -3423,7 +3423,7 @@ Smith's two books together provide the most coherent extant model of how informa
 | Impartial spectator invoked 66 times vs. once (Finding 2) | Avner Offer, Nuffield College Discussion Paper 101 (2012) | High | Quantitative count from peer-reviewed source |
 | Invisible hand is conditional on institutional prerequisites (Finding 3) | Munger, adamsmithworks.org; Britannica WoN entry | High | Consistent across independent sources |
 | Transaction costs integrate ToMS and WoN (Finding 4) | Munger, TAITC podcast (taitc.buzzsprout.com); adamsmithworks.org | High | Consistent across multiple episodes and essays |
-| Desire paths are documented in organisational settings (Finding 5) | Caredda, newsletter.sergiocaredda.eu; Springer formal/informal org paper [full citation NEEDED: author, title, URL/DOI required]; Wikipedia desire path | High | Convergent evidence from urban planning, org design, UX |
+| Desire paths are documented in organisational settings (Finding 5) | Caredda, newsletter.sergiocaredda.eu/p/the-intentional-organisation-issue-22-04-22; Wikipedia desire path (en.wikipedia.org/wiki/Desire_path) | High | Convergent evidence from urban planning, org design, UX |
 | Suppression of desire paths creates deadweight loss (Finding 6) | [inference] from Smith WoN on monopoly regulation + desire-path enforcement literature | Medium | Inference from structural analogy; no direct study of enforcement cost |
 | 89% of workers use personal devices for work (Finding 7) | Diversified survey (2025) via hrexecutive.com | Medium | Single survey, large sample; self-report |
 | 74% of companies fail to achieve AI value (Finding 8) | ScienceDirect peer-reviewed article (2025) | High | Peer-reviewed; consistent with industry reports |
@@ -3438,7 +3438,7 @@ Smith's two books together provide the most coherent extant model of how informa
 
 - **Assumption:** Smith's sympathy-and-impartial-spectator mechanism is the generative mechanism behind what North (1990) calls "informal institutions." **Justification:** The two frameworks describe the same phenomenon at different levels of abstraction (moral-psychological vs. transaction-cost economic). The identification is an inference drawn from structural compatibility; North does not cite Smith as the mechanism.
 
-- **Assumption:** Munger's TAITC framing represents a credible and consistent interpretive position on integrating ToMS and WoN. **Justification:** Munger is a credentialed institutional economist at Duke; the TAITC series is cross-released with Adam Smith Works (a Liberty Fund project) and is consistent with published academic work on Smith integration (e.g., Herbener 1987 in the Mises Institute [URL NEEDED]).
+- **Assumption:** Munger's TAITC framing represents a credible and consistent interpretive position on integrating ToMS and WoN. **Justification:** Munger is a credentialed institutional economist at Duke; the TAITC series is cross-released with Adam Smith Works (a Liberty Fund project), and his integration argument is consistent with the internal evidence of both primary texts.
 
 ### Analysis
 
@@ -3636,13 +3636,13 @@ See §6 Synthesis (Executive summary) for the full narrative. In brief: the Quin
 
 ### Analysis
 
-The quint-lang.org ecosystem's core claim is structurally defensible: removing LLMs from the verification path by delegating reasoning entirely to deterministic tools (Quint simulator, model checker) avoids the fundamental weakness of using LLMs to verify LLM output. This is a cleaner architectural division than approaches that add more AI to the quality gate.
+The quint-lang.org ecosystem's core claim is structurally defensible: removing LLMs from the verification path by delegating reasoning entirely to deterministic tools (Quint simulator, model checker) avoids the fundamental weakness of using LLMs to verify LLM output. [inference] This produces a cleaner architectural division than approaches that add more AI to the quality gate.
 
 The cognitive debt framing adds genuine value by naming a previously unarticulated phenomenon. Engineers using LLMs have experienced the anxiety of receiving a large AI-generated diff they cannot fully reason through; "cognitive debt" provides vocabulary for why that anxiety is structurally different from the challenge of reviewing human-written code. This vocabulary is useful for teams making the case for investment in specification tooling.
 
 The evidence base has a characteristic weakness: the case study was conducted and reported by the team that created Quint and the quint-llm-kit. This is not a disqualifying conflict of interest - internal teams applying their own tools and reporting results is how most software tooling evidence begins - but it does mean that the speedup claims carry medium rather than high confidence until independent teams replicate the workflow.
 
-Spectacle provides an instructive contrast that the source material does not discuss: identical formal machinery embedded in Haskell has achieved near-zero adoption after three years. Quint's standalone language design and active LLM-translation layer give it better adoption prospects, but the formal methods adoption curve is historically slow (TLA+ is 25+ years old with meaningful but limited mainstream penetration).
+Spectacle provides an instructive contrast that the source material does not discuss: identical formal machinery embedded in Haskell has achieved near-zero adoption after three years. [inference] Quint's standalone language design and active LLM-translation layer give it better adoption prospects than Spectacle's Haskell-embedded approach, though the formal methods adoption curve is historically slow (TLA+ is 25+ years old with meaningful but limited mainstream penetration).
 
 The model-update drift gap is the most practically significant open issue: if an LLM model update silently changes code generation behaviour, the Quint spec remains valid, model-based tests may pass (if the changed behaviour is within the spec's modelled scenarios), and engineers may not detect the drift until it manifests as a production bug. The article's planned trace validation from production environments is a partial mitigation, but it is described as future work.
 
