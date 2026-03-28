@@ -386,6 +386,18 @@ The regulatory pressure from DORA is qualitatively different from prior CSDM ado
 
 ---
 
+## Sources
+
+- [x] [ServiceNow CSDM documentation](https://docs.servicenow.com/csh?topicname=csdm-landing.html&version=latest) — official ServiceNow Common Service Data Model documentation
+- [x] [Einar & Partners CSDM Masterclass — insights from 35 implementations](https://research.einar.partners/servicenow-csdm-masterclass-insights-best-practices-from-35-implementations/) — primary practitioner benchmark for CSDM implementation patterns
+- [x] [Data Content Manager — CSDM evolution 2019–2025](https://datacontentmanager.com/servicenow-csdm-example-data-models/) — CSDM data model evolution and example configurations
+- [x] [ServiceNow Community — DORA compliance with ServiceNow CSDM/IRM linkage](https://www.servicenow.com/community/grc-blog/achieving-dora-compliance-with-servicenow-at-heart/ba-p/3274062) — DORA compliance and CSDM/IRM data linkage patterns
+- [x] [Research/completed/2026-03-07-run-vs-build-it-spending-allocation.md](https://github.com/davidamitchell/Research/blob/master/Research/completed/2026-03-07-run-vs-build-it-spending-allocation.md) — RUN/BUILD cost allocation context; TBM/ITFM framework requiring CSDM data layer
+- [x] [Research/completed/2026-03-07-run-build-it-allocation-implementation-how.md](https://github.com/davidamitchell/Research/blob/master/Research/completed/2026-03-07-run-build-it-allocation-implementation-how.md) — application definition problem as prerequisite for cost allocation
+- [x] [Research/completed/2026-02-28-ai-control-testing-and-assurance.md](https://github.com/davidamitchell/Research/blob/master/Research/completed/2026-02-28-ai-control-testing-and-assurance.md) — ServiceNow GRC as leading vendor in AI-assisted compliance; IRM risk-to-CI linkage
+
+---
+
 ## Findings
 
 ### Executive Summary

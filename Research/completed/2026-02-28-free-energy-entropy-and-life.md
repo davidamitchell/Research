@@ -237,6 +237,19 @@ All atomic questions have been addressed. Every major claim has been labelled [f
 
 ---
 
+## Sources
+
+- [x] [Seth, A.K. (2021). "Anil Seth Finds Consciousness in Life's Push Against Entropy." *Quanta Magazine*](https://www.quantamagazine.org/anil-seth-finds-consciousness-in-lifes-push-against-entropy-20210930/) — accessible overview of FEP and consciousness link
+- [x] [Friston, K. et al. (2022). "The free energy principle made simpler but not too simple." arXiv:2201.06387](https://arxiv.org/abs/2201.06387) — technical but recent and concise FEP overview
+- [x] [Friston, K. (2010). "The free-energy principle: a unified brain theory?" *Nature Reviews Neuroscience*](https://doi.org/10.1038/nrn2787) — canonical accessible entry point to FEP
+- [x] [Wikipedia: Free energy principle](https://en.wikipedia.org/wiki/Free_energy_principle) — accessible secondary overview
+- [x] [Critics and Controversies — Ideasthesia](https://www.ideasthesia.org/critics-and-controversies-what-fep-gets-wrong-maybe/) — critical perspectives on FEP
+- [x] [Sims, A. (2021). "The math is not the territory: navigating the free energy principle." *Biology & Philosophy*](https://link.springer.com/article/10.1007/s10539-021-09807-0) — philosophical critique of FEP formalism
+- [ ] [Seth, A.K. (2021). *Being You: A New Science of Consciousness*. Dutton](https://www.penguinrandomhouse.com/books/609260/being-you-by-anil-seth/) — Chapters 5–8 on beast machine, interoception, free energy
+- [ ] [Schrödinger, E. (1944). *What is Life? The Physical Aspect of the Living Cell*. Cambridge University Press](https://www.cambridge.org/core/books/what-is-life/E682A93B8E3C58ED1BE927C24C1BF1AC) — the negentropy argument
+
+---
+
 ## Findings
 
 ### Executive Summary
