@@ -1301,7 +1301,7 @@ def detect_concept_threads(
     high_freq_threshold = max(3, int(n_items * 0.25))
 
     # Concepts that are structural/boilerplate artifacts rather than topical signals
-    _BLOCKLIST: frozenset[str] = frozenset(
+    _blocklist: frozenset[str] = frozenset(
         {
             "et al",
             "executive summary",
@@ -1317,7 +1317,7 @@ def detect_concept_threads(
     item_concepts_raw: dict[str, list[str]] = {}
     for item in items:
         slug = item["slug"]
-        concepts = [c for c in meta_items.get(slug, {}).get("named_concepts", []) if c not in _BLOCKLIST]
+        concepts = [c for c in meta_items.get(slug, {}).get("named_concepts", []) if c not in _blocklist]
         item_concepts_raw[slug] = concepts
         all_concept_counts.update(concepts)
 

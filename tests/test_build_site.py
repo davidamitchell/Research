@@ -12,7 +12,6 @@ import pytest
 sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
 from build_site import _cluster_overlap, detect_concept_threads, detect_threads
 
-
 # ---------------------------------------------------------------------------
 # Helpers
 # ---------------------------------------------------------------------------
