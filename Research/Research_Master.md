@@ -1,6 +1,6 @@
 # Research Master Document
 
-Generated on: 2026-03-28 07:42 UTC
+Generated on: 2026-03-28 21:36 UTC
 
 ## Table of Contents
 
@@ -3921,7 +3921,7 @@ Correctness — whether output is production-ready, strategically coherent, or f
 
 5. **The agentic tarpit names the multi-agent correctness failure mode:** Wes McKinney's 2025 blog post "The Mythical Agent-Month" identified that parallel AI agent sessions produce contradictory and bloated outputs at machine speed, requiring human reconciliation that cannot be accelerated by adding more agents, creating a hard bottleneck at human conceptual integrity. [high confidence]
 
-6. **Workslop is a measurable organisational consequence of volume without correctness discipline:** Research published via Harvard Business Review in 2025 found approximately 40% of workers received poor-quality AI-generated content in the past month, estimated at 15% of total workplace content, generating coordination overhead and eroding interpersonal trust. [medium confidence]
+6. **Workslop is a measurable organisational consequence of volume without correctness discipline:** BetterUp Labs (2025) research found approximately 40% of workers received poor-quality AI-generated content in the past month, estimated at 15% of total workplace content, generating coordination overhead and eroding interpersonal trust. [medium confidence]
 
 7. **The prototype-to-production gap is structural and unresolved:** AI has dramatically compressed the time from blank slate to working proof of concept, but judgment-intensive production work — requirements translation, architectural trade-offs, distributed system debugging, and production-readiness validation — remains human-bottlenecked and has not been equivalently accelerated by current AI tooling. [high confidence]
 
