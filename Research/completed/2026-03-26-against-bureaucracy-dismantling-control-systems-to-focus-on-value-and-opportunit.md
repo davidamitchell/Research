@@ -4,7 +4,7 @@ added: 2026-03-26
 status: completed
 priority: medium
 blocks: []
-tags: [bureaucracy, organisational-design, management, lean, value-creation, systems-thinking, self-management]
+tags: [bureaucracy, organisational-design, management, lean, value-creation, systems-thinking, self-management, rory-sutherland, behavioral-economics]
 started: 2026-03-26
 completed: 2026-03-26
 output: [knowledge]

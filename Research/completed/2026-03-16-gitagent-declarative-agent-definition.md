@@ -5,7 +5,7 @@ added: 2026-03-16
 status: completed
 priority: high
 blocks: []
-tags: [agent, declarative-agent, gitagent, copilot, aws, azure, microsoft-365, git, ai-platform, multi-agent]
+tags: [agent, declarative-agent, gitagent, copilot, aws, azure, microsoft-365, git, ai-platform, multi-agent, agents, agentic-systems]
 started: 2026-03-19
 completed: 2026-03-19
 output: [knowledge, backlog-item]
