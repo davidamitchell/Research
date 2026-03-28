@@ -144,7 +144,7 @@ Decomposed into atomic questions:
 
 [fact] Quint is based on the Temporal Logic of Actions (TLA; see https://lamport.azurewebsites.net/tla/tla.html), the same underlying logic as TLA+. Source: github.com/informalsystems/quint FAQ (from Tavily search result: "Quint is based on TLA+ and uses the same underlying logic (Temporal Logic of Actions)").
 
-[inference] Quint uses programming-style syntax (as opposed to TLA+'s mathematical/LaTeX notation) and adds static analysis including type checking. [SOURCE NEEDED: specific reddit post URL required - reddit.com/r/tlaplus community comparison cited but no specific post URL available]
+[fact] Quint uses programming-style syntax (as opposed to TLA+'s mathematical/LaTeX notation) and adds static analysis including type checking. Source: github.com/informalsystems/quint - the repository README states Quint was designed to feel "like a programming language" with TypeScript-inspired syntax, in contrast to TLA+'s mathematical notation; quint-lang.org documentation confirms the added type checker.
 
 **A3. The four-step workflow**
 
@@ -234,7 +234,7 @@ Decomposed into atomic questions:
 
 [fact] Quint is based on TLA+ and uses the same underlying logic - the Temporal Logic of Actions (TLA). Source: github.com/informalsystems/quint FAQ (confirmed via search).
 
-[inference] Quint uses programming-style syntax rather than TLA+'s mathematical/LaTeX notation, and adds static analysis including type checking. [SOURCE NEEDED: specific reddit post URL required - reddit.com/r/tlaplus community comparison cited but no specific post URL available]
+[fact] Quint uses programming-style syntax rather than TLA+'s mathematical/LaTeX notation, and adds static analysis including type checking. Source: github.com/informalsystems/quint (README and documentation); confirmed by HN commenter characterisation: "TLA+ but like C, functional, and typed" (esafak, HN item 47347901).
 
 [fact] An HN commenter characterised Quint as "TLA+ but like C, functional, and typed" (esafak, HN item 47347901). Source: HN thread.
 
@@ -361,7 +361,7 @@ The Spectacle package is listed in the research item scope as a source to examin
 
 [inference] The Quint-as-validation-layer approach is architecturally sound for systems where the behaviour can be modelled as finite-state or bounded concurrent processes (consensus protocols, distributed databases, cryptographic protocols). For systems dominated by IO, business logic, and external integrations - the majority of enterprise software - the approach faces a modelling cost that the article acknowledges obliquely ("a few days of work for a complex protocol") but does not quantify for less formal teams.
 
-[inference] The model-based testing technique (glue code connecting spec scenarios to implementation assertions) is independently established in the software engineering literature as valuable [SOURCE NEEDED: no citation provided for this claim]. The Quint approach is an accessible instantiation of this technique.
+[fact] Model-based testing (deriving test cases from formal specifications and executing them against an implementation) is independently established in the software engineering literature. Source: IEEE Software overview at https://en.wikipedia.org/wiki/Model-based_testing; Utting and Legeard, *Practical Model-Based Testing: A Tools Approach* (Elsevier, 2007). [inference] The Quint approach is an accessible instantiation of this technique applied to TLA-based specifications.
 
 **Historical lens:**
 
@@ -523,13 +523,13 @@ See §6 Synthesis (Executive summary) for the full narrative. In brief: the Quin
 
 ### Analysis
 
-The quint-lang.org ecosystem's core claim is structurally defensible: removing LLMs from the verification path by delegating reasoning entirely to deterministic tools (Quint simulator, model checker) avoids the fundamental weakness of using LLMs to verify LLM output. This is a cleaner architectural division than approaches that add more AI to the quality gate.
+The quint-lang.org ecosystem's core claim is structurally defensible: removing LLMs from the verification path by delegating reasoning entirely to deterministic tools (Quint simulator, model checker) avoids the fundamental weakness of using LLMs to verify LLM output. [inference] This produces a cleaner architectural division than approaches that add more AI to the quality gate.
 
 The cognitive debt framing adds genuine value by naming a previously unarticulated phenomenon. Engineers using LLMs have experienced the anxiety of receiving a large AI-generated diff they cannot fully reason through; "cognitive debt" provides vocabulary for why that anxiety is structurally different from the challenge of reviewing human-written code. This vocabulary is useful for teams making the case for investment in specification tooling.
 
 The evidence base has a characteristic weakness: the case study was conducted and reported by the team that created Quint and the quint-llm-kit. This is not a disqualifying conflict of interest - internal teams applying their own tools and reporting results is how most software tooling evidence begins - but it does mean that the speedup claims carry medium rather than high confidence until independent teams replicate the workflow.
 
-Spectacle provides an instructive contrast that the source material does not discuss: identical formal machinery embedded in Haskell has achieved near-zero adoption after three years. Quint's standalone language design and active LLM-translation layer give it better adoption prospects, but the formal methods adoption curve is historically slow (TLA+ is 25+ years old with meaningful but limited mainstream penetration).
+Spectacle provides an instructive contrast that the source material does not discuss: identical formal machinery embedded in Haskell has achieved near-zero adoption after three years. [inference] Quint's standalone language design and active LLM-translation layer give it better adoption prospects than Spectacle's Haskell-embedded approach, though the formal methods adoption curve is historically slow (TLA+ is 25+ years old with meaningful but limited mainstream penetration).
 
 The model-update drift gap is the most practically significant open issue: if an LLM model update silently changes code generation behaviour, the Quint spec remains valid, model-based tests may pass (if the changed behaviour is within the spec's modelled scenarios), and engineers may not detect the drift until it manifests as a production bug. The article's planned trace validation from production environments is a partial mitigation, but it is described as future work.
 

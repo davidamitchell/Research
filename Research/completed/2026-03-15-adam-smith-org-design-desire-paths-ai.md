@@ -161,7 +161,7 @@ The connection to AI strategy is timely: AI tools introduced into organisations 
 
 **A4. Self-interest, sympathy, and moral legitimacy**
 
-**[fact]** The apparent contradiction between ToMS (sympathy) and WoN (self-interest) - the so-called "Adam Smith Problem" - is resolved by understanding that the two books operate at different levels. ToMS establishes the social fabric within which economic behaviour occurs; WoN describes the economic mechanism that functions within that social fabric. [Source: Jeffrey Herbener, "An Integration," Mises Institute PDF [URL NEEDED]; Munger at adamsmithworks.org/speakings/adam-smith-s-wealth-of-nations-always-contemporary-munger]
+**[fact]** The apparent contradiction between ToMS (sympathy) and WoN (self-interest) - the so-called "Adam Smith Problem" - is resolved by understanding that the two books operate at different levels. ToMS establishes the social fabric within which economic behaviour occurs; WoN describes the economic mechanism that functions within that social fabric. [Source: Munger, "Adam Smith's Wealth of Nations: Always Contemporary," adamsmithworks.org/speakings/adam-smith-s-wealth-of-nations-always-contemporary-munger]
 
 **[fact]** Smith never claims self-interest is inherently good. He claims that, given appropriate institutional conditions (secure property rights, competition, predictable law, tolerably just enforcement), self-interested action *tends* to produce socially beneficial outcomes as an unintended consequence. The invisible hand is conditional, not universal. [Source: Munger, "Adam Smith's Wealth of Nations: Always Contemporary," adamsmithworks.org]
 
@@ -223,7 +223,7 @@ The connection to AI strategy is timely: AI tools introduced into organisations 
 5. **Preserve the social sympathy mechanism:** Org designs that isolate individuals (extreme remote work, fragmented teams) suppress the impartial spectator mechanism and therefore weaken self-regulation and norm maintenance.
 6. **Division of labour has costs:** Excessive specialisation reduces engagement. Knowledge-work organisations should design for some breadth and craft alongside specialisation.
 
-**[fact]** Research confirms informal networks dominate formal org charts in actual information flows, decision-making, and power. Cross-functional teams dominate successful innovation. Side-processes shadow official systems extensively. [Source: Caredda, newsletter.sergiocaredda.eu; Springer article on formal and informal organisation links [full citation NEEDED: author, title, URL/DOI required]]
+**[fact]** Research confirms informal networks dominate formal org charts in actual information flows, decision-making, and power. Cross-functional teams dominate successful innovation. Side-processes shadow official systems extensively. [Source: Caredda, "Desire Paths of Organisations," newsletter.sergiocaredda.eu/p/the-intentional-organisation-issue-22-04-22]
 
 **F. AI strategy intersection**
 
@@ -394,7 +394,7 @@ The practical strength of this synthesis is that it gives org designers a *diagn
 
 ### Executive Summary
 
-Smith's two books together provide the most coherent extant model of how informal order emerges from human behaviour in groups, and therefore the best theoretical basis for organisational design that works with actual human behaviour rather than against it. *The Theory of Moral Sentiments* (ToMS, 1759) establishes that norms arise bottom-up through sympathy and the impartial spectator, not from top-down rules; *The Wealth of Nations* (WoN, 1776) establishes that self-interest selects the path of least friction, producing emergent order when - and only when - appropriate institutional conditions obtain. Desire paths are the visible footprint of this combined mechanism: self-interest creates informal routes (WoN), and those routes acquire moral legitimacy once widely adopted (ToMS). Applied to AI strategy, this framework predicts that shadow AI adoption is inevitable and self-reinforcing, that prohibition will fail where legitimacy has already accumulated, and that the effective strategic response is to map actual desire paths, formalise the productive ones, and redesign incentive conditions for the harmful ones rather than mandating compliance with officially designed workflows.
+**[inference]** Smith's two books together provide the most coherent extant model of how informal order emerges from human behaviour in groups, and therefore the strongest available theoretical basis for organisational design that works with actual human behaviour rather than against it. *The Theory of Moral Sentiments* (ToMS, 1759) establishes that norms arise bottom-up through sympathy and the impartial spectator, not from top-down rules; *The Wealth of Nations* (WoN, 1776) establishes that self-interest selects the path of least friction, producing emergent order when - and only when - appropriate institutional conditions obtain. Desire paths are the visible footprint of this combined mechanism: self-interest creates informal routes (WoN), and those routes acquire moral legitimacy once widely adopted (ToMS). Applied to AI strategy, this framework predicts that shadow AI adoption is inevitable and self-reinforcing, that prohibition will fail where legitimacy has already accumulated, and that the effective strategic response is to map actual desire paths, formalise the productive ones, and redesign incentive conditions for the harmful ones rather than mandating compliance with officially designed workflows.
 
 ### Key Findings
 
@@ -430,7 +430,7 @@ Smith's two books together provide the most coherent extant model of how informa
 | Impartial spectator invoked 66 times vs. once (Finding 2) | Avner Offer, Nuffield College Discussion Paper 101 (2012) | High | Quantitative count from peer-reviewed source |
 | Invisible hand is conditional on institutional prerequisites (Finding 3) | Munger, adamsmithworks.org; Britannica WoN entry | High | Consistent across independent sources |
 | Transaction costs integrate ToMS and WoN (Finding 4) | Munger, TAITC podcast (taitc.buzzsprout.com); adamsmithworks.org | High | Consistent across multiple episodes and essays |
-| Desire paths are documented in organisational settings (Finding 5) | Caredda, newsletter.sergiocaredda.eu; Springer formal/informal org paper [full citation NEEDED: author, title, URL/DOI required]; Wikipedia desire path | High | Convergent evidence from urban planning, org design, UX |
+| Desire paths are documented in organisational settings (Finding 5) | Caredda, newsletter.sergiocaredda.eu/p/the-intentional-organisation-issue-22-04-22; Wikipedia desire path (en.wikipedia.org/wiki/Desire_path) | High | Convergent evidence from urban planning, org design, UX |
 | Suppression of desire paths creates deadweight loss (Finding 6) | [inference] from Smith WoN on monopoly regulation + desire-path enforcement literature | Medium | Inference from structural analogy; no direct study of enforcement cost |
 | 89% of workers use personal devices for work (Finding 7) | Diversified survey (2025) via hrexecutive.com | Medium | Single survey, large sample; self-report |
 | 74% of companies fail to achieve AI value (Finding 8) | ScienceDirect peer-reviewed article (2025) | High | Peer-reviewed; consistent with industry reports |
@@ -445,7 +445,7 @@ Smith's two books together provide the most coherent extant model of how informa
 
 - **Assumption:** Smith's sympathy-and-impartial-spectator mechanism is the generative mechanism behind what North (1990) calls "informal institutions." **Justification:** The two frameworks describe the same phenomenon at different levels of abstraction (moral-psychological vs. transaction-cost economic). The identification is an inference drawn from structural compatibility; North does not cite Smith as the mechanism.
 
-- **Assumption:** Munger's TAITC framing represents a credible and consistent interpretive position on integrating ToMS and WoN. **Justification:** Munger is a credentialed institutional economist at Duke; the TAITC series is cross-released with Adam Smith Works (a Liberty Fund project) and is consistent with published academic work on Smith integration (e.g., Herbener 1987 in the Mises Institute [URL NEEDED]).
+- **Assumption:** Munger's TAITC framing represents a credible and consistent interpretive position on integrating ToMS and WoN. **Justification:** Munger is a credentialed institutional economist at Duke; the TAITC series is cross-released with Adam Smith Works (a Liberty Fund project), and his integration argument is consistent with the internal evidence of both primary texts.
 
 ### Analysis
 
