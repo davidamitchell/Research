@@ -235,6 +235,40 @@
     "url": "/Research/threads/ai-strategy-financial-services-risk-management.html"
   },
   {
+    "slug": "behavioral-economics-strategy-rory-sutherland",
+    "title": "behavioral-economics / strategy / rory-sutherland",
+    "kind": "implicit",
+    "tag_cluster": [
+      "behavioral-economics",
+      "strategy",
+      "rory-sutherland"
+    ],
+    "item_count": 4,
+    "items": [
+      {
+        "slug": "2026-03-26-rory-sutherland-core-tenets",
+        "title": "Rory Sutherland's core tenets: anti-bureaucracy, customer thinking, and behavioral economics",
+        "added": "2026-03-26"
+      },
+      {
+        "slug": "2026-03-26-measuring-opportunity-cost",
+        "title": "The measurement asymmetry: why we cut costs but can't see lost opportunities",
+        "added": "2026-03-26"
+      },
+      {
+        "slug": "2026-03-26-customer-contact-and-delight",
+        "title": "Customer contact as strategic signal: why people call and whether they want self-service",
+        "added": "2026-03-26"
+      },
+      {
+        "slug": "2026-03-26-cost-reduction-is-not-strategy",
+        "title": "Cost reduction is not a strategy: the opportunity vs efficiency mindset",
+        "added": "2026-03-26"
+      }
+    ],
+    "url": "/Research/threads/behavioral-economics-strategy-rory-sutherland.html"
+  },
+  {
     "slug": "agents-skills-orchestration",
     "title": "agents / skills / orchestration",
     "kind": "implicit",

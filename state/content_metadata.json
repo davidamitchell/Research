@@ -1,6 +1,71 @@
 {
-  "extracted_at": "2026-03-27T11:01:07Z",
+  "extracted_at": "2026-03-28T08:03:40Z",
   "items": {
+    "2026-03-26-rory-sutherland-core-tenets": {
+      "named_concepts": [
+        "perceived value",
+        "psychological moonshots",
+        "perceived quality",
+        "counterintuitive thinking",
+        "finance mindset",
+        "structural advantage",
+        "intellectual position",
+        "measure slow",
+        "trust retention",
+        "parallel operating",
+        "operating system",
+        "real value",
+        "value creation",
+        "ted talks",
+        "carrot potato",
+        "potato peeler",
+        "iron law",
+        "customer contact",
+        "quarterly reporting",
+        "founder-led structural"
+      ],
+      "source_urls": [
+        "https://www.ted.com/speakers/rory_sutherland",
+        "https://www.goodreads.com/book/show/26210508-alchemy",
+        "https://shows.acast.com/business-leader-podcast/episodes/rory-sutherland-the-advertising-gurus-tips",
+        "https://www.ogilvy.com/ideas",
+        "https://thoughteconomics.com/rory-sutherland/",
+        "https://articles.data.blog/2024/06/30/rory-sutherland-on-roi-and-opportunity-cost/"
+      ],
+      "key_claims": []
+    },
+    "2026-03-26-measuring-opportunity-cost": {
+      "named_concepts": [
+        "opportunity cost",
+        "loss aversion",
+        "present bias",
+        "quarterly reporting",
+        "accrual accounting",
+        "forgone revenues",
+        "attribution failure",
+        "causal chain",
+        "procurement kpi",
+        "kpi frameworks",
+        "measurement asymmetry",
+        "realised events",
+        "accounting system",
+        "cognitive loss",
+        "positive-npv projects",
+        "quarterly targets",
+        "cost-cutting decision",
+        "spans months",
+        "departmental boundaries",
+        "cost reduction"
+      ],
+      "source_urls": [
+        "https://shows.acast.com/business-leader-podcast/episodes/rory-sutherland-the-advertising-gurus-tips",
+        "https://www.goodreads.com/book/show/26210508-alchemy",
+        "https://www.goodreads.com/book/show/11468377-thinking-fast-and-slow",
+        "https://hbr.org/2017/02/finally-proof-that-managing-for-the-long-term-pays-off",
+        "https://ipa.co.uk/knowledge/publications-reports/the-long-and-the-short-of-it"
+      ],
+      "key_claims": []
+    },
     "2026-03-26-customer-contact-and-delight": {
       "named_concepts": [
         "customer service",
@@ -2315,7 +2380,12 @@
         "csdm completion",
         "service business"
       ],
-      "source_urls": [],
+      "source_urls": [
+        "https://docs.servicenow.com/csh?topicname=csdm-landing.html&version=latest",
+        "https://research.einar.partners/servicenow-csdm-masterclass-insights-best-practices-from-35-implementations/",
+        "https://datacontentmanager.com/servicenow-csdm-example-data-models/",
+        "https://www.servicenow.com/community/grc-blog/achieving-dora-compliance-with-servicenow-at-heart/ba-p/3274062"
+      ],
       "key_claims": []
     },
     "2026-03-08-servicenow-ai-knowledge-rag-agents": {
@@ -4102,7 +4172,16 @@
         "blanket necessarily",
         "necessarily minimises"
       ],
-      "source_urls": [],
+      "source_urls": [
+        "https://www.quantamagazine.org/anil-seth-finds-consciousness-in-lifes-push-against-entropy-20210930/",
+        "https://arxiv.org/abs/2201.06387",
+        "https://doi.org/10.1038/nrn2787",
+        "https://en.wikipedia.org/wiki/Free_energy_principle",
+        "https://www.ideasthesia.org/critics-and-controversies-what-fep-gets-wrong-maybe/",
+        "https://link.springer.com/article/10.1007/s10539-021-09807-0",
+        "https://www.penguinrandomhouse.com/books/609260/being-you-by-anil-seth/",
+        "https://www.cambridge.org/core/books/what-is-life/E682A93B8E3C58ED1BE927C24C1BF1AC"
+      ],
       "key_claims": [
         "Schrödinger's negentropy argument establishes that life requires thermodynamic openness, not a violation of the second law",
         "Friston's variational free energy (VFE) is formally derived from Shannon entropy and shares mathematical structure with Boltzmann entropy; the connection to thermodynamics is structural, not merely analogical",
