@@ -459,8 +459,9 @@ Before marking a backlog slice as done:
 - [ ] For non-trivial work: `tdd` Red-Green-Refactor cycle followed — every new behaviour had a failing test first
 - [ ] For non-trivial work: `code-review` skill applied — all `Critical` and `High` findings resolved
 - [ ] Session log created in `progress/YYYY-MM-DD-{slug}.md`
-- [ ] Any new ADRs written and indexed
-- [ ] README updated if user-facing behaviour changed
+- [ ] Architectural decisions recorded as ADRs using the `adr` skill — index updated in `docs-adr/README.md`
+- [ ] README and user-facing documentation updated if behaviour or interface changed
+- [ ] `.github/copilot-instructions.md` updated if a new convention, constraint, or lesson emerged
 
 ---
 
@@ -502,6 +503,16 @@ Open `.github/skills/tdd/SKILL.md` and follow its Red-Green-Refactor cycle for e
 
 Open `.github/skills/code-review/SKILL.md` and apply a full multi-dimensional review (correctness, security, performance, maintainability, style) to the completed implementation. Resolve all `Critical` and `High` findings before marking the work done.
 
+**Step 4 — Document and record decisions**
+
+Before marking the work done, ask:
+
+- Does the README or any user-facing documentation need updating to reflect this change?
+- Was a significant architectural or design decision made? If yes, use the `adr` skill (`.github/skills/adr/SKILL.md`) to write an Architecture Decision Record (ADR) and index it in `docs-adr/README.md`.
+- Do these changes warrant updating `.github/copilot-instructions.md` — for example, a new convention, constraint, or process that future sessions should follow?
+
+Do not defer documentation. Update it now, in this session, before the context degrades.
+
 **Composability note:** The three skills are designed to compose. `swe` answers *how should this be structured?* `tdd` answers *does it do what it should?* `code-review` answers *is there anything wrong with what was built?* Running all three closes the design-implement-verify loop.
 
 ### When an attempt fails
@@ -536,12 +547,14 @@ These standards are self-applied. The owner should not need to request a mini-re
 Before closing any session or completing any PR, add a **Mini-Retro** to the session log in `progress/YYYY-MM-DD-{slug}.md`.
 It is **not optional**. It is how the system learns.
 
-Answer these four questions — briefly, honestly:
+Answer these six questions — briefly, honestly:
 
 1. **Did the process work?** Was the approach sound? Did the plan hold?
 2. **What slowed down or went wrong?** No blame — just facts.
 3. **What single change would prevent this next time?** If nothing: say so.
 4. **Is this a pattern?** Have you seen this friction before? If yes, it deserves a fix, not just a note.
+5. **Does any documentation need updating?** README, user-facing docs, or inline comments — if this change affects how someone uses or understands the system, update the docs now. If a significant architectural decision was made, write an ADR using the `adr` skill.
+6. **Do the default instructions need updating?** If a new convention, constraint, or hard-won lesson emerged from this session, add it to `.github/copilot-instructions.md` now, before the context is gone.
 
 > Do not just answer — make the change. If the answer is "document it", document it now. If it is "add a backlog item", add it now.
 
