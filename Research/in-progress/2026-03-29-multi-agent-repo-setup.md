@@ -151,7 +151,7 @@ Starting points, papers, articles, videos, repos, docs.
 
 **[fact]** Copilot Spaces is a feature that allows users to create named "spaces" containing two types of context: (1) a free-text "Instructions" field describing what Copilot should focus on, and (2) "Sources", repositories, files, or other content attached as knowledge. (Source: [GitHub Docs, creating-copilot-spaces](https://docs.github.com/en/copilot/how-tos/provide-context/use-copilot-spaces/create-copilot-spaces))
 
-**[fact]** A Copilot Space is a chat/Q&A tool, not a coding agent. It does not write code to a pull request (PR) or execute tasks asynchronously. It is a context-grounded assistant for answering questions about attached content. (Source: [GitHub Docs, creating-copilot-spaces](https://docs.github.com/en/copilot/how-tos/provide-context/use-copilot-spaces/create-copilot-spaces))
+**[fact]** A Copilot Space is a chat/Question and Answer (Q&A) tool, not a coding agent. It does not write code to a pull request (PR) or execute tasks asynchronously. It is a context-grounded assistant for answering questions about attached content. (Source: [GitHub Docs, creating-copilot-spaces](https://docs.github.com/en/copilot/how-tos/provide-context/use-copilot-spaces/create-copilot-spaces))
 
 **[fact]** Copilot Spaces does NOT automatically read `.github/copilot-instructions.md` or `AGENTS.md` from attached repositories. Instructions for a Space are entered manually in the Space's "Instructions" field by the Space creator. (Source: [GitHub Docs, creating-copilot-spaces](https://docs.github.com/en/copilot/how-tos/provide-context/use-copilot-spaces/create-copilot-spaces))
 
@@ -243,7 +243,7 @@ Starting points, papers, articles, videos, repos, docs.
 **Technical lens:**
 - The three-file recommendation (`AGENTS.md`, `copilot-setup-steps.yml`, `CLAUDE.md`) introduces no new credentials, no new workflows that run on every push, and no changes to existing files. The blast radius of adding these files is limited.
 - `copilot-setup-steps.yml` only runs when the Copilot coding agent is triggered (not on every continuous integration (CI) push), so it does not affect the existing CI pipeline.
-- Submodule initialisation in `copilot-setup-steps.yml` requires `actions/checkout@v5` with `submodules: recursive`. Without the `GITHUB_TOKEN` or `COPILOT_GITHUB_TOKEN` having submodule read access, this step may fail for private submodules. This repo's `GITHUB_TOKEN` is auto-provided by GitHub Actions and will have access to the same repo (and its submodules if they are hosted in the same organisation). The `.github/skills/` submodule (`davidamitchell/Skills`) is a separate private repo, the Copilot coding agent's `GITHUB_TOKEN` is scoped to the current repo only, so submodule checkout may fail unless `COPILOT_GITHUB_TOKEN` (the PAT) is used instead.
+- Submodule initialisation in `copilot-setup-steps.yml` requires `actions/checkout@v5` with `submodules: recursive`. Without the `GITHUB_TOKEN` or `COPILOT_GITHUB_TOKEN` having submodule read access, this step may fail for private submodules. This repo's `GITHUB_TOKEN` is auto-provided by GitHub Actions and will have access to the same repo (and its submodules if they are hosted in the same organisation). The `.github/skills/` submodule (`davidamitchell/Skills`) is a separate private repo, the Copilot coding agent's `GITHUB_TOKEN` is scoped to the current repo only, so submodule checkout may fail unless `COPILOT_GITHUB_TOKEN` (the Personal Access Token (PAT)) is used instead.
 
 **Historical lens:**
 - Prior research (2026-03-08-ai-coding-harnesses-agent-philosophy) established that `AGENTS.md` emerged in 2025 as a cross-vendor standard. That research found `AGENTS.md` read by OpenAI Codex, Cursor, GitHub Copilot, Sourcegraph, Aider, and others. The current research confirms GitHub Copilot's explicit support with the combined-reading rule.
@@ -311,7 +311,7 @@ The minimum viable additions are ordered by immediate impact: `copilot-setup-ste
 **Open questions:**
 
 - Does the `copilot-setup-steps.yml` environment support `git submodule update --init` with the `COPILOT_GITHUB_TOKEN`? This needs to be tested.
-- Should the `CLAUDE.md` file simply contain `<!-- See .github/copilot-instructions.md for instructions. -->` or a minimal summary? A pointer comment keeps the repo DRY; a full copy risks drift.
+- Should the `CLAUDE.md` file simply contain `<!-- See .github/copilot-instructions.md for instructions. -->` or a minimal summary? A pointer comment keeps the repo Don't Repeat Yourself (DRY); a full copy risks drift.
 - Is there a Claude GitHub App available as a GitHub Marketplace app (analogous to Copilot's built-in assignment) that would simplify the GitHub Issues → Claude surface without the current full `anthropics/claude-code-action` workflow setup?
 
 ### §7 Recursive Review
