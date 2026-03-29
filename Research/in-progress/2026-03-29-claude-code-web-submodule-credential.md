@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Claude Code on the web: private submodule credential access and git submodule init mechanism"
 added: 2026-03-29
 status: reviewing
