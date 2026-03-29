@@ -91,7 +91,7 @@ Blocked on `2026-03-28-agent-instruction-loading-and-skills-access.md` (W-0035):
 ```
 Root: What environment does each agent start in, and how to make both run correct setup?
 ├── Q1: Copilot coding agent environment
-│   ├── Q1a: What OS and default Python does the Copilot agent run on?
+│   ├── Q1a: What Operating System (OS) and default Python does the Copilot agent run on?
 │   ├── Q1b: What is copilot-setup-steps.yml (location, schema, trigger point)?
 │   ├── Q1c: Does copilot-setup-steps.yml support pip install and git submodule init?
 │   ├── Q1d: Without copilot-setup-steps.yml, does Copilot auto-run any setup?
@@ -119,11 +119,11 @@ Root: What environment does each agent start in, and how to make both run correc
 - **S4** (secondary): https://github.com/orgs/community/discussions/180953: Community report confirming submodule gap for Copilot coding agent
 - **S5** (secondary): https://github.com/orgs/community/discussions/172430: Community example of working `copilot-setup-steps.yml` for Python
 - **S6** (secondary): https://github.com/orgs/community/discussions/170877: Community discussion on `copilot-setup-steps.yml` constraints (no reusable workflows)
-- **S7** (prior research): `Research/completed/2026-03-28-agent-instruction-loading-and-skills-access.md`: W-0035 findings on submodule gap
+- **S7** (prior research): https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-28-agent-instruction-loading-and-skills-access.md (W-0035 findings on submodule gap and PAT requirement for private submodules)
 
 ---
 
-**Q1a: What OS and default Python does the Copilot coding agent run on?**
+**Q1a: What Operating System (OS) and default Python does the Copilot coding agent run on?**
 
 [fact] The Copilot coding agent runs on GitHub-hosted Ubuntu Linux (x64) runners by default, with Windows 64-bit as an alternative. macOS runners are not supported. (S1: "Copilot coding agent is only compatible with Ubuntu x64 Linux and Windows 64-bit runners.")
 
@@ -328,7 +328,7 @@ If these fail, stop and report the error rather than proceeding without skills o
 ### §5 Depth and Breadth Expansion
 
 **Technical lens:**
-The two-mechanism setup pattern (repo file for Copilot, UI config for Claude Code web) creates a maintenance asymmetry. The Copilot setup is declarative, version-controlled, and auditable. The Claude Code web setup is imperative, stored outside the repository, and invisible to other contributors. For a single-owner repository like this one, this asymmetry is manageable. For a team, it would be a significant governance gap.
+The two-mechanism setup pattern (repo file for Copilot, UI config for Claude Code web) creates a maintenance asymmetry. The Copilot setup is declarative, version-controlled, and auditable. The Claude Code web setup is imperative, stored outside the repository, and invisible to other contributors. For a single-owner repository like this one, this asymmetry is manageable. [inference] For a team, it would be a significant governance gap.
 
 **Operational lens:**
 The `copilot-setup-steps.yml` file has a useful secondary benefit: it can be triggered manually via `workflow_dispatch` from the GitHub Actions tab, which is accessible from the owner's iOS GitHub app. This means the setup can be tested without assigning a real issue to Copilot, useful for verifying that the PAT, submodule path, and Python install all work before relying on them in a coding session.
@@ -390,15 +390,15 @@ The Copilot coding agent and Claude Code on the web each require a separate setu
 
 2. `.github/workflows/copilot-setup-steps.yml` is a standard GitHub Actions workflow file that must contain a job named exactly `copilot-setup-steps`; steps in this job run before the Copilot agent starts work and support all GitHub Actions step types including `actions/setup-python`, `pip install`, and `actions/checkout@v4` with `submodules: recursive`. (high confidence)
 
-3. `copilot-setup-steps.yml` must be present on the repository's default branch to take effect; a file on a non-default branch will not be picked up by the Copilot coding agent. (high confidence)
+3. `copilot-setup-steps.yml` must be present on the repository's default branch to take effect; a file on a non-default branch will not be picked up by the Copilot coding agent. (medium confidence: documented in primary source S1; corroborated by community report S5 noting confusion when file was on non-default branch)
 
 4. Submodule initialisation in `copilot-setup-steps.yml` requires a Personal Access Token (PAT) with read access to `davidamitchell/Skills` stored as a repository secret in the `copilot` GitHub Actions environment, because `GITHUB_TOKEN` is scoped to the current repository only and cannot access the private submodule. (high confidence)
 
-5. `devcontainer.json` has no effect on the Copilot coding agent; the coding agent runs on GitHub Actions runners, not in Codespaces or any dev container, and the only supported customisation mechanism is `copilot-setup-steps.yml`. (high confidence)
+5. `devcontainer.json` has no effect on the Copilot coding agent; the coding agent runs on GitHub Actions runners, not in Codespaces or any dev container, and the only supported customisation mechanism is `copilot-setup-steps.yml`. (medium confidence: confirmed by argument from absence in primary source S1; independent corroboration absent because documentation does not discuss devcontainer.json in this context)
 
-6. Claude Code on the web (accessed via the iOS app or browser at claude.ai/code) clones the repository to an Anthropic-managed Ubuntu 24.04 virtual machine and runs a Bash setup script before launching Claude Code, but this setup script is configured in the Claude.ai UI, not as a file in the repository. (high confidence)
+6. Claude Code on the web (accessed via the iOS app or browser at claude.ai/code) clones the repository to an Anthropic-managed Ubuntu 24.04 virtual machine and runs a Bash setup script before launching Claude Code, but this setup script is configured in the Claude.ai UI, not as a file in the repository. (medium confidence: primary Anthropic documentation S3 is the sole independent source; no third-party corroboration of setup script UI-configuration mechanism found)
 
-7. Neither `devcontainer.json` nor `copilot-setup-steps.yml` is read by Claude Code on the web; the Claude.ai cloud environment is separate from both Codespaces and GitHub Actions, and has its own setup mechanism. (high confidence)
+7. Neither `devcontainer.json` nor `copilot-setup-steps.yml` is read by Claude Code on the web; the Claude.ai cloud environment is separate from both Codespaces and GitHub Actions, and has its own setup mechanism. (medium confidence: both source pages are from the same Anthropic documentation domain, making this effectively a single-source claim; the finding rests on architectural inference from documentation scope)
 
 8. There is no single repository file that both agents respect as an environment setup declaration; closing the setup gap for both agents requires at minimum `copilot-setup-steps.yml` (repo file) for Copilot and a UI-configured setup script (outside the repository) for Claude Code web. (high confidence)
 
@@ -408,7 +408,7 @@ The Copilot coding agent and Claude Code on the web each require a separate setu
 
 11. Whether Claude Code on the web initialises the `.github/skills/` submodule during the repository clone step is not documented by Anthropic; if it does not, the setup script must include an explicit `git submodule update --init` command and may also require a credential configuration for the private `davidamitchell/Skills` repository. (medium confidence: gap is confirmed absent from documentation; access mechanism unverified)
 
-12. Reusable workflows (specified via `uses:` at the job level) are not supported in `copilot-setup-steps` jobs; all steps must be specified inline in the workflow file, which prevents extracting common setup logic into a shared workflow. (high confidence)
+12. Reusable workflows (specified via `uses:` at the job level) are not supported in `copilot-setup-steps` jobs; all steps must be specified inline in the workflow file, which prevents extracting common setup logic into a shared workflow. (medium confidence: confirmed by community discussion S6; not mentioned in primary GitHub documentation)
 
 ### Evidence Map
 
@@ -417,17 +417,17 @@ The Copilot coding agent and Claude Code on the web each require a separate setu
 | Copilot agent runs on Ubuntu x64, not macOS | https://docs.github.com/copilot/customizing-copilot/customizing-the-development-environment-for-copilot-coding-agent | High | Primary GitHub docs |
 | No auto-install without `copilot-setup-steps.yml` | https://docs.github.com/copilot/customizing-copilot/customizing-the-development-environment-for-copilot-coding-agent | High | Docs state checkout only; community reports confirm no auto-discovery |
 | `copilot-setup-steps.yml` schema (job name, location, trigger) | https://docs.github.com/copilot/customizing-copilot/customizing-the-development-environment-for-copilot-coding-agent | High | Primary source; community working examples confirm |
-| Must be on default branch | https://docs.github.com/copilot/customizing-copilot/customizing-the-development-environment-for-copilot-coding-agent | High | Explicit note in primary docs |
-| PAT required for private submodule | https://github.com/orgs/community/discussions/180953; W-0035 | High | Community reports; W-0035 established this finding |
-| `devcontainer.json` does not affect Copilot agent | https://docs.github.com/copilot/customizing-copilot/customizing-the-development-environment-for-copilot-coding-agent | High | Copilot docs never mention devcontainer.json; entire mechanism is copilot-setup-steps.yml |
-| Claude Code web clones repo to Anthropic VM | https://code.claude.com/docs/en/claude-code-on-the-web | High | Primary Anthropic docs: "cloned to an Anthropic-managed virtual machine" |
+| Must be on default branch | https://docs.github.com/copilot/customizing-copilot/customizing-the-development-environment-for-copilot-coding-agent | Medium | Explicit note in primary docs S1; community corroboration S5 (confusion when file on non-default branch) |
+| PAT required for private submodule | https://github.com/orgs/community/discussions/180953; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-28-agent-instruction-loading-and-skills-access.md | High | Community reports; W-0035 established this finding |
+| `devcontainer.json` does not affect Copilot agent | https://docs.github.com/copilot/customizing-copilot/customizing-the-development-environment-for-copilot-coding-agent | Medium | Argument from absence in primary source S1; no independent corroboration |
+| Claude Code web clones repo to Anthropic VM | https://code.claude.com/docs/en/claude-code-on-the-web | Medium | Primary Anthropic docs S3 only; no independent third-party corroboration |
 | Claude Code web runs on Ubuntu 24.04 as root | https://code.claude.com/docs/en/claude-code-on-the-web | High | "Scripts run as root on Ubuntu 24.04" |
-| Claude Code web setup script is UI-configured, not a repo file | https://code.claude.com/docs/en/claude-code-on-the-web | High | Docs describe "configured setup script" in UI context; no repo file mechanism documented |
-| `devcontainer.json` not respected by Claude Code web | https://code.claude.com/docs/en/devcontainer vs https://code.claude.com/docs/en/claude-code-on-the-web | High | Devcontainer page is for local Claude Code CLI; web docs have separate setup mechanism |
-| `copilot-setup-steps.yml` not respected by Claude Code web | https://code.claude.com/docs/en/claude-code-on-the-web | High | No mention of GitHub Actions in Claude Code web docs |
-| No single file covers both agents | Both primary sources above | High | Follows from the above two facts |
+| Claude Code web setup script is UI-configured, not a repo file | https://code.claude.com/docs/en/claude-code-on-the-web | Medium | Docs describe "configured setup script" in UI context; sole source is Anthropic documentation |
+| `devcontainer.json` not respected by Claude Code web | https://code.claude.com/docs/en/devcontainer vs https://code.claude.com/docs/en/claude-code-on-the-web | Medium | Both sources from same Anthropic domain; architectural inference |
+| `copilot-setup-steps.yml` not respected by Claude Code web | https://code.claude.com/docs/en/claude-code-on-the-web | Medium | Argument from absence in single Anthropic source |
+| No single file covers both agents | https://docs.github.com/copilot/customizing-copilot/customizing-the-development-environment-for-copilot-coding-agent; https://code.claude.com/docs/en/claude-code-on-the-web | High | Follows from confirmed separate mechanisms for each agent |
 | CLAUDE.md instruction block as fallback | https://code.claude.com/docs/en/claude-code-on-the-web (S3: "Claude respects context you've defined in your CLAUDE.md") | Medium | Relies on instruction-following; not guaranteed for all task types |
-| Reusable workflows not supported in copilot-setup-steps | https://github.com/orgs/community/discussions/170877 | High | Community confirmed; workaround is composite action |
+| Reusable workflows not supported in copilot-setup-steps | https://github.com/orgs/community/discussions/170877 | Medium | Community confirmed S6; not mentioned in primary GitHub documentation |
 
 ### Assumptions
 
