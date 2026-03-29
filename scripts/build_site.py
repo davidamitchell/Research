@@ -1317,7 +1317,9 @@ def detect_concept_threads(
     item_concepts_raw: dict[str, list[str]] = {}
     for item in items:
         slug = item["slug"]
-        concepts = [c for c in meta_items.get(slug, {}).get("named_concepts", []) if c not in _blocklist]
+        concepts = [
+            c for c in meta_items.get(slug, {}).get("named_concepts", []) if c not in _blocklist
+        ]
         item_concepts_raw[slug] = concepts
         all_concept_counts.update(concepts)
 
@@ -1328,8 +1330,7 @@ def detect_concept_threads(
 
     # Build filtered concept sets per item
     item_filtered: dict[str, set[str]] = {
-        item["slug"]: set(item_concepts_raw[item["slug"]]) & distinctive
-        for item in items
+        item["slug"]: set(item_concepts_raw[item["slug"]]) & distinctive for item in items
     }
 
     # Only consider items that have at least 3 distinctive concepts
@@ -2030,10 +2031,7 @@ def build_thread_page(thread: dict) -> str:
         )
         tag_cluster_html = f'<div class="featured-pills" style="margin-bottom:1.5rem">{pills}</div>'
     elif thread.get("concept_cluster"):
-        pills = "".join(
-            f'<span class="tag">{escape(c)}</span>'
-            for c in thread["concept_cluster"]
-        )
+        pills = "".join(f'<span class="tag">{escape(c)}</span>' for c in thread["concept_cluster"])
         tag_cluster_html = f'<div class="featured-pills" style="margin-bottom:1.5rem">{pills}</div>'
 
     return (
@@ -2268,7 +2266,9 @@ def main() -> None:
     print(f"  {pages_written} pages written")
     print(f"  {unique_tags} unique tags (after singleton filtering)")
     print(f"  {n_dropped} singleton tags dropped / {n_retained} retained")
-    print(f"  {len(threads)} threads ({n_explicit} explicit, {n_implicit} tag, {n_concept} concept)")
+    print(
+        f"  {len(threads)} threads ({n_explicit} explicit, {n_implicit} tag, {n_concept} concept)"
+    )
     print(f"  {total_edges} edges loaded")
     print(f"  {n_shared} shared-source relationships added")
     print(f"  {n_with_claims} items with key claims")

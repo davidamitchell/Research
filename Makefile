@@ -13,13 +13,13 @@ test-cov:
 	pytest tests/ --cov=src --cov-report=term-missing
 
 lint:
-	ruff check src/ tests/
+	ruff check .
 
 format:
-	ruff format src/ tests/
+	ruff format .
 
 check:
-	ruff check src/ tests/ && ruff format --check src/ tests/
+	ruff check . && ruff format --check .
 
 clean:
 	find . -type d -name __pycache__ -exec rm -rf {} + 2>/dev/null || true
