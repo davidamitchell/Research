@@ -1,6 +1,6 @@
 # Research Master Document
 
-Generated on: 2026-03-29 00:57 UTC
+Generated on: 2026-03-29 08:33 UTC
 
 ## Table of Contents
 
@@ -688,7 +688,7 @@ The absence of a single canonical researcher is the primary finding. The hypothe
 
 ## Against bureaucracy: dismantling control systems to focus on value and opportunity exploration
 
-**Tags:** [bureaucracy, organisational-design, management, lean, value-creation, systems-thinking, self-management]
+**Tags:** [bureaucracy, organisational-design, management, lean, value-creation, systems-thinking, self-management, rory-sutherland, behavioral-economics]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-26-against-bureaucracy-dismantling-control-systems-to-focus-on-value-and-opportunit.md
 
@@ -1452,7 +1452,7 @@ What practical implementation approaches exist for automatically inspecting and 
 
 ## Applied context engineering: skills, workflows, and best practices for agent development
 
-**Tags:** [context-engineering, agent-skills, workflows, best-practices, multi-agent, memory-systems, tool-design, project-development, evaluation, production-agents]
+**Tags:** [context-engineering, agent-skills, workflows, best-practices, multi-agent, memory-systems, tool-design, project-development, evaluation, production-agents, agents]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-22-applied-context-engineering-agent-workflows.md
 
@@ -2599,7 +2599,7 @@ The unresolved issue is whether IDD is genuinely new or mainly a recombination o
 
 ## GitAgent and declarative agent definition: concepts, adoption, and cross-platform integration
 
-**Tags:** [agent, declarative-agent, gitagent, copilot, aws, azure, microsoft-365, git, ai-platform, multi-agent]
+**Tags:** [agent, declarative-agent, gitagent, copilot, aws, azure, microsoft-365, git, ai-platform, multi-agent, agents, agentic-systems]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-16-gitagent-declarative-agent-definition.md
 
@@ -3491,7 +3491,7 @@ The governance gap is the most important finding that the technical literature u
 
 ## Adam Smith, Organisational Design, Desire Paths, and AI Strategy
 
-**Tags:** [economics, adam-smith, org-design, desire-paths, ai-strategy, moral-philosophy, human-nature, behaviour]
+**Tags:** [economics, adam-smith, org-design, desire-paths, ai-strategy, moral-philosophy, human-nature, behaviour, coase, institutional-economics]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-15-adam-smith-org-design-desire-paths-ai.md
 
@@ -5030,7 +5030,7 @@ The hardest design decision is which failures to treat as scored dimensions (rec
 
 ## The Nature of the Firm: why organisations exist, their fitness functions, and invariants
 
-**Tags:** [organisational-theory, transaction-costs, coase, williamson, north, institutions, team-topologies, fitness-functions, invariants, platform-strategy]
+**Tags:** [organisational-theory, transaction-costs, coase, williamson, north, institutions, team-topologies, fitness-functions, invariants, platform-strategy, institutional-economics]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-10-nature-of-the-firm-coase-organisations.md
 
@@ -5621,7 +5621,7 @@ For a research loop agent, the architectural implication is clear: the primary e
 
 ## Adversarial agents with shared goals: multi-perspective coverage across competencies and time horizons
 
-**Tags:** [multi-agent, adversarial-collaboration, competency-coverage, time-horizons, fitness-functions, organisational-design, red-team, quality-assurance, values-alignment]
+**Tags:** [multi-agent, adversarial-collaboration, competency-coverage, time-horizons, fitness-functions, organisational-design, red-team, quality-assurance, values-alignment, agents, agentic-systems]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-10-adversarial-agents-shared-goals-multi-perspective.md
 
@@ -8471,7 +8471,7 @@ The four-signal RRF (cosine + BM25 + PPR + recency) is the recommended ranking c
 
 ## Knowledge linking: building a connected research corpus via explicit cross-references and a knowledge graph
 
-**Tags:** [knowledge-graph, zettelkasten, cross-references, linking, synthesis, backlinks, corpus]
+**Tags:** [knowledge-graph, zettelkasten, cross-references, linking, synthesis, backlinks, corpus, knowledge-integration, knowledge-management]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-03-knowledge-linking-connected-corpus.md
 
@@ -8866,7 +8866,7 @@ OpenAI embeddings were eliminated at the constraint stage — they require an AP
 
 ## Research Quality Assurance and Knowledge Integration Methodology
 
-**Tags:** [research-methodology, quality-assurance, peer-review, knowledge-integration, information-to-wisdom, ci, skills]
+**Tags:** [research-methodology, quality-assurance, peer-review, knowledge-integration, information-to-wisdom, ci, skills, synthesis]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-02-research-quality-assurance-methodology.md
 
@@ -11424,7 +11424,7 @@ Governance structures that correlate with successful implementations share: (a) 
 
 ## AI Strategy Examples: Business Efficiency Focus
 
-**Tags:** [ai-strategy, business-efficiency, productivity, operations, case-studies]
+**Tags:** [ai-strategy, business-efficiency, productivity, operations, case-studies, financial-services]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-02-28-ai-strategy-business-efficiency-examples.md
 
