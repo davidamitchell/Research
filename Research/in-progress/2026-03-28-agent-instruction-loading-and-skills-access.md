@@ -72,7 +72,7 @@ Prior research: `Research/completed/2026-03-08-ai-coding-harnesses-agent-philoso
 
 **Scope:**
 - Confirmed: Copilot coding agent (GitHub issue assignment), Claude iOS `code` feature (Claude Code on the web accessed via iOS).
-- Excluded: Local IDE agent mode (VS Code Copilot agent mode, Claude Code CLI running locally) -- these are not the repo's entry points.
+- Excluded: Local IDE agent mode (Visual Studio Code (VS Code) Copilot agent mode, Claude Code CLI running locally) -- these are not the repo's entry points.
 
 **Constraints:** Evidence must be from GitHub official documentation, Anthropic official documentation, or GitHub community discussions with confirmed behaviour. No undocumented internal behaviour assumed.
 
@@ -139,7 +139,7 @@ Source: https://github.blog/changelog/2025-08-28-copilot-coding-agent-now-suppor
 
 Source: https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/add-custom-instructions
 
-[fact] When both `AGENTS.md` and `.github/copilot-instructions.md` exist at the repo root, both are loaded -- not one-or-the-other. `AGENTS.md` is treated as "primary instructions" and `.github/copilot-instructions.md` as additional context. Source: GitHub CLI custom instructions documentation above.
+[inference] When both `AGENTS.md` and `.github/copilot-instructions.md` exist at the repo root, both are loaded -- not one-or-the-other. `AGENTS.md` is treated as "primary instructions" and `.github/copilot-instructions.md` as additional context. The GitHub CLI custom instructions documentation describes this behaviour for the Copilot CLI; this is inferred to apply to the coding agent given both use the same Copilot instruction processing pipeline. Source: GitHub CLI custom instructions documentation above.
 
 [inference] The practical implication for this repo is that the current single-file setup (`copilot-instructions.md` only, no `AGENTS.md`) is fully functional for the Copilot coding agent. Adding `AGENTS.md` would supplement, not replace, the existing instructions.
 
@@ -191,7 +191,7 @@ Source: https://code.visualstudio.com/docs/copilot/customization/custom-instruct
 
 [fact] Claude Code reads `CLAUDE.md` at the project root automatically at session start. This applies to Claude Code in all variants: CLI, VS Code extension, and Claude Code on the web (which the iOS `code` feature uses). Source: Anthropic engineering blog and VS Code documentation above.
 
-[fact] Claude Code also reads `AGENTS.md` at the root. VS Code's documentation explicitly states: "VS Code automatically detects an `AGENTS.md` Markdown file in the root of your workspace and applies the instructions in this file to all chat requests." Claude Code follows the same behaviour independently of VS Code. Source: code.visualstudio.com; github.blog AGENTS.md changelog.
+[inference] Claude Code also reads `AGENTS.md` at the root. VS Code's documentation explicitly states: "VS Code automatically detects an `AGENTS.md` Markdown file in the root of your workspace and applies the instructions in this file to all chat requests." The GitHub Copilot coding agent changelog (2025-08-28) confirms `AGENTS.md` is the cross-tool convergence standard. Neither source is a primary Anthropic statement about Claude Code's independent behaviour; this claim is an inference from cross-tool documentation patterns. Source: code.visualstudio.com; github.blog AGENTS.md changelog.
 
 #### Q2c -- Does Claude Code read `.github/copilot-instructions.md` automatically?
 
@@ -201,7 +201,7 @@ Source: https://zenn.dev/kesin11/articles/20251210_ai_agent_symlink
 
 This pattern would be unnecessary if Claude Code natively read `.github/copilot-instructions.md`.
 
-[fact] Claude Code does NOT read `.github/copilot-instructions.md` automatically. It reads `CLAUDE.md` (and `AGENTS.md`). The `.github/copilot-instructions.md` format is Copilot-specific. Claude Code ignores it unless explicitly pointed to it via a reference in `CLAUDE.md`. Source: Anthropic context engineering documentation; practitioner symlink patterns confirm this asymmetry.
+[inference] Claude Code does NOT read `.github/copilot-instructions.md` automatically. It reads `CLAUDE.md` (and `AGENTS.md`). The `.github/copilot-instructions.md` format is Copilot-specific. Claude Code ignores it unless explicitly pointed to it via a reference in `CLAUDE.md`. Evidence: Anthropic's context engineering documentation discusses only `CLAUDE.md` and does not mention `.github/copilot-instructions.md`; practitioner symlink patterns (creating `CLAUDE.md -> .github/copilot-instructions.md`) confirm this asymmetry -- the workaround would be unnecessary if Claude Code natively read the Copilot path. Source: Anthropic context engineering documentation; practitioner symlink patterns confirm this asymmetry.
 
 #### Q2d -- Current instruction gap for Claude Code/iOS
 
@@ -246,10 +246,10 @@ Removing narrative glue and restating only evidence-supported conclusions:
 
 1. Copilot coding agent reads `.github/copilot-instructions.md` automatically -- confirmed by GitHub documentation.
 2. Copilot coding agent also reads `AGENTS.md` since August 2025 -- confirmed by GitHub changelog.
-3. Both files are loaded simultaneously when both exist; neither replaces the other.
+3. Both files are loaded simultaneously when both exist; neither replaces the other -- confirmed for the Copilot CLI; inferred for the coding agent.
 4. Copilot coding agent does not init submodules by default -- `.github/skills/` is an empty directory during an agent session unless `copilot-setup-steps.yml` is configured with `submodules: recursive` and an appropriate token.
 5. Claude iOS code feature = Claude Code on the web -- confirmed by Anthropic documentation and corroborating sources.
-6. Claude Code reads `CLAUDE.md` and `AGENTS.md` automatically, not `.github/copilot-instructions.md`.
+6. Claude Code reads `CLAUDE.md` automatically; also reads `AGENTS.md` based on cross-tool documentation patterns (inferred); does not read `.github/copilot-instructions.md` (inferred from Anthropic documentation scope and practitioner patterns).
 7. Current repo has neither `CLAUDE.md` nor `AGENTS.md` at root -- Claude Code starts without instructions.
 8. ADR-0006's assumption was incorrect; the decision must be amended.
 9. Restoring `AGENTS.md` (or creating `CLAUDE.md`) resolves the instruction gap without breaking the Copilot setup.
@@ -283,7 +283,7 @@ The submodule finding (Copilot agent does not init) is consistent with:
 The skills submodule problem is not unique to this repo. Any repo using git submodules for shared context (prompt libraries, rule sets, shared documentation) faces the same gap with the Copilot coding agent. The fix is universal: add `copilot-setup-steps.yml` with submodule initialisation. For private submodules, a PAT (or GitHub App token) with `contents: read` scope to the submodule repo must be stored as a repository secret in the `copilot` environment.
 
 **Historical lens -- file format fragmentation:**
-The current state of instruction file formats mirrors the pre-standardisation state of linters, formatters, and CI configuration files in the 2010s. Each tool invented its own format (`.eslintrc`, `.prettierrc`, `Makefile`, `Jenkinsfile`, `.travis.yml`). The ecosystem eventually converged toward composition (one config file per tool, with cross-tool adapters) rather than a single universal format. `AGENTS.md` is the current convergence candidate, but it has not fully displaced tool-specific files. The symlink pattern (one canonical file, others as symlinks) is the practical low-cost interim solution -- used by practitioners until the ecosystem fully converges.
+The current state of instruction file formats mirrors the pre-standardisation state of linters, formatters, and Continuous Integration (CI) configuration files in the 2010s. Each tool invented its own format (`.eslintrc`, `.prettierrc`, `Makefile`, `Jenkinsfile`, `.travis.yml`). The ecosystem eventually converged toward composition (one config file per tool, with cross-tool adapters) rather than a single universal format. [inference] `AGENTS.md` is the current convergence candidate, but it has not fully displaced tool-specific files. The symlink pattern (one canonical file, others as symlinks) is the practical low-cost interim solution -- used by practitioners until the ecosystem fully converges.
 
 **Operational lens -- impact on this repo:**
 The concrete impact of the current gap: every time the repo owner uses Claude Code on the web (via iOS or browser) and assigns it a task, Claude starts with zero project context. It does not know the research workflow, the non-negotiable constraints, the file structure, the coding standards, or the output format requirements. The risk is not that Claude will fail -- it is that it will produce output that is correct by general standards but wrong by this repo's specific standards (e.g., editing `docs/` directly, missing session logs, creating backlog items in the wrong directory, not running `make check`).
@@ -300,11 +300,11 @@ The project's research loop and coding loop both assume the agent has read its i
 **Key findings:**
 1. Copilot coding agent reads `.github/copilot-instructions.md` automatically (confirmed, high confidence).
 2. Copilot coding agent also reads `AGENTS.md`, `CLAUDE.md`, and `GEMINI.md` when present (confirmed since August 2025).
-3. Both `AGENTS.md` and `.github/copilot-instructions.md` are loaded when both exist; both inform the session.
+3. Both `AGENTS.md` and `.github/copilot-instructions.md` are loaded when both exist; confirmed for Copilot CLI, inferred for coding agent.
 4. Copilot coding agent does not init submodules by default; `.github/skills/` is empty during a session.
 5. Submodule access requires `copilot-setup-steps.yml` with `submodules: recursive` and a token.
 6. The Claude iOS `code` feature is Claude Code on the web -- remote execution, same file-loading as Claude Code CLI.
-7. Claude Code reads `CLAUDE.md` and `AGENTS.md` automatically; it does NOT read `.github/copilot-instructions.md`.
+7. Claude Code reads `CLAUDE.md` automatically (confirmed); reads `AGENTS.md` (inferred from cross-tool docs); does NOT read `.github/copilot-instructions.md` (inferred from Anthropic docs scope and practitioner patterns).
 8. Current repo has no `CLAUDE.md` or `AGENTS.md` -- Claude Code starts all sessions without instructions.
 9. ADR-0006's assumption that `.github/copilot-instructions.md` serves all agents was incorrect; it serves only Copilot.
 10. Restoring `AGENTS.md` (or `CLAUDE.md`) at root closes the Claude Code instruction gap without disrupting Copilot.
@@ -318,14 +318,14 @@ The project's research loop and coding loop both assume the agent has read its i
 
 ### §7 Recursive Review
 
-- All Q1 findings have primary source support (GitHub official documentation and changelog).
-- All Q2 findings have primary source support (Anthropic official documentation) plus corroborating practitioner evidence.
+- All Q1 findings have primary source support (GitHub official documentation and changelog). Dual-loading for coding agent is labelled [inference] with the source scope noted.
+- All Q2 findings have primary source support (Anthropic official documentation) plus corroborating practitioner evidence. AGENTS.md reading and non-reading of copilot-instructions.md are labelled [inference] with epistemic basis stated.
 - Q2e (Claude Code on the web submodule access) is labelled [inference] with the gap explicitly noted in Risks.
 - The ADR-0006 falsification is supported by three independent source types (Anthropic docs, VS Code docs, community practice).
-- All claim labels ([fact], [inference], [assumption]) are applied.
+- All claim labels ([fact], [inference], [assumption]) are applied, including Opinion for evaluative conclusions in Analysis.
 - No AI slop phrases detected in this section.
 - No em-dashes detected.
-- All abbreviations confirmed expanded on first use: PR, SDLC, ADR, CLI, PAT, API.
+- All abbreviations confirmed expanded on first use: PR, SDLC, ADR, CLI, PAT, API, IDE, UI, VS Code, CI.
 
 ---
 
@@ -333,25 +333,25 @@ The project's research loop and coding loop both assume the agent has read its i
 
 ### Executive Summary
 
-The GitHub Copilot coding agent reads `.github/copilot-instructions.md` automatically when assigned a GitHub issue, and since August 2025 also reads `AGENTS.md`, `CLAUDE.md`, and `GEMINI.md` when present. Claude Code on the web (the Claude iOS app's `code` feature) reads `CLAUDE.md` and `AGENTS.md` automatically but does NOT read `.github/copilot-instructions.md` -- this path is Copilot-specific. The current repo has neither `CLAUDE.md` nor `AGENTS.md` at root, meaning every Claude Code session starts without project instructions, context, or research workflow guidance. The fix is to create `AGENTS.md` at the repo root pointing to or containing the instructions; this single change closes the Claude Code instruction gap without disrupting the Copilot coding agent setup. ADR-0006's stated assumption that `.github/copilot-instructions.md` was "sufficient for all agents" was incorrect and must be amended.
+The GitHub Copilot coding agent reads `.github/copilot-instructions.md` automatically when assigned a GitHub issue, and since August 2025 also reads `AGENTS.md`, `CLAUDE.md`, and `GEMINI.md` when present. Claude Code on the web (the Claude iOS app's `code` feature) reads `CLAUDE.md` automatically and is inferred to read `AGENTS.md` based on cross-tool documentation patterns, but does NOT read `.github/copilot-instructions.md` -- this path is Copilot-specific. The current repo has neither `CLAUDE.md` nor `AGENTS.md` at root, meaning every Claude Code session starts without project instructions, context, or research workflow guidance. The fix is to create `AGENTS.md` at the repo root pointing to or containing the instructions; this single change closes the Claude Code instruction gap without disrupting the Copilot coding agent setup. ADR-0006's stated assumption that `.github/copilot-instructions.md` was "sufficient for all agents" was incorrect and must be amended.
 
 ### Key Findings
 
 1. The GitHub Copilot coding agent, when triggered by a GitHub issue assignment, reads `.github/copilot-instructions.md` automatically before starting work, as confirmed by GitHub's official documentation and the August 2025 coding agent changelog. (high confidence)
 
-2. The Copilot coding agent has supported `AGENTS.md` at the repo root since August 2025, and when both `AGENTS.md` and `.github/copilot-instructions.md` exist, both files are loaded and provided to the agent as context. (high confidence)
+2. The Copilot coding agent has supported `AGENTS.md` at the repo root since August 2025, and when both `AGENTS.md` and `.github/copilot-instructions.md` exist, both files are loaded and provided to the agent as context -- the dual-loading behaviour is documented for the Copilot CLI and inferred to apply to the coding agent. (medium confidence -- coding-agent-specific dual-loading confirmation not in primary source)
 
 3. The Copilot coding agent does not initialise git submodules by default, meaning the `.github/skills/` submodule directory appears as an empty folder during all agent sessions unless a `copilot-setup-steps.yml` workflow is configured with `submodules: recursive` and a token with access to the submodule repository. (high confidence)
 
 4. The Claude iOS app's `code` feature is Claude Code on the web: Anthropic's remote code execution environment where the user selects a GitHub repository and Claude works on tasks in a sandboxed cloud environment, creating a pull request (PR) when complete. (high confidence)
 
-5. Claude Code on the web follows the same instruction file loading behaviour as Claude Code CLI: it reads `CLAUDE.md` and `AGENTS.md` at the repository root automatically, and does not read `.github/copilot-instructions.md` because that path is Copilot-specific and is not part of Claude Code's file discovery logic. (high confidence)
+5. Claude Code on the web follows the same instruction file loading behaviour as Claude Code CLI: it reads `CLAUDE.md` and `AGENTS.md` at the repository root automatically, and does not read `.github/copilot-instructions.md` because that path is Copilot-specific and is not part of Claude Code's file discovery logic. (medium confidence -- AGENTS.md reading is inferred from VS Code docs and cross-tool patterns, not from a primary Anthropic statement)
 
 6. The current repo has no `CLAUDE.md` and no `AGENTS.md` at the root, which means Claude Code (in all surfaces including iOS) starts every session without any of the project's non-negotiable constraints, research workflow rules, coding standards, or session log requirements. (high confidence)
 
 7. ADR-0006 (2026-03-07) removed `AGENTS.md` based on the incorrect assumption that `.github/copilot-instructions.md` was sufficient for all agents, leaving Claude Code without an instruction entry point; this is a documented gap in the ADR's reasoning that warrants an amendment. (high confidence)
 
-8. Restoring `AGENTS.md` at the repo root resolves the Claude Code instruction gap without disrupting the Copilot coding agent setup, because Copilot loads both `AGENTS.md` and `.github/copilot-instructions.md` simultaneously when both are present. (high confidence)
+8. Restoring `AGENTS.md` at the repo root resolves the Claude Code instruction gap without disrupting the Copilot coding agent setup, because the Copilot CLI documentation confirms both files are loaded when present and this behaviour is inferred to extend to the coding agent. (medium confidence -- follows from the same dual-loading inference as KF2)
 
 9. The practitioner-recommended approach for multi-agent instruction sharing is to keep `.github/copilot-instructions.md` as the Copilot-specific file and to place `AGENTS.md` (or symlink it) at the repo root as the cross-agent entry point read by Claude Code, Cursor, Aider, Codex, Gemini CLI, and others. (medium confidence -- well-supported by practitioner evidence but not explicitly stated in any single official source)
 
@@ -363,16 +363,16 @@ The GitHub Copilot coding agent reads `.github/copilot-instructions.md` automati
 |---|---|---|---|
 | Copilot coding agent reads `.github/copilot-instructions.md` automatically | https://github.blog/changelog/2025-08-28-copilot-coding-agent-now-supports-agents-md-custom-instructions/ | High | Confirmed in changelog and coding agent documentation |
 | Copilot coding agent reads `AGENTS.md` since August 2025 | https://github.blog/changelog/2025-08-28-copilot-coding-agent-now-supports-agents-md-custom-instructions/ | High | Primary source: GitHub official changelog |
-| Both files loaded when both exist | https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/add-custom-instructions | High | "the instructions in both files are used" |
+| Both files loaded when both exist (inferred for coding agent) | https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/add-custom-instructions | Medium | CLI docs confirm both-file loading; inferred to apply to coding agent which uses same Copilot instruction pipeline |
 | Copilot coding agent does not init submodules | https://github.com/orgs/community/discussions/180953; https://github.com/orgs/community/discussions/184244 | High | Confirmed by community workaround reports; official docs silent on submodule init |
 | Submodule access requires copilot-setup-steps.yml | https://github.com/orgs/community/discussions/180953 | High | Explicit workaround with `submodules: recursive` and PAT |
 | Claude iOS code feature = Claude Code on the web | https://support.claude.com/en/articles/12618689-claude-code-on-the-web | High | Anthropic help documentation confirms remote execution model |
 | Claude Code reads `CLAUDE.md` automatically | https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents | High | "CLAUDE.md files are naively dropped into context up front" |
-| Claude Code reads `AGENTS.md` automatically | https://code.visualstudio.com/docs/copilot/customization/custom-instructions | High | VS Code docs + Claude Code community evidence |
-| Claude Code does NOT read `.github/copilot-instructions.md` | https://zenn.dev/kesin11/articles/20251210_ai_agent_symlink | High | Practitioners require symlinks; absence of Anthropic docs claiming this path |
+| Claude Code reads `AGENTS.md` automatically (inferred) | https://code.visualstudio.com/docs/copilot/customization/custom-instructions | Medium | VS Code docs describe AGENTS.md cross-tool recognition; no primary Anthropic source explicitly confirms Claude Code reads it independently |
+| Claude Code does NOT read `.github/copilot-instructions.md` (inferred) | https://zenn.dev/kesin11/articles/20251210_ai_agent_symlink | Medium | Anthropic docs discuss only CLAUDE.md; practitioners require symlinks confirming asymmetry; evidence is argumentum ex silentio plus practitioner patterns |
 | No `CLAUDE.md` or `AGENTS.md` at repo root | direct repo inspection | High | Current state confirmed by repository file listing |
 | ADR-0006 removed `AGENTS.md` on incorrect assumption | `docs-adr/0006-standardise-agent-instructions.md` | High | ADR states assumption; research falsifies it |
-| Restoring `AGENTS.md` resolves Claude Code gap without disrupting Copilot | GitHub CLI docs (both files loaded); Claude Code docs (reads AGENTS.md) | High | Follows directly from confirmed loading behaviours |
+| Restoring `AGENTS.md` resolves Claude Code gap without disrupting Copilot | GitHub CLI docs (both files loaded); Claude Code docs (reads AGENTS.md) | Medium | Follows from inferences about dual-loading for coding agent and AGENTS.md reading by Claude Code |
 | Practitioner approach: copilot-instructions.md + AGENTS.md symlink | https://zenn.dev/kesin11/articles/20251210_ai_agent_symlink | Medium | Practitioner evidence, not official guidance |
 
 ### Assumptions
@@ -392,9 +392,9 @@ Primary sources (GitHub official documentation, Anthropic official documentation
 - Option C (symlink `AGENTS.md` -> `.github/copilot-instructions.md`): Works perfectly in any git-cloned environment. In GitHub's cloud execution environments (both Copilot and Claude Code on the web), symlinks are likely followed correctly because the environments use standard Linux git checkouts, but this is an inference.
 - Option D (add `CLAUDE.md` instead): Equivalent to Option A but Anthropic-specific. Provides no benefit over `AGENTS.md` for cross-tool coverage.
 
-**Recommended resolution:** Option A (restore `AGENTS.md` with full instructions content, or content that references and supplements `copilot-instructions.md`). This is the most direct solution with the best-confirmed loading behaviour across both agents.
+**Recommended resolution:** Option A (restore `AGENTS.md` with full instructions content, or content that references and supplements `copilot-instructions.md`). [Opinion] This is the most direct solution with the best-confirmed loading behaviour across both agents.
 
-**ADR-0006 assessment:** The decision's intent (a single unified instruction source) was sound. The execution was incomplete: the assumption that `.github/copilot-instructions.md` covers all agents was not verified at the time. The right outcome is not to reverse ADR-0006 but to amend it: `.github/copilot-instructions.md` is the canonical content file; `AGENTS.md` is the cross-agent entry point that makes the content accessible to non-Copilot tools.
+**ADR-0006 assessment:** [Opinion] The decision's intent (a single unified instruction source) was sound. The execution was incomplete: the assumption that `.github/copilot-instructions.md` covers all agents was not verified at the time. The right outcome is not to reverse ADR-0006 but to amend it: `.github/copilot-instructions.md` is the canonical content file; `AGENTS.md` is the cross-agent entry point that makes the content accessible to non-Copilot tools.
 
 ### Risks, Gaps, and Uncertainties
 
