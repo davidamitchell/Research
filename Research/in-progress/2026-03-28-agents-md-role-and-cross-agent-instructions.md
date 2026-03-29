@@ -145,7 +145,7 @@ Source: [agents.md official spec site](https://agents.md/) (primary); [OpenAI Co
 Source: [agentsmd/agents.md GitHub issue #11](https://github.com/agentsmd/agents.md/issues/11) (primary)
 
 - [fact] The `AGENTS.md` specification does not define a native import, include, or file-reference syntax. A GitHub issue (#11 at `agentsmd/agents.md`) requests this feature, indicating it is absent as of the filing date. (Source: [agentsmd issue #11](https://github.com/agentsmd/agents.md/issues/11))
-- [fact] `CLAUDE.md` supports an `@imports` directive that is specific to Claude Code and is not part of the `AGENTS.md` specification. (Source: [medium.com CLAUDE.md guide](https://medium.com/data-science-collective/the-complete-guide-to-ai-agent-memory-files-claude-md-agents-md-and-beyond-49ea0df5c5a9))
+- [inference] `CLAUDE.md` may support a file-import directive (described as `@imports` in third-party documentation) specific to Claude Code; this claim comes from a secondary source rather than Claude Code's official documentation and should be treated as unverified. (Source: [medium.com CLAUDE.md guide](https://medium.com/data-science-collective/the-complete-guide-to-ai-agent-memory-files-claude-md-agents-md-and-beyond-49ea0df5c5a9))
 
 **Q2b: Agents following file pointers in instruction files**
 
@@ -253,7 +253,7 @@ Removing narrative:
 
 ### Executive Summary
 
-Deleting `AGENTS.md` in favour of `.github/copilot-instructions.md` as sole instructions source is the correct call for this repo's two primary tools. The Copilot CLI (used in `research-loop.yml`) reads `.github/copilot-instructions.md` reliably; `AGENTS.md` support in the CLI exists in documentation but has a verified bug that may suppress it in practice. The Copilot Coding Agent (web, via GitHub Issues) reads both files, meaning restoring `AGENTS.md` would add additive but redundant context for that tool. The thin pointer pattern (a one-line `AGENTS.md` referencing `copilot-instructions.md`) is not viable because the `AGENTS.md` specification has no import syntax and agents read instruction files literally. The one genuine gap in the current setup is Claude iOS Code, which reads only `CLAUDE.md` and is served by neither existing file.
+Deleting `AGENTS.md` in favour of `.github/copilot-instructions.md` as sole instructions source is the better-supported approach for this repo's two primary tools. [inference] The Copilot CLI (used in `research-loop.yml`) reads `.github/copilot-instructions.md` reliably; `AGENTS.md` support in the CLI exists in documentation but has a verified bug that may suppress it in practice. The Copilot Coding Agent (web, via GitHub Issues) reads both files, meaning restoring `AGENTS.md` would add additive but redundant context for that tool. The thin pointer pattern (a one-line `AGENTS.md` referencing `copilot-instructions.md`) is not viable because the `AGENTS.md` specification has no import syntax and agents read instruction files literally. The one genuine gap in the current setup is Claude iOS Code, which reads only `CLAUDE.md` and is served by neither existing file.
 
 ### Key Findings
 
@@ -275,7 +275,7 @@ Deleting `AGENTS.md` in favour of `.github/copilot-instructions.md` as sole inst
 
 9. If restoring `AGENTS.md` with real content, it would need to be maintained in sync with `copilot-instructions.md`; the pre-ADR-0006 state showed this produces drift, and the current single-file approach eliminates that maintenance surface. [confidence: medium]
 
-10. Adding a `CLAUDE.md` (not an `AGENTS.md`) is the correct action if instructions for the Claude iOS Code feature are desired, because `CLAUDE.md` is the only instruction file that Claude Code's read path includes. [confidence: high]
+10. [inference] If instructions for the Claude iOS Code feature are desired, adding a `CLAUDE.md` (not an `AGENTS.md`) is the appropriate action, because `CLAUDE.md` is the only instruction file that Claude Code's read path includes. [confidence: high]
 
 ### Evidence Map
 
@@ -301,7 +301,9 @@ Deleting `AGENTS.md` in favour of `.github/copilot-instructions.md` as sole inst
 
 ### Analysis
 
-The evidence weighs clearly in favour of the current setup. `.github/copilot-instructions.md` is read reliably by both tools that matter for autonomous coding work in this repo (Copilot CLI and Copilot Coding Agent web). `AGENTS.md` is either redundant (Copilot Coding Agent, which reads both) or unreliable (Copilot CLI bug) for adding new coverage. The only tool not served by the current setup is Claude iOS Code, which would require `CLAUDE.md`, not `AGENTS.md`.
+The evidence weighs in favour of the current setup on all three tested dimensions: tool coverage, maintenance cost, and organisation consistency.
+
+The prior research item `Research/completed/2026-03-22-using-awesome-copilot-across-repos.md` recommended adding `AGENTS.md` to Research as a first-wave improvement. That recommendation was based on the Copilot Coding Agent (web) being able to read `AGENTS.md` directly and on Research lacking it while `Personal-Assistant-` had it. The present investigation refines that recommendation for this specific repo: `copilot-instructions.md` already holds the full instruction content; the Copilot CLI (the primary autonomous tool in `research-loop.yml`) has a documented bug that may suppress `AGENTS.md`; and restoring `AGENTS.md` would duplicate existing content without adding new tool coverage. The prior recommendation remains applicable to `Latest-developments-` and `Agent-Evaluation`, which lack equivalent `copilot-instructions.md` files and would gain first-time coverage from an `AGENTS.md`. `.github/copilot-instructions.md` is read reliably by both tools that matter for autonomous coding work in this repo (Copilot CLI and Copilot Coding Agent web). `AGENTS.md` is either redundant (Copilot Coding Agent, which reads both) or unreliable (Copilot CLI bug) for adding new coverage. The only tool not served by the current setup is Claude iOS Code, which would require `CLAUDE.md`, not `AGENTS.md`.
 
 The maintenance-cost argument reinforces the status quo: `copilot-instructions.md` is already the complete and authoritative instructions source. Adding `AGENTS.md` creates a second copy to maintain, and the pre-ADR-0006 history shows that two parallel instruction files tend to drift.
 
