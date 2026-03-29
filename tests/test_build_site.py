@@ -131,14 +131,14 @@ def test_overlapping_thread_membership() -> None:
     """
     items = [
         _make_item("a_seed", ["a", "b", "c"]),
-        _make_item("a_ab", ["a", "b", "1"]),   # shares {a,b} with cross
-        _make_item("a_ac", ["a", "c", "2"]),   # shares {a} only with cross
-        _make_item("a_bc", ["b", "c", "3"]),   # shares {b} only with cross
+        _make_item("a_ab", ["a", "b", "1"]),  # shares {a,b} with cross
+        _make_item("a_ac", ["a", "c", "2"]),  # shares {a} only with cross
+        _make_item("a_bc", ["b", "c", "3"]),  # shares {b} only with cross
         _make_item("cross", ["a", "b", "p", "q"]),  # bridges A and B clusters
         _make_item("b_seed", ["p", "q", "r"]),
-        _make_item("b_pq", ["p", "q", "1"]),   # shares {p,q} with cross
-        _make_item("b_pr", ["p", "r", "2"]),   # shares {p} only with cross
-        _make_item("b_qr", ["q", "r", "3"]),   # shares {q} only with cross
+        _make_item("b_pq", ["p", "q", "1"]),  # shares {p,q} with cross
+        _make_item("b_pr", ["p", "r", "2"]),  # shares {p} only with cross
+        _make_item("b_qr", ["q", "r", "3"]),  # shares {q} only with cross
     ]
     threads = detect_threads(items)
     implicit = [t for t in threads if t["kind"] == "implicit"]
