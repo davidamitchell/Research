@@ -583,6 +583,7 @@ The following patterns have appeared **three or more times** across sessions. If
 | `web search synthesis` used as a citation | Not a verifiable source; fails citation-discipline pre-output check | Explicitly prohibited in `research-prompt.md` Step 6 companion skill checks |
 | Surface evaluation (self-inspection only, no external benchmarking) | Misses factual errors, architectural flaws, and gaps that are only visible when compared to published best practices or observable system behaviour | Evaluation protocol: always (1) search external best practices, (2) audit facts against actual files, (3) use open issues as evidence |
 | Running `ruff check`/`make check` with narrower scope than CI | CI runs `ruff check .` (full repo); if `make check` only covered `src/ tests/`, format violations in `scripts/` were invisible locally but failed CI | `make check` now uses `.` to match CI exactly; `PreToolUse` hook blocks `git commit` if `make check` fails |
+| Test imports a package not in `pyproject.toml` dev deps | Test collection fails in CI with `ModuleNotFoundError`; passes locally only if the package happens to be globally installed | Before committing any test file that imports a third-party package, verify the package is listed under `[project.optional-dependencies] dev` in `pyproject.toml` and that `pip install -e ".[dev]"` + full pytest passes clean |
 
 When you identify a **new** recurring pattern (same friction in two or more sessions), add it to this table as part of the Mini-Retro for that session.
 
