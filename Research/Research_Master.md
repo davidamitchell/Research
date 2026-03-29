@@ -1,12 +1,13 @@
 # Research Master Document
 
-Generated on: 2026-03-29 10:46 UTC
+Generated on: 2026-03-29 11:12 UTC
 
 ## Table of Contents
 
 * [Multi-agent repo setup: best practices for configuring a repository to be worked on by Claude (iOS and GitHub Issues) and Copilot (Spaces and GitHub Issues)](#2026-03-29-multi-agent-repo-setup-md)
 * [Claude Code on the web: private submodule credential access and git submodule init mechanism](#2026-03-29-claude-code-web-submodule-credential-md)
 * [Environment setup consistency: what each agent sees when it starts work in this repo and how to make it consistent](#2026-03-28-environment-setup-consistency-md)
+* [The role of AGENTS.md in a repo using .github/copilot-instructions.md as the sole instructions source](#2026-03-28-agents-md-role-and-cross-agent-instructions-md)
 * [Agent instruction loading and skills access: Copilot coding agent, Claude iOS code feature, and the role of AGENTS.md](#2026-03-28-agent-instruction-loading-and-skills-access-md)
 * [Rory Sutherland's core tenets: anti-bureaucracy, customer thinking, and behavioral economics](#2026-03-26-rory-sutherland-core-tenets-md)
 * [The measurement asymmetry: why we cut costs but can't see lost opportunities](#2026-03-26-measuring-opportunity-cost-md)
@@ -426,6 +427,120 @@ Primary sources (GitHub official documentation S1, S2; Anthropic official docume
   - https://docs.github.com/copilot/customizing-copilot/customizing-the-development-environment-for-copilot-coding-agent: authoritative `copilot-setup-steps.yml` schema and behaviour
   - https://code.claude.com/docs/en/claude-code-on-the-web: authoritative Claude Code on the web environment and setup script documentation
   - https://github.com/orgs/community/discussions/180953: community confirmation of submodule gap and PAT workaround for Copilot coding agent
+
+---
+
+<a name="2026-03-28-agents-md-role-and-cross-agent-instructions-md"></a>
+
+## The role of AGENTS.md in a repo using .github/copilot-instructions.md as the sole instructions source
+
+**Tags:** [agents-md, copilot, claude, instructions, cross-agent, consistency]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-28-agents-md-role-and-cross-agent-instructions.md
+
+## Question / Hypothesis
+
+`AGENTS.md` has emerged as the cross-tool convergence format for agent project instructions, supported by OpenAI Codex, GitHub Copilot, Claude Code, Cursor, Aider, Gemini Command Line Interface (CLI), and others. This repo deleted `AGENTS.md` in Architecture Decision Record (ADR)-0006 (2026-03-07) in favour of `.github/copilot-instructions.md` as the single source of truth. Is that the right call? What does each tool actually read, and should `AGENTS.md` be restored: as content, as a pointer, or not at all?
+
+### Q1: What tools read `AGENTS.md` vs `.github/copilot-instructions.md`
+
+- For the tools used in this repo (Copilot coding agent via GitHub Issues, Claude iOS (Apple's mobile operating system) `code` feature, the `research-loop.yml` Copilot CLI workflow): which of these read `AGENTS.md` at the repo root? Which read `.github/copilot-instructions.md`? Do any read both?
+- Is there a confirmed loading order or priority between the two files for any of these tools?
+- Does the `agents.md` specification define a standard for where the file must live (root only, or directory-scoped)?
+
+### Q2: The pointer pattern vs content duplication
+
+- If `AGENTS.md` needs to exist for cross-tool compatibility but `.github/copilot-instructions.md` holds the content, is the correct pattern a one-line `AGENTS.md` that says "see `.github/copilot-instructions.md`"?
+- Do agents (Copilot, Claude) follow pointer/import patterns in instruction files, or do they treat the file content literally?
+- What did the previous `AGENTS.md` contain before ADR-0006 deleted it? Is any of that content now absent from `copilot-instructions.md`?
+
+### Q3: Consistency with other repos in the davidamitchell organisation
+
+- Do `davidamitchell/Latest-developments-`, `davidamitchell/Agent-Evaluation`, `davidamitchell/Personal-Assistant-`, `davidamitchell/Memory-System`, and `davidamitchell/Policy-LSP` have an `AGENTS.md` at root?
+- Is the current Research repo setup (no `AGENTS.md`, no `CLAUDE.md`) consistent with the rest of the organisation, or is it an outlier?
+- What is the correct organisation-wide standard: `AGENTS.md` as primary with `copilot-instructions.md` pointing to it, or `copilot-instructions.md` as primary with `AGENTS.md` optionally pointing to it?
+
+## Findings
+
+### Executive Summary
+
+Deleting `AGENTS.md` in favour of `.github/copilot-instructions.md` as sole instructions source is the better-supported approach for this repo's two primary tools. [inference] The Copilot CLI (used in `research-loop.yml`) reads `.github/copilot-instructions.md` reliably; `AGENTS.md` support in the CLI exists in documentation but has a verified bug that may suppress it in practice. The Copilot Coding Agent (web, via GitHub Issues) reads both files, meaning restoring `AGENTS.md` would add additive but redundant context for that tool. The thin pointer pattern (a one-line `AGENTS.md` referencing `copilot-instructions.md`) is not viable because the `AGENTS.md` specification has no import syntax and agents read instruction files literally. The one genuine gap in the current setup is Claude iOS Code, which reads only `CLAUDE.md` and is served by neither existing file.
+
+### Key Findings
+
+1. The Copilot CLI (v1.0.12, used in `research-loop.yml`) officially reads both `AGENTS.md` and `.github/copilot-instructions.md` when both are present, but a verified bug report (GitHub issue #489, filed against v0.0.353) documents that `AGENTS.md` is silently ignored in favour of `copilot-instructions.md` in at least one version; fix status in v1.0.12 is unconfirmed. [confidence: high]
+
+2. The Copilot Coding Agent (web, assigned via GitHub Issues) reads `AGENTS.md`, `.github/copilot-instructions.md`, `.github/instructions/*.instructions.md`, `CLAUDE.md`, and `GEMINI.md` as additive instruction sources; `AGENTS.md` support was added in the 2025-08-28 changelog entry. [confidence: high]
+
+3. The Claude iOS Code feature (dispatched via mobile app to Claude Code Desktop) reads `CLAUDE.md` only; it does not read `AGENTS.md` or `.github/copilot-instructions.md`, and there is an open GitHub issue (#6235 in `anthropics/claude-code`) requesting native `AGENTS.md` support that remains unresolved. [confidence: high]
+
+4. The `AGENTS.md` specification, stewarded by the Agentic AI Foundation under the Linux Foundation, supports both root-level and directory-scoped placement using a nearest-file-wins hierarchy, and has no native import, include, or file-reference syntax. [confidence: high]
+
+5. A thin pointer `AGENTS.md` (one line referencing `copilot-instructions.md`) is not a viable cross-tool compatibility solution because agents read instruction file content as context input, not as file-loading directives, making adherence to such a pointer unreliable and unverifiable. [confidence: high]
+
+6. ADR-0006 fully migrated all content from the previous `AGENTS.md` into `.github/copilot-instructions.md`; no instructions were lost in the deletion, meaning restoring `AGENTS.md` from scratch would require duplicating content already in `copilot-instructions.md`. [confidence: high]
+
+7. Of the five inspectable repos in the davidamitchell organisation, only `Personal-Assistant-` has `AGENTS.md` at root; `Latest-developments-`, `Agent-Evaluation`, `Policy-LSP`, and `Research` all lack it, making `Personal-Assistant-` the outlier rather than Research. [confidence: high]
+
+8. `.github/copilot-instructions.md` is the reliably read instruction file for the Copilot CLI regardless of whether a bug fix lands for `AGENTS.md` support, because the official documentation designates it as the always-used repository-wide instruction surface for the Copilot CLI. [confidence: high]
+
+9. If restoring `AGENTS.md` with real content, it would need to be maintained in sync with `copilot-instructions.md`; maintaining two parallel instruction files creates a divergence risk [inference], and the current single-file approach eliminates that maintenance surface. [confidence: medium]
+
+10. [inference] If instructions for the Claude iOS Code feature are desired, adding a `CLAUDE.md` (not an `AGENTS.md`) is the appropriate action, because `CLAUDE.md` is the only instruction file that Claude Code's read path includes. [confidence: high]
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| Copilot CLI reads both files officially | [GitHub Copilot CLI docs](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/add-custom-instructions) | High | Primary source |
+| AGENTS.md bug in Copilot CLI | [copilot-cli issue #489](https://github.com/github/copilot-cli/issues/489) | High | Bug filed against v0.0.353; fix status in v1.0.12 unconfirmed |
+| Copilot Coding Agent reads AGENTS.md | [GitHub blog changelog 2025-08-28](https://github.blog/changelog/2025-08-28-copilot-coding-agent-now-supports-agents-md-custom-instructions/) | High | Official changelog |
+| Claude iOS reads CLAUDE.md only | [Claude Code memory docs](https://code.claude.com/docs/en/memory), [claude-code issue #6235](https://github.com/anthropics/claude-code/issues/6235) | High | Open issue confirms AGENTS.md not natively supported |
+| AGENTS.md has no import syntax | [agentsmd issue #11](https://github.com/agentsmd/agents.md/issues/11) | High | Feature request confirms absence |
+| ADR-0006 fully migrated AGENTS.md content | [ADR-0006](https://github.com/davidamitchell/Research/blob/main/docs-adr/0006-standardise-agent-instruction-files.md) | High | Primary source, this repo |
+| Personal-Assistant- has AGENTS.md | GitHub API inspection 2026-03-29 | High | File present, 10,018 bytes |
+| Latest-developments- no AGENTS.md | GitHub API inspection 2026-03-29 | High | Root directory confirmed |
+| Agent-Evaluation no AGENTS.md | GitHub API inspection 2026-03-29 | High | Root directory confirmed |
+| Policy-LSP no AGENTS.md | GitHub API inspection 2026-03-29 | High | Root directory confirmed |
+| Thin pointer not viable | [agentsmd issue #11](https://github.com/agentsmd/agents.md/issues/11), [copilot-cli community discussion](https://github.com/orgs/community/discussions/175649) | High | No spec mechanism for file loading |
+| AGENTS.md spec, Linux Foundation governance | [agents.md](https://agents.md/), [particula.tech explainer](https://particula.tech/blog/agents-md-ai-coding-agent-configuration) | High | Confirmed by multiple sources |
+
+### Assumptions
+
+- **Assumption: A thin pointer `AGENTS.md` is insufficient for cross-tool compatibility.** Confirmed by investigation. The `AGENTS.md` spec has no import syntax; agents read files as context. The assumption was correct.
+- **Assumption: Other repos in the organisation have `AGENTS.md`.** Partially confirmed. Only `Personal-Assistant-` has it; three of four other repos do not, matching Research's current state.
+
+### Analysis
+
+The evidence weighs in favour of the current setup on all three tested dimensions: tool coverage, maintenance cost, and organisation consistency.
+
+The prior research item `Research/completed/2026-03-22-using-awesome-copilot-across-repos.md` recommended adding `AGENTS.md` to Research as a first-wave improvement. That recommendation was based on the Copilot Coding Agent (web) being able to read `AGENTS.md` directly and on Research lacking it while `Personal-Assistant-` had it. The present investigation refines that recommendation for this specific repo: `copilot-instructions.md` already holds the full instruction content; the Copilot CLI (the primary autonomous tool in `research-loop.yml`) has a documented bug that may suppress `AGENTS.md`; and restoring `AGENTS.md` would duplicate existing content without adding new tool coverage. The prior recommendation remains applicable to `Latest-developments-` and `Agent-Evaluation`, which lack equivalent `copilot-instructions.md` files and would gain first-time coverage from an `AGENTS.md`. `.github/copilot-instructions.md` is read reliably by both tools that matter for autonomous coding work in this repo (Copilot CLI and Copilot Coding Agent web). `AGENTS.md` is either redundant (Copilot Coding Agent, which reads both) or unreliable (Copilot CLI bug) for adding new coverage. The only tool not served by the current setup is Claude iOS Code, which would require `CLAUDE.md`, not `AGENTS.md`.
+
+The maintenance-cost argument reinforces the status quo: `copilot-instructions.md` is already the complete and authoritative instructions source. Adding `AGENTS.md` creates a second copy to maintain; maintaining two parallel instruction files creates a divergence risk [inference].
+
+The organisation-consistency argument also supports the status quo: three of four comparable repos lack `AGENTS.md`. `Personal-Assistant-` is the outlier, not Research.
+
+### Risks, Gaps, and Uncertainties
+
+- The Copilot CLI `AGENTS.md` bug (issue #489) status in v1.0.12 is unconfirmed. If the bug is fixed, the Copilot CLI would read both files, making `AGENTS.md` harmless to restore (additive context). If unfixed, `AGENTS.md` remains silently ignored.
+- The Claude iOS Code gap: no instruction file in this repo is read by Claude iOS Code. If the owner uses Claude iOS Code to work in this repo, it operates without project-specific instructions. This is a known gap, not a regression from ADR-0006 (the previous `AGENTS.md` was also not on Claude's read path).
+- `Memory-System` repo status is unknown (404 on prior inspection); its instruction-file state could not be assessed.
+- The AGENTS.md specification's adoption rate (25+ tools, 60k+ open-source projects per agents.md) will increase over time. If new tools are adopted in this repo that read `AGENTS.md` but not `copilot-instructions.md`, the current setup would miss them.
+
+### Open Questions
+
+1. **Is the Copilot CLI AGENTS.md bug (issue #489) fixed in v1.0.12?** Direct test by creating a temporary `AGENTS.md` and verifying whether its content appears in a CLI session would confirm this. Out of scope for this item; could become a backlog item.
+2. **Should `CLAUDE.md` be added to this repo?** If Claude iOS Code is used for repo work, a `CLAUDE.md` at root would be the correct file to add. This is a separate decision from `AGENTS.md`. Out of scope.
+3. **Should `Personal-Assistant-` be the pattern to follow or an exception?** It is the only org repo with both `AGENTS.md` and `copilot-instructions.md`. Whether to standardise on its pattern or keep it as an exception warrants an explicit org-level decision.
+
+### Output
+
+- **Type:** knowledge
+- **Description:** Confirmed that the current Research repo setup (`.github/copilot-instructions.md` only, no `AGENTS.md`) is correct for its primary tools (Copilot CLI and Copilot Coding Agent web), with a documented gap for Claude iOS Code (requires `CLAUDE.md`). Thin pointer pattern is not viable. Research is not an org outlier; three other repos also lack `AGENTS.md`.
+- **Links:**
+  - [GitHub Copilot CLI custom instructions documentation](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/add-custom-instructions)
+  - [GitHub blog: Copilot coding agent now supports AGENTS.md (2025-08-28)](https://github.blog/changelog/2025-08-28-copilot-coding-agent-now-supports-agents-md-custom-instructions/)
+  - [agents.md specification site](https://agents.md/)
 
 ---
 
