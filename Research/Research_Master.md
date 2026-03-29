@@ -1,9 +1,10 @@
 # Research Master Document
 
-Generated on: 2026-03-28 21:36 UTC
+Generated on: 2026-03-29 00:57 UTC
 
 ## Table of Contents
 
+* [Agent instruction loading and skills access: Copilot coding agent, Claude iOS code feature, and the role of AGENTS.md](#2026-03-28-agent-instruction-loading-and-skills-access-md)
 * [Rory Sutherland's core tenets: anti-bureaucracy, customer thinking, and behavioral economics](#2026-03-26-rory-sutherland-core-tenets-md)
 * [The measurement asymmetry: why we cut costs but can't see lost opportunities](#2026-03-26-measuring-opportunity-cost-md)
 * [Customer contact as strategic signal: why people call and whether they want self-service](#2026-03-26-customer-contact-and-delight-md)
@@ -126,6 +127,123 @@ Generated on: 2026-03-28 21:36 UTC
 * [AI Strategy Examples: Business Efficiency Focus](#2026-02-28-ai-strategy-business-efficiency-examples-md)
 * [AI Line 1 and Line 2 Risk Agents: Who Is Building Them?](#2026-02-28-ai-line-1-line-2-risk-agents-md)
 * [AI for Control Testing, Gap Identification, and Policies/Standards Reviews](#2026-02-28-ai-control-testing-and-assurance-md)
+
+---
+
+<a name="2026-03-28-agent-instruction-loading-and-skills-access-md"></a>
+
+## Agent instruction loading and skills access: Copilot coding agent, Claude iOS code feature, and the role of AGENTS.md
+
+**Tags:** [copilot, claude, ios, agents-md, skills, instructions, github-issues]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-28-agent-instruction-loading-and-skills-access.md
+
+## Question / Hypothesis
+
+Given the current repo setup (instructions in `.github/copilot-instructions.md`, skills submodule at `.github/skills/`, no `AGENTS.md` at root, no `CLAUDE.md` at root), what does each agent actually load at the point it starts work, and does it have access to the skills?
+
+### Q1: GitHub Copilot coding agent (GitHub issue to assign to Copilot to draft pull request (PR))
+
+- When a GitHub issue is assigned to Copilot via the GitHub Issues UI, which files does it read before starting planning? Does it read `.github/copilot-instructions.md` automatically? Does it read `.github/skills/`? Does it look for `AGENTS.md` at the repo root?
+- What is the confirmed loading order: does `.github/copilot-instructions.md` take priority over a root `AGENTS.md` if both exist?
+- Does the Copilot coding agent materialise the skills submodule (run `git submodule update`) before reading `.github/skills/`, or does it see an empty directory?
+
+### Q2: Claude iOS app (`code` section / feature)
+
+- When the Research repo is opened in Claude's iOS `code` feature, which files does Claude load into context? Does it look for `CLAUDE.md`, `AGENTS.md`, or `.github/copilot-instructions.md`? Does it read any of them automatically?
+- Can Claude iOS access `.github/skills/`? What path does it scan for instructions?
+- Does the `code` feature on iOS behave identically to Claude Code Command Line Interface (CLI) in terms of file-loading behaviour, or is it a different surface with different rules?
+
+### Q3: The role of `AGENTS.md` for both agents
+
+- `AGENTS.md` is the emerging cross-tool convergence format (supported by Copilot, Claude Code, Cursor, Aider, Codex, Gemini CLI). Architecture Decision Record (ADR)-0006 deleted it from this repo in favour of `.github/copilot-instructions.md`. Does the Copilot coding agent read `AGENTS.md` at the repo root when assigned a GitHub issue? Does Claude iOS?
+- If both agents read `AGENTS.md`, is the right answer to restore it as a thin pointer to `.github/copilot-instructions.md`, or to move content back to `AGENTS.md` and have `copilot-instructions.md` point to it?
+- Does restoring `AGENTS.md` break ADR-0006 or supersede it?
+
+## Findings
+
+### Executive Summary
+
+The GitHub Copilot coding agent reads `.github/copilot-instructions.md` automatically and this repo's instructions are therefore loaded correctly when issues are assigned to Copilot. However, the agent cannot access skills in `.github/skills/` because git submodules are not materialised in its ephemeral environment; skills are silently absent. The Claude iOS GitHub connector does not automatically load any instruction files: `.github/copilot-instructions.md`, `AGENTS.md`, and `CLAUDE.md` are all invisible to it unless the owner manually adds them to the connector's file selection. This repo has no `CLAUDE.md`, so Claude Code sessions (including Claude Code on the web) also receive no auto-loaded instructions. Adding a root `CLAUDE.md` file (single import pointing to `.github/copilot-instructions.md`) and manually adding `.github/copilot-instructions.md` to the Claude Project knowledge base would close both gaps.
+
+### Key Findings
+
+1. The GitHub Copilot coding agent reads `.github/copilot-instructions.md` automatically when a GitHub issue is assigned to it, and this repo's instruction file is therefore loaded on every coding agent session without any additional configuration. [high confidence]
+
+2. The Copilot coding agent also supports `AGENTS.md`, `CLAUDE.md`, and `GEMINI.md` as additive instruction sources since August 2025; all instruction files found in the repo are combined, none taking exclusive precedence over the others. [high confidence]
+
+3. The Copilot coding agent does not automatically run `git submodule update --init`, so `.github/skills/` appears as an empty directory in the agent's environment and skills defined in the submodule are never injected into the agent's context window. [high confidence]
+
+4. Even when a `copilot-setup-steps.yml` workflow is explicitly configured to materialise submodules using `actions/checkout` with `submodules: true`, community reports from December 2025 confirm the submodule directory remains empty when the agent begins work, indicating an unresolved platform-level limitation. [medium confidence, based on community reports, not a confirmed official statement]
+
+5. The Claude iOS "code feature" used against this repo is the claude.ai GitHub connector, a context-injection mechanism that requires the owner to manually select which repository files to include, with no instruction files loaded automatically. [high confidence]
+
+6. Claude Code CLI and Claude Code on the web load `CLAUDE.md` files automatically by walking the directory tree at session start; this repo has no `CLAUDE.md` at root, so any Claude Code session against this repo receives no project instructions unless the file is added. [high confidence]
+
+7. Claude Code does not auto-load `AGENTS.md`; only `CLAUDE.md` files receive guaranteed injection into the context window at session start, making `CLAUDE.md` the correct file for Claude-specific instruction delivery. [high confidence]
+
+8. Architecture Decision Record 0006 removed `AGENTS.md` to eliminate indirection, which was technically sound for the Copilot coding agent (which reads `.github/copilot-instructions.md` directly) but inadvertently left Claude Code without any auto-loaded project instructions. [high confidence]
+
+9. The most targeted fix is to add a root `CLAUDE.md` that imports `.github/copilot-instructions.md` using a single `@.github/copilot-instructions.md` import directive, extending instruction coverage to Claude Code without duplicating content or contradicting ADR-0006. [medium confidence, assumption that import directive works as expected; requires verification]
+
+10. For the Claude iOS GitHub connector entry point, the owner should add `.github/copilot-instructions.md` to the Claude Project knowledge base manually so instructions are included in connector-based conversations without relying on non-existent automatic loading. [high confidence]
+
+11. The skills submodule gap requires a structural fix: either move `.github/skills/` content from the submodule into the main repository as a plain committed directory, or inline critical skill content into `.github/copilot-instructions.md` directly; relying on the submodule for coding agent access is currently unreliable. [medium confidence, structural change has broader implications for the skills-sharing model across repos]
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| Coding agent reads `.github/copilot-instructions.md` automatically | GitHub Docs "Get the best results" (https://docs.github.com/en/copilot/tutorials/coding-agent/get-the-best-results) | High | Primary source; official documentation |
+| Coding agent also reads AGENTS.md, CLAUDE.md, GEMINI.md (all additive) | GitHub Changelog 2025-08-28 (https://github.blog/changelog/2025-08-28-copilot-coding-agent-now-supports-agents-md-custom-instructions/) + GitHub Docs custom instructions (https://docs.github.com/copilot/customizing-copilot/adding-custom-instructions-for-github-copilot) | High | Two independent primary sources confirm |
+| Submodule not auto-materialised; `copilot-setup-steps.yml` workaround unreliable | GitHub Docs coding agent environment (https://docs.github.com/en/enterprise-cloud@latest/copilot/how-tos/use-copilot-agents/coding-agent/customize-the-agent-environment) + Community Discussion #180953 (https://github.com/orgs/community/discussions/180953) | High (gap exists) / Medium (workaround unreliable) | Official docs confirm no auto-init; community confirms workaround fails |
+| Claude iOS connector requires manual file selection; no auto-loading | Anthropic Help Centre GitHub Integration (https://support.claude.com/en/articles/10167454-using-the-github-integration) | High | Primary source; official Anthropic documentation |
+| Claude Code loads CLAUDE.md automatically | Claude Code Docs memory page (https://code.claude.com/docs/en/memory) | High | Primary source; official documentation |
+| Claude Code does not auto-load AGENTS.md | Reddit r/ClaudeCode community post (https://www.reddit.com/r/ClaudeCode/comments/1rlc8zi/agentsmd_standard/) + Medium guide (https://medium.com/data-science-collective/the-complete-guide-to-ai-agent-memory-files-claude-md-agents-md-and-beyond-49ea0df5c5a9) | High | Two secondary sources; consistent with primary docs which mention only CLAUDE.md |
+| ADR-0006 left Claude Code without auto-loaded instructions | Research item context + code.claude.com/docs/memory (https://code.claude.com/docs/en/memory) + ADR-0006 in this repo (https://github.com/davidamitchell/Research/blob/main/docs-adr/0006-standardise-agent-instructions.md) | High | Derived from two confirmed facts: no CLAUDE.md in repo + Claude Code needs CLAUDE.md |
+| CLAUDE.md import of copilot-instructions.md closes the gap | Claude Code Docs memory page (https://code.claude.com/docs/en/memory) | Medium | Import directive exists; practical verification recommended |
+| Skills in `.github/skills/` are loaded on-demand when description matches task | GitHub Docs create skills (https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/create-skills) | High | Primary source |
+
+### Assumptions
+
+- **Assumption A (from original item, now refined):** The Copilot coding agent reads `.github/copilot-instructions.md` automatically. **Status: Confirmed** by GitHub documentation. This assumption was correct.
+
+- **Assumption B (from original item, now refined):** Claude iOS `code` feature behaves identically to Claude Code CLI. **Status: Refuted.** The Claude iOS GitHub connector is not Claude Code CLI; it is a context-injection connector that requires manual file selection and loads no instruction files automatically. Claude Code on the web (a separate product) would behave more like Claude Code CLI.
+
+- **Assumption C (inferred during investigation):** The `copilot-setup-steps.yml` workflow can reliably materialise submodules for the coding agent. **Status: Uncertain.** Official docs suggest it should work; community reports suggest it does not always work in practice. Cannot be relied upon.
+
+### Analysis
+
+The central finding is that there are two distinct gaps in this repo's current setup:
+
+**Gap 1 (Skills access):** The skills submodule is functionally invisible to the Copilot coding agent. This is not a configuration error; it is a platform limitation. The coding agent's ephemeral Actions environment does not initialise submodules, and even manual workarounds via `copilot-setup-steps.yml` are reported as unreliable. Skills that exist in `.github/skills/` are never injected into the agent's context. For this to work, skills would need to live in the main repo as plain committed files, not in a submodule.
+
+**Gap 2 (Claude instructions):** When the owner uses the Claude iOS app's GitHub connector, no instruction files are loaded automatically. The `.github/copilot-instructions.md` file, which contains the full agent instructions, is invisible unless manually added to the connector's file selection. If the owner ever uses Claude Code on the web, there is no `CLAUDE.md` at the repo root, so that session also receives no project instructions.
+
+Both gaps are addressable without contradicting ADR-0006. Gap 1 requires a structural change to skills delivery (submodule vs. plain directory). Gap 2 requires adding a root `CLAUDE.md` file and a one-time update to the Claude Project knowledge base.
+
+The evidence confirms `AGENTS.md` is supported by the Copilot coding agent (confirmed by primary sources). Support by other tools (VS Code agent mode, Cursor, Aider, Codex CLI, Gemini CLI) was not investigated in this item and should not be asserted here. Restoring `AGENTS.md` provides no direct benefit to this repo's current entry points: the coding agent already reads `.github/copilot-instructions.md`, and the Claude iOS connector reads nothing automatically regardless.
+
+### Risks, Gaps, and Uncertainties
+
+- The `copilot-setup-steps.yml` submodule workaround is reported as unreliable; official documentation does not acknowledge this limitation. It is possible this was fixed after December 2025 community reports; verification is recommended.
+- The "Claude iOS code feature" terminology in the original item is ambiguous. If the owner was referring to Claude Code on the web (not the GitHub connector), the instruction-loading conclusions differ: Claude Code on the web would auto-load `CLAUDE.md`. The connector interpretation was used here because it aligns with the owner's stated workflow (iOS app, no local terminal).
+- Skills discovery docs say `.claude/skills/` is also a supported path. If skills were moved from the submodule to a plain `.github/skills/` directory, they would work for the coding agent.
+
+### Open Questions
+
+1. **Skills submodule fix:** Should `.github/skills/` be moved from the submodule into the main repo as a plain committed directory? This loses cross-repo skill sharing but fixes coding agent access. Candidate for new backlog item.
+2. **CLAUDE.md addition:** Should a root `CLAUDE.md` with `@.github/copilot-instructions.md` import be added? This has no downside but requires that the import directive syntax is verified to work as expected with this repo's content.
+3. **Claude Project knowledge base:** The owner should confirm whether `.github/copilot-instructions.md` is currently in the Claude Project knowledge base for iOS connector sessions; if not, this is an immediate actionable fix.
+
+### Output
+
+- Type: knowledge, backlog-item
+- Description: Confirmed loading behaviour for both agents; skills submodule gap identified; CLAUDE.md gap identified; actionable recommendations for both gaps.
+- Links:
+  - https://docs.github.com/en/copilot/tutorials/coding-agent/get-the-best-results (Copilot coding agent best practices) (instruction loading)
+  - https://github.blog/changelog/2025-08-28-copilot-coding-agent-now-supports-agents-md-custom-instructions/ (AGENTS.md support announcement)d support announcement
+  - https://code.claude.com/docs/en/memory (Claude Code CLAUDE.md loading behaviour)
 
 ---
 
