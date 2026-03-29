@@ -22,3 +22,17 @@ Added new research backlog item requested via GitHub issue: "The unknowability o
 ## Outcome
 
 Backlog item committed and pushed to the PR branch. Ready to start when the owner initiates the research workflow.
+
+## Mini-Retro
+
+**Did the process work?** Yes — the template provided a clear structure and the backlog item was created without complications.
+
+**What slowed down or went wrong?** The code review flagged two issues: (1) search query URLs were incorrectly used as "sources" rather than noting source discovery is pending; (2) the Mini-Retro section was missing from this log. Both were fixed in the follow-up commit.
+
+**Single change that would prevent issues next time?** Remember that a backlog item with no verified primary sources should explicitly state "source discovery is pending" rather than listing search query URLs, which are discovery tools not citable sources.
+
+**Is this a recurring pattern?** No — first occurrence of this specific mistake.
+
+**Does documentation need updating?** No — the template already states "Every source must include a URL" and "Sources listed as plain text … are incomplete." The lesson is to apply this rule strictly to search query URLs too.
+
+**Do default instructions need updating?** No.

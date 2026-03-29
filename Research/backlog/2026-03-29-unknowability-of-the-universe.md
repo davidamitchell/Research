@@ -48,9 +48,7 @@ The issue of whether the universe is fundamentally unknowable sits at the inters
 Starting points — papers, articles, videos, repos, docs.
 **Every source must include a URL.** Use `[Display Name](https://url)` for named sources or a bare `https://url` for direct links. Sources without URLs cannot be verified or linked on the site.
 
-- [ ] Search for JB Manchuk publications via Google Scholar — https://scholar.google.com/scholar?q=JB+Manchuk+unknowability+universe
-- [ ] Search for JB Manchuk on YouTube for lectures or talks — https://www.youtube.com/results?search_query=JB+Manchuk+unknowability
-- [ ] Search Tavily for "JB Manchuk General Relativity Zen Buddhism unknowability" to surface articles, interviews, or citations
+*(Source discovery is the first step of the research phase. No primary sources have been located yet. When research starts, use web search and Google Scholar to locate JB Manchuk's publications, lectures, or interviews on this topic and add verified URLs here before proceeding.)*
 
 ---
 
