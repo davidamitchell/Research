@@ -4,7 +4,7 @@ added: 2026-03-10
 status: completed
 priority: high
 blocks: []
-tags: [multi-agent, adversarial-collaboration, competency-coverage, time-horizons, fitness-functions, organisational-design, red-team, quality-assurance, values-alignment]
+tags: [multi-agent, adversarial-collaboration, competency-coverage, time-horizons, fitness-functions, organisational-design, red-team, quality-assurance, values-alignment, agents, agentic-systems]
 started: 2026-03-10
 completed: 2026-03-10
 output: [knowledge]

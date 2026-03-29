@@ -1184,19 +1184,33 @@ def load_links(items: list[dict]) -> dict[str, list[dict]]:
     return links
 
 
-def detect_threads(items: list[dict]) -> list[dict]:
+def _cluster_overlap(slugs_a: set[str], slugs_b: set[str]) -> float:
+    """Overlap ratio: |A∩B| / min(|A|, |B|).  Returns 0 when either set is empty."""
+    if not slugs_a or not slugs_b:
+        return 0.0
+    return len(slugs_a & slugs_b) / min(len(slugs_a), len(slugs_b))
+
+
+def detect_threads(items: list[dict], metadata: dict | None = None) -> list[dict]:
     """Group items into threads.
 
     Priority:
     1. Items with a matching ``thread`` frontmatter field are grouped together.
-    2. Items sharing 3+ tags form implicit threads (tag cluster).
+    2. Items sharing 2+ tags form implicit threads (tag cluster).  Items may
+       appear in more than one thread if they genuinely belong to multiple
+       distinct clusters.
+    3. Items sharing 3+ named concepts (from content_metadata.json) form
+       concept threads as a fallback for items not reached by tags alone.
 
     Returns a list of thread dicts, each with keys:
-      slug, title, items, kind ('explicit' or 'implicit'), tag_cluster (list)
+      slug, title, items, kind ('explicit', 'implicit', or 'concept'),
+      tag_cluster (list), concept_cluster (list)
     """
     threads: list[dict] = []
 
-    # Explicit threads via frontmatter
+    # ------------------------------------------------------------------
+    # 1. Explicit threads via frontmatter ``thread:`` field
+    # ------------------------------------------------------------------
     explicit: dict[str, list[dict]] = {}
     for item in items:
         if item["thread"]:
@@ -1212,48 +1226,168 @@ def detect_threads(items: list[dict]) -> list[dict]:
                 "items": thread_items_sorted,
                 "kind": "explicit",
                 "tag_cluster": [],
+                "concept_cluster": [],
             }
         )
 
-    # Implicit threads: items sharing 2+ tags
-    explicit_slugs = {item["slug"] for t in threads for item in t["items"]}
-    remaining = [item for item in items if item["slug"] not in explicit_slugs]
-
-    # Find dense tag clusters
-    processed: set[str] = set()
-    for item in remaining:
-        if item["slug"] in processed or len(item["tags"]) < 2:
+    # ------------------------------------------------------------------
+    # 2. Implicit tag-based threads
+    # Generate all candidate clusters (every item as seed, no exclusion),
+    # then deduplicate clusters with >= 75% item overlap.
+    # This allows items to appear in multiple genuinely different threads.
+    # ------------------------------------------------------------------
+    candidate_clusters: list[list[dict]] = []
+    for item in items:
+        if len(item["tags"]) < 2:
             continue
         item_tags = set(item["tags"])
         cluster = [item]
-        for other in remaining:
-            if other["slug"] == item["slug"] or other["slug"] in processed:
+        for other in items:
+            if other["slug"] == item["slug"]:
                 continue
-            shared = item_tags & set(other["tags"])
-            if len(shared) >= 2:
+            if len(item_tags & set(other["tags"])) >= 2:
                 cluster.append(other)
         if len(cluster) >= 3:
-            for c in cluster:
-                processed.add(c["slug"])
-            cluster_sorted = sorted(cluster, key=lambda x: x["added"])
-            # Title from most frequent tags
-            all_tags: list[str] = []
-            for c in cluster:
-                all_tags.extend(c["tags"])
-            top_tags = [t for t, _ in Counter(all_tags).most_common(3)]
-            thread_title = " / ".join(top_tags)
-            threads.append(
-                {
-                    "slug": slugify(thread_title),
-                    "title": thread_title,
-                    "items": cluster_sorted,
-                    "kind": "implicit",
-                    "tag_cluster": top_tags,
-                }
-            )
+            candidate_clusters.append(cluster)
+
+    # Largest clusters first; skip any that are 75%+ covered by an already-accepted one
+    candidate_clusters.sort(key=lambda c: -len(c))
+    accepted_slugsets: list[set[str]] = []
+    for cluster in candidate_clusters:
+        cluster_slugs = {c["slug"] for c in cluster}
+        if any(_cluster_overlap(cluster_slugs, a) >= 0.75 for a in accepted_slugsets):
+            continue
+        accepted_slugsets.append(cluster_slugs)
+        cluster_sorted = sorted(cluster, key=lambda x: x["added"])
+        all_tags: list[str] = []
+        for c in cluster:
+            all_tags.extend(c["tags"])
+        top_tags = [t for t, _ in Counter(all_tags).most_common(3)]
+        thread_title = " / ".join(top_tags)
+        threads.append(
+            {
+                "slug": slugify(thread_title),
+                "title": thread_title,
+                "items": cluster_sorted,
+                "kind": "implicit",
+                "tag_cluster": top_tags,
+                "concept_cluster": [],
+            }
+        )
+
+    # ------------------------------------------------------------------
+    # 3. Concept-based threads (secondary pass)
+    # ------------------------------------------------------------------
+    if metadata:
+        threads.extend(detect_concept_threads(items, metadata, threads))
 
     threads.sort(key=lambda t: -len(t["items"]))
     return threads
+
+
+def detect_concept_threads(
+    items: list[dict],
+    metadata: dict,
+    existing_threads: list[dict],
+) -> list[dict]:
+    """Detect threads based on shared named concepts from content_metadata.json.
+
+    Clusters items that share >= 3 named concepts, after filtering out
+    high-frequency concepts (appearing in > 25% of items).  Skips clusters
+    that are >= 75% covered by an already-accepted thread.
+    """
+    meta_items = metadata.get("items", {})
+    n_items = max(len(items), 1)
+    high_freq_threshold = max(3, int(n_items * 0.25))
+
+    # Concepts that are structural/boilerplate artifacts rather than topical signals
+    _blocklist: frozenset[str] = frozenset(
+        {
+            "et al",
+            "executive summary",
+            "key findings",
+            "current corpus",
+            "research question",
+            "github actions",
+        }
+    )
+
+    # Collect concept frequency across the corpus
+    all_concept_counts: Counter = Counter()
+    item_concepts_raw: dict[str, list[str]] = {}
+    for item in items:
+        slug = item["slug"]
+        concepts = [
+            c for c in meta_items.get(slug, {}).get("named_concepts", []) if c not in _blocklist
+        ]
+        item_concepts_raw[slug] = concepts
+        all_concept_counts.update(concepts)
+
+    # Retain only concepts appearing rarely enough to be distinctive
+    distinctive: set[str] = {
+        c for c, cnt in all_concept_counts.items() if cnt <= high_freq_threshold
+    }
+
+    # Build filtered concept sets per item
+    item_filtered: dict[str, set[str]] = {
+        item["slug"]: set(item_concepts_raw[item["slug"]]) & distinctive for item in items
+    }
+
+    # Only consider items that have at least 3 distinctive concepts
+    candidates = [item for item in items if len(item_filtered[item["slug"]]) >= 3]
+
+    # Generate candidate clusters (seed-based, same logic as tag threads)
+    candidate_clusters: list[list[dict]] = []
+    for item in candidates:
+        seed_concepts = item_filtered[item["slug"]]
+        cluster = [item]
+        for other in candidates:
+            if other["slug"] == item["slug"]:
+                continue
+            if len(seed_concepts & item_filtered[other["slug"]]) >= 3:
+                cluster.append(other)
+        if len(cluster) >= 3:
+            candidate_clusters.append(cluster)
+
+    # Build slug-sets for existing threads to avoid duplication
+    existing_slugsets: list[set[str]] = [
+        {it["slug"] for it in t["items"]} for t in existing_threads
+    ]
+
+    # Deduplicate: skip if 75%+ overlap with existing thread or already-accepted concept cluster
+    candidate_clusters.sort(key=lambda c: -len(c))
+    accepted_slugsets: list[set[str]] = []
+    accepted_clusters: list[list[dict]] = []
+    for cluster in candidate_clusters:
+        cluster_slugs = {c["slug"] for c in cluster}
+        if any(_cluster_overlap(cluster_slugs, e) >= 0.75 for e in existing_slugsets):
+            continue
+        if any(_cluster_overlap(cluster_slugs, a) >= 0.75 for a in accepted_slugsets):
+            continue
+        accepted_clusters.append(cluster)
+        accepted_slugsets.append(cluster_slugs)
+
+    # Build thread dicts
+    concept_threads: list[dict] = []
+    for cluster in accepted_clusters:
+        cluster_sorted = sorted(cluster, key=lambda x: x["added"])
+        all_concepts_in_cluster: list[str] = []
+        for c in cluster:
+            all_concepts_in_cluster.extend(item_filtered[c["slug"]])
+        top_concepts = [c for c, _ in Counter(all_concepts_in_cluster).most_common(3)]
+        thread_title = " / ".join(top_concepts)
+        concept_threads.append(
+            {
+                "slug": slugify(thread_title),
+                "title": thread_title,
+                "items": cluster_sorted,
+                "kind": "concept",
+                "tag_cluster": [],
+                "concept_cluster": top_concepts,
+            }
+        )
+
+    return concept_threads
 
 
 def detect_shared_sources(items: list[dict]) -> dict[str, list[dict]]:
@@ -1845,7 +1979,8 @@ def build_threads_listing(threads: list[dict]) -> str:
         n = len(t["items"])
         date_range = _thread_date_range(t["items"])
         meta = f"{n} item{'s' if n != 1 else ''} · {date_range}"
-        tag_pills = "".join(f'<span class="tag">{escape(tag)}</span>' for tag in t["tag_cluster"])
+        cluster_labels = t["tag_cluster"] or t.get("concept_cluster", [])
+        tag_pills = "".join(f'<span class="tag">{escape(label)}</span>' for label in cluster_labels)
         excerpt = t["items"][0]["question_excerpt"]
         if len(t["items"][0]["question"]) > 200:
             excerpt = excerpt.rstrip() + "…"
@@ -1894,6 +2029,9 @@ def build_thread_page(thread: dict) -> str:
             f'<a class="tag-pill-link tag" href="/Research/tags/{escape(t)}.html">{escape(t)}</a>'
             for t in thread["tag_cluster"]
         )
+        tag_cluster_html = f'<div class="featured-pills" style="margin-bottom:1.5rem">{pills}</div>'
+    elif thread.get("concept_cluster"):
+        pills = "".join(f'<span class="tag">{escape(c)}</span>' for c in thread["concept_cluster"])
         tag_cluster_html = f'<div class="featured-pills" style="margin-bottom:1.5rem">{pills}</div>'
 
     return (
@@ -1983,6 +2121,7 @@ def build_threads_index_json(threads: list[dict]) -> str:
             "title": t["title"],
             "kind": t["kind"],
             "tag_cluster": t["tag_cluster"],
+            "concept_cluster": t.get("concept_cluster", []),
             "item_count": len(t["items"]),
             "items": [
                 {"slug": item["slug"], "title": item["title"], "added": item["added_str"]}
@@ -2022,10 +2161,14 @@ def main() -> None:
     total_edges = sum(len(v) for v in links.values())
 
     print("Detecting threads…")
-    threads = detect_threads(items)
+    threads = detect_threads(items, metadata)
     n_explicit = sum(1 for t in threads if t["kind"] == "explicit")
-    n_implicit = len(threads) - n_explicit
-    print(f"  {len(threads)} threads detected ({n_explicit} chain, {n_implicit} tag)")
+    n_implicit = sum(1 for t in threads if t["kind"] == "implicit")
+    n_concept = sum(1 for t in threads if t["kind"] == "concept")
+    print(
+        f"  {len(threads)} threads detected "
+        f"({n_explicit} explicit, {n_implicit} tag, {n_concept} concept)"
+    )
 
     # Shared-source relationships
     shared = detect_shared_sources(items)
@@ -2123,7 +2266,9 @@ def main() -> None:
     print(f"  {pages_written} pages written")
     print(f"  {unique_tags} unique tags (after singleton filtering)")
     print(f"  {n_dropped} singleton tags dropped / {n_retained} retained")
-    print(f"  {len(threads)} threads ({n_explicit} chain, {n_implicit} tag)")
+    print(
+        f"  {len(threads)} threads ({n_explicit} explicit, {n_implicit} tag, {n_concept} concept)"
+    )
     print(f"  {total_edges} edges loaded")
     print(f"  {n_shared} shared-source relationships added")
     print(f"  {n_with_claims} items with key claims")

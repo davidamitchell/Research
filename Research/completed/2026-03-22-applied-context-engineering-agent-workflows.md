@@ -4,7 +4,7 @@ added: 2026-03-22
 status: completed
 priority: high
 blocks: []
-tags: [context-engineering, agent-skills, workflows, best-practices, multi-agent, memory-systems, tool-design, project-development, evaluation, production-agents]
+tags: [context-engineering, agent-skills, workflows, best-practices, multi-agent, memory-systems, tool-design, project-development, evaluation, production-agents, agents]
 started: 2026-03-22
 completed: 2026-03-22
 output: [knowledge]
