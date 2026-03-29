@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Multi-agent repo setup: best practices for configuring a repository to be worked on by Claude (iOS and GitHub Issues) and Copilot (Spaces and GitHub Issues)"
 added: 2026-03-29
 status: reviewing
