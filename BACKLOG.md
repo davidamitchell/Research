@@ -55,13 +55,17 @@ Python project tooling defined in `pyproject.toml` as the single source of truth
 
 ## W-0004
 
-status: done
+status: open
 created: 2026-02-27
-updated: 2026-02-27
+updated: 2026-03-28
 
 ### Outcome
 
 `.devcontainer/devcontainer.json`, `Makefile`, and `.env.example` are present; `make dev-install` succeeds and the dev environment is ready in Codespaces without manual steps.
+
+### Notes
+
+`.devcontainer/devcontainer.json` is absent — confirmed 2026-03-28. W-0004 was incorrectly marked done. Reopened. See W-0036 for the full environment consistency work that will deliver this.
 
 ---
 
@@ -574,5 +578,65 @@ All three share the goal of making the research corpus navigable, connected, and
 - Reactive search and synthesis builds on the same index and can be added as a `workflow_dispatch` interface or CLI command.
 
 **Related items:** W-0025 (deferred semantic search — can be revived as part of this slice), W-0030 (wiki publish pipeline — the map and active digest extend this).
+
+---
+
+## W-0035
+
+status: open
+created: 2026-03-28
+updated: 2026-03-28
+
+### Outcome
+
+Confirmed, documented answers to:
+1. Which files the GitHub Copilot coding agent reads automatically when an issue is assigned to it (`.github/copilot-instructions.md`, `.github/skills/`, `AGENTS.md` — loading order and whether submodules are materialised).
+2. Which files the Claude iOS `code` feature loads when opened against this repo (`CLAUDE.md`, `AGENTS.md`, `.github/copilot-instructions.md` — confirmed loading order).
+3. Whether `AGENTS.md` at the repo root is needed for either agent, and whether ADR-0006 (which deleted it) needs superseding.
+
+Findings stored in `Research/completed/2026-03-28-agent-instruction-loading.md`. ADR updated or superseded if the answer changes the current single-file decision.
+
+### Context
+
+ADR-0006 removed `AGENTS.md` on the assumption that `.github/copilot-instructions.md` was sufficient for all agents. If either the Copilot coding agent or Claude iOS requires `AGENTS.md` to locate instructions reliably, that assumption is wrong. The research item `Research/backlog/2026-03-28-agent-instruction-loading-and-skills-access.md` investigates this.
+
+---
+
+## W-0036
+
+status: open
+created: 2026-03-28
+updated: 2026-03-28
+
+### Outcome
+
+`.devcontainer/devcontainer.json` exists with: Python 3.11 base image, `postCreateCommand` running `make dev-install && git submodule update --init .github/skills`, GitHub CLI feature. `copilot-setup-steps.yml` exists (if the schema supports it) with the same setup steps. `.github/copilot-instructions.md` contains an explicit setup instruction that causes Claude iOS to run the correct steps before starting work. `research-loop.yml` inline setup steps are consolidated or removed where redundant.
+
+### Context
+
+Three agent entry points exist: (1) Copilot coding agent via assigned GitHub issues, (2) Claude iOS `code` feature, (3) `research-loop.yml` workflow. Each currently handles environment setup differently or not at all. `.devcontainer/devcontainer.json` is absent (W-0004 incorrectly marked done). The research item `Research/backlog/2026-03-28-environment-setup-consistency.md` defines what each agent needs and whether a single file can serve all three.
+
+Blocked on W-0035 (need to know what each agent reads before specifying what to write).
+
+---
+
+## W-0037
+
+status: open
+created: 2026-03-28
+updated: 2026-03-28
+
+### Outcome
+
+Confirmed, documented answers to:
+1. The exact schema and behaviour of `.github/copilot-setup-steps.yml` — what it does, when it runs, what it supports (submodule init, pip install), and whether it replaces or complements `devcontainer.json` for the Copilot coding agent.
+2. How Claude iOS respects (or does not respect) environment setup configuration files — what mechanism, if any, causes it to run setup steps before starting work.
+3. Whether a single setup declaration file can serve both agents, or whether separate files are required.
+
+Findings stored in `Research/completed/2026-03-28-agent-env-setup-schema.md`. Directly unblocks W-0036 implementation.
+
+### Context
+
+Before writing `.devcontainer/devcontainer.json` and `copilot-setup-steps.yml`, the schema and runtime behaviour of each must be verified. The research item `Research/backlog/2026-03-28-environment-setup-consistency.md` covers this as Q1–Q3.
 
 ---
