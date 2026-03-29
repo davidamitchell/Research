@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "The role of AGENTS.md in a repo using .github/copilot-instructions.md as the sole instructions source"
 added: 2026-03-28
 status: reviewing
