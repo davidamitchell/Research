@@ -7,7 +7,7 @@ blocks: []
 tags: [copilot, claude, ios, devcontainer, copilot-setup-steps, environment, github-issues]
 started: 2026-03-29
 completed: ~
-review_count: 1
+review_count: 2
 output: [knowledge, backlog-item]
 ---
 
