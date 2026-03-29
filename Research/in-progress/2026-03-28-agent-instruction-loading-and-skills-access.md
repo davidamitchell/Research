@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Agent instruction loading and skills access: Copilot coding agent, Claude iOS code feature, and the role of AGENTS.md"
 added: 2026-03-28
 status: reviewing
