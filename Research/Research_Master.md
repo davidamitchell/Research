@@ -1,9 +1,10 @@
 # Research Master Document
 
-Generated on: 2026-03-29 09:45 UTC
+Generated on: 2026-03-29 10:07 UTC
 
 ## Table of Contents
 
+* [Claude Code on the web: private submodule credential access and git submodule init mechanism](#2026-03-29-claude-code-web-submodule-credential-md)
 * [Environment setup consistency: what each agent sees when it starts work in this repo and how to make it consistent](#2026-03-28-environment-setup-consistency-md)
 * [Agent instruction loading and skills access: Copilot coding agent, Claude iOS code feature, and the role of AGENTS.md](#2026-03-28-agent-instruction-loading-and-skills-access-md)
 * [Rory Sutherland's core tenets: anti-bureaucracy, customer thinking, and behavioral economics](#2026-03-26-rory-sutherland-core-tenets-md)
@@ -128,6 +129,101 @@ Generated on: 2026-03-29 09:45 UTC
 * [AI Strategy Examples: Business Efficiency Focus](#2026-02-28-ai-strategy-business-efficiency-examples-md)
 * [AI Line 1 and Line 2 Risk Agents: Who Is Building Them?](#2026-02-28-ai-line-1-line-2-risk-agents-md)
 * [AI for Control Testing, Gap Identification, and Policies/Standards Reviews](#2026-02-28-ai-control-testing-and-assurance-md)
+
+---
+
+<a name="2026-03-29-claude-code-web-submodule-credential-md"></a>
+
+## Claude Code on the web: private submodule credential access and git submodule init mechanism
+
+**Tags:** [claude-code, submodules, credentials, environment-setup, agent-tooling]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-29-claude-code-web-submodule-credential.md
+
+## Research Question
+
+Does Claude Code on the web automatically initialise git submodules when cloning a repository, and if so, can it access private submodules (such as `davidamitchell/Skills` referenced at `.github/skills/`)? If not, what is the correct mechanism to grant it access via the User Interface (UI)-configured setup script?
+
+## Findings
+
+### Executive Summary
+
+Claude Code on the web does not automatically initialise git submodules when cloning a repository, and the built-in GitHub proxy credential covers only the selected repository, leaving private submodule directories empty by default. The workaround is to store a fine-grained PAT with read access to the submodule repository in the Claude.ai UI environment variable configuration, then configure git URL credential injection and run `git submodule update --init` in the Bash setup script. This approach is confirmed by community practice and CI/CD patterns but has not been tested end-to-end against the Claude Code web proxy specifically. SSH key injection is not supported. GitHub repository secrets are not available to the Claude Code web setup script, so the PAT must be stored in Claude.ai's own credential store.
+
+### Key Findings
+
+1. Claude Code on the web clones the selected repository but does not run `git submodule update --init` automatically; submodule directories exist in the working tree but are empty, confirmed by a Reddit community report and two separate GitHub issues against the `anthropics/claude-code` repository. (high confidence)
+
+2. The GitHub proxy's scoped credential is intentionally limited to the selected repository for security reasons; private submodules in other repositories are inaccessible through this credential even when the Claude.ai GitHub App has been granted access to those repositories at the organisation level. (high confidence)
+
+3. Environment variables configured in the Claude.ai UI are available as standard Bash variables during the setup script execution, making it possible to store a PAT there and reference it in the setup script as `${SKILLS_PAT}` or equivalent. (high confidence)
+
+4. The recommended workaround for private submodule access uses `git config --global url."https://${SKILLS_PAT}@github.com/".insteadOf "https://github.com/"` in the setup script, followed by `git submodule update --init .github/skills`, embedding the PAT in the URL rather than an HTTP header to reduce the risk of the proxy stripping the credential. (medium confidence)
+
+5. SSH key injection for private submodule access is not a supported mechanism in Claude Code web; the GitHub proxy operates exclusively over HTTPS, and no SSH key configuration path is documented or reported as functional by community users. (high confidence)
+
+6. GitHub repository secrets (managed via GitHub Settings and referenced in workflows as `${{ secrets.NAME }}`) are not available to the Claude Code web setup script, because the setup script runs on an Anthropic-managed VM outside the GitHub Actions execution context. (medium confidence)
+
+7. This repository's `.gitmodules` file already uses an HTTPS URL (`https://github.com/davidamitchell/Skills.git`) rather than an SSH URL, which simplifies the PAT workaround by eliminating the need for SSH-to-HTTPS URL rewriting in the setup script. (high confidence)
+
+8. A fine-grained PAT scoped to `davidamitchell/Skills` with `contents:read` permission only reduces the blast radius if the token is exposed, compared to a classic token with broad `repo` scope. [inference] (medium confidence)
+
+9. Whether the Claude Code web GitHub proxy allows HTTPS requests with an embedded PAT (i.e., `https://TOKEN@github.com/`) to pass through to non-selected repositories has not been confirmed by Anthropic documentation or a verified community test; this is the primary remaining uncertainty for the workaround. (low confidence)
+
+10. GitHub issue #24400, requesting that the Claude Code web proxy natively support all repositories the GitHub App has access to, was opened and closed in a single day in February 2026 with no documented resolution; the closure appears to be automated rather than a confirmed implementation. (medium confidence)
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| No auto-init of submodules on clone | https://www.reddit.com/r/ClaudeAI/comments/1otp5l1/private_git_submodules_in_claude_code_web/; https://github.com/anthropics/claude-code/issues/24400; https://github.com/anthropics/claude-code/issues/17293 | High | Three independent sources confirm the same behaviour |
+| GitHub proxy scoped to selected repo only | https://code.claude.com/docs/en/claude-code-on-the-web; https://www.reddit.com/r/ClaudeAI/comments/1otp5l1/private_git_submodules_in_claude_code_web/ | High | Official docs describe scoped credential; community confirms limitation |
+| UI env vars available to setup script | https://code.claude.com/docs/en/claude-code-on-the-web | High | Official docs describe both env vars and setup scripts in same section |
+| PAT + url.insteadOf workaround | https://www.reddit.com/r/ClaudeAI/comments/1otp5l1/private_git_submodules_in_claude_code_web/; https://docs.acquia.com/acquia-cloud-platform/add-ons/code-studio/pulling-private-repos-git-submodules-code-studio; https://github.com/orgs/community/discussions/51011 | Medium | Community workaround; official proxy behaviour vs. embedded-URL credentials unconfirmed |
+| No SSH key support | https://code.claude.com/docs/en/claude-code-on-the-web; https://www.reddit.com/r/ClaudeAI/comments/1otp5l1/ | High | No documentation; community asked without answer |
+| GitHub Secrets not available to Claude Code web setup | https://code.claude.com/docs/en/claude-code-on-the-web | Medium | Different execution context from GitHub Actions; inference from architecture; single source |
+| HTTPS URL in .gitmodules | .gitmodules file in this repository | High | Direct inspection; `url = https://github.com/davidamitchell/Skills.git` |
+| Fine-grained PAT reduces blast radius | https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens | Medium | GitHub best practice; applies to all PAT usage contexts |
+| Proxy may strip HTTP auth headers | https://github.com/anthropics/claude-code/issues/11078 | Medium | npm registry context; inferred applies to git; not confirmed for git specifically |
+| Issue #24400 closed without confirmed resolution | https://github.com/anthropics/claude-code/issues/24400 | Medium | Auto-closed same day as opened; no documentation of the fix |
+
+### Assumptions
+
+- **[assumption]** URL-embedded credentials (e.g., `https://TOKEN@github.com/`) are not stripped by the Claude Code web GitHub proxy, unlike HTTP `Authorization` headers which the proxy is known to strip for npm registry operations. Justification: the proxy stripping behaviour documented in issue #11078 describes header stripping; URL-embedded tokens are part of the request URL and may be handled differently by the proxy's URL rewriting layer. This assumption cannot be verified without a live test.
+- **[assumption]** GitHub issue #24400 was auto-closed by a bot rather than resolved by Anthropic. Justification: opened and closed on the same day (February 9, 2026) with no activity commentary other than a bot lock message; no corresponding documentation update found.
+
+### Analysis
+
+Evidence from three independent sources (Reddit community, GitHub issues #24400 and #17293) converges on the same behaviour: submodules are not initialised on clone. This is consistent with the official documentation's description of the GitHub proxy covering only the selected repository.
+
+The community workaround (PAT + URL modification) and the CI/CD-pattern alternative (`url.insteadOf`) both rely on embedding credentials in the HTTPS URL rather than using a standard credential helper. [inference] The `url.insteadOf` approach avoids modifying a tracked file (`.gitmodules`) and follows established CI/CD credential injection convention. The critical uncertainty is whether the Claude Code web proxy passes through embedded-PAT URLs to non-selected repositories. This cannot be resolved without a live test.
+
+The npm proxy stripping evidence (issue #11078) establishes that the proxy does modify outbound requests, but git and npm use different authentication flows: npm uses a separate `Authorization` header, while git with HTTPS embeds credentials in the URL or uses a credential helper that responds to a challenge. The URL embedding path may not be intercepted by the proxy in the same way.
+
+[inference] The fine-grained `contents:read` PAT scope for `davidamitchell/Skills` minimises the permission surface. The `COPILOT_GITHUB_TOKEN` already available as a repository credential may have sufficient scope, but a dedicated minimal-permission token isolates the Claude Code web credential from broader repository operations.
+
+### Risks, Gaps, and Uncertainties
+
+- **Primary uncertainty:** Whether `https://TOKEN@github.com/davidamitchell/Skills.git` passes through the Claude Code web GitHub proxy without token stripping. This is the difference between the workaround being functional and non-functional. Only a live test resolves this.
+- **Secondary uncertainty:** Whether GitHub issue #24400 represents a resolved feature (in which case the proxy might already support cross-repo submodule access when the GitHub App has been granted access) or an auto-closed bot response. If resolved, the entire workaround may be unnecessary.
+- **GitHub Secrets gap:** The PAT must be stored in Claude.ai's env var configuration, not in GitHub Secrets. This means the credential is managed on Anthropic's platform, not GitHub's. Users who prefer GitHub-native credential management have no direct path.
+- **Token rotation:** Fine-grained PATs expire (maximum 1 year on GitHub). The Claude.ai env var must be updated on expiry. There is no automated rotation mechanism.
+- **Proxy future behaviour:** The proxy is under active development (issue labels include `area:auth` and `area:security`). Behaviour may change without documentation updates.
+
+### Open Questions
+
+- **Does a live test of the `url.insteadOf` + PAT approach succeed in Claude Code web?** This is the most actionable open question. It cannot be answered from documentation alone. Suggested follow-up: create a backlog item to perform a live test in a Claude Code web session.
+- **Has Anthropic shipped native multi-repo submodule support since February 2026?** Issue #24400 was closed; a fresh check of the Claude Code changelog or release notes would confirm this.
+- **Would `COPILOT_GITHUB_TOKEN` (the existing PAT in this repository's credentials) suffice, or does a dedicated scoped token need to be created and added to Claude.ai env vars?**
+
+### Output
+
+- **Type:** knowledge
+- **Description:** Claude Code on the web does not auto-init submodules; private submodule access requires a PAT stored in Claude.ai UI env vars plus a setup script using `git config url.insteadOf` before `git submodule update --init`. Whether this fully works through the GitHub proxy requires a live test.
+- **Key sources:**
+  1. https://code.claude.com/docs/en/claude-code-on-the-web (GitHub proxy scoping, setup scripts, env vars)
+  2. https://www.reddit.com/r/ClaudeAI/comments/1otp5l1/private_git_submodules_in_claude_code_web/ (community confirmation of default limitation and PAT workaround)
+  3. https://github.com/anthropics/claude-code/issues/24400 (feature request confirming the gap; closure status ambiguous)
 
 ---
 
