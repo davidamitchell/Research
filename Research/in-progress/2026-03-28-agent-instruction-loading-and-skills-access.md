@@ -70,7 +70,7 @@ Prior research: `Research/completed/2026-03-08-ai-coding-harnesses-agent-philoso
 
 **Research question restated:** Given this repo's setup (instructions in `.github/copilot-instructions.md`, skills submodule at `.github/skills/`, no `AGENTS.md`, no `CLAUDE.md`), what does the GitHub Copilot coding agent and the Claude iOS app GitHub connector each actually load at session start, and do either have access to the skills submodule?
 
-**Scope confirmed:** Publicly documented loading behaviour for the Copilot coding agent (GitHub Issues → assign to Copilot → draft PR) and the Claude iOS app GitHub connector feature. Excludes VS Code agent mode and local Claude Code CLI unless directly relevant to the iOS / GitHub Issues surface. Focuses on this repo's actual entry points.
+**Scope confirmed:** Publicly documented loading behaviour for the Copilot coding agent (GitHub Issues → assign to Copilot → draft PR) and the Claude iOS app GitHub connector feature. Excludes Visual Studio Code (VS Code) agent mode and local Claude Code CLI unless directly relevant to the iOS / GitHub Issues surface. Focuses on this repo's actual entry points.
 
 **Constraints:** Evidence drawn from official GitHub Copilot documentation, official Anthropic/Claude documentation, GitHub changelog posts, and community discussions. Preference for primary sources (GitHub Docs, code.claude.com, support.claude.com). Where primary sources are silent, secondary sources (community discussions, practitioner guides) are used and labelled accordingly.
 
@@ -124,7 +124,7 @@ The research question decomposes into three primary threads, each with atomic su
 
 > "Alongside `AGENTS.md`, the agent continues to support GitHub's `.github/copilot-instructions.md` and `.github/instructions/**.instructions.md` formats, plus `CLAUDE.md` and `GEMINI.md` files."
 
-[fact] `AGENTS.md` support was added to the Copilot coding agent on 28 August 2025. Prior to this date, `AGENTS.md` was not read by the coding agent. ADR-0006 (this repo) was authored in March 2026, after this feature shipped; `AGENTS.md` support was therefore available but unused in this repo.
+[fact] `AGENTS.md` support was added to the Copilot coding agent on 28 August 2025. Prior to this date, `AGENTS.md` was not read by the coding agent. [inference] ADR-0006 (this repo) was authored in March 2026, after this feature shipped; `AGENTS.md` support was therefore available but went unused in this repo.
 
 *Primary source:* GitHub Docs: "Adding repository custom instructions for GitHub Copilot" (https://docs.github.com/copilot/customizing-copilot/adding-custom-instructions-for-github-copilot)
 
@@ -245,7 +245,7 @@ Adding `AGENTS.md` as a thin pointer (`See .github/copilot-instructions.md`) wou
 ### §3 Reasoning
 
 **Instruction loading clarity:**
-The Copilot coding agent reads `.github/copilot-instructions.md` automatically and has done so since its initial release. `AGENTS.md` was added as an additional source in August 2025. These are additive. The repo's current absence of `AGENTS.md` means the coding agent falls back to `.github/copilot-instructions.md` alone, which is adequate.
+The Copilot coding agent reads `.github/copilot-instructions.md` automatically and has done so since its initial release. `AGENTS.md` was added as an additional source in August 2025. These are additive. The repo's current absence of `AGENTS.md` means the coding agent falls back to `.github/copilot-instructions.md` alone, which is [inference] sufficient for current instruction delivery.
 
 **Skills submodule gap:**
 The critical finding for this repo is the submodule issue. Skills in `.github/skills/` will not be available to the Copilot coding agent because: (a) the default Actions checkout does not materialise submodules, and (b) even explicit `copilot-setup-steps.yml` configuration has been reported as unreliable by community members (the setup step completes but the submodule is still empty when the agent begins). This is not a documentation gap; it is a confirmed platform limitation as of late 2025.
@@ -278,13 +278,13 @@ ADR-0006 removed `AGENTS.md` to eliminate a two-file sync problem. That decision
 The skills submodule gap has two viable mitigations: (1) move skills into the main repository as a plain directory (eliminating the submodule), or (2) accept the gap and provide skills content inline in `.github/copilot-instructions.md`. Moving skills to a plain directory is the most reliable fix. However, the skills submodule is shared across multiple repos in the `davidamitchell` organisation; inlining it would lose that sharing benefit.
 
 **Historical lens, instruction file proliferation:**
-The `AGENTS.md` format was created to address exactly this fragmentation problem: each tool (Copilot, Claude Code, Cursor, Aider, Gemini CLI) having its own instruction file convention. As of 2025, `AGENTS.md` is used by 20,000+ open source projects and is supported by all major coding agents. The trajectory is towards `AGENTS.md` as the default cross-tool file. `.github/copilot-instructions.md` remains the GitHub-specific format that Copilot Chat (not just the coding agent) reads.
+The `AGENTS.md` format was created to address exactly this fragmentation problem: each tool (Copilot, Claude Code, Cursor, Aider, Gemini Command Line Interface (CLI)) having its own instruction file convention. The 20,000+ open source project adoption figure circulates in practitioner guides but lacks a primary source citation; it is treated here as [assumption] that adoption is widespread, not a verified count. The format is supported by all major coding agents. The trajectory is towards `AGENTS.md` as the default cross-tool file. `.github/copilot-instructions.md` remains the GitHub-specific format that Copilot Chat (not just the coding agent) reads.
 
 **Behavioural lens, owner workflow:**
 The owner uses this repo via two surfaces: GitHub Issues (Copilot coding agent) and the Claude iOS app (GitHub connector). For the Copilot coding agent, instructions are loaded automatically from `.github/copilot-instructions.md`. For the Claude iOS connector, no instructions are loaded automatically. The gap is real but addressable: the owner should either (a) add `.github/copilot-instructions.md` to their Claude Project's knowledge base manually, or (b) create a `CLAUDE.md` file that Claude Code or Claude connector could auto-load.
 
 **Economic lens, maintenance cost:**
-Maintaining a thin `CLAUDE.md` (single import line pointing to `.github/copilot-instructions.md`) adds near-zero maintenance overhead while significantly improving Claude Code access. The tradeoff is clearly positive.
+Maintaining a thin `CLAUDE.md` (single import line pointing to `.github/copilot-instructions.md`) adds near-zero maintenance overhead while improving Claude Code access. [inference] The cost-benefit ratio favours adding the file.
 
 ---
 
