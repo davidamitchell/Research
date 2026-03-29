@@ -479,3 +479,40 @@ def test_failure_branch_cleans_dirty_working_tree() -> None:
     assert success_reset_pos < increment_pos, (
         "Success reset (CONSECUTIVE_FAILURES=0) must precede failure increment in source"
     )
+
+
+# ---------------------------------------------------------------------------
+# ADR-0011: Orphan cleanup (stuck in-progress files)
+# ---------------------------------------------------------------------------
+
+
+def test_workflow_has_orphan_cleanup_step() -> None:
+    """The loop must remove in-progress files that are already in completed (orphan cleanup)."""
+    content = WORKFLOW_PATH.read_text(encoding="utf-8")
+    assert "Research/completed" in content and "Research/in-progress" in content, (
+        "Workflow must reference both in-progress and completed dirs for orphan cleanup"
+    )
+    assert "git rm" in content, "Workflow must use git rm to remove orphaned in-progress files"
+
+
+def test_workflow_orphan_cleanup_appears_after_rebase() -> None:
+    """Orphan cleanup must appear after git pull --rebase (so it sees current state of main)."""
+    content = WORKFLOW_PATH.read_text(encoding="utf-8")
+    rebase_pos = content.find("git pull --rebase origin main")
+    orphan_pos = content.find("Orphan")
+    assert rebase_pos != -1, "git pull --rebase origin main must be present"
+    assert orphan_pos != -1, "Orphan cleanup comment must be present in workflow"
+    assert orphan_pos > rebase_pos, "Orphan cleanup must appear after git pull --rebase"
+
+
+def test_adr_0011_exists() -> None:
+    """ADR-0011 documenting git-index staging in CLI file-move commands must exist."""
+    adr_path = REPO_ROOT / "docs-adr" / "0011-git-index-staging-in-cli-file-moves.md"
+    assert adr_path.exists(), f"ADR-0011 not found at {adr_path}"
+
+
+def test_adr_0011_indexed() -> None:
+    """ADR-0011 must be referenced in the ADR index."""
+    index_path = REPO_ROOT / "docs-adr" / "README.md"
+    content = index_path.read_text(encoding="utf-8")
+    assert "0011" in content, "ADR-0011 must be added to the ADR index"

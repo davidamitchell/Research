@@ -7,6 +7,18 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [Unreleased]
 
 ### Fixed
+- `src/research/cli.py` `cmd_start` and `cmd_complete`: added `_git_add(root.parent, src, dest)` call after each file move so the git index is updated atomically with the filesystem change. Previously, only the new file was staged by the Copilot agent's explicit `git add`; the old file's deletion was never staged, leaving an unstaged deletion that caused the next `git pull --rebase` to fail with "You have unstaged changes." See ADR-0011.
+- `research-loop.yml`: added orphan cleanup step after each `git pull --rebase` to remove any `Research/in-progress/` files that already have a corresponding `Research/completed/` entry (stuck files from the old bug); creates a cleanup commit and pushes when orphans are found.
+
+### Added
+- ADR-0011: Git-index staging in CLI file-move commands — documents `_git_add` helper, the orphan cleanup step, and two rejected alternatives (`git mv`, loop-level stash/reset).
+- Two regression tests in `tests/test_research_cli.py` (`test_cmd_start_leaves_no_unstaged_changes`, `test_cmd_complete_leaves_no_unstaged_changes`) using a real git repo fixture; both tests failed before the fix and pass after.
+
+### Changed
+- `Research/README.md`: updated `research start` and `research complete` commit examples to note that the git index is staged automatically — `git add Research/` is no longer required.
+- `.github/copilot-instructions.md`: updated Starting Research and Completing Research sections to document automatic git staging; added unstaged-deletion pattern to the Known Recurring Failure Patterns table.
+
+### Fixed (prior release)
 - `research-loop.yml` Run research loop step: replaced `GH_TOKEN` with `GITHUB_TOKEN` (the env var the Copilot CLI actually reads); added `TAVILY_API_KEY` and `YOUTUBE_DATA_API` to the env block so the Tavily MCP server and YouTube fetcher no longer fail silently
 - `research-loop.yml` header comment: updated required-secrets documentation to list all three secrets (`COPILOT_GITHUB_TOKEN`, `TAVILY_API_KEY`, `YOUTUBE_DATA_API`) with their purposes
 - `test_research_loop.py`: added three new tests asserting `GITHUB_TOKEN` (not `GH_TOKEN`) and both `TAVILY_API_KEY` / `YOUTUBE_DATA_API` are present in the loop step env block

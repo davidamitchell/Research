@@ -168,6 +168,31 @@ jobs:
             fi
 
             # ---------------------------------------------------------------- #
+            # Orphan cleanup: remove in-progress files that are already in     #
+            # completed (stuck from prior runs where the deletion was not       #
+            # staged -- see ADR-0011). This ensures the loop never re-runs a   #
+            # Copilot session on an item that was already successfully          #
+            # completed.                                                        #
+            # ---------------------------------------------------------------- #
+            ORPHAN_COUNT=0
+            shopt -s nullglob
+            for f in Research/in-progress/*.md; do
+              fname=$(basename "$f")
+              [ "$fname" = ".gitkeep" ] && continue
+              [ "$fname" = "README.md" ] && continue
+              if [ -f "Research/completed/$fname" ]; then
+                echo "::warning::Orphan in-progress file (already in completed): $fname -- removing."
+                git rm --force "Research/in-progress/$fname"
+                ORPHAN_COUNT=$((ORPHAN_COUNT + 1))
+              fi
+            done
+            shopt -u nullglob
+            if [ "$ORPHAN_COUNT" -gt 0 ]; then
+              git commit -m "fix: remove $ORPHAN_COUNT orphaned in-progress file(s) already present in completed"
+              git push origin main || true
+            fi
+
+            # ---------------------------------------------------------------- #
             # Pick next item (pure code -- zero LLM calls)                     #
             # ---------------------------------------------------------------- #
             # Applies priority rules: in-progress first, then backlog by

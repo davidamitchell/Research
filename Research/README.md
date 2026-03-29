@@ -30,10 +30,9 @@ git add Research/backlog/ && git commit -m "research: add backlog item - <short 
 
 ```bash
 python -m src.main research start <filename>
-# or manually:
-mv Research/backlog/YYYY-MM-DD-title.md Research/in-progress/
-# Update status: field to in-progress and set started: date
-git add Research/ && git commit -m "research: start - <short title>"
+# The command moves the file to in-progress/, updates status and started date,
+# and stages the move in the git index automatically.
+git commit -m "research: start - <short title>"
 ```
 
 ### Marking an item for review (draft)
@@ -51,8 +50,9 @@ gh workflow run research-review.yml -f item_path=Research/in-progress/<filename>
 
 ```bash
 python -m src.main research complete <filename>
-# Moves the file to Research/completed/ and updates status and completed fields
-git add Research/ && git commit -m "research: complete - <short title>"
+# Moves the file to Research/completed/, updates status and completed fields,
+# and stages the move in the git index automatically.
+git commit -m "research: complete - <short title>"
 ```
 
 ### Lifecycle
