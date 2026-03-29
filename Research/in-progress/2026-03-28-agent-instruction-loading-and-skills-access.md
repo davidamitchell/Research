@@ -8,7 +8,7 @@ tags: [copilot, claude, ios, agents-md, skills, instructions, github-issues]
 started: 2026-03-29
 completed: ~
 output: [knowledge, backlog-item]
-review_count: 1
+review_count: 2
 ---
 
 # Agent instruction loading and skills access: Copilot coding agent, Claude iOS code feature, and the role of AGENTS.md
