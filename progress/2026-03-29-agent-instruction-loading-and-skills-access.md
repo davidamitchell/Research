@@ -3,21 +3,22 @@
 **Completed:**
 
 Research item:
-- `Research/completed/2026-03-28-agent-instruction-loading-and-skills-access.md` — completed; the Copilot coding agent reads `.github/copilot-instructions.md` automatically and this repo's setup is correct, but the `.github/skills/` git submodule is silently absent from the agent's context because the ephemeral Actions environment does not materialise submodules. The Claude iOS GitHub connector loads no instruction files automatically; adding a root `CLAUDE.md` and adding `.github/copilot-instructions.md` to the Claude Project knowledge base would close both identified gaps.
+- `Research/completed/2026-03-28-agent-instruction-loading-and-skills-access.md` -- completed; The Copilot coding agent loads `.github/copilot-instructions.md` automatically and has supported `AGENTS.md` since August 2025; Claude Code (used by the Claude iOS `code` feature) reads `CLAUDE.md` and `AGENTS.md` but not `.github/copilot-instructions.md`, meaning the current repo leaves Claude Code with zero project instructions. The fix is to restore `AGENTS.md` at the repo root and to add `copilot-setup-steps.yml` for submodule access.
 
 Sources consulted:
-- https://docs.github.com/copilot/customizing-copilot/adding-custom-instructions-for-github-copilot (GitHub Docs: custom instructions; confirms AGENTS.md and copilot-instructions.md are additive)
-- https://github.com/orgs/community/discussions/180953 (Community Discussion: Copilot coding agent cannot access git submodules, December 2025 reports)
-- https://support.claude.com/en/articles/10167454-using-the-github-integration (Anthropic Help: Claude GitHub integration connector, manual file selection, no auto-loading)
-- https://code.claude.com/docs/en/memory (Claude Code Docs: CLAUDE.md loading by directory-tree walk)
-- https://github.blog/changelog/2025-08-28-copilot-coding-agent-now-supports-agents-md-custom-instructions/ (GitHub Changelog: AGENTS.md support added August 2025)
+- https://github.blog/changelog/2025-08-28-copilot-coding-agent-now-supports-agents-md-custom-instructions/ (GitHub changelog confirming coding agent AGENTS.md support since August 2025)
+- https://support.claude.com/en/articles/12618689-claude-code-on-the-web (Anthropic help article confirming Claude iOS code feature is Claude Code on the web)
+- https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents (Anthropic engineering blog: CLAUDE.md loaded into context up front)
+- https://code.visualstudio.com/docs/copilot/customization/custom-instructions (VS Code docs confirming AGENTS.md and CLAUDE.md cross-tool recognition)
+- https://github.com/orgs/community/discussions/180953 (GitHub community: Copilot coding agent submodule initialisation workaround)
+- https://zenn.dev/kesin11/articles/20251210_ai_agent_symlink (Practitioner article: symlink pattern confirming Claude Code ignores .github/copilot-instructions.md)
 
 ## Mini-Retro
 
-1. **Did the process work?** Yes, the research loop produced a complete, well-sourced item with four distinct investigation threads. Evidence gathering via Tavily was effective for both official docs and community reports.
+1. **Did the process work?** Yes -- the research question was fully answered with evidence from primary and secondary sources. The research loop structure produced a well-organised deliverable.
 
-2. **What slowed down or went wrong?** Em-dash removal required a Python scripting pass that took multiple iterations to resolve all 76 instances. Two review cycles were needed; the first review caught 5 violations (VS Code expansion, evaluative terms, a [fact]/[inference] mislabel, an unsourced statistic, and an overconfident claim). The second review caught 7 more (missing labels in §5, an unsourced claim in the Analysis section, and an ADR URL missing from the Evidence Map). Both sets were fixable and reflected known patterns.
+2. **What slowed down or went wrong?** Two review cycles were needed. First review: em-dashes (replaced with --), missing VS Code and CI expansions, scope mismatch on the dual-file-loading claim (CLI docs used to support a coding-agent claim). Second review: residual [fact] label at Q3b that should have been [inference], vague "Multiple sources" quantifier backed by one URL, OAuth unexpanded in prose, and unlabelled historical claims in §5. The second review auto-passed at review_count=2.
 
-3. **What single change would prevent this next time?** Run the evaluative-terms scan and vague-quantifier check as a dedicated inline step before the first draft commit rather than relying on the review workflow to catch them. Specifically: search for "most", "clearly", "adequate", "widely", "all major" and label or remove each before committing.
+3. **What single change would prevent this next time?** Run a targeted grep for `[fact]` before submitting to check that every [fact] has a primary source that directly and explicitly supports the claim -- not a cross-product source or absence-of-evidence argument. Downgrade to [inference] whenever the source is secondary, cross-product, or relies on silence.
 
-4. **Is this a pattern?** Yes. Evaluative terms without epistemic labels and vague quantifiers without sources are the recurring violation class. This matches the pattern in the instructions. The ADR without a URL is a new variant: internal repo paths without GitHub URLs fail the sources-must-have-URLs rule when the Evidence Map is read by an external reviewer. Fix: always use the full GitHub URL for ADR references.
+4. **Is this a pattern?** Yes -- matches the known pattern of [fact]/[inference] boundary failures seen in multiple prior reviews. The core failure is asserting [fact] when the evidence is a secondary or cross-product source. The consistent fix: if the cited source is not an authoritative primary source for the specific product making the claim, the label must be [inference].
