@@ -182,8 +182,11 @@ tests/
    ```bash
    python -m src.main research start <filename>
    ```
+   This moves the file from `Research/backlog/` to `Research/in-progress/`, updates
+   `status` and `started`, and **stages the move in the git index automatically**.
 2. Add an entry to `progress/YYYY-MM-DD-{slug}.md` — note the item has moved to in-progress
 3. Commit with message: `research: start - <short title>`
+   (No `git add Research/` needed — the file move is already staged.)
 
 ### Conducting Research
 
@@ -236,9 +239,12 @@ The `## Research Skill Output` section is **retained verbatim** in the completed
    ```bash
    python -m src.main research complete <filename>
    ```
+   This moves the file to `Research/completed/`, updates `status` and `completed` date,
+   and **stages the move in the git index automatically**.
 5. Check `learnings.md` — if any key finding from this item adds signal to an existing cross-cutting thread, update that thread now. If the item establishes a genuinely new cross-cutting theme, add a new numbered thread entry.
 6. Create `progress/YYYY-MM-DD-{slug}.md` — record findings summary and any outputs produced
 7. Commit with message: `research: complete - <short title>`
+   (No `git add Research/` needed — the file move is already staged.)
 
 ### Output Types
 
@@ -582,6 +588,7 @@ The following patterns have appeared **three or more times** across sessions. If
 | Editing `.github/skills/` files directly | Submodule content is overwritten on every `sync-skills.yml` run; edits are silently lost | "Read-only submodule" rule added to Non-Negotiable Constraints |
 | `web search synthesis` used as a citation | Not a verifiable source; fails citation-discipline pre-output check | Explicitly prohibited in `research-prompt.md` Step 6 companion skill checks |
 | Surface evaluation (self-inspection only, no external benchmarking) | Misses factual errors, architectural flaws, and gaps that are only visible when compared to published best practices or observable system behaviour | Evaluation protocol: always (1) search external best practices, (2) audit facts against actual files, (3) use open issues as evidence |
+| Committing `git add <new-file>` without staging the corresponding file deletion | Leaves the old file tracked in git but absent from disk (unstaged deletion); the next `git pull --rebase` fails with "You have unstaged changes" | `cmd_start` and `cmd_complete` now call `_git_add(root.parent, src, dest)` after each file move — see ADR-0011 |
 
 When you identify a **new** recurring pattern (same friction in two or more sessions), add it to this table as part of the Mini-Retro for that session.
 
