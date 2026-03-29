@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import subprocess
 from datetime import date
 from pathlib import Path
 
@@ -292,3 +293,92 @@ def test_cmd_complete_still_completes_despite_warning(
     dest = cmd_complete("2026-02-28-test.md", research_root=research_dir)
     assert dest.parent.name == "completed"
     assert "status: completed" in dest.read_text()
+
+
+# ---------------------------------------------------------------------------
+# Git staging — cmd_start and cmd_complete must leave no unstaged changes.
+#
+# Root cause of the research-loop "unstaged changes" bug: both commands used
+# Python file I/O (Path.unlink / Path.write_text) to move files but never
+# updated the git index.  The Copilot agent's subsequent ``git add <new-file>
+# && git commit`` therefore missed the old-file deletion, leaving an unstaged
+# deletion in the working tree.  The next iteration's ``git pull --rebase``
+# then failed with "You have unstaged changes."
+# ---------------------------------------------------------------------------
+
+
+@pytest.fixture
+def git_research_dir(tmp_path: Path) -> Path:
+    """A Research dir structure inside a real git repository."""
+    subprocess.run(["git", "init", "-q"], cwd=tmp_path, check=True)
+    subprocess.run(["git", "config", "user.email", "test@test.com"], cwd=tmp_path, check=True)
+    subprocess.run(["git", "config", "user.name", "Test"], cwd=tmp_path, check=True)
+
+    research_dir = tmp_path / "Research"
+    for subdir in ("backlog", "in-progress", "completed"):
+        (research_dir / subdir).mkdir(parents=True)
+        (research_dir / subdir / ".gitkeep").write_text("", encoding="utf-8")
+
+    subprocess.run(["git", "add", "-A"], cwd=tmp_path, check=True)
+    subprocess.run(["git", "commit", "-q", "-m", "initial structure"], cwd=tmp_path, check=True)
+
+    return research_dir
+
+
+def _git_dirty_files(repo_root: Path) -> str:
+    """Return the ``git diff --stat`` output for the working tree vs index."""
+    result = subprocess.run(
+        ["git", "diff", "--stat"],
+        cwd=str(repo_root),
+        capture_output=True,
+        text=True,
+        check=True,
+    )
+    return result.stdout.strip()
+
+
+def test_cmd_start_leaves_no_unstaged_changes(git_research_dir: Path) -> None:
+    """cmd_start must stage the backlog→in-progress move; no unstaged deletions."""
+    item_path = git_research_dir / "backlog" / "2026-03-01-test.md"
+    item_path.write_text(SAMPLE_FRONTMATTER, encoding="utf-8")
+
+    repo_root = git_research_dir.parent
+    subprocess.run(
+        ["git", "add", str(item_path.relative_to(repo_root))],
+        cwd=str(repo_root),
+        check=True,
+    )
+    subprocess.run(
+        ["git", "commit", "-q", "-m", "add backlog item"], cwd=str(repo_root), check=True
+    )
+
+    cmd_start("2026-03-01-test.md", research_root=git_research_dir)
+
+    dirty = _git_dirty_files(repo_root)
+    assert dirty == "", (
+        f"Working tree must be clean after cmd_start, but git diff --stat shows:\n{dirty}"
+    )
+
+
+def test_cmd_complete_leaves_no_unstaged_changes(git_research_dir: Path) -> None:
+    """cmd_complete must stage the in-progress→completed move; no unstaged deletions."""
+    content = SAMPLE_FRONTMATTER.replace("status: backlog", "status: reviewing")
+    item_path = git_research_dir / "in-progress" / "2026-03-01-test.md"
+    item_path.write_text(content, encoding="utf-8")
+
+    repo_root = git_research_dir.parent
+    subprocess.run(
+        ["git", "add", str(item_path.relative_to(repo_root))],
+        cwd=str(repo_root),
+        check=True,
+    )
+    subprocess.run(
+        ["git", "commit", "-q", "-m", "add in-progress item"], cwd=str(repo_root), check=True
+    )
+
+    cmd_complete("2026-03-01-test.md", research_root=git_research_dir)
+
+    dirty = _git_dirty_files(repo_root)
+    assert dirty == "", (
+        f"Working tree must be clean after cmd_complete, but git diff --stat shows:\n{dirty}"
+    )

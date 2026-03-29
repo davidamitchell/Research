@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import re
+import subprocess
 import sys
 from datetime import date
 from pathlib import Path
@@ -99,6 +100,31 @@ Why is this question worth answering now?
 """
 
 
+def _git_add(repo_root: Path, *paths: Path) -> None:
+    """Stage git changes for the given paths (additions and deletions).
+
+    Calling ``git add`` on a deleted tracked file stages the deletion; calling
+    it on a new untracked file stages the addition.  Both are needed when a
+    file is moved between directories (old path deleted, new path written).
+
+    Silently does nothing if git is unavailable or the directory is not a git
+    repository -- the commands that call this function work correctly without
+    git staging, just as they did before this helper existed.
+    """
+    if not paths:
+        return
+    try:
+        rel_paths = [str(p.relative_to(repo_root)) for p in paths]
+        subprocess.run(
+            ["git", "add", "--", *rel_paths],
+            cwd=str(repo_root),
+            capture_output=True,
+            check=False,
+        )
+    except (FileNotFoundError, OSError, ValueError):
+        pass
+
+
 def _slug(title: str) -> str:
     """Convert a title to a filesystem-safe slug."""
     slug = title.lower()
@@ -161,6 +187,7 @@ def cmd_start(filename: str, research_root: Path | None = None) -> Path:
     text = _set_frontmatter_field(text, "started", date.today().isoformat())
     dest.write_text(text, encoding="utf-8")
     src.unlink()
+    _git_add(root.parent, src, dest)
     logger.info("Started: %s -> %s", src, dest)
     print(f"Started: {dest}")
     return dest
@@ -205,6 +232,7 @@ def cmd_complete(filename: str, research_root: Path | None = None) -> Path:
     text = _set_frontmatter_field(text, "completed", date.today().isoformat())
     dest.write_text(text, encoding="utf-8")
     src.unlink()
+    _git_add(root.parent, src, dest)
     logger.info("Completed: %s -> %s", src, dest)
     print(f"Completed: {dest}")
     return dest
