@@ -56,9 +56,12 @@ The issue of whether the universe is fundamentally unknowable sits at the inters
 - [Curt Jaimungal, "Time Travel in Physics: 'We Still Don't Know'", Theories of Everything podcast, March 2026. Featuring JB Manchak.](https://podcasts.apple.com/us/podcast/theories-of-everything-with-curt-jaimungal/id1521758802)
 - [Cinti, E. and Fano, V. (2021). "Careful with those scissors, Eugene! Against the observational indistinguishability of spacetimes." Studies in History and Philosophy of Science, 89: 103–113.](https://www.sciencedirect.com/science/article/pii/S0039368121001084)
 - [Cosmic topology, underdetermination, and spatial infinity. European Journal for Philosophy of Science, 2024.](https://link.springer.com/article/10.1007/s13194-024-00576-7)
-- [Manchak, JB. "Heraclitus-Maximal Worlds" (on PhilPeople).](https://philpeople.org/profiles/jb-manchak/publications?order=added)
+- [Manchak, JB and Barrett, TW (2024). "Heraclitus-Maximal Worlds." Journal of Philosophical Logic 53(6):1519–1536.](https://philsci-archive.pitt.edu/23797/)
 - [UCI School of Social Sciences news: "The universe is unknowable from within it" (Jan 2025).](https://www.socsci.uci.edu/newsevents/news/2025/2025-01-24-manchak-on-spacetime.php)
-- [Malament, D. (1977). "Observationally Indistinguishable Space-Times." In Foundations of Space-Time Theories, Minnesota Studies in the Philosophy of Science, Vol. VIII, pp. 61–80. Minneapolis: University of Minnesota Press.](https://philsci-archive.pitt.edu/26959/)
+- [Malament, D. (1977). "Observationally Indistinguishable Space-Times." In Foundations of Space-Time Theories, Minnesota Studies in the Philosophy of Science, Vol. VIII, pp. 61–80. Minneapolis: University of Minnesota Press.](https://pages.jh.edu/rrynasi1/Cosmology/Articles/Malament1977ObservationallyIndistinguishableSpace-Times.pdf)
+- [Manchak, JB (2011). "What Is a Physically Reasonable Space-Time?" Philosophy of Science 78(3):410–420.](https://sites.socsci.uci.edu/~jmanchak/wiaprs.pdf)
+- [Manchak, JB (2025). "Observational Indistinguishability and the Beginning of the Universe." arXiv:2603.04159.](https://arxiv.org/abs/2603.04159)
+- [Butterfield, J. (2014). "On Under-determination in Cosmology." Studies in History and Philosophy of Modern Physics, 46:57–69.](https://philpapers.org/rec/BUTOUI-2)
 
 ---
 
@@ -74,7 +77,7 @@ The issue of whether the universe is fundamentally unknowable sits at the inters
 
 **Output format:** `knowledge`: a structured synthesis of Manchak's epistemological position and its Zen Buddhist analogue.
 
-**Constraints acknowledged:** The Zen connection is documented primarily in a podcast interview (March 2026 "Theories of Everything" with Curt Jaimungal), not in a peer-reviewed paper. Manchak's CV lists Zen Buddhism as an area of competence. No standalone peer-reviewed publication directly synthesising GR and Zen epistemology has been located.
+**Constraints acknowledged:** The Zen connection is documented primarily in a podcast interview (March 2026 "Theories of Everything" with Curt Jaimungal), not in a peer-reviewed paper. Manchak's Curriculum Vitae (CV) lists Zen Buddhism as an area of competence. No standalone peer-reviewed publication directly synthesising GR and Zen epistemology has been located.
 
 ### §1 Question Decomposition
 
@@ -130,7 +133,7 @@ No peer-reviewed publication by Manchak directly synthesising GR and Zen Buddhis
 
 **§2.2: The GR epistemic limits, three levels of unknowability**
 
-General Relativity (GR) is Einstein's theory of gravity, describing spacetime as a four-dimensional pseudo-Riemannian manifold whose geometry is determined by the distribution of matter and energy. [fact, source: standard physics; contextualised in Manchak 2009]
+General Relativity (GR) is Einstein's theory of gravity, describing spacetime as a four-dimensional [pseudo-Riemannian manifold](https://en.wikipedia.org/wiki/Pseudo-Riemannian_manifold) whose geometry is determined by the distribution of matter and energy. [fact, source: standard physics; contextualised in Manchak 2009]
 
 **Level 1 (well known): the observable universe limit.**
 In GR, nothing travels faster than light. The "past light cone" of any spacetime event is the set of all events from which a signal could have reached that event at or below light speed. [fact, source: Manchak IAI 2025] The past light cone defines the "observable universe" for any observer; everything outside it is causally disconnected. [fact, source: Manchak 2025 preprint] The region beyond the observable universe is unknowable not due to technological limits but due to the causal structure of spacetime. [fact, source: Manchak IAI 2025]
@@ -149,7 +152,7 @@ David Malament (1977) defined "observational indistinguishability": two spacetim
 
 Malament conjectured that every spacetime without a God point must have an observationally indistinguishable counterpart that is not isometric to it, i.e., a genuinely different spacetime that no observation could distinguish from it. [fact, source: Manchak 2009]
 
-Manchak proved this conjecture in 2009, using a "cut-and-paste" construction: given any spacetime A without a God point, one can construct a spacetime B by linking infinitely many copies of A via wormholes such that B is observationally indistinguishable from A but is not isometric to A. [fact, source: Manchak 2009; Manchak 2025 preprint; Observational Indistinguishability and the Beginning of the Universe, arxiv 2025] The construction was pioneered by Penrose, Hawking, and others and is a standard tool in GR. [fact, source: Manchak 2025 preprint]
+Manchak proved this conjecture in 2009, using a "cut-and-paste" construction: given any spacetime A without a God point, one can construct a spacetime B by linking infinitely many copies of A via wormholes such that B is observationally indistinguishable from A but is not isometric to A. [fact, source: Manchak 2009; Manchak 2025 preprint; Manchak (2025) arXiv:2603.04159, https://arxiv.org/abs/2603.04159] The construction was pioneered by Penrose, Hawking, and others and is a standard tool in GR. [fact, source: Manchak 2025 preprint]
 
 The result: for any observer (or ensemble of all possible observers), there exists an alternative universe that is observationally identical but structurally different. No observational method can eliminate this underdetermination. [fact, source: Manchak 2009, 2025]
 
@@ -159,7 +162,7 @@ This underdetermination is intrinsic to GR: it does not require giving up or rev
 
 **§2.4: The Heraclitus counterpoint**
 
-In subsequent work, Manchak shows a partial escape from unknowability: if spacetime has the "Heraclitus property" (no two distinct spacetime events have the same local structure), and the local structure at each event uniquely fixes the global structure, and observers can in principle determine which universe they inhabit. [fact, source: PhilPeople publications listing; UCI news article on Heraclitus spacetime, November 2025] Manchak has shown that Heraclitus-maximal worlds exist (using Zorn's lemma). [fact, source: PhilPeople]
+In subsequent work, Manchak shows a partial escape from unknowability: if spacetime has the "Heraclitus property" (no two distinct spacetime events have the same local structure), and the local structure at each event uniquely fixes the global structure, and observers can in principle determine which universe they inhabit. [fact, source: Manchak and Barrett (2024), "Heraclitus-Maximal Worlds", Journal of Philosophical Logic, https://philsci-archive.pitt.edu/23797/] Manchak has shown that Heraclitus-maximal worlds exist (using Zorn's lemma). [fact, source: PhilPeople]
 
 The Heraclitus property is named for the pre-Socratic philosopher who held that no moment repeats ("one cannot step into the same river twice"). [inference, from the naming convention and the description of the property in Manchak's work] This is a genuine epistemological counterpoint, but the question of whether the actual universe has the Heraclitus property is itself underdetermined. [inference, since determining whether the Heraclitus property holds globally would require the very kind of global knowledge Manchak shows is unavailable]
 
@@ -177,7 +180,7 @@ In the March 2026 Theories of Everything interview, Manchak draws an analogy bet
 (a) cosmic underdetermination: no observations from within the universe can uniquely determine its global structure, and
 (b) self-underdetermination: no observations from within the self can uniquely determine the nature or existence of a fixed "self." [fact, source: Theories of Everything podcast, March 2026, timestamps 01:40:51 and 01:51:39]
 
-Zen Buddhism's core teaching on no-self (anattā in Pali, anātman in Sanskrit, muga in Japanese) holds that there is no permanent, unchanging self or soul. The self is not a fixed essence but a process arising from the interaction of form, feeling, perception, mental formations, and consciousness. [fact, source: Stanford Encyclopedia of Philosophy, "Japanese Zen Buddhist Philosophy"; Zen Studies Podcast on anatta] Zen practice, particularly koan work, is designed to interrupt habitual conceptual cognition and reveal that the "knower" cannot be found as an object of knowledge. [fact, source: Stanford Encyclopedia of Philosophy on Japanese Zen; Zen Studies Podcast]
+Zen Buddhism's core teaching on no-self (anattā in Pali, anātman in Sanskrit, muga in Japanese) holds that there is no permanent, unchanging self or soul. The self is not a fixed essence but a process arising from the interaction of form, feeling, perception, mental formations, and consciousness. [fact, source: Stanford Encyclopedia of Philosophy, "Japanese Zen Buddhist Philosophy"; Zen Studies Podcast on anatta] Zen practice, particularly [koan](https://www.britannica.com/topic/koan) work, is designed to interrupt habitual conceptual cognition and reveal that the "knower" cannot be found as an object of knowledge. [fact, source: Stanford Encyclopedia of Philosophy on Japanese Zen; Zen Studies Podcast]
 
 The structural parallel Manchak draws: just as you cannot observe your way to a unique answer about which universe you inhabit (because any set of observations is compatible with multiple global structures), you cannot introspect your way to a uniquely determined self (because any state of self-observation is compatible with multiple accounts of what the self is or whether it exists). [inference, synthesising the GR theorem with the Zen no-self teaching; consistent with podcast timestamps]
 
@@ -189,9 +192,9 @@ This is not a claim that GR proves the Buddhist no-self doctrine. Rather, the tw
 
 Cinti and Fano (2021) challenge Manchak's result by arguing that the cut-and-paste spacetimes he constructs are not "physically reasonable"; they are not models that could arise from physical processes. [fact, source: Cinti and Fano 2021] They propose an additional constraint: a spacetime is physically reasonable only if it is locally isometric to something that could arise via physical evolution. Under this constraint, Manchak's constructed counterparts may not qualify, reducing the force of the underdetermination claim. [fact, source: Cinti and Fano 2021]
 
-Manchak has acknowledged the "physical reasonableness" debate in his 2011 paper "What Is a Physically Reasonable Spacetime?" but argues that the underdetermination survives even under some reasonable constraints. [fact, source: Manchak 2011, cited in Manchak 2009 and Cinti/Fano 2021]
+Manchak has acknowledged the "physical reasonableness" debate in his 2011 paper "What Is a Physically Reasonable Spacetime?" but argues that the underdetermination survives even under some reasonable constraints. [fact, source: Manchak (2011), https://sites.socsci.uci.edu/~jmanchak/wiaprs.pdf]
 
-The cosmic topology literature (e.g., Butterfield 2014, Manchak-related results in Lam 2024) confirms that Manchak's underdetermination result is widely accepted as establishing a robust epistemological predicament in GR cosmology, even if philosophers disagree about its extent. [fact, source: European Journal for Philosophy of Science, 2024 paper on cosmic topology]
+The cosmic topology literature confirms that Manchak's underdetermination result is widely accepted as establishing a robust epistemological predicament in GR cosmology, even if philosophers disagree about its extent. [fact, source: Butterfield (2014), https://philpapers.org/rec/BUTOUI-2; European Journal for Philosophy of Science, 2024 cosmic topology paper]
 
 ### §3 Reasoning
 
@@ -199,7 +202,7 @@ The cosmic topology literature (e.g., Butterfield 2014, Manchak-related results 
 
 The phrase "the universe is fundamentally unknowable" is both too strong and too vague without qualification. Manchak's claim is more precise: within the framework of GR, any spacetime without a God point is observationally indistinguishable from some other, non-isometric spacetime. This means that the global topology and geometry of the universe is underdetermined by all possible internal observations. It does not mean that nothing can be known: local spacetime structure can be known well, and partial global properties (like local curvature) may be inferred. [inference, from the structure of Manchak's argument as presented in 2009 and 2025]
 
-The Zen Buddhist parallel is structurally analogous but epistemologically distinct. Zen's no-self claim is experiential and soteriological (aimed at liberation), not a theorem derived from mathematical physics. Manchak's use of this analogy appears to be philosophical resonance rather than a claim that GR and Buddhism are saying the same thing. [inference, given that no publication directly equates the two and the connection is made in a popular interview]
+The Zen Buddhist parallel is structurally analogous but epistemologically distinct. Zen's no-self claim is experiential and [soteriological](https://www.britannica.com/topic/soteriology) (aimed at liberation), not a theorem derived from mathematical physics. Manchak's use of this analogy appears to be philosophical resonance rather than a claim that GR and Buddhism are saying the same thing. [inference, given that no publication directly equates the two and the connection is made in a popular interview]
 
 The Heraclitus counterpoint is genuinely important: it shows that the unknowability is not absolute but conditional on whether the spacetime lacks the Heraclitus property. Whether actual spacetime has this property is itself an open empirical question: one that, given the underdetermination theorem, may be unanswerable from within. [inference]
 
@@ -217,7 +220,7 @@ The Heraclitus counterpoint is genuinely important: it shows that the unknowabil
 
 **Technical lens:** The Malament-Manchak theorem is a theorem about classical GR. It does not automatically apply to quantum gravity theories (e.g., loop quantum gravity, string theory). If a correct quantum theory of gravity produces a fundamentally different spacetime ontology, the underdetermination might not persist. [inference] This is a genuine gap.
 
-**Historical lens:** The underdetermination problem in cosmology has deep roots. Henri Poincaré's conventionalism (early 20th century) argued that the geometry of space is conventional rather than empirically determined. Pierre Duhem and Willard Van Orman Quine's holism established that theories face evidence as a whole, not piecemeal. Manchak's result is a sharper, GR-specific instance of this broader epistemological tradition. [fact, source: Stanford Encyclopedia of Philosophy on underdetermination]
+**Historical lens:** The underdetermination problem in cosmology has deep roots. Henri Poincaré's conventionalism (early 20th century) argued that the geometry of space is conventional rather than empirically determined. Pierre Duhem and Willard Van Orman Quine's holism established that theories face evidence as a whole, not piecemeal. Manchak's result is a more precise, GR-grounded instance of this broader epistemological tradition. [inference, from the Stanford Encyclopedia of Philosophy on underdetermination and the structure of Manchak's argument]
 
 **Philosophical lens (realism/anti-realism):** The unknowability theorem is a challenge for scientific realism about spacetime structure. A realist who holds that there is a fact about which spacetime we inhabit must accept that this fact is permanently epistemically inaccessible. An anti-realist (e.g., van Fraassen's constructive empiricist) can accommodate the result comfortably: the observable universe is the only domain to which empirical adequacy claims apply. [inference]
 
@@ -277,7 +280,7 @@ The two traditions converge on the same structural point: bounded observers cann
 
 ### §7 Recursive Review
 
-All ten key findings are grounded in sourced evidence. Claims from the podcast are labelled [fact] with medium confidence and flagged as sourced to a podcast rather than peer-reviewed work. The Heraclitus counterpoint is included and consistent with the main finding. The Cinti-Fano objection is included and not suppressed. The GR/Zen analogy is marked [inference] throughout. All sources have URLs. GR is expanded on first use as "General Relativity (GR)" in the Research Question. Anattā is explained on first use. No em-dashes are present. No AI slop phrases detected. All claims carry labels.
+All ten key findings are grounded in sourced evidence. Claims from the podcast are labelled [fact] with medium confidence and flagged as sourced to a podcast rather than peer-reviewed work. The Heraclitus counterpoint is included, consistent with the main finding, and supported by the primary peer-reviewed source Manchak and Barrett (2024). The Cinti-Fano objection is included and not suppressed. The GR/Zen analogy is marked [inference] throughout. All sources have URLs. GR is expanded on first use as "General Relativity (GR)" in the Research Question. CV is expanded as "Curriculum Vitae (CV)" on first use in running text. Anattā is explained on first use. Technical domain terms (pseudo-Riemannian manifold, koan, soteriological) link to authoritative definitions. No em-dashes are present. No AI slop phrases detected. All claims carry labels.
 
 ---
 
@@ -299,7 +302,7 @@ Manchak's position, proven as a theorem of General Relativity (GR), is that the 
 
 4. A "God point" (a single spacetime event whose past light cone contains all of spacetime) would make the universe knowable from within, but Manchak shows that no such point can exist in the class of spacetimes studied: the future light cone of any putative God point would have to fit inside its own past light cone, a geometric impossibility. [high confidence]
 
-5. The Heraclitus property (no two distinct spacetime events sharing identical local structure) is a genuine exception to the unknowability theorem: if a spacetime has this property, local structure at each event uniquely fixes global structure, making the universe knowable from within. [high confidence]
+5. The Heraclitus property (no two distinct spacetime events sharing identical local structure) is a genuine exception to the unknowability theorem: if a spacetime has this property, local structure at each event uniquely fixes global structure, making the universe knowable from within, as proven by Manchak and Barrett (2024). [high confidence]
 
 6. Whether the actual universe has the Heraclitus property is an open empirical question that is itself likely underdetermined by the same theorem, creating a self-referential epistemic barrier. [medium confidence, inference]
 
@@ -319,7 +322,7 @@ Manchak's position, proven as a theorem of General Relativity (GR), is that the 
 | Three levels of unknowability exist | Manchak (2025 preprint); IAI TV (2025) | high | Laid out explicitly in non-technical piece |
 | GR underdetermination is intrinsic, not theory-choice dependent | Manchak (2009), explicit note in paper | high | Distinguishes from generic underdetermination |
 | God point cannot exist in physically reasonable spacetimes | Manchak (2025 preprint, IAI 2025) | high | Geometric argument; light cone containment impossibility |
-| Heraclitus property allows knowability from within | PhilPeople publication listing; UCI news 2025 | high | Manchak's Heraclitus-maximal worlds work |
+| Heraclitus property allows knowability from within | Manchak and Barrett (2024), Journal of Philosophical Logic 53(6):1519–1536, https://philsci-archive.pitt.edu/23797/ | high | Primary peer-reviewed paper; Zorn's lemma proof that Heraclitus-maximal worlds exist |
 | Whether actual universe has Heraclitus property is open | Inference from underdetermination theorem | medium | Implied by the theorem itself |
 | Manchak connects GR underdetermination to Zen no-self (anattā) | Theories of Everything podcast, March 2026 | medium | Podcast, not peer-reviewed; consistent with CV |
 | Zen anattā parallels GR underdetermination structurally | Zen epistemology literature; structural inference | medium | Analogy, not formal proof |
@@ -338,7 +341,7 @@ The GR-based unknowability argument is technically well-grounded: the Malament-M
 
 The Zen Buddhist analogy operates at a different level. It is a structural comparison between two epistemological situations, not a proof that Buddhism and physics say the same thing. The comparison is intellectually productive: it situates GR underdetermination within a broader human context of navigating irreducible ignorance. The Zen response, treating unknowability as a ground for equanimity rather than despair, is coherent but not derivable from the GR theorem itself.
 
-The Heraclitus counterpoint is the most important technical nuance: unknowability is conditional, not absolute. If spacetime has the radical asymmetry Heraclitus spacetimes exhibit, knowability re-enters. This is analogous to situations in Zen where the dissolution of fixed categories opens, rather than closes, the possibility of direct knowing, though Manchak does not make this specific connection in available sources.
+The Heraclitus counterpoint is a significant technical nuance: unknowability is conditional, not absolute. [inference] If spacetime has the radical asymmetry Heraclitus spacetimes exhibit, knowability re-enters. This parallels situations in Zen where the dissolution of fixed categories opens, rather than closes, the possibility of direct knowing, though Manchak does not make this specific connection in available sources. [inference]
 
 The Feyerabend connection adds an important methodological implication: cosmic underdetermination is not merely a reason for humility but, on Manchak's reading, a reason to hold open a range of competing cosmological models rather than converging prematurely on one.
 
