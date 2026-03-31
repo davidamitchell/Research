@@ -1,9 +1,10 @@
 # Research Master Document
 
-Generated on: 2026-03-30 08:52 UTC
+Generated on: 2026-03-31 22:52 UTC
 
 ## Table of Contents
 
+* [Large Language Models as offensive security tools: autonomous 0-day discovery, exploit generation, and the emerging arms race](#2026-03-31-llm-offensive-security-0days-md)
 * [The Unknowability of the Universe](#2026-03-29-unknowability-of-the-universe-md)
 * [Multi-agent repo setup: best practices for configuring a repository to be worked on by Claude (iOS and GitHub Issues) and Copilot (Spaces and GitHub Issues)](#2026-03-29-multi-agent-repo-setup-md)
 * [Claude Code on the web: private submodule credential access and git submodule init mechanism](#2026-03-29-claude-code-web-submodule-credential-md)
@@ -132,6 +133,102 @@ Generated on: 2026-03-30 08:52 UTC
 * [AI Strategy Examples: Business Efficiency Focus](#2026-02-28-ai-strategy-business-efficiency-examples-md)
 * [AI Line 1 and Line 2 Risk Agents: Who Is Building Them?](#2026-02-28-ai-line-1-line-2-risk-agents-md)
 * [AI for Control Testing, Gap Identification, and Policies/Standards Reviews](#2026-02-28-ai-control-testing-and-assurance-md)
+
+---
+
+<a name="2026-03-31-llm-offensive-security-0days-md"></a>
+
+## Large Language Models as offensive security tools: autonomous 0-day discovery, exploit generation, and the emerging arms race
+
+**Tags:** [llm, security, offensive-security, zero-day, vulnerability-discovery, nicholas-carlini, anthropic, ctf, red-team, arms-race]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-31-llm-offensive-security-0days.md
+
+## Research Question
+
+What is the current state of Large Language Model (LLM)-driven offensive security capability: can LLMs autonomously discover and exploit zero-day (0-day) vulnerabilities, what does the empirical evidence show, and what are the strategic and governance implications for defenders?
+
+Supporting questions:
+- What does Nicholas Carlini's work at Anthropic and related research demonstrate about LLM capability for vulnerability discovery?
+- How do LLMs compare to traditional methods (fuzzing, manual review) in finding 0-day and one-day vulnerabilities?
+- What does the CTF (Capture The Flag) benchmark evidence tell us about autonomous LLM hacking capability?
+- What are the offensive and defensive implications, and what governance responses are emerging?
+
+## Findings
+
+*(Populated from §6 Synthesis above.)*
+
+### Executive Summary
+
+Large Language Models can now autonomously discover zero-day vulnerabilities in production-quality, well-audited open source codebases, a capability demonstrated at scale by Claude Opus 4.6 (Carlini et al., February 2026), which found more than 500 high-severity bugs without specialised scaffolding. The mechanism is qualitatively distinct from coverage-guided fuzzing: LLMs reason about code semantics, commit history, and programmer error patterns, reaching a class of bugs that fuzzers structurally cannot find. For known one-day vulnerabilities, the skill barrier has effectively collapsed: a 91-line agent plus a frontier Large Language Model (LLM) plus the CVE description now automates what previously required domain-specific exploit development expertise (Fang et al., 2024). The central governance challenge is not model safety guardrails but patch velocity: LLMs can discover vulnerabilities faster than the open source maintenance infrastructure can remediate them, and abandoned codebases represent a systemic gap with no clear owner.
+
+### Key Findings
+
+1. Claude Opus 4.6, released in February 2026, autonomously discovered more than 500 high-severity zero-day vulnerabilities in open source codebases without specialised tooling, custom scaffolding, or domain-specific prompting, all validated by human security researchers before responsible disclosure. [high confidence]
+
+2. GPT-4 agents autonomously exploited 87% of a curated set of 15 real-world one-day Common Vulnerabilities and Exposures (CVEs) in a 2024 study, using a 91-line ReAct agent, while GPT-3.5, all open-source models tested, and both OWASP ZAP and Metasploit failed to exploit any of the same vulnerabilities. [high confidence]
+
+3. LLM-based vulnerability discovery is qualitatively complementary to coverage-guided fuzzing because LLMs reason about code semantics -- reading commit history, inferring programmer intent, and constructing inputs that require understanding the program's logical invariants -- while fuzzers explore input space stochastically and miss semantics-dependent bug classes. [high confidence]
+
+4. The skill barrier for exploiting publicly disclosed one-day CVEs has effectively collapsed: a developer with frontier LLM access and 91 lines of scaffolding code can automate exploitation of known vulnerabilities that previously required specific domain expertise in the target technology. [high confidence]
+
+5. Capture The Flag (CTF) benchmark results (approximately 22% pass@1 on hard challenges in the NYU CTF Bench) understate real-world offensive capability, because CTF challenges are adversarially designed to be unique, while production vulnerabilities follow recurring patterns that LLMs have encountered in training data. [medium confidence]
+
+6. AI-augmented elite security teams completed live CTF tasks 4.1x faster than human-only teams with a 70% improved solve rate in the Hack The Box NeuroGrid competition with over 1,000 teams, confirming that the same LLM capability delivering offensive risk also delivers strong defensive productivity gains. [high confidence]
+
+7. Anthropic has deployed probe-based real-time misuse detection that monitors model activations during response generation -- a safeguard architecture operating below the model refusal layer -- to detect and block cyber-offensive prompts at scale in response to the capability demonstrated by Claude Opus 4.6. [high confidence]
+
+8. The abandoned open source software problem is the largest near-term systemic risk from LLM offensive capability: LLMs can find vulnerabilities in unmaintained codebases at a velocity that no coordinated disclosure or patching process was designed to handle, creating an exploitable gap with no institutional owner. [high confidence]
+
+9. Current governance frameworks, including the EU AI Act and NIST AI Risk Management Framework (RMF), do not address the dual-use dilemma of LLM offensive security capability; binding policy is lagging demonstrated capability by multiple years, with proposals for "Digital Geneva Convention" equivalents remaining at discussion stage. [medium confidence]
+
+10. Specialised malicious LLMs without safety guardrails (e.g., "WormGPT") and multi-agent orchestration frameworks (e.g., Hexstrike-AI with over 150 specialised agents) are already in active use by threat actors, demonstrating that the offensive democratisation effect is not hypothetical. [high confidence]
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| Claude Opus 4.6 found 500+ zero-days | https://red.anthropic.com/2026/zero-days/ | high | Primary source; human-validated before disclosure |
+| GPT-4 exploits 87% of one-day CVEs with 91-line agent | https://arxiv.org/abs/2404.08144 | high | Peer-reviewed; corroborated by multiple summaries |
+| LLM reasoning complements fuzzing; finds semantic bugs | https://red.anthropic.com/2026/zero-days/ | high | Three detailed examples in primary report |
+| Skill barrier collapsed for one-day exploitation | https://arxiv.org/abs/2404.08144 | high | Direct experimental result |
+| CTF 22% pass@1 understates production capability | https://arxiv.org/abs/2406.05590 | medium | Inference from benchmark design |
+| AI-augmented teams 4.1x faster | https://www.hackthebox.com/blog/hack-the-box-ai-cybersecurity-benchmark-report | high | 1,000+ team competition |
+| Probe-based real-time detection deployed | https://red.anthropic.com/2026/zero-days/ | high | Explicitly stated in primary source |
+| Abandoned software is systemic governance gap | https://futurumgroup.com/insights/claude-found-500-zero-days-who-patches-them-before-attackers-arrive/ | high | Multiple corroborating analyses |
+| Governance frameworks lag capability | https://www.ogunsecurity.com/post/the-ai-arms-race-in-cybersecurity-defensive-gains-vs-offensive-risks | medium | Inference from framework review |
+| WormGPT, Hexstrike-AI in active use by threat actors | https://blog.checkpoint.com/executive-insights/hexstrike-ai-when-llms-meet-zero-day-exploitation/ | high | Industry security vendor reporting |
+
+### Assumptions
+
+- **Assumption:** CTF benchmark performance (22% pass@1 on hard CTF challenges) understates real-world offensive capability. **Justification:** CTF challenges are designed to have unique, hard-to-find solutions, whereas production vulnerabilities follow repeated error patterns that LLMs encounter in training data; the two settings are not directly comparable.
+- **Assumption:** Responsible disclosure models analogous to the historical CVE coordination system are the most viable governance path for AI-discovered vulnerabilities. **Justification:** No better-established alternative exists; the historical analogy is structurally close (new class of discovery tooling requiring coordinated response); and Anthropic's current practice of validated disclosure to maintainers follows this model.
+
+### Analysis
+
+The key tension is incentive asymmetry: defenders using LLMs must patch every discovered vulnerability to eliminate risk, while attackers need to exploit only one. This asymmetry is not a function of model capability -- both sides access the same or equivalent models -- but of incentive structure. The result is that the abandoned software category is disproportionately dangerous: no defender is motivated to patch unmaintained codebases, but every attacker can exploit them indefinitely.
+
+The qualitative shift from fuzzing to reasoning-based discovery changes the cost structure of vulnerability research. Previously, discovering bugs in well-fuzzed codebases required either significant manual expert time or purpose-built infrastructure (e.g., Google's OSS-Fuzz). Claude Opus 4.6 achieves this without either, at the cost of frontier model compute. As model costs fall and capability increases (per Carlini's four-month doubling claim), this shifts vulnerability discovery from a capital-intensive to a commodity activity -- with the first-mover advantage held by well-resourced labs and threat actors.
+
+The probe-based safeguard architecture Anthropic has deployed represents a meaningful step: it operates below the model refusal layer and catches misuse patterns that a jailbroken or fine-tuned model would not self-censor. However, it protects only Anthropic's own API; open-weight models and competitor models have no equivalent control surface. The overall defensive posture of the ecosystem depends on the rate at which these probe architectures are adopted industry-wide, not just by one lab.
+
+### Risks, Gaps, and Uncertainties
+
+- The 500+ zero-day finding is specific to Claude Opus 4.6 (not publicly accessible in its most capable form). As equivalent capability reaches open-weight models, the threat surface expands to uncontrolled deployment.
+- The Fang et al. 2024 study used 15 vulnerabilities; generalisation to the full CVE population is unconfirmed.
+- Capability doubling ("every four months") is from a conference talk by Carlini, not a peer-reviewed measurement.
+- The long-term arms-race equilibrium (whether defenders or attackers benefit more from continued capability improvement) is genuinely uncertain and may depend on patch infrastructure investment.
+- The effectiveness of probe-based detection against adversarially adapted attack prompts has not been publicly benchmarked.
+
+### Open Questions
+
+- Will open-weight frontier models develop equivalent zero-day discovery capability, eliminating the current deployment advantage held by commercial labs?
+- What institutional mechanism can address the abandoned software patching problem at the velocity LLM discovery creates?
+- How should security researchers and AI labs coordinate disclosure of AI-discovered vulnerabilities in unmaintained codebases?
+- Does LLM vulnerability discovery extend to binary-only codebases (no source access), or is source availability a necessary condition?
+- Is the "capabilities doubling every four months" trajectory sustainable, and at what capability level does zero-day discovery become fully commoditised?
+
+---
 
 ---
 
