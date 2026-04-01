@@ -1,6 +1,6 @@
 # Research Master Document
 
-Generated on: 2026-03-31 22:52 UTC
+Generated on: 2026-04-01 08:12 UTC
 
 ## Table of Contents
 
@@ -341,7 +341,7 @@ What are the best practices for setting up a GitHub repository so that it can be
 
 ### Executive Summary
 
-The repository currently serves the Copilot coding agent only partially: `.github/copilot-instructions.md` loads correctly, but the agent starts without Python dependencies and without the `.github/skills/` submodule because no `copilot-setup-steps.yml` exists. Three additions cover all currently-reachable surfaces: `copilot-setup-steps.yml` (fixes the Copilot coding agent environment), `AGENTS.md` at root (restores cross-vendor compatibility for the Copilot coding agent and future AGENTS.md-native tools), and `CLAUDE.md` at root (pre-positions for the Claude Code GitHub Actions surface when credentials are added). The Claude-via-GitHub-Issues surface is currently blocked by missing credentials (`ANTHROPIC_API_KEY` and a GitHub App) and cannot be enabled within the current constraint of no new credentials. Copilot Spaces and the Claude iOS GitHub integration are reading tools that load no instruction files automatically and require no per-repo configuration changes.
+The repository currently serves the Copilot coding agent only partially: `.github/copilot-instructions.md` loads correctly, but the agent starts without Python dependencies and without the `.github/skills/` submodule because no `copilot-setup-steps.yml` exists. Three additions cover all currently-reachable surfaces: `copilot-setup-steps.yml` (fixes the Copilot coding agent environment), `CLAUDE.md` at root (enables Claude Code on iOS and pre-positions for Claude Code GitHub Actions when credentials are added), and `AGENTS.md` at root (restores cross-vendor compatibility). The Claude-via-GitHub-Issues surface is currently blocked by missing credentials (`ANTHROPIC_API_KEY` and a GitHub App) and cannot be enabled within the current constraint of no new credentials. Copilot Spaces can launch coding agent tasks that respect repo configuration; Claude Code on iOS is a full coding agent that can discover and use instruction files during execution.
 
 ### Key Findings
 
@@ -349,8 +349,8 @@ The repository currently serves the Copilot coding agent only partially: `.githu
 2. The absence of `.github/workflows/copilot-setup-steps.yml` means the Copilot coding agent starts in a bare Ubuntu environment without Python dependencies, without the virtual environment, and without the `.github/skills/` submodule, this is a silent failure that prevents the agent from running `make check` or `make test` as required by the existing instructions.
 3. Claude Code GitHub Actions (`anthropics/claude-code-action`) reads `CLAUDE.md` via Claude Code's normal file-discovery walk; it does not read `.github/copilot-instructions.md`, meaning the current single-file approach leaves Claude Code without any project instructions.
 4. The Claude-via-GitHub-Issues surface requires `ANTHROPIC_API_KEY` (or equivalent Bedrock/Vertex credentials) and a GitHub App (`APP_ID`, `APP_PRIVATE_KEY`); none are in this repo's credential table, so this surface is blocked under the current no-new-credentials constraint.
-5. Copilot Spaces is a manually-configured chat and Q&A tool, not a code-writing agent; it attaches repositories as searchable knowledge but does not auto-load `.github/copilot-instructions.md`, `AGENTS.md`, or any other instruction file, the Space's "Instructions" field must be populated manually by the creator.
-6. The Claude iOS GitHub integration (via the claude.ai GitHub connector) indexes the repository as project knowledge accessible during conversation; it is a reading tool and does not auto-load instruction files, so per-repo configuration has no automatic effect on this surface.
+5. Copilot Spaces can launch Copilot coding agent tasks that write code and create pull requests; Spaces itself is a Q&A tool that does not auto-read per-repo instruction files, but when it launches a coding agent task, that agent respects the repository's configuration files.
+6. Claude Code on iOS is a full coding agent that can write code, create commits, and open pull requests in cloud-based sandboxed environments; it does not auto-load instruction files at session start but can discover and use `CLAUDE.md` and other files during execution.
 7. `AGENTS.md` is a Linux Foundation-stewarded open standard supported by over 20 tools (including GitHub Copilot, OpenAI Codex, Cursor, and Claude Code) and present in over 60,000 repositories; adding a thin pointer file at the root costs nothing and restores coverage for all AGENTS.md-native agents.
 8. ADR-0006's consolidation to `.github/copilot-instructions.md` was correct for Copilot-only usage; adding `AGENTS.md` (as a pointer) and `CLAUDE.md` extends coverage to Claude Code surfaces without contradicting ADR-0006's intent of a single canonical instruction file.
 9. Submodule checkout inside `copilot-setup-steps.yml` should use `COPILOT_GITHUB_TOKEN` rather than the default `GITHUB_TOKEN` because the Copilot coding agent's auto-provided token is scoped to the current repository and may not have read access to the private `davidamitchell/Skills` submodule.
@@ -365,20 +365,20 @@ The repository currently serves the Copilot coding agent only partially: `.githu
 | Claude Code GitHub Actions reads `CLAUDE.md`, not `.github/copilot-instructions.md` | [Claude Code GitHub Actions docs](https://docs.anthropic.com/en/docs/claude-code/github-actions); [Claude Code memory docs](https://docs.anthropic.com/en/docs/claude-code/memory) | high | Two independent primary sources |
 | Claude GitHub Actions surface requires `ANTHROPIC_API_KEY` and GitHub App | [Claude Code GitHub Actions docs](https://docs.anthropic.com/en/docs/claude-code/github-actions) | high | Primary source |
 | Credentials not in this repo's table | `.github/copilot-instructions.md` credential table | high | Direct verification |
-| Copilot Spaces does not auto-read instruction files | [GitHub Docs, Copilot Spaces](https://docs.github.com/en/copilot/how-tos/provide-context/use-copilot-spaces/create-copilot-spaces) | high | Primary source; Instructions field is manual input |
-| Claude iOS GitHub integration is a reading tool, not a coding agent | [Claude Help, GitHub Integration](https://support.claude.com/en/articles/10167454-using-the-github-integration) | high | Primary source; no agent execution described |
+| Copilot Spaces can launch coding agent tasks | [GitHub Docs, Copilot Spaces](https://docs.github.com/en/copilot/how-tos/provide-context/use-copilot-spaces/create-copilot-spaces); [Copilot Spaces with Coding Agent](https://www.ericksegaar.com/2025/12/08/enable-copilot-space-with-coding-agent/) | high | Spaces itself is Q&A; can trigger coding agents |
+| Claude Code on iOS is a full coding agent | [Anthropic Claude Code on iOS](https://thetechportal.com/2025/10/21/anthropic-expands-ai-coding-assistant-claude-code-to-the-web-and-ios/); [Claude Code iOS capabilities](https://www.engadget.com/ai/anthropic-brings-claude-code-to-ios-and-the-web-180023611.html) | high | Multiple sources confirm full coding agent capabilities |
 | `AGENTS.md` is Linux Foundation-stewarded, 60,000+ repos, 20+ tools | [agentsmd.online](https://agentsmd.online); [agentsmd/agents.md](https://github.com/agentsmd/agents.md) | medium | agentsmd.online is a secondary community site; agents.md is the primary spec repo |
 
 ### Assumptions
 
-- **Assumption:** The iOS Claude app's "code feature" (support article 10166833, inaccessible during investigation) refers to the claude.ai GitHub connector described in article 10167454, not a distinct native iOS coding agent. **Justification:** Claude Code's overview page states that iOS continuation requires a locally running Claude Code session, incompatible with the stated no-local-IDE constraint. The GitHub connector is the only iOS-accessible non-local mechanism documented across all available sources.
+- **Assumption:** The iOS Claude app's "code feature" refers to Claude Code running on iOS, which launched in October 2025 as a full coding agent. **Justification:** Multiple sources confirm Anthropic expanded Claude Code to iOS and web in October 2025 with full coding capabilities. The inaccessible support article (10166833) likely describes this feature, while article 10167454 describes the broader GitHub connector that provides repository access.
 - **Assumption:** The `davidamitchell/Skills` submodule requires `COPILOT_GITHUB_TOKEN` rather than the default `GITHUB_TOKEN` for checkout by the Copilot coding agent. **Justification:** GitHub Actions `GITHUB_TOKEN` is auto-scoped to the triggering repository; cross-repo read access for private repositories requires a PAT with the appropriate scope.
 
 ### Analysis
 
-The four surfaces divide cleanly into two categories. Code-writing agents (Copilot coding agent, Claude Code GitHub Actions) auto-load instruction files at session start; every missing or misconfigured file is a silent quality failure. Reading tools (Copilot Spaces, Claude iOS GitHub integration) expose repository content on demand; per-repo instruction files have no privileged position and no automatic effect.
+The four surfaces split into different categories. Code-writing agents: Copilot coding agent (auto-loads `.github/copilot-instructions.md` and `AGENTS.md`), Claude Code on iOS (can discover `CLAUDE.md` during execution), and Claude Code GitHub Actions (reads `CLAUDE.md`). Context/launch tools: Copilot Spaces (can launch Copilot coding agents). Each code-writing agent has different instruction-loading behavior; the minimum viable configuration must accommodate all patterns.
 
-For code-writing agents, the priority order is: (1) fix the environment gap (`copilot-setup-steps.yml`) because a misconfigured environment causes test failures even with perfect instructions; (2) restore cross-vendor compatibility (`AGENTS.md`); (3) pre-position for the Claude Code surface (`CLAUDE.md`). The credential constraint is a hard blocker on the Claude surface, it cannot be resolved by file additions alone.
+For code-writing agents, the priority order is: (1) fix the environment gap (`copilot-setup-steps.yml`) because a misconfigured environment causes test failures even with perfect instructions; (2) enable Claude Code surfaces (`CLAUDE.md`) for iOS sessions and future GitHub Actions; (3) restore cross-vendor compatibility (`AGENTS.md`). The credential constraint is a hard blocker on Claude Code GitHub Actions, it cannot be resolved by file additions alone.
 
 The "thin pointer" pattern for `AGENTS.md` (pointing to `.github/copilot-instructions.md`) and `CLAUDE.md` (importing or summarising the same instructions) preserves ADR-0006's intent of a single canonical instruction source while allowing each agent's native discovery mechanism to locate relevant content. Full duplication across files risks drift; a pointer or import pattern avoids it.
 
@@ -386,7 +386,6 @@ The "thin pointer" pattern for `AGENTS.md` (pointing to `.github/copilot-instruc
 
 - The Skills submodule checkout in `copilot-setup-steps.yml` requires testing with `COPILOT_GITHUB_TOKEN` to confirm the token has cross-repo read access. If it does not, the Copilot coding agent will silently work without skills files.
 - The `AGENTS.md` cross-compatibility claim for Claude Code is sourced from a community site (agentsmd.online). The reliable instruction mechanism for Claude Code is `CLAUDE.md`; `AGENTS.md` should be considered a bonus for Claude Code, not a primary path.
-- The inaccessible support article (10166833) creates uncertainty about whether Anthropic has shipped a distinct iOS-native coding agent feature beyond the GitHub connector documented here. If such a feature exists, its instruction-loading mechanism is unknown.
 - The `CLAUDE.md` content strategy (pointer vs. summary vs. full copy) is unresolved. A full copy of `.github/copilot-instructions.md` into `CLAUDE.md` gives Claude Code the highest context fidelity but introduces a drift risk. A minimal pointer with a `<!-- See .github/copilot-instructions.md -->` comment is DRY but may not be sufficient for Claude Code's context needs in automated workflows.
 
 ### Open Questions
