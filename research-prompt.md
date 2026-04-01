@@ -62,6 +62,12 @@ follow leads they produce. Apply source-marking discipline as defined in
   state the justification.
 - Evidence sufficiency: at least two independent credible sources agree, or a
   primary source is definitive.
+- **Failed primary-source searches must be recorded explicitly in §2.** When a
+  secondary source cites a paper, arXiv preprint, or DOI that you cannot
+  locate, write a note directly in §2 stating the search query used and the
+  outcome ("not found"). Do not silently absorb the gap into a lower confidence
+  label alone -- the explicit record is required so Risks/Gaps can be populated
+  accurately and reviewers can re-check the search.
 
 **Output quality:** Apply the output quality rules defined in
 `.github/skills/research/SKILL.md §6 Output Quality`.
@@ -211,6 +217,12 @@ easily-detectable issues.
 5. **Em-dashes** -- scan the entire document for `—` (U+2014 em-dash). Every
    occurrence is a violation. Replace each with a comma, colon, or restructured
    sentence. Em-dashes are prohibited without exception.
+
+6. **Failed primary-source searches** -- scan §2 Investigation for any claim
+   where a secondary source references a paper, arXiv preprint, or DOI that
+   you were unable to locate. For each such case, confirm there is an explicit
+   inline note recording the search query used and the "not found" outcome.
+   A missing note here is a gap in Risks/Gaps -- add it before proceeding.
 
 If you fix anything in this self-review, re-read the affected sentences to
 confirm the fix did not introduce a new violation before proceeding.
