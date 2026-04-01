@@ -334,7 +334,26 @@ Sources consulted:
 4. **Is this a pattern?** <answer -- if yes, note whether it matches a known pattern in the instructions or warrants adding a new one>
 ```
 
-### 12. Commit to main
+### 12. Apply retro improvements immediately
+
+Re-read the Mini-Retro you just wrote (questions 3 and 4). For each
+actionable improvement identified:
+
+- **If question 3 names a concrete change** (not "nothing") and the change
+  belongs in `research-prompt.md`, apply it now -- before committing. Edit the
+  relevant rule, checklist item, or step in `research-prompt.md` directly.
+- **If the retro notes a pattern** (question 4 = "yes"), also check whether
+  the same fix needs to go into a companion skill file in `.github/skills/`.
+  If so, note the required change in the session log under a new
+  `## Pending skill improvements` heading -- you cannot edit the skills
+  submodule directly, but the note ensures the gap is not lost.
+
+Do not defer improvements to a follow-up task or PR comment. The retro is only
+useful if its output is applied in the same session. If question 3 says
+"nothing", skip this step. If you make a change, briefly note it in the session
+log under `## Applied improvements`.
+
+### 13. Commit to main
 
 ```bash
 git add .
