@@ -376,11 +376,221 @@ The "thin pointer" pattern for `AGENTS.md` (pointing to `.github/copilot-instruc
 
 ---
 
+## Addendum: AGENTS.md as Principal Instruction File — Options, Relative Links, Symlinks, and Community Patterns
+
+*Added in response to review comment: "Can AGENTS.md be the principle holder of all instructions with then CLAUDE.md and copilot-instructions be thin pointers? List options and strengths and weaknesses of the different options. Do the agents follow relative links? Can symlinks be used in the repo? How are others approaching this problem?"*
+
+### A1. File Include and Relative Link Support per Agent
+
+The three instruction files have fundamentally different composition capabilities:
+
+**Claude Code — `CLAUDE.md` supports `@path/to/file` imports (documented)**
+
+Claude Code has a first-class file import mechanism. Place `@path/to/file` anywhere in a `CLAUDE.md`:
+
+```markdown
+@AGENTS.md
+
+## Claude Code–specific
+Use plan mode for changes under `src/billing/`.
+```
+
+- Paths resolve relative to the file containing the import, not the working directory
+- Recursive imports work up to 5 hops deep
+- A one-time approval prompt fires when external imports are first encountered in a project
+- `@~/.claude/personal-rules.md` also works for home-directory files
+
+The Anthropic documentation explicitly describes the `@AGENTS.md` pattern as the supported bridge for repos that use AGENTS.md as the canonical source. (Source: [Claude Code memory docs](https://code.claude.com/docs/en/memory))
+
+**GitHub Copilot — `.github/copilot-instructions.md` has no file include support (documented)**
+
+The file is treated as plain Markdown only. There is no `@path`, `#include`, or reference-following mechanism. GitHub's `.prompt.md` files (VS Code / JetBrains only) do support `[file link]()` and `#file:` references, but this capability does not apply to the repository-level custom instructions file. (Source: [GitHub Docs, custom instructions](https://docs.github.com/en/copilot/customizing-copilot/adding-custom-instructions-for-github-copilot))
+
+**AGENTS.md spec — no file include support (documented)**
+
+AGENTS.md is deliberately minimal — standard Markdown that agents parse as plain text. The only composition mechanism is file-system proximity: multiple AGENTS.md files in nested directories are discovered by walking the tree root-down, with each deeper file appended (and taking implicit precedence). There is no `@path` or `#include` syntax. (Source: [OpenAI Codex AGENTS.md guide](https://developers.openai.com/codex/guides/agents-md); [agents.md spec](https://agents.md/))
+
+**Summary:**
+
+| File | File includes / relative links | Mechanism |
+|---|---|---|
+| `CLAUDE.md` | Yes | `@path/to/file`, recursive up to 5 hops, officially documented |
+| `.github/copilot-instructions.md` | No | Plain Markdown only |
+| `AGENTS.md` | No | Plain Markdown only; directory layering via file-system discovery |
+
+---
+
+### A2. Symlink Support
+
+**Git stores symlinks correctly on Linux.** A symlink in a git repo is stored as a tree object containing the target path string. On checkout, git recreates the symlink. Relative symlinks are portable; absolute symlinks are machine-specific. This is well-established behaviour.
+
+**GitHub-hosted Linux Actions runners preserve symlinks after `actions/checkout`.** The working directory after checkout contains actual symlinks, not dereferenced copies. However, two important exceptions apply:
+
+1. If `.github/` itself is a symlink, GitHub Actions workflow discovery breaks entirely — the runner does not follow the symlink and no workflows run. (Source: [actions/runner #3195](https://github.com/actions/runner/issues/3195))
+2. If a symlink's target is missing (e.g., a submodule not checked out), the "Set up job" stage fails. (Source: [actions/runner #3234](https://github.com/actions/runner/issues/3234))
+
+**Copilot coding agent + symlinked `copilot-instructions.md` — undocumented.** If `.github/copilot-instructions.md` is a symlink pointing to `../AGENTS.md`, the symlink will exist on the runner filesystem after checkout. Whether the Copilot coding agent's file-reading implementation dereferences it is not documented by GitHub. OS-level file access on Linux resolves symlinks transparently for most read operations, making this likely to work in practice — but it is not guaranteed and is not officially supported. Testing is required.
+
+**Claude Code + symlinked `CLAUDE.md` — partially works, `@import` preferred.** Community experience supports using a symlink (`CLAUDE.md → AGENTS.md`), but Claude Code's file-discovery code has known bugs around symlinks in git repos ([claude-code #14482](https://github.com/anthropics/claude-code/issues/14482), [#14693](https://github.com/anthropics/claude-code/issues/14693)) — specifically the interactive file picker does not follow symlinks. The `@AGENTS.md` import in `CLAUDE.md` is the officially documented alternative and is more reliable.
+
+---
+
+### A3. Options for a Single Source of Truth
+
+Given the above, there are four viable approaches. The Copilot constraint (no file includes in `copilot-instructions.md`) is the binding constraint in every option.
+
+---
+
+#### Option 1: `.github/copilot-instructions.md` as source of truth (current approach, ADR-0006)
+
+```
+.github/copilot-instructions.md  ← full instructions (canonical)
+CLAUDE.md                        ← @.github/copilot-instructions.md
+AGENTS.md                        ← thin prose pointer + any AGENTS.md-specific notes
+```
+
+`CLAUDE.md` content:
+```markdown
+@.github/copilot-instructions.md
+```
+
+`AGENTS.md` content:
+```markdown
+See `.github/copilot-instructions.md` for full project instructions.
+[Content duplicated or summarised here as needed by AGENTS.md-only tools]
+```
+
+**Strengths:**
+- Aligns with ADR-0006; no file needs to be renamed
+- `CLAUDE.md` achieves true zero-drift via `@` import
+- Copilot coding agent reads the full instructions from its native file
+
+**Weaknesses:**
+- AGENTS.md cannot import; it must either duplicate or summarise, creating drift risk for AGENTS.md-native tools (Cursor, OpenAI Codex, etc.)
+- Canonical file lives inside `.github/`, which is a less obvious location for a cross-vendor standard
+
+---
+
+#### Option 2: `AGENTS.md` as source of truth (recommended for cross-vendor repos)
+
+```
+AGENTS.md                        ← full instructions (canonical)
+CLAUDE.md                        ← @AGENTS.md (zero-drift, officially documented)
+.github/copilot-instructions.md  ← thin prose pointer
+```
+
+`CLAUDE.md` content:
+```markdown
+@AGENTS.md
+```
+
+`.github/copilot-instructions.md` content:
+```markdown
+Project instructions are in AGENTS.md at the repository root.
+```
+
+Note: the Copilot coding agent reads **both** `AGENTS.md` and `.github/copilot-instructions.md` additively (§2 Q1a). So when `AGENTS.md` holds the full instructions, `copilot-instructions.md` can be an empty or minimal pointer file — Copilot will still have the full context from `AGENTS.md`. `CLAUDE.md` imports `AGENTS.md` directly, so Claude Code also has full context.
+
+**Strengths:**
+- Single edit point for all agents
+- `CLAUDE.md` has zero drift via officially documented `@AGENTS.md` bridge
+- Copilot coding agent reads `AGENTS.md` natively — `copilot-instructions.md` can be minimal
+- AGENTS.md is a Linux Foundation open standard; placing canonical instructions here signals cross-vendor intent
+- Most closely matches the emerging community consensus (see A4)
+
+**Weaknesses:**
+- Requires renaming/moving the current instruction content from `.github/copilot-instructions.md` to `AGENTS.md`
+- `copilot-instructions.md` drift risk if the prose pointer is updated independently; mitigated by keeping it truly minimal (one sentence)
+- Copilot Spaces and GitHub.com chat (non-coding-agent surfaces) load `copilot-instructions.md` from Copilot's system prompt; a minimal pointer there reduces their context. This matters only if those surfaces are used for substantive coding questions — they can still read `AGENTS.md` as a file, but it won't be injected automatically.
+
+---
+
+#### Option 3: Symlink unification
+
+```
+AGENTS.md                        ← full instructions (canonical)
+CLAUDE.md                        → symlink → AGENTS.md
+.github/copilot-instructions.md  → symlink → ../AGENTS.md
+```
+
+**Strengths:**
+- Truly DRY at the filesystem level — one file, three names
+- No prose or imports needed
+
+**Weaknesses:**
+- Copilot coding agent symlink resolution for `copilot-instructions.md` is undocumented — may work via OS-level resolution, but not guaranteed
+- Claude Code has known symlink bugs in file discovery; `@AGENTS.md` import is the supported approach
+- Symlinks can confuse tools and editors that do not resolve them transparently
+- `.github/` directory itself must not be a symlink (breaks Actions); individual files within it can be symlinks, but this is a maintenance hazard
+
+**Verdict:** Symlinks work reliably for local development. For GitHub-hosted agent workloads, they introduce unverified behaviour. Use Option 2 (`@AGENTS.md` import) instead of a `CLAUDE.md` symlink. The `copilot-instructions.md` symlink is a reasonable gamble given OS-level symlink resolution, but test it before relying on it.
+
+---
+
+#### Option 4: Third shared file (e.g., `docs/agent-rules.md`)
+
+```
+docs/agent-rules.md              ← full instructions (canonical)
+CLAUDE.md                        ← @docs/agent-rules.md
+AGENTS.md                        ← prose pointer or symlink
+.github/copilot-instructions.md  ← prose pointer or symlink
+```
+
+**Strengths:**
+- Maximum flexibility in file location and naming
+- Can live anywhere in the repo tree
+
+**Weaknesses:**
+- Adds a fourth file to maintain
+- AGENTS.md and `copilot-instructions.md` still cannot import — same problem as all other options
+- No advantage over Option 2 unless there is a specific reason to avoid the AGENTS.md name at root
+
+**Verdict:** Unnecessary complexity. Option 2 achieves the same goal.
+
+---
+
+### A4. How Others Are Approaching This
+
+The community has converged strongly on AGENTS.md as the cross-vendor single source of truth, with thin wrappers for tool-specific files.
+
+**Adoption scale:** GitHub code search for `filename:CLAUDE.md "@AGENTS.md"` returns approximately 1,900 results, confirming widespread use of the CLAUDE.md-as-thin-wrapper pattern. The AGENTS.md standard is reported in over 60,000 open-source repositories as of early 2026. (Source: [agents.md](https://agents.md/); [tessl.io](https://tessl.io/blog/the-rise-of-agents-md-an-open-standard-and-single-source-of-truth-for-ai-coding-agents/))
+
+**Pattern in practice (from community sources):**
+
+1. Keep all substantive instructions in `AGENTS.md`
+2. `CLAUDE.md` contains only `@AGENTS.md`, optionally followed by Claude Code-specific additions (e.g., plan-mode rules, specific tool restrictions)
+3. `.github/copilot-instructions.md` is either a one-sentence pointer or contains Copilot-specific tooling notes not relevant to other agents
+4. For personal rules that should not be committed, use `@~/.claude/personal-rules.md` in a local `CLAUDE.md` that is gitignored
+
+Notable reference: [github/awesome-copilot](https://github.com/github/awesome-copilot) — GitHub's own reference repository — uses both `AGENTS.md` and separate Copilot instruction files in complementary roles, not a single-file approach.
+
+**A caution on content quality (March 2026 research):** An ETH Zurich study found that LLM-generated instruction files can reduce task success rates by ~3% while increasing inference costs by over 20%. Human-authored instruction files offered only modest gains (~4% improvement). The implication: choosing the right file structure matters, but the quality and precision of what is written in that file matters more. (Source: [InfoQ, March 2026](https://www.infoq.com/news/2026/03/agents-context-file-value-review/))
+
+---
+
+### A5. Recommendation for This Repository
+
+Given this repo's agent surfaces and the findings above, the recommended approach is **Option 2: AGENTS.md as source of truth**:
+
+1. Move the content of `.github/copilot-instructions.md` into `AGENTS.md` at the repository root
+2. Replace `.github/copilot-instructions.md` with a minimal pointer (one sentence noting that instructions are in `AGENTS.md`); Copilot coding agent reads `AGENTS.md` natively and will have full context regardless
+3. Create `CLAUDE.md` at the repository root containing `@AGENTS.md` as the first line, followed by any Claude Code–specific additions; this achieves zero-drift import officially documented by Anthropic
+
+This resolves the open question from §6 ("What should CLAUDE.md contain?") — `@AGENTS.md` is the answer, not a full mirror or manual summary.
+
+The symlink approach for `.github/copilot-instructions.md → ../AGENTS.md` is a viable alternative if testing confirms the Copilot coding agent resolves it correctly. If confirmed, it eliminates the prose pointer entirely. Test before committing to it.
+
+---
+
 ## Output
 
 - Type: knowledge, backlog-item
-- Description: Confirmed that the minimum viable configuration for all currently-reachable agent surfaces requires three additions: `copilot-setup-steps.yml` (environment setup), `AGENTS.md` (cross-vendor pointer), and `CLAUDE.md` (Claude Code instructions). Claude-via-GitHub-Issues surface is blocked by missing credentials. Copilot Spaces and Claude iOS GitHub integration are reading tools requiring no per-repo configuration. New backlog items created for implementation.
+- Description: Confirmed that the minimum viable configuration for all currently-reachable agent surfaces requires three additions: `copilot-setup-steps.yml` (environment setup), `AGENTS.md` (cross-vendor pointer), and `CLAUDE.md` (Claude Code instructions). Claude-via-GitHub-Issues surface is blocked by missing credentials. Copilot Spaces and Claude iOS GitHub integration are reading tools requiring no per-repo configuration. Addendum adds analysis of AGENTS.md-as-source-of-truth pattern, file include support per agent, symlink behaviour, and community approaches.
 - Links:
   - [GitHub Docs, Copilot custom instructions](https://docs.github.com/en/copilot/customizing-copilot/adding-custom-instructions-for-github-copilot)
   - [GitHub Docs, Copilot coding agent environment](https://docs.github.com/en/copilot/customizing-copilot/customizing-the-development-environment-for-copilot-coding-agent)
   - [Claude Code GitHub Actions docs](https://docs.anthropic.com/en/docs/claude-code/github-actions)
+  - [Claude Code memory / @import docs](https://code.claude.com/docs/en/memory)
+  - [OpenAI Codex AGENTS.md guide](https://developers.openai.com/codex/guides/agents-md)
+  - [agents.md open standard](https://agents.md/)
+  - [tessl.io — Rise of AGENTS.md](https://tessl.io/blog/the-rise-of-agents-md-an-open-standard-and-single-source-of-truth-for-ai-coding-agents/)
