@@ -62,6 +62,12 @@ follow leads they produce. Apply source-marking discipline as defined in
   state the justification.
 - Evidence sufficiency: at least two independent credible sources agree, or a
   primary source is definitive.
+- **Failed primary-source searches must be recorded explicitly in §2.** When a
+  secondary source cites a paper, arXiv preprint, or DOI that you cannot
+  locate, write a note directly in §2 stating the search query used and the
+  outcome ("not found"). Do not silently absorb the gap into a lower confidence
+  label alone -- the explicit record is required so Risks/Gaps can be populated
+  accurately and reviewers can re-check the search.
 
 **Output quality:** Apply the output quality rules defined in
 `.github/skills/research/SKILL.md §6 Output Quality`.
@@ -212,6 +218,12 @@ easily-detectable issues.
    occurrence is a violation. Replace each with a comma, colon, or restructured
    sentence. Em-dashes are prohibited without exception.
 
+6. **Failed primary-source searches** -- scan §2 Investigation for any claim
+   where a secondary source references a paper, arXiv preprint, or DOI that
+   you were unable to locate. For each such case, confirm there is an explicit
+   inline note recording the search query used and the "not found" outcome.
+   A missing note here is a gap in Risks/Gaps -- add it before proceeding.
+
 If you fix anything in this self-review, re-read the affected sentences to
 confirm the fix did not introduce a new violation before proceeding.
 
@@ -322,7 +334,26 @@ Sources consulted:
 4. **Is this a pattern?** <answer -- if yes, note whether it matches a known pattern in the instructions or warrants adding a new one>
 ```
 
-### 12. Commit to main
+### 12. Apply retro improvements immediately
+
+Re-read the Mini-Retro you just wrote (questions 3 and 4). For each
+actionable improvement identified:
+
+- **If question 3 names a concrete change** (not "nothing") and the change
+  belongs in `research-prompt.md`, apply it now -- before committing. Edit the
+  relevant rule, checklist item, or step in `research-prompt.md` directly.
+- **If the retro notes a pattern** (question 4 = "yes"), also check whether
+  the same fix needs to go into a companion skill file in `.github/skills/`.
+  If so, note the required change in the session log under a new
+  `## Pending skill improvements` heading -- you cannot edit the skills
+  submodule directly, but the note ensures the gap is not lost.
+
+Do not defer improvements to a follow-up task or PR comment. The retro is only
+useful if its output is applied in the same session. If question 3 says
+"nothing", skip this step. If you make a change, briefly note it in the session
+log under `## Applied improvements`.
+
+### 13. Commit to main
 
 ```bash
 git add .
