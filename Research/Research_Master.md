@@ -1,9 +1,10 @@
 # Research Master Document
 
-Generated on: 2026-04-01 08:12 UTC
+Generated on: 2026-04-02 16:28 UTC
 
 ## Table of Contents
 
+* [Anthropic Claude Code leak: architecture, prompting, and hidden features](#2026-04-02-anthropic-claude-code-leak-architecture-prompting-and-hidden-features-md)
 * [Large Language Models as offensive security tools: autonomous 0-day discovery, exploit generation, and the emerging arms race](#2026-03-31-llm-offensive-security-0days-md)
 * [The Unknowability of the Universe](#2026-03-29-unknowability-of-the-universe-md)
 * [Multi-agent repo setup: best practices for configuring a repository to be worked on by Claude (iOS and GitHub Issues) and Copilot (Spaces and GitHub Issues)](#2026-03-29-multi-agent-repo-setup-md)
@@ -133,6 +134,95 @@ Generated on: 2026-04-01 08:12 UTC
 * [AI Strategy Examples: Business Efficiency Focus](#2026-02-28-ai-strategy-business-efficiency-examples-md)
 * [AI Line 1 and Line 2 Risk Agents: Who Is Building Them?](#2026-02-28-ai-line-1-line-2-risk-agents-md)
 * [AI for Control Testing, Gap Identification, and Policies/Standards Reviews](#2026-02-28-ai-control-testing-and-assurance-md)
+
+---
+
+<a name="2026-04-02-anthropic-claude-code-leak-architecture-prompting-and-hidden-features-md"></a>
+
+## Anthropic Claude Code leak: architecture, prompting, and hidden features
+
+**Tags:** [anthropic, claude, claude-code, leak, architecture, prompting, feature-flags, agents, npm, typescript, memory, tools]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-02-anthropic-claude-code-leak-architecture-prompting-and-hidden-features.md
+
+## Research Question
+
+What does the accidental March 2026 leak of Anthropic's Claude Code source code reveal about: (1) the codebase architecture, (2) how key engineering problems are solved, (3) the prompting and instruction strategy, (4) feature-flagging practices, (5) hidden features, (6) the product roadmap, (7) lessons for prompt engineering using skills, memory, Retrieval-Augmented Generation (RAG)-style patterns, and tool descriptions, and (8) any other insights for practitioners building agent systems?
+
+## Findings
+
+*(Populated from §6 Synthesis above.)*
+
+### Executive Summary
+
+On March 31, 2026, a missing `.npmignore` entry in `@anthropic-ai/claude-code` version 2.1.88 exposed a 59.8 MB source map containing 512,000 lines of TypeScript and 1,900+ files -- the complete orchestration harness for Anthropic's Claude Code coding agent. No model weights or user data were leaked. The code confirmed a modular, permissioned tool architecture, a three-tier memory system, and a RAG-style instruction hierarchy via CLAUDE.md. Analysis revealed 44+ feature flags gating at least five major unreleased capabilities (KAIROS autonomous daemon, BUDDY virtual pet, Undercover Mode AI-attribution stripping, UltraPlan extended planning, and Voice/Bridge remote access). The roadmap signals a move toward a persistent, proactive, multi-agent software engineering platform. For practitioners, the leak is a masterclass in production-grade agent harness design.
+
+### Key Findings
+
+1. [fact] The leak was a packaging error: a JavaScript (JS) source map file was not excluded from the npm package, exposing the full TypeScript source via a trivially reversible reconstruction.
+2. [fact] No model weights, training data, or user conversations were exposed -- only the orchestration and harness layer.
+3. [fact] The architecture is modular and permissioned: 40-60 tools, each with explicit permission checks enforced by a central orchestration loop, implementing safety-by-architecture rather than safety-by-policy alone.
+4. [fact] A five-level configuration cascade and seven-stage session bootstrap provide fine-grained, layered control over every agent session.
+5. [fact] The CLAUDE.md hierarchy (global, org, project, subdirectory) loads up to 40,000 characters of persistent custom instructions per session, functioning as a RAG-style retrieval of project-specific context.
+6. [fact] The three-tier memory system -- session compaction (nine segments), pointer-index `MEMORY.md`, and AutoDream async consolidation -- addresses long-session context drift without flooding the model context window.
+7. [fact] 44+ named feature flags were found in the source, enabling per-user, per-cohort, and per-environment feature control without redeployment.
+8. [fact] KAIROS (always-on daemon with background tick, proactive insights, and GitHub webhook monitoring), BUDDY (virtual pet with 18 species and gamified stats), Undercover Mode (AI-attribution stripping for public repos), UltraPlan (30-minute autonomous planning cycles), and Voice/Bridge Mode (STT and WebSocket remote access) are confirmed unreleased features.
+9. [fact] Anti-distillation traps -- fake decoy tools injected into system prompts -- were already present before the leak, as was binary attestation for API access.
+10. [inference] Internal model codenames Capybara, Fennec, and Numbat point to a model roadmap that extends beyond the currently released Claude 4.6 family.
+11. [inference] The architectural trajectory (KAIROS, UltraPlan, Coordinator Mode) indicates Anthropic is building toward a persistent, proactive, multi-agent platform rather than an interactive assistant.
+12. [inference] The leak compressed competitor R&D timelines significantly; the "secret sauce" of Claude Code was the harness, and that harness is now publicly documented.
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| Leak cause: missing .npmignore in v2.1.88 | [The Hacker News](https://thehackernews.com/2026/04/claude-code-tleaked-via-npm-packaging.html), [Layer5](https://layer5.io/blog/engineering/the-claude-code-source-leak-512000-lines-a-missing-npmignore-and-the-fastest-growing-repo-in-github-history) | high | Anthropic confirmed |
+| 512,000 lines, 1,900+ files, 59.8 MB | [Layer5](https://layer5.io/blog/engineering/the-claude-code-source-leak-512000-lines-a-missing-npmignore-and-the-fastest-growing-repo-in-github-history), [Cybernews](https://cybernews.com/security/anthropic-claude-code-source-leak/) | high | Multiple sources agree |
+| No model weights leaked | [DataStudios](https://www.datastudios.org/post/claude-code-leak-how-anthropic-accidentally-exposed-its-coding-tool-s-source-code) | high | Consistent across all sources |
+| 40-60 permissioned tools | [smol.ai AINews](https://news.smol.ai/issues/26-03-31-claude-code-leak), [Verdent AI](https://www.verdent.ai/guides/claude-code-source-code-leak-architecture) | high | Counts vary 40-60 by configuration |
+| CLAUDE.md loads up to 40,000 chars | [Superframeworks](https://superframeworks.com/articles/claude-code-source-code-leak) | medium | Limit may be model-context-dependent |
+| Three-tier memory: compaction, index, AutoDream | [VentureBeat](https://venturebeat.com/ai/claude-codes-source-code-appears-to-have-leaked-heres-what-we-know/), [ctol.digital](https://www.ctol.digital/news/claude-code-cli-source-map-leak-anthropic-512000-line-agent-blueprint/) | high | Consistent across multiple analyses |
+| 44+ feature flags | [Layer5](https://layer5.io/blog/engineering/the-claude-code-source-leak-512000-lines-a-missing-npmignore-and-the-fastest-growing-repo-in-github-history), [Claudefa.st](https://claudefa.st/blog/guide/mechanics/claude-code-source-leak) | medium | Exact count methodology-dependent |
+| KAIROS daemon mode | [Wavespeed AI](https://wavespeed.ai/blog/posts/claude-code-leaked-source-hidden-features/), [DataNorth](https://datanorth.ai/news/anthropic-leak-claude-code-source-map-reveals-roadmap-for-autonomous-agentic-future) | high | Multiple independent reports |
+| BUDDY virtual pet (18 species) | [Wavespeed AI](https://wavespeed.ai/blog/posts/claude-code-leaked-source-hidden-features/), [DEV.to](https://dev.to/harrison_guo_e01b4c8793a0/claude-code-source-leaked-5-hidden-features-found-in-510k-lines-of-code-3mbn) | high | Detailed and consistent |
+| Undercover Mode auto-activates for public repos | [Winbuzzer](https://winbuzzer.com/2026/04/01/claude-code-source-leak-anti-distillation-traps-undercover-mode-xcxwbn/), [APIDog](https://apidog.com/blog/claude-code-source-leak-analysis/) | high | Consistent across sources |
+| Anti-distillation decoy tools in system prompt | [Winbuzzer](https://winbuzzer.com/2026/04/01/claude-code-source-leak-anti-distillation-traps-undercover-mode-xcxwbn/) | medium | Single primary analytical source |
+| UltraPlan 30-min cycles using Fennec | [Firethering](https://firethering.com/claude-code-source-code-leak/), [FutureTools](https://futuretools.io/news/anthropics-claude-code-gets-leaked-openais-codex-was-already-open-source-heres-what-it-all-means) | medium | Two sources; timing claim may be approximate |
+| Model codenames: Capybara, Fennec, Numbat | [BuildFastWithAI](https://www.buildfastwithai.com/blogs/claude-code-source-code-leak-2026), [TechStartups](https://techstartups.com/2026/03/31/anthropics-claude-source-code-leak-goes-viral-again-after-full-source-hits-npm-registry-revealing-hidden-capybara-models-and-ai-pet/) | medium | Internally consistent; codenames may change |
+| Python rewrite reached 50,000+ GitHub stars rapidly | [Layer5](https://layer5.io/blog/engineering/the-claude-code-source-leak-512000-lines-a-missing-npmignore-and-the-fastest-growing-repo-in-github-history) | low | Extraordinary claim; exact figure likely approximate |
+
+### Assumptions
+
+- **Assumption:** Secondary reporting is materially accurate in describing codebase contents. **Justification:** Multiple independent reporters arrived at consistent findings across architectural, feature, and security claims, making systematic error unlikely.
+- **Assumption:** Features described as unreleased remain unreleased as of the research date (2026-04-02). **Justification:** No public announcement of KAIROS, BUDDY, or Undercover Mode has been found.
+- **Assumption:** The "50,000 stars in two hours" claim is directionally representative of an extraordinary community response even if the precise number is imprecise. **Justification:** The rate of GitHub star growth is a continuously changing figure, and this measurement was taken during a period of rapid change.
+
+### Analysis
+
+The leak reveals that Anthropic's engineering approach to Claude Code is fundamentally a systems engineering problem, not a prompt engineering problem. The model capability is assumed; the work is in the harness: permission gating, memory management, parallel execution, and configuration cascading. This is consistent with how sophisticated distributed systems are built and suggests that teams building competing agents should invest in harness quality before model selection.
+
+The CLAUDE.md design is the single most immediately replicable lesson: a hierarchical, version-controlled, persistent instruction file that is loaded fresh each session is strictly superior to re-explaining project context in every prompt. It separates stable context (project rules, conventions) from dynamic context (current task), which mirrors the distinction between a database schema and a query.
+
+The anti-distillation traps are a novel and underappreciated finding: Anthropic treats tool descriptions as part of the competitive and security surface of the system, not merely as usability documentation. This has implications for any team designing tool schemas -- the descriptions are read by the model, by competitors, and potentially by adversaries.
+
+The Undercover Mode disclosure risk is the most ethically complex finding. Automatic attribution stripping for public repositories -- without apparent user configuration -- is a policy decision that sits in tension with open-source norms and emerging AI labelling regulations. It is unclear whether users deploying Claude Code were aware of this behaviour before the leak.
+
+### Risks, Gaps, and Uncertainties
+
+- All findings are mediated through secondary reporting; direct verification of the copyrighted source code is legally inadvisable.
+- Some feature-detail claims (precise BUDDY stat values, exact KAIROS trigger logic, UltraPlan 30-minute cycle specifics) may be inaccurate or over-interpreted in secondary coverage.
+- The competitive damage from the leak is not yet measurable; no quantitative analysis of competitor progress attributable to the leak has been published.
+- Anthropic's response beyond DMCA notices has not been publicly detailed; it is not known whether Undercover Mode was modified, removed, or disclosed post-leak.
+
+### Open Questions
+
+- Will Anthropic release a sanitised open-source version of Claude Code as a competitive or reputational response?
+- How will regulators interpret Undercover Mode under the European Union (EU) AI Act's transparency requirements or equivalent frameworks?
+- Will the Numbat model codename correspond to a publicly released model, and on what timeline?
+- Does Anthropic plan to make KAIROS or Bridge Mode generally available, and if so under what consent and disclosure terms?
+- How widespread is the npm source-map supply-chain risk class across other AI tooling organisations publishing compiled packages?
+
+---
 
 ---
 
