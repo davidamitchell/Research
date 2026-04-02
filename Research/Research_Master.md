@@ -1,12 +1,13 @@
 # Research Master Document
 
-Generated on: 2026-04-02 16:30 UTC
+Generated on: 2026-04-02 16:31 UTC
 
 ## Table of Contents
 
 * [Claude Code npm Source Map Leak](#2026-04-02-claude-code-npm-source-map-leak-md)
 * [Anthropic Claude Code leak: architecture, prompting, and hidden features](#2026-04-02-anthropic-claude-code-leak-architecture-prompting-and-hidden-features-md)
 * [AI Funding and Capital Investment Landscape](#2026-04-02-ai-funding-and-capital-investment-landscape-md)
+* [TimesFM and the Landscape of Time-Series Foundation Models](#2026-04-01-timesfm-time-series-foundation-models-md)
 * [Backpressure Infrastructure and the Theory of Constraints](#2026-04-01-backpressure-theory-of-constraints-md)
 * [Large Language Models as offensive security tools: autonomous 0-day discovery, exploit generation, and the emerging arms race](#2026-03-31-llm-offensive-security-0days-md)
 * [The Unknowability of the Universe](#2026-03-29-unknowability-of-the-universe-md)
@@ -386,6 +387,89 @@ The Stargate Project represents a structural escalation: if OpenAI and SoftBank 
 - What is the realistic commercial deployment timeline for humanoid robotics at scale?
 - How will the Microsoft-OpenAI agreement evolve as OpenAI approaches AGI thresholds defined in the partnership terms?
 - At what point does hyperscaler debt financing for CapEx become a systemic macroeconomic risk rather than a company-level one?
+
+---
+
+---
+
+<a name="2026-04-01-timesfm-time-series-foundation-models-md"></a>
+
+## TimesFM and the Landscape of Time-Series Foundation Models
+
+**Tags:** [machine-learning, time-series, forecasting, foundation-models, google, transformers]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-01-timesfm-time-series-foundation-models.md
+
+## Research Question
+
+What are the practical use cases for TimesFM (Google's pretrained time-series foundation model), who is doing comparable work, and how does the foundation-model paradigm extend to other structured data types such as graphs and trees?
+
+## Findings
+
+*(Populated from §6 Synthesis above.)*
+
+### Executive Summary
+
+TimesFM is Google's decoder-only transformer pretrained on more than 100 billion time points, achieving near-supervised-model accuracy on zero-shot forecasting tasks in retail, energy, traffic, healthcare, and finance without per-domain retraining. Its primary value is in data-scarce settings where building domain-specific models is impractical; when in-domain labelled data is plentiful, purpose-built supervised models still outperform it. A competitive landscape of Time Series Foundation Models (TSFMs) has emerged with Chronos (Amazon), MOIRAI-2 (Salesforce), Lag-Llama, and UniTS offering distinct architectural trade-offs, with no single dominant paradigm as of early 2026. The foundation-model paradigm is extending to graph-structured data through Graph Foundation Models (GFMs), but GFMs are less mature because graphs lack the natural tokenisation unit that sequence patching provides for time-series.
+
+### Key Findings
+
+1. TimesFM is a 200 million-parameter decoder-only transformer that divides input series into non-overlapping 32-step patches processed by a residual MLP before causal self-attention, enabling efficient autoregressive forecasting over context windows up to 16,384 steps.
+2. TimesFM was pretrained on more than 100 billion real-world time points drawn from Google Trends, Wikipedia, electricity, traffic, and weather datasets, supplemented by ARIMA-generated synthetic series to broaden distributional coverage and reduce overfitting to any single domain.
+3. The six primary use case domains for TimesFM are: retail demand forecasting, financial instrument price and volume forecasting, healthcare resource and epidemiology forecasting, energy grid load forecasting, traffic and logistics planning, and web/IoT sensor analytics.
+4. Google integrated TimesFM into BigQuery ML via the `AI.FORECAST` and `AI.DETECT_ANOMALIES` functions, enabling enterprise analysts to invoke foundation-model forecasting through SQL without model deployment or infrastructure overhead.
+5. TimesFM is a univariate forecaster by design, requiring the model to be run independently per series; cross-series correlations are not captured natively, making it less suitable than MOIRAI-2 for multivariate tasks where inter-series dependencies matter.
+6. Amazon's Chronos tokenises continuous time-series values into discrete bins and applies a T5 encoder-decoder architecture (20 M to 710 M parameters), achieving strong zero-shot multivariate performance and production throughput exceeding 300 forecasts per second on a GPU.
+7. Salesforce's MOIRAI-2 uses Mixture-of-Experts routing and an any-variate attention mechanism that natively processes any number of correlated input series, making it the leading open-source TSFM for multivariate and cross-domain forecasting tasks as of early 2026.
+8. The Microsoft ProbTS benchmarking framework provides reproducible evaluation of TimesFM, Chronos, MOIRAI, Lag-Llama, and UniTS across multiple forecast horizons and dataset types, and is the most comprehensive public TSFM comparison resource available.
+9. All current TSFMs underperform task-specific supervised models when substantial in-domain labelled data is available; the compelling use case is the data-scarce or rapid-prototyping regime where per-domain training would be too costly or slow.
+10. Graph Foundation Models face a harder generalisation problem than TSFMs because graph-structured data lacks a universal tokenisation unit; the GFT paper (NeurIPS 2024) addresses this by treating Graph Neural Network message-passing computation trees as reusable vocabulary tokens enabling cross-domain zero-shot transfer.
+11. Google Research has applied GFMs to interconnected relational database tables by representing them as typed entity graphs, demonstrating strong zero-shot performance on unseen databases without task-specific feature engineering.
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| 200 M parameters, 50 layers, 16,384-step context | TimesFM GitHub; Hugging Face model card | high | v2.5 specification |
+| Pretrained on 100B+ time points from Google Trends, Wikipedia, etc. | Das et al. arXiv:2310.10688 | high | Core paper claim |
+| Six use case domains | Das et al.; Google Research Blog; BigQuery ML docs | high | Explicit in paper benchmarks and deployment docs |
+| BigQuery ML AI.FORECAST integration | Google BigQuery ML documentation | high | Production-available feature |
+| TimesFM is univariate by design | Das et al.; ProbTS benchmark | high | Explicitly stated as design choice in Das et al. |
+| Chronos uses T5 with quantised bins, 20 M to 710 M parameters | Ansari et al. arXiv:2403.07815 | high | Core paper claim |
+| Chronos throughput 300+ forecasts/sec on GPU | Machine Learning Mastery 2026 article | medium | Secondary source; no cited benchmark |
+| MOIRAI-2 uses MoE and any-variate attention | Hugging Face MOIRAI card; MLMastery 2026 | medium | No direct arXiv paper for MOIRAI-2 located |
+| ProbTS is most comprehensive TSFM benchmark | ProbTS GitHub README | high | Self-described and corroborated by multiple secondary sources |
+| TSFMs underperform supervised models with in-domain data | Das et al.; ProbTS benchmark | high | Explicitly acknowledged limitation |
+| GFT uses computation trees as vocabulary tokens | Wang et al. NeurIPS 2024 | high | Primary conference paper |
+| Google GFMs for relational tables | Google Research Blog | high | Official Google Research publication |
+
+### Assumptions
+
+- **Assumption:** TimesFM v2.5 specifications cited from the GitHub repository and Hugging Face card are stable and reflect the model as deployed in BigQuery ML. **Justification:** Both sources are official Google publications and are consistent with each other.
+- **Assumption:** The GIFT-Eval and Monash benchmarks are broadly representative of real-world forecasting performance, even if not perfectly so. **Justification:** These are the most widely used public benchmarks; the ProbTS README itself notes their limitations as proxies.
+
+### Analysis
+
+TimesFM's competitive advantage lies not in architectural novelty but in pretraining scale and corpus diversity. Patching and decoder-only attention were established techniques before TimesFM; the contribution is applying them with 100B+ diverse time points. This follows the same pattern as LLMs: scale and data diversity matter more than architectural innovation.
+
+The TSFM landscape in 2025 has three distinct design philosophies: patch-decoder (TimesFM), language-tokenised (Chronos), and any-variate-MoE (MOIRAI). The best choice depends on context: TimesFM for fast univariate long-horizon work, Chronos for high-throughput multivariate zero-shot tasks, MOIRAI-2 for multivariate with strong cross-series correlations. The fragmentation suggests the field has not converged on a dominant architecture, echoing the early LLM landscape.
+
+GFMs face a structurally harder problem. Sequence patching for time-series is clean because all time series share the same positional structure. Graphs vary in node count, edge types, and feature spaces. The computation-tree approach in GFT is technically principled but has been evaluated on narrower domains than the best TSFMs. The GFM field is approximately two to three years behind TSFMs in demonstrated generalisation breadth.
+
+### Risks, Gaps, and Uncertainties
+
+- Benchmark leakage: public datasets used in TSFM pretraining appear in zero-shot evaluations in some studies, potentially overstating generalisation.
+- No direct arXiv paper for MOIRAI-2 was located; architecture details are from secondary documentation only.
+- Chronos throughput claim (300+ forecasts/sec) is from a secondary article without a cited benchmark.
+- TimesFM performance on high-frequency financial data (tick-level or intraday) has not been documented in reviewed sources.
+- The GFM survey (arXiv:2505.15116) covers models up to its submission date; rapidly evolving models released after that date are not reflected.
+
+### Open Questions
+
+- Can TSFMs be fine-tuned cost-effectively for specific domains where zero-shot performance is insufficient, and what compute overhead does fine-tuning add?
+- How does TimesFM v2.5 perform on high-frequency financial time-series compared to domain-specific deep learning models?
+- Will the GFM field converge on a universal graph tokenisation standard analogous to sequence patching, or will domain-specific tokenisation remain necessary?
+- What are the environmental and compute costs of running TSFMs at enterprise scale relative to statistical baselines such as ARIMA or Exponential Smoothing (ETS)?
 
 ---
 
