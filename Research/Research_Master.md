@@ -4,6 +4,7 @@ Generated on: 2026-04-02 16:28 UTC
 
 ## Table of Contents
 
+* [Claude Code npm Source Map Leak](#2026-04-02-claude-code-npm-source-map-leak-md)
 * [Anthropic Claude Code leak: architecture, prompting, and hidden features](#2026-04-02-anthropic-claude-code-leak-architecture-prompting-and-hidden-features-md)
 * [Large Language Models as offensive security tools: autonomous 0-day discovery, exploit generation, and the emerging arms race](#2026-03-31-llm-offensive-security-0days-md)
 * [The Unknowability of the Universe](#2026-03-29-unknowability-of-the-universe-md)
@@ -134,6 +135,84 @@ Generated on: 2026-04-02 16:28 UTC
 * [AI Strategy Examples: Business Efficiency Focus](#2026-02-28-ai-strategy-business-efficiency-examples-md)
 * [AI Line 1 and Line 2 Risk Agents: Who Is Building Them?](#2026-02-28-ai-line-1-line-2-risk-agents-md)
 * [AI for Control Testing, Gap Identification, and Policies/Standards Reviews](#2026-02-28-ai-control-testing-and-assurance-md)
+
+---
+
+<a name="2026-04-02-claude-code-npm-source-map-leak-md"></a>
+
+## Claude Code npm Source Map Leak
+
+**Tags:** [security, npm, release-engineering, intellectual-property, anthropic, claude]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-02-claude-code-npm-source-map-leak.md
+
+## Research Question
+
+How did the March 2026 accidental leak of Anthropic's Claude Code source code via an npm (Node Package Manager) package occur, and what processes and protections can organisations adopt to prevent similar packaging-induced Intellectual Property (IP) disclosures?
+
+## Findings
+
+*(Populated from §6 Synthesis above.)*
+
+### Executive Summary
+
+The March 2026 Claude Code source code exposure was an accidental release engineering failure caused by Anthropic's production npm publish pipeline for the `@anthropic-ai/claude-code` package lacking two complementary safeguards: source map suppression in production builds and a published-file whitelist (or `.npmignore` entry) in the package configuration. Bun's default source map generation, combined with the absence of either control, caused a 59.8 MB `cli.js.map` file to be shipped publicly, exposing 512,000+ lines of proprietary TypeScript code. This was at least the second such incident for Anthropic within 13 months, confirming a systemic gap. A single automated pre-publish gate (`npm pack --dry-run` with a file-list assertion) would have caught both incidents.
+
+### Key Findings
+
+1. **Root cause was a missing package exclusion and no source-map suppression in production.** Bun generates source maps by default; without `*.map` in `.npmignore` or an explicit `files` whitelist in `package.json`, the build artifact was published alongside production code.
+2. **The `sourcesContent` field of source maps embeds raw source inline.** This made the leaked `.map` file self-contained and complete — 512,000+ lines across ~1,900 files.
+3. **No model weights, user data, or cloud credentials were exposed.** The damage was confined to the Claude Code CLI source code and product roadmap signals (44+ unreleased feature flags).
+4. **Chaofan Shou's immediate public disclosure triggered viral spread.** Thousands of GitHub forks appeared within hours; retraction is practically impossible once a package reaches the public npm registry and is mirrored at scale.
+5. **Anthropic's DMCA sweep removed 8,100+ repositories, including non-infringing ones.** Automated at-scale takedowns are blunt instruments that create collateral damage and reputational harm.
+6. **Recurrence within 13 months confirms a systemic gap, not a one-off mistake.** No durable process change was applied after the first incident.
+7. **Open-source reimplementations are largely DMCA-immune.** Code independently rewritten from disclosed architectural insights is legally distinct from copies of the leaked code; "OpenCode" and similar projects survived the DMCA sweep.
+8. **Malicious actors exploited the leak brand to distribute malware.** Security researcher Zscaler ThreatLabz documented "Claude Code leak" lures used to deliver malicious payloads — a secondary threat triggered by the high-profile disclosure.
+9. **`npm pack --dry-run` in CI/CD is the highest-leverage preventive control.** It reveals exactly which files will be published and can be automated to assert that no `*.map` or other unexpected artifact is included.
+10. **Source-map leaks are an industry-wide pattern.** Any closed-source product built with TypeScript or compiled-to-JavaScript languages and distributed via npm faces this risk without deliberate controls; the Claude Code incident is the highest-profile example, not an isolated anomaly.
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| Root cause: missing `*.map` exclusion and Bun default source map generation | [Layer5](https://layer5.io/blog/engineering/the-claude-code-source-leak-512000-lines-a-missing-npmignore-and-the-fastest-growing-repo-in-github-history), [ByteIota](https://byteiota.com/claude-code-source-leaked-via-npm-512k-lines-exposed/) | high | Multiple independent technical sources |
+| 59.8 MB `cli.js.map`, 512,000+ lines, ~1,900 files | [Layer5](https://layer5.io/blog/engineering/the-claude-code-source-leak-512000-lines-a-missing-npmignore-and-the-fastest-growing-repo-in-github-history), [VentureBeat](https://venturebeat.com/technology/claude-codes-source-code-appears-to-have-leaked-heres-what-we-know) | high | Consistent across multiple reports |
+| No model weights, user data, or credentials exposed | [CNBC](https://www.cnbc.com/2026/03/31/anthropic-leak-claude-code-internal-source.html), [Bleeping Computer](https://www.bleepingcomputer.com/news/artificial-intelligence/claude-code-source-code-accidentally-leaked-in-npm-package/) | high | Confirmed by Anthropic statement |
+| Chaofan Shou discovered the leak | [Cybernews](https://cybernews.com/security/anthropic-claude-code-source-leak/), [VentureBeat](https://venturebeat.com/technology/claude-codes-source-code-appears-to-have-leaked-heres-what-we-know) | high | Named consistently across sources |
+| 8,100+ repositories removed by DMCA, including non-infringing ones | [TechCrunch](https://techcrunch.com/2026/04/01/anthropic-took-down-thousands-of-github-repos-trying-to-yank-its-leaked-source-code-a-move-the-company-says-was-an-accident/), [PC Mag](https://www.pcmag.com/news/anthropic-issues-8000-copyright-takedowns-to-scrub-claude-code-leak) | high | Anthropic admitted the over-reach |
+| At least the second packaging incident within 13 months | [Business Standard](https://www.business-standard.com/technology/tech-news/anthropic-leaks-source-code-claude-code-again-what-happened-explained-126040100384_1.html) | medium | Single primary source; consistent with "again" framing in other headlines |
+| 44+ unreleased feature flags visible in leaked code | [VentureBeat](https://venturebeat.com/technology/claude-codes-source-code-appears-to-have-leaked-heres-what-we-know) | medium | Reported, not independently verified by Anthropic |
+| "Claude Code leak" lures used to distribute malware | [Zscaler ThreatLabz](https://www.zscaler.com/blogs/security-research/anthropic-claude-code-leak) | high | Specialist security research team |
+| `npm pack --dry-run` would have revealed the included source map | [ByteIota](https://byteiota.com/claude-code-source-leaked-via-npm-512k-lines-exposed/), [Layer5](https://layer5.io/blog/engineering/the-claude-code-source-leak-512000-lines-a-missing-npmignore-and-the-fastest-growing-repo-in-github-history) | high | Standard npm command, factual |
+
+### Assumptions
+
+- **Assumption:** Anthropic's public statement accurately describes the leak scope (no model weights or customer data). **Justification:** No contradicting evidence exists; Anthropic had strong incentive to investigate fully before making public statements.
+- **Assumption:** "Bun generates source maps by default" reflects Bun's documented default configuration. **Justification:** Reported consistently across multiple independent technical sources.
+
+### Analysis
+
+The incident follows a classic release engineering failure pattern: a mature team uses a build tool (Bun) whose defaults differ from the team's mental model, and no automated gate exists to catch the divergence before a public publish. The two key controls that would have individually prevented the leak are: (1) disabling source map generation in the production build configuration, and (2) using a `package.json` `files` whitelist or `.npmignore` exclusion. The whitelist approach is [inference] the more robust of the two because it is a positive allowlist — it prevents any unexpected file from being published regardless of type, rather than requiring exhaustive enumeration of files to exclude.
+
+The recurrence within 13 months is the most operationally significant signal. A single incident can be attributed to human oversight; a repeat incident indicates the release process itself lacks a durable preventive gate. Adding `npm pack --dry-run` to CI/CD with an automated assertion on the published file list is the [inference] highest-leverage intervention because it catches any packaging error — source maps, test fixtures, `.env` files, build logs — not just source maps specifically.
+
+The DMCA response reveals a separate governance gap. Automated at-scale copyright enforcement, while legally justified, caused collateral damage to unrelated developers and compounded reputational harm. This suggests that a human-in-the-loop review stage for borderline or ambiguous repository takedowns would reduce collateral damage even at some cost to response speed.
+
+### Risks, Gaps, and Uncertainties
+
+- Anthropic has not published a formal post-mortem; the full causal chain is inferred from third-party journalism and security research, not official documentation.
+- The "second incident in 13 months" claim rests on a single source (Business Standard); the 2025 precedent is not independently corroborated in the sources reviewed.
+- The extent of competitive damage from the leaked feature flags and roadmap is unknown and difficult to quantify.
+- It is unclear whether Anthropic implemented specific CI/CD changes after the incident to prevent recurrence.
+
+### Open Questions
+
+- Did Anthropic publish a formal post-mortem or engineering blog post detailing root cause and remediation steps?
+- What specific release process changes did Anthropic implement after the incident?
+- Does the npm registry have (or plan to implement) server-side controls that flag anomalously large source map files before publication?
+- Could a standard Software Bill of Materials (SBOM) process have surfaced the source map inclusion risk earlier in the supply chain?
+
+---
 
 ---
 
