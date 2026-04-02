@@ -1,11 +1,12 @@
 # Research Master Document
 
-Generated on: 2026-04-02 16:28 UTC
+Generated on: 2026-04-02 16:29 UTC
 
 ## Table of Contents
 
 * [Claude Code npm Source Map Leak](#2026-04-02-claude-code-npm-source-map-leak-md)
 * [Anthropic Claude Code leak: architecture, prompting, and hidden features](#2026-04-02-anthropic-claude-code-leak-architecture-prompting-and-hidden-features-md)
+* [AI Funding and Capital Investment Landscape](#2026-04-02-ai-funding-and-capital-investment-landscape-md)
 * [Large Language Models as offensive security tools: autonomous 0-day discovery, exploit generation, and the emerging arms race](#2026-03-31-llm-offensive-security-0days-md)
 * [The Unknowability of the Universe](#2026-03-29-unknowability-of-the-universe-md)
 * [Multi-agent repo setup: best practices for configuring a repository to be worked on by Claude (iOS and GitHub Issues) and Copilot (Spaces and GitHub Issues)](#2026-03-29-multi-agent-repo-setup-md)
@@ -300,6 +301,90 @@ The Undercover Mode disclosure risk is the most ethically complex finding. Autom
 - Will the Numbat model codename correspond to a publicly released model, and on what timeline?
 - Does Anthropic plan to make KAIROS or Bridge Mode generally available, and if so under what consent and disclosure terms?
 - How widespread is the npm source-map supply-chain risk class across other AI tooling organisations publishing compiled packages?
+
+---
+
+---
+
+<a name="2026-04-02-ai-funding-and-capital-investment-landscape-md"></a>
+
+## AI Funding and Capital Investment Landscape
+
+**Tags:** [ai, funding, investment, venture-capital, infrastructure, strategy]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-02-ai-funding-and-capital-investment-landscape.md
+
+## Research Question
+
+Which Artificial Intelligence (AI)-related and tech companies are receiving and deploying capital investment in 2023-2026, who the major investors are, where investment is concentrated, and what actions past funding rounds enabled -- and what do current investment patterns predict about near-term industry direction?
+
+## Findings
+
+*(Populated from §6 Synthesis above.)*
+
+### Executive Summary
+
+AI-related capital investment reached record levels in 2023-2026, with a small cohort of foundation model companies (OpenAI, Anthropic, Databricks, xAI, Scale AI) absorbing the majority of large rounds. Microsoft, Amazon, and Google have structured their investments as cloud infrastructure lock-in agreements, meaning AI model adoption directly drives their cloud revenues. Past investment cycles confirm a two-to-three-year lag between major funding rounds and embedded enterprise product deployment, a pattern already validated by the Microsoft-OpenAI-Copilot trajectory. [inference] Current investment patterns strongly predict consolidation around a small number of AI platforms, accelerated vertical AI application deployment, a physical AI and robotics commercial wave in the next two to four years, and a CapEx sustainability reckoning for hyperscalers within two to three years.
+
+### Key Findings
+
+1. AI funding grew from $21.8 billion in 2023 to over $200 billion in 2025, with Q1 2026 alone exceeding $300 billion globally. The pace has no historical precedent in venture capital history.
+2. Capital is concentrated in a small cohort: OpenAI, Anthropic, Databricks, xAI, and Scale AI received the majority of large rounds. Most foundation model investment is committed; new entrants face diminishing marginal returns in that layer.
+3. Microsoft, Amazon, and Google have each embedded cloud-dependency clauses in their AI investments, converting financial positions into durable cloud revenue streams. This is the defining structural pattern of the current investment cycle.
+4. The Microsoft-OpenAI precedent is the clearest evidence of how current investments will resolve: $13 billion invested over five years produced Microsoft Copilot, 40%+ Azure growth rates, and an estimated $135 billion equity stake value, confirming a five-to-six-year investment-to-dominant-product timeline.
+5. NVIDIA is the largest indirect beneficiary of AI investment, with FY2025 revenues of $130.5 billion (up 114% year-over-year). The company captures the majority of AI hardware spending regardless of which model company receives the investment.
+6. Amazon's Anthropic stake value grew from $8 billion invested to an estimated $14 billion by end 2025, with a $9.5 billion pre-tax quarterly gain in Q3 2025. Google's Anthropic stake produced a $10.7 billion net gain in the same quarter.
+7. Hyperscaler CapEx for 2026 is projected at $600-700 billion combined (Amazon, Google, Microsoft, Meta, Oracle), representing 45-57% of their revenues. This capital intensity is at utility-sector levels and is partially debt-financed.
+8. Power grid availability has replaced GPU supply as the primary constraint on AI infrastructure expansion. Data center power and cooling now represents 40-50% of total build cost, and grid capacity limits deployment timelines more than capital availability.
+9. Robotics and physical AI attracted $27.6 billion in 2025, more than doubling from 2024. Humanoid robot companies alone received $6.1 billion in US investment, signalling a shift from software AI to embodied AI deployment.
+10. [inference] Investor focus shifting from general foundation models to vertical AI platforms and physical AI replicates the cloud-era pattern where application-layer investment accelerated after infrastructure investment peaked. The next two to three years are [inference] likely to produce a wave of sector-specific AI products in healthcare, legal, finance, and logistics, funded by the current vertical AI investment surge.
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| AI funding exceeded $200B in 2025 | [Crunchbase Q1 2026](https://news.crunchbase.com/venture/record-breaking-funding-ai-global-q1-2026/) | high | Multiple sources confirm scale |
+| OpenAI $40B round at $300B valuation | [Crunchbase Softbank](https://news.crunchbase.com/venture/big-dollar-ai-investors-2025-softbank/) | high | Widely reported, confirmed by SoftBank |
+| Microsoft 27% OpenAI stake, $250B Azure commitment | [GeekWire deal terms](https://www.geekwire.com/2025/microsoft-secures-27-stake-in-openai-in-new-deal-with-commitment-for-250b-in-azure-usage/) | high | Official Microsoft blog confirmed |
+| Microsoft $135B estimated stake value from $13B invested | [Motley Fool OpenAI stake](https://www.fool.com/investing/2025/11/03/open-ai-move-made-microsoft-no-brainer-buy/) | medium | Estimated value based on OpenAI $300B valuation and 27% stake; unrealised |
+| Amazon Anthropic stake value $14B by end 2025 | [GeekWire Amazon Q3](https://www.geekwire.com/2025/amazons-anthropic-investment-boosts-its-quarterly-profits-by-9-5b/) | medium | Unrealised gain on private valuation |
+| Google $10.7B net gain from Anthropic Q3 2025 | [Bloomberg](https://www.bloomberg.com/news/articles/2025-10-31/alphabet-amazon-stakes-in-anthropic-boost-profit-by-billions) | medium | Unrealised gain based on private valuation |
+| NVIDIA FY2025 revenue $130.5B, +114% YoY | [Invezz NVIDIA](https://invezz.com/news/2024/12/25/nvidias-3-trillion-year-how-the-ai-boom-propelled-the-chip-giant/) | high | Reported financial results |
+| Hyperscaler 2026 CapEx $600-700B | [Futurum $690B](https://futurumgroup.com/insights/ai-capex-2026-the-690b-infrastructure-sprint/) | medium | Projection, not reported actuals |
+| Power is now primary data center constraint | [Colliers 2026](https://www.colliers.com/en/research/nrep-usdc-data-center-marketplace-2026) | high | Consistent across multiple industry reports |
+| Robotics/physical AI $27.6B in 2025 | [Marion Street Capital](https://www.marionstreetcapital.com/insights/the-robotics-industry-funding-landscape-2025) | medium | Aggregated VC data |
+| Cloud-lock-in clauses in Amazon/Google-Anthropic deals | [Data Center Frontier](https://www.datacenterfrontier.com/machine-learning/article/55335703/inside-anthropics-multi-cloud-ai-factory-how-aws-trainium-and-google-tpus-shape-its-next-phase) | high | Widely reported deal structure |
+| Stargate Project $500B over 4-5 years | [SoftBank official](https://group.softbank/en/news/press/20250122) | high | Official; execution uncertain |
+| CapEx as 45-57% of revenue | [Introl hyperscaler CapEx](https://introl.com/blog/hyperscaler-capex-600b-2026-ai-infrastructure-debt-january-2026) | medium | Based on projections, not final reports |
+
+### Assumptions
+
+- **Assumption:** Reported funding figures reflect actual closed rounds. **Justification:** CB Insights and Crunchbase verify from multiple public disclosure sources; aggregate undisclosed rounds are assumed non-material.
+- **Assumption:** The two-to-three-year investment-to-product lag pattern holds absent a major technical or regulatory discontinuity. **Justification:** Evidenced by Microsoft-OpenAI (2019-2022 Copilot beta), Google-DeepMind (2014-2016 AlphaGo products), and AWS enterprise trajectory (2002-2006).
+- **Assumption:** Cloud-dependency deal provisions are durable in the near term. **Justification:** The October 2025 Microsoft-OpenAI restructure demonstrates renegotiability, but new terms still carry substantial Azure commitments.
+
+### Analysis
+
+The current AI investment landscape is a three-layer stack: foundation model companies at the top, cloud infrastructure providers in the middle, and hardware (NVIDIA dominant) at the base. Capital flows most visibly to the foundation model layer, but financial returns are proving most durable in the middle and base layers. NVIDIA's 114% revenue growth and Amazon's and Google's multi-billion-dollar quarterly gains from their Anthropic stakes confirm that infrastructure and cloud capture value from AI investment regardless of which model company ultimately wins.
+
+The cloud-dependency deal structure is the defining mechanism of this cycle. Unlike passive financial investments, the Microsoft, Amazon, and Google positions are designed so that AI model adoption growth generates cloud revenue automatically. The investors are not betting passively on startup success; they are ensuring that success at the AI layer produces revenue at the cloud layer. The risk-adjusted return profile is therefore better for the cloud providers than for pure AI investors.
+
+The Stargate Project represents a structural escalation: if OpenAI and SoftBank successfully build dedicated AI infrastructure, they reduce dependence on existing cloud providers and concentrate value at the infrastructure layer itself. Whether Stargate completes on its announced timeline (it has experienced delays) will be a leading indicator of whether the cloud-dependency model remains durable.
+
+### Risks, Gaps, and Uncertainties
+
+- CapEx sustainability: Hyperscaler CapEx at 45-57% of revenue is historically unprecedented for the technology sector. If AI-driven revenue growth decelerates before CapEx plans complete, balance sheet pressure will be significant and could force spending reductions mid-cycle.
+- Bubble dynamics: The circular nature of AI spending (hyperscalers fund AI companies that commit to spend on hyperscaler clouds) and rapid valuation growth (OpenAI from $80 billion to $300 billion in two years) create conditions analogous to speculative cycles. A regulatory, technical, or macroeconomic trigger could compress valuations rapidly.
+- Power and energy bottlenecks: Grid capacity constraints are structural and multi-year. Declared CapEx may not translate to usable capacity on stated timelines regardless of capital availability.
+- Export controls: US restrictions on AI chip exports to China constrain NVIDIA's addressable market and could bifurcate global AI infrastructure development.
+- Valuation opacity: Amazon and Google gains from Anthropic are unrealised marks on private valuations. A reset in Anthropic's valuation would reverse these gains and could affect reported earnings.
+
+### Open Questions
+
+- Will any non-US AI company (Mistral AI, DeepSeek, Baidu) achieve sufficient scale to break US-dominated capital concentration?
+- What is the realistic commercial deployment timeline for humanoid robotics at scale?
+- How will the Microsoft-OpenAI agreement evolve as OpenAI approaches AGI thresholds defined in the partnership terms?
+- At what point does hyperscaler debt financing for CapEx become a systemic macroeconomic risk rather than a company-level one?
 
 ---
 
