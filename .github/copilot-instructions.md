@@ -180,12 +180,18 @@ Do not conduct the research. Do not move the item to `in-progress` or `completed
 
 Open `.github/skills/research-question/SKILL.md` and run it against the issue title and body as the candidate topic statement.
 
+The skill's interaction protocol asks three questions before starting. **Do not ask these interactively** — extract the answers from the issue content:
+- *What decision or problem does the answer need to inform?* → infer from the issue body
+- *Are there known constraints?* → extract any mentioned limits, time horizons, or scope hints
+- *What output type is expected?* → default to `knowledge` unless the issue says otherwise
+
+Then:
 - Run the five-test quality check (Specific, Answerable, Scoped, Motivated, Decomposable)
 - Rewrite the question if it fails any test
 - Decompose into sub-questions
 - Produce: validated question, scope (in/out/constraints), context, approach, readiness verdict
 
-Iterate until the verdict is **READY**.
+If the verdict is still **NEEDS REVISION** after two iterations, use the best available formulation, note the unresolved gaps in the Scope's Constraints field, and proceed.
 
 **2. Create the backlog item**
 
