@@ -14,7 +14,7 @@ output: [knowledge, backlog-item]
 
 ## Research Question
 
-What are the established patterns and tooling approaches for using Artificial Intelligence (AI) to generate actionable daily and weekly productivity digests from personal task management systems -- and what does the evidence say about their effectiveness compared to manual review, and how do messaging platform integrations (Slack, Microsoft Teams, Telegram) shape adoption?
+What are the established patterns and tooling approaches for using Artificial Intelligence (AI) to generate actionable daily and weekly productivity digests from personal task management systems?
 
 Supporting questions:
 - What automation stacks exist today for pulling tasks from personal knowledge bases (Notion, Obsidian, Todoist, etc.) and summarising them via a Large Language Model (LLM)?
@@ -66,7 +66,7 @@ This pattern is not unique to Notion or Zapier -- similar automations appear acr
 
 ## Sources
 
-- [ ] [YouTube: AI workflow help with todo lists](https://youtu.be/hFRQb2e5cJs?si=6NppPd82VwLaEKts) -- primary source; transcript describes the Zapier + Notion + Claude/ChatGPT + Slack pattern in detail
+- [ ] [YouTube: AI workflow help with todo lists](https://youtu.be/hFRQb2e5cJs?si=6NppPd82VwLaEKts) -- primary video source; describes the Zapier + Notion + Claude/ChatGPT + Slack daily and weekly digest pattern. Transcript not yet fetched to `Research/transcripts/`; fetch before the investigation phase.
 - [ ] [Zapier documentation: Notion + Slack multi-step Zaps](https://zapier.com/apps/notion/integrations/slack) -- official docs for the core automation stack described in the video
 - [ ] [Make (formerly Integromat) Notion + Slack integration](https://www.make.com/en/integrations/notion/slack) -- alternative to Zapier; compare capabilities and pricing
 - [ ] [n8n: self-hosted workflow automation](https://n8n.io/) -- open-source alternative; relevant for users who want to avoid third-party data access
@@ -82,7 +82,7 @@ This pattern is not unique to Notion or Zapier -- similar automations appear acr
 - [ ] [Slack Block Kit and API documentation](https://api.slack.com/block-kit) -- Slack's structured message format; assess suitability for digest cards
 - [ ] [Microsoft Teams Bot Framework documentation](https://learn.microsoft.com/en-us/microsoftteams/platform/bots/what-are-bots) -- Teams bot delivery; compare to Slack for iOS experience
 - [ ] [Apple Shortcuts: web API and notification actions](https://support.apple.com/guide/shortcuts/welcome/ios) -- iOS-native delivery option; assess without requiring third-party messaging app
-- [ ] [Personal knowledge management (PKM) and proactive retrieval: research overview](https://scholar.google.com/scholar?q=proactive+information+delivery+knowledge+worker+productivity) -- academic search starting point for push vs pull evidence
+- [ ] [Iqbal, M. et al. "A Taxonomy of Proactive Intelligent Agents" (2015, AI & Society)](https://link.springer.com/article/10.1007/s00146-013-0511-7) -- academic starting point on proactive information push in AI agents; search Google Scholar for follow-on work: https://scholar.google.com/scholar?q=proactive+information+delivery+knowledge+worker+productivity
 - [ ] [Building a personal AI assistant with n8n and Notion (community tutorial)](https://community.n8n.io/t/personal-ai-assistant/30000) -- concrete community implementation to compare
 - [ ] [Anthropic Claude API documentation: system prompts and summarisation](https://docs.anthropic.com/en/api/getting-started) -- API docs for the LLM layer in the described stack
 - [ ] [davidamitchell GitHub repositories](https://github.com/davidamitchell?tab=repositories) -- review for existing memory/personal assistant work relevant to this item
