@@ -22,7 +22,7 @@ What patterns from oh-my-codex (OMX) and similar AI agent workflow projects (AGE
 - oh-my-codex architecture, skills, and design patterns
 - AGENTS.md standard and its adoption across tools
 - Similar projects: CLAUDE.md, GEMINI.md, .cursor/rules/, SKILL.md
-- Comparison against the current davidamitchell repo setup (Research, Skills, Multi-Agent-Testing, Agent-Evaluation, Latest-developments-)
+- Comparison against the current davidamitchell repo setup (Research, Skills, Multi-Agent-Testing, Agent-Evaluation, Latest-developments- — trailing hyphen is the actual GitHub repo name)
 - Specific, actionable improvement recommendations for instructions, skills, agents, and tooling
 
 **Out of scope:**
@@ -104,7 +104,7 @@ Atomic sub-questions:
 
 - [fact] AGENTS.md is an open standard file that provides cross-agent instructions (context, commands, conventions, boundaries) readable by Codex CLI, GitHub Copilot, Cursor, Claude Code, Devin, and many others. It is stewarded by the Linux Foundation's Agentic AI Foundation. (Source: [agents.md](https://agents.md/), [MorphLLM guide](https://www.morphllm.com/agents-md-guide))
 - [fact] Studies cited in the MorphLLM guide report AGENTS.md presence correlated with 28.6% faster agent runtimes and 16.6% fewer tokens consumed. (Source: [MorphLLM: AGENTS.md and SKILL.md Complete Guide](https://www.morphllm.com/agents-md-guide)) [Note: these figures are reported from industry analysis; independent replication was not found during this research.]
-- [fact] GitHub Copilot now supports `agents.md` files at `.github/agents/<name>.md` to define specialist agent personas with YAML frontmatter, role definition, stack specification, commands, examples, and boundaries. (Source: [GitHub Blog](https://github.blog/ai-and-ml/github-copilot/how-to-write-a-great-agents-md-lessons-from-over-2500-repositories/))
+- [fact] GitHub Copilot supports `agents.md` files at `.github/agents/<name>.md` to define specialist agent personas with YAML (YAML Ain't Markup Language) frontmatter, role definition, stack specification, commands, examples, and boundaries. This feature was announced November 2025. (Source: [GitHub Blog, November 2025](https://github.blog/ai-and-ml/github-copilot/how-to-write-a-great-agents-md-lessons-from-over-2500-repositories/))
 - [fact] Analysis of 2,500+ `agents.md` files identified six core areas that top-performing files consistently cover: commands, testing, project structure, code style, git workflow, and boundaries. (Source: [GitHub Blog](https://github.blog/ai-and-ml/github-copilot/how-to-write-a-great-agents-md-lessons-from-over-2500-repositories/))
 - [fact] The GitHub blog analysis found that the most common helpful constraint in high-quality agent files was "never commit secrets." (Source: [GitHub Blog](https://github.blog/ai-and-ml/github-copilot/how-to-write-a-great-agents-md-lessons-from-over-2500-repositories/))
 
@@ -132,6 +132,7 @@ Atomic sub-questions:
 - [fact] davidamitchell/Skills is a standalone repository used as a git submodule in Research at `.github/skills/`. Skills include: `research`, `research-reviewer`, `research-question`, `citation-discipline`, `speculation-control`, `code-review`, `tdd`, `swe`, `plain-language`, `remove-ai-slop`, `technical-writer`, `strategy-author`, `peer-reviewer`, `backlog-manager`, `decisions`, `feedback`. (Source: repository inspection of davidamitchell/Skills)
 - [fact] davidamitchell/Multi-Agent-Testing exists to test how to configure a repository for work with different agents. It contains test prompts and results directories. (Source: repository inspection)
 - [fact] davidamitchell/Agent-Evaluation is described as an experimental system for evaluating and improving AI agent instruction sets. (Source: GitHub repository listing)
+- [fact] davidamitchell/Latest-developments- (the trailing hyphen is the actual repository name on GitHub) parses sites, videos, and blogs to summarise the latest themes in the Large Language Model (LLM) and AI space. (Source: GitHub repository listing)
 - [fact] The Research repo uses a `research-prompt.md` fallback when `.github/skills/research/SKILL.md` is absent, with a 13-step structured research process. (Source: repository memories and repo inspection)
 - [fact] The current copilot-instructions.md does not include an AGENTS.md or a `.github/agents/` directory for specialist agent persona definitions. No `.omx/` or equivalent persistent state directory exists. (Source: repository inspection)
 - [inference] The Research repo has a well-developed skill system for research tasks, but its operating instructions are Copilot-specific (copilot-instructions.md) and do not align with the cross-agent AGENTS.md standard.
@@ -312,7 +313,7 @@ The davidamitchell Research repo is already operating at a high level of agent-i
 
 The highest-leverage changes are additive: adding AGENTS.md does not require removing copilot-instructions.md; adding a skills index does not require rewriting skills; adding three-tier boundaries is a text addition to an existing file. The one area that requires more design work is the pre-research clarification gate, which would need to integrate with or replace part of the existing research-prompt.md process.
 
-Cross-repo consistency is a second-order issue: the Multi-Agent-Testing, Agent-Evaluation, and Latest-developments- repos likely benefit from the same AGENTS.md additions, but each has different stacks and purposes.
+Cross-repo consistency is a second-order issue: the Multi-Agent-Testing, Agent-Evaluation, and Latest-developments- (trailing hyphen is the actual repo name) repos likely benefit from the same AGENTS.md additions, but each has different stacks and purposes.
 
 ### Risks, Gaps, and Uncertainties
 
