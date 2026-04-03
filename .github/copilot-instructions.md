@@ -13,6 +13,7 @@ For AI coding agents working on this repository.
 > 8. **Never commit `docs/` changes on a feature branch.** Run `python scripts/build_site.py` locally to verify the build, but do not stage or commit `docs/`. The workflow regenerates the full site on merge to `main`. Committing `docs/` in a PR creates 300+ file diffs that cannot be reviewed.
 > 9. **Every source in a research item's `## Sources` section must include a URL** — `[Display Name](https://url)` or bare `https://url`. Sources without URLs cannot be verified or linked on the published site. A completed item with URL-free sources is not done.
 > 10. **For any non-trivial development work, follow the mandatory development loop: `swe` (design) → `tdd` (implement) → `code-review` (verify).** All three skills must be applied in sequence. Trivial = a single-line config change or typo fix with no logic. When in doubt, use the loop.
+> 11. **When assigned to a new research request issue: apply the `research-question` skill, add a backlog item, open a PR — stop. Do NOT conduct the research. That is the research-loop workflow's job.**
 
 ---
 
@@ -167,13 +168,97 @@ tests/
 
 ---
 
+## Handling a New Research Request Issue
+
+When you are assigned to a GitHub issue that requests a new research topic — any issue whose purpose is to add something to investigate later — your job is to formulate a well-scoped research question and add it to the backlog. **Stop there.**
+
+Do not conduct the research. Do not move the item to `in-progress` or `completed`. Do not run the `research` skill. The `research-loop.yml` workflow handles research, review, and completion — with `research-review.yml` quality controls that a single SWE session bypasses.
+
+### Steps
+
+**1. Apply the `research-question` skill**
+
+Open `.github/skills/research-question/SKILL.md` and run it against the issue title and body as the candidate topic statement.
+
+The skill's interaction protocol asks three questions before starting. **Do not ask these interactively** — extract the answers from the issue content:
+- *What decision or problem does the answer need to inform?* → infer from the issue body
+- *Are there known constraints?* → extract any mentioned limits, time horizons, or scope hints
+- *What output type is expected?* → default to `knowledge` unless the issue says otherwise
+
+Then:
+- Run the five-test quality check (Specific, Answerable, Scoped, Motivated, Decomposable)
+- Rewrite the question if it fails any test
+- Decompose into sub-questions
+- Produce: validated question, scope (in/out/constraints), context, approach, readiness verdict
+
+If the verdict is still **NEEDS REVISION** after two iterations, use the best available formulation, note the unresolved gaps in the Scope's Constraints field, and proceed.
+
+**2. Create the backlog item**
+
+Copy `Research/_template.md` to `Research/backlog/YYYY-MM-DD-<slug>.md`.
+
+Populate from the `research-question` skill output:
+
+| Template field | Source |
+|---|---|
+| `title` | Validated question (shortened to a noun phrase if needed) |
+| `added` | Today's date |
+| `status` | `backlog` |
+| `priority` | Infer from issue content (`high` / `medium` / `low`) |
+| `blocks` | List slugs of backlog items this must precede; otherwise `[]` |
+| `tags` | Extract from topic area |
+| `output` | Leave as `[]` — populated when the item completes |
+| `## Research Question` | Validated question verbatim |
+| `## Scope` | In scope / Out of scope / Constraints from skill output |
+| `## Context` | One-sentence context from skill output |
+| `## Approach` | Decomposed sub-questions from skill output |
+| `## Sources` | Any URLs or references mentioned in the issue |
+
+Leave `## Research Skill Output` and `## Findings` as empty template placeholders.
+
+**3. Create the session log**
+
+Create `progress/YYYY-MM-DD-<slug>.md` using the Mini-Retro format (mandatory — see Quick Reference item 1):
+
+```markdown
+# YYYY-MM-DD -- Add backlog item (<slug>)
+
+**Completed:**
+- `Research/backlog/YYYY-MM-DD-<slug>.md` — added from issue #NNN; <one sentence: what the validated question asks>
+
+## Mini-Retro
+
+1. **Did the process work?** <answer>
+2. **What slowed down or went wrong?** <answer>
+3. **What single change would prevent this next time?** <answer — if nothing, say so>
+4. **Is this a pattern?** <answer>
+```
+
+**4. Commit and open a PR targeting `main`**
+
+```bash
+git add Research/backlog/YYYY-MM-DD-<slug>.md progress/YYYY-MM-DD-<slug>.md
+git commit -m "research: add backlog item - <short title>"
+git push origin <branch-name>
+```
+
+Then open a PR targeting `main` via the GitHub website or `gh pr create --base main`.
+
+**Stop here. Do not proceed to Starting Research or Conducting Research.**
+
+---
+
 ## Research Item Workflow
 
 ### Adding a New Research Item
 
+**If you are handling a GitHub issue that requests new research**, follow the full process in **[Handling a New Research Request Issue](#handling-a-new-research-request-issue)** above — it uses the `research-question` skill and is the authoritative guide.
+
+**If you are creating a backlog item for another reason** (e.g. from an Open Questions entry in a completed item):
+
 1. Copy `Research/_template.md` to `Research/backlog/YYYY-MM-DD-short-title.md`
-2. Fill in: title, added date, priority, tags, question/hypothesis, and any initial context
-3. Create `progress/YYYY-MM-DD-{slug}.md` — note the new backlog item
+2. Fill in: title, added date, priority, blocks, tags, question, scope, context, approach, and any known sources
+3. Create `progress/YYYY-MM-DD-{slug}.md` with Mini-Retro — note the new backlog item and its origin
 4. Commit with message: `research: add backlog item - <short title>`
 
 ### Starting Research
@@ -321,6 +406,7 @@ A weekly workflow (`.github/workflows/sync-skills.yml`) advances the submodule p
 | `code-review` | Reviewing code after implementation — correctness, security, performance, maintainability, style | **mandatory** after every non-trivial implementation; read `SKILL.md` and apply |
 | `remove-ai-slop` | Reviewing output for hollow filler language | read `SKILL.md` and apply manually |
 | `research` | Conducting structured research on a topic | read `SKILL.md` and apply manually |
+| `research-question` | Formulating and scoping a new research question before adding it to the backlog | read `SKILL.md` and apply manually |
 | `speculation-control` | Flagging uncertain claims vs established facts | read `SKILL.md` and apply manually |
 | `strategic-persuasion` | Building audience-targeted persuasive content | read `SKILL.md` and apply manually |
 | `strategy-author` | Producing or reviewing strategy documents | read `SKILL.md` and apply manually |
