@@ -199,7 +199,9 @@ Populate from the `research-question` skill output:
 | `added` | Today's date |
 | `status` | `backlog` |
 | `priority` | Infer from issue content (`high` / `medium` / `low`) |
+| `blocks` | List slugs of backlog items this must precede; otherwise `[]` |
 | `tags` | Extract from topic area |
+| `output` | Leave as `[]` — populated when the item completes |
 | `## Research Question` | Validated question verbatim |
 | `## Scope` | In scope / Out of scope / Constraints from skill output |
 | `## Context` | One-sentence context from skill output |
@@ -210,17 +212,31 @@ Leave `## Research Skill Output` and `## Findings` as empty template placeholder
 
 **3. Create the session log**
 
-Create `progress/YYYY-MM-DD-<slug>.md` noting:
-- Item added from issue #NNN
-- The validated research question
-- Any scope decisions made during question formulation
+Create `progress/YYYY-MM-DD-<slug>.md` using the Mini-Retro format (mandatory — see Quick Reference item 1):
+
+```markdown
+# YYYY-MM-DD -- Add backlog item (<slug>)
+
+**Completed:**
+- `Research/backlog/YYYY-MM-DD-<slug>.md` — added from issue #NNN; <one sentence: what the validated question asks>
+
+## Mini-Retro
+
+1. **Did the process work?** <answer>
+2. **What slowed down or went wrong?** <answer>
+3. **What single change would prevent this next time?** <answer — if nothing, say so>
+4. **Is this a pattern?** <answer>
+```
 
 **4. Commit and open a PR targeting `main`**
 
 ```bash
 git add Research/backlog/YYYY-MM-DD-<slug>.md progress/YYYY-MM-DD-<slug>.md
 git commit -m "research: add backlog item - <short title>"
+git push origin <branch-name>
 ```
+
+Then open a PR targeting `main` via the GitHub website or `gh pr create --base main`.
 
 **Stop here. Do not proceed to Starting Research or Conducting Research.**
 
@@ -230,9 +246,13 @@ git commit -m "research: add backlog item - <short title>"
 
 ### Adding a New Research Item
 
+**If you are handling a GitHub issue that requests new research**, follow the full process in **[Handling a New Research Request Issue](#handling-a-new-research-request-issue)** above — it uses the `research-question` skill and is the authoritative guide.
+
+**If you are creating a backlog item for another reason** (e.g. from an Open Questions entry in a completed item):
+
 1. Copy `Research/_template.md` to `Research/backlog/YYYY-MM-DD-short-title.md`
-2. Fill in: title, added date, priority, tags, question/hypothesis, and any initial context
-3. Create `progress/YYYY-MM-DD-{slug}.md` — note the new backlog item
+2. Fill in: title, added date, priority, blocks, tags, question, scope, context, approach, and any known sources
+3. Create `progress/YYYY-MM-DD-{slug}.md` with Mini-Retro — note the new backlog item and its origin
 4. Commit with message: `research: add backlog item - <short title>`
 
 ### Starting Research
@@ -379,8 +399,8 @@ A weekly workflow (`.github/workflows/sync-skills.yml`) advances the submodule p
 | `citation-discipline` | Ensuring claims are sourced and referenced | read `SKILL.md` and apply manually |
 | `code-review` | Reviewing code after implementation — correctness, security, performance, maintainability, style | **mandatory** after every non-trivial implementation; read `SKILL.md` and apply |
 | `remove-ai-slop` | Reviewing output for hollow filler language | read `SKILL.md` and apply manually |
-| `research-question` | Formulating and scoping a new research question before adding it to the backlog | read `SKILL.md` and apply manually |
 | `research` | Conducting structured research on a topic | read `SKILL.md` and apply manually |
+| `research-question` | Formulating and scoping a new research question before adding it to the backlog | read `SKILL.md` and apply manually |
 | `speculation-control` | Flagging uncertain claims vs established facts | read `SKILL.md` and apply manually |
 | `strategic-persuasion` | Building audience-targeted persuasive content | read `SKILL.md` and apply manually |
 | `strategy-author` | Producing or reviewing strategy documents | read `SKILL.md` and apply manually |
