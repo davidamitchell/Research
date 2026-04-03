@@ -1,9 +1,10 @@
 # Research Master Document
 
-Generated on: 2026-04-02 16:31 UTC
+Generated on: 2026-04-03 05:28 UTC
 
 ## Table of Contents
 
+* [oh-my-codex and AI Agent Workflow Patterns: What Can We Leverage?](#2026-04-03-oh-my-codex-patterns-md)
 * [Claude Code npm Source Map Leak](#2026-04-02-claude-code-npm-source-map-leak-md)
 * [Anthropic Claude Code leak: architecture, prompting, and hidden features](#2026-04-02-anthropic-claude-code-leak-architecture-prompting-and-hidden-features-md)
 * [AI Funding and Capital Investment Landscape](#2026-04-02-ai-funding-and-capital-investment-landscape-md)
@@ -138,6 +139,91 @@ Generated on: 2026-04-02 16:31 UTC
 * [AI Strategy Examples: Business Efficiency Focus](#2026-02-28-ai-strategy-business-efficiency-examples-md)
 * [AI Line 1 and Line 2 Risk Agents: Who Is Building Them?](#2026-02-28-ai-line-1-line-2-risk-agents-md)
 * [AI for Control Testing, Gap Identification, and Policies/Standards Reviews](#2026-02-28-ai-control-testing-and-assurance-md)
+
+---
+
+<a name="2026-04-03-oh-my-codex-patterns-md"></a>
+
+## oh-my-codex and AI Agent Workflow Patterns: What Can We Leverage?
+
+**Tags:** [ai-agents, tooling, instructions, skills, workflow, codex, copilot, agents-md]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-03-oh-my-codex-patterns.md
+
+## Research Question
+
+What patterns from oh-my-codex (OMX) and similar AI agent workflow projects (AGENTS.md, SKILL.md, etc.) are most applicable to improving the instructions, skills, agents, and tooling across davidamitchell's repositories — and which specific changes would deliver the highest value?
+
+## Findings
+
+*(Populated from §6 Synthesis above.)*
+
+### Executive Summary
+
+oh-my-codex (OMX) provides a mature reference architecture for AI agent workflow orchestration built around a cross-agent operating contract (AGENTS.md), four canonical workflow skills ($deep-interview, $ralplan, $ralph, $team), a role catalog with model routing, and persistent state management. The davidamitchell Research repo has strong domain-specific skill coverage (16 skills) but is Copilot-specific and lacks several structural patterns from the OMX model. The highest-value improvements are: adding a root AGENTS.md to each active repo, adopting three-tier boundary statements, adding a scope-clarification skill for ambiguous research questions, adding model routing guidance, and creating a skills index for discoverability. These improvements are additive and do not require removing existing infrastructure.
+
+### Key Findings
+
+1. **OMX separates operating contract from execution surface** — AGENTS.md is the top-level workspace contract; role-specific prompts are narrower execution surfaces that must follow it, not override it. This layered approach prevents role-specific rules from conflicting with global constraints and is directly applicable to the Research repo's copilot-instructions.md and skills structure. [fact/inference]
+
+2. **The Clarify, Plan, Execute, Verify (CPEV) workflow is the most transferable OMX pattern** — $deep-interview clarifies scope before implementation; $ralplan approves the plan; $ralph or $team executes; a verifier role confirms completion. Adopting a scope-clarification gate before research investigation would reduce scope drift on ambiguous questions. [fact/inference]
+
+3. **AGENTS.md is a cross-agent standard adopted by 15 or more tools** — Unlike copilot-instructions.md (Copilot-only), AGENTS.md is readable by Codex CLI, Cursor, Claude Code, Devin, and others. Its adoption in each active davidamitchell repo would extend current guidance to all these tools. [fact]
+
+4. **Three-tier boundary statements (always/ask first/never) outperform free-form constraints** — Empirical analysis of 2,500 or more agent files found this pattern consistently prevents destructive actions. The current copilot-instructions.md uses prose constraints, which are less reliable. [fact]
+
+5. **Executable commands must appear early in agent files** — Agents reference commands frequently; burying them later causes agents to miss them. The six core areas for high-performing agent files are: commands, testing, project structure, code style, git workflow, and boundaries. [fact]
+
+6. **The davidamitchell Skills repo has 16 skills but no discoverability index** — There is no map of skill name to trigger conditions to expected output, analogous to OMX's `/skills` browse surface. This makes the skill library harder to use reliably, particularly for new agents or sessions. [fact/inference]
+
+7. **Model routing by task complexity is a low-cost, high-value improvement** — OMX maps lightweight tasks (explore, search) to efficient models and heavy tasks (synthesis, architecture) to capable models, reducing token use and improving output quality. Adding similar routing guidance to copilot-instructions.md is a simple text addition. [inference]
+
+8. **Persistent machine-readable session state is absent from the Research repo** — OMX stores plans, logs, and mode state in `.omx/` for cross-session continuity. The Research repo uses progress/ for human-readable session logs but has no machine-readable state store. [fact/inference]
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| OMX uses layered architecture: AGENTS.md contract + narrower role prompts | [oh-my-codex AGENTS.md](https://github.com/Yeachan-Heo/oh-my-codex/blob/main/AGENTS.md) | high | Directly stated |
+| CPEV skills: $deep-interview, $ralplan, $ralph, $team | [oh-my-codex README](https://github.com/Yeachan-Heo/oh-my-codex) | high | Primary documentation |
+| AGENTS.md adopted by 15+ tools | [agents.md](https://agents.md/), [MorphLLM guide](https://www.morphllm.com/agents-md-guide) | high | Multiple concordant sources |
+| 28.6% faster runtimes, 16.6% fewer tokens with AGENTS.md | [MorphLLM guide](https://www.morphllm.com/agents-md-guide) | low | Vendor-reported only |
+| Three-tier boundary pattern from 2,500+ repo analysis | [GitHub Blog](https://github.blog/ai-and-ml/github-copilot/how-to-write-a-great-agents-md-lessons-from-over-2500-repositories/) | high | Empirical analysis |
+| Six core areas for top-performing agent files | [GitHub Blog](https://github.blog/ai-and-ml/github-copilot/how-to-write-a-great-agents-md-lessons-from-over-2500-repositories/) | high | Empirical analysis |
+| 16 skills in Skills submodule, no index | repository inspection | high | Direct observation |
+| No AGENTS.md in Research repo | repository inspection | high | Direct observation |
+| Model routing mapped to task complexity in OMX | [oh-my-codex AGENTS.md](https://github.com/Yeachan-Heo/oh-my-codex/blob/main/AGENTS.md) | high | Directly stated |
+| OMX persistent state in .omx/ | [oh-my-codex README](https://github.com/Yeachan-Heo/oh-my-codex) | high | Primary documentation |
+
+### Assumptions
+
+- **Assumption:** davidamitchell repos are intended for multi-agent-toolchain use, not exclusively GitHub Copilot. **Justification:** The Multi-Agent-Testing and Agent-Evaluation repos explicitly test multi-agent configurations, and the issue references Codex (oh-my-codex) as a target.
+- **Assumption:** Performance gains from AGENTS.md adoption are directionally correct. **Justification:** Multiple independent sources reference benefits; exact vendor-reported figures are treated with low confidence.
+- **Assumption:** The Agent-Evaluation repo does not contradict these recommendations. **Justification:** Contents not fully inspected; assumption is conservative.
+
+### Analysis
+
+The davidamitchell Research repo is already operating at a high level of agent-instruction sophistication relative to most public repositories. The Skills submodule with 16 domain-specific skills, the structured research-prompt.md process, and the copilot-instructions.md document represent meaningful prior investment. The gap relative to OMX is structural rather than depth: the current setup is Copilot-optimised and lacks the cross-agent portability, explicit role routing, and workflow-progression gates that OMX provides.
+
+The highest-leverage changes are additive: adding AGENTS.md does not require removing copilot-instructions.md; adding a skills index does not require rewriting skills; adding three-tier boundaries is a text addition to an existing file. The one area that requires more design work is the pre-research clarification gate, which would need to integrate with or replace part of the existing research-prompt.md process.
+
+Cross-repo consistency is a second-order issue: the Multi-Agent-Testing, Agent-Evaluation, and Latest-developments- (trailing hyphen is the actual repo name) repos likely benefit from the same AGENTS.md additions, but each has different stacks and purposes.
+
+### Risks, Gaps, and Uncertainties
+
+- Performance statistics for AGENTS.md are vendor-reported; directional confidence is high, quantitative confidence is low
+- Claude Code (Anthropic) full AGENTS.md support status was unclear at time of research; may require CLAUDE.md in addition to AGENTS.md for full coverage
+- Adding AGENTS.md creates a potential maintenance surface alongside copilot-instructions.md; the two files will need to stay synchronised
+- Agent-Evaluation repo contents not fully inspected; may already address some recommendations
+
+### Open Questions
+
+- Could copilot-instructions.md be refactored to serve as both Copilot-specific and AGENTS.md content, reducing duplication? (Candidate backlog item)
+- What does the Agent-Evaluation repo evaluate and what findings has it produced? (Candidate backlog item: audit Agent-Evaluation findings)
+- Would a pre-research scope-clarification skill conflict with the existing research-prompt.md 13-step process, or slot in as step 0? (Candidate backlog item: design clarify-first skill)
+- Should a skills index be added to davidamitchell/Skills as a README table? (Candidate backlog item)
+
+---
 
 ---
 
