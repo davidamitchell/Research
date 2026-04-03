@@ -115,7 +115,7 @@ jobs:
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             MAX_ITEMS="${{ inputs.max_items }}"
           else
-            MAX_ITEMS="3"
+            MAX_ITEMS="4"
           fi
 
           echo "Configuration: MAX_ITEMS=$MAX_ITEMS, HARD_MAX_ITERATIONS=$HARD_MAX_ITERATIONS, FAILURE_THRESHOLD=$FAILURE_THRESHOLD"

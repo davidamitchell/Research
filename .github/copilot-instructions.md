@@ -13,6 +13,7 @@ For AI coding agents working on this repository.
 > 8. **Never commit `docs/` changes on a feature branch.** Run `python scripts/build_site.py` locally to verify the build, but do not stage or commit `docs/`. The workflow regenerates the full site on merge to `main`. Committing `docs/` in a PR creates 300+ file diffs that cannot be reviewed.
 > 9. **Every source in a research item's `## Sources` section must include a URL** — `[Display Name](https://url)` or bare `https://url`. Sources without URLs cannot be verified or linked on the published site. A completed item with URL-free sources is not done.
 > 10. **For any non-trivial development work, follow the mandatory development loop: `swe` (design) → `tdd` (implement) → `code-review` (verify).** All three skills must be applied in sequence. Trivial = a single-line config change or typo fix with no logic. When in doubt, use the loop.
+> 11. **When assigned to a new research request issue: apply the `research-question` skill, add a backlog item, open a PR — stop. Do NOT conduct the research. That is the research-loop workflow's job.**
 
 ---
 
@@ -164,6 +165,64 @@ progress/               # Per-session logs (one file per session; no conflicts)
 
 tests/
 ```
+
+---
+
+## Handling a New Research Request Issue
+
+When you are assigned to a GitHub issue that requests a new research topic — any issue whose purpose is to add something to investigate later — your job is to formulate a well-scoped research question and add it to the backlog. **Stop there.**
+
+Do not conduct the research. Do not move the item to `in-progress` or `completed`. Do not run the `research` skill. The `research-loop.yml` workflow handles research, review, and completion — with `research-review.yml` quality controls that a single SWE session bypasses.
+
+### Steps
+
+**1. Apply the `research-question` skill**
+
+Open `.github/skills/research-question/SKILL.md` and run it against the issue title and body as the candidate topic statement.
+
+- Run the five-test quality check (Specific, Answerable, Scoped, Motivated, Decomposable)
+- Rewrite the question if it fails any test
+- Decompose into sub-questions
+- Produce: validated question, scope (in/out/constraints), context, approach, readiness verdict
+
+Iterate until the verdict is **READY**.
+
+**2. Create the backlog item**
+
+Copy `Research/_template.md` to `Research/backlog/YYYY-MM-DD-<slug>.md`.
+
+Populate from the `research-question` skill output:
+
+| Template field | Source |
+|---|---|
+| `title` | Validated question (shortened to a noun phrase if needed) |
+| `added` | Today's date |
+| `status` | `backlog` |
+| `priority` | Infer from issue content (`high` / `medium` / `low`) |
+| `tags` | Extract from topic area |
+| `## Research Question` | Validated question verbatim |
+| `## Scope` | In scope / Out of scope / Constraints from skill output |
+| `## Context` | One-sentence context from skill output |
+| `## Approach` | Decomposed sub-questions from skill output |
+| `## Sources` | Any URLs or references mentioned in the issue |
+
+Leave `## Research Skill Output` and `## Findings` as empty template placeholders.
+
+**3. Create the session log**
+
+Create `progress/YYYY-MM-DD-<slug>.md` noting:
+- Item added from issue #NNN
+- The validated research question
+- Any scope decisions made during question formulation
+
+**4. Commit and open a PR targeting `main`**
+
+```bash
+git add Research/backlog/YYYY-MM-DD-<slug>.md progress/YYYY-MM-DD-<slug>.md
+git commit -m "research: add backlog item - <short title>"
+```
+
+**Stop here. Do not proceed to Starting Research or Conducting Research.**
 
 ---
 
@@ -320,6 +379,7 @@ A weekly workflow (`.github/workflows/sync-skills.yml`) advances the submodule p
 | `citation-discipline` | Ensuring claims are sourced and referenced | read `SKILL.md` and apply manually |
 | `code-review` | Reviewing code after implementation — correctness, security, performance, maintainability, style | **mandatory** after every non-trivial implementation; read `SKILL.md` and apply |
 | `remove-ai-slop` | Reviewing output for hollow filler language | read `SKILL.md` and apply manually |
+| `research-question` | Formulating and scoping a new research question before adding it to the backlog | read `SKILL.md` and apply manually |
 | `research` | Conducting structured research on a topic | read `SKILL.md` and apply manually |
 | `speculation-control` | Flagging uncertain claims vs established facts | read `SKILL.md` and apply manually |
 | `strategic-persuasion` | Building audience-targeted persuasive content | read `SKILL.md` and apply manually |
