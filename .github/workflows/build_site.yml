@@ -61,5 +61,6 @@ jobs:
             echo "No changes — nothing to commit"
           else
             git commit -m "docs: rebuild site and update metadata [skip ci]"
+            git pull --rebase origin main
             git push
           fi

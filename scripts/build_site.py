@@ -42,7 +42,6 @@ RESEARCH_DIR = DOCS_DIR / "research"
 TAGS_DIR = DOCS_DIR / "tags"
 THREADS_DIR = DOCS_DIR / "threads"
 
-CUTOFF_DATE = date(2026, 2, 28)
 GITHUB_BASE = "https://github.com/davidamitchell/Research/blob/main/Research/completed/"
 
 # Section names to extract, in display order
@@ -1086,12 +1085,11 @@ def get_findings_excerpt(item: dict, max_chars: int = 200) -> str:
 def load_items() -> tuple[list[dict], dict[str, int]]:
     """Load and filter all completed research items.
 
-    Returns (items, exclusion_stats) where exclusion_stats has keys
-    'meta_infra' and 'date' with counts of excluded files.
+    Returns (items, exclusion_stats) where exclusion_stats has key
+    'meta_infra' with count of excluded files.
     """
     items = []
     excl_meta = 0
-    excl_date = 0
     for path in sorted(COMPLETED_DIR.glob("*.md"), reverse=True):
         name = path.name
         if name.lower() == "readme.md":
@@ -1108,7 +1106,6 @@ def load_items() -> tuple[list[dict], dict[str, int]]:
             raise SystemExit(1) from exc
         added_raw = meta.get("added")
         if not added_raw:
-            excl_date += 1
             continue
         try:
             if isinstance(added_raw, str):
@@ -1116,10 +1113,6 @@ def load_items() -> tuple[list[dict], dict[str, int]]:
             else:
                 added = date(added_raw.year, added_raw.month, added_raw.day)
         except (ValueError, AttributeError):
-            excl_date += 1
-            continue
-        if added < CUTOFF_DATE:
-            excl_date += 1
             continue
         title = str(meta.get("title", path.stem))
         tags = normalise_tags(meta.get("tags", []))
@@ -1146,7 +1139,7 @@ def load_items() -> tuple[list[dict], dict[str, int]]:
             }
         )
     items.sort(key=lambda x: x["added"], reverse=True)
-    return items, {"meta_infra": excl_meta, "date": excl_date}
+    return items, {"meta_infra": excl_meta}
 
 
 def load_metadata() -> dict:
@@ -2144,8 +2137,7 @@ def main() -> None:
     items, excl_stats = load_items()
     print(f"  {len(items)} items loaded")
     print(
-        f"  {excl_stats['meta_infra'] + excl_stats['date']} items excluded"
-        f" (meta/infra: {excl_stats['meta_infra']}, date: {excl_stats['date']})"
+        f"  {excl_stats['meta_infra']} items excluded (meta/infra)"
     )
 
     # Singleton tag filtering
@@ -2260,8 +2252,7 @@ def main() -> None:
     print("\nBuild complete.")
     print(f"  {len(items)} items processed")
     print(
-        f"  {excl_stats['meta_infra'] + excl_stats['date']} items excluded"
-        f" (meta/infra: {excl_stats['meta_infra']}, date: {excl_stats['date']})"
+        f"  {excl_stats['meta_infra']} items excluded (meta/infra)"
     )
     print(f"  {pages_written} pages written")
     print(f"  {unique_tags} unique tags (after singleton filtering)")

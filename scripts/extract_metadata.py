@@ -16,7 +16,7 @@ import datetime as _dt
 import json
 import re
 from collections import Counter
-from datetime import UTC, date
+from datetime import UTC
 from pathlib import Path
 
 import yaml
@@ -28,8 +28,6 @@ import yaml
 REPO_ROOT = Path(__file__).parent.parent
 COMPLETED_DIR = REPO_ROOT / "Research" / "completed"
 STATE_DIR = REPO_ROOT / "state"
-
-CUTOFF_DATE = date(2026, 2, 28)
 
 # ---------------------------------------------------------------------------
 # Stopwords
@@ -517,19 +515,6 @@ def main() -> None:
 
         text = path.read_text(encoding="utf-8")
         meta, body = parse_frontmatter(text)
-
-        added_raw = meta.get("added")
-        if not added_raw:
-            continue
-        try:
-            if isinstance(added_raw, str):
-                added = date.fromisoformat(added_raw)
-            else:
-                added = date(added_raw.year, added_raw.month, added_raw.day)
-        except (ValueError, AttributeError):
-            continue
-        if added < CUTOFF_DATE:
-            continue
 
         slug = slugify(path.stem)
 
