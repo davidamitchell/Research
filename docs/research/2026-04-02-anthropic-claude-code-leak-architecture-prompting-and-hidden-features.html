@@ -1,0 +1,751 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Anthropic Claude Code leak — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #0f1115;
+  --surface-2:       #161b22;
+  --border:          #252b33;
+  --text:            #e6e6e6;
+  --text-muted:      #666;
+  --accent:          #e6e6e6;
+  --accent-dim:      #333;
+  --tag-bg:          #161b22;
+  --tag-text:        #999;
+  --tag-active-bg:   #e6e6e6;
+  --tag-active-text: #0f1115;
+  --link:            #00C3A5;
+  --teal:            #00C3A5;
+  --dusk:            #E8A1A8;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  overflow-x: clip;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.75rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+.nav-links a.active { color: var(--teal); }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--teal); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+  min-width: 0;
+}
+.card:hover { border-color: var(--teal); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  word-break: break-word;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4em;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.item-title svg { flex-shrink: 0; margin-top: 0.2em; }
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+  word-break: break-all;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+  max-width: 100%;
+}
+.item-content pre code { background: none; padding: 0; word-break: normal; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--teal); text-decoration: underline; }
+.item-content a:hover { color: var(--text); text-decoration: underline; }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--dusk);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    top: 0;
+    height: auto;
+    padding: 0.5rem 1rem;
+  }
+  .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .nav-links {
+    width: 100%;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  main {
+    padding: 1.5rem 1rem 4rem;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; overflow: hidden; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); word-break: break-word; overflow-wrap: break-word; }
+.key-claims li:last-child { border-bottom: none; }
+.key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
+.key-claims a:hover { color: var(--text); }
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); flex-wrap: wrap; }
+.related-entry:last-child { border-bottom: none; }
+.related-entry a { color: var(--teal); word-break: break-word; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--dusk); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4em; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--teal); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-card-link { text-decoration: none; color: var(--text); display: block; }
+.thread-card-link:hover .thread-card { background: var(--surface-2); }
+.thread-card { background: var(--surface); border: 1px solid var(--border); padding: 1.5rem 1.75rem 1.75rem; }
+.thread-card-title { font-size: var(--text-base); font-weight: 600; margin-bottom: 0.5rem; }
+.thread-card-meta { font-size: var(--text-xs); color: var(--text-muted); margin-bottom: 0.75rem; letter-spacing: 0.05em; }
+.thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
+.thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Research</a>
+    <div class="nav-links">
+      <a href="/Research/threads.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>Threads</a>
+      <a href="/Research/tags/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>Tags</a>
+      <a href="/Research/search.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M8 1.5C4.41 1.5 1.5 4.41 1.5 8c0 2.87 1.86 5.3 4.44 6.16.32.06.44-.14.44-.31v-1.09c-1.8.39-2.18-.87-2.18-.87-.3-.75-.72-.95-.72-.95-.59-.4.04-.4.04-.4.65.05 1 .67 1 .67.58 1 1.53.71 1.9.54.06-.42.23-.71.41-.87-1.44-.16-2.95-.72-2.95-3.2 0-.71.25-1.28.67-1.74-.07-.16-.29-.82.06-1.71 0 0 .55-.18 1.8.67a6.27 6.27 0 0 1 3.28 0c1.25-.85 1.8-.67 1.8-.67.35.89.13 1.55.06 1.71.42.46.67 1.03.67 1.74 0 2.49-1.51 3.04-2.96 3.2.23.2.44.6.44 1.21v1.8c0 .17.12.37.44.31A6.5 6.5 0 0 0 14.5 8 6.5 6.5 0 0 0 8 1.5z"/></svg>GitHub</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>Anthropic Claude Code leak</span>
+  </div>
+  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Anthropic Claude Code leak</h1>
+  <p class="full-title-subtitle">Anthropic Claude Code leak: architecture, prompting, and hidden features</p>
+  <div class="meta-bar">
+    <span>2026-04-02</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/anthropic.html">anthropic</a> <a class="tag" href="/Research/tags/claude.html">claude</a> <a class="tag" href="/Research/tags/claude-code.html">claude-code</a> <a class="tag" href="/Research/tags/architecture.html">architecture</a> <a class="tag" href="/Research/tags/agents.html">agents</a> <a class="tag" href="/Research/tags/npm.html">npm</a> <a class="tag" href="/Research/tags/memory.html">memory</a> <a class="tag" href="/Research/tags/tools.html">tools</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-02-anthropic-claude-code-leak-architecture-prompting-and-hidden-features.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-04-02-anthropic-claude-code-leak-architecture-prompting-and-hidden-features" target="_blank" rel="noopener">wiki →</a>
+  </div>
+  
+  <div class="item-content">
+    <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
+<p>What does the accidental March 2026 leak of Anthropic's Claude Code source code reveal about: (1) the codebase architecture, (2) how key engineering problems are solved, (3) the prompting and instruction strategy, (4) feature-flagging practices, (5) hidden features, (6) the product roadmap, (7) lessons for prompt engineering using skills, memory, Retrieval-Augmented Generation (RAG)-style patterns, and tool descriptions, and (8) any other insights for practitioners building agent systems?</p>
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Findings</h2>
+<p><em>(Populated from §6 Synthesis above.)</em></p>
+<h3>Executive Summary</h3>
+<p>On March 31, 2026, a missing <code>.npmignore</code> entry in <code>@anthropic-ai/claude-code</code> version 2.1.88 exposed a 59.8 MB source map containing 512,000 lines of TypeScript and 1,900+ files -- the complete orchestration harness for Anthropic's Claude Code coding agent. No model weights or user data were leaked. The code confirmed a modular, permissioned tool architecture, a three-tier memory system, and a RAG-style instruction hierarchy via CLAUDE.md. Analysis revealed 44+ feature flags gating at least five major unreleased capabilities (KAIROS autonomous daemon, BUDDY virtual pet, Undercover Mode AI-attribution stripping, UltraPlan extended planning, and Voice/Bridge remote access). The roadmap signals a move toward a persistent, proactive, multi-agent software engineering platform. For practitioners, the leak is a masterclass in production-grade agent harness design.</p>
+<h3>Key Findings</h3>
+<ol>
+<li>[fact] The leak was a packaging error: a JavaScript (JS) source map file was not excluded from the npm package, exposing the full TypeScript source via a trivially reversible reconstruction.</li>
+<li>[fact] No model weights, training data, or user conversations were exposed -- only the orchestration and harness layer.</li>
+<li>[fact] The architecture is modular and permissioned: 40-60 tools, each with explicit permission checks enforced by a central orchestration loop, implementing safety-by-architecture rather than safety-by-policy alone.</li>
+<li>[fact] A five-level configuration cascade and seven-stage session bootstrap provide fine-grained, layered control over every agent session.</li>
+<li>[fact] The CLAUDE.md hierarchy (global, org, project, subdirectory) loads up to 40,000 characters of persistent custom instructions per session, functioning as a RAG-style retrieval of project-specific context.</li>
+<li>[fact] The three-tier memory system -- session compaction (nine segments), pointer-index <code>MEMORY.md</code>, and AutoDream async consolidation -- addresses long-session context drift without flooding the model context window.</li>
+<li>[fact] 44+ named feature flags were found in the source, enabling per-user, per-cohort, and per-environment feature control without redeployment.</li>
+<li>[fact] KAIROS (always-on daemon with background tick, proactive insights, and GitHub webhook monitoring), BUDDY (virtual pet with 18 species and gamified stats), Undercover Mode (AI-attribution stripping for public repos), UltraPlan (30-minute autonomous planning cycles), and Voice/Bridge Mode (STT and WebSocket remote access) are confirmed unreleased features.</li>
+<li>[fact] Anti-distillation traps -- fake decoy tools injected into system prompts -- were already present before the leak, as was binary attestation for API access.</li>
+<li>[inference] Internal model codenames Capybara, Fennec, and Numbat point to a model roadmap that extends beyond the currently released Claude 4.6 family.</li>
+<li>[inference] The architectural trajectory (KAIROS, UltraPlan, Coordinator Mode) indicates Anthropic is building toward a persistent, proactive, multi-agent platform rather than an interactive assistant.</li>
+<li>[inference] The leak compressed competitor R&amp;D timelines significantly; the &quot;secret sauce&quot; of Claude Code was the harness, and that harness is now publicly documented.</li>
+</ol>
+<h3>Assumptions</h3>
+<ul>
+<li><strong>Assumption:</strong> Secondary reporting is materially accurate in describing codebase contents. <strong>Justification:</strong> Multiple independent reporters arrived at consistent findings across architectural, feature, and security claims, making systematic error unlikely.</li>
+<li><strong>Assumption:</strong> Features described as unreleased remain unreleased as of the research date (2026-04-02). <strong>Justification:</strong> No public announcement of KAIROS, BUDDY, or Undercover Mode has been found.</li>
+<li><strong>Assumption:</strong> The &quot;50,000 stars in two hours&quot; claim is directionally representative of an extraordinary community response even if the precise number is imprecise. <strong>Justification:</strong> The rate of GitHub star growth is a continuously changing figure, and this measurement was taken during a period of rapid change.</li>
+</ul>
+<h3>Analysis</h3>
+<p>The leak reveals that Anthropic's engineering approach to Claude Code is fundamentally a systems engineering problem, not a prompt engineering problem. The model capability is assumed; the work is in the harness: permission gating, memory management, parallel execution, and configuration cascading. This is consistent with how sophisticated distributed systems are built and suggests that teams building competing agents should invest in harness quality before model selection.</p>
+<p>The CLAUDE.md design is the single most immediately replicable lesson: a hierarchical, version-controlled, persistent instruction file that is loaded fresh each session is strictly superior to re-explaining project context in every prompt. It separates stable context (project rules, conventions) from dynamic context (current task), which mirrors the distinction between a database schema and a query.</p>
+<p>The anti-distillation traps are a novel and underappreciated finding: Anthropic treats tool descriptions as part of the competitive and security surface of the system, not merely as usability documentation. This has implications for any team designing tool schemas -- the descriptions are read by the model, by competitors, and potentially by adversaries.</p>
+<p>The Undercover Mode disclosure risk is the most ethically complex finding. Automatic attribution stripping for public repositories -- without apparent user configuration -- is a policy decision that sits in tension with open-source norms and emerging AI labelling regulations. It is unclear whether users deploying Claude Code were aware of this behaviour before the leak.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>All findings are mediated through secondary reporting; direct verification of the copyrighted source code is legally inadvisable.</li>
+<li>Some feature-detail claims (precise BUDDY stat values, exact KAIROS trigger logic, UltraPlan 30-minute cycle specifics) may be inaccurate or over-interpreted in secondary coverage.</li>
+<li>The competitive damage from the leak is not yet measurable; no quantitative analysis of competitor progress attributable to the leak has been published.</li>
+<li>Anthropic's response beyond DMCA notices has not been publicly detailed; it is not known whether Undercover Mode was modified, removed, or disclosed post-leak.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>Will Anthropic release a sanitised open-source version of Claude Code as a competitive or reputational response?</li>
+<li>How will regulators interpret Undercover Mode under the European Union (EU) AI Act's transparency requirements or equivalent frameworks?</li>
+<li>Will the Numbat model codename correspond to a publicly released model, and on what timeline?</li>
+<li>Does Anthropic plan to make KAIROS or Bridge Mode generally available, and if so under what consent and disclosure terms?</li>
+<li>How widespread is the npm source-map supply-chain risk class across other AI tooling organisations publishing compiled packages?</li>
+</ul>
+<hr />
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
+<ul>
+<li>[x] <a href="https://layer5.io/blog/engineering/the-claude-code-source-leak-512000-lines-a-missing-npmignore-and-the-fastest-growing-repo-in-github-history">The Claude Code Source Leak: 512,000 Lines, a Missing .npmignore</a> -- Layer5 blog: definitive account of the leak mechanics and overall findings</li>
+<li>[x] <a href="https://superframeworks.com/articles/claude-code-source-code-leak">Claude Code Source Code Leaked: What 512K Lines Reveal</a> -- Superframeworks deep dive into architecture and system prompts</li>
+<li>[x] <a href="https://www.verdent.ai/guides/claude-code-source-code-leak-architecture">Claude Code Source Code Leaked: What the Architecture Reveals</a> -- Verdent AI: detailed architectural breakdown with tool-system analysis</li>
+<li>[x] <a href="https://cybernews.com/security/anthropic-claude-code-source-leak/">Full source code for Anthropic's Claude Code leaks</a> -- Cybernews: news report confirming facts and timeline</li>
+<li>[x] <a href="https://venturebeat.com/ai/claude-codes-source-code-appears-to-have-leaked-heres-what-we-know/">Claude Code's source code appears to have leaked: here's what we know</a> -- VentureBeat: market context, memory architecture notes</li>
+<li>[x] <a href="https://www.ctol.digital/news/claude-code-cli-source-map-leak-anthropic-512000-line-agent-blueprint/">Claude Code CLI Source Map Leak: How One Forgotten File Exposed...</a> -- ctol.digital: AutoDream memory details</li>
+<li>[x] <a href="https://wavespeed.ai/blog/posts/claude-code-leaked-source-hidden-features/">Claude Code Leaked Source: BUDDY, KAIROS and Every Hidden Feature Inside</a> -- Wavespeed AI: hidden feature catalogue</li>
+<li>[x] <a href="https://dev.to/harrison_guo_e01b4c8793a0/claude-code-source-leaked-5-hidden-features-found-in-510k-lines-of-code-3mbn">Claude Code Source Leaked: 5 Hidden Features Found in 510K Lines of Code</a> -- DEV.to: BUDDY, Undercover Mode, KAIROS summary</li>
+<li>[x] <a href="https://winbuzzer.com/2026/04/01/claude-code-source-leak-anti-distillation-traps-undercover-mode-xcxwbn/">Claude Code Source Leak Exposes Anti-Distillation Traps</a> -- Winbuzzer: anti-distillation and attestation details</li>
+<li>[x] <a href="https://apidog.com/blog/claude-code-source-leak-analysis/">What the Claude Code Source Leak Reveals About AI Coding Tool Architecture</a> -- APIDog: Undercover Mode, permission system, multi-agent notes</li>
+<li>[x] <a href="https://www.mindstudio.ai/blog/claude-code-source-code-leak-8-hidden-features">Claude Code Source Code Leak: 8 Hidden Features You Can Use Right Now</a> -- MindStudio: parallel tool-call prompting, practical lessons</li>
+<li>[x] <a href="https://news.smol.ai/issues/26-03-31-claude-code-leak">The Claude Code Source Leak | AINews</a> -- smol.ai: tool inventory and fork-join pattern notes</li>
+<li>[x] <a href="https://dev.to/comeonoliver/i-analyzed-claude-codes-leaked-source-heres-how-anthropics-ai-agent-actually-works-2bik">I Analyzed Claude Code's Leaked Source</a> -- DEV.to: voice mode, bridge mode, slash command list</li>
+<li>[x] <a href="https://datanorth.ai/news/anthropic-leak-claude-code-source-map-reveals-roadmap-for-autonomous-agentic-future">Claude Code Leak: Unreleased Features Revealed (2026)</a> -- DataNorth: KAIROS, Coordinator, UltraPlan details</li>
+<li>[x] <a href="https://www.kucoin.com/news/flash/leaked-claude-code-v2-1-88-source-code-reveals-advanced-ai-agent-engineering-architecture">Leaked Claude Code v2.1.88 Source Code Reveals Advanced AI Agent Engineering</a> -- KuCoin: parallel tool calls, conditional skill triggers</li>
+<li>[x] <a href="https://www.buildfastwithai.com/blogs/claude-code-source-code-leak-2026">Claude Code Source Code Leak: The Full Story 2026</a> -- BuildFastWithAI: codenames Capybara, Fennec, Numbat; competitive context</li>
+<li>[x] <a href="https://www.datastudios.org/post/claude-code-leak-how-anthropic-accidentally-exposed-its-coding-tool-s-source-code">Claude Code leak: how Anthropic accidentally exposed its coding tool's source</a> -- DataStudios: no model weights confirmed, packaging cause</li>
+<li>[x] <a href="https://www.bleepingcomputer.com/news/artificial-intelligence/claude-code-source-code-accidentally-leaked-in-npm-package/">Claude Code source code accidentally leaked in NPM package</a> -- Bleeping Computer: legal context and DMCA note</li>
+<li>[x] <a href="https://thehackernews.com/2026/04/claude-code-tleaked-via-npm-packaging.html">Claude Code Source Leaked via npm Packaging Error, Anthropic Confirms</a> -- The Hacker News: Anthropic confirmation and response</li>
+<li>[x] <a href="https://www.techspot.com/news/111907-anthropic-accidentally-exposed-claude-code-source-raising-security.html">Anthropic accidentally exposed Claude Code source, raising security concerns</a> -- TechSpot: security concern analysis</li>
+<li>[x] <a href="https://firethering.com/claude-code-source-code-leak/">Claude Code's leaked source code reveals what Anthropic is actually building</a> -- Firethering: UltraPlan, Dream Mode details</li>
+<li>[x] <a href="https://superframeworks.com/articles/claude-code-source-code-leak">Claude Code Source Code Leaked: What 512K Lines Reveal About the Best</a> -- Superframeworks: config hierarchy and session bootstrap</li>
+<li>[x] <a href="https://github.com/asgeirtj/system_prompts_leaks/blob/main/Anthropic/claude-code.md">system_prompts_leaks/Anthropic/claude-code.md at main</a> -- GitHub mirror of the leaked system prompts (legal status uncertain; Anthropic has issued DMCA notices)</li>
+<li>[x] <a href="https://code.claude.com/docs/en/memory">How Claude remembers your project - Claude Code Docs</a> -- official Claude Code memory documentation (CLAUDE.md hierarchy)</li>
+<li>[x] <a href="https://institute.sfeir.com/en/claude-code/claude-code-memory-system-claude-md/deep-dive/">The CLAUDE.md Memory System - Deep Dive</a> -- SFEIR Institute: CLAUDE.md tier analysis</li>
+<li>[x] <a href="https://www.samaa.tv/2087348712-massive-claude-leak-exposes-anthropic-s-secret-ai-plans">Massive Claude leak exposes Anthropic's secret AI plans</a> -- Samaa TV: hidden feature summary and community reaction</li>
+<li>[x] <a href="https://futuretools.io/news/anthropics-claude-code-gets-leaked-openais-codex-was-already-open-source-heres-what-it-all-means">Anthropic's Claude Code Gets Leaked. OpenAI's Codex Was Already Open Source</a> -- FutureTools: UltraPlan, competitive comparison with OpenAI Codex</li>
+<li>[x] <a href="https://ucstrategies.com/news/claude-codes-source-was-accidentally-made-public-and-whats-inside-changes-everything/">Claude Code's Source Was Accidentally Made Public</a> -- UC Strategies: Coordinator mode, multi-agent roadmap</li>
+<li>[x] <a href="https://www.penligent.ai/hackinglabs/claude-code-source-map-leak-what-was-exposed-and-what-it-means/">Claude Code Source Map Leak, What Was Exposed and What It Means</a> -- Penligent AI: security and operational implications</li>
+<li>[x] <a href="https://techstartups.com/2026/03/31/anthropics-claude-source-code-leak-goes-viral-again-after-full-source-hits-npm-registry-revealing-hidden-capybara-models-and-ai-pet/">Anthropic accidentally leaked Claude Code source code via a map file</a> -- TechStartups: codenames and community GitHub mirror activity</li>
+<li>[x] <a href="https://claudefa.st/blog/guide/mechanics/claude-code-source-leak">Claude Code Source Code Leaked: 5 Hidden Features Found</a> -- Claudefa.st: feature-flag catalogue</li>
+</ul>
+<hr />
+
+
+  </div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-04-02-claude-code-npm-source-map-leak.html">Claude Code npm Source Map Leak</a> <span class="related-note">via anthropic, claude, npm</span></div>
+<div class="related-entry"><a href="/Research/research/2026-03-10-ai-concept-classification-taxonomy.html">AI concept classification taxonomy: prompts, instructions, memory, failure modes, controls, and problem domains</a> <span class="related-note">via agents, memory, tools</span></div>
+<div class="related-entry"><a href="/Research/research/2026-03-02-agent-memory-management-context-injection.html">Agent Memory Management and Context Injection</a> <span class="related-note">via agents, architecture, memory</span></div>
+<div class="related-entry"><a href="/Research/research/2026-03-21-dependency-mapping-dotnet-terraform-dynatrace.html">Dependency Mapping Across .NET Codebases, Terraform, Dynatrace, Confluence, Log Aggregation, and the Configuration and Service Data Model (CSDM)</a> <span class="related-note">via agents, architecture</span></div>
+<div class="related-entry"><a href="/Research/research/2026-03-17-ai-memory-systems-rag-neuroscience.html">Artificial Intelligence (AI) Memory Systems: Retrieval-Augmented Generation (RAG), Vendor Implementations, and Neuroscience Foundations</a> <span class="related-note">via claude, memory</span></div>
+</div></div>
+
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-04-02-claude-code-npm-source-map-leak.html">Claude Code npm Source Map Leak</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-04-02-ai-funding-and-capital-investment-landscape.html">AI Funding and Capital Investment Landscape</a></div>
+  </div>
+</main>
+</body>
+</html>

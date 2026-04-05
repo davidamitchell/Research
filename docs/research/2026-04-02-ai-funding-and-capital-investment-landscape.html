@@ -1,0 +1,742 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>AI Funding and Capital Investment Landscape — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #0f1115;
+  --surface-2:       #161b22;
+  --border:          #252b33;
+  --text:            #e6e6e6;
+  --text-muted:      #666;
+  --accent:          #e6e6e6;
+  --accent-dim:      #333;
+  --tag-bg:          #161b22;
+  --tag-text:        #999;
+  --tag-active-bg:   #e6e6e6;
+  --tag-active-text: #0f1115;
+  --link:            #00C3A5;
+  --teal:            #00C3A5;
+  --dusk:            #E8A1A8;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  overflow-x: clip;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.75rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+.nav-links a.active { color: var(--teal); }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--teal); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+  min-width: 0;
+}
+.card:hover { border-color: var(--teal); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  word-break: break-word;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4em;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.item-title svg { flex-shrink: 0; margin-top: 0.2em; }
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+  word-break: break-all;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+  max-width: 100%;
+}
+.item-content pre code { background: none; padding: 0; word-break: normal; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--teal); text-decoration: underline; }
+.item-content a:hover { color: var(--text); text-decoration: underline; }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--dusk);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    top: 0;
+    height: auto;
+    padding: 0.5rem 1rem;
+  }
+  .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .nav-links {
+    width: 100%;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  main {
+    padding: 1.5rem 1rem 4rem;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; overflow: hidden; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); word-break: break-word; overflow-wrap: break-word; }
+.key-claims li:last-child { border-bottom: none; }
+.key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
+.key-claims a:hover { color: var(--text); }
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); flex-wrap: wrap; }
+.related-entry:last-child { border-bottom: none; }
+.related-entry a { color: var(--teal); word-break: break-word; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--dusk); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4em; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--teal); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-card-link { text-decoration: none; color: var(--text); display: block; }
+.thread-card-link:hover .thread-card { background: var(--surface-2); }
+.thread-card { background: var(--surface); border: 1px solid var(--border); padding: 1.5rem 1.75rem 1.75rem; }
+.thread-card-title { font-size: var(--text-base); font-weight: 600; margin-bottom: 0.5rem; }
+.thread-card-meta { font-size: var(--text-xs); color: var(--text-muted); margin-bottom: 0.75rem; letter-spacing: 0.05em; }
+.thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
+.thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Research</a>
+    <div class="nav-links">
+      <a href="/Research/threads.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>Threads</a>
+      <a href="/Research/tags/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>Tags</a>
+      <a href="/Research/search.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M8 1.5C4.41 1.5 1.5 4.41 1.5 8c0 2.87 1.86 5.3 4.44 6.16.32.06.44-.14.44-.31v-1.09c-1.8.39-2.18-.87-2.18-.87-.3-.75-.72-.95-.72-.95-.59-.4.04-.4.04-.4.65.05 1 .67 1 .67.58 1 1.53.71 1.9.54.06-.42.23-.71.41-.87-1.44-.16-2.95-.72-2.95-3.2 0-.71.25-1.28.67-1.74-.07-.16-.29-.82.06-1.71 0 0 .55-.18 1.8.67a6.27 6.27 0 0 1 3.28 0c1.25-.85 1.8-.67 1.8-.67.35.89.13 1.55.06 1.71.42.46.67 1.03.67 1.74 0 2.49-1.51 3.04-2.96 3.2.23.2.44.6.44 1.21v1.8c0 .17.12.37.44.31A6.5 6.5 0 0 0 14.5 8 6.5 6.5 0 0 0 8 1.5z"/></svg>GitHub</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>AI Funding and Capital Investment Landscape</span>
+  </div>
+  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>AI Funding and Capital Investment Landscape</h1>
+    <div class="meta-bar">
+    <span>2026-04-02</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/ai.html">ai</a> <a class="tag" href="/Research/tags/funding.html">funding</a> <a class="tag" href="/Research/tags/infrastructure.html">infrastructure</a> <a class="tag" href="/Research/tags/strategy.html">strategy</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-02-ai-funding-and-capital-investment-landscape.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-04-02-ai-funding-and-capital-investment-landscape" target="_blank" rel="noopener">wiki →</a>
+  </div>
+  
+  <div class="item-content">
+    <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
+<p>Which Artificial Intelligence (AI)-related and tech companies are receiving and deploying capital investment in 2023-2026, who the major investors are, where investment is concentrated, and what actions past funding rounds enabled -- and what do current investment patterns predict about near-term industry direction?</p>
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Findings</h2>
+<p><em>(Populated from §6 Synthesis above.)</em></p>
+<h3>Executive Summary</h3>
+<p>AI-related capital investment reached record levels in 2023-2026, with a small cohort of foundation model companies (OpenAI, Anthropic, Databricks, xAI, Scale AI) absorbing the majority of large rounds. Microsoft, Amazon, and Google have structured their investments as cloud infrastructure lock-in agreements, meaning AI model adoption directly drives their cloud revenues. Past investment cycles confirm a two-to-three-year lag between major funding rounds and embedded enterprise product deployment, a pattern already validated by the Microsoft-OpenAI-Copilot trajectory. [inference] Current investment patterns strongly predict consolidation around a small number of AI platforms, accelerated vertical AI application deployment, a physical AI and robotics commercial wave in the next two to four years, and a CapEx sustainability reckoning for hyperscalers within two to three years.</p>
+<h3>Key Findings</h3>
+<ol>
+<li>AI funding grew from $21.8 billion in 2023 to over $200 billion in 2025, with Q1 2026 alone exceeding $300 billion globally. The pace has no historical precedent in venture capital history.</li>
+<li>Capital is concentrated in a small cohort: OpenAI, Anthropic, Databricks, xAI, and Scale AI received the majority of large rounds. Most foundation model investment is committed; new entrants face diminishing marginal returns in that layer.</li>
+<li>Microsoft, Amazon, and Google have each embedded cloud-dependency clauses in their AI investments, converting financial positions into durable cloud revenue streams. This is the defining structural pattern of the current investment cycle.</li>
+<li>The Microsoft-OpenAI precedent is the clearest evidence of how current investments will resolve: $13 billion invested over five years produced Microsoft Copilot, 40%+ Azure growth rates, and an estimated $135 billion equity stake value, confirming a five-to-six-year investment-to-dominant-product timeline.</li>
+<li>NVIDIA is the largest indirect beneficiary of AI investment, with FY2025 revenues of $130.5 billion (up 114% year-over-year). The company captures the majority of AI hardware spending regardless of which model company receives the investment.</li>
+<li>Amazon's Anthropic stake value grew from $8 billion invested to an estimated $14 billion by end 2025, with a $9.5 billion pre-tax quarterly gain in Q3 2025. Google's Anthropic stake produced a $10.7 billion net gain in the same quarter.</li>
+<li>Hyperscaler CapEx for 2026 is projected at $600-700 billion combined (Amazon, Google, Microsoft, Meta, Oracle), representing 45-57% of their revenues. This capital intensity is at utility-sector levels and is partially debt-financed.</li>
+<li>Power grid availability has replaced GPU supply as the primary constraint on AI infrastructure expansion. Data center power and cooling now represents 40-50% of total build cost, and grid capacity limits deployment timelines more than capital availability.</li>
+<li>Robotics and physical AI attracted $27.6 billion in 2025, more than doubling from 2024. Humanoid robot companies alone received $6.1 billion in US investment, signalling a shift from software AI to embodied AI deployment.</li>
+<li>[inference] Investor focus shifting from general foundation models to vertical AI platforms and physical AI replicates the cloud-era pattern where application-layer investment accelerated after infrastructure investment peaked. The next two to three years are [inference] likely to produce a wave of sector-specific AI products in healthcare, legal, finance, and logistics, funded by the current vertical AI investment surge.</li>
+</ol>
+<h3>Assumptions</h3>
+<ul>
+<li><strong>Assumption:</strong> Reported funding figures reflect actual closed rounds. <strong>Justification:</strong> CB Insights and Crunchbase verify from multiple public disclosure sources; aggregate undisclosed rounds are assumed non-material.</li>
+<li><strong>Assumption:</strong> The two-to-three-year investment-to-product lag pattern holds absent a major technical or regulatory discontinuity. <strong>Justification:</strong> Evidenced by Microsoft-OpenAI (2019-2022 Copilot beta), Google-DeepMind (2014-2016 AlphaGo products), and AWS enterprise trajectory (2002-2006).</li>
+<li><strong>Assumption:</strong> Cloud-dependency deal provisions are durable in the near term. <strong>Justification:</strong> The October 2025 Microsoft-OpenAI restructure demonstrates renegotiability, but new terms still carry substantial Azure commitments.</li>
+</ul>
+<h3>Analysis</h3>
+<p>The current AI investment landscape is a three-layer stack: foundation model companies at the top, cloud infrastructure providers in the middle, and hardware (NVIDIA dominant) at the base. Capital flows most visibly to the foundation model layer, but financial returns are proving most durable in the middle and base layers. NVIDIA's 114% revenue growth and Amazon's and Google's multi-billion-dollar quarterly gains from their Anthropic stakes confirm that infrastructure and cloud capture value from AI investment regardless of which model company ultimately wins.</p>
+<p>The cloud-dependency deal structure is the defining mechanism of this cycle. Unlike passive financial investments, the Microsoft, Amazon, and Google positions are designed so that AI model adoption growth generates cloud revenue automatically. The investors are not betting passively on startup success; they are ensuring that success at the AI layer produces revenue at the cloud layer. The risk-adjusted return profile is therefore better for the cloud providers than for pure AI investors.</p>
+<p>The Stargate Project represents a structural escalation: if OpenAI and SoftBank successfully build dedicated AI infrastructure, they reduce dependence on existing cloud providers and concentrate value at the infrastructure layer itself. Whether Stargate completes on its announced timeline (it has experienced delays) will be a leading indicator of whether the cloud-dependency model remains durable.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>CapEx sustainability: Hyperscaler CapEx at 45-57% of revenue is historically unprecedented for the technology sector. If AI-driven revenue growth decelerates before CapEx plans complete, balance sheet pressure will be significant and could force spending reductions mid-cycle.</li>
+<li>Bubble dynamics: The circular nature of AI spending (hyperscalers fund AI companies that commit to spend on hyperscaler clouds) and rapid valuation growth (OpenAI from $80 billion to $300 billion in two years) create conditions analogous to speculative cycles. A regulatory, technical, or macroeconomic trigger could compress valuations rapidly.</li>
+<li>Power and energy bottlenecks: Grid capacity constraints are structural and multi-year. Declared CapEx may not translate to usable capacity on stated timelines regardless of capital availability.</li>
+<li>Export controls: US restrictions on AI chip exports to China constrain NVIDIA's addressable market and could bifurcate global AI infrastructure development.</li>
+<li>Valuation opacity: Amazon and Google gains from Anthropic are unrealised marks on private valuations. A reset in Anthropic's valuation would reverse these gains and could affect reported earnings.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>Will any non-US AI company (Mistral AI, DeepSeek, Baidu) achieve sufficient scale to break US-dominated capital concentration?</li>
+<li>What is the realistic commercial deployment timeline for humanoid robotics at scale?</li>
+<li>How will the Microsoft-OpenAI agreement evolve as OpenAI approaches AGI thresholds defined in the partnership terms?</li>
+<li>At what point does hyperscaler debt financing for CapEx become a systemic macroeconomic risk rather than a company-level one?</li>
+</ul>
+<hr />
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
+<ul>
+<li>[x] <a href="https://techfundingnews.com/openai-anthropic-xai-ai-funding-trends-2025/">$84B story: The 10 AI mega-rounds that defined 2025</a> -- TechFundingNews summary of the ten largest 2025 AI rounds</li>
+<li>[x] <a href="https://techstartups.com/2025/03/21/top-50-investors-funding-ai-startup-companies-in-2025/">Top 50 Investors Funding AI Startups in 2025</a> -- ranked list of most active AI investors</li>
+<li>[x] <a href="https://news.crunchbase.com/venture/big-dollar-ai-investors-2025-softbank/">As Funding to AI Startups Increases and Concentrates, Which Investors...</a> -- Crunchbase analysis of investor concentration</li>
+<li>[x] <a href="https://qz.com/biggest-ai-fundraises-2025-openai-anthropic">The biggest AI startup fundraising rounds so far this year</a> -- Quartz 2025 round-up</li>
+<li>[x] <a href="https://www.cbinsights.com/research/generative-ai-funding-top-startups-investors-2023/">The generative AI boom in 6 charts</a> -- CB Insights 2023 generative AI funding report</li>
+<li>[x] <a href="https://www.scalecapital.com/stories/generative-ai-landscape-q4-2024-ai-investments-reach-historic-high">Generative AI Landscape Q4 2024: AI Investments Reach Historic High</a> -- Scale Capital Q4 2024 analysis</li>
+<li>[x] <a href="https://lucidityinsights.com/infobytes/ai-dominate-2024-funding-landscape">Top AI Companies Dominated 2024 Funding Landscape</a> -- Lucidity Insights 2024 overview</li>
+<li>[x] <a href="https://blogs.microsoft.com/blog/2025/10/28/the-next-chapter-of-the-microsoft-openai-partnership/">The next chapter of the Microsoft-OpenAI partnership</a> -- Microsoft official blog on partnership restructure</li>
+<li>[x] <a href="https://www.fool.com/investing/2025/11/03/open-ai-move-made-microsoft-no-brainer-buy/">OpenAI's Latest Move Just Made Microsoft a No-Brainer Buy</a> -- Motley Fool analysis of Microsoft's OpenAI equity stake value</li>
+<li>[x] <a href="https://www.bebooja.com/en/blog/market/microsoft-ai-strategy-2025-part1">The Real Reason Microsoft Invested $13B in OpenAI</a> -- analysis of Microsoft's strategic rationale</li>
+<li>[x] <a href="https://www.geekwire.com/2025/microsoft-secures-27-stake-in-openai-in-new-deal-with-commitment-for-250b-in-azure-usage/">Microsoft gets 27% stake in OpenAI, and a $250B Azure commitment</a> -- GeekWire on the restructured deal terms</li>
+<li>[x] <a href="https://techcrunch.com/2026/01/28/microsoft-earnings-7-6-billion-openai/">Microsoft gained $7.6B from OpenAI last quarter</a> -- TechCrunch on Microsoft earnings</li>
+<li>[x] <a href="https://techfundingnews.com/amazon-anthropic-ai-investment-strategy/">Amazon doubles down on Anthropic: $8B bet to power the future of AI</a> -- TechFundingNews on Amazon-Anthropic strategy</li>
+<li>[x] <a href="https://www.geekwire.com/2025/amazons-anthropic-investment-boosts-its-quarterly-profits-by-9-5b/">Amazon's Anthropic investment boosts its quarterly profits by $9.5B</a> -- GeekWire on Amazon's Q3 2025 earnings</li>
+<li>[x] <a href="https://www.bloomberg.com/news/articles/2025-10-31/alphabet-amazon-stakes-in-anthropic-boost-profit-by-billions">Alphabet, Amazon Stakes in Anthropic Boost Profit by Billions</a> -- Bloomberg on Google and Amazon stake valuations</li>
+<li>[x] <a href="https://www.datacenterfrontier.com/machine-learning/article/55335703/inside-anthropics-multi-cloud-ai-factory-how-aws-trainium-and-google-tpus-shape-its-next-phase">Inside Anthropic's Multi-Cloud AI Factory</a> -- Data Center Frontier on how Anthropic uses AWS and Google infrastructure</li>
+<li>[x] <a href="https://group.softbank/en/news/press/20250122">Announcing The Stargate Project</a> -- SoftBank official announcement</li>
+<li>[x] <a href="https://www.ainvest.com/news/softbank-vision-fund-resurgence-era-ai-driven-creation-2508/">SoftBank's Vision Fund Resurgence: A New Era of AI-Driven Value Creation</a> -- AInvest analysis</li>
+<li>[x] <a href="https://www.techrepublic.com/article/news-stargate-stalls-openai-softbank/">$100B Stargate AI Project From OpenAI and SoftBank Stalls</a> -- TechRepublic on Stargate delays</li>
+<li>[x] <a href="https://introl.com/blog/hyperscaler-capex-600b-2026-ai-infrastructure-debt-january-2026">Hyperscaler CapEx Hits $600B in 2026</a> -- Introl Blog on 2026 hyperscaler spending</li>
+<li>[x] <a href="https://futurumgroup.com/insights/ai-capex-2026-the-690b-infrastructure-sprint/">AI Capex 2026: The $690B Infrastructure Sprint</a> -- Futurum Group analysis</li>
+<li>[x] <a href="https://www.colliers.com/en/research/nrep-usdc-data-center-marketplace-2026">2026 Data Center Marketplace Report</a> -- Colliers 2026 data center market report</li>
+<li>[x] <a href="https://invezz.com/news/2024/12/25/nvidias-3-trillion-year-how-the-ai-boom-propelled-the-chip-giant/">Nvidia's $3 trillion year: How the AI boom propelled the chip giant</a> -- Invezz on NVIDIA's 2024 performance</li>
+<li>[x] <a href="https://machineera.ai/nvidias-q4-earnings-the-ai-boom-rolls-on-but-can-it-last/">Nvidia Q4 2024 Earnings: AI Chip Demand Drives Record Growth</a> -- MachineEra on NVIDIA Q4 2024</li>
+<li>[x] <a href="https://techblog.comsoc.org/2025/12/01/ai-infrastructure-spending-boom-a-path-towards-agi-or-speculative-bubble/">AI infrastructure spending boom: a path towards AGI or speculative bubble?</a> -- IEEE ComSoc Tech Blog analysis of bubble risk</li>
+<li>[x] <a href="https://news.crunchbase.com/venture/record-breaking-funding-ai-global-q1-2026/">Q1 2026 Shatters Venture Funding Records As AI Boom Pushes Startup...</a> -- Crunchbase Q1 2026 funding report</li>
+<li>[x] <a href="https://www.cbinsights.com/research/report/ai-trends-2025/">State of AI 2025 Report</a> -- CB Insights annual AI state report</li>
+<li>[x] <a href="https://www.marionstreetcapital.com/insights/the-robotics-industry-funding-landscape-2025">The Robotics Investment Boom: How 2025 Capital Is Flowing into AI...</a> -- Marion Street Capital robotics funding analysis</li>
+</ul>
+<hr />
+
+
+  </div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-03-26-customer-contact-and-delight.html">Customer contact as strategic signal: why people call and whether they want self-service</a> <span class="related-note">via ai, strategy</span></div>
+<div class="related-entry"><a href="/Research/research/2026-03-26-cost-reduction-is-not-strategy.html">Cost reduction is not a strategy: the opportunity vs efficiency mindset</a> <span class="related-note">via ai, strategy</span></div>
+<div class="related-entry"><a href="/Research/research/2026-03-14-organisational-intent-formal-specification.html">Can organisational intent be expressed as a formally structured specification from which artefacts are derived and consistency is machine-checked?</a> <span class="related-note">via funding, strategy</span></div>
+</div></div>
+
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-04-02-anthropic-claude-code-leak-architecture-prompting-and-hidden-features.html">Anthropic Claude Code leak</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-04-01-timesfm-time-series-foundation-models.html">TimesFM and the Landscape of Time-Series Foundation Models</a></div>
+  </div>
+</main>
+</body>
+</html>
