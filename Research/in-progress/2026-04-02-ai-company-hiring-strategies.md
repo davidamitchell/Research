@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "AI company hiring strategies: what job ads and recent hires reveal about strategic direction"
 added: 2026-04-02
 status: reviewing
