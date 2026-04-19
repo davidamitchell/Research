@@ -2,12 +2,12 @@
 review_count: 2
 title: "AI company hiring strategies: what job ads and recent hires reveal about strategic direction"
 added: 2026-04-02
-status: reviewing
+status: completed
 priority: medium  # low | medium | high
 blocks: []
 tags: [ai, hiring, strategy, competitive-intelligence, openai, anthropic, google-deepmind, meta-ai, xai, job-market, wayback-machine]
 started: 2026-04-19
-completed: ~
+completed: 2026-04-19
 output: [knowledge]
 ---
 
@@ -181,19 +181,19 @@ Q: What do current and historical hiring patterns reveal about AI company strate
 
 ### §3 Reasoning
 
-- [fact] Across the companies with accessible live structured boards, the dominant hiring categories are not pure model research. They are sales, deployment, product, security, infrastructure, and customer-facing implementation.
-- [fact] Anthropic, Mistral, and Cohere all show clear enterprise-commercial mixes on their boards, and those mixes match their official enterprise strategy pages and announcements.
-- [fact] Google DeepMind is the clearest example of productisation inside a frontier lab, because GeminiApp and GenAI dominate its visible board while the company publicly pushes Gemini Robotics and product roles.
-- [fact] xAI is the clearest infrastructure exception, because its board still concentrates in Human Data, Data Center, Infrastructure, and Safety roles and its public Memphis expansion signal is explicitly compute-heavy.
-- [fact] Mistral provides the strongest historical evidence in the sample because its visible postings rose from 13 in April 2024 to 54 in April 2025 to 149 in April 2026.
+- [fact] Across the companies with accessible live structured boards, the dominant hiring categories are not pure model research. They are sales, deployment, product, security, infrastructure, and customer-facing implementation. Sources: https://boards-api.greenhouse.io/v1/boards/anthropic/jobs?content=true ; https://boards-api.greenhouse.io/v1/boards/deepmind/jobs?content=true ; https://boards-api.greenhouse.io/v1/boards/xai/jobs?content=true ; https://api.lever.co/v0/postings/mistral?mode=json ; https://jobs.ashbyhq.com/cohere
+- [fact] Anthropic, Mistral, and Cohere all show clear enterprise-commercial mixes on their boards, and those mixes match their official enterprise strategy pages and announcements. Sources: https://boards-api.greenhouse.io/v1/boards/anthropic/jobs?content=true ; https://www.anthropic.com/news/anthropic-expands-global-leadership-in-enterprise-ai-naming-chris-ciauri-as-managing-director-of ; https://api.lever.co/v0/postings/mistral?mode=json ; https://mistral.ai/news/le-chat-enterprise ; https://jobs.ashbyhq.com/cohere ; https://cohere.com/north
+- [fact] Google DeepMind is the clearest example of productisation inside a frontier lab, because GeminiApp and GenAI dominate its visible board while the company publicly pushes Gemini Robotics and product roles. Sources: https://boards-api.greenhouse.io/v1/boards/deepmind/jobs?content=true ; https://deepmind.google/blog/gemini-robotics-brings-ai-into-the-physical-world/
+- [fact] xAI is the clearest infrastructure exception, because its board still concentrates in Human Data, Data Center, Infrastructure, and Safety roles and its public Memphis expansion signal is explicitly compute-heavy. Sources: https://boards-api.greenhouse.io/v1/boards/xai/jobs?content=true ; https://memphischamber.com/blog/press-release/xai-memphis-announces-expansion-of-supercomputer-with-addition-of-tech-companies-in-digital-delta/
+- [fact] Mistral provides the strongest historical evidence in the sample because its visible postings rose from 13 in April 2024 to 54 in April 2025 to 149 in April 2026. Sources: https://web.archive.org/web/20240404003442/https://jobs.lever.co/mistral ; https://web.archive.org/web/20250403213855/https://jobs.lever.co/mistral ; https://api.lever.co/v0/postings/mistral?mode=json
 - [inference] The strongest cross-company strategic shift is from capability discovery toward capability operationalisation. Once frontier model quality reached a usable threshold, the binding constraints moved into distribution, deployment, trust, integration, and compute operations.
 - [inference] High-profile hires are most informative when public boards are incomplete. Anthropic's international commercial leadership hire and Meta's superintelligence reorganisation both reveal priority changes that a role count alone would miss.
 
 ### §4 Consistency Check
 
-- [fact] The final conclusions do not rely on absolute cross-company role totals for OpenAI or Meta because the official pages were blocked or gated. Those companies are used for directional role-mix and leadership-signal analysis only.
-- [fact] Mistral's historical comparison is the only exact role-count time series used in the synthesis because its archived Lever pages exposed visible posting counts directly. Archived Anthropic and Google DeepMind Greenhouse pages were available only as partial or lower-bound HTML snapshots, so they were not used for numeric trend claims.
-- [fact] No contradiction was found between current board mixes and official company strategy pages. Anthropic's sales-heavy board matches its enterprise expansion announcement, Google DeepMind's GeminiApp and robotics roles match its robotics announcement, xAI's infrastructure-heavy board matches its Memphis expansion, Mistral's Solutions-heavy board matches Le Chat Enterprise, Cohere's Agentic Platform and Solutions Architecture roles match North and private deployment messaging, and OpenAI's visible role sample matches its developer-platform roadmap.
+- [fact] The final conclusions do not rely on absolute cross-company role totals for OpenAI or Meta because the official pages were blocked or gated. Those companies are used for directional role-mix and leadership-signal analysis only. Sources: https://openai.com/careers ; https://www.metacareers.com/areas-of-work/artificial-intelligence/ ; https://builtin.com/company/openai/jobs ; https://www.cnbc.com/2025/06/30/mark-zuckerberg-creating-meta-superintelligence-labs-read-the-memo.html
+- [fact] Mistral's historical comparison is the only exact role-count time series used in the synthesis because its archived Lever pages exposed visible posting counts directly. Archived Anthropic and Google DeepMind Greenhouse pages were available only as partial or lower-bound HTML snapshots, so they were not used for numeric trend claims. Sources: https://web.archive.org/web/20240404003442/https://jobs.lever.co/mistral ; https://web.archive.org/web/20250403213855/https://jobs.lever.co/mistral ; https://api.lever.co/v0/postings/mistral?mode=json
+- [fact] No contradiction was found between current board mixes and official company strategy pages. Anthropic's sales-heavy board matches its enterprise expansion announcement, Google DeepMind's GeminiApp and robotics roles match its robotics announcement, xAI's infrastructure-heavy board matches its Memphis expansion, Mistral's Solutions-heavy board matches Le Chat Enterprise, Cohere's Agentic Platform and Solutions Architecture roles match North and private deployment messaging, and OpenAI's visible role sample matches its developer-platform roadmap. Sources: https://boards-api.greenhouse.io/v1/boards/anthropic/jobs?content=true ; https://www.anthropic.com/news/anthropic-expands-global-leadership-in-enterprise-ai-naming-chris-ciauri-as-managing-director-of ; https://boards-api.greenhouse.io/v1/boards/deepmind/jobs?content=true ; https://deepmind.google/blog/gemini-robotics-brings-ai-into-the-physical-world/ ; https://boards-api.greenhouse.io/v1/boards/xai/jobs?content=true ; https://memphischamber.com/blog/press-release/xai-memphis-announces-expansion-of-supercomputer-with-addition-of-tech-companies-in-digital-delta/ ; https://api.lever.co/v0/postings/mistral?mode=json ; https://mistral.ai/news/le-chat-enterprise ; https://jobs.ashbyhq.com/cohere ; https://cohere.com/north ; https://builtin.com/company/openai/jobs ; https://developers.openai.com/blog/openai-for-developers-2025
 - [inference] The remaining uncertainty is about internal weighting and pace, not direction. The evidence is strong enough to identify where each company is leaning, but weaker for exact budget or headcount comparisons across firms because public board practices differ.
 
 ### §5 Depth and Breadth Expansion
@@ -244,7 +244,7 @@ Q: What do current and historical hiring patterns reveal about AI company strate
 
 **Analysis:**
 
-- [fact] The analysis weights primary sources above secondary ones. Official job boards, structured public endpoints, and company announcements were treated as decisive where available.
+- [inference] The analysis weights primary sources above secondary ones. Official job boards, structured public endpoints, and company announcements were treated as decisive where available.
 - [fact] Absolute totals were used cautiously because companies differ in whether they duplicate the same role across multiple locations or expose only subsets publicly.
 - [inference] The role mix is more robust than the raw totals. A company with a board dominated by Sales, Solutions, Security, Product, or Data Center roles is revealing its active bottlenecks even if the exact total is noisy.
 
@@ -263,12 +263,10 @@ Q: What do current and historical hiring patterns reveal about AI company strate
 
 ### §7 Recursive Review
 
-- [fact] Every factual claim in the investigation maps to a URL source in the Sources section.
-- [fact] Every interpretive sentence in the investigation is labelled [inference] or [assumption].
-- [fact] The strongest quantitative trend claim uses Mistral because it had the cleanest archived and current public role series.
-- [fact] OpenAI and Meta were kept at lower confidence where the public source surface was incomplete.
-- [fact] Acronyms introduced in the Research Skill Output were expanded on first use: API, SDK, CLI, IDE, GPU, MCP, VPC, FAIR, and DOI.
-- [fact] No unsupported contradiction remained after comparing current role mixes against official company strategy pages.
+- [inference] Recursive review outcome: the investigation now maps every external factual claim to a URL in the Sources section and keeps interpretive sentences explicitly labelled.
+- [fact] The strongest quantitative trend claim uses Mistral because it had the cleanest archived and current public role series. Sources: https://web.archive.org/web/20240404003442/https://jobs.lever.co/mistral ; https://web.archive.org/web/20250403213855/https://jobs.lever.co/mistral ; https://api.lever.co/v0/postings/mistral?mode=json
+- [fact] OpenAI and Meta were kept at lower confidence where the public source surface was incomplete. Sources: https://openai.com/careers ; https://builtin.com/company/openai/jobs ; https://www.metacareers.com/areas-of-work/artificial-intelligence/ ; https://www.cnbc.com/2025/06/30/mark-zuckerberg-creating-meta-superintelligence-labs-read-the-memo.html
+- [inference] Recursive review outcome: acronym first-use expansion and contradiction checks now pass on a manual read of this file.
 
 ---
 
@@ -315,7 +313,7 @@ Q: What do current and historical hiring patterns reveal about AI company strate
 
 ### Analysis
 
-- **[fact]** The evidence was weighted by source quality first, not by narrative neatness. Public structured boards and official company announcements carried the most weight because they reflect operational staffing decisions and explicit strategy statements rather than outside interpretation. **Sources:** https://boards-api.greenhouse.io/v1/boards/anthropic/jobs?content=true ; https://boards-api.greenhouse.io/v1/boards/deepmind/jobs?content=true ; https://boards-api.greenhouse.io/v1/boards/xai/jobs?content=true ; https://api.lever.co/v0/postings/mistral?mode=json ; https://jobs.ashbyhq.com/cohere
+- **[inference]** The evidence was weighted by source quality first, not by narrative neatness. Public structured boards and official company announcements carried the most weight because they reflect operational staffing decisions and explicit strategy statements rather than outside interpretation. **Sources considered:** https://boards-api.greenhouse.io/v1/boards/anthropic/jobs?content=true ; https://boards-api.greenhouse.io/v1/boards/deepmind/jobs?content=true ; https://boards-api.greenhouse.io/v1/boards/xai/jobs?content=true ; https://api.lever.co/v0/postings/mistral?mode=json ; https://jobs.ashbyhq.com/cohere
 - **[inference]** Role mix is more reliable than absolute headcount in this sample, because companies differ in duplication practices, public-board completeness, and access controls, while team composition still reveals which bottlenecks they are willing to advertise. **Sources:** https://boards-api.greenhouse.io/v1/boards/anthropic/jobs?content=true ; https://boards-api.greenhouse.io/v1/boards/deepmind/jobs?content=true ; https://boards-api.greenhouse.io/v1/boards/xai/jobs?content=true ; https://api.lever.co/v0/postings/mistral?mode=json ; https://jobs.ashbyhq.com/cohere ; https://builtin.com/company/openai/jobs
 - **[inference]** Public boards may underrepresent senior research hiring and overrepresent go-to-market or operations roles, but that alternative explanation does not fully account for the repeated enterprise, deployment, and governance emphasis appearing across Anthropic, Mistral, Cohere, the visible OpenAI sample, and parts of Google DeepMind. **Sources:** https://boards-api.greenhouse.io/v1/boards/anthropic/jobs?content=true ; https://api.lever.co/v0/postings/mistral?mode=json ; https://jobs.ashbyhq.com/cohere ; https://builtin.com/company/openai/jobs ; https://boards-api.greenhouse.io/v1/boards/deepmind/jobs?content=true
 - **[fact]** The historical evidence is uneven but still informative. Mistral provided a clean archival role-count series that matched a contemporaneous enterprise product launch, while Anthropic, Google DeepMind, xAI, Cohere, and OpenAI rely more on current role mix plus official strategy statements. **Sources:** https://web.archive.org/web/20240404003442/https://jobs.lever.co/mistral ; https://web.archive.org/web/20250403213855/https://jobs.lever.co/mistral ; https://api.lever.co/v0/postings/mistral?mode=json ; https://mistral.ai/news/le-chat-enterprise

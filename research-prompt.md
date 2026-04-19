@@ -121,6 +121,11 @@ Output.
   new backlog items.
 - **Output section** -- type (`knowledge`), description, and links to the three
   most important sources.
+- **Inline evidence discipline in Findings** -- every sentence in Findings that
+  asserts a factual or inferential claim must carry an inline `[fact]`,
+  `[inference]`, or `[assumption]` label and bind its supporting source at the
+  point of claim. The Evidence Map is required, but it does **not** substitute
+  for inline source binding in Executive Summary, Key Findings, or Analysis.
 
 **Writing style:**
 - Direct, declarative prose. State findings as facts or clearly labelled
@@ -202,9 +207,15 @@ easily-detectable issues.
    unexpanded abbreviation before proceeding.
 
 2. **Claim labels** -- every factual or inferential claim in
-   `## Research Skill Output` must carry a `[fact]`, `[inference]`, or
-   `[assumption]` label. Headings and question decomposition sub-headings are
-   exempt. Fix any unlabelled claims.
+    `## Research Skill Output` must carry a `[fact]`, `[inference]`, or
+    `[assumption]` label. Headings and question decomposition sub-headings are
+    exempt. Fix any unlabelled claims.
+
+2a. **Findings inline labels and sources** -- every factual or inferential
+    claim in `## Findings`, especially Executive Summary, Key Findings, and
+    Analysis, must also carry an inline `[fact]`, `[inference]`, or
+    `[assumption]` label and bind its supporting source at the point of claim.
+    The Evidence Map alone is insufficient.
 
 3. **Vague quantifiers** -- check for unsourced "many", "most", "significant",
    "state-of-the-art". Replace with specific numbers or add a source, or
