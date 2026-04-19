@@ -1,11 +1,12 @@
 # Research Master Document
 
-Generated on: 2026-04-19 22:43 UTC
+Generated on: 2026-04-19 23:32 UTC
 
 ## Table of Contents
 
 * [Shopify's Artificial Intelligence (AI) strategy after the Red Queen memo: selection pressure, talent-market effects, and copycat outcomes](#2026-04-18-shopify-ai-strategy-red-queen-memo-md)
 * [oh-my-codex and AI Agent Workflow Patterns: What Can We Leverage?](#2026-04-03-oh-my-codex-patterns-md)
+* [Artificial Intelligence (AI)-assisted daily productivity digest: patterns, tooling, and automation approaches for personal task management](#2026-04-03-ai-workflow-todo-digest-md)
 * [The shape of organisations when software is no longer the constraint](#2026-04-02-org-shape-software-cost-zero-md)
 * [Claude mythos: character, soul documents, and narrative identity in large language models](#2026-04-02-claude-mythos-md)
 * [Claude Code npm Source Map Leak](#2026-04-02-claude-code-npm-source-map-leak-md)
@@ -305,6 +306,91 @@ Cross-repo consistency is a second-order issue: the Multi-Agent-Testing, Agent-E
 - What does the Agent-Evaluation repo evaluate and what findings has it produced? (Candidate backlog item: audit Agent-Evaluation findings)
 - Would a pre-research scope-clarification skill conflict with the existing research-prompt.md 13-step process, or slot in as step 0? (Candidate backlog item: design clarify-first skill)
 - Should a skills index be added to davidamitchell/Skills as a README table? (Candidate backlog item)
+
+---
+
+---
+
+<a name="2026-04-03-ai-workflow-todo-digest-md"></a>
+
+## Artificial Intelligence (AI)-assisted daily productivity digest: patterns, tooling, and automation approaches for personal task management
+
+**Tags:** [ai, productivity, automation, zapier, notion, slack, task-management, personal-assistant, memory-systems, messaging, ios, workflow]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-03-ai-workflow-todo-digest.md
+
+## Research Question
+
+What are the established patterns and tooling approaches for using Artificial Intelligence (AI) to generate actionable daily and weekly productivity digests from personal task management systems?
+
+Supporting questions:
+- What automation stacks exist today for pulling tasks from personal knowledge bases (Notion, Obsidian, Todoist, etc.) and summarising them via a Large Language Model (LLM)?
+- What prompt patterns produce the most useful digests (top actions, stuck items, small wins)?
+- What does public research say about "proactive push" vs "pull-on-demand" information delivery for knowledge workers?
+- Which messaging platforms (Slack, Teams, Telegram, iMessage) are best suited for AI digest delivery on Apple iPhone Operating System (iOS)?
+- How do memory and personal assistant systems (LLM memory layers, vector stores, context windows) complement or replace scheduled digest automation?
+- Who else is building or publishing similar systems publicly, and what have they learned?
+
+## Findings
+
+*(Populated from §6 Synthesis above.)*
+
+### Executive Summary
+[inference] The best-supported pattern for a personal productivity digest is a scheduled workflow that pulls structured task data from one canonical system, extracts a compact set of actions, blockers, and reinforcement signals, and pushes the result to a phone-native chat surface, rather than relying on free-form summarization or on-demand retrieval alone ([Zapier](https://zapier.com/apps/notion/integrations/slack); [n8n workflow template](https://n8n.io/workflows/10286-ai-meeting-summary-and-action-item-tracker-with-notion-slack-and-gmail/); [AI News Briefing repository](https://github.com/hoangsonww/AI-News-Briefing)).
+
+[inference] The strongest checked prompt designs are schema-first: they explicitly extract actions, blockers, decisions, owners, and dates before rendering a short digest, although the evidence base here is thin because only one directly inspectable public workflow exposed its prompt structure in enough detail to verify that pattern ([n8n workflow template](https://n8n.io/workflows/10286-ai-meeting-summary-and-action-item-tracker-with-notion-slack-and-gmail/)).
+
+[fact] Push delivery is useful only when it is bounded and timed well, because the checked HCI and proactive-agent literature shows that interruptions can reduce performance and satisfaction, while interventions aligned to task boundaries are materially better than arbitrary interruptions ([Human-Workspace Interaction review](https://link.springer.com/article/10.1007/s41233-023-00060-9); [Lee et al. 2019 DOI](https://doi.org/10.1145/3290605.3300558); [When AI-Based Agents Are Proactive](https://link.springer.com/article/10.1007/s12599-024-00918-y)).
+
+[inference] For an iOS-primary, Notion-centric workflow, the practical next step is to prototype a daily and weekly digest with Zapier or n8n, deliver it to Slack if Slack is already in the user's daily path or to Telegram if the workflow is purely personal, and add a memory layer only after the digest proves behavior change ([Slack Block Kit](https://api.slack.com/block-kit); [Telegram Bot API](https://core.telegram.org/bots/api); [completed Slack and Teams research](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-02-slack-msteams-research-integration.md); [completed Slack bot memory research](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-slack-bot-memory-capture-retrieval.md); [MemGPT paper](https://arxiv.org/abs/2310.08560)).
+### Key Findings
+
+1. **Medium confidence.** [inference] The most visible public implementations of proactive digests use a scheduled collector, a canonical source system, a constrained extraction step, and a push destination, which suggests that pipeline-oriented automation is the clearest current pattern even though the accessible examples skew toward meetings and news rather than personal task digests ([Zapier](https://zapier.com/apps/notion/integrations/slack); [n8n workflow template](https://n8n.io/workflows/10286-ai-meeting-summary-and-action-item-tracker-with-notion-slack-and-gmail/); [AI News Briefing repository](https://github.com/hoangsonww/AI-News-Briefing)).
+2. **Low confidence.** [inference] The most actionable prompt pattern appears to be schema-first extraction with explicit sections for actions, blockers, decisions, dates, and owners, because the clearest checked public workflow exposes those structures directly for routing and rendering, but the inspectable evidence base is thin ([n8n workflow template](https://n8n.io/workflows/10286-ai-meeting-summary-and-action-item-tracker-with-notion-slack-and-gmail/)).
+3. **Medium confidence.** [fact] Proactive digests should be delivered at predictable review boundaries, such as the start of a day or week, because interruption research links arbitrary interruptions with degraded performance while task-switch-timed interventions perform better ([Human-Workspace Interaction review](https://link.springer.com/article/10.1007/s41233-023-00060-9); [Lee et al. 2019 DOI](https://doi.org/10.1145/3290605.3300558)).
+4. **Medium confidence.** [inference] Slack appears to be the strongest rich-format delivery destination among the checked options when the user already spends time there, because Block Kit provides the most mature structured-message surface, while Telegram is simpler, Teams is heavier, and Apple Shortcuts is more local-action-oriented ([Slack Block Kit](https://api.slack.com/block-kit); [Telegram Bot API](https://core.telegram.org/bots/api); [Microsoft Teams bots](https://learn.microsoft.com/en-us/microsoftteams/platform/bots/what-are-bots); [Apple Shortcuts guide](https://support.apple.com/guide/shortcuts/welcome/ios); [completed Slack and Teams research](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-02-slack-msteams-research-integration.md); [completed Slack bot memory research](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-slack-bot-memory-capture-retrieval.md)).
+5. **Medium confidence.** [inference] Telegram is the strongest personal-only alternative when setup simplicity matters more than rich cards or team context, because its bot surface is operationally simpler than Slack's workspace app model and better matched to solo automation ([Telegram Bot API](https://core.telegram.org/bots/api); [completed Telegram research](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-telegram-bot-memory-capture-retrieval.md)).
+6. **Medium confidence.** [inference] Apple Shortcuts should be treated as a complementary iOS control surface for capture, quick-open, and manual review, rather than as the primary endpoint for externally scheduled rich digests, because Apple's evidence emphasizes local action composition rather than external rich-message push ([Apple Shortcuts guide](https://support.apple.com/guide/shortcuts/welcome/ios); [completed iOS Shortcuts research](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-02-ios-shortcuts-research.md)).
+7. **Medium confidence.** [inference] Memory systems such as MemGPT and product-memory features complement digest automation by preserving context and improving retrieval quality, but they do not replace scheduled digests because they do not inherently solve the problem of when to surface the next three tasks to the user ([MemGPT paper](https://arxiv.org/abs/2310.08560); [completed AI memory systems research](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-17-ai-memory-systems-rag-neuroscience.md)).
+8. **Low confidence.** [inference] For the davidamitchell ecosystem, the nearest reusable pattern may be the combination of this Research repository's governance discipline with the `Latest-developments-` style of scheduled summarization, because the checked public repositories show adjacent summarization and agent-evaluation work but no visible dedicated task-digest product ([davidamitchell repositories](https://github.com/davidamitchell?tab=repositories)).
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [inference] Scheduled collector plus push delivery is the clearest pattern among the checked public examples | [Zapier](https://zapier.com/apps/notion/integrations/slack); [n8n workflow template](https://n8n.io/workflows/10286-ai-meeting-summary-and-action-item-tracker-with-notion-slack-and-gmail/); [AI News Briefing repository](https://github.com/hoangsonww/AI-News-Briefing) | medium | Three independent public implementations align, but the examples skew toward meetings and news rather than personal task digests |
+| [inference] Schema-first extraction appears stronger than vague summarization for actionable digests | [n8n workflow template](https://n8n.io/workflows/10286-ai-meeting-summary-and-action-item-tracker-with-notion-slack-and-gmail/) | low | The pattern is visible, but only one directly inspectable workflow exposed enough prompt structure to verify it |
+| [fact] Boundary-timed push is better supported than continuous push | [Human-Workspace Interaction review](https://link.springer.com/article/10.1007/s41233-023-00060-9); [Lee et al. 2019 DOI](https://doi.org/10.1145/3290605.3300558); [When AI-Based Agents Are Proactive](https://link.springer.com/article/10.1007/s12599-024-00918-y) | medium | Literature is broader than digest tools specifically, but direction is consistent |
+| [inference] Slack appears to be the richest push destination if it is already in the user's daily path | [Slack Block Kit](https://api.slack.com/block-kit); [Telegram Bot API](https://core.telegram.org/bots/api); [Microsoft Teams bots](https://learn.microsoft.com/en-us/microsoftteams/platform/bots/what-are-bots); [Apple Shortcuts guide](https://support.apple.com/guide/shortcuts/welcome/ios); [completed Slack and Teams research](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-02-slack-msteams-research-integration.md); [completed Slack bot memory research](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-slack-bot-memory-capture-retrieval.md) | medium | Comparative platform documentation and prior repository synthesis support the ranking, but it remains an inference |
+| [inference] Telegram is the simplest personal-only chat destination | [Telegram Bot API](https://core.telegram.org/bots/api); [completed Telegram research](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-telegram-bot-memory-capture-retrieval.md) | medium | Strong operational simplicity evidence, fewer direct digest examples |
+| [inference] Apple Shortcuts is a complement, not the primary rich-digest endpoint | [Apple Shortcuts guide](https://support.apple.com/guide/shortcuts/welcome/ios); [completed iOS Shortcuts research](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-02-ios-shortcuts-research.md) | medium | Strong local-action evidence, weak server-push evidence |
+| [inference] Memory layers complement but do not replace scheduled digests | [MemGPT paper](https://arxiv.org/abs/2310.08560); [completed AI memory systems research](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-17-ai-memory-systems-rag-neuroscience.md) | medium | Several vendor-memory sources were inaccessible in this environment |
+| [inference] The nearest reuse opportunity may be adjacent summarization work plus this repo's governance discipline | [davidamitchell repositories](https://github.com/davidamitchell?tab=repositories) | low | Based on a single repositories-page inspection and therefore weakly supported |
+
+### Assumptions
+
+- **Assumption:** The owner is willing to receive a digest in at least one third-party messaging surface if that materially reduces friction. **Justification:** The scoped platform comparison explicitly includes Slack, Teams, and Telegram rather than assuming Apple-native-only delivery. [assumption]
+- **Assumption:** Notion or an equivalent structured task database remains the source of truth for active work. **Justification:** The seed pattern, checked sources, and final recommendation all depend on a canonical structured source rather than on reconstructing priorities from unstructured chat. [assumption]
+
+### Analysis
+[inference] The key architectural lesson is to separate collection, extraction, ranking, and rendering. Once those concerns are separated, the same digest logic can target Slack, Telegram, or a simpler Apple Shortcuts open-link action without rewriting the whole system ([Zapier](https://zapier.com/apps/notion/integrations/slack); [n8n workflow template](https://n8n.io/workflows/10286-ai-meeting-summary-and-action-item-tracker-with-notion-slack-and-gmail/)).
+
+[inference] The evidence also shows that "more context" is not the same as "better digest". A memory layer may improve ranking quality, but if the source system is stale or the notification timing is poor, the user still experiences the digest as noise rather than guidance ([MemGPT paper](https://arxiv.org/abs/2310.08560); [Human-Workspace Interaction review](https://link.springer.com/article/10.1007/s41233-023-00060-9)).
+
+[inference] That makes the recommended implementation order clear: first prove value with a scheduled, structured, low-frequency digest over trusted task data; then add richer delivery formatting; then add memory only if it clearly improves prioritization or continuity ([Zapier](https://zapier.com/apps/notion/integrations/slack); [n8n workflow template](https://n8n.io/workflows/10286-ai-meeting-summary-and-action-item-tracker-with-notion-slack-and-gmail/); [MemGPT paper](https://arxiv.org/abs/2310.08560)).
+### Risks, Gaps, and Uncertainties
+
+- [fact] The seed video's transcript could not be retrieved in this environment because YouTube blocked transcript access from the cloud runner IP.
+- [fact] Direct-source evidence for Make, OpenAI Memory, Rewind.ai, Reddit, and Hacker News was unavailable or degraded because of HTTP 403, HTTP 404, or fetch failures.
+- [fact] The original source list contained an incorrect DOI for the 2015 proactive-agent paper, which required correction during research.
+- [inference] Because several public implementations found were meeting or news digests rather than personal task digests, some conclusions are architectural analogies rather than exact personal-productivity replications.
+
+### Open Questions
+
+- [inference] Which ranking heuristic most improves digest usefulness in practice, due date proximity, stalled age, explicit priority, or recent inactivity?
+- [inference] What privacy and secret-governance controls are required when a single digest touches Notion, a messaging platform, and an external model provider?
+- [inference] Would write-back state, such as reviewed or deferred, improve the digest loop enough to justify the extra integration complexity?
+- [inference] What is the smallest memory layer that materially improves digest quality without creating a new governance burden?
 
 ---
 
