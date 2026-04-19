@@ -217,6 +217,15 @@ easily-detectable issues.
     `[assumption]` label and bind its supporting source at the point of claim.
     The Evidence Map alone is insufficient.
 
+2b. **Context and Evidence Map audit** -- treat the `## Context` section and
+    every Evidence Map row as claim-bearing prose, not as exempt scaffolding.
+    Context sentences that assert factual or behavioral claims need inline
+    labels and source binding, and every Evidence Map claim cell must begin
+    with `[fact]`, `[inference]`, or `[assumption]`. If a seed video, transcript,
+    or other listed source was inaccessible in this session, do **not** cite it
+    as direct support for downstream factual claims in Findings; either remove
+    the citation, downgrade the claim, or mark the dependency as an assumption.
+
 3. **Vague quantifiers** -- check for unsourced "many", "most", "significant",
    "state-of-the-art". Replace with specific numbers or add a source, or
    qualify as `[inference]`.
