@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "The shape of organisations when software is no longer the constraint"
 added: 2026-04-02
 status: reviewing
