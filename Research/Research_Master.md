@@ -1,10 +1,11 @@
 # Research Master Document
 
-Generated on: 2026-04-03 05:28 UTC
+Generated on: 2026-04-19 19:23 UTC
 
 ## Table of Contents
 
 * [oh-my-codex and AI Agent Workflow Patterns: What Can We Leverage?](#2026-04-03-oh-my-codex-patterns-md)
+* [The shape of organisations when software is no longer the constraint](#2026-04-02-org-shape-software-cost-zero-md)
 * [Claude Code npm Source Map Leak](#2026-04-02-claude-code-npm-source-map-leak-md)
 * [Anthropic Claude Code leak: architecture, prompting, and hidden features](#2026-04-02-anthropic-claude-code-leak-architecture-prompting-and-hidden-features-md)
 * [AI Funding and Capital Investment Landscape](#2026-04-02-ai-funding-and-capital-investment-landscape-md)
@@ -222,6 +223,87 @@ Cross-repo consistency is a second-order issue: the Multi-Agent-Testing, Agent-E
 - What does the Agent-Evaluation repo evaluate and what findings has it produced? (Candidate backlog item: audit Agent-Evaluation findings)
 - Would a pre-research scope-clarification skill conflict with the existing research-prompt.md 13-step process, or slot in as step 0? (Candidate backlog item: design clarify-first skill)
 - Should a skills index be added to davidamitchell/Skills as a README table? (Candidate backlog item)
+
+---
+
+---
+
+<a name="2026-04-02-org-shape-software-cost-zero-md"></a>
+
+## The shape of organisations when software is no longer the constraint
+
+**Tags:** [org-design, ai, software-cost, future-of-work, management, product-management, transaction-costs, agile, automation]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-02-org-shape-software-cost-zero.md
+
+## Research Question
+
+Inside an organisation that requires software to be built, integrated, and maintained (including Commercial Off-The-Shelf (COTS) systems, Software-as-a-Service (SaaS) platforms, and bespoke-built systems), how much of that organisation exists purely to manage the shaping, prioritising, management, or tracking of that work, and how does the organisation's structure change when the cost of producing software approaches zero?
+
+Supporting questions:
+- What fraction of a typical software-dependent organisation's headcount exists primarily to coordinate, manage, or govern software delivery rather than to deliver it directly?
+- Which specific roles and functions exist as proxies or translators between business intent and software execution?
+- What does economic theory (particularly transaction-cost economics) predict about firm shape when one major production cost collapses?
+- What historical analogues exist, automation of manufacturing, adoption of cloud computing, introduction of Enterprise Resource Planning (ERP), and what did they do to organisational structure?
+- What does "software cost going to zero" mean in practice today (Artificial Intelligence (AI)-assisted development, AI coding agents, natural-language-to-code pipelines)?
+- Which coordination and management functions could themselves be automated, and which require irreducible human judgment?
+- What happens to Agile rituals, planning cycles, estimation, and roadmapping when throughput is no longer the binding constraint?
+
+## Findings
+
+### Executive Summary
+
+[inference] In mid-to-large software-dependent organisations, the coordination and governance layer created around software delivery is best estimated at at least the high teens of headcount and often around one quarter to one third, and falling coding costs are likely to compress that layer without eliminating it (see Evidence Map rows 1 and 5). [inference] The roles most exposed are translation and queue-management roles whose main output is turning intent into backlogs, plans, status artifacts, and handoffs, while the least exposed roles are the ones that encode authority, standards, risk appetite, and external accountability (see Evidence Map rows 2 and 6). [inference] The best-supported forecast is smaller Artificial Intelligence (AI)-augmented execution cells operating inside a more concentrated human governance core, which extends the repository's prior `2026-03-23-software-factory.md` conclusion that governance becomes the next bottleneck when coding gets cheaper. [inference] The net headcount effect remains uncertain because the prior repository item `2026-03-12-ai-force-multiplier-ambition-expansion.md` shows that cheaper software can also expand ambition and preserve some coordination demand even as translation-heavy work shrinks.
+
+### Key Findings
+
+1. [inference] **Medium to high confidence:** In mid-to-large software-dependent organisations, explicit coordination and governance roles are best estimated at at least the high teens of headcount and often roughly one quarter to one third once team-level, train-level, architecture, release, and management layers are counted together.
+2. [inference] **Medium to high confidence:** Product Owner, Scrum Master, Business Analyst, project or programme manager, delivery manager, release manager, change manager, and intermediary solution-architecture roles exist largely because business intent and software execution are separated by translation, validation, batching, and queueing costs.
+3. [inference] **Medium confidence:** The prior repository item `2026-03-10-nature-of-the-firm-coase-organisations.md`, which summarises Coase and Williamson transaction-cost theory, together with this item's historical analogues implies that materially cheaper coding should reduce the hierarchy devoted to allocating scarce engineering labor while preserving and often concentrating the hierarchy that owns standards, compliance, risk acceptance, and residual decision rights.
+4. [fact] **High confidence:** Enterprise Resource Planning (ERP), cloud, and low-code and no-code adoption all reduced some local execution work but replaced it with new central structures for standards, enablement, platform governance, shared services, or Centers of Excellence rather than eliminating coordination altogether.
+5. [fact] **Medium to high confidence:** Current AI evidence shows large gains on routine software tasks and measurable reductions in project-management friction, but it does not justify the stronger claim that complex enterprise software delivery is already near-zero cost from idea to production.
+6. [inference] **Medium confidence:** The first coordination work to compress is artifact transformation, including backlog drafting, routine status reporting, repetitive release administration, and simple compliance evidence gathering, while judgment-intensive work remains human-heavy for longer.
+7. [inference] **Medium confidence:** Agile rituals, estimation cycles, and roadmap ceremonies are likely to thin sharply wherever they exist mainly to ration scarce developers, but they will persist wherever they encode commitments, dependency management, risk review, or regulated change control.
+8. [inference] **Medium confidence:** The best-supported future organisational equilibrium is smaller software-execution cells around stronger platforms and guardrails, with regulated firms tending toward a dual-core model of AI-heavy delivery plus concentrated governance rather than managerial collapse, although the prior repository item `2026-03-12-ai-force-multiplier-ambition-expansion.md` implies that expanded demand could preserve more coordination capacity than a pure cost-reduction model would predict.
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| Coordination layer is at least high teens and often around one quarter to one third of headcount | [Harvard Business Review](https://hbr.org/2016/09/excess-management-is-costing-the-us-3-trillion-per-year), [London Business School](https://www.london.edu/think/bureaucracy-where-to-liberate-3-trillion), [Scrum Guide](https://scrumguides.org/scrum-guide.html), [Atlassian Scrum roles](https://www.atlassian.com/agile/scrum/roles), [Scaled Agile Framework](https://scaledagileframework.com/agile-release-train/) | medium to high | Range is an inference built from explicit role structures plus economy-wide bureaucracy counts, not a direct census |
+| Proxy and translator roles are Product Owner, Scrum Master, Business Analyst, project or programme management, release and change management, and intermediary architecture | [Scrum Guide](https://scrumguides.org/scrum-guide.html), [Scaled Agile Framework](https://scaledagileframework.com/agile-release-train/) | medium to high | The role lists are direct facts; the explanation of why those roles exist is an inference from their responsibilities |
+| Historical and theoretical evidence suggests that falling coding cost should shrink throughput-allocation hierarchy before governance hierarchy | `2026-03-10-nature-of-the-firm-coase-organisations.md`, [Strategic Approaches to ERP Implementation](https://scholarworks.lib.csusb.edu/cgi/viewcontent.cgi?article=1104&context=jitim), [AWS Prescriptive Guidance](https://docs.aws.amazon.com/pdfs/prescriptive-guidance/latest/cloud-center-of-excellence/cloud-center-of-excellence.pdf), [Microsoft Power Platform CoE overview](https://learn.microsoft.com/en-us/power-platform/guidance/coe/overview) | medium | This is an inference built from the prior repository synthesis of Coase and Williamson plus the repeated governance-reformation pattern in ERP, cloud, and low-code adoption |
+| ERP, cloud, and low-code create new governance and enablement layers instead of removing coordination altogether | [Strategic Approaches to ERP Implementation](https://scholarworks.lib.csusb.edu/cgi/viewcontent.cgi?article=1104&context=jitim), [AWS Prescriptive Guidance](https://docs.aws.amazon.com/pdfs/prescriptive-guidance/latest/cloud-center-of-excellence/cloud-center-of-excellence.pdf), [Microsoft Power Platform CoE overview](https://learn.microsoft.com/en-us/power-platform/guidance/coe/overview), [Quickbase](https://www.quickbase.com/blog/low-code-coe-enterprise-governance-it-director), [Kissflow](https://kissflow.com/no-code/how-to-set-up-a-no-code-coe/) | high | Historical analogue pattern is consistent across three technology waves |
+| AI materially accelerates routine coding work but not high-complexity enterprise change | [GitHub Copilot research](https://github.blog/2022-09-07-research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/), [McKinsey August 2023 explainer document](https://www.mckinsey.com/~/media/mckinsey/featured%20insights/mckinsey%20explainers/whats%20the%20future%20of%20generative%20ai%20an%20early%20view%20in%2015%20charts/whats-the-future-of-generative-ai-an-early-view-in-15-charts.pdf), [Harvard Digital, Data and Design summary](https://d3.harvard.edu/the-ai-revolution-in-software-development-how-generative-ai-is-reshaping-coding-practices/) | medium to high | High-complexity tasks remain much less compressed than routine tasks |
+| Artifact transformation is the most likely coordination work to compress before judgment-intensive governance | [Harvard Digital, Data and Design summary](https://d3.harvard.edu/the-ai-revolution-in-software-development-how-generative-ai-is-reshaping-coding-practices/), [MIT Sloan](https://mitsloan.mit.edu/ideas-made-to-matter/leadership-and-ai-insights-2025-latest-mit-sloan-management-review), [AWS Prescriptive Guidance](https://docs.aws.amazon.com/pdfs/prescriptive-guidance/latest/cloud-center-of-excellence/cloud-center-of-excellence.pdf), [Microsoft Power Platform CoE overview](https://learn.microsoft.com/en-us/power-platform/guidance/coe/overview) | medium | This ordering is an inference from current workflow guidance and observed routine-task compression, not a direct time-series measurement |
+| Agile rituals thin where they ration scarce engineers but survive where they encode commitments and risk controls | [Scrum Guide](https://scrumguides.org/scrum-guide.html), [Scaled Agile Framework](https://scaledagileframework.com/agile-release-train/), [MIT Sloan](https://mitsloan.mit.edu/ideas-made-to-matter/leadership-and-ai-insights-2025-latest-mit-sloan-management-review) | medium | Structural inference from role purpose, not a direct time-series measurement |
+| Future shape is smaller execution cells plus concentrated governance, especially in regulated firms | [McKinsey August 2023 explainer document](https://www.mckinsey.com/~/media/mckinsey/featured%20insights/mckinsey%20explainers/whats%20the%20future%20of%20generative%20ai%20an%20early%20view%20in%2015%20charts/whats-the-future-of-generative-ai-an-early-view-in-15-charts.pdf), [Harvard Digital, Data and Design summary](https://d3.harvard.edu/the-ai-revolution-in-software-development-how-generative-ai-is-reshaping-coding-practices/), [MIT Sloan](https://mitsloan.mit.edu/ideas-made-to-matter/leadership-and-ai-insights-2025-latest-mit-sloan-management-review), [AWS Prescriptive Guidance](https://docs.aws.amazon.com/pdfs/prescriptive-guidance/latest/cloud-center-of-excellence/cloud-center-of-excellence.pdf) | medium to high | Strong directional support, but future-state exact shapes remain inferential |
+
+### Assumptions
+
+- [assumption] The current public AI productivity results are a reasonable directional proxy for the next several years of tooling progress, even though frontier models and enterprise workflows will change quickly. **Justification:** Multiple independent sources already agree on routine-task acceleration and reduced coordination friction.
+- [assumption] Mid-to-large organisations using Scrum- or Scaled Agile Framework (SAFe)-like patterns are representative enough to support a bounded estimate of the coordination layer. **Justification:** These frameworks are common in the kinds of organisations targeted by the question, but they are not a literal census of all firms.
+
+### Analysis
+
+- [fact] Current software organisations name coordination roles explicitly because business intent, technical implementation, and organisational accountability are split across different people and time horizons, which is visible in Scrum and Scaled Agile Framework (SAFe) role definitions and in economy-wide bureaucracy estimates.
+- [fact] Current AI evidence shows clear compression in routine coding, documentation, and some project-management-adjacent work, which supports the repository's prior `2026-03-23-software-factory.md` conclusion that the bottleneck is migrating away from code production.
+- [fact] Historical analogues from Enterprise Resource Planning (ERP), cloud, and low-code and no-code adoption show that cheaper local execution does not produce a coordination-free organisation; it produces a different coordination layer centered on standards, platforms, guardrails, and risk ownership.
+- [inference] The strongest competing explanation is demand expansion rather than headcount compression: the prior repository item `2026-03-12-ai-force-multiplier-ambition-expansion.md` argues that cheaper software can unlock more initiatives, which means total coordination demand may fall more slowly than translation work does.
+- [inference] The best-supported strategic implication is therefore to redesign around thinner translation layers and clearer decision rights while assuming that governance, residual accountability, and risk acceptance remain necessary even when production technology becomes much cheaper.
+
+### Risks, Gaps, and Uncertainties
+
+- [fact] No clean public dataset decomposes software-dependent firms into builder versus coordinator headcount, so the percentage answer is a bounded estimate rather than a census fact.
+- [fact] Several seeded sources were inaccessible or unusable in this environment: the Coase Wiley page returned 403, the Gartner low-code page returned 403, and the seeded Standish and Wired links returned 404.
+- [fact] Some AI-productivity evidence comes from vendor-published sources such as Cognition and Cursor, which are useful directional signals but weaker than controlled experiments or independent working papers.
+- [fact] Public evidence remains much stronger for routine coding and documentation tasks than for complex cross-system, regulated, or politically contested enterprise change.
+
+### Open Questions
+
+- [fact] What is the best direct empirical method for measuring builder versus coordinator headcount in large software-dependent firms?
+- [fact] At what point do AI agents reduce not just coding effort but also the demand for project-management and architecture-intermediary roles in regulated enterprises?
+- [fact] Which governance model replaces the investment board or project front door when software throughput is no longer the binding constraint?
 
 ---
 
