@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "Latest developments history: trends, themes, and forward scenarios"
 added: 2026-04-18
 status: reviewing
