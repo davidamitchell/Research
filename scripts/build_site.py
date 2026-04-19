@@ -2136,9 +2136,7 @@ def main() -> None:
     print("Loading research items…")
     items, excl_stats = load_items()
     print(f"  {len(items)} items loaded")
-    print(
-        f"  {excl_stats['meta_infra']} items excluded (meta/infra)"
-    )
+    print(f"  {excl_stats['meta_infra']} items excluded (meta/infra)")
 
     # Singleton tag filtering
     tags_to_drop, n_dropped, n_retained = filter_singleton_tags(items)
@@ -2251,9 +2249,7 @@ def main() -> None:
 
     print("\nBuild complete.")
     print(f"  {len(items)} items processed")
-    print(
-        f"  {excl_stats['meta_infra']} items excluded (meta/infra)"
-    )
+    print(f"  {excl_stats['meta_infra']} items excluded (meta/infra)")
     print(f"  {pages_written} pages written")
     print(f"  {unique_tags} unique tags (after singleton filtering)")
     print(f"  {n_dropped} singleton tags dropped / {n_retained} retained")
