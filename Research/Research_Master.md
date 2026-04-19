@@ -1,9 +1,10 @@
 # Research Master Document
 
-Generated on: 2026-04-19 19:23 UTC
+Generated on: 2026-04-19 21:43 UTC
 
 ## Table of Contents
 
+* [Shopify's Artificial Intelligence (AI) strategy after the Red Queen memo: selection pressure, talent-market effects, and copycat outcomes](#2026-04-18-shopify-ai-strategy-red-queen-memo-md)
 * [oh-my-codex and AI Agent Workflow Patterns: What Can We Leverage?](#2026-04-03-oh-my-codex-patterns-md)
 * [The shape of organisations when software is no longer the constraint](#2026-04-02-org-shape-software-cost-zero-md)
 * [Claude Code npm Source Map Leak](#2026-04-02-claude-code-npm-source-map-leak-md)
@@ -140,6 +141,85 @@ Generated on: 2026-04-19 19:23 UTC
 * [AI Strategy Examples: Business Efficiency Focus](#2026-02-28-ai-strategy-business-efficiency-examples-md)
 * [AI Line 1 and Line 2 Risk Agents: Who Is Building Them?](#2026-02-28-ai-line-1-line-2-risk-agents-md)
 * [AI for Control Testing, Gap Identification, and Policies/Standards Reviews](#2026-02-28-ai-control-testing-and-assurance-md)
+
+---
+
+<a name="2026-04-18-shopify-ai-strategy-red-queen-memo-md"></a>
+
+## Shopify's Artificial Intelligence (AI) strategy after the Red Queen memo: selection pressure, talent-market effects, and copycat outcomes
+
+**Tags:** [shopify, ai-strategy, talent-market, selection-pressure, hiring, model-context-protocol, large-language-model-proxy, duolingo]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-18-shopify-ai-strategy-red-queen-memo.md
+
+## Research Question
+
+What is Shopify's explicit Artificial Intelligence (AI) strategy as evidenced by Toby Lütke's "prove AI cannot do it before you hire" memo and follow-on operating decisions, and how has that strategy changed hiring logic, talent-market selection pressure, and organisational design outcomes (including where copycat attempts such as Duolingo's diverged or were reversed)?
+
+## Findings
+
+*(Populated from §6 Synthesis above.)*
+
+### Executive Summary
+
+[inference] Shopify's explicit AI strategy is to make AI the default way work gets done and to approve new human headcount only after teams prove that an AI-first redesign still leaves meaningful non-automable work.
+[fact] The March 2025 memo was the clearest public statement of that rule, but it rested on a longer build-out that included Shopify Magic, Sidekick, Artificial Intelligence-focused leadership hiring, internal proxy infrastructure, and an AI-ready admin architecture.
+[fact] The public record supports strong pre-memo groundwork for agent systems and Large Language Model orchestration, but it does not support the stronger claim that Shopify had public Model Context Protocol infrastructure in place for years before the memo.
+[inference] The best-supported but still provisional labour-market interpretation is selection pressure: AI-native juniors and senior judgment-heavy experts gain relative leverage, while coordination-heavy middle roles are the most exposed rather than directly measured as shrinking.
+[fact] Duolingo's later walk-back shows that similar AI-first rhetoric can trigger materially different public reactions in a different company and product context.
+
+### Key Findings
+
+1. [fact] **High confidence:** Shopify's March 2025 memo converted Artificial Intelligence from an encouraged productivity tool into an operating rule by linking AI use directly to headcount approval, prototype expectations, and formal review processes.
+2. [fact] **High confidence:** Shopify's AI strategy plainly predates the memo because the company had already launched Shopify Magic and Sidekick in 2023 and had published engineering work on Sidekick architecture before the memo became public.
+3. [fact] **High confidence:** The public record does not support the literal claim that Shopify had public Model Context Protocol infrastructure for years before the memo, because official Shopify MCP artifacts retrieved here appear only after the memo and MCP itself was announced in late 2024.
+4. [fact] **High confidence:** The narrower infrastructure claim is supported because Shopify publicly documented internal Large Language Model proxying, AI-ready admin route instrumentation, and Sidekick evaluation systems that made a company-wide AI-first policy operationally credible before public MCP rollout.
+5. [inference] **High confidence:** The memo changes hiring logic from additive scaling toward proof-of-non-automability, which means managers must redesign work around AI before arguing that additional people are still necessary.
+6. [inference] **Medium confidence:** Public evidence supports a pattern of leadership-side AI investment and frontline support compression at Shopify, but it does not verify the more specific claim that executive token leaders and support-team license allocations were publicly observable.
+7. [inference] **Medium confidence:** The most plausible talent-market interpretation is a provisional U-shape in which AI boosts the effective capability of juniors and adjacent specialists while preserving premium demand for senior judgment, architecture, and evaluation roles, leaving middle coordination-heavy roles most exposed.
+8. [fact] **Medium confidence:** Duolingo copied the headcount logic and then softened its public stance after backlash, showing that similar AI-first rhetoric can produce materially different public reactions across company contexts.
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| Shopify's memo made AI use a condition of headcount approval, prototyping, and review. | [TechCrunch](https://techcrunch.com/2025/04/07/shopify-ceo-tells-teams-to-consider-using-ai-before-growing-headcount/); [BetaKit](https://betakit.com/shopify-ceo-tobi-lutke-tells-employees-to-prove-ai-cant-do-the-job-before-asking-for-resources/); [Business Insider Africa](https://africa.businessinsider.com/news/shopify-ceo-says-before-hiring-anyone-new-employees-must-prove-ai-cant-do-the-job/6vwnxrz) | high | Three independent secondary reports preserve the same key memo lines. |
+| Shopify's AI strategy predates the memo through Shopify Magic, Sidekick, and published engineering work. | [Shopify Editions Summer 2023](https://www.shopify.com/editions/summer2023); [Sidekick's Improved Streaming Experience](https://shopify.engineering/sidekicks-improved-streaming); [Remixing Shopify's Admin](https://shopify.engineering/remixing-admin) | high | Establishes a two-year build-up before the memo. |
+| Public MCP evidence appears after the memo, not years before it. | [Anthropic MCP announcement](https://www.anthropic.com/news/model-context-protocol); [Shopify.dev MCP changelog](https://shopify.dev/changelog/the-shopifydev-mcp-server-now-supports-polaris-web-components); [Storefront MCP docs](https://shopify.dev/docs/apps/build/storefront-mcp) | high | Supports the chronology correction. |
+| Shopify publicly documented adjacent internal AI infrastructure before public MCP rollout. | [Magic Mirror](https://shopify.engineering/magic-mirror); [Remixing Shopify's Admin](https://shopify.engineering/remixing-admin); [Building production-ready agentic systems](https://shopify.engineering/building-production-ready-agentic-systems) | high | Covers proxying, AI-ready route metadata, and agent evaluation. |
+| The memo shifted hiring logic toward proof-of-non-automability. | [TechCrunch](https://techcrunch.com/2025/04/07/shopify-ceo-tells-teams-to-consider-using-ai-before-growing-headcount/); [BetaKit](https://betakit.com/shopify-ceo-tobi-lutke-tells-employees-to-prove-ai-cant-do-the-job-before-asking-for-resources/); [Business Insider Africa](https://africa.businessinsider.com/news/shopify-ceo-says-before-hiring-anyone-new-employees-must-prove-ai-cant-do-the-job/6vwnxrz) | high | This is the memo's core labour-allocation rule. |
+| Leadership investment and support compression are visible, but token and license asymmetry are not publicly verified. | [Business Insider Africa](https://africa.businessinsider.com/news/shopify-ceo-says-before-hiring-anyone-new-employees-must-prove-ai-cant-do-the-job/6vwnxrz); [Shopify welcomes new CTO Mikhail Parakhin](https://www.shopify.com/news/mikhail-parakhin-cto); [TechCrunch](https://techcrunch.com/2025/04/07/shopify-ceo-tells-teams-to-consider-using-ai-before-growing-headcount/) | medium | The collected public sources show leadership investment and support compression, but none verify the specific token or license claim. |
+| The U-shaped talent-market hypothesis is plausible but not directly measured. | [NBER w33641](https://www.nber.org/system/files/working_papers/w33641/w33641.pdf); [Building production-ready agentic systems](https://shopify.engineering/building-production-ready-agentic-systems); [AI amplified the coordination tax](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-12-ai-team-size-strike-team-thesis.md) | medium | Junior uplift and senior judgment demand are supported; middle-role compression remains inferred. |
+| Duolingo copied the rule but softened the rhetoric after backlash. | [PCMag](https://www.pcmag.com/news/amid-backlash-duolingo-backtracks-on-plans-for-ai-pivot); [TechCrunch](https://techcrunch.com/2025/08/07/the-backlash-against-duolingo-going-ai-first-didnt-even-matter/) | medium | The sources directly support the backlash and walk-back, but not a single dominant cause. |
+
+### Assumptions
+
+- **Assumption:** The inaccessible X screenshots would not materially alter the meaning of the memo relative to the consistent quotations preserved by TechCrunch, BetaKit, and Business Insider Africa. **Justification:** The three reports agree on the core memo lines and all explicitly connect them to Lütke's public X post.
+- **Assumption:** The Business Insider Africa version faithfully reflects the underlying Business Insider reporting on Shopify support layoffs and memo wording. **Justification:** TechCrunch independently references the same January 2025 support-layoff report and aligns with the broader chronology.
+- **Assumption:** The U-shaped talent-market model remains provisional because no public Shopify staffing dataset was found. **Justification:** The claim is inferred from the memo's logic, the NBER field evidence, and Shopify's evaluation architecture rather than from a measured internal headcount table.
+
+### Analysis
+
+[fact] Official Shopify and Anthropic materials were weighted above secondary commentary wherever they existed, especially for chronology and infrastructure claims.
+[inference] For memo text, the strongest accessible evidence was consistent secondary reporting that quoted the memo verbatim and linked back to Lütke's X post, so those lines were treated as high-confidence fact while noting that the primary screenshots were inaccessible in this environment.
+[inference] The most important interpretive trade-off was between two versions of the infrastructure claim: a strong version saying Shopify had public MCP servers for years before the memo, and a narrower version saying Shopify had already built adjacent agent and proxy infrastructure before the memo. The official dates support only the narrower version, so the stronger claim was rejected.
+[inference] The talent-market conclusion was bounded carefully: junior uplift and senior judgment demand are well supported, but the compression of middle roles remains an inference rather than a directly measured Shopify fact.
+
+### Risks, Gaps, and Uncertainties
+
+- Direct access to the X memo screenshots was unavailable, so the quote ledger relies on cross-source secondary preservation rather than first-hand inspection.
+- CNBC and Forbes were inaccessible due status code 403 responses, so they could not be used to resolve any wording differences or add additional corroboration.
+- No public source verified the issue's specific claim about token-usage rankings or Cursor-license distribution inside Shopify.
+- No public Shopify staffing dataset directly shows which role families expanded, flattened, or shrank after the memo.
+- No official Shopify press release for the Vantage Discovery acquisition was found in this session, so that point remains secondary-report based.
+
+### Open Questions
+
+- What explicit evidence package does Shopify now require when a manager claims AI cannot do enough of a proposed role's work?
+- How do Sidekick usage and merchant outcomes vary by merchant size, vertical, and function?
+- Which role families across AI-first firms are actually compressing over multiple quarters, rather than appearing only in isolated layoff anecdotes?
+
+---
 
 ---
 
