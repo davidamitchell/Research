@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Shopify's Artificial Intelligence (AI) strategy after the Red Queen memo: selection pressure, talent-market effects, and copycat outcomes"
 added: 2026-04-18
 status: reviewing
