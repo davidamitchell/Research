@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Artificial Intelligence (AI)-assisted daily productivity digest: patterns, tooling, and automation approaches for personal task management"
 added: 2026-04-03
 status: reviewing
