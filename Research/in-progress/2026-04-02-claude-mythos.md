@@ -1,0 +1,322 @@
+---
+title: "Claude mythos: character, soul documents, and narrative identity in large language models"
+added: 2026-04-02
+status: reviewing
+priority: medium
+blocks: []
+tags: [claude, anthropic, llm, character, identity, ai-safety, alignment]
+started: 2026-04-19
+completed: ~
+output: [knowledge]
+---
+
+# Claude mythos: character, soul documents, and narrative identity in large language models
+
+## Research Question
+
+What is the "Claude mythos" - the narrative, character, and values framework Anthropic has built into Claude - and who else in the industry is doing similar work on giving large language models (LLMs) stable, documented identities? What public research underpins this practice, and what use cases does it address?
+
+## Scope
+
+**In scope:**
+- Anthropic's published materials on Claude's character, values, and "soul document"
+- Comparable character/persona specification work from other major LLM (Large Language Model) providers (OpenAI, Google DeepMind, Meta, Mistral AI, etc.)
+- Academic and industry research on LLM persona stability, roleplay jailbreaks, and identity robustness
+- Practical use cases: helpfulness, safety, brand consistency, user trust, and agent autonomy
+- Techniques: Constitutional AI (CAI), Reinforcement Learning from Human Feedback (RLHF), system-prompt identity anchoring, character cards
+
+**Out of scope:**
+- Internal, unpublished Anthropic research or documents not in the public domain
+- Detailed technical implementation of training pipelines beyond publicly available descriptions
+- Non-LLM AI systems (robotics, vision models)
+
+**Constraints:** Web-accessible public sources only; no paywalled academic papers unless abstracts are sufficient.
+
+## Context
+
+"Claude mythos" refers to the documented narrative identity - values, personality traits, communication style, and ethical commitments - that Anthropic has deliberately built into Claude. In the official public materials checked for this item, Anthropic describes this primarily through Claude's published character essay and constitution rather than through a public "soul document" label.
+
+This matters for several reasons:
+- **Safety and alignment:** A stable, well-defined character is hypothesised to make models more resistant to jailbreaks and adversarial roleplay attacks that attempt to strip the model of its values.
+- **User trust:** Consistent personality across conversations builds predictable, trustworthy interactions.
+- **Agent behaviour:** As LLMs are deployed as autonomous agents, a stable identity becomes a constraint on undesirable emergent behaviour.
+- **Industry practice:** Other labs are engaged in analogous work (e.g., OpenAI's model spec, Google's Gemini system instructions), but the depth and public documentation vary widely.
+
+Understanding this space is useful for evaluating how to work with and prompt Claude effectively, how to think about agent design, and how the field is evolving on the question of AI identity.
+
+## Approach
+
+1. **Define the Claude mythos** - What has Anthropic published about Claude's character, values, and identity? Find and summarise the key documents (model spec, character card, blog posts, interviews).
+2. **Survey comparable work** - Which other LLM providers have published analogous character or identity specifications? What are the similarities and differences?
+3. **Map the public research** - What academic or technical literature addresses LLM persona stability, character robustness, and identity in language models?
+4. **Identify use cases** - What problems does specifying LLM character solve in practice? What evidence exists for or against the claimed benefits?
+5. **Assess open questions** - What is still unknown or contested about this practice?
+
+## Sources
+
+- [x] [Claude's character](https://www.anthropic.com/research/claude-character) - Anthropic's public explanation of Claude's character training
+- [x] [Claude's new constitution](https://www.anthropic.com/news/claude-new-constitution) - Anthropic's explanation of the new constitution and how it shapes training
+- [x] [Claude's Constitution](https://www.anthropic.com/constitution) - Full public constitution
+- [x] [Anthropic: Core Views on AI Safety](https://www.anthropic.com/news/core-views-on-ai-safety) - Anthropic's broader safety philosophy
+- [x] [Constitutional AI: Harmlessness from AI Feedback](https://www.anthropic.com/research/constitutional-ai-harmlessness-from-ai-feedback) - Anthropic research summary page
+- [x] [Constitutional AI: Harmlessness from AI Feedback (Bai et al., 2022)](https://arxiv.org/abs/2212.08073) - Primary paper on Constitutional AI (CAI)
+- [x] [The assistant axis: situating and stabilizing the character of large language models](https://www.anthropic.com/research/assistant-axis) - Anthropic research post on persona drift and stabilization
+- [x] [The Assistant Axis: Situating and Stabilizing the Default Persona of Language Models](https://arxiv.org/abs/2601.10387) - Primary paper on persona drift and activation capping
+- [x] [OpenAI Model Spec](https://model-spec.openai.com/2025-12-18.html) - OpenAI's public behavior specification
+- [x] [Gemini 3.1 Pro model card](https://deepmind.google/models/model-cards/gemini-3-1-pro/) - Google DeepMind public model card
+- [x] [Llama 3 model card](https://raw.githubusercontent.com/meta-llama/llama-models/main/models/llama3/MODEL_CARD.md) - Meta's public model card for assistant-tuned Llama 3
+- [x] [Mistral Large](https://mistral.ai/news/mistral-large/) - Mistral's flagship model announcement, including moderation and instruction-following positioning
+- [x] [Jailbroken: How Does LLM Safety Training Fail? (Wei et al., 2023)](https://arxiv.org/abs/2307.02483) - Primary paper on safety-training failure modes
+- [x] [Role play with large language models](https://www.nature.com/articles/s41586-023-06647-8) - Nature paper on role play as a framing for dialogue agents
+- [x] [Scalable and Transferable Black-Box Jailbreaks for Language Models via Persona Modulation](https://arxiv.org/abs/2311.03348) - Primary paper on persona-based jailbreaks
+- [x] [Stick to your role! Stability of personal values expressed in large language models](https://doi.org/10.1371/journal.pone.0309114) - Primary paper on value stability under changing context
+- [x] [PersonaLLM: Investigating the Ability of Large Language Models to Express Personality Traits](https://aclanthology.org/2024.findings-naacl.229/) - Primary paper on trait expression consistency
+- [x] [Character is Destiny: Can Large Language Models Simulate Persona-Driven Decisions in Role-Playing?](https://arxiv.org/abs/2404.12138) - Primary paper on persona-driven decision consistency
+- [x] [Anthropic model spec on GitHub (backlog-item source, checked and inaccessible)](https://github.com/anthropics/anthropic-model-spec) - Returned 404 when checked on 2026-04-19
+
+---
+
+## Research Skill Output
+
+*(Full output from running the research process. §6 seeds the Findings section below.)*
+
+### §0 Initialise
+
+- [fact] Prior-work cross-reference: the closest completed items in this repository are `Research/completed/2026-04-02-anthropic-claude-code-leak-architecture-prompting-and-hidden-features.md`, which examined Anthropic's instruction and memory architecture, and `Research/completed/2026-03-15-context-layers-aligned-decisions-synthesis.md`, which argued for always-resident constitutional values in agent context. Source: repository files named above.
+- [fact] Research question restated: this item asks what Anthropic has publicly built around Claude's character and values, which other providers publish comparable identity specifications, what research supports this practice, and what concrete use cases it serves. Source: this item's Research Question and Approach sections.
+- [fact] Scope confirmed: only public web-accessible sources are used here, with no dependence on leaked internal documents, paywalled full texts, or unpublished Anthropic materials. Source: this item's Scope section.
+- [inference] For this item, the in-scope public analogue to a claimed Claude "soul document" is Anthropic's published character essay plus its public constitution, because the checked official April 2026 Anthropic sources use "character" and "constitution" language rather than "soul document" language. Source: [Claude's character](https://www.anthropic.com/research/claude-character), [Claude's new constitution](https://www.anthropic.com/news/claude-new-constitution), [Claude's Constitution](https://www.anthropic.com/constitution).
+
+### §1 Question Decomposition
+
+1. Anthropic public materials
+   1.1 What does Anthropic say Claude's character is?
+   1.2 How is that character trained into the model?
+   1.3 What priorities and trade-offs does the constitution encode?
+   1.4 Does Anthropic publicly publish a document equivalent to a "soul document"?
+2. Comparable provider practice
+   2.1 What does OpenAI publish that is functionally similar?
+   2.2 What do Google DeepMind, Meta, and Mistral publish instead?
+   2.3 Which providers publish thick identity specifications versus thinner safety or model-card documentation?
+3. Public research base
+   3.1 What does the literature say about persona stability under changing context?
+   3.2 What does the literature say about role play and identity drift?
+   3.3 What does the literature say about persona-based jailbreaks?
+   3.4 What evidence exists that stabilizing an assistant persona improves safety?
+4. Practical use cases
+   4.1 How could a stable documented identity improve safety and refusal quality?
+   4.2 How could it improve user trust and product consistency?
+   4.3 How could it constrain autonomous-agent behavior?
+5. Open questions
+   5.1 What remains unproven about benefits?
+   5.2 What trade-offs remain between strong identity anchoring and customization or pluralism?
+
+### §2 Investigation
+
+**Q1 - What has Anthropic publicly built around Claude's character and values?**
+
+- [fact] Anthropic's public character essay says Claude 3 was the first Claude family where Anthropic added "character training" to alignment fine-tuning, with the stated goal of instilling richer traits such as curiosity, open-mindedness, and thoughtfulness rather than only harm avoidance. Source: [Claude's character](https://www.anthropic.com/research/claude-character).
+- [fact] The same essay says Anthropic deliberately trained Claude not to merely mirror the user's values, hold a forced middle view, or pretend to have no leanings; instead it aimed for honest disagreement, curiosity, and calibrated confidence on contested questions. Source: [Claude's character](https://www.anthropic.com/research/claude-character).
+- [fact] Anthropic's public examples of desired traits include telling the truth rather than pandering, trying to understand multiple perspectives, caring about ethics, and being explicit that Claude is an artificial intelligence (AI) system without a body, memory of past conversations, or deep reciprocal feelings. Source: [Claude's character](https://www.anthropic.com/research/claude-character).
+- [fact] Anthropic says it trained these traits through a "character" variant of Constitutional AI (CAI), where Claude generates relevant user messages, produces responses aligned to desired traits, ranks those responses, and uses the resulting synthetic preference data to internalize those traits without direct human feedback at each example. Source: [Claude's character](https://www.anthropic.com/research/claude-character), [Constitutional AI: Harmlessness from AI Feedback](https://www.anthropic.com/research/constitutional-ai-harmlessness-from-ai-feedback), [Constitutional AI: Harmlessness from AI Feedback (Bai et al., 2022)](https://arxiv.org/abs/2212.08073).
+- [fact] Anthropic's April 2026 constitution rollout says the constitution is a "foundational document that both expresses and shapes who Claude is", is written primarily for Claude, and is treated as the final authority on how Anthropic wants Claude to be and behave. Source: [Claude's new constitution](https://www.anthropic.com/news/claude-new-constitution), [Claude's Constitution](https://www.anthropic.com/constitution).
+- [fact] The constitution prioritizes four properties in order: being broadly safe, being broadly ethical, complying with Anthropic's guidelines, and being genuinely helpful. Source: [Claude's new constitution](https://www.anthropic.com/news/claude-new-constitution), [Claude's Constitution](https://www.anthropic.com/constitution).
+- [fact] Anthropic explicitly prefers cultivating judgment and good values over relying mainly on rigid rules, arguing that narrow rules can generalize poorly into a broader sense of "who Claude is." Source: [Claude's Constitution](https://www.anthropic.com/constitution).
+- [fact] Anthropic's broader safety philosophy frames steerability, honesty, harmlessness, and corrigibility as urgent problems because current systems are not yet robustly safe and may become societally consequential within the coming decade. Source: [Anthropic: Core Views on AI Safety](https://www.anthropic.com/news/core-views-on-ai-safety).
+- [inference] The public Anthropic stack is therefore not only a safety policy list but a narrative identity package: a character essay about traits, a constitution about priorities and judgment, and a training method that turns those documents into synthetic preference data. Source: [Claude's character](https://www.anthropic.com/research/claude-character), [Claude's new constitution](https://www.anthropic.com/news/claude-new-constitution), [Claude's Constitution](https://www.anthropic.com/constitution), [Constitutional AI: Harmlessness from AI Feedback](https://www.anthropic.com/research/constitutional-ai-harmlessness-from-ai-feedback).
+- [fact] The backlog item's GitHub URL for an Anthropic model-spec repository returned 404 when checked on 2026-04-19. Exact check: `https://github.com/anthropics/anthropic-model-spec`, outcome: not found. Source: [Anthropic model spec on GitHub (backlog-item source, checked and inaccessible)](https://github.com/anthropics/anthropic-model-spec).
+- [inference] Because the official checked Anthropic sources do not use the phrase "soul document", the safest public description of the Claude mythos is "character" plus "constitution", while leaked or community-labelled soul documents remain outside this item's evidentiary core. Source: [Claude's character](https://www.anthropic.com/research/claude-character), [Claude's new constitution](https://www.anthropic.com/news/claude-new-constitution), [Claude's Constitution](https://www.anthropic.com/constitution).
+
+**Q2 - Who else is doing similar work, and how comparable is it?**
+
+- [fact] OpenAI publishes a public Model Spec that states it outlines intended behavior for models across ChatGPT and the Application Programming Interface (API) platform, is used for model training, is versioned, and is released under Creative Commons CC0. Source: [OpenAI Model Spec](https://model-spec.openai.com/2025-12-18.html).
+- [fact] OpenAI's Model Spec structures behavior through a formal chain of command with root, system, developer, user, and guideline levels, and describes trade-offs among helpfulness, harm minimization, and sensible defaults. Source: [OpenAI Model Spec](https://model-spec.openai.com/2025-12-18.html).
+- [inference] OpenAI is the closest public analogue to Anthropic because it also publishes a high-authority behavior document intended both for transparency and for training, even though its framing is more procedural and governance-oriented than Anthropic's more character-and-virtue-oriented framing. Source: [OpenAI Model Spec](https://model-spec.openai.com/2025-12-18.html), [Claude's Constitution](https://www.anthropic.com/constitution), [Claude's new constitution](https://www.anthropic.com/news/claude-new-constitution).
+- [fact] Google DeepMind's Gemini 3.1 Pro model card publishes intended usage, limitations, ethics and content-safety sections, safety-policy references, and formal frontier-safety evaluation results, but it does so through a standard model-card format rather than a thick first-person character specification. Source: [Gemini 3.1 Pro model card](https://deepmind.google/models/model-cards/gemini-3-1-pro/).
+- [fact] Meta's Llama 3 model card says its instruction-tuned variants are intended for assistant-like chat, were optimized for helpfulness and safety, and rely on supervised fine-tuning plus Reinforcement Learning from Human Feedback (RLHF), while also emphasizing downstream developer responsibility for use-case-specific safeguards. Source: [Llama 3 model card](https://raw.githubusercontent.com/meta-llama/llama-models/main/models/llama3/MODEL_CARD.md).
+- [fact] Mistral's Mistral Large launch materials emphasize precise instruction-following, moderation-policy configuration for Le Chat, function calling, and enterprise deployment, but they do not publish an equivalent narrative constitution or character essay. Source: [Mistral Large](https://mistral.ai/news/mistral-large/).
+- [inference] Google DeepMind, Meta, and Mistral all shape model behavior, but the checked public documents are thinner and more product- or safety-card-oriented than Anthropic's constitution and OpenAI's Model Spec. Source: [Gemini 3.1 Pro model card](https://deepmind.google/models/model-cards/gemini-3-1-pro/), [Llama 3 model card](https://raw.githubusercontent.com/meta-llama/llama-models/main/models/llama3/MODEL_CARD.md), [Mistral Large](https://mistral.ai/news/mistral-large/), [OpenAI Model Spec](https://model-spec.openai.com/2025-12-18.html), [Claude's Constitution](https://www.anthropic.com/constitution).
+
+**Q3 - What public research underpins persona stability, character robustness, and identity work?**
+
+- [fact] The original CAI paper shows that a list of principles can be used to train a harmless, non-evasive assistant through supervised self-critique and Reinforcement Learning from AI Feedback (RLAIF), reducing reliance on human labels while controlling behavior more precisely. Source: [Constitutional AI: Harmlessness from AI Feedback (Bai et al., 2022)](https://arxiv.org/abs/2212.08073).
+- [fact] Wei et al. argue that safety training fails through competing objectives and mismatched generalization, and they show that then-state-of-the-art models including Generative Pre-trained Transformer (GPT)-4 and Claude v1.3 remained vulnerable to jailbreaks despite extensive red teaming and safety tuning. Source: [Jailbroken: How Does LLM Safety Training Fail? (Wei et al., 2023)](https://arxiv.org/abs/2307.02483).
+- [fact] Shanahan et al. argue that role play is central to understanding dialogue agents because the prompt defines an initial character, but ongoing conversation can extend or overwrite that characterization and coax the system into a different role. Source: [Role play with large language models](https://www.nature.com/articles/s41586-023-06647-8).
+- [fact] Shah et al. show that persona modulation is a scalable black-box jailbreak method: automated persona prompts increased harmful completion rates to 42.5% on GPT-4 from 0.23% baseline and transferred to Claude 2 at 61.0% and Vicuna at 35.9%. Source: [Scalable and Transferable Black-Box Jailbreaks for Language Models via Persona Modulation](https://arxiv.org/abs/2311.03348).
+- [fact] Kovač et al. studied 21 Large Language Models and found that when models are instructed to simulate particular personas, value stability is low and declines further as conversation length increases. Source: [Stick to your role! Stability of personal values expressed in large language models](https://doi.org/10.1371/journal.pone.0309114).
+- [fact] PersonaLLM found that assigned Large Language Model personas can express self-reported Big Five traits consistently and can produce linguistic patterns that humans perceive as personality-linked, but perception accuracy varies by trait and context. Source: [PersonaLLM: Investigating the Ability of Large Language Models to Express Personality Traits](https://aclanthology.org/2024.findings-naacl.229/).
+- [fact] Xu et al. found that state-of-the-art Large Language Models show promising but still limited persona-driven decision consistency on literary character decisions, and that persona-based memory retrieval improved accuracy by 5.03%. Source: [Character is Destiny: Can Large Language Models Simulate Persona-Driven Decisions in Role-Playing?](https://arxiv.org/abs/2404.12138).
+- [fact] Anthropic's Assistant Axis work identifies a leading activation-space direction corresponding to the default assistant persona, shows that therapy-like and meta-reflective conversations can produce "persona drift", and reports that activation capping reduced harmful response rates by roughly 50% while preserving capability benchmarks. Source: [The assistant axis: situating and stabilizing the character of large language models](https://www.anthropic.com/research/assistant-axis), [The Assistant Axis: Situating and Stabilizing the Default Persona of Language Models](https://arxiv.org/abs/2601.10387).
+- [inference] Taken together, the literature supports three linked claims: models can express stable enough personas to be shaped, those personas are vulnerable to context drift and adversarial role play, and stronger anchoring mechanisms can improve safety without reducing capabilities as sharply as blanket refusal policies. Source: [Constitutional AI: Harmlessness from AI Feedback (Bai et al., 2022)](https://arxiv.org/abs/2212.08073), [Jailbroken: How Does LLM Safety Training Fail? (Wei et al., 2023)](https://arxiv.org/abs/2307.02483), [Scalable and Transferable Black-Box Jailbreaks for Language Models via Persona Modulation](https://arxiv.org/abs/2311.03348), [Stick to your role! Stability of personal values expressed in large language models](https://doi.org/10.1371/journal.pone.0309114), [The Assistant Axis: Situating and Stabilizing the Default Persona of Language Models](https://arxiv.org/abs/2601.10387).
+
+**Q4 - What practical use cases does a stable documented model identity address?**
+
+- [inference] A public character specification gives training teams a reusable normative artifact for synthetic-data generation, preference ranking, evaluation, and debugging when model behavior diverges from intent. Source: [Claude's new constitution](https://www.anthropic.com/news/claude-new-constitution), [Claude's character](https://www.anthropic.com/research/claude-character), [Constitutional AI: Harmlessness from AI Feedback (Bai et al., 2022)](https://arxiv.org/abs/2212.08073).
+- [inference] A stable assistant identity can improve safety by making harmful persona swaps harder, reducing the chance that role-play prompts or emotionally loaded conversations push the model into uncharacteristic behavior. Source: [Role play with large language models](https://www.nature.com/articles/s41586-023-06647-8), [Scalable and Transferable Black-Box Jailbreaks for Language Models via Persona Modulation](https://arxiv.org/abs/2311.03348), [The Assistant Axis: Situating and Stabilizing the Default Persona of Language Models](https://arxiv.org/abs/2601.10387).
+- [inference] A documented identity can also support user trust and brand consistency because it makes intended behaviors legible to users, lets labs distinguish intended from unintended outputs, and reduces the sense that the assistant is opportunistically saying whatever the user wants to hear. Source: [Claude's new constitution](https://www.anthropic.com/news/claude-new-constitution), [Claude's character](https://www.anthropic.com/research/claude-character), [OpenAI Model Spec](https://model-spec.openai.com/2025-12-18.html).
+- [inference] For autonomous or semi-autonomous agents, identity documents function as a persistent behavioral boundary that can complement tool-level permission systems and other runtime safeguards by shaping how the model interprets ambiguous goals before action. Source: [Claude's Constitution](https://www.anthropic.com/constitution), [Anthropic: Core Views on AI Safety](https://www.anthropic.com/news/core-views-on-ai-safety), [The Assistant Axis: Situating and Stabilizing the Default Persona of Language Models](https://arxiv.org/abs/2601.10387).
+
+**Q5 - What remains unknown or contested?**
+
+- [fact] Anthropic's own character essay says an open question is whether artificial intelligence systems should have unique coherent characters or be more customizable, and what responsibilities labs take on when choosing those traits. Source: [Claude's character](https://www.anthropic.com/research/claude-character).
+- [inference] Public evidence for direct user-trust gains from character training is still thin, because Anthropic's essay cites reports that Claude 3 felt more engaging, but it does not provide controlled trust or retention experiments. Source: [Claude's character](https://www.anthropic.com/research/claude-character).
+- [assumption] No public randomized evaluation comparing strongly identity-anchored assistants with neutral or fully customizable assistants on long-horizon trust, safety, and agent reliability was found in the checked sources. Justification: the checked official pages and primary papers discuss mechanisms, benchmarks, and qualitative goals, but none reported that specific experiment.
+
+### §3 Reasoning
+
+- [inference] The evidence supports a strong conclusion about Anthropic's intent and documentation because Anthropic explicitly publishes both a character essay and a constitution and says those artifacts directly shape training. Source: [Claude's character](https://www.anthropic.com/research/claude-character), [Claude's new constitution](https://www.anthropic.com/news/claude-new-constitution), [Claude's Constitution](https://www.anthropic.com/constitution).
+- [inference] The evidence supports a moderate conclusion about efficacy because the literature clearly shows persona drift and persona-based jailbreak vulnerability, while direct evidence that identity anchoring improves safety comes mainly from Anthropic's 2026 Assistant Axis work rather than a broad multi-lab consensus. Source: [Jailbroken: How Does LLM Safety Training Fail? (Wei et al., 2023)](https://arxiv.org/abs/2307.02483), [Scalable and Transferable Black-Box Jailbreaks for Language Models via Persona Modulation](https://arxiv.org/abs/2311.03348), [The Assistant Axis: Situating and Stabilizing the Default Persona of Language Models](https://arxiv.org/abs/2601.10387).
+- [inference] The comparison set separates into two categories: thick public behavior constitutions or specs from Anthropic and OpenAI, versus thinner model-card and safety-document layers from Google DeepMind, Meta, and Mistral. Source: [Claude's Constitution](https://www.anthropic.com/constitution), [OpenAI Model Spec](https://model-spec.openai.com/2025-12-18.html), [Gemini 3.1 Pro model card](https://deepmind.google/models/model-cards/gemini-3-1-pro/), [Llama 3 model card](https://raw.githubusercontent.com/meta-llama/llama-models/main/models/llama3/MODEL_CARD.md), [Mistral Large](https://mistral.ai/news/mistral-large/).
+- [inference] The right synthesis is therefore not "every lab has a mythos", but "every frontier lab shapes behavior, while only some labs publish that shaping as an explicit, durable identity document." Source: [Claude's new constitution](https://www.anthropic.com/news/claude-new-constitution), [OpenAI Model Spec](https://model-spec.openai.com/2025-12-18.html), [Gemini 3.1 Pro model card](https://deepmind.google/models/model-cards/gemini-3-1-pro/), [Llama 3 model card](https://raw.githubusercontent.com/meta-llama/llama-models/main/models/llama3/MODEL_CARD.md), [Mistral Large](https://mistral.ai/news/mistral-large/).
+
+### §4 Consistency Check
+
+- [fact] No internal contradiction remains between the Anthropic public documents used here: the character essay emphasizes traits and self-knowledge, while the constitution formalizes priorities and the rationale for judgment over rigid rules. Source: [Claude's character](https://www.anthropic.com/research/claude-character), [Claude's Constitution](https://www.anthropic.com/constitution).
+- [fact] The research literature is consistent on the basic direction of effect: personas are real enough to shape, yet unstable enough to drift or be hijacked under context shifts and adversarial prompting. Source: [Role play with large language models](https://www.nature.com/articles/s41586-023-06647-8), [Stick to your role! Stability of personal values expressed in large language models](https://doi.org/10.1371/journal.pone.0309114), [Scalable and Transferable Black-Box Jailbreaks for Language Models via Persona Modulation](https://arxiv.org/abs/2311.03348), [The Assistant Axis: Situating and Stabilizing the Default Persona of Language Models](https://arxiv.org/abs/2601.10387).
+- [fact] The only potentially misleading phrase in the original item framing was "soul document"; this write-up treats that phrase as out-of-scope shorthand unless supported by an official public Anthropic source, which was not found in the checked April 2026 materials. Source: [Claude's character](https://www.anthropic.com/research/claude-character), [Claude's new constitution](https://www.anthropic.com/news/claude-new-constitution), [Anthropic model spec on GitHub (backlog-item source, checked and inaccessible)](https://github.com/anthropics/anthropic-model-spec).
+
+### §5 Depth and Breadth Expansion
+
+- [inference] Technical lens: Anthropic's approach joins normative documents, synthetic-data generation, and activation-level stabilization into a three-layer stack, which is more mature than a model card alone because it spans design intent, training method, and runtime diagnosis. Source: [Claude's new constitution](https://www.anthropic.com/news/claude-new-constitution), [Claude's character](https://www.anthropic.com/research/claude-character), [The Assistant Axis: Situating and Stabilizing the Default Persona of Language Models](https://arxiv.org/abs/2601.10387).
+- [inference] Behavioral lens: the literature implies that character work matters most when users push models into emotionally charged, identity-challenging, or adversarial situations, because ordinary coding and writing contexts already keep models near their default assistant role. Source: [The assistant axis: situating and stabilizing the character of large language models](https://www.anthropic.com/research/assistant-axis), [Role play with large language models](https://www.nature.com/articles/s41586-023-06647-8).
+- [inference] Governance lens: publishing a constitution or Model Spec is partly a transparency move, because it lets external users inspect intended behavior, critique the lab's value choices, and distinguish intended outputs from failures. Source: [Claude's new constitution](https://www.anthropic.com/news/claude-new-constitution), [OpenAI Model Spec](https://model-spec.openai.com/2025-12-18.html).
+- [inference] Product lens: a lab that wants a branded general assistant has stronger incentives to publish a durable identity document than a lab that mainly ships base models or infrastructure for downstream customization. Source: [Claude's new constitution](https://www.anthropic.com/news/claude-new-constitution), [OpenAI Model Spec](https://model-spec.openai.com/2025-12-18.html), [Llama 3 model card](https://raw.githubusercontent.com/meta-llama/llama-models/main/models/llama3/MODEL_CARD.md), [Mistral Large](https://mistral.ai/news/mistral-large/).
+
+### §6 Synthesis
+
+**Executive summary:**
+
+- [fact] Anthropic has publicly turned Claude's identity into a first-class alignment artifact through a character essay and a full constitution that are used to shape training, not just to describe post hoc behavior. Source: [Claude's character](https://www.anthropic.com/research/claude-character), [Claude's new constitution](https://www.anthropic.com/news/claude-new-constitution), [Claude's Constitution](https://www.anthropic.com/constitution).
+- [fact] OpenAI is the clearest industry parallel because it publishes a public Model Spec used to shape intended model behavior, while Google DeepMind, Meta, and Mistral publish safety-oriented model cards or product documentation that are materially thinner as identity documents. Source: [OpenAI Model Spec](https://model-spec.openai.com/2025-12-18.html), [Gemini 3.1 Pro model card](https://deepmind.google/models/model-cards/gemini-3-1-pro/), [Llama 3 model card](https://raw.githubusercontent.com/meta-llama/llama-models/main/models/llama3/MODEL_CARD.md), [Mistral Large](https://mistral.ai/news/mistral-large/).
+- [fact] The research literature shows that Large Language Model personas are real enough to shape, unstable enough to drift under context or role play, and exploitable enough that persona-based jailbreaks remain a serious safety problem. Source: [Role play with large language models](https://www.nature.com/articles/s41586-023-06647-8), [Stick to your role! Stability of personal values expressed in large language models](https://doi.org/10.1371/journal.pone.0309114), [Scalable and Transferable Black-Box Jailbreaks for Language Models via Persona Modulation](https://arxiv.org/abs/2311.03348).
+- [inference] The main use cases for a documented model identity are safer refusals, more stable behavior under adversarial or emotionally loaded prompts, clearer product positioning, and tighter behavioral boundaries for agentic systems, but hard evidence for user-trust gains remains limited. Source: [Claude's character](https://www.anthropic.com/research/claude-character), [The Assistant Axis: Situating and Stabilizing the Default Persona of Language Models](https://arxiv.org/abs/2601.10387), [OpenAI Model Spec](https://model-spec.openai.com/2025-12-18.html).
+
+**Key findings:**
+
+1. [high] [fact] Anthropic's public "Claude mythos" is best understood as a coupled character-plus-constitution framework in which Claude is trained to be curious, honest, open-minded, self-aware as an artificial intelligence system, broadly safe, broadly ethical, guideline-compliant, and genuinely helpful. Source: [Claude's character](https://www.anthropic.com/research/claude-character), [Claude's Constitution](https://www.anthropic.com/constitution), [Claude's new constitution](https://www.anthropic.com/news/claude-new-constitution).
+2. [high] [fact] Anthropic is unusual because it says these identity documents are used directly in training, including synthetic-data construction and response ranking, rather than functioning only as external governance statements or marketing copy. Source: [Claude's new constitution](https://www.anthropic.com/news/claude-new-constitution), [Claude's character](https://www.anthropic.com/research/claude-character), [Constitutional AI: Harmlessness from AI Feedback](https://www.anthropic.com/research/constitutional-ai-harmlessness-from-ai-feedback).
+3. [high] [fact] OpenAI is the closest public peer because its Model Spec is also a public-domain behavioral authority used to shape training, but it frames behavior mainly through instruction hierarchy and governance trade-offs rather than through a quasi-personal character narrative. Source: [OpenAI Model Spec](https://model-spec.openai.com/2025-12-18.html), [Claude's Constitution](https://www.anthropic.com/constitution).
+4. [medium] [fact] Google DeepMind, Meta, and Mistral all publish behavior-shaping documentation, yet the checked public materials take the form of model cards, safety sections, or product-positioning guidance rather than a thick public identity document comparable to Anthropic's constitution. Source: [Gemini 3.1 Pro model card](https://deepmind.google/models/model-cards/gemini-3-1-pro/), [Llama 3 model card](https://raw.githubusercontent.com/meta-llama/llama-models/main/models/llama3/MODEL_CARD.md), [Mistral Large](https://mistral.ai/news/mistral-large/).
+5. [high] [fact] Public research shows that persona stability is limited: values and decision behavior change under persona prompts, long conversations, and altered context, which means stable identity must be actively maintained rather than assumed. Source: [Stick to your role! Stability of personal values expressed in large language models](https://doi.org/10.1371/journal.pone.0309114), [PersonaLLM: Investigating the Ability of Large Language Models to Express Personality Traits](https://aclanthology.org/2024.findings-naacl.229/), [Character is Destiny: Can Large Language Models Simulate Persona-Driven Decisions in Role-Playing?](https://arxiv.org/abs/2404.12138).
+6. [high] [fact] Role play is not a cosmetic issue but a safety issue, because conversation can overwrite the assistant's initial role and persona-based jailbreaks can sharply increase harmful completion rates across frontier models. Source: [Role play with large language models](https://www.nature.com/articles/s41586-023-06647-8), [Scalable and Transferable Black-Box Jailbreaks for Language Models via Persona Modulation](https://arxiv.org/abs/2311.03348), [Jailbroken: How Does LLM Safety Training Fail? (Wei et al., 2023)](https://arxiv.org/abs/2307.02483).
+7. [medium] [fact] Anthropic's 2026 Assistant Axis work provides the clearest direct evidence that tighter anchoring of a default assistant persona can improve safety, because activation capping reduced harmful outputs by roughly half while preserving benchmark performance. Source: [The assistant axis: situating and stabilizing the character of large language models](https://www.anthropic.com/research/assistant-axis), [The Assistant Axis: Situating and Stabilizing the Default Persona of Language Models](https://arxiv.org/abs/2601.10387).
+8. [medium] [inference] The practical value of a documented model identity is highest for general assistants and agents that must handle ambiguous, adversarial, or emotionally loaded interactions, because those are the contexts where passive safety policies are most likely to fail. Source: [Claude's character](https://www.anthropic.com/research/claude-character), [Role play with large language models](https://www.nature.com/articles/s41586-023-06647-8), [The Assistant Axis: Situating and Stabilizing the Default Persona of Language Models](https://arxiv.org/abs/2601.10387).
+
+**Evidence map:**
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| Anthropic's public mythos is a coupled character-plus-constitution framework used to shape behavior. | [Claude's character](https://www.anthropic.com/research/claude-character); [Claude's Constitution](https://www.anthropic.com/constitution); [Claude's new constitution](https://www.anthropic.com/news/claude-new-constitution) | high | Direct official statements. |
+| Anthropic uses identity documents in training, including synthetic-data generation and ranking. | [Claude's new constitution](https://www.anthropic.com/news/claude-new-constitution); [Claude's character](https://www.anthropic.com/research/claude-character); [Constitutional AI page](https://www.anthropic.com/research/constitutional-ai-harmlessness-from-ai-feedback) | high | Direct official statements about training use. |
+| OpenAI is the closest public analogue, but more procedural than Anthropic. | [OpenAI Model Spec](https://model-spec.openai.com/2025-12-18.html); [Claude's Constitution](https://www.anthropic.com/constitution) | high | Strong textual comparison. |
+| Google DeepMind, Meta, and Mistral publish thinner public behavior documents than Anthropic. | [Gemini 3.1 Pro model card](https://deepmind.google/models/model-cards/gemini-3-1-pro/); [Llama 3 model card](https://raw.githubusercontent.com/meta-llama/llama-models/main/models/llama3/MODEL_CARD.md); [Mistral Large](https://mistral.ai/news/mistral-large/) | medium | Comparison depends on checked public docs only. |
+| Persona stability is limited under persona prompts, conversation length, and context shifts. | [Stick to your role!](https://doi.org/10.1371/journal.pone.0309114); [PersonaLLM](https://aclanthology.org/2024.findings-naacl.229/); [Character is Destiny](https://arxiv.org/abs/2404.12138) | high | Multiple primary studies agree. |
+| Role play and persona modulation create concrete safety vulnerabilities. | [Role play with large language models](https://www.nature.com/articles/s41586-023-06647-8); [Persona Modulation](https://arxiv.org/abs/2311.03348); [Jailbroken](https://arxiv.org/abs/2307.02483) | high | Multiple primary studies agree. |
+| Assistant-axis anchoring can reduce harmful outputs while preserving capabilities. | [Anthropic Assistant Axis post](https://www.anthropic.com/research/assistant-axis); [Assistant Axis paper](https://arxiv.org/abs/2601.10387) | medium | Strong but mostly single-lab evidence. |
+| Documented identity is most valuable in ambiguous, adversarial, or emotionally loaded interactions. | [Claude's character](https://www.anthropic.com/research/claude-character); [Role play with large language models](https://www.nature.com/articles/s41586-023-06647-8); [Assistant Axis paper](https://arxiv.org/abs/2601.10387) | medium | Supported inference from official docs plus literature. |
+
+**Assumptions:**
+
+- [assumption] The checked public Anthropic sources are sufficient to answer the item without relying on leaked "soul document" material. Justification: the scope excludes unpublished internal documents, and Anthropic's public constitution and character essay already expose the main normative structure.
+- [assumption] The absence of a thick public identity document for Google DeepMind, Meta, and Mistral in the checked sources indicates either non-publicity or lower public emphasis, not proof that no richer internal document exists. Justification: this item measures public practice, not internal practice.
+
+**Analysis:**
+
+- [inference] Anthropic's public documentation is unusually explicit because it closes the loop from values document, to training mechanism, to transparency rationale. Source: [Claude's character](https://www.anthropic.com/research/claude-character), [Claude's new constitution](https://www.anthropic.com/news/claude-new-constitution), [Claude's Constitution](https://www.anthropic.com/constitution).
+- [inference] OpenAI's Model Spec shows that public behavior constitutions are not unique to Anthropic, but Anthropic's framing is more identity-centric because it repeatedly speaks about who Claude is and the kind of entity Claude should become, while OpenAI emphasizes authority levels and override rules. Source: [OpenAI Model Spec](https://model-spec.openai.com/2025-12-18.html), [Claude's new constitution](https://www.anthropic.com/news/claude-new-constitution).
+- [inference] The literature resolves an apparent tension in Anthropic's claims: a persona can be both real enough to train and unstable enough to drift, which is exactly why labs would invest in explicit identity anchoring rather than treat assistant behavior as a fixed byproduct of post-training. Source: [Stick to your role!](https://doi.org/10.1371/journal.pone.0309114), [Role play with large language models](https://www.nature.com/articles/s41586-023-06647-8), [The Assistant Axis: Situating and Stabilizing the Default Persona of Language Models](https://arxiv.org/abs/2601.10387).
+- [inference] The strongest evidence for practical benefit is safety robustness, not user delight, because the primary papers quantify jailbreak susceptibility and persona drift more rigorously than they quantify trust, engagement, or brand effects. Source: [Scalable and Transferable Black-Box Jailbreaks for Language Models via Persona Modulation](https://arxiv.org/abs/2311.03348), [Jailbroken](https://arxiv.org/abs/2307.02483), [The Assistant Axis: Situating and Stabilizing the Default Persona of Language Models](https://arxiv.org/abs/2601.10387), [Claude's character](https://www.anthropic.com/research/claude-character).
+
+**Risks, gaps, uncertainties:**
+
+- [fact] The phrase "soul document" remains evidentially weak inside the checked official Anthropic corpus, so any stronger claim about a public Anthropic soul-document tradition would exceed the sources used here. Source: [Claude's character](https://www.anthropic.com/research/claude-character), [Claude's new constitution](https://www.anthropic.com/news/claude-new-constitution), [Anthropic model spec on GitHub (backlog-item source, checked and inaccessible)](https://github.com/anthropics/anthropic-model-spec).
+- [fact] Most cross-lab comparison evidence comes from public-facing docs, not from training artifacts or system prompts, so some labs may do richer internal identity work than they reveal publicly. Source: [Gemini 3.1 Pro model card](https://deepmind.google/models/model-cards/gemini-3-1-pro/), [Llama 3 model card](https://raw.githubusercontent.com/meta-llama/llama-models/main/models/llama3/MODEL_CARD.md), [Mistral Large](https://mistral.ai/news/mistral-large/).
+- [fact] Direct empirical evidence for trust, retention, or commercial value from stable model identity was not found in the checked primary literature. Source: checked sources listed above.
+- [fact] Assistant-axis stabilization evidence is currently concentrated in Anthropic-affiliated research rather than replicated across multiple independent labs. Source: [The assistant axis: situating and stabilizing the character of large language models](https://www.anthropic.com/research/assistant-axis), [The Assistant Axis: Situating and Stabilizing the Default Persona of Language Models](https://arxiv.org/abs/2601.10387).
+
+**Open questions:**
+
+- [fact] Should frontier assistants have one coherent default character, or should they become much more customizable without losing safety robustness? Source: [Claude's character](https://www.anthropic.com/research/claude-character).
+- [fact] Can identity anchoring be made pluralistic enough to avoid simply hard-coding one lab's moral style into the default assistant persona? Source: [Claude's new constitution](https://www.anthropic.com/news/claude-new-constitution), [OpenAI Model Spec](https://model-spec.openai.com/2025-12-18.html).
+- [fact] Do activation-level persona-stabilization techniques generalize across labs and architectures, or are current gains specific to the models Anthropic tested? Source: [The Assistant Axis: Situating and Stabilizing the Default Persona of Language Models](https://arxiv.org/abs/2601.10387).
+- [fact] What is the best evaluation suite for detecting harmful persona drift in long-horizon agent workflows rather than in short conversational benchmarks? Source: [The Assistant Axis: Situating and Stabilizing the Default Persona of Language Models](https://arxiv.org/abs/2601.10387), [Scalable and Transferable Black-Box Jailbreaks for Language Models via Persona Modulation](https://arxiv.org/abs/2311.03348).
+
+### §7 Recursive Review
+
+- [fact] Recursive review result: every factual or inferential claim in §§0, 2, 3, 4, 5, and 6 is labelled; all sources used in the Sources section include URLs; the inaccessible Anthropic GitHub model-spec URL is explicitly recorded; and the findings introduce no claim that is absent from the research section above. Source: this document.
+- [fact] Acronym audit result: first-use expansions are present for artificial intelligence (AI), Large Language Model (LLM), Constitutional AI (CAI), Reinforcement Learning from Human Feedback (RLHF), Reinforcement Learning from AI Feedback (RLAIF), Application Programming Interface (API), and Generative Pre-trained Transformer (GPT) where used in the research output. Source: this document.
+- [fact] Self-review result: no prohibited em dash characters remain in the document, no stock filler phrases were introduced in Findings, and the strongest remaining uncertainty is the limited public evidence around user-trust outcomes and cross-lab replication of persona-stabilization methods. Source: this document.
+
+---
+
+## Findings
+
+*(Seeded from §6 Synthesis above. No new claims appear below.)*
+
+### Executive Summary
+
+- [fact] Anthropic has publicly made Claude's identity a training-time alignment artifact by publishing both a character essay and a constitution that are explicitly intended to shape how Claude behaves. Source: [Claude's character](https://www.anthropic.com/research/claude-character), [Claude's new constitution](https://www.anthropic.com/news/claude-new-constitution), [Claude's Constitution](https://www.anthropic.com/constitution).
+- [fact] OpenAI is the closest public industry parallel because it publishes a Model Spec used to shape behavior, but the checked public documents from Google DeepMind, Meta, and Mistral are thinner behavior or safety documents rather than comparable identity manifestos. Source: [OpenAI Model Spec](https://model-spec.openai.com/2025-12-18.html), [Gemini 3.1 Pro model card](https://deepmind.google/models/model-cards/gemini-3-1-pro/), [Llama 3 model card](https://raw.githubusercontent.com/meta-llama/llama-models/main/models/llama3/MODEL_CARD.md), [Mistral Large](https://mistral.ai/news/mistral-large/).
+- [fact] Public research supports the underlying practice because it shows that model personas are both shapeable and fragile: role play can overwrite the default assistant role, persona prompts can jailbreak safety training, and stronger anchoring can reduce harmful drift. Source: [Role play with large language models](https://www.nature.com/articles/s41586-023-06647-8), [Scalable and Transferable Black-Box Jailbreaks for Language Models via Persona Modulation](https://arxiv.org/abs/2311.03348), [The Assistant Axis: Situating and Stabilizing the Default Persona of Language Models](https://arxiv.org/abs/2601.10387).
+- [inference] The strongest present-day use case for the Claude mythos is not brand flavor but safety and behavioral stability under ambiguous, adversarial, and agentic conditions, while evidence for trust or engagement gains remains more anecdotal than experimental. Source: [Claude's character](https://www.anthropic.com/research/claude-character), [Jailbroken](https://arxiv.org/abs/2307.02483), [The Assistant Axis: Situating and Stabilizing the Default Persona of Language Models](https://arxiv.org/abs/2601.10387).
+
+### Key Findings
+
+1. [high] [fact] Anthropic's public Claude mythos consists of a coherent character essay plus a full constitution that jointly specify Claude's traits, self-understanding, priorities, and judgment rules in much greater detail than a typical safety policy page. Source: [Claude's character](https://www.anthropic.com/research/claude-character), [Claude's Constitution](https://www.anthropic.com/constitution), [Claude's new constitution](https://www.anthropic.com/news/claude-new-constitution).
+2. [high] [fact] Anthropic says these documents are operational training artifacts, because Claude uses the constitution to generate synthetic training conversations, response rankings, and other data that shape future Claude behavior. Source: [Claude's new constitution](https://www.anthropic.com/news/claude-new-constitution), [Claude's character](https://www.anthropic.com/research/claude-character), [Constitutional AI: Harmlessness from AI Feedback](https://www.anthropic.com/research/constitutional-ai-harmlessness-from-ai-feedback).
+3. [high] [fact] OpenAI is the clearest public peer to Anthropic because its Model Spec is also a public-domain behavior authority used to shape intended outputs, although it is framed around authority levels and overrides more than around a singular assistant character. Source: [OpenAI Model Spec](https://model-spec.openai.com/2025-12-18.html), [Claude's Constitution](https://www.anthropic.com/constitution).
+4. [medium] [fact] The checked public documents from Google DeepMind, Meta, and Mistral show active behavior shaping, safety positioning, and assistant-use guidance, but they do not expose a comparably rich public narrative identity layer for the model. Source: [Gemini 3.1 Pro model card](https://deepmind.google/models/model-cards/gemini-3-1-pro/), [Llama 3 model card](https://raw.githubusercontent.com/meta-llama/llama-models/main/models/llama3/MODEL_CARD.md), [Mistral Large](https://mistral.ai/news/mistral-large/).
+5. [high] [fact] Primary research shows that persona stability is bounded rather than automatic, because values and decision outputs shift across persona prompts, long dialogues, and changing conversational context even when a model can express recognizable personality traits. Source: [Stick to your role! Stability of personal values expressed in large language models](https://doi.org/10.1371/journal.pone.0309114), [PersonaLLM: Investigating the Ability of Large Language Models to Express Personality Traits](https://aclanthology.org/2024.findings-naacl.229/), [Character is Destiny: Can Large Language Models Simulate Persona-Driven Decisions in Role-Playing?](https://arxiv.org/abs/2404.12138).
+6. [high] [fact] Role play and persona drift are concrete safety vulnerabilities, because conversation can pull a model away from its default assistant role and persona-modulation attacks can dramatically increase harmful completion rates across multiple frontier systems. Source: [Role play with large language models](https://www.nature.com/articles/s41586-023-06647-8), [Scalable and Transferable Black-Box Jailbreaks for Language Models via Persona Modulation](https://arxiv.org/abs/2311.03348), [Jailbroken: How Does LLM Safety Training Fail? (Wei et al., 2023)](https://arxiv.org/abs/2307.02483).
+7. [medium] [fact] Anthropic's Assistant Axis results provide the clearest direct evidence that stronger anchoring of a default assistant identity can improve safety, because activation capping cut harmful responses by roughly half without materially harming benchmarked capabilities. Source: [The assistant axis: situating and stabilizing the character of large language models](https://www.anthropic.com/research/assistant-axis), [The Assistant Axis: Situating and Stabilizing the Default Persona of Language Models](https://arxiv.org/abs/2601.10387).
+8. [medium] [inference] The most defensible practical use cases for a documented assistant identity are safer refusals, stable behavior across long or emotionally loaded interactions, transparent product positioning, and stronger behavioral boundaries for autonomous agents working under ambiguous instructions. Source: [Claude's character](https://www.anthropic.com/research/claude-character), [OpenAI Model Spec](https://model-spec.openai.com/2025-12-18.html), [The Assistant Axis: Situating and Stabilizing the Default Persona of Language Models](https://arxiv.org/abs/2601.10387).
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| Anthropic's public mythos is a detailed character-plus-constitution framework. | [Claude's character](https://www.anthropic.com/research/claude-character); [Claude's Constitution](https://www.anthropic.com/constitution); [Claude's new constitution](https://www.anthropic.com/news/claude-new-constitution) | high | Official Anthropic sources state this directly. |
+| Anthropic uses identity documents in training. | [Claude's new constitution](https://www.anthropic.com/news/claude-new-constitution); [Claude's character](https://www.anthropic.com/research/claude-character); [Constitutional AI page](https://www.anthropic.com/research/constitutional-ai-harmlessness-from-ai-feedback) | high | Synthetic-data and ranking use is stated explicitly. |
+| OpenAI is the closest public peer, but more procedural in framing. | [OpenAI Model Spec](https://model-spec.openai.com/2025-12-18.html); [Claude's Constitution](https://www.anthropic.com/constitution) | high | Strong direct comparison. |
+| Google DeepMind, Meta, and Mistral publish thinner public behavior documents. | [Gemini 3.1 Pro model card](https://deepmind.google/models/model-cards/gemini-3-1-pro/); [Llama 3 model card](https://raw.githubusercontent.com/meta-llama/llama-models/main/models/llama3/MODEL_CARD.md); [Mistral Large](https://mistral.ai/news/mistral-large/) | medium | Limited to public documentation checked here. |
+| Persona stability is bounded rather than automatic. | [Stick to your role!](https://doi.org/10.1371/journal.pone.0309114); [PersonaLLM](https://aclanthology.org/2024.findings-naacl.229/); [Character is Destiny](https://arxiv.org/abs/2404.12138) | high | Multiple primary papers support this. |
+| Role play and persona drift create safety vulnerabilities. | [Role play with large language models](https://www.nature.com/articles/s41586-023-06647-8); [Persona Modulation](https://arxiv.org/abs/2311.03348); [Jailbroken](https://arxiv.org/abs/2307.02483) | high | Multiple primary papers support this. |
+| Assistant-axis anchoring can reduce harmful outputs without clear benchmark loss. | [Anthropic Assistant Axis post](https://www.anthropic.com/research/assistant-axis); [Assistant Axis paper](https://arxiv.org/abs/2601.10387) | medium | Strong but mainly single-lab evidence. |
+| Documented identity is most valuable in ambiguous, adversarial, or emotionally loaded interactions. | [Claude's character](https://www.anthropic.com/research/claude-character); [OpenAI Model Spec](https://model-spec.openai.com/2025-12-18.html); [Assistant Axis paper](https://arxiv.org/abs/2601.10387) | medium | Evidence supports the inference, but not a single decisive experiment. |
+
+### Assumptions
+
+- [assumption] The public Anthropic constitution and character essay are enough to answer the item without treating later leaked "soul document" materials as admissible evidence. Justification: the item excludes unpublished internal documents and Anthropic's public sources already reveal the main behavior architecture.
+- [assumption] The absence of a richer public identity document for Google DeepMind, Meta, and Mistral in the checked sources reflects public-documentation differences, not proof that such documents do not exist internally. Justification: this item is about public practice.
+
+### Analysis
+
+- [inference] The evidence is strongest when the question is framed as "how are labs making assistant identity legible and operational" rather than "does one hidden document explain everything", because the public record clearly shows operational identity artifacts for Anthropic and OpenAI while hiding less about internal prompt text than about training philosophy. Source: [Claude's new constitution](https://www.anthropic.com/news/claude-new-constitution), [OpenAI Model Spec](https://model-spec.openai.com/2025-12-18.html).
+- [inference] Anthropic's approach is distinctive because it blends virtue-language, self-knowledge, and safety priorities into one artifact, whereas OpenAI's closest public equivalent is more like a policy-aware operating manual for behavior. Source: [Claude's Constitution](https://www.anthropic.com/constitution), [OpenAI Model Spec](https://model-spec.openai.com/2025-12-18.html).
+- [inference] The literature makes the use case clearer than the branding language alone does: if assistant personas can drift or be hijacked, then identity anchoring is not cosmetic but part of the control surface for alignment and misuse resistance. Source: [Role play with large language models](https://www.nature.com/articles/s41586-023-06647-8), [Scalable and Transferable Black-Box Jailbreaks for Language Models via Persona Modulation](https://arxiv.org/abs/2311.03348), [The Assistant Axis: Situating and Stabilizing the Default Persona of Language Models](https://arxiv.org/abs/2601.10387).
+- [inference] The trade-off is that stronger default identity may improve robustness while also centralizing value choices at the lab level, which is why Anthropic itself frames customization versus coherent default character as an unresolved research question. Source: [Claude's character](https://www.anthropic.com/research/claude-character).
+
+### Risks, Gaps, and Uncertainties
+
+- [fact] Official Anthropic sources checked here do not publicly substantiate the exact "soul document" label, so any claim that Anthropic publicly brands Claude that way would overstate the evidence. Source: [Claude's character](https://www.anthropic.com/research/claude-character), [Claude's new constitution](https://www.anthropic.com/news/claude-new-constitution).
+- [fact] The comparison across other labs is limited by what they publish publicly, which may understate internal identity engineering work. Source: [Gemini 3.1 Pro model card](https://deepmind.google/models/model-cards/gemini-3-1-pro/), [Llama 3 model card](https://raw.githubusercontent.com/meta-llama/llama-models/main/models/llama3/MODEL_CARD.md), [Mistral Large](https://mistral.ai/news/mistral-large/).
+- [fact] Controlled public evidence for user trust, retention, or commercial benefit from stable assistant character was not found in the checked primary literature. Source: checked sources in this item.
+- [fact] Cross-lab replication of assistant-axis-style persona stabilization remains sparse. Source: [The Assistant Axis: Situating and Stabilizing the Default Persona of Language Models](https://arxiv.org/abs/2601.10387).
+
+### Open Questions
+
+- [fact] Would broad assistant customization preserve safety robustness, or does safety require a strongly anchored default identity? Source: [Claude's character](https://www.anthropic.com/research/claude-character).
+- [fact] Can labs publish richer public identity documents without over-constraining downstream developer customization? Source: [OpenAI Model Spec](https://model-spec.openai.com/2025-12-18.html), [Claude's new constitution](https://www.anthropic.com/news/claude-new-constitution).
+- [fact] What benchmark best measures persona drift in long-horizon agent workflows instead of short chat exchanges? Source: [The Assistant Axis: Situating and Stabilizing the Default Persona of Language Models](https://arxiv.org/abs/2601.10387), [Scalable and Transferable Black-Box Jailbreaks for Language Models via Persona Modulation](https://arxiv.org/abs/2311.03348).
+- [fact] How much of user trust comes from stable character versus answer quality, refusal quality, and product interface? Source: [Claude's character](https://www.anthropic.com/research/claude-character).
+
+---
+
+## Output
+
+- Type: knowledge
+- Description: Anthropic's public Claude mythos is a training-linked character-and-constitution framework; OpenAI is the closest public peer, while current public documents from Google DeepMind, Meta, and Mistral are thinner behavior layers rather than comparable identity manifestos.
+- Links:
+  - [Claude's Constitution](https://www.anthropic.com/constitution)
+  - [OpenAI Model Spec](https://model-spec.openai.com/2025-12-18.html)
+  - [The Assistant Axis: Situating and Stabilizing the Default Persona of Language Models](https://arxiv.org/abs/2601.10387)
