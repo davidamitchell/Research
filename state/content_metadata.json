@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-04-05T07:13:36Z",
+  "extracted_at": "2026-04-19T19:23:06Z",
   "items": {
     "2026-04-03-oh-my-codex-patterns": {
       "named_concepts": [
@@ -44,6 +44,61 @@
         "Model routing by task complexity is a low-cost, high-value improvement — OMX maps lightweight tasks (explore, search) to efficient models and heavy tasks (synthesis, architecture) to capable models, reducing token use and improving output quality",
         "Persistent machine-readable session state is absent from the Research repo — OMX stores plans, logs, and mode state in `.omx/` for cross-session continuity"
       ]
+    },
+    "2026-04-02-org-shape-software-cost-zero": {
+      "named_concepts": [
+        "prior repository",
+        "one quarter",
+        "one third",
+        "coordination layer",
+        "mid-to-large software-dependent",
+        "software-dependent organisations",
+        "software delivery",
+        "best estimated",
+        "around one",
+        "map rows",
+        "prior conclusion",
+        "cheaper software",
+        "coordination demand",
+        "business intent",
+        "historical analogues",
+        "risk acceptance",
+        "decision rights",
+        "enterprise resource",
+        "resource planning",
+        "planning erp"
+      ],
+      "source_urls": [
+        "https://onlinelibrary.wiley.com/doi/full/10.1111/j.1468-0335.1937.tb00002.x",
+        "https://www.hup.harvard.edu/books/9780029348208",
+        "https://www.amazon.com/Second-Machine-Age-Prosperity-Technologies/dp/0393350649",
+        "https://www.mckinsey.com/~/media/mckinsey/featured%20insights/mckinsey%20explainers/whats%20the%20future%20of%20generative%20ai%20an%20early%20view%20in%2015%20charts/whats-the-future-of-generative-ai-an-early-view-in-15-charts.pdf",
+        "https://github.blog/2022-09-07-research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/",
+        "https://www.software.com/src/developer-productivity-a-bigger-constraint-to-innovation-than-capital",
+        "https://www.standishgroup.com/sample_research_files/CHAOSReport2015-Final.pdf",
+        "https://www.cognition.ai/blog/introducing-devin",
+        "https://cursor.com/",
+        "https://www.amazon.com/Mythical-Man-Month-Software-Engineering-Anniversary/dp/0201835959",
+        "https://www.wired.com/story/vibe-coding-future-of-software/",
+        "https://hbr.org/2016/09/excess-management-is-costing-the-us-3-trillion-per-year",
+        "https://www.london.edu/think/bureaucracy-where-to-liberate-3-trillion",
+        "https://a16z.com/why-software-is-eating-the-world/",
+        "https://www.gartner.com/en/information-technology/insights/low-code-no-code",
+        "https://mitsloan.mit.edu/ideas-made-to-matter/leadership-and-ai-insights-2025-latest-mit-sloan-management-review",
+        "https://survey.stackoverflow.co/2024/",
+        "https://scrumguides.org/scrum-guide.html",
+        "https://www.atlassian.com/agile/scrum/roles",
+        "https://scaledagileframework.com/agile-release-train/",
+        "https://d3.harvard.edu/the-ai-revolution-in-software-development-how-generative-ai-is-reshaping-coding-practices/",
+        "https://cloud.google.com/blog/products/management-tools/identifying-and-tracking-toil-using-sre-principles",
+        "https://cloud.google.com/blog/products/management-tools/transitioning-a-typical-engineering-ops-team-into-an-sre-powerhouse",
+        "https://docs.aws.amazon.com/pdfs/prescriptive-guidance/latest/cloud-center-of-excellence/cloud-center-of-excellence.pdf",
+        "https://learn.microsoft.com/en-us/power-platform/guidance/coe/overview",
+        "https://www.quickbase.com/blog/low-code-coe-enterprise-governance-it-director",
+        "https://kissflow.com/no-code/how-to-set-up-a-no-code-coe/",
+        "https://scholarworks.lib.csusb.edu/cgi/viewcontent.cgi?article=1104&context=jitim"
+      ],
+      "key_claims": []
     },
     "2026-04-02-claude-code-npm-source-map-leak": {
       "named_concepts": [

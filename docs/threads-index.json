@@ -1895,14 +1895,14 @@
     "url": "/Research/threads/workflow-process-tooling.html"
   },
   {
-    "slug": "github-copilot-claude-code-stdio-transport",
-    "title": "github copilot / claude code / stdio transport",
+    "slug": "stdio-transport-github-copilot-agents-md",
+    "title": "stdio transport / github copilot / agents md",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
+      "stdio transport",
       "github copilot",
-      "claude code",
-      "stdio transport"
+      "agents md"
     ],
     "item_count": 3,
     "items": [
@@ -1922,7 +1922,7 @@
         "added": "2026-03-02"
       }
     ],
-    "url": "/Research/threads/github-copilot-claude-code-stdio-transport.html"
+    "url": "/Research/threads/stdio-transport-github-copilot-agents-md.html"
   },
   {
     "slug": "github-copilot-claude-code-agents-md",
