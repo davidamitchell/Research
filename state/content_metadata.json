@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-04-19T22:43:56Z",
+  "extracted_at": "2026-04-19T23:32:19Z",
   "items": {
     "2026-04-18-shopify-ai-strategy-red-queen-memo": {
       "named_concepts": [
@@ -91,6 +91,66 @@
         "The davidamitchell Skills repo has 16 skills but no discoverability index — There is no map of skill name to trigger conditions to expected output, analogous to OMX's `/skills` browse surface",
         "Model routing by task complexity is a low-cost, high-value improvement — OMX maps lightweight tasks (explore, search) to efficient models and heavy tasks (synthesis, architecture) to capable models, reducing token use and improving output quality",
         "Persistent machine-readable session state is absent from the Research repo — OMX stores plans, logs, and mode state in `.omx/` for cross-session continuity"
+      ]
+    },
+    "2026-04-03-ai-workflow-todo-digest": {
+      "named_concepts": [
+        "n8n workflow",
+        "workflow template",
+        "apple shortcuts",
+        "completed slack",
+        "zapier n8n",
+        "telegram bot",
+        "bot api",
+        "memgpt paper",
+        "human-workspace interaction",
+        "interaction review",
+        "block kit",
+        "shortcuts guide",
+        "guide completed",
+        "actions blockers",
+        "template ai",
+        "ai news",
+        "news briefing",
+        "briefing repository",
+        "review lee",
+        "lee et"
+      ],
+      "source_urls": [
+        "https://youtu.be/hFRQb2e5cJs?si=6NppPd82VwLaEKts",
+        "https://zapier.com/apps/notion/integrations/slack",
+        "https://www.make.com/en/integrations/notion/slack",
+        "https://n8n.io/",
+        "https://arxiv.org/abs/2310.08560",
+        "https://mem.ai/",
+        "https://www.rewind.ai/",
+        "https://help.openai.com/en/articles/8590148-memory-in-chatgpt",
+        "https://news.ycombinator.com/search?q=ai+daily+digest+productivity",
+        "https://www.reddit.com/r/Notion/search/?q=ai+daily+digest",
+        "https://www.reddit.com/r/selfhosted/search/?q=llm+daily+summary",
+        "https://forum.obsidian.md/search?q=ai+daily+digest",
+        "https://core.telegram.org/bots/api",
+        "https://api.slack.com/block-kit",
+        "https://learn.microsoft.com/en-us/microsoftteams/platform/bots/what-are-bots",
+        "https://support.apple.com/guide/shortcuts/welcome/ios",
+        "https://doi.org/10.1007/s00146-015-0607-8",
+        "https://community.n8n.io/t/personal-ai-assistant/30000",
+        "https://docs.anthropic.com/en/api/getting-started",
+        "https://github.com/davidamitchell?tab=repositories",
+        "https://n8n.io/workflows/10286-ai-meeting-summary-and-action-item-tracker-with-notion-slack-and-gmail/",
+        "https://github.com/hoangsonww/AI-News-Briefing",
+        "https://doi.org/10.1145/3290605.3300558",
+        "https://link.springer.com/article/10.1007/s12599-024-00918-y"
+      ],
+      "key_claims": [
+        "Medium confidence",
+        "Low confidence",
+        "Medium confidence",
+        "Medium confidence",
+        "Medium confidence",
+        "Medium confidence",
+        "Medium confidence",
+        "Low confidence"
       ]
     },
     "2026-04-02-org-shape-software-cost-zero": {

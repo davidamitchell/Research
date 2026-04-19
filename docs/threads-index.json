@@ -1410,6 +1410,46 @@
     "url": "/Research/threads/skills-claude-code-github-copilot.html"
   },
   {
+    "slug": "ai-productivity-team-size",
+    "title": "ai / productivity / team-size",
+    "kind": "implicit",
+    "tag_cluster": [
+      "ai",
+      "productivity",
+      "team-size"
+    ],
+    "concept_cluster": [],
+    "item_count": 5,
+    "items": [
+      {
+        "slug": "2026-03-12-ai-team-size-strike-team-thesis",
+        "title": "AI amplified the coordination tax: the 5-person strike team as the structural unit of the AI era",
+        "added": "2026-03-12"
+      },
+      {
+        "slug": "2026-03-12-volume-vs-correctness-ai-era",
+        "title": "AI inverted the knowledge-work scarcity equation: volume is free, correctness is the scarce resource",
+        "added": "2026-03-12"
+      },
+      {
+        "slug": "2026-03-12-team-size-limits-brooks-dunbar-network-theory",
+        "title": "Three disciplines, one answer: Brooks, Dunbar, and network theory on why 5 is the coordination limit",
+        "added": "2026-03-12"
+      },
+      {
+        "slug": "2026-03-12-ai-force-multiplier-ambition-expansion",
+        "title": "Force multiplier, not cost reducer: expanding organisational ambition when AI multiplies per-person output",
+        "added": "2026-03-12"
+      },
+      {
+        "slug": "2026-04-03-ai-workflow-todo-digest",
+        "title": "Artificial Intelligence (AI)-assisted daily productivity digest: patterns, tooling, and automation approaches for personal task management",
+        "added": "2026-04-03"
+      }
+    ],
+    "url": "/Research/threads/ai-productivity-team-size.html"
+  },
+  {
     "slug": "servicenow-csdm-itsm",
     "title": "servicenow / csdm / itsm",
     "kind": "implicit",
@@ -1530,14 +1570,14 @@
     "url": "/Research/threads/cost-allocation-tbm-council-financial-services.html"
   },
   {
-    "slug": "coding-agent-copilot-coding-github-copilot",
-    "title": "coding agent / copilot coding / github copilot",
+    "slug": "copilot-coding-coding-agent-agents-md",
+    "title": "copilot coding / coding agent / agents md",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "coding agent",
       "copilot coding",
-      "github copilot"
+      "coding agent",
+      "agents md"
     ],
     "item_count": 5,
     "items": [
@@ -1567,42 +1607,7 @@
         "added": "2026-03-28"
       }
     ],
-    "url": "/Research/threads/coding-agent-copilot-coding-github-copilot.html"
-  },
-  {
-    "slug": "team-size-ai-coordination-overhead",
-    "title": "team-size / ai / coordination-overhead",
-    "kind": "implicit",
-    "tag_cluster": [
-      "team-size",
-      "ai",
-      "coordination-overhead"
-    ],
-    "concept_cluster": [],
-    "item_count": 4,
-    "items": [
-      {
-        "slug": "2026-03-12-ai-team-size-strike-team-thesis",
-        "title": "AI amplified the coordination tax: the 5-person strike team as the structural unit of the AI era",
-        "added": "2026-03-12"
-      },
-      {
-        "slug": "2026-03-12-volume-vs-correctness-ai-era",
-        "title": "AI inverted the knowledge-work scarcity equation: volume is free, correctness is the scarce resource",
-        "added": "2026-03-12"
-      },
-      {
-        "slug": "2026-03-12-team-size-limits-brooks-dunbar-network-theory",
-        "title": "Three disciplines, one answer: Brooks, Dunbar, and network theory on why 5 is the coordination limit",
-        "added": "2026-03-12"
-      },
-      {
-        "slug": "2026-03-12-ai-force-multiplier-ambition-expansion",
-        "title": "Force multiplier, not cost reducer: expanding organisational ambition when AI multiplies per-person output",
-        "added": "2026-03-12"
-      }
-    ],
-    "url": "/Research/threads/team-size-ai-coordination-overhead.html"
+    "url": "/Research/threads/copilot-coding-coding-agent-agents-md.html"
   },
   {
     "slug": "evaluation-agents-research-loop",
@@ -2005,13 +2010,13 @@
     "url": "/Research/threads/workflow-process-tooling.html"
   },
   {
-    "slug": "stdio-transport-interface-contract-mcp-server",
-    "title": "stdio transport / interface contract / mcp server",
+    "slug": "claude-code-agents-md-mcp-server",
+    "title": "claude code / agents md / mcp server",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "stdio transport",
-      "interface contract",
+      "claude code",
+      "agents md",
       "mcp server"
     ],
     "item_count": 3,
@@ -2032,16 +2037,16 @@
         "added": "2026-03-02"
       }
     ],
-    "url": "/Research/threads/stdio-transport-interface-contract-mcp-server.html"
+    "url": "/Research/threads/claude-code-agents-md-mcp-server.html"
   },
   {
-    "slug": "github-copilot-claude-code-copilot-agent",
-    "title": "github copilot / claude code / copilot agent",
+    "slug": "claude-code-github-copilot-copilot-agent",
+    "title": "claude code / github copilot / copilot agent",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "github copilot",
       "claude code",
+      "github copilot",
       "copilot agent"
     ],
     "item_count": 3,
@@ -2062,6 +2067,6 @@
         "added": "2026-03-12"
       }
     ],
-    "url": "/Research/threads/github-copilot-claude-code-copilot-agent.html"
+    "url": "/Research/threads/claude-code-github-copilot-copilot-agent.html"
   }
 ]
