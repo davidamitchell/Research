@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-04-19T22:19:04Z",
+  "extracted_at": "2026-04-19T22:43:56Z",
   "items": {
     "2026-04-18-shopify-ai-strategy-red-queen-memo": {
       "named_concepts": [
@@ -145,6 +145,52 @@
         "https://www.quickbase.com/blog/low-code-coe-enterprise-governance-it-director",
         "https://kissflow.com/no-code/how-to-set-up-a-no-code-coe/",
         "https://scholarworks.lib.csusb.edu/cgi/viewcontent.cgi?article=1104&context=jitim"
+      ],
+      "key_claims": []
+    },
+    "2026-04-02-claude-mythos": {
+      "named_concepts": [
+        "language models",
+        "assistant axis",
+        "axis situating",
+        "default persona",
+        "models scalable",
+        "transferable black-box",
+        "black-box jailbreaks",
+        "models via",
+        "via persona",
+        "persona modulation",
+        "claims appear",
+        "executive summary",
+        "training-time alignment",
+        "alignment artifact",
+        "character essay",
+        "explicitly intended",
+        "claude behaves",
+        "clearest direct",
+        "stronger anchoring",
+        "default assistant"
+      ],
+      "source_urls": [
+        "https://www.anthropic.com/research/claude-character",
+        "https://www.anthropic.com/news/claude-new-constitution",
+        "https://www.anthropic.com/constitution",
+        "https://www.anthropic.com/news/core-views-on-ai-safety",
+        "https://www.anthropic.com/research/constitutional-ai-harmlessness-from-ai-feedback",
+        "https://arxiv.org/abs/2212.08073",
+        "https://www.anthropic.com/research/assistant-axis",
+        "https://arxiv.org/abs/2601.10387",
+        "https://model-spec.openai.com/2025-12-18.html",
+        "https://deepmind.google/models/model-cards/gemini-3-1-pro/",
+        "https://raw.githubusercontent.com/meta-llama/llama-models/main/models/llama3/MODEL_CARD.md",
+        "https://mistral.ai/news/mistral-large/",
+        "https://arxiv.org/abs/2307.02483",
+        "https://www.nature.com/articles/s41586-023-06647-8",
+        "https://arxiv.org/abs/2311.03348",
+        "https://doi.org/10.1371/journal.pone.0309114",
+        "https://aclanthology.org/2024.findings-naacl.229/",
+        "https://arxiv.org/abs/2404.12138",
+        "https://github.com/anthropics/anthropic-model-spec"
       ],
       "key_claims": []
     },
