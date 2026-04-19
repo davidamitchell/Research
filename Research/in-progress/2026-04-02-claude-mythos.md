@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Claude mythos: character, soul documents, and narrative identity in large language models"
 added: 2026-04-02
 status: reviewing
