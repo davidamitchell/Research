@@ -820,6 +820,56 @@
     "url": "/Research/threads/rag-llm-knowledge-management.html"
   },
   {
+    "slug": "strategy-behavioral-economics-rory-sutherland",
+    "title": "strategy / behavioral-economics / rory-sutherland",
+    "kind": "implicit",
+    "tag_cluster": [
+      "strategy",
+      "behavioral-economics",
+      "rory-sutherland"
+    ],
+    "concept_cluster": [],
+    "item_count": 7,
+    "items": [
+      {
+        "slug": "2026-03-26-customer-contact-and-delight",
+        "title": "Customer contact as strategic signal: why people call and whether they want self-service",
+        "added": "2026-03-26"
+      },
+      {
+        "slug": "2026-03-26-rory-sutherland-core-tenets",
+        "title": "Rory Sutherland's core tenets: anti-bureaucracy, customer thinking, and behavioral economics",
+        "added": "2026-03-26"
+      },
+      {
+        "slug": "2026-03-26-measuring-opportunity-cost",
+        "title": "The measurement asymmetry: why we cut costs but can't see lost opportunities",
+        "added": "2026-03-26"
+      },
+      {
+        "slug": "2026-03-26-cost-reduction-is-not-strategy",
+        "title": "Cost reduction is not a strategy: the opportunity vs efficiency mindset",
+        "added": "2026-03-26"
+      },
+      {
+        "slug": "2026-03-26-against-bureaucracy-dismantling-control-systems-to-focus-on-value-and-opportunit",
+        "title": "Against bureaucracy: dismantling control systems to focus on value and opportunity exploration",
+        "added": "2026-03-26"
+      },
+      {
+        "slug": "2026-04-02-ai-funding-and-capital-investment-landscape",
+        "title": "AI Funding and Capital Investment Landscape",
+        "added": "2026-04-02"
+      },
+      {
+        "slug": "2026-04-02-ai-company-hiring-strategies",
+        "title": "AI company hiring strategies: what job ads and recent hires reveal about strategic direction",
+        "added": "2026-04-02"
+      }
+    ],
+    "url": "/Research/threads/strategy-behavioral-economics-rory-sutherland.html"
+  },
+  {
     "slug": "rory-sutherland-behavioral-economics-strategy",
     "title": "rory-sutherland / behavioral-economics / strategy",
     "kind": "implicit",
@@ -1355,13 +1405,13 @@
     "url": "/Research/threads/cost-allocation-financial-services-tbm-council.html"
   },
   {
-    "slug": "copilot-coding-coding-agent-github-copilot",
-    "title": "copilot coding / coding agent / github copilot",
+    "slug": "coding-agent-copilot-coding-github-copilot",
+    "title": "coding agent / copilot coding / github copilot",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "copilot coding",
       "coding agent",
+      "copilot coding",
       "github copilot"
     ],
     "item_count": 5,
@@ -1392,42 +1442,7 @@
         "added": "2026-03-28"
       }
     ],
-    "url": "/Research/threads/copilot-coding-coding-agent-github-copilot.html"
-  },
-  {
-    "slug": "strategy-ai-funding",
-    "title": "strategy / ai / funding",
-    "kind": "implicit",
-    "tag_cluster": [
-      "strategy",
-      "ai",
-      "funding"
-    ],
-    "concept_cluster": [],
-    "item_count": 4,
-    "items": [
-      {
-        "slug": "2026-03-14-organisational-intent-formal-specification",
-        "title": "Can organisational intent be expressed as a formally structured specification from which artefacts are derived and consistency is machine-checked?",
-        "added": "2026-03-14"
-      },
-      {
-        "slug": "2026-03-26-customer-contact-and-delight",
-        "title": "Customer contact as strategic signal: why people call and whether they want self-service",
-        "added": "2026-03-26"
-      },
-      {
-        "slug": "2026-03-26-cost-reduction-is-not-strategy",
-        "title": "Cost reduction is not a strategy: the opportunity vs efficiency mindset",
-        "added": "2026-03-26"
-      },
-      {
-        "slug": "2026-04-02-ai-funding-and-capital-investment-landscape",
-        "title": "AI Funding and Capital Investment Landscape",
-        "added": "2026-04-02"
-      }
-    ],
-    "url": "/Research/threads/strategy-ai-funding.html"
+    "url": "/Research/threads/coding-agent-copilot-coding-github-copilot.html"
   },
   {
     "slug": "team-size-ai-coordination-overhead",
@@ -1715,6 +1730,36 @@
     "url": "/Research/threads/agentic-systems-rag-hallucination.html"
   },
   {
+    "slug": "anthropic-openai-memory",
+    "title": "anthropic / openai / memory",
+    "kind": "implicit",
+    "tag_cluster": [
+      "anthropic",
+      "openai",
+      "memory"
+    ],
+    "concept_cluster": [],
+    "item_count": 3,
+    "items": [
+      {
+        "slug": "2026-03-08-ai-coding-harnesses-agent-philosophy",
+        "title": "AI coding harnesses: agent execution model, memory, and context management across commercial and OSS tools",
+        "added": "2026-03-08"
+      },
+      {
+        "slug": "2026-04-02-anthropic-claude-code-leak-architecture-prompting-and-hidden-features",
+        "title": "Anthropic Claude Code leak: architecture, prompting, and hidden features",
+        "added": "2026-04-02"
+      },
+      {
+        "slug": "2026-04-02-ai-company-hiring-strategies",
+        "title": "AI company hiring strategies: what job ads and recent hires reveal about strategic direction",
+        "added": "2026-04-02"
+      }
+    ],
+    "url": "/Research/threads/anthropic-openai-memory.html"
+  },
+  {
     "slug": "prompt-engineering-ai-agents-evaluation",
     "title": "prompt-engineering / ai-agents / evaluation",
     "kind": "implicit",
@@ -1895,14 +1940,14 @@
     "url": "/Research/threads/workflow-process-tooling.html"
   },
   {
-    "slug": "stdio-transport-github-copilot-agents-md",
-    "title": "stdio transport / github copilot / agents md",
+    "slug": "interface-contract-github-copilot-stdio-transport",
+    "title": "interface contract / github copilot / stdio transport",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "stdio transport",
+      "interface contract",
       "github copilot",
-      "agents md"
+      "stdio transport"
     ],
     "item_count": 3,
     "items": [
@@ -1922,7 +1967,7 @@
         "added": "2026-03-02"
       }
     ],
-    "url": "/Research/threads/stdio-transport-github-copilot-agents-md.html"
+    "url": "/Research/threads/interface-contract-github-copilot-stdio-transport.html"
   },
   {
     "slug": "github-copilot-claude-code-agents-md",
