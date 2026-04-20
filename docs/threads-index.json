@@ -1570,14 +1570,14 @@
     "url": "/Research/threads/cost-allocation-tbm-council-financial-services.html"
   },
   {
-    "slug": "copilot-coding-coding-agent-agents-md",
-    "title": "copilot coding / coding agent / agents md",
+    "slug": "copilot-coding-coding-agent-github-copilot",
+    "title": "copilot coding / coding agent / github copilot",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "copilot coding",
       "coding agent",
-      "agents md"
+      "github copilot"
     ],
     "item_count": 5,
     "items": [
@@ -1607,7 +1607,7 @@
         "added": "2026-03-28"
       }
     ],
-    "url": "/Research/threads/copilot-coding-coding-agent-agents-md.html"
+    "url": "/Research/threads/copilot-coding-coding-agent-github-copilot.html"
   },
   {
     "slug": "evaluation-agents-research-loop",
@@ -2010,14 +2010,14 @@
     "url": "/Research/threads/workflow-process-tooling.html"
   },
   {
-    "slug": "claude-code-agents-md-mcp-server",
-    "title": "claude code / agents md / mcp server",
+    "slug": "interface-contract-github-copilot-claude-code",
+    "title": "interface contract / github copilot / claude code",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "claude code",
-      "agents md",
-      "mcp server"
+      "interface contract",
+      "github copilot",
+      "claude code"
     ],
     "item_count": 3,
     "items": [
@@ -2037,16 +2037,16 @@
         "added": "2026-03-02"
       }
     ],
-    "url": "/Research/threads/claude-code-agents-md-mcp-server.html"
+    "url": "/Research/threads/interface-contract-github-copilot-claude-code.html"
   },
   {
-    "slug": "claude-code-github-copilot-copilot-agent",
-    "title": "claude code / github copilot / copilot agent",
+    "slug": "github-copilot-claude-code-copilot-agent",
+    "title": "github copilot / claude code / copilot agent",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "claude code",
       "github copilot",
+      "claude code",
       "copilot agent"
     ],
     "item_count": 3,
@@ -2067,6 +2067,6 @@
         "added": "2026-03-12"
       }
     ],
-    "url": "/Research/threads/claude-code-github-copilot-copilot-agent.html"
+    "url": "/Research/threads/github-copilot-claude-code-copilot-agent.html"
   }
 ]
