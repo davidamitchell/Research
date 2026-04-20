@@ -30,7 +30,9 @@ Read the file at the path given above in full. Understand:
 
 **Prior research cross-reference (mandatory):** Apply the prior work check
 defined in `.github/skills/research/SKILL.md §0`. Search `Research/completed/`
-for related items before beginning §2 Investigation.
+for related items before beginning §2 Investigation. If you cite prior completed
+items in §0, Findings, or the Evidence Map, cite them with URL-backed links
+rather than repository-relative file paths.
 
 ### 2. Research the item -- follow the research skill in full
 

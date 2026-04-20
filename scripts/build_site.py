@@ -28,9 +28,8 @@ from collections import Counter
 from datetime import date
 from pathlib import Path
 
-from markdown_it import MarkdownIt
-from mdit_py_plugins.strikethrough import strikethrough_plugin
 import yaml
+from markdown_it import MarkdownIt
 
 # ---------------------------------------------------------------------------
 # Paths
@@ -1790,7 +1789,7 @@ def build_item_page(
     meta_claims: list[str] | None = None,
 ) -> str:
     """Generate docs/research/<slug>.html."""
-    md = MarkdownIt().enable("table").use(strikethrough_plugin)
+    md = MarkdownIt().enable("table").enable("strikethrough")
 
     display_title = item["display_title"]
     full_title = item["title"]
