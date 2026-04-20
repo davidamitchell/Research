@@ -44,7 +44,7 @@ jobs:
           python-version-file: .python-version
 
       - name: Install dependencies
-        run: pip install mistune PyYAML
+        run: pip install markdown-it-py mdit-py-plugins PyYAML
 
       - name: Extract metadata
         run: python scripts/extract_metadata.py

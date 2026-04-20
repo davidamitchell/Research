@@ -28,7 +28,8 @@ from collections import Counter
 from datetime import date
 from pathlib import Path
 
-import mistune
+from markdown_it import MarkdownIt
+from mdit_py_plugins.strikethrough import strikethrough_plugin
 import yaml
 
 # ---------------------------------------------------------------------------
@@ -1738,7 +1739,7 @@ def _render_claim(text: str) -> str:
     # We do this by splitting on link patterns, escaping non-link parts
     parts = []
     last = 0
-    for m in re.finditer(r"\[([^\]]+)\]\((https?://[^)]+)\)", text):
+    for m in re.finditer(r"\[([^\]]+)\]\((https?://(?:[^()]+|\([^()]*\))*)\)", text):
         parts.append(escape(text[last : m.start()]))
         parts.append(_link_repl(m))
         last = m.end()
@@ -1789,7 +1790,7 @@ def build_item_page(
     meta_claims: list[str] | None = None,
 ) -> str:
     """Generate docs/research/<slug>.html."""
-    md = mistune.create_markdown(plugins=["table", "strikethrough"])
+    md = MarkdownIt().enable("table").use(strikethrough_plugin)
 
     display_title = item["display_title"]
     full_title = item["title"]
@@ -1812,7 +1813,7 @@ def build_item_page(
         if not content:
             continue
         content = strip_evidence_map_table(content)
-        rendered = md(content)
+        rendered = md.render(content)
         rendered = autolink_html(rendered, source_refs)
         rendered = _STRAY_CLOSE_TAGS_RE.sub("", rendered)
         icon = _SECTION_ICONS.get(section_name, ICON_NOTE_H2)
