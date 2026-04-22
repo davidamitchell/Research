@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Knowledge curation governance as an enterprise AI capability in regulated financial institutions"
 added: 2026-04-22
 status: reviewing
