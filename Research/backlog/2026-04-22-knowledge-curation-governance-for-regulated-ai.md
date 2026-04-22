@@ -23,7 +23,7 @@ What operational models exist for governing authoritative knowledge as a managed
 - Curation workflow patterns: how knowledge is ingested, maintained, corrected, and retired
 - Feedback and correction loops: how incorrect AI outputs trigger source correction and propagation
 - Versioning and freshness governance for policy, standards, process, and regulatory knowledge
-- Audit and explainability requirements relevant to Reserve Bank of New Zealand (RBNZ), Australian Prudential Regulation Authority (APRA), and UK Financial Conduct Authority (FCA) contexts
+- Audit and explainability requirements relevant to Reserve Bank of New Zealand (RBNZ), Australian Prudential Regulation Authority (APRA), and United Kingdom (UK) Financial Conduct Authority (FCA) contexts
 - Patterns from financial services peers and adjacent regulated industries (healthcare, legal)
 
 **Out of scope:**
@@ -52,10 +52,10 @@ Prior synthesis work shows the unresolved gap is operational governance of the k
 ## Sources
 
 - [APRA CPS 230: Operational Risk Management](https://www.apra.gov.au/prudential-standard-cps-230-operational-risk-management) - Material service provider and critical operation governance requirements applicable to AI knowledge systems.
-- [National Institute of Standards and Technology (NIST) AI Risk Management Framework (AI RMF 1.0)](https://doi.org/10.6028/NIST.AI.100-1) - Governance and lifecycle control requirements.
+- [National Institute of Standards and Technology (NIST) Artificial Intelligence Risk Management Framework (AI RMF 1.0)](https://doi.org/10.6028/NIST.AI.100-1) - Governance and lifecycle control requirements.
 - [ISO/IEC 42001: Artificial intelligence management system](https://www.iso.org/standard/81230.html) - Traceability, transparency, and continual improvement requirements.
 - [FCA DP5/22: Artificial Intelligence and Machine Learning](https://www.fca.org.uk/publication/discussion/dp22-4.pdf) - Principles-oriented expectations on explainability and accountability.
-- [European Banking Authority (EBA) Guidelines on internal governance under CRD](https://www.eba.europa.eu/regulation-and-policy/internal-governance/guidelines-internal-governance-under-crd) - Comparator governance and validation expectations.
+- [European Banking Authority (EBA) Guidelines on internal governance under the Capital Requirements Directive (CRD)](https://www.eba.europa.eu/regulation-and-policy/internal-governance/guidelines-internal-governance-under-crd) - Comparator governance and validation expectations.
 - [Microsoft Copilot Studio knowledge base management guidance](https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/knowledge-base-management) - Practitioner operating patterns for knowledge curation.
 - [Amazon Bedrock Knowledge Bases documentation](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html) - Ingestion, source management, and update workflows.
 - [Google Cloud DORA 2025 AI Capabilities Model report](https://cloud.google.com/resources/content/2025-dora-ai-capabilities-model-report) - Enterprise AI capability maturity observations.
@@ -64,7 +64,7 @@ Prior synthesis work shows the unresolved gap is operational governance of the k
 - [Prior item: RBNZ AI supervisory expectations](https://davidamitchell.github.io/Research/research/2026-02-28-rbnz-ai-supervisory-expectations.html) - Regulator context baseline.
 - [Prior item: Agent memory management and context injection](https://davidamitchell.github.io/Research/research/2026-03-02-agent-memory-management-context-injection.html) - Existing technical context on freshness and governance constraints.
 - [Search seed: knowledge management AI financial services audit trail (2024-2026)](https://www.google.com/search?q=knowledge+management+AI+financial+services+audit+trail+2024..2026) - Discovery seed for additional practitioner and regulator sources.
-- [Search seed: RAG knowledge governance enterprise curation ownership (2024-2026)](https://www.google.com/search?q=RAG+knowledge+governance+enterprise+curation+ownership+2024..2026) - Discovery seed for operating-model patterns.
+- [Search seed: Retrieval-Augmented Generation (RAG) knowledge governance enterprise curation ownership (2024-2026)](https://www.google.com/search?q=RAG+knowledge+governance+enterprise+curation+ownership+2024..2026) - Discovery seed for operating-model patterns.
 - [Search seed: AI explainability knowledge provenance regulated industry (2024-2026)](https://www.google.com/search?q=AI+explainability+knowledge+provenance+regulated+industry+2024..2026) - Discovery seed for explainability and provenance practices.
 
 ---

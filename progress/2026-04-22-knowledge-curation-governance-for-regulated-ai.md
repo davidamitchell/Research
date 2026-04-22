@@ -1,7 +1,7 @@
 # 2026-04-22 -- Add backlog item (knowledge-curation-governance-for-regulated-ai)
 
 **Completed:**
-- `/home/runner/work/Research/Research/Research/backlog/2026-04-22-knowledge-curation-governance-for-regulated-ai.md` - added from issue #370; frames the research question on operational governance models for authoritative AI knowledge in regulated financial services.
+- `Research/backlog/2026-04-22-knowledge-curation-governance-for-regulated-ai.md` - added from issue #370; frames the research question on operational governance models for authoritative AI knowledge in regulated financial services.
 
 ## Mini-Retro
 
