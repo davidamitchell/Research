@@ -1,9 +1,10 @@
 # Research Master Document
 
-Generated on: 2026-04-22 08:06 UTC
+Generated on: 2026-04-22 08:53 UTC
 
 ## Table of Contents
 
+* [Recall competitive landscape and clone feasibility](#2026-04-22-recall-competitive-landscape-and-clone-feasibility-md)
 * [Enterprise AI capability model for use-case maturity decisions](#2026-04-22-enterprise-ai-capability-model-md)
 * [Harness-level selection and use of tools, agents, skills, prompts, and instruction files](#2026-04-20-harness-selection-tools-agents-skills-prompts-instructions-md)
 * [Shopify's Artificial Intelligence (AI) strategy after the Red Queen memo: selection pressure, talent-market effects, and copycat outcomes](#2026-04-18-shopify-ai-strategy-red-queen-memo-md)
@@ -147,6 +148,96 @@ Generated on: 2026-04-22 08:06 UTC
 * [AI Strategy Examples: Business Efficiency Focus](#2026-02-28-ai-strategy-business-efficiency-examples-md)
 * [AI Line 1 and Line 2 Risk Agents: Who Is Building Them?](#2026-02-28-ai-line-1-line-2-risk-agents-md)
 * [AI for Control Testing, Gap Identification, and Policies/Standards Reviews](#2026-02-28-ai-control-testing-and-assurance-md)
+
+---
+
+<a name="2026-04-22-recall-competitive-landscape-and-clone-feasibility-md"></a>
+
+## Recall competitive landscape and clone feasibility
+
+**Tags:** [recall, personal-assistant, competitive-analysis, product-strategy]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-22-recall-competitive-landscape-and-clone-feasibility.md
+
+## Research Question
+
+What core capabilities does Recall provide, who else is building similar products (including projects in the davidamitchell GitHub organization and relevant open-source tools), what components can we leverage, and what is the smallest viable clone architecture we can build quickly?
+
+## Findings
+
+*(Populated from Section 6 Synthesis above.)*
+
+### Executive Summary
+
+[inference] The fastest credible Recall clone for davidamitchell is a web-first internal product built on `Personal-Assistant-`, augmented with this Research repository's ingestion utilities, because that combination already covers app shell, authentication, local storage, semantic search, and transcript capture while Recall's public differentiation centers on capture, summary and chat, auto-organization, graph links, and review workflows ([Personal-Assistant repository readme](https://github.com/davidamitchell/Personal-Assistant-/blob/main/README.md); [Research repository readme](https://github.com/davidamitchell/Research/blob/main/README.md); [Research YouTube fetcher](https://github.com/davidamitchell/Research/blob/main/src/fetchers/youtube.py); [Recall docs: Add Content](https://docs.getrecall.ai/getting-started/2-add-content); [Recall docs: Linking Content](https://docs.getrecall.ai/getting-started/5-linking-content); [Recall docs: Review Content](https://docs.getrecall.ai/getting-started/6-review-content)).
+
+[inference] Recall publicly combines broad content capture, per-item and collection chat, automatic tags and graph links, Augmented Browsing, quiz generation with spaced repetition, Markdown export, and API plus MCP access, which puts it beyond a simple read-it-later tool ([Recall homepage](https://www.getrecall.ai); [Recall docs: Add Content](https://docs.getrecall.ai/getting-started/2-add-content); [Recall docs: Chat with Knowledge Base](https://docs.getrecall.ai/deep-dives/chat-with-all-your-content); [Recall docs: Quiz and Spaced Repetition](https://docs.getrecall.ai/deep-dives/quiz-and-spaced-repetition); [Recall pricing](https://www.getrecall.ai/pricing); [Recall docs: Exporting Content](https://docs.getrecall.ai/getting-started/7-exporting-content)).
+
+[inference] The competitive field is fragmented, with Readwise Reader and Matter strongest on reading flows, mymind strongest on frictionless auto-organization, Fabric strongest on AI workspace breadth, and Raindrop strongest on bookmarking fundamentals, so Recall's main advantage is feature bundling rather than a single irreplaceable capability ([Readwise Reader](https://readwise.io/read); [Matter](https://getmatter.com); [mymind](https://mymind.com); [Fabric](https://fabric.so); [Raindrop.io](https://raindrop.io); [Recall homepage](https://www.getrecall.ai)).
+
+[inference] The minimal first release should omit Augmented Browsing, custom voices, public quiz challenges, multi-model switching, and mobile parity, and should instead ship URL, YouTube, and PDF ingestion, summary generation, editable notes, semantic search, collection chat, tags, links, and Markdown export ([Recall docs: Add Content](https://docs.getrecall.ai/getting-started/2-add-content); [Recall docs: Linking Content](https://docs.getrecall.ai/getting-started/5-linking-content); [Recall docs: Review Content](https://docs.getrecall.ai/getting-started/6-review-content); [Recall pricing](https://www.getrecall.ai/pricing); [Personal-Assistant repository readme](https://github.com/davidamitchell/Personal-Assistant-/blob/main/README.md)).
+
+[inference] Buying Recall is faster if the requirement is polished consumer-grade parity now, but building is feasible if the requirement is a narrower internal research assistant over saved content and existing notes ([Recall homepage](https://www.getrecall.ai); [Recall pricing](https://www.getrecall.ai/pricing); [Personal-Assistant repository readme](https://github.com/davidamitchell/Personal-Assistant-/blob/main/README.md)).
+
+### Key Findings
+
+1. **High.** [fact] Recall publicly supports browser, in-app, and mobile capture, then turns each saved item into a card with reader, chat, and notebook views, which makes the product a structured knowledge workflow rather than a passive bookmark bucket ([Recall docs: Add Content](https://docs.getrecall.ai/getting-started/2-add-content); [Recall docs: Read, Summarize, Chat and Customize](https://docs.getrecall.ai/getting-started/3-summarize-and-chat-with-content)).
+2. **Medium.** [inference] Recall's organization layer includes automatic tags, graph-linked entities, knowledge-base chat, Augmented Browsing, and Markdown export, so the product appears to treat connection and recall as first-class features rather than as post-processing extras, which matches prior research that value in a corpus emerges from explicit link structure ([Recall docs: Organizing Content](https://docs.getrecall.ai/getting-started/4-organizing-content); [Recall docs: Linking Content](https://docs.getrecall.ai/getting-started/5-linking-content); [Recall docs: Chat with Knowledge Base](https://docs.getrecall.ai/deep-dives/chat-with-all-your-content); [Recall docs: Exporting Content](https://docs.getrecall.ai/getting-started/7-exporting-content); [Recall docs: Augmented Browsing](https://docs.getrecall.ai/deep-dives/recall-augmented-browsing); [Prior research: knowledge linking connected corpus](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-03-knowledge-linking-connected-corpus.md)).
+3. **Medium.** [inference] Recall's quiz generation and spaced repetition loop appears to be a meaningful product differentiator because the official docs expose seven question formats, staged review scheduling, and a dedicated review dashboard, and prior research in this repository found that retention improves only when knowledge is actively resurfaced rather than merely archived ([Recall docs: Review Content](https://docs.getrecall.ai/getting-started/6-review-content); [Recall docs: Quiz and Spaced Repetition](https://docs.getrecall.ai/deep-dives/quiz-and-spaced-repetition); [Prior research: knowledge retention active recall](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-03-knowledge-retention-active-recall.md)).
+4. **Medium.** [inference] Recall's closest commercial alternatives each overlap only part of its surface area, which implies that a clone must choose which wedge to copy first instead of trying to match all categories at once ([Readwise Reader](https://readwise.io/read); [Matter](https://getmatter.com); [mymind](https://mymind.com); [Fabric](https://fabric.so); [Raindrop.io](https://raindrop.io); [Recall homepage](https://www.getrecall.ai)).
+5. **Medium.** [inference] `davidamitchell/Personal-Assistant-` appears to be the strongest internal starting point because it combines a web app shell, authentication, SQLite, semantic search over Research notes, and memory-oriented modules in one repository ([Personal-Assistant repository readme](https://github.com/davidamitchell/Personal-Assistant-/blob/main/README.md)).
+6. **High.** [fact] The current Research repository is reusable for ingestion and normalization because it already contains transcript capture workflows, retrying fetch logic, and Markdown-oriented research storage patterns ([Research repository readme](https://github.com/davidamitchell/Research/blob/main/README.md); [Research YouTube fetcher](https://github.com/davidamitchell/Research/blob/main/src/fetchers/youtube.py); [Research transcript workflow](https://github.com/davidamitchell/Research/blob/main/.github/workflows/fetch-transcript.yml)).
+7. **Medium.** [inference] Open-source projects such as Surf, SilverBullet, Trilium, Leon, and Mem0 are better viewed as subsystem donors or pattern libraries than as a direct Recall replacement, because each covers only one major slice of the product ([Leon repository](https://github.com/leon-ai/leon); [Trilium repository](https://github.com/TriliumNext/Trilium); [SilverBullet repository](https://github.com/silverbulletmd/silverbullet); [Surf repository](https://github.com/deta/surf); [Mem0 repository](https://github.com/mem0ai/mem0)).
+8. **Medium.** [inference] The smallest viable clone can deliver value quickly if it focuses on "save, summarize, search, chat, note, and export" on the web first and postpones retention and browsing automation features, which is consistent with prior research that search and retrieval should be added before heavier semantic infrastructure at this corpus scale ([Recall docs: Add Content](https://docs.getrecall.ai/getting-started/2-add-content); [Recall docs: Linking Content](https://docs.getrecall.ai/getting-started/5-linking-content); [Recall docs: Quiz and Spaced Repetition](https://docs.getrecall.ai/deep-dives/quiz-and-spaced-repetition); [Recall docs: Augmented Browsing](https://docs.getrecall.ai/deep-dives/recall-augmented-browsing); [Personal-Assistant repository readme](https://github.com/davidamitchell/Personal-Assistant-/blob/main/README.md); [Prior research: semantic full-text search](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-02-semantic-full-text-search.md)).
+9. **Medium.** [inference] The build-vs-buy line is simple: buy Recall for immediate parity, but build if the goal is a narrower internal assistant that can exploit existing davidamitchell code and does not need polished consumer-grade breadth on day one ([Recall homepage](https://www.getrecall.ai); [Recall pricing](https://www.getrecall.ai/pricing); [Personal-Assistant repository readme](https://github.com/davidamitchell/Personal-Assistant-/blob/main/README.md)).
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [fact] Recall supports broad capture and card-based reader, chat, and notebook workflows. | [Recall docs: Add Content](https://docs.getrecall.ai/getting-started/2-add-content), [Recall docs: Read, Summarize, Chat and Customize](https://docs.getrecall.ai/getting-started/3-summarize-and-chat-with-content) | high | Direct product documentation. |
+| [inference] Recall's organization layer makes connection and recall a core workflow rather than a downstream add-on. | [Recall docs: Organizing Content](https://docs.getrecall.ai/getting-started/4-organizing-content), [Recall docs: Linking Content](https://docs.getrecall.ai/getting-started/5-linking-content), [Recall docs: Augmented Browsing](https://docs.getrecall.ai/deep-dives/recall-augmented-browsing), [Recall docs: Exporting Content](https://docs.getrecall.ai/getting-started/7-exporting-content), [Prior research: knowledge linking connected corpus](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-03-knowledge-linking-connected-corpus.md) | medium | Product docs establish features; the "core workflow" judgment is interpretive. |
+| [inference] Recall's review loop likely differentiates it from simpler read-it-later tools because it operationalizes active recall and spaced repetition. | [Recall docs: Review Content](https://docs.getrecall.ai/getting-started/6-review-content), [Recall docs: Quiz and Spaced Repetition](https://docs.getrecall.ai/deep-dives/quiz-and-spaced-repetition), [Prior research: knowledge retention active recall](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-03-knowledge-retention-active-recall.md) | medium | Product docs establish features; the differentiator judgment is interpretive. |
+| [inference] No single commercial competitor matches Recall's whole bundle, so a clone must choose an initial wedge. | [Readwise Reader](https://readwise.io/read), [Matter](https://getmatter.com), [mymind](https://mymind.com), [Fabric](https://fabric.so), [Raindrop.io](https://raindrop.io), [Recall homepage](https://www.getrecall.ai) | medium | Cross-product synthesis from official landing pages. |
+| [inference] `Personal-Assistant-` is the strongest internal base application. | [Personal-Assistant repository readme](https://github.com/davidamitchell/Personal-Assistant-/blob/main/README.md) | medium | Capability evidence is direct, but the comparative ranking is interpretive. |
+| [fact] The Research repository already provides ingestion and transcript-capture patterns. | [Research repository readme](https://github.com/davidamitchell/Research/blob/main/README.md), [Research YouTube fetcher](https://github.com/davidamitchell/Research/blob/main/src/fetchers/youtube.py), [Research transcript workflow](https://github.com/davidamitchell/Research/blob/main/.github/workflows/fetch-transcript.yml) | high | Direct repository documentation and implementation. |
+| [inference] Open-source candidates are subsystem donors, not a full Recall replacement. | [Leon repository](https://github.com/leon-ai/leon), [Trilium repository](https://github.com/TriliumNext/Trilium), [SilverBullet repository](https://github.com/silverbulletmd/silverbullet), [Surf repository](https://github.com/deta/surf), [Mem0 repository](https://github.com/mem0ai/mem0) | medium | Strong component coverage, no full product match. |
+| [inference] The smallest viable clone should focus on capture, summarize, search, chat, note, and export before retention and browsing automation. | [Recall docs: Add Content](https://docs.getrecall.ai/getting-started/2-add-content), [Recall docs: Linking Content](https://docs.getrecall.ai/getting-started/5-linking-content), [Recall docs: Quiz and Spaced Repetition](https://docs.getrecall.ai/deep-dives/quiz-and-spaced-repetition), [Recall docs: Augmented Browsing](https://docs.getrecall.ai/deep-dives/recall-augmented-browsing), [Personal-Assistant repository readme](https://github.com/davidamitchell/Personal-Assistant-/blob/main/README.md), [Prior research: semantic full-text search](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-02-semantic-full-text-search.md) | medium | Balances internal leverage with deferred complexity and prior search-layer research. |
+| [inference] Build is justified only for a narrower internal assistant, while Recall is the faster choice for immediate parity. | [Recall homepage](https://www.getrecall.ai), [Recall pricing](https://www.getrecall.ai/pricing), [Personal-Assistant repository readme](https://github.com/davidamitchell/Personal-Assistant-/blob/main/README.md) | medium | Strategy judgment derived from evidence above. |
+
+### Assumptions
+
+- **Assumption:** [assumption] The first release can rely on web-app ingestion plus a lightweight bookmarklet or simple browser extension instead of full browser-extension parity. **Justification:** Recall itself supports in-app URL and file ingestion, so the capture workflow can still function without full extension polish. Source: [Recall docs: Add Content](https://docs.getrecall.ai/getting-started/2-add-content).
+- **Assumption:** [assumption] One configurable LLM provider is enough for the first release. **Justification:** model choice matters, but it is not the primary reason Recall appears valuable in the retrieved public sources. Sources: [Recall homepage](https://www.getrecall.ai), [Recall pricing](https://www.getrecall.ai/pricing).
+- **Assumption:** [assumption] AGPL-3.0 code should not be embedded directly unless reciprocal license obligations are acceptable. **Justification:** the recommended build path aims to preserve implementation flexibility. Source: [Trilium repository](https://github.com/TriliumNext/Trilium).
+
+### Analysis
+
+[fact] The evidence gives highest weight to Recall's own homepage, documentation, pricing, and privacy pages because they are primary sources for capability claims ([Recall homepage](https://www.getrecall.ai); [Recall pricing](https://www.getrecall.ai/pricing); [Recall privacy policy](https://www.getrecall.ai/legal/privacy-policy)).
+
+[fact] The competitor comparison uses official landing pages and official product copy, so it is reliable for top-level positioning but less reliable for fine-grained feature depth than hands-on testing would be ([Readwise Reader](https://readwise.io/read); [Matter](https://getmatter.com); [mymind](https://mymind.com); [Fabric](https://fabric.so); [Raindrop.io](https://raindrop.io)).
+
+[inference] The clone recommendation weights internal leverage more heavily than perfect parity because the question asks what can be built quickly, and `Personal-Assistant-` plus this Research repository already collapse several implementation risks ([Personal-Assistant repository readme](https://github.com/davidamitchell/Personal-Assistant-/blob/main/README.md); [Research repository readme](https://github.com/davidamitchell/Research/blob/main/README.md); [Research YouTube fetcher](https://github.com/davidamitchell/Research/blob/main/src/fetchers/youtube.py)).
+
+[inference] The main trade-off is between breadth and speed: every feature that makes Recall feel polished, such as Augmented Browsing, cross-platform capture, and retention workflows, slows a clone materially more than basic capture, retrieval, and note editing do ([Recall docs: Add Content](https://docs.getrecall.ai/getting-started/2-add-content); [Recall docs: Augmented Browsing](https://docs.getrecall.ai/deep-dives/recall-augmented-browsing); [Recall docs: Quiz and Spaced Repetition](https://docs.getrecall.ai/deep-dives/quiz-and-spaced-repetition)).
+
+[inference] The recommended path therefore uses existing internal primitives for the first release, borrows patterns from open-source systems selectively, and treats full Recall parity as a later strategic choice rather than an initial requirement ([Personal-Assistant repository readme](https://github.com/davidamitchell/Personal-Assistant-/blob/main/README.md); [Research repository readme](https://github.com/davidamitchell/Research/blob/main/README.md); [Surf repository](https://github.com/deta/surf); [SilverBullet repository](https://github.com/silverbulletmd/silverbullet); [Leon repository](https://github.com/leon-ai/leon); [Mem0 repository](https://github.com/mem0ai/mem0)).
+
+### Risks, Gaps, and Uncertainties
+
+- [fact] This item relies on public documentation and landing pages rather than product trials, so some execution details, quality levels, and hidden constraints remain unverified ([Recall homepage](https://www.getrecall.ai); [Readwise Reader](https://readwise.io/read); [Matter](https://getmatter.com); [mymind](https://mymind.com); [Fabric](https://fabric.so); [Raindrop.io](https://raindrop.io)).
+- [fact] Public Recall pages retrieved in this session confirm API and MCP claims but do not expose enough developer detail to estimate integration complexity precisely ([Recall homepage](https://www.getrecall.ai); [Recall pricing](https://www.getrecall.ai/pricing)).
+- [fact] `mem.ai` was not usable as a comparison source in this session because its fetched homepage returned only a browser-update notice (<https://mem.ai>).
+- [assumption] The recommended build path assumes the owner values a narrower internal assistant over a polished consumer product. **Justification:** that assumption changes whether build or buy is rational ([Recall homepage](https://www.getrecall.ai); [Recall pricing](https://www.getrecall.ai/pricing)).
+
+### Open Questions
+
+- Should the first clone ingest only the Research corpus plus saved URLs, or should it also import notes from other davidamitchell repositories on day one?
+- Is a lightweight bookmarklet acceptable for the first phase, or is a full browser extension required for actual user adoption?
+- Should the clone use hosted model providers first, or is local-model support a first-phase requirement because privacy is part of the product promise?
+- Does the first release need quizzes and spaced repetition for differentiation, or can those features wait until the core capture and retrieval loop is proven?
+
+---
 
 ---
 
