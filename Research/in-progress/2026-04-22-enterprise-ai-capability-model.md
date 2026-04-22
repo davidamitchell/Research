@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "Enterprise AI capability model for use-case maturity decisions"
 added: 2026-04-22
 status: reviewing
