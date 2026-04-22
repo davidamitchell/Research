@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-04-22T20:09:53Z",
+  "extracted_at": "2026-04-22T21:13:38Z",
   "items": {
     "2026-04-22-recall-competitive-landscape-and-clone-feasibility": {
       "named_concepts": [
@@ -67,6 +67,50 @@
         "Medium"
       ]
     },
+    "2026-04-22-enterprise-ai-platform-operating-models": {
+      "named_concepts": [
+        "team topologies",
+        "platform core",
+        "google cloud",
+        "control plane",
+        "capital one",
+        "cloud teams",
+        "dbs responsible",
+        "responsible ai",
+        "single unified",
+        "unified team",
+        "shared platform",
+        "customer base",
+        "business users",
+        "customer-segment split",
+        "bank disclosures",
+        "ai platforms",
+        "shared services",
+        "one central",
+        "central ai",
+        "ai platform"
+      ],
+      "source_urls": [
+        "https://url",
+        "https://teamtopologies.com/key-concepts",
+        "https://dora.dev/research/",
+        "https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report",
+        "https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-center-of-excellence/introduction.html",
+        "https://cloud.google.com/resources/cloud-teams",
+        "https://www.melconway.com/Home/Conways_Law.html",
+        "https://www.bankofengland.co.uk/prudential-regulation/publication/2022/october/artificial-intelligence",
+        "https://www.mas.gov.sg/publications/monographs-or-information-paper/2018/FEAT",
+        "https://www.dbs.com/artificial-intelligence-machine-learning/artificial-intelligence/responsible-ai-in-banking-gaining-a-competitive-edge.html",
+        "https://www.dbs.com/annualreports/2024/cio-statement.html",
+        "https://www.morganstanley.com/press-releases/key-milestone-in-innovation-journey-with-openai",
+        "https://www.morganstanley.com/press-releases/ai-at-morgan-stanley-debrief-launch",
+        "https://www.capitalone.com/tech/ai/data-management/",
+        "https://www.capitalone.com/software/blog/capital-one-you-build-your-data/",
+        "https://www.capitalone.com/digital/gai-transparency/",
+        "https://www.jpmorgan.com/insights/payments/security-trust/ai-payments-efficiency-fraud-reduction"
+      ],
+      "key_claims": []
+    },
     "2026-04-22-enterprise-ai-capability-model": {
       "named_concepts": [
         "safety nets",
@@ -109,6 +153,36 @@
         "https://www.nist.gov/itl/ai-risk-management-framework",
         "https://www.iso.org/standard/81230.html",
         "https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/maturity-model-overview"
+      ],
+      "key_claims": []
+    },
+    "2026-04-22-ai-governance-assurance-change-control-verification": {
+      "named_concepts": [
+        "high-risk changes",
+        "reusable workflows",
+        "artifact attestations",
+        "ci cd",
+        "policy bundles",
+        "public standards",
+        "required deployments",
+        "gates sources",
+        "audit trail",
+        "github already",
+        "workflows rulesets",
+        "reference implementation",
+        "policy layer",
+        "signed policy",
+        "exception handling",
+        "decisions sources",
+        "status checks",
+        "stronger controls",
+        "deployment admission",
+        "integrity guarantees"
+      ],
+      "source_urls": [
+        "https://slsa.dev/",
+        "https://www.openpolicyagent.org/docs/latest/",
+        "https://www.nist.gov/itl/ai-risk-management-framework"
       ],
       "key_claims": []
     },
