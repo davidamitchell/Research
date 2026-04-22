@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "Enterprise AI platform operating models: organisational structure and ownership"
 added: 2026-04-22
 status: reviewing
