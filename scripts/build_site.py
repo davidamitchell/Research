@@ -1567,7 +1567,7 @@ LANDING_SEARCH_JS = """
   function fetchIndex() {
     fetch('/Research/search-index.json')
       .then(function(r) { return r.json(); })
-      .then(function(data) { index = data; })
+      .then(function(data) { index = data; runPreview(); })
       .catch(function() {});
   }
 
@@ -1592,7 +1592,7 @@ LANDING_SEARCH_JS = """
         + '<span class="search-preview-date">' + escapeHtml(item.added) + '</span>'
         + '</a>';
     }).join('') + '<a class="search-see-all" href="/Research/search.html?q=' + encodeURIComponent(input.value.trim()) + '">see all results →</a>';
-    resultsEl.style.display = '';
+    resultsEl.style.display = 'block';
   }
 
   if (input) {
