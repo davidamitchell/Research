@@ -208,6 +208,12 @@ easily-detectable issues.
    PAT, MCP, RAG, CoT, PDF, GPT, SRE, PR, ITSM, PINT, CVE, OWASP. Fix every
    unexpanded abbreviation before proceeding.
 
+1a. **Domain-term clarity** -- scan for non-self-evident shorthand such as
+    "maturity ladder", "knowledge graph", "critic stack", "verifier stack", or
+    "human-in-the-loop". On first use, either replace the shorthand with plain
+    language or bind it to an authoritative definition source. Do not assume a
+    reviewer will treat domain jargon as self-explanatory.
+
 2. **Claim labels** -- every factual or inferential claim in
     `## Research Skill Output` must carry a `[fact]`, `[inference]`, or
     `[assumption]` label. Headings and question decomposition sub-headings are
