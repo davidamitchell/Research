@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "Automated governance assurance and change control verification patterns for AI-assisted delivery"
 added: 2026-04-22
 status: reviewing
