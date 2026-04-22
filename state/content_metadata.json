@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-04-22T21:13:38Z",
+  "extracted_at": "2026-04-22T21:59:21Z",
   "items": {
     "2026-04-22-recall-competitive-landscape-and-clone-feasibility": {
       "named_concepts": [
@@ -66,6 +66,98 @@
         "Medium",
         "Medium"
       ]
+    },
+    "2026-04-22-knowledge-curation-governance-for-regulated-ai": {
+      "named_concepts": [
+        "amazon bedrock",
+        "nist ai",
+        "ai rmf",
+        "copilot studio",
+        "bedrock knowledge-base",
+        "knowledge-base logging",
+        "microsoft copilot",
+        "studio security",
+        "dora ai",
+        "ai capabilities",
+        "capabilities model",
+        "model report",
+        "kcs methodology",
+        "apra cps",
+        "methodology amazon",
+        "bedrock knowledge",
+        "knowledge bases",
+        "authoritative knowledge",
+        "eba ml",
+        "irb models"
+      ],
+      "source_urls": [
+        "https://handbook.apra.gov.au/standard/cps-230",
+        "https://doi.org/10.6028/NIST.AI.100-1",
+        "https://www.iso.org/standard/81230.html",
+        "https://www.fca.org.uk/publications/feedback-statements/fs23-6-artifical-intelligence-machine-learning",
+        "https://www.bankofengland.co.uk/prudential-regulation/publication/2022/october/artificial-intelligence",
+        "https://www.eba.europa.eu/regulation-and-policy/internal-governance/guidelines-internal-governance-under-crd",
+        "https://www.eba.europa.eu/sites/default/files/document_library/Publications/Reports/2023/1061483/Follow-up%20report%20on%20machine%20learning%20for%20IRB%20models.pdf",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-bases-logging.html",
+        "https://cloud.google.com/resources/content/2025-dora-ai-capabilities-model-report",
+        "https://www.serviceinnovation.org/kcs/",
+        "https://www.fsb.org/2024/11/the-financial-stability-implications-of-artificial-intelligence/",
+        "https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-capability-model.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-platform-operating-models.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-15-context-layers-aligned-decisions-synthesis.html",
+        "https://davidamitchell.github.io/Research/research/2026-02-28-rbnz-ai-supervisory-expectations.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-02-agent-memory-management-context-injection.html",
+        "https://www.google.com/search?q=knowledge+management+AI+financial+services+audit+trail+2024..2026",
+        "https://www.google.com/search?q=RAG+knowledge+governance+enterprise+curation+ownership+2024..2026",
+        "https://www.google.com/search?q=AI+explainability+knowledge+provenance+regulated+industry+2024..2026"
+      ],
+      "key_claims": []
+    },
+    "2026-04-22-enterprise-ai-use-case-routing-frameworks": {
+      "named_concepts": [
+        "developer productivity",
+        "pro-code custom",
+        "custom lane",
+        "routing framework",
+        "intake rubric",
+        "low-code lane",
+        "central platform",
+        "platform team",
+        "shared enterprise",
+        "enterprise governance",
+        "governance layer",
+        "business automation",
+        "criticality autonomy",
+        "autonomy integration",
+        "integration depth",
+        "risk signals",
+        "platform family",
+        "higher-control workflows",
+        "operational risk",
+        "low-risk internal"
+      ],
+      "source_urls": [
+        "https://url",
+        "https://www.nist.gov/itl/ai-risk-management-framework",
+        "https://doi.org/10.6028/NIST.AI.100-1",
+        "https://www.iso.org/standard/81230.html",
+        "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai",
+        "https://learn.microsoft.com/azure/cloud-adoption-framework/scenarios/ai/govern",
+        "https://learn.microsoft.com/en-us/security/ai-red-team/ai-risk-assessment",
+        "https://learn.microsoft.com/en-us/power-platform/guidance/coe/overview",
+        "https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention",
+        "https://learn.microsoft.com/en-us/power-platform/admin/managed-environment-overview",
+        "https://cloud.google.com/architecture/framework",
+        "https://docs.cloud.google.com/architecture/framework/perspectives/ai-ml?hl=en",
+        "https://docs.cloud.google.com/architecture/framework/perspectives/ai-ml/operational-excellence?hl=en",
+        "https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/machine-learning-lens.html",
+        "https://docs.github.com/en/copilot/concepts/policies",
+        "https://docs.github.com/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise",
+        "https://docs.github.com/en/copilot/responsible-use-of-github-copilot-features/responsible-use-of-github-copilot-code-completion"
+      ],
+      "key_claims": []
     },
     "2026-04-22-enterprise-ai-platform-operating-models": {
       "named_concepts": [

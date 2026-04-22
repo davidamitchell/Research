@@ -1275,6 +1275,56 @@
     "url": "/Research/threads/consciousness-predictive-processing-anil-seth.html"
   },
   {
+    "slug": "ai-strategy-financial-services-risk-management",
+    "title": "ai-strategy / financial-services / risk-management",
+    "kind": "implicit",
+    "tag_cluster": [
+      "ai-strategy",
+      "financial-services",
+      "risk-management"
+    ],
+    "concept_cluster": [],
+    "item_count": 7,
+    "items": [
+      {
+        "slug": "2026-02-28-ai-strategy-risk-reduction-focus",
+        "title": "AI Strategy Examples: Risk Reduction Focus",
+        "added": "2026-02-28"
+      },
+      {
+        "slug": "2026-02-28-rbnz-ai-supervisory-expectations",
+        "title": "RBNZ AI Supervisory Expectations: What Do Regulated Entities Need to Know?",
+        "added": "2026-02-28"
+      },
+      {
+        "slug": "2026-02-28-ai-strategy-security-focus",
+        "title": "AI Strategy Examples: Security Focus",
+        "added": "2026-02-28"
+      },
+      {
+        "slug": "2026-02-28-ai-strategy-business-efficiency-examples",
+        "title": "AI Strategy Examples: Business Efficiency Focus",
+        "added": "2026-02-28"
+      },
+      {
+        "slug": "2026-02-28-ai-line-1-line-2-risk-agents",
+        "title": "AI Line 1 and Line 2 Risk Agents: Who Is Building Them?",
+        "added": "2026-02-28"
+      },
+      {
+        "slug": "2026-02-28-ai-control-testing-and-assurance",
+        "title": "AI for Control Testing, Gap Identification, and Policies/Standards Reviews",
+        "added": "2026-02-28"
+      },
+      {
+        "slug": "2026-04-22-knowledge-curation-governance-for-regulated-ai",
+        "title": "Knowledge curation governance as an enterprise AI capability in regulated financial institutions",
+        "added": "2026-04-22"
+      }
+    ],
+    "url": "/Research/threads/ai-strategy-financial-services-risk-management.html"
+  },
+  {
     "slug": "security-prompt-injection-red-team",
     "title": "security / prompt-injection / red-team",
     "kind": "implicit",
@@ -1408,51 +1458,6 @@
       }
     ],
     "url": "/Research/threads/ai-agents-software-engineering-prompts.html"
-  },
-  {
-    "slug": "ai-strategy-financial-services-risk-management",
-    "title": "ai-strategy / financial-services / risk-management",
-    "kind": "implicit",
-    "tag_cluster": [
-      "ai-strategy",
-      "financial-services",
-      "risk-management"
-    ],
-    "concept_cluster": [],
-    "item_count": 6,
-    "items": [
-      {
-        "slug": "2026-02-28-rbnz-ai-supervisory-expectations",
-        "title": "RBNZ AI Supervisory Expectations: What Do Regulated Entities Need to Know?",
-        "added": "2026-02-28"
-      },
-      {
-        "slug": "2026-02-28-ai-strategy",
-        "title": "AI Strategy: global and NZ examples, policy frameworks, regulations, and use-case typologies",
-        "added": "2026-02-28"
-      },
-      {
-        "slug": "2026-02-28-ai-strategy-risk-reduction-focus",
-        "title": "AI Strategy Examples: Risk Reduction Focus",
-        "added": "2026-02-28"
-      },
-      {
-        "slug": "2026-02-28-ai-strategy-business-efficiency-examples",
-        "title": "AI Strategy Examples: Business Efficiency Focus",
-        "added": "2026-02-28"
-      },
-      {
-        "slug": "2026-02-28-ai-line-1-line-2-risk-agents",
-        "title": "AI Line 1 and Line 2 Risk Agents: Who Is Building Them?",
-        "added": "2026-02-28"
-      },
-      {
-        "slug": "2026-02-28-ai-control-testing-and-assurance",
-        "title": "AI for Control Testing, Gap Identification, and Policies/Standards Reviews",
-        "added": "2026-02-28"
-      }
-    ],
-    "url": "/Research/threads/ai-strategy-financial-services-risk-management.html"
   },
   {
     "slug": "policy-as-code-compliance-dotnet",
@@ -1615,14 +1620,14 @@
     "url": "/Research/threads/cost-allocation-tbm-council-financial-services.html"
   },
   {
-    "slug": "copilot-coding-coding-agent-agents-md",
-    "title": "copilot coding / coding agent / agents md",
+    "slug": "coding-agent-copilot-coding-github-copilot",
+    "title": "coding agent / copilot coding / github copilot",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "copilot coding",
       "coding agent",
-      "agents md"
+      "copilot coding",
+      "github copilot"
     ],
     "item_count": 5,
     "items": [
@@ -1652,7 +1657,7 @@
         "added": "2026-03-28"
       }
     ],
-    "url": "/Research/threads/copilot-coding-coding-agent-agents-md.html"
+    "url": "/Research/threads/coding-agent-copilot-coding-github-copilot.html"
   },
   {
     "slug": "evaluation-agents-research-loop",
@@ -1725,13 +1730,13 @@
     "url": "/Research/threads/youtube-transcripts-tooling.html"
   },
   {
-    "slug": "agents-md-github-copilot-claude-code",
-    "title": "agents md / github copilot / claude code",
+    "slug": "github-copilot-agents-md-claude-code",
+    "title": "github copilot / agents md / claude code",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "agents md",
       "github copilot",
+      "agents md",
       "claude code"
     ],
     "item_count": 4,
@@ -1757,7 +1762,7 @@
         "added": "2026-04-20"
       }
     ],
-    "url": "/Research/threads/agents-md-github-copilot-claude-code.html"
+    "url": "/Research/threads/github-copilot-agents-md-claude-code.html"
   },
   {
     "slug": "synthesis-exploration-decision-making",
@@ -2030,6 +2035,36 @@
     "url": "/Research/threads/llm-context-window-mcp.html"
   },
   {
+    "slug": "ai-strategy-rbnz-agentic-ai",
+    "title": "ai-strategy / rbnz / agentic-ai",
+    "kind": "implicit",
+    "tag_cluster": [
+      "ai-strategy",
+      "rbnz",
+      "agentic-ai"
+    ],
+    "concept_cluster": [],
+    "item_count": 3,
+    "items": [
+      {
+        "slug": "2026-02-28-ai-strategy",
+        "title": "AI Strategy: global and NZ examples, policy frameworks, regulations, and use-case typologies",
+        "added": "2026-02-28"
+      },
+      {
+        "slug": "2026-02-28-rbnz-ai-supervisory-expectations",
+        "title": "RBNZ AI Supervisory Expectations: What Do Regulated Entities Need to Know?",
+        "added": "2026-02-28"
+      },
+      {
+        "slug": "2026-02-28-ai-line-1-line-2-risk-agents",
+        "title": "AI Line 1 and Line 2 Risk Agents: Who Is Building Them?",
+        "added": "2026-02-28"
+      }
+    ],
+    "url": "/Research/threads/ai-strategy-rbnz-agentic-ai.html"
+  },
+  {
     "slug": "ai-governance-ai-strategy-security",
     "title": "ai-governance / ai-strategy / security",
     "kind": "implicit",
@@ -2088,5 +2123,35 @@
       }
     ],
     "url": "/Research/threads/workflow-process-tooling.html"
+  },
+  {
+    "slug": "incident-reporting-effective-july-ai-act",
+    "title": "incident reporting / effective july / ai act",
+    "kind": "concept",
+    "tag_cluster": [],
+    "concept_cluster": [
+      "incident reporting",
+      "effective july",
+      "ai act"
+    ],
+    "item_count": 3,
+    "items": [
+      {
+        "slug": "2026-02-28-rbnz-ai-supervisory-expectations",
+        "title": "RBNZ AI Supervisory Expectations: What Do Regulated Entities Need to Know?",
+        "added": "2026-02-28"
+      },
+      {
+        "slug": "2026-02-28-ai-strategy",
+        "title": "AI Strategy: global and NZ examples, policy frameworks, regulations, and use-case typologies",
+        "added": "2026-02-28"
+      },
+      {
+        "slug": "2026-02-28-ai-strategy-risk-reduction-focus",
+        "title": "AI Strategy Examples: Risk Reduction Focus",
+        "added": "2026-02-28"
+      }
+    ],
+    "url": "/Research/threads/incident-reporting-effective-july-ai-act.html"
   }
 ]
