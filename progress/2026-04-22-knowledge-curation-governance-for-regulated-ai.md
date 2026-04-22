@@ -1,11 +1,18 @@
-# 2026-04-22 -- Add backlog item (knowledge-curation-governance-for-regulated-ai)
+# 2026-04-22 -- Research Loop (knowledge-curation-governance-for-regulated-ai)
 
 **Completed:**
-- `Research/backlog/2026-04-22-knowledge-curation-governance-for-regulated-ai.md` - added from issue #370; frames the research question on operational governance models for authoritative AI knowledge in regulated financial services.
+
+Research item:
+- `Research/completed/2026-04-22-knowledge-curation-governance-for-regulated-ai.md` -- completed; the item concludes that regulated financial institutions should govern AI-facing authoritative knowledge through a hybrid model with central control standards and federated domain stewardship. It also identifies a six-stage lifecycle, correction-to-source traceability, and replayable lineage as the practical controls that make AI knowledge explainable and auditable in regulated settings.
+
+Sources consulted:
+- https://handbook.apra.gov.au/standard/cps-230 (APRA operational-risk and control expectations)
+- https://doi.org/10.6028/NIST.AI.100-1 (NIST governance, accountability, and versioning framework)
+- https://www.serviceinnovation.org/kcs/ (Knowledge-Centered Service lifecycle and correction-loop model)
 
 ## Mini-Retro
 
-1. **Did the process work?** Yes. The issue provided a strong initial question and scope, so the backlog template could be populated directly with only light normalisation.
-2. **What slowed down or went wrong?** Baseline local validation initially failed because dev tooling (`ruff`, `pytest`) was not installed in the fresh environment.
-3. **What single change would prevent this next time?** Keep using `pip install -e ".[dev]"` early in fresh sessions before running repository checks.
-4. **Is this a pattern?** Yes. Fresh clones frequently need explicit dependency bootstrapping before lint/test commands succeed.
+1. **Did the process work?** Yes. Starting from the auto-pass completion step made the finalisation flow clean, and the item already had a coherent synthesis to carry into completion.
+2. **What slowed down or went wrong?** The only real judgment call was deciding whether the findings fit an existing learnings thread or warranted a new cross-cutting theme.
+3. **What single change would prevent this next time?** Nothing. The current prompt already forces the right completion checks and synthesis update.
+4. **Is this a pattern?** No. This was a content-specific synthesis decision, not a recurring workflow failure.
