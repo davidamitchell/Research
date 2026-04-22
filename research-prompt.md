@@ -235,6 +235,14 @@ easily-detectable issues.
     as direct support for downstream factual claims in Findings; either remove
     the citation, downgrade the claim, or mark the dependency as an assumption.
 
+2c. **No self-referential citations** -- do not cite "this file", "self-audit",
+    "investigation record", or similar internal phrases as sources in `§0`,
+    `§7`, or `## Findings`. Every cited claim must bind to a verifiable URL or
+    a pinpoint citation to an external standard, platform document, or prior
+    completed research item with a GitHub URL. If a sentence is only describing
+    the item's own structure or workflow state, either remove the citation need
+    by rewriting it as pure metadata or cite the item's GitHub URL explicitly.
+
 3. **Vague quantifiers** -- check for unsourced "many", "most", "significant",
    "state-of-the-art". Replace with specific numbers or add a source, or
    qualify as `[inference]`.
