@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Recall competitive landscape and clone feasibility"
 added: 2026-04-22
 status: reviewing
