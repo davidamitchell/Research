@@ -1,9 +1,10 @@
 # Research Master Document
 
-Generated on: 2026-04-20 22:14 UTC
+Generated on: 2026-04-22 08:06 UTC
 
 ## Table of Contents
 
+* [Enterprise AI capability model for use-case maturity decisions](#2026-04-22-enterprise-ai-capability-model-md)
 * [Harness-level selection and use of tools, agents, skills, prompts, and instruction files](#2026-04-20-harness-selection-tools-agents-skills-prompts-instructions-md)
 * [Shopify's Artificial Intelligence (AI) strategy after the Red Queen memo: selection pressure, talent-market effects, and copycat outcomes](#2026-04-18-shopify-ai-strategy-red-queen-memo-md)
 * [Latest developments history: trends, themes, and forward scenarios](#2026-04-18-latest-developments-trends-forecast-md)
@@ -146,6 +147,100 @@ Generated on: 2026-04-20 22:14 UTC
 * [AI Strategy Examples: Business Efficiency Focus](#2026-02-28-ai-strategy-business-efficiency-examples-md)
 * [AI Line 1 and Line 2 Risk Agents: Who Is Building Them?](#2026-02-28-ai-line-1-line-2-risk-agents-md)
 * [AI for Control Testing, Gap Identification, and Policies/Standards Reviews](#2026-02-28-ai-control-testing-and-assurance-md)
+
+---
+
+<a name="2026-04-22-enterprise-ai-capability-model-md"></a>
+
+## Enterprise AI capability model for use-case maturity decisions
+
+**Tags:** [ai, enterprise, capability-model, maturity-framework, software-delivery]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-22-enterprise-ai-capability-model.md
+
+## Research Question
+
+What enterprise-wide Artificial Intelligence (AI) capability model best supports deciding whether a candidate AI use case requires net-new foundational capabilities or can reuse capabilities already built across the enterprise?
+
+## Findings
+
+*(Seeded from section 6 synthesis above.)*
+
+### Executive Summary
+
+[inference; source: https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/maturity-model-overview; https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report; https://doi.org/10.6028/NIST.AI.100-1; https://www.iso.org/standard/81230.html] The best enterprise AI capability model for use-case maturity decisions is a three-layer dependency map in which shared foundational capabilities are assessed before any use case is allowed to claim reuse, while a five-level maturity model remains a separate portfolio overlay.
+[inference; source: https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report; https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/; https://www.faros.ai/blog/translating-ai-powered-developer-velocity-into-business-outcomes] Software-delivery evidence shows why: model access and local productivity gains are easy to obtain, but organisation-level reuse only works when governance, internal context, platform safety nets, evaluation, and workflow redesign already exist as shared enterprise rails.
+[inference; source: https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/maturity-model-overview] A five-level maturity model remains useful as a separate portfolio view because it helps leaders assess broad organisational progression from experimentation to enterprise-scale operation, but it does not replace the dependency checks needed at use-case intake.
+[inference; source: https://doi.org/10.6028/NIST.AI.100-1; https://www.iso.org/standard/81230.html] A candidate use case should trigger foundational investment whenever one of those rails is missing, because governance and lifecycle control are not project-specific add-ons but reusable enterprise capabilities.
+[inference; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-19-layered-org-llm-architecture.md; https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report] Net-new enabling or differentiating capability is justified only after the foundations are already proved and the use case clearly needs specialised routing, internalised domain heuristics, or higher-assurance verification.
+
+### Key Findings
+
+1. [inference; source: https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/maturity-model-overview; https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report; https://doi.org/10.6028/NIST.AI.100-1; https://www.iso.org/standard/81230.html] **High confidence:** The most useful enterprise AI capability model for use-case intake is a dependency map that separates foundational shared rails from enabling and differentiating layers, because the decision problem is whether a specific use case can safely ride existing enterprise capability rather than where the enterprise sits on a single five-level maturity model.
+2. [fact; source: https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report] **Medium confidence:** DORA's 2025 research shows that AI amplifies existing system quality, so clear AI policies, internal context, high-quality internal platforms, user-centric workflow design, and safety nets are prerequisites for reliable reuse across a portfolio of use cases.
+3. [inference; source: https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/; https://www.faros.ai/blog/translating-ai-powered-developer-velocity-into-business-outcomes; https://www.gitclear.com/coding_on_copilot_data_shows_ais_downward_pressure_on_code_quality] **High confidence:** Individual AI productivity gains cannot be treated as sufficient evidence of enterprise readiness, because faster task completion can coexist with higher churn, larger review queues, and flat company-level outcomes when downstream controls remain weak.
+4. [inference; source: https://doi.org/10.6028/NIST.AI.100-1; https://www.iso.org/standard/81230.html] **High confidence:** Governance capability belongs in the foundational layer because both NIST AI RMF and ISO/IEC 42001 require organisation-wide intake, mapping, measurement, management, and lifecycle controls that are reusable across multiple AI use cases.
+5. [inference; source: https://hai.stanford.edu/assets/files/hai_ai_index_report_2025.pdf; https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai] **Medium confidence:** Enterprise pressure to deploy AI is already intense, but scaling maturity remains uneven, which implies that operating-model and governance capability are now a stronger constraint than simple access to models or pilot opportunities.
+6. [inference; source: https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report; https://doi.org/10.6028/NIST.AI.100-1; https://www.iso.org/standard/81230.html] **High confidence:** The foundational layer should contain governance and intake, authoritative context and access, platform and workflow safety nets, evaluation and measurement, and workforce adoption and change management, because each of these capabilities is repeatedly required before safe reuse becomes plausible.
+7. [inference; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-19-layered-org-llm-architecture.md; https://doi.org/10.6028/NIST.AI.100-1] **Medium confidence:** Net-new enabling or differentiating capability should only be added after the foundations are already in place and the use case clearly needs specialised routing, internalised domain heuristics, domain ontologies, or stronger review and checking layers than the shared baseline provides.
+8. [inference; source: https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report; https://www.faros.ai/blog/translating-ai-powered-developer-velocity-into-business-outcomes; https://www.gitclear.com/coding_on_copilot_data_shows_ais_downward_pressure_on_code_quality] **High confidence:** The default enterprise failure mode is to scale generation before scaling control, which produces pilot sprawl, weak provenance, quality regressions, and local enthusiasm that never becomes reusable organisational learning.
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [inference] The right enterprise AI model for intake is a dependency map, while a five-level maturity model is better treated as a portfolio overlay. | https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/maturity-model-overview; https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report; https://doi.org/10.6028/NIST.AI.100-1; https://www.iso.org/standard/81230.html | high | Microsoft provides the concrete maturity-model comparison point, while DORA, NIST, and ISO show why dependency checks remain necessary per use case. |
+| [fact] DORA says reusable AI value depends on policy, internal context, platforms, user-centricity, and safety nets. | https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report | medium | This is stated directly in DORA's published guidance, but the table row rests on one source. |
+| [inference] Local productivity gains do not by themselves prove organisational readiness. | https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/; https://www.faros.ai/blog/translating-ai-powered-developer-velocity-into-business-outcomes; https://www.gitclear.com/coding_on_copilot_data_shows_ais_downward_pressure_on_code_quality | high | GitHub shows local gains; Faros and GitClear show system-level bottlenecks and quality drag. |
+| [inference] Governance capability belongs in the foundational layer of this model. | https://doi.org/10.6028/NIST.AI.100-1; https://www.iso.org/standard/81230.html | high | Both frameworks define organisation-wide lifecycle control requirements, and the foundational-layer placement is the model synthesis. |
+| [inference] Deployment pressure is high while operating-model and governance maturity remain the stronger constraint. | https://hai.stanford.edu/assets/files/hai_ai_index_report_2025.pdf; https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai | medium | AI Index supplies macro pressure numbers, McKinsey describes pilot-heavy reality, and the constraint ranking is interpretive. |
+| [inference] Five foundational capabilities are required before safe reuse becomes plausible. | https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report; https://doi.org/10.6028/NIST.AI.100-1; https://www.iso.org/standard/81230.html | high | This is the main synthesis output of the item. |
+| [inference] Enabling and differentiating capabilities should be added only above proven foundations. | https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-19-layered-org-llm-architecture.md; https://doi.org/10.6028/NIST.AI.100-1 | medium | The pattern is structurally strong, but enterprise crossover thresholds remain under-specified in public evidence. |
+| [inference] Scaling generation before scaling control is the most common enterprise failure mode. | https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report; https://www.faros.ai/blog/translating-ai-powered-developer-velocity-into-business-outcomes; https://www.gitclear.com/coding_on_copilot_data_shows_ais_downward_pressure_on_code_quality | high | Three independent software-delivery sources align on the same mechanism. |
+
+### Assumptions
+
+- [assumption; source: https://www.stateof.ai/] **Assumption:** The State of AI Report is useful as ecosystem context but not as direct capability-design evidence. **Justification:** the report is broad and signal-rich, but less direct than DORA, NIST, ISO, AI Index, GitHub, GitClear, and Faros for this decision problem.
+- [assumption; source: https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/superagency-in-the-workplace-empowering-people-to-unlock-ais-full-potential; https://www.mckinsey.com/~/media/mckinsey/business%20functions/quantumblack/our%20insights/superagency%20in%20the%20workplace%20empowering%20people%20to%20unlock%20ais%20full%20potential%20at%20work/superagency-in-the-workplace-empowering-people-to-unlock-ais-full-potential-v4.pdf] **Assumption:** McKinsey Superagency is a useful secondary reinforcement for workforce and operating-model capability, not a primary pillar of the final model. **Justification:** the listed page was not directly fetchable in this environment.
+
+### Analysis
+
+[inference; source: https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report; https://www.faros.ai/blog/translating-ai-powered-developer-velocity-into-business-outcomes] I weighted software-delivery evidence heavily because it shows the exact enterprise failure mode that a reuse-versus-build model needs to prevent: faster local generation arriving before shared control systems are ready.
+[inference; source: https://doi.org/10.6028/NIST.AI.100-1; https://www.iso.org/standard/81230.html] I weighted NIST AI RMF and ISO/IEC 42001 heavily because they turn vague maturity language into explicit organisational capabilities that can be reused across use cases and checked at intake.
+[inference; source: https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/maturity-model-overview; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-21-technology-capability-models.md] I resolved the model-shape question by comparing a concrete five-level maturity model, Microsoft's, with the prior repository conclusion that durable enterprise maps separate stable taxonomy from assessment overlays, because that keeps the AI capability map stable while still allowing portfolio-level progression scoring.
+[inference; source: https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report; https://doi.org/10.6028/NIST.AI.100-1; https://www.iso.org/standard/81230.html] The resulting model is intentionally conservative: if a use case exposes a gap in governance, context, platform safety nets, evaluation, or operating-model readiness, the right answer is foundational investment first rather than custom capability on top of weak ground.
+
+#### Consolidated capability model
+
+- [inference; source: https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report; https://doi.org/10.6028/NIST.AI.100-1; https://www.iso.org/standard/81230.html] **Foundational - governance and intake:** reuse is plausible only when a use case has a named owner, risk class, approved policy, and escalation path; if any of those are missing, the right decision is foundational investment first.
+- [inference; source: https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report; https://doi.org/10.6028/NIST.AI.100-1] **Foundational - authoritative context and access:** reuse is plausible only when trusted sources, permissions, provenance, and refresh rules already exist as shared capability; if they do not, the gap is foundational.
+- [inference; source: https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report; https://www.faros.ai/blog/translating-ai-powered-developer-velocity-into-business-outcomes] **Foundational - platform and workflow safety nets:** reuse is plausible only when logging, testing, review, rollback, and fast feedback loops already exist as shared delivery controls; if they do not, the gap is foundational.
+- [inference; source: https://doi.org/10.6028/NIST.AI.100-1; https://www.iso.org/standard/81230.html] **Foundational - evaluation and measurement:** reuse is plausible only when benchmark sets, error thresholds, incident metrics, and drift checks already exist as shared capability; if they do not, the gap is foundational.
+- [inference; source: https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report; https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai] **Foundational - workforce adoption and change:** reuse is plausible only when training, workflow redesign, support, and user accountability are already planned as operating capability; if they are not, the gap is foundational.
+- [inference; source: https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-19-layered-org-llm-architecture.md] **Enabling - reusable retrieval and orchestration:** shared context stacks, routing, policy enforcement, and human approvals should be reused once the foundational layer is already in place.
+- [inference; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-19-layered-org-llm-architecture.md; https://doi.org/10.6028/NIST.AI.100-1] **Differentiating - domain-specific optimisation:** ontologies, adapters, specialised review components, and specialised benchmarks should be added only after foundations are proven and a specific use case clearly needs them.
+
+#### Triage rubric
+
+1. [inference; source: https://doi.org/10.6028/NIST.AI.100-1; https://www.iso.org/standard/81230.html] **Gate 1:** If the use case lacks an owner, risk class, or lifecycle control path, classify it as foundational investment first.
+2. [inference; source: https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report] **Gate 2:** If the use case lacks authoritative context, internal data access, platform safety nets, or measurable evaluation, classify it as foundational investment first.
+3. [inference; source: https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-19-layered-org-llm-architecture.md] **Gate 3:** If all foundations exist and the use case mainly needs configuration on shared retrieval, policy, and evaluation rails, classify it as reuse shared capability.
+4. [inference; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-19-layered-org-llm-architecture.md; https://doi.org/10.6028/NIST.AI.100-1] **Gate 4:** If all foundations exist but the use case needs specialised routing, internalised domain heuristics, or higher-assurance verification, classify it as add new enabling or differentiating capability.
+
+### Risks, Gaps, and Uncertainties
+
+[fact; source: https://a16z.com/big-ideas-in-tech/] The listed a16z source was inaccessible as a live page in this environment, so venture-style strategy framing is underweighted in the final synthesis.
+[fact; source: https://faros.ai/blog/the-ai-productivity-paradox] The listed Faros source URL was inaccessible as a live page, so Faros support relies on a later Faros analysis page and linked PDF rather than the original destination.
+[fact; source: https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/superagency-in-the-workplace-empowering-people-to-unlock-ais-full-potential] The listed McKinsey Superagency page did not fetch directly, so workforce and training claims from that seed source carry less weight than the DORA, NIST, ISO, AI Index, GitHub, GitClear, and Faros evidence.
+[inference; source: https://hai.stanford.edu/assets/files/hai_ai_index_report_2025.pdf; https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai] The evidence is very strong on adoption pressure and governance gaps, but it is still weak on the exact cost threshold at which an enterprise should graduate from shared foundations to expensive differentiating layers such as adapters, ontologies, or specialised checking components.
+
+### Open Questions
+
+[inference; source: https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report] What benchmark should tell an enterprise that its shared retrieval, policy, and evaluation rails are mature enough for higher-autonomy use cases?
+[inference; source: https://doi.org/10.6028/NIST.AI.100-1; https://www.iso.org/standard/81230.html] Which governance controls can remain fully shared across the enterprise, and which must always remain specialised by domain or risk class?
+[inference; source: https://www.faros.ai/blog/translating-ai-powered-developer-velocity-into-business-outcomes; https://www.gitclear.com/coding_on_copilot_data_shows_ais_downward_pressure_on_code_quality] What is the best early-warning metric for the point where generation capacity begins to outrun verification capacity in enterprise delivery systems?
+
+---
 
 ---
 
