@@ -656,30 +656,41 @@ main {
 <p>A custom GPT can be configured with Actions that call a self-hosted HTTPS endpoint to write a memory (<code>add_memory</code>) and to retrieve context before responding (<code>search_brain</code>)  -  both capabilities are fully supported by the OpenAI Actions architecture. OpenAI's built-in ChatGPT memory system has no programmatic API; no export or import hook exists, making the external Actions write path the only viable route to cross-tool memory portability. Authentication is simpler than the Claude iOS MCP path: GPT Actions support static API key injection via a custom header, which works reliably on the ChatGPT iOS mobile app; OAuth-based Actions have documented mobile reliability problems. The hosting backend established in prior research (Cloudflare Workers for write, Fly.io or Tailscale Funnel for vector search) applies without modification and can serve both ChatGPT Actions and Claude iOS MCP from a single deployment.</p>
 <h3>Key Findings</h3>
 <ol>
-<li><p>A custom GPT Action can call any public HTTPS endpoint described by an OpenAPI schema; the call is made server-side by OpenAI's infrastructure, making CORS irrelevant and requiring no changes to an existing Cloudflare Workers or Fly.io backend.</p>
+<li>
+<p>A custom GPT Action can call any public HTTPS endpoint described by an OpenAPI schema; the call is made server-side by OpenAI's infrastructure, making CORS irrelevant and requiring no changes to an existing Cloudflare Workers or Fly.io backend.</p>
 </li>
-<li><p>API key authentication with a custom header (e.g., <code>X-Api-Key</code>) is supported in the GPT editor UI as a server-side secret  -  it is never visible to the user  -  and works reliably on the ChatGPT iOS mobile app, unlike OAuth 2.0 which has documented persistent failures on iOS and Android through mid-2025.</p>
+<li>
+<p>API key authentication with a custom header (e.g., <code>X-Api-Key</code>) is supported in the GPT editor UI as a server-side secret  -  it is never visible to the user  -  and works reliably on the ChatGPT iOS mobile app, unlike OAuth 2.0 which has documented persistent failures on iOS and Android through mid-2025.</p>
 </li>
-<li><p>The <code>add_memory</code> write path (stateless Cloudflare Workers proxy to GitHub Contents API) is directly compatible with GPT Actions and requires no modifications to the backend established in <code>2026-03-08-self-hosted-mcp-server-options.md</code>.</p>
+<li>
+<p>The <code>add_memory</code> write path (stateless Cloudflare Workers proxy to GitHub Contents API) is directly compatible with GPT Actions and requires no modifications to the backend established in <code>2026-03-08-self-hosted-mcp-server-options.md</code>.</p>
 </li>
-<li><p>The <code>search_brain</code> retrieval path can be triggered before every GPT response via a system prompt instruction such as &quot;Before every response, call the search_brain action with the user's query and incorporate the results as context&quot;; compliance is probabilistic (system prompt enforcement) rather than protocol-guaranteed, but is sufficient for personal single-user deployment.</p>
+<li>
+<p>The <code>search_brain</code> retrieval path can be triggered before every GPT response via a system prompt instruction such as &quot;Before every response, call the search_brain action with the user's query and incorporate the results as context&quot;; compliance is probabilistic (system prompt enforcement) rather than protocol-guaranteed, but is sufficient for personal single-user deployment.</p>
 </li>
-<li><p>OpenAI's built-in ChatGPT memory system exposes no programmatic API: there is no endpoint for reading, writing, or importing saved memories; the data export available via the privacy portal is a manual one-time ZIP download, not a synchronisation hook.</p>
+<li>
+<p>OpenAI's built-in ChatGPT memory system exposes no programmatic API: there is no endpoint for reading, writing, or importing saved memories; the data export available via the privacy portal is a manual one-time ZIP download, not a synchronisation hook.</p>
 </li>
-<li><p>Creating a custom GPT with Actions requires ChatGPT Plus at $20/month (identical to the Claude Pro requirement for Claude iOS MCP Connectors), meaning the cost parity between the two paths is exact and not a differentiating factor.</p>
+<li>
+<p>Creating a custom GPT with Actions requires ChatGPT Plus at $20/month (identical to the Claude Pro requirement for Claude iOS MCP Connectors), meaning the cost parity between the two paths is exact and not a differentiating factor.</p>
 </li>
-<li><p>A single backend deployment can serve both GPT Actions (REST/JSON) and Claude iOS MCP (Streamable HTTP) endpoints without conflict, meaning the cross-tool memory portability goal  -  capturing from ChatGPT and retrieving in Claude, and vice versa  -  can be achieved with no additional hosting cost beyond the Fly.io/Railway instance already required for vector search.</p>
+<li>
+<p>A single backend deployment can serve both GPT Actions (REST/JSON) and Claude iOS MCP (Streamable HTTP) endpoints without conflict, meaning the cross-tool memory portability goal  -  capturing from ChatGPT and retrieving in Claude, and vice versa  -  can be achieved with no additional hosting cost beyond the Fly.io/Railway instance already required for vector search.</p>
 </li>
-<li><p>The ChatGPT Actions path has one structural limitation compared to Claude iOS MCP Connectors: retrieval only activates when the user opens the specific memory-retrieval custom GPT, whereas Claude Connectors apply automatically to every Claude conversation once configured.</p>
+<li>
+<p>The ChatGPT Actions path has one structural limitation compared to Claude iOS MCP Connectors: retrieval only activates when the user opens the specific memory-retrieval custom GPT, whereas Claude Connectors apply automatically to every Claude conversation once configured.</p>
 </li>
 </ol>
 <h3>Assumptions</h3>
 <ul>
-<li><p><strong>Assumption:</strong> A system prompt instruction (&quot;before every response, call search_brain&quot;) achieves ≥95% retrieval invocation for standard conversational queries. <strong>Justification:</strong> Community implementations of RAG via Actions report reliable trigger behaviour for explicit, unambiguous instructions; the failure mode is ambiguous instructions, not the underlying mechanism. This rate is sufficient for personal use but has not been empirically measured.</p>
+<li>
+<p><strong>Assumption:</strong> A system prompt instruction (&quot;before every response, call search_brain&quot;) achieves ≥95% retrieval invocation for standard conversational queries. <strong>Justification:</strong> Community implementations of RAG via Actions report reliable trigger behaviour for explicit, unambiguous instructions; the failure mode is ambiguous instructions, not the underlying mechanism. This rate is sufficient for personal use but has not been empirically measured.</p>
 </li>
-<li><p><strong>Assumption:</strong> A single FastAPI backend can expose both MCP Streamable HTTP routes and plain REST/JSON routes on different paths without conflict. <strong>Justification:</strong> FastAPI's routing system supports arbitrary path definitions; MCP and REST share the HTTP transport layer and can coexist in the same process. This is a standard web application architecture pattern.</p>
+<li>
+<p><strong>Assumption:</strong> A single FastAPI backend can expose both MCP Streamable HTTP routes and plain REST/JSON routes on different paths without conflict. <strong>Justification:</strong> FastAPI's routing system supports arbitrary path definitions; MCP and REST share the HTTP transport layer and can coexist in the same process. This is a standard web application architecture pattern.</p>
 </li>
-<li><p><strong>Assumption:</strong> The user sets the memory-retrieval custom GPT as the default or primary interface for ChatGPT conversations to ensure retrieval runs consistently. <strong>Justification:</strong> If the user opens standard ChatGPT (not the custom GPT), no retrieval occurs. The custom GPT must be the entry point. This is a workflow discipline requirement, not a technical constraint.</p>
+<li>
+<p><strong>Assumption:</strong> The user sets the memory-retrieval custom GPT as the default or primary interface for ChatGPT conversations to ensure retrieval runs consistently. <strong>Justification:</strong> If the user opens standard ChatGPT (not the custom GPT), no retrieval occurs. The custom GPT must be the entry point. This is a workflow discipline requirement, not a technical constraint.</p>
 </li>
 </ul>
 <h3>Analysis</h3>

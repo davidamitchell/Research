@@ -664,36 +664,50 @@ main {
 <p>Coupling an organisation's AI capability to its data/analytics department is a structural category error: analytics platforms fail the non-functional requirements of production AI agents by design, and the data/analytics team lacks the organisational mandate, skills, and regulatory accountability required for the operational agent layer. The correct integration architecture places agents against the organisation's API layer - via API gateway, horizontally-scaling services, MCP servers, and STS token exchange (RFC 8693) - which satisfies the latency, HADR, delegated identity, mutation auditability, and zero-trust requirements that analytics platforms cannot. Knowledge management (policies, regulations, procedural context served via RAG) is a distinct discipline from data management and belongs in the API/platform layer, not the warehouse. Regulators including NIST AI RMF, APRA CPS 230, and FCA/PRA confirm that AI accountability requires IT, legal, HR, and compliance mandate that no data/analytics team holds; the empirical record shows that 74% of organisations that anchor AI in data teams fail to scale to visible business value.</p>
 <h3>Key Findings</h3>
 <ol>
-<li><p><strong>Analytics platforms fail production AI agent NFRs by design, not by deficiency: they are built for batch/analytical workloads and cannot satisfy the sub-second latency, HADR, fine-grained delegated authorisation, mutation auditability, and zero-trust requirements that production agents demand.</strong> (Confidence: high)</p>
+<li>
+<p><strong>Analytics platforms fail production AI agent NFRs by design, not by deficiency: they are built for batch/analytical workloads and cannot satisfy the sub-second latency, HADR, fine-grained delegated authorisation, mutation auditability, and zero-trust requirements that production agents demand.</strong> (Confidence: high)</p>
 </li>
-<li><p><strong>Martin Fowler's data mesh architecture explicitly establishes that operational data is served through microservice APIs and that &quot;data is hidden on the inside of each microservice, controlled and accessed through the microservice's APIs&quot; - meaning agents that consume operational data must integrate through the API layer, not the analytical plane.</strong> (Confidence: high)</p>
+<li>
+<p><strong>Martin Fowler's data mesh architecture explicitly establishes that operational data is served through microservice APIs and that &quot;data is hidden on the inside of each microservice, controlled and accessed through the microservice's APIs&quot; - meaning agents that consume operational data must integrate through the API layer, not the analytical plane.</strong> (Confidence: high)</p>
 </li>
-<li><p><strong>RFC 8693 (OAuth 2.0 Token Exchange) and the IETF AI agent extension draft provide the STS delegation model that agents require for auditable, narrowly-scoped, per-user-per-context delegated access - a capability that analytics platforms do not support and cannot be retrofitted to provide.</strong> (Confidence: high)</p>
+<li>
+<p><strong>RFC 8693 (OAuth 2.0 Token Exchange) and the IETF AI agent extension draft provide the STS delegation model that agents require for auditable, narrowly-scoped, per-user-per-context delegated access - a capability that analytics platforms do not support and cannot be retrofitted to provide.</strong> (Confidence: high)</p>
 </li>
-<li><p><strong>MCP (Model Context Protocol), adopted by Microsoft, AWS, Google, and Anthropic in 2024–2025 as an industry standard, implements the API-layer integration pattern: declared capabilities, access scopes, JSON-RPC over HTTPS/mTLS, audit logging, and per-request policy enforcement, with no analytics platform analogue.</strong> (Confidence: high)</p>
+<li>
+<p><strong>MCP (Model Context Protocol), adopted by Microsoft, AWS, Google, and Anthropic in 2024–2025 as an industry standard, implements the API-layer integration pattern: declared capabilities, access scopes, JSON-RPC over HTTPS/mTLS, audit logging, and per-request policy enforcement, with no analytics platform analogue.</strong> (Confidence: high)</p>
 </li>
-<li><p><strong>Knowledge management - the discipline of curating policies, regulations, procedural context, and organisational strategy for agent consumption via RAG or knowledge graphs - is structurally distinct from data management and requires its own tooling, versioning, and governance layer that a data warehouse does not provide.</strong> (Confidence: high)</p>
+<li>
+<p><strong>Knowledge management - the discipline of curating policies, regulations, procedural context, and organisational strategy for agent consumption via RAG or knowledge graphs - is structurally distinct from data management and requires its own tooling, versioning, and governance layer that a data warehouse does not provide.</strong> (Confidence: high)</p>
 </li>
-<li><p><strong>NIST AI RMF's Govern function, APRA CPS 230, and Singapore's Model AI Governance Framework all explicitly require cross-functional AI accountability spanning IT, legal, HR, and compliance; no data/analytics team holds mandate across these functions, and the FCA/PRA confirmed CRO and CTO - not CDO - bear AI risk accountability within their operational domains.</strong> (Confidence: high)</p>
+<li>
+<p><strong>NIST AI RMF's Govern function, APRA CPS 230, and Singapore's Model AI Governance Framework all explicitly require cross-functional AI accountability spanning IT, legal, HR, and compliance; no data/analytics team holds mandate across these functions, and the FCA/PRA confirmed CRO and CTO - not CDO - bear AI risk accountability within their operational domains.</strong> (Confidence: high)</p>
 </li>
-<li><p><strong>IBM's 2025 CDO Study found only 26% of CDOs confident their teams can support new AI revenue streams, and 74% of organisations globally fail to scale AI to visible business value; CDO Magazine and HBR both document structural CDO failure in AI delivery, attributing it to mandate gaps, absent engineering skills, and inability to drive cross-functional operating model change.</strong> (Confidence: high)</p>
+<li>
+<p><strong>IBM's 2025 CDO Study found only 26% of CDOs confident their teams can support new AI revenue streams, and 74% of organisations globally fail to scale AI to visible business value; CDO Magazine and HBR both document structural CDO failure in AI delivery, attributing it to mandate gaps, absent engineering skills, and inability to drive cross-functional operating model change.</strong> (Confidence: high)</p>
 </li>
-<li><p><strong>The hybrid model - data platform as read-only knowledge substrate accessed via a governed API mediation layer, not via direct SQL - preserves the genuine data-platform-centric advantages (data gravity, ML proximity, analytics tooling) while eliminating the NFR, identity, mutation, and accountability risks of direct warehouse access.</strong> (Confidence: medium)</p>
+<li>
+<p><strong>The hybrid model - data platform as read-only knowledge substrate accessed via a governed API mediation layer, not via direct SQL - preserves the genuine data-platform-centric advantages (data gravity, ML proximity, analytics tooling) while eliminating the NFR, identity, mutation, and accountability risks of direct warehouse access.</strong> (Confidence: medium)</p>
 </li>
-<li><p><strong>The data team is the correct owner of the analytical and experimental AI layer (model training, data exploration, BI automation, ML experimentation) and an incorrect owner of the operational agent layer (production agents taking consequential actions with real-time write access, regulatory traceability requirements, and operational SLA obligations).</strong> (Confidence: high)</p>
+<li>
+<p><strong>The data team is the correct owner of the analytical and experimental AI layer (model training, data exploration, BI automation, ML experimentation) and an incorrect owner of the operational agent layer (production agents taking consequential actions with real-time write access, regulatory traceability requirements, and operational SLA obligations).</strong> (Confidence: high)</p>
 </li>
-<li><p><strong>Placing AI ownership in the data team creates a structural incentive misalignment: data teams are rewarded for expanding data products and demonstrating AI adoption, creating pressure to accumulate AI ownership even when the team lacks production engineering, security, and change management capability - the behavioural dynamic documented in the 74% failure statistic.</strong> (Confidence: medium)</p>
+<li>
+<p><strong>Placing AI ownership in the data team creates a structural incentive misalignment: data teams are rewarded for expanding data products and demonstrating AI adoption, creating pressure to accumulate AI ownership even when the team lacks production engineering, security, and change management capability - the behavioural dynamic documented in the 74% failure statistic.</strong> (Confidence: medium)</p>
 </li>
-<li><p><strong>The BI precedent is directly analogous: BI capability placed in data teams in the 2000s eventually transferred to product engineering as BI accumulated operational dependencies that data teams could not service to production SLAs; production AI follows the same arc at higher regulatory and operational stakes.</strong> (Confidence: medium)</p>
+<li>
+<p><strong>The BI precedent is directly analogous: BI capability placed in data teams in the 2000s eventually transferred to product engineering as BI accumulated operational dependencies that data teams could not service to production SLAs; production AI follows the same arc at higher regulatory and operational stakes.</strong> (Confidence: medium)</p>
 </li>
-<li><p><strong>Regulators have not explicitly mandated separation of analytical and operational data access as a standalone requirement; the implication is indirect - operational risk, auditability, fine-grained access control, and board-level accountability requirements collectively produce the same architectural conclusion.</strong> (Confidence: high)</p>
+<li>
+<p><strong>Regulators have not explicitly mandated separation of analytical and operational data access as a standalone requirement; the implication is indirect - operational risk, auditability, fine-grained access control, and board-level accountability requirements collectively produce the same architectural conclusion.</strong> (Confidence: high)</p>
 </li>
 </ol>
 <h3>Assumptions</h3>
 <ul>
-<li><p><strong>Assumption:</strong> &quot;Production agent&quot; means an agent that takes consequential actions (sends communications, modifies records, makes decisions with downstream effects) rather than a read-only analytics assistant. <strong>Justification:</strong> The research question and scope explicitly include write operations and the high-stakes agent category is the primary motivating use case. A pure read-only analytics assistant raises fewer NFR concerns, though the identity and audit trail arguments still apply.</p>
+<li>
+<p><strong>Assumption:</strong> &quot;Production agent&quot; means an agent that takes consequential actions (sends communications, modifies records, makes decisions with downstream effects) rather than a read-only analytics assistant. <strong>Justification:</strong> The research question and scope explicitly include write operations and the high-stakes agent category is the primary motivating use case. A pure read-only analytics assistant raises fewer NFR concerns, though the identity and audit trail arguments still apply.</p>
 </li>
-<li><p><strong>Assumption:</strong> The skills gap between data/analytics teams and API/platform engineering is sufficiently wide that bridging it within the existing data team structure is not feasible at pace for most organisations. <strong>Justification:</strong> IBM CDO Study and multiple skills gap analyses confirm the gap; however, organisations with large, senior data engineering teams (large tech companies, advanced fintechs) may have more cross-disciplinary skill sets that reduce the gap.</p>
+<li>
+<p><strong>Assumption:</strong> The skills gap between data/analytics teams and API/platform engineering is sufficiently wide that bridging it within the existing data team structure is not feasible at pace for most organisations. <strong>Justification:</strong> IBM CDO Study and multiple skills gap analyses confirm the gap; however, organisations with large, senior data engineering teams (large tech companies, advanced fintechs) may have more cross-disciplinary skill sets that reduce the gap.</p>
 </li>
 </ul>
 <h3>Analysis</h3>
@@ -702,15 +716,20 @@ main {
 <p>Evidence sufficiency is high for the architectural claims (multiple independent technical sources, primary standards), medium for the organisational claims (empirical data exists but no controlled studies compare AI outcomes by departmental ownership structure), and medium for the BI precedent (widely observable but not systematically studied).</p>
 <h3>Risks, Gaps, and Uncertainties</h3>
 <ul>
-<li><p><strong>Evidence gap on controlled studies:</strong> No published study directly compares AI programme outcomes by departmental ownership structure (data team vs. cross-functional vs. dedicated AI function). The 74% failure rate is associated with absence of cross-functional ownership, not with data-team ownership specifically - though the CDO readiness gap and HBR analysis provide strong indirect evidence.</p>
+<li>
+<p><strong>Evidence gap on controlled studies:</strong> No published study directly compares AI programme outcomes by departmental ownership structure (data team vs. cross-functional vs. dedicated AI function). The 74% failure rate is associated with absence of cross-functional ownership, not with data-team ownership specifically - though the CDO readiness gap and HBR analysis provide strong indirect evidence.</p>
 </li>
-<li><p><strong>Inaccessible sources:</strong> Zhamak Dehghani's <em>Data Mesh</em> (O'Reilly, 2022), W3C DID spec, <a href="https://github.com/cncf/tag-security/blob/main/security-whitepaper/v2/cloud-native-security-whitepaper.md">CNCF Zero Trust Whitepaper</a>, <a href="https://owasp.org/www-project-api-security/">OWASP API Security Top 10</a>, Google Cloud and Microsoft Azure architecture documentation, Thoughtworks Technology Radar, and McKinsey Global Institute AI survey were not directly fetched in this investigation. These sources were not required to establish the claims - the claims are well-supported by accessed sources - but their absence is noted. The Fowler article (public, accessed) provides the foundational data mesh argument; the Dehghani book would corroborate but is paywalled.</p>
+<li>
+<p><strong>Inaccessible sources:</strong> Zhamak Dehghani's <em>Data Mesh</em> (O'Reilly, 2022), W3C DID spec, <a href="https://github.com/cncf/tag-security/blob/main/security-whitepaper/v2/cloud-native-security-whitepaper.md">CNCF Zero Trust Whitepaper</a>, <a href="https://owasp.org/www-project-api-security/">OWASP API Security Top 10</a>, Google Cloud and Microsoft Azure architecture documentation, Thoughtworks Technology Radar, and McKinsey Global Institute AI survey were not directly fetched in this investigation. These sources were not required to establish the claims - the claims are well-supported by accessed sources - but their absence is noted. The Fowler article (public, accessed) provides the foundational data mesh argument; the Dehghani book would corroborate but is paywalled.</p>
 </li>
-<li><p><strong>Hybrid model evidence:</strong> The recommendation that a hybrid model (data platform as API-mediated read-only knowledge substrate) preserves data-team advantages is an inference, not a directly documented case study. No published case study was found that specifically documented the transition from data-platform-centric to API-layer-centric agent architecture and its outcomes.</p>
+<li>
+<p><strong>Hybrid model evidence:</strong> The recommendation that a hybrid model (data platform as API-mediated read-only knowledge substrate) preserves data-team advantages is an inference, not a directly documented case study. No published case study was found that specifically documented the transition from data-platform-centric to API-layer-centric agent architecture and its outcomes.</p>
 </li>
-<li><p><strong>NZ-specific gap:</strong> RBNZ has no standalone AI governance framework (confirmed in prior research). The claim that NZ regulatory requirements imply cross-functional accountability is correct but derived from BS11/BPR and APRA CPS 230, not from RBNZ-specific AI guidance.</p>
+<li>
+<p><strong>NZ-specific gap:</strong> RBNZ has no standalone AI governance framework (confirmed in prior research). The claim that NZ regulatory requirements imply cross-functional accountability is correct but derived from BS11/BPR and APRA CPS 230, not from RBNZ-specific AI guidance.</p>
 </li>
-<li><p><strong>Small organisations:</strong> The argument assumes an organisation of sufficient size to have distinct data/analytics and IT/platform engineering functions. Very small organisations where the same team does both may face a different analysis.</p>
+<li>
+<p><strong>Small organisations:</strong> The argument assumes an organisation of sufficient size to have distinct data/analytics and IT/platform engineering functions. Very small organisations where the same team does both may face a different analysis.</p>
 </li>
 </ul>
 <h3>Open Questions</h3>

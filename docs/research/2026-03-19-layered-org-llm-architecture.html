@@ -695,86 +695,86 @@ main {
 <table>
 <thead>
 <tr>
-  <th>Approach</th>
-  <th>Claim type</th>
-  <th>Readiness</th>
-  <th>Relative cost</th>
-  <th>Data requirement</th>
-  <th>Time-to-value</th>
-  <th>Skill requirement</th>
-  <th>Sources</th>
+<th>Approach</th>
+<th>Claim type</th>
+<th>Readiness</th>
+<th>Relative cost</th>
+<th>Data requirement</th>
+<th>Time-to-value</th>
+<th>Skill requirement</th>
+<th>Sources</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>Prompting plus RAG</td>
-  <td>[inference]</td>
-  <td>production-ready</td>
-  <td>low to moderate</td>
-  <td>existing authoritative content</td>
-  <td>weeks</td>
-  <td>application engineers plus search / retrieval competence</td>
-  <td><code><a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html</code>">docs.aws.amazon.com</a> <code><a href="https://cloud.google.com/vertex-ai/generative-ai/docs/rag-overview</code>">cloud.google.com</a> <code><a href="https://docs.cohere.com/docs/retrieval-augmented-generation-rag</code>">docs.cohere.com</a>
+<td>Prompting plus RAG</td>
+<td>[inference]</td>
+<td>production-ready</td>
+<td>low to moderate</td>
+<td>existing authoritative content</td>
+<td>weeks</td>
+<td>application engineers plus search / retrieval competence</td>
+<td><code><a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html</code>">docs.aws.amazon.com</a> <code><a href="https://cloud.google.com/vertex-ai/generative-ai/docs/rag-overview</code>">cloud.google.com</a> <code><a href="https://docs.cohere.com/docs/retrieval-augmented-generation-rag</code>">docs.cohere.com</a>
 </tr>
 <tr>
-  <td>RAG plus knowledge graph / better rankers</td>
-  <td>[inference]</td>
-  <td>production-ready</td>
-  <td>moderate</td>
-  <td>connected systems plus relevance signals</td>
-  <td>weeks to months</td>
-  <td>search engineers plus knowledge architecture skills</td>
-  <td><code><a href="https://www.glean.com/resources/guides/glean-knowledge-graph</code>">www.glean.com</a> <code><a href="https://cloud.google.com/blog/products/data-analytics/glean-uses-bigquery-and-google-ai-to-enhance-enterprise-search</code>">cloud.google.com</a> <code><a href="https://arxiv.org/abs/2401.05856</code>">arxiv.org/abs/2401.05856</code></td></a>
+<td>RAG plus knowledge graph / better rankers</td>
+<td>[inference]</td>
+<td>production-ready</td>
+<td>moderate</td>
+<td>connected systems plus relevance signals</td>
+<td>weeks to months</td>
+<td>search engineers plus knowledge architecture skills</td>
+<td><code><a href="https://www.glean.com/resources/guides/glean-knowledge-graph</code>">www.glean.com</a> <code><a href="https://cloud.google.com/blog/products/data-analytics/glean-uses-bigquery-and-google-ai-to-enhance-enterprise-search</code>">cloud.google.com</a> <code><a href="https://arxiv.org/abs/2401.05856</code>">arxiv.org/abs/2401.05856</code></td></a>
 </tr>
 <tr>
-  <td>PEFT with LoRA / QLoRA</td>
-  <td>[inference]</td>
-  <td>production-ready to early-adopter</td>
-  <td>moderate</td>
-  <td>curated exemplars and evaluation set</td>
-  <td>1-3 months</td>
-  <td>machine-learning engineer, Machine Learning Operations (MLOps), subject-matter experts</td>
-  <td><code><a href="https://arxiv.org/abs/2106.09685</code>">arxiv.org/abs/2106.09685</code></a> <code><a href="https://arxiv.org/abs/2305.14314</code>">arxiv.org/abs/2305.14314</code></a> <code><a href="https://www.nature.com/articles/s42256-023-00626-4</code>">www.nature.com</a>
+<td>PEFT with LoRA / QLoRA</td>
+<td>[inference]</td>
+<td>production-ready to early-adopter</td>
+<td>moderate</td>
+<td>curated exemplars and evaluation set</td>
+<td>1-3 months</td>
+<td>machine-learning engineer, Machine Learning Operations (MLOps), subject-matter experts</td>
+<td><code><a href="https://arxiv.org/abs/2106.09685</code>">arxiv.org/abs/2106.09685</code></a> <code><a href="https://arxiv.org/abs/2305.14314</code>">arxiv.org/abs/2305.14314</code></a> <code><a href="https://www.nature.com/articles/s42256-023-00626-4</code>">www.nature.com</a>
 </tr>
 <tr>
-  <td>Full fine-tuning</td>
-  <td>[inference]</td>
-  <td>early-adopter</td>
-  <td>high</td>
-  <td>larger curated dataset</td>
-  <td>several months</td>
-  <td>stronger Machine Learning (ML) platform and evaluation capability</td>
-  <td><code><a href="https://www.nature.com/articles/s42256-023-00626-4</code>">www.nature.com</a> <code><a href="https://arxiv.org/abs/2106.09685</code>">arxiv.org/abs/2106.09685</code></a> <code><a href="https://arxiv.org/abs/2305.14314</code>">arxiv.org/abs/2305.14314</code></td></a>
+<td>Full fine-tuning</td>
+<td>[inference]</td>
+<td>early-adopter</td>
+<td>high</td>
+<td>larger curated dataset</td>
+<td>several months</td>
+<td>stronger Machine Learning (ML) platform and evaluation capability</td>
+<td><code><a href="https://www.nature.com/articles/s42256-023-00626-4</code>">www.nature.com</a> <code><a href="https://arxiv.org/abs/2106.09685</code>">arxiv.org/abs/2106.09685</code></a> <code><a href="https://arxiv.org/abs/2305.14314</code>">arxiv.org/abs/2305.14314</code></td></a>
 </tr>
 <tr>
-  <td>Domain-adaptive pretraining</td>
-  <td>[inference]</td>
-  <td>early-adopter for very large domains</td>
-  <td>high to very high</td>
-  <td>massive stable corpus</td>
-  <td>several months to a year</td>
-  <td>dedicated data science, Machine Learning platform, and domain-expert support</td>
-  <td><code><a href="https://arxiv.org/abs/2303.17564</code>">arxiv.org/abs/2303.17564</code></a> <code><a href="https://arxiv.org/abs/2212.13138</code>">arxiv.org/abs/2212.13138</code></a> <code><a href="https://arxiv.org/abs/2004.10964</code>">arxiv.org/abs/2004.10964</code></td></a>
+<td>Domain-adaptive pretraining</td>
+<td>[inference]</td>
+<td>early-adopter for very large domains</td>
+<td>high to very high</td>
+<td>massive stable corpus</td>
+<td>several months to a year</td>
+<td>dedicated data science, Machine Learning platform, and domain-expert support</td>
+<td><code><a href="https://arxiv.org/abs/2303.17564</code>">arxiv.org/abs/2303.17564</code></a> <code><a href="https://arxiv.org/abs/2212.13138</code>">arxiv.org/abs/2212.13138</code></a> <code><a href="https://arxiv.org/abs/2004.10964</code>">arxiv.org/abs/2004.10964</code></td></a>
 </tr>
 <tr>
-  <td>Training from scratch</td>
-  <td>[inference]</td>
-  <td>uncommon outside frontier or sector-scale actors</td>
-  <td>very high</td>
-  <td>enormous corpus and compute</td>
-  <td>long horizon</td>
-  <td>frontier-model training capability</td>
-  <td><code><a href="https://arxiv.org/abs/2303.17564</code>">arxiv.org/abs/2303.17564</code></a> <code><a href="https://arxiv.org/abs/2212.13138</code>">arxiv.org/abs/2212.13138</code></td></a>
+<td>Training from scratch</td>
+<td>[inference]</td>
+<td>uncommon outside frontier or sector-scale actors</td>
+<td>very high</td>
+<td>enormous corpus and compute</td>
+<td>long horizon</td>
+<td>frontier-model training capability</td>
+<td><code><a href="https://arxiv.org/abs/2303.17564</code>">arxiv.org/abs/2303.17564</code></a> <code><a href="https://arxiv.org/abs/2212.13138</code>">arxiv.org/abs/2212.13138</code></td></a>
 </tr>
 <tr>
-  <td>Tandem / critic layers</td>
-  <td>[inference]</td>
-  <td>production-ready as overlay</td>
-  <td>moderate</td>
-  <td>policies, eval prompts, routing logic</td>
-  <td>weeks to months</td>
-  <td>orchestration, prompt, and evaluation engineering</td>
-  <td><code><a href="https://arxiv.org/abs/2406.04692</code>">arxiv.org/abs/2406.04692</code></a> <code><a href="https://arxiv.org/abs/2309.11495</code>">arxiv.org/abs/2309.11495</code></a> <code><a href="https://arxiv.org/abs/2212.08073</code>">arxiv.org/abs/2212.08073</code></td></a>
+<td>Tandem / critic layers</td>
+<td>[inference]</td>
+<td>production-ready as overlay</td>
+<td>moderate</td>
+<td>policies, eval prompts, routing logic</td>
+<td>weeks to months</td>
+<td>orchestration, prompt, and evaluation engineering</td>
+<td><code><a href="https://arxiv.org/abs/2406.04692</code>">arxiv.org/abs/2406.04692</code></a> <code><a href="https://arxiv.org/abs/2309.11495</code>">arxiv.org/abs/2309.11495</code></a> <code><a href="https://arxiv.org/abs/2212.08073</code>">arxiv.org/abs/2212.08073</code></td></a>
 </tr>
 </tbody>
 </table>

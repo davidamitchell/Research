@@ -664,32 +664,44 @@ main {
 <p>AI security strategy in 2025–2026 requires parallel governance architecture for two distinct problems: AI as an attack-amplification tool in adversaries' hands, and AI systems as a novel attack surface within organisations. AI-enhanced phishing has grown 1,265% in volume since generative AI became broadly available, with $2.7 billion in BEC losses in the US in 2024 alone, while the per-attack cost to adversaries has collapsed. Internally, prompt injection — particularly indirect injection targeting AI agents with tool-use capabilities — is the highest-severity AI-specific vulnerability, with no complete architectural fix known. NZ organisations have actionable guidance from NCSC joint advisories (January 2024) and the CISA/Five Eyes &quot;Deploying AI Systems Securely&quot; standard (April 2024), but no mandatory AI-specific security regulation exists in NZ as of March 2026; FMA and RBNZ have expressed expectations without prescribing controls.</p>
 <h3>Key Findings</h3>
 <ol>
-<li><p><strong>AI-enhanced phishing grew 1,265% in volume following widespread generative AI availability, with 82% of phishing emails assessed as AI-generated content in 2025, and average phishing-related breach costs now standing at $4.8–4.88 million per incident.</strong> [confidence: high; multiple industry reports converge]</p>
+<li>
+<p><strong>AI-enhanced phishing grew 1,265% in volume following widespread generative AI availability, with 82% of phishing emails assessed as AI-generated content in 2025, and average phishing-related breach costs now standing at $4.8–4.88 million per incident.</strong> [confidence: high; multiple industry reports converge]</p>
 </li>
-<li><p><strong>Business Email Compromise scams, substantially enabled by AI-generated content and voice deepfakes, generated $2.7 billion in US-reported losses in 2024, representing a quantifiable economic harm directly attributable to AI-enhanced social engineering.</strong> [confidence: high; FBI IC3 data cited in multiple sources]</p>
+<li>
+<p><strong>Business Email Compromise scams, substantially enabled by AI-generated content and voice deepfakes, generated $2.7 billion in US-reported losses in 2024, representing a quantifiable economic harm directly attributable to AI-enhanced social engineering.</strong> [confidence: high; FBI IC3 data cited in multiple sources]</p>
 </li>
-<li><p><strong>The NIST AI 100-2e2023 taxonomy defines four canonical attack categories against AI systems — evasion, poisoning, privacy, and abuse — providing the foundational vocabulary for AI security governance; MITRE ATLAS operationalises this into 66+ techniques across 15 tactics, with 30% of ATLAS mitigations requiring AI-specific controls not found in traditional cybersecurity frameworks.</strong> [confidence: high; primary source NIST and MITRE]</p>
+<li>
+<p><strong>The NIST AI 100-2e2023 taxonomy defines four canonical attack categories against AI systems — evasion, poisoning, privacy, and abuse — providing the foundational vocabulary for AI security governance; MITRE ATLAS operationalises this into 66+ techniques across 15 tactics, with 30% of ATLAS mitigations requiring AI-specific controls not found in traditional cybersecurity frameworks.</strong> [confidence: high; primary source NIST and MITRE]</p>
 </li>
-<li><p><strong>Prompt injection, ranked #1 in the OWASP LLM Top 10, is the highest-severity AI-specific vulnerability for deployed LLM systems; OpenAI has stated indirect prompt injection in AI browser agents may never be fully patched, and real-world CVEs with CVSS scores above 9.0 have been exploited in GitHub Copilot and Microsoft Copilot via this attack vector.</strong> [confidence: high; multiple primary and secondary sources]</p>
+<li>
+<p><strong>Prompt injection, ranked #1 in the OWASP LLM Top 10, is the highest-severity AI-specific vulnerability for deployed LLM systems; OpenAI has stated indirect prompt injection in AI browser agents may never be fully patched, and real-world CVEs with CVSS scores above 9.0 have been exploited in GitHub Copilot and Microsoft Copilot via this attack vector.</strong> [confidence: high; multiple primary and secondary sources]</p>
 </li>
-<li><p><strong>AI applied to security operations delivers measurable ROI: HSBC's AML system reduced false positive alerts by 60% and doubled confirmed financial crime detection; JPMorgan achieved 95% false-positive reduction with fraud detected 300× faster; Microsoft Security Copilot trials demonstrated 30% reduction in SOC mean time to resolution.</strong> [confidence: high; disclosed case studies; corroborated in prior research item]</p>
+<li>
+<p><strong>AI applied to security operations delivers measurable ROI: HSBC's AML system reduced false positive alerts by 60% and doubled confirmed financial crime detection; JPMorgan achieved 95% false-positive reduction with fraud detected 300× faster; Microsoft Security Copilot trials demonstrated 30% reduction in SOC mean time to resolution.</strong> [confidence: high; disclosed case studies; corroborated in prior research item]</p>
 </li>
-<li><p><strong>NZ NCSC published &quot;Engaging with Artificial Intelligence&quot; in January 2024 in partnership with 14 international agencies including CISA, NSA, and ASD, providing AI security guidance for organisations using (not building) AI systems; a follow-on joint advisory &quot;Deploying AI Systems Securely&quot; (April 2024) co-endorsed by NZ adds controls for model weight protection, supply chain evaluation, and AI-specific monitoring.</strong> [confidence: high; primary source NCSC NZ website confirmed]</p>
+<li>
+<p><strong>NZ NCSC published &quot;Engaging with Artificial Intelligence&quot; in January 2024 in partnership with 14 international agencies including CISA, NSA, and ASD, providing AI security guidance for organisations using (not building) AI systems; a follow-on joint advisory &quot;Deploying AI Systems Securely&quot; (April 2024) co-endorsed by NZ adds controls for model weight protection, supply chain evaluation, and AI-specific monitoring.</strong> [confidence: high; primary source NCSC NZ website confirmed]</p>
 </li>
-<li><p><strong>NZ NCSC mandated 10 Minimum Cyber Security Standards for public agencies effective October 2025 — including MFA, anomaly detection, and least privilege — that apply to AI systems as ICT assets, but no NZ-specific AI security standards have been issued separately.</strong> [confidence: high; Industrial Cyber reporting confirmed against NCSC]</p>
+<li>
+<p><strong>NZ NCSC mandated 10 Minimum Cyber Security Standards for public agencies effective October 2025 — including MFA, anomaly detection, and least privilege — that apply to AI systems as ICT assets, but no NZ-specific AI security standards have been issued separately.</strong> [confidence: high; Industrial Cyber reporting confirmed against NCSC]</p>
 </li>
-<li><p><strong>FMA's 2024 AI research report and RBNZ's 2025 Financial Stability Report both flag AI security risks for NZ financial institutions — FMA expects governance, cybersecurity controls, and disclosure; RBNZ highlights third-party concentration risk and correlated model failure — but neither has issued prescriptive rules; NZ financial institutions operate under principle-based expectation, not rule-based obligation, for AI security.</strong> [confidence: high; primary sources FMA and RBNZ publications]</p>
+<li>
+<p><strong>FMA's 2024 AI research report and RBNZ's 2025 Financial Stability Report both flag AI security risks for NZ financial institutions — FMA expects governance, cybersecurity controls, and disclosure; RBNZ highlights third-party concentration risk and correlated model failure — but neither has issued prescriptive rules; NZ financial institutions operate under principle-based expectation, not rule-based obligation, for AI security.</strong> [confidence: high; primary sources FMA and RBNZ publications]</p>
 </li>
-<li><p><strong>Singapore's 2024 Model AI Governance Framework for Generative AI is the most operationally detailed reference governance standard for AI security, requiring: adversarial prompt red-teaming, supply chain security for model weights, structured incident reporting, and continuous monitoring — exceeding the depth of NCSC's advisory-level guidance.</strong> [confidence: medium; based on framework documentation and analysis, Singapore's own enforcement model is voluntary]</p>
+<li>
+<p><strong>Singapore's 2024 Model AI Governance Framework for Generative AI is the most operationally detailed reference governance standard for AI security, requiring: adversarial prompt red-teaming, supply chain security for model weights, structured incident reporting, and continuous monitoring — exceeding the depth of NCSC's advisory-level guidance.</strong> [confidence: medium; based on framework documentation and analysis, Singapore's own enforcement model is voluntary]</p>
 </li>
-<li><p><strong>Agentic AI systems (AI with tool-use, memory, and API access) present a qualitatively larger attack surface than passive LLMs because a successful prompt injection translates into capability to send emails, access databases, and execute code; MITRE ATLAS added new agentic AI attack techniques in 2025, tracking ahead of most organisations' current governance frameworks.</strong> [confidence: medium; based on research reports and CVE evidence, not yet widely documented in primary regulatory guidance]</p>
+<li>
+<p><strong>Agentic AI systems (AI with tool-use, memory, and API access) present a qualitatively larger attack surface than passive LLMs because a successful prompt injection translates into capability to send emails, access databases, and execute code; MITRE ATLAS added new agentic AI attack techniques in 2025, tracking ahead of most organisations' current governance frameworks.</strong> [confidence: medium; based on research reports and CVE evidence, not yet widely documented in primary regulatory guidance]</p>
 </li>
 </ol>
 <h3>Assumptions</h3>
 <ul>
-<li><p><strong>Assumption:</strong> The six-control minimum viable governance architecture is sufficient for organisations at intermediate AI maturity (using third-party APIs and some internal ML models) but not for organisations training frontier models from scratch. <strong>Justification:</strong> The evidence base reviewed focuses on deploying AI rather than building it; all cited NZ regulatory guidance is also framed around deployment. Organisations training base models face additional risks (membership inference, differential privacy) that the six controls do not address.</p>
+<li>
+<p><strong>Assumption:</strong> The six-control minimum viable governance architecture is sufficient for organisations at intermediate AI maturity (using third-party APIs and some internal ML models) but not for organisations training frontier models from scratch. <strong>Justification:</strong> The evidence base reviewed focuses on deploying AI rather than building it; all cited NZ regulatory guidance is also framed around deployment. Organisations training base models face additional risks (membership inference, differential privacy) that the six controls do not address.</p>
 </li>
-<li><p><strong>Assumption:</strong> The phishing volume statistics (1,265% increase) represent an order-of-magnitude signal even if specific percentages vary by methodology. <strong>Justification:</strong> Multiple independent sources (SlashNext, KnowBe4, Zscaler ThreatLabz) all document sharp increases; the specific multiplier is methodology-dependent but the directional claim is supported across sources.</p>
+<li>
+<p><strong>Assumption:</strong> The phishing volume statistics (1,265% increase) represent an order-of-magnitude signal even if specific percentages vary by methodology. <strong>Justification:</strong> Multiple independent sources (SlashNext, KnowBe4, Zscaler ThreatLabz) all document sharp increases; the specific multiplier is methodology-dependent but the directional claim is supported across sources.</p>
 </li>
 </ul>
 <h3>Analysis</h3>
@@ -700,26 +712,35 @@ main {
 <p>Singapore's framework is chosen as the benchmark governance reference over NIST Cyber AI Profile because the NIST profile is in preliminary draft (December 2025) and Singapore's framework is the only one with specific security controls in final-form documentation.</p>
 <h3>Risks, Gaps, and Uncertainties</h3>
 <ul>
-<li><p><strong>BS11 adequacy for AI supply chain:</strong> NZ banks' BS11 outsourcing framework was designed for IT service outsourcing. It does not explicitly address model weight provenance, training data lineage, or adversarial robustness testing of third-party AI models. This is a material regulatory gap for the four major Australian-owned NZ banks, whose AI systems are effectively governed at group level under APRA CPS 230.</p>
+<li>
+<p><strong>BS11 adequacy for AI supply chain:</strong> NZ banks' BS11 outsourcing framework was designed for IT service outsourcing. It does not explicitly address model weight provenance, training data lineage, or adversarial robustness testing of third-party AI models. This is a material regulatory gap for the four major Australian-owned NZ banks, whose AI systems are effectively governed at group level under APRA CPS 230.</p>
 </li>
-<li><p><strong>CERT NZ AI-specific threat intelligence not directly accessed:</strong> CERT NZ merged with NCSC. Its historical threat reporting was reviewed in summary but specific AI threat advisories from CERT NZ were not directly retrieved. The merged NCSC is assumed to be the current authoritative source.</p>
+<li>
+<p><strong>CERT NZ AI-specific threat intelligence not directly accessed:</strong> CERT NZ merged with NCSC. Its historical threat reporting was reviewed in summary but specific AI threat advisories from CERT NZ were not directly retrieved. The merged NCSC is assumed to be the current authoritative source.</p>
 </li>
-<li><p><strong>Google Project Zero/DeepMind AI security research not accessed:</strong> The item's Sources list included Google Project Zero and DeepMind. These materials were not retrieved; findings would be more technical/academic than the governance focus of this item.</p>
+<li>
+<p><strong>Google Project Zero/DeepMind AI security research not accessed:</strong> The item's Sources list included Google Project Zero and DeepMind. These materials were not retrieved; findings would be more technical/academic than the governance focus of this item.</p>
 </li>
-<li><p><strong>Governance adoption rates unknown:</strong> No data on the percentage of NZ financial institutions or government agencies that have conducted AI-specific adversarial testing or deployed MITRE ATLAS-aligned controls.</p>
+<li>
+<p><strong>Governance adoption rates unknown:</strong> No data on the percentage of NZ financial institutions or government agencies that have conducted AI-specific adversarial testing or deployed MITRE ATLAS-aligned controls.</p>
 </li>
-<li><p><strong>Phishing statistic methodology variation:</strong> The 1,265% figure (SlashNext) measures a different thing from the 20% volume decline with quality increase (Zscaler ThreatLabz 2025). Both may be accurate simultaneously: total raw phishing volume may have dipped while AI-quality targeted attacks increased sharply.</p>
+<li>
+<p><strong>Phishing statistic methodology variation:</strong> The 1,265% figure (SlashNext) measures a different thing from the 20% volume decline with quality increase (Zscaler ThreatLabz 2025). Both may be accurate simultaneously: total raw phishing volume may have dipped while AI-quality targeted attacks increased sharply.</p>
 </li>
-<li><p><strong>NIST Cyber AI Profile status:</strong> Published as preliminary draft December 2025 — the most current framework, but not yet finalised. Its structure is expected to be stable; specific control mappings may change.</p>
+<li>
+<p><strong>NIST Cyber AI Profile status:</strong> Published as preliminary draft December 2025 — the most current framework, but not yet finalised. Its structure is expected to be stable; specific control mappings may change.</p>
 </li>
 </ul>
 <h3>Open Questions</h3>
 <ul>
-<li><p><strong>Is BS11 sufficient for AI model supply chain governance?</strong> NZ banks outsource AI model development and hosting to parent-bank platforms governed by APRA CPS 230, not RBNZ. Does BS11's current outsourcing framework capture model weight provenance and adversarial robustness testing, or does a separate AI supply chain standard need to be added? This could become a backlog item.</p>
+<li>
+<p><strong>Is BS11 sufficient for AI model supply chain governance?</strong> NZ banks outsource AI model development and hosting to parent-bank platforms governed by APRA CPS 230, not RBNZ. Does BS11's current outsourcing framework capture model weight provenance and adversarial robustness testing, or does a separate AI supply chain standard need to be added? This could become a backlog item.</p>
 </li>
-<li><p><strong>What is the threshold for mandatory AI security incident reporting in NZ?</strong> DORA (EU) requires 24-hour initial notification for ICT incidents affecting AI systems in financial services. NZ has no equivalent trigger. Does the NCSC Minimum Cyber Security Standards &quot;response planning&quot; requirement effectively cover AI security incidents, or is there a gap?</p>
+<li>
+<p><strong>What is the threshold for mandatory AI security incident reporting in NZ?</strong> DORA (EU) requires 24-hour initial notification for ICT incidents affecting AI systems in financial services. NZ has no equivalent trigger. Does the NCSC Minimum Cyber Security Standards &quot;response planning&quot; requirement effectively cover AI security incidents, or is there a gap?</p>
 </li>
-<li><p><strong>How should NZ organisations govern agentic AI (AI with tool-use)?</strong> Current guidance addresses LLM chatbots and ML models. Agentic systems with persistent memory, API access, and multi-step reasoning are materially different attack surfaces. MITRE ATLAS is updating its framework; NZ guidance has not yet addressed this category.</p>
+<li>
+<p><strong>How should NZ organisations govern agentic AI (AI with tool-use)?</strong> Current guidance addresses LLM chatbots and ML models. Agentic systems with persistent memory, API access, and multi-step reasoning are materially different attack surfaces. MITRE ATLAS is updating its framework; NZ guidance has not yet addressed this category.</p>
 </li>
 </ul>
 <hr />

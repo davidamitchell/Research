@@ -655,38 +655,53 @@ main {
 <p><strong>[inference]</strong> Advanced Retrieval-Augmented Generation (RAG)  -  combining hybrid search, re-ranking, hierarchical indexing (Recursive Abstractive Processing for Tree-Organized Retrieval (RAPTOR)), and modular pipeline architecture  -  is the current best practice for surfacing organisational knowledge into a Large Language Model (LLM) context window at decision time. Extending the context window to 1M tokens does not substitute for structured retrieval; <strong>[fact]</strong> NVIDIA's RULER benchmark (2024) confirms all models degrade significantly on complex reasoning tasks with increasing context length. (Source: arXiv:2404.06654) <strong>[inference]</strong> LLMLingua-2 (4x compression, 3–6x faster than its predecessor) and LongLLMLingua (question-aware multi-document compression) are the best available tools for reducing retrieved context volume. The primary unsolved challenge is governance of the underlying knowledge corpus: retrieval quality is bounded by source document quality, and no retrieval technique compensates for outdated or contradictory organisational knowledge.</p>
 <h3>Key Findings</h3>
 <ol>
-<li><p>Naive RAG fails for hierarchical organisational knowledge because a single cosine-similarity query cannot distinguish regulatory, strategic, and operational knowledge tiers; Advanced RAG with hybrid search and cross-encoder re-ranking is the minimum viable baseline for multi-tier retrieval.</p>
+<li>
+<p>Naive RAG fails for hierarchical organisational knowledge because a single cosine-similarity query cannot distinguish regulatory, strategic, and operational knowledge tiers; Advanced RAG with hybrid search and cross-encoder re-ranking is the minimum viable baseline for multi-tier retrieval.</p>
 </li>
-<li><p>Extending the LLM context window to 1M tokens does not eliminate the need for structured retrieval; NVIDIA's RULER benchmark (arXiv:2404.06654, 2024) shows all tested models degrade significantly on complex reasoning and aggregation tasks as context length increases, with effective performance failing at 60–70% of the advertised window.</p>
+<li>
+<p>Extending the LLM context window to 1M tokens does not eliminate the need for structured retrieval; NVIDIA's RULER benchmark (arXiv:2404.06654, 2024) shows all tested models degrade significantly on complex reasoning and aggregation tasks as context length increases, with effective performance failing at 60–70% of the advertised window.</p>
 </li>
-<li><p>LLMLingua-2 (ACL 2024, arXiv:2403.12968) is a task-agnostic prompt compression method that runs 3–6x faster than the original LLMLingua and accelerates end-to-end latency by 1.6–2.9x at 2–5x compression ratios, making it the most production-ready context compression tool currently available.</p>
+<li>
+<p>LLMLingua-2 (ACL 2024, arXiv:2403.12968) is a task-agnostic prompt compression method that runs 3–6x faster than the original LLMLingua and accelerates end-to-end latency by 1.6–2.9x at 2–5x compression ratios, making it the most production-ready context compression tool currently available.</p>
 </li>
-<li><p>LongLLMLingua, a question-aware extension of LLMLingua, achieves ~75% accuracy on NaturalQuestions at 3.9x token compression across 20-document retrieval tasks  -  the most relevant compression technique for surfacing organisational knowledge at query time.</p>
+<li>
+<p>LongLLMLingua, a question-aware extension of LLMLingua, achieves ~75% accuracy on NaturalQuestions at 3.9x token compression across 20-document retrieval tasks  -  the most relevant compression technique for surfacing organisational knowledge at query time.</p>
 </li>
-<li><p>RAPTOR (ICLR 2024, arXiv:2401.18059) builds a hierarchical tree of text summaries through recursive clustering and abstractive summarisation, achieving 82.6% accuracy on the QuALITY benchmark with GPT-4 versus 62.3% for prior state-of-the-art, a 20+ percentage point improvement on multi-document reasoning tasks.</p>
+<li>
+<p>RAPTOR (ICLR 2024, arXiv:2401.18059) builds a hierarchical tree of text summaries through recursive clustering and abstractive summarisation, achieving 82.6% accuracy on the QuALITY benchmark with GPT-4 versus 62.3% for prior state-of-the-art, a 20+ percentage point improvement on multi-document reasoning tasks.</p>
 </li>
-<li><p>Modular RAG with tier-specific routing logic is the correct architectural pattern for multi-layer organisational knowledge because it separates query routing (which knowledge tier to query) from retrieval quality (how to search within a tier), eliminating cross-tier noise that degrades Naive RAG responses.</p>
+<li>
+<p>Modular RAG with tier-specific routing logic is the correct architectural pattern for multi-layer organisational knowledge because it separates query routing (which knowledge tier to query) from retrieval quality (how to search within a tier), eliminating cross-tier noise that degrades Naive RAG responses.</p>
 </li>
-<li><p>Microsoft GraphRAG enables relationship-aware retrieval by building a knowledge graph from unstructured text with hierarchical community summaries, but its indexing cost is approximately 100–1000x higher than vector RAG, making it appropriate only when inter-entity relationships are primary to the decision query.</p>
+<li>
+<p>Microsoft GraphRAG enables relationship-aware retrieval by building a knowledge graph from unstructured text with hierarchical community summaries, but its indexing cost is approximately 100–1000x higher than vector RAG, making it appropriate only when inter-entity relationships are primary to the decision query.</p>
 </li>
-<li><p>LlamaIndex provides the best out-of-the-box hierarchical retrieval primitives (HierarchicalNodeParser, AutoMergingRetriever, and structured auto-retrieval with metadata filters) for implementing a tiered organisational knowledge architecture, while Haystack offers the strongest production-reliability guarantees for regulated-industry deployments.</p>
+<li>
+<p>LlamaIndex provides the best out-of-the-box hierarchical retrieval primitives (HierarchicalNodeParser, AutoMergingRetriever, and structured auto-retrieval with metadata filters) for implementing a tiered organisational knowledge architecture, while Haystack offers the strongest production-reliability guarantees for regulated-industry deployments.</p>
 </li>
-<li><p>The RAGAS (RAG Assessment) framework is the dominant open-source evaluation standard, measuring faithfulness, context precision, context recall, and answer relevance, but its correlation with manual human evaluation reaches only ~0.55 harmonic mean  -  sufficient for continuous monitoring but insufficient as a sole quality gate for compliance-critical decisions.</p>
+<li>
+<p>The RAGAS (RAG Assessment) framework is the dominant open-source evaluation standard, measuring faithfulness, context precision, context recall, and answer relevance, but its correlation with manual human evaluation reaches only ~0.55 harmonic mean  -  sufficient for continuous monitoring but insufficient as a sole quality gate for compliance-critical decisions.</p>
 </li>
-<li><p>Governance of the source knowledge corpus  -  specifically, freshness verification, contradiction resolution, and ownership assignment for each document  -  is the primary determinant of RAG retrieval quality and cannot be substituted by any combination of retrieval or compression techniques.</p>
+<li>
+<p>Governance of the source knowledge corpus  -  specifically, freshness verification, contradiction resolution, and ownership assignment for each document  -  is the primary determinant of RAG retrieval quality and cannot be substituted by any combination of retrieval or compression techniques.</p>
 </li>
-<li><p>Summarisation-based compression (map-reduce) applied offline at indexing time is appropriate for stable, slow-changing documents such as regulations and strategy papers; token-pruning compression using LLMLingua-2 is more appropriate for dynamic context injected at query time where offline processing is not viable.</p>
+<li>
+<p>Summarisation-based compression (map-reduce) applied offline at indexing time is appropriate for stable, slow-changing documents such as regulations and strategy papers; token-pruning compression using LLMLingua-2 is more appropriate for dynamic context injected at query time where offline processing is not viable.</p>
 </li>
-<li><p>MemGPT/Letta's three-tier memory model (core memory always in context, recall memory for recent history, archival memory for long-term storage) is the closest operational approximation of a layered organisational context architecture, but it lacks the access control, provenance tracking, and audit trail capabilities required for compliance-sensitive enterprise deployments.</p>
+<li>
+<p>MemGPT/Letta's three-tier memory model (core memory always in context, recall memory for recent history, archival memory for long-term storage) is the closest operational approximation of a layered organisational context architecture, but it lacks the access control, provenance tracking, and audit trail capabilities required for compliance-sensitive enterprise deployments.</p>
 </li>
 </ol>
 <h3>Assumptions</h3>
 <ul>
-<li><p><strong>Assumption:</strong> Regulatory and policy documents contain sufficient natural language redundancy for LLMLingua-style compression at 4x with acceptable quality loss. <strong>Justification:</strong> LLMLingua achieves 20x compression on reasoning benchmarks (GSM8K, BBH) with 1.5% loss; Shannon (1951) established general natural language redundancy; policy text's defined terms, cross-references, and boilerplate represent structured redundancy typically higher than general prose. This is an extrapolation  -  direct evidence for regulatory text specifically is absent.</p>
+<li>
+<p><strong>Assumption:</strong> Regulatory and policy documents contain sufficient natural language redundancy for LLMLingua-style compression at 4x with acceptable quality loss. <strong>Justification:</strong> LLMLingua achieves 20x compression on reasoning benchmarks (GSM8K, BBH) with 1.5% loss; Shannon (1951) established general natural language redundancy; policy text's defined terms, cross-references, and boilerplate represent structured redundancy typically higher than general prose. This is an extrapolation  -  direct evidence for regulatory text specifically is absent.</p>
 </li>
-<li><p><strong>Assumption:</strong> The &quot;lost in the middle&quot; performance degradation documented in benchmarks applies to organisational document retrieval in the same way as measured for needle-in-a-haystack and multi-hop reasoning tasks. <strong>Justification:</strong> The effect has been documented consistently across multiple model families and task types (RULER benchmark, community reports); no counter-evidence found for structured policy document tasks specifically. Applies until domain-specific benchmarks show otherwise.</p>
+<li>
+<p><strong>Assumption:</strong> The &quot;lost in the middle&quot; performance degradation documented in benchmarks applies to organisational document retrieval in the same way as measured for needle-in-a-haystack and multi-hop reasoning tasks. <strong>Justification:</strong> The effect has been documented consistently across multiple model families and task types (RULER benchmark, community reports); no counter-evidence found for structured policy document tasks specifically. Applies until domain-specific benchmarks show otherwise.</p>
 </li>
-<li><p><strong>Assumption:</strong> LlamaIndex hierarchical primitives (HierarchicalNodeParser, AutoMergingRetriever) can be configured to implement a full four-tier regulatory/strategy/policy/operational architecture without fundamental limitation of the framework. <strong>Justification:</strong> The primitives support arbitrary metadata tagging and routing by metadata label; the tier configuration is a software engineering implementation task, not a research-level gap. Confirmed by documentation review.</p>
+<li>
+<p><strong>Assumption:</strong> LlamaIndex hierarchical primitives (HierarchicalNodeParser, AutoMergingRetriever) can be configured to implement a full four-tier regulatory/strategy/policy/operational architecture without fundamental limitation of the framework. <strong>Justification:</strong> The primitives support arbitrary metadata tagging and routing by metadata label; the tier configuration is a software engineering implementation task, not a research-level gap. Confirmed by documentation review.</p>
 </li>
 </ul>
 <h3>Analysis</h3>

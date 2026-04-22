@@ -655,29 +655,41 @@ main {
 <p>Gradient-boosted decision trees (GBDTs — XGBoost, LightGBM, CatBoost) are the correct default algorithm for tabular analytics, outperforming alternatives including deep learning on the majority of benchmarked datasets (111-dataset comparison, arXiv:2408.14817; Kaggle AI Report 2023). The single most common technique failing that elevates &quot;normal&quot; analytics to &quot;advanced&quot; is out-of-time validation: any analytics team evaluating temporally-ordered models with standard k-fold cross-validation is operating below the floor for regulated financial services. The 2023–2025 advancements most immediately actionable for an analytics team are: conformal prediction for calibrated uncertainty intervals (now production-deployed via MAPIE), causal ML libraries (DoWhy, EconML, CausalML) for treatment effect estimation, AutoML frameworks (AutoGluon, H2O, FLAML) for rapid model development, and TabPFN-2.5 as a tuning-free strong baseline for datasets under 50,000 rows. RBNZ's model risk management expectations are principles-based rather than prescriptive, but require that AI/ML models be explainable, validated, and governed — SHAP satisfies the explainability requirement, and an MLflow + Evidently AI + GitHub Actions stack satisfies the MLOps requirement at minimum viable level.</p>
 <h3>Key Findings</h3>
 <ol>
-<li><p>Gradient-boosted decision trees (XGBoost, LightGBM, CatBoost) outperform all other algorithm families on the majority of real-world tabular datasets, and any analytics team not using them as the default supervised learning method is operating below the competency floor. (confidence: high)</p>
+<li>
+<p>Gradient-boosted decision trees (XGBoost, LightGBM, CatBoost) outperform all other algorithm families on the majority of real-world tabular datasets, and any analytics team not using them as the default supervised learning method is operating below the competency floor. (confidence: high)</p>
 </li>
-<li><p>Deep learning architectures for tabular data (FT-Transformer, TabR, SAINT) outperform GBDTs specifically on &quot;hard&quot; datasets — those with high dimensionality, non-linear interactions, or very large sample counts — but not on the majority of analytics datasets, which are lower-dimensional and smaller. (confidence: high)</p>
+<li>
+<p>Deep learning architectures for tabular data (FT-Transformer, TabR, SAINT) outperform GBDTs specifically on &quot;hard&quot; datasets — those with high dimensionality, non-linear interactions, or very large sample counts — but not on the majority of analytics datasets, which are lower-dimensional and smaller. (confidence: high)</p>
 </li>
-<li><p>TabPFN-2.5 (November 2024) achieves 100% win rate over default XGBoost on datasets up to 10,000 rows using a single, training-free forward pass with no hyperparameter tuning, making it the strongest out-of-the-box baseline for small-to-medium analytics datasets. (confidence: high, caveat: benchmarked on i.i.d. splits; temporal financial data requires separate validation)</p>
+<li>
+<p>TabPFN-2.5 (November 2024) achieves 100% win rate over default XGBoost on datasets up to 10,000 rows using a single, training-free forward pass with no hyperparameter tuning, making it the strongest out-of-the-box baseline for small-to-medium analytics datasets. (confidence: high, caveat: benchmarked on i.i.d. splits; temporal financial data requires separate validation)</p>
 </li>
-<li><p>Out-of-time validation — evaluating model performance on data from a later time period than training, with no temporal leakage — is the single most important evaluation practice for temporally-ordered analytics data, and using standard k-fold cross-validation for such data produces systematically inflated performance estimates. (confidence: high)</p>
+<li>
+<p>Out-of-time validation — evaluating model performance on data from a later time period than training, with no temporal leakage — is the single most important evaluation practice for temporally-ordered analytics data, and using standard k-fold cross-validation for such data produces systematically inflated performance estimates. (confidence: high)</p>
 </li>
-<li><p>SHAP (Shapley Additive Explanations) is the current standard for model explainability in regulated industries, providing both global feature importance and per-prediction attribution that satisfies RBNZ's principles-based requirement for explainable model decisions; LIME is adequate for rapid local debugging but less rigorous and less consistent across runs. (confidence: high)</p>
+<li>
+<p>SHAP (Shapley Additive Explanations) is the current standard for model explainability in regulated industries, providing both global feature importance and per-prediction attribution that satisfies RBNZ's principles-based requirement for explainable model decisions; LIME is adequate for rapid local debugging but less rigorous and less consistent across runs. (confidence: high)</p>
 </li>
-<li><p>Conformal prediction provides finite-sample, distribution-free prediction intervals with guaranteed coverage, is production-deployed (Husqvarna demand forecasting, credit risk) via the MAPIE Python library, and represents the most technically sound approach to uncertainty quantification for analytics teams that must communicate model uncertainty to decision-makers or regulators. (confidence: high)</p>
+<li>
+<p>Conformal prediction provides finite-sample, distribution-free prediction intervals with guaranteed coverage, is production-deployed (Husqvarna demand forecasting, credit risk) via the MAPIE Python library, and represents the most technically sound approach to uncertainty quantification for analytics teams that must communicate model uncertainty to decision-makers or regulators. (confidence: high)</p>
 </li>
-<li><p>Causal ML libraries — DoWhy (causal graph modelling), EconML (heterogeneous treatment effects), and CausalML (Uber, uplift modelling) — are production-stable and enable analytics teams to move from average treatment effects to personalised intervention analysis for A/B testing, marketing attribution, and policy evaluation. (confidence: high)</p>
+<li>
+<p>Causal ML libraries — DoWhy (causal graph modelling), EconML (heterogeneous treatment effects), and CausalML (Uber, uplift modelling) — are production-stable and enable analytics teams to move from average treatment effects to personalised intervention analysis for A/B testing, marketing attribution, and policy evaluation. (confidence: high)</p>
 </li>
-<li><p>AutoML frameworks (AutoGluon for AWS environments and best ensemble accuracy, H2O AutoML for regulated industries requiring strong explainability, FLAML for resource-constrained or Azure-native environments) are production-ready in 2024 and appropriately used to accelerate prototyping and provide strong baselines before manual model development. (confidence: high)</p>
+<li>
+<p>AutoML frameworks (AutoGluon for AWS environments and best ensemble accuracy, H2O AutoML for regulated industries requiring strong explainability, FLAML for resource-constrained or Azure-native environments) are production-ready in 2024 and appropriately used to accelerate prototyping and provide strong baselines before manual model development. (confidence: high)</p>
 </li>
-<li><p>The Temporal Fusion Transformer (TFT) is the strongest deep learning approach for multivariate, multi-horizon time series forecasting with external covariates, while N-HiTS is preferred for long-horizon univariate forecasting at lower computational cost; ARIMA and Prophet remain appropriate for simple univariate series where interpretability and minimal data are constraints. (confidence: high)</p>
+<li>
+<p>The Temporal Fusion Transformer (TFT) is the strongest deep learning approach for multivariate, multi-horizon time series forecasting with external covariates, while N-HiTS is preferred for long-horizon univariate forecasting at lower computational cost; ARIMA and Prophet remain appropriate for simple univariate series where interpretability and minimal data are constraints. (confidence: high)</p>
 </li>
-<li><p>ML systems accumulate hidden technical debt (Sculley et al. 2015) through data dependency entanglement, hidden feedback loops, and undeclared consumers — the &quot;CACE&quot; principle (Changing Anything Changes Everything) — and this debt is the primary cause of silent production failures in analytics ML deployments. (confidence: high)</p>
+<li>
+<p>ML systems accumulate hidden technical debt (Sculley et al. 2015) through data dependency entanglement, hidden feedback loops, and undeclared consumers — the &quot;CACE&quot; principle (Changing Anything Changes Everything) — and this debt is the primary cause of silent production failures in analytics ML deployments. (confidence: high)</p>
 </li>
-<li><p>RBNZ's model risk management expectations require regulated entities to apply existing risk frameworks to AI/ML models, including validation, explainability, and outcome monitoring, but impose no specific technical method requirements; the practical standard that satisfies these expectations is SHAP for explainability, out-of-time validation for temporal models, and an MLflow-based experiment tracking and registry workflow. (confidence: high)</p>
+<li>
+<p>RBNZ's model risk management expectations require regulated entities to apply existing risk frameworks to AI/ML models, including validation, explainability, and outcome monitoring, but impose no specific technical method requirements; the practical standard that satisfies these expectations is SHAP for explainability, out-of-time validation for temporal models, and an MLflow-based experiment tracking and registry workflow. (confidence: high)</p>
 </li>
-<li><p>The minimum viable MLOps stack for an analytics team — MLflow (experiment tracking + model registry), DVC (data versioning), Evidently AI (drift detection), and GitHub Actions (CI/CD for model retraining) — is entirely open-source, cloud-portable, and sufficient to meet the operational requirements of a regulated analytics function. (confidence: high)</p>
+<li>
+<p>The minimum viable MLOps stack for an analytics team — MLflow (experiment tracking + model registry), DVC (data versioning), Evidently AI (drift detection), and GitHub Actions (CI/CD for model retraining) — is entirely open-source, cloud-portable, and sufficient to meet the operational requirements of a regulated analytics function. (confidence: high)</p>
 </li>
 </ol>
 <h3>Assumptions</h3>
@@ -711,7 +723,8 @@ main {
 <ul>
 <li>Type: knowledge, backlog-item</li>
 <li>Description: A structured taxonomy of ML techniques with decision guides (when to use / not to use), normal-vs-advanced maturity benchmark, best practices, regulatory compliance mapping (RBNZ), and a capability self-assessment framework. Three follow-on backlog items are identified: minimum viable causal ML for regulated analytics, model governance artefact standards for RBNZ compliance, and AutoML vs. manual construction for routine analytics tasks.</li>
-<li>Links:<ul>
+<li>Links:
+<ul>
 <li><a href="https://arxiv.org/abs/2408.14817">arxiv.org/abs/2408.14817</a> — Lazebnik et al. (2024) comprehensive tabular ML benchmark</li>
 <li><a href="https://www.kaggle.com/AI-Report-2023">www.kaggle.com</a> — Kaggle AI Report 2023, tabular data section</li>
 <li><a href="https://proceedings.neurips.cc/paper/2015/file/86df7dcfd896fcaf2674f757a2463eba-Paper.pdf">x] Sculley et al. — &quot;Hidden Technical Debt in Machine Learning Systems&quot; (NIPS 2015)</a> — Sculley et al. (2015), hidden technical debt in ML systems</li>

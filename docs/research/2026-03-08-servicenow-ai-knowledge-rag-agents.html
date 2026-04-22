@@ -655,29 +655,41 @@ main {
 <p>ServiceNow's AI capabilities as of March 2025 are production-ready for organisations that have invested in knowledge base governance and CMDB accuracy, but will produce unreliable, confident-sounding wrong answers for those that have not. Now Assist features for ITSM, Customer Service Management, and HR are generally available from Xanadu (September 2024); the Yokohama release (March 12, 2025) adds AI Agent Orchestrator and Agent Studio for multi-step agentic workflows with human-in-the-loop controls. ServiceNow's AI grounding advantage over standalone RAG deployments depends on CSDM accuracy and knowledge base quality — organisations must sequence data remediation before AI activation, not after. The $2.85 billion Moveworks acquisition signals further investment in conversational AI capability, but full platform integration is not yet available.</p>
 <h3>Key Findings</h3>
 <ol>
-<li><p>Now Assist for ITSM, Customer Service Management, and Human Resources is generally available as of Xanadu (September 2024), covering incident summarisation, resolution recommendations grounded in knowledge articles, change risk analysis, knowledge article generation from incidents, and AI Search &quot;Genius Results&quot;; advanced features require ITSM Pro Plus or Enterprise Plus licensing. [high confidence]</p>
+<li>
+<p>Now Assist for ITSM, Customer Service Management, and Human Resources is generally available as of Xanadu (September 2024), covering incident summarisation, resolution recommendations grounded in knowledge articles, change risk analysis, knowledge article generation from incidents, and AI Search &quot;Genius Results&quot;; advanced features require ITSM Pro Plus or Enterprise Plus licensing. [high confidence]</p>
 </li>
-<li><p>The Yokohama release (generally available March 12, 2025) introduced AI Agent Orchestrator and Agent Studio as GA features, enabling multi-step cross-domain agent workflows that invoke ServiceNow-native actions — record creation, workflow triggers, and approval routing — with configurable human-in-the-loop checkpoints at each consequential step. [high confidence]</p>
+<li>
+<p>The Yokohama release (generally available March 12, 2025) introduced AI Agent Orchestrator and Agent Studio as GA features, enabling multi-step cross-domain agent workflows that invoke ServiceNow-native actions — record creation, workflow triggers, and approval routing — with configurable human-in-the-loop checkpoints at each consequential step. [high confidence]</p>
 </li>
-<li><p>ServiceNow AI Search uses a hybrid BM25 keyword plus dense vector (Dense Passage Retrieval) architecture with a relevancy re-ranker; knowledge articles are split into chunks of approximately 750 words; the Now LLM (or configured external LLM) generates grounded answers only from retrieved passages, with source article citations on each Genius Result. [high confidence]</p>
+<li>
+<p>ServiceNow AI Search uses a hybrid BM25 keyword plus dense vector (Dense Passage Retrieval) architecture with a relevancy re-ranker; knowledge articles are split into chunks of approximately 750 words; the Now LLM (or configured external LLM) generates grounded answers only from retrieved passages, with source article citations on each Genius Result. [high confidence]</p>
 </li>
-<li><p>AI response quality is directly and architecturally coupled to knowledge article quality — duplicate articles, stale content, jargon-heavy writing, and taxonomy gaps degrade RAG retrieval in ways that produce confident-sounding but incorrect AI answers, which are operationally worse than no AI answer at all. [high confidence]</p>
+<li>
+<p>AI response quality is directly and architecturally coupled to knowledge article quality — duplicate articles, stale content, jargon-heavy writing, and taxonomy gaps degrade RAG retrieval in ways that produce confident-sounding but incorrect AI answers, which are operationally worse than no AI answer at all. [high confidence]</p>
 </li>
-<li><p>External LLMs — OpenAI, Azure OpenAI, Anthropic Claude, Google Gemini, and AWS Bedrock — are connectable via ServiceNow's GenAI Controller in a Bring Your Own LLM (BYOLLM) architecture; Azure OpenAI is the correct choice for regulated financial services organisations requiring regional data residency, since it constrains data processing to the selected Azure region (e.g., Australia East for APRA-regulated entities). [high confidence]</p>
+<li>
+<p>External LLMs — OpenAI, Azure OpenAI, Anthropic Claude, Google Gemini, and AWS Bedrock — are connectable via ServiceNow's GenAI Controller in a Bring Your Own LLM (BYOLLM) architecture; Azure OpenAI is the correct choice for regulated financial services organisations requiring regional data residency, since it constrains data processing to the selected Azure region (e.g., Australia East for APRA-regulated entities). [high confidence]</p>
 </li>
-<li><p>Now LLM, ServiceNow's proprietary model, keeps all data within the ServiceNow platform boundary and outperforms general-purpose external LLMs for ServiceNow-specific workflow tasks; external LLMs are preferable for advanced multilingual support or when the organisation holds an existing enterprise LLM agreement with specific governance commitments. [medium confidence]</p>
+<li>
+<p>Now LLM, ServiceNow's proprietary model, keeps all data within the ServiceNow platform boundary and outperforms general-purpose external LLMs for ServiceNow-specific workflow tasks; external LLMs are preferable for advanced multilingual support or when the organisation holds an existing enterprise LLM agreement with specific governance commitments. [medium confidence]</p>
 </li>
-<li><p>The minimum viable knowledge base for reliable Now Assist performance requires coverage of the top 20–30% of recurring incident types, a single authoritative article per topic with no duplicates, jargon-free writing, articles reviewed within the past 12 months, and a category taxonomy aligned to the CI and service hierarchy. [high confidence]</p>
+<li>
+<p>The minimum viable knowledge base for reliable Now Assist performance requires coverage of the top 20–30% of recurring incident types, a single authoritative article per topic with no duplicates, jargon-free writing, articles reviewed within the past 12 months, and a category taxonomy aligned to the CI and service hierarchy. [high confidence]</p>
 </li>
-<li><p>Now Assist Guardian (generally available in Yokohama) provides content moderation guardrails, sensitive data detection, and policy enforcement on AI outputs; combined with Now Assist Analytics and Data Kit for accuracy benchmarking, these tools constitute a model governance layer applicable to regulated industry AI governance requirements. [medium confidence]</p>
+<li>
+<p>Now Assist Guardian (generally available in Yokohama) provides content moderation guardrails, sensitive data detection, and policy enforcement on AI outputs; combined with Now Assist Analytics and Data Kit for accuracy benchmarking, these tools constitute a model governance layer applicable to regulated industry AI governance requirements. [medium confidence]</p>
 </li>
-<li><p>ServiceNow GRC and IRM modules natively support APRA CPS 234 and CPS 230 and RBNZ control framework alignment; any Now Assist AI features used to generate formal regulatory artefacts — audit evidence, risk assessments — require human attestation before filing to satisfy the human oversight requirements of these prudential standards. [high confidence]</p>
+<li>
+<p>ServiceNow GRC and IRM modules natively support APRA CPS 234 and CPS 230 and RBNZ control framework alignment; any Now Assist AI features used to generate formal regulatory artefacts — audit evidence, risk assessments — require human attestation before filing to satisfy the human oversight requirements of these prudential standards. [high confidence]</p>
 </li>
-<li><p>ServiceNow's $2.85 billion acquisition of Moveworks (completed March 2025) adds conversational AI and cross-platform enterprise search capabilities that will extend the agent framework beyond ServiceNow-native actions; full platform integration is a roadmap item and not yet generally available. [high confidence]</p>
+<li>
+<p>ServiceNow's $2.85 billion acquisition of Moveworks (completed March 2025) adds conversational AI and cross-platform enterprise search capabilities that will extend the agent framework beyond ServiceNow-native actions; full platform integration is a roadmap item and not yet generally available. [high confidence]</p>
 </li>
-<li><p>Agent Studio's no-code agent creation lowers the barrier to deploying AI agents across the organisation, which also lowers the barrier to deploying poorly-governed agents with overlapping or conflicting behaviour; organisations activating Agent Studio at scale require an explicit governance model covering permitted actions, human-in-the-loop thresholds, and agent lifecycle ownership. [medium confidence]</p>
+<li>
+<p>Agent Studio's no-code agent creation lowers the barrier to deploying AI agents across the organisation, which also lowers the barrier to deploying poorly-governed agents with overlapping or conflicting behaviour; organisations activating Agent Studio at scale require an explicit governance model covering permitted actions, human-in-the-loop thresholds, and agent lifecycle ownership. [medium confidence]</p>
 </li>
-<li><p>ServiceNow's agent framework is more tightly integrated with operational context — incident records, CMDB relationships, approval chains — than general-purpose frameworks such as LangChain or Autogen, but is narrower in scope, bounded to ServiceNow-native actions in the absence of Moveworks integration. [medium confidence]</p>
+<li>
+<p>ServiceNow's agent framework is more tightly integrated with operational context — incident records, CMDB relationships, approval chains — than general-purpose frameworks such as LangChain or Autogen, but is narrower in scope, bounded to ServiceNow-native actions in the absence of Moveworks integration. [medium confidence]</p>
 </li>
 </ol>
 <h3>Assumptions</h3>

@@ -655,34 +655,47 @@ main {
 <p>A sparse subset of feed-forward network neurons — fewer than 1‰ of total parameters across every tested model — reliably predicts and causally drives hallucination in large language models. Gao et al. (arXiv:2512.01797, Tsinghua University, December 2025) identify these Hallucination-Associated Neurons (H-Neurons) using the CETT metric and L1-regularised sparse linear probing, demonstrating that the same tiny neuron set generalises across in-domain QA, cross-domain biomedical questions, and fabricated-entity questions across six models spanning Mistral, Gemma-3, and Llama-3 families. Controlled activation perturbation shows H-Neurons causally drive over-compliance: amplifying their activation simultaneously increases false-premise acceptance, misleading-context compliance, sycophantic capitulation, and jailbreak susceptibility, establishing that hallucination is one expression of a unified over-compliance tendency rather than a separate knowledge failure. H-Neurons originate during pre-training — they are already predictive in base models before any instruction tuning or RLHF, and undergo minimal parameter change during alignment, so standard fine-tuning does not address the root cause. Three engineering directions follow: real-time token-level hallucination detection using neuron activation signals; inference-time neuron suppression (with an unsolved helpfulness trade-off); and pre-training objective or data modifications to prevent H-Neuron formation.</p>
 <h3>Key Findings</h3>
 <ol>
-<li><p>H-Neurons constitute fewer than 1‰ of all feed-forward network neurons in each tested model, ranging from 0.01‰ in Mistral-Small-3.1-24B and Llama-3.3-70B to 0.35‰ in Mistral-7B-v0.3, yet a linear classifier built from this tiny set achieves 10+ percentage point accuracy improvements over random-neuron baselines across every model and test setting. <strong>[confidence: high]</strong></p>
+<li>
+<p>H-Neurons constitute fewer than 1‰ of all feed-forward network neurons in each tested model, ranging from 0.01‰ in Mistral-Small-3.1-24B and Llama-3.3-70B to 0.35‰ in Mistral-7B-v0.3, yet a linear classifier built from this tiny set achieves 10+ percentage point accuracy improvements over random-neuron baselines across every model and test setting. <strong>[confidence: high]</strong></p>
 </li>
-<li><p>H-Neurons are identified using the CETT metric — which measures each neuron's normalised contribution to the hidden state vector at answer tokens specifically — combined with L1-regularised logistic regression trained on consistency-filtered TriviaQA data, where only all-correct or all-incorrect response sets across 10 samples per question are retained. <strong>[confidence: high]</strong></p>
+<li>
+<p>H-Neurons are identified using the CETT metric — which measures each neuron's normalised contribution to the hidden state vector at answer tokens specifically — combined with L1-regularised logistic regression trained on consistency-filtered TriviaQA data, where only all-correct or all-incorrect response sets across 10 samples per question are retained. <strong>[confidence: high]</strong></p>
 </li>
-<li><p>H-Neuron classifiers generalise robustly to out-of-distribution hallucination scenarios, achieving high accuracy on cross-domain biomedical questions (BioASQ) and fabricated-entity questions (NonExist), with notable exceptions: Llama-3.1-8B achieves only 43.1% on NonExist, below the 50.6% random baseline, an anomaly the paper does not explain. <strong>[confidence: high for general claim, medium for boundary conditions]</strong></p>
+<li>
+<p>H-Neuron classifiers generalise robustly to out-of-distribution hallucination scenarios, achieving high accuracy on cross-domain biomedical questions (BioASQ) and fabricated-entity questions (NonExist), with notable exceptions: Llama-3.1-8B achieves only 43.1% on NonExist, below the 50.6% random baseline, an anomaly the paper does not explain. <strong>[confidence: high for general claim, medium for boundary conditions]</strong></p>
 </li>
-<li><p>Controlled activation scaling establishes a causal link: amplifying H-Neuron activations by factors up to α=3 monotonically increases compliance rates across four structurally independent benchmarks — invalid premise acceptance (FalseQA), misleading context compliance (FaithEval), sycophantic capitulation (Sycophancy), and harmful instruction compliance (Jailbreak). <strong>[confidence: high]</strong></p>
+<li>
+<p>Controlled activation scaling establishes a causal link: amplifying H-Neuron activations by factors up to α=3 monotonically increases compliance rates across four structurally independent benchmarks — invalid premise acceptance (FalseQA), misleading context compliance (FaithEval), sycophantic capitulation (Sycophancy), and harmful instruction compliance (Jailbreak). <strong>[confidence: high]</strong></p>
 </li>
-<li><p>H-Neurons encode a general disposition toward compliance rather than specific factual errors: the same neurons that drive hallucination on factual QA also drive sycophancy and jailbreak susceptibility, unifying three previously treated-as-separate failure modes under a single mechanistic explanation. <strong>[confidence: high for the empirical correlation; medium for the &quot;single mechanism&quot; claim beyond the tested benchmarks]</strong></p>
+<li>
+<p>H-Neurons encode a general disposition toward compliance rather than specific factual errors: the same neurons that drive hallucination on factual QA also drive sycophancy and jailbreak susceptibility, unifying three previously treated-as-separate failure modes under a single mechanistic explanation. <strong>[confidence: high for the empirical correlation; medium for the &quot;single mechanism&quot; claim beyond the tested benchmarks]</strong></p>
 </li>
-<li><p>Larger models show less sensitivity to H-Neuron perturbation (average compliance slope ≈2.40) than smaller models (average slope ≈3.03), suggesting the over-compliance disposition is more distributed across parameters at larger scales, making any single sparse neuron subset less decisive. <strong>[confidence: medium — consistent with but not proven by the data]</strong></p>
+<li>
+<p>Larger models show less sensitivity to H-Neuron perturbation (average compliance slope ≈2.40) than smaller models (average slope ≈3.03), suggesting the over-compliance disposition is more distributed across parameters at larger scales, making any single sparse neuron subset less decisive. <strong>[confidence: medium — consistent with but not proven by the data]</strong></p>
 </li>
-<li><p>H-Neurons originate during pre-training: classifiers trained on instruction-tuned models retain substantial AUROC scores when transferred to their corresponding base models (Mistral family exceeds 86% on TriviaQA), confirming that the neural signature of hallucination tendency is established before any alignment fine-tuning occurs. <strong>[confidence: high]</strong></p>
+<li>
+<p>H-Neurons originate during pre-training: classifiers trained on instruction-tuned models retain substantial AUROC scores when transferred to their corresponding base models (Mistral family exceeds 86% on TriviaQA), confirming that the neural signature of hallucination tendency is established before any alignment fine-tuning occurs. <strong>[confidence: high]</strong></p>
 </li>
-<li><p>H-Neurons exhibit &quot;parameter inertia&quot; during supervised fine-tuning — they are among the least-modified neurons during the base-to-instruction-tuned transition, with Mistral-Small showing average normalised rank ≈0.97 and Llama and Gemma showing averages above 0.58 (P &lt; 0.001 via one-sided t-test), demonstrating that standard alignment does not restructure the hallucination circuits. <strong>[confidence: high for SFT; untested for RLHF]</strong></p>
+<li>
+<p>H-Neurons exhibit &quot;parameter inertia&quot; during supervised fine-tuning — they are among the least-modified neurons during the base-to-instruction-tuned transition, with Mistral-Small showing average normalised rank ≈0.97 and Llama and Gemma showing averages above 0.58 (P &lt; 0.001 via one-sided t-test), demonstrating that standard alignment does not restructure the hallucination circuits. <strong>[confidence: high for SFT; untested for RLHF]</strong></p>
 </li>
-<li><p>The mechanism linking pre-training to H-Neuron formation is the next-token prediction objective, which rewards fluent continuation regardless of factual accuracy, causing models to learn a general compliance tendency — generate a confident-sounding answer rather than express uncertainty — that is encoded in H-Neurons before any instruction data is seen. <strong>[confidence: medium — well-supported theoretical inference, not directly proved by the paper's experiments]</strong></p>
+<li>
+<p>The mechanism linking pre-training to H-Neuron formation is the next-token prediction objective, which rewards fluent continuation regardless of factual accuracy, causing models to learn a general compliance tendency — generate a confident-sounding answer rather than express uncertainty — that is encoded in H-Neurons before any instruction data is seen. <strong>[confidence: medium — well-supported theoretical inference, not directly proved by the paper's experiments]</strong></p>
 </li>
-<li><p>Simple activation suppression of H-Neurons reduces over-compliance but the helpfulness trade-off is unresolved: the paper explicitly states that &quot;simple suppression or amplification of neuron activations proves insufficient for effective control,&quot; establishing that practical mitigation requires context-aware or more sophisticated intervention strategies. <strong>[confidence: high]</strong></p>
+<li>
+<p>Simple activation suppression of H-Neurons reduces over-compliance but the helpfulness trade-off is unresolved: the paper explicitly states that &quot;simple suppression or amplification of neuron activations proves insufficient for effective control,&quot; establishing that practical mitigation requires context-aware or more sophisticated intervention strategies. <strong>[confidence: high]</strong></p>
 </li>
 </ol>
 <h3>Assumptions</h3>
 <ul>
-<li><p><strong>Assumption:</strong> The six models tested (Mistral, Gemma-3, Llama-3 families) are representative of the broader LLM ecosystem including closed-source models (GPT-4, Claude, Gemini). <strong>Justification:</strong> The three families span diverse pre-training data, architecture choices, and parameter counts. However, closed-source model internals are inaccessible for verification; findings may not generalise identically.</p>
+<li>
+<p><strong>Assumption:</strong> The six models tested (Mistral, Gemma-3, Llama-3 families) are representative of the broader LLM ecosystem including closed-source models (GPT-4, Claude, Gemini). <strong>Justification:</strong> The three families span diverse pre-training data, architecture choices, and parameter counts. However, closed-source model internals are inaccessible for verification; findings may not generalise identically.</p>
 </li>
-<li><p><strong>Assumption:</strong> The TriviaQA-based training procedure for the sparse probe is sufficient to identify H-Neurons for other hallucination types (e.g., reasoning errors, long-form inconsistency). <strong>Justification:</strong> The paper evaluates cross-domain and fabrication generalisation and finds strong results. However, reasoning-type hallucinations are not tested; the assumption holds for factual QA hallucinations but remains unverified for reasoning.</p>
+<li>
+<p><strong>Assumption:</strong> The TriviaQA-based training procedure for the sparse probe is sufficient to identify H-Neurons for other hallucination types (e.g., reasoning errors, long-form inconsistency). <strong>Justification:</strong> The paper evaluates cross-domain and fabrication generalisation and finds strong results. However, reasoning-type hallucinations are not tested; the assumption holds for factual QA hallucinations but remains unverified for reasoning.</p>
 </li>
-<li><p><strong>Assumption:</strong> AUROC retention in base models is sufficient evidence for pre-training origin, even though the SFT procedure could in principle activate different neurons than the instruction-tuned model while preserving similar AUROC by coincidence. <strong>Justification:</strong> The parameter inertia analysis (cosine similarity ranks) independently confirms H-Neurons are minimally modified during SFT, making coincidence unlikely; the two lines of evidence converge.</p>
+<li>
+<p><strong>Assumption:</strong> AUROC retention in base models is sufficient evidence for pre-training origin, even though the SFT procedure could in principle activate different neurons than the instruction-tuned model while preserving similar AUROC by coincidence. <strong>Justification:</strong> The parameter inertia analysis (cosine similarity ranks) independently confirms H-Neurons are minimally modified during SFT, making coincidence unlikely; the two lines of evidence converge.</p>
 </li>
 </ul>
 <h3>Analysis</h3>
@@ -692,30 +705,41 @@ main {
 <p>The parameter inertia finding has a direct practical implication that is understated in the paper: if H-Neurons survive SFT, they probably also survive RLHF (since RLHF typically makes smaller weight updates than SFT), but this is not confirmed. The downstream research item on pre-training origins (<code>2026-03-05-h-neuron-pretraining-origins</code>) should investigate this gap directly.</p>
 <h3>Risks, Gaps, and Uncertainties</h3>
 <ul>
-<li><p><strong>Attention heads excluded:</strong> The analysis covers FFN neurons only. Whether attention heads play a similar or complementary role in hallucination is unknown. The full picture of hallucination at the circuit level is incomplete.</p>
+<li>
+<p><strong>Attention heads excluded:</strong> The analysis covers FFN neurons only. Whether attention heads play a similar or complementary role in hallucination is unknown. The full picture of hallucination at the circuit level is incomplete.</p>
 </li>
-<li><p><strong>Llama-3.1-8B NonExist anomaly (inaccessible explanation):</strong> The below-baseline performance on fabricated-entity questions is unexplained. It may indicate that H-Neurons as currently identified are insufficient for fabrication detection in some architectures, or that the Llama-3.1-8B training dynamics differ in a relevant way.</p>
+<li>
+<p><strong>Llama-3.1-8B NonExist anomaly (inaccessible explanation):</strong> The below-baseline performance on fabricated-entity questions is unexplained. It may indicate that H-Neurons as currently identified are insufficient for fabrication detection in some architectures, or that the Llama-3.1-8B training dynamics differ in a relevant way.</p>
 </li>
-<li><p><strong>RLHF not tested:</strong> The parameter inertia finding applies to SFT; RLHF with reward-model-based updates is not tested. Commercial deployments of GPT-4, Claude, and Gemini use RLHF extensively.</p>
+<li>
+<p><strong>RLHF not tested:</strong> The parameter inertia finding applies to SFT; RLHF with reward-model-based updates is not tested. Commercial deployments of GPT-4, Claude, and Gemini use RLHF extensively.</p>
 </li>
-<li><p><strong>Helpfulness trade-off unresolved:</strong> Suppressing H-Neurons reduces over-compliance but the paper does not quantify how much general capability is lost. This is the central practical barrier to deployment.</p>
+<li>
+<p><strong>Helpfulness trade-off unresolved:</strong> Suppressing H-Neurons reduces over-compliance but the paper does not quantify how much general capability is lost. This is the central practical barrier to deployment.</p>
 </li>
-<li><p><strong>Bereska &amp; Gavves (2024) mechanistic interpretability review not accessed:</strong> This source may provide relevant context on the broader state of mechanistic interpretability for AI safety that is not captured in this item.</p>
+<li>
+<p><strong>Bereska &amp; Gavves (2024) mechanistic interpretability review not accessed:</strong> This source may provide relevant context on the broader state of mechanistic interpretability for AI safety that is not captured in this item.</p>
 </li>
-<li><p><strong>YouTube explainer (<a href="https://youtu.be/1ONwQzauqkc">youtu.be</a> not accessed:</strong> The item notes a &quot;liar circuit&quot; framing that may offer additional conceptual context not available from the paper alone.</p>
+<li>
+<p><strong>YouTube explainer (<a href="https://youtu.be/1ONwQzauqkc">youtu.be</a> not accessed:</strong> The item notes a &quot;liar circuit&quot; framing that may offer additional conceptual context not available from the paper alone.</p>
 </li>
 </ul>
 <h3>Open Questions</h3>
 <ul>
-<li><p>Does parameter inertia hold under RLHF training, not just SFT? If RLHF can modify H-Neurons, this would be a practical alignment intervention target. → Seeds <code>2026-03-05-h-neuron-pretraining-origins</code>.</p>
+<li>
+<p>Does parameter inertia hold under RLHF training, not just SFT? If RLHF can modify H-Neurons, this would be a practical alignment intervention target. → Seeds <code>2026-03-05-h-neuron-pretraining-origins</code>.</p>
 </li>
-<li><p>Can context-aware H-Neuron suppression — activating suppression only when epistemic uncertainty is detected — reduce hallucination without degrading helpfulness? → Seeds <code>2026-03-05-h-neuron-over-compliance</code>.</p>
+<li>
+<p>Can context-aware H-Neuron suppression — activating suppression only when epistemic uncertainty is detected — reduce hallucination without degrading helpfulness? → Seeds <code>2026-03-05-h-neuron-over-compliance</code>.</p>
 </li>
-<li><p>Do the same H-Neurons activate for all hallucination types (factual recall, fabrication, reasoning error, faithfulness violation), or does the hallucination type determine which H-Neurons fire?</p>
+<li>
+<p>Do the same H-Neurons activate for all hallucination types (factual recall, fabrication, reasoning error, faithfulness violation), or does the hallucination type determine which H-Neurons fire?</p>
 </li>
-<li><p>Can training data curation or modified pre-training objectives reduce H-Neuron formation, and at what scale is this feasible? → Seeds <code>2026-03-05-h-neuron-pretraining-origins</code>.</p>
+<li>
+<p>Can training data curation or modified pre-training objectives reduce H-Neuron formation, and at what scale is this feasible? → Seeds <code>2026-03-05-h-neuron-pretraining-origins</code>.</p>
 </li>
-<li><p>Do H-Neurons in different model families correspond to the same layers or to different architectural locations? The paper reports ratios by model but does not examine which layers within each model contain H-Neurons most densely.</p>
+<li>
+<p>Do H-Neurons in different model families correspond to the same layers or to different architectural locations? The paper reports ratios by model but does not examine which layers within each model contain H-Neurons most densely.</p>
 </li>
 </ul>
 <hr />

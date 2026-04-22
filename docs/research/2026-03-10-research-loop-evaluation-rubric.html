@@ -654,51 +654,59 @@ main {
 <h3>Executive Summary</h3>
 <h3>Key Findings</h3>
 <ol>
-<li><p>The only tooling approach satisfying this repository's no-new-credentials constraint is a custom GitHub Copilot CLI-based implementation, because DeepEval, Pydantic Evals, and agentevals each require OpenAI or Anthropic API keys not listed in the approved credentials table in AGENTS.md. Confidence: high.</p>
+<li>
+<p>The only tooling approach satisfying this repository's no-new-credentials constraint is a custom GitHub Copilot CLI-based implementation, because DeepEval, Pydantic Evals, and agentevals each require OpenAI or Anthropic API keys not listed in the approved credentials table in AGENTS.md. Confidence: high.</p>
 </li>
-<li><p>A 9-dimension rubric separating structural compliance (deterministic, 5 dimensions: section presence, Evidence Map coverage, Key Finding word count, source consultation, acronym expansion) from semantic quality (LLM-judged, 4 dimensions: executive summary first sentence, claim-to-source accuracy, epistemic labeling, Key Finding specificity) is more reproducible than a single holistic score because structural dimensions can be evaluated without LLM cost. Confidence: high.</p>
+<li>
+<p>A 9-dimension rubric separating structural compliance (deterministic, 5 dimensions: section presence, Evidence Map coverage, Key Finding word count, source consultation, acronym expansion) from semantic quality (LLM-judged, 4 dimensions: executive summary first sentence, claim-to-source accuracy, epistemic labeling, Key Finding specificity) is more reproducible than a single holistic score because structural dimensions can be evaluated without LLM cost. Confidence: high.</p>
 </li>
-<li><p>Pydantic Evals defaults to GPT-4o as its LLM judge and provides no documented integration with the GitHub Copilot Application Programming Interface (API), making it unsuitable for this repository without a custom adapter that adds engineering complexity without delivering benefits beyond a direct Copilot CLI prompt approach. Confidence: high.</p>
+<li>
+<p>Pydantic Evals defaults to GPT-4o as its LLM judge and provides no documented integration with the GitHub Copilot Application Programming Interface (API), making it unsuitable for this repository without a custom adapter that adds engineering complexity without delivering benefits beyond a direct Copilot CLI prompt approach. Confidence: high.</p>
 </li>
-<li><p>The rubric prompt should instruct the judge to output a machine-parseable structured table (dimension | score 1–5 | reasoning) followed by a single <code>OVERALL: PASS</code> or <code>OVERALL: FAIL</code> line, enabling CI parsing with a simple <code>grep</code> command — the same approach proven reliable in the existing <code>research-review.yml</code> workflow. Confidence: high.</p>
+<li>
+<p>The rubric prompt should instruct the judge to output a machine-parseable structured table (dimension | score 1–5 | reasoning) followed by a single <code>OVERALL: PASS</code> or <code>OVERALL: FAIL</code> line, enabling CI parsing with a simple <code>grep</code> command — the same approach proven reliable in the existing <code>research-review.yml</code> workflow. Confidence: high.</p>
 </li>
-<li><p>A 1–5 scoring scale per dimension provides quality trend-tracking signal across items over time, but any dimension scoring 1 (absent or containing only template placeholder text) must trigger a hard FAIL regardless of the mean score because structural absence is a protocol violation that invalidates the item. Confidence: high.</p>
+<li>
+<p>A 1–5 scoring scale per dimension provides quality trend-tracking signal across items over time, but any dimension scoring 1 (absent or containing only template placeholder text) must trigger a hard FAIL regardless of the mean score because structural absence is a protocol violation that invalidates the item. Confidence: high.</p>
 </li>
-<li><p>A gold dataset of 3–5 completed items manually audited against all 9 rubric dimensions is the minimum viable regression baseline, and must be re-evaluated whenever <code>research-prompt.md</code> or <code>SKILL.md</code> changes, following the same benchmark-refresh principle identified in the agent evaluation cross-repo analysis for SWE-bench-Live. Confidence: medium.</p>
+<li>
+<p>A gold dataset of 3–5 completed items manually audited against all 9 rubric dimensions is the minimum viable regression baseline, and must be re-evaluated whenever <code>research-prompt.md</code> or <code>SKILL.md</code> changes, following the same benchmark-refresh principle identified in the agent evaluation cross-repo analysis for SWE-bench-Live. Confidence: medium.</p>
 </li>
-<li><p>The marginal API cost of the CI eval gate is zero because the Copilot subscription is already paid; runner cost is approximately $0.04 per evaluation (5 minutes at $0.008/minute on a GitHub Actions Linux runner), making the per-item cost effectively non-binding for this use case. Confidence: medium.</p>
+<li>
+<p>The marginal API cost of the CI eval gate is zero because the Copilot subscription is already paid; runner cost is approximately $0.04 per evaluation (5 minutes at $0.008/minute on a GitHub Actions Linux runner), making the per-item cost effectively non-binding for this use case. Confidence: medium.</p>
 </li>
-<li><p>The eval gate should trigger on push to main where the diff includes files in <code>Research/completed/</code>, complementing rather than replacing the existing <code>research-review.yml</code> which runs on draft items; the two workflows cover different lifecycle stages (pre-complete vs post-complete) and different failure mode classes (prose quality vs structural completeness). Confidence: high.</p>
+<li>
+<p>The eval gate should trigger on push to main where the diff includes files in <code>Research/completed/</code>, complementing rather than replacing the existing <code>research-review.yml</code> which runs on draft items; the two workflows cover different lifecycle stages (pre-complete vs post-complete) and different failure mode classes (prose quality vs structural completeness). Confidence: high.</p>
 </li>
 </ol>
 <h3>Evidence Map</h3>
 <table>
 <thead>
 <tr>
-  <th>Claim</th>
-  <th>Source</th>
-  <th>Confidence</th>
-  <th>Notes</th>
+<th>Claim</th>
+<th>Source</th>
+<th>Confidence</th>
+<th>Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>Custom Copilot CLI is only feasible approach</td>
-  <td>AGENTS.md credentials table; DeepEval docs; Pydantic Evals docs; agentevals README</td>
-  <td>high</td>
-  <td>Credential constraint is explicit in AGENTS.md</td>
+<td>Custom Copilot CLI is only feasible approach</td>
+<td>AGENTS.md credentials table; DeepEval docs; Pydantic Evals docs; agentevals README</td>
+<td>high</td>
+<td>Credential constraint is explicit in AGENTS.md</td>
 </tr>
 <tr>
-  <td>Acronym non-expansion is most frequent failure</td>
-  <td>research-prompt.md Step 6 header (&quot;#1 cause of review failures&quot;)</td>
-  <td>high</td>
-  <td>Explicit statement in the protocol document</td>
+<td>Acronym non-expansion is most frequent failure</td>
+<td>research-prompt.md Step 6 header (&quot;#1 cause of review failures&quot;)</td>
+<td>high</td>
+<td>Explicit statement in the protocol document</td>
 </tr>
 <tr>
-  <td>Executive Summary first-sentence quality is diagnostic</td>
-  <td>research-prompt.md Step 5 Executive Summary spec</td>
-  <td>high</td>
-  <td>Protocol specifies &quot;first sentence must state the answer as a specific, falsifiable claim&quot;</td>
+<td>Executive Summary first-sentence quality is diagnostic</td>
+<td>research-prompt.md Step 5 Executive Summary spec</td>
+<td>high</td>
+<td>Protocol specifies &quot;first sentence must state the answer as a specific, falsifiable claim&quot;</td>
 </tr>
 </tbody>
 </table>
@@ -729,7 +737,8 @@ main {
 <ul>
 <li><strong>Type:</strong> knowledge, artefact</li>
 <li><strong>Description:</strong> Full specification of the 9-dimension LLM-as-judge evaluation rubric and CI workflow design for this repository's research loop agent, with tooling selection rationale and gold dataset requirements. The rubric specification is suitable for extraction to <code>docs/eval/research-rubric-prompt.md</code>.</li>
-<li><strong>Key sources:</strong><ol>
+<li><strong>Key sources:</strong>
+<ol>
 <li>Hamel Husain &quot;Your AI Product Needs Evals&quot; — <a href="https://hamel.dev/blog/posts/evals/">hamel.dev</a>
 <li>Pydantic LLM-as-a-Judge guide — <a href="https://pydantic.dev/articles/llm-as-a-judge">pydantic.dev</a>
 <li>Research/completed/2026-03-10-agent-evaluation-cross-repo-analysis.md (prior art: 5-component MVF framework and tooling survey)</li>

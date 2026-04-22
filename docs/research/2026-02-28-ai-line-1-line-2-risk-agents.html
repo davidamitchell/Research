@@ -664,29 +664,41 @@ main {
 <p>AI agents performing line 1 and line 2 risk functions in financial services are deployed today, but almost exclusively in the &quot;tool output&quot; mode: the agent produces flags, alerts, or recommendations, and a named human remains accountable for the determination. The dominant delivery mechanism is commercial vendor platforms (NICE Actimize SURVEIL-X, Behavox, Nasdaq Trade Surveillance, IBM OpenPages) rather than bespoke in-house builds. Regulators across all major jurisdictions — FCA/PRA, APRA, BIS, RBNZ — are applying existing frameworks (SMCR, CPS 220, three-lines model) to AI agents and have not published agent-specific guidance for line 1 or line 2 oversight functions. The core governance question — who is accountable when an AI agent performs an independent oversight function at machine speed — remains unresolved in prudential guidance, and no major regulator has addressed the nominal-review problem where human review is formally present but substantively impossible at scale.</p>
 <h3>Key Findings</h3>
 <ol>
-<li><p><strong>Vendor platforms dominate line 2 AI agent deployment.</strong> NICE Actimize SURVEIL-X (generative AI-augmented), Behavox (voice and communications surveillance), Nasdaq Trade Surveillance, and IBM OpenPages (model risk governance) are the primary commercial platforms deployed in second-line financial crime and compliance functions. These are production systems at scale, not pilots.</p>
+<li>
+<p><strong>Vendor platforms dominate line 2 AI agent deployment.</strong> NICE Actimize SURVEIL-X (generative AI-augmented), Behavox (voice and communications surveillance), Nasdaq Trade Surveillance, and IBM OpenPages (model risk governance) are the primary commercial platforms deployed in second-line financial crime and compliance functions. These are production systems at scale, not pilots.</p>
 </li>
-<li><p><strong>Line 1 agents focus on real-time operational risk detection.</strong> Transaction monitoring agents, trading desk risk alerts, AML screening, and sanctions checks are the dominant line 1 use cases. These agents operate at machine speed with human review triggered by agent-generated alerts — placing substantive risk identification firmly in the agent's domain.</p>
+<li>
+<p><strong>Line 1 agents focus on real-time operational risk detection.</strong> Transaction monitoring agents, trading desk risk alerts, AML screening, and sanctions checks are the dominant line 1 use cases. These agents operate at machine speed with human review triggered by agent-generated alerts — placing substantive risk identification firmly in the agent's domain.</p>
 </li>
-<li><p><strong>Accountability architecture is universally &quot;human reviewer&quot; in current deployments.</strong> Every documented deployment positions the agent output as a tool output, not a determination. A named compliance officer, risk manager, or senior manager retains formal accountability for final decisions. No disclosed deployment positions an agent as making binding risk determinations without mandatory human sign-off.</p>
+<li>
+<p><strong>Accountability architecture is universally &quot;human reviewer&quot; in current deployments.</strong> Every documented deployment positions the agent output as a tool output, not a determination. A named compliance officer, risk manager, or senior manager retains formal accountability for final decisions. No disclosed deployment positions an agent as making binding risk determinations without mandatory human sign-off.</p>
 </li>
-<li><p><strong>NICE Actimize SURVEIL-X with generative AI reduces false positives by up to 85% and detects up to four times more misconduct than traditional systems.</strong> This is a vendor claim from a 2024 release announcement; independent validation is not available in public sources.</p>
+<li>
+<p><strong>NICE Actimize SURVEIL-X with generative AI reduces false positives by up to 85% and detects up to four times more misconduct than traditional systems.</strong> This is a vendor claim from a 2024 release announcement; independent validation is not available in public sources.</p>
 </li>
-<li><p><strong>McKinsey estimates agentic AI can automate up to 70% of manual compliance work</strong> in financial crime compliance, with pilot implementations reporting fourfold improvements in true risk detection. Oliver Wyman (February 2026) has separately documented agentic AI reshaping compliance at financial institutions, with the transition from alert-based to end-to-end autonomous workflow already underway.</p>
+<li>
+<p><strong>McKinsey estimates agentic AI can automate up to 70% of manual compliance work</strong> in financial crime compliance, with pilot implementations reporting fourfold improvements in true risk detection. Oliver Wyman (February 2026) has separately documented agentic AI reshaping compliance at financial institutions, with the transition from alert-based to end-to-end autonomous workflow already underway.</p>
 </li>
-<li><p><strong>FCA/PRA DP5/22 considered but did not introduce an SMCR prescribed responsibility for AI oversight.</strong> The 2022 discussion paper asked whether there should be a named senior manager prescribed responsibility for AI. Industry feedback was mixed; the FCA/PRA concluded existing SMCR accountability is sufficient, with existing senior managers (CRO, CTO) accountable for AI risk within their domains. No new prescribed responsibility was created.</p>
+<li>
+<p><strong>FCA/PRA DP5/22 considered but did not introduce an SMCR prescribed responsibility for AI oversight.</strong> The 2022 discussion paper asked whether there should be a named senior manager prescribed responsibility for AI. Industry feedback was mixed; the FCA/PRA concluded existing SMCR accountability is sufficient, with existing senior managers (CRO, CTO) accountable for AI risk within their domains. No new prescribed responsibility was created.</p>
 </li>
-<li><p><strong>APRA is applying CPS 220 and enhanced governance proposals to AI agents, not creating a new AI-specific standard.</strong> APRA's March 2025 enhanced governance proposals address board oversight of technology including AI, requiring clear accountability, independent validation, and escalation paths. The three-lines model is explicitly recommended but not AI-agent-specific.</p>
+<li>
+<p><strong>APRA is applying CPS 220 and enhanced governance proposals to AI agents, not creating a new AI-specific standard.</strong> APRA's March 2025 enhanced governance proposals address board oversight of technology including AI, requiring clear accountability, independent validation, and escalation paths. The three-lines model is explicitly recommended but not AI-agent-specific.</p>
 </li>
-<li><p><strong>RBNZ has no AI-specific interpretive guidance for line 1 or line 2 agents.</strong> BS11 (outsourcing) and the corporate governance policy apply implicitly — banks must retain control, ensure stand-alone operability, and maintain board-level accountability for outsourced AI functions. There is no RBNZ interpretive material addressing the accountability question for agentic oversight functions.</p>
+<li>
+<p><strong>RBNZ has no AI-specific interpretive guidance for line 1 or line 2 agents.</strong> BS11 (outsourcing) and the corporate governance policy apply implicitly — banks must retain control, ensure stand-alone operability, and maintain board-level accountability for outsourced AI functions. There is no RBNZ interpretive material addressing the accountability question for agentic oversight functions.</p>
 </li>
-<li><p><strong>IBM OpenPages 9.1.3 explicitly markets itself as &quot;the first step toward agentic GRC.&quot;</strong> This framing acknowledges the gap: current deployments are not agentic in the autonomous-determination sense. AI assists human workflows; it does not replace human accountability for risk determinations.</p>
+<li>
+<p><strong>IBM OpenPages 9.1.3 explicitly markets itself as &quot;the first step toward agentic GRC.&quot;</strong> This framing acknowledges the gap: current deployments are not agentic in the autonomous-determination sense. AI assists human workflows; it does not replace human accountability for risk determinations.</p>
 </li>
-<li><p><strong>Three documented failure modes in agentic compliance agents:</strong> (a) overconfidence/hallucination producing plausible but incorrect risk narratives; (b) alert fatigue from false positives masking genuine risk signals (false negatives); (c) explainability gaps making it impossible to audit why the agent failed to flag an event. AI incident reports in financial services rose over 50% between 2023 and 2025.</p>
+<li>
+<p><strong>Three documented failure modes in agentic compliance agents:</strong> (a) overconfidence/hallucination producing plausible but incorrect risk narratives; (b) alert fatigue from false positives masking genuine risk signals (false negatives); (c) explainability gaps making it impossible to audit why the agent failed to flag an event. AI incident reports in financial services rose over 50% between 2023 and 2025.</p>
 </li>
-<li><p><strong>JPMorgan Chase is the most advanced bank in documented agentic risk integration.</strong> Its proprietary LLM Suite and OmniAI platforms support agentic multistep tasks across legal, regulatory, and compliance workflows with multi-level human-in-the-loop oversight. No public disclosure confirms line 2 determinations are made by agent without human sign-off.</p>
+<li>
+<p><strong>JPMorgan Chase is the most advanced bank in documented agentic risk integration.</strong> Its proprietary LLM Suite and OmniAI platforms support agentic multistep tasks across legal, regulatory, and compliance workflows with multi-level human-in-the-loop oversight. No public disclosure confirms line 2 determinations are made by agent without human sign-off.</p>
 </li>
-<li><p><strong>No regulator has published guidance specifically addressing the nominal-review problem.</strong> When agents operate at a scale and speed where human review is formally present but substantively impossible, the traditional accountability model (human reviewer is accountable) is strained but no supervisor has defined what constitutes adequate oversight in this scenario.</p>
+<li>
+<p><strong>No regulator has published guidance specifically addressing the nominal-review problem.</strong> When agents operate at a scale and speed where human review is formally present but substantively impossible, the traditional accountability model (human reviewer is accountable) is strained but no supervisor has defined what constitutes adequate oversight in this scenario.</p>
 </li>
 </ol>
 <h3>Assumptions</h3>

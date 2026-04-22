@@ -673,25 +673,35 @@ main {
 <p>Deleting <code>AGENTS.md</code> in favour of <code>.github/copilot-instructions.md</code> as sole instructions source is the better-supported approach for this repo's two primary tools. [inference] The Copilot CLI (used in <code>research-loop.yml</code>) reads <code>.github/copilot-instructions.md</code> reliably; <code>AGENTS.md</code> support in the CLI exists in documentation but has a verified bug that may suppress it in practice. The Copilot Coding Agent (web, via GitHub Issues) reads both files, meaning restoring <code>AGENTS.md</code> would add additive but redundant context for that tool. The thin pointer pattern (a one-line <code>AGENTS.md</code> referencing <code>copilot-instructions.md</code>) is not viable because the <code>AGENTS.md</code> specification has no import syntax and agents read instruction files literally. The one genuine gap in the current setup is Claude iOS Code, which reads only <code>CLAUDE.md</code> and is served by neither existing file.</p>
 <h3>Key Findings</h3>
 <ol>
-<li><p>The Copilot CLI (v1.0.12, used in <code>research-loop.yml</code>) officially reads both <code>AGENTS.md</code> and <code>.github/copilot-instructions.md</code> when both are present, but a verified bug report (GitHub issue #489, filed against v0.0.353) documents that <code>AGENTS.md</code> is silently ignored in favour of <code>copilot-instructions.md</code> in at least one version; fix status in v1.0.12 is unconfirmed. [confidence: high]</p>
+<li>
+<p>The Copilot CLI (v1.0.12, used in <code>research-loop.yml</code>) officially reads both <code>AGENTS.md</code> and <code>.github/copilot-instructions.md</code> when both are present, but a verified bug report (GitHub issue #489, filed against v0.0.353) documents that <code>AGENTS.md</code> is silently ignored in favour of <code>copilot-instructions.md</code> in at least one version; fix status in v1.0.12 is unconfirmed. [confidence: high]</p>
 </li>
-<li><p>The Copilot Coding Agent (web, assigned via GitHub Issues) reads <code>AGENTS.md</code>, <code>.github/copilot-instructions.md</code>, <code>.github/instructions/*.instructions.md</code>, <code>CLAUDE.md</code>, and <code>GEMINI.md</code> as additive instruction sources; <code>AGENTS.md</code> support was added in the 2025-08-28 changelog entry. [confidence: high]</p>
+<li>
+<p>The Copilot Coding Agent (web, assigned via GitHub Issues) reads <code>AGENTS.md</code>, <code>.github/copilot-instructions.md</code>, <code>.github/instructions/*.instructions.md</code>, <code>CLAUDE.md</code>, and <code>GEMINI.md</code> as additive instruction sources; <code>AGENTS.md</code> support was added in the 2025-08-28 changelog entry. [confidence: high]</p>
 </li>
-<li><p>The Claude iOS Code feature (dispatched via mobile app to Claude Code Desktop) reads <code>CLAUDE.md</code> only; it does not read <code>AGENTS.md</code> or <code>.github/copilot-instructions.md</code>, and there is an open GitHub issue (#6235 in <code>anthropics/claude-code</code>) requesting native <code>AGENTS.md</code> support that remains unresolved. [confidence: high]</p>
+<li>
+<p>The Claude iOS Code feature (dispatched via mobile app to Claude Code Desktop) reads <code>CLAUDE.md</code> only; it does not read <code>AGENTS.md</code> or <code>.github/copilot-instructions.md</code>, and there is an open GitHub issue (#6235 in <code>anthropics/claude-code</code>) requesting native <code>AGENTS.md</code> support that remains unresolved. [confidence: high]</p>
 </li>
-<li><p>The <code>AGENTS.md</code> specification, stewarded by the Agentic AI Foundation under the Linux Foundation, supports both root-level and directory-scoped placement using a nearest-file-wins hierarchy, and has no native import, include, or file-reference syntax. [confidence: high]</p>
+<li>
+<p>The <code>AGENTS.md</code> specification, stewarded by the Agentic AI Foundation under the Linux Foundation, supports both root-level and directory-scoped placement using a nearest-file-wins hierarchy, and has no native import, include, or file-reference syntax. [confidence: high]</p>
 </li>
-<li><p>A thin pointer <code>AGENTS.md</code> (one line referencing <code>copilot-instructions.md</code>) is not a viable cross-tool compatibility solution because agents read instruction file content as context input, not as file-loading directives, making adherence to such a pointer unreliable and unverifiable. [confidence: high]</p>
+<li>
+<p>A thin pointer <code>AGENTS.md</code> (one line referencing <code>copilot-instructions.md</code>) is not a viable cross-tool compatibility solution because agents read instruction file content as context input, not as file-loading directives, making adherence to such a pointer unreliable and unverifiable. [confidence: high]</p>
 </li>
-<li><p>ADR-0006 fully migrated all content from the previous <code>AGENTS.md</code> into <code>.github/copilot-instructions.md</code>; no instructions were lost in the deletion, meaning restoring <code>AGENTS.md</code> from scratch would require duplicating content already in <code>copilot-instructions.md</code>. [confidence: high]</p>
+<li>
+<p>ADR-0006 fully migrated all content from the previous <code>AGENTS.md</code> into <code>.github/copilot-instructions.md</code>; no instructions were lost in the deletion, meaning restoring <code>AGENTS.md</code> from scratch would require duplicating content already in <code>copilot-instructions.md</code>. [confidence: high]</p>
 </li>
-<li><p>Of the five inspectable repos in the davidamitchell organisation, only <code>Personal-Assistant-</code> has <code>AGENTS.md</code> at root; <code>Latest-developments-</code>, <code>Agent-Evaluation</code>, <code>Policy-LSP</code>, and <code>Research</code> all lack it, making <code>Personal-Assistant-</code> the outlier rather than Research. [confidence: high]</p>
+<li>
+<p>Of the five inspectable repos in the davidamitchell organisation, only <code>Personal-Assistant-</code> has <code>AGENTS.md</code> at root; <code>Latest-developments-</code>, <code>Agent-Evaluation</code>, <code>Policy-LSP</code>, and <code>Research</code> all lack it, making <code>Personal-Assistant-</code> the outlier rather than Research. [confidence: high]</p>
 </li>
-<li><p><code>.github/copilot-instructions.md</code> is the reliably read instruction file for the Copilot CLI regardless of whether a bug fix lands for <code>AGENTS.md</code> support, because the official documentation designates it as the always-used repository-wide instruction surface for the Copilot CLI. [confidence: high]</p>
+<li>
+<p><code>.github/copilot-instructions.md</code> is the reliably read instruction file for the Copilot CLI regardless of whether a bug fix lands for <code>AGENTS.md</code> support, because the official documentation designates it as the always-used repository-wide instruction surface for the Copilot CLI. [confidence: high]</p>
 </li>
-<li><p>If restoring <code>AGENTS.md</code> with real content, it would need to be maintained in sync with <code>copilot-instructions.md</code>; maintaining two parallel instruction files creates a divergence risk [inference], and the current single-file approach eliminates that maintenance surface. [confidence: medium]</p>
+<li>
+<p>If restoring <code>AGENTS.md</code> with real content, it would need to be maintained in sync with <code>copilot-instructions.md</code>; maintaining two parallel instruction files creates a divergence risk [inference], and the current single-file approach eliminates that maintenance surface. [confidence: medium]</p>
 </li>
-<li><p>[inference] If instructions for the Claude iOS Code feature are desired, adding a <code>CLAUDE.md</code> (not an <code>AGENTS.md</code>) is the appropriate action, because <code>CLAUDE.md</code> is the only instruction file that Claude Code's read path includes. [confidence: high]</p>
+<li>
+<p>[inference] If instructions for the Claude iOS Code feature are desired, adding a <code>CLAUDE.md</code> (not an <code>AGENTS.md</code>) is the appropriate action, because <code>CLAUDE.md</code> is the only instruction file that Claude Code's read path includes. [confidence: high]</p>
 </li>
 </ol>
 <h3>Assumptions</h3>
@@ -721,7 +731,8 @@ main {
 <ul>
 <li><strong>Type:</strong> knowledge</li>
 <li><strong>Description:</strong> Confirmed that the current Research repo setup (<code>.github/copilot-instructions.md</code> only, no <code>AGENTS.md</code>) is correct for its primary tools (Copilot CLI and Copilot Coding Agent web), with a documented gap for Claude iOS Code (requires <code>CLAUDE.md</code>). Thin pointer pattern is not viable. Research is not an org outlier; three other repos also lack <code>AGENTS.md</code>.</li>
-<li><strong>Links:</strong><ul>
+<li><strong>Links:</strong>
+<ul>
 <li><a href="https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/add-custom-instructions">GitHub Copilot CLI custom instructions documentation</a></li>
 <li><a href="https://github.blog/changelog/2025-08-28-copilot-coding-agent-now-supports-agents-md-custom-instructions/">GitHub blog: Copilot coding agent now supports AGENTS.md (2025-08-28)</a></li>
 <li><a href="https://agents.md/">agents.md specification site</a></li>
@@ -734,6 +745,7 @@ main {
   <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-03-29-multi-agent-repo-setup.html">Multi-agent repo setup: best practices for configuring a repository to be worked on by Claude (iOS and GitHub Issues) and Copilot (Spaces and GitHub Issues)</a> <span class="related-note">via agents-md, claude, copilot, instructions</span></div>
 <div class="related-entry"><a href="/Research/research/2026-03-28-agent-instruction-loading-and-skills-access.html">Agent instruction loading and skills access: Copilot coding agent, Claude iOS code feature, and the role of AGENTS.md</a> <span class="related-note">via agents-md, claude, copilot, instructions</span></div>
 <div class="related-entry"><a href="/Research/research/2026-04-03-oh-my-codex-patterns.html">oh-my-codex and AI Agent Workflow Patterns: What Can We Leverage?</a> <span class="related-note">via agents-md, copilot, instructions</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-20-harness-selection-tools-agents-skills-prompts-instructions.html">Harness-level selection and use of tools, agents, skills, prompts, and instruction files</a> <span class="related-note">via copilot, instructions</span></div>
 <div class="related-entry"><a href="/Research/research/2026-03-28-environment-setup-consistency.html">Environment setup consistency: what each agent sees when it starts work in this repo and how to make it consistent</a> <span class="related-note">via claude, copilot</span></div>
 </div></div>
 

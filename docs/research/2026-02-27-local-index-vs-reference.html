@@ -664,28 +664,38 @@ main {
 <p>For a git-based, GitHub-hosted research corpus with a single owner reviewing diffs via the GitHub website, the correct policy is: store YouTube transcripts locally as plain text files, keep arXiv papers as reference-only (URL/ID), paste key passages from web pages inline into research items, and always commit notes and synthesis locally. This policy is derived from three criteria applied to each content type: whether on-demand fetching is reliable (transcripts are blocked on cloud IPs), whether the source URL is stable (arXiv is permanent; general web has a 2–14 year half-life depending on content type), and whether the file format is git-friendly (text yes, binary no). Git LFS is not needed: no anticipated content type approaches GitHub's 50 MiB warning threshold, and LFS adds operational complexity that conflicts with the owner's GitHub-website-only workflow.</p>
 <h3>Key Findings</h3>
 <ol>
-<li><p><strong>YouTube transcripts must be stored locally as <code>.txt</code> files because cloud IP blocking makes on-demand re-fetching unreliable, and text files are fully git-diffable and accessible from the GitHub website without any special tooling.</strong> The existing <code>Research/transcripts/</code> directory and <code>fetch-transcript</code> workflow implement this policy correctly.</p>
+<li>
+<p><strong>YouTube transcripts must be stored locally as <code>.txt</code> files because cloud IP blocking makes on-demand re-fetching unreliable, and text files are fully git-diffable and accessible from the GitHub website without any special tooling.</strong> The existing <code>Research/transcripts/</code> directory and <code>fetch-transcript</code> workflow implement this policy correctly.</p>
 </li>
-<li><p><strong>arXiv papers must remain reference-only because PDFs are binary files that produce unreadable git diffs, arXiv URLs are permanently stable (the service has operated since 1991 with institutional backing), and the relevant content can be represented as text excerpts within research items rather than full PDFs.</strong> Key excerpts should be pasted inline when they are primary evidence.</p>
+<li>
+<p><strong>arXiv papers must remain reference-only because PDFs are binary files that produce unreadable git diffs, arXiv URLs are permanently stable (the service has operated since 1991 with institutional backing), and the relevant content can be represented as text excerpts within research items rather than full PDFs.</strong> Key excerpts should be pasted inline when they are primary evidence.</p>
 </li>
-<li><p><strong>Web pages that are primary sources for key findings should have their relevant 1–3 paragraph excerpt pasted directly into the research item's Context or Findings section at the time of research, because 38% of web pages from 2013 were inaccessible by 2023 (Pew Research, 2023) and 23% of news articles already contained dead URLs by 2023.</strong> The URL is still recorded for attribution; the inline text guards against evidence disappearing.</p>
+<li>
+<p><strong>Web pages that are primary sources for key findings should have their relevant 1–3 paragraph excerpt pasted directly into the research item's Context or Findings section at the time of research, because 38% of web pages from 2013 were inaccessible by 2023 (Pew Research, 2023) and 23% of news articles already contained dead URLs by 2023.</strong> The URL is still recorded for attribution; the inline text guards against evidence disappearing.</p>
 </li>
-<li><p><strong>General web URLs that are peripheral sources (background reading, not direct evidence for a specific finding) should be recorded as references only, because the overhead of snapshotting every source is not proportionate to the benefit at current corpus scale.</strong></p>
+<li>
+<p><strong>General web URLs that are peripheral sources (background reading, not direct evidence for a specific finding) should be recorded as references only, because the overhead of snapshotting every source is not proportionate to the benefit at current corpus scale.</strong></p>
 </li>
-<li><p><strong>Git LFS is not warranted for this repository: text transcripts at 40–150 KB per file and 1,000 transcripts would total 150 MB — well within GitHub's practical repository limits — and LFS adds complexity (separate client, quota management) that conflicts with the owner's GitHub-website-only workflow.</strong></p>
+<li>
+<p><strong>Git LFS is not warranted for this repository: text transcripts at 40–150 KB per file and 1,000 transcripts would total 150 MB — well within GitHub's practical repository limits — and LFS adds complexity (separate client, quota management) that conflicts with the owner's GitHub-website-only workflow.</strong></p>
 </li>
-<li><p><strong>Binary files (PDFs, audio, video) must never be committed to the repository regardless of size, because they produce unreadable git diffs and this constraint is already established by ADR-0003 and the local database item; the policy documented here is consistent with that existing constraint.</strong></p>
+<li>
+<p><strong>Binary files (PDFs, audio, video) must never be committed to the repository regardless of size, because they produce unreadable git diffs and this constraint is already established by ADR-0003 and the local database item; the policy documented here is consistent with that existing constraint.</strong></p>
 </li>
-<li><p><strong>The storage-vs-reference decision is fully determined by three criteria in order: (1) is on-demand fetching reliable? (2) does the source have meaningful link rot risk within a 5-year horizon? (3) is the format text (git-friendly) or binary (git-hostile)?</strong> Applying these criteria leaves no ambiguous cases for the four content types in scope.</p>
+<li>
+<p><strong>The storage-vs-reference decision is fully determined by three criteria in order: (1) is on-demand fetching reliable? (2) does the source have meaningful link rot risk within a 5-year horizon? (3) is the format text (git-friendly) or binary (git-hostile)?</strong> Applying these criteria leaves no ambiguous cases for the four content types in scope.</p>
 </li>
-<li><p><strong>A separate <code>Research/snapshots/</code> directory for web page archives is not warranted at current corpus scale; the inline-paste pattern already observable in completed research items (e.g., <code>2026-02-28-ai-strategy.md</code>) is sufficient and does not require new tooling or directory structure.</strong></p>
+<li>
+<p><strong>A separate <code>Research/snapshots/</code> directory for web page archives is not warranted at current corpus scale; the inline-paste pattern already observable in completed research items (e.g., <code>2026-02-28-ai-strategy.md</code>) is sufficient and does not require new tooling or directory structure.</strong></p>
 </li>
 </ol>
 <h3>Assumptions</h3>
 <ul>
-<li><p><strong>Assumption:</strong> Average text transcript is 40–150 KB per file. <strong>Justification:</strong> Standard English word density for spoken transcripts is approximately 8,000–15,000 words per hour of content, and plain text encodes at ~5 bytes per word. No measured sample from this repository was available (the <code>Research/transcripts/</code> directory is currently empty). If transcripts are consistently shorter (sub-30-minute videos) the size drops proportionally; this does not change the storage recommendation.</p>
+<li>
+<p><strong>Assumption:</strong> Average text transcript is 40–150 KB per file. <strong>Justification:</strong> Standard English word density for spoken transcripts is approximately 8,000–15,000 words per hour of content, and plain text encodes at ~5 bytes per word. No measured sample from this repository was available (the <code>Research/transcripts/</code> directory is currently empty). If transcripts are consistently shorter (sub-30-minute videos) the size drops proportionally; this does not change the storage recommendation.</p>
 </li>
-<li><p><strong>Assumption:</strong> The YouTube video deletion rate represents a &quot;medium&quot; link rot risk for this content type. <strong>Justification:</strong> No systematic study of YouTube video deletion rates was found. The &quot;medium&quot; label is conservative relative to general web content (high) and arXiv (very low), and is consistent with the observation that YouTube channels referenced in research tend to be established content creators. The storage recommendation for transcripts is driven by IP blocking, not by this risk level, so the assumption does not affect the policy outcome.</p>
+<li>
+<p><strong>Assumption:</strong> The YouTube video deletion rate represents a &quot;medium&quot; link rot risk for this content type. <strong>Justification:</strong> No systematic study of YouTube video deletion rates was found. The &quot;medium&quot; label is conservative relative to general web content (high) and arXiv (very low), and is consistent with the observation that YouTube channels referenced in research tend to be established content creators. The storage recommendation for transcripts is driven by IP blocking, not by this risk level, so the assumption does not affect the policy outcome.</p>
 </li>
 </ul>
 <h3>Analysis</h3>

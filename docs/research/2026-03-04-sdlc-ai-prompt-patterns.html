@@ -663,34 +663,47 @@ main {
 <p>Phase-aware prompting produces measurable gains in the Build phase — Peng et al. (2023) measured 55.8% faster task completion — but whole-SDLC evidence remains thin, with Discovery, Requirements, and Design phases resting on practitioner accounts rather than controlled experiments. Three mechanisms drive improvements: context selection (provide only relevant files and instructions), reasoning structure (SCoT (Structured Chain-of-Thought) outperforms standard CoT (Chain-of-Thought) by up to 13.79% Pass@1 for code generation), and mode matching (Barke et al.'s acceleration vs. exploration bimodal finding predicts prompt failure when mode and phase are mismatched). The DORA (DevOps Research and Assessment) 2024 report's finding that AI adoption simultaneously improves code quality (+3.4%) and degrades delivery stability (-7.2%) is the strongest empirical argument for formalising Review-phase prompts: gains in Build without rigorous Review produce deployment instability. Tooling alignment via persistent context files (AGENTS.md, <code>.github/copilot-instructions.md</code>) encodes phase guidance statically; MCP (Model Context Protocol) servers enable the next step — runtime-injected, dynamically selected phase-appropriate prompt templates.</p>
 <h3>Key Findings</h3>
 <ol>
-<li><p><strong>Peng et al. (2023) measured a 55.8% task completion speed increase using GitHub Copilot in a controlled Build-phase experiment; this figure is phase-specific and does not extend to whole-SDLC efficiency claims.</strong> Source: arXiv:2302.06590. Confidence: high.</p>
+<li>
+<p><strong>Peng et al. (2023) measured a 55.8% task completion speed increase using GitHub Copilot in a controlled Build-phase experiment; this figure is phase-specific and does not extend to whole-SDLC efficiency claims.</strong> Source: arXiv:2302.06590. Confidence: high.</p>
 </li>
-<li><p><strong>Li et al. (2023) SCoT (Structured Chain-of-Thought) prompting outperforms standard CoT by up to 13.79% Pass@1 on code generation benchmarks by structuring intermediate reasoning steps using program constructs (sequence, branch, loop) rather than natural-language narrative.</strong> Source: arXiv:2305.06599. Confidence: high.</p>
+<li>
+<p><strong>Li et al. (2023) SCoT (Structured Chain-of-Thought) prompting outperforms standard CoT by up to 13.79% Pass@1 on code generation benchmarks by structuring intermediate reasoning steps using program constructs (sequence, branch, loop) rather than natural-language narrative.</strong> Source: arXiv:2305.06599. Confidence: high.</p>
 </li>
-<li><p><strong>White et al. (2023) formalised prompt engineering patterns as software patterns — reusable solutions to recurring LLM (Large Language Model) interaction problems — and the catalog includes persona, context manager, chain-of-thought, alternative approaches, and fact-check-list patterns all applicable to SDLC phase tasks.</strong> Source: arXiv:2302.11382. Confidence: high.</p>
+<li>
+<p><strong>White et al. (2023) formalised prompt engineering patterns as software patterns — reusable solutions to recurring LLM (Large Language Model) interaction problems — and the catalog includes persona, context manager, chain-of-thought, alternative approaches, and fact-check-list patterns all applicable to SDLC phase tasks.</strong> Source: arXiv:2302.11382. Confidence: high.</p>
 </li>
-<li><p><strong>Barke et al. (2022) found that AI coding assistant use is bimodal: acceleration mode (developer knows what to do, uses AI to execute faster) vs. exploration mode (developer is uncertain, uses AI to discover options); prompt patterns optimised for one mode underperform in the other, and SDLC phase strongly predicts mode.</strong> Source: arXiv:2206.15000. Confidence: high.</p>
+<li>
+<p><strong>Barke et al. (2022) found that AI coding assistant use is bimodal: acceleration mode (developer knows what to do, uses AI to execute faster) vs. exploration mode (developer is uncertain, uses AI to discover options); prompt patterns optimised for one mode underperform in the other, and SDLC phase strongly predicts mode.</strong> Source: arXiv:2206.15000. Confidence: high.</p>
 </li>
-<li><p><strong>GitHub Copilot Workspace (launched April 2024) operationalises phase-aware decomposition with a task-centric flow from GitHub Issue through specification, plan, code, test execution, and PR — with developer editability at every step and distinct Copilot agents for each phase transition.</strong> Source: github.blog/news-insights/product-news/github-copilot-workspace/. Confidence: high.</p>
+<li>
+<p><strong>GitHub Copilot Workspace (launched April 2024) operationalises phase-aware decomposition with a task-centric flow from GitHub Issue through specification, plan, code, test execution, and PR — with developer editability at every step and distinct Copilot agents for each phase transition.</strong> Source: github.blog/news-insights/product-news/github-copilot-workspace/. Confidence: high.</p>
 </li>
-<li><p><strong>DORA (DevOps Research and Assessment) 2024 found that a 25% increase in AI adoption correlates with +2.1% productivity and +3.4% code quality, but also -1.5% delivery throughput and -7.2% delivery stability, attributing the stability decrease to the larger code batch sizes that AI-assisted Building produces.</strong> Source: DORA executive summary, services.google.com/fh/files/misc/dora_one_pager_2024.pdf. Confidence: high.</p>
+<li>
+<p><strong>DORA (DevOps Research and Assessment) 2024 found that a 25% increase in AI adoption correlates with +2.1% productivity and +3.4% code quality, but also -1.5% delivery throughput and -7.2% delivery stability, attributing the stability decrease to the larger code batch sizes that AI-assisted Building produces.</strong> Source: DORA executive summary, services.google.com/fh/files/misc/dora_one_pager_2024.pdf. Confidence: high.</p>
 </li>
-<li><p><strong>The persistent context file ecosystem is fragmented across AGENTS.md, CLAUDE.md, <code>.cursorrules</code>, and <code>.github/copilot-instructions.md</code>, with no format universally supported; AGENTS.md is the emerging cross-tool convergence point but tool support remains uneven as of early 2025.</strong> Source: everydev.ai/p/blog-ai-coding-agent-rules-files-fragmentation; aruniyer.github.io/blog/agents-md-instruction-files.html. Confidence: medium (based on practitioner accounts, not formal studies).</p>
+<li>
+<p><strong>The persistent context file ecosystem is fragmented across AGENTS.md, CLAUDE.md, <code>.cursorrules</code>, and <code>.github/copilot-instructions.md</code>, with no format universally supported; AGENTS.md is the emerging cross-tool convergence point but tool support remains uneven as of early 2025.</strong> Source: everydev.ai/p/blog-ai-coding-agent-rules-files-fragmentation; aruniyer.github.io/blog/agents-md-instruction-files.html. Confidence: medium (based on practitioner accounts, not formal studies).</p>
 </li>
-<li><p><strong>MCP (Model Context Protocol), introduced by Anthropic in November 2024, provides a <code>prompts</code> primitive that enables reusable, dynamically delivered prompt templates as part of a standardised tool-integration protocol, making runtime phase-aware prompt injection technically feasible without static context files.</strong> Source: modelcontextprotocol.io/docs/learn/server-concepts. Confidence: high for capability; [inference] for the implication that it will replace static context files.</p>
+<li>
+<p><strong>MCP (Model Context Protocol), introduced by Anthropic in November 2024, provides a <code>prompts</code> primitive that enables reusable, dynamically delivered prompt templates as part of a standardised tool-integration protocol, making runtime phase-aware prompt injection technically feasible without static context files.</strong> Source: modelcontextprotocol.io/docs/learn/server-concepts. Confidence: high for capability; [inference] for the implication that it will replace static context files.</p>
 </li>
-<li><p><strong>Stack Overflow Developer Survey 2024 found that 62% of developers currently use AI tools and 43% trust AI output accuracy; 45% consider AI poor at complex tasks, consistent with the evidence that gains concentrate in well-scoped, lower-ambiguity Build and Testing tasks rather than complex Discovery and Design tasks.</strong> Source: survey.stackoverflow.co/2024/ai. Confidence: high for survey statistics; [inference] for the SDLC phase interpretation.</p>
+<li>
+<p><strong>Stack Overflow Developer Survey 2024 found that 62% of developers currently use AI tools and 43% trust AI output accuracy; 45% consider AI poor at complex tasks, consistent with the evidence that gains concentrate in well-scoped, lower-ambiguity Build and Testing tasks rather than complex Discovery and Design tasks.</strong> Source: survey.stackoverflow.co/2024/ai. Confidence: high for survey statistics; [inference] for the SDLC phase interpretation.</p>
 </li>
-<li><p><strong>Aider's published prompting principles — provide only relevant files, decompose goals into single steps, plan before generating code — encode context-selection and batch-size discipline that directly counteracts the DORA-observed stability degradation caused by AI-generated large code batches.</strong> Source: aider.chat/docs/usage/tips.html. Confidence: medium (practitioner documentation, not controlled study).</p>
+<li>
+<p><strong>Aider's published prompting principles — provide only relevant files, decompose goals into single steps, plan before generating code — encode context-selection and batch-size discipline that directly counteracts the DORA-observed stability degradation caused by AI-generated large code batches.</strong> Source: aider.chat/docs/usage/tips.html. Confidence: medium (practitioner documentation, not controlled study).</p>
 </li>
 </ol>
 <h3>Assumptions</h3>
 <ul>
-<li><p><strong>Assumption:</strong> The eight-phase SDLC taxonomy used here (Discovery, Requirements, Design, Planning, Building, Testing, Reviewing, Iteration) is a reasonable working decomposition. <strong>Justification:</strong> No universally standardised taxonomy exists; this decomposition aligns with the GitHub Copilot Workspace flow and the phases distinguishable by their dominant prompt mode (exploration vs. acceleration). Different organisations may use fewer phases without invalidating the underlying pattern-to-phase mapping.</p>
+<li>
+<p><strong>Assumption:</strong> The eight-phase SDLC taxonomy used here (Discovery, Requirements, Design, Planning, Building, Testing, Reviewing, Iteration) is a reasonable working decomposition. <strong>Justification:</strong> No universally standardised taxonomy exists; this decomposition aligns with the GitHub Copilot Workspace flow and the phases distinguishable by their dominant prompt mode (exploration vs. acceleration). Different organisations may use fewer phases without invalidating the underlying pattern-to-phase mapping.</p>
 </li>
-<li><p><strong>Assumption:</strong> Prompt patterns that improve performance on code generation benchmarks (HumanEval, MBPP) also improve real-world SDLC task performance. <strong>Justification:</strong> Benchmark tasks are proxies for real tasks; the assumption is standard in the prompt engineering literature but has not been validated by a study that measures both benchmark and production outcomes simultaneously.</p>
+<li>
+<p><strong>Assumption:</strong> Prompt patterns that improve performance on code generation benchmarks (HumanEval, MBPP) also improve real-world SDLC task performance. <strong>Justification:</strong> Benchmark tasks are proxies for real tasks; the assumption is standard in the prompt engineering literature but has not been validated by a study that measures both benchmark and production outcomes simultaneously.</p>
 </li>
-<li><p><strong>Assumption:</strong> MCP's <code>prompts</code> primitive can deliver phase-specific prompt templates in a way that meaningfully improves over static context files. <strong>Justification:</strong> The capability exists in the protocol (modelcontextprotocol.io/docs/learn/server-concepts); no published case study of phase-aware MCP prompt delivery in an SDLC context was found.</p>
+<li>
+<p><strong>Assumption:</strong> MCP's <code>prompts</code> primitive can deliver phase-specific prompt templates in a way that meaningfully improves over static context files. <strong>Justification:</strong> The capability exists in the protocol (modelcontextprotocol.io/docs/learn/server-concepts); no published case study of phase-aware MCP prompt delivery in an SDLC context was found.</p>
 </li>
 </ul>
 <h3>Analysis</h3>
@@ -700,15 +713,20 @@ main {
 <p>The context file fragmentation problem is structural, not temporary. Each tool (GitHub Copilot, Cursor, Claude Code, Aider) has developed its own format because each has different context-loading architecture. [inference] MCP's standardised <code>prompts</code> primitive is the most plausible long-term resolution, but adoption requires tooling vendors to implement the primitive consistently — which had not happened uniformly as of early 2025.</p>
 <h3>Risks, Gaps, and Uncertainties</h3>
 <ul>
-<li><p><strong>Inaccessible sources:</strong> OpenAI Prompt Engineering Guide (HTTP 403), Cursor documentation (JavaScript-rendered, inaccessible as plain text), Vaithilingam et al. CHI 2022 (no URL provided), and Anthropic's Claude extended thinking docs were all inaccessible during investigation. The OpenAI guide in particular is a primary practitioner source; its absence means this item does not cover OpenAI-specific prompt design recommendations.</p>
+<li>
+<p><strong>Inaccessible sources:</strong> OpenAI Prompt Engineering Guide (HTTP 403), Cursor documentation (JavaScript-rendered, inaccessible as plain text), Vaithilingam et al. CHI 2022 (no URL provided), and Anthropic's Claude extended thinking docs were all inaccessible during investigation. The OpenAI guide in particular is a primary practitioner source; its absence means this item does not cover OpenAI-specific prompt design recommendations.</p>
 </li>
-<li><p><strong>No whole-SDLC controlled study:</strong> Every controlled experiment found covers one to two SDLC phases. There is no study that instruments all eight phases with the same team, tool, and evaluation method. The cross-phase efficiency framework in §6 is a synthesis from independent evidence, not a directly validated framework.</p>
+<li>
+<p><strong>No whole-SDLC controlled study:</strong> Every controlled experiment found covers one to two SDLC phases. There is no study that instruments all eight phases with the same team, tool, and evaluation method. The cross-phase efficiency framework in §6 is a synthesis from independent evidence, not a directly validated framework.</p>
 </li>
-<li><p><strong>DORA causality:</strong> DORA 2024 reports correlations between AI adoption and delivery outcomes; it does not identify which specific AI practices drive the stability decrease. The batch-size attribution is DORA's own inference from the data, not a direct causal measurement.</p>
+<li>
+<p><strong>DORA causality:</strong> DORA 2024 reports correlations between AI adoption and delivery outcomes; it does not identify which specific AI practices drive the stability decrease. The batch-size attribution is DORA's own inference from the data, not a direct causal measurement.</p>
 </li>
-<li><p><strong>Benchmark-to-production gap:</strong> SCoT and CoT comparisons are on standardised benchmarks (HumanEval, MBPP). Real SDLC tasks involve existing codebases, domain-specific constraints, and coordination overhead not captured in benchmarks.</p>
+<li>
+<p><strong>Benchmark-to-production gap:</strong> SCoT and CoT comparisons are on standardised benchmarks (HumanEval, MBPP). Real SDLC tasks involve existing codebases, domain-specific constraints, and coordination overhead not captured in benchmarks.</p>
 </li>
-<li><p><strong>MCP adoption maturity:</strong> MCP was introduced in November 2024. Evidence for MCP <code>prompts</code> primitive use in production SDLC workflows is absent; claims about its capability are based on the protocol specification, not deployment experience.</p>
+<li>
+<p><strong>MCP adoption maturity:</strong> MCP was introduced in November 2024. Evidence for MCP <code>prompts</code> primitive use in production SDLC workflows is absent; claims about its capability are based on the protocol specification, not deployment experience.</p>
 </li>
 </ul>
 <h3>Open Questions</h3>
@@ -748,6 +766,7 @@ main {
 
   </div>
   <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-03-22-coding-ai-agent-skills-survey.html">Coding AI Agent Skills Survey: Existing Vendor and OSS Prompt Libraries for Software Engineering Domains</a> <span class="related-note">via ai-agents, prompts, software-engineering</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-20-harness-selection-tools-agents-skills-prompts-instructions.html">Harness-level selection and use of tools, agents, skills, prompts, and instruction files</a> <span class="related-note">via best-practices, prompts</span></div>
 <div class="related-entry"><a href="/Research/research/2026-03-16-intent-driven-development.html">Intent Driven Development: context and concept layering to bound the solution space</a> <span class="related-note">via developer-tooling, software-engineering</span></div>
 <div class="related-entry"><a href="/Research/research/2026-03-05-general-agent-optimization-framework.html">General Agent Optimization Framework</a> <span class="related-note">via ai-agents, prompt-engineering</span></div>
 <div class="related-entry"><a href="/Research/research/2026-03-01-github-specify-ralph-loop-lisa-planning.html">GitHub Specify, Ralph Loops, and Lisa Planning: Proof-Driven Development with AI Agents</a> <span class="related-note">via ai-agents, software-engineering</span></div>

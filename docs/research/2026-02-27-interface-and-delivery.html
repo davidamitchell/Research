@@ -664,25 +664,35 @@ main {
 <p>The research corpus requires two parallel delivery channels, one per consumer type: the GitHub wiki (already live) serves the human researcher via the repository's Wiki tab on web and iOS, and an MCP server with stdio transport (designed, not yet implemented) serves AI agents via <code>search_research</code>, <code>get_research_item</code>, and <code>get_related_items</code> tools. The CLI <code>research search</code> command is designed and shares the same FTS5 backend; it is the third channel to implement. Email digest and Slack push notification are architecturally viable but blocked under current constraints: both require credentials (<code>RESEND_API_KEY</code>/<code>EMAIL_RECIPIENT</code> for email; <code>SLACK_WEBHOOK_URL</code> for Slack) that are not in the approved credentials table and require owner approval before implementation can proceed.</p>
 <h3>Key Findings</h3>
 <ol>
-<li><p><strong>The GitHub wiki is the correct and already-live human-browsing interface: <code>publish-wiki.yml</code> rebuilds all pages from <code>Research/completed/</code> on every push to <code>main</code>, producing a date-sorted <code>Home.md</code> and tag-indexed <code>_Sidebar.md</code> accessible from the repository's Wiki tab on both the GitHub website and the iOS app.</strong> [High confidence]</p>
+<li>
+<p><strong>The GitHub wiki is the correct and already-live human-browsing interface: <code>publish-wiki.yml</code> rebuilds all pages from <code>Research/completed/</code> on every push to <code>main</code>, producing a date-sorted <code>Home.md</code> and tag-indexed <code>_Sidebar.md</code> accessible from the repository's Wiki tab on both the GitHub website and the iOS app.</strong> [High confidence]</p>
 </li>
-<li><p><strong>An MCP server with stdio transport, registered in <code>.github/mcp.json</code>, is the only agent-query interface that satisfies all repository constraints: no persistent server process, no new credentials, compatible with the 10 existing MCP stdio servers.</strong> [High confidence]</p>
+<li>
+<p><strong>An MCP server with stdio transport, registered in <code>.github/mcp.json</code>, is the only agent-query interface that satisfies all repository constraints: no persistent server process, no new credentials, compatible with the 10 existing MCP stdio servers.</strong> [High confidence]</p>
 </li>
-<li><p><strong>The three-tool MCP interface contract defined in <code>2026-03-02-chat-conversational-interface.md</code> is complete and sufficient: <code>search_research(query, tags, limit)</code> for ranked discovery, <code>get_research_item(slug)</code> for full content retrieval, and <code>get_related_items(slug)</code> for cross-reference navigation via <code>state/links.json</code>.</strong> [High confidence]</p>
+<li>
+<p><strong>The three-tool MCP interface contract defined in <code>2026-03-02-chat-conversational-interface.md</code> is complete and sufficient: <code>search_research(query, tags, limit)</code> for ranked discovery, <code>get_research_item(slug)</code> for full content retrieval, and <code>get_related_items(slug)</code> for cross-reference navigation via <code>state/links.json</code>.</strong> [High confidence]</p>
 </li>
-<li><p><strong>The CLI <code>research search</code> command is designed in <code>2026-03-02-semantic-full-text-search.md</code> with SQLite FTS5 index, mtime-based rebuild, and <code>--limit</code>/<code>--mode</code>/<code>--tag</code> options, but is not yet implemented in <code>src/main.py</code>.</strong> [High confidence]</p>
+<li>
+<p><strong>The CLI <code>research search</code> command is designed in <code>2026-03-02-semantic-full-text-search.md</code> with SQLite FTS5 index, mtime-based rebuild, and <code>--limit</code>/<code>--mode</code>/<code>--tag</code> options, but is not yet implemented in <code>src/main.py</code>.</strong> [High confidence]</p>
 </li>
-<li><p><strong>The email digest path via the <code>davidamitchell/Latest-developments-</code> pattern requires at minimum two new credentials (<code>RESEND_API_KEY</code> and <code>EMAIL_RECIPIENT</code>) that do not appear in the approved credentials table, making it a hard-stop blocked item under the non-negotiable constraints.</strong> [High confidence]</p>
+<li>
+<p><strong>The email digest path via the <code>davidamitchell/Latest-developments-</code> pattern requires at minimum two new credentials (<code>RESEND_API_KEY</code> and <code>EMAIL_RECIPIENT</code>) that do not appear in the approved credentials table, making it a hard-stop blocked item under the non-negotiable constraints.</strong> [High confidence]</p>
 </li>
-<li><p><strong>Outbound Slack notification (one completed item per push) is low-complexity — four lines of workflow YAML Ain't Markup Language (YAML) using <code>slackapi/slack-github-action@v2.1.1</code> — but is equally blocked pending explicit owner approval of the <code>SLACK_WEBHOOK_URL</code> secret.</strong> [High confidence]</p>
+<li>
+<p><strong>Outbound Slack notification (one completed item per push) is low-complexity — four lines of workflow YAML Ain't Markup Language (YAML) using <code>slackapi/slack-github-action@v2.1.1</code> — but is equally blocked pending explicit owner approval of the <code>SLACK_WEBHOOK_URL</code> secret.</strong> [High confidence]</p>
 </li>
-<li><p><strong>The human and agent consumers have structurally different access patterns: the human researcher performs discovery (browsing by date and tag), while the AI agent performs retrieval (querying by keyword to locate specific items for synthesis); no single interface serves both optimally, making the two-layer strategy the correct design.</strong> [Medium confidence — inference from usage patterns]</p>
+<li>
+<p><strong>The human and agent consumers have structurally different access patterns: the human researcher performs discovery (browsing by date and tag), while the AI agent performs retrieval (querying by keyword to locate specific items for synthesis); no single interface serves both optimally, making the two-layer strategy the correct design.</strong> [Medium confidence — inference from usage patterns]</p>
 </li>
-<li><p><strong>All currently unblocked interface channels (wiki, MCP server, CLI search command) incur zero ongoing cost — they rely on <code>GITHUB_TOKEN</code> and local file access with no paid API calls.</strong> [High confidence]</p>
+<li>
+<p><strong>All currently unblocked interface channels (wiki, MCP server, CLI search command) incur zero ongoing cost — they rely on <code>GITHUB_TOKEN</code> and local file access with no paid API calls.</strong> [High confidence]</p>
 </li>
-<li><p><strong>The MCP server implementation must be accompanied by an Architecture Decision Record (ADR) documenting the stdio transport choice, three-tool interface contract, grounding design (tool-scoped retrieval prevents corpus hallucination), and the Phase 1 (grep) / Phase 2 (FTS5) phasing.</strong> [High confidence — per <code>2026-03-02-chat-conversational-interface.md</code> Key Finding #10]</p>
+<li>
+<p><strong>The MCP server implementation must be accompanied by an Architecture Decision Record (ADR) documenting the stdio transport choice, three-tool interface contract, grounding design (tool-scoped retrieval prevents corpus hallucination), and the Phase 1 (grep) / Phase 2 (FTS5) phasing.</strong> [High confidence — per <code>2026-03-02-chat-conversational-interface.md</code> Key Finding #10]</p>
 </li>
-<li><p><strong>iOS Shortcuts provide a complementary mobile-access layer: a &quot;Open URLs&quot; shortcut points to the wiki Home page for read access, and a GitHub Issues API shortcut handles mobile research capture — neither requires any server-side changes.</strong> [High confidence]</p>
+<li>
+<p><strong>iOS Shortcuts provide a complementary mobile-access layer: a &quot;Open URLs&quot; shortcut points to the wiki Home page for read access, and a GitHub Issues API shortcut handles mobile research capture — neither requires any server-side changes.</strong> [High confidence]</p>
 </li>
 </ol>
 <p><strong>Identified but not consulted:</strong></p>
@@ -706,9 +716,11 @@ main {
 </ul>
 <h3>Open Questions</h3>
 <ol>
-<li><p><strong>Should a <code>research digest</code> CLI command be added</strong> that generates a Markdown summary of the last N days' completions, usable both locally and as a workflow step? This would be a lightweight alternative to the email digest for producing a shareable briefing without external credentials. Priority: low (no downstream blocker).</p>
+<li>
+<p><strong>Should a <code>research digest</code> CLI command be added</strong> that generates a Markdown summary of the last N days' completions, usable both locally and as a workflow step? This would be a lightweight alternative to the email digest for producing a shareable briefing without external credentials. Priority: low (no downstream blocker).</p>
 </li>
-<li><p><strong>When the owner approves email or Slack credentials, should the notification and digest be a separate new workflow file or merged into <code>publish-wiki.yml</code>?</strong> The trigger (<code>push</code> to <code>main</code> touching <code>Research/completed/**</code>) is the same; merging reduces workflow count. Priority: low; decide at implementation time.</p>
+<li>
+<p><strong>When the owner approves email or Slack credentials, should the notification and digest be a separate new workflow file or merged into <code>publish-wiki.yml</code>?</strong> The trigger (<code>push</code> to <code>main</code> touching <code>Research/completed/**</code>) is the same; merging reduces workflow count. Priority: low; decide at implementation time.</p>
 </li>
 </ol>
 <hr />

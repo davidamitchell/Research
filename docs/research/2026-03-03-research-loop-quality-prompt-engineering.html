@@ -655,25 +655,35 @@ main {
 <p>The quality variation in autonomous research loop output is prompt-caused, not model-caused: the model is capable of high-quality synthesis, and corpus evidence demonstrates this directly. The Research Skill Output section (§0–§7) added to <code>research-prompt.md</code> increased source engagement from 3.1 to 12.8 sources per item and key finding counts from 14 to 43, making it the single most impactful quality change to date. Three residual failure patterns persist in the pre-2026-03-03 corpus: sources listed but not consulted (40% of items), executive summaries that lack specific claims, and no cross-item integration with prior completed research — all three are addressable by five targeted additions to <code>research-prompt.md</code>. A four-check shell quality gate (completed date, ≥80-word executive summary, ≥2 substantive findings, ≥1 checked source) detects the most severe failures and can be implemented as a non-blocking GitHub Actions annotation step.</p>
 <h3>Key Findings</h3>
 <ol>
-<li><p>Items with the Research Skill Output section (§0–§7) produce dramatically better outputs: avg 12.8 sources checked vs. 3.1 without it, and avg 43 key findings vs. 14. The section is the most impactful quality lever already deployed. <strong>[high confidence]</strong></p>
+<li>
+<p>Items with the Research Skill Output section (§0–§7) produce dramatically better outputs: avg 12.8 sources checked vs. 3.1 without it, and avg 43 key findings vs. 14. The section is the most impactful quality lever already deployed. <strong>[high confidence]</strong></p>
 </li>
-<li><p>40% of pre-2026-03-03 items have at least some sources listed but not consulted; 20% (4/20) have all sources unchecked. This is the primary source engagement failure and is prompt-caused: no explicit instruction existed to mark sources <code>[x]</code> when consulted. <strong>[high confidence]</strong></p>
+<li>
+<p>40% of pre-2026-03-03 items have at least some sources listed but not consulted; 20% (4/20) have all sources unchecked. This is the primary source engagement failure and is prompt-caused: no explicit instruction existed to mark sources <code>[x]</code> when consulted. <strong>[high confidence]</strong></p>
 </li>
-<li><p>The current <code>research-prompt.md</code> lacks an instruction to search <code>Research/completed/</code> for prior related work before starting a new item. As the corpus grows beyond 20 items this gap becomes a structural deficiency: each new item that ignores prior completed work duplicates effort and misses synthesis opportunities. <strong>[high confidence]</strong></p>
+<li>
+<p>The current <code>research-prompt.md</code> lacks an instruction to search <code>Research/completed/</code> for prior related work before starting a new item. As the corpus grows beyond 20 items this gap becomes a structural deficiency: each new item that ignores prior completed work duplicates effort and misses synthesis opportunities. <strong>[high confidence]</strong></p>
 </li>
-<li><p>Priority ordering in the loop is correct and respected in practice: <code>research-prompt.md</code> contains explicit <code>priority: high → medium → low</code> rules, confirmed by both document inspection and observed execution order. No fix required. <strong>[high confidence]</strong></p>
+<li>
+<p>Priority ordering in the loop is correct and respected in practice: <code>research-prompt.md</code> contains explicit <code>priority: high → medium → low</code> rules, confirmed by both document inspection and observed execution order. No fix required. <strong>[high confidence]</strong></p>
 </li>
-<li><p>Chain-of-thought prompting in the form of structured step decomposition (§1 → §2 → §6) is the mechanism behind the Research Skill Output section's quality improvement, consistent with The Prompt Report (arXiv:2406.06608) documenting CoT as one of 58+ validated techniques. <strong>[high confidence]</strong></p>
+<li>
+<p>Chain-of-thought prompting in the form of structured step decomposition (§1 → §2 → §6) is the mechanism behind the Research Skill Output section's quality improvement, consistent with The Prompt Report (arXiv:2406.06608) documenting CoT as one of 58+ validated techniques. <strong>[high confidence]</strong></p>
 </li>
-<li><p>Negative constraints work better when paired with positive instructions. &quot;Do not reproduce template headings without substantive content&quot; should be paired with &quot;each section must contain defensible prose before the next heading.&quot; <strong>[medium confidence]</strong></p>
+<li>
+<p>Negative constraints work better when paired with positive instructions. &quot;Do not reproduce template headings without substantive content&quot; should be paired with &quot;each section must contain defensible prose before the next heading.&quot; <strong>[medium confidence]</strong></p>
 </li>
-<li><p>The Fabric <code>extract_wisdom</code> pattern's use of minimum output counts per section is a more reliable specificity enforcement mechanism than negative constraints alone. Adapting this to Key Findings — requiring each finding to be ≥ 20 words — is the direct route to eliminating one-line vague findings. <strong>[medium confidence]</strong></p>
+<li>
+<p>The Fabric <code>extract_wisdom</code> pattern's use of minimum output counts per section is a more reliable specificity enforcement mechanism than negative constraints alone. Adapting this to Key Findings — requiring each finding to be ≥ 20 words — is the direct route to eliminating one-line vague findings. <strong>[medium confidence]</strong></p>
 </li>
-<li><p>A four-check shell quality gate detects the three primary failure modes at low false-positive cost: completed date populated, executive summary word count ≥ 80, ≥ 2 key findings with ≥ 15 words each, and ≥ 1 source marked <code>[x]</code>. <strong>[high confidence]</strong></p>
+<li>
+<p>A four-check shell quality gate detects the three primary failure modes at low false-positive cost: completed date populated, executive summary word count ≥ 80, ≥ 2 key findings with ≥ 15 words each, and ≥ 1 source marked <code>[x]</code>. <strong>[high confidence]</strong></p>
 </li>
-<li><p>The &quot;Lost in the Middle&quot; effect (arXiv:2307.03172) means critical instructions should be placed near the top of the relevant step in <code>research-prompt.md</code>. The source-marking discipline instruction (addition 2) and prior-research cross-reference instruction (addition 1) must each appear as the first instruction in their respective steps to maximise compliance. <strong>[medium confidence]</strong></p>
+<li>
+<p>The &quot;Lost in the Middle&quot; effect (arXiv:2307.03172) means critical instructions should be placed near the top of the relevant step in <code>research-prompt.md</code>. The source-marking discipline instruction (addition 2) and prior-research cross-reference instruction (addition 1) must each appear as the first instruction in their respective steps to maximise compliance. <strong>[medium confidence]</strong></p>
 </li>
-<li><p>Fifteen items in <code>Research/completed/</code> (pre-2026-03-03) have suboptimal source coverage due to the pre-Research Skill Output prompt. A targeted re-enrichment pass on the strategically most important items is a separate task worth adding to the backlog. <strong>[medium confidence]</strong></p>
+<li>
+<p>Fifteen items in <code>Research/completed/</code> (pre-2026-03-03) have suboptimal source coverage due to the pre-Research Skill Output prompt. A targeted re-enrichment pass on the strategically most important items is a separate task worth adding to the backlog. <strong>[medium confidence]</strong></p>
 </li>
 </ol>
 <h3>Assumptions</h3>
@@ -693,11 +703,14 @@ main {
 </ul>
 <h3>Open Questions</h3>
 <ul>
-<li><p><strong>Structural cross-item integration check</strong>: Can a regex for <code>Research/completed/</code> links in the Findings section serve as a proxy for cross-item integration without LLM reasoning? This would add a fifth check to the quality gate. Recommend adding as a stretch goal once the four-check gate is validated. [medium priority]</p>
+<li>
+<p><strong>Structural cross-item integration check</strong>: Can a regex for <code>Research/completed/</code> links in the Findings section serve as a proxy for cross-item integration without LLM reasoning? This would add a fifth check to the quality gate. Recommend adding as a stretch goal once the four-check gate is validated. [medium priority]</p>
 </li>
-<li><p><strong>Re-enrichment of pre-2026-03-03 items</strong>: Should the 15 suboptimal items in <code>Research/completed/</code> be re-enriched with additional source coverage? This is a separate task requiring a new backlog item. High-value candidates: <code>ai-line-1-line-2-risk-agents.md</code> (0/10 sources checked, strategically relevant), <code>ai-strategy-risk-reduction-focus.md</code> (0/8 sources checked). [medium priority]</p>
+<li>
+<p><strong>Re-enrichment of pre-2026-03-03 items</strong>: Should the 15 suboptimal items in <code>Research/completed/</code> be re-enriched with additional source coverage? This is a separate task requiring a new backlog item. High-value candidates: <code>ai-line-1-line-2-risk-agents.md</code> (0/10 sources checked, strategically relevant), <code>ai-strategy-risk-reduction-focus.md</code> (0/8 sources checked). [medium priority]</p>
 </li>
-<li><p><strong>Quality gate blocking vs. informational threshold</strong>: After how many loop runs with zero false positives should the quality gate become blocking? A proposed criterion: 5 consecutive passing runs before enabling the blocking mode. [low priority]</p>
+<li>
+<p><strong>Quality gate blocking vs. informational threshold</strong>: After how many loop runs with zero false positives should the quality gate become blocking? A proposed criterion: 5 consecutive passing runs before enabling the blocking mode. [low priority]</p>
 </li>
 </ul>
 <hr />

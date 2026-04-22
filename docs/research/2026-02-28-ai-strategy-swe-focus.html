@@ -664,25 +664,35 @@ main {
 <p>Organisations deploying AI coding assistants at scale achieve real but task-scoped individual productivity gains of 40–55% on well-specified coding tasks; however, these gains do not automatically translate to team-level delivery improvement without process redesign, and Google's DORA 2024 data shows higher AI adoption is associated with worse delivery stability. Google reports that over 25% of its new production code is now AI-generated, reviewed by engineers — the largest disclosed deployment. The current enterprise state is Type 2 (agentic builder, human-reviewed artefact before deployment), not Type 3 (autonomous deployment); all major financial services and technology firms maintain mandatory human review gates as a non-negotiable governance control. Autonomous coding agents have advanced rapidly on benchmarks (from 14% in March 2024 to ~80% on curated tasks by early 2026), but headline scores overstate generalised capability, and no enterprise is running Type 3 SWE autonomy at scale.</p>
 <h3>Key Findings</h3>
 <ol>
-<li><p><strong>The Microsoft/GitHub/MIT RCT (2023) found that developers using GitHub Copilot completed a specified JavaScript task 55.8% faster</strong> (1h11m vs 2h41m; 95% CI: 21–89%; P=0.0017), with the strongest benefit for less experienced and older developers — but the result applies to a single bounded task and does not generalize to complex multi-file enterprise work.</p>
+<li>
+<p><strong>The Microsoft/GitHub/MIT RCT (2023) found that developers using GitHub Copilot completed a specified JavaScript task 55.8% faster</strong> (1h11m vs 2h41m; 95% CI: 21–89%; P=0.0017), with the strongest benefit for less experienced and older developers — but the result applies to a single bounded task and does not generalize to complex multi-file enterprise work.</p>
 </li>
-<li><p><strong>Google's CEO disclosed in 2024 earnings calls that over 25% of Google's new code is AI-generated,</strong> reviewed by human engineers before submission to production systems across Search, Cloud, and YouTube — the largest publicly disclosed AI code generation deployment.</p>
+<li>
+<p><strong>Google's CEO disclosed in 2024 earnings calls that over 25% of Google's new code is AI-generated,</strong> reviewed by human engineers before submission to production systems across Search, Cloud, and YouTube — the largest publicly disclosed AI code generation deployment.</p>
 </li>
-<li><p><strong>ANZ Bank deployed GitHub Copilot to 3,000 engineers following an internal controlled trial of 1,000 engineers</strong> that showed 40–55% faster code development and improvements in code quality; ANZ is the most relevant documented case for the NZ financial services sector.</p>
+<li>
+<p><strong>ANZ Bank deployed GitHub Copilot to 3,000 engineers following an internal controlled trial of 1,000 engineers</strong> that showed 40–55% faster code development and improvements in code quality; ANZ is the most relevant documented case for the NZ financial services sector.</p>
 </li>
-<li><p><strong>Google's DORA 2024 report (tens of thousands of respondents) found that higher AI adoption associates with a 7.2% decline in delivery stability and a 1.5% decline in throughput</strong> at the organisational level, even while individual developer productivity improves — confirming that individual speed gains require workflow redesign to convert into team-level delivery improvement.</p>
+<li>
+<p><strong>Google's DORA 2024 report (tens of thousands of respondents) found that higher AI adoption associates with a 7.2% decline in delivery stability and a 1.5% decline in throughput</strong> at the organisational level, even while individual developer productivity improves — confirming that individual speed gains require workflow redesign to convert into team-level delivery improvement.</p>
 </li>
-<li><p><strong>Autonomous coding agents went from 14% on SWE-bench (Devin, March 2024) to ~80% on a curated 500-issue subset and ~46% on harder multi-file enterprise tasks by early 2026,</strong> representing roughly two years of rapid progress — but a discriminative subset analysis found performance drops from 73% headline to ~11% on problems that no agent had previously solved, indicating headline leaderboard scores significantly overstate generalised capability.</p>
+<li>
+<p><strong>Autonomous coding agents went from 14% on SWE-bench (Devin, March 2024) to ~80% on a curated 500-issue subset and ~46% on harder multi-file enterprise tasks by early 2026,</strong> representing roughly two years of rapid progress — but a discriminative subset analysis found performance drops from 73% headline to ~11% on problems that no agent had previously solved, indicating headline leaderboard scores significantly overstate generalised capability.</p>
 </li>
-<li><p><strong>GitHub Copilot Coding Agent (GA September 2025) and comparable agentic tools operate as Type 2 (agentic builder, human-gated):</strong> the agent creates a draft pull request; mandatory human review and branch protection rules apply before any merge to production, and this model is consistent across all major enterprise deployments reviewed.</p>
+<li>
+<p><strong>GitHub Copilot Coding Agent (GA September 2025) and comparable agentic tools operate as Type 2 (agentic builder, human-gated):</strong> the agent creates a draft pull request; mandatory human review and branch protection rules apply before any merge to production, and this model is consistent across all major enterprise deployments reviewed.</p>
 </li>
-<li><p><strong>No major enterprise is documented as running Type 3 (autonomous deployment with delegated authority) for production software at scale;</strong> all financial services firms (JPMorgan, Goldman Sachs, Morgan Stanley, ANZ) and major platform providers (GitHub/Microsoft) maintain mandatory human review as the non-negotiable control point for AI-generated code before deployment.</p>
+<li>
+<p><strong>No major enterprise is documented as running Type 3 (autonomous deployment with delegated authority) for production software at scale;</strong> all financial services firms (JPMorgan, Goldman Sachs, Morgan Stanley, ANZ) and major platform providers (GitHub/Microsoft) maintain mandatory human review as the non-negotiable control point for AI-generated code before deployment.</p>
 </li>
-<li><p><strong>AI-generated code without meaningful human authorship is uncopyrightable in most jurisdictions,</strong> including the US and UK, requiring organisations to document human contributions during AI-assisted development; code provenance tracking tools have emerged specifically to flag AI-generated outputs that match open-source code with restrictive licences.</p>
+<li>
+<p><strong>AI-generated code without meaningful human authorship is uncopyrightable in most jurisdictions,</strong> including the US and UK, requiring organisations to document human contributions during AI-assisted development; code provenance tracking tools have emerged specifically to flag AI-generated outputs that match open-source code with restrictive licences.</p>
 </li>
-<li><p><strong>JPMorgan Chase (200,000+ employees, OmniAI and LLM Suite) reports 10–20% developer productivity gains from AI-assisted coding,</strong> lower than the GitHub Copilot RCT figure, consistent with the DORA finding that broader enterprise deployment yields more modest aggregate gains than controlled task experiments.</p>
+<li>
+<p><strong>JPMorgan Chase (200,000+ employees, OmniAI and LLM Suite) reports 10–20% developer productivity gains from AI-assisted coding,</strong> lower than the GitHub Copilot RCT figure, consistent with the DORA finding that broader enterprise deployment yields more modest aggregate gains than controlled task experiments.</p>
 </li>
-<li><p><strong>No NZ technology companies (Xero, Trade Me, Datacom) have published SWE AI outcome data;</strong> the closest regional case is ANZ (Australian parent), whose deployment is directly relevant to ANZ NZ engineering teams and provides a useful benchmark for NZ financial services organisations considering similar programmes.</p>
+<li>
+<p><strong>No NZ technology companies (Xero, Trade Me, Datacom) have published SWE AI outcome data;</strong> the closest regional case is ANZ (Australian parent), whose deployment is directly relevant to ANZ NZ engineering teams and provides a useful benchmark for NZ financial services organisations considering similar programmes.</p>
 </li>
 </ol>
 <h3>Assumptions</h3>

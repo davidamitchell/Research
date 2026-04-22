@@ -656,23 +656,32 @@ main {
 <p>The embedding model — not LanceDB — is the bottleneck in cold-start index rebuilds: LanceDB write operations consume under 1% of total startup time at all tested corpus sizes. BAAI/bge-small-en-v1.5 takes 11.5s to rebuild the current 61-item research corpus from Markdown text (10.8s embedding, 0.68s model load), already exceeding the 5–10s target. Pre-computed embeddings stored as JSON in git reduce startup to under 0.2s regardless of corpus size, making stateless deployment viable immediately. Model2Vec (identified in prior semantic-search research as ~200× faster than MiniLM on CPU) would enable per-request rebuild without pre-computed storage and should be evaluated as the production embedding model.</p>
 <h3>Key Findings</h3>
 <ol>
-<li><p>LanceDB write operations take under 30ms even at 1000 documents; the embedding model accounts for 99%+ of cold-start rebuild time at every tested corpus size. [high]</p>
+<li>
+<p>LanceDB write operations take under 30ms even at 1000 documents; the embedding model accounts for 99%+ of cold-start rebuild time at every tested corpus size. [high]</p>
 </li>
-<li><p>BAAI/bge-small-en-v1.5 loads from disk cache in 0.68s; the model file is 133 MB, giving a first-download load time of ~2.25s from HuggingFace Hub on a typical connection. [high]</p>
+<li>
+<p>BAAI/bge-small-en-v1.5 loads from disk cache in 0.68s; the model file is 133 MB, giving a first-download load time of ~2.25s from HuggingFace Hub on a typical connection. [high]</p>
 </li>
-<li><p>BGE-small-en-v1.5 embeds at ~34.5ms/doc for short synthetic texts but ~177ms/doc for real research items; BERT's O(n²) attention cost means document length — not document count — is the primary driver of embedding time. [high]</p>
+<li>
+<p>BGE-small-en-v1.5 embeds at ~34.5ms/doc for short synthetic texts but ~177ms/doc for real research items; BERT's O(n²) attention cost means document length — not document count — is the primary driver of embedding time. [high]</p>
 </li>
-<li><p>At the current corpus size of 61 items with full Markdown text, cold-start rebuild takes 11.5s with BGE-small, already exceeding the 5–10s target and with no improvement path as the corpus grows. [high]</p>
+<li>
+<p>At the current corpus size of 61 items with full Markdown text, cold-start rebuild takes 11.5s with BGE-small, already exceeding the 5–10s target and with no improvement path as the corpus grows. [high]</p>
 </li>
-<li><p>Pre-computed embeddings stored as JSON in git (7.74 KB per 384-dim document) load and write into LanceDB in under 0.2s for 1000 documents, making startup time effectively O(1) with respect to corpus size. [high]</p>
+<li>
+<p>Pre-computed embeddings stored as JSON in git (7.74 KB per 384-dim document) load and write into LanceDB in under 0.2s for 1000 documents, making startup time effectively O(1) with respect to corpus size. [high]</p>
 </li>
-<li><p>JSON storage cost for pre-computed BGE-small embeddings is 7.74 MB for 1000 documents; for a personal research corpus of 200–300 items, this is under 2.5 MB, an acceptable git repository size. [high]</p>
+<li>
+<p>JSON storage cost for pre-computed BGE-small embeddings is 7.74 MB for 1000 documents; for a personal research corpus of 200–300 items, this is under 2.5 MB, an acceptable git repository size. [high]</p>
 </li>
-<li><p>all-MiniLM-L6-v2 is approximately 2× faster than BGE-small at embedding (16.4ms/doc vs 34.5ms/doc for short texts) but does not change the fundamental scaling failure: at 500 real research items, MiniLM would still require over 20s to rebuild. [high]</p>
+<li>
+<p>all-MiniLM-L6-v2 is approximately 2× faster than BGE-small at embedding (16.4ms/doc vs 34.5ms/doc for short texts) but does not change the fundamental scaling failure: at 500 real research items, MiniLM would still require over 20s to rebuild. [high]</p>
 </li>
-<li><p>GitHub code search is rate-limited to 10 requests per minute, is keyword-only with no semantic understanding, and may return incomplete results for large queries; it is not a viable replacement for vector search and only useful as a supplementary lexical search layer. [high]</p>
+<li>
+<p>GitHub code search is rate-limited to 10 requests per minute, is keyword-only with no semantic understanding, and may return incomplete results for large queries; it is not a viable replacement for vector search and only useful as a supplementary lexical search layer. [high]</p>
 </li>
-<li><p>Model2Vec (potion-base-8M), identified in prior semantic-search research as ~200× faster than MiniLM on CPU with 91–93% of MiniLM's MTEB accuracy and no PyTorch dependency, would reduce rebuild time to under 1s for 500 items — making per-request stateless rebuild viable without pre-computed embedding storage. [medium — requires direct LanceDB benchmark to confirm]</p>
+<li>
+<p>Model2Vec (potion-base-8M), identified in prior semantic-search research as ~200× faster than MiniLM on CPU with 91–93% of MiniLM's MTEB accuracy and no PyTorch dependency, would reduce rebuild time to under 1s for 500 items — making per-request stateless rebuild viable without pre-computed embedding storage. [medium — requires direct LanceDB benchmark to confirm]</p>
 </li>
 </ol>
 <h3>Assumptions</h3>

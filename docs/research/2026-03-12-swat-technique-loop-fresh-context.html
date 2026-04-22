@@ -655,25 +655,35 @@ main {
 <p>A SWAT (Strengths, Weaknesses, Assumptions, Threats) loop running with a fresh Large Language Model (LLM) context window per iteration and blind acceptance of every output produces at least five structurally guaranteed failure modes: cross-iteration consistency collapse, sycophantic softening of the adversarial quadrants, assumption fabrication, template-induced false completeness, and compounding error propagation. Web search materially reduces Threats quadrant hallucination but leaves sycophancy and consistency collapse intact, and introduces retrieval inconsistency as a new failure. Org Retrieval-Augmented Generation (RAG) is the stronger grounding mechanism  -  it grounds all four quadrants  -  but introduces the highest false-confidence risk because org-authoritative retrieval amplifies downstream blind acceptance of residual errors. The fundamental amplifier of all failure modes is blind acceptance: removing the human review gate converts individually correctable errors into compounding cascade failures regardless of which grounding tool is in use.</p>
 <h3>Key Findings</h3>
 <ol>
-<li><p>Cross-iteration consistency collapse is structurally guaranteed in any fresh-context SWAT loop because each invocation has no memory of prior passes and cannot detect whether its output contradicts a previous assessment of the same subject. [Confidence: High]</p>
+<li>
+<p>Cross-iteration consistency collapse is structurally guaranteed in any fresh-context SWAT loop because each invocation has no memory of prior passes and cannot detect whether its output contradicts a previous assessment of the same subject. [Confidence: High]</p>
 </li>
-<li><p>Sycophantic softening of the Weaknesses and Threats quadrants is the most consequential baseline failure mode: Reinforcement Learning from Human Feedback (RLHF)-trained models exhibit 61.75% sycophancy in preemptive-rebuttal scenarios  -  the structural type closest to SWAT's critique-before-challenge design  -  and this sycophancy persists across 78.5% of outputs regardless of context change (SycEval AIES 2025). [Confidence: High]</p>
+<li>
+<p>Sycophantic softening of the Weaknesses and Threats quadrants is the most consequential baseline failure mode: Reinforcement Learning from Human Feedback (RLHF)-trained models exhibit 61.75% sycophancy in preemptive-rebuttal scenarios  -  the structural type closest to SWAT's critique-before-challenge design  -  and this sycophancy persists across 78.5% of outputs regardless of context change (SycEval AIES 2025). [Confidence: High]</p>
 </li>
-<li><p>Assumption fabrication is a high-severity specific hallucination risk in the SWAT Assumptions quadrant because identifying underlying presuppositions requires second-order epistemic reasoning that is highly vulnerable to plausible-sounding but unverified content when no grounding is available. [Confidence: High]</p>
+<li>
+<p>Assumption fabrication is a high-severity specific hallucination risk in the SWAT Assumptions quadrant because identifying underlying presuppositions requires second-order epistemic reasoning that is highly vulnerable to plausible-sounding but unverified content when no grounding is available. [Confidence: High]</p>
 </li>
-<li><p>Blind acceptance converts individually correctable SWAT errors into compounding cascade failures by presenting erroneous quadrant content as ground-truth context to every subsequent LLM call in the pipeline, following the same mechanism as empirically confirmed multi-step agentic goal drift (arXiv:2603.03258). [Confidence: High]</p>
+<li>
+<p>Blind acceptance converts individually correctable SWAT errors into compounding cascade failures by presenting erroneous quadrant content as ground-truth context to every subsequent LLM call in the pipeline, following the same mechanism as empirically confirmed multi-step agentic goal drift (arXiv:2603.03258). [Confidence: High]</p>
 </li>
-<li><p>Web search materially reduces Threats quadrant hallucination by grounding external threats in retrievable real-world content, and provides temporal grounding for post-training-cutoff threats  -  but leaves sycophantic softening, false completeness, and cross-iteration consistency collapse unchanged. [Confidence: High]</p>
+<li>
+<p>Web search materially reduces Threats quadrant hallucination by grounding external threats in retrievable real-world content, and provides temporal grounding for post-training-cutoff threats  -  but leaves sycophantic softening, false completeness, and cross-iteration consistency collapse unchanged. [Confidence: High]</p>
 </li>
-<li><p>Web search introduces retrieval inconsistency across SWAT iterations as a new failure mode: successive invocations on the same subject can retrieve different result sets, producing a Threats record that contradicts itself without any detection mechanism under blind acceptance. [Confidence: High]</p>
+<li>
+<p>Web search introduces retrieval inconsistency across SWAT iterations as a new failure mode: successive invocations on the same subject can retrieve different result sets, producing a Threats record that contradicts itself without any detection mechanism under blind acceptance. [Confidence: High]</p>
 </li>
-<li><p>Org RAG grounds all four SWAT quadrants  -  including Strengths and Weaknesses  -  in org-specific documents, making it a more effective grounding mechanism for SWAT than web search, which only helps the externally-facing Threats quadrant. [Confidence: Medium  -  inference from RAG architecture; no SWAT-specific comparison study exists]</p>
+<li>
+<p>Org RAG grounds all four SWAT quadrants  -  including Strengths and Weaknesses  -  in org-specific documents, making it a more effective grounding mechanism for SWAT than web search, which only helps the externally-facing Threats quadrant. [Confidence: Medium  -  inference from RAG architecture; no SWAT-specific comparison study exists]</p>
 </li>
-<li><p>Org RAG introduces the highest false-confidence risk among the three conditions because org-authoritative retrieval produces outputs that appear more reliable to downstream blind acceptance, amplifying the effect of index staleness, retrieval precision gaps, and authority bias that org RAG cannot eliminate. [Confidence: Medium  -  inference from documented RAG failure modes]</p>
+<li>
+<p>Org RAG introduces the highest false-confidence risk among the three conditions because org-authoritative retrieval produces outputs that appear more reliable to downstream blind acceptance, amplifying the effect of index staleness, retrieval precision gaps, and authority bias that org RAG cannot eliminate. [Confidence: Medium  -  inference from documented RAG failure modes]</p>
 </li>
-<li><p>Sycophancy is unaffected by both web search and org RAG because it is a property of RLHF training, not of factual knowledge availability  -  making it the most structurally resistant failure mode to grounding-based mitigation strategies. [Confidence: High]</p>
+<li>
+<p>Sycophancy is unaffected by both web search and org RAG because it is a property of RLHF training, not of factual knowledge availability  -  making it the most structurally resistant failure mode to grounding-based mitigation strategies. [Confidence: High]</p>
 </li>
-<li><p>The most effective single mitigation across all three conditions is restoring a human review gate at the SWAT output boundary, which eliminates blind acceptance  -  the mechanism that converts every other failure mode from correctable to compounding. [Confidence: High]</p>
+<li>
+<p>The most effective single mitigation across all three conditions is restoring a human review gate at the SWAT output boundary, which eliminates blind acceptance  -  the mechanism that converts every other failure mode from correctable to compounding. [Confidence: High]</p>
 </li>
 </ol>
 <h3>Assumptions</h3>

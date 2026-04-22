@@ -657,21 +657,29 @@ internal transcript endpoint?</p>
 <p><a href="https://supadata.ai/documentation/youtube/get-transcript">Supadata</a> is the only third-party transcript API among the evaluated candidates that both bypasses YouTube's cloud IP block and returns verbatim transcript text, [inference] making it the correct implementation path for the research workflow. <a href="https://www.assemblyai.com/docs/guides/transcribing-audio-with-a-url">AssemblyAI</a> does not bypass the IP block — it requires prior audio download via <code>yt-dlp</code>, which reintroduces the same cloud-IP restriction that blocks <code>youtube-transcript-api</code> — and the original premise that AssemblyAI accepts YouTube URLs directly is factually incorrect. Kagi's Universal Summarizer bypasses the IP block via server-side processing but produces summaries, not verbatim transcripts, making it a video-analysis tool rather than a transcript fetcher. Supadata's free tier (100 credits/month) covers the research volume comfortably, and integration requires only one new repository secret and one new fetcher function.</p>
 <h3>Key Findings</h3>
 <ol>
-<li><p>Supadata's transcript API fully insulates the GitHub Actions runner from YouTube's IP block because the runner contacts only <code>api.supadata.ai</code> via HTTPS while Supadata's own infrastructure handles all downstream YouTube requests. [High confidence]</p>
+<li>
+<p>Supadata's transcript API fully insulates the GitHub Actions runner from YouTube's IP block because the runner contacts only <code>api.supadata.ai</code> via HTTPS while Supadata's own infrastructure handles all downstream YouTube requests. [High confidence]</p>
 </li>
-<li><p>Supadata returns verbatim or near-verbatim transcript output: in Native mode it reproduces YouTube's own caption text word-for-word; in Auto/Generate fallback mode it uses ASR-class (automatic speech recognition) models equivalent to Whisper, not language-model paraphrase. [High confidence]</p>
+<li>
+<p>Supadata returns verbatim or near-verbatim transcript output: in Native mode it reproduces YouTube's own caption text word-for-word; in Auto/Generate fallback mode it uses ASR-class (automatic speech recognition) models equivalent to Whisper, not language-model paraphrase. [High confidence]</p>
 </li>
-<li><p>AssemblyAI does not bypass YouTube's cloud IP block, because its <code>audio_url</code> parameter requires a direct link to a downloadable audio file and explicitly does not support YouTube watch-page URLs, meaning the caller must first download audio via <code>yt-dlp</code> on the GitHub Actions runner. [High confidence]</p>
+<li>
+<p>AssemblyAI does not bypass YouTube's cloud IP block, because its <code>audio_url</code> parameter requires a direct link to a downloadable audio file and explicitly does not support YouTube watch-page URLs, meaning the caller must first download audio via <code>yt-dlp</code> on the GitHub Actions runner. [High confidence]</p>
 </li>
-<li><p>The original item's assumption that AssemblyAI accepts YouTube URLs directly via <code>audio_url</code> is incorrect, as confirmed by AssemblyAI's official FAQ, which explicitly states that YouTube URLs are not supported and that the audio must be downloaded first. [High confidence]</p>
+<li>
+<p>The original item's assumption that AssemblyAI accepts YouTube URLs directly via <code>audio_url</code> is incorrect, as confirmed by AssemblyAI's official FAQ, which explicitly states that YouTube URLs are not supported and that the audio must be downloaded first. [High confidence]</p>
 </li>
-<li><p>Kagi's Universal Summarizer accepts YouTube URLs directly and processes them server-side, bypassing the IP block, but its output is a structured summary rather than a verbatim transcript, and YouTube URL support is marked &quot;Experimental&quot; in Kagi's documentation. [High confidence]</p>
+<li>
+<p>Kagi's Universal Summarizer accepts YouTube URLs directly and processes them server-side, bypassing the IP block, but its output is a structured summary rather than a verbatim transcript, and YouTube URL support is marked &quot;Experimental&quot; in Kagi's documentation. [High confidence]</p>
 </li>
-<li><p>Supadata's free tier provides 100 credits per month with no credit card required, and at a research use case volume of a few videos per month, [inference] this free allocation is sufficient indefinitely without any paid upgrade. [High confidence]</p>
+<li>
+<p>Supadata's free tier provides 100 credits per month with no credit card required, and at a research use case volume of a few videos per month, [inference] this free allocation is sufficient indefinitely without any paid upgrade. [High confidence]</p>
 </li>
-<li><p>Supadata's &quot;Auto&quot; mode is the recommended operational mode for the research workflow because it attempts to retrieve YouTube's native captions first and transparently falls back to AI (ASR-class) transcription when native captions are unavailable or blocked. [Medium confidence]</p>
+<li>
+<p>Supadata's &quot;Auto&quot; mode is the recommended operational mode for the research workflow because it attempts to retrieve YouTube's native captions first and transparently falls back to AI (ASR-class) transcription when native captions are unavailable or blocked. [Medium confidence]</p>
 </li>
-<li><p>Integrating Supadata into the existing research tooling requires one new repository secret (<code>SUPADATA_API_KEY</code>) and one new fetcher function using the existing <code>httpx</code> client pattern; no additional Python dependency is required. [High confidence]</p>
+<li>
+<p>Integrating Supadata into the existing research tooling requires one new repository secret (<code>SUPADATA_API_KEY</code>) and one new fetcher function using the existing <code>httpx</code> client pattern; no additional Python dependency is required. [High confidence]</p>
 </li>
 </ol>
 <h3>Assumptions</h3>
@@ -692,11 +700,14 @@ internal transcript endpoint?</p>
 </ul>
 <h3>Open Questions</h3>
 <ol>
-<li><p><strong>Supadata credential approval:</strong> <code>SUPADATA_API_KEY</code> is not in the approved credentials table in <code>AGENTS.md</code>. Should it be added? This is a hard stop before implementation — the credential must be approved by the owner before the fetcher is built. <em>(This should become a new backlog item if the owner approves the addition.)</em></p>
+<li>
+<p><strong>Supadata credential approval:</strong> <code>SUPADATA_API_KEY</code> is not in the approved credentials table in <code>AGENTS.md</code>. Should it be added? This is a hard stop before implementation — the credential must be approved by the owner before the fetcher is built. <em>(This should become a new backlog item if the owner approves the addition.)</em></p>
 </li>
-<li><p><strong>Workflow integration approach:</strong> Should Supadata be integrated as a fourth tier in the existing <code>fetch-transcript.yml</code> workflow, or should a new dedicated workflow be created?</p>
+<li>
+<p><strong>Workflow integration approach:</strong> Should Supadata be integrated as a fourth tier in the existing <code>fetch-transcript.yml</code> workflow, or should a new dedicated workflow be created?</p>
 </li>
-<li><p><strong>yt-dlp + AssemblyAI revisit:</strong> If a future experiment confirms that <code>yt-dlp</code> CDN audio downloads succeed from GitHub Actions runners, AssemblyAI should be re-evaluated as a complement (higher ASR quality, paid) to Supadata (lower cost, free tier, comparable quality).</p>
+<li>
+<p><strong>yt-dlp + AssemblyAI revisit:</strong> If a future experiment confirms that <code>yt-dlp</code> CDN audio downloads succeed from GitHub Actions runners, AssemblyAI should be re-evaluated as a complement (higher ASR quality, paid) to Supadata (lower cost, free tier, comparable quality).</p>
 </li>
 </ol>
 <hr />

@@ -663,25 +663,35 @@ main {
 <p>Large Language Models can now autonomously discover zero-day vulnerabilities in production-quality, well-audited open source codebases, a capability demonstrated at scale by Claude Opus 4.6 (Carlini et al., February 2026), which found more than 500 high-severity bugs without specialised scaffolding. The mechanism is qualitatively distinct from coverage-guided fuzzing: LLMs reason about code semantics, commit history, and programmer error patterns, reaching a class of bugs that fuzzers structurally cannot find. For known one-day vulnerabilities, the skill barrier has effectively collapsed: a 91-line agent plus a frontier Large Language Model (LLM) plus the CVE description now automates what previously required domain-specific exploit development expertise (Fang et al., 2024). The central governance challenge is not model safety guardrails but patch velocity: LLMs can discover vulnerabilities faster than the open source maintenance infrastructure can remediate them, and abandoned codebases represent a systemic gap with no clear owner.</p>
 <h3>Key Findings</h3>
 <ol>
-<li><p>Claude Opus 4.6, released in February 2026, autonomously discovered more than 500 high-severity zero-day vulnerabilities in open source codebases without specialised tooling, custom scaffolding, or domain-specific prompting, all validated by human security researchers before responsible disclosure. [high confidence]</p>
+<li>
+<p>Claude Opus 4.6, released in February 2026, autonomously discovered more than 500 high-severity zero-day vulnerabilities in open source codebases without specialised tooling, custom scaffolding, or domain-specific prompting, all validated by human security researchers before responsible disclosure. [high confidence]</p>
 </li>
-<li><p>GPT-4 agents autonomously exploited 87% of a curated set of 15 real-world one-day Common Vulnerabilities and Exposures (CVEs) in a 2024 study, using a 91-line ReAct agent, while GPT-3.5, all open-source models tested, and both OWASP ZAP and Metasploit failed to exploit any of the same vulnerabilities. [high confidence]</p>
+<li>
+<p>GPT-4 agents autonomously exploited 87% of a curated set of 15 real-world one-day Common Vulnerabilities and Exposures (CVEs) in a 2024 study, using a 91-line ReAct agent, while GPT-3.5, all open-source models tested, and both OWASP ZAP and Metasploit failed to exploit any of the same vulnerabilities. [high confidence]</p>
 </li>
-<li><p>LLM-based vulnerability discovery is qualitatively complementary to coverage-guided fuzzing because LLMs reason about code semantics -- reading commit history, inferring programmer intent, and constructing inputs that require understanding the program's logical invariants -- while fuzzers explore input space stochastically and miss semantics-dependent bug classes. [high confidence]</p>
+<li>
+<p>LLM-based vulnerability discovery is qualitatively complementary to coverage-guided fuzzing because LLMs reason about code semantics -- reading commit history, inferring programmer intent, and constructing inputs that require understanding the program's logical invariants -- while fuzzers explore input space stochastically and miss semantics-dependent bug classes. [high confidence]</p>
 </li>
-<li><p>The skill barrier for exploiting publicly disclosed one-day CVEs has effectively collapsed: a developer with frontier LLM access and 91 lines of scaffolding code can automate exploitation of known vulnerabilities that previously required specific domain expertise in the target technology. [high confidence]</p>
+<li>
+<p>The skill barrier for exploiting publicly disclosed one-day CVEs has effectively collapsed: a developer with frontier LLM access and 91 lines of scaffolding code can automate exploitation of known vulnerabilities that previously required specific domain expertise in the target technology. [high confidence]</p>
 </li>
-<li><p>Capture The Flag (CTF) benchmark results (approximately 22% pass@1 on hard challenges in the NYU CTF Bench) understate real-world offensive capability, because CTF challenges are adversarially designed to be unique, while production vulnerabilities follow recurring patterns that LLMs have encountered in training data. [medium confidence]</p>
+<li>
+<p>Capture The Flag (CTF) benchmark results (approximately 22% pass@1 on hard challenges in the NYU CTF Bench) understate real-world offensive capability, because CTF challenges are adversarially designed to be unique, while production vulnerabilities follow recurring patterns that LLMs have encountered in training data. [medium confidence]</p>
 </li>
-<li><p>AI-augmented elite security teams completed live CTF tasks 4.1x faster than human-only teams with a 70% improved solve rate in the Hack The Box NeuroGrid competition with over 1,000 teams, confirming that the same LLM capability delivering offensive risk also delivers strong defensive productivity gains. [high confidence]</p>
+<li>
+<p>AI-augmented elite security teams completed live CTF tasks 4.1x faster than human-only teams with a 70% improved solve rate in the Hack The Box NeuroGrid competition with over 1,000 teams, confirming that the same LLM capability delivering offensive risk also delivers strong defensive productivity gains. [high confidence]</p>
 </li>
-<li><p>Anthropic has deployed probe-based real-time misuse detection that monitors model activations during response generation -- a safeguard architecture operating below the model refusal layer -- to detect and block cyber-offensive prompts at scale in response to the capability demonstrated by Claude Opus 4.6. [high confidence]</p>
+<li>
+<p>Anthropic has deployed probe-based real-time misuse detection that monitors model activations during response generation -- a safeguard architecture operating below the model refusal layer -- to detect and block cyber-offensive prompts at scale in response to the capability demonstrated by Claude Opus 4.6. [high confidence]</p>
 </li>
-<li><p>The abandoned open source software problem is the largest near-term systemic risk from LLM offensive capability: LLMs can find vulnerabilities in unmaintained codebases at a velocity that no coordinated disclosure or patching process was designed to handle, creating an exploitable gap with no institutional owner. [high confidence]</p>
+<li>
+<p>The abandoned open source software problem is the largest near-term systemic risk from LLM offensive capability: LLMs can find vulnerabilities in unmaintained codebases at a velocity that no coordinated disclosure or patching process was designed to handle, creating an exploitable gap with no institutional owner. [high confidence]</p>
 </li>
-<li><p>Current governance frameworks, including the EU AI Act and NIST AI Risk Management Framework (RMF), do not address the dual-use dilemma of LLM offensive security capability; binding policy is lagging demonstrated capability by multiple years, with proposals for &quot;Digital Geneva Convention&quot; equivalents remaining at discussion stage. [medium confidence]</p>
+<li>
+<p>Current governance frameworks, including the EU AI Act and NIST AI Risk Management Framework (RMF), do not address the dual-use dilemma of LLM offensive security capability; binding policy is lagging demonstrated capability by multiple years, with proposals for &quot;Digital Geneva Convention&quot; equivalents remaining at discussion stage. [medium confidence]</p>
 </li>
-<li><p>Specialised malicious LLMs without safety guardrails (e.g., &quot;WormGPT&quot;) and multi-agent orchestration frameworks (e.g., Hexstrike-AI with over 150 specialised agents) are already in active use by threat actors, demonstrating that the offensive democratisation effect is not hypothetical. [high confidence]</p>
+<li>
+<p>Specialised malicious LLMs without safety guardrails (e.g., &quot;WormGPT&quot;) and multi-agent orchestration frameworks (e.g., Hexstrike-AI with over 150 specialised agents) are already in active use by threat actors, demonstrating that the offensive democratisation effect is not hypothetical. [high confidence]</p>
 </li>
 </ol>
 <h3>Assumptions</h3>

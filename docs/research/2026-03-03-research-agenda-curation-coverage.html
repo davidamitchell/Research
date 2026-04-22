@@ -664,29 +664,41 @@ main {
 <p>The research backlog for <code>davidamitchell/Research</code> currently lacks a domain map, a principled prioritisation rubric, and a drift detection mechanism — three interlocking deficiencies that cause the autonomous research loop to process items in creation order rather than strategic priority order. Priority inflation (88% of 25 items rated <code>medium</code>) and domain concentration (44% of backlog in Research Tooling &amp; Delivery) are the two observable symptoms. The remedy is a five-domain taxonomy, a four-dimension prioritisation rubric, a 40%-concentration drift detection threshold, and a monthly agenda review triggered by <code>workflow_dispatch</code> and reported as a GitHub issue. All tooling can be implemented by extending <code>src/research/cli.py</code> with a <code>research agenda</code> command using only existing dependencies and parsed YAML fields.</p>
 <h3>Key Findings</h3>
 <ol>
-<li><p><strong>Priority inflation renders the priority field ineffective.</strong> 88% of 25 backlog items are rated <code>medium</code>. The autonomous loop's selection algorithm degrades to oldest-first when all items are equally prioritised. [high confidence — direct measurement]</p>
+<li>
+<p><strong>Priority inflation renders the priority field ineffective.</strong> 88% of 25 backlog items are rated <code>medium</code>. The autonomous loop's selection algorithm degrades to oldest-first when all items are equally prioritised. [high confidence — direct measurement]</p>
 </li>
-<li><p><strong>D4 Research Tooling &amp; Delivery has drifted to 44% of backlog.</strong> 11 of 25 items cluster around tooling, interface, delivery, and transcript fetching — crowding out AI Strategy (D1) and Agentic Systems (D2) items more directly tied to professional decision-making. [high confidence — direct count]</p>
+<li>
+<p><strong>D4 Research Tooling &amp; Delivery has drifted to 44% of backlog.</strong> 11 of 25 items cluster around tooling, interface, delivery, and transcript fetching — crowding out AI Strategy (D1) and Agentic Systems (D2) items more directly tied to professional decision-making. [high confidence — direct count]</p>
 </li>
-<li><p><strong>Five domains cover the corpus without gaps.</strong> D1 AI Strategy &amp; Governance; D2 Agentic Systems &amp; Architecture; D3 Cognitive Science &amp; Foundations; D4 Research Tooling &amp; Delivery; D5 Knowledge Management &amp; Process. All 48 items map to exactly one primary domain. [medium confidence — taxonomy is an inference; some items straddle domains]</p>
+<li>
+<p><strong>Five domains cover the corpus without gaps.</strong> D1 AI Strategy &amp; Governance; D2 Agentic Systems &amp; Architecture; D3 Cognitive Science &amp; Foundations; D4 Research Tooling &amp; Delivery; D5 Knowledge Management &amp; Process. All 48 items map to exactly one primary domain. [medium confidence — taxonomy is an inference; some items straddle domains]</p>
 </li>
-<li><p><strong>The prioritisation rubric uses four dimensions: decision dependency, dependency unblocking, gap severity, input availability.</strong> Scored 1–3 each; total 10–12 = <code>high</code>, 6–9 = <code>medium</code>, 4–5 = <code>low</code>. This produces a distribution where <code>high</code> requires ≥3 in at least two dimensions — genuinely rare by design. [medium confidence — synthesised from JTBD, OKR, PARA; not empirically validated]</p>
+<li>
+<p><strong>The prioritisation rubric uses four dimensions: decision dependency, dependency unblocking, gap severity, input availability.</strong> Scored 1–3 each; total 10–12 = <code>high</code>, 6–9 = <code>medium</code>, 4–5 = <code>low</code>. This produces a distribution where <code>high</code> requires ≥3 in at least two dimensions — genuinely rare by design. [medium confidence — synthesised from JTBD, OKR, PARA; not empirically validated]</p>
 </li>
-<li><p><strong>D1 (AI Strategy &amp; Governance) should maintain a protected minimum of ≥2 backlog items.</strong> As the domain most directly tied to the owner's professional context, it should trigger a coverage alert if it drains to zero during loop processing. [medium confidence — professional context inference]</p>
+<li>
+<p><strong>D1 (AI Strategy &amp; Governance) should maintain a protected minimum of ≥2 backlog items.</strong> As the domain most directly tied to the owner's professional context, it should trigger a coverage alert if it drains to zero during loop processing. [medium confidence — professional context inference]</p>
 </li>
-<li><p><strong>D2 (Agentic Systems) is currently under-represented.</strong> 2 of 25 backlog items despite 4 completed items and active professional relevance. No new agentic items have been queued — this is a gap requiring agenda intervention. [high confidence — direct count]</p>
+<li>
+<p><strong>D2 (Agentic Systems) is currently under-represented.</strong> 2 of 25 backlog items despite 4 completed items and active professional relevance. No new agentic items have been queued — this is a gap requiring agenda intervention. [high confidence — direct count]</p>
 </li>
-<li><p><strong>Drift detection threshold: ≥40% domain concentration in items added in the last 30 days.</strong> Secondary signal: last 5 completed items all from the same domain. The 40% threshold tolerates intentional focused sprints while catching unintentional drift. [medium confidence — calibrated estimate, not empirically validated]</p>
+<li>
+<p><strong>Drift detection threshold: ≥40% domain concentration in items added in the last 30 days.</strong> Secondary signal: last 5 completed items all from the same domain. The 40% threshold tolerates intentional focused sprints while catching unintentional drift. [medium confidence — calibrated estimate, not empirically validated]</p>
 </li>
-<li><p><strong>Monthly review cadence matches corpus turnover rate.</strong> At 3 items/day on weekdays, the 25-item backlog turns over in ~8 weeks. Monthly reviews catch imbalances before the next cycle. [high confidence — arithmetic]</p>
+<li>
+<p><strong>Monthly review cadence matches corpus turnover rate.</strong> At 3 items/day on weekdays, the 25-item backlog turns over in ~8 weeks. Monthly reviews catch imbalances before the next cycle. [high confidence — arithmetic]</p>
 </li>
-<li><p><strong>The <code>research agenda</code> CLI command is implementable without new dependencies.</strong> All required fields (<code>tags</code>, <code>priority</code>, <code>added</code>, <code>completed</code>, <code>blocks</code>) are already parsed by <code>ResearchItem.from_file()</code>. The command requires only a domain-map constant and reporting logic added to <code>src/research/cli.py</code>. [high confidence — direct source inspection]</p>
+<li>
+<p><strong>The <code>research agenda</code> CLI command is implementable without new dependencies.</strong> All required fields (<code>tags</code>, <code>priority</code>, <code>added</code>, <code>completed</code>, <code>blocks</code>) are already parsed by <code>ResearchItem.from_file()</code>. The command requires only a domain-map constant and reporting logic added to <code>src/research/cli.py</code>. [high confidence — direct source inspection]</p>
 </li>
-<li><p><strong>The rubric must be embedded at item-addition time, not only at review time.</strong> Priority inflation occurs because the default is <code>medium</code> and there is no friction at creation. The CLI template in <code>src/research/cli.py</code> and the AGENTS.md item-addition instructions should reference the rubric. [medium confidence — behavioural inference]</p>
+<li>
+<p><strong>The rubric must be embedded at item-addition time, not only at review time.</strong> Priority inflation occurs because the default is <code>medium</code> and there is no friction at creation. The CLI template in <code>src/research/cli.py</code> and the AGENTS.md item-addition instructions should reference the rubric. [medium confidence — behavioural inference]</p>
 </li>
-<li><p><strong><code>workflow_dispatch</code> + GitHub issue is the correct delivery mechanism for agenda reports.</strong> This is the owner's access model and is explicitly prescribed in AGENTS.md. No new credentials required. [high confidence — AGENTS.md direct]</p>
+<li>
+<p><strong><code>workflow_dispatch</code> + GitHub issue is the correct delivery mechanism for agenda reports.</strong> This is the owner's access model and is explicitly prescribed in AGENTS.md. No new credentials required. [high confidence — AGENTS.md direct]</p>
 </li>
-<li><p><strong>Open Questions in completed items are an under-used backlog input.</strong> Multiple completed items contain follow-on questions not yet added to backlog. The monthly review checklist should scan Open Questions sections systematically. [medium confidence — qualitative observation]</p>
+<li>
+<p><strong>Open Questions in completed items are an under-used backlog input.</strong> Multiple completed items contain follow-on questions not yet added to backlog. The monthly review checklist should scan Open Questions sections systematically. [medium confidence — qualitative observation]</p>
 </li>
 </ol>
 <h3>Assumptions</h3>

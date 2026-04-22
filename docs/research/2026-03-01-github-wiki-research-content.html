@@ -664,21 +664,29 @@ main {
 <p>The GitHub wiki is a separate, flat git repository (<code>{repo}.wiki.git</code>) that can be cloned and pushed by any Actions workflow with <code>contents: write</code> permission using the built-in <code>GITHUB_TOKEN</code> — no PAT required. A full-rebuild approach (delete all pages, regenerate from <code>Research/completed/</code> on each push) is correct for this repository's volume and eliminates incremental state complexity. A Python script strips YAML front-matter, writes one wiki page per completed item, and generates <code>Home.md</code> (date-sorted index) and <code>_Sidebar.md</code> (tag navigation). The workflow triggers on any push to <code>main</code> that touches <code>Research/completed/**</code>, and also supports <code>workflow_dispatch</code> for manual runs. The wiki must be enabled once in repository Settings.</p>
 <h3>Key Findings</h3>
 <ol>
-<li><p><strong>The GitHub wiki is a distinct git repo.</strong> Every repository's wiki lives at <code><a href="https://github.com/{owner}/{repo}.wiki.git</code>">github.com</a> It can be cloned and pushed like any git repository. <code>actions/checkout@v4</code> supports a <code>repository:</code> parameter that accepts <code>${{ github.repository }}.wiki</code>, making checkout straightforward.</p>
+<li>
+<p><strong>The GitHub wiki is a distinct git repo.</strong> Every repository's wiki lives at <code><a href="https://github.com/{owner}/{repo}.wiki.git</code>">github.com</a> It can be cloned and pushed like any git repository. <code>actions/checkout@v4</code> supports a <code>repository:</code> parameter that accepts <code>${{ github.repository }}.wiki</code>, making checkout straightforward.</p>
 </li>
-<li><p><strong><code>GITHUB_TOKEN</code> is sufficient — no PAT needed.</strong> Actions workflows with <code>permissions: contents: write</code> can push to the wiki repo of the same repository using <code>${{ secrets.GITHUB_TOKEN }}</code>. No additional secrets are required.</p>
+<li>
+<p><strong><code>GITHUB_TOKEN</code> is sufficient — no PAT needed.</strong> Actions workflows with <code>permissions: contents: write</code> can push to the wiki repo of the same repository using <code>${{ secrets.GITHUB_TOKEN }}</code>. No additional secrets are required.</p>
 </li>
-<li><p><strong>Pages are flat — no subdirectories.</strong> The wiki URL structure is <code>/{owner}/{repo}/wiki/{Page-Name}</code>. Filenames map directly to page names; slashes in filenames are not supported. The constraint is acceptable for research items because each item already has a unique date-prefixed filename.</p>
+<li>
+<p><strong>Pages are flat — no subdirectories.</strong> The wiki URL structure is <code>/{owner}/{repo}/wiki/{Page-Name}</code>. Filenames map directly to page names; slashes in filenames are not supported. The constraint is acceptable for research items because each item already has a unique date-prefixed filename.</p>
 </li>
-<li><p><strong>Three special pages control structure.</strong> <code>Home.md</code> is the landing page for the Wiki tab. <code>_Sidebar.md</code> renders a persistent sidebar on every page. <code>_Footer.md</code> renders a persistent footer. These are the only navigation primitives the GitHub wiki natively supports.</p>
+<li>
+<p><strong>Three special pages control structure.</strong> <code>Home.md</code> is the landing page for the Wiki tab. <code>_Sidebar.md</code> renders a persistent sidebar on every page. <code>_Footer.md</code> renders a persistent footer. These are the only navigation primitives the GitHub wiki natively supports.</p>
 </li>
-<li><p><strong>Internal wiki links use <code>[[Page Name]]</code> syntax.</strong> Cross-references between wiki pages use double-bracket notation: <code>[[2026-02-28-ai-strategy]]</code> or <code>[[2026-02-28-ai-strategy|AI Strategy]]</code> for aliased display text.</p>
+<li>
+<p><strong>Internal wiki links use <code>[[Page Name]]</code> syntax.</strong> Cross-references between wiki pages use double-bracket notation: <code>[[2026-02-28-ai-strategy]]</code> or <code>[[2026-02-28-ai-strategy|AI Strategy]]</code> for aliased display text.</p>
 </li>
-<li><p><strong>Full rebuild is simpler than incremental.</strong> The wiki repo is wiped and rebuilt on every workflow run. At the current volume (tens of items), this takes under a second. It eliminates the need to track renames, deletions, or status changes — the completed directory is the authoritative source.</p>
+<li>
+<p><strong>Full rebuild is simpler than incremental.</strong> The wiki repo is wiped and rebuilt on every workflow run. At the current volume (tens of items), this takes under a second. It eliminates the need to track renames, deletions, or status changes — the completed directory is the authoritative source.</p>
 </li>
-<li><p><strong>YAML front-matter must be stripped.</strong> Wiki readers should see the research content directly, not raw YAML. Stripping the front-matter block (everything between the opening and closing <code>---</code>) and using the parsed metadata for the index and sidebar is the correct approach.</p>
+<li>
+<p><strong>YAML front-matter must be stripped.</strong> Wiki readers should see the research content directly, not raw YAML. Stripping the front-matter block (everything between the opening and closing <code>---</code>) and using the parsed metadata for the index and sidebar is the correct approach.</p>
 </li>
-<li><p><strong>The wiki must be enabled before the first push.</strong> GitHub wikis are disabled by default on new repositories. The owner must enable it once via Settings → Features → Wikis. After that, the automated workflow maintains it.</p>
+<li>
+<p><strong>The wiki must be enabled before the first push.</strong> GitHub wikis are disabled by default on new repositories. The owner must enable it once via Settings → Features → Wikis. After that, the automated workflow maintains it.</p>
 </li>
 </ol>
 <h3>Assumptions</h3>

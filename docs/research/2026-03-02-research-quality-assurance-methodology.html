@@ -663,25 +663,35 @@ main {
 <p>The three existing quality skills (citation-discipline, speculation-control, remove-ai-slop) cover factual hygiene and writing quality but leave three critical gaps: logical coherence (do conclusions follow from evidence?), alternative explanations (were competing interpretations considered?), and cross-item integration (does this item connect to the wider corpus?). A four-tier quality review pipeline, sequenced by automation cost, closes these gaps: Tier 1 structural checks (fully automatable Python scripts), Tier 2 single-item agent review (existing skills plus new logical coherence and evidence sufficiency checks), Tier 3 cross-item integration checks (agent with corpus access), and Tier 4 domain-specific human review. A new <code>peer-review</code> skill for <code>davidamitchell/Skills</code> is warranted to formalise the logical coherence and evidence sufficiency checks; an <code>integration</code> skill is not yet warranted. The DIKW and SECI frameworks confirm that the Wisdom level requires cross-item synthesis (Combination) and application to real decisions (Internalisation) — steps that the existing individual-item review pipeline does not address and which are covered by the synthesis and knowledge-retention work already designed in this corpus.</p>
 <h3>Key Findings</h3>
 <ol>
-<li><p><strong>[fact] The three existing skills leave logical coherence, alternative explanations, and cross-item integration uncovered.</strong> Citation-discipline checks source presence; speculation-control checks label presence; remove-ai-slop checks prose surface patterns — none checks whether a conclusion follows from the evidence, whether competing interpretations were considered, or whether the item connects to related completed items in the corpus.</p>
+<li>
+<p><strong>[fact] The three existing skills leave logical coherence, alternative explanations, and cross-item integration uncovered.</strong> Citation-discipline checks source presence; speculation-control checks label presence; remove-ai-slop checks prose surface patterns — none checks whether a conclusion follows from the evidence, whether competing interpretations were considered, or whether the item connects to related completed items in the corpus.</p>
 </li>
-<li><p><strong>[fact] LLM agents can check logical coherence and missing alternative explanations at a quality level matching median human peer reviewers.</strong> REMOR (arXiv:2505.11718) and DeepReview (ACL 2025) demonstrate this on scientific manuscripts; the Copilot CLI agent already demonstrates equivalent behaviour in <code>research-review.yml</code>. The boundary between agent-automatable and human-only is coherence vs. domain plausibility — not &quot;agent vs. human.&quot;</p>
+<li>
+<p><strong>[fact] LLM agents can check logical coherence and missing alternative explanations at a quality level matching median human peer reviewers.</strong> REMOR (arXiv:2505.11718) and DeepReview (ACL 2025) demonstrate this on scientific manuscripts; the Copilot CLI agent already demonstrates equivalent behaviour in <code>research-review.yml</code>. The boundary between agent-automatable and human-only is coherence vs. domain plausibility — not &quot;agent vs. human.&quot;</p>
 </li>
-<li><p><strong>[inference] A four-tier quality review pipeline sequenced by automation cost is the correct architecture: structural checks → single-item agent review → cross-item agent review → human domain review.</strong> Each tier gates the next; cheaper checks run first to fail fast before running expensive LLM calls or requiring human attention.</p>
+<li>
+<p><strong>[inference] A four-tier quality review pipeline sequenced by automation cost is the correct architecture: structural checks → single-item agent review → cross-item agent review → human domain review.</strong> Each tier gates the next; cheaper checks run first to fail fast before running expensive LLM calls or requiring human attention.</p>
 </li>
-<li><p><strong>[inference] The existing <code>research-review.yml</code> Tier 2 agent review should be extended with two new checks: logical coherence (does §6 Synthesis follow from §2 Investigation?) and evidence sufficiency (is the confidence level calibrated to source count and independence?).</strong> These are the highest-impact missing checks — they catch the failure mode where a well-sourced item misinterprets its own evidence and reaches an incorrect conclusion.</p>
+<li>
+<p><strong>[inference] The existing <code>research-review.yml</code> Tier 2 agent review should be extended with two new checks: logical coherence (does §6 Synthesis follow from §2 Investigation?) and evidence sufficiency (is the confidence level calibrated to source count and independence?).</strong> These are the highest-impact missing checks — they catch the failure mode where a well-sourced item misinterprets its own evidence and reaches an incorrect conclusion.</p>
 </li>
-<li><p><strong>[fact + inference] The DIKW and SECI frameworks map to three distinct workflow stages in this repository: Information→Knowledge (individual item research and review), Knowledge→Wisdom (cross-item synthesis via the planned <code>synthesise.yml</code>), and Wisdom application (internalisation via the knowledge-retention mechanisms).</strong> Individual item quality review only covers the first transition; the second and third require separate workflows that are designed but not yet built.</p>
+<li>
+<p><strong>[fact + inference] The DIKW and SECI frameworks map to three distinct workflow stages in this repository: Information→Knowledge (individual item research and review), Knowledge→Wisdom (cross-item synthesis via the planned <code>synthesise.yml</code>), and Wisdom application (internalisation via the knowledge-retention mechanisms).</strong> Individual item quality review only covers the first transition; the second and third require separate workflows that are designed but not yet built.</p>
 </li>
-<li><p><strong>[inference] Cross-item integration is a quality dimension for individual items, not only a synthesis-layer concern.</strong> A research item that references no related completed items and creates no links in <code>state/links.json</code> is a quality failure — the Zettelkasten principle (connection generates insight) means isolated items accumulate information without advancing knowledge.</p>
+<li>
+<p><strong>[inference] Cross-item integration is a quality dimension for individual items, not only a synthesis-layer concern.</strong> A research item that references no related completed items and creates no links in <code>state/links.json</code> is a quality failure — the Zettelkasten principle (connection generates insight) means isolated items accumulate information without advancing knowledge.</p>
 </li>
-<li><p><strong>[inference] A <code>peer-review</code> skill with three checks is the correct scope addition to <code>davidamitchell/Skills</code>.</strong> The three checks: (1) the Executive Summary conclusion is supported by §2 Investigation evidence; (2) at least one major alternative explanation was considered or explicitly excluded; (3) confidence levels are calibrated to source count and independence per the research skill's confidence table.</p>
+<li>
+<p><strong>[inference] A <code>peer-review</code> skill with three checks is the correct scope addition to <code>davidamitchell/Skills</code>.</strong> The three checks: (1) the Executive Summary conclusion is supported by §2 Investigation evidence; (2) at least one major alternative explanation was considered or explicitly excluded; (3) confidence levels are calibrated to source count and independence per the research skill's confidence table.</p>
 </li>
-<li><p><strong>[fact] Bloom's revised taxonomy (2001) maps directly onto the four automation tiers: Remember/Understand levels map to structural checks; Apply/Analyse levels map to agent reasoning; Evaluate/Create levels map to human judgment.</strong> This is not a loose analogy — cognitive complexity at each Bloom level correlates with the computational cost and contextual requirements of the corresponding automation tier.</p>
+<li>
+<p><strong>[fact] Bloom's revised taxonomy (2001) maps directly onto the four automation tiers: Remember/Understand levels map to structural checks; Apply/Analyse levels map to agent reasoning; Evaluate/Create levels map to human judgment.</strong> This is not a loose analogy — cognitive complexity at each Bloom level correlates with the computational cost and contextual requirements of the corresponding automation tier.</p>
 </li>
-<li><p><strong>[inference] The human review tier covers only domain plausibility and strategic relevance, not logical validity.</strong> In the NZ financial services context, acting on a finding without domain plausibility review carries RBNZ supervisory risk; this makes Tier 4 non-optional for decisions with compliance implications, even though it is narrow in scope.</p>
+<li>
+<p><strong>[inference] The human review tier covers only domain plausibility and strategic relevance, not logical validity.</strong> In the NZ financial services context, acting on a finding without domain plausibility review carries RBNZ supervisory risk; this makes Tier 4 non-optional for decisions with compliance implications, even though it is narrow in scope.</p>
 </li>
-<li><p><strong>[inference] An <code>integration</code> skill is not yet warranted; it becomes necessary once <code>Research/synthesis/</code> documents exist and require quality review of their own.</strong> The peer-review skill's cross-item reference check and the existing synthesis workflow design are sufficient for current corpus size and state.</p>
+<li>
+<p><strong>[inference] An <code>integration</code> skill is not yet warranted; it becomes necessary once <code>Research/synthesis/</code> documents exist and require quality review of their own.</strong> The peer-review skill's cross-item reference check and the existing synthesis workflow design are sufficient for current corpus size and state.</p>
 </li>
 </ol>
 <h3>Assumptions</h3>
@@ -712,7 +722,8 @@ main {
 <ul>
 <li>Type: skill, knowledge, backlog-item</li>
 <li>Description: Four-tier quality review pipeline taxonomy with automation classification; <code>peer-review</code> skill scope; DIKW/SECI mapping to repository workflows. The direct input to BACKLOG.md W-0031 (research review CI step implementation).</li>
-<li>Links:<ul>
+<li>Links:
+<ul>
 <li><a href="https://www.springernature.com/gp/authors/campaigns/how-to-peer-review-3">x] Academic peer review process documentation — Springer Nature peer review guidelines</a> (Springer Nature peer review guidelines — defines what reviewers check)</li>
 <li><a href="https://arxiv.org/html/2505.11718v1">arxiv.org</a> (REMOR — LLM peer review matching human quality on coherence)</li>
 <li><a href="https://zettelkasten.de/introduction/">zettelkasten.de</a> (Zettelkasten introduction — integration methodology foundation)</li>

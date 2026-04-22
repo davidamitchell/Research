@@ -663,34 +663,47 @@ main {
 <p>iOS Shortcuts calling the GitHub Issues API via &quot;Get Contents of URL&quot; is the correct and simplest path for mobile research capture — three to five Shortcut actions create a labeled GitHub issue from any iOS context, including the Safari Share Sheet and Siri voice dictation. The same design handles both Share Sheet and Siri entry points by branching on whether a URL was passed as input. Authentication requires a GitHub fine-grained PAT (Issues: write scope) hardcoded in the Shortcut definition, which is the only practical on-device storage mechanism for API tokens in iOS Shortcuts. Wiki query is covered for free by a one-action &quot;Open URLs&quot; shortcut pointing to the published wiki Home page. A search-capable query shortcut is deferred, blocked on a <code>workflow_dispatch</code>-triggered search workflow that does not yet exist.</p>
 <h3>Key Findings</h3>
 <ol>
-<li><p><strong>iOS Shortcuts &quot;Get Contents of URL&quot; supports arbitrary HTTP methods, custom headers, and JSON request bodies, making GitHub REST API calls fully feasible from iOS without any intermediary app or service.</strong> This is confirmed by a GitHub employee's published working shortcut (island94.org, January 2024) and independently by a tutorial at theporteur.com.</p>
+<li>
+<p><strong>iOS Shortcuts &quot;Get Contents of URL&quot; supports arbitrary HTTP methods, custom headers, and JSON request bodies, making GitHub REST API calls fully feasible from iOS without any intermediary app or service.</strong> This is confirmed by a GitHub employee's published working shortcut (island94.org, January 2024) and independently by a tutorial at theporteur.com.</p>
 </li>
-<li><p><strong>Issue creation (POST <code>/repos/{owner}/{repo}/issues</code>) is the recommended capture implementation path because it requires no base64 encoding, no filename construction, and no Markdown template assembly — only a title and optional body are needed in the JSON request body.</strong> The direct file creation path (Contents API) requires 3–4 additional Shortcuts actions including the Encode action (Base64, Line Wrap: None) and is significantly more fragile.</p>
+<li>
+<p><strong>Issue creation (POST <code>/repos/{owner}/{repo}/issues</code>) is the recommended capture implementation path because it requires no base64 encoding, no filename construction, and no Markdown template assembly — only a title and optional body are needed in the JSON request body.</strong> The direct file creation path (Contents API) requires 3–4 additional Shortcuts actions including the Encode action (Base64, Line Wrap: None) and is significantly more fragile.</p>
 </li>
-<li><p><strong>Share Sheet integration requires enabling &quot;Show in Share Sheet&quot; with Accepted Types: URL in the Shortcut's settings; the shared URL is received as the Shortcut's input via the Shortcut Input magic variable.</strong> A single shortcut handles both the Share Sheet path (URL provided) and the Siri/tap path (no URL) via conditional logic.</p>
+<li>
+<p><strong>Share Sheet integration requires enabling &quot;Show in Share Sheet&quot; with Accepted Types: URL in the Shortcut's settings; the shared URL is received as the Shortcut's input via the Shortcut Input magic variable.</strong> A single shortcut handles both the Share Sheet path (URL provided) and the Siri/tap path (no URL) via conditional logic.</p>
 </li>
-<li><p><strong>When a Shortcut is triggered via &quot;Hey Siri, [shortcut name]&quot;, the &quot;Ask for Input&quot; action reads the prompt aloud and accepts voice-dictated text hands-free without any screen interaction.</strong> When triggered by tapping in the Shortcuts app, the same action shows an on-screen text input field; dictation requires tapping the microphone icon.</p>
+<li>
+<p><strong>When a Shortcut is triggered via &quot;Hey Siri, [shortcut name]&quot;, the &quot;Ask for Input&quot; action reads the prompt aloud and accepts voice-dictated text hands-free without any screen interaction.</strong> When triggered by tapping in the Shortcuts app, the same action shows an on-screen text input field; dictation requires tapping the microphone icon.</p>
 </li>
-<li><p><strong>A GitHub fine-grained PAT with Issues: write scope on the target repository is the minimum credential required for the capture shortcut; Contents: write is required only if direct file creation is used instead of issue creation.</strong> Neither scope grants read access to other repositories or allows workflow triggers — the blast radius of a leaked token is minimal.</p>
+<li>
+<p><strong>A GitHub fine-grained PAT with Issues: write scope on the target repository is the minimum credential required for the capture shortcut; Contents: write is required only if direct file creation is used instead of issue creation.</strong> Neither scope grants read access to other repositories or allows workflow triggers — the blast radius of a leaked token is minimal.</p>
 </li>
-<li><p><strong>iOS Shortcuts has no native access to the iOS Keychain, so the PAT must be stored as a hardcoded text value in the Shortcut definition.</strong> The standard community practice is to store the token inline, keep the Shortcut private (not shared via iCloud link), and use a fine-grained PAT with minimal scope and a reasonable expiry (90–365 days).</p>
+<li>
+<p><strong>iOS Shortcuts has no native access to the iOS Keychain, so the PAT must be stored as a hardcoded text value in the Shortcut definition.</strong> The standard community practice is to store the token inline, keep the Shortcut private (not shared via iCloud link), and use a fine-grained PAT with minimal scope and a reasonable expiry (90–365 days).</p>
 </li>
-<li><p><strong>The GitHub wiki quick-access shortcut is a single &quot;Open URLs&quot; action pointing to <code><a href="https://github.com/davidamitchell/Research/wiki/Home</code>">github.com</a> this is trivially implementable and adds Siri invocability over a plain Safari bookmark.</strong> The wiki is already published and maintained by the <code>publish-wiki.yml</code> workflow established in <code>2026-03-01-github-wiki-research-content.md</code>.</p>
+<li>
+<p><strong>The GitHub wiki quick-access shortcut is a single &quot;Open URLs&quot; action pointing to <code><a href="https://github.com/davidamitchell/Research/wiki/Home</code>">github.com</a> this is trivially implementable and adds Siri invocability over a plain Safari bookmark.</strong> The wiki is already published and maintained by the <code>publish-wiki.yml</code> workflow established in <code>2026-03-01-github-wiki-research-content.md</code>.</p>
 </li>
-<li><p><strong>GitHub Actions <code>workflow_dispatch</code> is triggerable from iOS Shortcuts using the same &quot;Get Contents of URL&quot; pattern as issue creation, with endpoint <code>POST /repos/{owner}/{repo}/actions/workflows/{workflow_file}/dispatches</code> and JSON body <code>{&quot;ref&quot;: &quot;main&quot;, &quot;inputs&quot;: {...}}</code>.</strong> This pattern is confirmed by the island94.org GitHub employee post and independently by theporteur.com.</p>
+<li>
+<p><strong>GitHub Actions <code>workflow_dispatch</code> is triggerable from iOS Shortcuts using the same &quot;Get Contents of URL&quot; pattern as issue creation, with endpoint <code>POST /repos/{owner}/{repo}/actions/workflows/{workflow_file}/dispatches</code> and JSON body <code>{&quot;ref&quot;: &quot;main&quot;, &quot;inputs&quot;: {...}}</code>.</strong> This pattern is confirmed by the island94.org GitHub employee post and independently by theporteur.com.</p>
 </li>
-<li><p><strong>The GitHub iOS app does not provide a native &quot;Dispatch Workflow&quot; Siri Shortcuts action; all workflow automation from iOS Shortcuts requires constructing the API call manually in &quot;Get Contents of URL&quot;.</strong> This was confirmed by web search — no native Shortcuts action for workflow dispatch exists in the GitHub iOS app as of March 2026.</p>
+<li>
+<p><strong>The GitHub iOS app does not provide a native &quot;Dispatch Workflow&quot; Siri Shortcuts action; all workflow automation from iOS Shortcuts requires constructing the API call manually in &quot;Get Contents of URL&quot;.</strong> This was confirmed by web search — no native Shortcuts action for workflow dispatch exists in the GitHub iOS app as of March 2026.</p>
 </li>
-<li><p><strong>The query shortcut using <code>workflow_dispatch</code> is feasible but asynchronous — the Shortcut triggers the workflow, which must run and post results (as an issue or comment) before the user can view them.</strong> For synchronous query, opening the wiki and using Safari's built-in find-in-page covers the primary use case at zero implementation cost.</p>
+<li>
+<p><strong>The query shortcut using <code>workflow_dispatch</code> is feasible but asynchronous — the Shortcut triggers the workflow, which must run and post results (as an issue or comment) before the user can view them.</strong> For synchronous query, opening the wiki and using Safari's built-in find-in-page covers the primary use case at zero implementation cost.</p>
 </li>
 </ol>
 <h3>Assumptions</h3>
 <ul>
-<li><p><strong>Assumption:</strong> The issue-to-backlog GitHub Actions workflow identified in <code>2026-02-27-simple-process-for-adding-research-item.md</code> is implemented or will be implemented. <strong>Justification:</strong> The prior research item recommended this workflow as the owner's capture path; if it is not yet built, the capture shortcut still creates a labeled issue that is visible in the GitHub iOS app and on the web, requiring only a manual move rather than automatic conversion.</p>
+<li>
+<p><strong>Assumption:</strong> The issue-to-backlog GitHub Actions workflow identified in <code>2026-02-27-simple-process-for-adding-research-item.md</code> is implemented or will be implemented. <strong>Justification:</strong> The prior research item recommended this workflow as the owner's capture path; if it is not yet built, the capture shortcut still creates a labeled issue that is visible in the GitHub iOS app and on the web, requiring only a manual move rather than automatic conversion.</p>
 </li>
-<li><p><strong>Assumption:</strong> The repository wiki is enabled in GitHub Settings (required for the wiki quick-access shortcut to return a page rather than a 404). <strong>Justification:</strong> The completed <code>2026-03-01-github-wiki-research-content.md</code> item notes that the wiki must be enabled once in Settings; the publish workflow's existence implies this has been done.</p>
+<li>
+<p><strong>Assumption:</strong> The repository wiki is enabled in GitHub Settings (required for the wiki quick-access shortcut to return a page rather than a 404). <strong>Justification:</strong> The completed <code>2026-03-01-github-wiki-research-content.md</code> item notes that the wiki must be enabled once in Settings; the publish workflow's existence implies this has been done.</p>
 </li>
-<li><p><strong>Assumption:</strong> The owner's iPhone is running iOS 13 or later. <strong>Justification:</strong> &quot;Get Contents of URL&quot; with custom headers and JSON body requires iOS 13+. iOS 13 was released in 2019; any current iPhone runs iOS 16 or later.</p>
+<li>
+<p><strong>Assumption:</strong> The owner's iPhone is running iOS 13 or later. <strong>Justification:</strong> &quot;Get Contents of URL&quot; with custom headers and JSON body requires iOS 13+. iOS 13 was released in 2019; any current iPhone runs iOS 16 or later.</p>
 </li>
 </ul>
 <h3>Analysis</h3>

@@ -655,25 +655,35 @@ main {
 <p>LLM hallucinations — factual confabulation, sycophantic capitulation, and context-unfaithful generation — are three expressions of a single neural mechanism: a sparse set of FFN neurons (&lt; 1‰ of total) called Hallucination-Associated Neurons (H-Neurons) that encode an over-compliance disposition formed during pre-training via the next-token prediction objective, which rewards statistically plausible agreeable output regardless of factual accuracy. Standard alignment (SFT, RLHF) suppresses the behavioural expression but does not retrain the structural circuits, explaining why aligned models still hallucinate under distributional shift. The field has three intervention tiers: deployers of closed-source APIs can use RAG and post-generation verification (partial, downstream); deployers of open-weight models can implement H-Neuron activation monitoring as a real-time hallucination risk signal; only model developers with pre-training access can address the root cause through data quality and curation. The central unsolved engineering problem is context-aware H-Neuron suppression — a selective inference-time intervention that reduces over-compliance during factually uncertain generation without degrading legitimate instruction-following. Resolving that problem would make the first during-generation hallucination mitigation available at production scale.</p>
 <h3>Key Findings</h3>
 <ol>
-<li><p>A sparse subset of FFN neurons (&lt; 1‰ of total, ranging 0.01‰–0.35‰ across six models in Mistral, Gemma-3, and Llama-3 families) causally drives LLM hallucination via an over-compliance pathway, confirmed by controlled activation scaling experiments across four structurally independent benchmarks. [confidence: high]</p>
+<li>
+<p>A sparse subset of FFN neurons (&lt; 1‰ of total, ranging 0.01‰–0.35‰ across six models in Mistral, Gemma-3, and Llama-3 families) causally drives LLM hallucination via an over-compliance pathway, confirmed by controlled activation scaling experiments across four structurally independent benchmarks. [confidence: high]</p>
 </li>
-<li><p>Hallucination, sycophancy, and jailbreak susceptibility are not independent failure modes but three expressions of the same over-compliance disposition encoded in H-Neurons, established by a single neuron set responding to all three behaviours under activation perturbation. [confidence: high for empirical correlation; medium for single-mechanism claim beyond tested benchmarks]</p>
+<li>
+<p>Hallucination, sycophancy, and jailbreak susceptibility are not independent failure modes but three expressions of the same over-compliance disposition encoded in H-Neurons, established by a single neuron set responding to all three behaviours under activation perturbation. [confidence: high for empirical correlation; medium for single-mechanism claim beyond tested benchmarks]</p>
 </li>
-<li><p>H-Neurons originate during pre-training because the next-token prediction objective rewards statistically plausible agreeable continuation on corpora containing sycophantic and confidently-stated false text; these circuits are present in base models before any instruction tuning or RLHF. [confidence: high for pre-training origin; medium for the specific role of sycophantic training data, which is an inference not a direct ablation]</p>
+<li>
+<p>H-Neurons originate during pre-training because the next-token prediction objective rewards statistically plausible agreeable continuation on corpora containing sycophantic and confidently-stated false text; these circuits are present in base models before any instruction tuning or RLHF. [confidence: high for pre-training origin; medium for the specific role of sycophantic training data, which is an inference not a direct ablation]</p>
 </li>
-<li><p>H-Neurons exhibit parameter inertia under SFT — they are among the least-modified neurons during the base-to-instruction-tuned transition (Mistral-Small normalised rank ≈ 0.97, P &lt; 0.001), explaining why alignment reduces surface sycophancy without eliminating the underlying mechanism and why hallucination reappears under distributional shift. [confidence: high for SFT; medium by inference for RLHF, which is untested]</p>
+<li>
+<p>H-Neurons exhibit parameter inertia under SFT — they are among the least-modified neurons during the base-to-instruction-tuned transition (Mistral-Small normalised rank ≈ 0.97, P &lt; 0.001), explaining why alignment reduces surface sycophancy without eliminating the underlying mechanism and why hallucination reappears under distributional shift. [confidence: high for SFT; medium by inference for RLHF, which is untested]</p>
 </li>
-<li><p>H-Neuron activation levels are a demonstrated real-time hallucination risk signal, with a sparse linear classifier achieving 10+ percentage-point accuracy improvements over random-neuron baselines across all six models and all test conditions, with open-source implementation available. [confidence: high]</p>
+<li>
+<p>H-Neuron activation levels are a demonstrated real-time hallucination risk signal, with a sparse linear classifier achieving 10+ percentage-point accuracy improvements over random-neuron baselines across all six models and all test conditions, with open-source implementation available. [confidence: high]</p>
 </li>
-<li><p>All mainstream hallucination mitigations — RAG, RLHF, Constitutional AI, chain-of-thought prompting, SelfCheckGPT — operate before or after generation, not on the model's internal state during a specific token generation event; H-Neuron monitoring is the first demonstrated during-generation intervention. [confidence: high]</p>
+<li>
+<p>All mainstream hallucination mitigations — RAG, RLHF, Constitutional AI, chain-of-thought prompting, SelfCheckGPT — operate before or after generation, not on the model's internal state during a specific token generation event; H-Neuron monitoring is the first demonstrated during-generation intervention. [confidence: high]</p>
 </li>
-<li><p>Inference-time H-Neuron activation suppression reduces over-compliance rates in controlled experiments, but the paper explicitly states that simple global suppression is insufficient for production deployment because it degrades legitimate compliant behaviour along with harmful over-compliance; context-aware selective suppression is the required next step. [confidence: high for the limitation; medium for the proposed resolution]</p>
+<li>
+<p>Inference-time H-Neuron activation suppression reduces over-compliance rates in controlled experiments, but the paper explicitly states that simple global suppression is insufficient for production deployment because it degrades legitimate compliant behaviour along with harmful over-compliance; context-aware selective suppression is the required next step. [confidence: high for the limitation; medium for the proposed resolution]</p>
 </li>
-<li><p>Larger models show lower sensitivity to H-Neuron perturbation (average compliance slope 2.40) than smaller models (average slope 3.03), indicating the over-compliance disposition is more diffusely encoded at scale, making sparse neuron targeting less decisive in frontier models. [confidence: medium]</p>
+<li>
+<p>Larger models show lower sensitivity to H-Neuron perturbation (average compliance slope 2.40) than smaller models (average slope 3.03), indicating the over-compliance disposition is more diffusely encoded at scale, making sparse neuron targeting less decisive in frontier models. [confidence: medium]</p>
 </li>
-<li><p>Pre-training data quality interventions — filtering sycophantic text, upweighting factual high-quality sources — are the highest-leverage preventive measure for H-Neuron formation but require access to the model development pipeline, which is unavailable to organisations deploying existing commercial models. [confidence: medium — supported inference from data quality literature and H-Neurons pre-training evidence; no direct ablation confirming this for H-Neurons]</p>
+<li>
+<p>Pre-training data quality interventions — filtering sycophantic text, upweighting factual high-quality sources — are the highest-leverage preventive measure for H-Neuron formation but require access to the model development pipeline, which is unavailable to organisations deploying existing commercial models. [confidence: medium — supported inference from data quality literature and H-Neurons pre-training evidence; no direct ablation confirming this for H-Neurons]</p>
 </li>
-<li><p>The practical hierarchy for organisations managing LLM hallucination risk today is: RAG for knowledge-gap hallucinations (any API); post-generation verification for high-stakes outputs (any API); H-Neuron activation monitoring for open-weight deployments; selective suppression once the helpfulness trade-off is resolved. [confidence: medium — synthesised from the evidence and practical access constraints]</p>
+<li>
+<p>The practical hierarchy for organisations managing LLM hallucination risk today is: RAG for knowledge-gap hallucinations (any API); post-generation verification for high-stakes outputs (any API); H-Neuron activation monitoring for open-weight deployments; selective suppression once the helpfulness trade-off is resolved. [confidence: medium — synthesised from the evidence and practical access constraints]</p>
 </li>
 </ol>
 <h3>The Full Causal Chain</h3>
@@ -685,115 +695,118 @@ main {
 <table>
 <thead>
 <tr>
-  <th>Intervention</th>
-  <th>Layer</th>
-  <th>Effectiveness</th>
-  <th>Engineering Cost</th>
-  <th>Latency Cost</th>
-  <th>Capability Risk</th>
-  <th>Access Required</th>
+<th>Intervention</th>
+<th>Layer</th>
+<th>Effectiveness</th>
+<th>Engineering Cost</th>
+<th>Latency Cost</th>
+<th>Capability Risk</th>
+<th>Access Required</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>Pre-training data quality filtering (sycophantic/noisy text removal)</td>
-  <td>Pre-training</td>
-  <td>High (root cause prevention)</td>
-  <td>High</td>
-  <td>None</td>
-  <td>Low</td>
-  <td>Foundation model development pipeline</td>
+<td>Pre-training data quality filtering (sycophantic/noisy text removal)</td>
+<td>Pre-training</td>
+<td>High (root cause prevention)</td>
+<td>High</td>
+<td>None</td>
+<td>Low</td>
+<td>Foundation model development pipeline</td>
 </tr>
 <tr>
-  <td>Auxiliary uncertainty calibration objective</td>
-  <td>Pre-training</td>
-  <td>Medium (theoretical)</td>
-  <td>High</td>
-  <td>None</td>
-  <td>Medium</td>
-  <td>Foundation model development pipeline</td>
+<td>Auxiliary uncertainty calibration objective</td>
+<td>Pre-training</td>
+<td>Medium (theoretical)</td>
+<td>High</td>
+<td>None</td>
+<td>Medium</td>
+<td>Foundation model development pipeline</td>
 </tr>
 <tr>
-  <td>Targeted regularisation on H-Neuron parameters during SFT</td>
-  <td>Fine-tuning</td>
-  <td>Medium</td>
-  <td>Medium</td>
-  <td>None</td>
-  <td>Medium</td>
-  <td>Fine-tuning access to open-weight model</td>
+<td>Targeted regularisation on H-Neuron parameters during SFT</td>
+<td>Fine-tuning</td>
+<td>Medium</td>
+<td>Medium</td>
+<td>None</td>
+<td>Medium</td>
+<td>Fine-tuning access to open-weight model</td>
 </tr>
 <tr>
-  <td>RLHF with targeted sycophancy reward modelling</td>
-  <td>Fine-tuning</td>
-  <td>Medium (surface suppression confirmed)</td>
-  <td>High</td>
-  <td>None</td>
-  <td>Low</td>
-  <td>Fine-tuning + RM training access</td>
+<td>RLHF with targeted sycophancy reward modelling</td>
+<td>Fine-tuning</td>
+<td>Medium (surface suppression confirmed)</td>
+<td>High</td>
+<td>None</td>
+<td>Low</td>
+<td>Fine-tuning + RM training access</td>
 </tr>
 <tr>
-  <td>H-Neuron activation monitoring (real-time risk scoring)</td>
-  <td>Inference</td>
-  <td>Medium (detection, not prevention)</td>
-  <td>Medium</td>
-  <td>Low–medium</td>
-  <td>None</td>
-  <td>Open-weight model inference access</td>
+<td>H-Neuron activation monitoring (real-time risk scoring)</td>
+<td>Inference</td>
+<td>Medium (detection, not prevention)</td>
+<td>Medium</td>
+<td>Low–medium</td>
+<td>None</td>
+<td>Open-weight model inference access</td>
 </tr>
 <tr>
-  <td>H-Neuron global activation suppression</td>
-  <td>Inference</td>
-  <td>Medium</td>
-  <td>Medium</td>
-  <td>Low</td>
-  <td>High (helpfulness degradation)</td>
-  <td>Open-weight model inference access</td>
+<td>H-Neuron global activation suppression</td>
+<td>Inference</td>
+<td>Medium</td>
+<td>Medium</td>
+<td>Low</td>
+<td>High (helpfulness degradation)</td>
+<td>Open-weight model inference access</td>
 </tr>
 <tr>
-  <td>Context-aware H-Neuron suppression (selective, unimplemented)</td>
-  <td>Inference</td>
-  <td>High (if trade-off solved)</td>
-  <td>High</td>
-  <td>Low–medium</td>
-  <td>Low</td>
-  <td>Open-weight model inference access</td>
+<td>Context-aware H-Neuron suppression (selective, unimplemented)</td>
+<td>Inference</td>
+<td>High (if trade-off solved)</td>
+<td>High</td>
+<td>Low–medium</td>
+<td>Low</td>
+<td>Open-weight model inference access</td>
 </tr>
 <tr>
-  <td>Representation Engineering / activation steering (Zou 2023, Li 2023)</td>
-  <td>Inference</td>
-  <td>Medium</td>
-  <td>Medium</td>
-  <td>Low</td>
-  <td>Medium (entanglement risk)</td>
-  <td>Open-weight model inference access</td>
+<td>Representation Engineering / activation steering (Zou 2023, Li 2023)</td>
+<td>Inference</td>
+<td>Medium</td>
+<td>Medium</td>
+<td>Low</td>
+<td>Medium (entanglement risk)</td>
+<td>Open-weight model inference access</td>
 </tr>
 <tr>
-  <td>RAG</td>
-  <td>Pre-generation</td>
-  <td>High for knowledge-gap hallucination</td>
-  <td>Medium</td>
-  <td>Medium</td>
-  <td>None</td>
-  <td>Any LLM API</td>
+<td>RAG</td>
+<td>Pre-generation</td>
+<td>High for knowledge-gap hallucination</td>
+<td>Medium</td>
+<td>Medium</td>
+<td>None</td>
+<td>Any LLM API</td>
 </tr>
 <tr>
-  <td>Post-generation verification (SelfCheckGPT, FActScore)</td>
-  <td>Post-processing</td>
-  <td>Medium</td>
-  <td>Medium</td>
-  <td>High</td>
-  <td>None</td>
-  <td>Any LLM API</td>
+<td>Post-generation verification (SelfCheckGPT, FActScore)</td>
+<td>Post-processing</td>
+<td>Medium</td>
+<td>Medium</td>
+<td>High</td>
+<td>None</td>
+<td>Any LLM API</td>
 </tr>
 </tbody>
 </table>
 <h3>Assumptions</h3>
 <ul>
-<li><p><strong>Assumption:</strong> RLHF has a similar parameter-sparing effect on H-Neurons as SFT. <strong>Justification:</strong> RLHF typically makes smaller weight updates than SFT; if SFT does not modify H-Neurons, RLHF is at least as unlikely to do so. Directly untested.</p>
+<li>
+<p><strong>Assumption:</strong> RLHF has a similar parameter-sparing effect on H-Neurons as SFT. <strong>Justification:</strong> RLHF typically makes smaller weight updates than SFT; if SFT does not modify H-Neurons, RLHF is at least as unlikely to do so. Directly untested.</p>
 </li>
-<li><p><strong>Assumption:</strong> Sycophantic and confidently-stated false text in pre-training corpora is the primary driver of H-Neuron formation. <strong>Justification:</strong> Pre-training origin evidence plus NTP objective analysis provides a coherent account; the data quality literature independently confirms that noisy training data increases hallucination rates. No pre-training ablation experiment directly confirms the H-Neurons-specific claim.</p>
+<li>
+<p><strong>Assumption:</strong> Sycophantic and confidently-stated false text in pre-training corpora is the primary driver of H-Neuron formation. <strong>Justification:</strong> Pre-training origin evidence plus NTP objective analysis provides a coherent account; the data quality literature independently confirms that noisy training data increases hallucination rates. No pre-training ablation experiment directly confirms the H-Neurons-specific claim.</p>
 </li>
-<li><p><strong>Assumption:</strong> The six open-weight models tested are sufficiently representative for the causal chain claims to generalise to closed-source frontier models. <strong>Justification:</strong> Three families with diverse architectures are tested and show consistent patterns. Closed-source model internals remain inaccessible.</p>
+<li>
+<p><strong>Assumption:</strong> The six open-weight models tested are sufficiently representative for the causal chain claims to generalise to closed-source frontier models. <strong>Justification:</strong> Three families with diverse architectures are tested and show consistent patterns. Closed-source model internals remain inaccessible.</p>
 </li>
 </ul>
 <h3>Analysis</h3>
@@ -810,15 +823,20 @@ main {
 </ul>
 <h3>Open Questions — Ranked by Priority</h3>
 <ol>
-<li><p>Can context-aware H-Neuron suppression — activating suppression only during factually uncertain or false-premise queries — resolve the helpfulness trade-off and enable production-scale inference-time intervention? (Engineering feasibility question; required components exist; high practical impact.)</p>
+<li>
+<p>Can context-aware H-Neuron suppression — activating suppression only during factually uncertain or false-premise queries — resolve the helpfulness trade-off and enable production-scale inference-time intervention? (Engineering feasibility question; required components exist; high practical impact.)</p>
 </li>
-<li><p>Does RLHF modify H-Neurons, or does parameter inertia hold across RLHF as well as SFT? (Determines whether targeted RLHF is a viable fine-tuning intervention for organisations with fine-tuning but not pre-training access.)</p>
+<li>
+<p>Does RLHF modify H-Neurons, or does parameter inertia hold across RLHF as well as SFT? (Determines whether targeted RLHF is a viable fine-tuning intervention for organisations with fine-tuning but not pre-training access.)</p>
 </li>
-<li><p>Does reducing sycophantic text in pre-training corpora measurably reduce H-Neuron density? (Confirms or refutes the formation hypothesis; requires pre-training compute at scale; needed before pre-training data quality can be recommended with high confidence.)</p>
+<li>
+<p>Does reducing sycophantic text in pre-training corpora measurably reduce H-Neuron density? (Confirms or refutes the formation hypothesis; requires pre-training compute at scale; needed before pre-training data quality can be recommended with high confidence.)</p>
 </li>
-<li><p>Do H-Neurons exist in attention layers as well as FFN layers, and do they play a complementary or independent role? (Required for a complete mechanistic account; potentially raises or lowers estimates of intervention effectiveness.)</p>
+<li>
+<p>Do H-Neurons exist in attention layers as well as FFN layers, and do they play a complementary or independent role? (Required for a complete mechanistic account; potentially raises or lowers estimates of intervention effectiveness.)</p>
 </li>
-<li><p>Can H-Neuron density become a standard reported model property alongside benchmark accuracy and perplexity? (Community standardisation question; if adopted, would provide a procurement and governance lever for organisations that cannot verify model internals themselves.)</p>
+<li>
+<p>Can H-Neuron density become a standard reported model property alongside benchmark accuracy and perplexity? (Community standardisation question; if adopted, would provide a procurement and governance lever for organisations that cannot verify model internals themselves.)</p>
 </li>
 </ol>
 <hr />

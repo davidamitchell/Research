@@ -664,34 +664,47 @@ main {
 <p>A complete DIKW operationalisation for enterprise agents requires a five-component architecture: a multi-domain knowledge graph encoding all eight enterprise knowledge domains; a formal intent model with explicit goals/objectives/constraints; a precedence-rule engine (Regulation &gt; Policy &gt; BU Strategy &gt; Task Intent) for cross-domain conflict resolution; temporal-authority arbitration (Zep-style) for within-tier conflicts; and a three-tier memory integration (episodic/semantic/procedural) connected to the planning loop. No single open-source framework assembles all five components; the integration gap is the primary practitioner barrier. Wisdom-tier operation — the ability to synthesise conflicting knowledge inputs and produce a justifiable, value-weighted decision — is achievable without human intervention only when conflicts fall within the resolution scope of these mechanisms; genuinely ambiguous regulatory conflicts require escalation. The primary prerequisite for all of this is organisational knowledge that has been externalised and encoded: agents cannot socialise or externalise tacit knowledge independently, which means enterprise deployments require a knowledge engineering function that is currently absent from most deployment teams.</p>
 <h3>Key Findings</h3>
 <ol>
-<li><p><strong>The DIKW hierarchy maps directly onto the five-layer knowledge architecture established in prior research: the data tier corresponds to raw/extractive layers, the information tier to abstractive summaries, the knowledge tier to knowledge graph nodes, and the wisdom tier to the domain schema plus active conflict-resolution step.</strong> (Confidence: high)</p>
+<li>
+<p><strong>The DIKW hierarchy maps directly onto the five-layer knowledge architecture established in prior research: the data tier corresponds to raw/extractive layers, the information tier to abstractive summaries, the knowledge tier to knowledge graph nodes, and the wisdom tier to the domain schema plus active conflict-resolution step.</strong> (Confidence: high)</p>
 </li>
-<li><p><strong>Wisdom-tier operation for agents is achievable without human intervention only when conflicts are within the deterministic resolution scope of a precedence-rule engine plus temporal-authority arbitration; genuinely novel or ambiguous regulatory conflicts require escalation, which must be explicitly designed into the architecture.</strong> (Confidence: high)</p>
+<li>
+<p><strong>Wisdom-tier operation for agents is achievable without human intervention only when conflicts are within the deterministic resolution scope of a precedence-rule engine plus temporal-authority arbitration; genuinely novel or ambiguous regulatory conflicts require escalation, which must be explicitly designed into the architecture.</strong> (Confidence: high)</p>
 </li>
-<li><p><strong>The precedence hierarchy Regulation &gt; Organisational Policy &gt; Business Unit Strategy &gt; Task Intent is documented independently by Accenture, McKinsey, InfoQ, and arionresearch.com as the standard enterprise conflict-resolution ordering, and is the baseline deterministic mechanism for cross-domain conflicts.</strong> (Confidence: high)</p>
+<li>
+<p><strong>The precedence hierarchy Regulation &gt; Organisational Policy &gt; Business Unit Strategy &gt; Task Intent is documented independently by Accenture, McKinsey, InfoQ, and arionresearch.com as the standard enterprise conflict-resolution ordering, and is the baseline deterministic mechanism for cross-domain conflicts.</strong> (Confidence: high)</p>
 </li>
-<li><p><strong>Intent must be formally decomposed into four explicitly represented components — goals, objectives, hard constraints, and desired outcomes — because constraint satisfaction over implicit natural-language instructions is unreliable; hierarchical task planning frameworks (ADaPT, AdaPlanner) and the PROFILE architecture both operationalise this structure.</strong> (Confidence: high)</p>
+<li>
+<p><strong>Intent must be formally decomposed into four explicitly represented components — goals, objectives, hard constraints, and desired outcomes — because constraint satisfaction over implicit natural-language instructions is unreliable; hierarchical task planning frameworks (ADaPT, AdaPlanner) and the PROFILE architecture both operationalise this structure.</strong> (Confidence: high)</p>
 </li>
-<li><p><strong>The eight enterprise knowledge domains (regulation, organisational policy, mission/values, BU strategy, technical constraints, financial constraints, risk tolerance, standards/guardrails) have fundamentally different encoding characteristics: technical and financial constraints are machine-native; policy is partially externalised; mission, values, and risk culture are tacit-dependent and cannot be encoded by agents alone.</strong> (Confidence: high)</p>
+<li>
+<p><strong>The eight enterprise knowledge domains (regulation, organisational policy, mission/values, BU strategy, technical constraints, financial constraints, risk tolerance, standards/guardrails) have fundamentally different encoding characteristics: technical and financial constraints are machine-native; policy is partially externalised; mission, values, and risk culture are tacit-dependent and cannot be encoded by agents alone.</strong> (Confidence: high)</p>
 </li>
-<li><p><strong>Procedural memory — storing learned conflict-resolution heuristics from past decision cycles — is the memory-architecture analogue of wisdom: it encodes previously-derived judgement so that the agent does not need to re-derive it from first principles each time, thereby implementing durable DIKW wisdom-tier behaviour.</strong> (Confidence: medium — inference grounded in LangMem and Letta documentation, not directly validated in production)</p>
+<li>
+<p><strong>Procedural memory — storing learned conflict-resolution heuristics from past decision cycles — is the memory-architecture analogue of wisdom: it encodes previously-derived judgement so that the agent does not need to re-derive it from first principles each time, thereby implementing durable DIKW wisdom-tier behaviour.</strong> (Confidence: medium — inference grounded in LangMem and Letta documentation, not directly validated in production)</p>
 </li>
-<li><p><strong>Constitutional AI and IterAlign automated constitution discovery (NAACL 2024, +13.5% harmlessness) provide the alignment mechanism for enterprise agents, but the constitution content must be derived from the organisation's specific knowledge domain catalogue rather than generic safety principles; generic alignment passes are insufficient for regulatory-environment agents.</strong> (Confidence: high)</p>
+<li>
+<p><strong>Constitutional AI and IterAlign automated constitution discovery (NAACL 2024, +13.5% harmlessness) provide the alignment mechanism for enterprise agents, but the constitution content must be derived from the organisation's specific knowledge domain catalogue rather than generic safety principles; generic alignment passes are insufficient for regulatory-environment agents.</strong> (Confidence: high)</p>
 </li>
-<li><p><strong>Zep's temporal knowledge graph (arXiv:2501.13956) is the most mature implementation of within-tier temporal-authority arbitration: it resolves &quot;which policy or regulation was authoritative at decision time T&quot; using explicit validity intervals, which is the mechanically correct answer to the within-tier conflict problem.</strong> (Confidence: high)</p>
+<li>
+<p><strong>Zep's temporal knowledge graph (arXiv:2501.13956) is the most mature implementation of within-tier temporal-authority arbitration: it resolves &quot;which policy or regulation was authoritative at decision time T&quot; using explicit validity intervals, which is the mechanically correct answer to the within-tier conflict problem.</strong> (Confidence: high)</p>
 </li>
-<li><p><strong>The SECI externalisation limitation is the most underappreciated practical gap: enterprise agents cannot independently externalise tacit knowledge (mission, values, risk culture), requiring a dedicated knowledge engineering function at deployment — a function currently absent from most enterprise agent deployment teams.</strong> (Confidence: medium — inference from SECI/GRAI literature, not directly validated in enterprise deployment studies)</p>
+<li>
+<p><strong>The SECI externalisation limitation is the most underappreciated practical gap: enterprise agents cannot independently externalise tacit knowledge (mission, values, risk culture), requiring a dedicated knowledge engineering function at deployment — a function currently absent from most enterprise agent deployment teams.</strong> (Confidence: medium — inference from SECI/GRAI literature, not directly validated in enterprise deployment studies)</p>
 </li>
-<li><p><strong>No single open-source framework assembles all five components of the DIKW decision architecture (multi-domain knowledge graph + intent model + precedence engine + temporal arbitration + three-tier memory governance); the integration gap is the primary practitioner barrier, not the absence of individual components.</strong> (Confidence: high — confirmed by systematic survey of LangGraph, Letta, Mem0, Zep, and GraphRAG architectures)</p>
+<li>
+<p><strong>No single open-source framework assembles all five components of the DIKW decision architecture (multi-domain knowledge graph + intent model + precedence engine + temporal arbitration + three-tier memory governance); the integration gap is the primary practitioner barrier, not the absence of individual components.</strong> (Confidence: high — confirmed by systematic survey of LangGraph, Letta, Mem0, Zep, and GraphRAG architectures)</p>
 </li>
 </ol>
 <h3>Assumptions</h3>
 <ul>
-<li><p><strong>Assumption:</strong> Writing episodic and procedural memory on every decision cycle (not just on &quot;significant&quot; events) is required for completeness. <strong>Justification:</strong> Conflicts that seem minor may later prove to be the first instance of a systematic misalignment pattern; selective writing introduces survivorship bias into the episodic record. Zep and Letta both support full-write paths; the cost is primarily storage, which is manageable. Not directly validated in production deployments.</p>
+<li>
+<p><strong>Assumption:</strong> Writing episodic and procedural memory on every decision cycle (not just on &quot;significant&quot; events) is required for completeness. <strong>Justification:</strong> Conflicts that seem minor may later prove to be the first instance of a systematic misalignment pattern; selective writing introduces survivorship bias into the episodic record. Zep and Letta both support full-write paths; the cost is primarily storage, which is manageable. Not directly validated in production deployments.</p>
 </li>
-<li><p><strong>Assumption:</strong> Technical and financial constraints are encodable in structured form in all enterprise contexts. <strong>Justification:</strong> These constraints are already represented in configuration management, project management, and financial systems in most enterprises; encoding them for agent consumption is an integration problem, not a knowledge engineering problem. Assumption may not hold for highly informal or startup-stage organisations.</p>
+<li>
+<p><strong>Assumption:</strong> Technical and financial constraints are encodable in structured form in all enterprise contexts. <strong>Justification:</strong> These constraints are already represented in configuration management, project management, and financial systems in most enterprises; encoding them for agent consumption is an integration problem, not a knowledge engineering problem. Assumption may not hold for highly informal or startup-stage organisations.</p>
 </li>
-<li><p><strong>Assumption:</strong> A knowledge engineering function can be staffed and maintained by enterprises deploying DIKW-integrated agents. <strong>Justification:</strong> This is standard practice in enterprise AI programmes with knowledge management maturity; it is not standard in early-stage deployments. The assumption may fail for organisations without a dedicated knowledge management or ontology function.</p>
+<li>
+<p><strong>Assumption:</strong> A knowledge engineering function can be staffed and maintained by enterprises deploying DIKW-integrated agents. <strong>Justification:</strong> This is standard practice in enterprise AI programmes with knowledge management maturity; it is not standard in early-stage deployments. The assumption may fail for organisations without a dedicated knowledge management or ontology function.</p>
 </li>
 </ul>
 <h3>Analysis</h3>
@@ -700,26 +713,35 @@ main {
 <p>The competing interpretation — that Constitutional AI and RLHF alignment training can internalise all necessary organisational constraints at model level, eliminating the need for runtime conflict resolution — is not supported by evidence for enterprise-specific constraints. Alignment training can encode general harmlessness and helpfulness; it cannot encode a specific organisation's regulatory posture, risk tolerance, or unstated cultural norms without enterprise-specific training data and validation, which most deployments do not have.</p>
 <h3>Risks, Gaps, and Uncertainties</h3>
 <ul>
-<li><p><strong>No production-validated integration:</strong> The five-component architecture described here is composed from individually validated components. No published case study demonstrates all five operating together in a production enterprise deployment. The integration complexity is real.</p>
+<li>
+<p><strong>No production-validated integration:</strong> The five-component architecture described here is composed from individually validated components. No published case study demonstrates all five operating together in a production enterprise deployment. The integration complexity is real.</p>
 </li>
-<li><p><strong>Tacit knowledge encoding gap:</strong> Mission, values, and risk culture remain partially tacit in most organisations. Agents operating without these encoded will substitute their training priors for organisational norms, producing systematically misaligned decisions that are invisible in standard alignment evaluations.</p>
+<li>
+<p><strong>Tacit knowledge encoding gap:</strong> Mission, values, and risk culture remain partially tacit in most organisations. Agents operating without these encoded will substitute their training priors for organisational norms, producing systematically misaligned decisions that are invisible in standard alignment evaluations.</p>
 </li>
-<li><p><strong>Governance for memory write paths:</strong> Current open-source tools (LangMem, Mem0 open-source tier, Letta base) lack enterprise-grade write-path governance: no TTL, no confidence decay, no access control. Commercial tiers (Mem0 Enterprise, Zep Cloud) partially address this. This gap means that &quot;ungardened wiki&quot; failure mode is a real risk for open-source deployments at scale.</p>
+<li>
+<p><strong>Governance for memory write paths:</strong> Current open-source tools (LangMem, Mem0 open-source tier, Letta base) lack enterprise-grade write-path governance: no TTL, no confidence decay, no access control. Commercial tiers (Mem0 Enterprise, Zep Cloud) partially address this. This gap means that &quot;ungardened wiki&quot; failure mode is a real risk for open-source deployments at scale.</p>
 </li>
-<li><p><strong>Escalation path design:</strong> This item establishes that some conflicts require escalation but does not specify how escalation paths should be designed, routed, or metered. That is a gap for a follow-on item.</p>
+<li>
+<p><strong>Escalation path design:</strong> This item establishes that some conflicts require escalation but does not specify how escalation paths should be designed, routed, or metered. That is a gap for a follow-on item.</p>
 </li>
-<li><p><strong>Simon bounded rationality and dual-process theory:</strong> The sources list included Simon (1955) and Kahneman (2011) as relevant to decision theory under constraint. These were not directly investigated in this item. Both are foundational: Simon's bounded rationality is the theoretical basis for why precedence rules (satisficing, not optimising) are the correct mechanism for agents with limited context windows; Kahneman's System 1/System 2 maps onto fast procedural-memory recall vs. slow deliberate reasoning. Not marked as inaccessible — simply not investigated. This is a gap.</p>
+<li>
+<p><strong>Simon bounded rationality and dual-process theory:</strong> The sources list included Simon (1955) and Kahneman (2011) as relevant to decision theory under constraint. These were not directly investigated in this item. Both are foundational: Simon's bounded rationality is the theoretical basis for why precedence rules (satisficing, not optimising) are the correct mechanism for agents with limited context windows; Kahneman's System 1/System 2 maps onto fast procedural-memory recall vs. slow deliberate reasoning. Not marked as inaccessible — simply not investigated. This is a gap.</p>
 </li>
 </ul>
 <h3>Open Questions</h3>
 <ul>
-<li><p><strong>How should escalation paths be designed for enterprise agents?</strong> When automated conflict resolution fails, what is the routing logic, response-time SLA, and feedback loop for human reviewers? This is a candidate backlog item.</p>
+<li>
+<p><strong>How should escalation paths be designed for enterprise agents?</strong> When automated conflict resolution fails, what is the routing logic, response-time SLA, and feedback loop for human reviewers? This is a candidate backlog item.</p>
 </li>
-<li><p><strong>How should enterprise-specific constitutional alignment be validated?</strong> IterAlign provides the discovery mechanism, but which evaluation benchmarks are appropriate for regulatory-environment agents? A follow-on item could define an enterprise alignment evaluation protocol.</p>
+<li>
+<p><strong>How should enterprise-specific constitutional alignment be validated?</strong> IterAlign provides the discovery mechanism, but which evaluation benchmarks are appropriate for regulatory-environment agents? A follow-on item could define an enterprise alignment evaluation protocol.</p>
 </li>
-<li><p><strong>What metrics measure alignment quality over time?</strong> This item establishes the requirement but does not define the metrics. Candidate metrics: conflict escalation rate, constraint violation rate, justification-trace completeness, policy drift detection latency.</p>
+<li>
+<p><strong>What metrics measure alignment quality over time?</strong> This item establishes the requirement but does not define the metrics. Candidate metrics: conflict escalation rate, constraint violation rate, justification-trace completeness, policy drift detection latency.</p>
 </li>
-<li><p><strong>How does the DIKW framework interact with multi-agent architectures?</strong> This item treats a single agent. In multi-agent systems, the knowledge domain catalogue and precedence hierarchy must be consistent across all agents; misalignment between agents' knowledge bases is an additional conflict source not addressed here.</p>
+<li>
+<p><strong>How does the DIKW framework interact with multi-agent architectures?</strong> This item treats a single agent. In multi-agent systems, the knowledge domain catalogue and precedence hierarchy must be consistent across all agents; misalignment between agents' knowledge bases is an additional conflict source not addressed here.</p>
 </li>
 </ul>
 <hr />

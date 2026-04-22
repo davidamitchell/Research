@@ -639,7 +639,7 @@ main {
   <div class="meta-bar">
     <span>2026-04-03</span>
     <span class="meta-sep">·</span>
-    <a class="tag" href="/Research/tags/ai-agents.html">ai-agents</a> <a class="tag" href="/Research/tags/tooling.html">tooling</a> <a class="tag" href="/Research/tags/instructions.html">instructions</a> <a class="tag" href="/Research/tags/skills.html">skills</a> <a class="tag" href="/Research/tags/workflow.html">workflow</a> <a class="tag" href="/Research/tags/copilot.html">copilot</a> <a class="tag" href="/Research/tags/agents-md.html">agents-md</a> 
+    <a class="tag" href="/Research/tags/ai-agents.html">ai-agents</a> <a class="tag" href="/Research/tags/tooling.html">tooling</a> <a class="tag" href="/Research/tags/instructions.html">instructions</a> <a class="tag" href="/Research/tags/skills.html">skills</a> <a class="tag" href="/Research/tags/workflow.html">workflow</a> <a class="tag" href="/Research/tags/codex.html">codex</a> <a class="tag" href="/Research/tags/copilot.html">copilot</a> <a class="tag" href="/Research/tags/agents-md.html">agents-md</a> 
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-03-oh-my-codex-patterns.md" target="_blank" rel="noopener">source →</a>
     <span class="meta-sep">·</span>
@@ -665,21 +665,29 @@ main {
 <p>oh-my-codex (OMX) provides a mature reference architecture for AI agent workflow orchestration built around a cross-agent operating contract (AGENTS.md), four canonical workflow skills ($deep-interview, $ralplan, $ralph, $team), a role catalog with model routing, and persistent state management. The davidamitchell Research repo has strong domain-specific skill coverage (16 skills) but is Copilot-specific and lacks several structural patterns from the OMX model. The highest-value improvements are: adding a root AGENTS.md to each active repo, adopting three-tier boundary statements, adding a scope-clarification skill for ambiguous research questions, adding model routing guidance, and creating a skills index for discoverability. These improvements are additive and do not require removing existing infrastructure.</p>
 <h3>Key Findings</h3>
 <ol>
-<li><p><strong>OMX separates operating contract from execution surface</strong> — AGENTS.md is the top-level workspace contract; role-specific prompts are narrower execution surfaces that must follow it, not override it. This layered approach prevents role-specific rules from conflicting with global constraints and is directly applicable to the Research repo's copilot-instructions.md and skills structure. [fact/inference]</p>
+<li>
+<p><strong>OMX separates operating contract from execution surface</strong> — AGENTS.md is the top-level workspace contract; role-specific prompts are narrower execution surfaces that must follow it, not override it. This layered approach prevents role-specific rules from conflicting with global constraints and is directly applicable to the Research repo's copilot-instructions.md and skills structure. [fact/inference]</p>
 </li>
-<li><p><strong>The Clarify, Plan, Execute, Verify (CPEV) workflow is the most transferable OMX pattern</strong> — $deep-interview clarifies scope before implementation; $ralplan approves the plan; $ralph or $team executes; a verifier role confirms completion. Adopting a scope-clarification gate before research investigation would reduce scope drift on ambiguous questions. [fact/inference]</p>
+<li>
+<p><strong>The Clarify, Plan, Execute, Verify (CPEV) workflow is the most transferable OMX pattern</strong> — $deep-interview clarifies scope before implementation; $ralplan approves the plan; $ralph or $team executes; a verifier role confirms completion. Adopting a scope-clarification gate before research investigation would reduce scope drift on ambiguous questions. [fact/inference]</p>
 </li>
-<li><p><strong>AGENTS.md is a cross-agent standard adopted by 15 or more tools</strong> — Unlike copilot-instructions.md (Copilot-only), AGENTS.md is readable by Codex CLI, Cursor, Claude Code, Devin, and others. Its adoption in each active davidamitchell repo would extend current guidance to all these tools. [fact]</p>
+<li>
+<p><strong>AGENTS.md is a cross-agent standard adopted by 15 or more tools</strong> — Unlike copilot-instructions.md (Copilot-only), AGENTS.md is readable by Codex CLI, Cursor, Claude Code, Devin, and others. Its adoption in each active davidamitchell repo would extend current guidance to all these tools. [fact]</p>
 </li>
-<li><p><strong>Three-tier boundary statements (always/ask first/never) outperform free-form constraints</strong> — Empirical analysis of 2,500 or more agent files found this pattern consistently prevents destructive actions. The current copilot-instructions.md uses prose constraints, which are less reliable. [fact]</p>
+<li>
+<p><strong>Three-tier boundary statements (always/ask first/never) outperform free-form constraints</strong> — Empirical analysis of 2,500 or more agent files found this pattern consistently prevents destructive actions. The current copilot-instructions.md uses prose constraints, which are less reliable. [fact]</p>
 </li>
-<li><p><strong>Executable commands must appear early in agent files</strong> — Agents reference commands frequently; burying them later causes agents to miss them. The six core areas for high-performing agent files are: commands, testing, project structure, code style, git workflow, and boundaries. [fact]</p>
+<li>
+<p><strong>Executable commands must appear early in agent files</strong> — Agents reference commands frequently; burying them later causes agents to miss them. The six core areas for high-performing agent files are: commands, testing, project structure, code style, git workflow, and boundaries. [fact]</p>
 </li>
-<li><p><strong>The davidamitchell Skills repo has 16 skills but no discoverability index</strong> — There is no map of skill name to trigger conditions to expected output, analogous to OMX's <code>/skills</code> browse surface. This makes the skill library harder to use reliably, particularly for new agents or sessions. [fact/inference]</p>
+<li>
+<p><strong>The davidamitchell Skills repo has 16 skills but no discoverability index</strong> — There is no map of skill name to trigger conditions to expected output, analogous to OMX's <code>/skills</code> browse surface. This makes the skill library harder to use reliably, particularly for new agents or sessions. [fact/inference]</p>
 </li>
-<li><p><strong>Model routing by task complexity is a low-cost, high-value improvement</strong> — OMX maps lightweight tasks (explore, search) to efficient models and heavy tasks (synthesis, architecture) to capable models, reducing token use and improving output quality. Adding similar routing guidance to copilot-instructions.md is a simple text addition. [inference]</p>
+<li>
+<p><strong>Model routing by task complexity is a low-cost, high-value improvement</strong> — OMX maps lightweight tasks (explore, search) to efficient models and heavy tasks (synthesis, architecture) to capable models, reducing token use and improving output quality. Adding similar routing guidance to copilot-instructions.md is a simple text addition. [inference]</p>
 </li>
-<li><p><strong>Persistent machine-readable session state is absent from the Research repo</strong> — OMX stores plans, logs, and mode state in <code>.omx/</code> for cross-session continuity. The Research repo uses progress/ for human-readable session logs but has no machine-readable state store. [fact/inference]</p>
+<li>
+<p><strong>Persistent machine-readable session state is absent from the Research repo</strong> — OMX stores plans, logs, and mode state in <code>.omx/</code> for cross-session continuity. The Research repo uses progress/ for human-readable session logs but has no machine-readable state store. [fact/inference]</p>
 </li>
 </ol>
 <h3>Assumptions</h3>
@@ -723,11 +731,11 @@ main {
 
 
   </div>
-  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-03-28-agent-instruction-loading-and-skills-access.html">Agent instruction loading and skills access: Copilot coding agent, Claude iOS code feature, and the role of AGENTS.md</a> <span class="related-note">via agents-md, copilot, instructions, skills</span></div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-04-20-harness-selection-tools-agents-skills-prompts-instructions.html">Harness-level selection and use of tools, agents, skills, prompts, and instruction files</a> <span class="related-note">via codex, copilot, instructions, skills</span></div>
+<div class="related-entry"><a href="/Research/research/2026-03-28-agent-instruction-loading-and-skills-access.html">Agent instruction loading and skills access: Copilot coding agent, Claude iOS code feature, and the role of AGENTS.md</a> <span class="related-note">via agents-md, copilot, instructions, skills</span></div>
 <div class="related-entry"><a href="/Research/research/2026-03-29-multi-agent-repo-setup.html">Multi-agent repo setup: best practices for configuring a repository to be worked on by Claude (iOS and GitHub Issues) and Copilot (Spaces and GitHub Issues)</a> <span class="related-note">via agents-md, copilot, instructions</span></div>
 <div class="related-entry"><a href="/Research/research/2026-03-28-agents-md-role-and-cross-agent-instructions.html">The role of AGENTS.md in a repo using .github/copilot-instructions.md as the sole instructions source</a> <span class="related-note">via agents-md, copilot, instructions</span></div>
 <div class="related-entry"><a href="/Research/research/2026-03-22-using-awesome-copilot-across-repos.html">How to best use awesome-copilot in this repo and across personal repos</a> <span class="related-note">via instructions, skills, tooling</span></div>
-<div class="related-entry"><a href="/Research/research/2026-03-22-coding-ai-agent-skills-survey.html">Coding AI Agent Skills Survey: Existing Vendor and OSS Prompt Libraries for Software Engineering Domains</a> <span class="related-note">via ai-agents, copilot, skills</span></div>
 </div></div>
 
   <div class="item-nav">

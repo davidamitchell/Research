@@ -655,21 +655,29 @@ main {
 <p>Self-hosting a Python MCP server for mobile AI integration resolves to a split architecture. The write path — a stateless GitHub Contents API proxy — fits naturally on Cloudflare Workers ($0/month, zero cold start). The read path — embedding inference plus LanceDB vector search — requires either a persistent container on Fly.io or Railway ($5/month) or an existing home server exposed via Tailscale Funnel at no additional cost. GitHub Actions <code>repository_dispatch</code> cannot serve synchronous MCP tool calls and is limited to fire-and-forget write capture. Authentication for Claude iOS is constrained to no-auth or OAuth 2.1 — static bearer tokens are not configurable via the claude.ai connector UI — making a high-entropy URL component the simplest viable approach, with OAuth 2.1 as the hardening path.</p>
 <h3>Key Findings</h3>
 <ol>
-<li><p>The <code>add_memory</code> (write) path requires only an HTTPS call to the GitHub Contents API with no local storage dependency, making it fully viable as a stateless Cloudflare Worker in JavaScript within the free tier (100,000 requests/day, 10ms CPU, $0/month ongoing cost).</p>
+<li>
+<p>The <code>add_memory</code> (write) path requires only an HTTPS call to the GitHub Contents API with no local storage dependency, making it fully viable as a stateless Cloudflare Worker in JavaScript within the free tier (100,000 requests/day, 10ms CPU, $0/month ongoing cost).</p>
 </li>
-<li><p>The <code>search_brain</code> (read/search) path requires embedding inference and LanceDB vector search, both of which are architecturally impossible on Cloudflare Workers free tier: LanceDB is not available in Pyodide's WebAssembly package set, and embedding inference takes 34–177ms per document on native hardware — exceeding the 10ms CPU limit by 3–17×.</p>
+<li>
+<p>The <code>search_brain</code> (read/search) path requires embedding inference and LanceDB vector search, both of which are architecturally impossible on Cloudflare Workers free tier: LanceDB is not available in Pyodide's WebAssembly package set, and embedding inference takes 34–177ms per document on native hardware — exceeding the 10ms CPU limit by 3–17×.</p>
 </li>
-<li><p>Fly.io Hobby ($5/month) supports persistent Python containers with mounted NVMe volumes; the LanceDB index survives restarts, and the pre-computed embedding pattern established by <code>lancedb-index-rebuild-from-git.md</code> reduces cold-start loading to under 0.2s regardless of corpus size.</p>
+<li>
+<p>Fly.io Hobby ($5/month) supports persistent Python containers with mounted NVMe volumes; the LanceDB index survives restarts, and the pre-computed embedding pattern established by <code>lancedb-index-rebuild-from-git.md</code> reduces cold-start loading to under 0.2s regardless of corpus size.</p>
 </li>
-<li><p>Railway Hobby ($5/month, $5 included usage credits) is a viable alternative to Fly.io for the read service: both offer public HTTPS endpoints and persistent volumes adequate for a personal-scale LanceDB corpus; Fly.io has marginally broader community evidence for stateful Python deployments.</p>
+<li>
+<p>Railway Hobby ($5/month, $5 included usage credits) is a viable alternative to Fly.io for the read service: both offer public HTTPS endpoints and persistent volumes adequate for a personal-scale LanceDB corpus; Fly.io has marginally broader community evidence for stateful Python deployments.</p>
 </li>
-<li><p>Tailscale Funnel exposes a home server to the public internet via an auto-provisioned <code>*.ts.net</code> HTTPS URL, is available on the free personal plan (3 users, 100 devices), requires no port-forwarding or static IP, and handles TLS certificate management automatically — making it zero-additional-cost for users who already run home server hardware.</p>
+<li>
+<p>Tailscale Funnel exposes a home server to the public internet via an auto-provisioned <code>*.ts.net</code> HTTPS URL, is available on the free personal plan (3 users, 100 devices), requires no port-forwarding or static IP, and handles TLS certificate management automatically — making it zero-additional-cost for users who already run home server hardware.</p>
 </li>
-<li><p>GitHub Actions <code>repository_dispatch</code> returns HTTP 204 immediately with no synchronous response channel back to the caller; it cannot fulfil the request–response contract required by MCP tool calls and is limited to fire-and-forget write-only capture as a degraded fallback.</p>
+<li>
+<p>GitHub Actions <code>repository_dispatch</code> returns HTTP 204 immediately with no synchronous response channel back to the caller; it cannot fulfil the request–response contract required by MCP tool calls and is limited to fire-and-forget write-only capture as a degraded fallback.</p>
 </li>
-<li><p>The MCP Python SDK (v1.8.0+, May 2025) supports Streamable HTTP transport via FastMCP; migrating <code>mcp_server.py</code> from stdio to remote-accessible Streamable HTTP requires changing the transport runner to <code>mcp.run(transport=&quot;streamable-http&quot;, host=&quot;0.0.0.0&quot;, port=8000)</code> — two lines of code, with no changes to tool logic.</p>
+<li>
+<p>The MCP Python SDK (v1.8.0+, May 2025) supports Streamable HTTP transport via FastMCP; migrating <code>mcp_server.py</code> from stdio to remote-accessible Streamable HTTP requires changing the transport runner to <code>mcp.run(transport=&quot;streamable-http&quot;, host=&quot;0.0.0.0&quot;, port=8000)</code> — two lines of code, with no changes to tool logic.</p>
 </li>
-<li><p>The Claude iOS Connector system supports no-auth (open endpoint) or OAuth 2.1 only; static <code>Authorization: Bearer</code> header tokens are not configurable via the claude.ai connector UI, requiring either a high-entropy URL component (URL-as-secret) or a full OAuth 2.1 implementation as the auth design.</p>
+<li>
+<p>The Claude iOS Connector system supports no-auth (open endpoint) or OAuth 2.1 only; static <code>Authorization: Bearer</code> header tokens are not configurable via the claude.ai connector UI, requiring either a high-entropy URL component (URL-as-secret) or a full OAuth 2.1 implementation as the auth design.</p>
 </li>
 </ol>
 <h3>Assumptions</h3>

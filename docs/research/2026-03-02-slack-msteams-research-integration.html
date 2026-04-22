@@ -663,34 +663,47 @@ main {
 <p>Outbound push delivery to Slack or MS Teams is viable, low-complexity, and immediately implementable using a single new GitHub Actions workflow file and one new secret per platform (<code>SLACK_WEBHOOK_URL</code> for Slack, or a Power Automate webhook URL for Teams). The same trigger pattern as <code>publish-wiki.yml</code> (<code>push</code> to <code>main</code> touching <code>Research/completed/**</code>) applies directly; the official <code>slackapi/slack-github-action@v2.1.1</code> action handles the Slack POST. Inbound capture via Slack slash commands is blocked under the no-server constraint — Slack requires a 3-second HTTP response that GitHub Actions cannot provide — but a GitHub-issues-as-backlog-proxy workflow achieves equivalent inbound capture with zero new secrets. MS Teams Incoming Webhooks (old connector model) are deprecated; the supported replacement is a Power Automate workflow with a webhook trigger. Query-in-chat capability requires a persistent bot server and is out of scope without additional approved infrastructure.</p>
 <h3>Key Findings</h3>
 <ol>
-<li><p><strong><code>slackapi/slack-github-action@v2.1.1</code> is the only actively maintained official Slack notification action for GitHub Actions; <code>8398a7/action-slack</code> was archived on 2025-09-13 and its own README recommends migrating to the Slack-maintained action.</strong> The Slack action supports incoming webhook delivery in four lines of workflow YAML.</p>
+<li>
+<p><strong><code>slackapi/slack-github-action@v2.1.1</code> is the only actively maintained official Slack notification action for GitHub Actions; <code>8398a7/action-slack</code> was archived on 2025-09-13 and its own README recommends migrating to the Slack-maintained action.</strong> The Slack action supports incoming webhook delivery in four lines of workflow YAML.</p>
 </li>
-<li><p><strong>Outbound Slack notification requires exactly one new secret (<code>SLACK_WEBHOOK_URL</code>) stored as a GitHub Actions repository secret; this secret is the only new credential needed for per-item delivery and requires explicit owner approval before the workflow can be implemented.</strong></p>
+<li>
+<p><strong>Outbound Slack notification requires exactly one new secret (<code>SLACK_WEBHOOK_URL</code>) stored as a GitHub Actions repository secret; this secret is the only new credential needed for per-item delivery and requires explicit owner approval before the workflow can be implemented.</strong></p>
 </li>
-<li><p><strong>The MS Teams Office 365 Connector model is deprecated; new Teams webhook integrations must use Power Automate with the &quot;When a Teams webhook request is received&quot; trigger, which produces a functionally equivalent HTTPS webhook URL.</strong> The Power Automate URL is stored as <code>TEAMS_WEBHOOK_URL</code> and called via <code>curl</code> in the Actions step.</p>
+<li>
+<p><strong>The MS Teams Office 365 Connector model is deprecated; new Teams webhook integrations must use Power Automate with the &quot;When a Teams webhook request is received&quot; trigger, which produces a functionally equivalent HTTPS webhook URL.</strong> The Power Automate URL is stored as <code>TEAMS_WEBHOOK_URL</code> and called via <code>curl</code> in the Actions step.</p>
 </li>
-<li><p><strong>The <code>publish-wiki.yml</code> trigger pattern (<code>push</code> to <code>main</code> touching `Research/completed/</strong><code>+</code>workflow_dispatch`) is directly reusable for the notification workflow, requiring no new trigger logic and ensuring the notification fires on the same commit that adds the completed research item.**</p>
+<li>
+<p><strong>The <code>publish-wiki.yml</code> trigger pattern (<code>push</code> to <code>main</code> touching <code>Research/completed/**</code> + <code>workflow_dispatch</code>) is directly reusable for the notification workflow, requiring no new trigger logic and ensuring the notification fires on the same commit that adds the completed research item.</strong></p>
 </li>
-<li><p><strong>Slack slash commands cannot be implemented under the no-server constraint because Slack requires an HTTPS endpoint that responds within 3 seconds of command invocation, and GitHub Actions <code>workflow_dispatch</code> has a typical queue latency of 5–30 seconds that makes it structurally incompatible as a direct slash command handler.</strong></p>
+<li>
+<p><strong>Slack slash commands cannot be implemented under the no-server constraint because Slack requires an HTTPS endpoint that responds within 3 seconds of command invocation, and GitHub Actions <code>workflow_dispatch</code> has a typical queue latency of 5–30 seconds that makes it structurally incompatible as a direct slash command handler.</strong></p>
 </li>
-<li><p><strong>A GitHub-issues-as-proxy workflow achieves equivalent inbound capture with zero new secrets: the owner creates a GitHub issue (accessible from the iOS app) with the research question as the title, and a workflow triggered on <code>issues: [opened]</code> converts it to a <code>Research/backlog/</code> file and closes the issue.</strong> This fits the owner's existing interaction model and costs nothing to implement.</p>
+<li>
+<p><strong>A GitHub-issues-as-proxy workflow achieves equivalent inbound capture with zero new secrets: the owner creates a GitHub issue (accessible from the iOS app) with the research question as the title, and a workflow triggered on <code>issues: [opened]</code> converts it to a <code>Research/backlog/</code> file and closes the issue.</strong> This fits the owner's existing interaction model and costs nothing to implement.</p>
 </li>
-<li><p><strong>A weekly digest can be implemented by adding a <code>schedule: cron: '0 8 * * 1'</code> trigger to the notification workflow, which reads <code>Research/completed/</code> files with <code>completed:</code> dates in the past 7 days and posts a consolidated summary; digest and per-item notifications are not mutually exclusive.</strong></p>
+<li>
+<p><strong>A weekly digest can be implemented by adding a <code>schedule: cron: '0 8 * * 1'</code> trigger to the notification workflow, which reads <code>Research/completed/</code> files with <code>completed:</code> dates in the past 7 days and posts a consolidated summary; digest and per-item notifications are not mutually exclusive.</strong></p>
 </li>
-<li><p><strong>Full query-in-chat capability (asking the bot &quot;what have I researched about X?&quot;) requires a persistent bot server to receive the query, call the research MCP server, and post the reply; this is out of scope without approved persistent infrastructure and is already addressed architecturally by the <code>2026-03-02-chat-conversational-interface.md</code> MCP server item.</strong></p>
+<li>
+<p><strong>Full query-in-chat capability (asking the bot &quot;what have I researched about X?&quot;) requires a persistent bot server to receive the query, call the research MCP server, and post the reply; this is out of scope without approved persistent infrastructure and is already addressed architecturally by the <code>2026-03-02-chat-conversational-interface.md</code> MCP server item.</strong></p>
 </li>
-<li><p><strong>The existing <code>src/wiki/publish.py</code> <code>load_frontmatter()</code> function is directly reusable for the notification workflow's metadata extraction step, eliminating the need for a new library; the notification script reads the changed file paths via <code>git diff --name-only HEAD~1</code>, loads their front-matter, and formats the payload.</strong></p>
+<li>
+<p><strong>The existing <code>src/wiki/publish.py</code> <code>load_frontmatter()</code> function is directly reusable for the notification workflow's metadata extraction step, eliminating the need for a new library; the notification script reads the changed file paths via <code>git diff --name-only HEAD~1</code>, loads their front-matter, and formats the payload.</strong></p>
 </li>
-<li><p><strong>Per-item notification is the correct default delivery mode for a personal research system where each completed item is discrete and actionable; the weekly digest is an additive option, not a replacement.</strong></p>
+<li>
+<p><strong>Per-item notification is the correct default delivery mode for a personal research system where each completed item is discrete and actionable; the weekly digest is an additive option, not a replacement.</strong></p>
 </li>
 </ol>
 <h3>Assumptions</h3>
 <ul>
-<li><p><strong>Assumption:</strong> The owner uses either Slack or MS Teams personally (not as enterprise admin). <strong>Justification:</strong> The research question specifically asks about Slack and MS Teams; if the owner uses neither, the integration question is moot. This assumption is flagged as the top unknown.</p>
+<li>
+<p><strong>Assumption:</strong> The owner uses either Slack or MS Teams personally (not as enterprise admin). <strong>Justification:</strong> The research question specifically asks about Slack and MS Teams; if the owner uses neither, the integration question is moot. This assumption is flagged as the top unknown.</p>
 </li>
-<li><p><strong>Assumption:</strong> The research loop continues to complete 3–5 items per run. <strong>Justification:</strong> Based on observed behaviour from prior loop runs; per-item notifications at this volume are not burdensome in a personal Slack channel.</p>
+<li>
+<p><strong>Assumption:</strong> The research loop continues to complete 3–5 items per run. <strong>Justification:</strong> Based on observed behaviour from prior loop runs; per-item notifications at this volume are not burdensome in a personal Slack channel.</p>
 </li>
-<li><p><strong>Assumption:</strong> The Power Automate webhook URL generated by the Teams flow is stable (does not rotate automatically). <strong>Justification:</strong> Microsoft's documentation does not indicate automatic rotation; the URL behaves like an API key — stable until explicitly deleted or regenerated.</p>
+<li>
+<p><strong>Assumption:</strong> The Power Automate webhook URL generated by the Teams flow is stable (does not rotate automatically). <strong>Justification:</strong> Microsoft's documentation does not indicate automatic rotation; the URL behaves like an API key — stable until explicitly deleted or regenerated.</p>
 </li>
 </ul>
 <h3>Analysis</h3>

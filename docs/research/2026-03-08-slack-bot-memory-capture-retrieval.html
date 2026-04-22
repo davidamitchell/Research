@@ -664,25 +664,35 @@ main {
 <p>A free Slack workspace fully supports a memory capture and retrieval bot using Socket Mode, which eliminates the public URL requirement via an outbound WebSocket connection. The minimum viable implementation is a Bolt for Python process that subscribes to <code>message.channels</code> for capture and handles a <code>/brain</code> slash command for retrieval via <code>search_brain</code>, with the 3-second ACK requirement satisfied cleanly by the <code>ack()</code> + <code>respond()</code> async pattern. The binding constraint is hosting: Railway, Render, and Fly.io (new accounts) do not sustain always-on WebSocket processes on free tiers; Oracle Cloud's Always Free ARM A1 VM is the only genuinely zero-cost always-on option. Slack is the correct channel [inference] when it is already the user's ambient environment. For a purely personal bot with no existing Slack workspace, Telegram is strictly simpler.</p>
 <h3>Key Findings</h3>
 <ol>
-<li><p><strong>Socket Mode is available on free Slack workspaces, requires no public URL, and is the correct transport [inference] for a personal memory bot — the bot process connects outward to Slack via WebSocket without needing any inbound HTTP endpoint.</strong></p>
+<li>
+<p><strong>Socket Mode is available on free Slack workspaces, requires no public URL, and is the correct transport [inference] for a personal memory bot — the bot process connects outward to Slack via WebSocket without needing any inbound HTTP endpoint.</strong></p>
 </li>
-<li><p><strong>A single Slack app handles both capture (message event subscription) and retrieval (slash command), counts as 1 of 10 allowed integrations on a free workspace, and satisfies both use cases with no free-tier API feature restrictions.</strong></p>
+<li>
+<p><strong>A single Slack app handles both capture (message event subscription) and retrieval (slash command), counts as 1 of 10 allowed integrations on a free workspace, and satisfies both use cases with no free-tier API feature restrictions.</strong></p>
 </li>
-<li><p><strong>The minimum viable bot scope set is <code>channels:history</code>, <code>channels:read</code>, <code>chat:write</code>, and an App Token with <code>connections:write</code>; the full capture and retrieval handler is approximately 15–20 lines of Bolt for Python using the <code>message.channels</code> event and a slash command.</strong></p>
+<li>
+<p><strong>The minimum viable bot scope set is <code>channels:history</code>, <code>channels:read</code>, <code>chat:write</code>, and an App Token with <code>connections:write</code>; the full capture and retrieval handler is approximately 15–20 lines of Bolt for Python using the <code>message.channels</code> event and a slash command.</strong></p>
 </li>
-<li><p><strong>The 3-second Slack slash command ACK requirement is satisfied by the <code>ack(&quot;Searching…&quot;)</code> + <code>respond()</code> async pattern: the bot acknowledges immediately with interim feedback, runs <code>search_brain</code> asynchronously, and posts results within 30 minutes using the <code>response_url</code> provided in the command payload.</strong></p>
+<li>
+<p><strong>The 3-second Slack slash command ACK requirement is satisfied by the <code>ack(&quot;Searching…&quot;)</code> + <code>respond()</code> async pattern: the bot acknowledges immediately with interim feedback, runs <code>search_brain</code> asynchronously, and posts results within 30 minutes using the <code>response_url</code> provided in the command payload.</strong></p>
 </li>
-<li><p><strong>The free workspace's 90-day message history limit is irrelevant to this use case because GitHub is the canonical memory store and each captured message is committed to the repository immediately; no memory is stored in or retrieved from Slack's message history.</strong></p>
+<li>
+<p><strong>The free workspace's 90-day message history limit is irrelevant to this use case because GitHub is the canonical memory store and each captured message is committed to the repository immediately; no memory is stored in or retrieved from Slack's message history.</strong></p>
 </li>
-<li><p><strong>Railway, Render, and Fly.io do not provide reliably always-on free hosting in 2024–2025 for a Socket Mode bot that requires a persistent WebSocket process; new Fly.io accounts (post October 2024) have no free tier, and legacy-free accounts face autosuspend risk for outbound-only connections.</strong></p>
+<li>
+<p><strong>Railway, Render, and Fly.io do not provide reliably always-on free hosting in 2024–2025 for a Socket Mode bot that requires a persistent WebSocket process; new Fly.io accounts (post October 2024) have no free tier, and legacy-free accounts face autosuspend risk for outbound-only connections.</strong></p>
 </li>
-<li><p><strong>Oracle Cloud's Always Free ARM A1 Compute is the only genuinely zero-cost always-on host: up to 4 OCPUs and 24 GB RAM across 1–4 VMs, no expiry, suitable for a Python bot running as a systemd service; the trade-off is Do It Yourself (DIY) setup (SSH, systemd) rather than PaaS one-click deployment.</strong></p>
+<li>
+<p><strong>Oracle Cloud's Always Free ARM A1 Compute is the only genuinely zero-cost always-on host: up to 4 OCPUs and 24 GB RAM across 1–4 VMs, no expiry, suitable for a Python bot running as a systemd service; the trade-off is Do It Yourself (DIY) setup (SSH, systemd) rather than PaaS one-click deployment.</strong></p>
 </li>
-<li><p><strong>End-to-end capture latency is approximately 200 ms–1 s (Socket Mode event delivery 50–200 ms, GitHub Contents API write 100–800 ms), and retrieval UX feedback is sub-second because the ACK posts &quot;Searching…&quot; immediately; full results follow when <code>search_brain</code> completes.</strong></p>
+<li>
+<p><strong>End-to-end capture latency is approximately 200 ms–1 s (Socket Mode event delivery 50–200 ms, GitHub Contents API write 100–800 ms), and retrieval UX feedback is sub-second because the ACK posts &quot;Searching…&quot; immediately; full results follow when <code>search_brain</code> completes.</strong></p>
 </li>
-<li><p><strong>Telegram long-polling is functionally equivalent to Socket Mode for the no-public-URL requirement, has no workspace or integration limit, requires a single BotFather token (vs. two Slack tokens), and is strictly simpler to set up for a purely personal bot; Slack is the better choice only when it is already the user's ambient mobile environment.</strong></p>
+<li>
+<p><strong>Telegram long-polling is functionally equivalent to Socket Mode for the no-public-URL requirement, has no workspace or integration limit, requires a single BotFather token (vs. two Slack tokens), and is strictly simpler to set up for a purely personal bot; Slack is the better choice only when it is already the user's ambient mobile environment.</strong></p>
 </li>
-<li><p><strong>iOS Shortcuts (direct GitHub Contents API write from lock screen) and a Slack bot capture path are complementary surfaces: Shortcuts handles spontaneous ambient capture from Apple Watch or lock screen; Slack handles deliberate capture with conversational context from within an existing Slack workflow.</strong></p>
+<li>
+<p><strong>iOS Shortcuts (direct GitHub Contents API write from lock screen) and a Slack bot capture path are complementary surfaces: Shortcuts handles spontaneous ambient capture from Apple Watch or lock screen; Slack handles deliberate capture with conversational context from within an existing Slack workflow.</strong></p>
 </li>
 </ol>
 <h3>Assumptions</h3>

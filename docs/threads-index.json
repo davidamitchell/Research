@@ -1,5 +1,95 @@
 [
   {
+    "slug": "agents-agentic-systems-memory",
+    "title": "agents / agentic-systems / memory",
+    "kind": "implicit",
+    "tag_cluster": [
+      "agents",
+      "agentic-systems",
+      "memory"
+    ],
+    "concept_cluster": [],
+    "item_count": 15,
+    "items": [
+      {
+        "slug": "2026-03-02-integrative-framework-agent-decision-making",
+        "title": "An Integrative Framework for Agent Decision-Making: Aligning Knowledge Management, Intent Understanding, and Contextual Decision Frameworks",
+        "added": "2026-03-02"
+      },
+      {
+        "slug": "2026-03-02-agent-memory-management-context-injection",
+        "title": "Agent Memory Management and Context Injection",
+        "added": "2026-03-02"
+      },
+      {
+        "slug": "2026-03-08-context-engineering-first-principles",
+        "title": "Context engineering: first principles of steering LLM output without control",
+        "added": "2026-03-08"
+      },
+      {
+        "slug": "2026-03-10-ai-concept-classification-taxonomy",
+        "title": "AI concept classification taxonomy: prompts, instructions, memory, failure modes, controls, and problem domains",
+        "added": "2026-03-10"
+      },
+      {
+        "slug": "2026-03-10-language-for-llm-agent-output",
+        "title": "Language designed for LLM agents to produce: addressing generation-layer failure modes in agentic systems",
+        "added": "2026-03-10"
+      },
+      {
+        "slug": "2026-03-10-agent-evaluation-cross-repo-analysis",
+        "title": "Agent evaluation framework: cross-repo pattern analysis, commonality detection, and regression identification",
+        "added": "2026-03-10"
+      },
+      {
+        "slug": "2026-03-10-adversarial-agents-shared-goals-multi-perspective",
+        "title": "Adversarial agents with shared goals: multi-perspective coverage across competencies and time horizons",
+        "added": "2026-03-10"
+      },
+      {
+        "slug": "2026-03-12-failure-mode-taxonomy-expansion",
+        "title": "Failure mode taxonomy: empirical frequency, causal mechanisms, detection signals, and cascade patterns in production agentic systems",
+        "added": "2026-03-12"
+      },
+      {
+        "slug": "2026-03-16-gitagent-declarative-agent-definition",
+        "title": "GitAgent and declarative agent definition: concepts, adoption, and cross-platform integration",
+        "added": "2026-03-16"
+      },
+      {
+        "slug": "2026-03-18-stateless-agent-assumption-failure",
+        "title": "Stateless-agent assumption failure: causes, detection, and recovery patterns for orphaned state in multi-session agentic workflows",
+        "added": "2026-03-18"
+      },
+      {
+        "slug": "2026-03-22-using-awesome-copilot-across-repos",
+        "title": "How to best use awesome-copilot in this repo and across personal repos",
+        "added": "2026-03-22"
+      },
+      {
+        "slug": "2026-03-22-applied-context-engineering-agent-workflows",
+        "title": "Applied context engineering: skills, workflows, and best practices for agent development",
+        "added": "2026-03-22"
+      },
+      {
+        "slug": "2026-03-23-agent-orchestration-anvil-max",
+        "title": "Agent orchestration patterns: lessons from Anvil, Max, and Burke Holland's multi-model orchestration gist",
+        "added": "2026-03-23"
+      },
+      {
+        "slug": "2026-04-02-anthropic-claude-code-leak-architecture-prompting-and-hidden-features",
+        "title": "Anthropic Claude Code leak: architecture, prompting, and hidden features",
+        "added": "2026-04-02"
+      },
+      {
+        "slug": "2026-04-20-harness-selection-tools-agents-skills-prompts-instructions",
+        "title": "Harness-level selection and use of tools, agents, skills, prompts, and instruction files",
+        "added": "2026-04-20"
+      }
+    ],
+    "url": "/Research/threads/agents-agentic-systems-memory.html"
+  },
+  {
     "slug": "rag-agents-knowledge-management",
     "title": "rag / agents / knowledge-management",
     "kind": "implicit",
@@ -90,31 +180,21 @@
     "url": "/Research/threads/rag-agents-knowledge-management.html"
   },
   {
-    "slug": "agents-agentic-systems-memory",
-    "title": "agents / agentic-systems / memory",
+    "slug": "skills-copilot-instructions",
+    "title": "skills / copilot / instructions",
     "kind": "implicit",
     "tag_cluster": [
-      "agents",
-      "agentic-systems",
-      "memory"
+      "skills",
+      "copilot",
+      "instructions"
     ],
     "concept_cluster": [],
-    "item_count": 14,
+    "item_count": 11,
     "items": [
       {
-        "slug": "2026-03-02-integrative-framework-agent-decision-making",
-        "title": "An Integrative Framework for Agent Decision-Making: Aligning Knowledge Management, Intent Understanding, and Contextual Decision Frameworks",
-        "added": "2026-03-02"
-      },
-      {
-        "slug": "2026-03-02-agent-memory-management-context-injection",
-        "title": "Agent Memory Management and Context Injection",
-        "added": "2026-03-02"
-      },
-      {
-        "slug": "2026-03-08-context-engineering-first-principles",
-        "title": "Context engineering: first principles of steering LLM output without control",
-        "added": "2026-03-08"
+        "slug": "2026-03-04-sdlc-ai-prompt-patterns",
+        "title": "Emergent Patterns in Software Engineering Prompts and SDLC Guidance",
+        "added": "2026-03-04"
       },
       {
         "slug": "2026-03-10-ai-concept-classification-taxonomy",
@@ -122,34 +202,9 @@
         "added": "2026-03-10"
       },
       {
-        "slug": "2026-03-10-language-for-llm-agent-output",
-        "title": "Language designed for LLM agents to produce: addressing generation-layer failure modes in agentic systems",
-        "added": "2026-03-10"
-      },
-      {
-        "slug": "2026-03-10-agent-evaluation-cross-repo-analysis",
-        "title": "Agent evaluation framework: cross-repo pattern analysis, commonality detection, and regression identification",
-        "added": "2026-03-10"
-      },
-      {
-        "slug": "2026-03-10-adversarial-agents-shared-goals-multi-perspective",
-        "title": "Adversarial agents with shared goals: multi-perspective coverage across competencies and time horizons",
-        "added": "2026-03-10"
-      },
-      {
-        "slug": "2026-03-12-failure-mode-taxonomy-expansion",
-        "title": "Failure mode taxonomy: empirical frequency, causal mechanisms, detection signals, and cascade patterns in production agentic systems",
+        "slug": "2026-03-12-superpowers-integration-analysis",
+        "title": "Superpowers as inspiration: what obra/superpowers can teach us about improving agent workflows across davidamitchell repos",
         "added": "2026-03-12"
-      },
-      {
-        "slug": "2026-03-16-gitagent-declarative-agent-definition",
-        "title": "GitAgent and declarative agent definition: concepts, adoption, and cross-platform integration",
-        "added": "2026-03-16"
-      },
-      {
-        "slug": "2026-03-18-stateless-agent-assumption-failure",
-        "title": "Stateless-agent assumption failure: causes, detection, and recovery patterns for orphaned state in multi-session agentic workflows",
-        "added": "2026-03-18"
       },
       {
         "slug": "2026-03-22-using-awesome-copilot-across-repos",
@@ -157,22 +212,42 @@
         "added": "2026-03-22"
       },
       {
-        "slug": "2026-03-22-applied-context-engineering-agent-workflows",
-        "title": "Applied context engineering: skills, workflows, and best practices for agent development",
+        "slug": "2026-03-22-coding-ai-agent-skills-survey",
+        "title": "Coding AI Agent Skills Survey: Existing Vendor and OSS Prompt Libraries for Software Engineering Domains",
         "added": "2026-03-22"
       },
       {
-        "slug": "2026-03-23-agent-orchestration-anvil-max",
-        "title": "Agent orchestration patterns: lessons from Anvil, Max, and Burke Holland's multi-model orchestration gist",
-        "added": "2026-03-23"
+        "slug": "2026-03-28-agents-md-role-and-cross-agent-instructions",
+        "title": "The role of AGENTS.md in a repo using .github/copilot-instructions.md as the sole instructions source",
+        "added": "2026-03-28"
+      },
+      {
+        "slug": "2026-03-28-agent-instruction-loading-and-skills-access",
+        "title": "Agent instruction loading and skills access: Copilot coding agent, Claude iOS code feature, and the role of AGENTS.md",
+        "added": "2026-03-28"
+      },
+      {
+        "slug": "2026-03-29-multi-agent-repo-setup",
+        "title": "Multi-agent repo setup: best practices for configuring a repository to be worked on by Claude (iOS and GitHub Issues) and Copilot (Spaces and GitHub Issues)",
+        "added": "2026-03-29"
       },
       {
         "slug": "2026-04-02-anthropic-claude-code-leak-architecture-prompting-and-hidden-features",
         "title": "Anthropic Claude Code leak: architecture, prompting, and hidden features",
         "added": "2026-04-02"
+      },
+      {
+        "slug": "2026-04-03-oh-my-codex-patterns",
+        "title": "oh-my-codex and AI Agent Workflow Patterns: What Can We Leverage?",
+        "added": "2026-04-03"
+      },
+      {
+        "slug": "2026-04-20-harness-selection-tools-agents-skills-prompts-instructions",
+        "title": "Harness-level selection and use of tools, agents, skills, prompts, and instruction files",
+        "added": "2026-04-20"
       }
     ],
-    "url": "/Research/threads/agents-agentic-systems-memory.html"
+    "url": "/Research/threads/skills-copilot-instructions.html"
   },
   {
     "slug": "agents-memory-anthropic",
@@ -184,7 +259,7 @@
       "anthropic"
     ],
     "concept_cluster": [],
-    "item_count": 10,
+    "item_count": 11,
     "items": [
       {
         "slug": "2026-03-02-integrative-framework-agent-decision-making",
@@ -235,21 +310,26 @@
         "slug": "2026-04-02-claude-code-npm-source-map-leak",
         "title": "Claude Code npm Source Map Leak",
         "added": "2026-04-02"
+      },
+      {
+        "slug": "2026-04-20-harness-selection-tools-agents-skills-prompts-instructions",
+        "title": "Harness-level selection and use of tools, agents, skills, prompts, and instruction files",
+        "added": "2026-04-20"
       }
     ],
     "url": "/Research/threads/agents-memory-anthropic.html"
   },
   {
-    "slug": "skills-agents-instructions",
-    "title": "skills / agents / instructions",
+    "slug": "skills-instructions-agents",
+    "title": "skills / instructions / agents",
     "kind": "implicit",
     "tag_cluster": [
       "skills",
-      "agents",
-      "instructions"
+      "instructions",
+      "agents"
     ],
     "concept_cluster": [],
-    "item_count": 10,
+    "item_count": 11,
     "items": [
       {
         "slug": "2026-03-10-ai-concept-classification-taxonomy",
@@ -300,9 +380,14 @@
         "slug": "2026-04-03-oh-my-codex-patterns",
         "title": "oh-my-codex and AI Agent Workflow Patterns: What Can We Leverage?",
         "added": "2026-04-03"
+      },
+      {
+        "slug": "2026-04-20-harness-selection-tools-agents-skills-prompts-instructions",
+        "title": "Harness-level selection and use of tools, agents, skills, prompts, and instruction files",
+        "added": "2026-04-20"
       }
     ],
-    "url": "/Research/threads/skills-agents-instructions.html"
+    "url": "/Research/threads/skills-instructions-agents.html"
   },
   {
     "slug": "mobile-ios-memory-system",
@@ -370,66 +455,6 @@
     "url": "/Research/threads/mobile-ios-memory-system.html"
   },
   {
-    "slug": "instructions-skills-copilot",
-    "title": "instructions / skills / copilot",
-    "kind": "implicit",
-    "tag_cluster": [
-      "instructions",
-      "skills",
-      "copilot"
-    ],
-    "concept_cluster": [],
-    "item_count": 9,
-    "items": [
-      {
-        "slug": "2026-02-27-simple-process-for-adding-research-item",
-        "title": "Simple process for adding a research item",
-        "added": "2026-02-27"
-      },
-      {
-        "slug": "2026-03-12-superpowers-integration-analysis",
-        "title": "Superpowers as inspiration: what obra/superpowers can teach us about improving agent workflows across davidamitchell repos",
-        "added": "2026-03-12"
-      },
-      {
-        "slug": "2026-03-18-api-context-hubs-rag-mcp",
-        "title": "Application Programming Interface (API) Context Hubs, Retrieval-Augmented Generation, and the Model Context Protocol: How Agents Discover and Use APIs",
-        "added": "2026-03-18"
-      },
-      {
-        "slug": "2026-03-22-using-awesome-copilot-across-repos",
-        "title": "How to best use awesome-copilot in this repo and across personal repos",
-        "added": "2026-03-22"
-      },
-      {
-        "slug": "2026-03-22-coding-ai-agent-skills-survey",
-        "title": "Coding AI Agent Skills Survey: Existing Vendor and OSS Prompt Libraries for Software Engineering Domains",
-        "added": "2026-03-22"
-      },
-      {
-        "slug": "2026-03-28-agents-md-role-and-cross-agent-instructions",
-        "title": "The role of AGENTS.md in a repo using .github/copilot-instructions.md as the sole instructions source",
-        "added": "2026-03-28"
-      },
-      {
-        "slug": "2026-03-28-agent-instruction-loading-and-skills-access",
-        "title": "Agent instruction loading and skills access: Copilot coding agent, Claude iOS code feature, and the role of AGENTS.md",
-        "added": "2026-03-28"
-      },
-      {
-        "slug": "2026-03-29-multi-agent-repo-setup",
-        "title": "Multi-agent repo setup: best practices for configuring a repository to be worked on by Claude (iOS and GitHub Issues) and Copilot (Spaces and GitHub Issues)",
-        "added": "2026-03-29"
-      },
-      {
-        "slug": "2026-04-03-oh-my-codex-patterns",
-        "title": "oh-my-codex and AI Agent Workflow Patterns: What Can We Leverage?",
-        "added": "2026-04-03"
-      }
-    ],
-    "url": "/Research/threads/instructions-skills-copilot.html"
-  },
-  {
     "slug": "llm-alignment-hallucinations",
     "title": "llm / alignment / hallucinations",
     "kind": "implicit",
@@ -488,6 +513,66 @@
       }
     ],
     "url": "/Research/threads/llm-alignment-hallucinations.html"
+  },
+  {
+    "slug": "copilot-instructions-claude",
+    "title": "copilot / instructions / claude",
+    "kind": "implicit",
+    "tag_cluster": [
+      "copilot",
+      "instructions",
+      "claude"
+    ],
+    "concept_cluster": [],
+    "item_count": 9,
+    "items": [
+      {
+        "slug": "2026-03-08-claude-ios-mcp-remote-integration",
+        "title": "Claude for iOS: MCP remote integration for memory capture and retrieval",
+        "added": "2026-03-08"
+      },
+      {
+        "slug": "2026-03-16-gitagent-declarative-agent-definition",
+        "title": "GitAgent and declarative agent definition: concepts, adoption, and cross-platform integration",
+        "added": "2026-03-16"
+      },
+      {
+        "slug": "2026-03-22-using-awesome-copilot-across-repos",
+        "title": "How to best use awesome-copilot in this repo and across personal repos",
+        "added": "2026-03-22"
+      },
+      {
+        "slug": "2026-03-28-environment-setup-consistency",
+        "title": "Environment setup consistency: what each agent sees when it starts work in this repo and how to make it consistent",
+        "added": "2026-03-28"
+      },
+      {
+        "slug": "2026-03-28-agents-md-role-and-cross-agent-instructions",
+        "title": "The role of AGENTS.md in a repo using .github/copilot-instructions.md as the sole instructions source",
+        "added": "2026-03-28"
+      },
+      {
+        "slug": "2026-03-28-agent-instruction-loading-and-skills-access",
+        "title": "Agent instruction loading and skills access: Copilot coding agent, Claude iOS code feature, and the role of AGENTS.md",
+        "added": "2026-03-28"
+      },
+      {
+        "slug": "2026-03-29-multi-agent-repo-setup",
+        "title": "Multi-agent repo setup: best practices for configuring a repository to be worked on by Claude (iOS and GitHub Issues) and Copilot (Spaces and GitHub Issues)",
+        "added": "2026-03-29"
+      },
+      {
+        "slug": "2026-04-03-oh-my-codex-patterns",
+        "title": "oh-my-codex and AI Agent Workflow Patterns: What Can We Leverage?",
+        "added": "2026-04-03"
+      },
+      {
+        "slug": "2026-04-20-harness-selection-tools-agents-skills-prompts-instructions",
+        "title": "Harness-level selection and use of tools, agents, skills, prompts, and instruction files",
+        "added": "2026-04-20"
+      }
+    ],
+    "url": "/Research/threads/copilot-instructions-claude.html"
   },
   {
     "slug": "rag-agents-mcp",
@@ -668,61 +753,6 @@
       }
     ],
     "url": "/Research/threads/mobile-interface-delivery.html"
-  },
-  {
-    "slug": "copilot-claude-instructions",
-    "title": "copilot / claude / instructions",
-    "kind": "implicit",
-    "tag_cluster": [
-      "copilot",
-      "claude",
-      "instructions"
-    ],
-    "concept_cluster": [],
-    "item_count": 8,
-    "items": [
-      {
-        "slug": "2026-03-08-claude-ios-mcp-remote-integration",
-        "title": "Claude for iOS: MCP remote integration for memory capture and retrieval",
-        "added": "2026-03-08"
-      },
-      {
-        "slug": "2026-03-16-gitagent-declarative-agent-definition",
-        "title": "GitAgent and declarative agent definition: concepts, adoption, and cross-platform integration",
-        "added": "2026-03-16"
-      },
-      {
-        "slug": "2026-03-22-using-awesome-copilot-across-repos",
-        "title": "How to best use awesome-copilot in this repo and across personal repos",
-        "added": "2026-03-22"
-      },
-      {
-        "slug": "2026-03-28-environment-setup-consistency",
-        "title": "Environment setup consistency: what each agent sees when it starts work in this repo and how to make it consistent",
-        "added": "2026-03-28"
-      },
-      {
-        "slug": "2026-03-28-agents-md-role-and-cross-agent-instructions",
-        "title": "The role of AGENTS.md in a repo using .github/copilot-instructions.md as the sole instructions source",
-        "added": "2026-03-28"
-      },
-      {
-        "slug": "2026-03-28-agent-instruction-loading-and-skills-access",
-        "title": "Agent instruction loading and skills access: Copilot coding agent, Claude iOS code feature, and the role of AGENTS.md",
-        "added": "2026-03-28"
-      },
-      {
-        "slug": "2026-03-29-multi-agent-repo-setup",
-        "title": "Multi-agent repo setup: best practices for configuring a repository to be worked on by Claude (iOS and GitHub Issues) and Copilot (Spaces and GitHub Issues)",
-        "added": "2026-03-29"
-      },
-      {
-        "slug": "2026-04-03-oh-my-codex-patterns",
-        "title": "oh-my-codex and AI Agent Workflow Patterns: What Can We Leverage?",
-        "added": "2026-04-03"
-      }
-    ],
-    "url": "/Research/threads/copilot-claude-instructions.html"
   },
   {
     "slug": "rag-llm-context-management",
@@ -1045,6 +1075,56 @@
     "url": "/Research/threads/rory-sutherland-behavioral-economics-strategy.html"
   },
   {
+    "slug": "ai-agents-copilot-skills",
+    "title": "ai-agents / copilot / skills",
+    "kind": "implicit",
+    "tag_cluster": [
+      "ai-agents",
+      "copilot",
+      "skills"
+    ],
+    "concept_cluster": [],
+    "item_count": 7,
+    "items": [
+      {
+        "slug": "2026-03-01-github-specify-ralph-loop-lisa-planning",
+        "title": "GitHub Specify, Ralph Loops, and Lisa Planning: Proof-Driven Development with AI Agents",
+        "added": "2026-03-01"
+      },
+      {
+        "slug": "2026-03-04-sdlc-ai-prompt-patterns",
+        "title": "Emergent Patterns in Software Engineering Prompts and SDLC Guidance",
+        "added": "2026-03-04"
+      },
+      {
+        "slug": "2026-03-22-coding-ai-agent-skills-survey",
+        "title": "Coding AI Agent Skills Survey: Existing Vendor and OSS Prompt Libraries for Software Engineering Domains",
+        "added": "2026-03-22"
+      },
+      {
+        "slug": "2026-03-22-compliance-scanning-gh-actions",
+        "title": "Compliance Scanning via GitHub Actions — Broad Policy as Code Across a Heterogeneous Stack",
+        "added": "2026-03-22"
+      },
+      {
+        "slug": "2026-03-28-agent-instruction-loading-and-skills-access",
+        "title": "Agent instruction loading and skills access: Copilot coding agent, Claude iOS code feature, and the role of AGENTS.md",
+        "added": "2026-03-28"
+      },
+      {
+        "slug": "2026-04-03-oh-my-codex-patterns",
+        "title": "oh-my-codex and AI Agent Workflow Patterns: What Can We Leverage?",
+        "added": "2026-04-03"
+      },
+      {
+        "slug": "2026-04-20-harness-selection-tools-agents-skills-prompts-instructions",
+        "title": "Harness-level selection and use of tools, agents, skills, prompts, and instruction files",
+        "added": "2026-04-20"
+      }
+    ],
+    "url": "/Research/threads/ai-agents-copilot-skills.html"
+  },
+  {
     "slug": "agents-agentic-systems-multi-agent",
     "title": "agents / agentic-systems / multi-agent",
     "kind": "implicit",
@@ -1195,51 +1275,6 @@
     "url": "/Research/threads/consciousness-predictive-processing-anil-seth.html"
   },
   {
-    "slug": "ai-agents-copilot-skills",
-    "title": "ai-agents / copilot / skills",
-    "kind": "implicit",
-    "tag_cluster": [
-      "ai-agents",
-      "copilot",
-      "skills"
-    ],
-    "concept_cluster": [],
-    "item_count": 6,
-    "items": [
-      {
-        "slug": "2026-03-01-github-specify-ralph-loop-lisa-planning",
-        "title": "GitHub Specify, Ralph Loops, and Lisa Planning: Proof-Driven Development with AI Agents",
-        "added": "2026-03-01"
-      },
-      {
-        "slug": "2026-03-04-sdlc-ai-prompt-patterns",
-        "title": "Emergent Patterns in Software Engineering Prompts and SDLC Guidance",
-        "added": "2026-03-04"
-      },
-      {
-        "slug": "2026-03-22-coding-ai-agent-skills-survey",
-        "title": "Coding AI Agent Skills Survey: Existing Vendor and OSS Prompt Libraries for Software Engineering Domains",
-        "added": "2026-03-22"
-      },
-      {
-        "slug": "2026-03-22-compliance-scanning-gh-actions",
-        "title": "Compliance Scanning via GitHub Actions — Broad Policy as Code Across a Heterogeneous Stack",
-        "added": "2026-03-22"
-      },
-      {
-        "slug": "2026-03-28-agent-instruction-loading-and-skills-access",
-        "title": "Agent instruction loading and skills access: Copilot coding agent, Claude iOS code feature, and the role of AGENTS.md",
-        "added": "2026-03-28"
-      },
-      {
-        "slug": "2026-04-03-oh-my-codex-patterns",
-        "title": "oh-my-codex and AI Agent Workflow Patterns: What Can We Leverage?",
-        "added": "2026-04-03"
-      }
-    ],
-    "url": "/Research/threads/ai-agents-copilot-skills.html"
-  },
-  {
     "slug": "security-prompt-injection-red-team",
     "title": "security / prompt-injection / red-team",
     "kind": "implicit",
@@ -1283,6 +1318,96 @@
       }
     ],
     "url": "/Research/threads/security-prompt-injection-red-team.html"
+  },
+  {
+    "slug": "skills-claude-code-github-copilot",
+    "title": "skills / claude-code / github-copilot",
+    "kind": "implicit",
+    "tag_cluster": [
+      "skills",
+      "claude-code",
+      "github-copilot"
+    ],
+    "concept_cluster": [],
+    "item_count": 6,
+    "items": [
+      {
+        "slug": "2026-03-12-superpowers-integration-analysis",
+        "title": "Superpowers as inspiration: what obra/superpowers can teach us about improving agent workflows across davidamitchell repos",
+        "added": "2026-03-12"
+      },
+      {
+        "slug": "2026-03-16-vl-jepa-concept-prediction",
+        "title": "Vision-Language Joint Embedding Predictive Architecture (VL-JEPA) and concept prediction: background and options for leveraging with frontier models",
+        "added": "2026-03-16"
+      },
+      {
+        "slug": "2026-03-22-using-awesome-copilot-across-repos",
+        "title": "How to best use awesome-copilot in this repo and across personal repos",
+        "added": "2026-03-22"
+      },
+      {
+        "slug": "2026-03-29-claude-code-web-submodule-credential",
+        "title": "Claude Code on the web: private submodule credential access and git submodule init mechanism",
+        "added": "2026-03-29"
+      },
+      {
+        "slug": "2026-04-03-oh-my-codex-patterns",
+        "title": "oh-my-codex and AI Agent Workflow Patterns: What Can We Leverage?",
+        "added": "2026-04-03"
+      },
+      {
+        "slug": "2026-04-20-harness-selection-tools-agents-skills-prompts-instructions",
+        "title": "Harness-level selection and use of tools, agents, skills, prompts, and instruction files",
+        "added": "2026-04-20"
+      }
+    ],
+    "url": "/Research/threads/skills-claude-code-github-copilot.html"
+  },
+  {
+    "slug": "ai-agents-software-engineering-prompts",
+    "title": "ai-agents / software-engineering / prompts",
+    "kind": "implicit",
+    "tag_cluster": [
+      "ai-agents",
+      "software-engineering",
+      "prompts"
+    ],
+    "concept_cluster": [],
+    "item_count": 6,
+    "items": [
+      {
+        "slug": "2026-03-01-github-specify-ralph-loop-lisa-planning",
+        "title": "GitHub Specify, Ralph Loops, and Lisa Planning: Proof-Driven Development with AI Agents",
+        "added": "2026-03-01"
+      },
+      {
+        "slug": "2026-03-04-sdlc-ai-prompt-patterns",
+        "title": "Emergent Patterns in Software Engineering Prompts and SDLC Guidance",
+        "added": "2026-03-04"
+      },
+      {
+        "slug": "2026-03-05-general-agent-optimization-framework",
+        "title": "General Agent Optimization Framework",
+        "added": "2026-03-05"
+      },
+      {
+        "slug": "2026-03-16-intent-driven-development",
+        "title": "Intent Driven Development: context and concept layering to bound the solution space",
+        "added": "2026-03-16"
+      },
+      {
+        "slug": "2026-03-22-coding-ai-agent-skills-survey",
+        "title": "Coding AI Agent Skills Survey: Existing Vendor and OSS Prompt Libraries for Software Engineering Domains",
+        "added": "2026-03-22"
+      },
+      {
+        "slug": "2026-04-20-harness-selection-tools-agents-skills-prompts-instructions",
+        "title": "Harness-level selection and use of tools, agents, skills, prompts, and instruction files",
+        "added": "2026-04-20"
+      }
+    ],
+    "url": "/Research/threads/ai-agents-software-engineering-prompts.html"
   },
   {
     "slug": "ai-strategy-financial-services-risk-management",
@@ -1370,46 +1495,6 @@
     "url": "/Research/threads/policy-as-code-compliance-dotnet.html"
   },
   {
-    "slug": "skills-claude-code-github-copilot",
-    "title": "skills / claude-code / github-copilot",
-    "kind": "implicit",
-    "tag_cluster": [
-      "skills",
-      "claude-code",
-      "github-copilot"
-    ],
-    "concept_cluster": [],
-    "item_count": 5,
-    "items": [
-      {
-        "slug": "2026-03-12-superpowers-integration-analysis",
-        "title": "Superpowers as inspiration: what obra/superpowers can teach us about improving agent workflows across davidamitchell repos",
-        "added": "2026-03-12"
-      },
-      {
-        "slug": "2026-03-16-vl-jepa-concept-prediction",
-        "title": "Vision-Language Joint Embedding Predictive Architecture (VL-JEPA) and concept prediction: background and options for leveraging with frontier models",
-        "added": "2026-03-16"
-      },
-      {
-        "slug": "2026-03-22-using-awesome-copilot-across-repos",
-        "title": "How to best use awesome-copilot in this repo and across personal repos",
-        "added": "2026-03-22"
-      },
-      {
-        "slug": "2026-03-29-claude-code-web-submodule-credential",
-        "title": "Claude Code on the web: private submodule credential access and git submodule init mechanism",
-        "added": "2026-03-29"
-      },
-      {
-        "slug": "2026-04-03-oh-my-codex-patterns",
-        "title": "oh-my-codex and AI Agent Workflow Patterns: What Can We Leverage?",
-        "added": "2026-04-03"
-      }
-    ],
-    "url": "/Research/threads/skills-claude-code-github-copilot.html"
-  },
-  {
     "slug": "ai-productivity-team-size",
     "title": "ai / productivity / team-size",
     "kind": "implicit",
@@ -1490,46 +1575,6 @@
     "url": "/Research/threads/servicenow-csdm-itsm.html"
   },
   {
-    "slug": "ai-agents-software-engineering-prompts",
-    "title": "ai-agents / software-engineering / prompts",
-    "kind": "implicit",
-    "tag_cluster": [
-      "ai-agents",
-      "software-engineering",
-      "prompts"
-    ],
-    "concept_cluster": [],
-    "item_count": 5,
-    "items": [
-      {
-        "slug": "2026-03-01-github-specify-ralph-loop-lisa-planning",
-        "title": "GitHub Specify, Ralph Loops, and Lisa Planning: Proof-Driven Development with AI Agents",
-        "added": "2026-03-01"
-      },
-      {
-        "slug": "2026-03-04-sdlc-ai-prompt-patterns",
-        "title": "Emergent Patterns in Software Engineering Prompts and SDLC Guidance",
-        "added": "2026-03-04"
-      },
-      {
-        "slug": "2026-03-05-general-agent-optimization-framework",
-        "title": "General Agent Optimization Framework",
-        "added": "2026-03-05"
-      },
-      {
-        "slug": "2026-03-16-intent-driven-development",
-        "title": "Intent Driven Development: context and concept layering to bound the solution space",
-        "added": "2026-03-16"
-      },
-      {
-        "slug": "2026-03-22-coding-ai-agent-skills-survey",
-        "title": "Coding AI Agent Skills Survey: Existing Vendor and OSS Prompt Libraries for Software Engineering Domains",
-        "added": "2026-03-22"
-      }
-    ],
-    "url": "/Research/threads/ai-agents-software-engineering-prompts.html"
-  },
-  {
     "slug": "cost-allocation-tbm-council-financial-services",
     "title": "cost allocation / tbm council / financial services",
     "kind": "concept",
@@ -1570,13 +1615,13 @@
     "url": "/Research/threads/cost-allocation-tbm-council-financial-services.html"
   },
   {
-    "slug": "copilot-coding-coding-agent-github-copilot",
-    "title": "copilot coding / coding agent / github copilot",
+    "slug": "coding-agent-copilot-coding-github-copilot",
+    "title": "coding agent / copilot coding / github copilot",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "copilot coding",
       "coding agent",
+      "copilot coding",
       "github copilot"
     ],
     "item_count": 5,
@@ -1607,7 +1652,7 @@
         "added": "2026-03-28"
       }
     ],
-    "url": "/Research/threads/copilot-coding-coding-agent-github-copilot.html"
+    "url": "/Research/threads/coding-agent-copilot-coding-github-copilot.html"
   },
   {
     "slug": "evaluation-agents-research-loop",
@@ -1678,6 +1723,41 @@
       }
     ],
     "url": "/Research/threads/youtube-transcripts-tooling.html"
+  },
+  {
+    "slug": "github-copilot-agents-md-claude-code",
+    "title": "github copilot / agents md / claude code",
+    "kind": "concept",
+    "tag_cluster": [],
+    "concept_cluster": [
+      "github copilot",
+      "agents md",
+      "claude code"
+    ],
+    "item_count": 4,
+    "items": [
+      {
+        "slug": "2026-03-01-github-specify-ralph-loop-lisa-planning",
+        "title": "GitHub Specify, Ralph Loops, and Lisa Planning: Proof-Driven Development with AI Agents",
+        "added": "2026-03-01"
+      },
+      {
+        "slug": "2026-03-02-chat-conversational-interface",
+        "title": "Conversational and chat interface for querying the research corpus",
+        "added": "2026-03-02"
+      },
+      {
+        "slug": "2026-03-10-research-loop-evaluation-rubric",
+        "title": "Research loop evaluation rubric: LLM-as-judge specification for this repository's research loop agent",
+        "added": "2026-03-10"
+      },
+      {
+        "slug": "2026-04-20-harness-selection-tools-agents-skills-prompts-instructions",
+        "title": "Harness-level selection and use of tools, agents, skills, prompts, and instruction files",
+        "added": "2026-04-20"
+      }
+    ],
+    "url": "/Research/threads/github-copilot-agents-md-claude-code.html"
   },
   {
     "slug": "synthesis-exploration-decision-making",
@@ -2008,65 +2088,5 @@
       }
     ],
     "url": "/Research/threads/workflow-process-tooling.html"
-  },
-  {
-    "slug": "interface-contract-github-copilot-claude-code",
-    "title": "interface contract / github copilot / claude code",
-    "kind": "concept",
-    "tag_cluster": [],
-    "concept_cluster": [
-      "interface contract",
-      "github copilot",
-      "claude code"
-    ],
-    "item_count": 3,
-    "items": [
-      {
-        "slug": "2026-02-27-interface-and-delivery",
-        "title": "Interface and delivery: how to surface research outputs",
-        "added": "2026-02-27"
-      },
-      {
-        "slug": "2026-03-01-github-specify-ralph-loop-lisa-planning",
-        "title": "GitHub Specify, Ralph Loops, and Lisa Planning: Proof-Driven Development with AI Agents",
-        "added": "2026-03-01"
-      },
-      {
-        "slug": "2026-03-02-chat-conversational-interface",
-        "title": "Conversational and chat interface for querying the research corpus",
-        "added": "2026-03-02"
-      }
-    ],
-    "url": "/Research/threads/interface-contract-github-copilot-claude-code.html"
-  },
-  {
-    "slug": "github-copilot-claude-code-copilot-agent",
-    "title": "github copilot / claude code / copilot agent",
-    "kind": "concept",
-    "tag_cluster": [],
-    "concept_cluster": [
-      "github copilot",
-      "claude code",
-      "copilot agent"
-    ],
-    "item_count": 3,
-    "items": [
-      {
-        "slug": "2026-03-01-github-specify-ralph-loop-lisa-planning",
-        "title": "GitHub Specify, Ralph Loops, and Lisa Planning: Proof-Driven Development with AI Agents",
-        "added": "2026-03-01"
-      },
-      {
-        "slug": "2026-03-02-chat-conversational-interface",
-        "title": "Conversational and chat interface for querying the research corpus",
-        "added": "2026-03-02"
-      },
-      {
-        "slug": "2026-03-12-superpowers-integration-analysis",
-        "title": "Superpowers as inspiration: what obra/superpowers can teach us about improving agent workflows across davidamitchell repos",
-        "added": "2026-03-12"
-      }
-    ],
-    "url": "/Research/threads/github-copilot-claude-code-copilot-agent.html"
   }
 ]

@@ -664,29 +664,41 @@ main {
 <p>Financial services organisations deploy AI primarily for fraud detection, AML transaction monitoring, and credit risk scoring, with documented outcome metrics that include 60–95% reductions in false positives and multi-billion dollar cost savings. Three regulatory frameworks govern this AI directly: SR 11-7 (US, 2011) provides the foundational model risk management standard and broadly captures AI/ML; APRA CPS 230 (effective July 2025) establishes board accountability for AI in critical operations; and DORA (EU, effective January 2025) treats AI systems as ICT infrastructure requiring full risk management and incident reporting. RBNZ has no AI-specific supervisory guidance as of early 2025; NZ banks operate under BS11 for outsourced AI and BPR capital requirements for model governance, with APRA CPS 230 applying at group level to the Australian-owned majority. The dominant failure mode in risk-reducing AI is model bias inherited from historical training data, which US regulators addressed via CFPB guidance requiring specific adverse action explanations even from black-box systems.</p>
 <h3>Key Findings</h3>
 <ol>
-<li><p><strong>HSBC's AI-driven AML system (Google Cloud Dynamic Risk Assessment) reduced false positive alerts by 60% and increased confirmed financial crime detection by 2–4×</strong>, processing billions of transactions in days rather than weeks. This is the most cited disclosed case of AI applied to AML with specific outcome metrics.</p>
+<li>
+<p><strong>HSBC's AI-driven AML system (Google Cloud Dynamic Risk Assessment) reduced false positive alerts by 60% and increased confirmed financial crime detection by 2–4×</strong>, processing billions of transactions in days rather than weeks. This is the most cited disclosed case of AI applied to AML with specific outcome metrics.</p>
 </li>
-<li><p><strong>JPMorgan Chase achieved a 95% reduction in false positives in AML/fraud detection using AI</strong>, with fraud detected 300× faster and estimated savings of $1.5 billion in 2023–2024 across 450+ AI use cases spanning risk management, surveillance, and operations.</p>
+<li>
+<p><strong>JPMorgan Chase achieved a 95% reduction in false positives in AML/fraud detection using AI</strong>, with fraud detected 300× faster and estimated savings of $1.5 billion in 2023–2024 across 450+ AI use cases spanning risk management, surveillance, and operations.</p>
 </li>
-<li><p><strong>SR 11-7 (Fed/OCC, 2011) applies to AI/ML models through its broad definition of &quot;model&quot;</strong> — any quantitative system that processes inputs to produce outputs. Regulators require the same three-stage framework (development, validation, monitoring) augmented for AI with: explainability requirements, bias and fair lending testing, data/concept drift monitoring, and adversarial robustness assessment.</p>
+<li>
+<p><strong>SR 11-7 (Fed/OCC, 2011) applies to AI/ML models through its broad definition of &quot;model&quot;</strong> — any quantitative system that processes inputs to produce outputs. Regulators require the same three-stage framework (development, validation, monitoring) augmented for AI with: explainability requirements, bias and fair lending testing, data/concept drift monitoring, and adversarial robustness assessment.</p>
 </li>
-<li><p><strong>APRA CPS 230 (effective July 2025) makes boards directly accountable for AI systems in critical operations</strong>, requiring documented decision logic, resilience testing under disruption scenarios, and mandatory incident reporting to APRA for AI-related failures. NZ subsidiaries of Australian-owned banks (ANZ NZ, ASB, BNZ, Westpac NZ) are affected at group level.</p>
+<li>
+<p><strong>APRA CPS 230 (effective July 2025) makes boards directly accountable for AI systems in critical operations</strong>, requiring documented decision logic, resilience testing under disruption scenarios, and mandatory incident reporting to APRA for AI-related failures. NZ subsidiaries of Australian-owned banks (ANZ NZ, ASB, BNZ, Westpac NZ) are affected at group level.</p>
 </li>
-<li><p><strong>DORA (EU Regulation 2022/2554, effective January 2025) classifies AI risk models as ICT systems</strong>, requiring mandatory incident reporting (24h initial notification, 72h detail, 1-month final report) and direct EU oversight of critical third-party AI providers. AI high-risk systems simultaneously fall under the EU AI Act, creating dual compliance requirements.</p>
+<li>
+<p><strong>DORA (EU Regulation 2022/2554, effective January 2025) classifies AI risk models as ICT systems</strong>, requiring mandatory incident reporting (24h initial notification, 72h detail, 1-month final report) and direct EU oversight of critical third-party AI providers. AI high-risk systems simultaneously fall under the EU AI Act, creating dual compliance requirements.</p>
 </li>
-<li><p><strong>RBNZ has no standalone AI supervisory guidance as of early 2025.</strong> Critical AI systems that are outsourced are captured by BS11 (all major NZ banks achieved compliance by end-2023). Capital model governance falls under BPR requirements. RBNZ's dual-reporting requirement (internal models plus standardized approach) for risk-weighted assets functions as a de facto control on over-reliance on any single model approach.</p>
+<li>
+<p><strong>RBNZ has no standalone AI supervisory guidance as of early 2025.</strong> Critical AI systems that are outsourced are captured by BS11 (all major NZ banks achieved compliance by end-2023). Capital model governance falls under BPR requirements. RBNZ's dual-reporting requirement (internal models plus standardized approach) for risk-weighted assets functions as a de facto control on over-reliance on any single model approach.</p>
 </li>
-<li><p><strong>NZ banks' Pillar 3 disclosures do not contain standalone AI model risk sections.</strong> Model risk appears under capital model governance (PD, LGD models) with regulatory overlays applied where model deficiencies are identified. &quot;AI&quot; is not a separate disclosure category.</p>
+<li>
+<p><strong>NZ banks' Pillar 3 disclosures do not contain standalone AI model risk sections.</strong> Model risk appears under capital model governance (PD, LGD models) with regulatory overlays applied where model deficiencies are identified. &quot;AI&quot; is not a separate disclosure category.</p>
 </li>
-<li><p><strong>The dominant AI failure mode in risk management is bias inherited from historically unrepresentative training data.</strong> The US CFPB issued guidance in 2022 and 2023 requiring lenders to provide specific adverse action reasons even when decisions are made by opaque AI systems; generic reasons are insufficient. The Federal Reserve warned in 2023 that AI can perpetuate both direct and indirect discrimination (digital redlining).</p>
+<li>
+<p><strong>The dominant AI failure mode in risk management is bias inherited from historically unrepresentative training data.</strong> The US CFPB issued guidance in 2022 and 2023 requiring lenders to provide specific adverse action reasons even when decisions are made by opaque AI systems; generic reasons are insufficient. The Federal Reserve warned in 2023 that AI can perpetuate both direct and indirect discrimination (digital redlining).</p>
 </li>
-<li><p><strong>Model drift is the primary operational failure mode for deployed risk models.</strong> AI models trained pre-pandemic underperformed during 2020–2021 stress periods because underlying data distributions shifted. Best practice now requires continuous drift monitoring with defined retraining triggers.</p>
+<li>
+<p><strong>Model drift is the primary operational failure mode for deployed risk models.</strong> AI models trained pre-pandemic underperformed during 2020–2021 stress periods because underlying data distributions shifted. Best practice now requires continuous drift monitoring with defined retraining triggers.</p>
 </li>
-<li><p><strong>The IIF-EY 2024 survey found 66% of financial institutions have or plan to appoint a C-suite executive responsible for AI/ML ethics and oversight.</strong> Most institutions are limiting generative AI deployment until governance frameworks are clearer; 78% have implemented specific generative AI risk policies.</p>
+<li>
+<p><strong>The IIF-EY 2024 survey found 66% of financial institutions have or plan to appoint a C-suite executive responsible for AI/ML ethics and oversight.</strong> Most institutions are limiting generative AI deployment until governance frameworks are clearer; 78% have implemented specific generative AI risk policies.</p>
 </li>
-<li><p><strong>The BIS Project Aurora demonstrated cross-institutional AI for AML</strong>: synthetic transaction data was used to train AI that detected money laundering patterns invisible to institution-level rule-based systems. This foreshadows a regulatory-supervised shared AI infrastructure model for financial crime detection.</p>
+<li>
+<p><strong>The BIS Project Aurora demonstrated cross-institutional AI for AML</strong>: synthetic transaction data was used to train AI that detected money laundering patterns invisible to institution-level rule-based systems. This foreshadows a regulatory-supervised shared AI infrastructure model for financial crime detection.</p>
 </li>
-<li><p><strong>Wells Fargo's responsible AI governance model</strong> — independent validation, bias testing at development, explainability toolkits, and open-source tooling shared industry-wide — is the most publicly documented example of SR 11-7 adapted for ML at a major bank.</p>
+<li>
+<p><strong>Wells Fargo's responsible AI governance model</strong> — independent validation, bias testing at development, explainability toolkits, and open-source tooling shared industry-wide — is the most publicly documented example of SR 11-7 adapted for ML at a major bank.</p>
 </li>
 </ol>
 <h3>Assumptions</h3>

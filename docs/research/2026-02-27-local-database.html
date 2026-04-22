@@ -664,21 +664,29 @@ main {
 <p>SQLite with FTS5 (Phase 1) and sqlite-vec (Phase 2) is the correct local database technology for this repository when the corpus or query complexity outgrows JSON files. SQLite satisfies all relational query patterns, provides full-text search at zero dependency cost via its built-in FTS5 module, and allows vector search to be added incrementally through the <code>sqlite-vec</code> extension without switching to a different database file or technology stack. DuckDB is poorly matched to the row-oriented access patterns of this workload and lacks built-in vector search; ChromaDB and LanceDB are embeddings-first systems that cannot replace the relational layer and introduce heavy dependency trees. The database should be treated as a derived artefact rebuilt from YAML front-matter, not as the source of truth for research item metadata.</p>
 <h3>Key Findings</h3>
 <ol>
-<li><p><strong>SQLite's FTS5 extension is built into Python's standard library <code>sqlite3</code> module and requires no additional dependencies to provide BM25-ranked full-text search over research item titles, questions, and findings.</strong> [high confidence]</p>
+<li>
+<p><strong>SQLite's FTS5 extension is built into Python's standard library <code>sqlite3</code> module and requires no additional dependencies to provide BM25-ranked full-text search over research item titles, questions, and findings.</strong> [high confidence]</p>
 </li>
-<li><p><strong>The <code>sqlite-vec</code> extension (<code>pip install sqlite-vec</code>) enables KNN vector search within the same SQLite database file as FTS5, adding semantic retrieval capability without introducing a second database technology.</strong> sqlite-vec is pre-v1 and may have breaking changes before 1.0; this risk is managed by deferring its integration to Phase 2. [medium confidence]</p>
+<li>
+<p><strong>The <code>sqlite-vec</code> extension (<code>pip install sqlite-vec</code>) enables KNN vector search within the same SQLite database file as FTS5, adding semantic retrieval capability without introducing a second database technology.</strong> sqlite-vec is pre-v1 and may have breaking changes before 1.0; this risk is managed by deferring its integration to Phase 2. [medium confidence]</p>
 </li>
-<li><p><strong>DuckDB's columnar-vectorised OLAP engine is optimised for large-table analytical scans — a query pattern that does not match this repository's workload of point lookups by status, tag joins, and URL deduplication.</strong> DuckDB also has no built-in vector search extension. [high confidence]</p>
+<li>
+<p><strong>DuckDB's columnar-vectorised OLAP engine is optimised for large-table analytical scans — a query pattern that does not match this repository's workload of point lookups by status, tag joins, and URL deduplication.</strong> DuckDB also has no built-in vector search extension. [high confidence]</p>
 </li>
-<li><p><strong>ChromaDB and LanceDB are both embeddings-first systems that do not provide a relational query layer; using either would require SQLite alongside them anyway, eliminating any benefit over the proposed SQLite-only approach.</strong> ChromaDB's persistent client also pulls in 15+ transitive dependencies including C++ and Rust extensions. [high confidence]</p>
+<li>
+<p><strong>ChromaDB and LanceDB are both embeddings-first systems that do not provide a relational query layer; using either would require SQLite alongside them anyway, eliminating any benefit over the proposed SQLite-only approach.</strong> ChromaDB's persistent client also pulls in 15+ transitive dependencies including C++ and Rust extensions. [high confidence]</p>
 </li>
-<li><p><strong>The recommended five-table schema (<code>items</code>, <code>tags</code>, <code>sources</code>, <code>processed</code>, <code>transcripts</code>) with an FTS5 virtual table over item content supports all identified query patterns: relational filtering by status/priority/tag, URL deduplication, source tracking, and full-text search.</strong> [high confidence]</p>
+<li>
+<p><strong>The recommended five-table schema (<code>items</code>, <code>tags</code>, <code>sources</code>, <code>processed</code>, <code>transcripts</code>) with an FTS5 virtual table over item content supports all identified query patterns: relational filtering by status/priority/tag, URL deduplication, source tracking, and full-text search.</strong> [high confidence]</p>
 </li>
-<li><p><strong>The database file must be treated as a derived artefact excluded from git, rebuildable from YAML front-matter on demand, because all embedded database formats (SQLite, DuckDB, ChromaDB, LanceDB) produce binary files that are not git-diffable.</strong> YAML front-matter in Markdown files remains the source of truth for research item metadata. [high confidence]</p>
+<li>
+<p><strong>The database file must be treated as a derived artefact excluded from git, rebuildable from YAML front-matter on demand, because all embedded database formats (SQLite, DuckDB, ChromaDB, LanceDB) produce binary files that are not git-diffable.</strong> YAML front-matter in Markdown files remains the source of truth for research item metadata. [high confidence]</p>
 </li>
-<li><p><strong>Migration from JSON + YAML to SQLite should be triggered by at least one of four observable signals: state/index.json exceeding 500 entries, a need for cross-item relational queries beyond grep, a semantic search capability being built, or concurrent pipeline runs requiring ACID transactions.</strong> The 500-entry threshold is a cognitive cost heuristic (large JSON diffs), not a performance limit. [medium confidence]</p>
+<li>
+<p><strong>Migration from JSON + YAML to SQLite should be triggered by at least one of four observable signals: state/index.json exceeding 500 entries, a need for cross-item relational queries beyond grep, a semantic search capability being built, or concurrent pipeline runs requiring ACID transactions.</strong> The 500-entry threshold is a cognitive cost heuristic (large JSON diffs), not a performance limit. [medium confidence]</p>
 </li>
-<li><p><strong>Zotero's architecture (SQLite with a relational schema + a separate FTS table indexed against item content) is the closest prior art for this use case and validates the proposed schema pattern.</strong> [high confidence]</p>
+<li>
+<p><strong>Zotero's architecture (SQLite with a relational schema + a separate FTS table indexed against item content) is the closest prior art for this use case and validates the proposed schema pattern.</strong> [high confidence]</p>
 </li>
 </ol>
 <h3>Assumptions</h3>

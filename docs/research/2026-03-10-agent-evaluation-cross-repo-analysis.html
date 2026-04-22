@@ -655,29 +655,41 @@ main {
 <p>No universally adopted evaluation framework for cross-repo agent comparison exists in early 2026, but the field has converged on a coherent set of practices. Tool-mediated execution is the single universal architectural pattern across all surveyed frameworks and is the precondition for any systematic evaluation. The critical gap is between the metrics practitioners want (holistic quality: goal alignment, safety, factuality) and what they actually measure in CI (task pass rate, latency, cost), because holistic metrics require LLM-as-judge evaluation that most frameworks do not integrate by default. A minimal viable evaluation framework requires five components: a versioned scenario registry, a two-layer metric stack (code-based + LLM-as-judge with structured rubric), trace capture, a CI regression gate with thresholds, and a gold dataset refresh protocol.</p>
 <h3>Key Findings</h3>
 <ol>
-<li><p>Tool-mediated execution is the single universal architectural pattern across all eight surveyed agent frameworks and is the necessary precondition for any systematic evaluation: without discrete, logged tool calls, agent actions cannot be traced, replayed, or compared across versions. Confidence: high.</p>
+<li>
+<p>Tool-mediated execution is the single universal architectural pattern across all eight surveyed agent frameworks and is the necessary precondition for any systematic evaluation: without discrete, logged tool calls, agent actions cannot be traced, replayed, or compared across versions. Confidence: high.</p>
 </li>
-<li><p>Trajectory capture — recording the full sequence of tool calls, state transitions, and intermediate outputs for each agent run — is the evaluation primitive that all other evaluation techniques depend on, and it is present in five of the eight surveyed frameworks but implemented in incompatible ways with no shared format across implementations. Confidence: high.</p>
+<li>
+<p>Trajectory capture — recording the full sequence of tool calls, state transitions, and intermediate outputs for each agent run — is the evaluation primitive that all other evaluation techniques depend on, and it is present in five of the eight surveyed frameworks but implemented in incompatible ways with no shared format across implementations. Confidence: high.</p>
 </li>
-<li><p>The practitioner consensus in 2025 is that automated evaluation runs gated on quality thresholds (&quot;evals as unit tests&quot;) are expected CI infrastructure for production LLM agents, but fewer than half of the surveyed frameworks provide integrated eval tooling, forcing teams to rely on separate tools such as DeepEval, TruLens, or agentevals. Confidence: high.</p>
+<li>
+<p>The practitioner consensus in 2025 is that automated evaluation runs gated on quality thresholds (&quot;evals as unit tests&quot;) are expected CI infrastructure for production LLM agents, but fewer than half of the surveyed frameworks provide integrated eval tooling, forcing teams to rely on separate tools such as DeepEval, TruLens, or agentevals. Confidence: high.</p>
 </li>
-<li><p>The measurement gap between what practitioners want to measure (holistic quality including goal alignment, safety, and factuality) and what they actually measure in CI (task pass rate, latency, cost) persists because holistic metrics require LLM-as-judge evaluation — expensive, inconsistent without structured rubrics, and not integrated into most CI pipelines. Confidence: high.</p>
+<li>
+<p>The measurement gap between what practitioners want to measure (holistic quality including goal alignment, safety, and factuality) and what they actually measure in CI (task pass rate, latency, cost) persists because holistic metrics require LLM-as-judge evaluation — expensive, inconsistent without structured rubrics, and not integrated into most CI pipelines. Confidence: high.</p>
 </li>
-<li><p>LangGraph achieves approximately 94% task completion on complex branching workflows in cross-framework benchmarks and is the only orchestration framework with built-in time-travel debugging via DAG checkpoints, making it the strongest surveyed choice for workflows where traceability, rollback, and auditability are required. Confidence: medium (performance figure from secondary sources; architectural uniqueness from primary docs).</p>
+<li>
+<p>LangGraph achieves approximately 94% task completion on complex branching workflows in cross-framework benchmarks and is the only orchestration framework with built-in time-travel debugging via DAG checkpoints, making it the strongest surveyed choice for workflows where traceability, rollback, and auditability are required. Confidence: medium (performance figure from secondary sources; architectural uniqueness from primary docs).</p>
 </li>
-<li><p>Pydantic AI is the only surveyed framework that applies type-constrained output validation at every agent-tool boundary as a structural control, preventing Layer 1 generation failures by construction rather than by post-hoc parsing — a genuine architectural novelty absent from all other surveyed frameworks. Confidence: high.</p>
+<li>
+<p>Pydantic AI is the only surveyed framework that applies type-constrained output validation at every agent-tool boundary as a structural control, preventing Layer 1 generation failures by construction rather than by post-hoc parsing — a genuine architectural novelty absent from all other surveyed frameworks. Confidence: high.</p>
 </li>
-<li><p>OpenHands demonstrated that inference-time scaling with a learned critic model increases SWE-bench Verified resolution from 60.6% (one attempt) to 66.4% (five attempts), establishing that sampling strategy at inference time is a first-class optimisation lever independent of model capability or prompt quality. Confidence: high.</p>
+<li>
+<p>OpenHands demonstrated that inference-time scaling with a learned critic model increases SWE-bench Verified resolution from 60.6% (one attempt) to 66.4% (five attempts), establishing that sampling strategy at inference time is a first-class optimisation lever independent of model capability or prompt quality. Confidence: high.</p>
 </li>
-<li><p>METR's time-horizon-of-completion metric — the maximum human-hours task duration at which an agent achieves at least 50% success, currently doubling approximately every seven months — characterises the agent's capability envelope rather than performance on a fixed benchmark, making it the most future-proof effectiveness signal identified in the survey. Confidence: high.</p>
+<li>
+<p>METR's time-horizon-of-completion metric — the maximum human-hours task duration at which an agent achieves at least 50% success, currently doubling approximately every seven months — characterises the agent's capability envelope rather than performance on a fixed benchmark, making it the most future-proof effectiveness signal identified in the survey. Confidence: high.</p>
 </li>
-<li><p>Safety evaluation is the largest unaddressed gap in the surveyed evaluation ecosystem: none of the frameworks integrate OWASP LLM Top 10 checks (prompt injection, guardrail bypass, excessive agency) as first-class CI evaluation targets, despite these being documented production failure modes affecting all agent architectures. Confidence: medium (inferred from absence of evidence in framework documentation).</p>
+<li>
+<p>Safety evaluation is the largest unaddressed gap in the surveyed evaluation ecosystem: none of the frameworks integrate OWASP LLM Top 10 checks (prompt injection, guardrail bypass, excessive agency) as first-class CI evaluation targets, despite these being documented production failure modes affecting all agent architectures. Confidence: medium (inferred from absence of evidence in framework documentation).</p>
 </li>
-<li><p>LLM-as-judge evaluation without a structured rubric produces irreproducible results; all reliable implementations require a coded evaluation prompt with explicit scoring dimensions that is itself version-controlled and subject to regression testing, functioning as a machine-readable specification of what &quot;good output&quot; means. Confidence: high.</p>
+<li>
+<p>LLM-as-judge evaluation without a structured rubric produces irreproducible results; all reliable implementations require a coded evaluation prompt with explicit scoring dimensions that is itself version-controlled and subject to regression testing, functioning as a machine-readable specification of what &quot;good output&quot; means. Confidence: high.</p>
 </li>
-<li><p>Benchmark saturation is a structural property of all fixed agent benchmarks, and SWE-bench Verified is already approaching 70% resolution for top agents, prompting the creation of SWE-bench-Live; any evaluation framework must include a benchmark refresh mechanism as a design principle rather than treating the initial benchmark as a permanent standard. Confidence: high.</p>
+<li>
+<p>Benchmark saturation is a structural property of all fixed agent benchmarks, and SWE-bench Verified is already approaching 70% resolution for top agents, prompting the creation of SWE-bench-Live; any evaluation framework must include a benchmark refresh mechanism as a design principle rather than treating the initial benchmark as a permanent standard. Confidence: high.</p>
 </li>
-<li><p>A minimal viable evaluation framework for a research loop agent requires five components: a versioned scenario registry, a two-layer metric stack (code-based + LLM-as-judge with structured rubric), trace capture, a CI regression gate with explicit failure thresholds, and a gold dataset refresh protocol — with shadow testing and A/B testing as production-grade extensions. Confidence: high (inference synthesised from primary practitioner and framework sources).</p>
+<li>
+<p>A minimal viable evaluation framework for a research loop agent requires five components: a versioned scenario registry, a two-layer metric stack (code-based + LLM-as-judge with structured rubric), trace capture, a CI regression gate with explicit failure thresholds, and a gold dataset refresh protocol — with shadow testing and A/B testing as production-grade extensions. Confidence: high (inference synthesised from primary practitioner and framework sources).</p>
 </li>
 </ol>
 <h3>Assumptions</h3>
@@ -708,7 +720,8 @@ main {
 <ul>
 <li><strong>Type:</strong> knowledge, backlog-item</li>
 <li><strong>Description:</strong> Structured evaluation framework specification covering 8-framework cross-repo analysis, pattern taxonomy, effectiveness signal survey, and 5-component MVF specification. Generates one follow-on backlog item: research loop evaluation rubric specification.</li>
-<li><strong>Key sources:</strong><ol>
+<li><strong>Key sources:</strong>
+<ol>
 <li>Yehudai et al. &quot;Survey on Evaluation of LLM-based Agents&quot; arXiv:2503.16416 (2025) — <a href="https://arxiv.org/abs/2503.16416">arxiv.org/abs/2503.16416</li></a>
 <li>Hamel Husain &quot;Your AI Product Needs Evals&quot; — <a href="https://hamel.dev/blog/posts/evals/">hamel.dev</a>
 <li>METR &quot;Measuring AI Ability to Complete Long Tasks&quot; — <a href="https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/">metr.org</a>

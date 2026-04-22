@@ -698,48 +698,48 @@ main {
 <table>
 <thead>
 <tr>
-  <th>Platform</th>
-  <th>Main declarative unit</th>
-  <th>What it captures well</th>
-  <th>What stays platform-specific</th>
-  <th>Best bridge format</th>
+<th>Platform</th>
+<th>Main declarative unit</th>
+<th>What it captures well</th>
+<th>What stays platform-specific</th>
+<th>Best bridge format</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>GitAgent</td>
-  <td>Repository rooted in <code>agent.yaml</code></td>
-  <td>Identity, rules, skills, tools, workflows, governance, composition</td>
-  <td>Actual runtime orchestration and adapters</td>
-  <td>Model Context Protocol (MCP), OpenAPI Specification (OAS), exported target formats</td>
+<td>GitAgent</td>
+<td>Repository rooted in <code>agent.yaml</code></td>
+<td>Identity, rules, skills, tools, workflows, governance, composition</td>
+<td>Actual runtime orchestration and adapters</td>
+<td>Model Context Protocol (MCP), OpenAPI Specification (OAS), exported target formats</td>
 </tr>
 <tr>
-  <td>Microsoft 365 Copilot</td>
-  <td>Declarative agent manifest plus plugin manifest</td>
-  <td>Instructions, Microsoft knowledge sources, conversation starters, actions</td>
-  <td>Copilot hosting, Microsoft capabilities, app packaging</td>
-  <td>Plugin manifest with OpenAPI and remote MCP</td>
+<td>Microsoft 365 Copilot</td>
+<td>Declarative agent manifest plus plugin manifest</td>
+<td>Instructions, Microsoft knowledge sources, conversation starters, actions</td>
+<td>Copilot hosting, Microsoft capabilities, app packaging</td>
+<td>Plugin manifest with OpenAPI and remote MCP</td>
 </tr>
 <tr>
-  <td>Amazon Bedrock</td>
-  <td><code>AWS::Bedrock::Agent</code> plus action groups</td>
-  <td>Model, instructions, action groups, knowledge bases, memory, guardrails</td>
-  <td>AWS-managed orchestration and deployment</td>
-  <td>OpenAPI in action groups; MCP via AgentCore Gateway</td>
+<td>Amazon Bedrock</td>
+<td><code>AWS::Bedrock::Agent</code> plus action groups</td>
+<td>Model, instructions, action groups, knowledge bases, memory, guardrails</td>
+<td>AWS-managed orchestration and deployment</td>
+<td>OpenAPI in action groups; MCP via AgentCore Gateway</td>
 </tr>
 <tr>
-  <td>Azure Foundry</td>
-  <td>Prompt agent definition or workflow definition</td>
-  <td>Instructions, model, tools, workflow logic, structured inputs</td>
-  <td>Azure-managed runtime, publishing, identity, observability</td>
-  <td>MCP, OpenAPI, Agent-to-Agent (A2A)</td>
+<td>Azure Foundry</td>
+<td>Prompt agent definition or workflow definition</td>
+<td>Instructions, model, tools, workflow logic, structured inputs</td>
+<td>Azure-managed runtime, publishing, identity, observability</td>
+<td>MCP, OpenAPI, Agent-to-Agent (A2A)</td>
 </tr>
 <tr>
-  <td>OpenAI</td>
-  <td>Request-scoped <code>tools</code> objects; earlier plugin manifest files</td>
-  <td>Tool declarations, approvals, remote MCP servers</td>
-  <td>Hosted runtime behavior and conversation state model</td>
-  <td>MCP, function calling, OpenAPI through prior plugin pattern</td>
+<td>OpenAI</td>
+<td>Request-scoped <code>tools</code> objects; earlier plugin manifest files</td>
+<td>Tool declarations, approvals, remote MCP servers</td>
+<td>Hosted runtime behavior and conversation state model</td>
+<td>MCP, function calling, OpenAPI through prior plugin pattern</td>
 </tr>
 </tbody>
 </table>

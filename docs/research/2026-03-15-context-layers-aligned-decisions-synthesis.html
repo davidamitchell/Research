@@ -657,40 +657,56 @@ main {
 <p>A layered organisational context architecture should partition organisational knowledge into eight distinct layers — regulatory, values/purpose, vision/mission, strategy, policies/standards, current operating position, intent/priorities, and immediate task — each requiring a different storage, retrieval, and compression strategy determined by its update frequency, volume, and authority weight. Layers 2–3 (values and vision) must always be resident in the core context window as a Constitutional AI (CAI)-style organisational constitution of approximately 300 tokens; they cannot be reliably retrieved on demand because their relevance is universal, not query-dependent. Layers 1 and 5 (regulatory and policies) are indexed offline using Recursive Abstractive Processing for Tree-Organized Retrieval (RAPTOR) hierarchical summarisation, retrieved via Modular Retrieval-Augmented Generation (RAG) with tier-specific routing, and compressed at query time using LLMLingua-2; the Cynefin framework provides the meta-routing layer that maps decision complexity to retrieval depth. Neurological research on prefrontal cortex (PFC) hierarchical organisation and schema theory confirms the architecture's structural validity, with the PFC hierarchy (rostral regions for abstract goals, caudal regions for immediate context) mirroring the Layer 1–4 versus Layer 7–8 split. Knowledge corpus governance — ownership assignment, freshness verification, and contradiction resolution at each layer — remains the primary unsolved prerequisite; no retrieval or compression technique compensates for an ungoverned source layer.</p>
 <h3>Key Findings</h3>
 <ol>
-<li><p>The eight-layer context hierarchy (regulatory → immediate task) has a defined authority ordering — Layer 1 (Regulatory) overrides all others; Layer 8 (Task) is subordinate to all others — validated by the independent convergence of Constitutional AI design, enterprise AI architecture literature, and the neuroscience of PFC hierarchical control.</p>
+<li>
+<p>The eight-layer context hierarchy (regulatory → immediate task) has a defined authority ordering — Layer 1 (Regulatory) overrides all others; Layer 8 (Task) is subordinate to all others — validated by the independent convergence of Constitutional AI design, enterprise AI architecture literature, and the neuroscience of PFC hierarchical control.</p>
 </li>
-<li><p>Layers 2 and 3 (values/purpose and vision/mission) must always be resident in the core context window as an organisational constitutional document of approximately 300 tokens, because they are the highest-authority non-regulatory constraints and their relevance cannot be determined by query routing — they apply to every decision regardless of task type.</p>
+<li>
+<p>Layers 2 and 3 (values/purpose and vision/mission) must always be resident in the core context window as an organisational constitutional document of approximately 300 tokens, because they are the highest-authority non-regulatory constraints and their relevance cannot be determined by query routing — they apply to every decision regardless of task type.</p>
 </li>
-<li><p>RAPTOR hierarchical tree indexing (ICLR 2024, arXiv:2401.18059) is the correct offline indexing technique for Layers 1 (regulatory) and 5 (policies/standards), because both layers consist of large, hierarchically structured document corpora where multi-level reasoning is required and offline preprocessing is feasible given low update frequency.</p>
+<li>
+<p>RAPTOR hierarchical tree indexing (ICLR 2024, arXiv:2401.18059) is the correct offline indexing technique for Layers 1 (regulatory) and 5 (policies/standards), because both layers consist of large, hierarchically structured document corpora where multi-level reasoning is required and offline preprocessing is feasible given low update frequency.</p>
 </li>
-<li><p>The Cynefin framework provides the meta-routing layer that maps decision complexity (Clear/Complicated/Complex/Chaotic) to retrieval depth across layers: Clear decisions require only Layers 7–8 and a cached policy summary; Complex decisions require deep retrieval from Layers 1–5; Chaotic decisions bypass retrieval entirely and use Layer 2 (values) as the anchor for immediate action.</p>
+<li>
+<p>The Cynefin framework provides the meta-routing layer that maps decision complexity (Clear/Complicated/Complex/Chaotic) to retrieval depth across layers: Clear decisions require only Layers 7–8 and a cached policy summary; Complex decisions require deep retrieval from Layers 1–5; Chaotic decisions bypass retrieval entirely and use Layer 2 (values) as the anchor for immediate action.</p>
 </li>
-<li><p>The PFC's hierarchical organisation — rostral regions for abstract, temporally remote goals; caudal regions for immediate stimulus-response — provides a neurological validation for the context layer hierarchy: abstract constraints (Layers 1–4) must be actively maintained as the goal structure within which concrete task context (Layers 7–8) is interpreted.</p>
+<li>
+<p>The PFC's hierarchical organisation — rostral regions for abstract, temporally remote goals; caudal regions for immediate stimulus-response — provides a neurological validation for the context layer hierarchy: abstract constraints (Layers 1–4) must be actively maintained as the goal structure within which concrete task context (Layers 7–8) is interpreted.</p>
 </li>
-<li><p>Schema theory from cognitive science validates RAPTOR indexing as the computational analogue of schema formation: RAPTOR compresses a large document corpus into a tree of increasingly abstract summaries, mirroring the brain's organisation of experience into hierarchical schemas that guide inference and pattern-completion without requiring recall of raw experiences.</p>
+<li>
+<p>Schema theory from cognitive science validates RAPTOR indexing as the computational analogue of schema formation: RAPTOR compresses a large document corpus into a tree of increasingly abstract summaries, mirroring the brain's organisation of experience into hierarchical schemas that guide inference and pattern-completion without requiring recall of raw experiences.</p>
 </li>
-<li><p>Working memory gating — the cortico-striatal mechanism that selectively admits task-relevant information into active processing — is the neurological analogue of modular RAG query routing; both perform selective filtering of a large information space based on task relevance, suppressing cross-domain noise that would degrade reasoning quality.</p>
+<li>
+<p>Working memory gating — the cortico-striatal mechanism that selectively admits task-relevant information into active processing — is the neurological analogue of modular RAG query routing; both perform selective filtering of a large information space based on task relevance, suppressing cross-domain noise that would degrade reasoning quality.</p>
 </li>
-<li><p>Constitutional AI (CAI, Anthropic, arXiv:2212.08073) provides the operational mechanism for encoding Layer 2 (values/purpose): a compact organisational constitution embedded in the agent's system prompt, against which the agent evaluates its outputs before delivering them — the architectural countermeasure for the sycophancy failure mode (token-level compliance at the expense of values alignment).</p>
+<li>
+<p>Constitutional AI (CAI, Anthropic, arXiv:2212.08073) provides the operational mechanism for encoding Layer 2 (values/purpose): a compact organisational constitution embedded in the agent's system prompt, against which the agent evaluates its outputs before delivering them — the architectural countermeasure for the sycophancy failure mode (token-level compliance at the expense of values alignment).</p>
 </li>
-<li><p>The current operating position (Layer 6) is best represented as a structured, pre-compressed Wardley Map or equivalent situational-awareness artefact encoding the evolution stage of key capabilities, current budget constraints, in-flight projects, and strategic priorities — rather than as raw operational documents — because structured representation is smaller, more reliably retrievable, and reduces the risk of stale data from high-frequency document churn.</p>
+<li>
+<p>The current operating position (Layer 6) is best represented as a structured, pre-compressed Wardley Map or equivalent situational-awareness artefact encoding the evolution stage of key capabilities, current budget constraints, in-flight projects, and strategic priorities — rather than as raw operational documents — because structured representation is smaller, more reliably retrievable, and reduces the risk of stale data from high-frequency document churn.</p>
 </li>
-<li><p>Knowledge corpus governance — ownership assignment, freshness verification, and contradiction resolution for each layer — is the primary prerequisite for the architecture's effectiveness; this is the same failure mode that has caused every prior generation of enterprise retrieval technology to under-deliver, and no retrieval or compression technique compensates for ungoverned source layers.</p>
+<li>
+<p>Knowledge corpus governance — ownership assignment, freshness verification, and contradiction resolution for each layer — is the primary prerequisite for the architecture's effectiveness; this is the same failure mode that has caused every prior generation of enterprise retrieval technology to under-deliver, and no retrieval or compression technique compensates for ungoverned source layers.</p>
 </li>
-<li><p>Provenance tracking — tagging each context chunk with its source layer, document identity, version, and timestamp — is the mechanism that makes an AI-assisted decision auditable under EU AI Act Articles 9 and 13, transforming the layered context architecture into a compliance asset rather than merely a technical component.</p>
+<li>
+<p>Provenance tracking — tagging each context chunk with its source layer, document identity, version, and timestamp — is the mechanism that makes an AI-assisted decision auditable under EU AI Act Articles 9 and 13, transforming the layered context architecture into a compliance asset rather than merely a technical component.</p>
 </li>
-<li><p>Automatic Cynefin domain classification for enterprise decision queries is not yet a solved problem; the meta-routing step currently requires either human classification or a separately trained classifier, which represents a deployment gap that limits full automation of the context composition pipeline.</p>
+<li>
+<p>Automatic Cynefin domain classification for enterprise decision queries is not yet a solved problem; the meta-routing step currently requires either human classification or a separately trained classifier, which represents a deployment gap that limits full automation of the context composition pipeline.</p>
 </li>
 </ol>
 <h3>Assumptions</h3>
 <ul>
-<li><p><strong>Assumption:</strong> Layers 2–3 (values, vision/mission) can be compressed into approximately 300 tokens without material loss of alignment fidelity. <strong>Justification:</strong> Vision/mission statements are typically 1–3 sentences in canonical form; values can be encoded as a 10–15 principle constitutional document following the CAI model. No direct validation of this threshold exists; the figure is an operational estimate.</p>
+<li>
+<p><strong>Assumption:</strong> Layers 2–3 (values, vision/mission) can be compressed into approximately 300 tokens without material loss of alignment fidelity. <strong>Justification:</strong> Vision/mission statements are typically 1–3 sentences in canonical form; values can be encoded as a 10–15 principle constitutional document following the CAI model. No direct validation of this threshold exists; the figure is an operational estimate.</p>
 </li>
-<li><p><strong>Assumption:</strong> RAPTOR's performance on literary/general knowledge benchmarks (82.6% on QuALITY) transfers to structured regulatory/policy document corpora. <strong>Justification:</strong> Both involve hierarchically structured text with multi-level reasoning requirements. RAPTOR's recursive clustering operates on semantic similarity, not document type; policy documents have comparably rich semantic structure. Transfer is an [inference] — no direct benchmark on regulatory/policy text found.</p>
+<li>
+<p><strong>Assumption:</strong> RAPTOR's performance on literary/general knowledge benchmarks (82.6% on QuALITY) transfers to structured regulatory/policy document corpora. <strong>Justification:</strong> Both involve hierarchically structured text with multi-level reasoning requirements. RAPTOR's recursive clustering operates on semantic similarity, not document type; policy documents have comparably rich semantic structure. Transfer is an [inference] — no direct benchmark on regulatory/policy text found.</p>
 </li>
-<li><p><strong>Assumption:</strong> Cynefin domain classification applied to individual decision queries (rather than organisational domains) provides meaningful routing differentiation. <strong>Justification:</strong> The Cynefin framework was designed for decision-context classification; query-level application is an extension, but the causal logic (query type → context depth needed) is structurally sound.</p>
+<li>
+<p><strong>Assumption:</strong> Cynefin domain classification applied to individual decision queries (rather than organisational domains) provides meaningful routing differentiation. <strong>Justification:</strong> The Cynefin framework was designed for decision-context classification; query-level application is an extension, but the causal logic (query type → context depth needed) is structurally sound.</p>
 </li>
-<li><p><strong>Assumption:</strong> The architecture's effectiveness is primarily limited by knowledge corpus governance quality, not by the technical retrieval and compression components. <strong>Justification:</strong> Directly confirmed by the completed prerequisite item (KF10) and consistent with the historical pattern of enterprise retrieval technology.</p>
+<li>
+<p><strong>Assumption:</strong> The architecture's effectiveness is primarily limited by knowledge corpus governance quality, not by the technical retrieval and compression components. <strong>Justification:</strong> Directly confirmed by the completed prerequisite item (KF10) and consistent with the historical pattern of enterprise retrieval technology.</p>
 </li>
 </ul>
 <h3>Analysis</h3>

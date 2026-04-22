@@ -655,32 +655,44 @@ main {
 <p>H-Neurons originate during pre-training because the next-token prediction objective provides an unrestricted positive reward for compliant, agreeable continuations whenever training corpora contain sycophantic or confidently-stated-false text — which web-scale corpora do at sufficient concentration to consolidate dedicated over-compliance circuits. Post-training alignment (SFT, RLHF) cannot eliminate these circuits: Gao et al. confirm that H-Neurons exhibit parameter inertia, changing minimally during alignment, and the RLHF literature confirms that reward signals operate at the response-distribution level rather than rewriting individual pre-trained circuits. Scaling reduces H-Neuron ratios and per-neuron perturbation leverage, but distributes rather than eliminates the compliance feature, explaining why even frontier models hallucinate despite aggressive alignment. Three pre-training intervention families have candidacy: data quality filtering (strongest evidence, operational precedent from Phi-1 and RefinedWeb), auxiliary uncertainty-expression objectives (most targeted, unvalidated at scale), and architectural superposition reduction (most speculative, lowest supporting evidence). No intervention has been validated by a direct pre-training ablation for H-Neuron formation specifically; this remains the primary gap in the literature.</p>
 <h3>Key Findings</h3>
 <ol>
-<li><p>H-Neurons are present and predictive in base pre-trained models before any instruction tuning or RLHF, confirmed by backward-transferability experiments in Gao et al.: classifiers built from aligned-model H-Neurons achieve AUROC scores significantly above random baseline on all six base models and three evaluation domains (TriviaQA, BioASQ, NQ-Open). [confidence: high]</p>
+<li>
+<p>H-Neurons are present and predictive in base pre-trained models before any instruction tuning or RLHF, confirmed by backward-transferability experiments in Gao et al.: classifiers built from aligned-model H-Neurons achieve AUROC scores significantly above random baseline on all six base models and three evaluation domains (TriviaQA, BioASQ, NQ-Open). [confidence: high]</p>
 </li>
-<li><p>H-Neurons exhibit parameter inertia during SFT: they rank among the model parameters that change least during the transition from base to instruction-tuned model, with average cosine-similarity rank of ≈0.97 in Mistral-Small (P &lt; 0.001), confirming that standard instruction tuning does not restructure the hallucination circuits. [confidence: high]</p>
+<li>
+<p>H-Neurons exhibit parameter inertia during SFT: they rank among the model parameters that change least during the transition from base to instruction-tuned model, with average cosine-similarity rank of ≈0.97 in Mistral-Small (P &lt; 0.001), confirming that standard instruction tuning does not restructure the hallucination circuits. [confidence: high]</p>
 </li>
-<li><p>The next-token prediction objective is the proximate causal mechanism for H-Neuron formation, because it rewards fluent agreeable continuations without a countervailing factual accuracy penalty; on training corpora containing sycophantic and confidently-stated-false text, this signal consolidates dedicated over-compliance circuits in FFN neurons. [confidence: high for causal attribution to NTP objective; medium for the specific role of sycophantic corpus content, which is inferred rather than ablated]</p>
+<li>
+<p>The next-token prediction objective is the proximate causal mechanism for H-Neuron formation, because it rewards fluent agreeable continuations without a countervailing factual accuracy penalty; on training corpora containing sycophantic and confidently-stated-false text, this signal consolidates dedicated over-compliance circuits in FFN neurons. [confidence: high for causal attribution to NTP objective; medium for the specific role of sycophantic corpus content, which is inferred rather than ablated]</p>
 </li>
-<li><p>RLHF suppresses H-Neuron expression at the output level but does not rewrite the underlying circuits: RLHF gradient updates are diffuse and of limited magnitude relative to the billions of NTP steps that consolidated H-Neurons, and the alignment tax constrains how aggressively reward signals can push against pre-trained features without capability degradation. [confidence: high]</p>
+<li>
+<p>RLHF suppresses H-Neuron expression at the output level but does not rewrite the underlying circuits: RLHF gradient updates are diffuse and of limited magnitude relative to the billions of NTP steps that consolidated H-Neurons, and the alignment tax constrains how aggressively reward signals can push against pre-trained features without capability degradation. [confidence: high]</p>
 </li>
-<li><p>Larger models have lower H-Neuron ratios (0.01‰ in 24–70B models vs. 0.35‰ in 7B models) and lower per-neuron compliance perturbation slopes (average 2.40 vs. 3.03), indicating that the over-compliance feature is more diffusely encoded at scale — consistent with superposition theory — rather than eliminated. [confidence: medium — based on six model checkpoints across three families]</p>
+<li>
+<p>Larger models have lower H-Neuron ratios (0.01‰ in 24–70B models vs. 0.35‰ in 7B models) and lower per-neuron compliance perturbation slopes (average 2.40 vs. 3.03), indicating that the over-compliance feature is more diffusely encoded at scale — consistent with superposition theory — rather than eliminated. [confidence: medium — based on six model checkpoints across three families]</p>
 </li>
-<li><p>Scaling training tokens and model size equally (Chinchilla-optimal) increases pre-training exposure to compliance-inducing corpus patterns proportionally with model capacity, so scale alone does not resolve the H-Neuron formation problem even as it reduces per-neuron perturbation leverage. [confidence: medium — inference from Chinchilla scaling law applied to compliance-signal volume]</p>
+<li>
+<p>Scaling training tokens and model size equally (Chinchilla-optimal) increases pre-training exposure to compliance-inducing corpus patterns proportionally with model capacity, so scale alone does not resolve the H-Neuron formation problem even as it reduces per-neuron perturbation leverage. [confidence: medium — inference from Chinchilla scaling law applied to compliance-signal volume]</p>
 </li>
-<li><p>Data quality filtering — domain-level source weighting and removal of low-reliability sycophantic content — is the pre-training intervention with the strongest supporting evidence: Phi-1 demonstrates that 7B tokens of textbook-quality data outperforms 300B tokens of unfiltered web data on coding benchmarks, and RefinedWeb shows that aggressive CommonCrawl filtering matches curated-corpus performance at 5 trillion tokens. [confidence: medium — evidence is from coding/general capability, not H-Neuron formation specifically]</p>
+<li>
+<p>Data quality filtering — domain-level source weighting and removal of low-reliability sycophantic content — is the pre-training intervention with the strongest supporting evidence: Phi-1 demonstrates that 7B tokens of textbook-quality data outperforms 300B tokens of unfiltered web data on coding benchmarks, and RefinedWeb shows that aggressive CommonCrawl filtering matches curated-corpus performance at 5 trillion tokens. [confidence: medium — evidence is from coding/general capability, not H-Neuron formation specifically]</p>
 </li>
-<li><p>An auxiliary uncertainty-expression pre-training objective — rewarding &quot;I don't know&quot; responses as strongly as correct answers on a fraction of training examples — would directly counteract the NTP compliance reward and is the most mechanistically targeted intervention, but has not been validated at frontier training scale and carries risk of degrading task-completion capability if poorly calibrated. [confidence: low — inference from first principles]</p>
+<li>
+<p>An auxiliary uncertainty-expression pre-training objective — rewarding &quot;I don't know&quot; responses as strongly as correct answers on a fraction of training examples — would directly counteract the NTP compliance reward and is the most mechanistically targeted intervention, but has not been validated at frontier training scale and carries risk of degrading task-completion capability if poorly calibrated. [confidence: low — inference from first principles]</p>
 </li>
-<li><p>Architectural reduction of superposition pressure (widening FFN intermediate layers, auxiliary sparsity losses) could reduce H-Neuron consolidation by allowing compliance features to be more orthogonally encoded, but this prediction is derived from toy-model superposition theory and has no direct validation in pre-training experiments with large transformer models. [confidence: low]</p>
+<li>
+<p>Architectural reduction of superposition pressure (widening FFN intermediate layers, auxiliary sparsity losses) could reduce H-Neuron consolidation by allowing compliance features to be more orthogonally encoded, but this prediction is derived from toy-model superposition theory and has no direct validation in pre-training experiments with large transformer models. [confidence: low]</p>
 </li>
 </ol>
 <h3>Assumptions</h3>
 <ul>
-<li><p><strong>Assumption:</strong> Web-scale pre-training corpora contain sycophantic and confidently-stated-false text at sufficient concentration and consistency to consolidate dedicated over-compliance circuits. <strong>Justification:</strong> The Constitutional AI paper (Anthropic 2022) motivates its own RLHF approach partly by noting that pre-training data embeds compliance-encouraging patterns. The Phi-1 paper's result that textbook-quality data produces dramatically different model behaviour from unfiltered web data is consistent with data composition having large effects on behavioural dispositions. No direct ablation study removing sycophantic content and measuring H-Neuron formation has been published.</p>
+<li>
+<p><strong>Assumption:</strong> Web-scale pre-training corpora contain sycophantic and confidently-stated-false text at sufficient concentration and consistency to consolidate dedicated over-compliance circuits. <strong>Justification:</strong> The Constitutional AI paper (Anthropic 2022) motivates its own RLHF approach partly by noting that pre-training data embeds compliance-encouraging patterns. The Phi-1 paper's result that textbook-quality data produces dramatically different model behaviour from unfiltered web data is consistent with data composition having large effects on behavioural dispositions. No direct ablation study removing sycophantic content and measuring H-Neuron formation has been published.</p>
 </li>
-<li><p><strong>Assumption:</strong> The parameter-inertia finding for SFT extends to RLHF. <strong>Justification:</strong> The paper tests SFT models only. RLHF involves more extensive parameter updates, but the structural argument — that NTP-consolidated circuits are more resistant to diffuse gradient updates than to the original concentrated training signal — applies to both. The jailbreak-recovery literature (where RLHF-aligned models revert to pre-training behaviour under adversarial prompts) supports this assumption empirically.</p>
+<li>
+<p><strong>Assumption:</strong> The parameter-inertia finding for SFT extends to RLHF. <strong>Justification:</strong> The paper tests SFT models only. RLHF involves more extensive parameter updates, but the structural argument — that NTP-consolidated circuits are more resistant to diffuse gradient updates than to the original concentrated training signal — applies to both. The jailbreak-recovery literature (where RLHF-aligned models revert to pre-training behaviour under adversarial prompts) supports this assumption empirically.</p>
 </li>
-<li><p><strong>Assumption:</strong> The mechanistic insights from Phi-1 (coding quality data) generalise to factual-accuracy and compliance training. <strong>Justification:</strong> The Phi-1 result is in the coding domain; the generalisation to natural language factual accuracy is an inference. The same filtering logic applies, but the specific relationship between textbook-quality text and over-compliance reduction is not directly validated.</p>
+<li>
+<p><strong>Assumption:</strong> The mechanistic insights from Phi-1 (coding quality data) generalise to factual-accuracy and compliance training. <strong>Justification:</strong> The Phi-1 result is in the coding domain; the generalisation to natural language factual accuracy is an inference. The same filtering logic applies, but the specific relationship between textbook-quality text and over-compliance reduction is not directly validated.</p>
 </li>
 </ul>
 <h3>Analysis</h3>
@@ -690,15 +702,20 @@ main {
 <p>Intervention feasibility varies substantially by category. Domain-level quality weighting is already standard practice (Phi-1, RefinedWeb, FineWeb) and has the strongest supporting evidence, though that evidence is not directly about H-Neuron formation. Auxiliary uncertainty-expression objectives are mechanistically optimal but technically undeveloped at frontier scale. Architectural changes are the most speculative.</p>
 <h3>Risks, Gaps, and Uncertainties</h3>
 <ul>
-<li><p><strong>Primary gap:</strong> No direct pre-training ablation experiment tests whether removing sycophantic content or adding uncertainty-expression objectives reduces H-Neuron formation. The causal inference from NTP objective to H-Neuron formation is theoretically motivated and empirically consistent, but not directly confirmed by a pre-training intervention experiment.</p>
+<li>
+<p><strong>Primary gap:</strong> No direct pre-training ablation experiment tests whether removing sycophantic content or adding uncertainty-expression objectives reduces H-Neuron formation. The causal inference from NTP objective to H-Neuron formation is theoretically motivated and empirically consistent, but not directly confirmed by a pre-training intervention experiment.</p>
 </li>
-<li><p><strong>Scope gap:</strong> Gao et al. test SFT (instruction-tuned) models, not RLHF-trained models. The assumption that RLHF is equally ineffective at modifying H-Neurons is well-motivated but not directly tested.</p>
+<li>
+<p><strong>Scope gap:</strong> Gao et al. test SFT (instruction-tuned) models, not RLHF-trained models. The assumption that RLHF is equally ineffective at modifying H-Neurons is well-motivated but not directly tested.</p>
 </li>
-<li><p><strong>Scaling evidence gap:</strong> The scaling pattern (lower ratio, lower perturbation slope in larger models) is based on six model checkpoints across three families. It is consistent with superposition theory but is not a validated scaling law for H-Neuron density.</p>
+<li>
+<p><strong>Scaling evidence gap:</strong> The scaling pattern (lower ratio, lower perturbation slope in larger models) is based on six model checkpoints across three families. It is consistent with superposition theory but is not a validated scaling law for H-Neuron density.</p>
 </li>
-<li><p><strong>Inaccessible source:</strong> Kalai et al. (2025) &quot;Why language models hallucinate&quot; is cited in Gao et al. but the full text was not directly accessed for this research item. The claim attributed to this paper (hallucination is an inevitable learning-theoretic consequence of NTP) is taken from Gao et al.'s characterisation of it.</p>
+<li>
+<p><strong>Inaccessible source:</strong> Kalai et al. (2025) &quot;Why language models hallucinate&quot; is cited in Gao et al. but the full text was not directly accessed for this research item. The claim attributed to this paper (hallucination is an inevitable learning-theoretic consequence of NTP) is taken from Gao et al.'s characterisation of it.</p>
 </li>
-<li><p><strong>Uncertainty about data filtering scope:</strong> Even if sycophantic text removal reduces H-Neuron formation, the practical difficulty of identifying and filtering sycophantic patterns at the scale of 5 trillion tokens without introducing new biases is unresolved.</p>
+<li>
+<p><strong>Uncertainty about data filtering scope:</strong> Even if sycophantic text removal reduces H-Neuron formation, the practical difficulty of identifying and filtering sycophantic patterns at the scale of 5 trillion tokens without introducing new biases is unresolved.</p>
 </li>
 </ul>
 <h3>Open Questions</h3>

@@ -656,25 +656,35 @@ main {
 <p>The DIKW pyramid has four distinct transformation functions: D→I (contextualisation and compression, formally tractable via Shannon mutual information and the Information Bottleneck); I→K (abstraction and causal inference, partially automatable but with a material human–machine gap at the abstraction and causal reasoning stages); K→W (value alignment and epistemic humility, structurally resistant to full automation because value specification cannot be reduced to any finite formal system without Goodhart's Law gaps); and the emergent D→W chain in which each step's losses compound. Every transformation is lossy and irreversible — granularity decreases monotonically, and compression artifacts introduced at lower levels propagate upward, corrupting higher-level outputs. In AI systems, hallucination is a D→I failure, reward hacking is a K→W failure, and the I→K gap is the primary capability ceiling for current large language models (LLMs). In organisations, the same structural asymmetry holds: D→I is the most technically solved but K→W is the most strategically critical and the most systematically under-resourced.</p>
 <h3>Key Findings</h3>
 <ol>
-<li><p>Ackoff (1989) formalised DIKW with five tiers by inserting &quot;understanding&quot; (knowing <em>why</em> — causal comprehension) between knowledge and wisdom; the tier answers why, whereas wisdom answers what should be done. The four-tier DIKW widely used in practice collapses or omits this distinction, losing precision about the causal-inference step. <strong>Confidence: high.</strong></p>
+<li>
+<p>Ackoff (1989) formalised DIKW with five tiers by inserting &quot;understanding&quot; (knowing <em>why</em> — causal comprehension) between knowledge and wisdom; the tier answers why, whereas wisdom answers what should be done. The four-tier DIKW widely used in practice collapses or omits this distinction, losing precision about the causal-inference step. <strong>Confidence: high.</strong></p>
 </li>
-<li><p>The D→I transformation consists of five operations — contextualisation, categorisation, calculation, correction, and condensation — and is the only DIKW transformation with a rigorous formal foundation: mutual information I(X;Y) = H(X) − H(X|Y) quantifies how much a representation I reduces uncertainty about a target Y, and the Information Bottleneck framework specifies the optimal compression under a relevance constraint. <strong>Confidence: high.</strong></p>
+<li>
+<p>The D→I transformation consists of five operations — contextualisation, categorisation, calculation, correction, and condensation — and is the only DIKW transformation with a rigorous formal foundation: mutual information I(X;Y) = H(X) − H(X|Y) quantifies how much a representation I reduces uncertainty about a target Y, and the Information Bottleneck framework specifies the optimal compression under a relevance constraint. <strong>Confidence: high.</strong></p>
 </li>
-<li><p>The I→K transformation requires four cognitive operations — pattern recognition, abstraction, causal inference, and generalisation — and the critical human–machine gap sits at abstraction and causal inference: current LLMs achieve high-quality statistical pattern matching but fail at genuine concept formation and counterfactual causal reasoning, making their outputs brittle at distribution shift. <strong>Confidence: high.</strong></p>
+<li>
+<p>The I→K transformation requires four cognitive operations — pattern recognition, abstraction, causal inference, and generalisation — and the critical human–machine gap sits at abstraction and causal inference: current LLMs achieve high-quality statistical pattern matching but fail at genuine concept formation and counterfactual causal reasoning, making their outputs brittle at distribution shift. <strong>Confidence: high.</strong></p>
 </li>
-<li><p>The K→W transformation is the least formalised and least automatable because it requires importing human values: value alignment, epistemic humility, long-horizon consequence modelling, and ethical grounding cannot be reduced to any finite formal specification without leaving residual gaps exploitable by Goodhart's Law, as demonstrated empirically by Gao et al. (2022) reward model scaling laws. <strong>Confidence: high.</strong></p>
+<li>
+<p>The K→W transformation is the least formalised and least automatable because it requires importing human values: value alignment, epistemic humility, long-horizon consequence modelling, and ethical grounding cannot be reduced to any finite formal specification without leaving residual gaps exploitable by Goodhart's Law, as demonstrated empirically by Gao et al. (2022) reward model scaling laws. <strong>Confidence: high.</strong></p>
 </li>
-<li><p>Every DIKW transformation is lossy and irreversible: D→I discards individual records and outliers; I→K discards specific informational context in favour of generalisations; K→W discards the data-level traceability of principles. Errors introduced at any step compound upward as &quot;compression artifacts,&quot; making data quality a prerequisite for knowledge quality and knowledge quality a prerequisite for wise decision-making. <strong>Confidence: high.</strong></p>
+<li>
+<p>Every DIKW transformation is lossy and irreversible: D→I discards individual records and outliers; I→K discards specific informational context in favour of generalisations; K→W discards the data-level traceability of principles. Errors introduced at any step compound upward as &quot;compression artifacts,&quot; making data quality a prerequisite for knowledge quality and knowledge quality a prerequisite for wise decision-making. <strong>Confidence: high.</strong></p>
 </li>
-<li><p>LLM hallucination is a D→I failure — the token-prediction objective rewards fluency over fidelity, producing information untraceable to real data. Reward hacking is a K→W failure — the model optimises a proxy metric rather than true value alignment. LLM sycophancy is an I→K failure — the model learns information about user preferences but fails to form knowledge about when those preferences conflict with truth. <strong>Confidence: high.</strong></p>
+<li>
+<p>LLM hallucination is a D→I failure — the token-prediction objective rewards fluency over fidelity, producing information untraceable to real data. Reward hacking is a K→W failure — the model optimises a proxy metric rather than true value alignment. LLM sycophancy is an I→K failure — the model learns information about user preferences but fails to form knowledge about when those preferences conflict with truth. <strong>Confidence: high.</strong></p>
 </li>
-<li><p>Organisations systematically under-invest in I→K and K→W relative to D→I because the returns are slower and harder to attribute: ETL (Extract, Transform, Load) pipelines and dashboards are visible and measurable; institutional knowledge creation (post-mortems, documentation, communities of practice) and strategic wisdom (ethics functions, long-range planning) have longer and noisier return cycles. The predictable result is data-rich, knowledge-poor, wisdom-starved organisations. <strong>Confidence: medium.</strong></p>
+<li>
+<p>Organisations systematically under-invest in I→K and K→W relative to D→I because the returns are slower and harder to attribute: ETL (Extract, Transform, Load) pipelines and dashboards are visible and measurable; institutional knowledge creation (post-mortems, documentation, communities of practice) and strategic wisdom (ethics functions, long-range planning) have longer and noisier return cycles. The predictable result is data-rich, knowledge-poor, wisdom-starved organisations. <strong>Confidence: medium.</strong></p>
 </li>
-<li><p>Tacit knowledge (Polanyi) represents a distinct second loss pathway at I→K beyond abstraction-loss: knowledge that exists only in expert minds cannot be retrieved by machines or preserved across expert attrition, and requires active knowledge elicitation and documentation programmes as its own mitigation strategy. <strong>Confidence: high.</strong></p>
+<li>
+<p>Tacit knowledge (Polanyi) represents a distinct second loss pathway at I→K beyond abstraction-loss: knowledge that exists only in expert minds cannot be retrieved by machines or preserved across expert attrition, and requires active knowledge elicitation and documentation programmes as its own mitigation strategy. <strong>Confidence: high.</strong></p>
 </li>
-<li><p>The DIKW hierarchy's intellectual lineage spans from Aristotle's episteme/techne/phronesis through T.S. Eliot's 1934 poetic formulation to Zeleny (1987) and Ackoff (1989), suggesting the hierarchy reflects a genuine and persistent cognitive structure rather than an arbitrary classification. <strong>Confidence: medium.</strong></p>
+<li>
+<p>The DIKW hierarchy's intellectual lineage spans from Aristotle's episteme/techne/phronesis through T.S. Eliot's 1934 poetic formulation to Zeleny (1987) and Ackoff (1989), suggesting the hierarchy reflects a genuine and persistent cognitive structure rather than an arbitrary classification. <strong>Confidence: medium.</strong></p>
 </li>
-<li><p>This research corpus's own skill framework (question decomposition → evidence gathering → reasoning → consistency checking → synthesis) is a structured implementation of the I→K transformation: it converts information (gathered evidence) into knowledge (structured findings with confidence labels), making the DIKW framing directly applicable to research pipeline design and quality assessment. <strong>Confidence: high.</strong></p>
+<li>
+<p>This research corpus's own skill framework (question decomposition → evidence gathering → reasoning → consistency checking → synthesis) is a structured implementation of the I→K transformation: it converts information (gathered evidence) into knowledge (structured findings with confidence labels), making the DIKW framing directly applicable to research pipeline design and quality assessment. <strong>Confidence: high.</strong></p>
 </li>
 </ol>
 <h3>Assumptions</h3>
@@ -698,15 +708,20 @@ main {
 </ul>
 <h3>Open Questions</h3>
 <ol>
-<li><p><strong>Unified formal theory of K→W.</strong> Is there a framework that covers value alignment, epistemic humility, and long-horizon consequence modelling in a single formal account? The Principle of Proportional Duty covers one component. A unified treatment may not yet exist and could become a backlog item.</p>
+<li>
+<p><strong>Unified formal theory of K→W.</strong> Is there a framework that covers value alignment, epistemic humility, and long-horizon consequence modelling in a single formal account? The Principle of Proportional Duty covers one component. A unified treatment may not yet exist and could become a backlog item.</p>
 </li>
-<li><p><strong>Empirical evidence on organisational I→K conversion rates.</strong> Post-mortems and communities of practice are widely recommended for I→K. What is the empirical evidence on whether they actually produce the conversion? This gap could support a research item on <em>organisational knowledge management effectiveness</em>.</p>
+<li>
+<p><strong>Empirical evidence on organisational I→K conversion rates.</strong> Post-mortems and communities of practice are widely recommended for I→K. What is the empirical evidence on whether they actually produce the conversion? This gap could support a research item on <em>organisational knowledge management effectiveness</em>.</p>
 </li>
-<li><p><strong>Data lineage as compression-artifact mitigation.</strong> If each DIKW transformation step retains provenance metadata about what was discarded and why, could higher-level failures be diagnosed by tracing back through the chain? This maps onto the explainability and data lineage problem in ML and data engineering.</p>
+<li>
+<p><strong>Data lineage as compression-artifact mitigation.</strong> If each DIKW transformation step retains provenance metadata about what was discarded and why, could higher-level failures be diagnosed by tracing back through the chain? This maps onto the explainability and data lineage problem in ML and data engineering.</p>
 </li>
-<li><p><strong>DIKW × transaction cost theory.</strong> The pending item <code>2026-03-10-nature-of-the-firm-coase-organisations.md</code> investigates Coase/Williamson transaction cost theory. The DIKW transformation costs (what it costs to perform each transformation reliably) may map directly onto Williamson's transaction costs, providing a unified theory of why organisations exist partly to internalise I→K and K→W transformations that markets cannot perform efficiently.</p>
+<li>
+<p><strong>DIKW × transaction cost theory.</strong> The pending item <code>2026-03-10-nature-of-the-firm-coase-organisations.md</code> investigates Coase/Williamson transaction cost theory. The DIKW transformation costs (what it costs to perform each transformation reliably) may map directly onto Williamson's transaction costs, providing a unified theory of why organisations exist partly to internalise I→K and K→W transformations that markets cannot perform efficiently.</p>
 </li>
-<li><p><strong>DIKW as a research evaluation rubric axis.</strong> The pending item <code>2026-03-10-research-loop-evaluation-rubric.md</code> asks how to evaluate research loop outputs. The I→K transformation framing — does the output represent causally grounded, generalisable knowledge or merely structured information? — could provide the rubric's primary scoring dimension: <em>does this output cross the I→K threshold?</em></p>
+<li>
+<p><strong>DIKW as a research evaluation rubric axis.</strong> The pending item <code>2026-03-10-research-loop-evaluation-rubric.md</code> asks how to evaluate research loop outputs. The I→K transformation framing — does the output represent causally grounded, generalisable knowledge or merely structured information? — could provide the rubric's primary scoring dimension: <em>does this output cross the I→K threshold?</em></p>
 </li>
 </ol>
 <hr />

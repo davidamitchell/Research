@@ -655,29 +655,41 @@ main {
 <p>PCA remains the correct dimensionality reduction choice for analytics model families sensitive to feature collinearity — standardise features first, use cumulative explained variance (90–95%) to select components — but is unnecessary for tree-based models like GBDTs that handle correlated features natively. For regulated contexts requiring feature attribution disclosure, Sparse PCA produces interpretable sparse loadings that standard PCA cannot provide. Genetic algorithms (GA) and Particle Swarm Optimisation (PSO) are the appropriate optimisation choice when the fitness landscape is non-differentiable, discrete, or combinatorial; Bayesian optimisation (Optuna) remains faster for continuous hyperparameter spaces. Contextual bandits are the correct default for the explore/exploit problems most analytics teams encounter — one-shot pricing, offer, and recommendation decisions — with full RL justified only when sequential state-transition effects dominate. Offline RL (CQL, IQL) is the appropriate RL entry point for regulated industries, enabling policy learning from static historical data without live experimentation, accessible via d3rlpy.</p>
 <h3>Key Findings</h3>
 <ol>
-<li><p>PCA is appropriate for preprocessing when features are highly correlated and the downstream model is sensitive to collinearity (logistic regression, SVMs, linear neural networks); for tree-based models like GBDTs, PCA preprocessing is unnecessary and may reduce performance by discarding non-linear feature interactions that trees exploit directly. (confidence: high)</p>
+<li>
+<p>PCA is appropriate for preprocessing when features are highly correlated and the downstream model is sensitive to collinearity (logistic regression, SVMs, linear neural networks); for tree-based models like GBDTs, PCA preprocessing is unnecessary and may reduce performance by discarding non-linear feature interactions that trees exploit directly. (confidence: high)</p>
 </li>
-<li><p>Standard PCA requires features to be standardised to mean zero and unit variance before application; failure to standardise causes principal components to be dominated by high-variance features regardless of predictive relevance, producing systematically misleading component structures. (confidence: high)</p>
+<li>
+<p>Standard PCA requires features to be standardised to mean zero and unit variance before application; failure to standardise causes principal components to be dominated by high-variance features regardless of predictive relevance, producing systematically misleading component structures. (confidence: high)</p>
 </li>
-<li><p>For regulated contexts where feature contributions must be disclosable to auditors or regulators, Sparse PCA is preferable to standard PCA because its sparse loadings assign near-zero weight to most original features, making each input's contribution legible; standard PCA dense loadings distribute influence across all features and are difficult to attribute. (confidence: high)</p>
+<li>
+<p>For regulated contexts where feature contributions must be disclosable to auditors or regulators, Sparse PCA is preferable to standard PCA because its sparse loadings assign near-zero weight to most original features, making each input's contribution legible; standard PCA dense loadings distribute influence across all features and are difficult to attribute. (confidence: high)</p>
 </li>
-<li><p>PCA on LLM embedding spaces is a production-validated 2024–2025 technique that compresses 3,072-dimensional embeddings to ~100 dimensions, yielding up to 60× retrieval speedup while preserving semantic structure in RAG pipelines and anomaly detection workflows. (confidence: high)</p>
+<li>
+<p>PCA on LLM embedding spaces is a production-validated 2024–2025 technique that compresses 3,072-dimensional embeddings to ~100 dimensions, yielding up to 60× retrieval speedup while preserving semantic structure in RAG pipelines and anomaly detection workflows. (confidence: high)</p>
 </li>
-<li><p>For analytics hyperparameter search on continuous, smooth spaces, Bayesian optimisation (Optuna) outperforms GA and PSO; for discrete, combinatorial, or highly multimodal search spaces — including feature mask selection and pipeline architecture search — GA and PSO outperform Bayesian optimisation by navigating non-differentiable fitness landscapes that Bayesian methods handle poorly. (confidence: high)</p>
+<li>
+<p>For analytics hyperparameter search on continuous, smooth spaces, Bayesian optimisation (Optuna) outperforms GA and PSO; for discrete, combinatorial, or highly multimodal search spaces — including feature mask selection and pipeline architecture search — GA and PSO outperform Bayesian optimisation by navigating non-differentiable fitness landscapes that Bayesian methods handle poorly. (confidence: high)</p>
 </li>
-<li><p>NSGA-II is the benchmark multi-objective evolutionary algorithm for portfolio optimisation, enabling explicit Pareto-front trade-offs between return and risk, with production-applicable results validated in the EvoFolio system (Springer, 2024) and in hybrid RL-guided NSGA-II portfolio work on NASDAQ data. (confidence: high)</p>
+<li>
+<p>NSGA-II is the benchmark multi-objective evolutionary algorithm for portfolio optimisation, enabling explicit Pareto-front trade-offs between return and risk, with production-applicable results validated in the EvoFolio system (Springer, 2024) and in hybrid RL-guided NSGA-II portfolio work on NASDAQ data. (confidence: high)</p>
 </li>
-<li><p>Contextual bandits (Thompson Sampling, UCB) are the correct default for analytics explore/exploit problems — dynamic pricing, personalised offers, product recommendations — when decisions are one-shot per customer context and rewards are near-immediate; full RL is warranted only when today's action materially shifts the distribution of future states over multiple time steps. (confidence: high)</p>
+<li>
+<p>Contextual bandits (Thompson Sampling, UCB) are the correct default for analytics explore/exploit problems — dynamic pricing, personalised offers, product recommendations — when decisions are one-shot per customer context and rewards are near-immediate; full RL is warranted only when today's action materially shifts the distribution of future states over multiple time steps. (confidence: high)</p>
 </li>
-<li><p>Offline RL (Conservative Q-Learning and Implicit Q-Learning) trains policies from static historical datasets without live experimentation, making it the only viable RL approach for regulated analytics teams that cannot conduct online experiments; both algorithms are production-accessible via the d3rlpy Python library. (confidence: high)</p>
+<li>
+<p>Offline RL (Conservative Q-Learning and Implicit Q-Learning) trains policies from static historical datasets without live experimentation, making it the only viable RL approach for regulated analytics teams that cannot conduct online experiments; both algorithms are production-accessible via the d3rlpy Python library. (confidence: high)</p>
 </li>
-<li><p>RL policy explainability in regulated industries is a material open gap: post-hoc SHAP can explain individual action recommendations but does not explain temporal credit assignment or the long-term policy objective, creating a disclosure challenge for high-stakes automated decisions that regulators may probe. (confidence: high)</p>
+<li>
+<p>RL policy explainability in regulated industries is a material open gap: post-hoc SHAP can explain individual action recommendations but does not explain temporal credit assignment or the long-term policy objective, creating a disclosure challenge for high-stakes automated decisions that regulators may probe. (confidence: high)</p>
 </li>
-<li><p>Neural combinatorial optimisation (transformer-based attention models trained with deep RL) achieves near-optimal solutions for routing and scheduling problems faster than classical heuristics at benchmark scale; GA and ACO remain the appropriate starting point for teams without deep learning infrastructure, given their maturity and interpretability. (confidence: medium)</p>
+<li>
+<p>Neural combinatorial optimisation (transformer-based attention models trained with deep RL) achieves near-optimal solutions for routing and scheduling problems faster than classical heuristics at benchmark scale; GA and ACO remain the appropriate starting point for teams without deep learning infrastructure, given their maturity and interpretability. (confidence: medium)</p>
 </li>
-<li><p>PSO is preferable to ACO for continuous and neural architecture search applications; ACO is preferable for discrete graph-based combinatorial problems (routing, scheduling with dependency graphs) where its pheromone-trail construction maps naturally to the problem structure. (confidence: high)</p>
+<li>
+<p>PSO is preferable to ACO for continuous and neural architecture search applications; ACO is preferable for discrete graph-based combinatorial problems (routing, scheduling with dependency graphs) where its pheromone-trail construction maps naturally to the problem structure. (confidence: high)</p>
 </li>
-<li><p>Across all four families, adoption maturity varies widely: PCA is table-stakes; contextual bandits are industry-ready; GAs/PSO for hyperparameter search are specialist tools; online RL requires simulation infrastructure and is experimental for most analytics teams; offline RL is accessible via d3rlpy but remains a specialist capability. (confidence: high)</p>
+<li>
+<p>Across all four families, adoption maturity varies widely: PCA is table-stakes; contextual bandits are industry-ready; GAs/PSO for hyperparameter search are specialist tools; online RL requires simulation infrastructure and is experimental for most analytics teams; offline RL is accessible via d3rlpy but remains a specialist capability. (confidence: high)</p>
 </li>
 </ol>
 <h3>Assumptions</h3>

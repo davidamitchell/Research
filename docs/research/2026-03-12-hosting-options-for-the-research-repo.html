@@ -654,25 +654,35 @@ main {
 <p>MkDocs Material deployed to GitHub Pages via GitHub Actions — using only the already-approved GITHUB_TOKEN — is the recommended hosting stack for this research repository. A five-line workflow (<code>pip install mkdocs-material &amp;&amp; mkdocs gh-deploy --force</code>) converts <code>Research/completed/</code> Markdown to a navigable HTML site with tag indexes and built-in full-text search; Pagefind can be layered on as a post-processor to add tag-filtered, section-level search with under 50 kB payload at current corpus scale. No cloud-hosted vector database is free forever without a new credential; the only zero-credential path for semantic search is pre-computed embeddings stored as a static JSON file served by Orama in the browser. The recommended baseline stack requires no new infrastructure, no new credentials, and an estimated 30–60 second CI (continuous integration) build time.</p>
 <h3>Key Findings</h3>
 <ol>
-<li><p>GitHub Pages deployed via a custom GitHub Actions workflow requires only <code>GITHUB_TOKEN</code> with <code>pages: write; id-token: write</code> permissions — the only evaluated hosting option requiring no new credential while keeping all build steps inside GitHub Actions. [High confidence]</p>
+<li>
+<p>GitHub Pages deployed via a custom GitHub Actions workflow requires only <code>GITHUB_TOKEN</code> with <code>pages: write; id-token: write</code> permissions — the only evaluated hosting option requiring no new credential while keeping all build steps inside GitHub Actions. [High confidence]</p>
 </li>
-<li><p>Cloudflare Pages free tier provides unlimited bandwidth versus GitHub Pages' 100 GB/month soft limit, but at the expected traffic scale for a personal research site this difference is not material; both platforms are technically viable. [High confidence]</p>
+<li>
+<p>Cloudflare Pages free tier provides unlimited bandwidth versus GitHub Pages' 100 GB/month soft limit, but at the expected traffic scale for a personal research site this difference is not material; both platforms are technically viable. [High confidence]</p>
 </li>
-<li><p>MkDocs Material is the best-fit static-site generator for this repository: it is Python-native (consistent with <code>src/</code>), reads YAML frontmatter <code>tags</code> via its built-in tags plugin, and provides an official GitHub Actions deployment recipe that uses only <code>GITHUB_TOKEN</code>. [High confidence]</p>
+<li>
+<p>MkDocs Material is the best-fit static-site generator for this repository: it is Python-native (consistent with <code>src/</code>), reads YAML frontmatter <code>tags</code> via its built-in tags plugin, and provides an official GitHub Actions deployment recipe that uses only <code>GITHUB_TOKEN</code>. [High confidence]</p>
 </li>
-<li><p>Pagefind v1.0 is a stable post-processor that indexes built HTML from any SSG and produces a chunked client-side search index; for 50–200 research items the total search payload is under 50 kB, and it supports tag-based filtering via <code>data-pagefind-filter</code> HTML attributes on tag links. [High confidence]</p>
+<li>
+<p>Pagefind v1.0 is a stable post-processor that indexes built HTML from any SSG and produces a chunked client-side search index; for 50–200 research items the total search payload is under 50 kB, and it supports tag-based filtering via <code>data-pagefind-filter</code> HTML attributes on tag links. [High confidence]</p>
 </li>
-<li><p>Enabling Pagefind tag filtering in a MkDocs Material site requires a small template override to emit <code>data-pagefind-filter=&quot;tag&quot;</code> on tag links in the built HTML; without this customisation, tag navigation and keyword search remain separate UI surfaces. [Medium confidence]</p>
+<li>
+<p>Enabling Pagefind tag filtering in a MkDocs Material site requires a small template override to emit <code>data-pagefind-filter=&quot;tag&quot;</code> on tag links in the built HTML; without this customisation, tag navigation and keyword search remain separate UI surfaces. [Medium confidence]</p>
 </li>
-<li><p>No free-forever cloud-hosted vector database (Qdrant Cloud, LanceDB Cloud, or Weaviate Cloud) can be integrated without a new API credential not currently in the approved credentials table, making all of them a hard stop under the existing workflow constraints. [High confidence]</p>
+<li>
+<p>No free-forever cloud-hosted vector database (Qdrant Cloud, LanceDB Cloud, or Weaviate Cloud) can be integrated without a new API credential not currently in the approved credentials table, making all of them a hard stop under the existing workflow constraints. [High confidence]</p>
 </li>
-<li><p>Orama (open-source JavaScript library) supports browser-side full-text, vector, and hybrid search with no server requirement, using pre-computed embeddings stored as a static JSON file; at 200 research items using 384-dimension embeddings the JSON file is approximately 300 kB, and the CI embedding generation step adds roughly 60–90 seconds to each build. [Medium confidence]</p>
+<li>
+<p>Orama (open-source JavaScript library) supports browser-side full-text, vector, and hybrid search with no server requirement, using pre-computed embeddings stored as a static JSON file; at 200 research items using 384-dimension embeddings the JSON file is approximately 300 kB, and the CI embedding generation step adds roughly 60–90 seconds to each build. [Medium confidence]</p>
 </li>
-<li><p>LanceDB Cloud is in public beta with a 30-day free trial — it is not a free-forever option — and LanceDB OSS is an in-process embedded database that cannot serve queries from a static site without a serverless function wrapper. [High confidence]</p>
+<li>
+<p>LanceDB Cloud is in public beta with a 30-day free trial — it is not a free-forever option — and LanceDB OSS is an in-process embedded database that cannot serve queries from a static site without a serverless function wrapper. [High confidence]</p>
 </li>
-<li><p>Neo4j AuraDB Free (50,000 nodes, 175,000 relationships) could support graph-based tag and cross-reference navigation, but at current corpus scale (30–50 items) MkDocs Material's tags index is sufficient and any automated AuraDB integration requires a new credential not in the approved table. [High confidence]</p>
+<li>
+<p>Neo4j AuraDB Free (50,000 nodes, 175,000 relationships) could support graph-based tag and cross-reference navigation, but at current corpus scale (30–50 items) MkDocs Material's tags index is sufficient and any automated AuraDB integration requires a new credential not in the approved table. [High confidence]</p>
 </li>
-<li><p>The simplest end-to-end stack meeting all stated requirements — free, full-text search with tag filtering, push-to-main GitHub Actions workflow, zero new credentials — is MkDocs Material (SSG) + Pagefind (search post-processor) + GitHub Pages (hosting). [High confidence]</p>
+<li>
+<p>The simplest end-to-end stack meeting all stated requirements — free, full-text search with tag filtering, push-to-main GitHub Actions workflow, zero new credentials — is MkDocs Material (SSG) + Pagefind (search post-processor) + GitHub Pages (hosting). [High confidence]</p>
 </li>
 </ol>
 <h3>Assumptions</h3>
