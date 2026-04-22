@@ -1567,7 +1567,7 @@ LANDING_SEARCH_JS = """
   function fetchIndex() {
     fetch('/Research/search-index.json')
       .then(function(r) { return r.json(); })
-      .then(function(data) { index = data; })
+      .then(function(data) { index = data; runPreview(); })
       .catch(function() {});
   }
 
@@ -1592,7 +1592,7 @@ LANDING_SEARCH_JS = """
         + '<span class="search-preview-date">' + escapeHtml(item.added) + '</span>'
         + '</a>';
     }).join('') + '<a class="search-see-all" href="/Research/search.html?q=' + encodeURIComponent(input.value.trim()) + '">see all results →</a>';
-    resultsEl.style.display = '';
+    resultsEl.style.display = 'block';
   }
 
   if (input) {
@@ -1821,7 +1821,7 @@ def build_item_page(
     # Render Sources section so links appear as proper <a> tags on the page
     sources_text = item.get("_sources_text", "")
     if sources_text:
-        rendered_sources = md(sources_text)
+        rendered_sources = md.render(sources_text)
         rendered_sources = autolink_html(rendered_sources, source_refs)
         rendered_sources = _STRAY_CLOSE_TAGS_RE.sub("", rendered_sources)
         sections_html += f"<h2>{ICON_TAG_H2}sources</h2>\n{rendered_sources}\n"
