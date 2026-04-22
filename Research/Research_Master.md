@@ -1,10 +1,11 @@
 # Research Master Document
 
-Generated on: 2026-04-22 21:13 UTC
+Generated on: 2026-04-22 21:33 UTC
 
 ## Table of Contents
 
 * [Recall competitive landscape and clone feasibility](#2026-04-22-recall-competitive-landscape-and-clone-feasibility-md)
+* [Enterprise AI use-case routing frameworks](#2026-04-22-enterprise-ai-use-case-routing-frameworks-md)
 * [Enterprise AI platform operating models: organisational structure and ownership](#2026-04-22-enterprise-ai-platform-operating-models-md)
 * [Enterprise AI capability model for use-case maturity decisions](#2026-04-22-enterprise-ai-capability-model-md)
 * [Automated governance assurance and change control verification patterns for AI-assisted delivery](#2026-04-22-ai-governance-assurance-change-control-verification-md)
@@ -238,6 +239,87 @@ What core capabilities does Recall provide, who else is building similar product
 - Is a lightweight bookmarklet acceptable for the first phase, or is a full browser extension required for actual user adoption?
 - Should the clone use hosted model providers first, or is local-model support a first-phase requirement because privacy is part of the product promise?
 - Does the first release need quizzes and spaced repetition for differentiation, or can those features wait until the core capture and retrieval loop is proven?
+
+---
+
+---
+
+<a name="2026-04-22-enterprise-ai-use-case-routing-frameworks-md"></a>
+
+## Enterprise AI use-case routing frameworks
+
+**Tags:** [artificial-intelligence, platform-governance, risk-tiering, operating-model]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-22-enterprise-ai-use-case-routing-frameworks.md
+
+## Research Question
+
+What decision frameworks do enterprises use to route Artificial Intelligence (AI) use cases to the appropriate platform, implementation pattern, and risk tier, distinguishing low-code business-led, pro-code custom, and developer productivity use cases, and what criteria, routing signals, and governance checkpoints does each routing decision require?
+
+## Findings
+
+*(Populated from §6 Synthesis above.)*
+
+### Executive Summary
+
+[inference; source: https://www.nist.gov/itl/ai-risk-management-framework; https://www.iso.org/standard/81230.html; https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai; https://learn.microsoft.com/en-us/power-platform/guidance/coe/overview; https://docs.github.com/en/copilot/concepts/policies] Enterprises should use a three-lane routing framework with one shared intake rubric: route low-criticality, approved-platform business automation to a low-code lane, route sensitive or deeply integrated systems to a pro-code custom lane, and route internal engineering assistance to a developer productivity lane.
+[inference; source: https://learn.microsoft.com/en-us/security/ai-red-team/ai-risk-assessment; https://learn.microsoft.com/azure/cloud-adoption-framework/scenarios/ai/govern; https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai] The routing decision should be driven by data sensitivity, outcome criticality, autonomy, integration depth, third-party dependency exposure, and regulatory classification rather than by vendor preference or team habit.
+[inference; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-22-enterprise-ai-platform-operating-models.md; https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention; https://docs.github.com/en/copilot/concepts/policies] A central platform team should own the shared enterprise governance layer, approved tools, and escalation rubric, and routing should follow risk signals rather than vendor-stack silos because the same platform family can host both low-risk assistance and higher-control workflows.
+[inference; source: https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention; https://learn.microsoft.com/en-us/security/ai-red-team/ai-risk-assessment; https://docs.github.com/en/copilot/responsible-use-of-github-copilot-features/responsible-use-of-github-copilot-code-completion] The main operational risk is misrouting, because lightweight platform controls are insufficient for high-impact systems and heavyweight review is wasteful for low-risk internal assistance.
+
+### Key Findings
+
+1. [inference; source: https://www.nist.gov/itl/ai-risk-management-framework; https://www.iso.org/standard/81230.html; https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai; https://learn.microsoft.com/azure/cloud-adoption-framework/scenarios/ai/govern] **High confidence:** Enterprises need one intake rubric that scores data sensitivity, impact criticality, autonomy, integration depth, and regulatory exposure before deciding which AI delivery lane a use case should enter.
+2. [inference; source: https://learn.microsoft.com/en-us/power-platform/guidance/coe/overview; https://learn.microsoft.com/en-us/power-platform/admin/managed-environment-overview; https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention] **Medium confidence:** The business-led low-code lane is most defensible for approved-platform workflows where central administrators can enforce managed environments, connector guardrails, maker accountability, and rapid escalation of noncompliant apps.
+3. [inference; source: https://learn.microsoft.com/azure/cloud-adoption-framework/scenarios/ai/govern; https://docs.cloud.google.com/architecture/framework/perspectives/ai-ml/operational-excellence?hl=en; https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/machine-learning-lens.html; https://learn.microsoft.com/en-us/security/ai-red-team/ai-risk-assessment] **High confidence:** The pro-code custom lane should be selected when a use case depends on custom engineering, sensitive or regulated data, deep system integration, or operational controls that must span the full model and software lifecycle.
+4. [inference; source: https://docs.github.com/en/copilot/concepts/policies; https://docs.github.com/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise; https://docs.github.com/en/copilot/responsible-use-of-github-copilot-features/responsible-use-of-github-copilot-code-completion] **Medium confidence:** Developer productivity AI is best treated as an internal tooling lane with enterprise policy controls, privacy decisions, and mandatory human review rather than as unattended business automation.
+5. [inference; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-22-enterprise-ai-platform-operating-models.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-22-enterprise-ai-capability-model.md; https://learn.microsoft.com/en-us/power-platform/guidance/coe/overview] **Medium confidence:** The central platform team should own the shared enterprise governance layer and approved capabilities, while business or engineering teams should own route-specific implementation after the intake decision is made.
+6. [inference; source: https://learn.microsoft.com/en-us/security/ai-red-team/ai-risk-assessment; https://learn.microsoft.com/azure/cloud-adoption-framework/scenarios/ai/govern; https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention; https://docs.github.com/en/copilot/responsible-use-of-github-copilot-features/responsible-use-of-github-copilot-code-completion] **Medium confidence:** The most reliable escalation triggers are trusted-boundary breaks, unsupervised action, production-system change, and rights-bearing decisions, because these signals consistently increase security, compliance, and operational risk across frameworks.
+7. [inference; source: https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention; https://learn.microsoft.com/en-us/security/ai-red-team/ai-risk-assessment; https://docs.github.com/en/copilot/concepts/policies] **Medium confidence:** The main failure modes are misrouting low-code automation into high-impact domains, forcing low-risk internal assistance through heavyweight committees, and allowing AI tools or connectors to bypass central policy settings.
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [inference] One intake rubric should score shared risk signals before any platform choice. | https://www.nist.gov/itl/ai-risk-management-framework<br>https://www.iso.org/standard/81230.html<br>https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai<br>https://learn.microsoft.com/azure/cloud-adoption-framework/scenarios/ai/govern | high | Cross-framework convergence on proportional governance. |
+| [inference] The business-led low-code lane is most defensible when managed environments, connector guardrails, and maker accountability are in place. | https://learn.microsoft.com/en-us/power-platform/guidance/coe/overview<br>https://learn.microsoft.com/en-us/power-platform/admin/managed-environment-overview<br>https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention | medium | Evidence comes from Microsoft low-code governance guidance. |
+| [inference] The pro-code custom lane should be selected when lifecycle controls must span design, deployment, monitoring, and incident response. | https://learn.microsoft.com/azure/cloud-adoption-framework/scenarios/ai/govern<br>https://docs.cloud.google.com/architecture/framework/perspectives/ai-ml/operational-excellence?hl=en<br>https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/machine-learning-lens.html<br>https://learn.microsoft.com/en-us/security/ai-red-team/ai-risk-assessment | high | Evidence spans Microsoft, Google Cloud, and AWS guidance. |
+| [inference] Developer productivity tools are best treated as an internal tooling lane with enterprise policy controls and human review requirements. | https://docs.github.com/en/copilot/concepts/policies<br>https://docs.github.com/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise<br>https://docs.github.com/en/copilot/responsible-use-of-github-copilot-features/responsible-use-of-github-copilot-code-completion | medium | Evidence comes from GitHub governance and responsible-use guidance. |
+| [inference] The central platform team should own the shared enterprise governance layer and approved capabilities. | https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-22-enterprise-ai-platform-operating-models.md<br>https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-22-enterprise-ai-capability-model.md<br>https://learn.microsoft.com/en-us/power-platform/guidance/coe/overview | medium | Prior repository work and CoE guidance point to central ownership plus federated delivery. |
+| [inference] Boundary breaks, unsupervised action, production change, and rights-bearing outcomes are the strongest escalation triggers. | https://learn.microsoft.com/en-us/security/ai-red-team/ai-risk-assessment<br>https://learn.microsoft.com/azure/cloud-adoption-framework/scenarios/ai/govern<br>https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention<br>https://docs.github.com/en/copilot/responsible-use-of-github-copilot-features/responsible-use-of-github-copilot-code-completion | medium | These signals recur across all three routes. |
+| [inference] Misrouting and policy bypasses create the dominant governance failures. | https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention<br>https://learn.microsoft.com/en-us/security/ai-red-team/ai-risk-assessment<br>https://docs.github.com/en/copilot/concepts/policies | medium | Failure pattern emerges from route-specific control gaps. |
+
+### Assumptions
+
+- None.
+
+### Analysis
+
+[inference; source: https://www.nist.gov/itl/ai-risk-management-framework; https://www.iso.org/standard/81230.html; https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai] The standards and regulatory sources were weighted most heavily because they define the control objectives that any routing framework must satisfy, even though they do not name the three lanes directly.
+[inference; source: https://learn.microsoft.com/en-us/power-platform/guidance/coe/overview; https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention; https://docs.github.com/en/copilot/concepts/policies; https://docs.github.com/en/copilot/responsible-use-of-github-copilot-features/responsible-use-of-github-copilot-code-completion] Route-specific platform guidance was then used to map those generic objectives onto concrete control surfaces, which is why the low-code and developer productivity lanes are justified as distinct patterns rather than as mere subcases of general AI governance.
+[inference; source: https://learn.microsoft.com/azure/cloud-adoption-framework/scenarios/ai/govern; https://docs.cloud.google.com/architecture/framework/perspectives/ai-ml/operational-excellence?hl=en; https://docs.aws.amazon.com/wellarchitected/latest/machine-learning-lens/machine-learning-lens.html] The pro-code custom lane has the most detailed checkpoint evidence because cloud architecture frameworks describe model lifecycle, observability, CI/CD, controlled release, and post-deployment monitoring in operational detail.
+[inference; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-22-enterprise-ai-platform-operating-models.md; https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention; https://docs.github.com/en/copilot/concepts/policies] A vendor-stack-based routing alternative is weaker than risk-signal routing, because the same platform family can host both lightly governed assistance and higher-control workflows, so platform brand alone does not determine review depth.
+
+### Risks, Gaps, and Uncertainties
+
+[fact; source: https://learn.microsoft.com/en-us/power-platform/guidance/coe/overview; https://docs.github.com/en/copilot/concepts/policies] Public platform documentation describes available governance levers, but it rarely publishes numeric scoring thresholds for route assignment, so each enterprise still needs to calibrate its own cutoff values.
+[inference; source: https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai] The AI Act identifies prohibited, high-risk, transparency, and minimal-or-no-risk categories, but enterprise intake still needs internal judgment for cases that are not explicitly named as prohibited or high risk.
+[inference; source: https://docs.github.com/en/copilot/responsible-use-of-github-copilot-features/responsible-use-of-github-copilot-code-completion; https://learn.microsoft.com/en-us/security/ai-red-team/ai-risk-assessment] The route boundary for developer productivity tools could shift if organizations allow those tools to execute production changes autonomously, because that would move them closer to operational automation than to supervised assistance.
+
+### Open Questions
+
+- What scoring rubric and threshold bands are most usable for a real backlog intake form across these three lanes?
+- How should enterprises route AI agents that both assist developers and can execute production actions, such as deployment or support automation?
+- Which evidence artifacts should be mandatory at each checkpoint for regulated sectors such as banking or healthcare?
+
+### Output
+
+- Type: knowledge
+- Description: Three-lane enterprise routing framework for AI use-case intake, including route-selection signals and governance checkpoints for low-code, pro-code, and developer productivity work.
+- Links:
+  - https://www.nist.gov/itl/ai-risk-management-framework
+  - https://learn.microsoft.com/azure/cloud-adoption-framework/scenarios/ai/govern
+  - https://docs.github.com/en/copilot/concepts/policies
 
 ---
 
