@@ -1,11 +1,12 @@
 # Research Master Document
 
-Generated on: 2026-04-22 08:53 UTC
+Generated on: 2026-04-22 20:49 UTC
 
 ## Table of Contents
 
 * [Recall competitive landscape and clone feasibility](#2026-04-22-recall-competitive-landscape-and-clone-feasibility-md)
 * [Enterprise AI capability model for use-case maturity decisions](#2026-04-22-enterprise-ai-capability-model-md)
+* [Automated governance assurance and change control verification patterns for AI-assisted delivery](#2026-04-22-ai-governance-assurance-change-control-verification-md)
 * [Harness-level selection and use of tools, agents, skills, prompts, and instruction files](#2026-04-20-harness-selection-tools-agents-skills-prompts-instructions-md)
 * [Shopify's Artificial Intelligence (AI) strategy after the Red Queen memo: selection pressure, talent-market effects, and copycat outcomes](#2026-04-18-shopify-ai-strategy-red-queen-memo-md)
 * [Latest developments history: trends, themes, and forward scenarios](#2026-04-18-latest-developments-trends-forecast-md)
@@ -330,6 +331,86 @@ What enterprise-wide Artificial Intelligence (AI) capability model best supports
 [inference; source: https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report] What benchmark should tell an enterprise that its shared retrieval, policy, and evaluation rails are mature enough for higher-autonomy use cases?
 [inference; source: https://doi.org/10.6028/NIST.AI.100-1; https://www.iso.org/standard/81230.html] Which governance controls can remain fully shared across the enterprise, and which must always remain specialised by domain or risk class?
 [inference; source: https://www.faros.ai/blog/translating-ai-powered-developer-velocity-into-business-outcomes; https://www.gitclear.com/coding_on_copilot_data_shows_ais_downward_pressure_on_code_quality] What is the best early-warning metric for the point where generation capacity begins to outrun verification capacity in enterprise delivery systems?
+
+---
+
+---
+
+<a name="2026-04-22-ai-governance-assurance-change-control-verification-md"></a>
+
+## Automated governance assurance and change control verification patterns for AI-assisted delivery
+
+**Tags:** [ai-governance, compliance, change-control, delivery-pipeline]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-22-ai-governance-assurance-change-control-verification.md
+
+## Research Question
+
+What technical patterns exist for automating governance assurance and change control verification in Artificial Intelligence (AI)-assisted delivery pipelines, specifically audit evidence generation, policy compliance checking, and exception surfacing, so AI-driven change can be governed at AI speed rather than Change Advisory Board (CAB) speed?
+
+## Findings
+
+*(Populated from §6 Synthesis above.)*
+
+### Executive Summary
+
+[inference] AI-assisted change can be governed at near machine speed when the pipeline emits provenance attestations, records policy decisions with policy-version context, and uses risk-tiered enforcement so only exceptions and high-risk changes require human review. Sources: https://slsa.dev/spec/v1.1/provenance ; https://www.openpolicyagent.org/docs/latest/management-decision-logs/ ; https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets  
+[inference] GitHub's native control-plane features already provide most of the required machinery, because reusable workflows centralize execution, rulesets centralize merge controls, artifact attestations centralize provenance, and required deployments centralize release gates. Sources: https://docs.github.com/en/actions/sharing-automations/reusing-workflows ; https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets ; https://docs.github.com/en/actions/security-for-github-actions/using-artifact-attestations  
+[inference] OPA completes the pattern by turning policy into versioned, testable, replayable logic whose decisions can fail fast in CI/CD and remain auditable after the fact. Sources: https://openpolicyagent.org/docs/cicd ; https://www.openpolicyagent.org/docs/latest/management-bundles/ ; https://www.openpolicyagent.org/docs/latest/management-decision-logs/  
+[inference] Manual CAB-style review remains necessary only for break-glass exceptions, high-risk changes, or situations where provenance and policy evidence are incomplete, contradictory, or outside the organization's pre-approved risk thresholds. Sources: https://airc.nist.gov/AI_RMF_Knowledge_Base/AI_RMF/Core_And_Profiles/5-sec-core ; https://airc.nist.gov/AI_RMF_Knowledge_Base/Playbook/Govern ; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-02-28-ai-control-testing-and-assurance.md
+
+### Key Findings
+
+1. [inference] **Confidence: high.** A durable governance audit trail for AI-assisted delivery requires two evidence channels, one that proves how the artifact was produced and one that proves which policy version evaluated the change and what decision it returned. Sources: https://slsa.dev/spec/v1.1/provenance ; https://www.openpolicyagent.org/docs/latest/management-decision-logs/
+2. [inference] **Confidence: medium.** GitHub already exposes the core enforcement primitives needed for automated change control verification, because reusable workflows, rulesets, required pull requests, required deployments, signed commits, and artifact attestations are all documented platform capabilities. Sources: https://docs.github.com/en/actions/sharing-automations/reusing-workflows ; https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets ; https://docs.github.com/en/actions/security-for-github-actions/using-artifact-attestations
+3. [inference] **Confidence: medium.** Open Policy Agent is a viable reference implementation for the policy layer in this problem, because it separates policy from enforcement, supports fail-fast Command Line Interface evaluation in CI/CD, and emits decision logs that preserve bundle revision, input, result, and decision identity. Sources: https://www.openpolicyagent.org/docs/latest/ ; https://openpolicyagent.org/docs/cicd ; https://www.openpolicyagent.org/docs/latest/management-decision-logs/
+4. [inference] **Confidence: medium.** Signed policy bundles should be treated as a required control for medium and high-risk changes, because a governance decision is not fully auditable unless reviewers can later prove which exact version of policy logic was active. Sources: https://www.openpolicyagent.org/docs/latest/management-bundles/ ; https://www.openpolicyagent.org/docs/latest/management-decision-logs/
+5. [inference] **Confidence: high.** Exception handling should be staged and bounded rather than binary, because Evaluate and warn modes let teams tune controls before enforcement while pull-request-only bypass and explicit approver paths preserve an audit trail for break-glass decisions. Sources: https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-organization-settings/creating-rulesets-for-repositories-in-your-organization ; https://docs.sigstore.dev/policy-controller/overview/
+6. [inference] **Confidence: medium.** A low-risk governance baseline can operate without a Change Advisory Board checkpoint, because provenance attestation, policy evaluation, status checks, and deployment-success requirements can verify routine-path changes automatically before merge or release. Sources: https://docs.github.com/en/actions/how-tos/secure-your-work/use-artifact-attestations/use-artifact-attestations ; https://openpolicyagent.org/docs/cicd ; https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets
+7. [inference] **Confidence: high.** Medium and high-risk changes need stronger controls at both build time and runtime, because signer-pinned attestation verification and deployment admission policies add integrity guarantees that ordinary status checks alone cannot provide. Sources: https://docs.github.com/en/actions/how-tos/secure-your-work/use-artifact-attestations/increase-security-rating ; https://docs.github.com/en/actions/how-tos/secure-your-work/use-artifact-attestations/enforce-artifact-attestations ; https://docs.sigstore.dev/policy-controller/overview/
+8. [inference] **Confidence: medium.** The recommended pattern set extends rather than contradicts prior repository work, because the internal items already identified the need for a multi-tool control plane, a normalized evidence contract, and explicit human ownership for consequential assurance decisions. Sources: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-22-compliance-scanning-gh-actions.md ; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-22-cross-scanner-compliance-evidence-normalisation.md ; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-02-28-ai-control-testing-and-assurance.md
+9. [inference] **Confidence: medium.** NIST AI RMF GOVERN outcomes support this architecture, because they call for documented policies, risk-tiered controls, ongoing monitoring, clear human oversight, and third-party governance throughout the AI lifecycle instead of episodic manual review gates. Sources: https://airc.nist.gov/AI_RMF_Knowledge_Base/AI_RMF/Core_And_Profiles/5-sec-core ; https://airc.nist.gov/AI_RMF_Knowledge_Base/Playbook/Govern
+10. [assumption] **Confidence: medium.** Most organizations will still need to design a local exception registry, because the reviewed public standards and platform documents do not define one shared machine-readable record for approval, justification, expiry, and compensating controls across all gate types. Sources: https://slsa.dev/spec/v1.1/provenance ; https://www.openpolicyagent.org/docs/latest/management-decision-logs/ ; https://docs.sigstore.dev/policy-controller/overview/ ; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-22-cross-scanner-compliance-evidence-normalisation.md
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [inference] A complete governance trail needs both provenance and policy-decision evidence. | https://slsa.dev/spec/v1.1/provenance ; https://www.openpolicyagent.org/docs/latest/management-decision-logs/ | high | Provenance and decisions answer different audit questions. |
+| [fact] GitHub already provides reusable workflows, rulesets, deployment gates, and artifact attestations. | https://docs.github.com/en/actions/sharing-automations/reusing-workflows ; https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets ; https://docs.github.com/en/actions/security-for-github-actions/using-artifact-attestations | high | These are direct documented features. |
+| [inference] OPA fits the policy layer because it decouples policy, supports CI/CD gates, and logs decisions. | https://www.openpolicyagent.org/docs/latest/ ; https://openpolicyagent.org/docs/cicd ; https://www.openpolicyagent.org/docs/latest/management-decision-logs/ | high | The conclusion is a synthesis across core and operational documentation. |
+| [inference] Signed policy bundles are required for stronger auditability in medium and high-risk tiers. | https://www.openpolicyagent.org/docs/latest/management-bundles/ ; https://www.openpolicyagent.org/docs/latest/management-decision-logs/ | medium | The sources document the mechanics; the requirement level is inferred. |
+| [inference] Exception handling should graduate from observe to block while preserving bounded break-glass. | https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-organization-settings/creating-rulesets-for-repositories-in-your-organization ; https://docs.sigstore.dev/policy-controller/overview/ | high | Both sources document staged enforcement and exception paths. |
+| [inference] Low-risk changes can be governed automatically without routine CAB review. | https://docs.github.com/en/actions/how-tos/secure-your-work/use-artifact-attestations/use-artifact-attestations ; https://openpolicyagent.org/docs/cicd ; https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets | high | Routine-path controls can be verified mechanically. |
+| [inference] Medium and high-risk changes need signer-pinned verification and deployment admission controls. | https://docs.github.com/en/actions/how-tos/secure-your-work/use-artifact-attestations/increase-security-rating ; https://docs.github.com/en/actions/how-tos/secure-your-work/use-artifact-attestations/enforce-artifact-attestations ; https://docs.sigstore.dev/policy-controller/overview/ | high | These controls add runtime integrity guarantees. |
+| [inference] Prior repository work supports the same multi-tool, evidence-centric architecture. | https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-22-compliance-scanning-gh-actions.md ; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-22-cross-scanner-compliance-evidence-normalisation.md ; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-02-28-ai-control-testing-and-assurance.md | high | This item is cumulative with the prior work. |
+| [inference] NIST GOVERN outcomes favor continuous automated governance over episodic manual review. | https://airc.nist.gov/AI_RMF_Knowledge_Base/AI_RMF/Core_And_Profiles/5-sec-core ; https://airc.nist.gov/AI_RMF_Knowledge_Base/Playbook/Govern | high | Governance is defined as cross-cutting and continuous. |
+| [assumption] A universal exception-registry schema is still absent from public standards. | https://slsa.dev/spec/v1.1/provenance ; https://www.openpolicyagent.org/docs/latest/management-decision-logs/ ; https://docs.sigstore.dev/policy-controller/overview/ ; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-22-cross-scanner-compliance-evidence-normalisation.md | medium | The gap is inferred from what the sources define and omit. |
+
+### Assumptions
+
+- [assumption] **Assumption:** The organization can classify AI-assisted changes into stable low, medium, and high-risk tiers. **Justification:** NIST requires risk-tiered governance, but the reviewed sources do not supply a universal change classifier. Sources: https://www.nist.gov/itl/ai-risk-management-framework ; https://airc.nist.gov/AI_RMF_Knowledge_Base/Playbook/Govern
+- [assumption] **Assumption:** The organization can operate a central exception registry if it wants one durable record across tools. **Justification:** Public standards define evidence and enforcement mechanisms, but not a shared exception object. Sources: https://slsa.dev/spec/v1.1/provenance ; https://www.openpolicyagent.org/docs/latest/management-decision-logs/ ; https://docs.sigstore.dev/policy-controller/overview/
+
+### Analysis
+
+[inference] The evidence was weighted toward primary standards and platform documentation, with prior completed repository items used as design context rather than as the sole basis for any external claim. Sources: https://slsa.dev/spec/v1.1/provenance ; https://docs.github.com/en/actions/security-for-github-actions/using-artifact-attestations ; https://www.openpolicyagent.org/docs/latest/management-decision-logs/ ; https://airc.nist.gov/AI_RMF_Knowledge_Base/AI_RMF/Core_And_Profiles/5-sec-core  
+[assumption] This item treats OPA as the reference implementation from the retrieved source set, not as proof that other policy engines are unsuitable, because the primary-source evidence gathered here was detailed for OPA and did not include comparably detailed primary documentation for alternatives. Sources: https://www.openpolicyagent.org/docs/latest/ ; https://openpolicyagent.org/docs/cicd ; https://github.com/davidamitchell/Research/blob/main/Research/in-progress/2026-04-22-ai-governance-assurance-change-control-verification.md  
+[inference] The main trade-off is between governance latency and governance precision, and the reviewed sources support reducing latency by automating routine-path verification while preserving precision through stronger controls only on higher-risk or exception-path changes. Sources: https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-organization-settings/creating-rulesets-for-repositories-in-your-organization ; https://docs.sigstore.dev/policy-controller/overview/ ; https://airc.nist.gov/AI_RMF_Knowledge_Base/Playbook/Govern  
+[inference] Competing interpretations about whether a manual CAB is still necessary were resolved by separating normal-path compliance verification from exceptional risk acceptance, because the sources support automation for the former and continued human accountability for the latter. Sources: https://airc.nist.gov/AI_RMF_Knowledge_Base/AI_RMF/Core_And_Profiles/5-sec-core ; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-02-28-ai-control-testing-and-assurance.md  
+[inference] Traceability improves when policy versioning and exception routing are treated as first-class objects rather than hidden implementation details, because a reviewer otherwise cannot reconstruct either the governing policy state or the authorized override path. Sources: https://www.openpolicyagent.org/docs/latest/management-bundles/ ; https://www.openpolicyagent.org/docs/latest/management-decision-logs/ ; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-22-cross-scanner-compliance-evidence-normalisation.md
+
+### Risks, Gaps, and Uncertainties
+
+- [fact] GitHub states that attestations are not a guarantee that an artifact is secure, so weak policy criteria or incomplete verification can still produce a governance blind spot even when provenance is present. Source: https://docs.github.com/en/actions/concepts/security/artifact-attestations
+- [inference] This conclusion would weaken if the organization could not maintain stable policy bundles, signer identities, or risk-tier assignments, because the pattern depends on those controls remaining interpretable over time. Sources: https://www.openpolicyagent.org/docs/latest/management-bundles/ ; https://docs.github.com/en/actions/how-tos/secure-your-work/use-artifact-attestations/increase-security-rating ; https://airc.nist.gov/AI_RMF_Knowledge_Base/Playbook/Govern
+- [inference] The public sources are strongest on build and deployment integrity, but thinner on cross-tool exception schema design, which leaves waiver normalization as the least standardized part of the architecture. Sources: https://slsa.dev/spec/v1.1/provenance ; https://www.openpolicyagent.org/docs/latest/management-decision-logs/ ; https://docs.sigstore.dev/policy-controller/overview/
+
+### Open Questions
+
+- [inference] What risk attributes should drive automatic routing into low, medium, and high-risk governance tiers for AI-assisted changes?
+- [inference] What machine-readable schema should represent exception approval, expiry, compensating controls, and evidence links across build, merge, and runtime gates?
+- [inference] Which non-Kubernetes runtime environments have comparably mature attestation-enforcement patterns for production admission?
 
 ---
 
