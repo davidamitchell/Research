@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Global artificial intelligence agent regulation in financial services: non-functional requirement obligations and low-code citizen-development controls"
 added: 2026-04-24
 status: reviewing
