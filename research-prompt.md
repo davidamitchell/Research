@@ -60,6 +60,9 @@ follow leads they produce. Apply source-marking discipline as defined in
 - Label every claim as **[fact]**, **[inference]**, or **[assumption]**.
 - Every **[fact]** must map to a source. If a source is inaccessible, note it
   in Risks/Gaps.
+- Source-access observations are workflow metadata, not evidence-backed facts.
+  Record broken or blocked URLs in §2 as plain `Access note:` bullets; do not
+  cite inaccessible URLs as support for their own 404/403 outcomes.
 - **[inference]** = derived from evidence; **[assumption]** = not verified,
   state the justification.
 - Evidence sufficiency: at least two independent credible sources agree, or a

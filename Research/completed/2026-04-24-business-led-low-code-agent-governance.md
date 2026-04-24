@@ -2,12 +2,12 @@
 review_count: 2
 title: "Business-led low-code agent governance: conditions for durable value versus fragmentation in regulated environments"
 added: 2026-04-24
-status: reviewing
+status: completed
 priority: high  # low | medium | high
 blocks: []
 tags: [artificial-intelligence, governance, low-code, citizen-development, regulated-environments, operating-model, platform-governance]
 started: 2026-04-24
-completed: ~
+completed: 2026-04-24
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item
 ---
 
@@ -122,7 +122,7 @@ Starting points - papers, articles, videos, repos, docs.
 
 #### Source access and replacement notes
 
-- [fact; source: https://faros.ai/blog/ai-acceleration-whiplash; https://www.gartner.com/en/information-technology/glossary/citizen-developer; https://www.forrester.com/research/rpa/] Three seeded sources were inaccessible in this runtime: the Faros AI page returned 404, the Gartner glossary returned 403, and the Forrester hub returned 404, so none of them were used to support downstream claims.
+- Access note: three seeded sources were inaccessible in this runtime, the Faros AI page returned 404, the Gartner glossary returned 403, and the Forrester hub returned 404, so none of them were used to support downstream claims.
 - [fact; source: https://airc.nist.gov/Docs/2; https://www.nist.gov/itl/ai-risk-management-framework/nist-ai-rmf-playbook; https://airc.nist.gov/airmf-resources/playbook/] The seeded NIST Playbook URL returned 404, so the investigation used NIST's current Playbook entry page and the current AI Resource Center (AIRC) playbook pages instead.
 - [fact; source: https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-overview; https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance; https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-data-loss-prevention] The seeded Microsoft Copilot Studio `admin-overview` URL returned 404, so the investigation used the current `security-and-governance` page and the detailed data-loss-prevention page instead.
 - [fact; source: https://ieeexplore.ieee.org/Xplore/home.jsp] Failed primary-source search record: the seeded IEEE source was only a generic portal, and the query `site:ieeexplore.ieee.org "RPA" "citizen development" governance` did not yield an accessible pinpoint paper in this environment, so no IEEE source was used for factual support.
@@ -177,8 +177,8 @@ Starting points - papers, articles, videos, repos, docs.
 ### §4 Consistency Check
 
 - [fact; source: https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report; https://learn.microsoft.com/en-us/power-platform/guidance/coe/overview; https://digital.gov/2021/08/16/5-tips-for-implementing-citizen-development-in-your-rpa-program/] No direct contradiction appeared across DORA, Microsoft, and Digital.gov on the core question of whether governance should precede scale; all three sources treat enablement as dependent on an operating model and shared controls.
-- [fact; source: https://www.nist.gov/itl/ai-risk-management-framework/nist-ai-rmf-playbook; https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance] A tension exists between contextual tailoring and standardised controls, but it is resolved by combining NIST's risk-based tailoring with Microsoft's tenant-level guardrails and exception routing.
-- [fact; source: https://faros.ai/blog/ai-acceleration-whiplash; https://www.gartner.com/en/information-technology/glossary/citizen-developer; https://www.forrester.com/research/rpa/] Inaccessible analyst pages were excluded from evidentiary weight, so no conclusion depends on a source that could not be checked in this session.
+- [inference; source: https://www.nist.gov/itl/ai-risk-management-framework/nist-ai-rmf-playbook; https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-22-enterprise-ai-use-case-routing-frameworks.md] A tension exists between contextual tailoring and standardised controls, but the most credible operating model is to combine NIST's risk-based tailoring with Microsoft's tenant-level guardrails and exception routing.
+- Access note: inaccessible analyst pages were excluded from evidentiary weight, so no conclusion depends on a source that could not be checked in this session.
 
 ### §5 Depth and Breadth Expansion
 
@@ -227,7 +227,7 @@ Starting points - papers, articles, videos, repos, docs.
 **Analysis:**
 
 [inference; source: https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://learn.microsoft.com/en-us/power-platform/guidance/coe/overview] The strongest evidence suggests that scaled AI value depends on platform quality, explicit governance, and documented use-case context.
-[inference; source: https://digital.gov/2021/08/16/5-tips-for-implementing-citizen-development-in-your-rpa-program/; https://link.springer.com/article/10.1007/s10257-022-00553-8; https://www.uipath.com/blog/automation/citizen-development-lessons-from-meta-conocophillips-and-more] The RPA analogue adds operating-model texture rather than direct proof, but it is persuasive because its recurring prescriptions, central repositories, environment separation, role clarity, and support, match the exact controls Microsoft now exposes for low-code agents.
+[inference; source: https://digital.gov/2021/08/16/5-tips-for-implementing-citizen-development-in-your-rpa-program/; https://link.springer.com/article/10.1007/s10257-022-00553-8; https://www.uipath.com/blog/automation/citizen-development-lessons-from-meta-conocophillips-and-more; https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance] The RPA analogue adds operating-model texture rather than direct proof, but it is persuasive because its recurring prescriptions, central repositories, environment separation, role clarity, and support, match the exact controls Microsoft now exposes for low-code agents.
 [inference; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-data-loss-prevention; https://digital.gov/2021/08/16/5-tips-for-implementing-citizen-development-in-your-rpa-program/] Governance is therefore necessary but not sufficient: durable value also depends on selecting process-suitable use cases and keeping autonomy within the bounds that the platform and operating model can actually support.
 
 **Risks, gaps, uncertainties:**
@@ -292,7 +292,7 @@ Starting points - papers, articles, videos, repos, docs.
 ### Analysis
 
 [inference; source: https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://learn.microsoft.com/en-us/power-platform/guidance/coe/overview] The strongest evidence suggests that scaled AI value depends on platform quality, explicit governance, and documented use-case context.
-[inference; source: https://digital.gov/2021/08/16/5-tips-for-implementing-citizen-development-in-your-rpa-program/; https://link.springer.com/article/10.1007/s10257-022-00553-8; https://www.uipath.com/blog/automation/citizen-development-lessons-from-meta-conocophillips-and-more] The RPA analogue adds operating-model texture rather than direct proof, but it is persuasive because its recurring prescriptions, central repositories, environment separation, role clarity, and support, match the exact controls Microsoft now exposes for low-code agents.
+[inference; source: https://digital.gov/2021/08/16/5-tips-for-implementing-citizen-development-in-your-rpa-program/; https://link.springer.com/article/10.1007/s10257-022-00553-8; https://www.uipath.com/blog/automation/citizen-development-lessons-from-meta-conocophillips-and-more; https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance] The RPA analogue adds operating-model texture rather than direct proof, but it is persuasive because its recurring prescriptions, central repositories, environment separation, role clarity, and support, match the exact controls Microsoft now exposes for low-code agents.
 [inference; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-data-loss-prevention; https://digital.gov/2021/08/16/5-tips-for-implementing-citizen-development-in-your-rpa-program/] Governance is therefore necessary but not sufficient: durable value also depends on selecting process-suitable use cases and keeping autonomy within the bounds that the platform and operating model can actually support.
 
 ### Risks, Gaps, and Uncertainties
