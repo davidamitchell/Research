@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "Business-led low-code agent governance: conditions for durable value versus fragmentation in regulated environments"
 added: 2026-04-24
 status: reviewing
