@@ -1,6 +1,55 @@
 {
-  "extracted_at": "2026-04-24T08:45:25Z",
+  "extracted_at": "2026-04-24T09:28:28Z",
   "items": {
+    "2026-04-24-business-led-low-code-agent-governance": {
+      "named_concepts": [
+        "copilot studio",
+        "power platform",
+        "durable value",
+        "enterprise ai",
+        "ai use-case",
+        "ai value",
+        "central governance",
+        "managed environments",
+        "citizen development",
+        "nist ai",
+        "ai rmf",
+        "rmf core",
+        "use-case routing",
+        "routing frameworks",
+        "business-led low-code",
+        "low-code agent",
+        "agent creation",
+        "risk-based intake",
+        "environment separation",
+        "role clarity"
+      ],
+      "source_urls": [
+        "https://url",
+        "https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report",
+        "https://cloud.google.com/resources/content/2025-dora-ai-capabilities-model-report",
+        "https://faros.ai/blog/ai-acceleration-whiplash",
+        "https://doi.org/10.6028/NIST.AI.100-1",
+        "https://www.nist.gov/itl/ai-risk-management-framework",
+        "https://www.nist.gov/itl/ai-risk-management-framework/nist-ai-rmf-playbook",
+        "https://airc.nist.gov/airmf-resources/playbook/",
+        "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+        "https://airc.nist.gov/airmf-resources/playbook/map/",
+        "https://learn.microsoft.com/en-us/power-platform/guidance/coe/overview",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-data-loss-prevention",
+        "https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention",
+        "https://learn.microsoft.com/en-us/power-platform/admin/managed-environment-overview",
+        "https://digital.gov/2021/08/16/5-tips-for-implementing-citizen-development-in-your-rpa-program/",
+        "https://link.springer.com/article/10.1007/s10257-022-00553-8",
+        "https://www.uipath.com/blog/automation/citizen-development-lessons-from-meta-conocophillips-and-more",
+        "https://www.deloitte.com/us/en/insights/topics/talent/intelligent-automation-2022-survey-results.html",
+        "https://www.gartner.com/en/information-technology/glossary/citizen-developer",
+        "https://www.forrester.com/research/rpa/",
+        "https://ieeexplore.ieee.org/Xplore/home.jsp"
+      ],
+      "key_claims": []
+    },
     "2026-04-22-recall-competitive-landscape-and-clone-feasibility": {
       "named_concepts": [
         "recall docs",

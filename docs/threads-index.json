@@ -1580,14 +1580,14 @@
     "url": "/Research/threads/servicenow-csdm-itsm.html"
   },
   {
-    "slug": "cost-allocation-tbm-council-financial-services",
-    "title": "cost allocation / tbm council / financial services",
+    "slug": "cost-allocation-financial-services-tbm-council",
+    "title": "cost allocation / financial services / tbm council",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "cost allocation",
-      "tbm council",
-      "financial services"
+      "financial services",
+      "tbm council"
     ],
     "item_count": 5,
     "items": [
@@ -1617,17 +1617,17 @@
         "added": "2026-03-08"
       }
     ],
-    "url": "/Research/threads/cost-allocation-tbm-council-financial-services.html"
+    "url": "/Research/threads/cost-allocation-financial-services-tbm-council.html"
   },
   {
-    "slug": "coding-agent-copilot-coding-agents-md",
-    "title": "coding agent / copilot coding / agents md",
+    "slug": "copilot-coding-coding-agent-github-copilot",
+    "title": "copilot coding / coding agent / github copilot",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "coding agent",
       "copilot coding",
-      "agents md"
+      "coding agent",
+      "github copilot"
     ],
     "item_count": 5,
     "items": [
@@ -1657,7 +1657,42 @@
         "added": "2026-03-28"
       }
     ],
-    "url": "/Research/threads/coding-agent-copilot-coding-agents-md.html"
+    "url": "/Research/threads/copilot-coding-coding-agent-github-copilot.html"
+  },
+  {
+    "slug": "operating-model-governance-artificial-intelligence",
+    "title": "operating-model / governance / artificial-intelligence",
+    "kind": "implicit",
+    "tag_cluster": [
+      "operating-model",
+      "governance",
+      "artificial-intelligence"
+    ],
+    "concept_cluster": [],
+    "item_count": 4,
+    "items": [
+      {
+        "slug": "2026-04-22-historical-technology-adoption-enterprise-ai-capability-building",
+        "title": "Historical technology adoption patterns as analogues for enterprise Artificial Intelligence capability building",
+        "added": "2026-04-22"
+      },
+      {
+        "slug": "2026-04-22-enterprise-ai-use-case-routing-frameworks",
+        "title": "Enterprise AI use-case routing frameworks",
+        "added": "2026-04-22"
+      },
+      {
+        "slug": "2026-04-22-enterprise-ai-platform-operating-models",
+        "title": "Enterprise AI platform operating models: organisational structure and ownership",
+        "added": "2026-04-22"
+      },
+      {
+        "slug": "2026-04-24-business-led-low-code-agent-governance",
+        "title": "Business-led low-code agent governance: conditions for durable value versus fragmentation in regulated environments",
+        "added": "2026-04-24"
+      }
+    ],
+    "url": "/Research/threads/operating-model-governance-artificial-intelligence.html"
   },
   {
     "slug": "evaluation-agents-research-loop",
@@ -1730,13 +1765,13 @@
     "url": "/Research/threads/youtube-transcripts-tooling.html"
   },
   {
-    "slug": "agents-md-github-copilot-claude-code",
-    "title": "agents md / github copilot / claude code",
+    "slug": "github-copilot-agents-md-claude-code",
+    "title": "github copilot / agents md / claude code",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "agents md",
       "github copilot",
+      "agents md",
       "claude code"
     ],
     "item_count": 4,
@@ -1762,7 +1797,7 @@
         "added": "2026-04-20"
       }
     ],
-    "url": "/Research/threads/agents-md-github-copilot-claude-code.html"
+    "url": "/Research/threads/github-copilot-agents-md-claude-code.html"
   },
   {
     "slug": "synthesis-exploration-decision-making",
@@ -2125,14 +2160,44 @@
     "url": "/Research/threads/workflow-process-tooling.html"
   },
   {
-    "slug": "ai-risk-incident-reporting-effective-july",
-    "title": "ai risk / incident reporting / effective july",
+    "slug": "nist-ai-ai-rmf-apra-cps",
+    "title": "nist ai / ai rmf / apra cps",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "ai risk",
-      "incident reporting",
-      "effective july"
+      "nist ai",
+      "ai rmf",
+      "apra cps"
+    ],
+    "item_count": 3,
+    "items": [
+      {
+        "slug": "2026-03-02-ai-not-a-data-problem",
+        "title": "AI capability is not a data problem - why the data/analytics department is the wrong home for organisational AI",
+        "added": "2026-03-02"
+      },
+      {
+        "slug": "2026-04-22-knowledge-curation-governance-for-regulated-ai",
+        "title": "Knowledge curation governance as an enterprise AI capability in regulated financial institutions",
+        "added": "2026-04-22"
+      },
+      {
+        "slug": "2026-04-24-business-led-low-code-agent-governance",
+        "title": "Business-led low-code agent governance: conditions for durable value versus fragmentation in regulated environments",
+        "added": "2026-04-24"
+      }
+    ],
+    "url": "/Research/threads/nist-ai-ai-rmf-apra-cps.html"
+  },
+  {
+    "slug": "ai-act-apra-cps-ai-risk",
+    "title": "ai act / apra cps / ai risk",
+    "kind": "concept",
+    "tag_cluster": [],
+    "concept_cluster": [
+      "ai act",
+      "apra cps",
+      "ai risk"
     ],
     "item_count": 3,
     "items": [
@@ -2152,6 +2217,6 @@
         "added": "2026-02-28"
       }
     ],
-    "url": "/Research/threads/ai-risk-incident-reporting-effective-july.html"
+    "url": "/Research/threads/ai-act-apra-cps-ai-risk.html"
   }
 ]
