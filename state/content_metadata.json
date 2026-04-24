@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-04-24T09:28:28Z",
+  "extracted_at": "2026-04-24T23:03:18Z",
   "items": {
     "2026-04-24-business-led-low-code-agent-governance": {
       "named_concepts": [
@@ -49,6 +49,69 @@
         "https://ieeexplore.ieee.org/Xplore/home.jsp"
       ],
       "key_claims": []
+    },
+    "2026-04-24-ai-agent-regulation-global-financial-services": {
+      "named_concepts": [
+        "ai agents",
+        "eu ai",
+        "ai act",
+        "regulated workflows",
+        "health insurance",
+        "human review",
+        "central approval",
+        "financial institutions",
+        "risk management",
+        "management logging",
+        "logging documentation",
+        "ai uses",
+        "business-built agents",
+        "regulated processes",
+        "testing logging",
+        "ai systems",
+        "substantial modification",
+        "ai prudential",
+        "prudential standard",
+        "material processes"
+      ],
+      "source_urls": [
+        "https://url",
+        "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1689",
+        "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai",
+        "https://www.apra.gov.au/sites/default/files/cpg_234_information_security_june_2019_1.pdf",
+        "https://www.apra.gov.au/sites/default/files/2025-10/APRA%20Annual%20Report%202024-25.pdf",
+        "https://www.apra.gov.au/news-and-publications/apra-chair-john-lonsdale-speech-to-australian-banking-association-0",
+        "https://www.rbnz.govt.nz/-/media/project/sites/rbnz/files/publications/financial-stability-reports/2025/may/special-topic_rise-of-the-machine.pdf",
+        "https://www.fma.govt.nz/assets/Research/Understanding-Artificial-Intelligence-in-Financial-Services.pdf",
+        "https://www.fma.govt.nz/assets/Corporate-Publications/FMA-Annual-Report-2025.pdf",
+        "https://www.legislation.govt.nz/act/public/2020/0031/latest/LMS23223.html",
+        "https://legislation.govt.nz/act/public/2020/0031/169.0/LMS23376.html",
+        "https://www.privacy.org.nz/assets/New-order/Resources-/Publications/Guidance-resources/AI-Guidance-Resources-/AI-and-the-Information-Privacy-Principles.pdf",
+        "https://www.privacy.org.nz/resources-and-learning/a-z-topics/ai/generative-artificial-intelligence/",
+        "https://www.legislation.govt.nz/act/public/1986/0121/latest/DLM96439.html",
+        "https://legislation.govt.nz/act/public/1986/121/en/2024-11-16.pdf",
+        "https://www.legislation.govt.nz/act/public/1993/0105/1.0/whole.html",
+        "https://www.federalreserve.gov/supervisionreg/srletters/sr1107.pdf",
+        "https://www.occ.gov/news-issuances/news-releases/2021/nr-ia-2021-100a.pdf",
+        "https://www.consumerfinance.gov/about-us/newsroom/cfpb-issues-guidance-on-credit-denials-by-lenders-using-artificial-intelligence/",
+        "https://files.consumerfinance.gov/f/documents/cfpb_2022-03_circular_2022-05.pdf",
+        "https://www.bankofengland.co.uk/prudential-regulation/publication/2022/october/artificial-intelligence",
+        "https://www.fca.org.uk/publications/feedback-statements/fs23-6-artifical-intelligence-machine-learning",
+        "https://www.drcf.org.uk/siteassets/drcf/pdf-files/drcf-annual-report-2023_24?v=383901",
+        "https://www.osfi-bsif.gc.ca/en/print/pdf/node/1680",
+        "https://www.osfi-bsif.gc.ca/en/guidance/guidance-library/osfi-releases-final-guideline-b-13-technology-cyber-risk-management-letter-2022",
+        "https://doi.org/10.6028/NIST.AI.100-1",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance"
+      ],
+      "key_claims": [
+        "High confidence",
+        "High confidence",
+        "Medium confidence",
+        "High confidence",
+        "High confidence",
+        "High confidence",
+        "Medium confidence",
+        "Medium confidence"
+      ]
     },
     "2026-04-22-recall-competitive-landscape-and-clone-feasibility": {
       "named_concepts": [

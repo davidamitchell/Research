@@ -975,6 +975,56 @@
     "url": "/Research/threads/rag-llm-knowledge-management.html"
   },
   {
+    "slug": "financial-services-governance-regulation",
+    "title": "financial-services / governance / regulation",
+    "kind": "implicit",
+    "tag_cluster": [
+      "financial-services",
+      "governance",
+      "regulation"
+    ],
+    "concept_cluster": [],
+    "item_count": 7,
+    "items": [
+      {
+        "slug": "2026-02-28-rbnz-ai-supervisory-expectations",
+        "title": "RBNZ AI Supervisory Expectations: What Do Regulated Entities Need to Know?",
+        "added": "2026-02-28"
+      },
+      {
+        "slug": "2026-02-28-ai-strategy",
+        "title": "AI Strategy: global and NZ examples, policy frameworks, regulations, and use-case typologies",
+        "added": "2026-02-28"
+      },
+      {
+        "slug": "2026-03-24-public-sentiment-on-ai-in-banking-and-high-trust-institutions",
+        "title": "Public sentiment on AI in banking and high-trust institutions",
+        "added": "2026-03-24"
+      },
+      {
+        "slug": "2026-04-22-historical-technology-adoption-enterprise-ai-capability-building",
+        "title": "Historical technology adoption patterns as analogues for enterprise Artificial Intelligence capability building",
+        "added": "2026-04-22"
+      },
+      {
+        "slug": "2026-04-22-enterprise-ai-platform-operating-models",
+        "title": "Enterprise AI platform operating models: organisational structure and ownership",
+        "added": "2026-04-22"
+      },
+      {
+        "slug": "2026-04-24-ai-agent-regulation-global-financial-services",
+        "title": "Global artificial intelligence agent regulation in financial services: non-functional requirement obligations and low-code citizen-development controls",
+        "added": "2026-04-24"
+      },
+      {
+        "slug": "2026-04-24-business-led-low-code-agent-governance",
+        "title": "Business-led low-code agent governance: conditions for durable value versus fragmentation in regulated environments",
+        "added": "2026-04-24"
+      }
+    ],
+    "url": "/Research/threads/financial-services-governance-regulation.html"
+  },
+  {
     "slug": "strategy-behavioral-economics-rory-sutherland",
     "title": "strategy / behavioral-economics / rory-sutherland",
     "kind": "implicit",
@@ -1223,6 +1273,56 @@
       }
     ],
     "url": "/Research/threads/interface-delivery-rag.html"
+  },
+  {
+    "slug": "ai-strategy-financial-services-rbnz",
+    "title": "ai-strategy / financial-services / rbnz",
+    "kind": "implicit",
+    "tag_cluster": [
+      "ai-strategy",
+      "financial-services",
+      "rbnz"
+    ],
+    "concept_cluster": [],
+    "item_count": 7,
+    "items": [
+      {
+        "slug": "2026-02-28-rbnz-ai-supervisory-expectations",
+        "title": "RBNZ AI Supervisory Expectations: What Do Regulated Entities Need to Know?",
+        "added": "2026-02-28"
+      },
+      {
+        "slug": "2026-02-28-ai-strategy",
+        "title": "AI Strategy: global and NZ examples, policy frameworks, regulations, and use-case typologies",
+        "added": "2026-02-28"
+      },
+      {
+        "slug": "2026-02-28-ai-strategy-risk-reduction-focus",
+        "title": "AI Strategy Examples: Risk Reduction Focus",
+        "added": "2026-02-28"
+      },
+      {
+        "slug": "2026-02-28-ai-strategy-business-efficiency-examples",
+        "title": "AI Strategy Examples: Business Efficiency Focus",
+        "added": "2026-02-28"
+      },
+      {
+        "slug": "2026-02-28-ai-line-1-line-2-risk-agents",
+        "title": "AI Line 1 and Line 2 Risk Agents: Who Is Building Them?",
+        "added": "2026-02-28"
+      },
+      {
+        "slug": "2026-02-28-ai-control-testing-and-assurance",
+        "title": "AI for Control Testing, Gap Identification, and Policies/Standards Reviews",
+        "added": "2026-02-28"
+      },
+      {
+        "slug": "2026-04-24-ai-agent-regulation-global-financial-services",
+        "title": "Global artificial intelligence agent regulation in financial services: non-functional requirement obligations and low-code citizen-development controls",
+        "added": "2026-04-24"
+      }
+    ],
+    "url": "/Research/threads/ai-strategy-financial-services-rbnz.html"
   },
   {
     "slug": "consciousness-predictive-processing-anil-seth",
@@ -1620,13 +1720,13 @@
     "url": "/Research/threads/cost-allocation-financial-services-tbm-council.html"
   },
   {
-    "slug": "copilot-coding-coding-agent-github-copilot",
-    "title": "copilot coding / coding agent / github copilot",
+    "slug": "coding-agent-copilot-coding-github-copilot",
+    "title": "coding agent / copilot coding / github copilot",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "copilot coding",
       "coding agent",
+      "copilot coding",
       "github copilot"
     ],
     "item_count": 5,
@@ -1657,42 +1757,7 @@
         "added": "2026-03-28"
       }
     ],
-    "url": "/Research/threads/copilot-coding-coding-agent-github-copilot.html"
-  },
-  {
-    "slug": "operating-model-governance-artificial-intelligence",
-    "title": "operating-model / governance / artificial-intelligence",
-    "kind": "implicit",
-    "tag_cluster": [
-      "operating-model",
-      "governance",
-      "artificial-intelligence"
-    ],
-    "concept_cluster": [],
-    "item_count": 4,
-    "items": [
-      {
-        "slug": "2026-04-22-historical-technology-adoption-enterprise-ai-capability-building",
-        "title": "Historical technology adoption patterns as analogues for enterprise Artificial Intelligence capability building",
-        "added": "2026-04-22"
-      },
-      {
-        "slug": "2026-04-22-enterprise-ai-use-case-routing-frameworks",
-        "title": "Enterprise AI use-case routing frameworks",
-        "added": "2026-04-22"
-      },
-      {
-        "slug": "2026-04-22-enterprise-ai-platform-operating-models",
-        "title": "Enterprise AI platform operating models: organisational structure and ownership",
-        "added": "2026-04-22"
-      },
-      {
-        "slug": "2026-04-24-business-led-low-code-agent-governance",
-        "title": "Business-led low-code agent governance: conditions for durable value versus fragmentation in regulated environments",
-        "added": "2026-04-24"
-      }
-    ],
-    "url": "/Research/threads/operating-model-governance-artificial-intelligence.html"
+    "url": "/Research/threads/coding-agent-copilot-coding-github-copilot.html"
   },
   {
     "slug": "evaluation-agents-research-loop",
@@ -1798,6 +1863,36 @@
       }
     ],
     "url": "/Research/threads/github-copilot-agents-md-claude-code.html"
+  },
+  {
+    "slug": "banking-architecture-financial-services",
+    "title": "banking / architecture / financial-services",
+    "kind": "implicit",
+    "tag_cluster": [
+      "banking",
+      "architecture",
+      "financial-services"
+    ],
+    "concept_cluster": [],
+    "item_count": 3,
+    "items": [
+      {
+        "slug": "2026-03-15-saas-banking-invariants",
+        "title": "Invariants in Software as a Service (SaaS) Banking Software",
+        "added": "2026-03-15"
+      },
+      {
+        "slug": "2026-03-24-public-sentiment-on-ai-in-banking-and-high-trust-institutions",
+        "title": "Public sentiment on AI in banking and high-trust institutions",
+        "added": "2026-03-24"
+      },
+      {
+        "slug": "2026-04-24-ai-agent-regulation-global-financial-services",
+        "title": "Global artificial intelligence agent regulation in financial services: non-functional requirement obligations and low-code citizen-development controls",
+        "added": "2026-04-24"
+      }
+    ],
+    "url": "/Research/threads/banking-architecture-financial-services.html"
   },
   {
     "slug": "synthesis-exploration-decision-making",
@@ -2070,36 +2165,6 @@
     "url": "/Research/threads/llm-context-window-mcp.html"
   },
   {
-    "slug": "ai-strategy-rbnz-agentic-ai",
-    "title": "ai-strategy / rbnz / agentic-ai",
-    "kind": "implicit",
-    "tag_cluster": [
-      "ai-strategy",
-      "rbnz",
-      "agentic-ai"
-    ],
-    "concept_cluster": [],
-    "item_count": 3,
-    "items": [
-      {
-        "slug": "2026-02-28-ai-strategy",
-        "title": "AI Strategy: global and NZ examples, policy frameworks, regulations, and use-case typologies",
-        "added": "2026-02-28"
-      },
-      {
-        "slug": "2026-02-28-rbnz-ai-supervisory-expectations",
-        "title": "RBNZ AI Supervisory Expectations: What Do Regulated Entities Need to Know?",
-        "added": "2026-02-28"
-      },
-      {
-        "slug": "2026-02-28-ai-line-1-line-2-risk-agents",
-        "title": "AI Line 1 and Line 2 Risk Agents: Who Is Building Them?",
-        "added": "2026-02-28"
-      }
-    ],
-    "url": "/Research/threads/ai-strategy-rbnz-agentic-ai.html"
-  },
-  {
     "slug": "ai-governance-ai-strategy-security",
     "title": "ai-governance / ai-strategy / security",
     "kind": "implicit",
@@ -2160,14 +2225,14 @@
     "url": "/Research/threads/workflow-process-tooling.html"
   },
   {
-    "slug": "nist-ai-ai-rmf-apra-cps",
-    "title": "nist ai / ai rmf / apra cps",
+    "slug": "nist-ai-ai-rmf-copilot-studio",
+    "title": "nist ai / ai rmf / copilot studio",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "nist ai",
       "ai rmf",
-      "apra cps"
+      "copilot studio"
     ],
     "item_count": 3,
     "items": [
@@ -2187,36 +2252,6 @@
         "added": "2026-04-24"
       }
     ],
-    "url": "/Research/threads/nist-ai-ai-rmf-apra-cps.html"
-  },
-  {
-    "slug": "ai-act-apra-cps-ai-risk",
-    "title": "ai act / apra cps / ai risk",
-    "kind": "concept",
-    "tag_cluster": [],
-    "concept_cluster": [
-      "ai act",
-      "apra cps",
-      "ai risk"
-    ],
-    "item_count": 3,
-    "items": [
-      {
-        "slug": "2026-02-28-rbnz-ai-supervisory-expectations",
-        "title": "RBNZ AI Supervisory Expectations: What Do Regulated Entities Need to Know?",
-        "added": "2026-02-28"
-      },
-      {
-        "slug": "2026-02-28-ai-strategy",
-        "title": "AI Strategy: global and NZ examples, policy frameworks, regulations, and use-case typologies",
-        "added": "2026-02-28"
-      },
-      {
-        "slug": "2026-02-28-ai-strategy-risk-reduction-focus",
-        "title": "AI Strategy Examples: Risk Reduction Focus",
-        "added": "2026-02-28"
-      }
-    ],
-    "url": "/Research/threads/ai-act-apra-cps-ai-risk.html"
+    "url": "/Research/threads/nist-ai-ai-rmf-copilot-studio.html"
   }
 ]
