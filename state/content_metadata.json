@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-04-22T21:59:21Z",
+  "extracted_at": "2026-04-24T08:45:25Z",
   "items": {
     "2026-04-22-recall-competitive-landscape-and-clone-feasibility": {
       "named_concepts": [
@@ -112,6 +112,55 @@
         "https://www.google.com/search?q=knowledge+management+AI+financial+services+audit+trail+2024..2026",
         "https://www.google.com/search?q=RAG+knowledge+governance+enterprise+curation+ownership+2024..2026",
         "https://www.google.com/search?q=AI+explainability+knowledge+provenance+regulated+industry+2024..2026"
+      ],
+      "key_claims": []
+    },
+    "2026-04-22-historical-technology-adoption-enterprise-ai-capability-building": {
+      "named_concepts": [
+        "enterprise ai",
+        "capability building",
+        "enterprise value",
+        "electronic trading",
+        "control design",
+        "shared rails",
+        "current ai",
+        "local productivity",
+        "governance process",
+        "process redesign",
+        "redesign training",
+        "complementary organisational",
+        "policy evaluation",
+        "evaluation internal",
+        "internal context",
+        "near business",
+        "deployment alone",
+        "sponsorship process",
+        "process fit",
+        "change management"
+      ],
+      "source_urls": [
+        "https://www.forrester.com/blogs/robotic-process-automation-rpa-is-at-a-tipping-point/",
+        "https://www.businesswire.com/news/home/20200212005226/en/RPA-Reality-Check-New-Forrester-Research-Identifies-Barriers-to-RPA-Scalability",
+        "https://www.gartner.com/en/newsroom/press-releases/2022-05-24-gartner-says-worldwide-robotic-process-automation-software-revenue-grew-19-5-percent-in-2021",
+        "https://www.itvoice.in/gartner-says-worldwide-rpa-software-revenue-to-reach-2-9-billion-in-2022",
+        "https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/clouds-trillion-dollar-prize-is-up-for-grabs",
+        "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-cloud-transformation/resolving-cloud-transformation-challenges.html",
+        "https://www.pwc.com/gx/en/services/consulting/cloud-transformation/reaching-full-cloud-potential.html",
+        "https://www.standishgroup.com/sample_research_files/CHAOSReport2015-Final.pdf",
+        "https://repository.upenn.edu/bitstreams/efe7c90d-e2ef-4d5d-83e5-f222a4d6cd96/download",
+        "https://sloanreview.mit.edu/article/the-transforming-power-of-complementary-assets/",
+        "https://publications.jrc.ec.europa.eu/repository/bitstream/JRC75890/lfna25542enn.pdf",
+        "https://www.bankofengland.co.uk/quarterly-bulletin/2014/q4/the-uks-automated-trading-landscape",
+        "https://www.fca.org.uk/publications/multi-firm-reviews/algorithmic-trading-controls-high-level-observations",
+        "https://www.bis.org/publ/mktc13.pdf",
+        "https://www.fca.org.uk/firms/senior-managers-certification-regime",
+        "https://eur-lex.europa.eu/eli/dir/2014/65/oj",
+        "https://link.springer.com/article/10.1007/s41870-020-00502-z",
+        "https://jbt.sljol.info/articles/10.4038/jbt.v7i1.109",
+        "https://www.verint.com/blog/how-to-scale-rpa-beyond-a-pilot/",
+        "https://lutpub.lut.fi/bitstream/handle/10024/161151/Master%27sThesis_Henri_Poussa_Final.pdf?sequence=1",
+        "https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report",
+        "https://hai.stanford.edu/ai-index/2025-ai-index-report"
       ],
       "key_claims": []
     },
