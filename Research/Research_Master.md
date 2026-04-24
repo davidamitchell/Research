@@ -1,9 +1,10 @@
 # Research Master Document
 
-Generated on: 2026-04-24 08:45 UTC
+Generated on: 2026-04-24 09:28 UTC
 
 ## Table of Contents
 
+* [Business-led low-code agent governance: conditions for durable value versus fragmentation in regulated environments](#2026-04-24-business-led-low-code-agent-governance-md)
 * [Recall competitive landscape and clone feasibility](#2026-04-22-recall-competitive-landscape-and-clone-feasibility-md)
 * [Knowledge curation governance as an enterprise AI capability in regulated financial institutions](#2026-04-22-knowledge-curation-governance-for-regulated-ai-md)
 * [Historical technology adoption patterns as analogues for enterprise Artificial Intelligence capability building](#2026-04-22-historical-technology-adoption-enterprise-ai-capability-building-md)
@@ -153,6 +154,79 @@ Generated on: 2026-04-24 08:45 UTC
 * [AI Strategy Examples: Business Efficiency Focus](#2026-02-28-ai-strategy-business-efficiency-examples-md)
 * [AI Line 1 and Line 2 Risk Agents: Who Is Building Them?](#2026-02-28-ai-line-1-line-2-risk-agents-md)
 * [AI for Control Testing, Gap Identification, and Policies/Standards Reviews](#2026-02-28-ai-control-testing-and-assurance-md)
+
+---
+
+<a name="2026-04-24-business-led-low-code-agent-governance-md"></a>
+
+## Business-led low-code agent governance: conditions for durable value versus fragmentation in regulated environments
+
+**Tags:** [artificial-intelligence, governance, low-code, citizen-development, regulated-environments, operating-model, platform-governance]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-24-business-led-low-code-agent-governance.md
+
+## Research Question
+
+Under what conditions does business-led low-code Artificial Intelligence (AI) agent creation produce durable organisational value versus technical debt and governance fragmentation, and what foundational capabilities must exist before business-led agent creation is safe to scale in a regulated environment?
+
+## Findings
+
+*(Populated from section 6 Synthesis above.)*
+
+### Executive Summary
+
+[inference; source: https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://learn.microsoft.com/en-us/power-platform/guidance/coe/overview; https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-data-loss-prevention; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-22-enterprise-ai-use-case-routing-frameworks.md] Business-led low-code agent creation produces durable value only when it is layered on top of a centrally governed platform with risk-based intake, enforceable data and channel controls, environment separation, shared lifecycle ownership, and suitable low-risk use-case selection; without that foundation it predictably produces local wins alongside enterprise fragmentation.
+[inference; source: https://digital.gov/2021/08/16/5-tips-for-implementing-citizen-development-in-your-rpa-program/; https://link.springer.com/article/10.1007/s10257-022-00553-8; https://www.uipath.com/blog/automation/citizen-development-lessons-from-meta-conocophillips-and-more] The RPA citizen-development analogue shows that decentralised automation works when governance is defined first and fails when repository discipline, role clarity, review, and production promotion are left to local teams.
+[fact; source: https://cloud.google.com/resources/content/2025-dora-ai-capabilities-model-report; https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report] DORA strengthens that conclusion by showing that AI amplifies the quality of the surrounding platform and workflow system and that internal platforms are now the main scaling mechanism for enterprise AI value.
+[fact; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance; https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-data-loss-prevention; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-22-enterprise-ai-use-case-routing-frameworks.md] In a regulated environment, the minimum safe foundation is a central governance function, a NIST-style risk-classification intake, controlled environments, enforceable data policies, and central oversight for higher-risk or cross-boundary agents.
+
+### Key Findings
+
+1. [inference; source: https://digital.gov/2021/08/16/5-tips-for-implementing-citizen-development-in-your-rpa-program/; https://link.springer.com/article/10.1007/s10257-022-00553-8; https://www.uipath.com/blog/automation/citizen-development-lessons-from-meta-conocophillips-and-more; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-22-enterprise-ai-use-case-routing-frameworks.md] **High confidence:** Business-led low-code agent creation creates durable value only when citizen builders operate inside a defined governance model and are limited to process-suitable, bounded tasks with central repositories, review paths, support structures, and separate promotion environments rather than publishing directly from local teams.
+2. [fact; source: https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report; https://cloud.google.com/resources/content/2025-dora-ai-capabilities-model-report] **Medium confidence:** DORA's 2025 evidence shows that AI amplifies existing organisational conditions, so platform quality, workflow clarity, safety nets, and dedicated platform ownership are prerequisites for scaled value rather than optional improvements after rollout.
+3. [fact; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/] **Medium confidence:** NIST Map requires organisations to document intended purpose, users, laws and norms, business value, risk tolerance, knowledge limits, human oversight, third-party dependencies, and likely impacts before they can make a credible go or no-go decision on an AI use case.
+4. [fact; source: https://learn.microsoft.com/en-us/power-platform/guidance/coe/overview; https://learn.microsoft.com/en-us/power-platform/admin/managed-environment-overview] **Medium confidence:** Microsoft's own at-scale model for Power Platform and Copilot Studio is a Centre of Excellence with managed environments, analytics, and admin controls, which means Microsoft prescribes central governance capability before broad maker enablement.
+5. [fact; source: https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance; https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-data-loss-prevention; https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention] **Medium confidence:** Copilot Studio can centrally restrict authentication modes, knowledge sources, connectors, publication channels, Hypertext Transfer Protocol (HTTP) access, skills, and triggers, and Power Platform policies can suspend or quarantine violating assets at runtime as well as design time.
+6. [inference; source: https://digital.gov/2021/08/16/5-tips-for-implementing-citizen-development-in-your-rpa-program/; https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-data-loss-prevention; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-22-enterprise-ai-use-case-routing-frameworks.md] **High confidence:** Safe business-led agent programs should initially permit only bounded, low-risk, process-suitable use cases with authenticated users, approved knowledge domains, approved connectors, and explicit human escalation, while routing higher-risk, external-action, or cross-boundary agents into central review.
+7. [inference; source: https://link.springer.com/article/10.1007/s10257-022-00553-8; https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report; https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-22-enterprise-ai-use-case-routing-frameworks.md] **High confidence:** Fragmentation emerges when local makers can create or publish agents without ownership clarity, environment strategy, suitable process selection, or connector and channel guardrails, because the resulting estate becomes hard to review, support, and stabilise.
+8. [inference; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://learn.microsoft.com/en-us/power-platform/guidance/coe/overview; https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-22-enterprise-ai-use-case-routing-frameworks.md] **High confidence:** The minimum viable foundation before scaling is a central governance team, a risk-based intake workflow, controlled environments, enforceable data and channel policies, auditability, maker training, and a professional team that owns exceptions and lifecycle governance.
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [inference] Durable value requires a governed operating model, not direct local publishing. | [Digital.gov citizen development guidance](https://digital.gov/2021/08/16/5-tips-for-implementing-citizen-development-in-your-rpa-program/); [Springer RPA implementation framework](https://link.springer.com/article/10.1007/s10257-022-00553-8); [UiPath citizen developer programs](https://www.uipath.com/blog/automation/citizen-development-lessons-from-meta-conocophillips-and-more) | high | Multi-source |
+| [fact] AI value depends on foundational platform and workflow quality. | [DORA report overview](https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report); [DORA AI capabilities model report](https://cloud.google.com/resources/content/2025-dora-ai-capabilities-model-report) | medium | Single-organisation primary evidence |
+| [fact] NIST Map defines the intake facts required for an AI use-case decision. | [NIST AI RMF Core](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/) | medium | Single primary framework |
+| [fact] Microsoft prescribes a CoE and managed environments before broad maker enablement. | [Power Platform CoE overview](https://learn.microsoft.com/en-us/power-platform/guidance/coe/overview); [Managed Environments overview](https://learn.microsoft.com/en-us/power-platform/admin/managed-environment-overview) | medium | Single-organisation primary evidence |
+| [fact] Copilot Studio exposes central controls over auth, knowledge, channels, tools, and triggers. | [Copilot Studio security and governance](https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance); [Copilot Studio data loss prevention](https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-data-loss-prevention); [Power Platform data policies](https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention) | medium | Single-organisation primary evidence |
+| [inference] Safe business-led rollout should start with bounded low-risk use cases and escalation paths. | [Digital.gov citizen development guidance](https://digital.gov/2021/08/16/5-tips-for-implementing-citizen-development-in-your-rpa-program/); [NIST AI RMF Core](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/); [Copilot Studio data loss prevention](https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-data-loss-prevention); [Enterprise AI use-case routing frameworks](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-22-enterprise-ai-use-case-routing-frameworks.md) | high | Multi-source |
+| [inference] Fragmentation follows from missing ownership, environment strategy, suitable process selection, and policy guardrails. | [Springer RPA implementation framework](https://link.springer.com/article/10.1007/s10257-022-00553-8); [DORA report overview](https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report); [Power Platform data policies](https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention); [Enterprise AI use-case routing frameworks](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-22-enterprise-ai-use-case-routing-frameworks.md) | high | Multi-source |
+| [inference] The minimum viable foundation is governance, intake, environments, policies, audit, training, and exception handling. | [NIST AI RMF Core](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/); [Power Platform CoE overview](https://learn.microsoft.com/en-us/power-platform/guidance/coe/overview); [Copilot Studio security and governance](https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance); [Enterprise AI use-case routing frameworks](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-22-enterprise-ai-use-case-routing-frameworks.md) | high | Multi-source |
+
+### Assumptions
+
+- [assumption; source: https://digital.gov/2021/08/16/5-tips-for-implementing-citizen-development-in-your-rpa-program/; https://link.springer.com/article/10.1007/s10257-022-00553-8; https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance] **Assumption:** The organisational lessons from RPA citizen development transfer materially to low-code AI agents. **Justification:** Both patterns decentralise automation authoring to business users while relying on central platform controls for safe promotion and support.
+
+### Analysis
+
+[inference; source: https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://learn.microsoft.com/en-us/power-platform/guidance/coe/overview] The strongest evidence suggests that scaled AI value depends on platform quality, explicit governance, and documented use-case context.
+[inference; source: https://digital.gov/2021/08/16/5-tips-for-implementing-citizen-development-in-your-rpa-program/; https://link.springer.com/article/10.1007/s10257-022-00553-8; https://www.uipath.com/blog/automation/citizen-development-lessons-from-meta-conocophillips-and-more; https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance] The RPA analogue adds operating-model texture rather than direct proof, but it is persuasive because its recurring prescriptions, central repositories, environment separation, role clarity, and support, match the exact controls Microsoft now exposes for low-code agents.
+[inference; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-data-loss-prevention; https://digital.gov/2021/08/16/5-tips-for-implementing-citizen-development-in-your-rpa-program/] Governance is therefore necessary but not sufficient: durable value also depends on selecting process-suitable use cases and keeping autonomy within the bounds that the platform and operating model can actually support.
+
+### Risks, Gaps, and Uncertainties
+
+- [fact; source: https://faros.ai/blog/ai-acceleration-whiplash; https://www.gartner.com/en/information-technology/glossary/citizen-developer; https://www.forrester.com/research/rpa/] Several seeded analyst sources were inaccessible, so this item relies on public standards, public-sector guidance, vendor documentation, and accessible peer-reviewed literature instead of analyst synthesis.
+- [fact; source: https://ieeexplore.ieee.org/Xplore/home.jsp] The seeded IEEE search did not yield an accessible pinpoint paper in this runtime, so the academic RPA evidence base is narrower than ideal.
+- [inference; source: https://digital.gov/2021/08/16/5-tips-for-implementing-citizen-development-in-your-rpa-program/; https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance] The analogue from RPA to generative agents is strong on governance shape but weaker on model-specific failure modes such as hallucination, which would need a follow-on item if the question shifted toward model assurance rather than operating-model design.
+
+### Open Questions
+
+- [inference; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-data-loss-prevention] What concrete risk tiers should a regulated enterprise use to separate low-risk business-led agents from centrally engineered medium-risk and high-risk agents?
+- [inference; source: https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance; https://learn.microsoft.com/en-us/power-platform/guidance/coe/overview] Which specific telemetry, approval, and recertification controls produce the best ongoing assurance for agents that remain business-owned after first publication?
+- [inference; source: https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report; https://learn.microsoft.com/en-us/power-platform/guidance/coe/overview] How should platform-team capacity be sized so that escalation paths for higher-risk agents do not become the next delivery bottleneck?
+
+---
 
 ---
 
