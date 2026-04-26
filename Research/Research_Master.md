@@ -164,7 +164,7 @@ Generated on: 2026-04-26 07:40 UTC
 
 ---
 
-<a name="2026-04-26-systems-capability-debt-citizen-development-empirical-evidence-md"></a>
+<a id="2026-04-26-systems-capability-debt-citizen-development-empirical-evidence-md"></a>
 
 ## Systems capability debt as the root cause of citizen development: empirical evidence and effective governance architectures
 
@@ -240,7 +240,7 @@ What empirical evidence exists that systems capability debt, the accumulated gap
 
 ---
 
-<a name="2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis-md"></a>
+<a id="2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis-md"></a>
 
 ## Systems capability debt, citizen development, and agentic AI risk: is the causal chain and sequencing imperative a novel contribution?
 
@@ -320,7 +320,7 @@ Does the synthesis of technical debt literature (Cunningham, Kruchten), systems 
 
 ---
 
-<a name="2026-04-26-multi-ai-provider-control-planes-md"></a>
+<a id="2026-04-26-multi-ai-provider-control-planes-md"></a>
 
 ## Multi-provider AI control planes: capabilities, vendors, and coverage gaps
 
@@ -391,7 +391,7 @@ Which platforms or architectural designs provide multi-provider Artificial Intel
 
 ---
 
-<a name="2026-04-26-ms-copilot-cowork-md"></a>
+<a id="2026-04-26-ms-copilot-cowork-md"></a>
 
 ## What is Microsoft 365 Copilot Cowork and what are its enterprise governance risks?
 
@@ -465,7 +465,7 @@ Explicit assumptions made during the investigation and the justification for eac
 
 ---
 
-<a name="2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment-md"></a>
+<a id="2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment-md"></a>
 
 ## Regulatory and standards preconditions for deployment of Artificial Intelligence (AI) systems that can take multi-step actions: does incomplete access control and data governance constitute a control failure?
 
@@ -541,7 +541,7 @@ Under applicable regulatory and standards frameworks, including Australian Prude
 
 ---
 
-<a name="2026-04-26-access-control-amplification-agentic-operations-md"></a>
+<a id="2026-04-26-access-control-amplification-agentic-operations-md"></a>
 
 ## Access control amplification under agentic operations: whether existing frameworks address the worst-case permission inheritance problem
 
@@ -619,7 +619,7 @@ Agents do not inherit a user's typical behaviour, they inherit the worst-case in
 
 ---
 
-<a name="2026-04-24-business-led-low-code-agent-governance-md"></a>
+<a id="2026-04-24-business-led-low-code-agent-governance-md"></a>
 
 ## Business-led low-code agent governance: conditions for durable value versus fragmentation in regulated environments
 
@@ -692,7 +692,7 @@ Under what conditions does business-led low-code Artificial Intelligence (AI) ag
 
 ---
 
-<a name="2026-04-24-ai-agent-regulation-global-financial-services-md"></a>
+<a id="2026-04-24-ai-agent-regulation-global-financial-services-md"></a>
 
 ## Global artificial intelligence agent regulation in financial services: non-functional requirement obligations and low-code citizen-development controls
 
@@ -768,7 +768,7 @@ What regulatory obligations do financial-services regulators globally, including
 
 ---
 
-<a name="2026-04-22-recall-competitive-landscape-and-clone-feasibility-md"></a>
+<a id="2026-04-22-recall-competitive-landscape-and-clone-feasibility-md"></a>
 
 ## Recall competitive landscape and clone feasibility
 
@@ -858,7 +858,7 @@ What core capabilities does Recall provide, who else is building similar product
 
 ---
 
-<a name="2026-04-22-knowledge-curation-governance-for-regulated-ai-md"></a>
+<a id="2026-04-22-knowledge-curation-governance-for-regulated-ai-md"></a>
 
 ## Knowledge curation governance as an enterprise AI capability in regulated financial institutions
 
@@ -924,7 +924,7 @@ What operational models exist for governing authoritative knowledge as a managed
 
 ---
 
-<a name="2026-04-22-historical-technology-adoption-enterprise-ai-capability-building-md"></a>
+<a id="2026-04-22-historical-technology-adoption-enterprise-ai-capability-building-md"></a>
 
 ## Historical technology adoption patterns as analogues for enterprise Artificial Intelligence capability building
 
@@ -999,7 +999,7 @@ What can organisations learn from retrospectives of prior technology introductio
 
 ---
 
-<a name="2026-04-22-enterprise-ai-use-case-routing-frameworks-md"></a>
+<a id="2026-04-22-enterprise-ai-use-case-routing-frameworks-md"></a>
 
 ## Enterprise AI use-case routing frameworks
 
@@ -1080,7 +1080,7 @@ What decision frameworks do enterprises use to route Artificial Intelligence (AI
 
 ---
 
-<a name="2026-04-22-enterprise-ai-platform-operating-models-md"></a>
+<a id="2026-04-22-enterprise-ai-platform-operating-models-md"></a>
 
 ## Enterprise AI platform operating models: organisational structure and ownership
 
@@ -1157,7 +1157,7 @@ What organisational structures do enterprises use to operate multiple Artificial
 
 ---
 
-<a name="2026-04-22-enterprise-ai-capability-model-md"></a>
+<a id="2026-04-22-enterprise-ai-capability-model-md"></a>
 
 ## Enterprise AI capability model for use-case maturity decisions
 
@@ -1251,7 +1251,7 @@ What enterprise-wide Artificial Intelligence (AI) capability model best supports
 
 ---
 
-<a name="2026-04-22-ai-governance-assurance-change-control-verification-md"></a>
+<a id="2026-04-22-ai-governance-assurance-change-control-verification-md"></a>
 
 ## Automated governance assurance and change control verification patterns for AI-assisted delivery
 
@@ -1331,7 +1331,7 @@ What technical patterns exist for automating governance assurance and change con
 
 ---
 
-<a name="2026-04-20-harness-selection-tools-agents-skills-prompts-instructions-md"></a>
+<a id="2026-04-20-harness-selection-tools-agents-skills-prompts-instructions-md"></a>
 
 ## Harness-level selection and use of tools, agents, skills, prompts, and instruction files
 
@@ -1406,7 +1406,7 @@ When should teams choose tools, agent definition files, skills, prompts, instruc
 
 ---
 
-<a name="2026-04-18-shopify-ai-strategy-red-queen-memo-md"></a>
+<a id="2026-04-18-shopify-ai-strategy-red-queen-memo-md"></a>
 
 ## Shopify's Artificial Intelligence (AI) strategy after the Red Queen memo: selection pressure, talent-market effects, and copycat outcomes
 
@@ -1485,7 +1485,7 @@ What is Shopify's explicit Artificial Intelligence (AI) strategy as evidenced by
 
 ---
 
-<a name="2026-04-18-latest-developments-trends-forecast-md"></a>
+<a id="2026-04-18-latest-developments-trends-forecast-md"></a>
 
 ## Latest developments history: trends, themes, and forward scenarios
 
@@ -1591,7 +1591,7 @@ Supporting questions:
 
 ---
 
-<a name="2026-04-03-oh-my-codex-patterns-md"></a>
+<a id="2026-04-03-oh-my-codex-patterns-md"></a>
 
 ## oh-my-codex and AI Agent Workflow Patterns: What Can We Leverage?
 
@@ -1676,7 +1676,7 @@ Cross-repo consistency is a second-order issue: the Multi-Agent-Testing, Agent-E
 
 ---
 
-<a name="2026-04-03-ai-workflow-todo-digest-md"></a>
+<a id="2026-04-03-ai-workflow-todo-digest-md"></a>
 
 ## Artificial Intelligence (AI)-assisted daily productivity digest: patterns, tooling, and automation approaches for personal task management
 
@@ -1761,7 +1761,7 @@ Supporting questions:
 
 ---
 
-<a name="2026-04-02-org-shape-software-cost-zero-md"></a>
+<a id="2026-04-02-org-shape-software-cost-zero-md"></a>
 
 ## The shape of organisations when software is no longer the constraint
 
@@ -1842,7 +1842,7 @@ Supporting questions:
 
 ---
 
-<a name="2026-04-02-claude-mythos-md"></a>
+<a id="2026-04-02-claude-mythos-md"></a>
 
 ## Claude mythos: character, soul documents, and narrative identity in large language models
 
@@ -1921,7 +1921,7 @@ What is the "Claude mythos" - the narrative, character, and values framework Ant
 
 ---
 
-<a name="2026-04-02-claude-code-npm-source-map-leak-md"></a>
+<a id="2026-04-02-claude-code-npm-source-map-leak-md"></a>
 
 ## Claude Code npm Source Map Leak
 
@@ -1999,7 +1999,7 @@ The DMCA response reveals a separate governance gap. Automated at-scale copyrigh
 
 ---
 
-<a name="2026-04-02-anthropic-claude-code-leak-architecture-prompting-and-hidden-features-md"></a>
+<a id="2026-04-02-anthropic-claude-code-leak-architecture-prompting-and-hidden-features-md"></a>
 
 ## Anthropic Claude Code leak: architecture, prompting, and hidden features
 
@@ -2088,7 +2088,7 @@ The Undercover Mode disclosure risk is the most ethically complex finding. Autom
 
 ---
 
-<a name="2026-04-02-ai-funding-and-capital-investment-landscape-md"></a>
+<a id="2026-04-02-ai-funding-and-capital-investment-landscape-md"></a>
 
 ## AI Funding and Capital Investment Landscape
 
@@ -2172,7 +2172,7 @@ The Stargate Project represents a structural escalation: if OpenAI and SoftBank 
 
 ---
 
-<a name="2026-04-02-ai-company-hiring-strategies-md"></a>
+<a id="2026-04-02-ai-company-hiring-strategies-md"></a>
 
 ## AI company hiring strategies: what job ads and recent hires reveal about strategic direction
 
@@ -2259,7 +2259,7 @@ Supporting questions:
 
 ---
 
-<a name="2026-04-01-timesfm-time-series-foundation-models-md"></a>
+<a id="2026-04-01-timesfm-time-series-foundation-models-md"></a>
 
 ## TimesFM and the Landscape of Time-Series Foundation Models
 
@@ -2342,7 +2342,7 @@ GFMs face a structurally harder problem. Sequence patching for time-series is cl
 
 ---
 
-<a name="2026-04-01-backpressure-theory-of-constraints-md"></a>
+<a id="2026-04-01-backpressure-theory-of-constraints-md"></a>
 
 ## Backpressure Infrastructure and the Theory of Constraints
 
@@ -2411,7 +2411,7 @@ Three independent lines of evidence converge on the same conclusion: (1) Goldrat
 
 ---
 
-<a name="2026-03-31-llm-offensive-security-0days-md"></a>
+<a id="2026-03-31-llm-offensive-security-0days-md"></a>
 
 ## Large Language Models as offensive security tools: autonomous 0-day discovery, exploit generation, and the emerging arms race
 
@@ -2507,7 +2507,7 @@ The probe-based safeguard architecture Anthropic has deployed represents a meani
 
 ---
 
-<a name="2026-03-29-unknowability-of-the-universe-md"></a>
+<a id="2026-03-29-unknowability-of-the-universe-md"></a>
 
 ## The Unknowability of the Universe
 
@@ -2600,7 +2600,7 @@ The Feyerabend connection carries a concrete methodological implication: cosmic 
 
 ---
 
-<a name="2026-03-29-multi-agent-repo-setup-md"></a>
+<a id="2026-03-29-multi-agent-repo-setup-md"></a>
 
 ## Multi-agent repo setup: best practices for configuring a repository to be worked on by Claude (iOS and GitHub Issues) and Copilot (Spaces and GitHub Issues)
 
@@ -2673,7 +2673,7 @@ The "thin pointer" pattern for `AGENTS.md` (pointing to `.github/copilot-instruc
 
 ---
 
-<a name="2026-03-29-claude-code-web-submodule-credential-md"></a>
+<a id="2026-03-29-claude-code-web-submodule-credential-md"></a>
 
 ## Claude Code on the web: private submodule credential access and git submodule init mechanism
 
@@ -2768,7 +2768,7 @@ The npm proxy stripping evidence (issue #11078) establishes that the proxy does 
 
 ---
 
-<a name="2026-03-28-environment-setup-consistency-md"></a>
+<a id="2026-03-28-environment-setup-consistency-md"></a>
 
 ## Environment setup consistency: what each agent sees when it starts work in this repo and how to make it consistent
 
@@ -2895,7 +2895,7 @@ Primary sources (GitHub official documentation S1, S2; Anthropic official docume
 
 ---
 
-<a name="2026-03-28-agents-md-role-and-cross-agent-instructions-md"></a>
+<a id="2026-03-28-agents-md-role-and-cross-agent-instructions-md"></a>
 
 ## The role of AGENTS.md in a repo using .github/copilot-instructions.md as the sole instructions source
 
@@ -3009,7 +3009,7 @@ The organisation-consistency argument also supports the status quo: three of fou
 
 ---
 
-<a name="2026-03-28-agent-instruction-loading-and-skills-access-md"></a>
+<a id="2026-03-28-agent-instruction-loading-and-skills-access-md"></a>
 
 ## Agent instruction loading and skills access: Copilot coding agent, Claude iOS code feature, and the role of AGENTS.md
 
@@ -3131,7 +3131,7 @@ Primary sources (GitHub official documentation, Anthropic official documentation
 
 ---
 
-<a name="2026-03-26-rory-sutherland-core-tenets-md"></a>
+<a id="2026-03-26-rory-sutherland-core-tenets-md"></a>
 
 ## Rory Sutherland's core tenets: anti-bureaucracy, customer thinking, and behavioral economics
 
@@ -3211,7 +3211,7 @@ Rory Sutherland's core intellectual position is that human value is determined b
 
 ---
 
-<a name="2026-03-26-measuring-opportunity-cost-md"></a>
+<a id="2026-03-26-measuring-opportunity-cost-md"></a>
 
 ## The measurement asymmetry: why we cut costs but can't see lost opportunities
 
@@ -3300,7 +3300,7 @@ For AI deployment decisions, this analysis is immediately applicable. Cost savin
 
 ---
 
-<a name="2026-03-26-customer-contact-and-delight-md"></a>
+<a id="2026-03-26-customer-contact-and-delight-md"></a>
 
 ## Customer contact as strategic signal: why people call and whether they want self-service
 
@@ -3400,7 +3400,7 @@ Klarna's experience illustrates the boundary condition: AI automation works at s
 
 ---
 
-<a name="2026-03-26-cost-reduction-is-not-strategy-md"></a>
+<a id="2026-03-26-cost-reduction-is-not-strategy-md"></a>
 
 ## Cost reduction is not a strategy: the opportunity vs efficiency mindset
 
@@ -3497,7 +3497,7 @@ The AI implication is not a hypothetical: the dominant consulting framing alread
 
 ---
 
-<a name="2026-03-26-bureaucracy-growth-and-the-boomer-generation-hypothesis-md"></a>
+<a id="2026-03-26-bureaucracy-growth-and-the-boomer-generation-hypothesis-md"></a>
 
 ## Bureaucracy growth and the boomer generation hypothesis
 
@@ -3568,7 +3568,7 @@ The absence of a single canonical researcher is the primary finding. The hypothe
 
 ---
 
-<a name="2026-03-26-against-bureaucracy-dismantling-control-systems-to-focus-on-value-and-opportunit-md"></a>
+<a id="2026-03-26-against-bureaucracy-dismantling-control-systems-to-focus-on-value-and-opportunit-md"></a>
 
 ## Against bureaucracy: dismantling control systems to focus on value and opportunity exploration
 
@@ -3642,7 +3642,7 @@ The practical synthesis is a three-step programme: (1) use VSM to audit every co
 
 ---
 
-<a name="2026-03-24-public-sentiment-on-ai-in-banking-and-high-trust-institutions-md"></a>
+<a id="2026-03-24-public-sentiment-on-ai-in-banking-and-high-trust-institutions-md"></a>
 
 ## Public sentiment on AI in banking and high-trust institutions
 
@@ -3725,7 +3725,7 @@ What does current (2024–2025) survey data reveal about customer sentiment towa
 
 ---
 
-<a name="2026-03-23-software-factory-md"></a>
+<a id="2026-03-23-software-factory-md"></a>
 
 ## The Software Factory: Organisational Transformation When the Cost of Quality Software Approaches Zero
 
@@ -3824,7 +3824,7 @@ If the cost of producing high-quality, standardised, integrated software is appr
 
 ---
 
-<a name="2026-03-23-agent-orchestration-anvil-max-md"></a>
+<a id="2026-03-23-agent-orchestration-anvil-max-md"></a>
 
 ## Agent orchestration patterns: lessons from Anvil, Max, and Burke Holland's multi-model orchestration gist
 
@@ -3912,7 +3912,7 @@ Supporting questions:
 
 ---
 
-<a name="2026-03-22-using-awesome-copilot-across-repos-md"></a>
+<a id="2026-03-22-using-awesome-copilot-across-repos-md"></a>
 
 ## How to best use awesome-copilot in this repo and across personal repos
 
@@ -3994,7 +3994,7 @@ Supporting questions:
 
 ---
 
-<a name="2026-03-22-cross-scanner-compliance-evidence-normalisation-md"></a>
+<a id="2026-03-22-cross-scanner-compliance-evidence-normalisation-md"></a>
 
 ## Cross-Scanner Compliance Evidence and Waiver Normalisation in GitHub Actions
 
@@ -4071,7 +4071,7 @@ How should an organisation running multiple compliance scanners in GitHub Action
 
 ---
 
-<a name="2026-03-22-compliance-scanning-gh-actions-md"></a>
+<a id="2026-03-22-compliance-scanning-gh-actions-md"></a>
 
 ## Compliance Scanning via GitHub Actions — Broad Policy as Code Across a Heterogeneous Stack
 
@@ -4144,7 +4144,7 @@ How can GitHub Actions (with GitHub Advanced Security (GHAS) and CodeQL already 
 
 ---
 
-<a name="2026-03-22-coding-ai-agent-skills-survey-md"></a>
+<a id="2026-03-22-coding-ai-agent-skills-survey-md"></a>
 
 ## Coding AI Agent Skills Survey: Existing Vendor and OSS Prompt Libraries for Software Engineering Domains
 
@@ -4250,7 +4250,7 @@ What actively maintained, publicly available agent skills, prompt libraries, ins
 
 ---
 
-<a name="2026-03-22-code-architecture-inspection-md"></a>
+<a id="2026-03-22-code-architecture-inspection-md"></a>
 
 ## Code Architecture Inspection Across Repositories
 
@@ -4332,7 +4332,7 @@ What practical implementation approaches exist for automatically inspecting and 
 
 ---
 
-<a name="2026-03-22-applied-context-engineering-agent-workflows-md"></a>
+<a id="2026-03-22-applied-context-engineering-agent-workflows-md"></a>
 
 ## Applied context engineering: skills, workflows, and best practices for agent development
 
@@ -4432,7 +4432,7 @@ The multi-agent cost finding (15x tokens, 80% variance = usage) reconfigures the
 
 ---
 
-<a name="2026-03-22-agents-as-finishers-and-synthesisers-md"></a>
+<a id="2026-03-22-agents-as-finishers-and-synthesisers-md"></a>
 
 ## Artificial Intelligence (AI) agents as finishers and synthesisers: optimising AI agents to complement ideation-strong, execution-weak humans
 
@@ -4520,7 +4520,7 @@ Supporting questions:
 
 ---
 
-<a name="2026-03-21-technology-capability-models-md"></a>
+<a id="2026-03-21-technology-capability-models-md"></a>
 
 ## Technology Capability Models: Survey, Comparison, and Recommendation for Multi-Level IT Capability Mapping
 
@@ -4603,7 +4603,7 @@ Supporting questions:
 
 ---
 
-<a name="2026-03-21-dependency-mapping-dotnet-terraform-dynatrace-md"></a>
+<a id="2026-03-21-dependency-mapping-dotnet-terraform-dynatrace-md"></a>
 
 ## Dependency Mapping Across .NET Codebases, Terraform, Dynatrace, Confluence, Log Aggregation, and the Configuration and Service Data Model (CSDM)
 
@@ -4691,7 +4691,7 @@ Supporting questions:
 
 ---
 
-<a name="2026-03-19-layered-org-llm-architecture-md"></a>
+<a id="2026-03-19-layered-org-llm-architecture-md"></a>
 
 ## Layered Organisation Large Language Model: Feasibility and Architecture of Organisation-Customised LLMs
 
@@ -4801,7 +4801,7 @@ This item treats enterprise Artificial Intelligence (AI) customisation as the co
 
 ---
 
-<a name="2026-03-18-stateless-agent-assumption-failure-md"></a>
+<a id="2026-03-18-stateless-agent-assumption-failure-md"></a>
 
 ## Stateless-agent assumption failure: causes, detection, and recovery patterns for orphaned state in multi-session agentic workflows
 
@@ -4877,7 +4877,7 @@ When an agentic workflow spans multiple session boundaries — each session star
 
 ---
 
-<a name="2026-03-18-human-brain-prediction-machines-md"></a>
+<a id="2026-03-18-human-brain-prediction-machines-md"></a>
 
 ## Are Human Brains Just Prediction Machines? Comparing Predictive Processing and Large Language Model Next-Token Generation
 
@@ -4964,7 +4964,7 @@ Supporting questions:
 
 ---
 
-<a name="2026-03-18-formal-proof-engineering-leanstral-md"></a>
+<a id="2026-03-18-formal-proof-engineering-leanstral-md"></a>
 
 ## More formal proof engineering: Leanstral and Artificial Intelligence (AI)-assisted formal verification
 
@@ -5049,7 +5049,7 @@ Supporting questions:
 
 ---
 
-<a name="2026-03-18-explore-to-exploit-synthesis-gap-md"></a>
+<a id="2026-03-18-explore-to-exploit-synthesis-gap-md"></a>
 
 ## Explore to exploit: the synthesis step that makes exploitation pay off
 
@@ -5138,7 +5138,7 @@ Supporting questions:
 
 ---
 
-<a name="2026-03-18-api-context-hubs-rag-mcp-md"></a>
+<a id="2026-03-18-api-context-hubs-rag-mcp-md"></a>
 
 ## Application Programming Interface (API) Context Hubs, Retrieval-Augmented Generation, and the Model Context Protocol: How Agents Discover and Use APIs
 
@@ -5223,7 +5223,7 @@ Supporting questions:
 
 ---
 
-<a name="2026-03-17-ai-memory-systems-rag-neuroscience-md"></a>
+<a id="2026-03-17-ai-memory-systems-rag-neuroscience-md"></a>
 
 ## Artificial Intelligence (AI) Memory Systems: Retrieval-Augmented Generation (RAG), Vendor Implementations, and Neuroscience Foundations
 
@@ -5313,7 +5313,7 @@ Supporting questions:
 
 ---
 
-<a name="2026-03-16-vl-jepa-concept-prediction-md"></a>
+<a id="2026-03-16-vl-jepa-concept-prediction-md"></a>
 
 ## Vision-Language Joint Embedding Predictive Architecture (VL-JEPA) and concept prediction: background and options for leveraging with frontier models
 
@@ -5394,7 +5394,7 @@ Supporting questions:
 
 ---
 
-<a name="2026-03-16-intent-driven-development-md"></a>
+<a id="2026-03-16-intent-driven-development-md"></a>
 
 ## Intent Driven Development: context and concept layering to bound the solution space
 
@@ -5479,7 +5479,7 @@ The unresolved issue is whether IDD is genuinely new or mainly a recombination o
 
 ---
 
-<a name="2026-03-16-gitagent-declarative-agent-definition-md"></a>
+<a id="2026-03-16-gitagent-declarative-agent-definition-md"></a>
 
 ## GitAgent and declarative agent definition: concepts, adoption, and cross-platform integration
 
@@ -5576,7 +5576,7 @@ Supporting questions:
 
 ---
 
-<a name="2026-03-16-adaptive-policy-authorization-compliance-md"></a>
+<a id="2026-03-16-adaptive-policy-authorization-compliance-md"></a>
 
 ## Adaptive Policy-Based Authorization (APBA): compliance alignment with National Institute of Standards and Technology (NIST) Special Publication (SP) 800-53 and International Organization for Standardization (ISO) / International Electrotechnical Commission (IEC) 27001, and impact on Policy as Code (PaC) and Artificial Intelligence (AI)-generated authorization code
 
@@ -5654,7 +5654,7 @@ Supporting questions:
 
 ---
 
-<a name="2026-03-15-trusting-trust-ai-corpus-contamination-md"></a>
+<a id="2026-03-15-trusting-trust-ai-corpus-contamination-md"></a>
 
 ## Trusting Trust and AI Corpus Contamination
 
@@ -5735,7 +5735,7 @@ Ken Thompson's "Trusting Trust" argument shows that you cannot verify a compiler
 
 ---
 
-<a name="2026-03-15-tracking-work-across-systems-md"></a>
+<a id="2026-03-15-tracking-work-across-systems-md"></a>
 
 ## Tracking How Work Travels Across Organisational Systems
 
@@ -5810,7 +5810,7 @@ Can we track how a unit of 'Work' -- an idea or concept -- travels across organi
 
 ---
 
-<a name="2026-03-15-saas-banking-invariants-md"></a>
+<a id="2026-03-15-saas-banking-invariants-md"></a>
 
 ## Invariants in Software as a Service (SaaS) Banking Software
 
@@ -5900,7 +5900,7 @@ What capabilities do enterprise Software as a Service (SaaS) banking platforms (
 
 ---
 
-<a name="2026-03-15-prompt-injection-threat-landscape-md"></a>
+<a id="2026-03-15-prompt-injection-threat-landscape-md"></a>
 
 ## Prompt injection threat landscape: exploits, defences, and active research in agentic artificial intelligence (AI) systems
 
@@ -5977,7 +5977,7 @@ Supporting questions:
 
 ---
 
-<a name="2026-03-15-neurological-context-management-md"></a>
+<a id="2026-03-15-neurological-context-management-md"></a>
 
 ## Neurological Basis of Contextual Reasoning and Relevance Filtering
 
@@ -6055,7 +6055,7 @@ How do human brains store, compress, retrieve, and dynamically layer multiple ty
 
 ---
 
-<a name="2026-03-15-latent-concept-extraction-confluence-md"></a>
+<a id="2026-03-15-latent-concept-extraction-confluence-md"></a>
 
 ## Latent Concept Extraction from Confluence: Embeddings, Knowledge Graphs, and Epistemic Evaluation
 
@@ -6160,7 +6160,7 @@ The BERTopic + NER combination reflects a separation of concerns that matches th
 
 ---
 
-<a name="2026-03-15-context-layers-aligned-decisions-synthesis-md"></a>
+<a id="2026-03-15-context-layers-aligned-decisions-synthesis-md"></a>
 
 ## Aligned Decision-Making: Context Architecture for AI Agents in Organisations
 
@@ -6268,7 +6268,7 @@ Competing interpretation considered: that Constitutional AI and Reinforcement Le
 
 ---
 
-<a name="2026-03-15-context-compression-rag-enterprise-knowledge-md"></a>
+<a id="2026-03-15-context-compression-rag-enterprise-knowledge-md"></a>
 
 ## Context Compression and RAG Techniques for Organisational Knowledge
 
@@ -6371,7 +6371,7 @@ The governance gap is the most important finding that the technical literature u
 
 ---
 
-<a name="2026-03-15-adam-smith-org-design-desire-paths-ai-md"></a>
+<a id="2026-03-15-adam-smith-org-design-desire-paths-ai-md"></a>
 
 ## Adam Smith, Organisational Design, Desire Paths, and AI Strategy
 
@@ -6469,7 +6469,7 @@ The competing interpretation is that desire paths are primarily a symptom of bad
 
 ---
 
-<a name="2026-03-14-ricardian-contract-model-md"></a>
+<a id="2026-03-14-ricardian-contract-model-md"></a>
 
 ## Ricardian Contract model: history, current state, and latest research
 
@@ -6574,7 +6574,7 @@ RWA tokenisation is the most structurally compelling driver [inference]: tokenis
 
 ---
 
-<a name="2026-03-14-reliable-software-llm-era-md"></a>
+<a id="2026-03-14-reliable-software-llm-era-md"></a>
 
 ## Reliable Software in the LLM Era
 
@@ -6667,7 +6667,7 @@ The model-update drift gap is the most practically significant open issue: if an
 
 ---
 
-<a name="2026-03-14-organisational-intent-formal-specification-md"></a>
+<a id="2026-03-14-organisational-intent-formal-specification-md"></a>
 
 ## Can organisational intent be expressed as a formally structured specification from which artefacts are derived and consistency is machine-checked?
 
@@ -6761,7 +6761,7 @@ The Hoshin Kanri finding is the most actionable: it is the only practitioner fra
 
 ---
 
-<a name="2026-03-13-financial-forecasting-it-run-costs-md"></a>
+<a id="2026-03-13-financial-forecasting-it-run-costs-md"></a>
 
 ## Best practices in financial forecasting for IT operational run costs: assumptions, uncertainty, and regulatory considerations
 
@@ -6885,7 +6885,7 @@ The correlation structure of IT cost uncertainties is the technically decisive i
 
 ---
 
-<a name="2026-03-12-volume-vs-correctness-ai-era-md"></a>
+<a id="2026-03-12-volume-vs-correctness-ai-era-md"></a>
 
 ## AI inverted the knowledge-work scarcity equation: volume is free, correctness is the scarce resource
 
@@ -6992,7 +6992,7 @@ Investing in human judgment capacity is the higher-leverage response to the volu
 
 ---
 
-<a name="2026-03-12-team-size-limits-brooks-dunbar-network-theory-md"></a>
+<a id="2026-03-12-team-size-limits-brooks-dunbar-network-theory-md"></a>
 
 ## Three disciplines, one answer: Brooks, Dunbar, and network theory on why 5 is the coordination limit
 
@@ -7092,7 +7092,7 @@ The precision of the convergence on "5" is overstated in popular treatments. Bro
 
 ---
 
-<a name="2026-03-12-swat-technique-loop-fresh-context-md"></a>
+<a id="2026-03-12-swat-technique-loop-fresh-context-md"></a>
 
 ## SWAT technique in a fresh-context loop: reliability, drift, and the effect of web search and org RAG on blind-acceptance outcomes
 
@@ -7184,7 +7184,7 @@ The fresh-context/persistent-context trade-off deserves explicit handling. Persi
 
 ---
 
-<a name="2026-03-12-superpowers-integration-analysis-md"></a>
+<a id="2026-03-12-superpowers-integration-analysis-md"></a>
 
 ## Superpowers as inspiration: what obra/superpowers can teach us about improving agent workflows across davidamitchell repos
 
@@ -7254,7 +7254,7 @@ The remaining superpowers skills (`brainstorming`, `writing-plans`, `executing-p
 
 ---
 
-<a name="2026-03-12-hosting-options-for-the-research-repo-md"></a>
+<a id="2026-03-12-hosting-options-for-the-research-repo-md"></a>
 
 ## Hosting options for the Research repo
 
@@ -7345,7 +7345,7 @@ The MkDocs Material + Pagefind + GitHub Pages stack is therefore the correct bas
 
 ---
 
-<a name="2026-03-12-failure-mode-taxonomy-expansion-md"></a>
+<a id="2026-03-12-failure-mode-taxonomy-expansion-md"></a>
 
 ## Failure mode taxonomy: empirical frequency, causal mechanisms, detection signals, and cascade patterns in production agentic systems
 
@@ -7461,7 +7461,7 @@ Sycophancy classification is the item's most structurally significant contributi
 
 ---
 
-<a name="2026-03-12-exploration-synthesis-gap-md"></a>
+<a id="2026-03-12-exploration-synthesis-gap-md"></a>
 
 ## Exploration-synthesis gap: why people in explore mode fail to synthesise others' work, and whether agent synthesis can close the gap
 
@@ -7560,7 +7560,7 @@ The regulatory convergence finding warrants separate investigation: if complianc
 
 ---
 
-<a name="2026-03-12-ai-team-size-strike-team-thesis-md"></a>
+<a id="2026-03-12-ai-team-size-strike-team-thesis-md"></a>
 
 ## AI amplified the coordination tax: the 5-person strike team as the structural unit of the AI era
 
@@ -7681,7 +7681,7 @@ The Steinberger/OpenClaw case is the strongest existence proof for the scout mod
 
 ---
 
-<a name="2026-03-12-ai-force-multiplier-ambition-expansion-md"></a>
+<a id="2026-03-12-ai-force-multiplier-ambition-expansion-md"></a>
 
 ## Force multiplier, not cost reducer: expanding organisational ambition when AI multiplies per-person output
 
@@ -7812,7 +7812,7 @@ One interpretation of the Midjourney and Lovable data is: "small teams are only 
 
 ---
 
-<a name="2026-03-10-research-loop-evaluation-rubric-md"></a>
+<a id="2026-03-10-research-loop-evaluation-rubric-md"></a>
 
 ## Research loop evaluation rubric: LLM-as-judge specification for this repository's research loop agent
 
@@ -7910,7 +7910,7 @@ The hardest design decision is which failures to treat as scored dimensions (rec
 
 ---
 
-<a name="2026-03-10-nature-of-the-firm-coase-organisations-md"></a>
+<a id="2026-03-10-nature-of-the-firm-coase-organisations-md"></a>
 
 ## The Nature of the Firm: why organisations exist, their fitness functions, and invariants
 
@@ -8012,7 +8012,7 @@ The fitness function framing adds a practical layer the TCE literature alone doe
 
 ---
 
-<a name="2026-03-10-language-for-llm-agent-output-md"></a>
+<a id="2026-03-10-language-for-llm-agent-output-md"></a>
 
 ## Language designed for LLM agents to produce: addressing generation-layer failure modes in agentic systems
 
@@ -8100,7 +8100,7 @@ The distinction between "language for orchestrating LLM agents" (designed by hum
 
 ---
 
-<a name="2026-03-10-formal-spec-intent-alignment-agentic-coding-md"></a>
+<a id="2026-03-10-formal-spec-intent-alignment-agentic-coding-md"></a>
 
 ## Formal intent specification and language choice for AI alignment in agentic coding systems
 
@@ -8200,7 +8200,7 @@ Competing interpretations: one could argue that language choice is irrelevant if
 
 ---
 
-<a name="2026-03-10-dikw-transformation-functions-md"></a>
+<a id="2026-03-10-dikw-transformation-functions-md"></a>
 
 ## The DIKW pyramid: transformation functions from data to information to knowledge to wisdom
 
@@ -8299,7 +8299,7 @@ The K→W formalisation literature (virtue epistemology, proportional duty frame
 
 ---
 
-<a name="2026-03-10-ai-concept-classification-taxonomy-md"></a>
+<a id="2026-03-10-ai-concept-classification-taxonomy-md"></a>
 
 ## AI concept classification taxonomy: prompts, instructions, memory, failure modes, controls, and problem domains
 
@@ -8400,7 +8400,7 @@ The controls-to-failures mapping is deliberately one-to-many: structural control
 
 ---
 
-<a name="2026-03-10-agent-evaluation-cross-repo-analysis-md"></a>
+<a id="2026-03-10-agent-evaluation-cross-repo-analysis-md"></a>
 
 ## Agent evaluation framework: cross-repo pattern analysis, commonality detection, and regression identification
 
@@ -8501,7 +8501,7 @@ For a research loop agent, the architectural implication is clear: the primary e
 
 ---
 
-<a name="2026-03-10-adversarial-agents-shared-goals-multi-perspective-md"></a>
+<a id="2026-03-10-adversarial-agents-shared-goals-multi-perspective-md"></a>
 
 ## Adversarial agents with shared goals: multi-perspective coverage across competencies and time horizons
 
@@ -8591,7 +8591,7 @@ The regulatory pattern (BBC Five Case, financial committee governance) reveals a
 
 ---
 
-<a name="2026-03-08-telegram-bot-memory-capture-retrieval-md"></a>
+<a id="2026-03-08-telegram-bot-memory-capture-retrieval-md"></a>
 
 ## Telegram bot as mobile memory capture and retrieval channel
 
@@ -8676,7 +8676,7 @@ Both paths are complementary: iOS Shortcuts retains a UX advantage for voice cap
 
 ---
 
-<a name="2026-03-08-slack-bot-memory-capture-retrieval-md"></a>
+<a id="2026-03-08-slack-bot-memory-capture-retrieval-md"></a>
 
 ## Slack as a mobile memory capture and retrieval channel
 
@@ -8769,7 +8769,7 @@ Slack vs. Telegram resolves to usage context: Telegram is simpler to set up with
 
 ---
 
-<a name="2026-03-08-servicenow-process-mapping-md"></a>
+<a id="2026-03-08-servicenow-process-mapping-md"></a>
 
 ## ServiceNow Process Mapping: Maintainable Process Documentation in SNOW
 
@@ -8866,7 +8866,7 @@ The evidence strongly supports treating the governance model (named owners, chan
 
 ---
 
-<a name="2026-03-08-servicenow-platform-strategy-md"></a>
+<a id="2026-03-08-servicenow-platform-strategy-md"></a>
 
 ## ServiceNow Platform Strategy: Holistic Integration of CSDM, Modules, Process, and AI
 
@@ -8952,7 +8952,7 @@ The AI sequencing dilemma — organisations holding Now Assist licenses before t
 
 ---
 
-<a name="2026-03-08-servicenow-csdm-data-modelling-md"></a>
+<a id="2026-03-08-servicenow-csdm-data-modelling-md"></a>
 
 ## ServiceNow CSDM: Practical Data Modelling Across ITSM, APM, SPM, IRM, and FSO
 
@@ -9033,7 +9033,7 @@ For financial services firms in scope for DORA, the calculus has shifted materia
 
 ---
 
-<a name="2026-03-08-servicenow-ai-knowledge-rag-agents-md"></a>
+<a id="2026-03-08-servicenow-ai-knowledge-rag-agents-md"></a>
 
 ## ServiceNow AI: Knowledge Management, RAG Pipelines, and Agent Frameworks
 
@@ -9134,7 +9134,7 @@ The Yokohama agent framework represents a qualitative step change: from domain-s
 
 ---
 
-<a name="2026-03-08-self-hosted-mcp-server-options-md"></a>
+<a id="2026-03-08-self-hosted-mcp-server-options-md"></a>
 
 ## Self-hosted MCP server options: enabling mobile AI app integration
 
@@ -9220,7 +9220,7 @@ Railway and Fly.io are equivalent in cost and capability. Fly.io is selected as 
 
 ---
 
-<a name="2026-03-08-lancedb-index-rebuild-from-git-md"></a>
+<a id="2026-03-08-lancedb-index-rebuild-from-git-md"></a>
 
 ## LanceDB index rebuild speed from git: enabling stateless deployment
 
@@ -9309,7 +9309,7 @@ Model2Vec represents a possible third path — one that avoids both the storage 
 
 ---
 
-<a name="2026-03-08-ios-shortcuts-github-api-memory-capture-md"></a>
+<a id="2026-03-08-ios-shortcuts-github-api-memory-capture-md"></a>
 
 ## iOS Shortcuts + GitHub API: zero-infrastructure mobile memory capture
 
@@ -9400,7 +9400,7 @@ Code search as retrieval is a functional but limited path. It answers "find note
 
 ---
 
-<a name="2026-03-08-inbox-folder-capture-triage-pattern-md"></a>
+<a id="2026-03-08-inbox-folder-capture-triage-pattern-md"></a>
 
 ## Inbox folder pattern: frictionless capture without forced structure
 
@@ -9482,7 +9482,7 @@ The research-loop.yml adaptation is lower-risk than building a new workflow from
 
 ---
 
-<a name="2026-03-08-context-engineering-first-principles-md"></a>
+<a id="2026-03-08-context-engineering-first-principles-md"></a>
 
 ## Context engineering: first principles of steering LLM output without control
 
@@ -9576,7 +9576,7 @@ The steering-without-control framing sets a ceiling on what context engineering 
 
 ---
 
-<a name="2026-03-08-claude-ios-mcp-remote-integration-md"></a>
+<a id="2026-03-08-claude-ios-mcp-remote-integration-md"></a>
 
 ## Claude for iOS: MCP remote integration for memory capture and retrieval
 
@@ -9653,7 +9653,7 @@ The auth question has one remaining uncertainty: whether a static bearer token (
 
 ---
 
-<a name="2026-03-08-chatgpt-actions-memory-integration-md"></a>
+<a id="2026-03-08-chatgpt-actions-memory-integration-md"></a>
 
 ## ChatGPT Actions and custom GPTs: external memory integration options
 
@@ -9740,7 +9740,7 @@ OAuth unreliability on iOS  -  while API key Actions remain stable  -  is the ke
 
 ---
 
-<a name="2026-03-08-bbc-five-case-model-md"></a>
+<a id="2026-03-08-bbc-five-case-model-md"></a>
 
 ## Better Business Cases: Five Case Model authoring and application
 
@@ -9822,7 +9822,7 @@ Opinion: In a post-2025 context, BCR should be treated as informative rather tha
 
 ---
 
-<a name="2026-03-08-ai-coding-harnesses-agent-philosophy-md"></a>
+<a id="2026-03-08-ai-coding-harnesses-agent-philosophy-md"></a>
 
 ## AI coding harnesses: agent execution model, memory, and context management across commercial and OSS tools
 
@@ -9908,7 +9908,7 @@ Context window management fragmentation is the clearest indicator the field has 
 
 ---
 
-<a name="2026-03-07-run-vs-build-it-spending-allocation-md"></a>
+<a id="2026-03-07-run-vs-build-it-spending-allocation-md"></a>
 
 ## RUN vs BUILD IT spending allocation in non-IT primary businesses
 
@@ -9995,7 +9995,7 @@ The most significant tension in the evidence is between precision and practicali
 
 ---
 
-<a name="2026-03-07-run-build-it-allocation-implementation-how-md"></a>
+<a id="2026-03-07-run-build-it-allocation-implementation-how-md"></a>
 
 ## How organisations practically implement IT RUN vs BUILD cost allocation
 
@@ -10085,7 +10085,7 @@ The vendor case studies (Praecipio retail client: $2M/year savings; financial se
 
 ---
 
-<a name="2026-03-05-swarm-pca-genetic-reinforcement-learning-md"></a>
+<a id="2026-03-05-swarm-pca-genetic-reinforcement-learning-md"></a>
 
 ## Swarm Intelligence, PCA, Genetic Algorithms, and Reinforcement Learning — advanced techniques for analytics teams
 
@@ -10179,7 +10179,7 @@ For GA/swarm vs. Bayesian optimisation, the resolution is a problem-type partiti
 
 ---
 
-<a name="2026-03-05-llm-hallucination-mechanisms-md"></a>
+<a id="2026-03-05-llm-hallucination-mechanisms-md"></a>
 
 ## LLM Hallucinations — Types, Causes, and Current Mitigation Approaches
 
@@ -10264,7 +10264,7 @@ The explanatory gap claim is strong by construction: the evidence for sparse neu
 
 ---
 
-<a name="2026-03-05-h-neurons-synthesis-md"></a>
+<a id="2026-03-05-h-neurons-synthesis-md"></a>
 
 ## H-Neurons Synthesis — From Hallucination Mechanisms to Actionable LLM Reliability Engineering
 
@@ -10388,7 +10388,7 @@ The access segmentation in the intervention map is the most practically conseque
 
 ---
 
-<a name="2026-03-05-h-neurons-in-llms-md"></a>
+<a id="2026-03-05-h-neurons-in-llms-md"></a>
 
 ## Hallucination-Associated Neurons (H-Neurons) in LLMs — Identification, Behavioural Impact, and Origins
 
@@ -10495,7 +10495,7 @@ The parameter inertia finding has a direct practical implication that is underst
 
 ---
 
-<a name="2026-03-05-h-neuron-pretraining-origins-md"></a>
+<a id="2026-03-05-h-neuron-pretraining-origins-md"></a>
 
 ## Pre-Training Origins of Hallucination-Associated Neurons — Implications for LLM Development
 
@@ -10590,7 +10590,7 @@ Intervention feasibility varies substantially by category. Domain-level quality 
 
 ---
 
-<a name="2026-03-05-h-neuron-over-compliance-md"></a>
+<a id="2026-03-05-h-neuron-over-compliance-md"></a>
 
 ## Over-Compliance in LLMs — How H-Neurons Drive Sycophancy and What Interventions Are Possible
 
@@ -10696,7 +10696,7 @@ The convergence of neuron-level (H-Neurons) and representation-level (RepE, ITI)
 
 ---
 
-<a name="2026-03-05-general-agent-optimization-framework-md"></a>
+<a id="2026-03-05-general-agent-optimization-framework-md"></a>
 
 ## General Agent Optimization Framework
 
@@ -10780,7 +10780,7 @@ Instruction drift is the central reliability risk of iterative prompt optimizati
 
 ---
 
-<a name="2026-03-04-sdlc-ai-prompt-patterns-md"></a>
+<a id="2026-03-04-sdlc-ai-prompt-patterns-md"></a>
 
 ## Emergent Patterns in Software Engineering Prompts and SDLC Guidance
 
@@ -10878,7 +10878,7 @@ The context file fragmentation problem is structural, not temporary. Each tool (
 
 ---
 
-<a name="2026-03-03-research-loop-quality-prompt-engineering-md"></a>
+<a id="2026-03-03-research-loop-quality-prompt-engineering-md"></a>
 
 ## Evaluating and improving autonomous research loop quality: prompt engineering and output assessment
 
@@ -10964,7 +10964,7 @@ The quality gate is designed as an informational signal initially. This avoids t
 
 ---
 
-<a name="2026-03-03-research-agenda-curation-coverage-md"></a>
+<a id="2026-03-03-research-agenda-curation-coverage-md"></a>
 
 ## Research agenda curation: prioritisation, coverage analysis, and avoiding research drift
 
@@ -11064,7 +11064,7 @@ The trade-off between drift detection sensitivity and false-positive rate is man
 
 ---
 
-<a name="2026-03-03-ml-techniques-and-algorithms-md"></a>
+<a id="2026-03-03-ml-techniques-and-algorithms-md"></a>
 
 ## ML techniques, algorithms, and advanced analytics — a systematic reference for analytics teams
 
@@ -11167,7 +11167,7 @@ The regulatory analysis is confined to RBNZ primary sources rather than comparat
 
 ---
 
-<a name="2026-03-03-knowledge-retention-active-recall-md"></a>
+<a id="2026-03-03-knowledge-retention-active-recall-md"></a>
 
 ## Knowledge retention: mechanisms for ensuring completed research is recalled and applied over time
 
@@ -11251,7 +11251,7 @@ The `semantic-full-text-search` item is a prerequisite for contextual recall ("w
 
 ---
 
-<a name="2026-03-03-knowledge-representation-agent-context-md"></a>
+<a id="2026-03-03-knowledge-representation-agent-context-md"></a>
 
 ## Knowledge Representation for Agent Context: LSE, Knowledge Graphs, Concept Maps, and Document Compression for Large-Scale Context Management
 
@@ -11351,7 +11351,7 @@ The four-signal RRF (cosine + BM25 + PPR + recency) is the recommended ranking c
 
 ---
 
-<a name="2026-03-03-knowledge-linking-connected-corpus-md"></a>
+<a id="2026-03-03-knowledge-linking-connected-corpus-md"></a>
 
 ## Knowledge linking: building a connected research corpus via explicit cross-references and a knowledge graph
 
@@ -11446,7 +11446,7 @@ The `.gitignore` adjustment (adding `!state/links.json`) is small but critical. 
 
 ---
 
-<a name="2026-03-02-transaction-costs-md"></a>
+<a id="2026-03-02-transaction-costs-md"></a>
 
 ## Transaction Cost Economics: foundations and speculative integration with SWE, AI, knowledge management, and context engineering
 
@@ -11566,7 +11566,7 @@ The prediction: as retrieval precision improves (better embedding models, hybrid
 
 ---
 
-<a name="2026-03-02-slack-msteams-research-integration-md"></a>
+<a id="2026-03-02-slack-msteams-research-integration-md"></a>
 
 ## Slack and MS Teams integration for research delivery and capture
 
@@ -11656,7 +11656,7 @@ Digest vs. per-item is not a significant trade-off at the current research volum
 
 ---
 
-<a name="2026-03-02-semantic-full-text-search-md"></a>
+<a id="2026-03-02-semantic-full-text-search-md"></a>
 
 ## Semantic and full-text search over the research corpus
 
@@ -11746,7 +11746,7 @@ OpenAI embeddings were eliminated at the constraint stage — they require an AP
 
 ---
 
-<a name="2026-03-02-research-quality-assurance-methodology-md"></a>
+<a id="2026-03-02-research-quality-assurance-methodology-md"></a>
 
 ## Research Quality Assurance and Knowledge Integration Methodology
 
@@ -11839,7 +11839,7 @@ The decision not to create an `integration` skill reflects scope discipline: the
 
 ---
 
-<a name="2026-03-02-ios-shortcuts-research-md"></a>
+<a id="2026-03-02-ios-shortcuts-research-md"></a>
 
 ## iOS Shortcuts for research capture and query
 
@@ -11930,7 +11930,7 @@ The PAT storage constraint is a real limitation but not a blocker. The security 
 
 ---
 
-<a name="2026-03-02-integrative-framework-agent-decision-making-md"></a>
+<a id="2026-03-02-integrative-framework-agent-decision-making-md"></a>
 
 ## An Integrative Framework for Agent Decision-Making: Aligning Knowledge Management, Intent Understanding, and Contextual Decision Frameworks
 
@@ -12032,7 +12032,7 @@ The competing interpretation — that Constitutional AI and RLHF alignment train
 
 ---
 
-<a name="2026-03-02-chat-conversational-interface-md"></a>
+<a id="2026-03-02-chat-conversational-interface-md"></a>
 
 ## Conversational and chat interface for querying the research corpus
 
@@ -12137,7 +12137,7 @@ The grounding design (structural + instructional) is appropriate. Structural gro
 
 ---
 
-<a name="2026-03-02-ai-not-a-data-problem-md"></a>
+<a id="2026-03-02-ai-not-a-data-problem-md"></a>
 
 ## AI capability is not a data problem - why the data/analytics department is the wrong home for organisational AI
 
@@ -12240,7 +12240,7 @@ Evidence sufficiency is high for the architectural claims (multiple independent 
 
 ---
 
-<a name="2026-03-02-agent-memory-management-context-injection-md"></a>
+<a id="2026-03-02-agent-memory-management-context-injection-md"></a>
 
 ## Agent Memory Management and Context Injection
 
@@ -12458,7 +12458,7 @@ Governance and quality testing remain largely unsolved in open-source deployment
 
 ---
 
-<a name="2026-03-01-github-wiki-research-content-md"></a>
+<a id="2026-03-01-github-wiki-research-content-md"></a>
 
 ## GitHub wiki for research content: approach and tooling
 
@@ -12543,7 +12543,7 @@ Both are regenerated on every rebuild.
 
 ---
 
-<a name="2026-03-01-github-specify-ralph-loop-lisa-planning-md"></a>
+<a id="2026-03-01-github-specify-ralph-loop-lisa-planning-md"></a>
 
 ## GitHub Specify, Ralph Loops, and Lisa Planning: Proof-Driven Development with AI Agents
 
@@ -12634,7 +12634,7 @@ The Ralph Wiggum Technique is a proof-driven autonomous coding loop coined by Ge
 
 ---
 
-<a name="2026-03-01-context-mode-llm-context-compression-md"></a>
+<a id="2026-03-01-context-mode-llm-context-compression-md"></a>
 
 ## Context Mode: MCP tool output compression and the LLM context window management problem
 
@@ -12720,7 +12720,7 @@ The broader context management frontier (backtracking, trees, agentic self-manag
 
 ---
 
-<a name="2026-03-01-agent-lsp-policy-enforcement-md"></a>
+<a id="2026-03-01-agent-lsp-policy-enforcement-md"></a>
 
 ## Guiding Headless Agents via LSP-Like Mechanisms for Org Policy Conformance
 
@@ -12808,7 +12808,7 @@ LangGraph checkpoint nodes are the pragmatic enterprise alternative: they delive
 
 ---
 
-<a name="2026-02-28-youtube-video-hyuos0gkgcs-concepts-md"></a>
+<a id="2026-02-28-youtube-video-hyuos0gkgcs-concepts-md"></a>
 
 ## Reality Is A Controlled Hallucination — Anil Seth (Essentia Foundation): concept extraction and synthesis
 
@@ -12935,7 +12935,7 @@ The controlled hallucination framing's weakest point is the apparent *transparen
 
 ---
 
-<a name="2026-02-28-transcript-via-yt-dlp-whisper-md"></a>
+<a id="2026-02-28-transcript-via-yt-dlp-whisper-md"></a>
 
 ## YouTube transcripts via yt-dlp audio + Whisper transcription
 
@@ -13020,7 +13020,7 @@ Option B was correctly identified as the simpler path, but it introduces an unap
 
 ---
 
-<a name="2026-02-28-transcript-via-third-party-apis-md"></a>
+<a id="2026-02-28-transcript-via-third-party-apis-md"></a>
 
 ## YouTube transcripts via third-party transcript APIs (AssemblyAI / Supadata)
 
@@ -13112,7 +13112,7 @@ Gemini (completed item) and Kagi (this item) share the same architectural patter
 
 ---
 
-<a name="2026-02-28-transcript-via-gemini-api-md"></a>
+<a id="2026-02-28-transcript-via-gemini-api-md"></a>
 
 ## YouTube transcripts via Gemini API (native YouTube URL support)
 
@@ -13197,7 +13197,7 @@ Competing interpretation: one source (multi-source web synthesis) suggested that
 
 ---
 
-<a name="2026-02-28-rbnz-ai-supervisory-expectations-md"></a>
+<a id="2026-02-28-rbnz-ai-supervisory-expectations-md"></a>
 
 ## RBNZ AI Supervisory Expectations: What Do Regulated Entities Need to Know?
 
@@ -13290,7 +13290,7 @@ The EBA comparison is relevant for entities with EU exposure and is the benchmar
 
 ---
 
-<a name="2026-02-28-predictive-processing-active-inference-md"></a>
+<a id="2026-02-28-predictive-processing-active-inference-md"></a>
 
 ## Predictive processing and active inference: the brain as prediction machine
 
@@ -13366,7 +13366,7 @@ For Anil Seth's controlled hallucination thesis specifically: PP provides the me
 
 ---
 
-<a name="2026-02-28-jevons-paradox-md"></a>
+<a id="2026-02-28-jevons-paradox-md"></a>
 
 ## Jevons Paradox: efficiency gains, demand rebound, and the falling cost of software production
 
@@ -13446,7 +13446,7 @@ The role-differentiation prediction (orchestrators > line-coders) is the near-te
 
 ---
 
-<a name="2026-02-28-interoception-and-the-predictive-self-md"></a>
+<a id="2026-02-28-interoception-and-the-predictive-self-md"></a>
 
 ## Interoception and the predictive self: selfhood as bodily inference
 
@@ -13539,7 +13539,7 @@ The "necessary but not sufficient" conclusion is well-supported and theoreticall
 
 ---
 
-<a name="2026-02-28-hard-problem-vs-real-problem-consciousness-md"></a>
+<a id="2026-02-28-hard-problem-vs-real-problem-consciousness-md"></a>
 
 ## The hard problem vs. the real problem of consciousness
 
@@ -13631,7 +13631,7 @@ Seth's pragmatic strategy is consistent with the scientific record: when a quest
 
 ---
 
-<a name="2026-02-28-free-energy-entropy-and-life-md"></a>
+<a id="2026-02-28-free-energy-entropy-and-life-md"></a>
 
 ## Free energy, entropy, and life: why organisms predict — from Schrödinger to Friston to Seth
 
@@ -13721,7 +13721,7 @@ The key intellectual achievement of this three-layer picture is that it relocate
 
 ---
 
-<a name="2026-02-28-exploit-explore-ai-portfolio-framework-md"></a>
+<a id="2026-02-28-exploit-explore-ai-portfolio-framework-md"></a>
 
 ## Exploit vs Explore: A Decision Framework for AI Portfolio Planning
 
@@ -13818,7 +13818,7 @@ The 74% BCG finding is the most significant empirical data point: it converts th
 
 ---
 
-<a name="2026-02-28-controlled-hallucination-perception-as-construction-md"></a>
+<a id="2026-02-28-controlled-hallucination-perception-as-construction-md"></a>
 
 ## Controlled hallucination: perception as active brain construction
 
@@ -13904,7 +13904,7 @@ The hard problem objection was separated from the generative-perception claim be
 
 ---
 
-<a name="2026-02-28-ai-strategy-md"></a>
+<a id="2026-02-28-ai-strategy-md"></a>
 
 ## AI Strategy: global and NZ examples, policy frameworks, regulations, and use-case typologies
 
@@ -14007,7 +14007,7 @@ New Zealand released its first national AI strategy, *Investing with Confidence*
 
 ---
 
-<a name="2026-02-28-ai-strategy-swe-focus-md"></a>
+<a id="2026-02-28-ai-strategy-swe-focus-md"></a>
 
 ## AI Strategy Examples: Software Engineering Focus
 
@@ -14097,7 +14097,7 @@ The IP governance finding is underweighted in most corporate AI strategy discuss
 
 ---
 
-<a name="2026-02-28-ai-strategy-security-focus-md"></a>
+<a id="2026-02-28-ai-strategy-security-focus-md"></a>
 
 ## AI Strategy Examples: Security Focus
 
@@ -14206,7 +14206,7 @@ Singapore's framework is chosen as the benchmark governance reference over NIST 
 
 ---
 
-<a name="2026-02-28-ai-strategy-risk-reduction-focus-md"></a>
+<a id="2026-02-28-ai-strategy-risk-reduction-focus-md"></a>
 
 ## AI Strategy Examples: Risk Reduction Focus
 
@@ -14304,7 +14304,7 @@ Governance structures that correlate with successful implementations share: (a) 
 
 ---
 
-<a name="2026-02-28-ai-strategy-business-efficiency-examples-md"></a>
+<a id="2026-02-28-ai-strategy-business-efficiency-examples-md"></a>
 
 ## AI Strategy Examples: Business Efficiency Focus
 
@@ -14406,7 +14406,7 @@ The $76B GDP uplift projection in NZ's AI Strategy is optimistic given that 68% 
 
 ---
 
-<a name="2026-02-28-ai-line-1-line-2-risk-agents-md"></a>
+<a id="2026-02-28-ai-line-1-line-2-risk-agents-md"></a>
 
 ## AI Line 1 and Line 2 Risk Agents: Who Is Building Them?
 
@@ -14505,7 +14505,7 @@ The three-lines model itself faces structural stress from agentic AI. When an AI
 
 ---
 
-<a name="2026-02-28-ai-control-testing-and-assurance-md"></a>
+<a id="2026-02-28-ai-control-testing-and-assurance-md"></a>
 
 ## AI for Control Testing, Gap Identification, and Policies/Standards Reviews
 
