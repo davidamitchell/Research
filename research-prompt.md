@@ -102,6 +102,9 @@ With `## Research Skill Output` complete, copy the §6 Synthesis content into
 `## Findings` -- expanding each component into the full structured subsections.
 No new claims may appear in Findings that are not already in the Research Skill
 Output.
+If you later edit Findings during review fixes, mirror the same substantive
+change back into `§6 Synthesis` before proceeding so the two sections stay
+aligned.
 
 - **Executive Summary** -- 3-5 sentences. Direct answer to the research
   question. **The first sentence must state the answer as a specific,
@@ -229,6 +232,12 @@ easily-detectable issues.
     Analysis, must also carry an inline `[fact]`, `[inference]`, or
     `[assumption]` label and bind its supporting source at the point of claim.
     The Evidence Map alone is insufficient.
+
+2aa. **Synthesis/Findings parity** -- if any post-review fix changes wording,
+     labels, confidence, or sources in `## Findings`, make the equivalent
+     change in `§6 Synthesis` before proceeding. The two sections are mirrored
+     outputs and must not diverge.
+
 
 2b. **Context and Evidence Map audit** -- treat the `## Context` section and
     every Evidence Map row as claim-bearing prose, not as exempt scaffolding.
