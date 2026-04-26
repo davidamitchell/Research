@@ -1,13 +1,13 @@
 ---
 review_count: 2
 title: "Technology Capability Models: Survey, Comparison, and Recommendation for Multi-Level IT Capability Mapping"
-added: 2026-03-21
+added: 2026-03-22T07:06:52+00:00
 status: completed
 priority: high  # low | medium | high
 blocks: []
 tags: [capability-modelling, enterprise-architecture, togaf, sabsa, bian, tmf, csdm, business-capability-model, technical-capability-model, dependency-map, maturity-assessment, it-architecture, it-strategy]
-started: 2026-03-22
-completed: 2026-03-22
+started: 2026-03-22T07:06:52+00:00
+completed: 2026-03-22T07:06:52+00:00
 output: [knowledge]
 ---
 

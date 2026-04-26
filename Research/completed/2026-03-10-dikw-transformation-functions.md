@@ -1,12 +1,12 @@
 ---
 title: "The DIKW pyramid: transformation functions from data to information to knowledge to wisdom"
-added: 2026-03-10
+added: 2026-03-10T19:50:15+00:00
 status: completed
 priority: high
 blocks: []
 tags: [dikw, knowledge-management, epistemology, information-theory, wisdom, cognition, organisations, learning]
-started: 2026-03-10
-completed: 2026-03-10
+started: 2026-03-10T19:50:15+00:00
+completed: 2026-03-10T19:50:15+00:00
 output: [knowledge]
 ---
 

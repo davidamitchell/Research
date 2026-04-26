@@ -1,13 +1,13 @@
 ---
 review_count: 2
 title: "Stateless-agent assumption failure: causes, detection, and recovery patterns for orphaned state in multi-session agentic workflows"
-added: 2026-03-18
+added: 2026-03-20T07:26:32+00:00
 status: completed
 priority: high
 blocks: []
 tags: [failure-modes, agentic-systems, operational-failures, layer-5, state-management, idempotency, checkpoint-resume, multi-session, workflow]
-started: 2026-03-20
-completed: 2026-03-20
+started: 2026-03-20T07:26:32+00:00
+completed: 2026-03-20T07:26:32+00:00
 output: [knowledge]
 ---
 

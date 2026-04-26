@@ -1,13 +1,13 @@
 ---
 review_count: 2
 title: "AI company hiring strategies: what job ads and recent hires reveal about strategic direction"
-added: 2026-04-02
+added: 2026-04-19T22:18:52+00:00
 status: completed
 priority: medium  # low | medium | high
 blocks: []
 tags: [ai, hiring, strategy, competitive-intelligence, openai, anthropic, google-deepmind, meta-ai, xai, job-market, wayback-machine]
-started: 2026-04-19
-completed: 2026-04-19
+started: 2026-04-19T22:18:52+00:00
+completed: 2026-04-19T22:18:52+00:00
 output: [knowledge]
 ---
 

@@ -1,11 +1,11 @@
 ---
 title: "YouTube transcripts via yt-dlp audio + Whisper transcription"
-added: 2026-02-28
+added: 2026-03-07T01:23:10+00:00
 status: completed
 priority: medium
 tags: [youtube, transcripts, whisper, yt-dlp, tooling, automation]
-started: 2026-03-07
-completed: 2026-03-07
+started: 2026-03-07T01:23:10+00:00
+completed: 2026-03-07T01:23:10+00:00
 output: [tool]
 ---
 

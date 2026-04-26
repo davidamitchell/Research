@@ -1,12 +1,12 @@
 ---
 title: "Force multiplier, not cost reducer: expanding organisational ambition when AI multiplies per-person output"
-added: 2026-03-12
+added: 2026-03-14T09:13:24+00:00
 status: completed
 priority: high
 blocks: []
 tags: [force-multiplier, ambition, organisational-design, ai-native, strategy, headcount, revenue-per-employee, cannot-do-now, capacity-expansion]
-started: 2026-03-14
-completed: 2026-03-14
+started: 2026-03-14T09:13:24+00:00
+completed: 2026-03-14T09:13:24+00:00
 output: [knowledge]
 ---
 

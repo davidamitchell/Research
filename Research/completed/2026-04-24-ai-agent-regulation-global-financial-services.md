@@ -1,13 +1,13 @@
 ---
 review_count: 2
 title: "Global artificial intelligence agent regulation in financial services: non-functional requirement obligations and low-code citizen-development controls"
-added: 2026-04-24
+added: 2026-04-24T23:02:59+00:00
 status: completed
 priority: high  # low | medium | high
 blocks: []
 tags: [artificial-intelligence, regulation, financial-services, governance, low-code, citizen-development, non-functional-requirements, eu-ai-act, apra, rbnz, fma, privacy-act, fair-trading, new-zealand-legislation, concentration-risk]
-started: 2026-04-24
-completed: 2026-04-24
+started: 2026-04-24T23:02:59+00:00
+completed: 2026-04-24T23:02:59+00:00
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item
 ---
 

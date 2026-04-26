@@ -1,6 +1,6 @@
 # Research Master Document
 
-Generated on: 2026-04-26 08:31 UTC
+Generated on: 2026-04-26 09:56 UTC
 
 ## Table of Contents
 
@@ -163,10 +163,20 @@ Generated on: 2026-04-26 08:31 UTC
 * [AI Strategy Examples: Business Efficiency Focus](#2026-02-28-ai-strategy-business-efficiency-examples-md)
 * [AI Line 1 and Line 2 Risk Agents: Who Is Building Them?](#2026-02-28-ai-line-1-line-2-risk-agents-md)
 * [AI for Control Testing, Gap Identification, and Policies/Standards Reviews](#2026-02-28-ai-control-testing-and-assurance-md)
+* [YouTube transcript fetcher for research](#2026-02-27-youtube-transcript-fetcher-md)
+* [Sources of research: what to monitor and how](#2026-02-27-sources-of-research-md)
+* [Simple process for adding a research item](#2026-02-27-simple-process-for-adding-research-item-md)
+* [Research output types: skills, tools, agents, knowledge](#2026-02-27-research-output-types-md)
+* [Keeping research backlog separate from repo improvement backlog](#2026-02-27-research-backlog-vs-repo-improvement-backlog-md)
+* [Local index vs reference: what to store vs link](#2026-02-27-local-index-vs-reference-md)
+* [Local database: requirements and technology choice](#2026-02-27-local-database-md)
+* [Interface and delivery: how to surface research outputs](#2026-02-27-interface-and-delivery-md)
+* [Information synthesis: non-lossy compression, entropy, and information theory](#2026-02-27-information-synthesis-entropy-md)
+* [Indexing and tracking method for research content](#2026-02-27-indexing-and-tracking-method-md)
 
 ---
 
-<a name="2026-04-26-systems-capability-debt-citizen-development-empirical-evidence-md"></a>
+<a id="2026-04-26-systems-capability-debt-citizen-development-empirical-evidence-md"></a>
 
 ## Systems capability debt as the root cause of citizen development: empirical evidence and effective governance architectures
 
@@ -242,7 +252,7 @@ What empirical evidence exists that systems capability debt, the accumulated gap
 
 ---
 
-<a name="2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis-md"></a>
+<a id="2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis-md"></a>
 
 ## Systems capability debt, citizen development, and agentic AI risk: is the causal chain and sequencing imperative a novel contribution?
 
@@ -322,7 +332,7 @@ Does the synthesis of technical debt literature (Cunningham, Kruchten), systems 
 
 ---
 
-<a name="2026-04-26-multi-ai-provider-control-planes-md"></a>
+<a id="2026-04-26-multi-ai-provider-control-planes-md"></a>
 
 ## Multi-provider AI control planes: capabilities, vendors, and coverage gaps
 
@@ -393,7 +403,7 @@ Which platforms or architectural designs provide multi-provider Artificial Intel
 
 ---
 
-<a name="2026-04-26-ms-copilot-cowork-md"></a>
+<a id="2026-04-26-ms-copilot-cowork-md"></a>
 
 ## What is Microsoft 365 Copilot Cowork and what are its enterprise governance risks?
 
@@ -467,7 +477,7 @@ Explicit assumptions made during the investigation and the justification for eac
 
 ---
 
-<a name="2026-04-26-implicit-rate-limiting-controls-agentic-ai-removal-md"></a>
+<a id="2026-04-26-implicit-rate-limiting-controls-agentic-ai-removal-md"></a>
 
 ## Implicit rate-limiting controls removed by agentic Artificial Intelligence (AI): blast radius amplification and the operational risk literature gap
 
@@ -541,7 +551,7 @@ Prior to agentic Artificial Intelligence (AI), the blast radius of ungoverned ci
 
 ---
 
-<a name="2026-04-26-deployment-pipeline-citizen-development-governed-gate-md"></a>
+<a id="2026-04-26-deployment-pipeline-citizen-development-governed-gate-md"></a>
 
 ## Deployment pipeline as the only enforceable control gate for citizen-developed agents: DevOps literature support, low-code platform hook points, and architectural enforceability
 
@@ -610,7 +620,7 @@ In an environment where citizen development tooling is already licensed and acce
 
 ---
 
-<a name="2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment-md"></a>
+<a id="2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment-md"></a>
 
 ## Regulatory and standards preconditions for deployment of Artificial Intelligence (AI) systems that can take multi-step actions: does incomplete access control and data governance constitute a control failure?
 
@@ -686,7 +696,7 @@ Under applicable regulatory and standards frameworks, including Australian Prude
 
 ---
 
-<a name="2026-04-26-access-control-amplification-agentic-operations-md"></a>
+<a id="2026-04-26-access-control-amplification-agentic-operations-md"></a>
 
 ## Access control amplification under agentic operations: whether existing frameworks address the worst-case permission inheritance problem
 
@@ -764,7 +774,7 @@ Agents do not inherit a user's typical behaviour, they inherit the worst-case in
 
 ---
 
-<a name="2026-04-24-business-led-low-code-agent-governance-md"></a>
+<a id="2026-04-24-business-led-low-code-agent-governance-md"></a>
 
 ## Business-led low-code agent governance: conditions for durable value versus fragmentation in regulated environments
 
@@ -837,7 +847,7 @@ Under what conditions does business-led low-code Artificial Intelligence (AI) ag
 
 ---
 
-<a name="2026-04-24-ai-agent-regulation-global-financial-services-md"></a>
+<a id="2026-04-24-ai-agent-regulation-global-financial-services-md"></a>
 
 ## Global artificial intelligence agent regulation in financial services: non-functional requirement obligations and low-code citizen-development controls
 
@@ -913,7 +923,7 @@ What regulatory obligations do financial-services regulators globally, including
 
 ---
 
-<a name="2026-04-22-recall-competitive-landscape-and-clone-feasibility-md"></a>
+<a id="2026-04-22-recall-competitive-landscape-and-clone-feasibility-md"></a>
 
 ## Recall competitive landscape and clone feasibility
 
@@ -1003,7 +1013,7 @@ What core capabilities does Recall provide, who else is building similar product
 
 ---
 
-<a name="2026-04-22-knowledge-curation-governance-for-regulated-ai-md"></a>
+<a id="2026-04-22-knowledge-curation-governance-for-regulated-ai-md"></a>
 
 ## Knowledge curation governance as an enterprise AI capability in regulated financial institutions
 
@@ -1069,7 +1079,7 @@ What operational models exist for governing authoritative knowledge as a managed
 
 ---
 
-<a name="2026-04-22-historical-technology-adoption-enterprise-ai-capability-building-md"></a>
+<a id="2026-04-22-historical-technology-adoption-enterprise-ai-capability-building-md"></a>
 
 ## Historical technology adoption patterns as analogues for enterprise Artificial Intelligence capability building
 
@@ -1144,7 +1154,7 @@ What can organisations learn from retrospectives of prior technology introductio
 
 ---
 
-<a name="2026-04-22-enterprise-ai-use-case-routing-frameworks-md"></a>
+<a id="2026-04-22-enterprise-ai-use-case-routing-frameworks-md"></a>
 
 ## Enterprise AI use-case routing frameworks
 
@@ -1225,7 +1235,7 @@ What decision frameworks do enterprises use to route Artificial Intelligence (AI
 
 ---
 
-<a name="2026-04-22-enterprise-ai-platform-operating-models-md"></a>
+<a id="2026-04-22-enterprise-ai-platform-operating-models-md"></a>
 
 ## Enterprise AI platform operating models: organisational structure and ownership
 
@@ -1302,7 +1312,7 @@ What organisational structures do enterprises use to operate multiple Artificial
 
 ---
 
-<a name="2026-04-22-enterprise-ai-capability-model-md"></a>
+<a id="2026-04-22-enterprise-ai-capability-model-md"></a>
 
 ## Enterprise AI capability model for use-case maturity decisions
 
@@ -1396,7 +1406,7 @@ What enterprise-wide Artificial Intelligence (AI) capability model best supports
 
 ---
 
-<a name="2026-04-22-ai-governance-assurance-change-control-verification-md"></a>
+<a id="2026-04-22-ai-governance-assurance-change-control-verification-md"></a>
 
 ## Automated governance assurance and change control verification patterns for AI-assisted delivery
 
@@ -1476,7 +1486,7 @@ What technical patterns exist for automating governance assurance and change con
 
 ---
 
-<a name="2026-04-20-harness-selection-tools-agents-skills-prompts-instructions-md"></a>
+<a id="2026-04-20-harness-selection-tools-agents-skills-prompts-instructions-md"></a>
 
 ## Harness-level selection and use of tools, agents, skills, prompts, and instruction files
 
@@ -1551,7 +1561,7 @@ When should teams choose tools, agent definition files, skills, prompts, instruc
 
 ---
 
-<a name="2026-04-18-shopify-ai-strategy-red-queen-memo-md"></a>
+<a id="2026-04-18-shopify-ai-strategy-red-queen-memo-md"></a>
 
 ## Shopify's Artificial Intelligence (AI) strategy after the Red Queen memo: selection pressure, talent-market effects, and copycat outcomes
 
@@ -1630,7 +1640,7 @@ What is Shopify's explicit Artificial Intelligence (AI) strategy as evidenced by
 
 ---
 
-<a name="2026-04-18-latest-developments-trends-forecast-md"></a>
+<a id="2026-04-18-latest-developments-trends-forecast-md"></a>
 
 ## Latest developments history: trends, themes, and forward scenarios
 
@@ -1736,7 +1746,7 @@ Supporting questions:
 
 ---
 
-<a name="2026-04-03-oh-my-codex-patterns-md"></a>
+<a id="2026-04-03-oh-my-codex-patterns-md"></a>
 
 ## oh-my-codex and AI Agent Workflow Patterns: What Can We Leverage?
 
@@ -1821,7 +1831,7 @@ Cross-repo consistency is a second-order issue: the Multi-Agent-Testing, Agent-E
 
 ---
 
-<a name="2026-04-03-ai-workflow-todo-digest-md"></a>
+<a id="2026-04-03-ai-workflow-todo-digest-md"></a>
 
 ## Artificial Intelligence (AI)-assisted daily productivity digest: patterns, tooling, and automation approaches for personal task management
 
@@ -1906,7 +1916,7 @@ Supporting questions:
 
 ---
 
-<a name="2026-04-02-org-shape-software-cost-zero-md"></a>
+<a id="2026-04-02-org-shape-software-cost-zero-md"></a>
 
 ## The shape of organisations when software is no longer the constraint
 
@@ -1987,7 +1997,7 @@ Supporting questions:
 
 ---
 
-<a name="2026-04-02-claude-mythos-md"></a>
+<a id="2026-04-02-claude-mythos-md"></a>
 
 ## Claude mythos: character, soul documents, and narrative identity in large language models
 
@@ -2066,7 +2076,7 @@ What is the "Claude mythos" - the narrative, character, and values framework Ant
 
 ---
 
-<a name="2026-04-02-claude-code-npm-source-map-leak-md"></a>
+<a id="2026-04-02-claude-code-npm-source-map-leak-md"></a>
 
 ## Claude Code npm Source Map Leak
 
@@ -2144,7 +2154,7 @@ The DMCA response reveals a separate governance gap. Automated at-scale copyrigh
 
 ---
 
-<a name="2026-04-02-anthropic-claude-code-leak-architecture-prompting-and-hidden-features-md"></a>
+<a id="2026-04-02-anthropic-claude-code-leak-architecture-prompting-and-hidden-features-md"></a>
 
 ## Anthropic Claude Code leak: architecture, prompting, and hidden features
 
@@ -2233,7 +2243,7 @@ The Undercover Mode disclosure risk is the most ethically complex finding. Autom
 
 ---
 
-<a name="2026-04-02-ai-funding-and-capital-investment-landscape-md"></a>
+<a id="2026-04-02-ai-funding-and-capital-investment-landscape-md"></a>
 
 ## AI Funding and Capital Investment Landscape
 
@@ -2317,7 +2327,7 @@ The Stargate Project represents a structural escalation: if OpenAI and SoftBank 
 
 ---
 
-<a name="2026-04-02-ai-company-hiring-strategies-md"></a>
+<a id="2026-04-02-ai-company-hiring-strategies-md"></a>
 
 ## AI company hiring strategies: what job ads and recent hires reveal about strategic direction
 
@@ -2404,7 +2414,7 @@ Supporting questions:
 
 ---
 
-<a name="2026-04-01-timesfm-time-series-foundation-models-md"></a>
+<a id="2026-04-01-timesfm-time-series-foundation-models-md"></a>
 
 ## TimesFM and the Landscape of Time-Series Foundation Models
 
@@ -2487,7 +2497,7 @@ GFMs face a structurally harder problem. Sequence patching for time-series is cl
 
 ---
 
-<a name="2026-04-01-backpressure-theory-of-constraints-md"></a>
+<a id="2026-04-01-backpressure-theory-of-constraints-md"></a>
 
 ## Backpressure Infrastructure and the Theory of Constraints
 
@@ -2556,7 +2566,7 @@ Three independent lines of evidence converge on the same conclusion: (1) Goldrat
 
 ---
 
-<a name="2026-03-31-llm-offensive-security-0days-md"></a>
+<a id="2026-03-31-llm-offensive-security-0days-md"></a>
 
 ## Large Language Models as offensive security tools: autonomous 0-day discovery, exploit generation, and the emerging arms race
 
@@ -2652,7 +2662,7 @@ The probe-based safeguard architecture Anthropic has deployed represents a meani
 
 ---
 
-<a name="2026-03-29-unknowability-of-the-universe-md"></a>
+<a id="2026-03-29-unknowability-of-the-universe-md"></a>
 
 ## The Unknowability of the Universe
 
@@ -2745,7 +2755,7 @@ The Feyerabend connection carries a concrete methodological implication: cosmic 
 
 ---
 
-<a name="2026-03-29-multi-agent-repo-setup-md"></a>
+<a id="2026-03-29-multi-agent-repo-setup-md"></a>
 
 ## Multi-agent repo setup: best practices for configuring a repository to be worked on by Claude (iOS and GitHub Issues) and Copilot (Spaces and GitHub Issues)
 
@@ -2818,7 +2828,7 @@ The "thin pointer" pattern for `AGENTS.md` (pointing to `.github/copilot-instruc
 
 ---
 
-<a name="2026-03-29-claude-code-web-submodule-credential-md"></a>
+<a id="2026-03-29-claude-code-web-submodule-credential-md"></a>
 
 ## Claude Code on the web: private submodule credential access and git submodule init mechanism
 
@@ -2913,7 +2923,7 @@ The npm proxy stripping evidence (issue #11078) establishes that the proxy does 
 
 ---
 
-<a name="2026-03-28-environment-setup-consistency-md"></a>
+<a id="2026-03-28-environment-setup-consistency-md"></a>
 
 ## Environment setup consistency: what each agent sees when it starts work in this repo and how to make it consistent
 
@@ -3040,7 +3050,7 @@ Primary sources (GitHub official documentation S1, S2; Anthropic official docume
 
 ---
 
-<a name="2026-03-28-agents-md-role-and-cross-agent-instructions-md"></a>
+<a id="2026-03-28-agents-md-role-and-cross-agent-instructions-md"></a>
 
 ## The role of AGENTS.md in a repo using .github/copilot-instructions.md as the sole instructions source
 
@@ -3154,7 +3164,7 @@ The organisation-consistency argument also supports the status quo: three of fou
 
 ---
 
-<a name="2026-03-28-agent-instruction-loading-and-skills-access-md"></a>
+<a id="2026-03-28-agent-instruction-loading-and-skills-access-md"></a>
 
 ## Agent instruction loading and skills access: Copilot coding agent, Claude iOS code feature, and the role of AGENTS.md
 
@@ -3276,7 +3286,7 @@ Primary sources (GitHub official documentation, Anthropic official documentation
 
 ---
 
-<a name="2026-03-26-rory-sutherland-core-tenets-md"></a>
+<a id="2026-03-26-rory-sutherland-core-tenets-md"></a>
 
 ## Rory Sutherland's core tenets: anti-bureaucracy, customer thinking, and behavioral economics
 
@@ -3356,7 +3366,7 @@ Rory Sutherland's core intellectual position is that human value is determined b
 
 ---
 
-<a name="2026-03-26-measuring-opportunity-cost-md"></a>
+<a id="2026-03-26-measuring-opportunity-cost-md"></a>
 
 ## The measurement asymmetry: why we cut costs but can't see lost opportunities
 
@@ -3445,7 +3455,7 @@ For AI deployment decisions, this analysis is immediately applicable. Cost savin
 
 ---
 
-<a name="2026-03-26-customer-contact-and-delight-md"></a>
+<a id="2026-03-26-customer-contact-and-delight-md"></a>
 
 ## Customer contact as strategic signal: why people call and whether they want self-service
 
@@ -3545,7 +3555,7 @@ Klarna's experience illustrates the boundary condition: AI automation works at s
 
 ---
 
-<a name="2026-03-26-cost-reduction-is-not-strategy-md"></a>
+<a id="2026-03-26-cost-reduction-is-not-strategy-md"></a>
 
 ## Cost reduction is not a strategy: the opportunity vs efficiency mindset
 
@@ -3642,7 +3652,7 @@ The AI implication is not a hypothetical: the dominant consulting framing alread
 
 ---
 
-<a name="2026-03-26-bureaucracy-growth-and-the-boomer-generation-hypothesis-md"></a>
+<a id="2026-03-26-bureaucracy-growth-and-the-boomer-generation-hypothesis-md"></a>
 
 ## Bureaucracy growth and the boomer generation hypothesis
 
@@ -3713,7 +3723,7 @@ The absence of a single canonical researcher is the primary finding. The hypothe
 
 ---
 
-<a name="2026-03-26-against-bureaucracy-dismantling-control-systems-to-focus-on-value-and-opportunit-md"></a>
+<a id="2026-03-26-against-bureaucracy-dismantling-control-systems-to-focus-on-value-and-opportunit-md"></a>
 
 ## Against bureaucracy: dismantling control systems to focus on value and opportunity exploration
 
@@ -3787,7 +3797,7 @@ The practical synthesis is a three-step programme: (1) use VSM to audit every co
 
 ---
 
-<a name="2026-03-24-public-sentiment-on-ai-in-banking-and-high-trust-institutions-md"></a>
+<a id="2026-03-24-public-sentiment-on-ai-in-banking-and-high-trust-institutions-md"></a>
 
 ## Public sentiment on AI in banking and high-trust institutions
 
@@ -3870,7 +3880,7 @@ What does current (2024–2025) survey data reveal about customer sentiment towa
 
 ---
 
-<a name="2026-03-23-software-factory-md"></a>
+<a id="2026-03-23-software-factory-md"></a>
 
 ## The Software Factory: Organisational Transformation When the Cost of Quality Software Approaches Zero
 
@@ -3969,7 +3979,7 @@ If the cost of producing high-quality, standardised, integrated software is appr
 
 ---
 
-<a name="2026-03-23-agent-orchestration-anvil-max-md"></a>
+<a id="2026-03-23-agent-orchestration-anvil-max-md"></a>
 
 ## Agent orchestration patterns: lessons from Anvil, Max, and Burke Holland's multi-model orchestration gist
 
@@ -4057,7 +4067,7 @@ Supporting questions:
 
 ---
 
-<a name="2026-03-22-using-awesome-copilot-across-repos-md"></a>
+<a id="2026-03-22-using-awesome-copilot-across-repos-md"></a>
 
 ## How to best use awesome-copilot in this repo and across personal repos
 
@@ -4139,7 +4149,7 @@ Supporting questions:
 
 ---
 
-<a name="2026-03-22-cross-scanner-compliance-evidence-normalisation-md"></a>
+<a id="2026-03-22-cross-scanner-compliance-evidence-normalisation-md"></a>
 
 ## Cross-Scanner Compliance Evidence and Waiver Normalisation in GitHub Actions
 
@@ -4216,7 +4226,7 @@ How should an organisation running multiple compliance scanners in GitHub Action
 
 ---
 
-<a name="2026-03-22-compliance-scanning-gh-actions-md"></a>
+<a id="2026-03-22-compliance-scanning-gh-actions-md"></a>
 
 ## Compliance Scanning via GitHub Actions — Broad Policy as Code Across a Heterogeneous Stack
 
@@ -4289,7 +4299,7 @@ How can GitHub Actions (with GitHub Advanced Security (GHAS) and CodeQL already 
 
 ---
 
-<a name="2026-03-22-coding-ai-agent-skills-survey-md"></a>
+<a id="2026-03-22-coding-ai-agent-skills-survey-md"></a>
 
 ## Coding AI Agent Skills Survey: Existing Vendor and OSS Prompt Libraries for Software Engineering Domains
 
@@ -4395,7 +4405,7 @@ What actively maintained, publicly available agent skills, prompt libraries, ins
 
 ---
 
-<a name="2026-03-22-code-architecture-inspection-md"></a>
+<a id="2026-03-22-code-architecture-inspection-md"></a>
 
 ## Code Architecture Inspection Across Repositories
 
@@ -4477,7 +4487,7 @@ What practical implementation approaches exist for automatically inspecting and 
 
 ---
 
-<a name="2026-03-22-applied-context-engineering-agent-workflows-md"></a>
+<a id="2026-03-22-applied-context-engineering-agent-workflows-md"></a>
 
 ## Applied context engineering: skills, workflows, and best practices for agent development
 
@@ -4577,7 +4587,7 @@ The multi-agent cost finding (15x tokens, 80% variance = usage) reconfigures the
 
 ---
 
-<a name="2026-03-22-agents-as-finishers-and-synthesisers-md"></a>
+<a id="2026-03-22-agents-as-finishers-and-synthesisers-md"></a>
 
 ## Artificial Intelligence (AI) agents as finishers and synthesisers: optimising AI agents to complement ideation-strong, execution-weak humans
 
@@ -4665,7 +4675,7 @@ Supporting questions:
 
 ---
 
-<a name="2026-03-21-technology-capability-models-md"></a>
+<a id="2026-03-21-technology-capability-models-md"></a>
 
 ## Technology Capability Models: Survey, Comparison, and Recommendation for Multi-Level IT Capability Mapping
 
@@ -4748,7 +4758,7 @@ Supporting questions:
 
 ---
 
-<a name="2026-03-21-dependency-mapping-dotnet-terraform-dynatrace-md"></a>
+<a id="2026-03-21-dependency-mapping-dotnet-terraform-dynatrace-md"></a>
 
 ## Dependency Mapping Across .NET Codebases, Terraform, Dynatrace, Confluence, Log Aggregation, and the Configuration and Service Data Model (CSDM)
 
@@ -4836,7 +4846,7 @@ Supporting questions:
 
 ---
 
-<a name="2026-03-19-layered-org-llm-architecture-md"></a>
+<a id="2026-03-19-layered-org-llm-architecture-md"></a>
 
 ## Layered Organisation Large Language Model: Feasibility and Architecture of Organisation-Customised LLMs
 
@@ -4946,7 +4956,7 @@ This item treats enterprise Artificial Intelligence (AI) customisation as the co
 
 ---
 
-<a name="2026-03-18-stateless-agent-assumption-failure-md"></a>
+<a id="2026-03-18-stateless-agent-assumption-failure-md"></a>
 
 ## Stateless-agent assumption failure: causes, detection, and recovery patterns for orphaned state in multi-session agentic workflows
 
@@ -5022,7 +5032,7 @@ When an agentic workflow spans multiple session boundaries — each session star
 
 ---
 
-<a name="2026-03-18-human-brain-prediction-machines-md"></a>
+<a id="2026-03-18-human-brain-prediction-machines-md"></a>
 
 ## Are Human Brains Just Prediction Machines? Comparing Predictive Processing and Large Language Model Next-Token Generation
 
@@ -5109,7 +5119,7 @@ Supporting questions:
 
 ---
 
-<a name="2026-03-18-formal-proof-engineering-leanstral-md"></a>
+<a id="2026-03-18-formal-proof-engineering-leanstral-md"></a>
 
 ## More formal proof engineering: Leanstral and Artificial Intelligence (AI)-assisted formal verification
 
@@ -5194,7 +5204,7 @@ Supporting questions:
 
 ---
 
-<a name="2026-03-18-explore-to-exploit-synthesis-gap-md"></a>
+<a id="2026-03-18-explore-to-exploit-synthesis-gap-md"></a>
 
 ## Explore to exploit: the synthesis step that makes exploitation pay off
 
@@ -5283,7 +5293,7 @@ Supporting questions:
 
 ---
 
-<a name="2026-03-18-api-context-hubs-rag-mcp-md"></a>
+<a id="2026-03-18-api-context-hubs-rag-mcp-md"></a>
 
 ## Application Programming Interface (API) Context Hubs, Retrieval-Augmented Generation, and the Model Context Protocol: How Agents Discover and Use APIs
 
@@ -5368,7 +5378,7 @@ Supporting questions:
 
 ---
 
-<a name="2026-03-17-ai-memory-systems-rag-neuroscience-md"></a>
+<a id="2026-03-17-ai-memory-systems-rag-neuroscience-md"></a>
 
 ## Artificial Intelligence (AI) Memory Systems: Retrieval-Augmented Generation (RAG), Vendor Implementations, and Neuroscience Foundations
 
@@ -5458,7 +5468,7 @@ Supporting questions:
 
 ---
 
-<a name="2026-03-16-vl-jepa-concept-prediction-md"></a>
+<a id="2026-03-16-vl-jepa-concept-prediction-md"></a>
 
 ## Vision-Language Joint Embedding Predictive Architecture (VL-JEPA) and concept prediction: background and options for leveraging with frontier models
 
@@ -5539,7 +5549,7 @@ Supporting questions:
 
 ---
 
-<a name="2026-03-16-intent-driven-development-md"></a>
+<a id="2026-03-16-intent-driven-development-md"></a>
 
 ## Intent Driven Development: context and concept layering to bound the solution space
 
@@ -5624,7 +5634,7 @@ The unresolved issue is whether IDD is genuinely new or mainly a recombination o
 
 ---
 
-<a name="2026-03-16-gitagent-declarative-agent-definition-md"></a>
+<a id="2026-03-16-gitagent-declarative-agent-definition-md"></a>
 
 ## GitAgent and declarative agent definition: concepts, adoption, and cross-platform integration
 
@@ -5721,7 +5731,7 @@ Supporting questions:
 
 ---
 
-<a name="2026-03-16-adaptive-policy-authorization-compliance-md"></a>
+<a id="2026-03-16-adaptive-policy-authorization-compliance-md"></a>
 
 ## Adaptive Policy-Based Authorization (APBA): compliance alignment with National Institute of Standards and Technology (NIST) Special Publication (SP) 800-53 and International Organization for Standardization (ISO) / International Electrotechnical Commission (IEC) 27001, and impact on Policy as Code (PaC) and Artificial Intelligence (AI)-generated authorization code
 
@@ -5799,7 +5809,7 @@ Supporting questions:
 
 ---
 
-<a name="2026-03-15-trusting-trust-ai-corpus-contamination-md"></a>
+<a id="2026-03-15-trusting-trust-ai-corpus-contamination-md"></a>
 
 ## Trusting Trust and AI Corpus Contamination
 
@@ -5880,7 +5890,7 @@ Ken Thompson's "Trusting Trust" argument shows that you cannot verify a compiler
 
 ---
 
-<a name="2026-03-15-tracking-work-across-systems-md"></a>
+<a id="2026-03-15-tracking-work-across-systems-md"></a>
 
 ## Tracking How Work Travels Across Organisational Systems
 
@@ -5955,7 +5965,7 @@ Can we track how a unit of 'Work' -- an idea or concept -- travels across organi
 
 ---
 
-<a name="2026-03-15-saas-banking-invariants-md"></a>
+<a id="2026-03-15-saas-banking-invariants-md"></a>
 
 ## Invariants in Software as a Service (SaaS) Banking Software
 
@@ -6045,7 +6055,7 @@ What capabilities do enterprise Software as a Service (SaaS) banking platforms (
 
 ---
 
-<a name="2026-03-15-prompt-injection-threat-landscape-md"></a>
+<a id="2026-03-15-prompt-injection-threat-landscape-md"></a>
 
 ## Prompt injection threat landscape: exploits, defences, and active research in agentic artificial intelligence (AI) systems
 
@@ -6122,7 +6132,7 @@ Supporting questions:
 
 ---
 
-<a name="2026-03-15-neurological-context-management-md"></a>
+<a id="2026-03-15-neurological-context-management-md"></a>
 
 ## Neurological Basis of Contextual Reasoning and Relevance Filtering
 
@@ -6200,7 +6210,7 @@ How do human brains store, compress, retrieve, and dynamically layer multiple ty
 
 ---
 
-<a name="2026-03-15-latent-concept-extraction-confluence-md"></a>
+<a id="2026-03-15-latent-concept-extraction-confluence-md"></a>
 
 ## Latent Concept Extraction from Confluence: Embeddings, Knowledge Graphs, and Epistemic Evaluation
 
@@ -6305,7 +6315,7 @@ The BERTopic + NER combination reflects a separation of concerns that matches th
 
 ---
 
-<a name="2026-03-15-context-layers-aligned-decisions-synthesis-md"></a>
+<a id="2026-03-15-context-layers-aligned-decisions-synthesis-md"></a>
 
 ## Aligned Decision-Making: Context Architecture for AI Agents in Organisations
 
@@ -6413,7 +6423,7 @@ Competing interpretation considered: that Constitutional AI and Reinforcement Le
 
 ---
 
-<a name="2026-03-15-context-compression-rag-enterprise-knowledge-md"></a>
+<a id="2026-03-15-context-compression-rag-enterprise-knowledge-md"></a>
 
 ## Context Compression and RAG Techniques for Organisational Knowledge
 
@@ -6516,7 +6526,7 @@ The governance gap is the most important finding that the technical literature u
 
 ---
 
-<a name="2026-03-15-adam-smith-org-design-desire-paths-ai-md"></a>
+<a id="2026-03-15-adam-smith-org-design-desire-paths-ai-md"></a>
 
 ## Adam Smith, Organisational Design, Desire Paths, and AI Strategy
 
@@ -6614,7 +6624,7 @@ The competing interpretation is that desire paths are primarily a symptom of bad
 
 ---
 
-<a name="2026-03-14-ricardian-contract-model-md"></a>
+<a id="2026-03-14-ricardian-contract-model-md"></a>
 
 ## Ricardian Contract model: history, current state, and latest research
 
@@ -6719,7 +6729,7 @@ RWA tokenisation is the most structurally compelling driver [inference]: tokenis
 
 ---
 
-<a name="2026-03-14-reliable-software-llm-era-md"></a>
+<a id="2026-03-14-reliable-software-llm-era-md"></a>
 
 ## Reliable Software in the LLM Era
 
@@ -6812,7 +6822,7 @@ The model-update drift gap is the most practically significant open issue: if an
 
 ---
 
-<a name="2026-03-14-organisational-intent-formal-specification-md"></a>
+<a id="2026-03-14-organisational-intent-formal-specification-md"></a>
 
 ## Can organisational intent be expressed as a formally structured specification from which artefacts are derived and consistency is machine-checked?
 
@@ -6906,7 +6916,7 @@ The Hoshin Kanri finding is the most actionable: it is the only practitioner fra
 
 ---
 
-<a name="2026-03-13-financial-forecasting-it-run-costs-md"></a>
+<a id="2026-03-13-financial-forecasting-it-run-costs-md"></a>
 
 ## Best practices in financial forecasting for IT operational run costs: assumptions, uncertainty, and regulatory considerations
 
@@ -7030,7 +7040,7 @@ The correlation structure of IT cost uncertainties is the technically decisive i
 
 ---
 
-<a name="2026-03-12-volume-vs-correctness-ai-era-md"></a>
+<a id="2026-03-12-volume-vs-correctness-ai-era-md"></a>
 
 ## AI inverted the knowledge-work scarcity equation: volume is free, correctness is the scarce resource
 
@@ -7137,7 +7147,7 @@ Investing in human judgment capacity is the higher-leverage response to the volu
 
 ---
 
-<a name="2026-03-12-team-size-limits-brooks-dunbar-network-theory-md"></a>
+<a id="2026-03-12-team-size-limits-brooks-dunbar-network-theory-md"></a>
 
 ## Three disciplines, one answer: Brooks, Dunbar, and network theory on why 5 is the coordination limit
 
@@ -7237,7 +7247,7 @@ The precision of the convergence on "5" is overstated in popular treatments. Bro
 
 ---
 
-<a name="2026-03-12-swat-technique-loop-fresh-context-md"></a>
+<a id="2026-03-12-swat-technique-loop-fresh-context-md"></a>
 
 ## SWAT technique in a fresh-context loop: reliability, drift, and the effect of web search and org RAG on blind-acceptance outcomes
 
@@ -7329,7 +7339,7 @@ The fresh-context/persistent-context trade-off deserves explicit handling. Persi
 
 ---
 
-<a name="2026-03-12-superpowers-integration-analysis-md"></a>
+<a id="2026-03-12-superpowers-integration-analysis-md"></a>
 
 ## Superpowers as inspiration: what obra/superpowers can teach us about improving agent workflows across davidamitchell repos
 
@@ -7399,7 +7409,7 @@ The remaining superpowers skills (`brainstorming`, `writing-plans`, `executing-p
 
 ---
 
-<a name="2026-03-12-hosting-options-for-the-research-repo-md"></a>
+<a id="2026-03-12-hosting-options-for-the-research-repo-md"></a>
 
 ## Hosting options for the Research repo
 
@@ -7490,7 +7500,7 @@ The MkDocs Material + Pagefind + GitHub Pages stack is therefore the correct bas
 
 ---
 
-<a name="2026-03-12-failure-mode-taxonomy-expansion-md"></a>
+<a id="2026-03-12-failure-mode-taxonomy-expansion-md"></a>
 
 ## Failure mode taxonomy: empirical frequency, causal mechanisms, detection signals, and cascade patterns in production agentic systems
 
@@ -7606,7 +7616,7 @@ Sycophancy classification is the item's most structurally significant contributi
 
 ---
 
-<a name="2026-03-12-exploration-synthesis-gap-md"></a>
+<a id="2026-03-12-exploration-synthesis-gap-md"></a>
 
 ## Exploration-synthesis gap: why people in explore mode fail to synthesise others' work, and whether agent synthesis can close the gap
 
@@ -7705,7 +7715,7 @@ The regulatory convergence finding warrants separate investigation: if complianc
 
 ---
 
-<a name="2026-03-12-ai-team-size-strike-team-thesis-md"></a>
+<a id="2026-03-12-ai-team-size-strike-team-thesis-md"></a>
 
 ## AI amplified the coordination tax: the 5-person strike team as the structural unit of the AI era
 
@@ -7826,7 +7836,7 @@ The Steinberger/OpenClaw case is the strongest existence proof for the scout mod
 
 ---
 
-<a name="2026-03-12-ai-force-multiplier-ambition-expansion-md"></a>
+<a id="2026-03-12-ai-force-multiplier-ambition-expansion-md"></a>
 
 ## Force multiplier, not cost reducer: expanding organisational ambition when AI multiplies per-person output
 
@@ -7957,7 +7967,7 @@ One interpretation of the Midjourney and Lovable data is: "small teams are only 
 
 ---
 
-<a name="2026-03-10-research-loop-evaluation-rubric-md"></a>
+<a id="2026-03-10-research-loop-evaluation-rubric-md"></a>
 
 ## Research loop evaluation rubric: LLM-as-judge specification for this repository's research loop agent
 
@@ -8055,7 +8065,7 @@ The hardest design decision is which failures to treat as scored dimensions (rec
 
 ---
 
-<a name="2026-03-10-nature-of-the-firm-coase-organisations-md"></a>
+<a id="2026-03-10-nature-of-the-firm-coase-organisations-md"></a>
 
 ## The Nature of the Firm: why organisations exist, their fitness functions, and invariants
 
@@ -8157,7 +8167,7 @@ The fitness function framing adds a practical layer the TCE literature alone doe
 
 ---
 
-<a name="2026-03-10-language-for-llm-agent-output-md"></a>
+<a id="2026-03-10-language-for-llm-agent-output-md"></a>
 
 ## Language designed for LLM agents to produce: addressing generation-layer failure modes in agentic systems
 
@@ -8245,7 +8255,7 @@ The distinction between "language for orchestrating LLM agents" (designed by hum
 
 ---
 
-<a name="2026-03-10-formal-spec-intent-alignment-agentic-coding-md"></a>
+<a id="2026-03-10-formal-spec-intent-alignment-agentic-coding-md"></a>
 
 ## Formal intent specification and language choice for AI alignment in agentic coding systems
 
@@ -8345,7 +8355,7 @@ Competing interpretations: one could argue that language choice is irrelevant if
 
 ---
 
-<a name="2026-03-10-dikw-transformation-functions-md"></a>
+<a id="2026-03-10-dikw-transformation-functions-md"></a>
 
 ## The DIKW pyramid: transformation functions from data to information to knowledge to wisdom
 
@@ -8444,7 +8454,7 @@ The K→W formalisation literature (virtue epistemology, proportional duty frame
 
 ---
 
-<a name="2026-03-10-ai-concept-classification-taxonomy-md"></a>
+<a id="2026-03-10-ai-concept-classification-taxonomy-md"></a>
 
 ## AI concept classification taxonomy: prompts, instructions, memory, failure modes, controls, and problem domains
 
@@ -8545,7 +8555,7 @@ The controls-to-failures mapping is deliberately one-to-many: structural control
 
 ---
 
-<a name="2026-03-10-agent-evaluation-cross-repo-analysis-md"></a>
+<a id="2026-03-10-agent-evaluation-cross-repo-analysis-md"></a>
 
 ## Agent evaluation framework: cross-repo pattern analysis, commonality detection, and regression identification
 
@@ -8646,7 +8656,7 @@ For a research loop agent, the architectural implication is clear: the primary e
 
 ---
 
-<a name="2026-03-10-adversarial-agents-shared-goals-multi-perspective-md"></a>
+<a id="2026-03-10-adversarial-agents-shared-goals-multi-perspective-md"></a>
 
 ## Adversarial agents with shared goals: multi-perspective coverage across competencies and time horizons
 
@@ -8736,7 +8746,7 @@ The regulatory pattern (BBC Five Case, financial committee governance) reveals a
 
 ---
 
-<a name="2026-03-08-telegram-bot-memory-capture-retrieval-md"></a>
+<a id="2026-03-08-telegram-bot-memory-capture-retrieval-md"></a>
 
 ## Telegram bot as mobile memory capture and retrieval channel
 
@@ -8821,7 +8831,7 @@ Both paths are complementary: iOS Shortcuts retains a UX advantage for voice cap
 
 ---
 
-<a name="2026-03-08-slack-bot-memory-capture-retrieval-md"></a>
+<a id="2026-03-08-slack-bot-memory-capture-retrieval-md"></a>
 
 ## Slack as a mobile memory capture and retrieval channel
 
@@ -8914,7 +8924,7 @@ Slack vs. Telegram resolves to usage context: Telegram is simpler to set up with
 
 ---
 
-<a name="2026-03-08-servicenow-process-mapping-md"></a>
+<a id="2026-03-08-servicenow-process-mapping-md"></a>
 
 ## ServiceNow Process Mapping: Maintainable Process Documentation in SNOW
 
@@ -9011,7 +9021,7 @@ The evidence strongly supports treating the governance model (named owners, chan
 
 ---
 
-<a name="2026-03-08-servicenow-platform-strategy-md"></a>
+<a id="2026-03-08-servicenow-platform-strategy-md"></a>
 
 ## ServiceNow Platform Strategy: Holistic Integration of CSDM, Modules, Process, and AI
 
@@ -9097,7 +9107,7 @@ The AI sequencing dilemma — organisations holding Now Assist licenses before t
 
 ---
 
-<a name="2026-03-08-servicenow-csdm-data-modelling-md"></a>
+<a id="2026-03-08-servicenow-csdm-data-modelling-md"></a>
 
 ## ServiceNow CSDM: Practical Data Modelling Across ITSM, APM, SPM, IRM, and FSO
 
@@ -9178,7 +9188,7 @@ For financial services firms in scope for DORA, the calculus has shifted materia
 
 ---
 
-<a name="2026-03-08-servicenow-ai-knowledge-rag-agents-md"></a>
+<a id="2026-03-08-servicenow-ai-knowledge-rag-agents-md"></a>
 
 ## ServiceNow AI: Knowledge Management, RAG Pipelines, and Agent Frameworks
 
@@ -9279,7 +9289,7 @@ The Yokohama agent framework represents a qualitative step change: from domain-s
 
 ---
 
-<a name="2026-03-08-self-hosted-mcp-server-options-md"></a>
+<a id="2026-03-08-self-hosted-mcp-server-options-md"></a>
 
 ## Self-hosted MCP server options: enabling mobile AI app integration
 
@@ -9365,7 +9375,7 @@ Railway and Fly.io are equivalent in cost and capability. Fly.io is selected as 
 
 ---
 
-<a name="2026-03-08-lancedb-index-rebuild-from-git-md"></a>
+<a id="2026-03-08-lancedb-index-rebuild-from-git-md"></a>
 
 ## LanceDB index rebuild speed from git: enabling stateless deployment
 
@@ -9454,7 +9464,7 @@ Model2Vec represents a possible third path — one that avoids both the storage 
 
 ---
 
-<a name="2026-03-08-ios-shortcuts-github-api-memory-capture-md"></a>
+<a id="2026-03-08-ios-shortcuts-github-api-memory-capture-md"></a>
 
 ## iOS Shortcuts + GitHub API: zero-infrastructure mobile memory capture
 
@@ -9545,7 +9555,7 @@ Code search as retrieval is a functional but limited path. It answers "find note
 
 ---
 
-<a name="2026-03-08-inbox-folder-capture-triage-pattern-md"></a>
+<a id="2026-03-08-inbox-folder-capture-triage-pattern-md"></a>
 
 ## Inbox folder pattern: frictionless capture without forced structure
 
@@ -9627,7 +9637,7 @@ The research-loop.yml adaptation is lower-risk than building a new workflow from
 
 ---
 
-<a name="2026-03-08-context-engineering-first-principles-md"></a>
+<a id="2026-03-08-context-engineering-first-principles-md"></a>
 
 ## Context engineering: first principles of steering LLM output without control
 
@@ -9721,7 +9731,7 @@ The steering-without-control framing sets a ceiling on what context engineering 
 
 ---
 
-<a name="2026-03-08-claude-ios-mcp-remote-integration-md"></a>
+<a id="2026-03-08-claude-ios-mcp-remote-integration-md"></a>
 
 ## Claude for iOS: MCP remote integration for memory capture and retrieval
 
@@ -9798,7 +9808,7 @@ The auth question has one remaining uncertainty: whether a static bearer token (
 
 ---
 
-<a name="2026-03-08-chatgpt-actions-memory-integration-md"></a>
+<a id="2026-03-08-chatgpt-actions-memory-integration-md"></a>
 
 ## ChatGPT Actions and custom GPTs: external memory integration options
 
@@ -9885,7 +9895,7 @@ OAuth unreliability on iOS  -  while API key Actions remain stable  -  is the ke
 
 ---
 
-<a name="2026-03-08-bbc-five-case-model-md"></a>
+<a id="2026-03-08-bbc-five-case-model-md"></a>
 
 ## Better Business Cases: Five Case Model authoring and application
 
@@ -9967,7 +9977,7 @@ Opinion: In a post-2025 context, BCR should be treated as informative rather tha
 
 ---
 
-<a name="2026-03-08-ai-coding-harnesses-agent-philosophy-md"></a>
+<a id="2026-03-08-ai-coding-harnesses-agent-philosophy-md"></a>
 
 ## AI coding harnesses: agent execution model, memory, and context management across commercial and OSS tools
 
@@ -10053,7 +10063,7 @@ Context window management fragmentation is the clearest indicator the field has 
 
 ---
 
-<a name="2026-03-07-run-vs-build-it-spending-allocation-md"></a>
+<a id="2026-03-07-run-vs-build-it-spending-allocation-md"></a>
 
 ## RUN vs BUILD IT spending allocation in non-IT primary businesses
 
@@ -10140,7 +10150,7 @@ The most significant tension in the evidence is between precision and practicali
 
 ---
 
-<a name="2026-03-07-run-build-it-allocation-implementation-how-md"></a>
+<a id="2026-03-07-run-build-it-allocation-implementation-how-md"></a>
 
 ## How organisations practically implement IT RUN vs BUILD cost allocation
 
@@ -10230,7 +10240,7 @@ The vendor case studies (Praecipio retail client: $2M/year savings; financial se
 
 ---
 
-<a name="2026-03-05-swarm-pca-genetic-reinforcement-learning-md"></a>
+<a id="2026-03-05-swarm-pca-genetic-reinforcement-learning-md"></a>
 
 ## Swarm Intelligence, PCA, Genetic Algorithms, and Reinforcement Learning — advanced techniques for analytics teams
 
@@ -10324,7 +10334,7 @@ For GA/swarm vs. Bayesian optimisation, the resolution is a problem-type partiti
 
 ---
 
-<a name="2026-03-05-llm-hallucination-mechanisms-md"></a>
+<a id="2026-03-05-llm-hallucination-mechanisms-md"></a>
 
 ## LLM Hallucinations — Types, Causes, and Current Mitigation Approaches
 
@@ -10409,7 +10419,7 @@ The explanatory gap claim is strong by construction: the evidence for sparse neu
 
 ---
 
-<a name="2026-03-05-h-neurons-synthesis-md"></a>
+<a id="2026-03-05-h-neurons-synthesis-md"></a>
 
 ## H-Neurons Synthesis — From Hallucination Mechanisms to Actionable LLM Reliability Engineering
 
@@ -10533,7 +10543,7 @@ The access segmentation in the intervention map is the most practically conseque
 
 ---
 
-<a name="2026-03-05-h-neurons-in-llms-md"></a>
+<a id="2026-03-05-h-neurons-in-llms-md"></a>
 
 ## Hallucination-Associated Neurons (H-Neurons) in LLMs — Identification, Behavioural Impact, and Origins
 
@@ -10640,7 +10650,7 @@ The parameter inertia finding has a direct practical implication that is underst
 
 ---
 
-<a name="2026-03-05-h-neuron-pretraining-origins-md"></a>
+<a id="2026-03-05-h-neuron-pretraining-origins-md"></a>
 
 ## Pre-Training Origins of Hallucination-Associated Neurons — Implications for LLM Development
 
@@ -10735,7 +10745,7 @@ Intervention feasibility varies substantially by category. Domain-level quality 
 
 ---
 
-<a name="2026-03-05-h-neuron-over-compliance-md"></a>
+<a id="2026-03-05-h-neuron-over-compliance-md"></a>
 
 ## Over-Compliance in LLMs — How H-Neurons Drive Sycophancy and What Interventions Are Possible
 
@@ -10841,7 +10851,7 @@ The convergence of neuron-level (H-Neurons) and representation-level (RepE, ITI)
 
 ---
 
-<a name="2026-03-05-general-agent-optimization-framework-md"></a>
+<a id="2026-03-05-general-agent-optimization-framework-md"></a>
 
 ## General Agent Optimization Framework
 
@@ -10925,7 +10935,7 @@ Instruction drift is the central reliability risk of iterative prompt optimizati
 
 ---
 
-<a name="2026-03-04-sdlc-ai-prompt-patterns-md"></a>
+<a id="2026-03-04-sdlc-ai-prompt-patterns-md"></a>
 
 ## Emergent Patterns in Software Engineering Prompts and SDLC Guidance
 
@@ -11023,7 +11033,7 @@ The context file fragmentation problem is structural, not temporary. Each tool (
 
 ---
 
-<a name="2026-03-03-research-loop-quality-prompt-engineering-md"></a>
+<a id="2026-03-03-research-loop-quality-prompt-engineering-md"></a>
 
 ## Evaluating and improving autonomous research loop quality: prompt engineering and output assessment
 
@@ -11109,7 +11119,7 @@ The quality gate is designed as an informational signal initially. This avoids t
 
 ---
 
-<a name="2026-03-03-research-agenda-curation-coverage-md"></a>
+<a id="2026-03-03-research-agenda-curation-coverage-md"></a>
 
 ## Research agenda curation: prioritisation, coverage analysis, and avoiding research drift
 
@@ -11209,7 +11219,7 @@ The trade-off between drift detection sensitivity and false-positive rate is man
 
 ---
 
-<a name="2026-03-03-ml-techniques-and-algorithms-md"></a>
+<a id="2026-03-03-ml-techniques-and-algorithms-md"></a>
 
 ## ML techniques, algorithms, and advanced analytics — a systematic reference for analytics teams
 
@@ -11312,7 +11322,7 @@ The regulatory analysis is confined to RBNZ primary sources rather than comparat
 
 ---
 
-<a name="2026-03-03-knowledge-retention-active-recall-md"></a>
+<a id="2026-03-03-knowledge-retention-active-recall-md"></a>
 
 ## Knowledge retention: mechanisms for ensuring completed research is recalled and applied over time
 
@@ -11396,7 +11406,7 @@ The `semantic-full-text-search` item is a prerequisite for contextual recall ("w
 
 ---
 
-<a name="2026-03-03-knowledge-representation-agent-context-md"></a>
+<a id="2026-03-03-knowledge-representation-agent-context-md"></a>
 
 ## Knowledge Representation for Agent Context: LSE, Knowledge Graphs, Concept Maps, and Document Compression for Large-Scale Context Management
 
@@ -11496,7 +11506,7 @@ The four-signal RRF (cosine + BM25 + PPR + recency) is the recommended ranking c
 
 ---
 
-<a name="2026-03-03-knowledge-linking-connected-corpus-md"></a>
+<a id="2026-03-03-knowledge-linking-connected-corpus-md"></a>
 
 ## Knowledge linking: building a connected research corpus via explicit cross-references and a knowledge graph
 
@@ -11591,7 +11601,7 @@ The `.gitignore` adjustment (adding `!state/links.json`) is small but critical. 
 
 ---
 
-<a name="2026-03-02-transaction-costs-md"></a>
+<a id="2026-03-02-transaction-costs-md"></a>
 
 ## Transaction Cost Economics: foundations and speculative integration with SWE, AI, knowledge management, and context engineering
 
@@ -11711,7 +11721,7 @@ The prediction: as retrieval precision improves (better embedding models, hybrid
 
 ---
 
-<a name="2026-03-02-slack-msteams-research-integration-md"></a>
+<a id="2026-03-02-slack-msteams-research-integration-md"></a>
 
 ## Slack and MS Teams integration for research delivery and capture
 
@@ -11801,7 +11811,7 @@ Digest vs. per-item is not a significant trade-off at the current research volum
 
 ---
 
-<a name="2026-03-02-semantic-full-text-search-md"></a>
+<a id="2026-03-02-semantic-full-text-search-md"></a>
 
 ## Semantic and full-text search over the research corpus
 
@@ -11891,7 +11901,7 @@ OpenAI embeddings were eliminated at the constraint stage — they require an AP
 
 ---
 
-<a name="2026-03-02-research-quality-assurance-methodology-md"></a>
+<a id="2026-03-02-research-quality-assurance-methodology-md"></a>
 
 ## Research Quality Assurance and Knowledge Integration Methodology
 
@@ -11984,7 +11994,7 @@ The decision not to create an `integration` skill reflects scope discipline: the
 
 ---
 
-<a name="2026-03-02-ios-shortcuts-research-md"></a>
+<a id="2026-03-02-ios-shortcuts-research-md"></a>
 
 ## iOS Shortcuts for research capture and query
 
@@ -12075,7 +12085,7 @@ The PAT storage constraint is a real limitation but not a blocker. The security 
 
 ---
 
-<a name="2026-03-02-integrative-framework-agent-decision-making-md"></a>
+<a id="2026-03-02-integrative-framework-agent-decision-making-md"></a>
 
 ## An Integrative Framework for Agent Decision-Making: Aligning Knowledge Management, Intent Understanding, and Contextual Decision Frameworks
 
@@ -12177,7 +12187,7 @@ The competing interpretation — that Constitutional AI and RLHF alignment train
 
 ---
 
-<a name="2026-03-02-chat-conversational-interface-md"></a>
+<a id="2026-03-02-chat-conversational-interface-md"></a>
 
 ## Conversational and chat interface for querying the research corpus
 
@@ -12282,7 +12292,7 @@ The grounding design (structural + instructional) is appropriate. Structural gro
 
 ---
 
-<a name="2026-03-02-ai-not-a-data-problem-md"></a>
+<a id="2026-03-02-ai-not-a-data-problem-md"></a>
 
 ## AI capability is not a data problem - why the data/analytics department is the wrong home for organisational AI
 
@@ -12385,7 +12395,7 @@ Evidence sufficiency is high for the architectural claims (multiple independent 
 
 ---
 
-<a name="2026-03-02-agent-memory-management-context-injection-md"></a>
+<a id="2026-03-02-agent-memory-management-context-injection-md"></a>
 
 ## Agent Memory Management and Context Injection
 
@@ -12603,7 +12613,7 @@ Governance and quality testing remain largely unsolved in open-source deployment
 
 ---
 
-<a name="2026-03-01-github-wiki-research-content-md"></a>
+<a id="2026-03-01-github-wiki-research-content-md"></a>
 
 ## GitHub wiki for research content: approach and tooling
 
@@ -12688,7 +12698,7 @@ Both are regenerated on every rebuild.
 
 ---
 
-<a name="2026-03-01-github-specify-ralph-loop-lisa-planning-md"></a>
+<a id="2026-03-01-github-specify-ralph-loop-lisa-planning-md"></a>
 
 ## GitHub Specify, Ralph Loops, and Lisa Planning: Proof-Driven Development with AI Agents
 
@@ -12779,7 +12789,7 @@ The Ralph Wiggum Technique is a proof-driven autonomous coding loop coined by Ge
 
 ---
 
-<a name="2026-03-01-context-mode-llm-context-compression-md"></a>
+<a id="2026-03-01-context-mode-llm-context-compression-md"></a>
 
 ## Context Mode: MCP tool output compression and the LLM context window management problem
 
@@ -12865,7 +12875,7 @@ The broader context management frontier (backtracking, trees, agentic self-manag
 
 ---
 
-<a name="2026-03-01-agent-lsp-policy-enforcement-md"></a>
+<a id="2026-03-01-agent-lsp-policy-enforcement-md"></a>
 
 ## Guiding Headless Agents via LSP-Like Mechanisms for Org Policy Conformance
 
@@ -12953,7 +12963,7 @@ LangGraph checkpoint nodes are the pragmatic enterprise alternative: they delive
 
 ---
 
-<a name="2026-02-28-youtube-video-hyuos0gkgcs-concepts-md"></a>
+<a id="2026-02-28-youtube-video-hyuos0gkgcs-concepts-md"></a>
 
 ## Reality Is A Controlled Hallucination — Anil Seth (Essentia Foundation): concept extraction and synthesis
 
@@ -13080,7 +13090,7 @@ The controlled hallucination framing's weakest point is the apparent *transparen
 
 ---
 
-<a name="2026-02-28-transcript-via-yt-dlp-whisper-md"></a>
+<a id="2026-02-28-transcript-via-yt-dlp-whisper-md"></a>
 
 ## YouTube transcripts via yt-dlp audio + Whisper transcription
 
@@ -13165,7 +13175,7 @@ Option B was correctly identified as the simpler path, but it introduces an unap
 
 ---
 
-<a name="2026-02-28-transcript-via-third-party-apis-md"></a>
+<a id="2026-02-28-transcript-via-third-party-apis-md"></a>
 
 ## YouTube transcripts via third-party transcript APIs (AssemblyAI / Supadata)
 
@@ -13257,7 +13267,7 @@ Gemini (completed item) and Kagi (this item) share the same architectural patter
 
 ---
 
-<a name="2026-02-28-transcript-via-gemini-api-md"></a>
+<a id="2026-02-28-transcript-via-gemini-api-md"></a>
 
 ## YouTube transcripts via Gemini API (native YouTube URL support)
 
@@ -13342,7 +13352,7 @@ Competing interpretation: one source (multi-source web synthesis) suggested that
 
 ---
 
-<a name="2026-02-28-rbnz-ai-supervisory-expectations-md"></a>
+<a id="2026-02-28-rbnz-ai-supervisory-expectations-md"></a>
 
 ## RBNZ AI Supervisory Expectations: What Do Regulated Entities Need to Know?
 
@@ -13435,7 +13445,7 @@ The EBA comparison is relevant for entities with EU exposure and is the benchmar
 
 ---
 
-<a name="2026-02-28-predictive-processing-active-inference-md"></a>
+<a id="2026-02-28-predictive-processing-active-inference-md"></a>
 
 ## Predictive processing and active inference: the brain as prediction machine
 
@@ -13511,7 +13521,7 @@ For Anil Seth's controlled hallucination thesis specifically: PP provides the me
 
 ---
 
-<a name="2026-02-28-jevons-paradox-md"></a>
+<a id="2026-02-28-jevons-paradox-md"></a>
 
 ## Jevons Paradox: efficiency gains, demand rebound, and the falling cost of software production
 
@@ -13591,7 +13601,7 @@ The role-differentiation prediction (orchestrators > line-coders) is the near-te
 
 ---
 
-<a name="2026-02-28-interoception-and-the-predictive-self-md"></a>
+<a id="2026-02-28-interoception-and-the-predictive-self-md"></a>
 
 ## Interoception and the predictive self: selfhood as bodily inference
 
@@ -13684,7 +13694,7 @@ The "necessary but not sufficient" conclusion is well-supported and theoreticall
 
 ---
 
-<a name="2026-02-28-hard-problem-vs-real-problem-consciousness-md"></a>
+<a id="2026-02-28-hard-problem-vs-real-problem-consciousness-md"></a>
 
 ## The hard problem vs. the real problem of consciousness
 
@@ -13776,7 +13786,7 @@ Seth's pragmatic strategy is consistent with the scientific record: when a quest
 
 ---
 
-<a name="2026-02-28-free-energy-entropy-and-life-md"></a>
+<a id="2026-02-28-free-energy-entropy-and-life-md"></a>
 
 ## Free energy, entropy, and life: why organisms predict — from Schrödinger to Friston to Seth
 
@@ -13866,7 +13876,7 @@ The key intellectual achievement of this three-layer picture is that it relocate
 
 ---
 
-<a name="2026-02-28-exploit-explore-ai-portfolio-framework-md"></a>
+<a id="2026-02-28-exploit-explore-ai-portfolio-framework-md"></a>
 
 ## Exploit vs Explore: A Decision Framework for AI Portfolio Planning
 
@@ -13963,7 +13973,7 @@ The 74% BCG finding is the most significant empirical data point: it converts th
 
 ---
 
-<a name="2026-02-28-controlled-hallucination-perception-as-construction-md"></a>
+<a id="2026-02-28-controlled-hallucination-perception-as-construction-md"></a>
 
 ## Controlled hallucination: perception as active brain construction
 
@@ -14049,7 +14059,7 @@ The hard problem objection was separated from the generative-perception claim be
 
 ---
 
-<a name="2026-02-28-ai-strategy-md"></a>
+<a id="2026-02-28-ai-strategy-md"></a>
 
 ## AI Strategy: global and NZ examples, policy frameworks, regulations, and use-case typologies
 
@@ -14152,7 +14162,7 @@ New Zealand released its first national AI strategy, *Investing with Confidence*
 
 ---
 
-<a name="2026-02-28-ai-strategy-swe-focus-md"></a>
+<a id="2026-02-28-ai-strategy-swe-focus-md"></a>
 
 ## AI Strategy Examples: Software Engineering Focus
 
@@ -14242,7 +14252,7 @@ The IP governance finding is underweighted in most corporate AI strategy discuss
 
 ---
 
-<a name="2026-02-28-ai-strategy-security-focus-md"></a>
+<a id="2026-02-28-ai-strategy-security-focus-md"></a>
 
 ## AI Strategy Examples: Security Focus
 
@@ -14351,7 +14361,7 @@ Singapore's framework is chosen as the benchmark governance reference over NIST 
 
 ---
 
-<a name="2026-02-28-ai-strategy-risk-reduction-focus-md"></a>
+<a id="2026-02-28-ai-strategy-risk-reduction-focus-md"></a>
 
 ## AI Strategy Examples: Risk Reduction Focus
 
@@ -14449,7 +14459,7 @@ Governance structures that correlate with successful implementations share: (a) 
 
 ---
 
-<a name="2026-02-28-ai-strategy-business-efficiency-examples-md"></a>
+<a id="2026-02-28-ai-strategy-business-efficiency-examples-md"></a>
 
 ## AI Strategy Examples: Business Efficiency Focus
 
@@ -14551,7 +14561,7 @@ The $76B GDP uplift projection in NZ's AI Strategy is optimistic given that 68% 
 
 ---
 
-<a name="2026-02-28-ai-line-1-line-2-risk-agents-md"></a>
+<a id="2026-02-28-ai-line-1-line-2-risk-agents-md"></a>
 
 ## AI Line 1 and Line 2 Risk Agents: Who Is Building Them?
 
@@ -14650,7 +14660,7 @@ The three-lines model itself faces structural stress from agentic AI. When an AI
 
 ---
 
-<a name="2026-02-28-ai-control-testing-and-assurance-md"></a>
+<a id="2026-02-28-ai-control-testing-and-assurance-md"></a>
 
 ## AI for Control Testing, Gap Identification, and Policies/Standards Reviews
 
@@ -14752,6 +14762,806 @@ The most consequential open question is governance for Type 3 agents: AI that ma
 - Are there NZ-specific data residency obligations that restrict where GRC SaaS platforms can process testing evidence from RBNZ-supervised entities?
 - When AI executes full-population testing (rather than statistical sampling), does the assurance model change — and if so, how should audit standards address it?
 - At what point does automated continuous control monitoring constitute a "model" requiring model risk management governance under prudential frameworks?
+
+---
+
+---
+
+<a id="2026-02-27-youtube-transcript-fetcher-md"></a>
+
+## YouTube transcript fetcher for research
+
+**Tags:** [youtube, transcripts, fetching, tooling]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-02-27-youtube-transcript-fetcher.md
+
+## Question / Hypothesis
+
+Can we port the YouTube transcript fetcher from `davidamitchell/Latest-developments-` to this repo and adapt it for research use (bulk fetch, save transcripts, not just email digest)?
+
+## Findings
+
+### Executive Summary
+
+The YouTube transcript fetcher port is complete and fully operational. `src/fetchers/youtube.py` supports both channel-based bulk fetch (via YouTube Atom feed, no API key required for discovery) and single-video fetch by URL or ID, with a three-tier fallback chain for cloud IP transcript blocks. All 18 unit tests pass and all four BACKLOG slices (W-0016 through W-0019) are marked done. The implementation improves on the companion repo by using the Atom feed for discovery rather than the YouTube Data API v3, eliminating the API quota cost for channel scanning.
+
+### Key Findings
+
+1. `src/fetchers/youtube.py` is implemented and passes all 18 tests (`pytest tests/test_fetchers_youtube.py`); the port is complete.
+2. Channel discovery uses the YouTube Atom feed (`https://www.youtube.com/feeds/videos.xml?channel_id=<id>`) — no API key needed for feed-based discovery, unlike the companion repo which requires `YOUTUBE_API_KEY` for the search endpoint.
+3. Single-video fetch uses `python -m src.main fetch youtube --video <url>` and accepts full YouTube URLs, `youtu.be` short URLs, or bare video IDs.
+4. The fetcher implements a three-tier fallback when transcripts are blocked: (1) `youtube-transcript-api`, (2) YouTube Data API v3 description (if `YOUTUBE_DATA_API` env var is set), (3) `og:description` meta tag scraped from the watch page.
+5. The CLI (`python -m src.main fetch youtube`) outputs transcript content to stdout; saving to `Research/transcripts/` is handled by the `fetch-transcript.yml` GitHub Actions workflow, which uses `yt-dlp` and commits the file to the repo.
+6. Transcript requests from GitHub Actions cloud IPs (AWS/GCP ranges) are blocked by YouTube at the network level. This is a hard restriction with no reliable workaround from a cloud runner; the workflow commits step-by-step manual instructions when automated fetch fails.
+7. Bulk channel fetch is limited to recent videos. The Atom feed returns approximately the last 15 videos; the `--max-videos` flag can cap this further. Historical backlog fetch beyond the feed window is not supported via this approach.
+8. URL deduplication via `StateStore` (`state/index.json`) prevents reprocessing already-fetched items across runs.
+9. The `youtube-transcript-api` library (v1.2.4 as of this writing) is installed; it requires no API key and works without a headless browser.
+10. The implementation differs from the companion repo's design: companion uses `YouTubeConfig` dataclass and `with_backoff` retry utility; this repo uses direct `httpx.Client` injection and inline retry logic, making it more testable in isolation.
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| Port complete, 18 tests pass | `tests/test_fetchers_youtube.py` (local run) | high | All 18 passed in 6.13s |
+| Atom feed used for discovery | `src/fetchers/youtube.py:_CHANNEL_FEED_URL` | high | No API key in channel path |
+| Three-tier transcript fallback | `src/fetchers/youtube.py:_fetch_video()` | high | Code inspection |
+| CLI outputs to stdout | `src/main.py:_fetch_youtube()` | high | Code inspection |
+| Workflow saves to `Research/transcripts/` | `.github/workflows/fetch-transcript.yml` | high | Full workflow reviewed |
+| Cloud IP block is hard restriction | `.github/workflows/fetch-transcript.yml` comments + `fetch-transcript.yml` fallback README generation | high | Documented in workflow |
+| Atom feed limited to ~15 recent videos | YouTube documentation (known feed behaviour) | medium | Feed design; not configurable |
+| `youtube-transcript-api` v1.2.4 installed | `pip show youtube-transcript-api` | high | Verified in environment |
+| Deduplication via StateStore | `src/main.py:_fetch_youtube()`, `src/state.py` | high | Code inspection |
+| BACKLOG slices W-0016–W-0019 done | `BACKLOG.md` | high | All marked `status: done` |
+
+### Assumptions
+
+- **Assumption:** The companion repo's Atom-feed approach (rather than its YouTube Data API search approach) is preferred for research use. **Justification:** No API quota cost for discovery; the research use case is on-demand rather than scheduled polling, making quota conservation less critical but still desirable.
+- **Assumption:** Saving transcripts to `Research/transcripts/` via the GitHub Actions workflow (rather than the CLI) satisfies the "save to disk" requirement. **Justification:** The owner has no local environment; all file saves must go through GitHub, making the workflow the natural persistence layer.
+
+### Analysis
+
+The research question is answered in the affirmative: the port succeeded and is production-ready. The key design divergence from the companion repo is the switch from YouTube Data API search (quota-consuming) to the Atom feed (free) for channel discovery. This trade-off sacrifices metadata richness (the Atom feed returns fewer fields than the API snippet) but eliminates the dependency on a paid/quota-limited credential for the most common operation.
+
+The three-tier fallback is the correct response to the cloud IP block problem. It degrades gracefully: transcript text (ideal) → video description (acceptable for research context) → page description (minimal but better than nothing). The workflow's fallback to human-readable instructions is appropriate for the owner's web-only access pattern.
+
+The one gap against the original scope is bulk historical backlog fetch. The Atom feed is limited to ~15 recent videos per channel. If the use case requires fetching a channel's older content, a different approach is needed (YouTube Data API with `pageToken` pagination, or a third-party tool). Three backlog items already address this gap (`2026-02-28-transcript-via-gemini-api.md`, `2026-02-28-transcript-via-yt-dlp-whisper.md`, `2026-02-28-transcript-via-third-party-apis.md`).
+
+### Risks, Gaps, and Uncertainties
+
+- YouTube's Atom feed is an unofficial/undocumented endpoint; it could be deprecated without notice.
+- The Atom feed returns only the most recent ~15 videos. Historical backlog fetch for a channel requires a different approach (backlog items exist for this).
+- The `youtube-transcript-api` library may break when YouTube changes its internal API (it has broken before). The three-tier fallback mitigates this but does not eliminate the risk.
+- The `YOUTUBE_DATA_API` env var is optional; without it, the second fallback tier is unavailable and the fetcher drops to the og:description scrape immediately.
+
+### Open Questions
+
+- Should the CLI gain a `--output-dir` flag to save transcripts directly to disk (e.g., `Research/transcripts/`), removing the dependency on the GitHub Actions workflow for persistence?
+- Is Atom feed pagination needed, or is the Gemini/yt-dlp/third-party approach the right path for bulk historical fetch?
+
+---
+
+---
+
+<a id="2026-02-27-sources-of-research-md"></a>
+
+## Sources of research: what to monitor and how
+
+**Tags:** [sources, discovery, rss, youtube, arxiv]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-02-27-sources-of-research.md
+
+## Question / Hypothesis
+
+What are the best sources for AI/ML research, and what is the right monitoring strategy for each — RSS, YouTube channels, arXiv, newsletters, GitHub?
+
+## Findings
+
+### Executive Summary
+
+The most reliable automated AI/ML research sources for a GitHub Actions–based pipeline are RSS feeds from practitioner blogs and lab blogs — all confirmed accessible from runner IPs — plus the already-configured arxiv-mcp-server for targeted paper queries during agent research sessions. YouTube channel Atom feeds are blocked from GitHub Actions cloud IPs (confirmed independently from prior research) and cannot drive automated monitoring. arXiv RSS feeds work from runner IPs and deliver 300–430 papers per category per weekday, but this volume requires keyword filtering before automated ingestion is practical. Seven RSS feeds should be added to `config/sources.yaml` immediately using existing fetcher infrastructure; YouTube channels should remain empty until a channel-discovery mechanism that works from cloud IPs is built.
+
+### Key Findings
+
+1. arXiv RSS feeds at `https://export.arxiv.org/rss/<category>` are accessible from GitHub Actions runner IPs and deliver 300–430 new papers per weekday per category (cs.AI: ~348, cs.LG: ~307, combined cs.LG+cs.CL: ~431 on 2026-03-05). (confidence: high)
+2. YouTube channel Atom feeds (`https://www.youtube.com/feeds/videos.xml?channel_id=<id>`) return HTTP 404 from GitHub Actions runner IPs, confirming the prior-research finding — YouTube blocks cloud provider IP ranges for this endpoint. (confidence: high)
+3. Seven practitioner RSS feeds confirmed accessible from runner IPs — Hugging Face Blog, Lil'Log, DeepMind Blog, The Gradient, BAIR Blog, Simon Willison, Sebastian Raschka — all return valid XML and are suitable for immediate addition to `config/sources.yaml`. (confidence: high)
+4. The `arxiv-mcp-server` (v0.3.2) is already configured in `.github/mcp.json` but is not installed; it is designed for agent-driven, query-on-demand paper access rather than bulk daily ingestion, making it the right tool for targeted arXiv research within the research loop. (confidence: high)
+5. Hugging Face Papers (`https://huggingface.co/papers`) has no RSS endpoint and cannot be monitored via the existing RSS fetcher without building a scraper; the HF Blog RSS is a partial substitute covering HF-produced content but not the community paper voting. (confidence: high)
+6. OpenAI and Anthropic do not expose working RSS feeds for their research blogs (OpenAI returns HTML at `/blog/rss.xml`; Anthropic returns 404); primary-source monitoring of these labs requires either scraping or manual tracking. (confidence: high)
+7. Unfiltered arXiv RSS ingestion is not practical for a single-owner personal research system: cs.AI alone produces ~350 papers/weekday, yielding ~1,750/week that would need to be processed or discarded. A keyword-filter step in the pipeline, or the query-on-demand arxiv-mcp-server model, is required. (confidence: high)
+8. GitHub trending has no official RSS or API endpoint; release monitoring for specific tracked repos is possible via `https://github.com/<owner>/<repo>/releases.atom`, which is a viable source type for tracking specific framework versions (e.g., `transformers`, `vllm`). (confidence: high)
+9. The existing `rss.sources` section of `config/sources.yaml` is empty and can be populated immediately using the existing RSS fetcher without any code changes. (confidence: high)
+10. `youtube.channels` entries in `config/sources.yaml` cannot support automated video discovery from GitHub Actions; they would only be functional when run locally or via a runner without cloud IP restrictions. (confidence: high)
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| arXiv RSS feeds accessible from runner IPs | Direct HTTP fetch, 2026-03-05 | high | All six categories returned valid XML |
+| arXiv cs.AI volume ~348 papers/day | Direct HTTP fetch, 2026-03-05 | high | Single-day sample; weekday variation ±50% expected |
+| YouTube Atom feeds return 404 from runner IPs | Direct HTTP fetch, 2026-03-05 | high | Tested 4 channel IDs; all 404 |
+| YouTube Atom feed block confirmed by prior research | Research/completed/2026-02-27-youtube-transcript-fetcher.md | high | Key Finding 2 of that item |
+| Seven practitioner RSS feeds accessible | Direct HTTP fetch, 2026-03-05 | high | All returned 200 with valid XML |
+| HF Papers has no RSS | Direct test of huggingface.co/papers.rss (404), .rss.xml (404) | high | Only HTML page exists |
+| OpenAI/Anthropic lack working RSS | Direct HTTP fetch, 2026-03-05 | high | OpenAI HTML, Anthropic 404 |
+| arxiv-mcp-server v0.3.2 configured but not installed | `.github/mcp.json` + `import arxiv_mcp_server` failure | high | ModuleNotFoundError |
+| arxiv-mcp-server designed for query-on-demand | PyPI description, blazickjp/arxiv-mcp-server | high | "search and access arXiv papers" |
+| GitHub releases.atom is a valid source type | GitHub platform architecture | medium | Not tested from runner; known GitHub feature |
+
+### Assumptions
+
+- **Assumption:** The single-day arXiv paper count (348, 307, 431) is representative of typical weekday volume. **Justification:** arXiv submission volumes are stable over months, with minor variation; a single sample is sufficient for order-of-magnitude planning. The March 2025 estimate is not expected to change materially within the scope of this repo's monitoring.
+- **Assumption:** The companion repo `davidamitchell/Latest-developments-` monitors a set of YouTube channels that would be relevant to add here. **Justification:** The companion repo's stated purpose is YouTube channel monitoring; however, since `config/sources.yaml` was inaccessible (GitHub API auth failure), the specific channels are unknown. This does not affect the recommendation: populate channels in `config/sources.yaml` for any known channel IDs, accepting that automated monitoring from GitHub Actions won't work until the runner IP issue is resolved.
+- **Assumption:** The seven accessible RSS feeds represent stable, ongoing publications that will continue to produce AI/ML–relevant content. **Justification:** All are established sources (Lil'Log: 2018–present; HF Blog: 2021–present; DeepMind Blog: ongoing; etc.) with track records of years. Frequency varies but all have posted within 2025.
+
+### Analysis
+
+The source selection trade-off is between coverage and manageability. arXiv provides the broadest academic coverage but at volumes that require either AI-assisted filtering or a query-on-demand model. The practitioner blogs (Lil'Log, Sebastian Raschka, Chip Huyen) produce far less content but at a higher concentration of relevance for this owner's research themes (AI strategy, agents, consciousness, ML engineering). The practical recommendation is: populate RSS with low-to-medium-volume high-quality feeds immediately; address arXiv volume through the arxiv-mcp-server (query-driven) rather than RSS ingestion.
+
+YouTube channel monitoring's failure mode is not signal quality (YouTube practitioner content is high-value) but infrastructure: the Atom feed endpoint is blocked at the IP level. This is a solvable problem (yt-dlp can list channel videos; the YouTube Data API returns channel video lists), but the solution belongs in a separate backlog item.
+
+The two missing primary sources (OpenAI, Anthropic) lack RSS endpoints. This is unlikely to change. The correct monitoring strategy for these is: monitor their GitHub repos for paper releases, or follow key researchers' arxiv submissions directly.
+
+### Risks, Gaps, and Uncertainties
+
+- The companion repo's source list is unknown — it may already include channels or feeds that should be carried over. This remains a gap until the repo is accessible.
+- arXiv RSS volume management is deferred — no keyword filter exists yet. Until it is built, adding arXiv RSS to `config/sources.yaml` would flood the pipeline.
+- YouTube channel monitoring remains broken from GitHub Actions. A credible fix path exists (yt-dlp `--flat-playlist` or YouTube Data API v3 for channel listing) but has not been prototyped.
+- Some feeds (DeepMind Blog, BAIR Blog) may have low posting frequency for extended periods if lab research cycles slow. The RSS fetcher will simply return no new items; no failure, but also no coverage during gaps.
+- Hugging Face Papers community votes represent the ML community's current focus, which is a high-signal indicator not captured by any RSS-accessible feed. This gap is structural — HF does not expose Papers as RSS.
+
+### Open Questions
+
+1. What YouTube channel IDs are monitored in `davidamitchell/Latest-developments-`? (Low priority to answer directly; medium priority to carry over any relevant channels to `youtube.channels` once runner IP issue is addressed.)
+2. Should arXiv RSS monitoring be implemented with a keyword filter, or is query-on-demand via arxiv-mcp-server sufficient for this repo's scale? (Depends on how the research loop evolves; becomes relevant when the loop processes 10+ items/week.)
+3. Is there a reliable method to extract the HF Daily Papers list via a web scrape, given no RSS exists? (Low priority; the HF Blog RSS partially covers this.)
+4. Can `github.com/<owner>/<repo>/releases.atom` feeds be added to `config/sources.yaml` and processed by the existing RSS fetcher? If so, which repos are worth tracking (e.g., `huggingface/transformers`, `vllm-project/vllm`, `openai/openai-python`)?
+
+---
+
+---
+
+<a id="2026-02-27-simple-process-for-adding-research-item-md"></a>
+
+## Simple process for adding a research item
+
+**Tags:** [process, workflow, tooling]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-02-27-simple-process-for-adding-research-item.md
+
+## Question / Hypothesis
+
+What is the minimum-friction workflow for adding a new research item so that good ideas get captured before they are lost?
+
+## Findings
+
+### Executive Summary
+
+The minimum-friction capture path splits by actor: agents use `python -m src.main research add "<title>"`, which already exists and requires a single argument. The repository owner, who operates exclusively via GitHub website and iOS app, has no usable fast-capture path today. A GitHub issue form template paired with a GitHub Actions workflow that converts a new issue into a committed backlog file closes this gap. The canonical Zettelkasten principle — capture now, structure later — validates deferring all metadata except the title to the `research start` step.
+
+### Key Findings
+
+1. `python -m src.main research add "<title>"` is fully implemented in `src/research/cli.py`. It creates a dated backlog file with a template, requiring only a title. This is the lowest-friction path for any agent or automated process.
+2. The repository owner operates exclusively via GitHub website and iOS app; the CLI is inaccessible without a terminal. A capture mechanism that works from any browser is required for the owner.
+3. GitHub issue forms (`.github/ISSUE_TEMPLATE/*.yml`) render as structured, mobile-responsive web forms — accessible from the iOS GitHub app and any browser without any local tooling.
+4. A GitHub Actions workflow triggered on `issues: [opened]` with a specific label can parse the issue title and body, then call `python -m src.main research add` (or directly commit a new backlog file), automating the issue-to-file conversion.
+5. Zettelkasten systems converge on a two-phase model: (a) instant frictionless capture into a single inbox with minimal metadata, and (b) batch structuring during a later review pass. Forcing structure at capture increases abandonment.
+6. The existing template already supplies all default metadata (`status: backlog`, `priority: medium`, `started: ~`, `completed: ~`). Only `title` is needed at capture time; all other fields can be populated when the item is started.
+7. GitHub's issue form schema supports `input`, `textarea`, `dropdown`, and `checkboxes` fields, and renders correctly on mobile. A minimal form with only a title field and an optional context textarea is sufficient for research capture.
+8. Direct file creation via the GitHub website file editor is possible but high-friction: it requires navigating to the correct folder, naming the file with the correct date-slug convention, and pasting the template — typically 6–8 manual steps.
+9. The two-capture-path design (CLI for agents, issue form for owner) requires no breaking changes to the existing workflow and the existing CLI command serves as the implementation target for the Actions automation.
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| `cmd_add` is implemented requiring only a title | `src/research/cli.py` (inspected) | high | Creates dated backlog file; template supplies all other fields |
+| Owner uses GitHub website / iOS only, no terminal | `AGENTS.md` § Working Environment | high | Explicit constraint |
+| GitHub issue forms render as mobile-responsive web forms | [GitHub Docs: Syntax for Issue Forms](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms) | high | YAML `.yml` files in `.github/ISSUE_TEMPLATE/` |
+| `issues: [opened]` Actions event can trigger file commits | [GitHub Docs: Using GitHub CLI in workflows](https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-github-cli) | high | Standard pattern; `GITHUB_TOKEN` sufficient |
+| Zettelkasten principle: capture now, structure later | [The Simple Zettelkasten](https://deepread.com/the-simple-zettelkasten/) | high | Consistent across multiple sources |
+| Forcing metadata at capture increases abandonment | [Zettelkasten Method Step By Step Tutorial](https://www.mindswiftly.com/blog/zettelkasten-method-step-by-step-tutorial-unlocking-your-creative-workflow) | medium | Principle-level claim; validated by multiple secondary sources |
+| Direct file creation via GitHub website requires 6–8 steps | Observed by inspecting current process | medium | Manual step count; exact number varies |
+| Issue form iOS compatibility | [GitHub Docs: Configuring issue templates](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository) | high | GitHub renders forms in its web UI; iOS app opens web issues |
+
+### Assumptions
+
+- **Assumption:** The `GITHUB_TOKEN` auto-provided in Actions is sufficient to commit a new file to `main`. **Justification:** The token has repository write access by default for standard Actions workflows on the same repo.
+- **Assumption:** The owner creates issues via the GitHub iOS app or website, not via API. **Justification:** Working environment constraint in `AGENTS.md`.
+- **Assumption:** A single-field form (title only) is sufficient for capture; context is optional. **Justification:** Zettelkasten inbox principle — process atomicity happens later, not at capture.
+
+### Analysis
+
+Two capture paths are needed because the actors are different. Agents (including the research loop workflow) already have a working path via `research add`. The gap is entirely on the owner side, where the only tools are a web browser and the iOS GitHub app.
+
+GitHub issue forms are the right solution for the owner path because: (a) they work natively on iOS via the GitHub app, (b) they are already part of the GitHub workflow the owner uses for other interactions (issue comments, PR reviews), and (c) a triggered Actions workflow can close the loop by converting the issue to a committed backlog file automatically — requiring zero follow-up steps from the owner after submitting the form.
+
+The alternative of owner direct-file-creation via the GitHub web editor was rejected because it requires manual adherence to date-slug naming conventions and template structure. One transcription error breaks the CLI's file parsing. An issue form abstracts those implementation details.
+
+The alternative of a voice note → text pipeline was considered but depended on external tooling (AI transcription services) not currently available in the credential table and would introduce a new external dependency requiring owner approval. It remains an open question.
+
+### Risks, Gaps, and Uncertainties
+
+- The Actions workflow that converts issues to backlog files does not yet exist. This finding identifies the approach; implementation is a separate backlog item.
+- If the issue form is submitted with an empty title, the slug function will produce an unhelpful filename. The form should mark title as `required: true`.
+- Label-based routing (using a specific label to distinguish "research capture" issues from other issue types) needs agreement on the label name (e.g., `research-capture`).
+- The iOS GitHub app renders issue forms via an in-app web view; complex field types (multi-select dropdowns) may have inconsistent mobile UX. Keeping the form to `input` and `textarea` fields avoids this.
+
+### Open Questions
+
+- Should the Actions workflow close the issue after creating the backlog file, or leave it open for discussion? Closing reduces noise; leaving open allows comments.
+- Would a voice-to-research-item path (e.g., using a GitHub Action that calls a speech-to-text API on an audio attachment) be worth evaluating? Depends on whether an API credential can be added.
+- Should the issue form pre-populate a `priority` dropdown, or default all captures to `medium` and let the owner triage separately?
+
+---
+
+---
+
+<a id="2026-02-27-research-output-types-md"></a>
+
+## Research output types: skills, tools, agents, knowledge
+
+**Tags:** [outputs, classification, workflow]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-02-27-research-output-types.md
+
+## Question / Hypothesis
+
+What are the possible output types from a research item, and how should each type be handled, stored, and acted upon?
+
+## Findings
+
+### Executive Summary
+
+The research item output taxonomy consists of exactly five types — `skill`, `tool`, `agent`, `knowledge`, and `backlog-item` — defined consistently across `AGENTS.md`, `Research/README.md`, and `Research/_template.md`. The taxonomy is sufficient: no additional types such as "dataset" or "prompt template" are warranted because they fold cleanly into existing types. The handling procedures for `tool`, `knowledge`, and `backlog-item` are well-defined and demonstrated by the completed corpus; the procedures for `skill` (creating a directory and SKILL.md in the external Skills repo) and `agent` (no storage convention exists) are under-documented and have not been fully acted upon in any completed item.
+
+### Key Findings
+
+1. Five output types are enumerated consistently across three authoritative locations (`AGENTS.md`, `Research/README.md`, `Research/_template.md`): `skill`, `tool`, `agent`, `knowledge`, and `backlog-item`, with no discrepancies between the three sources.
+2. `knowledge` is the default and universal output type because the completed research item itself — containing Findings, Evidence Map, and Key Findings — constitutes a structured knowledge artifact stored in `Research/completed/` and published to the GitHub wiki automatically by `publish-wiki.yml`.
+3. `tool` outputs are stored in `src/` and have a documented 6-step handling procedure in `AGENTS.md`: create the Python file, write tests, register in the CLI, optionally write an ADR, and update `BACKLOG.md` and `PROGRESS.md`.
+4. `skill` outputs are stored as named directories containing a `SKILL.md` file in `davidamitchell/Skills`; the repository currently has 13 skill directories, and the submodule sync to `.github/skills/` and `.claude/skills/` is automated via `sync-skills.yml`.
+5. The `skill` output type is under-acted in the corpus: two completed items declare it in their front-matter, but neither contains a link to a newly created skill directory in `davidamitchell/Skills`, indicating the handling step has not been completed.
+6. The `agent` output type has no documented storage location or handling procedure beyond its one-line definition in `AGENTS.md`; no completed research item has used this output type in 26 completed items.
+7. `backlog-item` outputs spawn numbered W-XXXX entries in `BACKLOG.md` and are the second most common output type, appearing in 13 of 26 completed items; the handling convention (append entry, assign number, link from `## Output`) is well-understood and consistently applied.
+8. No additional output types are warranted: "dataset" folds into `tool` or `knowledge`; "prompt template" folds into `skill` or `agent`; the five-type taxonomy has been stable since the repository's founding with no gaps requiring extension over 26 completed items.
+9. The `output:` front-matter field (array, e.g. `output: [knowledge, backlog-item]`) makes output types machine-readable; the `## Output` section provides the human-readable description, type, and links — both fields are required for a complete output record.
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| Five types defined consistently in three locations | `AGENTS.md` § Output Types; `Research/README.md` § Output Types; `Research/_template.md` | high | Verified by direct inspection of all three |
+| `knowledge` is universal default output | front-matter of all 26 completed items | high | Every item lists `knowledge` |
+| `tool` has a 6-step handling procedure in AGENTS.md | `AGENTS.md` § Adding a New Source Type | high | Procedure counts 6 distinct steps |
+| `youtube-transcript-fetcher` is canonical tool output example | `Research/completed/2026-02-27-youtube-transcript-fetcher.md` | high | Links to `src/fetchers/youtube.py` and workflow present |
+| Skills repo uses directory + SKILL.md structure, 13 skill directories | GitHub API listing of `davidamitchell/Skills` (accessed) | high | Directories enumerated directly |
+| Submodule sync is automated weekly | `AGENTS.md` § Agent Skills; `.gitmodules` | high | `sync-skills.yml` runs Monday 06:00 UTC |
+| `skill` type not fully acted upon in corpus | `Research/completed/2026-02-27-information-synthesis-entropy.md`; `2026-03-03-cross-item-synthesis-meta-insights.md` | high | Neither `## Output` section links a new Skills repo directory |
+| `agent` type has no storage convention | `AGENTS.md` § Output Types (one-line only); 0 completed items use `output: [agent]` | high | Confirmed by absence across corpus |
+| `backlog-item` used in 13/26 completed items | front-matter of all completed items | high | Counted directly |
+| "dataset" and "prompt template" fold into existing types | corpus inspection (26 items, no gap requiring new types) | medium | Absence of need; not from explicit documentation |
+
+### Assumptions
+
+- **Assumption:** "dataset" outputs do not require a separate output type. **Justification:** A dataset is either the product of a `tool` (code that generates or processes data) or a reference artifact cited in the Evidence Map; no completed item in the 26-item corpus has required a distinct storage location that neither `tool` nor `knowledge` covers.
+- **Assumption:** "prompt template" outputs do not require a separate output type. **Justification:** Prompt templates consumed from the Skills submodule are `skill` outputs; standalone prompt files like `research-prompt.md` are `agent` outputs; the distinction is one of deployment mechanism rather than fundamental type.
+- **Assumption:** An `agent` output most plausibly maps to a prompt file at the repo root or a configuration in `.github/`. **Justification:** `research-prompt.md` and `.github/mcp.json` are the only agent-like configurations in the repository; no other format is in use and no convention points elsewhere.
+
+### Analysis
+
+The evidence presents a stable, internally consistent taxonomy with uneven documentation depth across types. The decision to accept the five-type taxonomy as sufficient rests on two supports: (a) empirical — 26 completed items across 4 weeks have not required a sixth type; (b) structural — the five types map to five distinct value channels (executable code, agent instructions, agent configuration, declarative knowledge, queued work) with no overlap. The one competing interpretation — that a separate "dataset" type would be useful for research items that produce reference data — was rejected because the existing `tool` type already covers code that produces data, and datasets consumed as sources are already handled by the Evidence Map rather than the `output:` field. The primary trade-off identified is specificity versus simplicity in the type definitions: a more granular taxonomy (e.g. splitting `knowledge` into `adr`, `wiki-note`, `readme-update`) would reduce ambiguity but add overhead to every research item that currently just lists `knowledge` as a default. The simpler taxonomy is preferred given the automation context (the research loop needs a small, stable enum for the `output:` field).
+
+### Risks, Gaps, and Uncertainties
+
+- **Gap:** The `agent` output type has no storage convention. If a research item produces an agent configuration, there is no documented guidance on where to store it or what format it should take. This gap is not urgent (no completed item has triggered it) but will become a problem when the first agent-type output is produced.
+- **Gap:** The `skill` handling procedure is under-documented in AGENTS.md. The single sentence "add it to the Skills repo first" does not explain the directory/SKILL.md structure, the authentication method for committing to an external repository, or how to link the resulting skill from the research item's `## Output` section.
+- **Uncertainty:** The `knowledge` type is simultaneously implicit (every item is a knowledge artifact) and explicit (an ADR or README update was also produced). This dual meaning has not caused problems in practice, but it creates ambiguity about what an agent should do when a research item produces a knowledge output — is action required beyond completing the item, or is the item completion itself sufficient?
+- **Uncertainty:** The wiki publish pipeline constitutes an additional, implicit storage location for `knowledge` outputs that is not described in the output type taxonomy. The taxonomy does not distinguish between knowledge that lives only in `Research/completed/` and knowledge that is also published to the wiki.
+
+### Open Questions
+
+- Should AGENTS.md document a handling procedure for `skill` outputs with the same specificity as it documents `tool` outputs — including the directory structure, SKILL.md format, and how to commit to the external Skills repo?
+- Should the `agent` output type have a designated storage location (e.g., an `agents/` directory at the repo root) and a documented handling procedure?
+- Should the `knowledge` type be clarified to distinguish "the completed item itself is the knowledge artifact" from "a separate ADR, README update, or wiki note was also produced"?
+
+---
+
+---
+
+<a id="2026-02-27-research-backlog-vs-repo-improvement-backlog-md"></a>
+
+## Keeping research backlog separate from repo improvement backlog
+
+**Tags:** [process, workflow, organisation]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-02-27-research-backlog-vs-repo-improvement-backlog.md
+
+## Question / Hypothesis
+
+What is the cleanest way to separate two distinct types of work — *what to research* vs *how to improve this repo* — so that neither overwhelms the other and each can be prioritised independently?
+
+## Findings
+
+### Executive Summary
+
+The cleanest separation is a two-location file system approach: research items live as individual `.md` files under `Research/backlog/`, and repo improvement items live as numbered entries in a single `BACKLOG.md` at the repo root. Each location has distinct status conventions, priority mechanisms, and naming schemes suited to its item type. Cross-references flow in one direction: a completed research item can produce a `backlog-item` output that spawns a numbered entry in `BACKLOG.md`, but repo improvement items do not generate research items. This approach is already implemented and documented in this repo; the findings confirm the design is correct and identify the cross-reference pattern as the key mechanism that makes the two lists interoperable without merging them.
+
+### Key Findings
+
+1. **Two-location separation works cleanly.** `Research/backlog/` holds research questions as individual dated `.md` files; `BACKLOG.md` holds code/tooling/process work as numbered items. The file system location alone encodes which type of work an item is — no labels or tags needed to distinguish them.
+2. **Header notes reinforce the boundary.** `BACKLOG.md` opens with an explicit callout: "This file tracks repo improvement work. For research item backlog, see `Research/backlog/`." `Research/README.md` has a dedicated section titled "Separating Research Backlog from Repo Improvement Backlog". Both serve as onboarding guardrails for agents and humans.
+3. **AGENTS.md enforces the constraint at the rules level.** The Non-Negotiable Constraints section lists "Keep research backlog (`Research/backlog/`) separate from repo improvement backlog (`BACKLOG.md`)" as a hard rule. This surfaces the convention in agent instructions before any file browsing is needed.
+4. **Status conventions differ and are appropriate for each type.** Research items use front-matter `status: backlog | in-progress | completed` and move between directories. `BACKLOG.md` items use inline `status: open | done | archived`. The difference reflects that research items have richer lifecycle metadata (started/completed dates, outputs) while improvement items need only a quick status signal.
+5. **Priority mechanisms differ appropriately.** Research items carry a `priority: high | medium | low` front-matter field, enabling programmatic sorting. `BACKLOG.md` items are ordered numerically and by epic; priority is conveyed by ordering, not a field. Research items benefit from explicit priority because the research loop processes them autonomously; `BACKLOG.md` items are typically worked by an agent in response to owner instruction.
+6. **Cross-references flow research → improvement, not the reverse.** A research item can produce a `backlog-item` output type, which spawns a new numbered entry in `BACKLOG.md`. The reverse direction (a `BACKLOG.md` item referencing a research item) uses a prose note in the `Context` field (e.g., W-0020: "Research item `Research/completed/2026-02-27-indexing-and-tracking-method.md` was completed first; findings directly informed the ADR."). This one-way convention prevents circular dependencies.
+7. **`davidamitchell/Latest-developments-` uses a single `BACKLOG.md` with no research item tracking.** That repo is a pipeline project with no research function; its backlog is entirely improvement-type work organised as Epic/Slice tables. It does not provide a pattern to follow for the research/improvement split — it is simply a repo that has no need for the split.
+8. **The `output:` field in the research item template is the formal cross-reference mechanism.** Setting `output: [backlog-item]` in a research item's front-matter signals that the research produced a repo improvement task, and the `## Output` section describes and links it. This makes the cross-reference machine-readable and searchable.
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| Two-location separation encodes item type by file system location | `BACKLOG.md` header; `Research/README.md` structure | high | Both locations observed directly in this repo |
+| Header notes reinforce the boundary | `BACKLOG.md` lines 1–5; `Research/README.md` § Separating Research Backlog from Repo Improvement Backlog | high | Direct inspection |
+| AGENTS.md enforces the constraint | `AGENTS.md` Non-Negotiable Constraints section | high | Listed as a non-negotiable rule |
+| Research items use front-matter status; BACKLOG.md uses inline status | `Research/_template.md`; `BACKLOG.md` items W-0001 through W-0029 | high | Direct inspection |
+| Research items have explicit priority field for autonomous processing | `Research/_template.md`; `research-prompt.md` priority sort logic | high | Research loop uses `priority:` to select next item |
+| Cross-references flow research → improvement via `output:` field | W-0020 `Context` note; research item `## Output` section format | high | Observed in W-0020 and template |
+| `Latest-developments-` uses single BACKLOG.md with no research tracking | `davidamitchell/Latest-developments-` `BACKLOG.md` | high | Direct API inspection; no `Research/` directory exists in that repo |
+| `output: [backlog-item]` is the formal cross-reference mechanism | `Research/_template.md` output field options | high | Defined in template |
+
+### Assumptions
+
+- **Assumption:** The separation should be maintained indefinitely, not merged as the repo grows. **Justification:** Research items and improvement items have fundamentally different lifecycles, metadata needs, and automation patterns. Merging them would require a single format to serve both, which would degrade both. The two-file approach remains appropriate regardless of scale.
+- **Assumption:** Agents working on this repo will read `AGENTS.md` before acting. **Justification:** `AGENTS.md` is the single source of truth per the repo's design; all agent entry points (`.github/copilot-instructions.md`, `.claude/CLAUDE.md`) point to it.
+
+### Analysis
+
+The two-location approach succeeds because it maps the categorical difference between item types onto the file system, which is the most primitive and durable form of organisation. There is no schema to maintain, no tags to keep consistent, and no tooling to build. The boundary is enforced at three levels: file system location (structural), header notes in each file (documentary), and `AGENTS.md` rules (behavioural). These three levels create redundancy — any one layer alone would be fragile; together they make the convention robust across agent sessions.
+
+The `Latest-developments-` comparison is useful in the negative: a single `BACKLOG.md` with Epic/Slice tables works well when all work is improvement-type. Once a repo contains genuine research questions that require investigation, synthesis, and evidence tracking, that format breaks down. Individual `.md` files per research item provide the space needed for Findings, Evidence Maps, and Output sections — none of which fit in a table row.
+
+The unresolved design question is prioritisation within `BACKLOG.md`. Research items have an explicit `priority:` field because the research loop selects items autonomously. `BACKLOG.md` relies on ordering, which works when an agent reads the whole file but is less reliable as the file grows. This is out of scope for this item but worth flagging.
+
+### Risks, Gaps, and Uncertainties
+
+- `BACKLOG.md` has no explicit priority field. As the file grows, ordering-as-priority degrades. An agent asked to "pick the highest-priority improvement item" has no machine-readable signal equivalent to the `priority:` field in research items.
+- There is no automated check that prevents a research item from being added to `BACKLOG.md` or vice versa. Enforcement is entirely by convention and agent instruction. A future CI check could verify this.
+
+### Open Questions
+
+- Should `BACKLOG.md` gain an explicit `priority:` field for items, mirroring the research item convention, to support autonomous improvement work? This could become a `BACKLOG.md` item.
+- Should a CI check verify that no `.md` files exist directly in `BACKLOG.md` format under `Research/backlog/` and vice versa?
+
+---
+
+---
+
+<a id="2026-02-27-local-index-vs-reference-md"></a>
+
+## Local index vs reference: what to store vs link
+
+**Tags:** [indexing, storage, local, reference]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-02-27-local-index-vs-reference.md
+
+## Question / Hypothesis
+
+For each type of research content, should we store a local copy / index, or just maintain a reference (URL, citation)? What are the right trade-offs between storage cost, offline access, durability, and searchability?
+
+## Findings
+
+### Executive Summary
+
+For a git-based, GitHub-hosted research corpus with a single owner reviewing diffs via the GitHub website, the correct policy is: store YouTube transcripts locally as plain text files, keep arXiv papers as reference-only (URL/ID), paste key passages from web pages inline into research items, and always commit notes and synthesis locally. This policy is derived from three criteria applied to each content type: whether on-demand fetching is reliable (transcripts are blocked on cloud IPs), whether the source URL is stable (arXiv is permanent; general web has a 2–14 year half-life depending on content type), and whether the file format is git-friendly (text yes, binary no). Git LFS is not needed: no anticipated content type approaches GitHub's 50 MiB warning threshold, and LFS adds operational complexity that conflicts with the owner's GitHub-website-only workflow.
+
+### Key Findings
+
+1. **YouTube transcripts must be stored locally as `.txt` files because cloud IP blocking makes on-demand re-fetching unreliable, and text files are fully git-diffable and accessible from the GitHub website without any special tooling.** The existing `Research/transcripts/` directory and `fetch-transcript` workflow implement this policy correctly.
+
+2. **arXiv papers must remain reference-only because PDFs are binary files that produce unreadable git diffs, arXiv URLs are permanently stable (the service has operated since 1991 with institutional backing), and the relevant content can be represented as text excerpts within research items rather than full PDFs.** Key excerpts should be pasted inline when they are primary evidence.
+
+3. **Web pages that are primary sources for key findings should have their relevant 1–3 paragraph excerpt pasted directly into the research item's Context or Findings section at the time of research, because 38% of web pages from 2013 were inaccessible by 2023 (Pew Research, 2023) and 23% of news articles already contained dead URLs by 2023.** The URL is still recorded for attribution; the inline text guards against evidence disappearing.
+
+4. **General web URLs that are peripheral sources (background reading, not direct evidence for a specific finding) should be recorded as references only, because the overhead of snapshotting every source is not proportionate to the benefit at current corpus scale.**
+
+5. **Git LFS is not warranted for this repository: text transcripts at 40–150 KB per file and 1,000 transcripts would total 150 MB — well within GitHub's practical repository limits — and LFS adds complexity (separate client, quota management) that conflicts with the owner's GitHub-website-only workflow.**
+
+6. **Binary files (PDFs, audio, video) must never be committed to the repository regardless of size, because they produce unreadable git diffs and this constraint is already established by ADR-0003 and the local database item; the policy documented here is consistent with that existing constraint.**
+
+7. **The storage-vs-reference decision is fully determined by three criteria in order: (1) is on-demand fetching reliable? (2) does the source have meaningful link rot risk within a 5-year horizon? (3) is the format text (git-friendly) or binary (git-hostile)?** Applying these criteria leaves no ambiguous cases for the four content types in scope.
+
+8. **A separate `Research/snapshots/` directory for web page archives is not warranted at current corpus scale; the inline-paste pattern already observable in completed research items (e.g., `2026-02-28-ai-strategy.md`) is sufficient and does not require new tooling or directory structure.**
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| YouTube transcript fetching unreliable from cloud IPs | `src/fetchers/youtube.py` docstring; `fetch-transcript` workflow `continue-on-error: true`; prior research `2026-02-27-youtube-transcript-fetcher.md` | high | First-party codebase evidence; consistent with prior research |
+| Text transcripts are 40–150 KB per file | [assumption] Estimate based on ~8,000–15,000 words × ~5 bytes/word | medium | Justification: standard English word length; no measured sample available |
+| `Research/transcripts/` already exists for transcript storage | `.github/workflows/fetch-transcript.yml` (reviewed) | high | First-party codebase evidence |
+| arXiv has permanent stable IDs since 1991 | arXiv identifier docs (https://arxiv.org/help/arxiv_identifier) | high | 30+ year operational history; official documentation |
+| Binary files must not be committed (prior constraint) | ADR-0003; `2026-02-27-local-database.md` | high | Established constraint; this item is consistent with it |
+| 38% of 2013 web pages inaccessible by 2023 | Pew Research 2023, cited in Wikipedia Link_rot article | high | Major research institution; widely cited |
+| 23% of news articles contain dead URL (2023) | Pew Research 2023, cited in Wikipedia Link_rot article | high | Same study |
+| General web half-life ~2–4 years | Multiple studies 2003–2017, synthesised in Wikipedia Link_rot article | medium | Range from multiple independent studies; methodology varies |
+| GitHub warns at 50 MiB, blocks at 100 MiB | GitHub large files documentation (reviewed) | high | Official documentation |
+| Git LFS: 1 GB free storage, $5/50 GB paid packs | GitHub billing documentation (reviewed) | high | Official documentation |
+| LFS requires separate client (`git lfs install`) | git-lfs.com (reviewed) | high | Official documentation |
+
+### Assumptions
+
+- **Assumption:** Average text transcript is 40–150 KB per file. **Justification:** Standard English word density for spoken transcripts is approximately 8,000–15,000 words per hour of content, and plain text encodes at ~5 bytes per word. No measured sample from this repository was available (the `Research/transcripts/` directory is currently empty). If transcripts are consistently shorter (sub-30-minute videos) the size drops proportionally; this does not change the storage recommendation.
+
+- **Assumption:** The YouTube video deletion rate represents a "medium" link rot risk for this content type. **Justification:** No systematic study of YouTube video deletion rates was found. The "medium" label is conservative relative to general web content (high) and arXiv (very low), and is consistent with the observation that YouTube channels referenced in research tend to be established content creators. The storage recommendation for transcripts is driven by IP blocking, not by this risk level, so the assumption does not affect the policy outcome.
+
+### Analysis
+
+The three-criteria framework (re-fetchability, link rot risk, format) was sufficient to determine unambiguous storage policies for all four content types without requiring case-by-case judgment. The framework's strength is that the criteria are largely independent: a content type can fail on one criterion (e.g., binary format) while passing on another (e.g., stable URL) and the format criterion alone is sufficient to rule out local storage for PDFs. The re-fetchability criterion alone is sufficient to require local storage for transcripts.
+
+The Git LFS question was answered quantitatively rather than heuristically. The 40–150 KB per transcript estimate, combined with GitHub's 50 MiB threshold, shows that the repo would need approximately 333–1,250 transcripts before any single file approached the warning limit, and the total storage concern only becomes real at 5,000–25,000 transcripts (375 MB – 3.75 GB). This is orders of magnitude beyond the anticipated scale. The operational cost of LFS (incompatible with GitHub-website-only workflow) makes it doubly unattractive.
+
+The inline-paste approach for web pages resolves the tension between durability and storage overhead: it stores exactly the evidence needed to support a specific claim (the relevant passage) without committing a full HTML snapshot of every web page ever consulted.
+
+### Risks, Gaps, and Uncertainties
+
+- **Transcript size assumption is unverified:** The 40–150 KB estimate has not been measured against actual fetched transcripts in this repository. If the repo begins fetching very long videos (>3 hours) from content-dense channels, individual transcripts could reach 400–500 KB. This remains well below GitHub's thresholds.
+- **YouTube video deletion rate is unmeasured:** The "medium" link rot classification for YouTube is an inference without a specific quantitative source. A future item could investigate this if transcript durability becomes a concern.
+- **No snapshot strategy for web pages:** The inline-paste approach is adequate for key sources but does not provide full snapshots of peripheral references. If the research evolves to require full-page snapshots (e.g., for regulatory or legal documentation), a separate archive workflow (Wayback Machine API, or a `snapshots/` directory with stripped-HTML `.txt` files) would be needed.
+
+### Open Questions
+
+- **Q1:** Should the `fetch-transcript` workflow be updated to tag transcripts with metadata (fetch date, video title, duration) to support future lifecycle management (e.g., re-fetching stale transcripts)? This is an implementation question for the tooling backlog, not a research question.
+- **Q2:** Is there a systematic data source for YouTube video deletion rates that could replace the "medium" assumption with a measured rate? This is low priority: the storage decision for transcripts is driven by IP blocking, not by deletion risk.
+
+---
+
+---
+
+<a id="2026-02-27-local-database-md"></a>
+
+## Local database: requirements and technology choice
+
+**Tags:** [database, sqlite, storage, local]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-02-27-local-database.md
+
+## Question / Hypothesis
+
+If we decide to use a local database for indexing and state (rather than JSON files), what are the requirements and what technology should we choose?
+
+## Findings
+
+### Executive Summary
+
+SQLite with FTS5 (Phase 1) and sqlite-vec (Phase 2) is the correct local database technology for this repository when the corpus or query complexity outgrows JSON files. SQLite satisfies all relational query patterns, provides full-text search at zero dependency cost via its built-in FTS5 module, and allows vector search to be added incrementally through the `sqlite-vec` extension without switching to a different database file or technology stack. DuckDB is poorly matched to the row-oriented access patterns of this workload and lacks built-in vector search; ChromaDB and LanceDB are embeddings-first systems that cannot replace the relational layer and introduce heavy dependency trees. The database should be treated as a derived artefact rebuilt from YAML front-matter, not as the source of truth for research item metadata.
+
+### Key Findings
+
+1. **SQLite's FTS5 extension is built into Python's standard library `sqlite3` module and requires no additional dependencies to provide BM25-ranked full-text search over research item titles, questions, and findings.** [high confidence]
+
+2. **The `sqlite-vec` extension (`pip install sqlite-vec`) enables KNN vector search within the same SQLite database file as FTS5, adding semantic retrieval capability without introducing a second database technology.** sqlite-vec is pre-v1 and may have breaking changes before 1.0; this risk is managed by deferring its integration to Phase 2. [medium confidence]
+
+3. **DuckDB's columnar-vectorised OLAP engine is optimised for large-table analytical scans — a query pattern that does not match this repository's workload of point lookups by status, tag joins, and URL deduplication.** DuckDB also has no built-in vector search extension. [high confidence]
+
+4. **ChromaDB and LanceDB are both embeddings-first systems that do not provide a relational query layer; using either would require SQLite alongside them anyway, eliminating any benefit over the proposed SQLite-only approach.** ChromaDB's persistent client also pulls in 15+ transitive dependencies including C++ and Rust extensions. [high confidence]
+
+5. **The recommended five-table schema (`items`, `tags`, `sources`, `processed`, `transcripts`) with an FTS5 virtual table over item content supports all identified query patterns: relational filtering by status/priority/tag, URL deduplication, source tracking, and full-text search.** [high confidence]
+
+6. **The database file must be treated as a derived artefact excluded from git, rebuildable from YAML front-matter on demand, because all embedded database formats (SQLite, DuckDB, ChromaDB, LanceDB) produce binary files that are not git-diffable.** YAML front-matter in Markdown files remains the source of truth for research item metadata. [high confidence]
+
+7. **Migration from JSON + YAML to SQLite should be triggered by at least one of four observable signals: state/index.json exceeding 500 entries, a need for cross-item relational queries beyond grep, a semantic search capability being built, or concurrent pipeline runs requiring ACID transactions.** The 500-entry threshold is a cognitive cost heuristic (large JSON diffs), not a performance limit. [medium confidence]
+
+8. **Zotero's architecture (SQLite with a relational schema + a separate FTS table indexed against item content) is the closest prior art for this use case and validates the proposed schema pattern.** [high confidence]
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| SQLite FTS5 built-in, BM25 ranking, phrase/prefix search | sqlite.org/fts5.html (accessed directly) | high | In stdlib since Python 3.x via `sqlite3` module |
+| sqlite-vec provides KNN in SQLite, `pip install sqlite-vec` | github.com/asg017/sqlite-vec (accessed directly) | high | Mozilla Builders sponsorship; pre-v1 |
+| sqlite-vec pre-v1 status, breaking changes expected | github.com/asg017/sqlite-vec README (accessed directly) | high | Explicitly marked as pre-v1 |
+| DuckDB is OLAP-optimised, columnar-vectorised | duckdb.org/why_duckdb (accessed directly) | high | Primary positioning documentation |
+| DuckDB FTS extension uses BM25 | duckdb.org/docs/stable/core_extensions/full_text_search.html (accessed directly) | high | `match_bm25` function, Porter stemmer |
+| DuckDB has no built-in vector search | DuckDB extension docs review | high | No KNN/ANN listed in core extensions |
+| ChromaDB persistent client available, heavy dependencies | docs.trychroma.com (accessed directly) | high | PersistentClient noted; dependency tree inferred |
+| ChromaDB is embeddings-first, not a relational DB | docs.trychroma.com/docs/overview/introduction (accessed directly) | high | Explicit positioning statement |
+| LanceDB targets multi-modal lakehouse at scale | docs.lancedb.com (accessed directly) | high | Explicit positioning statement |
+| Prior research deferred vector stores until >50 items | 2026-02-27-indexing-and-tracking-method.md Key Finding 5 | high | Direct quote from completed item |
+| Zotero uses SQLite + FTS table | 2026-02-27-indexing-and-tracking-method.md Key Finding 2 | high | Zotero docs cited in prior item |
+| Binary database files are not git-diffable | 2026-02-27-indexing-and-tracking-method.md Key Finding 4 | high | Well-established; confirmed in prior item |
+
+### Assumptions
+
+- **Assumption:** ChromaDB's dependency tree is substantially heavier than SQLite's. **Justification:** The Chroma getting-started documentation references `hnswlib`, `tokenizers`, and other packages visible in the ChromaDB PyPI dependency graph. A precise dependency count was not audited directly; the characterisation "15+ transitive dependencies" is an estimate. If this assumption is wrong, ChromaDB's dependency cost is lower than assessed, but the fundamental objection (not a relational system) remains.
+- **Assumption:** The corpus will not require concurrent write access from multiple processes in Phase 1. **Justification:** AGENTS.md describes a single-owner workflow with one pipeline running at a time. If parallel pipeline runs are introduced, SQLite WAL mode handles concurrent readers; exclusive write locks must still be serialised.
+- **Assumption:** The embedding model for Phase 2 will produce 1536-dimensional float32 vectors. **Justification:** 1536 is the dimension of OpenAI's `text-embedding-3-small`. If a different model is chosen, the `vec0` table dimension must be adjusted at schema creation time.
+
+### Analysis
+
+The key trade-off in this evaluation is **query richness and semantic capability** (favouring ChromaDB or LanceDB) versus **dependency minimalism and unified relational+FTS access** (favouring SQLite). Given the scale (hundreds of items) and query patterns (point lookups, tag filters, FTS), the dependency minimalism argument wins decisively. Both ChromaDB and LanceDB are systems built for embedding-centric workloads at scale; neither provides a relational layer, meaning SQL-expressible queries would still require a separate SQLite instance alongside them.
+
+The DuckDB alternative was evaluated seriously because DuckDB is a legitimate embedded analytical database with Python bindings and FTS support. Its disqualification is not on grounds of quality but on grounds of query pattern mismatch: columnar storage is a disadvantage for single-row lookups and small multi-row joins, and the absence of built-in vector search means two separate stores are still needed for Phase 2.
+
+The phased approach (SQLite alone → SQLite + sqlite-vec) is the correct architecture because it avoids committing to a pre-v1 extension (sqlite-vec) in the core state management path. Phase 1 can be implemented and used in production; Phase 2 is added when the semantic search backlog item is executed.
+
+### Risks, Gaps, and Uncertainties
+
+- **sqlite-vec pre-v1 stability:** The extension may change its `vec0` virtual table SQL syntax before reaching 1.0. Mitigation: pin the version in `pyproject.toml`; isolate vector search behind an abstraction layer in `src/db/`.
+- **Embedding model dependency for Phase 2:** Generating embeddings requires either a local model (`sentence-transformers`, ~400MB download) or an API call (OpenAI, Gemini). The choice has cost and privacy implications that are out of scope for this item.
+- **Database rebuild performance:** If the pipeline rebuilds the database from scratch (e.g., in a fresh GitHub Actions environment), parsing all YAML front-matter files and re-inserting into SQLite takes time proportional to corpus size. At hundreds of items this is negligible; at thousands, an incremental build approach would be needed.
+- **FTS5 content sync:** The FTS5 virtual table using `content='items'` requires triggers or manual `INSERT INTO items_fts` calls to stay in sync with the `items` table. If not implemented correctly, the FTS index will be stale. This is a known SQLite FTS5 limitation.
+
+### Open Questions
+
+1. **What embedding model should be used for Phase 2 vector search?** This is the primary unresolved dependency for the semantic search capability. Local models (sentence-transformers) avoid API calls but require a large download in CI; API models (OpenAI, Gemini) require credentials. This is a prerequisite question for the `2026-03-02-semantic-full-text-search.md` backlog item.
+2. **Should the database be committed to git in a compressed or alternative format (e.g., Datasette's `.db.gz`)?** Datasette supports SQLite databases published as static sites; committing the `.db` file (gzip-compressed) would enable read-only access via GitHub. This is an interface question for `2026-02-27-interface-and-delivery.md`.
+3. **Should the Phase 1 migration include transcripts?** Transcripts are large blobs; storing them in SQLite would make the `.db` file large. An alternative is to store only the URL and a content hash, with the transcript text remaining in `Research/transcripts/`. This is a scope question for the Phase 1 implementation backlog item.
+
+---
+
+---
+
+<a id="2026-02-27-interface-and-delivery-md"></a>
+
+## Interface and delivery: how to surface research outputs
+
+**Tags:** [interface, delivery, output, ux]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-02-27-interface-and-delivery.md
+
+## Question / Hypothesis
+
+Once research is complete and outputs are produced, how should they be surfaced and delivered to the people (or agents) who need them? What interfaces make research outputs most usable?
+
+## Findings
+
+### Executive Summary
+
+The research corpus requires two parallel delivery channels, one per consumer type: the GitHub wiki (already live) serves the human researcher via the repository's Wiki tab on web and iOS, and an MCP server with stdio transport (designed, not yet implemented) serves AI agents via `search_research`, `get_research_item`, and `get_related_items` tools. The CLI `research search` command is designed and shares the same FTS5 backend; it is the third channel to implement. Email digest and Slack push notification are architecturally viable but blocked under current constraints: both require credentials (`RESEND_API_KEY`/`EMAIL_RECIPIENT` for email; `SLACK_WEBHOOK_URL` for Slack) that are not in the approved credentials table and require owner approval before implementation can proceed.
+
+### Key Findings
+
+1. **The GitHub wiki is the correct and already-live human-browsing interface: `publish-wiki.yml` rebuilds all pages from `Research/completed/` on every push to `main`, producing a date-sorted `Home.md` and tag-indexed `_Sidebar.md` accessible from the repository's Wiki tab on both the GitHub website and the iOS app.** [High confidence]
+
+2. **An MCP server with stdio transport, registered in `.github/mcp.json`, is the only agent-query interface that satisfies all repository constraints: no persistent server process, no new credentials, compatible with the 10 existing MCP stdio servers.** [High confidence]
+
+3. **The three-tool MCP interface contract defined in `2026-03-02-chat-conversational-interface.md` is complete and sufficient: `search_research(query, tags, limit)` for ranked discovery, `get_research_item(slug)` for full content retrieval, and `get_related_items(slug)` for cross-reference navigation via `state/links.json`.** [High confidence]
+
+4. **The CLI `research search` command is designed in `2026-03-02-semantic-full-text-search.md` with SQLite FTS5 index, mtime-based rebuild, and `--limit`/`--mode`/`--tag` options, but is not yet implemented in `src/main.py`.** [High confidence]
+
+5. **The email digest path via the `davidamitchell/Latest-developments-` pattern requires at minimum two new credentials (`RESEND_API_KEY` and `EMAIL_RECIPIENT`) that do not appear in the approved credentials table, making it a hard-stop blocked item under the non-negotiable constraints.** [High confidence]
+
+6. **Outbound Slack notification (one completed item per push) is low-complexity — four lines of workflow YAML Ain't Markup Language (YAML) using `slackapi/slack-github-action@v2.1.1` — but is equally blocked pending explicit owner approval of the `SLACK_WEBHOOK_URL` secret.** [High confidence]
+
+7. **The human and agent consumers have structurally different access patterns: the human researcher performs discovery (browsing by date and tag), while the AI agent performs retrieval (querying by keyword to locate specific items for synthesis); no single interface serves both optimally, making the two-layer strategy the correct design.** [Medium confidence — inference from usage patterns]
+
+8. **All currently unblocked interface channels (wiki, MCP server, CLI search command) incur zero ongoing cost — they rely on `GITHUB_TOKEN` and local file access with no paid API calls.** [High confidence]
+
+9. **The MCP server implementation must be accompanied by an Architecture Decision Record (ADR) documenting the stdio transport choice, three-tool interface contract, grounding design (tool-scoped retrieval prevents corpus hallucination), and the Phase 1 (grep) / Phase 2 (FTS5) phasing.** [High confidence — per `2026-03-02-chat-conversational-interface.md` Key Finding #10]
+
+10. **iOS Shortcuts provide a complementary mobile-access layer: a "Open URLs" shortcut points to the wiki Home page for read access, and a GitHub Issues API shortcut handles mobile research capture — neither requires any server-side changes.** [High confidence]
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| GitHub wiki is live and rebuilt on every push | `Research/completed/2026-03-01-github-wiki-research-content.md` Executive Summary | High | `publish-wiki.yml` and `src/wiki/publish.py` implemented |
+| MCP stdio server is the only viable agent interface | `Research/completed/2026-03-02-chat-conversational-interface.md` Executive Summary | High | GitHub Copilot Extension approach eliminated by no-server constraint |
+| Three-tool MCP contract | `Research/completed/2026-03-02-chat-conversational-interface.md` §6 Synthesis | High | Matches MCP protocol tool definition from modelcontextprotocol.io |
+| `research search` CLI command designed, not implemented | `Research/completed/2026-03-02-semantic-full-text-search.md` §1.6; `python -m src.main research --help` output | High | Current CLI lacks search subcommand |
+| Email digest requires credentials not in approved table | `davidamitchell/Latest-developments-` README.md; `.github/copilot-instructions.md` credentials table | High | `RESEND_API_KEY`, `EMAIL_RECIPIENT` not in table |
+| Slack notification blocked pending secret approval | `Research/completed/2026-03-02-slack-msteams-research-integration.md` Key Finding #2 | High | `SLACK_WEBHOOK_URL` not in approved credentials table |
+| Human/agent access patterns differ fundamentally | `.github/copilot-instructions.md` Working Environment; `Research/completed/2026-03-02-chat-conversational-interface.md` | Medium | [inference] from usage model description |
+| Zero ongoing cost for wiki, MCP, CLI channels | `Research/completed/2026-03-01-github-wiki-research-content.md`; `Research/completed/2026-03-02-chat-conversational-interface.md` Key Finding #2; `Research/completed/2026-03-02-semantic-full-text-search.md` | High | All use GITHUB_TOKEN or local file access |
+| MCP server requires an ADR | `Research/completed/2026-03-02-chat-conversational-interface.md` Key Finding #10 | High | Explicitly stated in prior research |
+| iOS Shortcuts provide mobile access | `Research/completed/2026-03-02-ios-shortcuts-research.md` Key Findings #1, #7 | High | "Open URLs" shortcut + Issues API capture shortcut |
+
+**Identified but not consulted:**
+- `[ ]` `davidamitchell/Latest-developments-` source code (`src/`) — README was sufficient to characterise the pattern; full source not required for this finding
+- `[ ]` MCP HTTP/SSE transport specification — not relevant since stdio transport is the confirmed choice
+
+### Assumptions
+
+- **Assumption:** The owner has not approved `SLACK_WEBHOOK_URL`, `RESEND_API_KEY`, or `EMAIL_RECIPIENT` credentials since the `2026-03-02-slack-msteams-research-integration.md` item was completed. **Justification:** The approved credentials table in `.github/copilot-instructions.md` lists only four credentials; no subsequent session log mentions a table update. If these credentials have since been approved, the blocked items are immediately actionable.
+
+### Analysis
+
+The interface strategy is architecturally complete, with two channels live or fully designed and two channels blocked by credential constraints. The key trade-off evaluated was human-browsing vs agent-query vs push-notification: they are not competing designs but complementary layers targeting distinct consumer modes. [inference] Prioritising the MCP server over the CLI search command is correct because it serves agent-to-corpus queries, which is the higher-frequency use case during research loop sessions. The CLI search command is a useful supplement that shares the FTS5 backend and should be implemented in the same slice. Push notifications (Slack/email) add value but are optional and blocked — delaying them costs nothing.
+
+The email digest pattern from `Latest-developments-` is well-established but architecturally heavier than needed: that project watches external feeds and produces AI summaries, whereas a research digest only needs to list recently completed items. If credentials are approved, the digest workflow would be simpler than the `Latest-developments-` pipeline — a `schedule`-triggered workflow that reads `completed` dates from `Research/completed/` YAML Ain't Markup Language (YAML) front-matter and posts a summary.
+
+### Risks, Gaps, and Uncertainties
+
+- **Credential approval is the single unresolved variable.** Email digest and Slack notification are architecturally ready but blocked until the owner approves the relevant credentials. No technical gap; the gap is administrative.
+- **MCP server Phase 2 depends on `semantic-full-text-search.md` implementation.** Phase 1 (grep-based) is independent and deployable now. If the FTS5 search layer is delayed, Phase 1 is fully functional.
+- **`get_related_items` depends on `state/links.json` population**, which in turn depends on `2026-03-03-knowledge-linking-connected-corpus.md` being implemented. Without that edge store, the tool returns empty results rather than an error.
+- **Wiki navigation is flat.** The GitHub wiki has no subdirectory support, so as the corpus grows beyond ~200 items, the `Home.md` index may become long. Tag-based grouping in `_Sidebar.md` mitigates this but does not resolve it. A future item could address hierarchical navigation.
+
+### Open Questions
+
+1. **Should a `research digest` CLI command be added** that generates a Markdown summary of the last N days' completions, usable both locally and as a workflow step? This would be a lightweight alternative to the email digest for producing a shareable briefing without external credentials. Priority: low (no downstream blocker).
+
+2. **When the owner approves email or Slack credentials, should the notification and digest be a separate new workflow file or merged into `publish-wiki.yml`?** The trigger (`push` to `main` touching `Research/completed/**`) is the same; merging reduces workflow count. Priority: low; decide at implementation time.
+
+---
+
+---
+
+<a id="2026-02-27-information-synthesis-entropy-md"></a>
+
+## Information synthesis: non-lossy compression, entropy, and information theory
+
+**Tags:** [synthesis, information-theory, entropy, compression, ai]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-02-27-information-synthesis-entropy.md
+
+## Question / Hypothesis
+
+What is the best way to synthesise information from multiple sources in a manner that is minimally lossy — preserving the most signal while compressing volume — drawing on information theory, entropy, and compression research?
+
+## Findings
+
+### Executive Summary
+
+No single technique achieves minimally-lossy synthesis across multiple sources; the best approach combines three layers: entropy-guided extraction (preserve high-entropy, high-information sections), semantic deduplication (remove cross-source redundancy, keep only deltas), and graph-structured synthesis (model claims as nodes, evidence as edges for multi-hop reasoning). Chain of Density (CoD) prompting is the most directly applicable LLM technique — it iteratively compresses while adding entity density, producing summaries that human raters prefer over vanilla GPT-4 summaries. Naive per-source LLM summarisation is the worst option: it accumulates hallucinations and loses cross-source context as corpus size grows. The theoretical foundation (Shannon entropy, Information Bottleneck, MDL) all converge on the same principle: discard what is predictable/redundant, preserve what is novel and causally relevant.
+
+### Key Findings
+
+1. **Shannon entropy identifies information-dense text.** High-entropy sections are less predictable and carry more signal; low-entropy sections are repetitive and safe to compress. Entropy can be computed per-sentence or per-paragraph to guide extractive summarisation, selecting sentences that contribute most to document entropy.
+
+2. **Chain of Density (CoD) prompting is the leading LLM-native synthesis technique.** Adams et al. (2023) demonstrate that iteratively rewriting a summary to add 1–3 missed salient entities per pass — without increasing length — produces summaries rated more informative and faithful than baseline GPT-4. Human preference peaks at a mid-density level that matches human-written reference summaries; beyond that, density harms readability.
+
+3. **The Information Bottleneck (IB) method provides formal grounding for the compression–relevance trade-off.** Tishby et al. formalise synthesis as finding a compressed representation T of input X that maximises mutual information with the target variable Y while minimising I(X;T). This captures exactly the problem: keep what is predictive of meaning, discard the rest. The β parameter controls the compression–fidelity trade-off.
+
+4. **Minimum Description Length (MDL) frames summarisation as lossless coding.** A summary is optimal under MDL when the sum of (summary length + reconstruction model length) is minimised. This is equivalent to finding the most compressible representation of the source — exploiting regularities (grammar, redundancy) while preserving unique content.
+
+5. **Semantic deduplication is a prerequisite for cross-source synthesis.** String/hash-based deduplication misses paraphrases. Embedding-based methods (SemDeDup, MinHash/LSH) cluster semantically equivalent content across documents and suppress it before synthesis, preventing diluted or repeated outputs. Cross-document topic-aligned chunking (2025 arxiv) extends this by aligning semantically similar chunks across sources before retrieval.
+
+6. **Graph-based synthesis (GraphRAG) outperforms flat retrieval for multi-source reasoning.** Microsoft's GraphRAG constructs a knowledge graph from an LLM-processed corpus, with entities as nodes and relationships as edges, then uses community-level summarisation to answer queries that span multiple documents. It outperforms naive RAG on complex, multi-hop queries that require integrating evidence from different sources.
+
+7. **Naive per-source LLM summarisation introduces compounding errors.** Hallucinations in LLM summaries arise from limited context windows, exposure bias, and noisy training data. When each source is summarised independently and summaries are concatenated, errors compound and cross-source context is permanently lost. RAG with grounded retrieval is consistently found to reduce hallucination rates versus independent summarisation.
+
+8. **ROME/MEMIT (Meng 2022) shows that factual knowledge is localised in transformer mid-layer feed-forward modules.** While this is primarily a knowledge-editing result, it implies that LLMs store facts in structured, addressable representations — supporting the view that synthesis quality can in principle be improved by intervening at the representation level, not just at the prompt level.
+
+9. **There is a density sweet spot; over-compression degrades faithfulness.** CoD human preference studies show that beyond approximately 3–4 rounds of densification, summaries become harder to follow and introduce factual errors. This matches the IB framework's prediction: compression beyond the optimal β introduces distortion. Synthesis pipelines must expose a tunable compression parameter.
+
+10. **Two-phase deduplication (intra-document then cross-document) is the current best practice for RAG pipelines.** Production RAG systems (lucidRAG, cross-document chunking literature) decouple deduplication at ingestion (within a document) from deduplication at retrieval (across documents). The two phases serve different purposes: intra-document removes formatting noise; cross-document removes redundant claims.
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| High-entropy text sections carry more information and should be preserved | Shannon (1948); Wikipedia Entropy (information theory); MDPI "Entropy of Digital Texts" | high | Well-established information theory result |
+| CoD prompting produces human-preferred summaries vs vanilla GPT-4 | Adams et al. (2023) arxiv:2309.04269 | high | 500 human-annotated summaries, 5000 unannotated; direct experimental evidence |
+| IB method formalises compression–relevance trade-off as min I(X;T) – β·I(T;Y) | Tishby et al. (1999/2000); Wikipedia Information Bottleneck | high | Foundational theoretical result; widely cited |
+| MDL frames summarisation as lossless coding: summary is optimal when description length is minimised | Wikipedia MDL; liambai.com "From Kolmogorov to LLMs" | high | Standard information theory result; well-sourced |
+| Semantic deduplication via embeddings outperforms hash-based dedup for paraphrases | SemDeDup (NeurIPS 2023); Fraunhofer evaluation 2024 | high | Multiple independent sources corroborate |
+| GraphRAG outperforms naive RAG on complex multi-source queries | Microsoft Research GraphRAG blog; machinelearningplus.com GraphRAG guide | medium | Performance claims are from Microsoft's own evaluation; independent replication limited |
+| Naive per-source LLM summarisation introduces compounding hallucinations | Survey on LLM hallucination (2024, arxiv:2401.01313); Nature (2025) hallucination survey | high | Multiple independent surveys consistently identify this failure mode |
+| Factual knowledge is localised in mid-layer transformer feed-forward modules | Meng et al. (2022) arxiv:2202.05262 (ROME) | high | Verified via causal tracing; replicated in subsequent work |
+| Density sweet spot exists; over-compression degrades faithfulness | Adams et al. (2023) CoD human preference study | high | Direct experimental finding from the same paper |
+| Two-phase dedup (intra then cross-document) is best practice | Cross-Document Topic-Aligned Chunking arxiv:2601.05265; lucidRAG blog | medium | Emerging consensus; fewer than 5 independent published results |
+
+### Assumptions
+
+- **Assumption:** The research tooling corpus is multi-source (YouTube transcripts, papers, web pages) with significant topical overlap between sources. **Justification:** This is explicit in the project context; the tooling already has YouTube, web, and paper fetchers.
+- **Assumption:** The synthesis problem is primarily about knowledge retention, not style fidelity. **Justification:** The research question asks for "minimally lossy" in terms of signal, not verbatim reconstruction.
+- **Assumption:** LLM token context limits will remain a binding constraint at synthesis time. **Justification:** Even with expanding context windows (128k–1M tokens), multi-source corpora in this system can exceed practical limits.
+
+### Analysis
+
+Shannon entropy, IB, and MDL all converge on the same principle from different angles: identify what is novel and preserve it; discard what is predictable. This theoretical convergence is strong evidence that the principle is sound, even though direct application to synthesis pipelines varies.
+
+CoD prompting is the most immediately implementable technique. It requires no special infrastructure — only a well-designed prompt — and produces measurably better outputs than naive summarisation. Its limitation is that it operates at the single-document level; it does not address cross-source redundancy.
+
+GraphRAG addresses cross-source synthesis but requires a knowledge graph construction step that has non-trivial cost and complexity. It is the right architecture for a mature synthesis pipeline but is not the right first step.
+
+The practical recommendation for this project's synthesis layer is a three-stage approach:
+1. **Extract** high-entropy/high-information chunks from each source (entropy scoring or sentence-level scoring).
+2. **Deduplicate** cross-source at the semantic level (embedding similarity clustering).
+3. **Synthesise** the deduplicated, high-signal chunks using CoD-style prompting (iterative densification with entity tracking).
+
+This sequence mirrors what information theory recommends: exploit within-source structure first, then remove cross-source redundancy, then compress the remainder.
+
+ROME/MEMIT is directionally interesting (factual knowledge is structured in LLMs) but is a knowledge-editing technique, not a synthesis technique. Its relevance is that it suggests future work on synthesis might involve targeted representation intervention rather than only prompting — this is speculative and out of scope.
+
+The IB framework's β parameter is an important insight: synthesis pipelines should expose a tunable trade-off between compression ratio and fidelity. A fixed compression target is wrong; the right compression level depends on the downstream use case.
+
+### Risks, Gaps, and Uncertainties
+
+- **GraphRAG performance claims are primarily from Microsoft's own evaluations.** Independent replication is limited. The approach may not generalise to smaller corpora or domain-specific content.
+- **Entropy scoring for text requires a language model.** Character-level or word-level entropy underestimates semantic entropy (two paraphrases have identical information content but different surface-level entropy). A model-based perplexity score is needed for sentence-level entropy, adding a dependency.
+- **CoD prompting was evaluated on news articles (CNN/DailyMail).** Generalisability to academic papers, YouTube transcripts, and web pages is not established experimentally.
+- **Two-phase deduplication thresholds are not standardised.** Similarity cutoffs for semantic dedup vary widely across papers; there is no consensus on the right threshold for research synthesis.
+- **The IB framework has not been directly applied to document synthesis in practice.** Most IB work is on neural network compression, not text summarisation pipelines. The translation from theory to practice requires engineering work not covered in the literature.
+
+### Open Questions
+
+- What perplexity scoring method (which model, what granularity) best approximates semantic entropy for the sources in this system?
+- Should synthesis operate over the full document or only extracted high-entropy chunks? What is the information loss from pre-filtering?
+- Is there an existing open-source tool that implements semantic deduplication at the paragraph/chunk level suitable for use in this pipeline?
+- Can CoD prompting be adapted for multi-document input (rather than single-source), or does it require a pre-merged input?
+- What is the right compression ratio target for research synthesis — what portion of a source's content should survive synthesis?
+
+---
+
+---
+
+<a id="2026-02-27-indexing-and-tracking-method-md"></a>
+
+## Indexing and tracking method for research content
+
+**Tags:** [indexing, tracking, database, organisation]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-02-27-indexing-and-tracking-method.md
+
+## Question / Hypothesis
+
+What is the best method for indexing and tracking research content (transcripts, papers, notes) given the constraints of a git-based, local-first repo?
+
+## Findings
+
+### Executive Summary
+
+For a git-based, local-first research corpus at the scale anticipated here (hundreds, not millions, of items), a **JSON state file** for URL-based deduplication combined with **YAML front-matter** in Markdown research item files is the correct approach. This mirrors the `davidamitchell/Latest-developments-` pattern that already underpins this repository's fetcher design, remains fully git-diffable, requires no additional server or binary dependency, and is easy to inspect and edit by hand. SQLite becomes the right migration point only once the corpus exceeds a few hundred items and query performance degrades noticeably. Vector stores (ChromaDB, sqlite-vss) are deferred to a future search slice.
+
+### Key Findings
+
+1. **Obsidian, Logseq, and Dendron all converge on plain-Markdown + flat files** for git-friendliness. None use a custom binary index at the data layer; instead, they keep metadata in YAML front-matter and build in-memory indices at runtime. This is directly applicable: the Research item files already use YAML front-matter, giving us the metadata layer for free.
+
+2. **Zotero's SQLite approach is powerful but inappropriate here.** Zotero uses a 10+ table relational schema (items, itemData, itemDataValues, creators, tags, relations, fulltext*). It is robust for academic reference management but is a binary file, impossible to diff in git, and requires Zotero's migration tooling to evolve the schema. Its complexity is justified by managing tens of thousands of heterogeneous item types — which is not our use case.
+
+3. **JSON state file is git-friendly and sufficient for URL-based deduplication at this scale.** The pattern (`load state.json → check URL → process → save state.json`) is O(n) for lookup but acceptable up to ~10,000 entries. Converting the URL set to a Python `set` at runtime eliminates duplicate lookups during a single run. `state/index.json` already exists in this repo (currently `{}`), confirming the infrastructure is in place.
+
+4. **SQLite offers ACID transactions, efficient indexing, and `INSERT OR IGNORE` deduplication, but at the cost of git-diffability.** SQLite database files are binary blobs: a single row change produces a completely different file in `git diff`. This is acceptable only if the state file is treated as a runtime artefact that is never reviewed in pull requests. For this repo — where the owner reviews all changes via the GitHub website — losing readable diffs is a meaningful cost.
+
+5. **Vector stores (ChromaDB, sqlite-vss/sqlite-vec) solve a different problem: semantic search, not deduplication.** ChromaDB is production-grade but runs as a server process, adding operational complexity. sqlite-vss is single-file but still binary. Both are appropriate only once the `Research/completed/` directory has enough items (>50) to make semantic search over findings worthwhile. This is a future-state capability, not a current need.
+
+6. **The two concerns — deduplication/processing state and research-item metadata — should remain separate.** Processing state (which URLs have been fetched) belongs in `state/index.json`. Research-item metadata (title, status, tags, started/completed dates) belongs in the YAML front-matter of each `Research/*.md` file. Mixing them would couple the pipeline to the research workflow unnecessarily.
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| Obsidian/Logseq/Dendron use plain Markdown + YAML front-matter | Obsidian docs; Logseq docs; Dendron docs (via web search) | high | All three use `.md` files with front-matter for metadata |
+| Zotero uses SQLite (binary, not git-diffable) | [Zotero SQLite docs](https://www.zotero.org/support/dev/client_coding/direct_sqlite_database_access); [Zotero schema repo](https://github.com/zotero/zotero-schema) | high | Confirmed by official documentation |
+| JSON state file is O(n) lookup but sufficient <10,000 entries | General Python data structures; [DLT state docs](https://dlthub.com/docs/general-usage/state) | high | Set-based runtime lookup is O(1); serialisation to list for JSON is standard practice |
+| SQLite produces binary diffs in git | [JSON Showdown: Dolt vs SQLite](https://www.dolthub.com/blog/2024-11-18-json-sqlite-vs-dolt/); web search synthesis | high | Well-established limitation; multiple independent sources confirm |
+| ChromaDB and sqlite-vss are designed for vector search, not dedup | [sqlite-vss GitHub](https://github.com/asg017/sqlite-vss); [ChromaDB guide](https://airbyte.com/data-engineering-resources/chroma-db-vector-embeddings); [SQLite vs Chroma](https://stephencollins.tech/posts/sqlite-vs-chroma-comparative-analysis) | high | Both tools explicitly positioned for embedding similarity search |
+| `state/index.json` already exists in this repo | Local file inspection (`state/index.json` = `{}`) | high | Confirmed by direct inspection |
+
+### Assumptions
+
+- **Assumption:** The research corpus will remain below 10,000 processed items for the foreseeable future. **Justification:** This is a personal research tracking repo for a single owner; growth to 10,000 items would represent years of sustained activity. The JSON approach can be migrated to SQLite incrementally if this assumption is violated.
+- **Assumption:** Semantic search over completed research items is a future-state feature, not a current requirement. **Justification:** There are currently zero items in `Research/completed/`. Vector search is not useful until a meaningful corpus exists.
+- **Assumption:** The owner will review state file changes via git diffs on the GitHub website. **Justification:** This is stated explicitly in `AGENTS.md`: the owner uses the GitHub website exclusively. A binary state file would be invisible to this review workflow.
+
+### Analysis
+
+The key trade-off is between **query power / performance** (favouring SQLite) and **transparency / git-diffability** (favouring JSON). Given the stated constraints — git-first, local, owner reviews via GitHub website — transparency wins. The query performance of JSON is sufficient at this scale, and any performance concern can be addressed by migrating the state file to SQLite at a later point without changing the research-item format.
+
+The comparison with Obsidian, Logseq, and Dendron is instructive but not directly applicable: those tools index at query-time (in-memory graph construction on startup), a luxury we cannot easily replicate in a CI/CD pipeline. However, their shared reliance on YAML front-matter for metadata validates the approach already in use for research items.
+
+Zotero's complexity is not a model to emulate — it is the product of having to manage thousands of heterogeneous reference types, institutional group libraries, and offline sync. Its schema is instructive as an upper bound of what relational complexity buys, but it is far beyond the needs of this repo.
+
+The two-layer approach (YAML front-matter for research metadata + JSON for processing state) maps cleanly onto the existing codebase:
+- `src/research/item.py` already reads/writes YAML front-matter
+- `state/index.json` already exists
+- The `FetchedItem.url` field is the natural deduplication key
+
+### Risks, Gaps, and Uncertainties
+
+- **Concurrent write risk on JSON:** If multiple pipeline runs execute simultaneously (e.g., parallel GitHub Actions jobs), both could read the same `state/index.json`, process duplicate items, and write conflicting updates. Mitigation: use atomic writes (write to a temp file then `os.replace`), and ensure the fetch workflow is not triggered in parallel.
+- **JSON file growth:** A single `state/index.json` with thousands of entries will grow large. If performance degrades, the mitigation is to switch to SQLite (see W-0021 scope note).
+- **No schema validation on `state/index.json`:** The current file is `{}`. If the schema is not defined before implementation, it will drift. Recommendation: define the schema in an ADR before implementing Epic 3.
+
+### Open Questions
+
+- Should `state/index.json` store only the URL (set of strings) or richer metadata (fetch timestamp, title, content hash)? Content hash would enable detecting when a source has been updated and needs reprocessing. This is a scope question for W-0021.
+- At what corpus size does the JSON approach become noticeably slow in practice? The threshold is likely corpus-dependent (number of URLs × read latency). Consider benchmarking at 1,000 and 10,000 entries.
+- Is there value in a YAML index file (e.g., `state/completed.yaml`) that lists all completed research items with their key metadata, as a human-readable companion to `state/index.json`? This would make the state layer more navigable without a GUI.
 
 ---
 

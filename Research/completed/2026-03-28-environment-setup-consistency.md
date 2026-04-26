@@ -1,12 +1,12 @@
 ---
 title: "Environment setup consistency: what each agent sees when it starts work in this repo and how to make it consistent"
-added: 2026-03-28
+added: 2026-03-29T09:45:35+00:00
 status: completed
 priority: high
 blocks: []
 tags: [copilot, claude, ios, devcontainer, copilot-setup-steps, environment, github-issues]
-started: 2026-03-29
-completed: 2026-03-29
+started: 2026-03-29T09:45:35+00:00
+completed: 2026-03-29T09:45:35+00:00
 review_count: 2
 output: [knowledge, backlog-item]
 ---

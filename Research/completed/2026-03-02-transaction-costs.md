@@ -1,11 +1,11 @@
 ---
 title: "Transaction Cost Economics: foundations and speculative integration with SWE, AI, knowledge management, and context engineering"
-added: 2026-03-02
+added: 2026-03-02T20:00:58+00:00
 status: completed
 priority: high
 tags: [transaction-costs, institutional-economics, coase, williamson, north, ostrom, munger, swe, ai-agents, knowledge-management, context-engineering]
-started: 2026-03-02
-completed: 2026-03-02
+started: 2026-03-02T20:00:58+00:00
+completed: 2026-03-02T20:00:58+00:00
 output: [knowledge]
 ---
 

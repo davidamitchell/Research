@@ -1,12 +1,12 @@
 ---
 title: "ServiceNow CSDM: Practical Data Modelling Across ITSM, APM, SPM, IRM, and FSO"
-added: 2026-03-08
+added: 2026-03-08T07:33:18+00:00
 status: completed
 priority: high
 blocks: [2026-03-08-servicenow-platform-strategy]
 tags: [servicenow, csdm, cmdb, configuration-management, itsm, apm, spm, irm, grc, fso, enterprise-architecture, application-portfolio]
-started: 2026-03-08
-completed: 2026-03-08
+started: 2026-03-08T07:33:18+00:00
+completed: 2026-03-08T07:33:18+00:00
 output: [knowledge]
 ---
 

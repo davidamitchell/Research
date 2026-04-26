@@ -1,12 +1,12 @@
 ---
 title: "Claude for iOS: MCP remote integration for memory capture and retrieval"
-added: 2026-03-08
+added: 2026-03-08T07:41:10+00:00
 status: completed
 priority: high
 blocks: []
 tags: [mobile, claude, ios, mcp, memory-system, self-hosted]
-started: 2026-03-08
-completed: 2026-03-08
+started: 2026-03-08T07:41:10+00:00
+completed: 2026-03-08T07:41:10+00:00
 output: [knowledge, backlog-item]
 ---
 

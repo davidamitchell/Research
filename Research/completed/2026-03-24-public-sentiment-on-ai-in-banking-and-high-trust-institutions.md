@@ -1,13 +1,13 @@
 ---
 review_count: 2
 title: "Public sentiment on AI in banking and high-trust institutions"
-added: 2026-03-24
+added: 2026-03-24T23:08:35+00:00
 status: completed
 priority: high
 blocks: []
 tags: [ai, banking, customer-trust, apac, survey-data, architecture, financial-services, regulation]
-started: 2026-03-24
-completed: 2026-03-24
+started: 2026-03-24T23:08:35+00:00
+completed: 2026-03-24T23:08:35+00:00
 output: [knowledge]
 ---
 

@@ -1,12 +1,12 @@
 ---
 title: "AI concept classification taxonomy: prompts, instructions, memory, failure modes, controls, and problem domains"
-added: 2026-03-10
+added: 2026-03-10T19:22:14+00:00
 status: completed
 priority: high
 blocks: [2026-03-10-agent-evaluation-cross-repo-analysis]
 tags: [taxonomy, classification, prompt-engineering, context-engineering, intent-engineering, memory, failure-modes, guardrails, skills, tools, agents, agentic-systems]
-started: 2026-03-10
-completed: 2026-03-10
+started: 2026-03-10T19:22:14+00:00
+completed: 2026-03-10T19:22:14+00:00
 output: [knowledge]
 ---
 

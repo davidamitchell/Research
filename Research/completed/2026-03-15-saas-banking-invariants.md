@@ -1,13 +1,13 @@
 ---
 review_count: 2
 title: "Invariants in Software as a Service (SaaS) Banking Software"
-added: 2026-03-15
+added: 2026-03-19T07:25:47+00:00
 status: completed
 priority: high  # low | medium | high
 blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
 tags: [saas, banking, enterprise, build-vs-buy, tco, salesforce, ncino, architecture, ddd, total-cost-of-ownership]
-started: 2026-03-18
-completed: 2026-03-20
+started: 2026-03-19T07:25:47+00:00
+completed: 2026-03-19T07:25:47+00:00
 output: [knowledge]
 ---
 

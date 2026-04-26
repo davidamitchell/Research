@@ -1,13 +1,13 @@
 ---
 review_count: 2
 title: "The shape of organisations when software is no longer the constraint"
-added: 2026-04-02
+added: 2026-04-19T19:22:54+00:00
 status: completed
 priority: high  # low | medium | high
 blocks: []
 tags: [org-design, ai, software-cost, future-of-work, management, product-management, transaction-costs, agile, automation]
-started: 2026-04-19
-completed: 2026-04-19
+started: 2026-04-19T19:22:54+00:00
+completed: 2026-04-19T19:22:54+00:00
 output: [knowledge]
 ---
 

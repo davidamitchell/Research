@@ -1,12 +1,12 @@
 ---
 title: "LLM Hallucinations — Types, Causes, and Current Mitigation Approaches"
-added: 2026-03-05
+added: 2026-03-05T20:01:40+00:00
 status: completed
 priority: high
 blocks: [2026-03-05-h-neurons-in-llms]
 tags: [llm, hallucinations, reliability, alignment, grounding, mechanistic-interpretability]
-started: 2026-03-05
-completed: 2026-03-05
+started: 2026-03-05T20:01:40+00:00
+completed: 2026-03-05T20:01:40+00:00
 output: [knowledge]
 ---
 

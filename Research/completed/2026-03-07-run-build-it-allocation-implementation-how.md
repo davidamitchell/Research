@@ -1,12 +1,12 @@
 ---
 title: "How organisations practically implement IT RUN vs BUILD cost allocation"
-added: 2026-03-07
+added: 2026-03-08T03:35:47+00:00
 status: completed
 priority: medium
 blocks: []
 tags: [it-finance, run-build, cost-allocation, application-portfolio, change-management, organisational-design, tbm]
-started: 2026-03-08
-completed: 2026-03-08
+started: 2026-03-08T03:35:47+00:00
+completed: 2026-03-08T03:35:47+00:00
 output: [knowledge]
 ---
 

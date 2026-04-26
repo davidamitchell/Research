@@ -1,11 +1,11 @@
 ---
 title: "Interface and delivery: how to surface research outputs"
-added: 2026-02-27
+added: 2026-03-10T17:09:13+00:00
 status: completed
 priority: low
 tags: [interface, delivery, output, ux]
-started: 2026-03-10
-completed: 2026-03-10
+started: 2026-03-10T17:09:13+00:00
+completed: 2026-03-10T17:09:13+00:00
 output: [knowledge, backlog-item]
 ---
 

@@ -1,11 +1,11 @@
 ---
 title: "AI Strategy Examples: Software Engineering Focus"
-added: 2026-02-28
+added: 2026-03-05T06:57:04+00:00
 status: completed
 priority: medium
 tags: [ai-strategy, software-engineering, developer-productivity, code-generation, agentic-swe]
-started: 2026-03-05
-completed: 2026-03-05
+started: 2026-03-05T06:57:04+00:00
+completed: 2026-03-05T06:57:04+00:00
 output: [knowledge]
 ---
 

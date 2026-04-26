@@ -1,12 +1,12 @@
 ---
 title: "Superpowers as inspiration: what obra/superpowers can teach us about improving agent workflows across davidamitchell repos"
-added: 2026-03-12
+added: 2026-03-12T07:50:21+00:00
 status: completed
 priority: high
 blocks: []
 tags: [superpowers, skills, claude-code, github-copilot, agent-tooling, tdd, workflow, inspiration]
-started: 2026-03-12
-completed: 2026-03-12
+started: 2026-03-12T07:50:21+00:00
+completed: 2026-03-12T07:50:21+00:00
 output: [knowledge, backlog-item]
 ---
 

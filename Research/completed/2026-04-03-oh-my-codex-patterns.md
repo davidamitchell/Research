@@ -1,12 +1,12 @@
 ---
 title: "oh-my-codex and AI Agent Workflow Patterns: What Can We Leverage?"
-added: 2026-04-03
+added: 2026-04-03T00:27:58+00:00
 status: completed
 priority: high
 blocks: []
 tags: [ai-agents, tooling, instructions, skills, workflow, codex, copilot, agents-md]
-started: 2026-04-03
-completed: 2026-04-03
+started: 2026-04-03T00:27:58+00:00
+completed: 2026-04-03T00:27:58+00:00
 output: [knowledge, backlog-item]
 ---
 

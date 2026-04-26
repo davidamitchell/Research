@@ -1,13 +1,13 @@
 ---
 review_count: 2
 title: "Code Architecture Inspection Across Repositories"
-added: 2026-03-22
+added: 2026-03-22T10:56:16+00:00
 status: completed
 priority: high  # low | medium | high
 blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
 tags: [architecture, static-analysis, multi-repo, coupling, standards, github-copilot, tooling]
-started: 2026-03-22
-completed: 2026-03-22
+started: 2026-03-22T10:56:16+00:00
+completed: 2026-03-22T10:56:16+00:00
 output: [knowledge, backlog-item]
 ---
 

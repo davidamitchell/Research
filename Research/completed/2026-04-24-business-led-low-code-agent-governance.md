@@ -1,13 +1,13 @@
 ---
 review_count: 2
 title: "Business-led low-code agent governance: conditions for durable value versus fragmentation in regulated environments"
-added: 2026-04-24
+added: 2026-04-24T09:28:16+00:00
 status: completed
 priority: high  # low | medium | high
 blocks: []
 tags: [artificial-intelligence, governance, low-code, citizen-development, regulated-environments, operating-model, platform-governance]
-started: 2026-04-24
-completed: 2026-04-24
+started: 2026-04-24T09:28:16+00:00
+completed: 2026-04-24T09:28:16+00:00
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item
 ---
 

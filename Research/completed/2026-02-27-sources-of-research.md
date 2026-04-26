@@ -1,11 +1,11 @@
 ---
 title: "Sources of research: what to monitor and how"
-added: 2026-02-27
+added: 2026-03-05T06:36:16+00:00
 status: completed
 priority: medium
 tags: [sources, discovery, rss, youtube, arxiv]
-started: 2026-03-05
-completed: 2026-03-05
+started: 2026-03-05T06:36:16+00:00
+completed: 2026-03-05T06:36:16+00:00
 output: [knowledge, backlog-item]
 ---
 

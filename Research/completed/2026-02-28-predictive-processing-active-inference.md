@@ -1,11 +1,11 @@
 ---
 title: "Predictive processing and active inference: the brain as prediction machine"
-added: 2026-02-28
+added: 2026-02-28T09:33:14+00:00
 status: completed
 priority: high
 tags: [predictive-processing, active-inference, free-energy-principle, karl-friston, neuroscience]
-started: 2026-02-28
-completed: 2026-02-28
+started: 2026-02-28T09:33:14+00:00
+completed: 2026-02-28T09:33:14+00:00
 output: [knowledge]
 ---
 

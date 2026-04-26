@@ -1,12 +1,12 @@
 ---
 title: "ServiceNow Process Mapping: Maintainable Process Documentation in SNOW"
-added: 2026-03-08
+added: 2026-03-09T10:40:24+00:00
 status: completed
 priority: medium
 blocks: [2026-03-08-servicenow-platform-strategy]
 tags: [servicenow, process-mapping, bpm, workflow, flow-designer, process-mining, itsm, documentation]
-started: 2026-03-09
-completed: 2026-03-09
+started: 2026-03-09T10:40:24+00:00
+completed: 2026-03-09T10:40:24+00:00
 output: [knowledge]
 ---
 

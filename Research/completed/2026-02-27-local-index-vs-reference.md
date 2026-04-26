@@ -1,11 +1,11 @@
 ---
 title: "Local index vs reference: what to store vs link"
-added: 2026-02-27
+added: 2026-03-03T18:13:09+00:00
 status: completed
 priority: medium
 tags: [indexing, storage, local, reference]
-started: 2026-03-03
-completed: 2026-03-03
+started: 2026-03-03T18:13:09+00:00
+completed: 2026-03-03T18:13:09+00:00
 output: [knowledge, backlog-item]
 ---
 

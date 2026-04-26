@@ -1,13 +1,13 @@
 ---
 review_count: 2
 title: "Cross-Scanner Compliance Evidence and Waiver Normalisation in GitHub Actions"
-added: 2026-03-22
+added: 2026-03-22T08:53:01+00:00
 status: completed
 priority: high  # low | medium | high
 blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
 tags: [github-actions, compliance, policy-as-code, evidence, waivers, sarif, governance, reporting]
-started: 2026-03-22
-completed: 2026-03-22
+started: 2026-03-22T08:53:01+00:00
+completed: 2026-03-22T08:53:01+00:00
 output: [knowledge]
 ---
 

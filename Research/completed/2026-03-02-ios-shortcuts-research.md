@@ -1,11 +1,11 @@
 ---
 title: "iOS Shortcuts for research capture and query"
-added: 2026-03-02
+added: 2026-03-08T01:26:37+00:00
 status: completed
 priority: medium
 tags: [ios, shortcuts, mobile, capture, interface, delivery, siri]
-started: 2026-03-08
-completed: 2026-03-08
+started: 2026-03-08T01:26:37+00:00
+completed: 2026-03-08T01:26:37+00:00
 output: [knowledge, backlog-item]
 ---
 

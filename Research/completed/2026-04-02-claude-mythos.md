@@ -1,13 +1,13 @@
 ---
 review_count: 2
 title: "Claude mythos: character, soul documents, and narrative identity in large language models"
-added: 2026-04-02
+added: 2026-04-19T22:43:44+00:00
 status: completed
 priority: medium
 blocks: []
 tags: [claude, anthropic, llm, character, identity, ai-safety, alignment]
-started: 2026-04-19
-completed: 2026-04-19
+started: 2026-04-19T22:43:44+00:00
+completed: 2026-04-19T22:43:44+00:00
 output: [knowledge]
 ---
 

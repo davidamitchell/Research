@@ -1,13 +1,13 @@
 ---
 review_count: 2
 title: "Layered Organisation Large Language Model: Feasibility and Architecture of Organisation-Customised LLMs"
-added: 2026-03-19
+added: 2026-03-22T04:40:58+00:00
 status: completed
 priority: high  # low | medium | high
 blocks: []
 tags: [llm, rag, fine-tuning, enterprise-ai, knowledge-management, organisational-context, architecture, feasibility, concept-generation, customisation, layered-llm, retrieval-augmented-generation, parameter-efficient-fine-tuning]
-started: 2026-03-22
-completed: 2026-03-22
+started: 2026-03-22T04:40:58+00:00
+completed: 2026-03-22T04:40:58+00:00
 output: [knowledge]
 ---
 

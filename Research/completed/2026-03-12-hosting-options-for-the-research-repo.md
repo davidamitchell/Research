@@ -1,12 +1,12 @@
 ---
 title: "Hosting options for the Research repo"
-added: 2026-03-12
+added: 2026-03-14T18:46:23+00:00
 status: completed
 priority: medium
 blocks: []
 tags: [hosting, static-site, search, vector-db, infrastructure, free-tier]
-started: 2026-03-14
-completed: 2026-03-14
+started: 2026-03-14T18:46:23+00:00
+completed: 2026-03-14T18:46:23+00:00
 output: [knowledge, backlog-item]
 ---
 

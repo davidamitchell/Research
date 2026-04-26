@@ -1,11 +1,11 @@
 ---
 title: "Semantic and full-text search over the research corpus"
-added: 2026-03-02
+added: 2026-03-08T03:13:06+00:00
 status: completed
 priority: medium
 tags: [search, semantic-search, full-text-search, vector-search, embeddings, indexing, rag]
-started: 2026-03-08
-completed: 2026-03-08
+started: 2026-03-08T03:13:06+00:00
+completed: 2026-03-08T03:13:06+00:00
 output: [knowledge, tool, backlog-item]
 ---
 

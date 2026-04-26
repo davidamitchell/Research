@@ -5,7 +5,7 @@ from __future__ import annotations
 import re
 import subprocess
 import sys
-from datetime import date
+from datetime import UTC, datetime
 from pathlib import Path
 
 from src.logger import get_logger
@@ -137,11 +137,17 @@ def _research_root(override: Path | None = None) -> Path:
     return override if override is not None else _RESEARCH_ROOT
 
 
+def _now_iso() -> str:
+    """Return the current UTC datetime as an ISO 8601 string with seconds precision."""
+    return datetime.now(UTC).isoformat(timespec="seconds")
+
+
 def cmd_add(title: str, research_root: Path | None = None) -> Path:
     """Create a new research item in backlog and return its path."""
     root = _research_root(research_root)
-    today = date.today().isoformat()
-    filename = f"{today}-{_slug(title)}.md"
+    now = _now_iso()
+    date_prefix = now[:10]  # YYYY-MM-DD for filename
+    filename = f"{date_prefix}-{_slug(title)}.md"
     dest = root / "backlog" / filename
 
     if dest.exists():
@@ -149,7 +155,7 @@ def cmd_add(title: str, research_root: Path | None = None) -> Path:
         print(f"Already exists: {dest}", file=sys.stderr)
         return dest
 
-    content = _TEMPLATE.format(title=title, added=today)
+    content = _TEMPLATE.format(title=title, added=now)
     dest.write_text(content, encoding="utf-8")
     logger.info("Created research item: %s", dest)
     print(f"Created: {dest}")
@@ -184,7 +190,7 @@ def cmd_start(filename: str, research_root: Path | None = None) -> Path:
     dest = root / "in-progress" / filename
     text = src.read_text(encoding="utf-8")
     text = _set_frontmatter_field(text, "status", "in-progress")
-    text = _set_frontmatter_field(text, "started", date.today().isoformat())
+    text = _set_frontmatter_field(text, "started", _now_iso())
     dest.write_text(text, encoding="utf-8")
     src.unlink()
     _git_add(root.parent, src, dest)
@@ -229,7 +235,7 @@ def cmd_complete(filename: str, research_root: Path | None = None) -> Path:
 
     dest = root / "completed" / filename
     text = _set_frontmatter_field(text, "status", "completed")
-    text = _set_frontmatter_field(text, "completed", date.today().isoformat())
+    text = _set_frontmatter_field(text, "completed", _now_iso())
     dest.write_text(text, encoding="utf-8")
     src.unlink()
     _git_add(root.parent, src, dest)

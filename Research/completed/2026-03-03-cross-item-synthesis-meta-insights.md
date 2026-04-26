@@ -1,12 +1,12 @@
 ---
 title: "Cross-item synthesis: methodology and tooling for extracting meta-insights from the research corpus"
-added: 2026-03-03
+added: 2026-03-03T09:47:55+00:00
 status: completed
 priority: high
 blocks: []
 tags: [synthesis, meta-analysis, cross-item, insights, knowledge-integration, aggregation, thematic-analysis]
-started: 2026-03-03
-completed: 2026-03-03
+started: 2026-03-03T09:47:55+00:00
+completed: 2026-03-03T09:47:55+00:00
 output: [knowledge, skill, tool, backlog-item]
 ---
 

@@ -1,12 +1,12 @@
 ---
 title: "TimesFM and the Landscape of Time-Series Foundation Models"
-added: 2026-04-01
+added: 2026-04-01T00:48:47+00:00
 status: completed
 priority: medium
 blocks: []
 tags: [machine-learning, time-series, forecasting, foundation-models, google, transformers]
-started: 2026-04-01
-completed: 2026-04-01
+started: 2026-04-01T00:48:47+00:00
+completed: 2026-04-01T00:48:47+00:00
 output: [knowledge]
 ---
 

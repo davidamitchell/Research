@@ -1,12 +1,12 @@
 ---
 title: "Anthropic Claude Code leak: architecture, prompting, and hidden features"
-added: 2026-04-02
+added: 2026-04-02T09:05:22+00:00
 status: completed
 priority: high
 blocks: []
 tags: [anthropic, claude, claude-code, leak, architecture, prompting, feature-flags, agents, npm, typescript, memory, tools]
-started: 2026-04-02
-completed: 2026-04-02
+started: 2026-04-02T09:05:22+00:00
+completed: 2026-04-02T09:05:22+00:00
 output: [knowledge]
 ---
 
