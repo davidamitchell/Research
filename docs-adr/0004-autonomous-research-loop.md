@@ -35,18 +35,18 @@ Five independent safety controls are layered to stop runaway behaviour:
 
 | Control | Mechanism | Value |
 |---|---|---|
-| Job timeout | `timeout-minutes` on the GitHub Actions job | 90 minutes |
-| Per-run item cap | `MAX_ITEMS` from workflow input or schedule default | 1 (dispatch) / 3 (schedule) |
+| Job timeout | `timeout-minutes` on the GitHub Actions job | 150 minutes |
+| Per-run item cap | `MAX_ITEMS` from workflow input or schedule default | 1 (dispatch) / 4 (schedule) |
 | Hard iteration ceiling | `HARD_MAX_ITERATIONS` constant in the shell script | 10 |
 | Consecutive failure abort | `FAILURE_THRESHOLD` + `CONSECUTIVE_FAILURES` counter | 2 consecutive failures |
 | Inter-iteration sleep | `INTER_ITERATION_SLEEP` between loop iterations | 30 seconds |
 
 **Job timeout** is the hardest ceiling. GitHub Actions will kill the entire job after
-90 minutes regardless of what the shell script is doing. Even if every other control fails,
+150 minutes regardless of what the shell script is doing. Even if every other control fails,
 the job cannot run indefinitely.
 
 **Per-run item cap** limits expected throughput. The `max_items` input is a constrained
-dropdown (choices 1–5), removing the possibility of accidentally entering 0 or an
+dropdown (choices 1–7), removing the possibility of accidentally entering 0 or an
 arbitrarily large number.
 
 **Hard iteration ceiling** is a defence-in-depth guard independent of `max_items`. Even
@@ -117,15 +117,15 @@ wait for the resulting PR. This was not chosen because:
 
 ### Negative / Trade-offs
 - The 30-second inter-iteration sleep adds latency when processing multiple items.
-  A 3-item scheduled run takes at least 1 minute of sleep overhead. This is acceptable.
+  A 4-item scheduled run takes at least 1.5 minutes of sleep overhead. This is acceptable.
 - The hard ceiling of 10 iterations prevents processing large backlogs in a single run.
-  The scheduled trigger running weekdays at 07:00 UTC (3 items/day) compensates.
+  The scheduled trigger running weekdays at 07:00 UTC (4 items/day) compensates.
 - The workflow does not retry after a Copilot failure; it only tracks consecutive failures.
   A single isolated failure increments the counter but does not immediately abort.
 
 ### Neutral
 - `research-prompt.md` must be kept accurate. If it goes stale, the agent may behave
   incorrectly. This is explicitly noted in `AGENTS.md`.
-- The `timeout-minutes: 90` is generous relative to expected item processing time (≤30
+- The `timeout-minutes: 150` is generous relative to expected item processing time (≤30
   minutes per item). It is deliberately conservative to avoid false-positive timeouts on
   unusually complex research items.

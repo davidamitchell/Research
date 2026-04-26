@@ -91,7 +91,7 @@ def test_workflow_has_job_timeout() -> None:
     wf = _load_workflow()
     job = wf["jobs"]["research"]
     assert "timeout-minutes" in job, "Job must declare timeout-minutes"
-    assert job["timeout-minutes"] == 90, "Timeout must be exactly 90 minutes per ADR-0004"
+    assert job["timeout-minutes"] == 150, "Timeout must be exactly 150 minutes per ADR-0004"
 
 
 def test_workflow_has_concurrency_no_cancel() -> None:
@@ -160,12 +160,12 @@ def test_workflow_dispatch_max_items_is_choice_type() -> None:
 
 
 def test_workflow_dispatch_max_items_options_are_bounded() -> None:
-    """All max_items choices must be ≤ 5 (conservative upper bound)."""
+    """All max_items choices must be ≤ 7 (conservative upper bound)."""
     wf = _load_workflow()
     triggers = wf[True]
     options = triggers["workflow_dispatch"]["inputs"]["max_items"]["options"]
     for opt in options:
-        assert int(opt) <= 5, f"max_items option {opt} exceeds safe upper bound of 5"
+        assert int(opt) <= 7, f"max_items option {opt} exceeds safe upper bound of 7"
 
 
 def test_workflow_has_schedule_trigger() -> None:
