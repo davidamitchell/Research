@@ -1,13 +1,13 @@
 ---
-review_count: 1
+review_count: 2
 title: "Permission-safe Retrieval-Augmented Generation (RAG) in enterprise information architectures: technical constraints, architectural options, and failure modes at scale"
 added: 2026-04-26T06:57:01+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: [2026-04-26-agentic-ai-foundational-conditions-dependency-ordering]
 tags: [rag, access-control, information-architecture, embedding-inference, enterprise-ai, regulated-banking, agentic-ai]
 started: 2026-04-26T09:52:26+00:00
-completed: ~
+completed: 2026-04-26T10:00:12+00:00
 output: [knowledge]
 ---
 

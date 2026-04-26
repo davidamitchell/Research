@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-04-26T09:56:29Z",
+  "extracted_at": "2026-04-26T10:01:40Z",
   "items": {
     "2026-04-26-systems-capability-debt-citizen-development-empirical-evidence": {
       "named_concepts": [
@@ -117,6 +117,52 @@
         "https://davidamitchell.github.io/Research/research/2026-04-24-business-led-low-code-agent-governance.html",
         "https://davidamitchell.github.io/Research/research/2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment.html",
         "https://davidamitchell.github.io/Research/research/2026-03-10-nature-of-the-firm-coase-organisations.html"
+      ],
+      "key_claims": []
+    },
+    "2026-04-26-permission-safe-rag-enterprise-information-architecture": {
+      "named_concepts": [
+        "live delegated",
+        "delegated retrieval",
+        "copied acl",
+        "acl indexing",
+        "per-security-boundary partitioning",
+        "copied-index rag",
+        "query time",
+        "query-time acl",
+        "unsupported principal",
+        "principal types",
+        "copied-index architectures",
+        "permission model",
+        "retrieval corpus",
+        "bedrock knowledge",
+        "regulated enterprise",
+        "arxiv arxiv",
+        "copilot retrieval",
+        "retrieval api",
+        "azure sharepoint",
+        "sharepoint acl"
+      ],
+      "source_urls": [
+        "https://learn.microsoft.com/en-us/azure/search/search-security-trimming-for-azure-search",
+        "https://learn.microsoft.com/en-us/azure/search/search-security-overview",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/kb-permissions.html",
+        "https://learn.microsoft.com/en-us/sharepoint/understanding-permission-levels",
+        "https://learn.microsoft.com/en-us/azure/search/search-document-level-access-overview",
+        "https://learn.microsoft.com/en-us/azure/search/search-query-access-control-rbac-enforcement",
+        "https://learn.microsoft.com/en-us/azure/search/search-indexer-sharepoint-access-control-lists",
+        "https://learn.microsoft.com/en-us/azure/search/agentic-knowledge-source-how-to-sharepoint-remote",
+        "https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/api/ai-services/retrieval/overview",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html",
+        "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html",
+        "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrievalFilter.html",
+        "https://aws.amazon.com/blogs/machine-learning/amazon-bedrock-knowledge-bases-now-supports-metadata-filtering-to-improve-retrieval-accuracy/",
+        "https://aws.amazon.com/blogs/machine-learning/access-control-for-vector-stores-using-metadata-filtering-with-knowledge-bases-for-amazon-bedrock/",
+        "https://arxiv.org/abs/2310.06816",
+        "https://arxiv.org/abs/2406.10280",
+        "https://arxiv.org/abs/2411.05034",
+        "https://arxiv.org/abs/2405.20446",
+        "https://arxiv.org/abs/2601.03979"
       ],
       "key_claims": []
     },
