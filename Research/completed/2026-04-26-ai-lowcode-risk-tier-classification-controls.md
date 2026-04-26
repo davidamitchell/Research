@@ -2,12 +2,12 @@
 review_count: 2
 title: "How should Artificial Intelligence (AI) and low-code use cases be classified into risk tiers, and how should governance controls vary across those tiers?"
 added: 2026-04-26T10:11:11+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: [2026-04-26-ai-lowcode-decision-rights-accountability-liability, 2026-04-26-human-in-the-loop-ai-automated-workflows, 2026-04-26-ai-governance-cost-performance-delivery-impact]
 tags: [ai-governance, low-code, risk-classification, risk-tiers, enterprise-governance, controls, regulated-enterprise]
 started: 2026-04-26T22:14:26+00:00
-completed: ~
+completed: 2026-04-26T22:28:32+00:00
 output: [knowledge]
 ---
 
