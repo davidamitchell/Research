@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "Deployment pipeline as the only enforceable control gate for citizen-developed agents: DevOps literature support, low-code platform hook points, and architectural enforceability"
 added: 2026-04-26
 status: reviewing
