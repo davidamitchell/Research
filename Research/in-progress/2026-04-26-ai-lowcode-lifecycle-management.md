@@ -1,0 +1,360 @@
+---
+title: "What lifecycle management model is required for Artificial Intelligence (AI) models, prompts, and low-code applications?"
+added: 2026-04-26T10:11:11+00:00
+status: reviewing
+priority: high
+blocks: [2026-04-26-ai-lowcode-sdlc-platform-engineering-integration, 2026-04-26-ai-agent-control-plane-architecture-enterprise]
+tags: [lifecycle-management, ai-models, prompts, low-code, versioning, deployment-controls, rollback, decommissioning, change-management, enterprise-governance]
+started: 2026-04-26T19:26:11+00:00
+completed: ~
+output: [knowledge]
+---
+
+# What lifecycle management model is required for Artificial Intelligence (AI) models, prompts, and low-code applications?
+
+## Research Question
+
+What comprehensive lifecycle management model is required for AI models, prompts, and low-code applications, covering versioning strategies, deployment controls, rollback mechanisms, ownership tracking, change management, documentation standards, and processes for decommissioning or retiring unused or unsafe artefacts?
+
+## Scope
+
+**In scope:**
+- Lifecycle stages for AI models, prompts, and low-code artefacts: development, testing, staging, production deployment, monitoring in production, version updates, and decommissioning
+- Versioning strategies: how AI models, prompts, and low-code applications should be versioned to enable reproducibility, auditability, and rollback
+- Deployment controls: what gates, approvals, and automated checks should be required before promoting an artefact to production, consistent with Q5 risk tiers and Q1 approval structures
+- Rollback mechanisms: when and how a deployed model, prompt, or low-code application can be rolled back to a previous version, and what constitutes a rollback trigger
+- Ownership tracking: how artefact ownership is recorded and maintained through the lifecycle, including ownership transitions when personnel change
+- Change management: how changes to deployed artefacts, including model updates, prompt modifications, and low-code logic changes, are classified, reviewed, and approved
+- Documentation standards: what documentation is required at each lifecycle stage, including design documentation, risk assessment, approval records, deployment records, and decommissioning records
+- Decommissioning: what conditions trigger decommissioning, what the decommissioning process requires, and how to ensure no unsafe or ungoverned artefacts remain in production
+- Alignment with data governance (Q6) for the data associated with each lifecycle stage
+
+**Out of scope:**
+- Model training and fine-tuning processes, because the focus is the post-training artefact lifecycle
+- Technical implementation of continuous integration and continuous delivery (CI/CD) pipelines for AI, because that is covered by Q10
+- The identity model for artefact ownership attribution, because that is covered by Q2
+- Per-artefact risk assessment, because that is covered by Q5
+
+**Constraints:**
+- Must address the distinct lifecycle characteristics of AI models, which can change behavior without a code change when dependencies or serving configuration shift, prompts, which are natural-language artefacts with weak native versioning conventions, and low-code applications, which may carry hidden platform and connector dependencies
+- Must be grounded in existing lifecycle and change-management standards, especially ISO/IEC/IEEE 12207 and Information Technology Infrastructure Library (ITIL) change enablement, adapted with AI-specific guidance
+
+## Context
+
+- [inference; source: https://www.iso.org/standard/63712.html; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://www.federalreserve.gov/supervisionreg/srletters/SR2602.pdf] Traditional software lifecycle frameworks already require development, operation, maintenance, documentation, monitoring, and disposal controls, but AI and low-code artefacts create extra governance pressure because behavior can drift through model-serving, prompt, connector, and platform changes that are not captured by source code alone.
+- [inference; source: https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-governance-enforcement-architecture.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html] This item sits between earlier governance work on deployment gates, enforcement layers, and identity, because enterprises cannot design reliable promotion controls, rollback authority, or observability without a lifecycle record that says what the artefact is, who owns it, which version is live, and what may replace or retire it.
+- [inference; source: https://learn.microsoft.com/en-us/power-platform/alm/pipelines; https://learn.microsoft.com/en-us/microsoft-copilot-studio/publication-fundamentals-publish-channels; https://learn.microsoft.com/en-us/azure/ai-studio/how-to/flow-deploy] The practical governance problem is not only how to ship a new artefact, but how to prevent direct publish paths, mutable prompt edits, or unmanaged platform changes from bypassing the enterprise record of approval, rollback, and retirement.
+
+Cross-references:
+- Q1: `2026-04-26-ai-lowcode-decision-rights-accountability-liability`
+- Q5: `2026-04-26-ai-lowcode-risk-tier-classification-controls`
+- Q6: `2026-04-26-data-governance-ai-lowcode-enterprise-enforcement`
+- Q10: `2026-04-26-ai-lowcode-sdlc-platform-engineering-integration`
+- Q16: `2026-04-26-ai-agent-control-plane-architecture-enterprise`
+
+## Approach
+
+1. **Lifecycle stage definition:** Define the lifecycle stages for each artefact type, AI model, prompt, and low-code application, and identify where each stage differs from traditional software lifecycle stages.
+2. **Versioning model design:** Review versioning conventions for AI models, prompts, and low-code applications, then propose a unified versioning approach that supports rollback and reproducibility.
+3. **Deployment gate design:** Based on Q5 risk tiers, define the deployment gates required at each tier, including automated checks, human approvals, and mandatory documentation.
+4. **Rollback mechanism design:** Define rollback triggers and rollback mechanics for each artefact type, including the dependency-pinning needed for reliable restoration.
+5. **Decommissioning model:** Define decommissioning triggers and process requirements, including owner sign-off, successor identification, data-retention action, and archive requirements.
+6. **Change management integration:** Assess how changes to deployed AI artefacts should be classified under change-enablement practice and what AI-specific change categories are required.
+7. **Synthesis:** Produce a lifecycle management model suitable for adoption as an enterprise governance artefact, with stage definitions, gate criteria, rollback protocols, and decommissioning requirements.
+
+## Sources
+
+- [x] [ISO/IEC/IEEE 12207:2017 - Systems and software engineering - Software life cycle processes](https://www.iso.org/standard/63712.html) - current ISO lifecycle standard listing for the common framework and process-control baseline
+- [x] [PeopleCert - ITIL 4 Practitioner: Change Enablement](https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1/itil-4-practitioner-change-enablement-3794) - official purpose and scope statement for change enablement
+- [x] [Atlassian IT service management change management guide](https://www.atlassian.com/itsm/change-management) - accessible summary of standard, normal, and emergency change classes and modern risk-based approvals
+- [x] [ManageEngine - Types of IT changes](https://www.manageengine.com/products/service-desk/it-change-management/it-change-types.html) - accessible summary of standard, normal, and emergency changes
+- [x] [MLflow Model Registry](https://mlflow.org/docs/latest/ml/model-registry/) - model registry source for model versions, aliases, lineage, and tags
+- [x] [Power Platform application lifecycle management (ALM)](https://learn.microsoft.com/en-us/power-platform/alm/) - Microsoft overview for low-code lifecycle management
+- [x] [Pipelines in Power Platform](https://learn.microsoft.com/en-us/power-platform/alm/pipelines) - Microsoft source for pipeline stages, backups, approvals, and redeploying prior versions
+- [x] [Solution concepts with Power Platform](https://learn.microsoft.com/en-us/power-platform/alm/solution-concepts-alm) - Microsoft source for managed and unmanaged solutions, updates, upgrades, patches, and dependencies
+- [x] [Delegated deployments in Power Platform pipelines](https://learn.microsoft.com/en-us/power-platform/alm/delegated-deployments-setup) - Microsoft source for delegated promotion identity, approvals, and ownership of deployed objects
+- [x] [Block unmanaged customizations](https://learn.microsoft.com/en-us/power-platform/alm/block-unmanaged-customizations) - Microsoft source for production lock-down and preventing direct unmanaged changes
+- [x] [Copilot Studio security and governance](https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance) - Microsoft source for channel publication controls, data policies, audit, and publication disablement
+- [x] [Publish and deploy your agent in Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/publication-fundamentals-publish-channels) - Microsoft source for direct publish behavior and channel-wide update behavior
+- [x] [Deploy a prompt flow for real-time inference](https://learn.microsoft.com/en-us/azure/ai-studio/how-to/flow-deploy) - Microsoft source for prompt flow deployment, endpoint identity, overwrite behavior, telemetry collection, and retirement notice
+- [x] [LangSmith prompt engineering](https://docs.smith.langchain.com/langsmith/prompt-engineering) - official prompt-tooling source for built-in prompt versioning and deployment workflow
+- [x] [Weights & Biases Weave tutorial: app versioning](https://docs.wandb.ai/weave/tutorial-weave_models) - official prompt and application versioning source for tracked parameters and reusable versioned objects
+- [x] [Federal Reserve SR 26-2 revised guidance on model risk management](https://www.federalreserve.gov/supervisionreg/srletters/SR2602.htm) - official notice superseding SR 11-7
+- [x] [Federal Reserve SR 26-2 attachment Portable Document Format (PDF)](https://www.federalreserve.gov/supervisionreg/srletters/SR2602.pdf) - detailed guidance for model inventory, validation, monitoring, effective challenge, and documentation
+- [x] [NIST Artificial Intelligence Risk Management Framework (AI RMF) 1.0](https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10) - foundational AI governance framework
+- [x] [NIST AI RMF Core](https://airc.nist.gov/airmf-resources/airmf/5-sec-core/) - current subcategories for inventory, monitoring, accountability, and decommissioning
+- [x] [Deployment pipeline as the only enforceable control gate for citizen-developed agents](https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html) - related repository work on release-time enforcement
+- [x] [Where should governance enforcement points be implemented within enterprise architecture](https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-governance-enforcement-architecture.html) - related repository work on layered enforcement
+- [x] [What identity and access management model is required for AI agents and low-code artefacts](https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html) - related repository work on machine identity and attribution
+
+## Related
+
+- [Deployment pipeline as the only enforceable control gate for citizen-developed agents](https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html)
+- [Where should governance enforcement points be implemented within enterprise architecture](https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-governance-enforcement-architecture.html)
+- [What identity and access management model is required for AI agents and low-code artefacts](https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html)
+
+---
+
+## Research Skill Output
+
+*(Full output from running the research skill, retained verbatim in the completed item. Sections 0-5 are the investigation, and Section 6 seeds the Findings section below.)*
+
+### §0 Initialise
+
+- [fact; source: https://www.iso.org/standard/63712.html; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://www.federalreserve.gov/supervisionreg/srletters/SR2602.pdf] **Research question restated:** this item asks what enterprise lifecycle model should govern AI models, prompts, and low-code applications after they exist as operational artefacts, including how they are registered, versioned, validated, promoted, monitored, rolled back, and retired.
+- [fact; source: https://www.iso.org/standard/63712.html; https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1/itil-4-practitioner-change-enablement-3794; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/] **Scope confirmed:** the investigation covers lifecycle stages, versioning, deployment gates, rollback, ownership, change management, documentation, and decommissioning, but not model training, identity architecture, or CI/CD implementation detail.
+- [fact; source: https://www.iso.org/standard/63712.html; https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10; https://www.federalreserve.gov/supervisionreg/srletters/SR2602.htm] **Constraint confirmed:** the result must stay grounded in lifecycle and change-management standards, then adapt them to artefacts whose behavior can change through serving configuration, prompts, connectors, or platform dependencies.
+- [fact; source: https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-governance-enforcement-architecture.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html] **Prior work cross-reference:** adjacent completed items already established that production promotion needs a governed release gate, that controls must live at concrete enforcement layers, and that non-human artefacts need accountable identities, so this item narrows the problem to the lifecycle record and state machine those controls operate on.
+- [fact; source: https://www.iso.org/standard/63712.html; https://www.federalreserve.gov/supervisionreg/srletters/SR2602.htm] **Source substitution note:** the seeded legacy ISO page and seeded SR 11-7 URL were stale in this runtime, so the current ISO/IEC/IEEE 12207:2017 listing and current SR 26-2 notice and attachment were used for downstream claims.
+- [fact; source: https://github.com/davidamitchell/Research/blob/main/research-prompt.md] **Process note:** `.github/skills/research/SKILL.md` was unavailable in this checkout, so the repository fallback process in `research-prompt.md` was followed.
+- [fact; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://www.iso.org/standard/63712.html] **Output format confirmed:** knowledge, specifically a lifecycle reference model with state definitions, versioning rules, promotion gates, rollback requirements, ownership records, and retirement controls.
+
+### §1 Question Decomposition
+
+- **Root question:** What lifecycle state model lets enterprises manage AI models, prompts, and low-code applications as governed artefacts rather than as ad hoc files, endpoints, or direct-publish objects?
+- **A. Lifecycle baseline**
+  - A1. Which lifecycle stages are already implied by ISO/IEC/IEEE 12207 and NIST AI RMF?
+  - A2. Which extra lifecycle obligations appear once the artefact is an AI model, a prompt, or a low-code application rather than conventional code?
+- **B. Versioning**
+  - B1. What does a version mean for a model artefact?
+  - B2. What does a version mean for a prompt artefact?
+  - B3. What does a version mean for a low-code application artefact?
+  - B4. Which fields must be pinned together so rollback is reproducible?
+- **C. Promotion and deployment**
+  - C1. Which promotion gates should be preapproved, risk-reviewed, or emergency-approved?
+  - C2. Which checks and approvals belong before production promotion?
+  - C3. Which direct publish paths create bypass risk?
+- **D. Rollback**
+  - D1. What triggers rollback?
+  - D2. What previous artefacts and dependencies must remain available for rollback to work?
+  - D3. Which artefact types can be restored quickly and which need extra controls?
+- **E. Ownership and documentation**
+  - E1. What minimum inventory record is required for each artefact?
+  - E2. Which ownership fields and documentation items must persist through the lifecycle?
+  - E3. What should happen when the owner leaves or the artefact loses a steward?
+- **F. Monitoring and change management**
+  - F1. How should standard, normal, and emergency change classes map onto AI and low-code changes?
+  - F2. Which post-release monitoring signals should trigger revalidation, rollback, or suspension?
+- **G. Decommissioning**
+  - G1. Which conditions should trigger retirement?
+  - G2. Which shutdown, archival, credential, and data actions are required for safe retirement?
+- **H. Synthesis**
+  - H1. What common lifecycle can cover all three artefact classes?
+  - H2. Where do artefact-specific rules need to remain explicit?
+
+### §2 Investigation
+
+#### Source access and applicability notes
+
+- [fact; source: https://www.iso.org/standard/63712.html] Access note: current ISO/IEC/IEEE 12207:2017 listing used because the seeded legacy ISO listing no longer resolved here.
+- [fact; source: https://www.federalreserve.gov/supervisionreg/srletters/SR2602.htm; https://www.federalreserve.gov/supervisionreg/srletters/SR2602.pdf] Access note: current SR 26-2 notice and attached guidance used because SR 26-2 explicitly supersedes SR 11-7.
+- [fact; source: https://github.com/davidamitchell/Research/blob/main/research-prompt.md] Access note: repository fallback process used because the research skill file was unavailable in this checkout.
+- [assumption; source: https://docs.smith.langchain.com/langsmith/prompt-engineering; https://docs.wandb.ai/weave/tutorial-weave_models; https://learn.microsoft.com/en-us/azure/ai-studio/how-to/flow-deploy] Prompt-tooling pages expose versioning and deployment mechanics more clearly than enterprise approval mechanics. **Justification:** the unified prompt-governance requirements below therefore combine direct tooling features with lifecycle and change-control standards rather than relying on one prompt vendor as a normative governance authority.
+
+#### A. What the lifecycle baseline already requires
+
+- [fact; source: https://www.iso.org/standard/63712.html] ISO/IEC/IEEE 12207:2017 provides a common framework for software lifecycle processes and says those processes can be used for defining, controlling, and improving software lifecycle processes within an organization or project.
+- [fact; source: https://www.iso.org/standard/43447.html] The accessible ISO 12207 abstract for the prior 2008 edition still exposes the operational lifecycle baseline clearly, acquisition, supply, development, operation, maintenance, and disposal, which remains useful for stage naming even though the 2008 edition is withdrawn.
+- [fact; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/] NIST AI RMF says risk management should be continuous throughout the AI system lifecycle and lists inventory, ongoing monitoring, clear responsibilities, and safe decommissioning as governance outcomes.
+- [fact; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/] NIST AI RMF Govern 1.6 requires mechanisms to inventory AI systems, Govern 1.5 requires ongoing monitoring and periodic review with clear roles and responsibilities, and Govern 1.7 requires processes for decommissioning and phasing out AI systems safely.
+- [inference; source: https://www.iso.org/standard/63712.html; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/] The baseline lifecycle for AI artefacts therefore cannot stop at deployment, because both the software-lifecycle standard and the AI-risk framework treat operation, monitoring, maintenance, and disposal as first-class phases rather than as afterthoughts.
+
+#### B. What model-risk guidance adds to the lifecycle
+
+- [fact; source: https://www.federalreserve.gov/supervisionreg/srletters/SR2602.pdf] SR 26-2 says sound model risk management includes effective challenge throughout the model lifecycle, from development through ongoing monitoring.
+- [fact; source: https://www.federalreserve.gov/supervisionreg/srletters/SR2602.pdf] SR 26-2 says validation generally occurs prior to a model's first use, but urgent use before completed validation requires stronger attention to limitations, stakeholder awareness, and tighter controls such as restricted use or closer monitoring.
+- [fact; source: https://www.federalreserve.gov/supervisionreg/srletters/SR2602.pdf] SR 26-2 says ongoing model monitoring evaluates whether a model is performing as expected as products, exposures, activities, clients, data relevance, or market conditions change, and says deterioration may warrant overlays, adjustment, or redevelopment.
+- [fact; source: https://www.federalreserve.gov/supervisionreg/srletters/SR2602.pdf] SR 26-2 says an effective model inventory includes sufficient information to understand model risks at individual and aggregate levels, and says adequate documentation supports continuity of operations, recommendations, responses, exceptions, and remediation.
+- [inference; source: https://www.federalreserve.gov/supervisionreg/srletters/SR2602.pdf; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/] Even though SR 26-2 excludes generative AI and agentic AI from formal scope, its lifecycle disciplines, inventory, validation before use, monitoring for deterioration, documentation, and independent challenge, are strong precedents for governing post-training AI model artefacts.
+
+#### C. What change-enablement practice implies
+
+- [fact; source: https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1/itil-4-practitioner-change-enablement-3794] PeopleCert defines change enablement as maximizing successful service and product changes by ensuring risks are assessed accurately, changes are authorized, and change schedules are managed.
+- [fact; source: https://www.manageengine.com/products/service-desk/it-change-management/it-change-types.html; https://www.atlassian.com/itsm/change-management] The accessible ITIL-aligned summaries converge on three change classes: standard changes are low-risk and preapproved, normal changes require scheduled assessment and authorization, and emergency changes require expedited approval and later review.
+- [fact; source: https://www.atlassian.com/itsm/change-management] Atlassian's ITIL-aligned process description includes explicit change plans, rollback planning, approval, implementation, and closure with retained records for learning and audit.
+- [inference; source: https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1/itil-4-practitioner-change-enablement-3794; https://www.atlassian.com/itsm/change-management; https://www.manageengine.com/products/service-desk/it-change-management/it-change-types.html] AI and low-code lifecycle governance should therefore classify artefact promotions into preapproved standard changes, risk-reviewed normal changes, and emergency recoveries, rather than force every edit through one manual committee path.
+
+#### D. What model and prompt tooling expose for versioning
+
+- [fact; source: https://mlflow.org/docs/latest/ml/model-registry/] MLflow Model Registry is a centralized model store that tracks model versions, aliases, lineage, tags, annotations, and metadata, and it explicitly says versions can be compared, rolled back, and managed in parallel across environments.
+- [fact; source: https://mlflow.org/docs/latest/ml/model-registry/] MLflow model versions increment under a registered model name, support tags such as deployment-check status, and support mutable aliases such as `champion` that can point production traffic to a specific version.
+- [fact; source: https://docs.smith.langchain.com/langsmith/prompt-engineering] LangSmith describes prompt engineering as part of a workflow that combines observability, evaluation, and deployment, and the page states that teams iterate on prompts with built-in versioning and collaboration.
+- [fact; source: https://docs.wandb.ai/weave/tutorial-weave_models] Weights & Biases Weave says model vendor identifiers, prompts, temperature, and other parameters are stored and versioned when they change, and that changing the fields or code updates the version so generations can be compared across app versions.
+- [fact; source: https://learn.microsoft.com/en-us/azure/ai-studio/how-to/flow-deploy] Azure prompt flow deployment uses a flow definition plus `requirements.txt`, optional base-image settings in `flow.dag.yaml`, endpoint configuration, deployment name, authentication choice, identity type, and inference-data collection settings.
+- [fact; source: https://learn.microsoft.com/en-us/azure/ai-studio/how-to/flow-deploy] Azure says that if a deployment name already exists under an endpoint, the deployment is overwritten with the new configuration.
+- [inference; source: https://mlflow.org/docs/latest/ml/model-registry/; https://docs.wandb.ai/weave/tutorial-weave_models; https://docs.smith.langchain.com/langsmith/prompt-engineering; https://learn.microsoft.com/en-us/azure/ai-studio/how-to/flow-deploy] A governed prompt or model version is not just a text blob or endpoint name, because reproducibility depends on pinning the artefact content together with the model identifier, runtime parameters, evaluation context, dependency set, and deployment target.
+
+#### E. What low-code tooling exposes for versioning and promotion
+
+- [fact; source: https://learn.microsoft.com/en-us/power-platform/alm/solution-concepts-alm] Microsoft says unmanaged solutions are the source artefacts for development, while managed solutions are the deployment artefacts for downstream test and production environments.
+- [fact; source: https://learn.microsoft.com/en-us/power-platform/alm/solution-concepts-alm] Power Platform solution lifecycle includes create, update, upgrade, and patch actions, and upgrade can remove components that are no longer included in the newer version.
+- [fact; source: https://learn.microsoft.com/en-us/power-platform/alm/pipelines] Power Platform pipelines centrally govern deployments, prevalidate target environments, store solution backups automatically for every deployment, enforce sequential stage passage, and support redeploying previous solution versions when the setting is enabled.
+- [fact; source: https://learn.microsoft.com/en-us/power-platform/alm/delegated-deployments-setup] Delegated deployments promote using a service principal or pipeline stage owner rather than the requesting maker, and Microsoft states that deployed solution objects are owned by the deploying identity.
+- [fact; source: https://learn.microsoft.com/en-us/power-platform/alm/block-unmanaged-customizations] Block unmanaged customizations prevents direct unmanaged changes in target environments and explicitly says the setting is useful for keeping production changes inside approved ALM processes with safety, visibility, and auditing.
+- [fact; source: https://learn.microsoft.com/en-us/power-platform/alm/block-unmanaged-customizations; https://learn.microsoft.com/en-us/microsoft-copilot-studio/publication-fundamentals-publish-channels] Microsoft also documents that publishing a Copilot Studio agent normally updates all connected channels, while block unmanaged customizations prevents Copilot Studio publishing in locked environments.
+- [inference; source: https://learn.microsoft.com/en-us/power-platform/alm/solution-concepts-alm; https://learn.microsoft.com/en-us/power-platform/alm/pipelines; https://learn.microsoft.com/en-us/power-platform/alm/block-unmanaged-customizations; https://learn.microsoft.com/en-us/microsoft-copilot-studio/publication-fundamentals-publish-channels] Low-code lifecycle governance is reliable only when production accepts managed package artefacts, promotion runs through a delegated identity, and direct publish or unmanaged edit paths are blocked.
+
+#### F. What ownership and documentation must include
+
+- [fact; source: https://www.federalreserve.gov/supervisionreg/srletters/SR2602.pdf; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/] Inventory, documentation, monitoring plans, and clear roles are explicit governance requirements in both SR 26-2 and the NIST AI RMF Core.
+- [fact; source: https://learn.microsoft.com/en-us/power-platform/alm/delegated-deployments-setup] Power Platform exposes concrete ownership semantics by assigning deployed object ownership to the deploying identity, which means ownership transitions are operationally significant rather than cosmetic metadata.
+- [fact; source: https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance] Copilot Studio provides publication controls, audit visibility, maker warnings, and data-policy controls over capabilities such as channels, tools, triggers, Hypertext Transfer Protocol (HTTP) requests, and knowledge sources.
+- [inference; source: https://www.federalreserve.gov/supervisionreg/srletters/SR2602.pdf; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance; https://learn.microsoft.com/en-us/power-platform/alm/delegated-deployments-setup] A minimum enterprise artefact record therefore needs at least a unique artefact identifier, artefact class, version lineage, owner of record, technical operator, risk tier, dependency set, deployment history, current state, monitoring plan, rollback reference, and retirement criteria.
+
+#### G. What should trigger rollback or retirement
+
+- [fact; source: https://www.federalreserve.gov/supervisionreg/srletters/SR2602.pdf] SR 26-2 says model deterioration or changing conditions can warrant overlays, adjustment, or redevelopment, which implies that production monitoring must drive change or rollback rather than merely record metrics.
+- [fact; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/] NIST AI RMF Govern 1.7 requires safe decommissioning and phasing out in a way that does not increase risk or reduce trustworthiness.
+- [fact; source: https://learn.microsoft.com/en-us/azure/ai-studio/how-to/flow-deploy] Microsoft says Prompt Flow feature development ended on April 20, 2026 and the feature will be fully retired on April 20, 2027, which is a concrete example of platform end-of-life forcing migration and retirement planning.
+- [fact; source: https://learn.microsoft.com/en-us/power-platform/alm/pipelines] Power Platform pipelines support redeploying previous solution versions from run history, which gives low-code estates a concrete rollback mechanism when prior artefacts are retained.
+- [inference; source: https://www.federalreserve.gov/supervisionreg/srletters/SR2602.pdf; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://learn.microsoft.com/en-us/azure/ai-studio/how-to/flow-deploy; https://learn.microsoft.com/en-us/power-platform/alm/pipelines] Rollback triggers should include performance deterioration, safety or compliance incidents, failed monitoring thresholds, defective releases, dependency breakage, and platform retirement notices, while decommissioning triggers should include persistent low value, missing owner, repeated control failure, unsupported dependencies, or formal end-of-life decisions.
+- [inference; source: https://mlflow.org/docs/latest/ml/model-registry/; https://docs.wandb.ai/weave/tutorial-weave_models; https://learn.microsoft.com/en-us/power-platform/alm/pipelines; https://learn.microsoft.com/en-us/azure/ai-studio/how-to/flow-deploy] Rollback is only trustworthy when the prior artefact, its dependency tuple, and its deployment target remain available, because restoring only prompt text or only a low-code package without the surrounding runtime state can reproduce a label but not the prior behavior.
+
+### §3 Reasoning
+
+- [inference; source: https://www.iso.org/standard/63712.html; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://www.federalreserve.gov/supervisionreg/srletters/SR2602.pdf] The evidence supports a common lifecycle state machine rather than three unrelated governance processes, because software lifecycle, AI risk governance, and model-risk guidance all require recurring controls for registration, validation, operation, monitoring, change, and disposal.
+- [inference; source: https://mlflow.org/docs/latest/ml/model-registry/; https://docs.wandb.ai/weave/tutorial-weave_models; https://learn.microsoft.com/en-us/power-platform/alm/solution-concepts-alm; https://learn.microsoft.com/en-us/azure/ai-studio/how-to/flow-deploy] The main artefact-specific difference is not whether versioning exists, but what must be versioned together: model artefacts need lineage and alias control, prompt artefacts need text plus model and parameter context, and low-code artefacts need managed package, environment, and connector dependency context.
+- [inference; source: https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1/itil-4-practitioner-change-enablement-3794; https://www.atlassian.com/itsm/change-management; https://www.manageengine.com/products/service-desk/it-change-management/it-change-types.html] The cleanest change-management mapping is to treat low-risk parameter or package promotions under preapproved patterns as standard changes, materially new behaviour or dependency shifts as normal changes, and production restoration after incidents as emergency changes with mandatory post-review.
+- [inference; source: https://learn.microsoft.com/en-us/power-platform/alm/block-unmanaged-customizations; https://learn.microsoft.com/en-us/microsoft-copilot-studio/publication-fundamentals-publish-channels; https://learn.microsoft.com/en-us/power-platform/alm/pipelines] The strongest practical risk is bypass, because any lifecycle model fails if production still permits mutable direct publish or unmanaged edits outside the governed artefact record.
+
+### §4 Consistency Check
+
+- [fact; source: https://www.federalreserve.gov/supervisionreg/srletters/SR2602.htm; https://www.federalreserve.gov/supervisionreg/srletters/SR2602.pdf] Apparent contradiction resolved: SR 26-2 excludes generative AI from formal scope, but it still remains valid here as a lifecycle-control precedent for inventory, validation, effective challenge, documentation, and monitoring rather than as a direct rulebook for foundation models.
+- [fact; source: https://learn.microsoft.com/en-us/power-platform/alm/pipelines; https://learn.microsoft.com/en-us/power-platform/alm/block-unmanaged-customizations; https://learn.microsoft.com/en-us/microsoft-copilot-studio/publication-fundamentals-publish-channels] Apparent contradiction resolved: Microsoft offers both governed pipeline promotion and direct publish behavior, so the consistent conclusion is that low-code lifecycle controls are available but not authoritative until direct production-edit paths are closed.
+- [inference; source: https://mlflow.org/docs/latest/ml/model-registry/; https://docs.wandb.ai/weave/tutorial-weave_models; https://learn.microsoft.com/en-us/azure/ai-studio/how-to/flow-deploy] No evidence contradicts the claim that rollback needs a pinned dependency tuple, because every tooling example ties reusable versions to metadata beyond the visible artefact name alone.
+
+### §5 Depth and Breadth Expansion
+
+- [inference; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://www.federalreserve.gov/supervisionreg/srletters/SR2602.pdf] **Technical lens:** the lifecycle record must track not only artefact content but also the serving and dependency context, because monitoring and rollback decisions depend on how the artefact is actually instantiated in production.
+- [inference; source: https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1/itil-4-practitioner-change-enablement-3794; https://www.atlassian.com/itsm/change-management] **Operational lens:** enterprises should not send every artefact edit to the same approval forum, because change-enablement practice works by matching review intensity to risk and repeatability.
+- [inference; source: https://learn.microsoft.com/en-us/power-platform/alm/pipelines; https://learn.microsoft.com/en-us/power-platform/alm/delegated-deployments-setup; https://learn.microsoft.com/en-us/power-platform/alm/block-unmanaged-customizations] **Platform lens:** low-code estates need stronger compensating controls than high-code estates when the authoring surface also contains a direct production publication path.
+- [inference; source: https://learn.microsoft.com/en-us/azure/ai-studio/how-to/flow-deploy; https://docs.smith.langchain.com/langsmith/prompt-engineering; https://docs.wandb.ai/weave/tutorial-weave_models] **Behavioral lens:** prompts invite governance failure if teams treat them as disposable text snippets, because the reviewed prompt tooling already treats prompt parameters and deployable prompt objects as versioned operational assets.
+- [inference; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://learn.microsoft.com/en-us/azure/ai-studio/how-to/flow-deploy] **Historical lens:** platform retirement and model-supply churn are normal lifecycle events rather than exceptional crises, so decommissioning and migration planning must be designed from the start.
+
+### §6 Synthesis
+
+**Executive summary:**
+
+[inference; source: https://www.iso.org/standard/63712.html; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://www.federalreserve.gov/supervisionreg/srletters/SR2602.pdf; https://mlflow.org/docs/latest/ml/model-registry/; https://learn.microsoft.com/en-us/power-platform/alm/pipelines] Enterprises need a single registered-artefact lifecycle for AI models, prompts, and low-code applications that runs from registration through development, validation, controlled promotion, production monitoring, controlled change, rollback readiness, and formal retirement, because the governing standards all require operation and disposal controls and the tooling evidence shows each artefact class already exposes versionable operational state. [inference; source: https://mlflow.org/docs/latest/ml/model-registry/; https://docs.wandb.ai/weave/tutorial-weave_models; https://learn.microsoft.com/en-us/azure/ai-studio/how-to/flow-deploy; https://learn.microsoft.com/en-us/power-platform/alm/solution-concepts-alm] The common lifecycle must keep one enterprise state model but different reproducibility tuples, because a model version, a prompt version, and a low-code version are not pinned by the same fields. [inference; source: https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1/itil-4-practitioner-change-enablement-3794; https://www.atlassian.com/itsm/change-management; https://learn.microsoft.com/en-us/power-platform/alm/block-unmanaged-customizations] Promotion and rollback should be governed through risk-based change classes and immutable release paths rather than through direct production editing, because otherwise version history and approval evidence lose authority. [inference; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://www.federalreserve.gov/supervisionreg/srletters/SR2602.pdf; https://learn.microsoft.com/en-us/azure/ai-studio/how-to/flow-deploy] The lifecycle therefore ends only when the artefact is retired through a documented shutdown, archive, credential, and data action plan.
+
+**Key findings:**
+
+1. [inference; source: https://www.iso.org/standard/63712.html; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://www.federalreserve.gov/supervisionreg/srletters/SR2602.pdf] **High confidence:** The required enterprise lifecycle is a common state machine of registration, build, validation, approved deployment, monitored operation, controlled change, rollback readiness, and retirement, because ISO, NIST, and model-risk guidance all treat operation, monitoring, documentation, and disposal as required lifecycle responsibilities rather than post-launch extras.
+2. [inference; source: https://mlflow.org/docs/latest/ml/model-registry/; https://docs.wandb.ai/weave/tutorial-weave_models; https://docs.smith.langchain.com/langsmith/prompt-engineering; https://learn.microsoft.com/en-us/azure/ai-studio/how-to/flow-deploy; https://learn.microsoft.com/en-us/power-platform/alm/solution-concepts-alm] **High confidence:** Versioning must pin different tuples for each artefact class, because reliable reproduction of a model requires lineage and deployment alias context, reliable reproduction of a prompt requires prompt text plus model and parameter context, and reliable reproduction of a low-code application requires managed package and dependency context.
+3. [inference; source: https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1/itil-4-practitioner-change-enablement-3794; https://www.atlassian.com/itsm/change-management; https://www.manageengine.com/products/service-desk/it-change-management/it-change-types.html; https://learn.microsoft.com/en-us/power-platform/alm/pipelines] **High confidence:** Production promotion should be mapped to standard, normal, and emergency change classes, because repeatable low-risk releases can be preapproved, materially new behavior or dependency changes need explicit review, and restoration after incidents must be fast but still documented and reviewed afterward.
+4. [inference; source: https://mlflow.org/docs/latest/ml/model-registry/; https://docs.wandb.ai/weave/tutorial-weave_models; https://learn.microsoft.com/en-us/power-platform/alm/pipelines; https://learn.microsoft.com/en-us/azure/ai-studio/how-to/flow-deploy] **High confidence:** Rollback is only dependable when the prior approved artefact, its dependency tuple, and its deployment target remain preserved, because tools across models, prompts, and low-code all bind usable restoration to stored versions plus surrounding runtime metadata rather than to labels alone.
+5. [inference; source: https://www.federalreserve.gov/supervisionreg/srletters/SR2602.pdf; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://learn.microsoft.com/en-us/power-platform/alm/delegated-deployments-setup] **High confidence:** Ownership must persist as a live operational record, including owner of record, technical operator, monitoring cadence, and exceptions history, because inventory and continuity obligations fail as soon as an artefact loses a steward or an accountable deployment identity.
+6. [inference; source: https://www.federalreserve.gov/supervisionreg/srletters/SR2602.pdf; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://learn.microsoft.com/en-us/azure/ai-studio/how-to/flow-deploy] **High confidence:** Monitoring must be wired into change control, because performance deterioration, changing conditions, dependency shifts, or platform retirement notices are not merely telemetry events, they are lifecycle events that should trigger revalidation, rollback, migration, suspension, or retirement decisions.
+7. [inference; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://learn.microsoft.com/en-us/azure/ai-studio/how-to/flow-deploy; https://www.federalreserve.gov/supervisionreg/srletters/SR2602.pdf] **High confidence:** Decommissioning has to be a first-class lifecycle phase with explicit triggers, because NIST requires safe phasing out, the Federal Reserve guidance ties documentation to continuity and remediation, and Microsoft already shows that platform retirement can force planned migration or shutdown.
+8. [inference; source: https://learn.microsoft.com/en-us/power-platform/alm/block-unmanaged-customizations; https://learn.microsoft.com/en-us/microsoft-copilot-studio/publication-fundamentals-publish-channels; https://learn.microsoft.com/en-us/power-platform/alm/pipelines; https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-governance-enforcement-architecture.html] **Medium confidence:** Low-code and prompt lifecycle governance needs compensating controls against mutable direct-publish behavior, because native tooling can expose direct publication paths that bypass the enterprise artefact record unless production environments are locked to governed promotion channels.
+
+**Evidence map:**
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [inference] A common lifecycle state machine is required across all three artefact classes. | https://www.iso.org/standard/63712.html<br>https://airc.nist.gov/airmf-resources/airmf/5-sec-core/<br>https://www.federalreserve.gov/supervisionreg/srletters/SR2602.pdf | high | The shared baseline is lifecycle control from definition through retirement. |
+| [inference] Each artefact class needs a different reproducibility tuple. | https://mlflow.org/docs/latest/ml/model-registry/<br>https://docs.wandb.ai/weave/tutorial-weave_models<br>https://docs.smith.langchain.com/langsmith/prompt-engineering<br>https://learn.microsoft.com/en-us/azure/ai-studio/how-to/flow-deploy<br>https://learn.microsoft.com/en-us/power-platform/alm/solution-concepts-alm | high | The tuple differs by artefact even though the lifecycle state model is shared. |
+| [inference] Promotions should map to standard, normal, and emergency change classes. | https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1/itil-4-practitioner-change-enablement-3794<br>https://www.atlassian.com/itsm/change-management<br>https://www.manageengine.com/products/service-desk/it-change-management/it-change-types.html<br>https://learn.microsoft.com/en-us/power-platform/alm/pipelines | high | Risk-based change intensity is more defensible than one approval path for every edit. |
+| [inference] Rollback requires preserved prior artefacts and pinned runtime context. | https://mlflow.org/docs/latest/ml/model-registry/<br>https://docs.wandb.ai/weave/tutorial-weave_models<br>https://learn.microsoft.com/en-us/power-platform/alm/pipelines<br>https://learn.microsoft.com/en-us/azure/ai-studio/how-to/flow-deploy | high | Prior versions and deployment context are necessary for reliable restoration. |
+| [inference] Ownership has to remain a live operational record. | https://www.federalreserve.gov/supervisionreg/srletters/SR2602.pdf<br>https://airc.nist.gov/airmf-resources/airmf/5-sec-core/<br>https://learn.microsoft.com/en-us/power-platform/alm/delegated-deployments-setup | high | Inventory, continuity, and deployed-object ownership all require explicit stewardship. |
+| [inference] Monitoring signals should trigger lifecycle decisions, not just dashboards. | https://www.federalreserve.gov/supervisionreg/srletters/SR2602.pdf<br>https://airc.nist.gov/airmf-resources/airmf/5-sec-core/<br>https://learn.microsoft.com/en-us/azure/ai-studio/how-to/flow-deploy | high | Deterioration, changed conditions, and platform retirement are actionable control events. |
+| [inference] Decommissioning must be designed from the start. | https://airc.nist.gov/airmf-resources/airmf/5-sec-core/<br>https://learn.microsoft.com/en-us/azure/ai-studio/how-to/flow-deploy<br>https://www.federalreserve.gov/supervisionreg/srletters/SR2602.pdf | high | Safe phase-out, migration, documentation, and remediation are required. |
+| [inference] Direct publish paths create bypass risk unless governed channels are made authoritative. | https://learn.microsoft.com/en-us/power-platform/alm/block-unmanaged-customizations<br>https://learn.microsoft.com/en-us/microsoft-copilot-studio/publication-fundamentals-publish-channels<br>https://learn.microsoft.com/en-us/power-platform/alm/pipelines<br>https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html<br>https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-governance-enforcement-architecture.html | medium | Mutable production surfaces undermine the lifecycle record unless blocked. |
+
+**Assumptions:**
+
+- [assumption; source: https://docs.smith.langchain.com/langsmith/prompt-engineering; https://docs.wandb.ai/weave/tutorial-weave_models; https://learn.microsoft.com/en-us/azure/ai-studio/how-to/flow-deploy] Prompt-governance requirements below extend beyond any one vendor page. **Justification:** the prompt-tooling sources expose versioning and deployment mechanics, but enterprise approval, retention, and retirement duties are synthesized from lifecycle and change-control standards rather than stated verbatim by one prompt platform.
+
+**Analysis:**
+
+- [inference; source: https://www.iso.org/standard/63712.html; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/] The lifecycle-state conclusion was weighted most heavily toward ISO and NIST because they are the clearest normative sources on continuous lifecycle governance, inventory, and retirement.
+- [inference; source: https://www.federalreserve.gov/supervisionreg/srletters/SR2602.pdf; https://mlflow.org/docs/latest/ml/model-registry/] The ownership, validation, monitoring, and documentation requirements were strengthened by SR 26-2 and MLflow because those sources make the operational record concrete instead of abstract.
+- [inference; source: https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1/itil-4-practitioner-change-enablement-3794; https://www.atlassian.com/itsm/change-management; https://www.manageengine.com/products/service-desk/it-change-management/it-change-types.html] The change-class mapping was resolved in favor of standard, normal, and emergency categories because they scale better than one committee pattern and fit how low-risk recurring promotions differ from materially new or emergency recoveries.
+- [inference; source: https://learn.microsoft.com/en-us/power-platform/alm/block-unmanaged-customizations; https://learn.microsoft.com/en-us/microsoft-copilot-studio/publication-fundamentals-publish-channels; https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html] The most important practical trade-off is between lifecycle discipline and bypass risk, because a detailed lifecycle model adds little control if teams can still edit or publish directly into production.
+
+**Risks, gaps, uncertainties:**
+
+- [fact; source: https://www.federalreserve.gov/supervisionreg/srletters/SR2602.pdf] SR 26-2 is a model-risk precedent rather than a direct generative-AI rule, so enterprises should use it as a control-design analogue and not as definitive legal guidance for foundation-model governance.
+- [inference; source: https://docs.smith.langchain.com/langsmith/prompt-engineering; https://docs.wandb.ai/weave/tutorial-weave_models] Public prompt-tooling pages are stronger on versioning mechanics than on retirement and exception handling, so prompt-specific archival and post-incident practice still requires enterprise policy design.
+- [inference; source: https://learn.microsoft.com/en-us/azure/ai-studio/how-to/flow-deploy] Azure Prompt Flow is itself on a retirement path, which means some prompt-lifecycle mechanics in current tooling are unstable and should not be treated as permanent architectural anchors.
+- [inference; source: https://learn.microsoft.com/en-us/power-platform/alm/pipelines; https://learn.microsoft.com/en-us/power-platform/alm/block-unmanaged-customizations] Power Platform rollback and promotion controls are reliable only if the institution actually enables the relevant settings, blocks unmanaged production changes, and preserves prior artefacts.
+
+**Open questions:**
+
+- How should Q5 risk tiers translate into exact thresholds for standard versus normal AI or prompt changes, especially when the artefact uses the same business purpose but a different underlying model deployment?
+- What minimum evaluation bundle should accompany a prompt version so that approval and rollback decisions stay comparable across teams and vendors?
+- Which governance system should serve as the system of record for lifecycle inventory, the control plane, the deployment platform, or a separate configuration database?
+
+### §7 Recursive Review
+
+- [fact; source: https://www.iso.org/standard/63712.html; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://www.federalreserve.gov/supervisionreg/srletters/SR2602.pdf; https://mlflow.org/docs/latest/ml/model-registry/; https://learn.microsoft.com/en-us/power-platform/alm/pipelines] Review outcome: the synthesis stays inside the evidence, because every major conclusion is grounded in lifecycle, model-risk, or platform-operation sources rather than in unsupported product intuition.
+- [fact; source: https://docs.smith.langchain.com/langsmith/prompt-engineering; https://docs.wandb.ai/weave/tutorial-weave_models; https://learn.microsoft.com/en-us/azure/ai-studio/how-to/flow-deploy] Assumption handling is explicit, because prompt-governance obligations that exceed direct vendor wording are labeled as assumption-driven synthesis rather than presented as settled prompt-platform fact.
+- [fact; source: https://github.com/davidamitchell/Research/blob/main/research-prompt.md] Acronym audit completed in line: Artificial Intelligence (AI), continuous integration and continuous delivery (CI/CD), Information Technology Infrastructure Library (ITIL), application lifecycle management (ALM), Hypertext Transfer Protocol (HTTP), and Portable Document Format (PDF) were checked for first-use expansion in the research output and Findings.
+- [fact; source: https://www.atlassian.com/itsm/change-management; https://learn.microsoft.com/en-us/power-platform/alm/block-unmanaged-customizations; https://learn.microsoft.com/en-us/microsoft-copilot-studio/publication-fundamentals-publish-channels] Claim-label and source-binding review completed, with direct-publish risk, change-class mapping, and production-lock controls represented consistently across Sections 2 through 6 and the mirrored Findings.
+
+---
+
+## Findings
+
+### Executive Summary
+
+[inference; source: https://www.iso.org/standard/63712.html; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://www.federalreserve.gov/supervisionreg/srletters/SR2602.pdf; https://mlflow.org/docs/latest/ml/model-registry/; https://learn.microsoft.com/en-us/power-platform/alm/pipelines] Enterprises need a single registered-artefact lifecycle for AI models, prompts, and low-code applications that runs from registration through development, validation, controlled promotion, production monitoring, controlled change, rollback readiness, and formal retirement, because the governing standards all require operation and disposal controls and the tooling evidence shows each artefact class already exposes versionable operational state. [inference; source: https://mlflow.org/docs/latest/ml/model-registry/; https://docs.wandb.ai/weave/tutorial-weave_models; https://learn.microsoft.com/en-us/azure/ai-studio/how-to/flow-deploy; https://learn.microsoft.com/en-us/power-platform/alm/solution-concepts-alm] The common lifecycle must keep one enterprise state model but different reproducibility tuples, because a model version, a prompt version, and a low-code version are not pinned by the same fields. [inference; source: https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1/itil-4-practitioner-change-enablement-3794; https://www.atlassian.com/itsm/change-management; https://learn.microsoft.com/en-us/power-platform/alm/block-unmanaged-customizations] Promotion and rollback should be governed through risk-based change classes and immutable release paths rather than through direct production editing, because otherwise version history and approval evidence lose authority. [inference; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://www.federalreserve.gov/supervisionreg/srletters/SR2602.pdf; https://learn.microsoft.com/en-us/azure/ai-studio/how-to/flow-deploy] The lifecycle therefore ends only when the artefact is retired through a documented shutdown, archive, credential, and data action plan.
+
+### Key Findings
+
+1. [inference; source: https://www.iso.org/standard/63712.html; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://www.federalreserve.gov/supervisionreg/srletters/SR2602.pdf] **High confidence:** The required enterprise lifecycle is a common state machine of registration, build, validation, approved deployment, monitored operation, controlled change, rollback readiness, and retirement, because ISO, NIST, and model-risk guidance all treat operation, monitoring, documentation, and disposal as required lifecycle responsibilities rather than post-launch extras.
+2. [inference; source: https://mlflow.org/docs/latest/ml/model-registry/; https://docs.wandb.ai/weave/tutorial-weave_models; https://docs.smith.langchain.com/langsmith/prompt-engineering; https://learn.microsoft.com/en-us/azure/ai-studio/how-to/flow-deploy; https://learn.microsoft.com/en-us/power-platform/alm/solution-concepts-alm] **High confidence:** Versioning must pin different tuples for each artefact class, because reliable reproduction of a model requires lineage and deployment alias context, reliable reproduction of a prompt requires prompt text plus model and parameter context, and reliable reproduction of a low-code application requires managed package and dependency context.
+3. [inference; source: https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1/itil-4-practitioner-change-enablement-3794; https://www.atlassian.com/itsm/change-management; https://www.manageengine.com/products/service-desk/it-change-management/it-change-types.html; https://learn.microsoft.com/en-us/power-platform/alm/pipelines] **High confidence:** Production promotion should be mapped to standard, normal, and emergency change classes, because repeatable low-risk releases can be preapproved, materially new behavior or dependency changes need explicit review, and restoration after incidents must be fast but still documented and reviewed afterward.
+4. [inference; source: https://mlflow.org/docs/latest/ml/model-registry/; https://docs.wandb.ai/weave/tutorial-weave_models; https://learn.microsoft.com/en-us/power-platform/alm/pipelines; https://learn.microsoft.com/en-us/azure/ai-studio/how-to/flow-deploy] **High confidence:** Rollback is only dependable when the prior approved artefact, its dependency tuple, and its deployment target remain preserved, because tools across models, prompts, and low-code all bind usable restoration to stored versions plus surrounding runtime metadata rather than to labels alone.
+5. [inference; source: https://www.federalreserve.gov/supervisionreg/srletters/SR2602.pdf; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://learn.microsoft.com/en-us/power-platform/alm/delegated-deployments-setup] **High confidence:** Ownership must persist as a live operational record, including owner of record, technical operator, monitoring cadence, and exceptions history, because inventory and continuity obligations fail as soon as an artefact loses a steward or an accountable deployment identity.
+6. [inference; source: https://www.federalreserve.gov/supervisionreg/srletters/SR2602.pdf; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://learn.microsoft.com/en-us/azure/ai-studio/how-to/flow-deploy] **High confidence:** Monitoring must be wired into change control, because performance deterioration, changing conditions, dependency shifts, or platform retirement notices are not merely telemetry events, they are lifecycle events that should trigger revalidation, rollback, migration, suspension, or retirement decisions.
+7. [inference; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://learn.microsoft.com/en-us/azure/ai-studio/how-to/flow-deploy; https://www.federalreserve.gov/supervisionreg/srletters/SR2602.pdf] **High confidence:** Decommissioning has to be a first-class lifecycle phase with explicit triggers, because NIST requires safe phasing out, the Federal Reserve guidance ties documentation to continuity and remediation, and Microsoft already shows that platform retirement can force planned migration or shutdown.
+8. [inference; source: https://learn.microsoft.com/en-us/power-platform/alm/block-unmanaged-customizations; https://learn.microsoft.com/en-us/microsoft-copilot-studio/publication-fundamentals-publish-channels; https://learn.microsoft.com/en-us/power-platform/alm/pipelines; https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-governance-enforcement-architecture.html] **Medium confidence:** Low-code and prompt lifecycle governance needs compensating controls against mutable direct-publish behavior, because native tooling can expose direct publication paths that bypass the enterprise artefact record unless production environments are locked to governed promotion channels.
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [inference] A common lifecycle state machine is required across all three artefact classes. | https://www.iso.org/standard/63712.html<br>https://airc.nist.gov/airmf-resources/airmf/5-sec-core/<br>https://www.federalreserve.gov/supervisionreg/srletters/SR2602.pdf | high | The shared baseline is lifecycle control from definition through retirement. |
+| [inference] Each artefact class needs a different reproducibility tuple. | https://mlflow.org/docs/latest/ml/model-registry/<br>https://docs.wandb.ai/weave/tutorial-weave_models<br>https://docs.smith.langchain.com/langsmith/prompt-engineering<br>https://learn.microsoft.com/en-us/azure/ai-studio/how-to/flow-deploy<br>https://learn.microsoft.com/en-us/power-platform/alm/solution-concepts-alm | high | The tuple differs by artefact even though the lifecycle state model is shared. |
+| [inference] Promotions should map to standard, normal, and emergency change classes. | https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1/itil-4-practitioner-change-enablement-3794<br>https://www.atlassian.com/itsm/change-management<br>https://www.manageengine.com/products/service-desk/it-change-management/it-change-types.html<br>https://learn.microsoft.com/en-us/power-platform/alm/pipelines | high | Risk-based change intensity is more defensible than one approval path for every edit. |
+| [inference] Rollback requires preserved prior artefacts and pinned runtime context. | https://mlflow.org/docs/latest/ml/model-registry/<br>https://docs.wandb.ai/weave/tutorial-weave_models<br>https://learn.microsoft.com/en-us/power-platform/alm/pipelines<br>https://learn.microsoft.com/en-us/azure/ai-studio/how-to/flow-deploy | high | Prior versions and deployment context are necessary for reliable restoration. |
+| [inference] Ownership has to remain a live operational record. | https://www.federalreserve.gov/supervisionreg/srletters/SR2602.pdf<br>https://airc.nist.gov/airmf-resources/airmf/5-sec-core/<br>https://learn.microsoft.com/en-us/power-platform/alm/delegated-deployments-setup | high | Inventory, continuity, and deployed-object ownership all require explicit stewardship. |
+| [inference] Monitoring signals should trigger lifecycle decisions, not just dashboards. | https://www.federalreserve.gov/supervisionreg/srletters/SR2602.pdf<br>https://airc.nist.gov/airmf-resources/airmf/5-sec-core/<br>https://learn.microsoft.com/en-us/azure/ai-studio/how-to/flow-deploy | high | Deterioration, changed conditions, and platform retirement are actionable control events. |
+| [inference] Decommissioning must be designed from the start. | https://airc.nist.gov/airmf-resources/airmf/5-sec-core/<br>https://learn.microsoft.com/en-us/azure/ai-studio/how-to/flow-deploy<br>https://www.federalreserve.gov/supervisionreg/srletters/SR2602.pdf | high | Safe phase-out, migration, documentation, and remediation are required. |
+| [inference] Direct publish paths create bypass risk unless governed channels are made authoritative. | https://learn.microsoft.com/en-us/power-platform/alm/block-unmanaged-customizations<br>https://learn.microsoft.com/en-us/microsoft-copilot-studio/publication-fundamentals-publish-channels<br>https://learn.microsoft.com/en-us/power-platform/alm/pipelines<br>https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html<br>https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-governance-enforcement-architecture.html | medium | Mutable production surfaces undermine the lifecycle record unless blocked. |
+
+### Assumptions
+
+- **Assumption:** [assumption; source: https://docs.smith.langchain.com/langsmith/prompt-engineering; https://docs.wandb.ai/weave/tutorial-weave_models; https://learn.microsoft.com/en-us/azure/ai-studio/how-to/flow-deploy] Prompt-governance requirements below extend beyond any one vendor page. **Justification:** the prompt-tooling sources expose versioning and deployment mechanics, but enterprise approval, retention, and retirement duties are synthesized from lifecycle and change-control standards rather than stated verbatim by one prompt platform.
+
+### Analysis
+
+- [inference; source: https://www.iso.org/standard/63712.html; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/] The lifecycle-state conclusion was weighted most heavily toward ISO and NIST because they are the clearest normative sources on continuous lifecycle governance, inventory, and retirement.
+- [inference; source: https://www.federalreserve.gov/supervisionreg/srletters/SR2602.pdf; https://mlflow.org/docs/latest/ml/model-registry/] The ownership, validation, monitoring, and documentation requirements were strengthened by SR 26-2 and MLflow because those sources make the operational record concrete instead of abstract.
+- [inference; source: https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1/itil-4-practitioner-change-enablement-3794; https://www.atlassian.com/itsm/change-management; https://www.manageengine.com/products/service-desk/it-change-management/it-change-types.html] The change-class mapping was resolved in favor of standard, normal, and emergency categories because they scale better than one committee pattern and fit how low-risk recurring promotions differ from materially new or emergency recoveries.
+- [inference; source: https://learn.microsoft.com/en-us/power-platform/alm/block-unmanaged-customizations; https://learn.microsoft.com/en-us/microsoft-copilot-studio/publication-fundamentals-publish-channels; https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html] The most important practical trade-off is between lifecycle discipline and bypass risk, because a detailed lifecycle model adds little control if teams can still edit or publish directly into production.
+
+### Risks, Gaps, and Uncertainties
+
+- [fact; source: https://www.federalreserve.gov/supervisionreg/srletters/SR2602.pdf] SR 26-2 is a model-risk precedent rather than a direct generative-AI rule, so enterprises should use it as a control-design analogue and not as definitive legal guidance for foundation-model governance.
+- [inference; source: https://docs.smith.langchain.com/langsmith/prompt-engineering; https://docs.wandb.ai/weave/tutorial-weave_models] Public prompt-tooling pages are stronger on versioning mechanics than on retirement and exception handling, so prompt-specific archival and post-incident practice still requires enterprise policy design.
+- [inference; source: https://learn.microsoft.com/en-us/azure/ai-studio/how-to/flow-deploy] Azure Prompt Flow is itself on a retirement path, which means some prompt-lifecycle mechanics in current tooling are unstable and should not be treated as permanent architectural anchors.
+- [inference; source: https://learn.microsoft.com/en-us/power-platform/alm/pipelines; https://learn.microsoft.com/en-us/power-platform/alm/block-unmanaged-customizations] Power Platform rollback and promotion controls are reliable only if the institution actually enables the relevant settings, blocks unmanaged production changes, and preserves prior artefacts.
+
+### Open Questions
+
+- How should Q5 risk tiers translate into exact thresholds for standard versus normal AI or prompt changes, especially when the artefact uses the same business purpose but a different underlying model deployment?
+- What minimum evaluation bundle should accompany a prompt version so that approval and rollback decisions stay comparable across teams and vendors?
+- Which governance system should serve as the system of record for lifecycle inventory, the control plane, the deployment platform, or a separate configuration database?
+
+---
+
+## Output
+
+- Type: knowledge
+- Description: Enterprise lifecycle reference model for AI models, prompts, and low-code applications, including common states, artefact-specific version tuples, risk-based promotion classes, rollback prerequisites, ownership records, and decommissioning controls.
+- Links:
+  - https://www.iso.org/standard/63712.html
+  - https://airc.nist.gov/airmf-resources/airmf/5-sec-core/
+  - https://www.federalreserve.gov/supervisionreg/srletters/SR2602.pdf
