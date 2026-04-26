@@ -638,7 +638,7 @@ main {
   </div>
   <div class="research-master-content item-content">
     <h1>Research Master Document</h1>
-<p>Generated on: 2026-04-26 19:46 UTC</p>
+<p>Generated on: 2026-04-26 22:30 UTC</p>
 <p><a id="2026-04-26-systems-capability-debt-citizen-development-empirical-evidence-md"></a></p>
 <h2>Systems capability debt as the root cause of citizen development: empirical evidence and effective governance architectures</h2>
 <p><strong>Tags:</strong> [systems-capability-debt, citizen-development, shadow-it, operational-risk, governance, regulated-banking, nz-rbnz, pci-dss, microsoft-365, aws-bedrock, empirical-evidence]</p>
@@ -1527,6 +1527,350 @@ main {
 <li>[inference; source: https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-sharing-controls-limits; https://learn.microsoft.com/en-us/power-platform/alm/block-unmanaged-customizations] What is the least-privilege production role model for Copilot Studio that still allows monitoring and support but never allows direct publication?</li>
 <li>[inference; source: https://docs.github.com/en/actions/reference/workflows-and-actions/deployments-and-environments; https://learn.microsoft.com/en-us/azure/devops/pipelines/process/approvals?view=azure-devops] Which external gate host is operationally better for a regulated Microsoft low-code estate, GitHub Actions or Azure DevOps, once evidence capture, exceptions, and change-management integration are compared directly?</li>
 <li>[inference; source: https://learn.microsoft.com/en-us/power-platform/guidance/coe/starter-kit; https://learn.microsoft.com/en-us/power-platform/alm/extend-pipelines] What is the minimum metadata schema and system-of-record design required to operationalize owner registration, observability attestations, and blast-radius scoring at the release gate?</li>
+</ul>
+<hr />
+<hr />
+<p><a id="2026-04-26-ai-lowcode-risk-tier-classification-controls-md"></a></p>
+<h2>How should Artificial Intelligence (AI) and low-code use cases be classified into risk tiers, and how should governance controls vary across those tiers?</h2>
+<p><strong>Tags:</strong> [ai-governance, low-code, risk-classification, risk-tiers, enterprise-governance, controls, regulated-enterprise]</p>
+<p><strong>Origin:</strong> https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-ai-lowcode-risk-tier-classification-controls.md</p>
+<h2>Research Question</h2>
+<p>What structured risk classification framework is appropriate for AI and low-code use cases in enterprise environments, specifically, how should categories such as informational, decision-support, and autonomous action systems be defined and bounded, and how should required governance controls, oversight intensity, and approval thresholds be mapped to each risk tier?</p>
+<h2>Findings</h2>
+<p><em>(Populated from §6 Synthesis above.)</em></p>
+<h3>Executive Summary</h3>
+<ul>
+<li>[inference; source: https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://handbook.apra.gov.au/ppg/cpg-230] The most workable enterprise classification for AI and low-code use cases is a four-tier operating model, informational, decision-support, bounded action, and autonomous or critical action, with a separate no-go overlay for prohibited or out-of-appetite uses, because the reviewed frameworks all scale controls by impact, autonomy, and context rather than by one universal rule set.</li>
+<li>[inference; source: https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-9; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/] The AI Act supplies legal trigger points for prohibited and high-risk cases, but it does not provide a complete internal taxonomy for routine enterprise-internal use cases, so firms need an internal tier model that maps to those trigger points rather than copying its labels verbatim.</li>
+<li>[inference; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14; https://handbook.apra.gov.au/standard/cps-230] The decisive boundary questions are whether the system can take direct action, whether it affects critical operations or rights-significant outcomes, whether humans can competently override it, and whether errors are reversible at low cost.</li>
+<li>[inference; source: https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-9; https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html] Governance should therefore escalate from registration and standard controls at Tier 1 to documented human review at Tier 2, deployment gating and least-privilege machine authority at Tier 3, and formal approval, continuous monitoring, and safe-halt design at Tier 4.</li>
+</ul>
+<h3>Key Findings</h3>
+<ol>
+<li><strong>High confidence.</strong> [inference; source: https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://handbook.apra.gov.au/ppg/cpg-230] No reviewed framework provides a ready-made internal enterprise taxonomy for every AI and low-code use case, so regulated firms need an internal operating tier model that adapts legal and risk-management principles into day-to-day intake decisions.</li>
+<li><strong>High confidence.</strong> [inference; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14; https://handbook.apra.gov.au/ppg/cpg-230] The best primary classifier is the combination of action authority and consequence, because the strongest reviewed signals are autonomy, human oversight, impact magnitude, and operational materiality rather than vendor, interface, or model type.</li>
+<li><strong>High confidence.</strong> [inference; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10; https://davidamitchell.github.io/Research/research/2026-04-24-business-led-low-code-agent-governance.html] Informational systems should remain in the lowest positive tier only when they are effectively read-only, do not materially shape consequential decisions, and produce errors that ordinary human work can detect and reverse cheaply.</li>
+<li><strong>High confidence.</strong> [inference; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14; https://www.bankofengland.co.uk/prudential-regulation/publication/2022/october/artificial-intelligence] Decision-support systems enter a higher tier as soon as they materially influence credit, workforce, fraud, or critical-operation judgments, because effective human review and limitation documentation then become control necessities rather than optional good practice.</li>
+<li><strong>Medium confidence.</strong> [inference; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14; https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-governance-enforcement-architecture.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-lifecycle-management.html] Bounded-action systems deserve a distinct tier because once a system can write, trigger, publish, or modify records inside a pre-approved scope, oversight logic from NIST and the AI Act combines with prior completed architecture work to make deployment gates, least privilege, rollback, and action telemetry the minimum credible controls.</li>
+<li><strong>High confidence.</strong> [inference; source: https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-9; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14; https://handbook.apra.gov.au/ppg/cpg-230; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html] Autonomous or critical-action systems require the highest positive tier, because multi-step action against critical operations or rights-significant outcomes demands formal approval, independent validation, continuous monitoring, and safe-stop capability.</li>
+<li><strong>High confidence.</strong> [inference; source: https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-9; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://handbook.apra.gov.au/ppg/cpg-230; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-lifecycle-management.html] Tier assignment cannot be a one-time event, because changes in intended purpose, autonomy, connected systems, data sensitivity, or business criticality alter context and residual risk even when the interface remains unchanged.</li>
+<li><strong>Medium confidence.</strong> [inference; source: https://davidamitchell.github.io/Research/research/2026-04-24-business-led-low-code-agent-governance.html; https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis.html; https://handbook.apra.gov.au/ppg/cpg-230] Over-classifying every use case as high risk would likely increase friction and shadow tooling, so a proportional model is not merely efficient but also more likely to preserve real governance coverage across the estate.</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>Source</th>
+<th>Confidence</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[inference] No reviewed framework provides a complete internal enterprise taxonomy, so firms need an internal tier model.</td>
+<td>https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://handbook.apra.gov.au/ppg/cpg-230</td>
+<td>high</td>
+<td>EU, NIST, and APRA provide principles and trigger points, not a full internal operating taxonomy.</td>
+</tr>
+<tr>
+<td>[inference] Action authority plus consequence is the strongest primary classifier.</td>
+<td>https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14; https://handbook.apra.gov.au/ppg/cpg-230</td>
+<td>high</td>
+<td>Human oversight, impact magnitude, and materiality recur across all three sources.</td>
+</tr>
+<tr>
+<td>[inference] Tier 1 should be limited to read-only, low-consequence, easily reversible systems.</td>
+<td>https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10; https://davidamitchell.github.io/Research/research/2026-04-24-business-led-low-code-agent-governance.html</td>
+<td>high</td>
+<td>Based on NIST context and risk-tolerance framing plus prior low-code governance evidence.</td>
+</tr>
+<tr>
+<td>[inference] Tier 2 begins when outputs materially shape consequential human decisions.</td>
+<td>https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14; https://www.bankofengland.co.uk/prudential-regulation/publication/2022/october/artificial-intelligence</td>
+<td>high</td>
+<td>Oversight and materiality matter even without direct machine execution.</td>
+</tr>
+<tr>
+<td>[inference] Tier 3 should be reserved for bounded state-changing actions that still fit inside a controlled blast radius.</td>
+<td>https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14; https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-governance-enforcement-architecture.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-lifecycle-management.html</td>
+<td>medium</td>
+<td>Primary sources justify the action and oversight threshold, while prior completed items support the specific control pattern.</td>
+</tr>
+<tr>
+<td>[inference] Tier 4 is required for autonomous or critical-action systems that can create high-cost or hard-to-reverse harms.</td>
+<td>https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-9; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14; https://handbook.apra.gov.au/ppg/cpg-230; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html</td>
+<td>high</td>
+<td>Lifecycle mitigation, oversight, materiality, and telemetry obligations converge here.</td>
+</tr>
+<tr>
+<td>[inference] Tier assignment must be revisited when scope, capability, or business context changes.</td>
+<td>https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-9; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://handbook.apra.gov.au/ppg/cpg-230; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-lifecycle-management.html</td>
+<td>high</td>
+<td>All cited sources treat risk as iterative across the lifecycle.</td>
+</tr>
+<tr>
+<td>[inference] Proportional tiering is more governance-preserving than classifying all systems at the highest tier.</td>
+<td>https://davidamitchell.github.io/Research/research/2026-04-24-business-led-low-code-agent-governance.html; https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis.html; https://handbook.apra.gov.au/ppg/cpg-230</td>
+<td>medium</td>
+<td>Strong prior-work support, but direct empirical quantification is limited.</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li>[assumption; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://www.nist.gov/itl/ai-risk-management-framework/nist-ai-rmf-playbook] <strong>Assumption:</strong> The specific tier labels, informational, decision-support, bounded action, and autonomous or critical action, are enterprise design choices rather than mandated external terms. <strong>Justification:</strong> the reviewed frameworks provide principles and trigger criteria but do not prescribe one canonical internal label set for all enterprise use cases.</li>
+<li>[assumption; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://handbook.apra.gov.au/ppg/cpg-230] <strong>Assumption:</strong> A business analyst can apply the model reliably if the intake process forces explicit answers about action authority, impact, data sensitivity, overrideability, and reversibility. <strong>Justification:</strong> the frameworks require those facts to be documented, but they do not prove that every organization's intake form will capture them cleanly without local design work.</li>
+</ul>
+<h3>Analysis</h3>
+<ul>
+<li>[inference; source: https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://handbook.apra.gov.au/ppg/cpg-230] The synthesis weights NIST most heavily for internal classification mechanics, because NIST explicitly decomposes context, risk tolerance, human oversight, impact magnitude, and go or no-go decisions, while the AI Act and APRA provide stronger legal and prudential escalation triggers.</li>
+<li>[inference; source: https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai; https://www.bis.org/fsi/publ/insights63.htm; https://www.bankofengland.co.uk/prudential-regulation/publication/2022/october/artificial-intelligence] The AI Act is treated as a mandatory overlay rather than as the whole taxonomy, because its legal classes are essential for prohibited and high-risk cases but are too coarse for routine internal enterprise uses that still need differentiated controls.</li>
+<li>[inference; source: https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-governance-enforcement-architecture.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html] The sharpest control boundary is the transition from influence to execution, because that is the point where release controls, least-privilege machine authority, rollback, and action telemetry become the only credible ways to constrain harm.</li>
+<li>[inference; source: https://davidamitchell.github.io/Research/research/2026-04-24-business-led-low-code-agent-governance.html; https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis.html] The model also balances control against adoption reality, because an enterprise that assigns every use case to the highest tier is likely to recreate the shadow-tooling dynamics that previous completed items identified as a governance failure mode.</li>
+<li>[inference; source: https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-9; https://handbook.apra.gov.au/ppg/cpg-230] <strong>Tier 0, no-go:</strong> reject any use case that falls into a prohibited legal category or still sits outside risk appetite after mitigation and oversight design.</li>
+<li>[inference; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10; https://davidamitchell.github.io/Research/research/2026-04-24-business-led-low-code-agent-governance.html] <strong>Tier 1, informational:</strong> allow use cases that are read-only in effect, low consequence, and easily reversible under standard ownership, inventory, approved data scope, basic testing, transparency, and standard telemetry controls.</li>
+<li>[inference; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14; https://www.bankofengland.co.uk/prudential-regulation/publication/2022/october/artificial-intelligence] <strong>Tier 2, decision-support:</strong> require documented limitations, an assigned human reviewer, evidence logging, and periodic validation once outputs materially shape consequential human decisions.</li>
+<li>[inference; source: https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-governance-enforcement-architecture.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-lifecycle-management.html] <strong>Tier 3, bounded action:</strong> require a deployment gate, segregated environments, least privilege, rollback, and action-level telemetry once a system can change state inside a pre-approved blast radius.</li>
+<li>[inference; source: https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-9; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14; https://handbook.apra.gov.au/ppg/cpg-230; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html] <strong>Tier 4, autonomous or critical action:</strong> require formal approval, independent validation, staged rollout, continuous monitoring, and safe-halt capability for multi-step or high-impact action.</li>
+</ul>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>[fact; source: https://www.iso.org/standard/81230.html] The full normative text of ISO/IEC 42001 was not accessible in this session, so ISO-backed claims are limited to the official public summary rather than clause-level interpretation.</li>
+<li>[fact; source: https://www.bankofengland.co.uk/prudential-regulation/publication/2022/october/artificial-intelligence; https://www.bis.org/fsi/publ/insights63.htm] UK and Basel supervisory materials support proportionality and governance scaling, but they provide less detailed tier-boundary language than the AI Act or the NIST AI RMF Core.</li>
+<li>[inference; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-governance-enforcement-architecture.html] Borderline cases between Tier 2 and Tier 3 will usually turn on whether a system merely recommends an action or can actually commit, publish, trigger, or write that action into an enterprise system.</li>
+<li>[fact; source: https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26; https://handbook.apra.gov.au/ppg/cpg-230] None of the reviewed official sources specifies universal numeric approval thresholds, review cadences, or sample sizes by tier, so those thresholds still need local policy design.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>[inference; source: https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/] What evidence should count as proof that human oversight is genuinely effective rather than nominal for Tier 2 and Tier 4 systems?</li>
+<li>[inference; source: https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26] What minimum telemetry set is sufficient to prove that a system has stayed within its approved tier in production rather than drifting into a higher-risk operating pattern?</li>
+<li>[inference; source: https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-lifecycle-management.html] Which promotion and re-certification cadence should attach to Tier 3 and Tier 4 systems once the enterprise converts the tier model into an operating procedure?</li>
+</ul>
+<hr />
+<hr />
+<p><a id="2026-04-26-ai-lowcode-regulatory-compliance-alignment-md"></a></p>
+<h2>How can enterprise Artificial Intelligence (AI) and low-code governance frameworks be aligned with regulatory and compliance requirements?</h2>
+<p><strong>Tags:</strong> [regulatory-compliance, ai-governance, low-code, privacy, financial-regulation, audit, enterprise-governance, eu-ai-act, gdpr, apra, dora]</p>
+<p><strong>Origin:</strong> https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-ai-lowcode-regulatory-compliance-alignment.md</p>
+<h2>Research Question</h2>
+<p>How can enterprise Artificial Intelligence (AI) and low-code governance frameworks be aligned with external regulatory and compliance obligations, specifically, what is the mapping between governance mechanisms and applicable privacy laws, financial regulations, audit requirements, and the evidence generation needed for regulatory compliance?</p>
+<h2>Findings</h2>
+<h3>Executive Summary</h3>
+<ul>
+<li>[inference; source: https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-9; https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32016R0679#d1e1794-1-1; https://handbook.apra.gov.au/standard/cps-230; https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022R2554] Enterprise AI and low-code governance can be aligned with the reviewed regulatory frameworks by designing one reusable control set that produces shared evidence artefacts around classification, impact assessment, accountable approvals, human oversight, logging and monitoring, and third-party resilience rather than by creating separate governance models for each law.</li>
+<li>[inference; source: https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26; https://edpb.europa.eu/our-work-tools/our-documents/guidelines/guidelines-automated-individual-decision-making-and_en] The AI Act and GDPR provide the most system-specific duties in scope, because they directly regulate high-risk AI operation, automated decision safeguards, privacy-by-design choices, and evidence-bearing oversight.</li>
+<li>[fact; source: https://handbook.apra.gov.au/standard/cps-230; https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022R2554; https://www.bis.org/bcbs/publ/d516.htm] APRA CPS 230, DORA, and Basel do not duplicate those AI-specific duties, but they make resilience, monitoring, service-provider control, and continuity governance non-optional where AI or low-code systems affect critical operations.</li>
+<li>[inference; source: https://www.bankofengland.co.uk/prudential-regulation/publication/2022/october/artificial-intelligence; https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/] UK supervisory material and NIST AI RMF are best used as bridge frameworks that translate fragmented legal requirements into an operable governance model, not as substitutes for the binding regimes.</li>
+</ul>
+<h3>Key Findings</h3>
+<ol>
+<li>[inference; source: https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-9; https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32016R0679#d1e1794-1-1; https://handbook.apra.gov.au/standard/cps-230; https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022R2554; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/] <strong>High confidence:</strong> The reviewed regimes largely converge on six reusable governance control families, namely inventory and classification, risk and impact assessment, accountable documentation and approvals, human oversight, logging and monitoring, and third-party or resilience governance.</li>
+<li>[fact; source: https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-9; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-12; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-72] <strong>High confidence:</strong> The AI Act is the anchor framework for explicit AI-specific control design in scope, because it ties high-risk uses to lifecycle risk management, logging, human oversight, deployer monitoring, log retention, and provider post-market monitoring.</li>
+<li>[fact; source: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32016R0679#d1e2326-1-1; https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32016R0679#d1e1794-1-1; https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32016R0679#d1e2123-1-1; https://edpb.europa.eu/our-work-tools/our-documents/guidelines/guidelines-automated-individual-decision-making-and_en] <strong>High confidence:</strong> GDPR adds non-substitutable person-level duties, because a governance model that lacks privacy-by-design controls, processing records, and Article 22 safeguard analysis remains incomplete even if its resilience and audit controls are strong.</li>
+<li>[fact; source: https://handbook.apra.gov.au/standard/cps-230; https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022R2554; https://www.bis.org/bcbs/publ/d516.htm; https://www.bankofengland.co.uk/prudential-regulation/publication/2022/october/artificial-intelligence] <strong>High confidence:</strong> Prudential and operational-resilience frameworks do not replace AI-specific obligations, but they make continuity, service-provider oversight, incident handling, governance accountability, and critical-operation monitoring mandatory around AI and low-code systems.</li>
+<li>[inference; source: https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-12; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26; https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32016R0679#d1e2123-1-1; https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022R2554; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html] <strong>High confidence:</strong> The practical compliance unit is a shared set of evidence artefacts rather than a policy document, because the reviewed duties are only auditable when governance architecture generates attributable logs, records, approvals, monitoring outputs, and incident artefacts by default.</li>
+<li>[inference; source: https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26; https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32016R0679#d1e1794-1-1; https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14; https://www.bankofengland.co.uk/prudential-regulation/publication/2022/october/artificial-intelligence] <strong>Medium confidence:</strong> Among the three material tensions identified here, namely privacy minimisation versus evidential traceability, transparency versus vendor opacity, and maker speed versus institution-level accountability, privacy minimisation versus traceability is the hardest day-to-day design tension, so compliant governance needs selective capture, purpose-bound retention, and redaction or tiering rather than universal full-fidelity logging.</li>
+<li>[inference; source: https://www.bankofengland.co.uk/prudential-regulation/publication/2022/october/artificial-intelligence; https://handbook.apra.gov.au/standard/cps-230; https://davidamitchell.github.io/Research/research/2026-04-24-business-led-low-code-agent-governance.html] <strong>High confidence:</strong> Low-code development does not decentralise legal accountability, so regulated firms still need central approval, oversight, service-provider governance, and suspension authority even when business users are the builders.</li>
+<li>[inference; source: https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://www.bankofengland.co.uk/prudential-regulation/publication/2023/october/artificial-intelligence-and-machine-learning] <strong>Medium confidence:</strong> NIST AI RMF and UK supervisory material are most valuable as translation layers that help firms operationalise fragmented legal duties into a consistent governance operating model and evidence taxonomy.</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>Source</th>
+<th>Confidence</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[inference] Six reusable control families capture most of the reviewed obligations.</td>
+<td>https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-9 ; https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32016R0679#d1e1794-1-1 ; https://handbook.apra.gov.au/standard/cps-230 ; https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022R2554 ; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/</td>
+<td>high</td>
+<td>Convergence finding, not one-to-one control duplication.</td>
+</tr>
+<tr>
+<td>[fact] The AI Act is the anchor AI-specific framework in scope.</td>
+<td>https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai ; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-9 ; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-12 ; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26 ; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-72</td>
+<td>high</td>
+<td>Explicit finance-relevant high-risk and operator duties.</td>
+</tr>
+<tr>
+<td>[fact] GDPR contributes non-substitutable person-level privacy and automated-decision duties.</td>
+<td>https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32016R0679#d1e2326-1-1 ; https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32016R0679#d1e1794-1-1 ; https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32016R0679#d1e2123-1-1 ; https://edpb.europa.eu/our-work-tools/our-documents/guidelines/guidelines-automated-individual-decision-making-and_en</td>
+<td>high</td>
+<td>Privacy cannot be inferred from resilience controls alone.</td>
+</tr>
+<tr>
+<td>[fact] Prudential and resilience frameworks make monitoring, continuity, and third-party control mandatory around AI and low-code systems.</td>
+<td>https://handbook.apra.gov.au/standard/cps-230 ; https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022R2554 ; https://www.bis.org/bcbs/publ/d516.htm ; https://www.bankofengland.co.uk/prudential-regulation/publication/2022/october/artificial-intelligence</td>
+<td>high</td>
+<td>These frameworks surround the AI system with binding operational duties.</td>
+</tr>
+<tr>
+<td>[inference] The practical compliance unit is a shared set of evidence artefacts rather than a policy document.</td>
+<td>https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-12 ; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26 ; https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32016R0679#d1e2123-1-1 ; https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022R2554 ; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html</td>
+<td>high</td>
+<td>Logs, records, approvals, and monitoring outputs are the auditable objects.</td>
+</tr>
+<tr>
+<td>[inference] Among the material tensions identified, privacy minimisation versus traceability is the hardest day-to-day design tension.</td>
+<td>https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26 ; https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32016R0679#d1e1794-1-1 ; https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng ; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14 ; https://www.bankofengland.co.uk/prudential-regulation/publication/2022/october/artificial-intelligence</td>
+<td>medium</td>
+<td>Compared against vendor-opacity and maker-accountability tensions identified in the investigation.</td>
+</tr>
+<tr>
+<td>[inference] Low-code creation speed does not move accountability away from the regulated firm.</td>
+<td>https://www.bankofengland.co.uk/prudential-regulation/publication/2022/october/artificial-intelligence ; https://handbook.apra.gov.au/standard/cps-230 ; https://davidamitchell.github.io/Research/research/2026-04-24-business-led-low-code-agent-governance.html</td>
+<td>high</td>
+<td>Maker autonomy changes operating model pressure, not legal responsibility.</td>
+</tr>
+<tr>
+<td>[inference] NIST AI RMF and UK supervisory material are best used as translation layers into one governance operating model.</td>
+<td>https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10 ; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/ ; https://www.bankofengland.co.uk/prudential-regulation/publication/2023/october/artificial-intelligence-and-machine-learning</td>
+<td>medium</td>
+<td>Helpful for harmonisation, but not substitutes for binding duties.</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li>[assumption; source: https://www.bankofengland.co.uk/prudential-regulation/publication/2022/october/artificial-intelligence; https://handbook.apra.gov.au/standard/cps-230; https://davidamitchell.github.io/Research/research/2026-04-24-business-led-low-code-agent-governance.html] <strong>Assumption:</strong> The low-code systems in scope operate inside regulated business processes rather than only as personal productivity tools. <strong>Justification:</strong> the strongest obligations reviewed become material when systems affect customer outcomes, critical operations, or regulated decisions.</li>
+<li>[assumption; source: https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai] <strong>Assumption:</strong> The current official AI Act timeline remains the implementation baseline until any simplification proposal is enacted. <strong>Justification:</strong> current binding text is the safest design baseline for governance controls.</li>
+</ul>
+<h3>Analysis</h3>
+<ul>
+<li>[inference; source: https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai; https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32016R0679#d1e2326-1-1; https://handbook.apra.gov.au/standard/cps-230; https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022R2554] The evidence weighs against a compliance architecture organised by legal nameplate, because the same operational objects, such as the use-case record, impact assessment, oversight assignment, and log lineage, recur across multiple regimes even though each regime frames them differently.</li>
+<li>[inference; source: https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26; https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32016R0679#d1e1794-1-1; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html] The most important trade-off is not whether to log, but how to log with purpose limitation, role-based access, and selective payload capture so that the institution can satisfy both auditability and privacy.</li>
+<li>[inference; source: https://www.bankofengland.co.uk/prudential-regulation/publication/2022/october/artificial-intelligence; https://www.bankofengland.co.uk/prudential-regulation/publication/2023/october/artificial-intelligence-and-machine-learning; https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10] Competing interpretations about whether new AI-specific UK rules are imminent were resolved conservatively, because the official material reviewed describes clarification of the existing framework rather than a new binding rule set.</li>
+<li>[inference; source: https://handbook.apra.gov.au/standard/cps-230; https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022R2554; https://www.bis.org/bcbs/publ/d516.htm] Operational-resilience duties were weighed as co-equal with privacy and AI-specific duties rather than as optional add-ons, because regulated firms can be privacy-compliant and still fail prudential expectations if resilience, continuity, and service-provider governance are weak.</li>
+</ul>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>[fact; source: https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai] The AI Act implementation timeline has live policy uncertainty because the Commission has proposed simplification changes, even though the current official timeline remains the operative baseline.</li>
+<li>[fact; source: https://edpb.europa.eu/our-work-tools/our-documents/guidelines/guidelines-automated-individual-decision-making-and_en] GDPR Article 22 applicability is fact-pattern dependent, so firms still need legal interpretation of whether a specific AI or low-code use case is solely automated and legally or similarly significantly impactful.</li>
+<li>[inference; source: https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14; https://www.bankofengland.co.uk/prudential-regulation/publication/2022/october/artificial-intelligence] Vendor opacity remains a practical evidence gap, because firms may be required to prove oversight and challenge for systems whose internal mechanics are only partially exposed through platform documentation.</li>
+<li>[inference; source: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022R2554; https://handbook.apra.gov.au/standard/cps-230] Some retention, incident-threshold, and testing details still require entity-specific interpretation and local legal mapping even after the general control architecture is settled.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>[inference; source: https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26] How should a regulated firm operationally distinguish AI Act high-risk low-code use cases from lower-risk low-code automations at intake without over-classifying everything?</li>
+<li>[inference; source: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32016R0679#d1e1794-1-1; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html] What logging architecture best reconciles selective payload capture, privacy-preserving redaction, and regulator-defensible reconstruction across multi-vendor AI and low-code estates?</li>
+<li>[inference; source: https://handbook.apra.gov.au/standard/cps-230; https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022R2554] What minimum third-party due-diligence packet should a regulated firm require from AI platform vendors so that resilience and monitoring duties can be evidenced without relying on opaque vendor assurances?</li>
+</ul>
+<hr />
+<hr />
+<p><a id="2026-04-26-ai-lowcode-observability-telemetry-governance-md"></a></p>
+<h2>What observability and telemetry model is required to govern Artificial Intelligence (AI) and low-code systems at scale?</h2>
+<p><strong>Tags:</strong> [observability, telemetry, logging, ai-governance, low-code, audit, traceability, decision-logging, enterprise-governance, monitoring]</p>
+<p><strong>Origin:</strong> https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-ai-lowcode-observability-telemetry-governance.md</p>
+<h2>Research Question</h2>
+<p>What observability and telemetry model is required to govern AI and low-code systems at scale, specifically, what must be logged, at what frequency, and at what level of granularity, including prompt and response logging, decision traceability, linkage between user intent and system actions, cross-system correlation, and the ability to reconstruct events for audit, debugging, and compliance purposes?</p>
+<h2>Findings</h2>
+<h3>Executive Summary</h3>
+<ul>
+<li>[inference; source: https://opentelemetry.io/docs/specs/semconv/registry/attributes/gen-ai/; https://www.w3.org/TR/trace-context/; https://learn.microsoft.com/en-us/power-platform/admin/activity-logging-auditing/activity-logs-power-automate; https://learn.microsoft.com/en-us/power-platform/admin/app-insights-cloud-flow] Enterprises need a three-layer observability model for governed AI and low-code systems: always-on reconstructive metadata, cross-system distributed tracing, and selective full-content capture for high-risk, sampled, or incident-driven cases.</li>
+<li>[fact; source: https://opentelemetry.io/docs/specs/semconv/registry/attributes/gen-ai/; https://learn.microsoft.com/en-us/azure/foundry/observability/how-to/trace-agent-setup; https://docs.aws.amazon.com/bedrock/latest/userguide/model-invocation-logging.html] The AI baseline should always record prompt or template identity, model requested and model served, retrieval context identifiers, tool calls and results, token usage, timing, and status, while leaving full prompt and response bodies behind an explicit higher-sensitivity policy gate.</li>
+<li>[fact; source: https://learn.microsoft.com/en-us/power-platform/admin/activity-logging-auditing/activity-logs-power-automate; https://learn.microsoft.com/en-us/power-platform/admin/app-insights-cloud-flow; https://learn.microsoft.com/en-us/power-platform/admin/activity-logging-auditing/activity-logs-connectors; https://learn.microsoft.com/en-us/power-automate/dataverse/cloud-flow-run-metadata] Low-code governance needs separate administrative audit logs, runtime execution traces, and connector-call telemetry because no single reviewed log stream captures maker actions, flow behavior, and downstream API activity together.</li>
+<li>[inference; source: https://gdpr-info.eu/art-5-gdpr/; https://gdpr-info.eu/art-17-gdpr/; https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1774; https://handbook.apra.gov.au/standard/cps-230] Retention and access should be category-based and purpose-bound because the reviewed regulators require secure, accessible evidence and incident records, while privacy law prohibits keeping identifying content longer than justified.</li>
+</ul>
+<h3>Key Findings</h3>
+<ol>
+<li>[inference; source: https://opentelemetry.io/docs/specs/semconv/registry/attributes/gen-ai/; https://www.w3.org/TR/trace-context/; https://learn.microsoft.com/en-us/power-platform/admin/app-insights-cloud-flow; https://csrc.nist.gov/pubs/sp/800/92/final] <strong>High confidence:</strong> A governable AI and low-code estate needs reconstructive metadata for every material event and portable trace correlation across systems, because post-incident reconstruction fails when event detail exists without linkage or linkage exists without event detail.</li>
+<li>[fact; source: https://opentelemetry.io/docs/specs/semconv/registry/attributes/gen-ai/; https://learn.microsoft.com/en-us/azure/foundry/observability/concepts/trace-agent-concept; https://docs.aws.amazon.com/bedrock/latest/userguide/model-invocation-logging.html] <strong>High confidence:</strong> Every governed AI event should record conversation or request identity, agent identity, prompt or template identity, model requested and model served, retrieval set identifiers, tool definitions, tool-call arguments and results, finish status, token usage, latency, and exceptions before full prompt or response bodies are considered.</li>
+<li>[inference; source: https://www.w3.org/TR/trace-context/; https://opentelemetry.io/docs/concepts/signals/traces/] <strong>Medium confidence:</strong> W3C Trace Context and OpenTelemetry provide the strongest vendor-neutral baseline among the reviewed options for cross-system correlation because they standardize trace identifiers, parent-child span relationships, timestamps, attributes, and events while explicitly prohibiting sensitive payload data in trace headers.</li>
+<li>[fact; source: https://learn.microsoft.com/en-us/power-platform/admin/activity-logging-auditing/activity-logs-power-automate; https://learn.microsoft.com/en-us/power-platform/admin/app-insights-cloud-flow; https://learn.microsoft.com/en-us/power-automate/dataverse/cloud-flow-run-metadata; https://learn.microsoft.com/en-us/power-platform/admin/activity-logging-auditing/activity-logs-connectors] <strong>High confidence:</strong> Low-code governance requires distinct administrative, runtime, and connector telemetry streams because Microsoft documents that Purview alone does not capture individual runs, action executions, or connector calls at runtime.</li>
+<li>[inference; source: https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html; https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html] <strong>Medium confidence:</strong> Enterprise attribution should bind initiator identity, acting machine identity, and session lineage on every material event because assumed-role chains and agent execution obscure accountability unless the original actor and workload identity are both preserved.</li>
+<li>[fact; source: https://gdpr-info.eu/art-5-gdpr/; https://gdpr-info.eu/art-17-gdpr/; https://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-events/; https://learn.microsoft.com/en-us/azure/foundry/observability/how-to/trace-agent-setup] <strong>High confidence:</strong> Full prompt, response, and tool-payload logging should be opt-in, redacted where feasible, and access-restricted because the reviewed privacy and vendor sources treat those payloads as potentially personal or otherwise sensitive data rather than harmless diagnostics.</li>
+<li>[inference; source: https://learn.microsoft.com/en-us/power-automate/dataverse/cloud-flow-run-metadata; https://learn.microsoft.com/en-us/purview/audit-log-retention-policies; https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html; https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1774] <strong>High confidence:</strong> Retention should be tiered by log purpose instead of standardized into one period because the reviewed platforms and regulations expose materially different windows for runtime telemetry, audit evidence, and incident records while requiring each period to be justified and secured.</li>
+<li>[fact; source: https://csrc.nist.gov/pubs/sp/800/92/final; https://handbook.apra.gov.au/ppg/cpg-230; https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022R2554] <strong>Medium confidence:</strong> Governance telemetry must be centrally queryable, time-synchronized, tamper-resistant, and reviewable by control functions because the reviewed standards emphasize synchronized logs, effective monitoring, incident recording, and evidence for control review rather than raw data accumulation alone.</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>Source</th>
+<th>Confidence</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[inference] A governable estate needs reconstructive metadata plus cross-system trace correlation.</td>
+<td>https://opentelemetry.io/docs/specs/semconv/registry/attributes/gen-ai/ ; https://www.w3.org/TR/trace-context/ ; https://learn.microsoft.com/en-us/power-platform/admin/app-insights-cloud-flow ; https://csrc.nist.gov/pubs/sp/800/92/final</td>
+<td>high</td>
+<td>Metadata and trace linkage are complementary, not interchangeable, and NIST reinforces the need for log integrity and usable reconstruction.</td>
+</tr>
+<tr>
+<td>[fact] AI telemetry must include prompt or template identity, model details, retrieval identifiers, tool activity, output status, token usage, latency, and exceptions.</td>
+<td>https://opentelemetry.io/docs/specs/semconv/registry/attributes/gen-ai/ ; https://learn.microsoft.com/en-us/azure/foundry/observability/concepts/trace-agent-concept ; https://docs.aws.amazon.com/bedrock/latest/userguide/model-invocation-logging.html</td>
+<td>high</td>
+<td>These sources expose the concrete field families required for reconstruction.</td>
+</tr>
+<tr>
+<td>[inference] W3C Trace Context plus OpenTelemetry provide the strongest vendor-neutral baseline among the reviewed options for correlation.</td>
+<td>https://www.w3.org/TR/trace-context/ ; https://opentelemetry.io/docs/concepts/signals/traces/</td>
+<td>medium</td>
+<td>Trace headers carry linkage only; trace spans carry contextual metadata, but alternative vendor-specific schemes remain possible.</td>
+</tr>
+<tr>
+<td>[fact] Low-code governance needs separate administrative, runtime, and connector telemetry.</td>
+<td>https://learn.microsoft.com/en-us/power-platform/admin/activity-logging-auditing/activity-logs-power-automate ; https://learn.microsoft.com/en-us/power-platform/admin/app-insights-cloud-flow ; https://learn.microsoft.com/en-us/power-platform/admin/activity-logging-auditing/activity-logs-connectors ; https://learn.microsoft.com/en-us/power-automate/dataverse/cloud-flow-run-metadata</td>
+<td>high</td>
+<td>Purview covers lifecycle and permissions; other stores cover execution and external calls.</td>
+</tr>
+<tr>
+<td>[inference] Enterprise attribution should preserve initiator identity, acting machine identity, and session lineage.</td>
+<td>https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html ; https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html ; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html</td>
+<td>medium</td>
+<td>Role-session and machine-identity lineage support accountable automation, but the universal enterprise requirement is a synthesis.</td>
+</tr>
+<tr>
+<td>[fact] Full prompt and response capture should be opt-in, redacted, and tightly access-controlled.</td>
+<td>https://gdpr-info.eu/art-5-gdpr/ ; https://gdpr-info.eu/art-17-gdpr/ ; https://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-events/ ; https://learn.microsoft.com/en-us/azure/foundry/observability/how-to/trace-agent-setup</td>
+<td>high</td>
+<td>Payload content is the highest-sensitivity telemetry class in the reviewed evidence.</td>
+</tr>
+<tr>
+<td>[inference] Retention should be tiered by purpose rather than forced into one enterprise-wide period.</td>
+<td>https://learn.microsoft.com/en-us/power-automate/dataverse/cloud-flow-run-metadata ; https://learn.microsoft.com/en-us/purview/audit-log-retention-policies ; https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html ; https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1774</td>
+<td>high</td>
+<td>The reviewed sources expose 28-day, 90-day, 180-day, one-year, and multi-year patterns, so the policy conclusion is a synthesis.</td>
+</tr>
+<tr>
+<td>[fact] Governance telemetry must be synchronized, tamper-resistant, centrally queryable, and reviewable.</td>
+<td>https://csrc.nist.gov/pubs/sp/800/92/final ; https://handbook.apra.gov.au/ppg/cpg-230 ; https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022R2554</td>
+<td>medium</td>
+<td>The regulatory texts are principle-based, but they consistently demand evidence, monitoring, and incident handling.</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li>None.</li>
+</ul>
+<h3>Analysis</h3>
+<ul>
+<li>[inference; source: https://opentelemetry.io/docs/specs/semconv/registry/attributes/gen-ai/; https://learn.microsoft.com/en-us/power-platform/admin/activity-logging-auditing/activity-logs-power-automate; https://learn.microsoft.com/en-us/power-platform/admin/app-insights-cloud-flow] The strongest pattern across sources is structural rather than vendor-specific: AI and low-code platforms both separate administrative audit from execution telemetry, so the enterprise model should formalize that separation instead of expecting one platform log to answer every governance question.</li>
+<li>[inference; source: https://www.w3.org/TR/trace-context/; https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html; https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html] Cross-system correlation and identity attribution solve different problems and must be linked, not conflated, because a trace without actor lineage cannot prove accountability, while actor lineage without trace continuity cannot reconstruct a multi-step execution path.</li>
+<li>[inference; source: https://gdpr-info.eu/art-5-gdpr/; https://gdpr-info.eu/art-17-gdpr/; https://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-events/; https://learn.microsoft.com/en-us/azure/foundry/observability/how-to/trace-agent-setup] The privacy trade-off does not support an all-or-nothing answer on prompt and response logging; the reviewed evidence supports a layered policy in which metadata is mandatory, payload capture is explicit and justified, and erasure or legal-hold decisions are handled per retention class.</li>
+<li>[inference; source: https://learn.microsoft.com/en-us/purview/audit-log-retention-policies; https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html; https://learn.microsoft.com/en-us/power-automate/dataverse/cloud-flow-run-metadata; https://handbook.apra.gov.au/standard/cps-230] Because regulators reviewed here emphasize accessible evidence and effective monitoring rather than one fixed duration, the retention matrix should be anchored to business purpose, regulatory basis, and sensitivity of data, then enforced by platform-specific storage policies.</li>
+</ul>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>[fact; source: https://learn.microsoft.com/en-us/azure/foundry/observability/how-to/trace-agent-setup; https://learn.microsoft.com/en-us/azure/foundry/observability/concepts/trace-agent-concept] Microsoft Foundry tracing is generally available only for prompt agents, while workflow, hosted, and custom agents remain in preview, so vendor-native observability coverage is still uneven for some AI execution patterns.</li>
+<li>[fact; source: https://docs.aws.amazon.com/bedrock/latest/userguide/model-invocation-logging.html] Bedrock invocation logging excludes calls made through some endpoints, such as the Responses API on <code>bedrock-mantle</code>, so an enterprise reference model still needs compensating telemetry outside the vendor-native logging feature.</li>
+<li>[fact; source: https://learn.microsoft.com/en-us/power-platform/admin/app-insights-cloud-flow] Power Automate telemetry in Application Insights is not fully lossless according to Microsoft, so authoritative forensic reconstruction should not rely on that stream alone when stronger transactional records exist elsewhere.</li>
+<li>[inference; source: https://handbook.apra.gov.au/standard/cps-230; https://handbook.apra.gov.au/ppg/cpg-230; https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1774] The reviewed APRA and DORA materials are principle-based rather than schema-level, so the exact field taxonomy still needs internal policy codification even though the direction of travel is clear.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>[inference; source: https://gdpr-info.eu/art-5-gdpr/; https://gdpr-info.eu/art-17-gdpr/] Which log classes in the target enterprise can rely on legal-obligation or legal-claims bases strongly enough to justify retaining identifiable prompt or response content beyond short operational windows?</li>
+<li>[inference; source: https://learn.microsoft.com/en-us/azure/foundry/observability/how-to/trace-agent-setup; https://docs.aws.amazon.com/bedrock/latest/userguide/model-invocation-logging.html] How much AI telemetry can be standardized entirely through OpenTelemetry adapters versus requiring vendor-specific side channels for payload capture and retention controls?</li>
+<li>[inference; source: https://learn.microsoft.com/en-us/power-platform/admin/activity-logging-auditing/activity-logs-connectors; https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/powerplatformconnectoractivity] Which non-Microsoft low-code platforms expose equivalent connector-level correlation identifiers and runtime schemas, and where will compensating instrumentation be required?</li>
 </ul>
 <hr />
 <hr />
