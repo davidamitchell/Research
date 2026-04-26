@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-04-26T10:09:37Z",
+  "extracted_at": "2026-04-26T10:54:43Z",
   "items": {
     "2026-04-26-systems-capability-debt-citizen-development-empirical-evidence": {
       "named_concepts": [
@@ -117,6 +117,55 @@
         "https://davidamitchell.github.io/Research/research/2026-04-24-business-led-low-code-agent-governance.html",
         "https://davidamitchell.github.io/Research/research/2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment.html",
         "https://davidamitchell.github.io/Research/research/2026-03-10-nature-of-the-firm-coase-organisations.html"
+      ],
+      "key_claims": []
+    },
+    "2026-04-26-policy-coherence-machine-checkable-prerequisite": {
+      "named_concepts": [
+        "policy coherence",
+        "invariant registry",
+        "machine-readable control",
+        "typed schemas",
+        "control catalog",
+        "strong derived",
+        "audit trails",
+        "policy domain",
+        "policy engines",
+        "definition-needed design",
+        "design label",
+        "catalog plus",
+        "distributed policy",
+        "policy bundles",
+        "governance pattern",
+        "standalone product",
+        "access-control policies",
+        "unreachable rules",
+        "machine-checkable coherence",
+        "testing audit"
+      ],
+      "source_urls": [
+        "https://www.openpolicyagent.org/",
+        "https://www.openpolicyagent.org/docs/policy-testing",
+        "https://www.openpolicyagent.org/docs/ocp/concepts",
+        "https://github.com/open-policy-agent/opa/blob/master/ADOPTERS.md",
+        "https://docs.aws.amazon.com/prescriptive-guidance/latest/saas-multitenant-api-access-authorization/cedar.html",
+        "https://cedar-policy.github.io/cedar-docs/",
+        "https://www.amazon.science/blog/how-we-built-cedar-with-automated-reasoning-and-differential-testing",
+        "https://arxiv.org/abs/2407.01688",
+        "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+        "https://pages.nist.gov/OSCAL/",
+        "https://handbook.apra.gov.au/standard/cps-230",
+        "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32022R2554",
+        "https://www.iso.org/standard/81230.html",
+        "https://www.bankofengland.co.uk/prudential-regulation/publication/2022/october/artificial-intelligence",
+        "https://www.bankofengland.co.uk/prudential-regulation/publication/2023/october/artificial-intelligence-and-machine-learning",
+        "https://www.bankofengland.co.uk/prudential-regulation/publication/2023/may/model-risk-management-principles-for-banks-ss",
+        "https://www.infoq.com/presentations/opa-spring-boot-hocon/",
+        "https://arxiv.org/abs/1503.02732",
+        "https://ar5iv.labs.arxiv.org/html/1503.02732",
+        "https://link.springer.com/article/10.1007/s10207-018-0421-5",
+        "https://www.bis.org/bcbs/publ/d516.htm",
+        "https://api.crossref.org/works/10.1145/3194133.3194139"
       ],
       "key_claims": []
     },
@@ -393,6 +442,53 @@
         "[inference;",
         "[inference;"
       ]
+    },
+    "2026-04-26-ai-agent-control-plane-architecture-enterprise": {
+      "named_concepts": [
+        "component specification",
+        "control plane",
+        "central policy",
+        "zero trust",
+        "service mesh",
+        "distributed enforcement",
+        "enforcement adapters",
+        "vendor administration",
+        "enforcement points",
+        "separate control",
+        "policy updates",
+        "scoped assignment",
+        "policy decision",
+        "shared governance",
+        "decision logs",
+        "drift compliance",
+        "eu ai",
+        "ai act",
+        "lifecycle governance",
+        "beyond request-time"
+      ],
+      "source_urls": [
+        "https://csrc.nist.gov/pubs/sp/800/207/final",
+        "https://www.openpolicyagent.org/docs/latest/philosophy/",
+        "https://docs.cedarpolicy.com/",
+        "https://learn.microsoft.com/en-us/azure/governance/policy/overview",
+        "https://istio.io/latest/docs/concepts/what-is-istio/",
+        "https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10",
+        "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+        "https://airc.nist.gov/AI_RMF_Knowledge_Base/Playbook",
+        "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024R1689",
+        "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-9",
+        "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-12",
+        "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-72",
+        "https://www.openpolicyagent.org/docs/latest/management-bundles/",
+        "https://www.openpolicyagent.org/docs/latest/management-decision-logs/",
+        "https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/what-is-avp.html",
+        "https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/terminology.html",
+        "https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/policy-templates.html",
+        "https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effect-basics",
+        "https://learn.microsoft.com/en-us/azure/governance/policy/how-to/get-compliance-data#evaluation-triggers",
+        "https://istio.io/latest/docs/ops/deployment/architecture/"
+      ],
+      "key_claims": []
     },
     "2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment": {
       "named_concepts": [
