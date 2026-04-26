@@ -13,6 +13,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Added
 - ADR-0011: Git-index staging in CLI file-move commands — documents `_git_add` helper, the orphan cleanup step, and two rejected alternatives (`git mv`, loop-level stash/reset).
 - Two regression tests in `tests/test_research_cli.py` (`test_cmd_start_leaves_no_unstaged_changes`, `test_cmd_complete_leaves_no_unstaged_changes`) using a real git repo fixture; both tests failed before the fix and pass after.
+- `scripts/build_site.py` `build_all_items()`: new function that generates `docs/all.html` — a complete chronological list of all completed research items, most recent first, grouped by year-month. Reuses the existing `render_card()`, card-grid, tag pill, and CSS components. An "All" nav entry is added to every page via `html_nav()`; the link is highlighted as active on `all.html`. New CSS classes `.all-group`, `.all-group-header`, `.all-group-count` style the month-section headers, consistent with the existing design system.
 
 ### Changed
 - `Research/README.md`: updated `research start` and `research complete` commit examples to note that the git index is staged automatically — `git add Research/` is no longer required.
