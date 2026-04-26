@@ -1,13 +1,13 @@
 ---
-review_count: 1
+review_count: 2
 title: "Deployment pipeline as the only enforceable control gate for citizen-developed agents: DevOps literature support, low-code platform hook points, and architectural enforceability"
 added: 2026-04-26
-status: reviewing
+status: completed
 priority: high
 blocks: [2026-04-26-agentic-ai-foundational-conditions-dependency-ordering]
 tags: [deployment-pipeline, devops, citizen-development, platform-engineering, low-code, agentic-ai, control-gate, regulated-banking, copilot-studio, power-platform]
 started: 2026-04-26
-completed: ~
+completed: 2026-04-26
 output: [knowledge]
 ---
 
