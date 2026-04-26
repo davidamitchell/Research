@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-04-26T18:33:39Z",
+  "extracted_at": "2026-04-26T18:58:48Z",
   "items": {
     "2026-04-26-systems-capability-debt-citizen-development-empirical-evidence": {
       "named_concepts": [
@@ -442,6 +442,63 @@
         "[inference;",
         "[inference;"
       ]
+    },
+    "2026-04-26-ai-lowcode-failure-modes-governance-mitigation": {
+      "named_concepts": [
+        "prompt injection",
+        "artificial intelligence",
+        "intelligence ai",
+        "systems-capability debt",
+        "enterprise failure",
+        "delivery immaturity",
+        "persistent memory",
+        "least privilege",
+        "corrective controls",
+        "failure mode",
+        "low-code estates",
+        "access-control amplification",
+        "prior completed",
+        "maker publication",
+        "environments scoped",
+        "scoped connectors",
+        "release gates",
+        "quarantine rollback",
+        "rollback rate",
+        "memory reset"
+      ],
+      "source_urls": [
+        "https://www.aiaaic.org/",
+        "https://www.aiaaic.org/projects/ai-algorithmic-automation-harms-taxonomy",
+        "https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10",
+        "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+        "https://www.nist.gov/itl/ai-risk-management-framework/nist-ai-rmf-playbook",
+        "https://airc.nist.gov/AI_RMF_Knowledge_Base/Playbook/Govern",
+        "https://airc.nist.gov/AI_RMF_Knowledge_Base/Playbook/Manage",
+        "https://atlas.mitre.org/",
+        "https://www.gartner.com/en/documents/3986753",
+        "https://www.anthropic.com/responsible-scaling-policy",
+        "https://owasp.org/www-project-top-10-for-large-language-model-applications/",
+        "https://genai.owasp.org/llmrisk/llm01-prompt-injection/",
+        "https://owasp.org/www-community/attacks/PromptInjection",
+        "https://arxiv.org/abs/2307.15043",
+        "https://arxiv.org/abs/2302.12173",
+        "https://www.microsoft.com/en-us/msrc/blog/2025/07/how-microsoft-defends-against-indirect-prompt-injection-attacks",
+        "https://unit42.paloaltonetworks.com/indirect-prompt-injection-poisons-ai-longterm-memory/",
+        "https://www.cbc.ca/news/canada/british-columbia/air-canada-chatbot-lawsuit-1.7116416",
+        "https://aisel.aisnet.org/misqe/vol23/iss3/6",
+        "https://link.springer.com/article/10.1007/s10257-022-00553-8",
+        "https://digital.gov/2021/08/16/5-tips-for-implementing-citizen-development-in-your-rpa-program/",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-data-loss-prevention",
+        "https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention",
+        "https://learn.microsoft.com/en-us/power-platform/admin/managed-environment-overview",
+        "https://learn.microsoft.com/en-us/power-platform/admin/managed-governance",
+        "https://learn.microsoft.com/en-us/power-platform/admin/default-environment-routing",
+        "https://learn.microsoft.com/en-us/power-platform/alm/pipelines",
+        "https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report",
+        "https://cloud.google.com/resources/content/2025-dora-ai-capabilities-model-report"
+      ],
+      "key_claims": []
     },
     "2026-04-26-ai-lowcode-decision-rights-accountability-liability": {
       "named_concepts": [

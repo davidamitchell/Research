@@ -1,0 +1,735 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>AI and low-code deployments, and how can governance systems be designed to… — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #0f1115;
+  --surface-2:       #161b22;
+  --border:          #252b33;
+  --text:            #e6e6e6;
+  --text-muted:      #666;
+  --accent:          #e6e6e6;
+  --accent-dim:      #333;
+  --tag-bg:          #161b22;
+  --tag-text:        #999;
+  --tag-active-bg:   #e6e6e6;
+  --tag-active-text: #0f1115;
+  --link:            #00C3A5;
+  --teal:            #00C3A5;
+  --dusk:            #E8A1A8;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  overflow-x: clip;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.75rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+.nav-links a.active { color: var(--teal); }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--teal); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+  min-width: 0;
+}
+.card:hover { border-color: var(--teal); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  word-break: break-word;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4em;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.item-title svg { flex-shrink: 0; margin-top: 0.2em; }
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+  word-break: break-all;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+  max-width: 100%;
+}
+.item-content pre code { background: none; padding: 0; word-break: normal; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--teal); text-decoration: underline; }
+.item-content a:hover { color: var(--text); text-decoration: underline; }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--dusk);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    top: 0;
+    height: auto;
+    padding: 0.5rem 1rem;
+  }
+  .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .nav-links {
+    width: 100%;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  main {
+    padding: 1.5rem 1rem 4rem;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; overflow: hidden; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); word-break: break-word; overflow-wrap: break-word; }
+.key-claims li:last-child { border-bottom: none; }
+.key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
+.key-claims a:hover { color: var(--text); }
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); flex-wrap: wrap; }
+.related-entry:last-child { border-bottom: none; }
+.related-entry a { color: var(--teal); word-break: break-word; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--dusk); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4em; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--teal); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-card-link { text-decoration: none; color: var(--text); display: block; }
+.thread-card-link:hover .thread-card { background: var(--surface-2); }
+.thread-card { background: var(--surface); border: 1px solid var(--border); padding: 1.5rem 1.75rem 1.75rem; }
+.thread-card-title { font-size: var(--text-base); font-weight: 600; margin-bottom: 0.5rem; }
+.thread-card-meta { font-size: var(--text-xs); color: var(--text-muted); margin-bottom: 0.75rem; letter-spacing: 0.05em; }
+.thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
+.thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Research</a>
+    <div class="nav-links">
+      <a href="/Research/threads.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>Threads</a>
+      <a href="/Research/tags/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>Tags</a>
+      <a href="/Research/search.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M8 1.5C4.41 1.5 1.5 4.41 1.5 8c0 2.87 1.86 5.3 4.44 6.16.32.06.44-.14.44-.31v-1.09c-1.8.39-2.18-.87-2.18-.87-.3-.75-.72-.95-.72-.95-.59-.4.04-.4.04-.4.65.05 1 .67 1 .67.58 1 1.53.71 1.9.54.06-.42.23-.71.41-.87-1.44-.16-2.95-.72-2.95-3.2 0-.71.25-1.28.67-1.74-.07-.16-.29-.82.06-1.71 0 0 .55-.18 1.8.67a6.27 6.27 0 0 1 3.28 0c1.25-.85 1.8-.67 1.8-.67.35.89.13 1.55.06 1.71.42.46.67 1.03.67 1.74 0 2.49-1.51 3.04-2.96 3.2.23.2.44.6.44 1.21v1.8c0 .17.12.37.44.31A6.5 6.5 0 0 0 14.5 8 6.5 6.5 0 0 0 8 1.5z"/></svg>GitHub</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>AI and low-code deployments, and how can governance systems be designed to…</span>
+  </div>
+  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>AI and low-code deployments, and how can governance systems be designed to…</h1>
+  <p class="full-title-subtitle">What are the primary failure modes in enterprise Artificial Intelligence (AI) and low-code deployments, and how can governance systems be designed to mitigate them?</p>
+  <div class="meta-bar">
+    <span>2026-04-26</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/failure-modes.html">failure-modes</a> <a class="tag" href="/Research/tags/ai-governance.html">ai-governance</a> <a class="tag" href="/Research/tags/low-code.html">low-code</a> <a class="tag" href="/Research/tags/enterprise-governance.html">enterprise-governance</a> <a class="tag" href="/Research/tags/operational-risk.html">operational-risk</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-ai-lowcode-failure-modes-governance-mitigation.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-04-26-ai-lowcode-failure-modes-governance-mitigation" target="_blank" rel="noopener">wiki →</a>
+  </div>
+  
+  <div class="item-content">
+    <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
+<p>What are the primary failure modes in enterprise Artificial Intelligence (AI) and low-code deployments, including data leakage, conflicting automations, unintended actions by AI agents, and loss of auditability, and how can governance systems be designed with preventative and corrective controls that address each identified failure scenario?</p>
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Findings</h2>
+<h3>Executive Summary</h3>
+<p>[inference; source: <a href="https://www.microsoft.com/en-us/msrc/blog/2025/07/how-microsoft-defends-against-indirect-prompt-injection-attacks">How Microsoft defends against indirect prompt injection attacks</a> <a href="https://aisel.aisnet.org/misqe/vol23/iss3/6">Governing Citizen Development to Address Low-Code Platform Challenges</a> <a href="https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report">2025 DevOps Research and Assessment (DORA) report overview</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-citizen-development-empirical-evidence.html]">davidamitchell.github.io</a> The primary enterprise failure modes in Artificial Intelligence (AI) and low-code deployments are boundary failures, specifically untrusted content crossing into prompts or memory, over-broad action authority, silent wrong outputs, uncontrolled maker publication, and missing end-to-end audit trails, but their frequency and severity are amplified by broader delivery immaturity and systems-capability debt. [inference; source: <a href="https://arxiv.org/abs/2302.12173">Not what you&#39;ve signed up for: Compromising Real-World LLM-Integrated Applications with Indirect Prompt Injection</a> <a href="https://unit42.paloaltonetworks.com/indirect-prompt-injection-poisons-ai-longterm-memory/">When AI Remembers Too Much: Persistent Behaviors in Agents&#39; Memory</a> <a href="https://genai.owasp.org/llmrisk/llm01-prompt-injection/]">genai.owasp.org</a> Artificial Intelligence (AI)-specific failures are concentrated in prompt injection, retrieval contamination, and persistent memory poisoning, while low-code-specific failures are concentrated in citizen-development sprawl, connector sprawl, fragile promotion, and conflicting automations. [inference; source: <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-data-loss-prevention">Copilot Studio data loss prevention</a> <a href="https://learn.microsoft.com/en-us/power-platform/admin/default-environment-routing">Environment routing</a> <a href="https://learn.microsoft.com/en-us/power-platform/alm/pipelines]">learn.microsoft.com</a> Preventative controls should therefore narrow who can build, what can connect, where work can run, and how changes can promote, using managed environments, scoped connectors, authenticated channels, least privilege, and sequential release gates. [inference; source: <a href="https://www.anthropic.com/responsible-scaling-policy">Anthropic Responsible Scaling Policy</a> <a href="https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention">Power Platform data loss prevention overview</a> <a href="https://airc.nist.gov/AI_RMF_Knowledge_Base/Playbook/Govern]">airc.nist.gov</a> Corrective controls must assume prevention will miss material cases, so runtime monitoring, immutable logs, quarantine, rollback, rate limits, memory reset, and practiced incident response are core governance components rather than optional add-ons.</p>
+<h3>Key Findings</h3>
+<ol>
+<li>[inference; source: <a href="https://arxiv.org/abs/2302.12173">Not what you&#39;ve signed up for: Compromising Real-World LLM-Integrated Applications with Indirect Prompt Injection</a> <a href="https://www.microsoft.com/en-us/msrc/blog/2025/07/how-microsoft-defends-against-indirect-prompt-injection-attacks">How Microsoft defends against indirect prompt injection attacks</a> <a href="https://genai.owasp.org/llmrisk/llm01-prompt-injection/]">genai.owasp.org</a> <strong>High confidence:</strong> Prompt injection is a primary enterprise failure mode because untrusted external content can be reinterpreted as instructions, causing data exfiltration, unauthorized tool use, and manipulated downstream decisions in real-world Large Language Model (LLM) applications.</li>
+<li>[inference; source: <a href="https://www.microsoft.com/en-us/msrc/blog/2025/07/how-microsoft-defends-against-indirect-prompt-injection-attacks">How Microsoft defends against indirect prompt injection attacks</a> <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-data-loss-prevention">Copilot Studio data loss prevention</a> <a href="https://genai.owasp.org/llmrisk/llm01-prompt-injection/]">genai.owasp.org</a> <strong>High confidence:</strong> Unintended actions become materially dangerous only when agents are granted excessive authority, so the decisive governance control is not better prompting alone but least privilege, narrowed tool surfaces, authenticated identities, and human approval for high-impact actions.</li>
+<li>[inference; source: <a href="https://unit42.paloaltonetworks.com/indirect-prompt-injection-poisons-ai-longterm-memory/">When AI Remembers Too Much: Persistent Behaviors in Agents&#39; Memory</a> <a href="https://www.anthropic.com/responsible-scaling-policy]">www.anthropic.com</a> <strong>Medium confidence:</strong> Persistent memory and asynchronous agent workflows create a distinctive Artificial Intelligence (AI) failure class in which poisoned state can survive beyond the triggering session, so governance must include memory scoping, memory reset, and post-incident state cleanup.</li>
+<li>[inference; source: <a href="https://www.cbc.ca/news/canada/british-columbia/air-canada-chatbot-lawsuit-1.7116416">Air Canada ordered to compensate customer misled by chatbot</a> <a href="https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report]">cloud.google.com</a> <strong>High confidence:</strong> Silent but plausible wrong answers are governance failures rather than mere quality issues when organizations let operational or customer decisions depend on model output without verification, because liability and instability arrive before explicit technical alarms do.</li>
+<li>[inference; source: <a href="https://aisel.aisnet.org/misqe/vol23/iss3/6">Governing Citizen Development to Address Low-Code Platform Challenges</a> <a href="https://link.springer.com/article/10.1007/s10257-022-00553-8">A framework for implementing robotic process automation projects</a> <a href="https://digital.gov/2021/08/16/5-tips-for-implementing-citizen-development-in-your-rpa-program/">Digital.gov - 5 tips for implementing citizen development in your robotic process automation program</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-citizen-development-empirical-evidence.html]">davidamitchell.github.io</a> <strong>High confidence:</strong> Low-code estates fail through shadow Information Technology (IT), technical debt, and conflicting automation when citizen developers can build and publish without centralized repositories, expert review, role clarity, and separate development, test, and production environments, and that pattern is reinforced when systems-capability debt keeps generating workaround demand.</li>
+<li>[inference; source: <a href="https://digital.gov/2021/08/16/5-tips-for-implementing-citizen-development-in-your-rpa-program/">Digital.gov - 5 tips for implementing citizen development in your robotic process automation program</a> <a href="https://learn.microsoft.com/en-us/power-platform/admin/default-environment-routing">Environment routing</a> <a href="https://learn.microsoft.com/en-us/power-platform/alm/pipelines">Pipelines in Power Platform</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html]">davidamitchell.github.io</a> <strong>High confidence:</strong> A consistently supported preventative control pattern is managed isolation plus staged promotion, specifically controlled maker environments, scoped connectors and channels, prevalidated deployments, and approval-based release gates, because those controls jointly remove the easiest unmanaged path from authoring to production.</li>
+<li>[inference; source: <a href="https://airc.nist.gov/airmf-resources/airmf/5-sec-core/">NIST AI RMF Core</a> <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance">Copilot Studio security and governance</a> <a href="https://learn.microsoft.com/en-us/power-platform/alm/pipelines">Pipelines in Power Platform</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html]">davidamitchell.github.io</a> <strong>High confidence:</strong> Loss of auditability is a primary failure mode because enterprises cannot reconstruct accountability without one evidence chain spanning prompts, knowledge sources, identities, approvals, runtime activity, and deployment artifacts.</li>
+<li>[inference; source: <a href="https://www.microsoft.com/en-us/msrc/blog/2025/07/how-microsoft-defends-against-indirect-prompt-injection-attacks">How Microsoft defends against indirect prompt injection attacks</a> <a href="https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention">Power Platform data loss prevention overview</a> <a href="https://www.anthropic.com/responsible-scaling-policy">Anthropic Responsible Scaling Policy</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-26-implicit-rate-limiting-controls-agentic-ai-removal.html">davidamitchell.github.io</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-26-access-control-amplification-agentic-operations.html]">davidamitchell.github.io</a> <strong>Medium confidence:</strong> Detection gaps remain material because prompt injection is not deterministically solvable today, access failures can compound downstream effects, and low-code policy enforcement can lag across a large tenant, so circuit breakers, quarantine, rollback, rate limiting, and rehearsed incident response are indispensable corrective controls.</li>
+<li>[inference; source: <a href="https://airc.nist.gov/airmf-resources/airmf/5-sec-core/">NIST AI RMF Core</a> <a href="https://aisel.aisnet.org/misqe/vol23/iss3/6">Governing Citizen Development to Address Low-Code Platform Challenges</a> <a href="https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report">2025 DevOps Research and Assessment (DORA) report overview</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-citizen-development-empirical-evidence.html">davidamitchell.github.io</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-26-access-control-amplification-agentic-operations.html">davidamitchell.github.io</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html">davidamitchell.github.io</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-26-permission-safe-rag-enterprise-information-architecture.html">davidamitchell.github.io</a> <a href="https://unit42.paloaltonetworks.com/indirect-prompt-injection-poisons-ai-longterm-memory/]">unit42.paloaltonetworks.com</a> <strong>High confidence:</strong> The shared governance pattern across Artificial Intelligence (AI) and low-code systems is that failures concentrate at control-boundary crossings, while recurring severity is amplified by delivery immaturity, systems-capability debt, identity-model failure, access-control amplification, and information-architecture incoherence; the main Artificial Intelligence (AI)-specific additions are instruction ambiguity and persistent state and the main low-code-specific additions are maker sprawl and release fragility.</li>
+</ol>
+<h3>Assumptions</h3>
+<ul>
+<li>[assumption; source: <a href="https://digital.gov/2021/08/16/5-tips-for-implementing-citizen-development-in-your-rpa-program/">Digital.gov - 5 tips for implementing citizen development in your robotic process automation program</a> <a href="https://link.springer.com/article/10.1007/s10257-022-00553-8]">link.springer.com</a> <strong>Assumption:</strong> Robotic process automation governance lessons transfer materially to low-code application and agent programs. <strong>Justification:</strong> both shift automation authoring toward non-specialists while relying on central platform controls for safe release and support.</li>
+<li>[assumption; source: <a href="https://www.microsoft.com/en-us/msrc/blog/2025/07/how-microsoft-defends-against-indirect-prompt-injection-attacks">How Microsoft defends against indirect prompt injection attacks</a> <a href="https://genai.owasp.org/llmrisk/llm01-prompt-injection/]">genai.owasp.org</a> <strong>Assumption:</strong> Publicly documented prompt injection patterns on general LLM applications are representative of the same risk class in enterprise internal assistants. <strong>Justification:</strong> the cited sources describe the vulnerability as architectural and content-path dependent, not consumer-product specific.</li>
+</ul>
+<h3>Analysis</h3>
+<p>[inference; source: <a href="https://arxiv.org/abs/2302.12173">Not what you&#39;ve signed up for: Compromising Real-World LLM-Integrated Applications with Indirect Prompt Injection</a> <a href="https://arxiv.org/abs/2307.15043">Universal and Transferable Adversarial Attacks on Aligned Language Models</a> <a href="https://www.microsoft.com/en-us/msrc/blog/2025/07/how-microsoft-defends-against-indirect-prompt-injection-attacks]">www.microsoft.com</a> The most convincing evidence for Artificial Intelligence (AI)-specific failure is the combination of academic attack papers and Microsoft's production guidance, because together they show both feasibility and practical impact. [inference; source: <a href="https://aisel.aisnet.org/misqe/vol23/iss3/6">Governing Citizen Development to Address Low-Code Platform Challenges</a> <a href="https://link.springer.com/article/10.1007/s10257-022-00553-8">A framework for implementing robotic process automation projects</a> <a href="https://digital.gov/2021/08/16/5-tips-for-implementing-citizen-development-in-your-rpa-program/]">digital.gov</a> The low-code evidence is less about spectacular exploits and more about repeated organizational failure, which is exactly what governance needs; across academic, public-sector, and enterprise platform guidance, the same preventive pattern repeats: isolate build spaces, centralize repositories, enforce review, and separate promotion from authoring. [inference; source: <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-data-loss-prevention">Copilot Studio data loss prevention</a> <a href="https://learn.microsoft.com/en-us/power-platform/admin/default-environment-routing">Environment routing</a> <a href="https://learn.microsoft.com/en-us/power-platform/alm/pipelines]">learn.microsoft.com</a> That consistency matters because it means governance is not merely aspirational: the platform surfaces already exist to narrow knowledge sources, channels, triggers, maker environments, and release paths, so the remaining problem is disciplined design and operating-model enforcement. [inference; source: <a href="https://www.cbc.ca/news/canada/british-columbia/air-canada-chatbot-lawsuit-1.7116416">Air Canada ordered to compensate customer misled by chatbot</a> <a href="https://airc.nist.gov/AI_RMF_Knowledge_Base/Playbook/Govern">NIST AI RMF Playbook - Govern</a> <a href="https://www.anthropic.com/responsible-scaling-policy]">www.anthropic.com</a> The evidence also weighs against a purely preventative mindset, because silent failure, incomplete prompt-injection prevention, and post-hoc safeguard layers all point to the same conclusion: enterprises need reversible workflows, emergency stop paths, incident playbooks, and state cleanup because some failures will only be visible after an output or action has already occurred.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>[inference; source: <a href="https://unit42.paloaltonetworks.com/indirect-prompt-injection-poisons-ai-longterm-memory/]">unit42.paloaltonetworks.com</a> Public evidence for memory-poisoning incidents is still thinner than public evidence for prompt injection generally, so the memory-governance recommendations are based on a high-quality proof of concept plus architectural reasoning rather than on a large public incident corpus.</li>
+<li>[inference; source: <a href="https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention]">learn.microsoft.com</a> Vendor documentation confirms enforcement latency and runtime quarantine behavior, but it does not quantify how often material harm occurs before enforcement completes, so the size of this exposure window is still uncertain.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>[inference; source: <a href="https://unit42.paloaltonetworks.com/indirect-prompt-injection-poisons-ai-longterm-memory/">When AI Remembers Too Much: Persistent Behaviors in Agents&#39; Memory</a> <a href="https://www.anthropic.com/responsible-scaling-policy]">www.anthropic.com</a> Which public platform patterns are most effective for memory sanitization and trusted-state reconstruction after agent compromise?</li>
+<li>[inference; source: <a href="https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention">Power Platform data loss prevention overview</a> <a href="https://learn.microsoft.com/en-us/power-platform/alm/pipelines]">learn.microsoft.com</a> How should enterprises quantify acceptable enforcement lag and rollback time across large low-code estates with mixed maker maturity?</li>
+<li>[inference; source: <a href="https://airc.nist.gov/airmf-resources/airmf/5-sec-core/">NIST AI RMF Core</a> <a href="https://www.microsoft.com/en-us/msrc/blog/2025/07/how-microsoft-defends-against-indirect-prompt-injection-attacks]">www.microsoft.com</a> What minimum monitoring and approval set is sufficient for medium-risk write-capable agents before the control burden outweighs the productivity gain?</li>
+</ul>
+<hr />
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
+<ul>
+<li>[x] <a href="https://www.aiaaic.org/">AI, Algorithmic, and Automation Incidents and Controversies (AIAAIC) Repository</a> - accessible landing page for a public incident repository; used only as evidence that public incident collections exist because granular entries were not required for downstream claims.</li>
+<li>[x] <a href="https://www.aiaaic.org/projects/ai-algorithmic-automation-harms-taxonomy">AIAAIC harms taxonomy project</a> - public description of AIAAIC's evidence-based harms taxonomy work.</li>
+<li>[x] <a href="https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10">National Institute of Standards and Technology (NIST) Artificial Intelligence Risk Management Framework (AI RMF) 1.0 publication page</a> - canonical framework publication page.</li>
+<li>[x] <a href="https://airc.nist.gov/airmf-resources/airmf/5-sec-core/">NIST AI RMF Core</a> - authoritative govern and map outcomes used for control mapping.</li>
+<li>[x] <a href="https://www.nist.gov/itl/ai-risk-management-framework/nist-ai-rmf-playbook">NIST AI RMF Playbook landing page</a> - current official landing page for the playbook.</li>
+<li>[x] <a href="https://airc.nist.gov/AI_RMF_Knowledge_Base/Playbook/Govern">NIST AI RMF Playbook - Govern</a> - suggested actions for policies, monitoring, incident response, and change management.</li>
+<li>[x] <a href="https://airc.nist.gov/AI_RMF_Knowledge_Base/Playbook/Manage">NIST AI RMF Playbook - Manage</a> - public references for incident databases, resilience resources, and contingency thinking.</li>
+<li>[x] <a href="https://atlas.mitre.org/">MITRE Adversarial Threat Landscape for Artificial-Intelligence Systems (ATLAS) home page</a> - checked, but the site rendered only a JavaScript shell in this runtime and was not used for downstream factual claims.</li>
+<li>[x] <a href="https://www.gartner.com/en/documents/3986753">Gartner enterprise AI risk document</a> - checked, but remained analyst-access gated in this runtime and was not used for downstream factual claims.</li>
+<li>[x] <a href="https://www.anthropic.com/responsible-scaling-policy">Anthropic Responsible Scaling Policy</a> - frontier developer view of layered safeguards, asynchronous monitoring, and rapid jailbreak response.</li>
+<li>[x] <a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/">Open Worldwide Application Security Project (OWASP) Top 10 for Large Language Model (LLM) Applications project</a> - checked as the project landing page.</li>
+<li>[x] <a href="https://genai.owasp.org/llmrisk/llm01-prompt-injection/">Open Worldwide Application Security Project (OWASP) LLM01 Prompt Injection</a> - current detailed prompt injection taxonomy and mitigation guidance.</li>
+<li>[x] <a href="https://owasp.org/www-community/attacks/PromptInjection">Open Worldwide Application Security Project (OWASP) Prompt Injection overview</a> - prompt injection overview with incident examples and mitigations.</li>
+<li>[x] <a href="https://arxiv.org/abs/2307.15043">Universal and Transferable Adversarial Attacks on Aligned Language Models</a> - evidence that jailbreak-style attacks can transfer across models.</li>
+<li>[x] <a href="https://arxiv.org/abs/2302.12173">Not what you've signed up for: Compromising Real-World LLM-Integrated Applications with Indirect Prompt Injection</a> - core indirect prompt injection paper demonstrating real-world system exploitation.</li>
+<li>[x] <a href="https://www.microsoft.com/en-us/msrc/blog/2025/07/how-microsoft-defends-against-indirect-prompt-injection-attacks">How Microsoft defends against indirect prompt injection attacks</a> - vendor documentation of observed impacts and mitigations.</li>
+<li>[x] <a href="https://unit42.paloaltonetworks.com/indirect-prompt-injection-poisons-ai-longterm-memory/">When AI Remembers Too Much: Persistent Behaviors in Agents' Memory</a> - proof of concept showing prompt injection poisoning of long-term agent memory.</li>
+<li>[x] <a href="https://www.cbc.ca/news/canada/british-columbia/air-canada-chatbot-lawsuit-1.7116416">Air Canada ordered to compensate customer misled by chatbot</a> - authoritative coverage of a production silent-failure liability case.</li>
+<li>[x] <a href="https://aisel.aisnet.org/misqe/vol23/iss3/6">Governing Citizen Development to Address Low-Code Platform Challenges</a> - interview-based academic evidence on low-code governance debt, shadow Information Technology (IT), and technical debt.</li>
+<li>[x] <a href="https://link.springer.com/article/10.1007/s10257-022-00553-8">A framework for implementing robotic process automation projects</a> - peer-reviewed evidence on robotic process automation implementation failure and socio-technical governance needs.</li>
+<li>[x] <a href="https://digital.gov/2021/08/16/5-tips-for-implementing-citizen-development-in-your-rpa-program/">Digital.gov - 5 tips for implementing citizen development in your robotic process automation program</a> - public-sector guidance on governance, role-based access control, and environment separation for citizen development.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance">Copilot Studio security and governance</a> - Microsoft control surface overview for agent governance.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-data-loss-prevention">Copilot Studio data loss prevention</a> - granular low-code agent restrictions for authentication, knowledge, tools, channels, triggers, and Hypertext Transfer Protocol (HTTP) requests.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention">Power Platform data loss prevention overview</a> - design-time and runtime enforcement behavior, including suspension, quarantine, disabled connections, and enforcement latency.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/power-platform/admin/managed-environment-overview">Managed Environments overview</a> - baseline managed-environment control capability.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/power-platform/admin/managed-governance">Managed governance in Power Platform</a> - environment groups, delegated admin, inventory, actions, and recommendations.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/power-platform/admin/default-environment-routing">Environment routing</a> - maker isolation into managed developer environments with preconfigured governance settings.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/power-platform/alm/pipelines">Pipelines in Power Platform</a> - sequential promotion, approval, prevalidation, audit, and rollback controls.</li>
+<li>[x] <a href="https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report">2025 DevOps Research and Assessment (DORA) report overview</a> - evidence that AI amplifies existing workflow and control weaknesses.</li>
+<li>[x] <a href="https://cloud.google.com/resources/content/2025-dora-ai-capabilities-model-report">DevOps Research and Assessment (DORA) AI Capabilities Model report landing page</a> - evidence that platforms and platform teams are core scaling mechanisms.</li>
+</ul>
+
+
+  </div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-04-26-ai-lowcode-decision-rights-accountability-liability.html">How should decision rights, accountability, and liability be structured for Artificial Intelligence (AI) systems and low-code applications in enterprise environments?</a> <span class="related-note">via enterprise-governance, low-code, operational-risk</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html">What control-plane architecture is required to manage Artificial Intelligence (AI) agents and low-code systems as distributed, semi-autonomous actors within enterprise environments?</a> <span class="related-note">via ai-governance, low-code</span></div>
+<div class="related-entry"><a href="/Research/research/2026-02-28-ai-strategy-risk-reduction-focus.html">AI Strategy Examples: Risk Reduction Focus</a> <span class="related-note">via ai-governance, operational-risk</span></div>
+</div></div>
+
+  <div class="item-nav">
+    
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-04-26-ai-lowcode-decision-rights-accountability-liability.html">How should decision rights, accountability, and liability be structured for AI…</a></div>
+  </div>
+</main>
+</body>
+</html>

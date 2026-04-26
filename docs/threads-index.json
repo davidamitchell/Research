@@ -1185,6 +1185,61 @@
     "url": "/Research/threads/agentic-systems-failure-modes-taxonomy.html"
   },
   {
+    "slug": "ai-strategy-financial-services-ai-governance",
+    "title": "ai-strategy / financial-services / ai-governance",
+    "kind": "implicit",
+    "tag_cluster": [
+      "ai-strategy",
+      "financial-services",
+      "ai-governance"
+    ],
+    "concept_cluster": [],
+    "item_count": 8,
+    "items": [
+      {
+        "slug": "2026-02-28-ai-control-testing-and-assurance",
+        "title": "AI for Control Testing, Gap Identification, and Policies/Standards Reviews",
+        "added": "2026-03-03"
+      },
+      {
+        "slug": "2026-02-28-ai-line-1-line-2-risk-agents",
+        "title": "AI Line 1 and Line 2 Risk Agents: Who Is Building Them?",
+        "added": "2026-03-03"
+      },
+      {
+        "slug": "2026-02-28-ai-strategy-business-efficiency-examples",
+        "title": "AI Strategy Examples: Business Efficiency Focus",
+        "added": "2026-03-03"
+      },
+      {
+        "slug": "2026-02-28-ai-strategy-risk-reduction-focus",
+        "title": "AI Strategy Examples: Risk Reduction Focus",
+        "added": "2026-03-03"
+      },
+      {
+        "slug": "2026-02-28-ai-strategy-security-focus",
+        "title": "AI Strategy Examples: Security Focus",
+        "added": "2026-03-05"
+      },
+      {
+        "slug": "2026-02-28-rbnz-ai-supervisory-expectations",
+        "title": "RBNZ AI Supervisory Expectations: What Do Regulated Entities Need to Know?",
+        "added": "2026-03-07"
+      },
+      {
+        "slug": "2026-04-22-knowledge-curation-governance-for-regulated-ai",
+        "title": "Knowledge curation governance as an enterprise AI capability in regulated financial institutions",
+        "added": "2026-04-22"
+      },
+      {
+        "slug": "2026-04-26-ai-lowcode-failure-modes-governance-mitigation",
+        "title": "What are the primary failure modes in enterprise Artificial Intelligence (AI) and low-code deployments, and how can governance systems be designed to mitigate them?",
+        "added": "2026-04-26"
+      }
+    ],
+    "url": "/Research/threads/ai-strategy-financial-services-ai-governance.html"
+  },
+  {
     "slug": "strategy-behavioral-economics-rory-sutherland",
     "title": "strategy / behavioral-economics / rory-sutherland",
     "kind": "implicit",
@@ -1585,56 +1640,6 @@
     "url": "/Research/threads/consciousness-predictive-processing-anil-seth.html"
   },
   {
-    "slug": "ai-strategy-financial-services-risk-management",
-    "title": "ai-strategy / financial-services / risk-management",
-    "kind": "implicit",
-    "tag_cluster": [
-      "ai-strategy",
-      "financial-services",
-      "risk-management"
-    ],
-    "concept_cluster": [],
-    "item_count": 7,
-    "items": [
-      {
-        "slug": "2026-02-28-ai-control-testing-and-assurance",
-        "title": "AI for Control Testing, Gap Identification, and Policies/Standards Reviews",
-        "added": "2026-03-03"
-      },
-      {
-        "slug": "2026-02-28-ai-line-1-line-2-risk-agents",
-        "title": "AI Line 1 and Line 2 Risk Agents: Who Is Building Them?",
-        "added": "2026-03-03"
-      },
-      {
-        "slug": "2026-02-28-ai-strategy-business-efficiency-examples",
-        "title": "AI Strategy Examples: Business Efficiency Focus",
-        "added": "2026-03-03"
-      },
-      {
-        "slug": "2026-02-28-ai-strategy-risk-reduction-focus",
-        "title": "AI Strategy Examples: Risk Reduction Focus",
-        "added": "2026-03-03"
-      },
-      {
-        "slug": "2026-02-28-ai-strategy-security-focus",
-        "title": "AI Strategy Examples: Security Focus",
-        "added": "2026-03-05"
-      },
-      {
-        "slug": "2026-02-28-rbnz-ai-supervisory-expectations",
-        "title": "RBNZ AI Supervisory Expectations: What Do Regulated Entities Need to Know?",
-        "added": "2026-03-07"
-      },
-      {
-        "slug": "2026-04-22-knowledge-curation-governance-for-regulated-ai",
-        "title": "Knowledge curation governance as an enterprise AI capability in regulated financial institutions",
-        "added": "2026-04-22"
-      }
-    ],
-    "url": "/Research/threads/ai-strategy-financial-services-risk-management.html"
-  },
-  {
     "slug": "policy-as-code-compliance-nist",
     "title": "policy-as-code / compliance / nist",
     "kind": "implicit",
@@ -1975,14 +1980,14 @@
     "url": "/Research/threads/servicenow-csdm-itsm.html"
   },
   {
-    "slug": "cost-allocation-tbm-council-financial-services",
-    "title": "cost allocation / tbm council / financial services",
+    "slug": "cost-allocation-financial-services-tbm-council",
+    "title": "cost allocation / financial services / tbm council",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "cost allocation",
-      "tbm council",
-      "financial services"
+      "financial services",
+      "tbm council"
     ],
     "item_count": 5,
     "items": [
@@ -2012,17 +2017,17 @@
         "added": "2026-03-09"
       }
     ],
-    "url": "/Research/threads/cost-allocation-tbm-council-financial-services.html"
+    "url": "/Research/threads/cost-allocation-financial-services-tbm-council.html"
   },
   {
-    "slug": "coding-agent-copilot-coding-github-copilot",
-    "title": "coding agent / copilot coding / github copilot",
+    "slug": "copilot-coding-coding-agent-agents-md",
+    "title": "copilot coding / coding agent / agents md",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "coding agent",
       "copilot coding",
-      "github copilot"
+      "coding agent",
+      "agents md"
     ],
     "item_count": 5,
     "items": [
@@ -2052,7 +2057,77 @@
         "added": "2026-03-29"
       }
     ],
-    "url": "/Research/threads/coding-agent-copilot-coding-github-copilot.html"
+    "url": "/Research/threads/copilot-coding-coding-agent-agents-md.html"
+  },
+  {
+    "slug": "ai-governance-low-code-operational-risk",
+    "title": "ai-governance / low-code / operational-risk",
+    "kind": "implicit",
+    "tag_cluster": [
+      "ai-governance",
+      "low-code",
+      "operational-risk"
+    ],
+    "concept_cluster": [],
+    "item_count": 4,
+    "items": [
+      {
+        "slug": "2026-02-28-ai-strategy-risk-reduction-focus",
+        "title": "AI Strategy Examples: Risk Reduction Focus",
+        "added": "2026-03-03"
+      },
+      {
+        "slug": "2026-04-26-ai-lowcode-failure-modes-governance-mitigation",
+        "title": "What are the primary failure modes in enterprise Artificial Intelligence (AI) and low-code deployments, and how can governance systems be designed to mitigate them?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-ai-lowcode-decision-rights-accountability-liability",
+        "title": "How should decision rights, accountability, and liability be structured for Artificial Intelligence (AI) systems and low-code applications in enterprise environments?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-ai-agent-control-plane-architecture-enterprise",
+        "title": "What control-plane architecture is required to manage Artificial Intelligence (AI) agents and low-code systems as distributed, semi-autonomous actors within enterprise environments?",
+        "added": "2026-04-26"
+      }
+    ],
+    "url": "/Research/threads/ai-governance-low-code-operational-risk.html"
+  },
+  {
+    "slug": "low-code-ai-governance-control-plane",
+    "title": "low-code / ai-governance / control-plane",
+    "kind": "implicit",
+    "tag_cluster": [
+      "low-code",
+      "ai-governance",
+      "control-plane"
+    ],
+    "concept_cluster": [],
+    "item_count": 4,
+    "items": [
+      {
+        "slug": "2026-04-26-multi-ai-provider-control-planes",
+        "title": "Multi-provider AI control planes: capabilities, vendors, and coverage gaps",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-ai-agent-control-plane-architecture-enterprise",
+        "title": "What control-plane architecture is required to manage Artificial Intelligence (AI) agents and low-code systems as distributed, semi-autonomous actors within enterprise environments?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-ai-lowcode-failure-modes-governance-mitigation",
+        "title": "What are the primary failure modes in enterprise Artificial Intelligence (AI) and low-code deployments, and how can governance systems be designed to mitigate them?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-ai-agent-identity-access-management-enterprise",
+        "title": "What identity and access management model is required for Artificial Intelligence (AI) agents and low-code artefacts operating within enterprise systems?",
+        "added": "2026-04-26"
+      }
+    ],
+    "url": "/Research/threads/low-code-ai-governance-control-plane.html"
   },
   {
     "slug": "evaluation-agents-research-loop",
@@ -2125,13 +2200,13 @@
     "url": "/Research/threads/youtube-transcripts-tooling.html"
   },
   {
-    "slug": "ai-rmf-nist-ai-apra-cps",
-    "title": "ai rmf / nist ai / apra cps",
+    "slug": "nist-ai-ai-rmf-apra-cps",
+    "title": "nist ai / ai rmf / apra cps",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "ai rmf",
       "nist ai",
+      "ai rmf",
       "apra cps"
     ],
     "item_count": 4,
@@ -2157,16 +2232,16 @@
         "added": "2026-04-26"
       }
     ],
-    "url": "/Research/threads/ai-rmf-nist-ai-apra-cps.html"
+    "url": "/Research/threads/nist-ai-ai-rmf-apra-cps.html"
   },
   {
-    "slug": "github-copilot-agents-md-claude-code",
-    "title": "github copilot / agents md / claude code",
+    "slug": "agents-md-github-copilot-claude-code",
+    "title": "agents md / github copilot / claude code",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "github copilot",
       "agents md",
+      "github copilot",
       "claude code"
     ],
     "item_count": 4,
@@ -2192,37 +2267,7 @@
         "added": "2026-04-20"
       }
     ],
-    "url": "/Research/threads/github-copilot-agents-md-claude-code.html"
-  },
-  {
-    "slug": "control-plane-ai-agents-low-code",
-    "title": "control-plane / ai-agents / low-code",
-    "kind": "implicit",
-    "tag_cluster": [
-      "control-plane",
-      "ai-agents",
-      "low-code"
-    ],
-    "concept_cluster": [],
-    "item_count": 3,
-    "items": [
-      {
-        "slug": "2026-04-26-multi-ai-provider-control-planes",
-        "title": "Multi-provider AI control planes: capabilities, vendors, and coverage gaps",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-ai-agent-control-plane-architecture-enterprise",
-        "title": "What control-plane architecture is required to manage Artificial Intelligence (AI) agents and low-code systems as distributed, semi-autonomous actors within enterprise environments?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-ai-agent-identity-access-management-enterprise",
-        "title": "What identity and access management model is required for Artificial Intelligence (AI) agents and low-code artefacts operating within enterprise systems?",
-        "added": "2026-04-26"
-      }
-    ],
-    "url": "/Research/threads/control-plane-ai-agents-low-code.html"
+    "url": "/Research/threads/agents-md-github-copilot-claude-code.html"
   },
   {
     "slug": "banking-architecture-financial-services",
