@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-04-26T18:16:02Z",
+  "extracted_at": "2026-04-26T18:33:39Z",
   "items": {
     "2026-04-26-systems-capability-debt-citizen-development-empirical-evidence": {
       "named_concepts": [
@@ -442,6 +442,52 @@
         "[inference;",
         "[inference;"
       ]
+    },
+    "2026-04-26-ai-lowcode-decision-rights-accountability-liability": {
+      "named_concepts": [
+        "liability directive",
+        "ai liability",
+        "directive proposal",
+        "ai act",
+        "product liability",
+        "lifecycle decision",
+        "explicit stop",
+        "independent challenge",
+        "ai governance",
+        "enterprise ai",
+        "system owner",
+        "named business",
+        "owner accountable",
+        "controlled change",
+        "legal liability",
+        "internal raci",
+        "raci charts",
+        "existing remedies",
+        "current product",
+        "ai systems"
+      ],
+      "source_urls": [
+        "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024R1689",
+        "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-9",
+        "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-12",
+        "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14",
+        "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26",
+        "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-72",
+        "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A52022PC0496",
+        "https://commission.europa.eu/document/download/7617998c-86e6-4a74-b33c-249e8a7938cd_en?filename=COM_2025_45_1_annexes_EN.pdf",
+        "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024L2853",
+        "https://handbook.apra.gov.au/standard/cps-230",
+        "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32022R2554",
+        "https://www.federalreserve.gov/supervisionreg/srletters/SR2602.htm",
+        "https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10",
+        "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+        "https://www.isaca.org/resources/cobit",
+        "https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-use-case-routing-frameworks.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-24-business-led-low-code-agent-governance.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-platform-operating-models.html"
+      ],
+      "key_claims": []
     },
     "2026-04-26-ai-agent-identity-access-management-enterprise": {
       "named_concepts": [
