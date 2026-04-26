@@ -226,6 +226,10 @@ easily-detectable issues.
     repetition". On first use, either replace the shorthand with plain
     language or bind it to an authoritative definition source. Do not assume a
     reviewer will treat domain jargon as self-explanatory.
+    If you intentionally keep a coined or internal design label because no
+    authoritative definition exists, mark the first occurrence explicitly as
+    `Definition needed:` and explain the nearest evidence-backed functional
+    equivalent rather than presenting the label as settled terminology.
 
 2. **Claim labels** -- every factual or inferential claim in
     `## Research Skill Output` must carry a `[fact]`, `[inference]`, or
