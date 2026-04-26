@@ -1,6 +1,6 @@
 # Research Master Document
 
-Generated on: 2026-04-26 18:15 UTC
+Generated on: 2026-04-26 18:33 UTC
 
 ## Table of Contents
 
@@ -12,6 +12,7 @@ Generated on: 2026-04-26 18:15 UTC
 * [What is Microsoft 365 Copilot Cowork and what are its enterprise governance risks?](#2026-04-26-ms-copilot-cowork-md)
 * [Implicit rate-limiting controls removed by agentic Artificial Intelligence (AI): blast radius amplification and the operational risk literature gap](#2026-04-26-implicit-rate-limiting-controls-agentic-ai-removal-md)
 * [Deployment pipeline as the only enforceable control gate for citizen-developed agents: DevOps literature support, low-code platform hook points, and architectural enforceability](#2026-04-26-deployment-pipeline-citizen-development-governed-gate-md)
+* [How should decision rights, accountability, and liability be structured for Artificial Intelligence (AI) systems and low-code applications in enterprise environments?](#2026-04-26-ai-lowcode-decision-rights-accountability-liability-md)
 * [What identity and access management model is required for Artificial Intelligence (AI) agents and low-code artefacts operating within enterprise systems?](#2026-04-26-ai-agent-identity-access-management-enterprise-md)
 * [What control-plane architecture is required to manage Artificial Intelligence (AI) agents and low-code systems as distributed, semi-autonomous actors within enterprise environments?](#2026-04-26-ai-agent-control-plane-architecture-enterprise-md)
 * [Regulatory and standards preconditions for deployment of Artificial Intelligence (AI) systems that can take multi-step actions: does incomplete access control and data governance constitute a control failure?](#2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment-md)
@@ -774,6 +775,72 @@ In an environment where citizen development tooling is already licensed and acce
 - [inference; source: https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-sharing-controls-limits; https://learn.microsoft.com/en-us/power-platform/alm/block-unmanaged-customizations] What is the least-privilege production role model for Copilot Studio that still allows monitoring and support but never allows direct publication?
 - [inference; source: https://docs.github.com/en/actions/reference/workflows-and-actions/deployments-and-environments; https://learn.microsoft.com/en-us/azure/devops/pipelines/process/approvals?view=azure-devops] Which external gate host is operationally better for a regulated Microsoft low-code estate, GitHub Actions or Azure DevOps, once evidence capture, exceptions, and change-management integration are compared directly?
 - [inference; source: https://learn.microsoft.com/en-us/power-platform/guidance/coe/starter-kit; https://learn.microsoft.com/en-us/power-platform/alm/extend-pipelines] What is the minimum metadata schema and system-of-record design required to operationalize owner registration, observability attestations, and blast-radius scoring at the release gate?
+
+---
+
+---
+
+<a id="2026-04-26-ai-lowcode-decision-rights-accountability-liability-md"></a>
+
+## How should decision rights, accountability, and liability be structured for Artificial Intelligence (AI) systems and low-code applications in enterprise environments?
+
+**Tags:** [decision-rights, accountability, liability, raci, governance, ai-systems, low-code, enterprise-governance, operational-risk, escalation]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-ai-lowcode-decision-rights-accountability-liability.md
+
+## Research Question
+
+How should decision rights, accountability, and liability be structured for AI systems and low-code applications in enterprise environments, specifically, who should be empowered to approve new use cases, who owns system behaviour in production, how should formal Responsible-Accountable-Consulted-Informed (RACI) structures and escalation paths be defined, what separation of duties is required, and how should legal and operational liability boundaries be delineated across business, technology, and risk functions?
+
+## Findings
+
+### Executive Summary
+
+[inference; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26; https://handbook.apra.gov.au/standard/cps-230; https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32022R2554] Decision rights for enterprise AI and low-code systems should be tiered by risk and boundary crossing, and production accountability should be split by lifecycle decision rather than assigned to one blanket "system owner." [inference; source: https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-72; https://handbook.apra.gov.au/standard/cps-230] The minimum workable production model is a named business service owner accountable for justified use and human decisions taken on outputs, a named technology system owner accountable for runtime reliability and controlled change, and an independent risk or assurance function that can challenge, block, or escalate. [fact; source: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024L2853; https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024R1689; https://commission.europa.eu/document/download/7617998c-86e6-4a74-b33c-249e8a7938cd_en?filename=COM_2025_45_1_annexes_EN.pdf] Current legal liability is not determined by internal RACI charts alone, because the AI Liability Directive proposal was not adopted, the AI Act leaves existing remedies in place, and the current Product Liability Directive treats software and AI systems as products whose developers or providers can be manufacturers. [inference; source: https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26; https://handbook.apra.gov.au/standard/cps-230; https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32022R2554] The best governance artefact is therefore a package of three linked matrices, approval, lifecycle accountability, and escalation, with explicit stop authority, incident triggers, and senior review thresholds.
+
+### Key Findings
+
+1. [inference; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-use-case-routing-frameworks.html; https://davidamitchell.github.io/Research/research/2026-04-24-business-led-low-code-agent-governance.html; https://handbook.apra.gov.au/standard/cps-230; https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32022R2554] **High confidence:** Approval rights should be tiered so that bounded low-risk use cases can move under preapproved patterns with named business approval, medium-risk or cross-functional use cases need delegated domain approval with technology and risk concurrence, and high-risk or regulated use cases require enterprise committee or executive sign-off.
+2. [inference; source: https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-72; https://handbook.apra.gov.au/standard/cps-230; https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32022R2554] **High confidence:** No single actor can honestly own enterprise AI behaviour end to end, because business use decisions, runtime operation, and provider compliance are different obligations, so the accountable owner must be defined separately for each lifecycle decision.
+3. [inference; source: https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26; https://handbook.apra.gov.au/standard/cps-230; https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32022R2554] **High confidence:** Production ownership means continuous monitoring, incident escalation, log retention, controlled change, remediation tracking, and decommissioning authority, not merely sponsoring the use case at launch.
+4. [inference; source: https://handbook.apra.gov.au/standard/cps-230; https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32022R2554; https://www.federalreserve.gov/supervisionreg/srletters/SR2602.htm] **High confidence:** Effective separation of duties requires that the team building or configuring a system cannot also be the final independent approver or assurance reviewer, because prudential, resilience, and model-risk precedents all require independent challenge.
+5. [inference; source: https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26; https://handbook.apra.gov.au/standard/cps-230; https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32022R2554] **High confidence:** Escalation paths should be trigger-based and include explicit stop or override authority for anomalies, harmful outputs, control failures, serious incidents, material changes, and provider or regulator notifications.
+6. [fact; source: https://commission.europa.eu/document/download/7617998c-86e6-4a74-b33c-249e8a7938cd_en?filename=COM_2025_45_1_annexes_EN.pdf; https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024L2853; https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024R1689] **High confidence:** Internal accountability maps do not displace external legal liability, because the AI Liability Directive proposal was not adopted, the AI Act preserves existing remedies, and the current Product Liability Directive applies no-fault defective-product liability to software and AI systems.
+7. [fact; source: https://handbook.apra.gov.au/standard/cps-230; https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32022R2554] **High confidence:** In regulated entities, boards or management bodies remain ultimately accountable for the control framework itself even when day-to-day approvals and operations are delegated to business, technology, and risk teams.
+8. [inference; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html; https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-platform-operating-models.html] **Medium confidence:** Standard RACI remains useful only if it is converted into a lifecycle matrix with named natural persons and explicit handoffs, because a static one-row "A" column hides the multi-surface reality of AI governance.
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [inference] Tiered approval rights are required. | https://airc.nist.gov/airmf-resources/airmf/5-sec-core/<br>https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-use-case-routing-frameworks.html<br>https://davidamitchell.github.io/Research/research/2026-04-24-business-led-low-code-agent-governance.html<br>https://handbook.apra.gov.au/standard/cps-230<br>https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32022R2554 | high | Risk tolerance, bounded intake, and senior approval duties converge on three approval tiers. |
+| [inference] Accountability must be split by lifecycle decision. | https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26<br>https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-72<br>https://handbook.apra.gov.au/standard/cps-230<br>https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32022R2554 | high | Deployer, provider, business, and technology duties are distinct. |
+| [inference] Production ownership means continuous operational duty. | https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26<br>https://handbook.apra.gov.au/standard/cps-230<br>https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32022R2554 | high | Monitoring, logs, incidents, changes, and remediation define ownership. |
+| [inference] Separation of duties requires independent challenge. | https://handbook.apra.gov.au/standard/cps-230<br>https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32022R2554<br>https://www.federalreserve.gov/supervisionreg/srletters/SR2602.htm | high | Builders should not self-approve high-impact systems. |
+| [inference] Escalation needs explicit stop and override rights. | https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14<br>https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26<br>https://handbook.apra.gov.au/standard/cps-230<br>https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32022R2554 | high | Anomalies, serious incidents, and control failures must trigger escalation. |
+| [fact] Current law keeps external liability outside internal RACI charts. | https://commission.europa.eu/document/download/7617998c-86e6-4a74-b33c-249e8a7938cd_en?filename=COM_2025_45_1_annexes_EN.pdf<br>https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024L2853<br>https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024R1689 | high | The AI Liability Directive proposal is historical only, while software product liability is current law. |
+| [fact] Boards or management bodies retain ultimate framework accountability. | https://handbook.apra.gov.au/standard/cps-230<br>https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32022R2554 | high | Delegation of operations does not remove top-level accountability. |
+| [inference] Lifecycle matrices are stronger than static RACI labels. | https://airc.nist.gov/airmf-resources/airmf/5-sec-core/<br>https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html<br>https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-platform-operating-models.html | medium | AI governance spans intake, runtime, and oversight surfaces. |
+
+### Assumptions
+
+- None.
+
+### Analysis
+
+[inference; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://handbook.apra.gov.au/standard/cps-230; https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32022R2554] The strongest evidence came from sources that allocate responsibility directly, NIST for AI governance design, APRA and DORA for regulated operational-accountability patterns, and the AI Act for live provider and deployer duties. [inference; source: https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-72; https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024L2853] Legal-liability analysis was weighted toward current binding texts, so the withdrawn AI Liability Directive proposal was treated as context while the current AI Act and Product Liability Directive were treated as live allocation mechanisms. [inference; source: https://www.federalreserve.gov/supervisionreg/srletters/SR2602.htm; https://handbook.apra.gov.au/standard/cps-230; https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32022R2554] Model-risk and operational-resilience precedents were used to resolve the approval and independence questions because they already deal with complex systems that need expert build teams, independent challenge, and senior management accountability.
+
+### Risks, Gaps, and Uncertainties
+
+- [fact; source: https://www.isaca.org/resources/cobit] Public COBIT material did not expose the detailed governance-objective or RACI text, so COBIT influenced framing only at the framework level and not at the detailed matrix level.
+- [inference; source: https://commission.europa.eu/document/download/7617998c-86e6-4a74-b33c-249e8a7938cd_en?filename=COM_2025_45_1_annexes_EN.pdf; https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024L2853] The European liability landscape may evolve again if the Commission later tables a new AI-specific civil-liability instrument, so the current liability guidance should be treated as correct for 2026 but not necessarily permanent.
+- [inference; source: https://davidamitchell.github.io/Research/research/2026-04-24-business-led-low-code-agent-governance.html; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/] The exact threshold between bounded self-service and delegated approval still depends on the risk-tier framework in Q5, so the approval tiers are structurally strong but still need calibration thresholds.
+
+### Open Questions
+
+- How should Q5's risk-tier framework define the exact boundary between bounded self-service and delegated approval for internal productivity agents?
+- How should vendor contracts, indemnities, and insurance be structured once the vendor-constraints item is complete?
+- How should human-in-the-loop requirements from Q9 differ by approval tier and by high-risk category?
 
 ---
 
