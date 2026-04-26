@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "Access control amplification under agentic operations: whether existing frameworks address the worst-case permission inheritance problem"
 added: 2026-04-26
 status: reviewing
