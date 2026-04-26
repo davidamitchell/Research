@@ -37,3 +37,18 @@
 5. **Does documentation need updating?** No; the docstring for
    `build_research_master_page()` was updated inline.
 6. **Do default instructions need updating?** No.
+
+## Follow-up: PR#403 datetime migration
+
+After PR#403 merged, all frontmatter `added` fields became full ISO 8601 datetime
+(`YYYY-MM-DDTHH:MM:SS+00:00`). Updated `load_items()` to:
+- Parse `added` as a `datetime` object (with UTC timezone) rather than `date`
+- YAML auto-parses ISO 8601 datetime strings as `datetime.datetime` objects; plain
+  date strings fall back to `date` objects which are converted to midnight UTC datetime
+- Sort key is now `(added_dt, filename)` — full datetime gives sub-day ordering;
+  filename provides stable tiebreaker for the rare case of exact-same timestamp
+- `added_str` continues to expose just `YYYY-MM-DD` for display purposes
+- `_thread_date_range()` updated to call `.date().isoformat()` so display is still
+  `YYYY-MM-DD` format
+- Tests updated: `_make_item` helper accepts `date | datetime` and normalises to tz-aware
+  `datetime`; all 219 tests pass, pre-existing TAVILY skip unchanged

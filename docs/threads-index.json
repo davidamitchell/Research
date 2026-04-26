@@ -12,33 +12,23 @@
     "item_count": 15,
     "items": [
       {
-        "slug": "2026-03-02-integrative-framework-agent-decision-making",
-        "title": "An Integrative Framework for Agent Decision-Making: Aligning Knowledge Management, Intent Understanding, and Contextual Decision Frameworks",
-        "added": "2026-03-02"
-      },
-      {
         "slug": "2026-03-02-agent-memory-management-context-injection",
         "title": "Agent Memory Management and Context Injection",
         "added": "2026-03-02"
       },
       {
+        "slug": "2026-03-02-integrative-framework-agent-decision-making",
+        "title": "An Integrative Framework for Agent Decision-Making: Aligning Knowledge Management, Intent Understanding, and Contextual Decision Frameworks",
+        "added": "2026-03-08"
+      },
+      {
         "slug": "2026-03-08-context-engineering-first-principles",
         "title": "Context engineering: first principles of steering LLM output without control",
-        "added": "2026-03-08"
+        "added": "2026-03-09"
       },
       {
         "slug": "2026-03-10-ai-concept-classification-taxonomy",
         "title": "AI concept classification taxonomy: prompts, instructions, memory, failure modes, controls, and problem domains",
-        "added": "2026-03-10"
-      },
-      {
-        "slug": "2026-03-10-language-for-llm-agent-output",
-        "title": "Language designed for LLM agents to produce: addressing generation-layer failure modes in agentic systems",
-        "added": "2026-03-10"
-      },
-      {
-        "slug": "2026-03-10-agent-evaluation-cross-repo-analysis",
-        "title": "Agent evaluation framework: cross-repo pattern analysis, commonality detection, and regression identification",
         "added": "2026-03-10"
       },
       {
@@ -47,24 +37,29 @@
         "added": "2026-03-10"
       },
       {
+        "slug": "2026-03-10-agent-evaluation-cross-repo-analysis",
+        "title": "Agent evaluation framework: cross-repo pattern analysis, commonality detection, and regression identification",
+        "added": "2026-03-10"
+      },
+      {
+        "slug": "2026-03-10-language-for-llm-agent-output",
+        "title": "Language designed for LLM agents to produce: addressing generation-layer failure modes in agentic systems",
+        "added": "2026-03-11"
+      },
+      {
         "slug": "2026-03-12-failure-mode-taxonomy-expansion",
         "title": "Failure mode taxonomy: empirical frequency, causal mechanisms, detection signals, and cascade patterns in production agentic systems",
-        "added": "2026-03-12"
+        "added": "2026-03-14"
       },
       {
         "slug": "2026-03-16-gitagent-declarative-agent-definition",
         "title": "GitAgent and declarative agent definition: concepts, adoption, and cross-platform integration",
-        "added": "2026-03-16"
+        "added": "2026-03-19"
       },
       {
         "slug": "2026-03-18-stateless-agent-assumption-failure",
         "title": "Stateless-agent assumption failure: causes, detection, and recovery patterns for orphaned state in multi-session agentic workflows",
-        "added": "2026-03-18"
-      },
-      {
-        "slug": "2026-03-22-using-awesome-copilot-across-repos",
-        "title": "How to best use awesome-copilot in this repo and across personal repos",
-        "added": "2026-03-22"
+        "added": "2026-03-20"
       },
       {
         "slug": "2026-03-22-applied-context-engineering-agent-workflows",
@@ -72,9 +67,14 @@
         "added": "2026-03-22"
       },
       {
+        "slug": "2026-03-22-using-awesome-copilot-across-repos",
+        "title": "How to best use awesome-copilot in this repo and across personal repos",
+        "added": "2026-03-22"
+      },
+      {
         "slug": "2026-03-23-agent-orchestration-anvil-max",
         "title": "Agent orchestration patterns: lessons from Anvil, Max, and Burke Holland's multi-model orchestration gist",
-        "added": "2026-03-23"
+        "added": "2026-03-24"
       },
       {
         "slug": "2026-04-02-anthropic-claude-code-leak-architecture-prompting-and-hidden-features",
@@ -107,34 +107,29 @@
         "added": "2026-03-02"
       },
       {
-        "slug": "2026-03-02-semantic-full-text-search",
-        "title": "Semantic and full-text search over the research corpus",
-        "added": "2026-03-02"
-      },
-      {
-        "slug": "2026-03-02-integrative-framework-agent-decision-making",
-        "title": "An Integrative Framework for Agent Decision-Making: Aligning Knowledge Management, Intent Understanding, and Contextual Decision Frameworks",
-        "added": "2026-03-02"
-      },
-      {
-        "slug": "2026-03-02-ai-not-a-data-problem",
-        "title": "AI capability is not a data problem - why the data/analytics department is the wrong home for organisational AI",
-        "added": "2026-03-02"
-      },
-      {
         "slug": "2026-03-03-knowledge-representation-agent-context",
         "title": "Knowledge Representation for Agent Context: LSE, Knowledge Graphs, Concept Maps, and Document Compression for Large-Scale Context Management",
         "added": "2026-03-03"
       },
       {
-        "slug": "2026-03-08-servicenow-ai-knowledge-rag-agents",
-        "title": "ServiceNow AI: Knowledge Management, RAG Pipelines, and Agent Frameworks",
+        "slug": "2026-03-02-ai-not-a-data-problem",
+        "title": "AI capability is not a data problem - why the data/analytics department is the wrong home for organisational AI",
+        "added": "2026-03-07"
+      },
+      {
+        "slug": "2026-03-02-integrative-framework-agent-decision-making",
+        "title": "An Integrative Framework for Agent Decision-Making: Aligning Knowledge Management, Intent Understanding, and Contextual Decision Frameworks",
         "added": "2026-03-08"
       },
       {
-        "slug": "2026-03-10-dikw-transformation-functions",
-        "title": "The DIKW pyramid: transformation functions from data to information to knowledge to wisdom",
-        "added": "2026-03-10"
+        "slug": "2026-03-02-semantic-full-text-search",
+        "title": "Semantic and full-text search over the research corpus",
+        "added": "2026-03-08"
+      },
+      {
+        "slug": "2026-03-08-servicenow-ai-knowledge-rag-agents",
+        "title": "ServiceNow AI: Knowledge Management, RAG Pipelines, and Agent Frameworks",
+        "added": "2026-03-09"
       },
       {
         "slug": "2026-03-10-ai-concept-classification-taxonomy",
@@ -142,34 +137,39 @@
         "added": "2026-03-10"
       },
       {
+        "slug": "2026-03-10-dikw-transformation-functions",
+        "title": "The DIKW pyramid: transformation functions from data to information to knowledge to wisdom",
+        "added": "2026-03-10"
+      },
+      {
         "slug": "2026-03-15-latent-concept-extraction-confluence",
         "title": "Latent Concept Extraction from Confluence: Embeddings, Knowledge Graphs, and Epistemic Evaluation",
-        "added": "2026-03-15"
+        "added": "2026-03-16"
       },
       {
         "slug": "2026-03-15-context-layers-aligned-decisions-synthesis",
         "title": "Aligned Decision-Making: Context Architecture for AI Agents in Organisations",
-        "added": "2026-03-15"
+        "added": "2026-03-17"
       },
       {
         "slug": "2026-03-17-ai-memory-systems-rag-neuroscience",
         "title": "Artificial Intelligence (AI) Memory Systems: Retrieval-Augmented Generation (RAG), Vendor Implementations, and Neuroscience Foundations",
-        "added": "2026-03-17"
+        "added": "2026-03-20"
       },
       {
         "slug": "2026-03-18-api-context-hubs-rag-mcp",
         "title": "Application Programming Interface (API) Context Hubs, Retrieval-Augmented Generation, and the Model Context Protocol: How Agents Discover and Use APIs",
-        "added": "2026-03-18"
+        "added": "2026-03-20"
       },
       {
         "slug": "2026-03-19-layered-org-llm-architecture",
         "title": "Layered Organisation Large Language Model: Feasibility and Architecture of Organisation-Customised LLMs",
-        "added": "2026-03-19"
+        "added": "2026-03-22"
       },
       {
         "slug": "2026-03-21-dependency-mapping-dotnet-terraform-dynatrace",
         "title": "Dependency Mapping Across .NET Codebases, Terraform, Dynatrace, Confluence, Log Aggregation, and the Configuration and Service Data Model (CSDM)",
-        "added": "2026-03-21"
+        "added": "2026-03-22"
       },
       {
         "slug": "2026-04-02-anthropic-claude-code-leak-architecture-prompting-and-hidden-features",
@@ -194,7 +194,7 @@
       {
         "slug": "2026-03-04-sdlc-ai-prompt-patterns",
         "title": "Emergent Patterns in Software Engineering Prompts and SDLC Guidance",
-        "added": "2026-03-04"
+        "added": "2026-03-08"
       },
       {
         "slug": "2026-03-10-ai-concept-classification-taxonomy",
@@ -207,28 +207,28 @@
         "added": "2026-03-12"
       },
       {
-        "slug": "2026-03-22-using-awesome-copilot-across-repos",
-        "title": "How to best use awesome-copilot in this repo and across personal repos",
-        "added": "2026-03-22"
-      },
-      {
         "slug": "2026-03-22-coding-ai-agent-skills-survey",
         "title": "Coding AI Agent Skills Survey: Existing Vendor and OSS Prompt Libraries for Software Engineering Domains",
         "added": "2026-03-22"
       },
       {
-        "slug": "2026-03-28-agents-md-role-and-cross-agent-instructions",
-        "title": "The role of AGENTS.md in a repo using .github/copilot-instructions.md as the sole instructions source",
-        "added": "2026-03-28"
+        "slug": "2026-03-22-using-awesome-copilot-across-repos",
+        "title": "How to best use awesome-copilot in this repo and across personal repos",
+        "added": "2026-03-22"
       },
       {
         "slug": "2026-03-28-agent-instruction-loading-and-skills-access",
         "title": "Agent instruction loading and skills access: Copilot coding agent, Claude iOS code feature, and the role of AGENTS.md",
-        "added": "2026-03-28"
+        "added": "2026-03-29"
       },
       {
         "slug": "2026-03-29-multi-agent-repo-setup",
         "title": "Multi-agent repo setup: best practices for configuring a repository to be worked on by Claude (iOS and GitHub Issues) and Copilot (Spaces and GitHub Issues)",
+        "added": "2026-03-29"
+      },
+      {
+        "slug": "2026-03-28-agents-md-role-and-cross-agent-instructions",
+        "title": "The role of AGENTS.md in a repo using .github/copilot-instructions.md as the sole instructions source",
         "added": "2026-03-29"
       },
       {
@@ -262,24 +262,24 @@
     "item_count": 11,
     "items": [
       {
-        "slug": "2026-03-02-integrative-framework-agent-decision-making",
-        "title": "An Integrative Framework for Agent Decision-Making: Aligning Knowledge Management, Intent Understanding, and Contextual Decision Frameworks",
-        "added": "2026-03-02"
-      },
-      {
-        "slug": "2026-03-02-ai-not-a-data-problem",
-        "title": "AI capability is not a data problem - why the data/analytics department is the wrong home for organisational AI",
-        "added": "2026-03-02"
-      },
-      {
         "slug": "2026-03-02-agent-memory-management-context-injection",
         "title": "Agent Memory Management and Context Injection",
         "added": "2026-03-02"
       },
       {
+        "slug": "2026-03-02-ai-not-a-data-problem",
+        "title": "AI capability is not a data problem - why the data/analytics department is the wrong home for organisational AI",
+        "added": "2026-03-07"
+      },
+      {
+        "slug": "2026-03-02-integrative-framework-agent-decision-making",
+        "title": "An Integrative Framework for Agent Decision-Making: Aligning Knowledge Management, Intent Understanding, and Contextual Decision Frameworks",
+        "added": "2026-03-08"
+      },
+      {
         "slug": "2026-03-08-ai-coding-harnesses-agent-philosophy",
         "title": "AI coding harnesses: agent execution model, memory, and context management across commercial and OSS tools",
-        "added": "2026-03-08"
+        "added": "2026-03-09"
       },
       {
         "slug": "2026-03-10-ai-concept-classification-taxonomy",
@@ -289,12 +289,17 @@
       {
         "slug": "2026-03-17-ai-memory-systems-rag-neuroscience",
         "title": "Artificial Intelligence (AI) Memory Systems: Retrieval-Augmented Generation (RAG), Vendor Implementations, and Neuroscience Foundations",
-        "added": "2026-03-17"
+        "added": "2026-03-20"
       },
       {
         "slug": "2026-03-21-dependency-mapping-dotnet-terraform-dynatrace",
         "title": "Dependency Mapping Across .NET Codebases, Terraform, Dynatrace, Confluence, Log Aggregation, and the Configuration and Service Data Model (CSDM)",
-        "added": "2026-03-21"
+        "added": "2026-03-22"
+      },
+      {
+        "slug": "2026-04-02-claude-code-npm-source-map-leak",
+        "title": "Claude Code npm Source Map Leak",
+        "added": "2026-04-02"
       },
       {
         "slug": "2026-04-02-anthropic-claude-code-leak-architecture-prompting-and-hidden-features",
@@ -304,12 +309,7 @@
       {
         "slug": "2026-04-02-claude-mythos",
         "title": "Claude mythos: character, soul documents, and narrative identity in large language models",
-        "added": "2026-04-02"
-      },
-      {
-        "slug": "2026-04-02-claude-code-npm-source-map-leak",
-        "title": "Claude Code npm Source Map Leak",
-        "added": "2026-04-02"
+        "added": "2026-04-19"
       },
       {
         "slug": "2026-04-20-harness-selection-tools-agents-skills-prompts-instructions",
@@ -344,11 +344,11 @@
       {
         "slug": "2026-03-18-api-context-hubs-rag-mcp",
         "title": "Application Programming Interface (API) Context Hubs, Retrieval-Augmented Generation, and the Model Context Protocol: How Agents Discover and Use APIs",
-        "added": "2026-03-18"
+        "added": "2026-03-20"
       },
       {
-        "slug": "2026-03-22-using-awesome-copilot-across-repos",
-        "title": "How to best use awesome-copilot in this repo and across personal repos",
+        "slug": "2026-03-22-applied-context-engineering-agent-workflows",
+        "title": "Applied context engineering: skills, workflows, and best practices for agent development",
         "added": "2026-03-22"
       },
       {
@@ -357,19 +357,19 @@
         "added": "2026-03-22"
       },
       {
-        "slug": "2026-03-22-applied-context-engineering-agent-workflows",
-        "title": "Applied context engineering: skills, workflows, and best practices for agent development",
+        "slug": "2026-03-22-using-awesome-copilot-across-repos",
+        "title": "How to best use awesome-copilot in this repo and across personal repos",
         "added": "2026-03-22"
       },
       {
         "slug": "2026-03-23-agent-orchestration-anvil-max",
         "title": "Agent orchestration patterns: lessons from Anvil, Max, and Burke Holland's multi-model orchestration gist",
-        "added": "2026-03-23"
+        "added": "2026-03-24"
       },
       {
         "slug": "2026-03-28-agent-instruction-loading-and-skills-access",
         "title": "Agent instruction loading and skills access: Copilot coding agent, Claude iOS code feature, and the role of AGENTS.md",
-        "added": "2026-03-28"
+        "added": "2026-03-29"
       },
       {
         "slug": "2026-03-29-multi-agent-repo-setup",
@@ -404,26 +404,11 @@
       {
         "slug": "2026-03-02-ios-shortcuts-research",
         "title": "iOS Shortcuts for research capture and query",
-        "added": "2026-03-02"
+        "added": "2026-03-08"
       },
       {
         "slug": "2026-03-08-claude-ios-mcp-remote-integration",
         "title": "Claude for iOS: MCP remote integration for memory capture and retrieval",
-        "added": "2026-03-08"
-      },
-      {
-        "slug": "2026-03-08-telegram-bot-memory-capture-retrieval",
-        "title": "Telegram bot as mobile memory capture and retrieval channel",
-        "added": "2026-03-08"
-      },
-      {
-        "slug": "2026-03-08-slack-bot-memory-capture-retrieval",
-        "title": "Slack as a mobile memory capture and retrieval channel",
-        "added": "2026-03-08"
-      },
-      {
-        "slug": "2026-03-08-self-hosted-mcp-server-options",
-        "title": "Self-hosted MCP server options: enabling mobile AI app integration",
         "added": "2026-03-08"
       },
       {
@@ -432,19 +417,34 @@
         "added": "2026-03-08"
       },
       {
-        "slug": "2026-03-08-chatgpt-actions-memory-integration",
-        "title": "ChatGPT Actions and custom GPTs: external memory integration options",
-        "added": "2026-03-08"
+        "slug": "2026-03-08-self-hosted-mcp-server-options",
+        "title": "Self-hosted MCP server options: enabling mobile AI app integration",
+        "added": "2026-03-09"
       },
       {
-        "slug": "2026-03-28-environment-setup-consistency",
-        "title": "Environment setup consistency: what each agent sees when it starts work in this repo and how to make it consistent",
-        "added": "2026-03-28"
+        "slug": "2026-03-08-slack-bot-memory-capture-retrieval",
+        "title": "Slack as a mobile memory capture and retrieval channel",
+        "added": "2026-03-10"
+      },
+      {
+        "slug": "2026-03-08-telegram-bot-memory-capture-retrieval",
+        "title": "Telegram bot as mobile memory capture and retrieval channel",
+        "added": "2026-03-10"
+      },
+      {
+        "slug": "2026-03-08-chatgpt-actions-memory-integration",
+        "title": "ChatGPT Actions and custom GPTs: external memory integration options",
+        "added": "2026-03-15"
       },
       {
         "slug": "2026-03-28-agent-instruction-loading-and-skills-access",
         "title": "Agent instruction loading and skills access: Copilot coding agent, Claude iOS code feature, and the role of AGENTS.md",
-        "added": "2026-03-28"
+        "added": "2026-03-29"
+      },
+      {
+        "slug": "2026-03-28-environment-setup-consistency",
+        "title": "Environment setup consistency: what each agent sees when it starts work in this repo and how to make it consistent",
+        "added": "2026-03-29"
       },
       {
         "slug": "2026-03-29-multi-agent-repo-setup",
@@ -467,14 +467,14 @@
     "item_count": 9,
     "items": [
       {
-        "slug": "2026-02-28-rbnz-ai-supervisory-expectations",
-        "title": "RBNZ AI Supervisory Expectations: What Do Regulated Entities Need to Know?",
-        "added": "2026-02-28"
-      },
-      {
         "slug": "2026-02-28-ai-strategy",
         "title": "AI Strategy: global and NZ examples, policy frameworks, regulations, and use-case typologies",
         "added": "2026-02-28"
+      },
+      {
+        "slug": "2026-02-28-rbnz-ai-supervisory-expectations",
+        "title": "RBNZ AI Supervisory Expectations: What Do Regulated Entities Need to Know?",
+        "added": "2026-03-07"
       },
       {
         "slug": "2026-03-24-public-sentiment-on-ai-in-banking-and-high-trust-institutions",
@@ -482,23 +482,23 @@
         "added": "2026-03-24"
       },
       {
-        "slug": "2026-04-22-historical-technology-adoption-enterprise-ai-capability-building",
-        "title": "Historical technology adoption patterns as analogues for enterprise Artificial Intelligence capability building",
-        "added": "2026-04-22"
-      },
-      {
         "slug": "2026-04-22-enterprise-ai-platform-operating-models",
         "title": "Enterprise AI platform operating models: organisational structure and ownership",
         "added": "2026-04-22"
       },
       {
-        "slug": "2026-04-24-ai-agent-regulation-global-financial-services",
-        "title": "Global artificial intelligence agent regulation in financial services: non-functional requirement obligations and low-code citizen-development controls",
+        "slug": "2026-04-22-historical-technology-adoption-enterprise-ai-capability-building",
+        "title": "Historical technology adoption patterns as analogues for enterprise Artificial Intelligence capability building",
         "added": "2026-04-24"
       },
       {
         "slug": "2026-04-24-business-led-low-code-agent-governance",
         "title": "Business-led low-code agent governance: conditions for durable value versus fragmentation in regulated environments",
+        "added": "2026-04-24"
+      },
+      {
+        "slug": "2026-04-24-ai-agent-regulation-global-financial-services",
+        "title": "Global artificial intelligence agent regulation in financial services: non-functional requirement obligations and low-code citizen-development controls",
         "added": "2026-04-24"
       },
       {
@@ -532,34 +532,29 @@
         "added": "2026-03-05"
       },
       {
-        "slug": "2026-03-05-h-neurons-synthesis",
-        "title": "H-Neurons Synthesis — From Hallucination Mechanisms to Actionable LLM Reliability Engineering",
-        "added": "2026-03-05"
-      },
-      {
         "slug": "2026-03-05-h-neurons-in-llms",
         "title": "Hallucination-Associated Neurons (H-Neurons) in LLMs — Identification, Behavioural Impact, and Origins",
         "added": "2026-03-05"
       },
       {
-        "slug": "2026-03-05-h-neuron-pretraining-origins",
-        "title": "Pre-Training Origins of Hallucination-Associated Neurons — Implications for LLM Development",
+        "slug": "2026-03-05-h-neurons-synthesis",
+        "title": "H-Neurons Synthesis — From Hallucination Mechanisms to Actionable LLM Reliability Engineering",
         "added": "2026-03-05"
       },
       {
         "slug": "2026-03-05-h-neuron-over-compliance",
         "title": "Over-Compliance in LLMs — How H-Neurons Drive Sycophancy and What Interventions Are Possible",
-        "added": "2026-03-05"
+        "added": "2026-03-06"
+      },
+      {
+        "slug": "2026-03-05-h-neuron-pretraining-origins",
+        "title": "Pre-Training Origins of Hallucination-Associated Neurons — Implications for LLM Development",
+        "added": "2026-03-06"
       },
       {
         "slug": "2026-03-31-llm-offensive-security-0days",
         "title": "Large Language Models as offensive security tools: autonomous 0-day discovery, exploit generation, and the emerging arms race",
         "added": "2026-03-31"
-      },
-      {
-        "slug": "2026-04-02-claude-mythos",
-        "title": "Claude mythos: character, soul documents, and narrative identity in large language models",
-        "added": "2026-04-02"
       },
       {
         "slug": "2026-04-02-claude-code-npm-source-map-leak",
@@ -570,6 +565,11 @@
         "slug": "2026-04-02-anthropic-claude-code-leak-architecture-prompting-and-hidden-features",
         "title": "Anthropic Claude Code leak: architecture, prompting, and hidden features",
         "added": "2026-04-02"
+      },
+      {
+        "slug": "2026-04-02-claude-mythos",
+        "title": "Claude mythos: character, soul documents, and narrative identity in large language models",
+        "added": "2026-04-19"
       }
     ],
     "url": "/Research/threads/llm-alignment-hallucinations.html"
@@ -594,7 +594,7 @@
       {
         "slug": "2026-03-16-gitagent-declarative-agent-definition",
         "title": "GitAgent and declarative agent definition: concepts, adoption, and cross-platform integration",
-        "added": "2026-03-16"
+        "added": "2026-03-19"
       },
       {
         "slug": "2026-03-22-using-awesome-copilot-across-repos",
@@ -602,23 +602,23 @@
         "added": "2026-03-22"
       },
       {
-        "slug": "2026-03-28-environment-setup-consistency",
-        "title": "Environment setup consistency: what each agent sees when it starts work in this repo and how to make it consistent",
-        "added": "2026-03-28"
-      },
-      {
-        "slug": "2026-03-28-agents-md-role-and-cross-agent-instructions",
-        "title": "The role of AGENTS.md in a repo using .github/copilot-instructions.md as the sole instructions source",
-        "added": "2026-03-28"
-      },
-      {
         "slug": "2026-03-28-agent-instruction-loading-and-skills-access",
         "title": "Agent instruction loading and skills access: Copilot coding agent, Claude iOS code feature, and the role of AGENTS.md",
-        "added": "2026-03-28"
+        "added": "2026-03-29"
+      },
+      {
+        "slug": "2026-03-28-environment-setup-consistency",
+        "title": "Environment setup consistency: what each agent sees when it starts work in this repo and how to make it consistent",
+        "added": "2026-03-29"
       },
       {
         "slug": "2026-03-29-multi-agent-repo-setup",
         "title": "Multi-agent repo setup: best practices for configuring a repository to be worked on by Claude (iOS and GitHub Issues) and Copilot (Spaces and GitHub Issues)",
+        "added": "2026-03-29"
+      },
+      {
+        "slug": "2026-03-28-agents-md-role-and-cross-agent-instructions",
+        "title": "The role of AGENTS.md in a repo using .github/copilot-instructions.md as the sole instructions source",
         "added": "2026-03-29"
       },
       {
@@ -652,16 +652,6 @@
         "added": "2026-03-01"
       },
       {
-        "slug": "2026-03-02-chat-conversational-interface",
-        "title": "Conversational and chat interface for querying the research corpus",
-        "added": "2026-03-02"
-      },
-      {
-        "slug": "2026-03-02-ai-not-a-data-problem",
-        "title": "AI capability is not a data problem - why the data/analytics department is the wrong home for organisational AI",
-        "added": "2026-03-02"
-      },
-      {
         "slug": "2026-03-02-agent-memory-management-context-injection",
         "title": "Agent Memory Management and Context Injection",
         "added": "2026-03-02"
@@ -672,14 +662,24 @@
         "added": "2026-03-03"
       },
       {
+        "slug": "2026-03-02-ai-not-a-data-problem",
+        "title": "AI capability is not a data problem - why the data/analytics department is the wrong home for organisational AI",
+        "added": "2026-03-07"
+      },
+      {
+        "slug": "2026-03-02-chat-conversational-interface",
+        "title": "Conversational and chat interface for querying the research corpus",
+        "added": "2026-03-08"
+      },
+      {
         "slug": "2026-03-18-api-context-hubs-rag-mcp",
         "title": "Application Programming Interface (API) Context Hubs, Retrieval-Augmented Generation, and the Model Context Protocol: How Agents Discover and Use APIs",
-        "added": "2026-03-18"
+        "added": "2026-03-20"
       },
       {
         "slug": "2026-03-19-layered-org-llm-architecture",
         "title": "Layered Organisation Large Language Model: Feasibility and Architecture of Organisation-Customised LLMs",
-        "added": "2026-03-19"
+        "added": "2026-03-22"
       },
       {
         "slug": "2026-03-22-using-awesome-copilot-across-repos",
@@ -707,11 +707,6 @@
     "item_count": 9,
     "items": [
       {
-        "slug": "2026-03-02-integrative-framework-agent-decision-making",
-        "title": "An Integrative Framework for Agent Decision-Making: Aligning Knowledge Management, Intent Understanding, and Contextual Decision Frameworks",
-        "added": "2026-03-02"
-      },
-      {
         "slug": "2026-03-02-agent-memory-management-context-injection",
         "title": "Agent Memory Management and Context Injection",
         "added": "2026-03-02"
@@ -727,29 +722,34 @@
         "added": "2026-03-05"
       },
       {
-        "slug": "2026-03-08-servicenow-ai-knowledge-rag-agents",
-        "title": "ServiceNow AI: Knowledge Management, RAG Pipelines, and Agent Frameworks",
+        "slug": "2026-03-02-integrative-framework-agent-decision-making",
+        "title": "An Integrative Framework for Agent Decision-Making: Aligning Knowledge Management, Intent Understanding, and Contextual Decision Frameworks",
         "added": "2026-03-08"
       },
       {
-        "slug": "2026-03-15-context-layers-aligned-decisions-synthesis",
-        "title": "Aligned Decision-Making: Context Architecture for AI Agents in Organisations",
-        "added": "2026-03-15"
+        "slug": "2026-03-08-servicenow-ai-knowledge-rag-agents",
+        "title": "ServiceNow AI: Knowledge Management, RAG Pipelines, and Agent Frameworks",
+        "added": "2026-03-09"
       },
       {
         "slug": "2026-03-15-context-compression-rag-enterprise-knowledge",
         "title": "Context Compression and RAG Techniques for Organisational Knowledge",
-        "added": "2026-03-15"
+        "added": "2026-03-16"
+      },
+      {
+        "slug": "2026-03-15-context-layers-aligned-decisions-synthesis",
+        "title": "Aligned Decision-Making: Context Architecture for AI Agents in Organisations",
+        "added": "2026-03-17"
       },
       {
         "slug": "2026-03-18-explore-to-exploit-synthesis-gap",
         "title": "Explore to exploit: the synthesis step that makes exploitation pay off",
-        "added": "2026-03-18"
+        "added": "2026-03-20"
       },
       {
         "slug": "2026-03-19-layered-org-llm-architecture",
         "title": "Layered Organisation Large Language Model: Feasibility and Architecture of Organisation-Customised LLMs",
-        "added": "2026-03-19"
+        "added": "2026-03-22"
       }
     ],
     "url": "/Research/threads/knowledge-management-rag-synthesis.html"
@@ -767,38 +767,28 @@
     "item_count": 9,
     "items": [
       {
-        "slug": "2026-02-27-interface-and-delivery",
-        "title": "Interface and delivery: how to surface research outputs",
-        "added": "2026-02-27"
-      },
-      {
         "slug": "2026-03-01-github-wiki-research-content",
         "title": "GitHub wiki for research content: approach and tooling",
-        "added": "2026-03-01"
-      },
-      {
-        "slug": "2026-03-02-ios-shortcuts-research",
-        "title": "iOS Shortcuts for research capture and query",
-        "added": "2026-03-02"
-      },
-      {
-        "slug": "2026-03-02-slack-msteams-research-integration",
-        "title": "Slack and MS Teams integration for research delivery and capture",
         "added": "2026-03-02"
       },
       {
         "slug": "2026-03-02-chat-conversational-interface",
         "title": "Conversational and chat interface for querying the research corpus",
-        "added": "2026-03-02"
-      },
-      {
-        "slug": "2026-03-08-telegram-bot-memory-capture-retrieval",
-        "title": "Telegram bot as mobile memory capture and retrieval channel",
         "added": "2026-03-08"
       },
       {
-        "slug": "2026-03-08-slack-bot-memory-capture-retrieval",
-        "title": "Slack as a mobile memory capture and retrieval channel",
+        "slug": "2026-03-02-ios-shortcuts-research",
+        "title": "iOS Shortcuts for research capture and query",
+        "added": "2026-03-08"
+      },
+      {
+        "slug": "2026-03-02-slack-msteams-research-integration",
+        "title": "Slack and MS Teams integration for research delivery and capture",
+        "added": "2026-03-08"
+      },
+      {
+        "slug": "2026-03-08-claude-ios-mcp-remote-integration",
+        "title": "Claude for iOS: MCP remote integration for memory capture and retrieval",
         "added": "2026-03-08"
       },
       {
@@ -807,21 +797,31 @@
         "added": "2026-03-08"
       },
       {
-        "slug": "2026-03-08-claude-ios-mcp-remote-integration",
-        "title": "Claude for iOS: MCP remote integration for memory capture and retrieval",
-        "added": "2026-03-08"
+        "slug": "2026-03-08-slack-bot-memory-capture-retrieval",
+        "title": "Slack as a mobile memory capture and retrieval channel",
+        "added": "2026-03-10"
+      },
+      {
+        "slug": "2026-03-08-telegram-bot-memory-capture-retrieval",
+        "title": "Telegram bot as mobile memory capture and retrieval channel",
+        "added": "2026-03-10"
+      },
+      {
+        "slug": "2026-02-27-interface-and-delivery",
+        "title": "Interface and delivery: how to surface research outputs",
+        "added": "2026-03-10"
       }
     ],
     "url": "/Research/threads/mobile-interface-delivery.html"
   },
   {
-    "slug": "citizen-development-regulated-banking-operational-risk",
-    "title": "citizen-development / regulated-banking / operational-risk",
+    "slug": "citizen-development-regulated-banking-agentic-ai",
+    "title": "citizen-development / regulated-banking / agentic-ai",
     "kind": "implicit",
     "tag_cluster": [
       "citizen-development",
       "regulated-banking",
-      "operational-risk"
+      "agentic-ai"
     ],
     "concept_cluster": [],
     "item_count": 8,
@@ -837,8 +837,8 @@
         "added": "2026-04-24"
       },
       {
-        "slug": "2026-04-26-systems-capability-debt-citizen-development-empirical-evidence",
-        "title": "Systems capability debt as the root cause of citizen development: empirical evidence and effective governance architectures",
+        "slug": "2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment",
+        "title": "Regulatory and standards preconditions for deployment of Artificial Intelligence (AI) systems that can take multi-step actions: does incomplete access control and data governance constitute a control failure?",
         "added": "2026-04-26"
       },
       {
@@ -847,82 +847,82 @@
         "added": "2026-04-26"
       },
       {
-        "slug": "2026-04-26-ms-copilot-cowork",
-        "title": "What is Microsoft 365 Copilot Cowork and what are its enterprise governance risks?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-implicit-rate-limiting-controls-agentic-ai-removal",
-        "title": "Implicit rate-limiting controls removed by agentic Artificial Intelligence (AI): blast radius amplification and the operational risk literature gap",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-deployment-pipeline-citizen-development-governed-gate",
-        "title": "Deployment pipeline as the only enforceable control gate for citizen-developed agents: DevOps literature support, low-code platform hook points, and architectural enforceability",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment",
-        "title": "Regulatory and standards preconditions for deployment of Artificial Intelligence (AI) systems that can take multi-step actions: does incomplete access control and data governance constitute a control failure?",
-        "added": "2026-04-26"
-      }
-    ],
-    "url": "/Research/threads/citizen-development-regulated-banking-operational-risk.html"
-  },
-  {
-    "slug": "agentic-ai-regulated-banking-operational-risk",
-    "title": "agentic-ai / regulated-banking / operational-risk",
-    "kind": "implicit",
-    "tag_cluster": [
-      "agentic-ai",
-      "regulated-banking",
-      "operational-risk"
-    ],
-    "concept_cluster": [],
-    "item_count": 8,
-    "items": [
-      {
-        "slug": "2026-02-28-ai-strategy",
-        "title": "AI Strategy: global and NZ examples, policy frameworks, regulations, and use-case typologies",
-        "added": "2026-02-28"
-      },
-      {
-        "slug": "2026-03-16-adaptive-policy-authorization-compliance",
-        "title": "Adaptive Policy-Based Authorization (APBA): compliance alignment with National Institute of Standards and Technology (NIST) Special Publication (SP) 800-53 and International Organization for Standardization (ISO) / International Electrotechnical Commission (IEC) 27001, and impact on Policy as Code (PaC) and Artificial Intelligence (AI)-generated authorization code",
-        "added": "2026-03-16"
-      },
-      {
-        "slug": "2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment",
-        "title": "Regulatory and standards preconditions for deployment of Artificial Intelligence (AI) systems that can take multi-step actions: does incomplete access control and data governance constitute a control failure?",
-        "added": "2026-04-26"
-      },
-      {
         "slug": "2026-04-26-systems-capability-debt-citizen-development-empirical-evidence",
         "title": "Systems capability debt as the root cause of citizen development: empirical evidence and effective governance architectures",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis",
-        "title": "Systems capability debt, citizen development, and agentic AI risk: is the causal chain and sequencing imperative a novel contribution?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-implicit-rate-limiting-controls-agentic-ai-removal",
-        "title": "Implicit rate-limiting controls removed by agentic Artificial Intelligence (AI): blast radius amplification and the operational risk literature gap",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-deployment-pipeline-citizen-development-governed-gate",
-        "title": "Deployment pipeline as the only enforceable control gate for citizen-developed agents: DevOps literature support, low-code platform hook points, and architectural enforceability",
         "added": "2026-04-26"
       },
       {
         "slug": "2026-04-26-access-control-amplification-agentic-operations",
         "title": "Access control amplification under agentic operations: whether existing frameworks address the worst-case permission inheritance problem",
         "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-deployment-pipeline-citizen-development-governed-gate",
+        "title": "Deployment pipeline as the only enforceable control gate for citizen-developed agents: DevOps literature support, low-code platform hook points, and architectural enforceability",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-implicit-rate-limiting-controls-agentic-ai-removal",
+        "title": "Implicit rate-limiting controls removed by agentic Artificial Intelligence (AI): blast radius amplification and the operational risk literature gap",
+        "added": "2026-04-26"
       }
     ],
-    "url": "/Research/threads/agentic-ai-regulated-banking-operational-risk.html"
+    "url": "/Research/threads/citizen-development-regulated-banking-agentic-ai.html"
+  },
+  {
+    "slug": "llm-reliability-hallucinations",
+    "title": "llm / reliability / hallucinations",
+    "kind": "implicit",
+    "tag_cluster": [
+      "llm",
+      "reliability",
+      "hallucinations"
+    ],
+    "concept_cluster": [],
+    "item_count": 8,
+    "items": [
+      {
+        "slug": "2026-03-05-llm-hallucination-mechanisms",
+        "title": "LLM Hallucinations — Types, Causes, and Current Mitigation Approaches",
+        "added": "2026-03-05"
+      },
+      {
+        "slug": "2026-03-05-h-neurons-in-llms",
+        "title": "Hallucination-Associated Neurons (H-Neurons) in LLMs — Identification, Behavioural Impact, and Origins",
+        "added": "2026-03-05"
+      },
+      {
+        "slug": "2026-03-05-h-neurons-synthesis",
+        "title": "H-Neurons Synthesis — From Hallucination Mechanisms to Actionable LLM Reliability Engineering",
+        "added": "2026-03-05"
+      },
+      {
+        "slug": "2026-03-05-h-neuron-over-compliance",
+        "title": "Over-Compliance in LLMs — How H-Neurons Drive Sycophancy and What Interventions Are Possible",
+        "added": "2026-03-06"
+      },
+      {
+        "slug": "2026-03-05-h-neuron-pretraining-origins",
+        "title": "Pre-Training Origins of Hallucination-Associated Neurons — Implications for LLM Development",
+        "added": "2026-03-06"
+      },
+      {
+        "slug": "2026-03-08-servicenow-ai-knowledge-rag-agents",
+        "title": "ServiceNow AI: Knowledge Management, RAG Pipelines, and Agent Frameworks",
+        "added": "2026-03-09"
+      },
+      {
+        "slug": "2026-03-14-reliable-software-llm-era",
+        "title": "Reliable Software in the LLM Era",
+        "added": "2026-03-16"
+      },
+      {
+        "slug": "2026-03-18-formal-proof-engineering-leanstral",
+        "title": "More formal proof engineering: Leanstral and Artificial Intelligence (AI)-assisted formal verification",
+        "added": "2026-03-22"
+      }
+    ],
+    "url": "/Research/threads/llm-reliability-hallucinations.html"
   },
   {
     "slug": "rag-llm-context-management",
@@ -947,92 +947,37 @@
         "added": "2026-03-03"
       },
       {
-        "slug": "2026-03-08-servicenow-ai-knowledge-rag-agents",
-        "title": "ServiceNow AI: Knowledge Management, RAG Pipelines, and Agent Frameworks",
-        "added": "2026-03-08"
-      },
-      {
         "slug": "2026-03-08-context-engineering-first-principles",
         "title": "Context engineering: first principles of steering LLM output without control",
-        "added": "2026-03-08"
+        "added": "2026-03-09"
+      },
+      {
+        "slug": "2026-03-08-servicenow-ai-knowledge-rag-agents",
+        "title": "ServiceNow AI: Knowledge Management, RAG Pipelines, and Agent Frameworks",
+        "added": "2026-03-09"
       },
       {
         "slug": "2026-03-12-swat-technique-loop-fresh-context",
         "title": "SWAT technique in a fresh-context loop: reliability, drift, and the effect of web search and org RAG on blind-acceptance outcomes",
-        "added": "2026-03-12"
+        "added": "2026-03-14"
       },
       {
         "slug": "2026-03-15-context-compression-rag-enterprise-knowledge",
         "title": "Context Compression and RAG Techniques for Organisational Knowledge",
-        "added": "2026-03-15"
+        "added": "2026-03-16"
       },
       {
         "slug": "2026-03-15-context-layers-aligned-decisions-synthesis",
         "title": "Aligned Decision-Making: Context Architecture for AI Agents in Organisations",
-        "added": "2026-03-15"
+        "added": "2026-03-17"
       },
       {
         "slug": "2026-03-19-layered-org-llm-architecture",
         "title": "Layered Organisation Large Language Model: Feasibility and Architecture of Organisation-Customised LLMs",
-        "added": "2026-03-19"
+        "added": "2026-03-22"
       }
     ],
     "url": "/Research/threads/rag-llm-context-management.html"
-  },
-  {
-    "slug": "llm-reliability-hallucinations",
-    "title": "llm / reliability / hallucinations",
-    "kind": "implicit",
-    "tag_cluster": [
-      "llm",
-      "reliability",
-      "hallucinations"
-    ],
-    "concept_cluster": [],
-    "item_count": 8,
-    "items": [
-      {
-        "slug": "2026-03-05-llm-hallucination-mechanisms",
-        "title": "LLM Hallucinations — Types, Causes, and Current Mitigation Approaches",
-        "added": "2026-03-05"
-      },
-      {
-        "slug": "2026-03-05-h-neurons-synthesis",
-        "title": "H-Neurons Synthesis — From Hallucination Mechanisms to Actionable LLM Reliability Engineering",
-        "added": "2026-03-05"
-      },
-      {
-        "slug": "2026-03-05-h-neurons-in-llms",
-        "title": "Hallucination-Associated Neurons (H-Neurons) in LLMs — Identification, Behavioural Impact, and Origins",
-        "added": "2026-03-05"
-      },
-      {
-        "slug": "2026-03-05-h-neuron-pretraining-origins",
-        "title": "Pre-Training Origins of Hallucination-Associated Neurons — Implications for LLM Development",
-        "added": "2026-03-05"
-      },
-      {
-        "slug": "2026-03-05-h-neuron-over-compliance",
-        "title": "Over-Compliance in LLMs — How H-Neurons Drive Sycophancy and What Interventions Are Possible",
-        "added": "2026-03-05"
-      },
-      {
-        "slug": "2026-03-08-servicenow-ai-knowledge-rag-agents",
-        "title": "ServiceNow AI: Knowledge Management, RAG Pipelines, and Agent Frameworks",
-        "added": "2026-03-08"
-      },
-      {
-        "slug": "2026-03-14-reliable-software-llm-era",
-        "title": "Reliable Software in the LLM Era",
-        "added": "2026-03-14"
-      },
-      {
-        "slug": "2026-03-18-formal-proof-engineering-leanstral",
-        "title": "More formal proof engineering: Leanstral and Artificial Intelligence (AI)-assisted formal verification",
-        "added": "2026-03-18"
-      }
-    ],
-    "url": "/Research/threads/llm-reliability-hallucinations.html"
   },
   {
     "slug": "agentic-systems-failure-modes-taxonomy",
@@ -1046,11 +991,6 @@
     "concept_cluster": [],
     "item_count": 8,
     "items": [
-      {
-        "slug": "2026-03-10-language-for-llm-agent-output",
-        "title": "Language designed for LLM agents to produce: addressing generation-layer failure modes in agentic systems",
-        "added": "2026-03-10"
-      },
       {
         "slug": "2026-03-10-formal-spec-intent-alignment-agentic-coding",
         "title": "Formal intent specification and language choice for AI alignment in agentic coding systems",
@@ -1067,24 +1007,29 @@
         "added": "2026-03-10"
       },
       {
+        "slug": "2026-03-10-language-for-llm-agent-output",
+        "title": "Language designed for LLM agents to produce: addressing generation-layer failure modes in agentic systems",
+        "added": "2026-03-11"
+      },
+      {
         "slug": "2026-03-12-failure-mode-taxonomy-expansion",
         "title": "Failure mode taxonomy: empirical frequency, causal mechanisms, detection signals, and cascade patterns in production agentic systems",
-        "added": "2026-03-12"
+        "added": "2026-03-14"
       },
       {
         "slug": "2026-03-12-swat-technique-loop-fresh-context",
         "title": "SWAT technique in a fresh-context loop: reliability, drift, and the effect of web search and org RAG on blind-acceptance outcomes",
-        "added": "2026-03-12"
+        "added": "2026-03-14"
       },
       {
         "slug": "2026-03-15-prompt-injection-threat-landscape",
         "title": "Prompt injection threat landscape: exploits, defences, and active research in agentic artificial intelligence (AI) systems",
-        "added": "2026-03-15"
+        "added": "2026-03-19"
       },
       {
         "slug": "2026-03-18-stateless-agent-assumption-failure",
         "title": "Stateless-agent assumption failure: causes, detection, and recovery patterns for orphaned state in multi-session agentic workflows",
-        "added": "2026-03-18"
+        "added": "2026-03-20"
       }
     ],
     "url": "/Research/threads/agentic-systems-failure-modes-taxonomy.html"
@@ -1107,42 +1052,92 @@
         "added": "2026-03-02"
       },
       {
-        "slug": "2026-03-08-servicenow-ai-knowledge-rag-agents",
-        "title": "ServiceNow AI: Knowledge Management, RAG Pipelines, and Agent Frameworks",
-        "added": "2026-03-08"
+        "slug": "2026-03-08-context-engineering-first-principles",
+        "title": "Context engineering: first principles of steering LLM output without control",
+        "added": "2026-03-09"
       },
       {
         "slug": "2026-03-08-servicenow-platform-strategy",
         "title": "ServiceNow Platform Strategy: Holistic Integration of CSDM, Modules, Process, and AI",
-        "added": "2026-03-08"
+        "added": "2026-03-09"
       },
       {
-        "slug": "2026-03-08-context-engineering-first-principles",
-        "title": "Context engineering: first principles of steering LLM output without control",
-        "added": "2026-03-08"
-      },
-      {
-        "slug": "2026-03-14-reliable-software-llm-era",
-        "title": "Reliable Software in the LLM Era",
-        "added": "2026-03-14"
-      },
-      {
-        "slug": "2026-03-15-context-layers-aligned-decisions-synthesis",
-        "title": "Aligned Decision-Making: Context Architecture for AI Agents in Organisations",
-        "added": "2026-03-15"
+        "slug": "2026-03-08-servicenow-ai-knowledge-rag-agents",
+        "title": "ServiceNow AI: Knowledge Management, RAG Pipelines, and Agent Frameworks",
+        "added": "2026-03-09"
       },
       {
         "slug": "2026-03-15-context-compression-rag-enterprise-knowledge",
         "title": "Context Compression and RAG Techniques for Organisational Knowledge",
-        "added": "2026-03-15"
+        "added": "2026-03-16"
+      },
+      {
+        "slug": "2026-03-14-reliable-software-llm-era",
+        "title": "Reliable Software in the LLM Era",
+        "added": "2026-03-16"
+      },
+      {
+        "slug": "2026-03-15-context-layers-aligned-decisions-synthesis",
+        "title": "Aligned Decision-Making: Context Architecture for AI Agents in Organisations",
+        "added": "2026-03-17"
       },
       {
         "slug": "2026-03-19-layered-org-llm-architecture",
         "title": "Layered Organisation Large Language Model: Feasibility and Architecture of Organisation-Customised LLMs",
-        "added": "2026-03-19"
+        "added": "2026-03-22"
       }
     ],
     "url": "/Research/threads/rag-llm-knowledge-management.html"
+  },
+  {
+    "slug": "agentic-ai-regulated-banking-access-control",
+    "title": "agentic-ai / regulated-banking / access-control",
+    "kind": "implicit",
+    "tag_cluster": [
+      "agentic-ai",
+      "regulated-banking",
+      "access-control"
+    ],
+    "concept_cluster": [],
+    "item_count": 7,
+    "items": [
+      {
+        "slug": "2026-02-28-ai-strategy",
+        "title": "AI Strategy: global and NZ examples, policy frameworks, regulations, and use-case typologies",
+        "added": "2026-02-28"
+      },
+      {
+        "slug": "2026-03-16-adaptive-policy-authorization-compliance",
+        "title": "Adaptive Policy-Based Authorization (APBA): compliance alignment with National Institute of Standards and Technology (NIST) Special Publication (SP) 800-53 and International Organization for Standardization (ISO) / International Electrotechnical Commission (IEC) 27001, and impact on Policy as Code (PaC) and Artificial Intelligence (AI)-generated authorization code",
+        "added": "2026-03-19"
+      },
+      {
+        "slug": "2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment",
+        "title": "Regulatory and standards preconditions for deployment of Artificial Intelligence (AI) systems that can take multi-step actions: does incomplete access control and data governance constitute a control failure?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis",
+        "title": "Systems capability debt, citizen development, and agentic AI risk: is the causal chain and sequencing imperative a novel contribution?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-access-control-amplification-agentic-operations",
+        "title": "Access control amplification under agentic operations: whether existing frameworks address the worst-case permission inheritance problem",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-deployment-pipeline-citizen-development-governed-gate",
+        "title": "Deployment pipeline as the only enforceable control gate for citizen-developed agents: DevOps literature support, low-code platform hook points, and architectural enforceability",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-implicit-rate-limiting-controls-agentic-ai-removal",
+        "title": "Implicit rate-limiting controls removed by agentic Artificial Intelligence (AI): blast radius amplification and the operational risk literature gap",
+        "added": "2026-04-26"
+      }
+    ],
+    "url": "/Research/threads/agentic-ai-regulated-banking-access-control.html"
   },
   {
     "slug": "strategy-behavioral-economics-rory-sutherland",
@@ -1157,29 +1152,29 @@
     "item_count": 7,
     "items": [
       {
-        "slug": "2026-03-26-customer-contact-and-delight",
-        "title": "Customer contact as strategic signal: why people call and whether they want self-service",
-        "added": "2026-03-26"
-      },
-      {
-        "slug": "2026-03-26-rory-sutherland-core-tenets",
-        "title": "Rory Sutherland's core tenets: anti-bureaucracy, customer thinking, and behavioral economics",
-        "added": "2026-03-26"
-      },
-      {
-        "slug": "2026-03-26-measuring-opportunity-cost",
-        "title": "The measurement asymmetry: why we cut costs but can't see lost opportunities",
+        "slug": "2026-03-26-against-bureaucracy-dismantling-control-systems-to-focus-on-value-and-opportunit",
+        "title": "Against bureaucracy: dismantling control systems to focus on value and opportunity exploration",
         "added": "2026-03-26"
       },
       {
         "slug": "2026-03-26-cost-reduction-is-not-strategy",
         "title": "Cost reduction is not a strategy: the opportunity vs efficiency mindset",
-        "added": "2026-03-26"
+        "added": "2026-03-27"
       },
       {
-        "slug": "2026-03-26-against-bureaucracy-dismantling-control-systems-to-focus-on-value-and-opportunit",
-        "title": "Against bureaucracy: dismantling control systems to focus on value and opportunity exploration",
-        "added": "2026-03-26"
+        "slug": "2026-03-26-customer-contact-and-delight",
+        "title": "Customer contact as strategic signal: why people call and whether they want self-service",
+        "added": "2026-03-27"
+      },
+      {
+        "slug": "2026-03-26-measuring-opportunity-cost",
+        "title": "The measurement asymmetry: why we cut costs but can't see lost opportunities",
+        "added": "2026-03-27"
+      },
+      {
+        "slug": "2026-03-26-rory-sutherland-core-tenets",
+        "title": "Rory Sutherland's core tenets: anti-bureaucracy, customer thinking, and behavioral economics",
+        "added": "2026-03-27"
       },
       {
         "slug": "2026-04-02-ai-funding-and-capital-investment-landscape",
@@ -1189,7 +1184,7 @@
       {
         "slug": "2026-04-02-ai-company-hiring-strategies",
         "title": "AI company hiring strategies: what job ads and recent hires reveal about strategic direction",
-        "added": "2026-04-02"
+        "added": "2026-04-19"
       }
     ],
     "url": "/Research/threads/strategy-behavioral-economics-rory-sutherland.html"
@@ -1207,34 +1202,34 @@
     "item_count": 7,
     "items": [
       {
+        "slug": "2026-03-26-bureaucracy-growth-and-the-boomer-generation-hypothesis",
+        "title": "Bureaucracy growth and the boomer generation hypothesis",
+        "added": "2026-03-26"
+      },
+      {
         "slug": "2026-03-26-against-bureaucracy-dismantling-control-systems-to-focus-on-value-and-opportunit",
         "title": "Against bureaucracy: dismantling control systems to focus on value and opportunity exploration",
         "added": "2026-03-26"
       },
       {
-        "slug": "2026-03-26-rory-sutherland-core-tenets",
-        "title": "Rory Sutherland's core tenets: anti-bureaucracy, customer thinking, and behavioral economics",
-        "added": "2026-03-26"
-      },
-      {
-        "slug": "2026-03-26-measuring-opportunity-cost",
-        "title": "The measurement asymmetry: why we cut costs but can't see lost opportunities",
-        "added": "2026-03-26"
+        "slug": "2026-03-26-cost-reduction-is-not-strategy",
+        "title": "Cost reduction is not a strategy: the opportunity vs efficiency mindset",
+        "added": "2026-03-27"
       },
       {
         "slug": "2026-03-26-customer-contact-and-delight",
         "title": "Customer contact as strategic signal: why people call and whether they want self-service",
-        "added": "2026-03-26"
+        "added": "2026-03-27"
       },
       {
-        "slug": "2026-03-26-cost-reduction-is-not-strategy",
-        "title": "Cost reduction is not a strategy: the opportunity vs efficiency mindset",
-        "added": "2026-03-26"
+        "slug": "2026-03-26-measuring-opportunity-cost",
+        "title": "The measurement asymmetry: why we cut costs but can't see lost opportunities",
+        "added": "2026-03-27"
       },
       {
-        "slug": "2026-03-26-bureaucracy-growth-and-the-boomer-generation-hypothesis",
-        "title": "Bureaucracy growth and the boomer generation hypothesis",
-        "added": "2026-03-26"
+        "slug": "2026-03-26-rory-sutherland-core-tenets",
+        "title": "Rory Sutherland's core tenets: anti-bureaucracy, customer thinking, and behavioral economics",
+        "added": "2026-03-27"
       },
       {
         "slug": "2026-04-01-backpressure-theory-of-constraints",
@@ -1259,12 +1254,12 @@
       {
         "slug": "2026-03-01-github-specify-ralph-loop-lisa-planning",
         "title": "GitHub Specify, Ralph Loops, and Lisa Planning: Proof-Driven Development with AI Agents",
-        "added": "2026-03-01"
+        "added": "2026-03-02"
       },
       {
         "slug": "2026-03-04-sdlc-ai-prompt-patterns",
         "title": "Emergent Patterns in Software Engineering Prompts and SDLC Guidance",
-        "added": "2026-03-04"
+        "added": "2026-03-08"
       },
       {
         "slug": "2026-03-22-coding-ai-agent-skills-survey",
@@ -1279,7 +1274,7 @@
       {
         "slug": "2026-03-28-agent-instruction-loading-and-skills-access",
         "title": "Agent instruction loading and skills access: Copilot coding agent, Claude iOS code feature, and the role of AGENTS.md",
-        "added": "2026-03-28"
+        "added": "2026-03-29"
       },
       {
         "slug": "2026-04-03-oh-my-codex-patterns",
@@ -1309,7 +1304,7 @@
       {
         "slug": "2026-02-28-ai-strategy-security-focus",
         "title": "AI Strategy Examples: Security Focus",
-        "added": "2026-02-28"
+        "added": "2026-03-05"
       },
       {
         "slug": "2026-03-10-adversarial-agents-shared-goals-multi-perspective",
@@ -1319,17 +1314,17 @@
       {
         "slug": "2026-03-12-failure-mode-taxonomy-expansion",
         "title": "Failure mode taxonomy: empirical frequency, causal mechanisms, detection signals, and cascade patterns in production agentic systems",
-        "added": "2026-03-12"
+        "added": "2026-03-14"
       },
       {
         "slug": "2026-03-15-prompt-injection-threat-landscape",
         "title": "Prompt injection threat landscape: exploits, defences, and active research in agentic artificial intelligence (AI) systems",
-        "added": "2026-03-15"
+        "added": "2026-03-19"
       },
       {
         "slug": "2026-03-15-trusting-trust-ai-corpus-contamination",
         "title": "Trusting Trust and AI Corpus Contamination",
-        "added": "2026-03-15"
+        "added": "2026-03-19"
       },
       {
         "slug": "2026-03-31-llm-offensive-security-0days",
@@ -1359,16 +1354,16 @@
       {
         "slug": "2026-03-02-ai-not-a-data-problem",
         "title": "AI capability is not a data problem - why the data/analytics department is the wrong home for organisational AI",
-        "added": "2026-03-02"
-      },
-      {
-        "slug": "2026-03-10-adversarial-agents-shared-goals-multi-perspective",
-        "title": "Adversarial agents with shared goals: multi-perspective coverage across competencies and time horizons",
-        "added": "2026-03-10"
+        "added": "2026-03-07"
       },
       {
         "slug": "2026-03-10-ai-concept-classification-taxonomy",
         "title": "AI concept classification taxonomy: prompts, instructions, memory, failure modes, controls, and problem domains",
+        "added": "2026-03-10"
+      },
+      {
+        "slug": "2026-03-10-adversarial-agents-shared-goals-multi-perspective",
+        "title": "Adversarial agents with shared goals: multi-perspective coverage across competencies and time horizons",
         "added": "2026-03-10"
       },
       {
@@ -1379,12 +1374,12 @@
       {
         "slug": "2026-03-15-prompt-injection-threat-landscape",
         "title": "Prompt injection threat landscape: exploits, defences, and active research in agentic artificial intelligence (AI) systems",
-        "added": "2026-03-15"
+        "added": "2026-03-19"
       },
       {
         "slug": "2026-03-16-gitagent-declarative-agent-definition",
         "title": "GitAgent and declarative agent definition: concepts, adoption, and cross-platform integration",
-        "added": "2026-03-16"
+        "added": "2026-03-19"
       },
       {
         "slug": "2026-03-22-applied-context-engineering-agent-workflows",
@@ -1407,39 +1402,39 @@
     "item_count": 7,
     "items": [
       {
-        "slug": "2026-02-27-interface-and-delivery",
-        "title": "Interface and delivery: how to surface research outputs",
-        "added": "2026-02-27"
-      },
-      {
         "slug": "2026-03-01-github-wiki-research-content",
         "title": "GitHub wiki for research content: approach and tooling",
-        "added": "2026-03-01"
+        "added": "2026-03-02"
       },
       {
         "slug": "2026-03-02-chat-conversational-interface",
         "title": "Conversational and chat interface for querying the research corpus",
-        "added": "2026-03-02"
-      },
-      {
-        "slug": "2026-03-02-slack-msteams-research-integration",
-        "title": "Slack and MS Teams integration for research delivery and capture",
-        "added": "2026-03-02"
-      },
-      {
-        "slug": "2026-03-02-semantic-full-text-search",
-        "title": "Semantic and full-text search over the research corpus",
-        "added": "2026-03-02"
+        "added": "2026-03-08"
       },
       {
         "slug": "2026-03-02-ios-shortcuts-research",
         "title": "iOS Shortcuts for research capture and query",
-        "added": "2026-03-02"
+        "added": "2026-03-08"
+      },
+      {
+        "slug": "2026-03-02-semantic-full-text-search",
+        "title": "Semantic and full-text search over the research corpus",
+        "added": "2026-03-08"
+      },
+      {
+        "slug": "2026-03-02-slack-msteams-research-integration",
+        "title": "Slack and MS Teams integration for research delivery and capture",
+        "added": "2026-03-08"
+      },
+      {
+        "slug": "2026-02-27-interface-and-delivery",
+        "title": "Interface and delivery: how to surface research outputs",
+        "added": "2026-03-10"
       },
       {
         "slug": "2026-03-18-api-context-hubs-rag-mcp",
         "title": "Application Programming Interface (API) Context Hubs, Retrieval-Augmented Generation, and the Model Context Protocol: How Agents Discover and Use APIs",
-        "added": "2026-03-18"
+        "added": "2026-03-20"
       }
     ],
     "url": "/Research/threads/interface-delivery-rag.html"
@@ -1457,34 +1452,34 @@
     "item_count": 7,
     "items": [
       {
-        "slug": "2026-02-28-rbnz-ai-supervisory-expectations",
-        "title": "RBNZ AI Supervisory Expectations: What Do Regulated Entities Need to Know?",
-        "added": "2026-02-28"
-      },
-      {
         "slug": "2026-02-28-ai-strategy",
         "title": "AI Strategy: global and NZ examples, policy frameworks, regulations, and use-case typologies",
         "added": "2026-02-28"
       },
       {
-        "slug": "2026-02-28-ai-strategy-risk-reduction-focus",
-        "title": "AI Strategy Examples: Risk Reduction Focus",
-        "added": "2026-02-28"
-      },
-      {
-        "slug": "2026-02-28-ai-strategy-business-efficiency-examples",
-        "title": "AI Strategy Examples: Business Efficiency Focus",
-        "added": "2026-02-28"
+        "slug": "2026-02-28-ai-control-testing-and-assurance",
+        "title": "AI for Control Testing, Gap Identification, and Policies/Standards Reviews",
+        "added": "2026-03-03"
       },
       {
         "slug": "2026-02-28-ai-line-1-line-2-risk-agents",
         "title": "AI Line 1 and Line 2 Risk Agents: Who Is Building Them?",
-        "added": "2026-02-28"
+        "added": "2026-03-03"
       },
       {
-        "slug": "2026-02-28-ai-control-testing-and-assurance",
-        "title": "AI for Control Testing, Gap Identification, and Policies/Standards Reviews",
-        "added": "2026-02-28"
+        "slug": "2026-02-28-ai-strategy-business-efficiency-examples",
+        "title": "AI Strategy Examples: Business Efficiency Focus",
+        "added": "2026-03-03"
+      },
+      {
+        "slug": "2026-02-28-ai-strategy-risk-reduction-focus",
+        "title": "AI Strategy Examples: Risk Reduction Focus",
+        "added": "2026-03-03"
+      },
+      {
+        "slug": "2026-02-28-rbnz-ai-supervisory-expectations",
+        "title": "RBNZ AI Supervisory Expectations: What Do Regulated Entities Need to Know?",
+        "added": "2026-03-07"
       },
       {
         "slug": "2026-04-24-ai-agent-regulation-global-financial-services",
@@ -1507,11 +1502,6 @@
     "item_count": 7,
     "items": [
       {
-        "slug": "2026-02-28-free-energy-entropy-and-life",
-        "title": "Free energy, entropy, and life: why organisms predict — from Schrödinger to Friston to Seth",
-        "added": "2026-02-28"
-      },
-      {
         "slug": "2026-02-28-youtube-video-hyuos0gkgcs-concepts",
         "title": "Reality Is A Controlled Hallucination — Anil Seth (Essentia Foundation): concept extraction and synthesis",
         "added": "2026-02-28"
@@ -1522,24 +1512,29 @@
         "added": "2026-02-28"
       },
       {
-        "slug": "2026-02-28-interoception-and-the-predictive-self",
-        "title": "Interoception and the predictive self: selfhood as bodily inference",
-        "added": "2026-02-28"
+        "slug": "2026-02-28-controlled-hallucination-perception-as-construction",
+        "title": "Controlled hallucination: perception as active brain construction",
+        "added": "2026-03-05"
+      },
+      {
+        "slug": "2026-02-28-free-energy-entropy-and-life",
+        "title": "Free energy, entropy, and life: why organisms predict — from Schrödinger to Friston to Seth",
+        "added": "2026-03-05"
       },
       {
         "slug": "2026-02-28-hard-problem-vs-real-problem-consciousness",
         "title": "The hard problem vs. the real problem of consciousness",
-        "added": "2026-02-28"
+        "added": "2026-03-05"
       },
       {
-        "slug": "2026-02-28-controlled-hallucination-perception-as-construction",
-        "title": "Controlled hallucination: perception as active brain construction",
-        "added": "2026-02-28"
+        "slug": "2026-02-28-interoception-and-the-predictive-self",
+        "title": "Interoception and the predictive self: selfhood as bodily inference",
+        "added": "2026-03-06"
       },
       {
         "slug": "2026-03-18-human-brain-prediction-machines",
         "title": "Are Human Brains Just Prediction Machines? Comparing Predictive Processing and Large Language Model Next-Token Generation",
-        "added": "2026-03-18"
+        "added": "2026-03-22"
       }
     ],
     "url": "/Research/threads/consciousness-predictive-processing-anil-seth.html"
@@ -1557,34 +1552,34 @@
     "item_count": 7,
     "items": [
       {
-        "slug": "2026-02-28-ai-strategy-risk-reduction-focus",
-        "title": "AI Strategy Examples: Risk Reduction Focus",
-        "added": "2026-02-28"
-      },
-      {
-        "slug": "2026-02-28-rbnz-ai-supervisory-expectations",
-        "title": "RBNZ AI Supervisory Expectations: What Do Regulated Entities Need to Know?",
-        "added": "2026-02-28"
-      },
-      {
-        "slug": "2026-02-28-ai-strategy-security-focus",
-        "title": "AI Strategy Examples: Security Focus",
-        "added": "2026-02-28"
-      },
-      {
-        "slug": "2026-02-28-ai-strategy-business-efficiency-examples",
-        "title": "AI Strategy Examples: Business Efficiency Focus",
-        "added": "2026-02-28"
+        "slug": "2026-02-28-ai-control-testing-and-assurance",
+        "title": "AI for Control Testing, Gap Identification, and Policies/Standards Reviews",
+        "added": "2026-03-03"
       },
       {
         "slug": "2026-02-28-ai-line-1-line-2-risk-agents",
         "title": "AI Line 1 and Line 2 Risk Agents: Who Is Building Them?",
-        "added": "2026-02-28"
+        "added": "2026-03-03"
       },
       {
-        "slug": "2026-02-28-ai-control-testing-and-assurance",
-        "title": "AI for Control Testing, Gap Identification, and Policies/Standards Reviews",
-        "added": "2026-02-28"
+        "slug": "2026-02-28-ai-strategy-business-efficiency-examples",
+        "title": "AI Strategy Examples: Business Efficiency Focus",
+        "added": "2026-03-03"
+      },
+      {
+        "slug": "2026-02-28-ai-strategy-risk-reduction-focus",
+        "title": "AI Strategy Examples: Risk Reduction Focus",
+        "added": "2026-03-03"
+      },
+      {
+        "slug": "2026-02-28-ai-strategy-security-focus",
+        "title": "AI Strategy Examples: Security Focus",
+        "added": "2026-03-05"
+      },
+      {
+        "slug": "2026-02-28-rbnz-ai-supervisory-expectations",
+        "title": "RBNZ AI Supervisory Expectations: What Do Regulated Entities Need to Know?",
+        "added": "2026-03-07"
       },
       {
         "slug": "2026-04-22-knowledge-curation-governance-for-regulated-ai",
@@ -1614,7 +1609,7 @@
       {
         "slug": "2026-03-16-vl-jepa-concept-prediction",
         "title": "Vision-Language Joint Embedding Predictive Architecture (VL-JEPA) and concept prediction: background and options for leveraging with frontier models",
-        "added": "2026-03-16"
+        "added": "2026-03-20"
       },
       {
         "slug": "2026-03-22-using-awesome-copilot-across-repos",
@@ -1654,12 +1649,7 @@
       {
         "slug": "2026-03-01-github-specify-ralph-loop-lisa-planning",
         "title": "GitHub Specify, Ralph Loops, and Lisa Planning: Proof-Driven Development with AI Agents",
-        "added": "2026-03-01"
-      },
-      {
-        "slug": "2026-03-04-sdlc-ai-prompt-patterns",
-        "title": "Emergent Patterns in Software Engineering Prompts and SDLC Guidance",
-        "added": "2026-03-04"
+        "added": "2026-03-02"
       },
       {
         "slug": "2026-03-05-general-agent-optimization-framework",
@@ -1667,9 +1657,14 @@
         "added": "2026-03-05"
       },
       {
+        "slug": "2026-03-04-sdlc-ai-prompt-patterns",
+        "title": "Emergent Patterns in Software Engineering Prompts and SDLC Guidance",
+        "added": "2026-03-08"
+      },
+      {
         "slug": "2026-03-16-intent-driven-development",
         "title": "Intent Driven Development: context and concept layering to bound the solution space",
-        "added": "2026-03-16"
+        "added": "2026-03-20"
       },
       {
         "slug": "2026-03-22-coding-ai-agent-skills-survey",
@@ -1702,14 +1697,14 @@
         "added": "2026-02-28"
       },
       {
-        "slug": "2026-02-28-rbnz-ai-supervisory-expectations",
-        "title": "RBNZ AI Supervisory Expectations: What Do Regulated Entities Need to Know?",
-        "added": "2026-02-28"
-      },
-      {
         "slug": "2026-02-28-ai-line-1-line-2-risk-agents",
         "title": "AI Line 1 and Line 2 Risk Agents: Who Is Building Them?",
-        "added": "2026-02-28"
+        "added": "2026-03-03"
+      },
+      {
+        "slug": "2026-02-28-rbnz-ai-supervisory-expectations",
+        "title": "RBNZ AI Supervisory Expectations: What Do Regulated Entities Need to Know?",
+        "added": "2026-03-07"
       },
       {
         "slug": "2026-04-24-ai-agent-regulation-global-financial-services",
@@ -1744,12 +1739,17 @@
       {
         "slug": "2026-03-16-adaptive-policy-authorization-compliance",
         "title": "Adaptive Policy-Based Authorization (APBA): compliance alignment with National Institute of Standards and Technology (NIST) Special Publication (SP) 800-53 and International Organization for Standardization (ISO) / International Electrotechnical Commission (IEC) 27001, and impact on Policy as Code (PaC) and Artificial Intelligence (AI)-generated authorization code",
-        "added": "2026-03-16"
+        "added": "2026-03-19"
       },
       {
         "slug": "2026-03-21-dependency-mapping-dotnet-terraform-dynatrace",
         "title": "Dependency Mapping Across .NET Codebases, Terraform, Dynatrace, Confluence, Log Aggregation, and the Configuration and Service Data Model (CSDM)",
-        "added": "2026-03-21"
+        "added": "2026-03-22"
+      },
+      {
+        "slug": "2026-03-22-coding-ai-agent-skills-survey",
+        "title": "Coding AI Agent Skills Survey: Existing Vendor and OSS Prompt Libraries for Software Engineering Domains",
+        "added": "2026-03-22"
       },
       {
         "slug": "2026-03-22-compliance-scanning-gh-actions",
@@ -1759,11 +1759,6 @@
       {
         "slug": "2026-03-22-cross-scanner-compliance-evidence-normalisation",
         "title": "Cross-Scanner Compliance Evidence and Waiver Normalisation in GitHub Actions",
-        "added": "2026-03-22"
-      },
-      {
-        "slug": "2026-03-22-coding-ai-agent-skills-survey",
-        "title": "Coding AI Agent Skills Survey: Existing Vendor and OSS Prompt Libraries for Software Engineering Domains",
         "added": "2026-03-22"
       }
     ],
@@ -1784,16 +1779,16 @@
       {
         "slug": "2026-03-16-adaptive-policy-authorization-compliance",
         "title": "Adaptive Policy-Based Authorization (APBA): compliance alignment with National Institute of Standards and Technology (NIST) Special Publication (SP) 800-53 and International Organization for Standardization (ISO) / International Electrotechnical Commission (IEC) 27001, and impact on Policy as Code (PaC) and Artificial Intelligence (AI)-generated authorization code",
-        "added": "2026-03-16"
-      },
-      {
-        "slug": "2026-03-22-cross-scanner-compliance-evidence-normalisation",
-        "title": "Cross-Scanner Compliance Evidence and Waiver Normalisation in GitHub Actions",
-        "added": "2026-03-22"
+        "added": "2026-03-19"
       },
       {
         "slug": "2026-03-22-compliance-scanning-gh-actions",
         "title": "Compliance Scanning via GitHub Actions — Broad Policy as Code Across a Heterogeneous Stack",
+        "added": "2026-03-22"
+      },
+      {
+        "slug": "2026-03-22-cross-scanner-compliance-evidence-normalisation",
+        "title": "Cross-Scanner Compliance Evidence and Waiver Normalisation in GitHub Actions",
         "added": "2026-03-22"
       },
       {
@@ -1822,29 +1817,29 @@
     "item_count": 5,
     "items": [
       {
-        "slug": "2026-03-12-ai-team-size-strike-team-thesis",
-        "title": "AI amplified the coordination tax: the 5-person strike team as the structural unit of the AI era",
-        "added": "2026-03-12"
+        "slug": "2026-03-12-ai-force-multiplier-ambition-expansion",
+        "title": "Force multiplier, not cost reducer: expanding organisational ambition when AI multiplies per-person output",
+        "added": "2026-03-14"
       },
       {
-        "slug": "2026-03-12-volume-vs-correctness-ai-era",
-        "title": "AI inverted the knowledge-work scarcity equation: volume is free, correctness is the scarce resource",
-        "added": "2026-03-12"
+        "slug": "2026-03-12-ai-team-size-strike-team-thesis",
+        "title": "AI amplified the coordination tax: the 5-person strike team as the structural unit of the AI era",
+        "added": "2026-03-14"
       },
       {
         "slug": "2026-03-12-team-size-limits-brooks-dunbar-network-theory",
         "title": "Three disciplines, one answer: Brooks, Dunbar, and network theory on why 5 is the coordination limit",
-        "added": "2026-03-12"
+        "added": "2026-03-14"
       },
       {
-        "slug": "2026-03-12-ai-force-multiplier-ambition-expansion",
-        "title": "Force multiplier, not cost reducer: expanding organisational ambition when AI multiplies per-person output",
-        "added": "2026-03-12"
+        "slug": "2026-03-12-volume-vs-correctness-ai-era",
+        "title": "AI inverted the knowledge-work scarcity equation: volume is free, correctness is the scarce resource",
+        "added": "2026-03-14"
       },
       {
         "slug": "2026-04-03-ai-workflow-todo-digest",
         "title": "Artificial Intelligence (AI)-assisted daily productivity digest: patterns, tooling, and automation approaches for personal task management",
-        "added": "2026-04-03"
+        "added": "2026-04-19"
       }
     ],
     "url": "/Research/threads/ai-productivity-team-size.html"
@@ -1862,58 +1857,53 @@
     "item_count": 5,
     "items": [
       {
-        "slug": "2026-03-08-servicenow-platform-strategy",
-        "title": "ServiceNow Platform Strategy: Holistic Integration of CSDM, Modules, Process, and AI",
-        "added": "2026-03-08"
-      },
-      {
-        "slug": "2026-03-08-servicenow-process-mapping",
-        "title": "ServiceNow Process Mapping: Maintainable Process Documentation in SNOW",
-        "added": "2026-03-08"
-      },
-      {
         "slug": "2026-03-08-servicenow-csdm-data-modelling",
         "title": "ServiceNow CSDM: Practical Data Modelling Across ITSM, APM, SPM, IRM, and FSO",
         "added": "2026-03-08"
       },
       {
+        "slug": "2026-03-08-servicenow-platform-strategy",
+        "title": "ServiceNow Platform Strategy: Holistic Integration of CSDM, Modules, Process, and AI",
+        "added": "2026-03-09"
+      },
+      {
         "slug": "2026-03-08-servicenow-ai-knowledge-rag-agents",
         "title": "ServiceNow AI: Knowledge Management, RAG Pipelines, and Agent Frameworks",
-        "added": "2026-03-08"
+        "added": "2026-03-09"
+      },
+      {
+        "slug": "2026-03-08-servicenow-process-mapping",
+        "title": "ServiceNow Process Mapping: Maintainable Process Documentation in SNOW",
+        "added": "2026-03-09"
       },
       {
         "slug": "2026-03-21-technology-capability-models",
         "title": "Technology Capability Models: Survey, Comparison, and Recommendation for Multi-Level IT Capability Mapping",
-        "added": "2026-03-21"
+        "added": "2026-03-22"
       }
     ],
     "url": "/Research/threads/servicenow-csdm-itsm.html"
   },
   {
-    "slug": "cost-allocation-tbm-council-financial-services",
-    "title": "cost allocation / tbm council / financial services",
+    "slug": "cost-allocation-financial-services-tbm-council",
+    "title": "cost allocation / financial services / tbm council",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "cost allocation",
-      "tbm council",
-      "financial services"
+      "financial services",
+      "tbm council"
     ],
     "item_count": 5,
     "items": [
       {
         "slug": "2026-03-07-run-vs-build-it-spending-allocation",
         "title": "RUN vs BUILD IT spending allocation in non-IT primary businesses",
-        "added": "2026-03-07"
+        "added": "2026-03-08"
       },
       {
         "slug": "2026-03-07-run-build-it-allocation-implementation-how",
         "title": "How organisations practically implement IT RUN vs BUILD cost allocation",
-        "added": "2026-03-07"
-      },
-      {
-        "slug": "2026-03-08-servicenow-platform-strategy",
-        "title": "ServiceNow Platform Strategy: Holistic Integration of CSDM, Modules, Process, and AI",
         "added": "2026-03-08"
       },
       {
@@ -1922,21 +1912,26 @@
         "added": "2026-03-08"
       },
       {
+        "slug": "2026-03-08-servicenow-platform-strategy",
+        "title": "ServiceNow Platform Strategy: Holistic Integration of CSDM, Modules, Process, and AI",
+        "added": "2026-03-09"
+      },
+      {
         "slug": "2026-03-08-servicenow-ai-knowledge-rag-agents",
         "title": "ServiceNow AI: Knowledge Management, RAG Pipelines, and Agent Frameworks",
-        "added": "2026-03-08"
+        "added": "2026-03-09"
       }
     ],
-    "url": "/Research/threads/cost-allocation-tbm-council-financial-services.html"
+    "url": "/Research/threads/cost-allocation-financial-services-tbm-council.html"
   },
   {
-    "slug": "coding-agent-copilot-coding-agents-md",
-    "title": "coding agent / copilot coding / agents md",
+    "slug": "copilot-coding-coding-agent-agents-md",
+    "title": "copilot coding / coding agent / agents md",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "coding agent",
       "copilot coding",
+      "coding agent",
       "agents md"
     ],
     "item_count": 5,
@@ -1944,30 +1939,30 @@
       {
         "slug": "2026-02-28-ai-strategy-swe-focus",
         "title": "AI Strategy Examples: Software Engineering Focus",
-        "added": "2026-02-28"
+        "added": "2026-03-05"
       },
       {
         "slug": "2026-03-08-ai-coding-harnesses-agent-philosophy",
         "title": "AI coding harnesses: agent execution model, memory, and context management across commercial and OSS tools",
-        "added": "2026-03-08"
+        "added": "2026-03-09"
       },
       {
         "slug": "2026-03-22-agents-as-finishers-and-synthesisers",
         "title": "Artificial Intelligence (AI) agents as finishers and synthesisers: optimising AI agents to complement ideation-strong, execution-weak humans",
-        "added": "2026-03-22"
-      },
-      {
-        "slug": "2026-03-28-agents-md-role-and-cross-agent-instructions",
-        "title": "The role of AGENTS.md in a repo using .github/copilot-instructions.md as the sole instructions source",
-        "added": "2026-03-28"
+        "added": "2026-03-23"
       },
       {
         "slug": "2026-03-28-agent-instruction-loading-and-skills-access",
         "title": "Agent instruction loading and skills access: Copilot coding agent, Claude iOS code feature, and the role of AGENTS.md",
-        "added": "2026-03-28"
+        "added": "2026-03-29"
+      },
+      {
+        "slug": "2026-03-28-agents-md-role-and-cross-agent-instructions",
+        "title": "The role of AGENTS.md in a repo using .github/copilot-instructions.md as the sole instructions source",
+        "added": "2026-03-29"
       }
     ],
-    "url": "/Research/threads/coding-agent-copilot-coding-agents-md.html"
+    "url": "/Research/threads/copilot-coding-coding-agent-agents-md.html"
   },
   {
     "slug": "evaluation-agents-research-loop",
@@ -1987,14 +1982,14 @@
         "added": "2026-03-03"
       },
       {
-        "slug": "2026-03-10-research-loop-evaluation-rubric",
-        "title": "Research loop evaluation rubric: LLM-as-judge specification for this repository's research loop agent",
-        "added": "2026-03-10"
-      },
-      {
         "slug": "2026-03-10-agent-evaluation-cross-repo-analysis",
         "title": "Agent evaluation framework: cross-repo pattern analysis, commonality detection, and regression identification",
         "added": "2026-03-10"
+      },
+      {
+        "slug": "2026-03-10-research-loop-evaluation-rubric",
+        "title": "Research loop evaluation rubric: LLM-as-judge specification for this repository's research loop agent",
+        "added": "2026-03-14"
       },
       {
         "slug": "2026-03-22-applied-context-engineering-agent-workflows",
@@ -2019,34 +2014,34 @@
       {
         "slug": "2026-02-27-youtube-transcript-fetcher",
         "title": "YouTube transcript fetcher for research",
-        "added": "2026-02-27"
-      },
-      {
-        "slug": "2026-02-28-transcript-via-yt-dlp-whisper",
-        "title": "YouTube transcripts via yt-dlp audio + Whisper transcription",
-        "added": "2026-02-28"
-      },
-      {
-        "slug": "2026-02-28-transcript-via-third-party-apis",
-        "title": "YouTube transcripts via third-party transcript APIs (AssemblyAI / Supadata)",
-        "added": "2026-02-28"
+        "added": "2026-03-03"
       },
       {
         "slug": "2026-02-28-transcript-via-gemini-api",
         "title": "YouTube transcripts via Gemini API (native YouTube URL support)",
-        "added": "2026-02-28"
+        "added": "2026-03-07"
+      },
+      {
+        "slug": "2026-02-28-transcript-via-yt-dlp-whisper",
+        "title": "YouTube transcripts via yt-dlp audio + Whisper transcription",
+        "added": "2026-03-07"
+      },
+      {
+        "slug": "2026-02-28-transcript-via-third-party-apis",
+        "title": "YouTube transcripts via third-party transcript APIs (AssemblyAI / Supadata)",
+        "added": "2026-03-10"
       }
     ],
     "url": "/Research/threads/youtube-transcripts-tooling.html"
   },
   {
-    "slug": "nist-ai-ai-rmf-apra-cps",
-    "title": "nist ai / ai rmf / apra cps",
+    "slug": "ai-rmf-nist-ai-apra-cps",
+    "title": "ai rmf / nist ai / apra cps",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "nist ai",
       "ai rmf",
+      "nist ai",
       "apra cps"
     ],
     "item_count": 4,
@@ -2054,7 +2049,7 @@
       {
         "slug": "2026-03-02-ai-not-a-data-problem",
         "title": "AI capability is not a data problem - why the data/analytics department is the wrong home for organisational AI",
-        "added": "2026-03-02"
+        "added": "2026-03-07"
       },
       {
         "slug": "2026-04-22-knowledge-curation-governance-for-regulated-ai",
@@ -2072,7 +2067,7 @@
         "added": "2026-04-26"
       }
     ],
-    "url": "/Research/threads/nist-ai-ai-rmf-apra-cps.html"
+    "url": "/Research/threads/ai-rmf-nist-ai-apra-cps.html"
   },
   {
     "slug": "agents-md-github-copilot-claude-code",
@@ -2089,17 +2084,17 @@
       {
         "slug": "2026-03-01-github-specify-ralph-loop-lisa-planning",
         "title": "GitHub Specify, Ralph Loops, and Lisa Planning: Proof-Driven Development with AI Agents",
-        "added": "2026-03-01"
+        "added": "2026-03-02"
       },
       {
         "slug": "2026-03-02-chat-conversational-interface",
         "title": "Conversational and chat interface for querying the research corpus",
-        "added": "2026-03-02"
+        "added": "2026-03-08"
       },
       {
         "slug": "2026-03-10-research-loop-evaluation-rubric",
         "title": "Research loop evaluation rubric: LLM-as-judge specification for this repository's research loop agent",
-        "added": "2026-03-10"
+        "added": "2026-03-14"
       },
       {
         "slug": "2026-04-20-harness-selection-tools-agents-skills-prompts-instructions",
@@ -2124,7 +2119,7 @@
       {
         "slug": "2026-03-15-saas-banking-invariants",
         "title": "Invariants in Software as a Service (SaaS) Banking Software",
-        "added": "2026-03-15"
+        "added": "2026-03-19"
       },
       {
         "slug": "2026-03-24-public-sentiment-on-ai-in-banking-and-high-trust-institutions",
@@ -2154,17 +2149,17 @@
       {
         "slug": "2026-03-12-exploration-synthesis-gap",
         "title": "Exploration-synthesis gap: why people in explore mode fail to synthesise others' work, and whether agent synthesis can close the gap",
-        "added": "2026-03-12"
+        "added": "2026-03-14"
       },
       {
         "slug": "2026-03-15-context-layers-aligned-decisions-synthesis",
         "title": "Aligned Decision-Making: Context Architecture for AI Agents in Organisations",
-        "added": "2026-03-15"
+        "added": "2026-03-17"
       },
       {
         "slug": "2026-03-18-explore-to-exploit-synthesis-gap",
         "title": "Explore to exploit: the synthesis step that makes exploitation pay off",
-        "added": "2026-03-18"
+        "added": "2026-03-20"
       }
     ],
     "url": "/Research/threads/synthesis-exploration-decision-making.html"
@@ -2184,17 +2179,17 @@
       {
         "slug": "2026-03-01-agent-lsp-policy-enforcement",
         "title": "Guiding Headless Agents via LSP-Like Mechanisms for Org Policy Conformance",
-        "added": "2026-03-01"
+        "added": "2026-03-07"
       },
       {
         "slug": "2026-03-04-sdlc-ai-prompt-patterns",
         "title": "Emergent Patterns in Software Engineering Prompts and SDLC Guidance",
-        "added": "2026-03-04"
+        "added": "2026-03-08"
       },
       {
         "slug": "2026-03-16-intent-driven-development",
         "title": "Intent Driven Development: context and concept layering to bound the solution space",
-        "added": "2026-03-16"
+        "added": "2026-03-20"
       }
     ],
     "url": "/Research/threads/developer-tooling-software-engineering-agentic-coding.html"
@@ -2219,12 +2214,12 @@
       {
         "slug": "2026-03-10-nature-of-the-firm-coase-organisations",
         "title": "The Nature of the Firm: why organisations exist, their fitness functions, and invariants",
-        "added": "2026-03-10"
+        "added": "2026-03-13"
       },
       {
         "slug": "2026-03-15-adam-smith-org-design-desire-paths-ai",
         "title": "Adam Smith, Organisational Design, Desire Paths, and AI Strategy",
-        "added": "2026-03-15"
+        "added": "2026-03-16"
       }
     ],
     "url": "/Research/threads/coase-institutional-economics-transaction-costs.html"
@@ -2242,19 +2237,19 @@
     "item_count": 3,
     "items": [
       {
-        "slug": "2026-03-12-swat-technique-loop-fresh-context",
-        "title": "SWAT technique in a fresh-context loop: reliability, drift, and the effect of web search and org RAG on blind-acceptance outcomes",
-        "added": "2026-03-12"
-      },
-      {
         "slug": "2026-03-12-failure-mode-taxonomy-expansion",
         "title": "Failure mode taxonomy: empirical frequency, causal mechanisms, detection signals, and cascade patterns in production agentic systems",
-        "added": "2026-03-12"
+        "added": "2026-03-14"
+      },
+      {
+        "slug": "2026-03-12-swat-technique-loop-fresh-context",
+        "title": "SWAT technique in a fresh-context loop: reliability, drift, and the effect of web search and org RAG on blind-acceptance outcomes",
+        "added": "2026-03-14"
       },
       {
         "slug": "2026-03-15-context-compression-rag-enterprise-knowledge",
         "title": "Context Compression and RAG Techniques for Organisational Knowledge",
-        "added": "2026-03-15"
+        "added": "2026-03-16"
       }
     ],
     "url": "/Research/threads/agentic-systems-rag-hallucination.html"
@@ -2274,7 +2269,7 @@
       {
         "slug": "2026-03-08-ai-coding-harnesses-agent-philosophy",
         "title": "AI coding harnesses: agent execution model, memory, and context management across commercial and OSS tools",
-        "added": "2026-03-08"
+        "added": "2026-03-09"
       },
       {
         "slug": "2026-04-02-anthropic-claude-code-leak-architecture-prompting-and-hidden-features",
@@ -2284,7 +2279,7 @@
       {
         "slug": "2026-04-02-ai-company-hiring-strategies",
         "title": "AI company hiring strategies: what job ads and recent hires reveal about strategic direction",
-        "added": "2026-04-02"
+        "added": "2026-04-19"
       }
     ],
     "url": "/Research/threads/anthropic-openai-memory.html"
@@ -2307,14 +2302,14 @@
         "added": "2026-03-03"
       },
       {
-        "slug": "2026-03-04-sdlc-ai-prompt-patterns",
-        "title": "Emergent Patterns in Software Engineering Prompts and SDLC Guidance",
-        "added": "2026-03-04"
-      },
-      {
         "slug": "2026-03-05-general-agent-optimization-framework",
         "title": "General Agent Optimization Framework",
         "added": "2026-03-05"
+      },
+      {
+        "slug": "2026-03-04-sdlc-ai-prompt-patterns",
+        "title": "Emergent Patterns in Software Engineering Prompts and SDLC Guidance",
+        "added": "2026-03-08"
       }
     ],
     "url": "/Research/threads/prompt-engineering-ai-agents-evaluation.html"
@@ -2344,7 +2339,7 @@
       {
         "slug": "2026-03-10-research-loop-evaluation-rubric",
         "title": "Research loop evaluation rubric: LLM-as-judge specification for this repository's research loop agent",
-        "added": "2026-03-10"
+        "added": "2026-03-14"
       }
     ],
     "url": "/Research/threads/evaluation-research-loop-prompt-engineering.html"
@@ -2362,22 +2357,52 @@
     "item_count": 3,
     "items": [
       {
-        "slug": "2026-03-02-research-quality-assurance-methodology",
-        "title": "Research Quality Assurance and Knowledge Integration Methodology",
-        "added": "2026-03-02"
-      },
-      {
         "slug": "2026-03-03-knowledge-linking-connected-corpus",
         "title": "Knowledge linking: building a connected research corpus via explicit cross-references and a knowledge graph",
         "added": "2026-03-03"
       },
       {
+        "slug": "2026-03-02-research-quality-assurance-methodology",
+        "title": "Research Quality Assurance and Knowledge Integration Methodology",
+        "added": "2026-03-08"
+      },
+      {
         "slug": "2026-03-15-context-layers-aligned-decisions-synthesis",
         "title": "Aligned Decision-Making: Context Architecture for AI Agents in Organisations",
-        "added": "2026-03-15"
+        "added": "2026-03-17"
       }
     ],
     "url": "/Research/threads/synthesis-knowledge-integration-knowledge-management.html"
+  },
+  {
+    "slug": "workflow-process-tooling",
+    "title": "workflow / process / tooling",
+    "kind": "implicit",
+    "tag_cluster": [
+      "workflow",
+      "process",
+      "tooling"
+    ],
+    "concept_cluster": [],
+    "item_count": 3,
+    "items": [
+      {
+        "slug": "2026-02-27-research-backlog-vs-repo-improvement-backlog",
+        "title": "Keeping research backlog separate from repo improvement backlog",
+        "added": "2026-03-02"
+      },
+      {
+        "slug": "2026-02-27-simple-process-for-adding-research-item",
+        "title": "Simple process for adding a research item",
+        "added": "2026-03-02"
+      },
+      {
+        "slug": "2026-04-03-oh-my-codex-patterns",
+        "title": "oh-my-codex and AI Agent Workflow Patterns: What Can We Leverage?",
+        "added": "2026-04-03"
+      }
+    ],
+    "url": "/Research/threads/workflow-process-tooling.html"
   },
   {
     "slug": "llm-context-window-mcp",
@@ -2399,44 +2424,14 @@
       {
         "slug": "2026-03-15-context-compression-rag-enterprise-knowledge",
         "title": "Context Compression and RAG Techniques for Organisational Knowledge",
-        "added": "2026-03-15"
+        "added": "2026-03-16"
       },
       {
         "slug": "2026-03-18-api-context-hubs-rag-mcp",
         "title": "Application Programming Interface (API) Context Hubs, Retrieval-Augmented Generation, and the Model Context Protocol: How Agents Discover and Use APIs",
-        "added": "2026-03-18"
+        "added": "2026-03-20"
       }
     ],
     "url": "/Research/threads/llm-context-window-mcp.html"
-  },
-  {
-    "slug": "workflow-process-tooling",
-    "title": "workflow / process / tooling",
-    "kind": "implicit",
-    "tag_cluster": [
-      "workflow",
-      "process",
-      "tooling"
-    ],
-    "concept_cluster": [],
-    "item_count": 3,
-    "items": [
-      {
-        "slug": "2026-02-27-simple-process-for-adding-research-item",
-        "title": "Simple process for adding a research item",
-        "added": "2026-02-27"
-      },
-      {
-        "slug": "2026-02-27-research-backlog-vs-repo-improvement-backlog",
-        "title": "Keeping research backlog separate from repo improvement backlog",
-        "added": "2026-02-27"
-      },
-      {
-        "slug": "2026-04-03-oh-my-codex-patterns",
-        "title": "oh-my-codex and AI Agent Workflow Patterns: What Can We Leverage?",
-        "added": "2026-04-03"
-      }
-    ],
-    "url": "/Research/threads/workflow-process-tooling.html"
   }
 ]

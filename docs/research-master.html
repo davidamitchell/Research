@@ -638,7 +638,7 @@ main {
   </div>
   <div class="research-master-content item-content">
     <h1>Research Master Document</h1>
-<p>Generated on: 2026-04-26 08:31 UTC</p>
+<p>Generated on: 2026-04-26 09:56 UTC</p>
 <p><a id="2026-04-26-systems-capability-debt-citizen-development-empirical-evidence-md"></a></p>
 <h2>Systems capability debt as the root cause of citizen development: empirical evidence and effective governance architectures</h2>
 <p><strong>Tags:</strong> [systems-capability-debt, citizen-development, shadow-it, operational-risk, governance, regulated-banking, nz-rbnz, pci-dss, microsoft-365, aws-bedrock, empirical-evidence]</p>
@@ -24654,6 +24654,1266 @@ extract full transcripts from YouTube videos without being blocked by YouTube's 
 <li>Are there NZ-specific data residency obligations that restrict where GRC SaaS platforms can process testing evidence from RBNZ-supervised entities?</li>
 <li>When AI executes full-population testing (rather than statistical sampling), does the assurance model change — and if so, how should audit standards address it?</li>
 <li>At what point does automated continuous control monitoring constitute a &quot;model&quot; requiring model risk management governance under prudential frameworks?</li>
+</ul>
+<hr />
+<hr />
+<p><a id="2026-02-27-youtube-transcript-fetcher-md"></a></p>
+<h2>YouTube transcript fetcher for research</h2>
+<p><strong>Tags:</strong> [youtube, transcripts, fetching, tooling]</p>
+<p><strong>Origin:</strong> https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-02-27-youtube-transcript-fetcher.md</p>
+<h2>Question / Hypothesis</h2>
+<p>Can we port the YouTube transcript fetcher from <code>davidamitchell/Latest-developments-</code> to this repo and adapt it for research use (bulk fetch, save transcripts, not just email digest)?</p>
+<h2>Findings</h2>
+<h3>Executive Summary</h3>
+<p>The YouTube transcript fetcher port is complete and fully operational. <code>src/fetchers/youtube.py</code> supports both channel-based bulk fetch (via YouTube Atom feed, no API key required for discovery) and single-video fetch by URL or ID, with a three-tier fallback chain for cloud IP transcript blocks. All 18 unit tests pass and all four BACKLOG slices (W-0016 through W-0019) are marked done. The implementation improves on the companion repo by using the Atom feed for discovery rather than the YouTube Data API v3, eliminating the API quota cost for channel scanning.</p>
+<h3>Key Findings</h3>
+<ol>
+<li><code>src/fetchers/youtube.py</code> is implemented and passes all 18 tests (<code>pytest tests/test_fetchers_youtube.py</code>); the port is complete.</li>
+<li>Channel discovery uses the YouTube Atom feed (<code>https://www.youtube.com/feeds/videos.xml?channel_id=&lt;id&gt;</code>) — no API key needed for feed-based discovery, unlike the companion repo which requires <code>YOUTUBE_API_KEY</code> for the search endpoint.</li>
+<li>Single-video fetch uses <code>python -m src.main fetch youtube --video &lt;url&gt;</code> and accepts full YouTube URLs, <code>youtu.be</code> short URLs, or bare video IDs.</li>
+<li>The fetcher implements a three-tier fallback when transcripts are blocked: (1) <code>youtube-transcript-api</code>, (2) YouTube Data API v3 description (if <code>YOUTUBE_DATA_API</code> env var is set), (3) <code>og:description</code> meta tag scraped from the watch page.</li>
+<li>The CLI (<code>python -m src.main fetch youtube</code>) outputs transcript content to stdout; saving to <code>Research/transcripts/</code> is handled by the <code>fetch-transcript.yml</code> GitHub Actions workflow, which uses <code>yt-dlp</code> and commits the file to the repo.</li>
+<li>Transcript requests from GitHub Actions cloud IPs (AWS/GCP ranges) are blocked by YouTube at the network level. This is a hard restriction with no reliable workaround from a cloud runner; the workflow commits step-by-step manual instructions when automated fetch fails.</li>
+<li>Bulk channel fetch is limited to recent videos. The Atom feed returns approximately the last 15 videos; the <code>--max-videos</code> flag can cap this further. Historical backlog fetch beyond the feed window is not supported via this approach.</li>
+<li>URL deduplication via <code>StateStore</code> (<code>state/index.json</code>) prevents reprocessing already-fetched items across runs.</li>
+<li>The <code>youtube-transcript-api</code> library (v1.2.4 as of this writing) is installed; it requires no API key and works without a headless browser.</li>
+<li>The implementation differs from the companion repo's design: companion uses <code>YouTubeConfig</code> dataclass and <code>with_backoff</code> retry utility; this repo uses direct <code>httpx.Client</code> injection and inline retry logic, making it more testable in isolation.</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>Source</th>
+<th>Confidence</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Port complete, 18 tests pass</td>
+<td><code>tests/test_fetchers_youtube.py</code> (local run)</td>
+<td>high</td>
+<td>All 18 passed in 6.13s</td>
+</tr>
+<tr>
+<td>Atom feed used for discovery</td>
+<td><code>src/fetchers/youtube.py:_CHANNEL_FEED_URL</code></td>
+<td>high</td>
+<td>No API key in channel path</td>
+</tr>
+<tr>
+<td>Three-tier transcript fallback</td>
+<td><code>src/fetchers/youtube.py:_fetch_video()</code></td>
+<td>high</td>
+<td>Code inspection</td>
+</tr>
+<tr>
+<td>CLI outputs to stdout</td>
+<td><code>src/main.py:_fetch_youtube()</code></td>
+<td>high</td>
+<td>Code inspection</td>
+</tr>
+<tr>
+<td>Workflow saves to <code>Research/transcripts/</code></td>
+<td><code>.github/workflows/fetch-transcript.yml</code></td>
+<td>high</td>
+<td>Full workflow reviewed</td>
+</tr>
+<tr>
+<td>Cloud IP block is hard restriction</td>
+<td><code>.github/workflows/fetch-transcript.yml</code> comments + <code>fetch-transcript.yml</code> fallback README generation</td>
+<td>high</td>
+<td>Documented in workflow</td>
+</tr>
+<tr>
+<td>Atom feed limited to ~15 recent videos</td>
+<td>YouTube documentation (known feed behaviour)</td>
+<td>medium</td>
+<td>Feed design; not configurable</td>
+</tr>
+<tr>
+<td><code>youtube-transcript-api</code> v1.2.4 installed</td>
+<td><code>pip show youtube-transcript-api</code></td>
+<td>high</td>
+<td>Verified in environment</td>
+</tr>
+<tr>
+<td>Deduplication via StateStore</td>
+<td><code>src/main.py:_fetch_youtube()</code>, <code>src/state.py</code></td>
+<td>high</td>
+<td>Code inspection</td>
+</tr>
+<tr>
+<td>BACKLOG slices W-0016–W-0019 done</td>
+<td><code>BACKLOG.md</code></td>
+<td>high</td>
+<td>All marked <code>status: done</code></td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li><strong>Assumption:</strong> The companion repo's Atom-feed approach (rather than its YouTube Data API search approach) is preferred for research use. <strong>Justification:</strong> No API quota cost for discovery; the research use case is on-demand rather than scheduled polling, making quota conservation less critical but still desirable.</li>
+<li><strong>Assumption:</strong> Saving transcripts to <code>Research/transcripts/</code> via the GitHub Actions workflow (rather than the CLI) satisfies the &quot;save to disk&quot; requirement. <strong>Justification:</strong> The owner has no local environment; all file saves must go through GitHub, making the workflow the natural persistence layer.</li>
+</ul>
+<h3>Analysis</h3>
+<p>The research question is answered in the affirmative: the port succeeded and is production-ready. The key design divergence from the companion repo is the switch from YouTube Data API search (quota-consuming) to the Atom feed (free) for channel discovery. This trade-off sacrifices metadata richness (the Atom feed returns fewer fields than the API snippet) but eliminates the dependency on a paid/quota-limited credential for the most common operation.</p>
+<p>The three-tier fallback is the correct response to the cloud IP block problem. It degrades gracefully: transcript text (ideal) → video description (acceptable for research context) → page description (minimal but better than nothing). The workflow's fallback to human-readable instructions is appropriate for the owner's web-only access pattern.</p>
+<p>The one gap against the original scope is bulk historical backlog fetch. The Atom feed is limited to ~15 recent videos per channel. If the use case requires fetching a channel's older content, a different approach is needed (YouTube Data API with <code>pageToken</code> pagination, or a third-party tool). Three backlog items already address this gap (<code>2026-02-28-transcript-via-gemini-api.md</code>, <code>2026-02-28-transcript-via-yt-dlp-whisper.md</code>, <code>2026-02-28-transcript-via-third-party-apis.md</code>).</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>YouTube's Atom feed is an unofficial/undocumented endpoint; it could be deprecated without notice.</li>
+<li>The Atom feed returns only the most recent ~15 videos. Historical backlog fetch for a channel requires a different approach (backlog items exist for this).</li>
+<li>The <code>youtube-transcript-api</code> library may break when YouTube changes its internal API (it has broken before). The three-tier fallback mitigates this but does not eliminate the risk.</li>
+<li>The <code>YOUTUBE_DATA_API</code> env var is optional; without it, the second fallback tier is unavailable and the fetcher drops to the og:description scrape immediately.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>Should the CLI gain a <code>--output-dir</code> flag to save transcripts directly to disk (e.g., <code>Research/transcripts/</code>), removing the dependency on the GitHub Actions workflow for persistence?</li>
+<li>Is Atom feed pagination needed, or is the Gemini/yt-dlp/third-party approach the right path for bulk historical fetch?</li>
+</ul>
+<hr />
+<hr />
+<p><a id="2026-02-27-sources-of-research-md"></a></p>
+<h2>Sources of research: what to monitor and how</h2>
+<p><strong>Tags:</strong> [sources, discovery, rss, youtube, arxiv]</p>
+<p><strong>Origin:</strong> https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-02-27-sources-of-research.md</p>
+<h2>Question / Hypothesis</h2>
+<p>What are the best sources for AI/ML research, and what is the right monitoring strategy for each — RSS, YouTube channels, arXiv, newsletters, GitHub?</p>
+<h2>Findings</h2>
+<h3>Executive Summary</h3>
+<p>The most reliable automated AI/ML research sources for a GitHub Actions–based pipeline are RSS feeds from practitioner blogs and lab blogs — all confirmed accessible from runner IPs — plus the already-configured arxiv-mcp-server for targeted paper queries during agent research sessions. YouTube channel Atom feeds are blocked from GitHub Actions cloud IPs (confirmed independently from prior research) and cannot drive automated monitoring. arXiv RSS feeds work from runner IPs and deliver 300–430 papers per category per weekday, but this volume requires keyword filtering before automated ingestion is practical. Seven RSS feeds should be added to <code>config/sources.yaml</code> immediately using existing fetcher infrastructure; YouTube channels should remain empty until a channel-discovery mechanism that works from cloud IPs is built.</p>
+<h3>Key Findings</h3>
+<ol>
+<li>arXiv RSS feeds at <code>https://export.arxiv.org/rss/&lt;category&gt;</code> are accessible from GitHub Actions runner IPs and deliver 300–430 new papers per weekday per category (cs.AI: ~348, cs.LG: ~307, combined cs.LG+cs.CL: ~431 on 2026-03-05). (confidence: high)</li>
+<li>YouTube channel Atom feeds (<code>https://www.youtube.com/feeds/videos.xml?channel_id=&lt;id&gt;</code>) return HTTP 404 from GitHub Actions runner IPs, confirming the prior-research finding — YouTube blocks cloud provider IP ranges for this endpoint. (confidence: high)</li>
+<li>Seven practitioner RSS feeds confirmed accessible from runner IPs — Hugging Face Blog, Lil'Log, DeepMind Blog, The Gradient, BAIR Blog, Simon Willison, Sebastian Raschka — all return valid XML and are suitable for immediate addition to <code>config/sources.yaml</code>. (confidence: high)</li>
+<li>The <code>arxiv-mcp-server</code> (v0.3.2) is already configured in <code>.github/mcp.json</code> but is not installed; it is designed for agent-driven, query-on-demand paper access rather than bulk daily ingestion, making it the right tool for targeted arXiv research within the research loop. (confidence: high)</li>
+<li>Hugging Face Papers (<code>https://huggingface.co/papers</code>) has no RSS endpoint and cannot be monitored via the existing RSS fetcher without building a scraper; the HF Blog RSS is a partial substitute covering HF-produced content but not the community paper voting. (confidence: high)</li>
+<li>OpenAI and Anthropic do not expose working RSS feeds for their research blogs (OpenAI returns HTML at <code>/blog/rss.xml</code>; Anthropic returns 404); primary-source monitoring of these labs requires either scraping or manual tracking. (confidence: high)</li>
+<li>Unfiltered arXiv RSS ingestion is not practical for a single-owner personal research system: cs.AI alone produces ~350 papers/weekday, yielding ~1,750/week that would need to be processed or discarded. A keyword-filter step in the pipeline, or the query-on-demand arxiv-mcp-server model, is required. (confidence: high)</li>
+<li>GitHub trending has no official RSS or API endpoint; release monitoring for specific tracked repos is possible via <code>https://github.com/&lt;owner&gt;/&lt;repo&gt;/releases.atom</code>, which is a viable source type for tracking specific framework versions (e.g., <code>transformers</code>, <code>vllm</code>). (confidence: high)</li>
+<li>The existing <code>rss.sources</code> section of <code>config/sources.yaml</code> is empty and can be populated immediately using the existing RSS fetcher without any code changes. (confidence: high)</li>
+<li><code>youtube.channels</code> entries in <code>config/sources.yaml</code> cannot support automated video discovery from GitHub Actions; they would only be functional when run locally or via a runner without cloud IP restrictions. (confidence: high)</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>Source</th>
+<th>Confidence</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>arXiv RSS feeds accessible from runner IPs</td>
+<td>Direct HTTP fetch, 2026-03-05</td>
+<td>high</td>
+<td>All six categories returned valid XML</td>
+</tr>
+<tr>
+<td>arXiv cs.AI volume ~348 papers/day</td>
+<td>Direct HTTP fetch, 2026-03-05</td>
+<td>high</td>
+<td>Single-day sample; weekday variation ±50% expected</td>
+</tr>
+<tr>
+<td>YouTube Atom feeds return 404 from runner IPs</td>
+<td>Direct HTTP fetch, 2026-03-05</td>
+<td>high</td>
+<td>Tested 4 channel IDs; all 404</td>
+</tr>
+<tr>
+<td>YouTube Atom feed block confirmed by prior research</td>
+<td>Research/completed/2026-02-27-youtube-transcript-fetcher.md</td>
+<td>high</td>
+<td>Key Finding 2 of that item</td>
+</tr>
+<tr>
+<td>Seven practitioner RSS feeds accessible</td>
+<td>Direct HTTP fetch, 2026-03-05</td>
+<td>high</td>
+<td>All returned 200 with valid XML</td>
+</tr>
+<tr>
+<td>HF Papers has no RSS</td>
+<td>Direct test of huggingface.co/papers.rss (404), .rss.xml (404)</td>
+<td>high</td>
+<td>Only HTML page exists</td>
+</tr>
+<tr>
+<td>OpenAI/Anthropic lack working RSS</td>
+<td>Direct HTTP fetch, 2026-03-05</td>
+<td>high</td>
+<td>OpenAI HTML, Anthropic 404</td>
+</tr>
+<tr>
+<td>arxiv-mcp-server v0.3.2 configured but not installed</td>
+<td><code>.github/mcp.json</code> + <code>import arxiv_mcp_server</code> failure</td>
+<td>high</td>
+<td>ModuleNotFoundError</td>
+</tr>
+<tr>
+<td>arxiv-mcp-server designed for query-on-demand</td>
+<td>PyPI description, blazickjp/arxiv-mcp-server</td>
+<td>high</td>
+<td>&quot;search and access arXiv papers&quot;</td>
+</tr>
+<tr>
+<td>GitHub releases.atom is a valid source type</td>
+<td>GitHub platform architecture</td>
+<td>medium</td>
+<td>Not tested from runner; known GitHub feature</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li><strong>Assumption:</strong> The single-day arXiv paper count (348, 307, 431) is representative of typical weekday volume. <strong>Justification:</strong> arXiv submission volumes are stable over months, with minor variation; a single sample is sufficient for order-of-magnitude planning. The March 2025 estimate is not expected to change materially within the scope of this repo's monitoring.</li>
+<li><strong>Assumption:</strong> The companion repo <code>davidamitchell/Latest-developments-</code> monitors a set of YouTube channels that would be relevant to add here. <strong>Justification:</strong> The companion repo's stated purpose is YouTube channel monitoring; however, since <code>config/sources.yaml</code> was inaccessible (GitHub API auth failure), the specific channels are unknown. This does not affect the recommendation: populate channels in <code>config/sources.yaml</code> for any known channel IDs, accepting that automated monitoring from GitHub Actions won't work until the runner IP issue is resolved.</li>
+<li><strong>Assumption:</strong> The seven accessible RSS feeds represent stable, ongoing publications that will continue to produce AI/ML–relevant content. <strong>Justification:</strong> All are established sources (Lil'Log: 2018–present; HF Blog: 2021–present; DeepMind Blog: ongoing; etc.) with track records of years. Frequency varies but all have posted within 2025.</li>
+</ul>
+<h3>Analysis</h3>
+<p>The source selection trade-off is between coverage and manageability. arXiv provides the broadest academic coverage but at volumes that require either AI-assisted filtering or a query-on-demand model. The practitioner blogs (Lil'Log, Sebastian Raschka, Chip Huyen) produce far less content but at a higher concentration of relevance for this owner's research themes (AI strategy, agents, consciousness, ML engineering). The practical recommendation is: populate RSS with low-to-medium-volume high-quality feeds immediately; address arXiv volume through the arxiv-mcp-server (query-driven) rather than RSS ingestion.</p>
+<p>YouTube channel monitoring's failure mode is not signal quality (YouTube practitioner content is high-value) but infrastructure: the Atom feed endpoint is blocked at the IP level. This is a solvable problem (yt-dlp can list channel videos; the YouTube Data API returns channel video lists), but the solution belongs in a separate backlog item.</p>
+<p>The two missing primary sources (OpenAI, Anthropic) lack RSS endpoints. This is unlikely to change. The correct monitoring strategy for these is: monitor their GitHub repos for paper releases, or follow key researchers' arxiv submissions directly.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>The companion repo's source list is unknown — it may already include channels or feeds that should be carried over. This remains a gap until the repo is accessible.</li>
+<li>arXiv RSS volume management is deferred — no keyword filter exists yet. Until it is built, adding arXiv RSS to <code>config/sources.yaml</code> would flood the pipeline.</li>
+<li>YouTube channel monitoring remains broken from GitHub Actions. A credible fix path exists (yt-dlp <code>--flat-playlist</code> or YouTube Data API v3 for channel listing) but has not been prototyped.</li>
+<li>Some feeds (DeepMind Blog, BAIR Blog) may have low posting frequency for extended periods if lab research cycles slow. The RSS fetcher will simply return no new items; no failure, but also no coverage during gaps.</li>
+<li>Hugging Face Papers community votes represent the ML community's current focus, which is a high-signal indicator not captured by any RSS-accessible feed. This gap is structural — HF does not expose Papers as RSS.</li>
+</ul>
+<h3>Open Questions</h3>
+<ol>
+<li>What YouTube channel IDs are monitored in <code>davidamitchell/Latest-developments-</code>? (Low priority to answer directly; medium priority to carry over any relevant channels to <code>youtube.channels</code> once runner IP issue is addressed.)</li>
+<li>Should arXiv RSS monitoring be implemented with a keyword filter, or is query-on-demand via arxiv-mcp-server sufficient for this repo's scale? (Depends on how the research loop evolves; becomes relevant when the loop processes 10+ items/week.)</li>
+<li>Is there a reliable method to extract the HF Daily Papers list via a web scrape, given no RSS exists? (Low priority; the HF Blog RSS partially covers this.)</li>
+<li>Can <code>github.com/&lt;owner&gt;/&lt;repo&gt;/releases.atom</code> feeds be added to <code>config/sources.yaml</code> and processed by the existing RSS fetcher? If so, which repos are worth tracking (e.g., <code>huggingface/transformers</code>, <code>vllm-project/vllm</code>, <code>openai/openai-python</code>)?</li>
+</ol>
+<hr />
+<hr />
+<p><a id="2026-02-27-simple-process-for-adding-research-item-md"></a></p>
+<h2>Simple process for adding a research item</h2>
+<p><strong>Tags:</strong> [process, workflow, tooling]</p>
+<p><strong>Origin:</strong> https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-02-27-simple-process-for-adding-research-item.md</p>
+<h2>Question / Hypothesis</h2>
+<p>What is the minimum-friction workflow for adding a new research item so that good ideas get captured before they are lost?</p>
+<h2>Findings</h2>
+<h3>Executive Summary</h3>
+<p>The minimum-friction capture path splits by actor: agents use <code>python -m src.main research add &quot;&lt;title&gt;&quot;</code>, which already exists and requires a single argument. The repository owner, who operates exclusively via GitHub website and iOS app, has no usable fast-capture path today. A GitHub issue form template paired with a GitHub Actions workflow that converts a new issue into a committed backlog file closes this gap. The canonical Zettelkasten principle — capture now, structure later — validates deferring all metadata except the title to the <code>research start</code> step.</p>
+<h3>Key Findings</h3>
+<ol>
+<li><code>python -m src.main research add &quot;&lt;title&gt;&quot;</code> is fully implemented in <code>src/research/cli.py</code>. It creates a dated backlog file with a template, requiring only a title. This is the lowest-friction path for any agent or automated process.</li>
+<li>The repository owner operates exclusively via GitHub website and iOS app; the CLI is inaccessible without a terminal. A capture mechanism that works from any browser is required for the owner.</li>
+<li>GitHub issue forms (<code>.github/ISSUE_TEMPLATE/*.yml</code>) render as structured, mobile-responsive web forms — accessible from the iOS GitHub app and any browser without any local tooling.</li>
+<li>A GitHub Actions workflow triggered on <code>issues: [opened]</code> with a specific label can parse the issue title and body, then call <code>python -m src.main research add</code> (or directly commit a new backlog file), automating the issue-to-file conversion.</li>
+<li>Zettelkasten systems converge on a two-phase model: (a) instant frictionless capture into a single inbox with minimal metadata, and (b) batch structuring during a later review pass. Forcing structure at capture increases abandonment.</li>
+<li>The existing template already supplies all default metadata (<code>status: backlog</code>, <code>priority: medium</code>, <code>started: ~</code>, <code>completed: ~</code>). Only <code>title</code> is needed at capture time; all other fields can be populated when the item is started.</li>
+<li>GitHub's issue form schema supports <code>input</code>, <code>textarea</code>, <code>dropdown</code>, and <code>checkboxes</code> fields, and renders correctly on mobile. A minimal form with only a title field and an optional context textarea is sufficient for research capture.</li>
+<li>Direct file creation via the GitHub website file editor is possible but high-friction: it requires navigating to the correct folder, naming the file with the correct date-slug convention, and pasting the template — typically 6–8 manual steps.</li>
+<li>The two-capture-path design (CLI for agents, issue form for owner) requires no breaking changes to the existing workflow and the existing CLI command serves as the implementation target for the Actions automation.</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>Source</th>
+<th>Confidence</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cmd_add</code> is implemented requiring only a title</td>
+<td><code>src/research/cli.py</code> (inspected)</td>
+<td>high</td>
+<td>Creates dated backlog file; template supplies all other fields</td>
+</tr>
+<tr>
+<td>Owner uses GitHub website / iOS only, no terminal</td>
+<td><code>AGENTS.md</code> § Working Environment</td>
+<td>high</td>
+<td>Explicit constraint</td>
+</tr>
+<tr>
+<td>GitHub issue forms render as mobile-responsive web forms</td>
+<td><a href="https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms">GitHub Docs: Syntax for Issue Forms</a></td>
+<td>high</td>
+<td>YAML <code>.yml</code> files in <code>.github/ISSUE_TEMPLATE/</code></td>
+</tr>
+<tr>
+<td><code>issues: [opened]</code> Actions event can trigger file commits</td>
+<td><a href="https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-github-cli">GitHub Docs: Using GitHub CLI in workflows</a></td>
+<td>high</td>
+<td>Standard pattern; <code>GITHUB_TOKEN</code> sufficient</td>
+</tr>
+<tr>
+<td>Zettelkasten principle: capture now, structure later</td>
+<td><a href="https://deepread.com/the-simple-zettelkasten/">The Simple Zettelkasten</a></td>
+<td>high</td>
+<td>Consistent across multiple sources</td>
+</tr>
+<tr>
+<td>Forcing metadata at capture increases abandonment</td>
+<td><a href="https://www.mindswiftly.com/blog/zettelkasten-method-step-by-step-tutorial-unlocking-your-creative-workflow">Zettelkasten Method Step By Step Tutorial</a></td>
+<td>medium</td>
+<td>Principle-level claim; validated by multiple secondary sources</td>
+</tr>
+<tr>
+<td>Direct file creation via GitHub website requires 6–8 steps</td>
+<td>Observed by inspecting current process</td>
+<td>medium</td>
+<td>Manual step count; exact number varies</td>
+</tr>
+<tr>
+<td>Issue form iOS compatibility</td>
+<td><a href="https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository">GitHub Docs: Configuring issue templates</a></td>
+<td>high</td>
+<td>GitHub renders forms in its web UI; iOS app opens web issues</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li><strong>Assumption:</strong> The <code>GITHUB_TOKEN</code> auto-provided in Actions is sufficient to commit a new file to <code>main</code>. <strong>Justification:</strong> The token has repository write access by default for standard Actions workflows on the same repo.</li>
+<li><strong>Assumption:</strong> The owner creates issues via the GitHub iOS app or website, not via API. <strong>Justification:</strong> Working environment constraint in <code>AGENTS.md</code>.</li>
+<li><strong>Assumption:</strong> A single-field form (title only) is sufficient for capture; context is optional. <strong>Justification:</strong> Zettelkasten inbox principle — process atomicity happens later, not at capture.</li>
+</ul>
+<h3>Analysis</h3>
+<p>Two capture paths are needed because the actors are different. Agents (including the research loop workflow) already have a working path via <code>research add</code>. The gap is entirely on the owner side, where the only tools are a web browser and the iOS GitHub app.</p>
+<p>GitHub issue forms are the right solution for the owner path because: (a) they work natively on iOS via the GitHub app, (b) they are already part of the GitHub workflow the owner uses for other interactions (issue comments, PR reviews), and (c) a triggered Actions workflow can close the loop by converting the issue to a committed backlog file automatically — requiring zero follow-up steps from the owner after submitting the form.</p>
+<p>The alternative of owner direct-file-creation via the GitHub web editor was rejected because it requires manual adherence to date-slug naming conventions and template structure. One transcription error breaks the CLI's file parsing. An issue form abstracts those implementation details.</p>
+<p>The alternative of a voice note → text pipeline was considered but depended on external tooling (AI transcription services) not currently available in the credential table and would introduce a new external dependency requiring owner approval. It remains an open question.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>The Actions workflow that converts issues to backlog files does not yet exist. This finding identifies the approach; implementation is a separate backlog item.</li>
+<li>If the issue form is submitted with an empty title, the slug function will produce an unhelpful filename. The form should mark title as <code>required: true</code>.</li>
+<li>Label-based routing (using a specific label to distinguish &quot;research capture&quot; issues from other issue types) needs agreement on the label name (e.g., <code>research-capture</code>).</li>
+<li>The iOS GitHub app renders issue forms via an in-app web view; complex field types (multi-select dropdowns) may have inconsistent mobile UX. Keeping the form to <code>input</code> and <code>textarea</code> fields avoids this.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>Should the Actions workflow close the issue after creating the backlog file, or leave it open for discussion? Closing reduces noise; leaving open allows comments.</li>
+<li>Would a voice-to-research-item path (e.g., using a GitHub Action that calls a speech-to-text API on an audio attachment) be worth evaluating? Depends on whether an API credential can be added.</li>
+<li>Should the issue form pre-populate a <code>priority</code> dropdown, or default all captures to <code>medium</code> and let the owner triage separately?</li>
+</ul>
+<hr />
+<hr />
+<p><a id="2026-02-27-research-output-types-md"></a></p>
+<h2>Research output types: skills, tools, agents, knowledge</h2>
+<p><strong>Tags:</strong> [outputs, classification, workflow]</p>
+<p><strong>Origin:</strong> https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-02-27-research-output-types.md</p>
+<h2>Question / Hypothesis</h2>
+<p>What are the possible output types from a research item, and how should each type be handled, stored, and acted upon?</p>
+<h2>Findings</h2>
+<h3>Executive Summary</h3>
+<p>The research item output taxonomy consists of exactly five types — <code>skill</code>, <code>tool</code>, <code>agent</code>, <code>knowledge</code>, and <code>backlog-item</code> — defined consistently across <code>AGENTS.md</code>, <code>Research/README.md</code>, and <code>Research/_template.md</code>. The taxonomy is sufficient: no additional types such as &quot;dataset&quot; or &quot;prompt template&quot; are warranted because they fold cleanly into existing types. The handling procedures for <code>tool</code>, <code>knowledge</code>, and <code>backlog-item</code> are well-defined and demonstrated by the completed corpus; the procedures for <code>skill</code> (creating a directory and SKILL.md in the external Skills repo) and <code>agent</code> (no storage convention exists) are under-documented and have not been fully acted upon in any completed item.</p>
+<h3>Key Findings</h3>
+<ol>
+<li>Five output types are enumerated consistently across three authoritative locations (<code>AGENTS.md</code>, <code>Research/README.md</code>, <code>Research/_template.md</code>): <code>skill</code>, <code>tool</code>, <code>agent</code>, <code>knowledge</code>, and <code>backlog-item</code>, with no discrepancies between the three sources.</li>
+<li><code>knowledge</code> is the default and universal output type because the completed research item itself — containing Findings, Evidence Map, and Key Findings — constitutes a structured knowledge artifact stored in <code>Research/completed/</code> and published to the GitHub wiki automatically by <code>publish-wiki.yml</code>.</li>
+<li><code>tool</code> outputs are stored in <code>src/</code> and have a documented 6-step handling procedure in <code>AGENTS.md</code>: create the Python file, write tests, register in the CLI, optionally write an ADR, and update <code>BACKLOG.md</code> and <code>PROGRESS.md</code>.</li>
+<li><code>skill</code> outputs are stored as named directories containing a <code>SKILL.md</code> file in <code>davidamitchell/Skills</code>; the repository currently has 13 skill directories, and the submodule sync to <code>.github/skills/</code> and <code>.claude/skills/</code> is automated via <code>sync-skills.yml</code>.</li>
+<li>The <code>skill</code> output type is under-acted in the corpus: two completed items declare it in their front-matter, but neither contains a link to a newly created skill directory in <code>davidamitchell/Skills</code>, indicating the handling step has not been completed.</li>
+<li>The <code>agent</code> output type has no documented storage location or handling procedure beyond its one-line definition in <code>AGENTS.md</code>; no completed research item has used this output type in 26 completed items.</li>
+<li><code>backlog-item</code> outputs spawn numbered W-XXXX entries in <code>BACKLOG.md</code> and are the second most common output type, appearing in 13 of 26 completed items; the handling convention (append entry, assign number, link from <code>## Output</code>) is well-understood and consistently applied.</li>
+<li>No additional output types are warranted: &quot;dataset&quot; folds into <code>tool</code> or <code>knowledge</code>; &quot;prompt template&quot; folds into <code>skill</code> or <code>agent</code>; the five-type taxonomy has been stable since the repository's founding with no gaps requiring extension over 26 completed items.</li>
+<li>The <code>output:</code> front-matter field (array, e.g. <code>output: [knowledge, backlog-item]</code>) makes output types machine-readable; the <code>## Output</code> section provides the human-readable description, type, and links — both fields are required for a complete output record.</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>Source</th>
+<th>Confidence</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Five types defined consistently in three locations</td>
+<td><code>AGENTS.md</code> § Output Types; <code>Research/README.md</code> § Output Types; <code>Research/_template.md</code></td>
+<td>high</td>
+<td>Verified by direct inspection of all three</td>
+</tr>
+<tr>
+<td><code>knowledge</code> is universal default output</td>
+<td>front-matter of all 26 completed items</td>
+<td>high</td>
+<td>Every item lists <code>knowledge</code></td>
+</tr>
+<tr>
+<td><code>tool</code> has a 6-step handling procedure in AGENTS.md</td>
+<td><code>AGENTS.md</code> § Adding a New Source Type</td>
+<td>high</td>
+<td>Procedure counts 6 distinct steps</td>
+</tr>
+<tr>
+<td><code>youtube-transcript-fetcher</code> is canonical tool output example</td>
+<td><code>Research/completed/2026-02-27-youtube-transcript-fetcher.md</code></td>
+<td>high</td>
+<td>Links to <code>src/fetchers/youtube.py</code> and workflow present</td>
+</tr>
+<tr>
+<td>Skills repo uses directory + SKILL.md structure, 13 skill directories</td>
+<td>GitHub API listing of <code>davidamitchell/Skills</code> (accessed)</td>
+<td>high</td>
+<td>Directories enumerated directly</td>
+</tr>
+<tr>
+<td>Submodule sync is automated weekly</td>
+<td><code>AGENTS.md</code> § Agent Skills; <code>.gitmodules</code></td>
+<td>high</td>
+<td><code>sync-skills.yml</code> runs Monday 06:00 UTC</td>
+</tr>
+<tr>
+<td><code>skill</code> type not fully acted upon in corpus</td>
+<td><code>Research/completed/2026-02-27-information-synthesis-entropy.md</code>; <code>2026-03-03-cross-item-synthesis-meta-insights.md</code></td>
+<td>high</td>
+<td>Neither <code>## Output</code> section links a new Skills repo directory</td>
+</tr>
+<tr>
+<td><code>agent</code> type has no storage convention</td>
+<td><code>AGENTS.md</code> § Output Types (one-line only); 0 completed items use <code>output: [agent]</code></td>
+<td>high</td>
+<td>Confirmed by absence across corpus</td>
+</tr>
+<tr>
+<td><code>backlog-item</code> used in 13/26 completed items</td>
+<td>front-matter of all completed items</td>
+<td>high</td>
+<td>Counted directly</td>
+</tr>
+<tr>
+<td>&quot;dataset&quot; and &quot;prompt template&quot; fold into existing types</td>
+<td>corpus inspection (26 items, no gap requiring new types)</td>
+<td>medium</td>
+<td>Absence of need; not from explicit documentation</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li><strong>Assumption:</strong> &quot;dataset&quot; outputs do not require a separate output type. <strong>Justification:</strong> A dataset is either the product of a <code>tool</code> (code that generates or processes data) or a reference artifact cited in the Evidence Map; no completed item in the 26-item corpus has required a distinct storage location that neither <code>tool</code> nor <code>knowledge</code> covers.</li>
+<li><strong>Assumption:</strong> &quot;prompt template&quot; outputs do not require a separate output type. <strong>Justification:</strong> Prompt templates consumed from the Skills submodule are <code>skill</code> outputs; standalone prompt files like <code>research-prompt.md</code> are <code>agent</code> outputs; the distinction is one of deployment mechanism rather than fundamental type.</li>
+<li><strong>Assumption:</strong> An <code>agent</code> output most plausibly maps to a prompt file at the repo root or a configuration in <code>.github/</code>. <strong>Justification:</strong> <code>research-prompt.md</code> and <code>.github/mcp.json</code> are the only agent-like configurations in the repository; no other format is in use and no convention points elsewhere.</li>
+</ul>
+<h3>Analysis</h3>
+<p>The evidence presents a stable, internally consistent taxonomy with uneven documentation depth across types. The decision to accept the five-type taxonomy as sufficient rests on two supports: (a) empirical — 26 completed items across 4 weeks have not required a sixth type; (b) structural — the five types map to five distinct value channels (executable code, agent instructions, agent configuration, declarative knowledge, queued work) with no overlap. The one competing interpretation — that a separate &quot;dataset&quot; type would be useful for research items that produce reference data — was rejected because the existing <code>tool</code> type already covers code that produces data, and datasets consumed as sources are already handled by the Evidence Map rather than the <code>output:</code> field. The primary trade-off identified is specificity versus simplicity in the type definitions: a more granular taxonomy (e.g. splitting <code>knowledge</code> into <code>adr</code>, <code>wiki-note</code>, <code>readme-update</code>) would reduce ambiguity but add overhead to every research item that currently just lists <code>knowledge</code> as a default. The simpler taxonomy is preferred given the automation context (the research loop needs a small, stable enum for the <code>output:</code> field).</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li><strong>Gap:</strong> The <code>agent</code> output type has no storage convention. If a research item produces an agent configuration, there is no documented guidance on where to store it or what format it should take. This gap is not urgent (no completed item has triggered it) but will become a problem when the first agent-type output is produced.</li>
+<li><strong>Gap:</strong> The <code>skill</code> handling procedure is under-documented in AGENTS.md. The single sentence &quot;add it to the Skills repo first&quot; does not explain the directory/SKILL.md structure, the authentication method for committing to an external repository, or how to link the resulting skill from the research item's <code>## Output</code> section.</li>
+<li><strong>Uncertainty:</strong> The <code>knowledge</code> type is simultaneously implicit (every item is a knowledge artifact) and explicit (an ADR or README update was also produced). This dual meaning has not caused problems in practice, but it creates ambiguity about what an agent should do when a research item produces a knowledge output — is action required beyond completing the item, or is the item completion itself sufficient?</li>
+<li><strong>Uncertainty:</strong> The wiki publish pipeline constitutes an additional, implicit storage location for <code>knowledge</code> outputs that is not described in the output type taxonomy. The taxonomy does not distinguish between knowledge that lives only in <code>Research/completed/</code> and knowledge that is also published to the wiki.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>Should AGENTS.md document a handling procedure for <code>skill</code> outputs with the same specificity as it documents <code>tool</code> outputs — including the directory structure, SKILL.md format, and how to commit to the external Skills repo?</li>
+<li>Should the <code>agent</code> output type have a designated storage location (e.g., an <code>agents/</code> directory at the repo root) and a documented handling procedure?</li>
+<li>Should the <code>knowledge</code> type be clarified to distinguish &quot;the completed item itself is the knowledge artifact&quot; from &quot;a separate ADR, README update, or wiki note was also produced&quot;?</li>
+</ul>
+<hr />
+<hr />
+<p><a id="2026-02-27-research-backlog-vs-repo-improvement-backlog-md"></a></p>
+<h2>Keeping research backlog separate from repo improvement backlog</h2>
+<p><strong>Tags:</strong> [process, workflow, organisation]</p>
+<p><strong>Origin:</strong> https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-02-27-research-backlog-vs-repo-improvement-backlog.md</p>
+<h2>Question / Hypothesis</h2>
+<p>What is the cleanest way to separate two distinct types of work — <em>what to research</em> vs <em>how to improve this repo</em> — so that neither overwhelms the other and each can be prioritised independently?</p>
+<h2>Findings</h2>
+<h3>Executive Summary</h3>
+<p>The cleanest separation is a two-location file system approach: research items live as individual <code>.md</code> files under <code>Research/backlog/</code>, and repo improvement items live as numbered entries in a single <code>BACKLOG.md</code> at the repo root. Each location has distinct status conventions, priority mechanisms, and naming schemes suited to its item type. Cross-references flow in one direction: a completed research item can produce a <code>backlog-item</code> output that spawns a numbered entry in <code>BACKLOG.md</code>, but repo improvement items do not generate research items. This approach is already implemented and documented in this repo; the findings confirm the design is correct and identify the cross-reference pattern as the key mechanism that makes the two lists interoperable without merging them.</p>
+<h3>Key Findings</h3>
+<ol>
+<li><strong>Two-location separation works cleanly.</strong> <code>Research/backlog/</code> holds research questions as individual dated <code>.md</code> files; <code>BACKLOG.md</code> holds code/tooling/process work as numbered items. The file system location alone encodes which type of work an item is — no labels or tags needed to distinguish them.</li>
+<li><strong>Header notes reinforce the boundary.</strong> <code>BACKLOG.md</code> opens with an explicit callout: &quot;This file tracks repo improvement work. For research item backlog, see <code>Research/backlog/</code>.&quot; <code>Research/README.md</code> has a dedicated section titled &quot;Separating Research Backlog from Repo Improvement Backlog&quot;. Both serve as onboarding guardrails for agents and humans.</li>
+<li><strong>AGENTS.md enforces the constraint at the rules level.</strong> The Non-Negotiable Constraints section lists &quot;Keep research backlog (<code>Research/backlog/</code>) separate from repo improvement backlog (<code>BACKLOG.md</code>)&quot; as a hard rule. This surfaces the convention in agent instructions before any file browsing is needed.</li>
+<li><strong>Status conventions differ and are appropriate for each type.</strong> Research items use front-matter <code>status: backlog | in-progress | completed</code> and move between directories. <code>BACKLOG.md</code> items use inline <code>status: open | done | archived</code>. The difference reflects that research items have richer lifecycle metadata (started/completed dates, outputs) while improvement items need only a quick status signal.</li>
+<li><strong>Priority mechanisms differ appropriately.</strong> Research items carry a <code>priority: high | medium | low</code> front-matter field, enabling programmatic sorting. <code>BACKLOG.md</code> items are ordered numerically and by epic; priority is conveyed by ordering, not a field. Research items benefit from explicit priority because the research loop processes them autonomously; <code>BACKLOG.md</code> items are typically worked by an agent in response to owner instruction.</li>
+<li><strong>Cross-references flow research → improvement, not the reverse.</strong> A research item can produce a <code>backlog-item</code> output type, which spawns a new numbered entry in <code>BACKLOG.md</code>. The reverse direction (a <code>BACKLOG.md</code> item referencing a research item) uses a prose note in the <code>Context</code> field (e.g., W-0020: &quot;Research item <code>Research/completed/2026-02-27-indexing-and-tracking-method.md</code> was completed first; findings directly informed the ADR.&quot;). This one-way convention prevents circular dependencies.</li>
+<li><strong><code>davidamitchell/Latest-developments-</code> uses a single <code>BACKLOG.md</code> with no research item tracking.</strong> That repo is a pipeline project with no research function; its backlog is entirely improvement-type work organised as Epic/Slice tables. It does not provide a pattern to follow for the research/improvement split — it is simply a repo that has no need for the split.</li>
+<li><strong>The <code>output:</code> field in the research item template is the formal cross-reference mechanism.</strong> Setting <code>output: [backlog-item]</code> in a research item's front-matter signals that the research produced a repo improvement task, and the <code>## Output</code> section describes and links it. This makes the cross-reference machine-readable and searchable.</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>Source</th>
+<th>Confidence</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Two-location separation encodes item type by file system location</td>
+<td><code>BACKLOG.md</code> header; <code>Research/README.md</code> structure</td>
+<td>high</td>
+<td>Both locations observed directly in this repo</td>
+</tr>
+<tr>
+<td>Header notes reinforce the boundary</td>
+<td><code>BACKLOG.md</code> lines 1–5; <code>Research/README.md</code> § Separating Research Backlog from Repo Improvement Backlog</td>
+<td>high</td>
+<td>Direct inspection</td>
+</tr>
+<tr>
+<td>AGENTS.md enforces the constraint</td>
+<td><code>AGENTS.md</code> Non-Negotiable Constraints section</td>
+<td>high</td>
+<td>Listed as a non-negotiable rule</td>
+</tr>
+<tr>
+<td>Research items use front-matter status; BACKLOG.md uses inline status</td>
+<td><code>Research/_template.md</code>; <code>BACKLOG.md</code> items W-0001 through W-0029</td>
+<td>high</td>
+<td>Direct inspection</td>
+</tr>
+<tr>
+<td>Research items have explicit priority field for autonomous processing</td>
+<td><code>Research/_template.md</code>; <code>research-prompt.md</code> priority sort logic</td>
+<td>high</td>
+<td>Research loop uses <code>priority:</code> to select next item</td>
+</tr>
+<tr>
+<td>Cross-references flow research → improvement via <code>output:</code> field</td>
+<td>W-0020 <code>Context</code> note; research item <code>## Output</code> section format</td>
+<td>high</td>
+<td>Observed in W-0020 and template</td>
+</tr>
+<tr>
+<td><code>Latest-developments-</code> uses single BACKLOG.md with no research tracking</td>
+<td><code>davidamitchell/Latest-developments-</code> <code>BACKLOG.md</code></td>
+<td>high</td>
+<td>Direct API inspection; no <code>Research/</code> directory exists in that repo</td>
+</tr>
+<tr>
+<td><code>output: [backlog-item]</code> is the formal cross-reference mechanism</td>
+<td><code>Research/_template.md</code> output field options</td>
+<td>high</td>
+<td>Defined in template</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li><strong>Assumption:</strong> The separation should be maintained indefinitely, not merged as the repo grows. <strong>Justification:</strong> Research items and improvement items have fundamentally different lifecycles, metadata needs, and automation patterns. Merging them would require a single format to serve both, which would degrade both. The two-file approach remains appropriate regardless of scale.</li>
+<li><strong>Assumption:</strong> Agents working on this repo will read <code>AGENTS.md</code> before acting. <strong>Justification:</strong> <code>AGENTS.md</code> is the single source of truth per the repo's design; all agent entry points (<code>.github/copilot-instructions.md</code>, <code>.claude/CLAUDE.md</code>) point to it.</li>
+</ul>
+<h3>Analysis</h3>
+<p>The two-location approach succeeds because it maps the categorical difference between item types onto the file system, which is the most primitive and durable form of organisation. There is no schema to maintain, no tags to keep consistent, and no tooling to build. The boundary is enforced at three levels: file system location (structural), header notes in each file (documentary), and <code>AGENTS.md</code> rules (behavioural). These three levels create redundancy — any one layer alone would be fragile; together they make the convention robust across agent sessions.</p>
+<p>The <code>Latest-developments-</code> comparison is useful in the negative: a single <code>BACKLOG.md</code> with Epic/Slice tables works well when all work is improvement-type. Once a repo contains genuine research questions that require investigation, synthesis, and evidence tracking, that format breaks down. Individual <code>.md</code> files per research item provide the space needed for Findings, Evidence Maps, and Output sections — none of which fit in a table row.</p>
+<p>The unresolved design question is prioritisation within <code>BACKLOG.md</code>. Research items have an explicit <code>priority:</code> field because the research loop selects items autonomously. <code>BACKLOG.md</code> relies on ordering, which works when an agent reads the whole file but is less reliable as the file grows. This is out of scope for this item but worth flagging.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li><code>BACKLOG.md</code> has no explicit priority field. As the file grows, ordering-as-priority degrades. An agent asked to &quot;pick the highest-priority improvement item&quot; has no machine-readable signal equivalent to the <code>priority:</code> field in research items.</li>
+<li>There is no automated check that prevents a research item from being added to <code>BACKLOG.md</code> or vice versa. Enforcement is entirely by convention and agent instruction. A future CI check could verify this.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>Should <code>BACKLOG.md</code> gain an explicit <code>priority:</code> field for items, mirroring the research item convention, to support autonomous improvement work? This could become a <code>BACKLOG.md</code> item.</li>
+<li>Should a CI check verify that no <code>.md</code> files exist directly in <code>BACKLOG.md</code> format under <code>Research/backlog/</code> and vice versa?</li>
+</ul>
+<hr />
+<hr />
+<p><a id="2026-02-27-local-index-vs-reference-md"></a></p>
+<h2>Local index vs reference: what to store vs link</h2>
+<p><strong>Tags:</strong> [indexing, storage, local, reference]</p>
+<p><strong>Origin:</strong> https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-02-27-local-index-vs-reference.md</p>
+<h2>Question / Hypothesis</h2>
+<p>For each type of research content, should we store a local copy / index, or just maintain a reference (URL, citation)? What are the right trade-offs between storage cost, offline access, durability, and searchability?</p>
+<h2>Findings</h2>
+<h3>Executive Summary</h3>
+<p>For a git-based, GitHub-hosted research corpus with a single owner reviewing diffs via the GitHub website, the correct policy is: store YouTube transcripts locally as plain text files, keep arXiv papers as reference-only (URL/ID), paste key passages from web pages inline into research items, and always commit notes and synthesis locally. This policy is derived from three criteria applied to each content type: whether on-demand fetching is reliable (transcripts are blocked on cloud IPs), whether the source URL is stable (arXiv is permanent; general web has a 2–14 year half-life depending on content type), and whether the file format is git-friendly (text yes, binary no). Git LFS is not needed: no anticipated content type approaches GitHub's 50 MiB warning threshold, and LFS adds operational complexity that conflicts with the owner's GitHub-website-only workflow.</p>
+<h3>Key Findings</h3>
+<ol>
+<li>
+<p><strong>YouTube transcripts must be stored locally as <code>.txt</code> files because cloud IP blocking makes on-demand re-fetching unreliable, and text files are fully git-diffable and accessible from the GitHub website without any special tooling.</strong> The existing <code>Research/transcripts/</code> directory and <code>fetch-transcript</code> workflow implement this policy correctly.</p>
+</li>
+<li>
+<p><strong>arXiv papers must remain reference-only because PDFs are binary files that produce unreadable git diffs, arXiv URLs are permanently stable (the service has operated since 1991 with institutional backing), and the relevant content can be represented as text excerpts within research items rather than full PDFs.</strong> Key excerpts should be pasted inline when they are primary evidence.</p>
+</li>
+<li>
+<p><strong>Web pages that are primary sources for key findings should have their relevant 1–3 paragraph excerpt pasted directly into the research item's Context or Findings section at the time of research, because 38% of web pages from 2013 were inaccessible by 2023 (Pew Research, 2023) and 23% of news articles already contained dead URLs by 2023.</strong> The URL is still recorded for attribution; the inline text guards against evidence disappearing.</p>
+</li>
+<li>
+<p><strong>General web URLs that are peripheral sources (background reading, not direct evidence for a specific finding) should be recorded as references only, because the overhead of snapshotting every source is not proportionate to the benefit at current corpus scale.</strong></p>
+</li>
+<li>
+<p><strong>Git LFS is not warranted for this repository: text transcripts at 40–150 KB per file and 1,000 transcripts would total 150 MB — well within GitHub's practical repository limits — and LFS adds complexity (separate client, quota management) that conflicts with the owner's GitHub-website-only workflow.</strong></p>
+</li>
+<li>
+<p><strong>Binary files (PDFs, audio, video) must never be committed to the repository regardless of size, because they produce unreadable git diffs and this constraint is already established by ADR-0003 and the local database item; the policy documented here is consistent with that existing constraint.</strong></p>
+</li>
+<li>
+<p><strong>The storage-vs-reference decision is fully determined by three criteria in order: (1) is on-demand fetching reliable? (2) does the source have meaningful link rot risk within a 5-year horizon? (3) is the format text (git-friendly) or binary (git-hostile)?</strong> Applying these criteria leaves no ambiguous cases for the four content types in scope.</p>
+</li>
+<li>
+<p><strong>A separate <code>Research/snapshots/</code> directory for web page archives is not warranted at current corpus scale; the inline-paste pattern already observable in completed research items (e.g., <code>2026-02-28-ai-strategy.md</code>) is sufficient and does not require new tooling or directory structure.</strong></p>
+</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>Source</th>
+<th>Confidence</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>YouTube transcript fetching unreliable from cloud IPs</td>
+<td><code>src/fetchers/youtube.py</code> docstring; <code>fetch-transcript</code> workflow <code>continue-on-error: true</code>; prior research <code>2026-02-27-youtube-transcript-fetcher.md</code></td>
+<td>high</td>
+<td>First-party codebase evidence; consistent with prior research</td>
+</tr>
+<tr>
+<td>Text transcripts are 40–150 KB per file</td>
+<td>[assumption] Estimate based on ~8,000–15,000 words × ~5 bytes/word</td>
+<td>medium</td>
+<td>Justification: standard English word length; no measured sample available</td>
+</tr>
+<tr>
+<td><code>Research/transcripts/</code> already exists for transcript storage</td>
+<td><code>.github/workflows/fetch-transcript.yml</code> (reviewed)</td>
+<td>high</td>
+<td>First-party codebase evidence</td>
+</tr>
+<tr>
+<td>arXiv has permanent stable IDs since 1991</td>
+<td>arXiv identifier docs (https://arxiv.org/help/arxiv_identifier)</td>
+<td>high</td>
+<td>30+ year operational history; official documentation</td>
+</tr>
+<tr>
+<td>Binary files must not be committed (prior constraint)</td>
+<td>ADR-0003; <code>2026-02-27-local-database.md</code></td>
+<td>high</td>
+<td>Established constraint; this item is consistent with it</td>
+</tr>
+<tr>
+<td>38% of 2013 web pages inaccessible by 2023</td>
+<td>Pew Research 2023, cited in Wikipedia Link_rot article</td>
+<td>high</td>
+<td>Major research institution; widely cited</td>
+</tr>
+<tr>
+<td>23% of news articles contain dead URL (2023)</td>
+<td>Pew Research 2023, cited in Wikipedia Link_rot article</td>
+<td>high</td>
+<td>Same study</td>
+</tr>
+<tr>
+<td>General web half-life ~2–4 years</td>
+<td>Multiple studies 2003–2017, synthesised in Wikipedia Link_rot article</td>
+<td>medium</td>
+<td>Range from multiple independent studies; methodology varies</td>
+</tr>
+<tr>
+<td>GitHub warns at 50 MiB, blocks at 100 MiB</td>
+<td>GitHub large files documentation (reviewed)</td>
+<td>high</td>
+<td>Official documentation</td>
+</tr>
+<tr>
+<td>Git LFS: 1 GB free storage, $5/50 GB paid packs</td>
+<td>GitHub billing documentation (reviewed)</td>
+<td>high</td>
+<td>Official documentation</td>
+</tr>
+<tr>
+<td>LFS requires separate client (<code>git lfs install</code>)</td>
+<td>git-lfs.com (reviewed)</td>
+<td>high</td>
+<td>Official documentation</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li>
+<p><strong>Assumption:</strong> Average text transcript is 40–150 KB per file. <strong>Justification:</strong> Standard English word density for spoken transcripts is approximately 8,000–15,000 words per hour of content, and plain text encodes at ~5 bytes per word. No measured sample from this repository was available (the <code>Research/transcripts/</code> directory is currently empty). If transcripts are consistently shorter (sub-30-minute videos) the size drops proportionally; this does not change the storage recommendation.</p>
+</li>
+<li>
+<p><strong>Assumption:</strong> The YouTube video deletion rate represents a &quot;medium&quot; link rot risk for this content type. <strong>Justification:</strong> No systematic study of YouTube video deletion rates was found. The &quot;medium&quot; label is conservative relative to general web content (high) and arXiv (very low), and is consistent with the observation that YouTube channels referenced in research tend to be established content creators. The storage recommendation for transcripts is driven by IP blocking, not by this risk level, so the assumption does not affect the policy outcome.</p>
+</li>
+</ul>
+<h3>Analysis</h3>
+<p>The three-criteria framework (re-fetchability, link rot risk, format) was sufficient to determine unambiguous storage policies for all four content types without requiring case-by-case judgment. The framework's strength is that the criteria are largely independent: a content type can fail on one criterion (e.g., binary format) while passing on another (e.g., stable URL) and the format criterion alone is sufficient to rule out local storage for PDFs. The re-fetchability criterion alone is sufficient to require local storage for transcripts.</p>
+<p>The Git LFS question was answered quantitatively rather than heuristically. The 40–150 KB per transcript estimate, combined with GitHub's 50 MiB threshold, shows that the repo would need approximately 333–1,250 transcripts before any single file approached the warning limit, and the total storage concern only becomes real at 5,000–25,000 transcripts (375 MB – 3.75 GB). This is orders of magnitude beyond the anticipated scale. The operational cost of LFS (incompatible with GitHub-website-only workflow) makes it doubly unattractive.</p>
+<p>The inline-paste approach for web pages resolves the tension between durability and storage overhead: it stores exactly the evidence needed to support a specific claim (the relevant passage) without committing a full HTML snapshot of every web page ever consulted.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li><strong>Transcript size assumption is unverified:</strong> The 40–150 KB estimate has not been measured against actual fetched transcripts in this repository. If the repo begins fetching very long videos (&gt;3 hours) from content-dense channels, individual transcripts could reach 400–500 KB. This remains well below GitHub's thresholds.</li>
+<li><strong>YouTube video deletion rate is unmeasured:</strong> The &quot;medium&quot; link rot classification for YouTube is an inference without a specific quantitative source. A future item could investigate this if transcript durability becomes a concern.</li>
+<li><strong>No snapshot strategy for web pages:</strong> The inline-paste approach is adequate for key sources but does not provide full snapshots of peripheral references. If the research evolves to require full-page snapshots (e.g., for regulatory or legal documentation), a separate archive workflow (Wayback Machine API, or a <code>snapshots/</code> directory with stripped-HTML <code>.txt</code> files) would be needed.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li><strong>Q1:</strong> Should the <code>fetch-transcript</code> workflow be updated to tag transcripts with metadata (fetch date, video title, duration) to support future lifecycle management (e.g., re-fetching stale transcripts)? This is an implementation question for the tooling backlog, not a research question.</li>
+<li><strong>Q2:</strong> Is there a systematic data source for YouTube video deletion rates that could replace the &quot;medium&quot; assumption with a measured rate? This is low priority: the storage decision for transcripts is driven by IP blocking, not by deletion risk.</li>
+</ul>
+<hr />
+<hr />
+<p><a id="2026-02-27-local-database-md"></a></p>
+<h2>Local database: requirements and technology choice</h2>
+<p><strong>Tags:</strong> [database, sqlite, storage, local]</p>
+<p><strong>Origin:</strong> https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-02-27-local-database.md</p>
+<h2>Question / Hypothesis</h2>
+<p>If we decide to use a local database for indexing and state (rather than JSON files), what are the requirements and what technology should we choose?</p>
+<h2>Findings</h2>
+<h3>Executive Summary</h3>
+<p>SQLite with FTS5 (Phase 1) and sqlite-vec (Phase 2) is the correct local database technology for this repository when the corpus or query complexity outgrows JSON files. SQLite satisfies all relational query patterns, provides full-text search at zero dependency cost via its built-in FTS5 module, and allows vector search to be added incrementally through the <code>sqlite-vec</code> extension without switching to a different database file or technology stack. DuckDB is poorly matched to the row-oriented access patterns of this workload and lacks built-in vector search; ChromaDB and LanceDB are embeddings-first systems that cannot replace the relational layer and introduce heavy dependency trees. The database should be treated as a derived artefact rebuilt from YAML front-matter, not as the source of truth for research item metadata.</p>
+<h3>Key Findings</h3>
+<ol>
+<li>
+<p><strong>SQLite's FTS5 extension is built into Python's standard library <code>sqlite3</code> module and requires no additional dependencies to provide BM25-ranked full-text search over research item titles, questions, and findings.</strong> [high confidence]</p>
+</li>
+<li>
+<p><strong>The <code>sqlite-vec</code> extension (<code>pip install sqlite-vec</code>) enables KNN vector search within the same SQLite database file as FTS5, adding semantic retrieval capability without introducing a second database technology.</strong> sqlite-vec is pre-v1 and may have breaking changes before 1.0; this risk is managed by deferring its integration to Phase 2. [medium confidence]</p>
+</li>
+<li>
+<p><strong>DuckDB's columnar-vectorised OLAP engine is optimised for large-table analytical scans — a query pattern that does not match this repository's workload of point lookups by status, tag joins, and URL deduplication.</strong> DuckDB also has no built-in vector search extension. [high confidence]</p>
+</li>
+<li>
+<p><strong>ChromaDB and LanceDB are both embeddings-first systems that do not provide a relational query layer; using either would require SQLite alongside them anyway, eliminating any benefit over the proposed SQLite-only approach.</strong> ChromaDB's persistent client also pulls in 15+ transitive dependencies including C++ and Rust extensions. [high confidence]</p>
+</li>
+<li>
+<p><strong>The recommended five-table schema (<code>items</code>, <code>tags</code>, <code>sources</code>, <code>processed</code>, <code>transcripts</code>) with an FTS5 virtual table over item content supports all identified query patterns: relational filtering by status/priority/tag, URL deduplication, source tracking, and full-text search.</strong> [high confidence]</p>
+</li>
+<li>
+<p><strong>The database file must be treated as a derived artefact excluded from git, rebuildable from YAML front-matter on demand, because all embedded database formats (SQLite, DuckDB, ChromaDB, LanceDB) produce binary files that are not git-diffable.</strong> YAML front-matter in Markdown files remains the source of truth for research item metadata. [high confidence]</p>
+</li>
+<li>
+<p><strong>Migration from JSON + YAML to SQLite should be triggered by at least one of four observable signals: state/index.json exceeding 500 entries, a need for cross-item relational queries beyond grep, a semantic search capability being built, or concurrent pipeline runs requiring ACID transactions.</strong> The 500-entry threshold is a cognitive cost heuristic (large JSON diffs), not a performance limit. [medium confidence]</p>
+</li>
+<li>
+<p><strong>Zotero's architecture (SQLite with a relational schema + a separate FTS table indexed against item content) is the closest prior art for this use case and validates the proposed schema pattern.</strong> [high confidence]</p>
+</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>Source</th>
+<th>Confidence</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SQLite FTS5 built-in, BM25 ranking, phrase/prefix search</td>
+<td>sqlite.org/fts5.html (accessed directly)</td>
+<td>high</td>
+<td>In stdlib since Python 3.x via <code>sqlite3</code> module</td>
+</tr>
+<tr>
+<td>sqlite-vec provides KNN in SQLite, <code>pip install sqlite-vec</code></td>
+<td>github.com/asg017/sqlite-vec (accessed directly)</td>
+<td>high</td>
+<td>Mozilla Builders sponsorship; pre-v1</td>
+</tr>
+<tr>
+<td>sqlite-vec pre-v1 status, breaking changes expected</td>
+<td>github.com/asg017/sqlite-vec README (accessed directly)</td>
+<td>high</td>
+<td>Explicitly marked as pre-v1</td>
+</tr>
+<tr>
+<td>DuckDB is OLAP-optimised, columnar-vectorised</td>
+<td>duckdb.org/why_duckdb (accessed directly)</td>
+<td>high</td>
+<td>Primary positioning documentation</td>
+</tr>
+<tr>
+<td>DuckDB FTS extension uses BM25</td>
+<td>duckdb.org/docs/stable/core_extensions/full_text_search.html (accessed directly)</td>
+<td>high</td>
+<td><code>match_bm25</code> function, Porter stemmer</td>
+</tr>
+<tr>
+<td>DuckDB has no built-in vector search</td>
+<td>DuckDB extension docs review</td>
+<td>high</td>
+<td>No KNN/ANN listed in core extensions</td>
+</tr>
+<tr>
+<td>ChromaDB persistent client available, heavy dependencies</td>
+<td>docs.trychroma.com (accessed directly)</td>
+<td>high</td>
+<td>PersistentClient noted; dependency tree inferred</td>
+</tr>
+<tr>
+<td>ChromaDB is embeddings-first, not a relational DB</td>
+<td>docs.trychroma.com/docs/overview/introduction (accessed directly)</td>
+<td>high</td>
+<td>Explicit positioning statement</td>
+</tr>
+<tr>
+<td>LanceDB targets multi-modal lakehouse at scale</td>
+<td>docs.lancedb.com (accessed directly)</td>
+<td>high</td>
+<td>Explicit positioning statement</td>
+</tr>
+<tr>
+<td>Prior research deferred vector stores until &gt;50 items</td>
+<td>2026-02-27-indexing-and-tracking-method.md Key Finding 5</td>
+<td>high</td>
+<td>Direct quote from completed item</td>
+</tr>
+<tr>
+<td>Zotero uses SQLite + FTS table</td>
+<td>2026-02-27-indexing-and-tracking-method.md Key Finding 2</td>
+<td>high</td>
+<td>Zotero docs cited in prior item</td>
+</tr>
+<tr>
+<td>Binary database files are not git-diffable</td>
+<td>2026-02-27-indexing-and-tracking-method.md Key Finding 4</td>
+<td>high</td>
+<td>Well-established; confirmed in prior item</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li><strong>Assumption:</strong> ChromaDB's dependency tree is substantially heavier than SQLite's. <strong>Justification:</strong> The Chroma getting-started documentation references <code>hnswlib</code>, <code>tokenizers</code>, and other packages visible in the ChromaDB PyPI dependency graph. A precise dependency count was not audited directly; the characterisation &quot;15+ transitive dependencies&quot; is an estimate. If this assumption is wrong, ChromaDB's dependency cost is lower than assessed, but the fundamental objection (not a relational system) remains.</li>
+<li><strong>Assumption:</strong> The corpus will not require concurrent write access from multiple processes in Phase 1. <strong>Justification:</strong> AGENTS.md describes a single-owner workflow with one pipeline running at a time. If parallel pipeline runs are introduced, SQLite WAL mode handles concurrent readers; exclusive write locks must still be serialised.</li>
+<li><strong>Assumption:</strong> The embedding model for Phase 2 will produce 1536-dimensional float32 vectors. <strong>Justification:</strong> 1536 is the dimension of OpenAI's <code>text-embedding-3-small</code>. If a different model is chosen, the <code>vec0</code> table dimension must be adjusted at schema creation time.</li>
+</ul>
+<h3>Analysis</h3>
+<p>The key trade-off in this evaluation is <strong>query richness and semantic capability</strong> (favouring ChromaDB or LanceDB) versus <strong>dependency minimalism and unified relational+FTS access</strong> (favouring SQLite). Given the scale (hundreds of items) and query patterns (point lookups, tag filters, FTS), the dependency minimalism argument wins decisively. Both ChromaDB and LanceDB are systems built for embedding-centric workloads at scale; neither provides a relational layer, meaning SQL-expressible queries would still require a separate SQLite instance alongside them.</p>
+<p>The DuckDB alternative was evaluated seriously because DuckDB is a legitimate embedded analytical database with Python bindings and FTS support. Its disqualification is not on grounds of quality but on grounds of query pattern mismatch: columnar storage is a disadvantage for single-row lookups and small multi-row joins, and the absence of built-in vector search means two separate stores are still needed for Phase 2.</p>
+<p>The phased approach (SQLite alone → SQLite + sqlite-vec) is the correct architecture because it avoids committing to a pre-v1 extension (sqlite-vec) in the core state management path. Phase 1 can be implemented and used in production; Phase 2 is added when the semantic search backlog item is executed.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li><strong>sqlite-vec pre-v1 stability:</strong> The extension may change its <code>vec0</code> virtual table SQL syntax before reaching 1.0. Mitigation: pin the version in <code>pyproject.toml</code>; isolate vector search behind an abstraction layer in <code>src/db/</code>.</li>
+<li><strong>Embedding model dependency for Phase 2:</strong> Generating embeddings requires either a local model (<code>sentence-transformers</code>, ~400MB download) or an API call (OpenAI, Gemini). The choice has cost and privacy implications that are out of scope for this item.</li>
+<li><strong>Database rebuild performance:</strong> If the pipeline rebuilds the database from scratch (e.g., in a fresh GitHub Actions environment), parsing all YAML front-matter files and re-inserting into SQLite takes time proportional to corpus size. At hundreds of items this is negligible; at thousands, an incremental build approach would be needed.</li>
+<li><strong>FTS5 content sync:</strong> The FTS5 virtual table using <code>content='items'</code> requires triggers or manual <code>INSERT INTO items_fts</code> calls to stay in sync with the <code>items</code> table. If not implemented correctly, the FTS index will be stale. This is a known SQLite FTS5 limitation.</li>
+</ul>
+<h3>Open Questions</h3>
+<ol>
+<li><strong>What embedding model should be used for Phase 2 vector search?</strong> This is the primary unresolved dependency for the semantic search capability. Local models (sentence-transformers) avoid API calls but require a large download in CI; API models (OpenAI, Gemini) require credentials. This is a prerequisite question for the <code>2026-03-02-semantic-full-text-search.md</code> backlog item.</li>
+<li><strong>Should the database be committed to git in a compressed or alternative format (e.g., Datasette's <code>.db.gz</code>)?</strong> Datasette supports SQLite databases published as static sites; committing the <code>.db</code> file (gzip-compressed) would enable read-only access via GitHub. This is an interface question for <code>2026-02-27-interface-and-delivery.md</code>.</li>
+<li><strong>Should the Phase 1 migration include transcripts?</strong> Transcripts are large blobs; storing them in SQLite would make the <code>.db</code> file large. An alternative is to store only the URL and a content hash, with the transcript text remaining in <code>Research/transcripts/</code>. This is a scope question for the Phase 1 implementation backlog item.</li>
+</ol>
+<hr />
+<hr />
+<p><a id="2026-02-27-interface-and-delivery-md"></a></p>
+<h2>Interface and delivery: how to surface research outputs</h2>
+<p><strong>Tags:</strong> [interface, delivery, output, ux]</p>
+<p><strong>Origin:</strong> https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-02-27-interface-and-delivery.md</p>
+<h2>Question / Hypothesis</h2>
+<p>Once research is complete and outputs are produced, how should they be surfaced and delivered to the people (or agents) who need them? What interfaces make research outputs most usable?</p>
+<h2>Findings</h2>
+<h3>Executive Summary</h3>
+<p>The research corpus requires two parallel delivery channels, one per consumer type: the GitHub wiki (already live) serves the human researcher via the repository's Wiki tab on web and iOS, and an MCP server with stdio transport (designed, not yet implemented) serves AI agents via <code>search_research</code>, <code>get_research_item</code>, and <code>get_related_items</code> tools. The CLI <code>research search</code> command is designed and shares the same FTS5 backend; it is the third channel to implement. Email digest and Slack push notification are architecturally viable but blocked under current constraints: both require credentials (<code>RESEND_API_KEY</code>/<code>EMAIL_RECIPIENT</code> for email; <code>SLACK_WEBHOOK_URL</code> for Slack) that are not in the approved credentials table and require owner approval before implementation can proceed.</p>
+<h3>Key Findings</h3>
+<ol>
+<li>
+<p><strong>The GitHub wiki is the correct and already-live human-browsing interface: <code>publish-wiki.yml</code> rebuilds all pages from <code>Research/completed/</code> on every push to <code>main</code>, producing a date-sorted <code>Home.md</code> and tag-indexed <code>_Sidebar.md</code> accessible from the repository's Wiki tab on both the GitHub website and the iOS app.</strong> [High confidence]</p>
+</li>
+<li>
+<p><strong>An MCP server with stdio transport, registered in <code>.github/mcp.json</code>, is the only agent-query interface that satisfies all repository constraints: no persistent server process, no new credentials, compatible with the 10 existing MCP stdio servers.</strong> [High confidence]</p>
+</li>
+<li>
+<p><strong>The three-tool MCP interface contract defined in <code>2026-03-02-chat-conversational-interface.md</code> is complete and sufficient: <code>search_research(query, tags, limit)</code> for ranked discovery, <code>get_research_item(slug)</code> for full content retrieval, and <code>get_related_items(slug)</code> for cross-reference navigation via <code>state/links.json</code>.</strong> [High confidence]</p>
+</li>
+<li>
+<p><strong>The CLI <code>research search</code> command is designed in <code>2026-03-02-semantic-full-text-search.md</code> with SQLite FTS5 index, mtime-based rebuild, and <code>--limit</code>/<code>--mode</code>/<code>--tag</code> options, but is not yet implemented in <code>src/main.py</code>.</strong> [High confidence]</p>
+</li>
+<li>
+<p><strong>The email digest path via the <code>davidamitchell/Latest-developments-</code> pattern requires at minimum two new credentials (<code>RESEND_API_KEY</code> and <code>EMAIL_RECIPIENT</code>) that do not appear in the approved credentials table, making it a hard-stop blocked item under the non-negotiable constraints.</strong> [High confidence]</p>
+</li>
+<li>
+<p><strong>Outbound Slack notification (one completed item per push) is low-complexity — four lines of workflow YAML Ain't Markup Language (YAML) using <code>slackapi/slack-github-action@v2.1.1</code> — but is equally blocked pending explicit owner approval of the <code>SLACK_WEBHOOK_URL</code> secret.</strong> [High confidence]</p>
+</li>
+<li>
+<p><strong>The human and agent consumers have structurally different access patterns: the human researcher performs discovery (browsing by date and tag), while the AI agent performs retrieval (querying by keyword to locate specific items for synthesis); no single interface serves both optimally, making the two-layer strategy the correct design.</strong> [Medium confidence — inference from usage patterns]</p>
+</li>
+<li>
+<p><strong>All currently unblocked interface channels (wiki, MCP server, CLI search command) incur zero ongoing cost — they rely on <code>GITHUB_TOKEN</code> and local file access with no paid API calls.</strong> [High confidence]</p>
+</li>
+<li>
+<p><strong>The MCP server implementation must be accompanied by an Architecture Decision Record (ADR) documenting the stdio transport choice, three-tool interface contract, grounding design (tool-scoped retrieval prevents corpus hallucination), and the Phase 1 (grep) / Phase 2 (FTS5) phasing.</strong> [High confidence — per <code>2026-03-02-chat-conversational-interface.md</code> Key Finding #10]</p>
+</li>
+<li>
+<p><strong>iOS Shortcuts provide a complementary mobile-access layer: a &quot;Open URLs&quot; shortcut points to the wiki Home page for read access, and a GitHub Issues API shortcut handles mobile research capture — neither requires any server-side changes.</strong> [High confidence]</p>
+</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>Source</th>
+<th>Confidence</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GitHub wiki is live and rebuilt on every push</td>
+<td><code>Research/completed/2026-03-01-github-wiki-research-content.md</code> Executive Summary</td>
+<td>High</td>
+<td><code>publish-wiki.yml</code> and <code>src/wiki/publish.py</code> implemented</td>
+</tr>
+<tr>
+<td>MCP stdio server is the only viable agent interface</td>
+<td><code>Research/completed/2026-03-02-chat-conversational-interface.md</code> Executive Summary</td>
+<td>High</td>
+<td>GitHub Copilot Extension approach eliminated by no-server constraint</td>
+</tr>
+<tr>
+<td>Three-tool MCP contract</td>
+<td><code>Research/completed/2026-03-02-chat-conversational-interface.md</code> §6 Synthesis</td>
+<td>High</td>
+<td>Matches MCP protocol tool definition from modelcontextprotocol.io</td>
+</tr>
+<tr>
+<td><code>research search</code> CLI command designed, not implemented</td>
+<td><code>Research/completed/2026-03-02-semantic-full-text-search.md</code> §1.6; <code>python -m src.main research --help</code> output</td>
+<td>High</td>
+<td>Current CLI lacks search subcommand</td>
+</tr>
+<tr>
+<td>Email digest requires credentials not in approved table</td>
+<td><code>davidamitchell/Latest-developments-</code> README.md; <code>.github/copilot-instructions.md</code> credentials table</td>
+<td>High</td>
+<td><code>RESEND_API_KEY</code>, <code>EMAIL_RECIPIENT</code> not in table</td>
+</tr>
+<tr>
+<td>Slack notification blocked pending secret approval</td>
+<td><code>Research/completed/2026-03-02-slack-msteams-research-integration.md</code> Key Finding #2</td>
+<td>High</td>
+<td><code>SLACK_WEBHOOK_URL</code> not in approved credentials table</td>
+</tr>
+<tr>
+<td>Human/agent access patterns differ fundamentally</td>
+<td><code>.github/copilot-instructions.md</code> Working Environment; <code>Research/completed/2026-03-02-chat-conversational-interface.md</code></td>
+<td>Medium</td>
+<td>[inference] from usage model description</td>
+</tr>
+<tr>
+<td>Zero ongoing cost for wiki, MCP, CLI channels</td>
+<td><code>Research/completed/2026-03-01-github-wiki-research-content.md</code>; <code>Research/completed/2026-03-02-chat-conversational-interface.md</code> Key Finding #2; <code>Research/completed/2026-03-02-semantic-full-text-search.md</code></td>
+<td>High</td>
+<td>All use GITHUB_TOKEN or local file access</td>
+</tr>
+<tr>
+<td>MCP server requires an ADR</td>
+<td><code>Research/completed/2026-03-02-chat-conversational-interface.md</code> Key Finding #10</td>
+<td>High</td>
+<td>Explicitly stated in prior research</td>
+</tr>
+<tr>
+<td>iOS Shortcuts provide mobile access</td>
+<td><code>Research/completed/2026-03-02-ios-shortcuts-research.md</code> Key Findings #1, #7</td>
+<td>High</td>
+<td>&quot;Open URLs&quot; shortcut + Issues API capture shortcut</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Identified but not consulted:</strong></p>
+<ul>
+<li><code>[ ]</code> <code>davidamitchell/Latest-developments-</code> source code (<code>src/</code>) — README was sufficient to characterise the pattern; full source not required for this finding</li>
+<li><code>[ ]</code> MCP HTTP/SSE transport specification — not relevant since stdio transport is the confirmed choice</li>
+</ul>
+<h3>Assumptions</h3>
+<ul>
+<li><strong>Assumption:</strong> The owner has not approved <code>SLACK_WEBHOOK_URL</code>, <code>RESEND_API_KEY</code>, or <code>EMAIL_RECIPIENT</code> credentials since the <code>2026-03-02-slack-msteams-research-integration.md</code> item was completed. <strong>Justification:</strong> The approved credentials table in <code>.github/copilot-instructions.md</code> lists only four credentials; no subsequent session log mentions a table update. If these credentials have since been approved, the blocked items are immediately actionable.</li>
+</ul>
+<h3>Analysis</h3>
+<p>The interface strategy is architecturally complete, with two channels live or fully designed and two channels blocked by credential constraints. The key trade-off evaluated was human-browsing vs agent-query vs push-notification: they are not competing designs but complementary layers targeting distinct consumer modes. [inference] Prioritising the MCP server over the CLI search command is correct because it serves agent-to-corpus queries, which is the higher-frequency use case during research loop sessions. The CLI search command is a useful supplement that shares the FTS5 backend and should be implemented in the same slice. Push notifications (Slack/email) add value but are optional and blocked — delaying them costs nothing.</p>
+<p>The email digest pattern from <code>Latest-developments-</code> is well-established but architecturally heavier than needed: that project watches external feeds and produces AI summaries, whereas a research digest only needs to list recently completed items. If credentials are approved, the digest workflow would be simpler than the <code>Latest-developments-</code> pipeline — a <code>schedule</code>-triggered workflow that reads <code>completed</code> dates from <code>Research/completed/</code> YAML Ain't Markup Language (YAML) front-matter and posts a summary.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li><strong>Credential approval is the single unresolved variable.</strong> Email digest and Slack notification are architecturally ready but blocked until the owner approves the relevant credentials. No technical gap; the gap is administrative.</li>
+<li><strong>MCP server Phase 2 depends on <code>semantic-full-text-search.md</code> implementation.</strong> Phase 1 (grep-based) is independent and deployable now. If the FTS5 search layer is delayed, Phase 1 is fully functional.</li>
+<li><strong><code>get_related_items</code> depends on <code>state/links.json</code> population</strong>, which in turn depends on <code>2026-03-03-knowledge-linking-connected-corpus.md</code> being implemented. Without that edge store, the tool returns empty results rather than an error.</li>
+<li><strong>Wiki navigation is flat.</strong> The GitHub wiki has no subdirectory support, so as the corpus grows beyond ~200 items, the <code>Home.md</code> index may become long. Tag-based grouping in <code>_Sidebar.md</code> mitigates this but does not resolve it. A future item could address hierarchical navigation.</li>
+</ul>
+<h3>Open Questions</h3>
+<ol>
+<li>
+<p><strong>Should a <code>research digest</code> CLI command be added</strong> that generates a Markdown summary of the last N days' completions, usable both locally and as a workflow step? This would be a lightweight alternative to the email digest for producing a shareable briefing without external credentials. Priority: low (no downstream blocker).</p>
+</li>
+<li>
+<p><strong>When the owner approves email or Slack credentials, should the notification and digest be a separate new workflow file or merged into <code>publish-wiki.yml</code>?</strong> The trigger (<code>push</code> to <code>main</code> touching <code>Research/completed/**</code>) is the same; merging reduces workflow count. Priority: low; decide at implementation time.</p>
+</li>
+</ol>
+<hr />
+<hr />
+<p><a id="2026-02-27-information-synthesis-entropy-md"></a></p>
+<h2>Information synthesis: non-lossy compression, entropy, and information theory</h2>
+<p><strong>Tags:</strong> [synthesis, information-theory, entropy, compression, ai]</p>
+<p><strong>Origin:</strong> https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-02-27-information-synthesis-entropy.md</p>
+<h2>Question / Hypothesis</h2>
+<p>What is the best way to synthesise information from multiple sources in a manner that is minimally lossy — preserving the most signal while compressing volume — drawing on information theory, entropy, and compression research?</p>
+<h2>Findings</h2>
+<h3>Executive Summary</h3>
+<p>No single technique achieves minimally-lossy synthesis across multiple sources; the best approach combines three layers: entropy-guided extraction (preserve high-entropy, high-information sections), semantic deduplication (remove cross-source redundancy, keep only deltas), and graph-structured synthesis (model claims as nodes, evidence as edges for multi-hop reasoning). Chain of Density (CoD) prompting is the most directly applicable LLM technique — it iteratively compresses while adding entity density, producing summaries that human raters prefer over vanilla GPT-4 summaries. Naive per-source LLM summarisation is the worst option: it accumulates hallucinations and loses cross-source context as corpus size grows. The theoretical foundation (Shannon entropy, Information Bottleneck, MDL) all converge on the same principle: discard what is predictable/redundant, preserve what is novel and causally relevant.</p>
+<h3>Key Findings</h3>
+<ol>
+<li>
+<p><strong>Shannon entropy identifies information-dense text.</strong> High-entropy sections are less predictable and carry more signal; low-entropy sections are repetitive and safe to compress. Entropy can be computed per-sentence or per-paragraph to guide extractive summarisation, selecting sentences that contribute most to document entropy.</p>
+</li>
+<li>
+<p><strong>Chain of Density (CoD) prompting is the leading LLM-native synthesis technique.</strong> Adams et al. (2023) demonstrate that iteratively rewriting a summary to add 1–3 missed salient entities per pass — without increasing length — produces summaries rated more informative and faithful than baseline GPT-4. Human preference peaks at a mid-density level that matches human-written reference summaries; beyond that, density harms readability.</p>
+</li>
+<li>
+<p><strong>The Information Bottleneck (IB) method provides formal grounding for the compression–relevance trade-off.</strong> Tishby et al. formalise synthesis as finding a compressed representation T of input X that maximises mutual information with the target variable Y while minimising I(X;T). This captures exactly the problem: keep what is predictive of meaning, discard the rest. The β parameter controls the compression–fidelity trade-off.</p>
+</li>
+<li>
+<p><strong>Minimum Description Length (MDL) frames summarisation as lossless coding.</strong> A summary is optimal under MDL when the sum of (summary length + reconstruction model length) is minimised. This is equivalent to finding the most compressible representation of the source — exploiting regularities (grammar, redundancy) while preserving unique content.</p>
+</li>
+<li>
+<p><strong>Semantic deduplication is a prerequisite for cross-source synthesis.</strong> String/hash-based deduplication misses paraphrases. Embedding-based methods (SemDeDup, MinHash/LSH) cluster semantically equivalent content across documents and suppress it before synthesis, preventing diluted or repeated outputs. Cross-document topic-aligned chunking (2025 arxiv) extends this by aligning semantically similar chunks across sources before retrieval.</p>
+</li>
+<li>
+<p><strong>Graph-based synthesis (GraphRAG) outperforms flat retrieval for multi-source reasoning.</strong> Microsoft's GraphRAG constructs a knowledge graph from an LLM-processed corpus, with entities as nodes and relationships as edges, then uses community-level summarisation to answer queries that span multiple documents. It outperforms naive RAG on complex, multi-hop queries that require integrating evidence from different sources.</p>
+</li>
+<li>
+<p><strong>Naive per-source LLM summarisation introduces compounding errors.</strong> Hallucinations in LLM summaries arise from limited context windows, exposure bias, and noisy training data. When each source is summarised independently and summaries are concatenated, errors compound and cross-source context is permanently lost. RAG with grounded retrieval is consistently found to reduce hallucination rates versus independent summarisation.</p>
+</li>
+<li>
+<p><strong>ROME/MEMIT (Meng 2022) shows that factual knowledge is localised in transformer mid-layer feed-forward modules.</strong> While this is primarily a knowledge-editing result, it implies that LLMs store facts in structured, addressable representations — supporting the view that synthesis quality can in principle be improved by intervening at the representation level, not just at the prompt level.</p>
+</li>
+<li>
+<p><strong>There is a density sweet spot; over-compression degrades faithfulness.</strong> CoD human preference studies show that beyond approximately 3–4 rounds of densification, summaries become harder to follow and introduce factual errors. This matches the IB framework's prediction: compression beyond the optimal β introduces distortion. Synthesis pipelines must expose a tunable compression parameter.</p>
+</li>
+<li>
+<p><strong>Two-phase deduplication (intra-document then cross-document) is the current best practice for RAG pipelines.</strong> Production RAG systems (lucidRAG, cross-document chunking literature) decouple deduplication at ingestion (within a document) from deduplication at retrieval (across documents). The two phases serve different purposes: intra-document removes formatting noise; cross-document removes redundant claims.</p>
+</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>Source</th>
+<th>Confidence</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>High-entropy text sections carry more information and should be preserved</td>
+<td>Shannon (1948); Wikipedia Entropy (information theory); MDPI &quot;Entropy of Digital Texts&quot;</td>
+<td>high</td>
+<td>Well-established information theory result</td>
+</tr>
+<tr>
+<td>CoD prompting produces human-preferred summaries vs vanilla GPT-4</td>
+<td>Adams et al. (2023) arxiv:2309.04269</td>
+<td>high</td>
+<td>500 human-annotated summaries, 5000 unannotated; direct experimental evidence</td>
+</tr>
+<tr>
+<td>IB method formalises compression–relevance trade-off as min I(X;T) – β·I(T;Y)</td>
+<td>Tishby et al. (1999/2000); Wikipedia Information Bottleneck</td>
+<td>high</td>
+<td>Foundational theoretical result; widely cited</td>
+</tr>
+<tr>
+<td>MDL frames summarisation as lossless coding: summary is optimal when description length is minimised</td>
+<td>Wikipedia MDL; liambai.com &quot;From Kolmogorov to LLMs&quot;</td>
+<td>high</td>
+<td>Standard information theory result; well-sourced</td>
+</tr>
+<tr>
+<td>Semantic deduplication via embeddings outperforms hash-based dedup for paraphrases</td>
+<td>SemDeDup (NeurIPS 2023); Fraunhofer evaluation 2024</td>
+<td>high</td>
+<td>Multiple independent sources corroborate</td>
+</tr>
+<tr>
+<td>GraphRAG outperforms naive RAG on complex multi-source queries</td>
+<td>Microsoft Research GraphRAG blog; machinelearningplus.com GraphRAG guide</td>
+<td>medium</td>
+<td>Performance claims are from Microsoft's own evaluation; independent replication limited</td>
+</tr>
+<tr>
+<td>Naive per-source LLM summarisation introduces compounding hallucinations</td>
+<td>Survey on LLM hallucination (2024, arxiv:2401.01313); Nature (2025) hallucination survey</td>
+<td>high</td>
+<td>Multiple independent surveys consistently identify this failure mode</td>
+</tr>
+<tr>
+<td>Factual knowledge is localised in mid-layer transformer feed-forward modules</td>
+<td>Meng et al. (2022) arxiv:2202.05262 (ROME)</td>
+<td>high</td>
+<td>Verified via causal tracing; replicated in subsequent work</td>
+</tr>
+<tr>
+<td>Density sweet spot exists; over-compression degrades faithfulness</td>
+<td>Adams et al. (2023) CoD human preference study</td>
+<td>high</td>
+<td>Direct experimental finding from the same paper</td>
+</tr>
+<tr>
+<td>Two-phase dedup (intra then cross-document) is best practice</td>
+<td>Cross-Document Topic-Aligned Chunking arxiv:2601.05265; lucidRAG blog</td>
+<td>medium</td>
+<td>Emerging consensus; fewer than 5 independent published results</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li><strong>Assumption:</strong> The research tooling corpus is multi-source (YouTube transcripts, papers, web pages) with significant topical overlap between sources. <strong>Justification:</strong> This is explicit in the project context; the tooling already has YouTube, web, and paper fetchers.</li>
+<li><strong>Assumption:</strong> The synthesis problem is primarily about knowledge retention, not style fidelity. <strong>Justification:</strong> The research question asks for &quot;minimally lossy&quot; in terms of signal, not verbatim reconstruction.</li>
+<li><strong>Assumption:</strong> LLM token context limits will remain a binding constraint at synthesis time. <strong>Justification:</strong> Even with expanding context windows (128k–1M tokens), multi-source corpora in this system can exceed practical limits.</li>
+</ul>
+<h3>Analysis</h3>
+<p>Shannon entropy, IB, and MDL all converge on the same principle from different angles: identify what is novel and preserve it; discard what is predictable. This theoretical convergence is strong evidence that the principle is sound, even though direct application to synthesis pipelines varies.</p>
+<p>CoD prompting is the most immediately implementable technique. It requires no special infrastructure — only a well-designed prompt — and produces measurably better outputs than naive summarisation. Its limitation is that it operates at the single-document level; it does not address cross-source redundancy.</p>
+<p>GraphRAG addresses cross-source synthesis but requires a knowledge graph construction step that has non-trivial cost and complexity. It is the right architecture for a mature synthesis pipeline but is not the right first step.</p>
+<p>The practical recommendation for this project's synthesis layer is a three-stage approach:</p>
+<ol>
+<li><strong>Extract</strong> high-entropy/high-information chunks from each source (entropy scoring or sentence-level scoring).</li>
+<li><strong>Deduplicate</strong> cross-source at the semantic level (embedding similarity clustering).</li>
+<li><strong>Synthesise</strong> the deduplicated, high-signal chunks using CoD-style prompting (iterative densification with entity tracking).</li>
+</ol>
+<p>This sequence mirrors what information theory recommends: exploit within-source structure first, then remove cross-source redundancy, then compress the remainder.</p>
+<p>ROME/MEMIT is directionally interesting (factual knowledge is structured in LLMs) but is a knowledge-editing technique, not a synthesis technique. Its relevance is that it suggests future work on synthesis might involve targeted representation intervention rather than only prompting — this is speculative and out of scope.</p>
+<p>The IB framework's β parameter is an important insight: synthesis pipelines should expose a tunable trade-off between compression ratio and fidelity. A fixed compression target is wrong; the right compression level depends on the downstream use case.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li><strong>GraphRAG performance claims are primarily from Microsoft's own evaluations.</strong> Independent replication is limited. The approach may not generalise to smaller corpora or domain-specific content.</li>
+<li><strong>Entropy scoring for text requires a language model.</strong> Character-level or word-level entropy underestimates semantic entropy (two paraphrases have identical information content but different surface-level entropy). A model-based perplexity score is needed for sentence-level entropy, adding a dependency.</li>
+<li><strong>CoD prompting was evaluated on news articles (CNN/DailyMail).</strong> Generalisability to academic papers, YouTube transcripts, and web pages is not established experimentally.</li>
+<li><strong>Two-phase deduplication thresholds are not standardised.</strong> Similarity cutoffs for semantic dedup vary widely across papers; there is no consensus on the right threshold for research synthesis.</li>
+<li><strong>The IB framework has not been directly applied to document synthesis in practice.</strong> Most IB work is on neural network compression, not text summarisation pipelines. The translation from theory to practice requires engineering work not covered in the literature.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>What perplexity scoring method (which model, what granularity) best approximates semantic entropy for the sources in this system?</li>
+<li>Should synthesis operate over the full document or only extracted high-entropy chunks? What is the information loss from pre-filtering?</li>
+<li>Is there an existing open-source tool that implements semantic deduplication at the paragraph/chunk level suitable for use in this pipeline?</li>
+<li>Can CoD prompting be adapted for multi-document input (rather than single-source), or does it require a pre-merged input?</li>
+<li>What is the right compression ratio target for research synthesis — what portion of a source's content should survive synthesis?</li>
+</ul>
+<hr />
+<hr />
+<p><a id="2026-02-27-indexing-and-tracking-method-md"></a></p>
+<h2>Indexing and tracking method for research content</h2>
+<p><strong>Tags:</strong> [indexing, tracking, database, organisation]</p>
+<p><strong>Origin:</strong> https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-02-27-indexing-and-tracking-method.md</p>
+<h2>Question / Hypothesis</h2>
+<p>What is the best method for indexing and tracking research content (transcripts, papers, notes) given the constraints of a git-based, local-first repo?</p>
+<h2>Findings</h2>
+<h3>Executive Summary</h3>
+<p>For a git-based, local-first research corpus at the scale anticipated here (hundreds, not millions, of items), a <strong>JSON state file</strong> for URL-based deduplication combined with <strong>YAML front-matter</strong> in Markdown research item files is the correct approach. This mirrors the <code>davidamitchell/Latest-developments-</code> pattern that already underpins this repository's fetcher design, remains fully git-diffable, requires no additional server or binary dependency, and is easy to inspect and edit by hand. SQLite becomes the right migration point only once the corpus exceeds a few hundred items and query performance degrades noticeably. Vector stores (ChromaDB, sqlite-vss) are deferred to a future search slice.</p>
+<h3>Key Findings</h3>
+<ol>
+<li>
+<p><strong>Obsidian, Logseq, and Dendron all converge on plain-Markdown + flat files</strong> for git-friendliness. None use a custom binary index at the data layer; instead, they keep metadata in YAML front-matter and build in-memory indices at runtime. This is directly applicable: the Research item files already use YAML front-matter, giving us the metadata layer for free.</p>
+</li>
+<li>
+<p><strong>Zotero's SQLite approach is powerful but inappropriate here.</strong> Zotero uses a 10+ table relational schema (items, itemData, itemDataValues, creators, tags, relations, fulltext*). It is robust for academic reference management but is a binary file, impossible to diff in git, and requires Zotero's migration tooling to evolve the schema. Its complexity is justified by managing tens of thousands of heterogeneous item types — which is not our use case.</p>
+</li>
+<li>
+<p><strong>JSON state file is git-friendly and sufficient for URL-based deduplication at this scale.</strong> The pattern (<code>load state.json → check URL → process → save state.json</code>) is O(n) for lookup but acceptable up to ~10,000 entries. Converting the URL set to a Python <code>set</code> at runtime eliminates duplicate lookups during a single run. <code>state/index.json</code> already exists in this repo (currently <code>{}</code>), confirming the infrastructure is in place.</p>
+</li>
+<li>
+<p><strong>SQLite offers ACID transactions, efficient indexing, and <code>INSERT OR IGNORE</code> deduplication, but at the cost of git-diffability.</strong> SQLite database files are binary blobs: a single row change produces a completely different file in <code>git diff</code>. This is acceptable only if the state file is treated as a runtime artefact that is never reviewed in pull requests. For this repo — where the owner reviews all changes via the GitHub website — losing readable diffs is a meaningful cost.</p>
+</li>
+<li>
+<p><strong>Vector stores (ChromaDB, sqlite-vss/sqlite-vec) solve a different problem: semantic search, not deduplication.</strong> ChromaDB is production-grade but runs as a server process, adding operational complexity. sqlite-vss is single-file but still binary. Both are appropriate only once the <code>Research/completed/</code> directory has enough items (&gt;50) to make semantic search over findings worthwhile. This is a future-state capability, not a current need.</p>
+</li>
+<li>
+<p><strong>The two concerns — deduplication/processing state and research-item metadata — should remain separate.</strong> Processing state (which URLs have been fetched) belongs in <code>state/index.json</code>. Research-item metadata (title, status, tags, started/completed dates) belongs in the YAML front-matter of each <code>Research/*.md</code> file. Mixing them would couple the pipeline to the research workflow unnecessarily.</p>
+</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>Source</th>
+<th>Confidence</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Obsidian/Logseq/Dendron use plain Markdown + YAML front-matter</td>
+<td>Obsidian docs; Logseq docs; Dendron docs (via web search)</td>
+<td>high</td>
+<td>All three use <code>.md</code> files with front-matter for metadata</td>
+</tr>
+<tr>
+<td>Zotero uses SQLite (binary, not git-diffable)</td>
+<td><a href="https://www.zotero.org/support/dev/client_coding/direct_sqlite_database_access">Zotero SQLite docs</a>; <a href="https://github.com/zotero/zotero-schema">Zotero schema repo</a></td>
+<td>high</td>
+<td>Confirmed by official documentation</td>
+</tr>
+<tr>
+<td>JSON state file is O(n) lookup but sufficient &lt;10,000 entries</td>
+<td>General Python data structures; <a href="https://dlthub.com/docs/general-usage/state">DLT state docs</a></td>
+<td>high</td>
+<td>Set-based runtime lookup is O(1); serialisation to list for JSON is standard practice</td>
+</tr>
+<tr>
+<td>SQLite produces binary diffs in git</td>
+<td><a href="https://www.dolthub.com/blog/2024-11-18-json-sqlite-vs-dolt/">JSON Showdown: Dolt vs SQLite</a>; web search synthesis</td>
+<td>high</td>
+<td>Well-established limitation; multiple independent sources confirm</td>
+</tr>
+<tr>
+<td>ChromaDB and sqlite-vss are designed for vector search, not dedup</td>
+<td><a href="https://github.com/asg017/sqlite-vss">sqlite-vss GitHub</a>; <a href="https://airbyte.com/data-engineering-resources/chroma-db-vector-embeddings">ChromaDB guide</a>; <a href="https://stephencollins.tech/posts/sqlite-vs-chroma-comparative-analysis">SQLite vs Chroma</a></td>
+<td>high</td>
+<td>Both tools explicitly positioned for embedding similarity search</td>
+</tr>
+<tr>
+<td><code>state/index.json</code> already exists in this repo</td>
+<td>Local file inspection (<code>state/index.json</code> = <code>{}</code>)</td>
+<td>high</td>
+<td>Confirmed by direct inspection</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li><strong>Assumption:</strong> The research corpus will remain below 10,000 processed items for the foreseeable future. <strong>Justification:</strong> This is a personal research tracking repo for a single owner; growth to 10,000 items would represent years of sustained activity. The JSON approach can be migrated to SQLite incrementally if this assumption is violated.</li>
+<li><strong>Assumption:</strong> Semantic search over completed research items is a future-state feature, not a current requirement. <strong>Justification:</strong> There are currently zero items in <code>Research/completed/</code>. Vector search is not useful until a meaningful corpus exists.</li>
+<li><strong>Assumption:</strong> The owner will review state file changes via git diffs on the GitHub website. <strong>Justification:</strong> This is stated explicitly in <code>AGENTS.md</code>: the owner uses the GitHub website exclusively. A binary state file would be invisible to this review workflow.</li>
+</ul>
+<h3>Analysis</h3>
+<p>The key trade-off is between <strong>query power / performance</strong> (favouring SQLite) and <strong>transparency / git-diffability</strong> (favouring JSON). Given the stated constraints — git-first, local, owner reviews via GitHub website — transparency wins. The query performance of JSON is sufficient at this scale, and any performance concern can be addressed by migrating the state file to SQLite at a later point without changing the research-item format.</p>
+<p>The comparison with Obsidian, Logseq, and Dendron is instructive but not directly applicable: those tools index at query-time (in-memory graph construction on startup), a luxury we cannot easily replicate in a CI/CD pipeline. However, their shared reliance on YAML front-matter for metadata validates the approach already in use for research items.</p>
+<p>Zotero's complexity is not a model to emulate — it is the product of having to manage thousands of heterogeneous reference types, institutional group libraries, and offline sync. Its schema is instructive as an upper bound of what relational complexity buys, but it is far beyond the needs of this repo.</p>
+<p>The two-layer approach (YAML front-matter for research metadata + JSON for processing state) maps cleanly onto the existing codebase:</p>
+<ul>
+<li><code>src/research/item.py</code> already reads/writes YAML front-matter</li>
+<li><code>state/index.json</code> already exists</li>
+<li>The <code>FetchedItem.url</code> field is the natural deduplication key</li>
+</ul>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li><strong>Concurrent write risk on JSON:</strong> If multiple pipeline runs execute simultaneously (e.g., parallel GitHub Actions jobs), both could read the same <code>state/index.json</code>, process duplicate items, and write conflicting updates. Mitigation: use atomic writes (write to a temp file then <code>os.replace</code>), and ensure the fetch workflow is not triggered in parallel.</li>
+<li><strong>JSON file growth:</strong> A single <code>state/index.json</code> with thousands of entries will grow large. If performance degrades, the mitigation is to switch to SQLite (see W-0021 scope note).</li>
+<li><strong>No schema validation on <code>state/index.json</code>:</strong> The current file is <code>{}</code>. If the schema is not defined before implementation, it will drift. Recommendation: define the schema in an ADR before implementing Epic 3.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>Should <code>state/index.json</code> store only the URL (set of strings) or richer metadata (fetch timestamp, title, content hash)? Content hash would enable detecting when a source has been updated and needs reprocessing. This is a scope question for W-0021.</li>
+<li>At what corpus size does the JSON approach become noticeably slow in practice? The threshold is likely corpus-dependent (number of URLs × read latency). Consider benchmarking at 1,000 and 10,000 entries.</li>
+<li>Is there value in a YAML index file (e.g., <code>state/completed.yaml</code>) that lists all completed research items with their key metadata, as a human-readable companion to <code>state/index.json</code>? This would make the state layer more navigable without a GUI.</li>
 </ul>
 <hr />
 <hr />

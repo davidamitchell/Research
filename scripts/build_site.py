@@ -27,7 +27,7 @@ import re
 import shutil
 import textwrap
 from collections import Counter
-from datetime import date
+from datetime import UTC, date, datetime
 from pathlib import Path
 
 import yaml
@@ -1114,10 +1114,17 @@ def load_items() -> tuple[list[dict], dict[str, int]]:
         if not added_raw:
             continue
         try:
-            if isinstance(added_raw, str):
-                added = date.fromisoformat(added_raw)
+            if isinstance(added_raw, datetime):
+                # YAML parsed an ISO 8601 datetime string (e.g. 2026-04-26T06:03:17+00:00)
+                added_dt = added_raw if added_raw.tzinfo else added_raw.replace(tzinfo=UTC)
+            elif isinstance(added_raw, date):
+                # YAML parsed a plain date (legacy format, pre-PR#403)
+                added_dt = datetime(added_raw.year, added_raw.month, added_raw.day, tzinfo=UTC)
+            elif isinstance(added_raw, str):
+                parsed = datetime.fromisoformat(added_raw)
+                added_dt = parsed if parsed.tzinfo else parsed.replace(tzinfo=UTC)
             else:
-                added = date(added_raw.year, added_raw.month, added_raw.day)
+                continue
         except (ValueError, AttributeError):
             continue
         title = str(meta.get("title", path.stem))
@@ -1133,8 +1140,8 @@ def load_items() -> tuple[list[dict], dict[str, int]]:
                 "filename": name,
                 "title": title,
                 "display_title": make_display_title(title),
-                "added": added,
-                "added_str": added.isoformat(),
+                "added": added_dt,
+                "added_str": added_dt.date().isoformat(),
                 "tags": tags,
                 "sections": sections,
                 "_sources_text": sources_text,
@@ -1144,8 +1151,8 @@ def load_items() -> tuple[list[dict], dict[str, int]]:
                 "thread": str(thread_field).strip() if thread_field else "",
             }
         )
-    # Primary key: added date (newest first). Secondary key: filename (reverse
-    # alphabetical) so same-date items have a deterministic, stable ordering.
+    # Sort newest-first by full datetime; within the same second the filename
+    # provides a stable deterministic tiebreaker.
     items.sort(key=lambda x: (x["added"], x["filename"]), reverse=True)
     return items, {"meta_infra": excl_meta}
 
@@ -2083,9 +2090,11 @@ def build_tags_index(tags_map: dict[str, list[dict]]) -> str:
 def _thread_date_range(items: list[dict]) -> str:
     """Return 'YYYY-MM-DD → YYYY-MM-DD' or single date if all the same."""
     dates = sorted(item["added"] for item in items)
-    if dates[0] == dates[-1]:
-        return dates[0].isoformat()
-    return f"{dates[0].isoformat()} → {dates[-1].isoformat()}"
+    first = dates[0].date().isoformat()
+    last = dates[-1].date().isoformat()
+    if first == last:
+        return first
+    return f"{first} → {last}"
 
 
 def build_threads_listing(threads: list[dict]) -> str:

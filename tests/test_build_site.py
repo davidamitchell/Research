@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import sys
-from datetime import date
+from datetime import UTC, date, datetime
 from pathlib import Path
 
 import pytest
@@ -27,15 +27,21 @@ def _make_item(
     slug: str,
     tags: list[str],
     thread: str = "",
-    added: date | None = None,
+    added: date | datetime | None = None,
 ) -> dict:
     """Minimal item dict sufficient for thread detection and page building."""
+    if added is None:
+        added_dt: datetime = datetime(2026, 1, 1, tzinfo=UTC)
+    elif isinstance(added, datetime):
+        added_dt = added if added.tzinfo else added.replace(tzinfo=UTC)
+    else:
+        added_dt = datetime(added.year, added.month, added.day, tzinfo=UTC)
     return {
         "slug": slug,
         "tags": tags,
         "thread": thread,
-        "added": added or date(2026, 1, 1),
-        "added_str": (added or date(2026, 1, 1)).isoformat(),
+        "added": added_dt,
+        "added_str": added_dt.date().isoformat(),
         "title": slug,
         "display_title": slug,
         "question": "",
