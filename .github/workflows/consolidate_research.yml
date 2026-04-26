@@ -103,7 +103,7 @@ jobs:
             ANCHOR=$(echo "$FILENAME" | tr '[:upper:]' '[:lower:]' | tr ' .' '--')
 
             # HTML anchor so TOC links resolve in rendered Markdown
-            echo "<a name=\"$ANCHOR\"></a>" >> "$OUTPUT_FILE"
+            echo "<a id=\"$ANCHOR\"></a>" >> "$OUTPUT_FILE"
             echo "" >> "$OUTPUT_FILE"
             echo "## $TITLE" >> "$OUTPUT_FILE"
             echo "" >> "$OUTPUT_FILE"
