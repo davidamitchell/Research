@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-04-26T10:54:43Z",
+  "extracted_at": "2026-04-26T18:16:02Z",
   "items": {
     "2026-04-26-systems-capability-debt-citizen-development-empirical-evidence": {
       "named_concepts": [
@@ -441,6 +441,60 @@
         "[inference;",
         "[inference;",
         "[inference;"
+      ]
+    },
+    "2026-04-26-ai-agent-identity-access-management-enterprise": {
+      "named_concepts": [
+        "machine identity",
+        "identity model",
+        "low-code artefacts",
+        "every consequential",
+        "delegation preserves",
+        "impersonation collapses",
+        "least privilege",
+        "non-human actors",
+        "credential exchange",
+        "consequential agent",
+        "low-code artefact",
+        "software workloads",
+        "delegation semantics",
+        "identity instead",
+        "retained user",
+        "short-lived credentials",
+        "managed identities",
+        "service account",
+        "persistent credentials",
+        "machine credentials"
+      ],
+      "source_urls": [
+        "https://pages.nist.gov/800-63-3/",
+        "https://pages.nist.gov/800-63-3/sp800-63c.html",
+        "https://www.rfc-editor.org/rfc/rfc8693",
+        "https://spiffe.io/",
+        "https://learn.microsoft.com/en-us/entra/workload-id/workload-identities-overview",
+        "https://learn.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview",
+        "https://learn.microsoft.com/en-us/entra/workload-id/workload-identity-federation-considerations",
+        "https://learn.microsoft.com/en-us/entra/identity/monitoring-health/concept-service-principal-sign-ins",
+        "https://learn.microsoft.com/en-us/entra/id-protection/concept-workload-identity-risk",
+        "https://docs.aws.amazon.com/rolesanywhere/latest/userguide/introduction.html",
+        "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html",
+        "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html",
+        "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html",
+        "https://csrc.nist.gov/pubs/sp/800/207/final",
+        "https://cloud.google.com/iam/docs/service-account-overview",
+        "https://cloud.google.com/iam/docs/workload-identity-federation",
+        "https://cloud.google.com/iam/docs/service-account-impersonation",
+        "https://cloud.google.com/iam/docs/best-practices-service-accounts"
+      ],
+      "key_claims": [
+        "High confidence",
+        "High confidence",
+        "High confidence",
+        "High confidence",
+        "High confidence",
+        "High confidence",
+        "High confidence",
+        "Medium confidence"
       ]
     },
     "2026-04-26-ai-agent-control-plane-architecture-enterprise": {
