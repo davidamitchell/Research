@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "Permission-safe Retrieval-Augmented Generation (RAG) in enterprise information architectures: technical constraints, architectural options, and failure modes at scale"
 added: 2026-04-26
 status: reviewing
