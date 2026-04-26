@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-04-26T18:58:48Z",
+  "extracted_at": "2026-04-26T19:25:40Z",
   "items": {
     "2026-04-26-systems-capability-debt-citizen-development-empirical-evidence": {
       "named_concepts": [
@@ -442,6 +442,50 @@
         "[inference;",
         "[inference;"
       ]
+    },
+    "2026-04-26-ai-lowcode-governance-enforcement-architecture": {
+      "named_concepts": [
+        "canonical policy",
+        "policy authoring",
+        "ingress identity",
+        "remain authoritative",
+        "stale permission",
+        "permission copies",
+        "unmanaged connectors",
+        "authoring plus",
+        "selective duplication",
+        "bypass vectors",
+        "maker publication",
+        "canonical translation",
+        "orchestration engines",
+        "model runtimes",
+        "semantic safety",
+        "another layer",
+        "rate control",
+        "gateway layers",
+        "enforce ingress",
+        "coarse authorization"
+      ],
+      "source_urls": [
+        "https://csrc.nist.gov/pubs/sp/800/207/final",
+        "https://learn.microsoft.com/en-us/azure/api-management/api-management-policies",
+        "https://learn.microsoft.com/en-us/azure/api-management/api-management-howto-policies",
+        "https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-resource-policies.html",
+        "https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html",
+        "https://www.openpolicyagent.org/docs/latest/",
+        "https://www.openpolicyagent.org/docs/latest/philosophy/",
+        "https://www.openpolicyagent.org/docs/latest/management-bundles/",
+        "https://learn.microsoft.com/en-us/azure/foundry-classic/foundry-models/concepts/content-filter",
+        "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/default-safety-policies",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html",
+        "https://developer.konghq.com/plugins/",
+        "https://developer.konghq.com/plugins/rate-limiting/",
+        "https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention",
+        "https://docs.mulesoft.com/api-manager/latest/manage-policies-overview",
+        "https://docs.mulesoft.com/gateway/latest/policies-included-rate-limiting",
+        "https://help.salesforce.com/s/articleView?id=ai.generative_ai_trust_layer.htm&language=en_US&type=5"
+      ],
+      "key_claims": []
     },
     "2026-04-26-ai-lowcode-failure-modes-governance-mitigation": {
       "named_concepts": [
