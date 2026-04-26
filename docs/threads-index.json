@@ -755,6 +755,61 @@
     "url": "/Research/threads/mobile-interface-delivery.html"
   },
   {
+    "slug": "financial-services-governance-regulation",
+    "title": "financial-services / governance / regulation",
+    "kind": "implicit",
+    "tag_cluster": [
+      "financial-services",
+      "governance",
+      "regulation"
+    ],
+    "concept_cluster": [],
+    "item_count": 8,
+    "items": [
+      {
+        "slug": "2026-02-28-rbnz-ai-supervisory-expectations",
+        "title": "RBNZ AI Supervisory Expectations: What Do Regulated Entities Need to Know?",
+        "added": "2026-02-28"
+      },
+      {
+        "slug": "2026-02-28-ai-strategy",
+        "title": "AI Strategy: global and NZ examples, policy frameworks, regulations, and use-case typologies",
+        "added": "2026-02-28"
+      },
+      {
+        "slug": "2026-03-24-public-sentiment-on-ai-in-banking-and-high-trust-institutions",
+        "title": "Public sentiment on AI in banking and high-trust institutions",
+        "added": "2026-03-24"
+      },
+      {
+        "slug": "2026-04-22-historical-technology-adoption-enterprise-ai-capability-building",
+        "title": "Historical technology adoption patterns as analogues for enterprise Artificial Intelligence capability building",
+        "added": "2026-04-22"
+      },
+      {
+        "slug": "2026-04-22-enterprise-ai-platform-operating-models",
+        "title": "Enterprise AI platform operating models: organisational structure and ownership",
+        "added": "2026-04-22"
+      },
+      {
+        "slug": "2026-04-24-ai-agent-regulation-global-financial-services",
+        "title": "Global artificial intelligence agent regulation in financial services: non-functional requirement obligations and low-code citizen-development controls",
+        "added": "2026-04-24"
+      },
+      {
+        "slug": "2026-04-24-business-led-low-code-agent-governance",
+        "title": "Business-led low-code agent governance: conditions for durable value versus fragmentation in regulated environments",
+        "added": "2026-04-24"
+      },
+      {
+        "slug": "2026-04-26-systems-capability-debt-citizen-development-empirical-evidence",
+        "title": "Systems capability debt as the root cause of citizen development: empirical evidence and effective governance architectures",
+        "added": "2026-04-26"
+      }
+    ],
+    "url": "/Research/threads/financial-services-governance-regulation.html"
+  },
+  {
     "slug": "rag-llm-context-management",
     "title": "rag / llm / context-management",
     "kind": "implicit",
@@ -973,56 +1028,6 @@
       }
     ],
     "url": "/Research/threads/rag-llm-knowledge-management.html"
-  },
-  {
-    "slug": "financial-services-governance-regulation",
-    "title": "financial-services / governance / regulation",
-    "kind": "implicit",
-    "tag_cluster": [
-      "financial-services",
-      "governance",
-      "regulation"
-    ],
-    "concept_cluster": [],
-    "item_count": 7,
-    "items": [
-      {
-        "slug": "2026-02-28-rbnz-ai-supervisory-expectations",
-        "title": "RBNZ AI Supervisory Expectations: What Do Regulated Entities Need to Know?",
-        "added": "2026-02-28"
-      },
-      {
-        "slug": "2026-02-28-ai-strategy",
-        "title": "AI Strategy: global and NZ examples, policy frameworks, regulations, and use-case typologies",
-        "added": "2026-02-28"
-      },
-      {
-        "slug": "2026-03-24-public-sentiment-on-ai-in-banking-and-high-trust-institutions",
-        "title": "Public sentiment on AI in banking and high-trust institutions",
-        "added": "2026-03-24"
-      },
-      {
-        "slug": "2026-04-22-historical-technology-adoption-enterprise-ai-capability-building",
-        "title": "Historical technology adoption patterns as analogues for enterprise Artificial Intelligence capability building",
-        "added": "2026-04-22"
-      },
-      {
-        "slug": "2026-04-22-enterprise-ai-platform-operating-models",
-        "title": "Enterprise AI platform operating models: organisational structure and ownership",
-        "added": "2026-04-22"
-      },
-      {
-        "slug": "2026-04-24-ai-agent-regulation-global-financial-services",
-        "title": "Global artificial intelligence agent regulation in financial services: non-functional requirement obligations and low-code citizen-development controls",
-        "added": "2026-04-24"
-      },
-      {
-        "slug": "2026-04-24-business-led-low-code-agent-governance",
-        "title": "Business-led low-code agent governance: conditions for durable value versus fragmentation in regulated environments",
-        "added": "2026-04-24"
-      }
-    ],
-    "url": "/Research/threads/financial-services-governance-regulation.html"
   },
   {
     "slug": "strategy-behavioral-economics-rory-sutherland",
@@ -1475,6 +1480,51 @@
     "url": "/Research/threads/ai-strategy-financial-services-risk-management.html"
   },
   {
+    "slug": "citizen-development-governance-operational-risk",
+    "title": "citizen-development / governance / operational-risk",
+    "kind": "implicit",
+    "tag_cluster": [
+      "citizen-development",
+      "governance",
+      "operational-risk"
+    ],
+    "concept_cluster": [],
+    "item_count": 6,
+    "items": [
+      {
+        "slug": "2026-04-24-business-led-low-code-agent-governance",
+        "title": "Business-led low-code agent governance: conditions for durable value versus fragmentation in regulated environments",
+        "added": "2026-04-24"
+      },
+      {
+        "slug": "2026-04-24-ai-agent-regulation-global-financial-services",
+        "title": "Global artificial intelligence agent regulation in financial services: non-functional requirement obligations and low-code citizen-development controls",
+        "added": "2026-04-24"
+      },
+      {
+        "slug": "2026-04-26-systems-capability-debt-citizen-development-empirical-evidence",
+        "title": "Systems capability debt as the root cause of citizen development: empirical evidence and effective governance architectures",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis",
+        "title": "Systems capability debt, citizen development, and agentic AI risk: is the causal chain and sequencing imperative a novel contribution?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-ms-copilot-cowork",
+        "title": "What is Microsoft 365 Copilot Cowork and what are its enterprise governance risks?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment",
+        "title": "Regulatory and standards preconditions for deployment of Artificial Intelligence (AI) systems that can take multi-step actions: does incomplete access control and data governance constitute a control failure?",
+        "added": "2026-04-26"
+      }
+    ],
+    "url": "/Research/threads/citizen-development-governance-operational-risk.html"
+  },
+  {
     "slug": "skills-claude-code-github-copilot",
     "title": "skills / claude-code / github-copilot",
     "kind": "implicit",
@@ -1563,6 +1613,46 @@
       }
     ],
     "url": "/Research/threads/ai-agents-software-engineering-prompts.html"
+  },
+  {
+    "slug": "agentic-ai-regulated-banking-operational-risk",
+    "title": "agentic-ai / regulated-banking / operational-risk",
+    "kind": "implicit",
+    "tag_cluster": [
+      "agentic-ai",
+      "regulated-banking",
+      "operational-risk"
+    ],
+    "concept_cluster": [],
+    "item_count": 5,
+    "items": [
+      {
+        "slug": "2026-02-28-ai-strategy",
+        "title": "AI Strategy: global and NZ examples, policy frameworks, regulations, and use-case typologies",
+        "added": "2026-02-28"
+      },
+      {
+        "slug": "2026-03-16-adaptive-policy-authorization-compliance",
+        "title": "Adaptive Policy-Based Authorization (APBA): compliance alignment with National Institute of Standards and Technology (NIST) Special Publication (SP) 800-53 and International Organization for Standardization (ISO) / International Electrotechnical Commission (IEC) 27001, and impact on Policy as Code (PaC) and Artificial Intelligence (AI)-generated authorization code",
+        "added": "2026-03-16"
+      },
+      {
+        "slug": "2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment",
+        "title": "Regulatory and standards preconditions for deployment of Artificial Intelligence (AI) systems that can take multi-step actions: does incomplete access control and data governance constitute a control failure?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-systems-capability-debt-citizen-development-empirical-evidence",
+        "title": "Systems capability debt as the root cause of citizen development: empirical evidence and effective governance architectures",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis",
+        "title": "Systems capability debt, citizen development, and agentic AI risk: is the causal chain and sequencing imperative a novel contribution?",
+        "added": "2026-04-26"
+      }
+    ],
+    "url": "/Research/threads/agentic-ai-regulated-banking-operational-risk.html"
   },
   {
     "slug": "policy-as-code-compliance-dotnet",
@@ -1763,41 +1853,6 @@
       }
     ],
     "url": "/Research/threads/coding-agent-copilot-coding-agents-md.html"
-  },
-  {
-    "slug": "agentic-ai-access-control-regulated-banking",
-    "title": "agentic-ai / access-control / regulated-banking",
-    "kind": "implicit",
-    "tag_cluster": [
-      "agentic-ai",
-      "access-control",
-      "regulated-banking"
-    ],
-    "concept_cluster": [],
-    "item_count": 4,
-    "items": [
-      {
-        "slug": "2026-02-28-ai-strategy",
-        "title": "AI Strategy: global and NZ examples, policy frameworks, regulations, and use-case typologies",
-        "added": "2026-02-28"
-      },
-      {
-        "slug": "2026-03-16-adaptive-policy-authorization-compliance",
-        "title": "Adaptive Policy-Based Authorization (APBA): compliance alignment with National Institute of Standards and Technology (NIST) Special Publication (SP) 800-53 and International Organization for Standardization (ISO) / International Electrotechnical Commission (IEC) 27001, and impact on Policy as Code (PaC) and Artificial Intelligence (AI)-generated authorization code",
-        "added": "2026-03-16"
-      },
-      {
-        "slug": "2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment",
-        "title": "Regulatory and standards preconditions for deployment of Artificial Intelligence (AI) systems that can take multi-step actions: does incomplete access control and data governance constitute a control failure?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis",
-        "title": "Systems capability debt, citizen development, and agentic AI risk: is the causal chain and sequencing imperative a novel contribution?",
-        "added": "2026-04-26"
-      }
-    ],
-    "url": "/Research/threads/agentic-ai-access-control-regulated-banking.html"
   },
   {
     "slug": "evaluation-agents-research-loop",
@@ -2235,14 +2290,14 @@
     "url": "/Research/threads/workflow-process-tooling.html"
   },
   {
-    "slug": "nist-ai-ai-rmf-apra-cps",
-    "title": "nist ai / ai rmf / apra cps",
+    "slug": "nist-ai-ai-rmf-copilot-studio",
+    "title": "nist ai / ai rmf / copilot studio",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "nist ai",
       "ai rmf",
-      "apra cps"
+      "copilot studio"
     ],
     "item_count": 3,
     "items": [
@@ -2262,6 +2317,6 @@
         "added": "2026-04-24"
       }
     ],
-    "url": "/Research/threads/nist-ai-ai-rmf-apra-cps.html"
+    "url": "/Research/threads/nist-ai-ai-rmf-copilot-studio.html"
   }
 ]

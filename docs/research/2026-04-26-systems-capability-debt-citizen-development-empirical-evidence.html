@@ -1,0 +1,765 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Systems capability debt as the root cause of citizen development — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #0f1115;
+  --surface-2:       #161b22;
+  --border:          #252b33;
+  --text:            #e6e6e6;
+  --text-muted:      #666;
+  --accent:          #e6e6e6;
+  --accent-dim:      #333;
+  --tag-bg:          #161b22;
+  --tag-text:        #999;
+  --tag-active-bg:   #e6e6e6;
+  --tag-active-text: #0f1115;
+  --link:            #00C3A5;
+  --teal:            #00C3A5;
+  --dusk:            #E8A1A8;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  overflow-x: clip;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.75rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+.nav-links a.active { color: var(--teal); }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--teal); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+  min-width: 0;
+}
+.card:hover { border-color: var(--teal); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  word-break: break-word;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4em;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.item-title svg { flex-shrink: 0; margin-top: 0.2em; }
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+  word-break: break-all;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+  max-width: 100%;
+}
+.item-content pre code { background: none; padding: 0; word-break: normal; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--teal); text-decoration: underline; }
+.item-content a:hover { color: var(--text); text-decoration: underline; }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--dusk);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    top: 0;
+    height: auto;
+    padding: 0.5rem 1rem;
+  }
+  .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .nav-links {
+    width: 100%;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  main {
+    padding: 1.5rem 1rem 4rem;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; overflow: hidden; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); word-break: break-word; overflow-wrap: break-word; }
+.key-claims li:last-child { border-bottom: none; }
+.key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
+.key-claims a:hover { color: var(--text); }
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); flex-wrap: wrap; }
+.related-entry:last-child { border-bottom: none; }
+.related-entry a { color: var(--teal); word-break: break-word; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--dusk); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4em; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--teal); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-card-link { text-decoration: none; color: var(--text); display: block; }
+.thread-card-link:hover .thread-card { background: var(--surface-2); }
+.thread-card { background: var(--surface); border: 1px solid var(--border); padding: 1.5rem 1.75rem 1.75rem; }
+.thread-card-title { font-size: var(--text-base); font-weight: 600; margin-bottom: 0.5rem; }
+.thread-card-meta { font-size: var(--text-xs); color: var(--text-muted); margin-bottom: 0.75rem; letter-spacing: 0.05em; }
+.thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
+.thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Research</a>
+    <div class="nav-links">
+      <a href="/Research/threads.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>Threads</a>
+      <a href="/Research/tags/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>Tags</a>
+      <a href="/Research/search.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M8 1.5C4.41 1.5 1.5 4.41 1.5 8c0 2.87 1.86 5.3 4.44 6.16.32.06.44-.14.44-.31v-1.09c-1.8.39-2.18-.87-2.18-.87-.3-.75-.72-.95-.72-.95-.59-.4.04-.4.04-.4.65.05 1 .67 1 .67.58 1 1.53.71 1.9.54.06-.42.23-.71.41-.87-1.44-.16-2.95-.72-2.95-3.2 0-.71.25-1.28.67-1.74-.07-.16-.29-.82.06-1.71 0 0 .55-.18 1.8.67a6.27 6.27 0 0 1 3.28 0c1.25-.85 1.8-.67 1.8-.67.35.89.13 1.55.06 1.71.42.46.67 1.03.67 1.74 0 2.49-1.51 3.04-2.96 3.2.23.2.44.6.44 1.21v1.8c0 .17.12.37.44.31A6.5 6.5 0 0 0 14.5 8 6.5 6.5 0 0 0 8 1.5z"/></svg>GitHub</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>Systems capability debt as the root cause of citizen development</span>
+  </div>
+  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Systems capability debt as the root cause of citizen development</h1>
+  <p class="full-title-subtitle">Systems capability debt as the root cause of citizen development: empirical evidence and effective governance architectures</p>
+  <div class="meta-bar">
+    <span>2026-04-26</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/systems-capability-debt.html">systems-capability-debt</a> <a class="tag" href="/Research/tags/citizen-development.html">citizen-development</a> <a class="tag" href="/Research/tags/shadow-it.html">shadow-it</a> <a class="tag" href="/Research/tags/operational-risk.html">operational-risk</a> <a class="tag" href="/Research/tags/governance.html">governance</a> <a class="tag" href="/Research/tags/regulated-banking.html">regulated-banking</a> <a class="tag" href="/Research/tags/nz-rbnz.html">nz-rbnz</a> <a class="tag" href="/Research/tags/pci-dss.html">pci-dss</a> <a class="tag" href="/Research/tags/microsoft-365.html">microsoft-365</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-systems-capability-debt-citizen-development-empirical-evidence.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-04-26-systems-capability-debt-citizen-development-empirical-evidence" target="_blank" rel="noopener">wiki →</a>
+  </div>
+  <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>High confidence</li>
+<li>High confidence</li>
+<li>High confidence</li>
+<li>Medium confidence</li>
+<li>Medium confidence</li>
+<li>Medium confidence</li>
+<li>High confidence</li>
+<li>Medium confidence</li>
+</ol></div>
+
+  <div class="item-content">
+    <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
+<p>What empirical evidence exists that systems capability debt, the accumulated gap between what people need from their systems and what those systems deliver across integration, functionality, data access, data quality, data migration, User Experience (UX), and timeliness dimensions, is the root cause of citizen development sprawl in regulated financial services organisations; what is its quantified operational risk cost; and what governance architectures have demonstrably reduced citizen development sprawl without suppressing legitimate automation demand?</p>
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Findings</h2>
+<h3>Executive Summary</h3>
+<p>[inference; source: <a href="https://jitm.ubalt.edu/XXX-4/article1.pdf">Practitioner perceptions on Shadow IT and Business-managed IT</a> <a href="https://www.sciencesphere.org/ijispm/archive/ijispm-070102.pdf">Causing factors, outcomes, and governance of Shadow IT and Business-managed IT</a> <a href="https://d-nb.info/1270139835/34">Drivers and Inhibitors of Low Code Development Platform Adoption</a> <a href="https://fis.tu-dresden.de/portal/en/publications/practitioners-perceptions-on-the-adoption-of-low-code-development-platforms(20818aa9-8856-45e1-accf-b95e10376406).html]">fis.tu-dresden.de</a> The reviewed evidence supports a strong but not monocausal claim that the working category used here as systems capability debt, meaning recurring gaps between operational demand and sanctioned system capability across integration, data quality, workflow timeliness, and delivery capacity, is the dominant recurring driver of citizen development sprawl in regulated enterprises, while low-code preference is mainly the enabling mechanism that absorbs unmet delivery demand. [fact; source: <a href="https://www.ibm.com/think/insights/cost-of-poor-data-quality">International Business Machines (IBM): The true cost of poor data quality</a> <a href="https://www.bankofengland.co.uk/-/media/boe/files/prudential-regulation/regulatory-action/final-notice-from-pra-to-standard-chartered-bank.pdf">Prudential Regulation Authority (PRA) final notice to Standard Chartered</a> <a href="https://www.nysd.uscourts.gov/sites/default/files/2021-02/20cv6539%20Citibank%20Opinion.pdf">Citibank Revlon opinion, Southern District of New York</a> <a href="https://www.govinfo.gov/content/pkg/CHRG-113shrg80222/pdf/CHRG-113shrg80222.pdf]">www.govinfo.gov</a> Public quantified cost evidence shows that the operational-risk channels associated with that debt are already material, with organisations reporting more than USD 5 million annual losses from poor data quality and banking incidents ranging from a GBP 46.55 million fine to a mistaken USD 893 million payment and a USD 6.2 billion trading loss context involving spreadsheet-heavy controls. [inference; source: <a href="https://www.microsoft.com/en/customers/story/25909-heineken-microsoft-copilot-studio">HEINEKEN customer story on Power Platform and Copilot Studio</a> <a href="https://learn.microsoft.com/en-us/power-platform/guidance/adoption/common-vision/establish-coe">Establish a Power Platform Center of Excellence (CoE)</a> <a href="https://learn.microsoft.com/en-us/power-platform/guidance/adoption/govern-at-scale]">learn.microsoft.com</a> The governance architectures with the best public support do not suppress automation demand; they route it into tiered sanctioned lanes with telemetry, environment controls, DLP, shared pipelines, and central platform stewardship while simultaneously improving the underlying systems that created the workaround demand. [inference; source: <a href="https://airc.nist.gov/airmf-resources/airmf/5-sec-core/">National Institute of Standards and Technology (NIST) Artificial Intelligence Risk Management Framework (AI RMF) Core</a> <a href="https://aws.amazon.com/blogs/security/four-security-principles-for-agentic-ai-systems/">Amazon Web Services (AWS) Security Blog: Four security principles for agentic AI systems</a> <a href="https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report]">cloud.google.com</a> No reviewed public framework provides a numeric readiness threshold for broad agentic autonomy, but all credible frameworks imply the same sequencing rule: capability remediation and platform control maturity must precede broad autonomous scope.</p>
+<h3>Key Findings</h3>
+<ol>
+<li><strong>High confidence.</strong> [inference; source: <a href="https://jitm.ubalt.edu/XXX-4/article1.pdf">Practitioner perceptions on Shadow IT and Business-managed IT</a> <a href="https://www.sciencesphere.org/ijispm/archive/ijispm-070102.pdf">Causing factors, outcomes, and governance of Shadow IT and Business-managed IT</a> <a href="https://d-nb.info/1270139835/34]">d-nb.info</a> The best available empirical evidence indicates that citizen development sprawl usually begins as a workaround response to slow, misaligned, or incomplete official systems rather than as an independent preference for low-code tools.</li>
+<li><strong>High confidence.</strong> [fact; source: <a href="https://jitm.ubalt.edu/XXX-4/article1.pdf">Practitioner perceptions on Shadow IT and Business-managed IT</a> <a href="https://www.sciencesphere.org/ijispm/archive/ijispm-070102.pdf]">www.sciencesphere.org</a> Shadow IT and Business-managed IT research repeatedly identifies Information Technology slowness, business-IT misalignment, and shortcomings in mandatory systems as the recurring conditions that produce local workaround estates.</li>
+<li><strong>High confidence.</strong> [fact; source: <a href="https://www.ibm.com/think/insights/cost-of-poor-data-quality">International Business Machines (IBM): The true cost of poor data quality</a> <a href="https://www.bankofengland.co.uk/-/media/boe/files/prudential-regulation/regulatory-action/final-notice-from-pra-to-standard-chartered-bank.pdf">Prudential Regulation Authority (PRA) final notice to Standard Chartered</a> <a href="https://www.nysd.uscourts.gov/sites/default/files/2021-02/20cv6539%20Citibank%20Opinion.pdf">Citibank Revlon opinion, Southern District of New York</a> <a href="https://www.govinfo.gov/content/pkg/CHRG-113shrg80222/pdf/CHRG-113shrg80222.pdf]">www.govinfo.gov</a> The operational-risk costs associated with capability-debt manifestations are already economically material in public evidence, even when the loss event is described as data quality, spreadsheet error, or legacy workflow failure rather than citizen development.</li>
+<li><strong>Medium confidence.</strong> [inference; source: <a href="https://www.fdic.gov/media/168191">Federal Deposit Insurance Corporation (FDIC) working paper, Financial Innovation and Risk: Evidence from Operational Losses at Large Banks</a> <a href="https://www.federalreserve.gov/econres/notes/feds-notes/operational-risk-regulation-forward-looking-and-sensitive-to-current-risks-20180521.html]">www.federalreserve.gov</a> Public banking-loss evidence is sufficient to show materiality but insufficient to produce a reliable universal cost coefficient for citizen-development sprawl because bank consortium data is sensitive and public sources overrepresent the largest failures.</li>
+<li><strong>Medium confidence.</strong> [inference; source: <a href="https://www.microsoft.com/en/customers/story/25909-heineken-microsoft-copilot-studio">HEINEKEN customer story on Power Platform and Copilot Studio</a> <a href="https://learn.microsoft.com/en-us/power-platform/guidance/adoption/common-vision/establish-coe">Establish a Power Platform Center of Excellence (CoE)</a> <a href="https://learn.microsoft.com/en-us/power-platform/guidance/adoption/govern-at-scale]">learn.microsoft.com</a> The best-supported public governance pattern in the reviewed evidence is a tiered operating model with low-friction personal environments, formal promotion paths, shared and enterprise production lanes, central telemetry, and policy enforcement rather than a flat allow or deny regime.</li>
+<li><strong>Medium confidence.</strong> [inference; source: <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance">Copilot Studio security and governance</a> <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-data-loss-prevention">Copilot Studio data loss prevention</a> <a href="https://learn.microsoft.com/en-us/power-platform/guidance/coe/overview]">learn.microsoft.com</a> The reviewed Microsoft governance and product documentation implies that durable citizen-development governance requires enforceable controls over authentication, knowledge sources, connectors, triggers, channels, telemetry, and lifecycle promotion, because telemetry without intervention points leaves risky estates visible but still executable.</li>
+<li><strong>High confidence.</strong> [inference; source: <a href="https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report">2025 DevOps Research and Assessment (DORA) report overview</a> <a href="https://airc.nist.gov/airmf-resources/airmf/5-sec-core/">National Institute of Standards and Technology (NIST) Artificial Intelligence Risk Management Framework (AI RMF) Core</a> <a href="https://aws.amazon.com/blogs/security/four-security-principles-for-agentic-ai-systems/]">aws.amazon.com</a> The same maturity gaps that create citizen-development sprawl also narrow the safe scope of agentic AI because weak data, access controls, interfaces, and feedback loops are amplified by autonomous execution.</li>
+<li><strong>Medium confidence.</strong> [inference; source: <a href="https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report">2025 DevOps Research and Assessment (DORA) report overview</a> <a href="https://airc.nist.gov/airmf-resources/airmf/5-sec-core/">National Institute of Standards and Technology (NIST) Artificial Intelligence Risk Management Framework (AI RMF) Core</a> <a href="https://learn.microsoft.com/en-us/power-platform/guidance/adoption/common-vision/establish-coe]">learn.microsoft.com</a> A defensible risk-committee test for genuine AI value is whether the use case still creates material value after integration, data quality, workflow timeliness, and sanctioned automation are fixed, because use cases that fail that test are primarily capability-gap compensation.</li>
+</ol>
+<h3>Assumptions</h3>
+<ul>
+<li><strong>Assumption:</strong> [assumption; source: <a href="https://jitm.ubalt.edu/XXX-4/article1.pdf">Practitioner perceptions on Shadow IT and Business-managed IT</a> <a href="https://www.sciencesphere.org/ijispm/archive/ijispm-070102.pdf">Causing factors, outcomes, and governance of Shadow IT and Business-managed IT</a> <a href="https://www.microsoft.com/en/customers/story/25909-heineken-microsoft-copilot-studio]">www.microsoft.com</a> Shadow IT, Business-managed IT, and large-enterprise Power Platform evidence is directionally applicable to regulated banking citizen development. <strong>Justification:</strong> direct bank-specific public case evidence is sparse, but the causal and governance mechanisms are organisational and platform patterns rather than bank-only technical patterns.</li>
+</ul>
+<h3>Analysis</h3>
+<p>[fact; source: <a href="https://jitm.ubalt.edu/XXX-4/article1.pdf">Practitioner perceptions on Shadow IT and Business-managed IT</a> <a href="https://www.sciencesphere.org/ijispm/archive/ijispm-070102.pdf]">www.sciencesphere.org</a> The causal claim was weighted most heavily toward the Shadow IT and Business-managed IT evidence because those sources directly investigate why unsanctioned or semi-sanctioned technology emerges inside organisations. [fact; source: <a href="https://d-nb.info/1270139835/34">Drivers and Inhibitors of Low Code Development Platform Adoption</a> <a href="https://fis.tu-dresden.de/portal/en/publications/practitioners-perceptions-on-the-adoption-of-low-code-development-platforms(20818aa9-8856-45e1-accf-b95e10376406).html">fis.tu-dresden.de</a> <a href="https://research.universityofgalway.ie/en/publications/adoption-of-low-code-and-no-code-development-a-systematic-literat-6]">research.universityofgalway.ie</a> Low-code studies were then used to test whether the evidence pointed instead to tool preference, and they did not displace the workaround explanation because they still describe pressure for faster, cheaper delivery under constrained engineering supply. [fact; source: <a href="https://www.ibm.com/think/insights/cost-of-poor-data-quality">International Business Machines (IBM): The true cost of poor data quality</a> <a href="https://www.bankofengland.co.uk/-/media/boe/files/prudential-regulation/regulatory-action/final-notice-from-pra-to-standard-chartered-bank.pdf">Prudential Regulation Authority (PRA) final notice to Standard Chartered</a> <a href="https://www.nysd.uscourts.gov/sites/default/files/2021-02/20cv6539%20Citibank%20Opinion.pdf">Citibank Revlon opinion, Southern District of New York</a> <a href="https://www.govinfo.gov/content/pkg/CHRG-113shrg80222/pdf/CHRG-113shrg80222.pdf]">www.govinfo.gov</a> Cost evidence was treated as channel evidence rather than label evidence, because public losses are recorded as data, spreadsheet, reporting, or workflow failures even when they arise from the same underlying capability deficits that drive citizen-development workarounds. [inference; source: <a href="https://www.microsoft.com/en/customers/story/25909-heineken-microsoft-copilot-studio">HEINEKEN customer story on Power Platform and Copilot Studio</a> <a href="https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report">2025 DevOps Research and Assessment (DORA) report overview</a> <a href="https://learn.microsoft.com/en-us/power-platform/guidance/adoption/common-vision/establish-coe]">learn.microsoft.com</a> Governance evidence was weighted toward architectures that preserve sanctioned speed, because the workaround literature and the HEINEKEN case both imply that durable control comes from combining guardrails with delivery capacity rather than from restriction alone.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>[fact; source: <a href="https://www.federalreserve.gov/econres/notes/feds-notes/operational-risk-regulation-forward-looking-and-sensitive-to-current-risks-20180521.html]">www.federalreserve.gov</a> Public banking-loss data is incomplete, and the most granular consortium datasets, including ORX-style collections, are typically anonymised or inaccessible.</li>
+<li>[inference; source: <a href="https://www.ibm.com/think/insights/cost-of-poor-data-quality">International Business Machines (IBM): The true cost of poor data quality</a> <a href="https://www.fdic.gov/media/168191]">www.fdic.gov</a> Quantified losses can be traced confidently to capability-debt manifestations, but not always to citizen development as a labelled category.</li>
+<li>[fact; source: <a href="https://www.microsoft.com/en/customers/story/25909-heineken-microsoft-copilot-studio]">www.microsoft.com</a> Public governance case studies with clear before-and-after sprawl reduction counts are scarce, so the strongest evidence is measured scale under governance rather than precise reduction percentages.</li>
+<li>[inference; source: <a href="https://airc.nist.gov/airmf-resources/airmf/5-sec-core/">National Institute of Standards and Technology (NIST) Artificial Intelligence Risk Management Framework (AI RMF) Core</a> <a href="https://www.nist.gov/itl/ai-risk-management-framework/nist-ai-rmf-playbook]">www.nist.gov</a> No public threshold model was found that converts readiness into a single score suitable for a board pack without further local judgment.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>[inference; source: <a href="https://www.federalreserve.gov/econres/notes/feds-notes/operational-risk-regulation-forward-looking-and-sensitive-to-current-risks-20180521.html]">www.federalreserve.gov</a> Could a bank-specific internal loss study translate workaround-estate attributes, spreadsheets, local databases, manual reconciliations, and unsanctioned flows, into a more precise operational-risk cost coefficient?</li>
+<li>[inference; source: <a href="https://airc.nist.gov/airmf-resources/airmf/5-sec-core/">National Institute of Standards and Technology (NIST) Artificial Intelligence Risk Management Framework (AI RMF) Core</a> <a href="https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report]">cloud.google.com</a> Can a practical readiness scorecard be built from data quality, access control, approved-interface coverage, test automation, and platform maturity without creating false precision?</li>
+<li>[inference; source: <a href="https://www.microsoft.com/en/customers/story/25909-heineken-microsoft-copilot-studio]">www.microsoft.com</a> Which measured outcomes from large Microsoft 365 estates would remain valid when transferred into a prudentially regulated banking environment with tighter write-permission constraints?</li>
+</ul>
+<h3>Output</h3>
+<ul>
+<li>Type: knowledge</li>
+<li>Description: [inference; source: <a href="https://jitm.ubalt.edu/XXX-4/article1.pdf">Practitioner perceptions on Shadow IT and Business-managed IT</a> <a href="https://www.bankofengland.co.uk/-/media/boe/files/prudential-regulation/regulatory-action/final-notice-from-pra-to-standard-chartered-bank.pdf">Prudential Regulation Authority (PRA) final notice to Standard Chartered</a> <a href="https://www.microsoft.com/en/customers/story/25909-heineken-microsoft-copilot-studio]">www.microsoft.com</a> An empirical research note arguing that the working category used here as systems capability debt is the dominant recurring driver of citizen development sprawl, quantifying adjacent operational-risk channels, and identifying tiered platform governance plus capability remediation as the most defensible regulated-bank response.</li>
+<li>Links:
+<ul>
+<li><a href="https://jitm.ubalt.edu/XXX-4/article1.pdf">jitm.ubalt.edu</a>
+<li><a href="https://www.bankofengland.co.uk/-/media/boe/files/prudential-regulation/regulatory-action/final-notice-from-pra-to-standard-chartered-bank.pdf">www.bankofengland.co.uk</a>
+<li><a href="https://www.microsoft.com/en/customers/story/25909-heineken-microsoft-copilot-studio">www.microsoft.com</a>
+</ul>
+</li>
+</ul>
+<hr />
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
+<ul>
+<li>[x] <a href="https://orx.org/research/">Operational Riskdata eXchange Association (ORX) research page</a> - checked as a seed source; returned 404 in this runtime and was not used for downstream claims.</li>
+<li>[x] <a href="https://www.bis.org/publ/bcbs195.pdf">Basel Committee on Banking Supervision, Principles for the Sound Management of Operational Risk (2011)</a> - checked as a seed source; accessible only as a raw PDF in this runtime and superseded in practice by newer, easier-to-audit Basel and Federal Reserve summaries for downstream claims.</li>
+<li>[x] <a href="https://www.gartner.com/en/information-technology/topics/citizen-development">Gartner citizen development topic page</a> - checked as a seed source; returned 403 in this runtime and was not used for downstream claims.</li>
+<li>[x] <a href="https://www.forrester.com/research/low-code-no-code/">Forrester low-code and no-code research hub</a> - checked as a seed source; returned 404 in this runtime and was not used for downstream claims.</li>
+<li>[x] <a href="https://www.isaca.org/resources/news-and-trends/isaca-now-blog">ISACA blog landing page</a> - checked as a seed source; accessible but too generic for precise downstream support in this item.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/power-platform/admin/governance-considerations">Microsoft Power Platform governance considerations</a> - seed governance page covering environments, licensing, roles, and governance themes.</li>
+<li>[x] <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/security.html">Amazon Web Services (AWS) Bedrock security documentation</a> - seed documentation confirming shared-responsibility and governance expectations for Bedrock workloads.</li>
+<li>[x] <a href="https://www.rbnz.govt.nz/regulation-and-supervision/oversight-of-banks">RBNZ oversight of banks page</a> - checked as a seed source; returned 403 in this runtime and was replaced for contextual claims with accessible RBNZ materials found via search.</li>
+<li>[x] <a href="https://www.privacy.org.nz/privacy-act-2020/">Office of the Privacy Commissioner, original seeded Privacy Act 2020 page</a> - checked as a seed source; returned 404 in this runtime and was replaced with current Privacy Act guidance pages.</li>
+<li>[x] <a href="https://www.pcisecuritystandards.org/document_library/">PCI Security Standards Council Document Library</a> - seed source confirming current PCI-DSS v4.0.1 availability, although direct PDF access returned 403 in this runtime.</li>
+<li>[x] <a href="https://jitm.ubalt.edu/XXX-4/article1.pdf">Practitioner perceptions on Shadow IT and Business-managed IT</a> - 29-chief-information-officer and senior-manager interview study quantifying perceived drivers and remediation patterns.</li>
+<li>[x] <a href="https://www.sciencesphere.org/ijispm/archive/ijispm-070102.pdf">Causing factors, outcomes, and governance of Shadow IT and Business-managed IT</a> - systematic literature review of 107 studies on causes, outcomes, and governance.</li>
+<li>[x] <a href="https://d-nb.info/1270139835/34">Drivers and Inhibitors of Low Code Development Platform Adoption</a> - literature review showing adoption is driven by demand and talent scarcity but carries shadow IT and security risks.</li>
+<li>[x] <a href="https://fis.tu-dresden.de/portal/en/publications/practitioners-perceptions-on-the-adoption-of-low-code-development-platforms(20818aa9-8856-45e1-accf-b95e10376406).html">Practitioners' Perceptions on the Adoption of Low Code Development Platforms</a> - 17-expert empirical study on actual low-code development platform adoption drivers and inhibitors.</li>
+<li>[x] <a href="https://research.universityofgalway.ie/en/publications/adoption-of-low-code-and-no-code-development-a-systematic-literat-6">Adoption of low-code and no-code development: a systematic literature review and future research agenda</a> - 2025 review synthesising 40 primary studies on citizen development and Low-Code/No-Code (LCNC) adoption.</li>
+<li>[x] <a href="https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report">2025 DevOps Research and Assessment (DORA) report overview</a> - AI amplifies existing weaknesses; platform quality and fast feedback loops are prerequisites.</li>
+<li>[x] <a href="https://cloud.google.com/resources/content/2025-dora-ai-capabilities-model-report">2025 DevOps Research and Assessment (DORA) AI Capabilities Model report landing page</a> - seven foundational capabilities; 90% platform adoption; 76% dedicated platform teams.</li>
+<li>[x] <a href="https://airc.nist.gov/airmf-resources/airmf/5-sec-core/">National Institute of Standards and Technology (NIST) Artificial Intelligence Risk Management Framework (AI RMF) Core</a> - govern, map, measure, and manage functions and risk-tolerance language.</li>
+<li>[x] <a href="https://www.nist.gov/itl/ai-risk-management-framework/nist-ai-rmf-playbook">National Institute of Standards and Technology (NIST) Artificial Intelligence Risk Management Framework (AI RMF) Playbook</a> - voluntary playbook for tailoring AI RMF actions by use case and context.</li>
+<li>[x] <a href="https://aws.amazon.com/blogs/security/four-security-principles-for-agentic-ai-systems/">Amazon Web Services (AWS) Security Blog: Four security principles for agentic AI systems</a> - machine-speed autonomy, least privilege, and deterministic external controls.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance">Copilot Studio security and governance</a> - concrete tenant controls over knowledge sources, tools, channels, triggers, and environment routing.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-data-loss-prevention">Copilot Studio data loss prevention</a> - real-time policy enforcement over authentication, knowledge sources, tools, and HTTP requests.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/power-platform/guidance/adoption/common-vision/establish-coe">Establish a Power Platform Center of Excellence (CoE)</a> - Microsoft governance pattern with measurable key results and use-case intake.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/power-platform/guidance/adoption/govern-at-scale">Manage Power Platform adoption at scale</a> - maturity model, roles, environment rules, and formalized request processes.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/power-platform/guidance/coe/overview">Power Platform CoE Starter Kit overview</a> - monitoring, orphaned-app detection, telemetry, and governance-tooling reference implementation.</li>
+<li>[x] <a href="https://www.microsoft.com/en/customers/story/25909-heineken-microsoft-copilot-studio">HEINEKEN customer story on Power Platform and Copilot Studio</a> - public case with measured outcomes under an environment-tiering governance model.</li>
+<li>[x] <a href="https://www.ibm.com/think/insights/cost-of-poor-data-quality">International Business Machines (IBM): The true cost of poor data quality</a> - quantified annual loss ranges from poor data quality and explicit AI amplification risk.</li>
+<li>[x] <a href="https://www.federalreserve.gov/econres/notes/feds-notes/operational-risk-regulation-forward-looking-and-sensitive-to-current-risks-20180521.html">Federal Reserve note on operational risk regulation</a> - operational losses at large banks, Advanced Measurement Approach (AMA) capital importance, and ORX consortium context.</li>
+<li>[x] <a href="https://www.fdic.gov/media/168191">Federal Deposit Insurance Corporation (FDIC) working paper, Financial Innovation and Risk: Evidence from Operational Losses at Large Banks</a> - supervisory dataset with 434,714 operational loss events and explicit link between innovation and higher operational losses.</li>
+<li>[x] <a href="https://www.theguardian.com/business/2021/dec/20/standard-chartered-fined-bank-of-england-pra">Guardian summary of Standard Chartered Prudential Regulation Authority (PRA) fine</a> - accessible report of the spreadsheet-driven liquidity misreporting case and penalty.</li>
+<li>[x] <a href="https://www.bankofengland.co.uk/-/media/boe/files/prudential-regulation/regulatory-action/final-notice-from-pra-to-standard-chartered-bank.pdf">Prudential Regulation Authority (PRA) final notice to Standard Chartered</a> - official enforcement notice with Line 49 spreadsheet details and penalty amount.</li>
+<li>[x] <a href="https://www.nysd.uscourts.gov/sites/default/files/2021-02/20cv6539%20Citibank%20Opinion.pdf">Citibank Revlon opinion, Southern District of New York</a> - official judicial record of the mistaken USD 893 million payment caused by human processing error in legacy workflows.</li>
+<li>[x] <a href="https://www.govinfo.gov/content/pkg/CHRG-113shrg80222/pdf/CHRG-113shrg80222.pdf">United States (US) Senate hearing record on JPMorgan's whale trades</a> - official record of the USD 6.2 billion loss, spreadsheet-heavy manual processes, and model-calculation defects.</li>
+<li>[x] <a href="https://www.trendfollowing.com/whitepaper/jpm.pdf">JPMorgan whale-trades report mirror used for formula-detail verification</a> - secondary-access PDF used only to verify the published description of the spreadsheet averaging defect when the relevant appendix was difficult to pinpoint in the hearing record.</li>
+<li>[x] <a href="https://www.privacy.org.nz/assets/New-order/Resources-/Publications/Guidance-resources/OPC0003-Fact-Sheet-ENG2.pdf">Office of the Privacy Commissioner fact sheet on Privacy Act 2020 changes</a> - notifiable privacy breaches, overseas disclosure, and enforcement changes.</li>
+<li>[x] <a href="https://www.privacy.org.nz/privacy-principles/">Office of the Privacy Commissioner privacy principles page</a> - current guidance for storage, security, accuracy, and disclosure obligations.</li>
+<li>[x] <a href="https://www.legislation.govt.nz/act/public/2020/0031/latest/LMS23223.html">Privacy Act 2020 on New Zealand Legislation</a> - official Act text.</li>
+</ul>
+
+
+  </div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis.html">Systems capability debt, citizen development, and agentic AI risk: is the causal chain and sequencing imperative a novel contribution?</a> <span class="related-note">via citizen-development, operational-risk, regulated-banking, systems-capability-debt</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment.html">Regulatory and standards preconditions for deployment of Artificial Intelligence (AI) systems that can take multi-step actions: does incomplete access control and data governance constitute a control failure?</a> <span class="related-note">via nz-rbnz, operational-risk, pci-dss, regulated-banking</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-26-ms-copilot-cowork.html">What is Microsoft 365 Copilot Cowork and what are its enterprise governance risks?</a> <span class="related-note">via governance, shadow-it</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-24-business-led-low-code-agent-governance.html">Business-led low-code agent governance: conditions for durable value versus fragmentation in regulated environments</a> <span class="related-note">via citizen-development, governance</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-24-ai-agent-regulation-global-financial-services.html">Global artificial intelligence agent regulation in financial services: non-functional requirement obligations and low-code citizen-development controls</a> <span class="related-note">via citizen-development, governance</span></div>
+</div></div>
+
+  <div class="item-nav">
+    
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis.html">Systems capability debt, citizen development, and agentic AI risk</a></div>
+  </div>
+</main>
+</body>
+</html>
