@@ -33,6 +33,11 @@ defined in `.github/skills/research/SKILL.md §0`. Search `Research/completed/`
 for related items before beginning §2 Investigation. If you cite prior completed
 items in §0, Findings, or the Evidence Map, cite them with URL-backed links
 rather than repository-relative file paths.
+Before drafting Findings, and again during Step 6 self-review, repeat this scan
+for adjacent completed items that materially qualify the same control surface or
+failure mechanism, especially identity, access control, information
+architecture, rate limiting, deployment pipelines, systems-capability debt, and
+other governance surfaces your conclusions touch.
 
 ### 2. Research the item -- follow the research skill in full
 
@@ -277,6 +282,14 @@ easily-detectable issues.
     multiple control surfaces, confirm the cited sources directly support each
     named surface; otherwise narrow the claim, lower confidence, or add the
     missing source before proceeding.
+
+2e. **Repository cross-reference sweep** -- for each Key Finding and Evidence
+    Map row that touches a governance surface also covered elsewhere in
+    `Research/completed/`, search for materially related completed items and
+    cite the most relevant ones with URL-backed links. If adjacent completed
+    work would sharpen, qualify, or offer a rival explanation for the claim,
+    include it before drafting or revising Findings rather than waiting for the
+    review workflow to surface the gap.
 
 3. **Vague quantifiers** -- check for unsourced "many", "most", "significant",
    "state-of-the-art". Replace with specific numbers or add a source, or

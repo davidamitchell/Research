@@ -2,12 +2,12 @@
 review_count: 2
 title: "What are the primary failure modes in enterprise Artificial Intelligence (AI) and low-code deployments, and how can governance systems be designed to mitigate them?"
 added: 2026-04-26T10:11:11+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: [2026-04-26-ai-lowcode-governance-enforcement-architecture, 2026-04-26-ai-agent-control-plane-architecture-enterprise]
 tags: [failure-modes, ai-governance, low-code, risk, data-leakage, adversarial-analysis, enterprise-governance, operational-risk, incident-scenarios]
 started: 2026-04-26T18:34:06+00:00
-completed: ~
+completed: 2026-04-26T18:56:39+00:00
 output: [knowledge]
 ---
 
