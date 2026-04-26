@@ -265,6 +265,15 @@ easily-detectable issues.
     the item's own structure or workflow state, either remove the citation need
     by rewriting it as pure metadata or cite the item's GitHub URL explicitly.
 
+2d. **Source substitution and surface coverage** -- if a seeded URL is dead,
+    redirected away from the needed content, or replaced by a newer official
+    page, update the entry in `## Sources` to the working official URL before
+    drafting Findings. Do not cite replacement sources as proof that the old
+    URL failed. For any architecture or operating-model claim that spans
+    multiple control surfaces, confirm the cited sources directly support each
+    named surface; otherwise narrow the claim, lower confidence, or add the
+    missing source before proceeding.
+
 3. **Vague quantifiers** -- check for unsourced "many", "most", "significant",
    "state-of-the-art". Replace with specific numbers or add a source, or
    qualify as `[inference]`.
