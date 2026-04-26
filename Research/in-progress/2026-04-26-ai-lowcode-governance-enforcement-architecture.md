@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Where should governance enforcement points be implemented within enterprise architecture, and how should controls be applied consistently for AI and low-code systems?"
 added: 2026-04-26T10:11:11+00:00
 status: reviewing
