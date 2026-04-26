@@ -43,6 +43,8 @@ on:
           - "3"
           - "4"
           - "5"
+          - "6"
+          - "7"
 
   schedule:
     # Weekdays at 07:00 UTC -- runs after the skills sync (Monday 06:00 UTC)
@@ -58,8 +60,8 @@ jobs:
     name: Work research backlog
     runs-on: ubuntu-latest
 
-    # Hard ceiling: no single run may exceed 90 minutes regardless of backlog size.
-    timeout-minutes: 90
+    # Hard ceiling: no single run may exceed 150 minutes regardless of backlog size.
+    timeout-minutes: 150
 
     permissions:
       contents: write
