@@ -10,7 +10,13 @@ import pytest
 
 # Make scripts/ importable
 sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
-from build_site import _cluster_overlap, detect_concept_threads, detect_threads
+from build_site import (
+    _cluster_overlap,
+    build_all_items_page,
+    build_research_master_page,
+    detect_concept_threads,
+    detect_threads,
+)
 
 # ---------------------------------------------------------------------------
 # Helpers
@@ -23,13 +29,15 @@ def _make_item(
     thread: str = "",
     added: date | None = None,
 ) -> dict:
-    """Minimal item dict sufficient for thread detection."""
+    """Minimal item dict sufficient for thread detection and page building."""
     return {
         "slug": slug,
         "tags": tags,
         "thread": thread,
         "added": added or date(2026, 1, 1),
+        "added_str": (added or date(2026, 1, 1)).isoformat(),
         "title": slug,
+        "display_title": slug,
         "question": "",
         "question_excerpt": "",
         "sections": {},
@@ -266,3 +274,65 @@ def test_concept_thread_no_duplicate_of_tag_thread() -> None:
     ]
     result = detect_concept_threads(items, meta, existing_threads=existing)
     assert result == []
+
+
+# ---------------------------------------------------------------------------
+# build_all_items_page
+# ---------------------------------------------------------------------------
+
+
+def test_build_all_items_page_contains_items() -> None:
+    """build_all_items_page renders a card for each item."""
+    items = [
+        _make_item("item-a", ["tag1"], added=date(2026, 4, 1)),
+        _make_item("item-b", ["tag2"], added=date(2026, 3, 1)),
+        _make_item("item-c", ["tag3"], added=date(2026, 2, 1)),
+    ]
+    html = build_all_items_page(items)
+    for item in items:
+        assert item["slug"] in html
+    assert "All Items" in html
+    assert "3 completed research items" in html
+
+
+def test_build_all_items_page_is_valid_html_skeleton() -> None:
+    """build_all_items_page returns a complete HTML document."""
+    items = [_make_item("x", ["t"], added=date(2026, 1, 1))]
+    html = build_all_items_page(items)
+    assert "<!DOCTYPE html>" in html
+    assert "</html>" in html
+    assert '<div class="card-grid">' in html
+
+
+def test_build_all_items_page_empty_items() -> None:
+    """build_all_items_page handles an empty item list gracefully."""
+    html = build_all_items_page([])
+    assert "0 completed research items" in html
+    assert '<div class="card-grid">' in html
+
+
+# ---------------------------------------------------------------------------
+# build_research_master_page
+# ---------------------------------------------------------------------------
+
+
+def test_build_research_master_page_returns_html() -> None:
+    """build_research_master_page produces a complete HTML document."""
+    html = build_research_master_page()
+    assert "<!DOCTYPE html>" in html
+    assert "</html>" in html
+    assert "Research Master" in html
+
+
+def test_build_research_master_page_contains_toc_anchors() -> None:
+    """Rendered page uses id= anchors (HTML5-valid), not deprecated <a name=> anchors."""
+    html = build_research_master_page()
+    assert '<a id="' in html
+    assert '<a name="' not in html
+
+
+def test_build_research_master_page_has_source_link() -> None:
+    """Page includes a link back to the source file on GitHub."""
+    html = build_research_master_page()
+    assert "Research_Master.md" in html
+    assert "github.com/davidamitchell/Research" in html

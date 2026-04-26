@@ -4,11 +4,13 @@
 Generates:
   docs/index.html            — landing page with stats, threads, tags, search preview
   docs/browse.html           — filterable research card grid
+  docs/all-items.html        — complete list of all completed items (newest first)
   docs/research/<slug>.html  — individual item pages with related items
   docs/tags/<tag>.html       — one page per unique tag
   docs/threads.html          — threads listing
   docs/threads/<slug>.html   — individual thread pages
   docs/search.html           — standalone search page
+  docs/research-master.html  — rendered Research_Master.md with valid HTML anchors
   docs/search-index.json     — search index for client-side JS
   docs/threads-index.json    — thread data for JS
 
@@ -37,12 +39,16 @@ from markdown_it import MarkdownIt
 
 REPO_ROOT = Path(__file__).parent.parent
 COMPLETED_DIR = REPO_ROOT / "Research" / "completed"
+RESEARCH_MASTER_MD = REPO_ROOT / "Research" / "Research_Master.md"
 DOCS_DIR = REPO_ROOT / "docs"
 RESEARCH_DIR = DOCS_DIR / "research"
 TAGS_DIR = DOCS_DIR / "tags"
 THREADS_DIR = DOCS_DIR / "threads"
 
 GITHUB_BASE = "https://github.com/davidamitchell/Research/blob/main/Research/completed/"
+RESEARCH_MASTER_GITHUB_URL = (
+    "https://github.com/davidamitchell/Research/blob/main/Research/Research_Master.md"
+)
 
 # Section names to extract, in display order
 SECTIONS_ORDERED = [
@@ -1676,6 +1682,14 @@ def build_landing(items: list[dict], threads: list[dict]) -> str:
     <div class="featured-label">{ICON_TAG}topics</div>
     <div class="featured-pills">{tag_pills}</div>
   </div>
+  <div class="featured-section" style="margin-top:2.5rem;border-top:1px solid var(--border);padding-top:2rem">
+    <div class="featured-label">{ICON_NOTE}more</div>
+    <div class="featured-pills">
+      <a class="thread-pill" href="/Research/all-items.html">{ICON_NOTE}All Items
+        <span class="thread-pill-count">{count}</span></a>
+      <a class="thread-pill" href="/Research/research-master.html">{ICON_NOTE}Research Master</a>
+    </div>
+  </div>
 </main>
 <script>{LANDING_SEARCH_JS}</script>
 """
@@ -1720,6 +1734,102 @@ def build_browse(items: list[dict]) -> str:
   <div id="no-results" class="no-results" style="display:none">No matching items.</div>
 </main>
 <script>{BROWSE_JS}</script>
+"""
+        + html_foot()
+    )
+
+
+def build_all_items_page(items: list[dict]) -> str:
+    """Generate docs/all-items.html — complete list of all items.
+
+    Args:
+        items: Research items already sorted newest-first (as returned by load_items).
+               This function does not perform any sorting.
+    """
+    cards_html = "".join(render_card(item) for item in items)
+    count = len(items)
+
+    return (
+        html_head("All Items — Research")
+        + html_nav()
+        + f"""\
+<main>
+  <div class="page-header">
+    <h1>{ICON_NOTE_H1}All Items</h1>
+    <p class="page-subtitle">{count} completed research items, newest first</p>
+  </div>
+  <div class="search-wrap">
+    <input id="search-input" class="search-input" type="text"
+           placeholder="search by title or question…" autocomplete="off">
+  </div>
+  <div class="card-grid">
+    {cards_html}
+  </div>
+  <div id="no-results" class="no-results" style="display:none">No matching items.</div>
+</main>
+<script>{BROWSE_JS}</script>
+"""
+        + html_foot()
+    )
+
+
+def build_research_master_page() -> str:
+    """Generate docs/research-master.html from Research/Research_Master.md.
+
+    Reads RESEARCH_MASTER_MD from the filesystem and renders it as HTML.
+    Requires that the source file uses ``<a id="...">`` anchors (HTML5) rather
+    than the deprecated ``<a name="...">`` form so that TOC fragment links work.
+    """
+    md_text = RESEARCH_MASTER_MD.read_text(encoding="utf-8")
+    md = MarkdownIt().enable("table").enable("strikethrough")
+    # Render markdown to HTML; <a id="..."> anchors are passed through as raw HTML
+    body_html = md.render(md_text)
+    return (
+        html_head(
+            "Research Master — Research",
+            extra_head=(
+                "<style>"
+                ".research-master-content { max-width: 860px; }"
+                ".research-master-content h2 { font-size: var(--text-xl); font-weight: 500;"
+                " margin-top: 2.5rem; margin-bottom: 0.75rem; padding-top: 0.5rem; }"
+                ".research-master-content h3 { font-size: var(--text-lg); font-weight: 500;"
+                " margin-top: 1.5rem; margin-bottom: 0.5rem; }"
+                ".research-master-content ul { list-style: disc; padding-left: 1.5rem;"
+                " margin-top: 0.5rem; }"
+                ".research-master-content ul li { margin-bottom: 0.2rem;"
+                " font-size: var(--text-sm); }"
+                ".research-master-content a { color: var(--teal); text-decoration: underline; }"
+                ".research-master-content a:hover { color: var(--text); }"
+                ".research-master-content p { margin-top: 0.75rem; font-size: var(--text-sm); }"
+                ".research-master-content hr { border: none; border-top: 1px solid var(--border);"
+                " margin: 2rem 0; }"
+                ".research-master-content table { border-collapse: collapse; width: 100%;"
+                " margin-top: 1rem; font-size: var(--text-xs); }"
+                ".research-master-content th, .research-master-content td"
+                " { border: 1px solid var(--border); padding: 0.4rem 0.6rem;"
+                " text-align: left; }"
+                ".research-master-content strong { font-weight: 600; }"
+                ".research-master-content code { background: var(--surface-2);"
+                " padding: 0.1em 0.3em; font-family: 'IBM Plex Mono', monospace;"
+                " font-size: 0.9em; }"
+                "</style>"
+            ),
+        )
+        + html_nav()
+        + f"""\
+<main>
+  <div class="page-header">
+    <h1>{ICON_NOTE_H1}Research Master</h1>
+    <p class="page-subtitle">complete research index with findings</p>
+    <p class="page-subtitle" style="margin-top:0.25rem">
+      <a href="{RESEARCH_MASTER_GITHUB_URL}" target="_blank" rel="noopener"
+         style="color:var(--teal);text-decoration:underline">view source on GitHub →</a>
+    </p>
+  </div>
+  <div class="research-master-content item-content">
+    {body_html}
+  </div>
+</main>
 """
         + html_foot()
     )
@@ -2189,7 +2299,17 @@ def main() -> None:
     (DOCS_DIR / "browse.html").write_text(build_browse(items), encoding="utf-8")
     pages_written += 1
 
-    # 3. Individual item pages
+    # 3. all-items.html (complete list, newest first)
+    print("Building all-items.html…")
+    (DOCS_DIR / "all-items.html").write_text(build_all_items_page(items), encoding="utf-8")
+    pages_written += 1
+
+    # 4. research-master.html
+    print("Building research-master.html…")
+    (DOCS_DIR / "research-master.html").write_text(build_research_master_page(), encoding="utf-8")
+    pages_written += 1
+
+    # 5. Individual item pages
     print(f"Building {len(items)} item pages…")
     for i, item in enumerate(items):
         prev_item = items[i - 1] if i > 0 else None
@@ -2200,7 +2320,7 @@ def main() -> None:
         (RESEARCH_DIR / f"{item['slug']}.html").write_text(html, encoding="utf-8")
         pages_written += 1
 
-    # 4. Tag pages
+    # 6. Tag pages
     tags_map: dict[str, list[dict]] = {}
     for item in items:
         for tag in item["tags"]:
@@ -2213,7 +2333,7 @@ def main() -> None:
         (TAGS_DIR / f"{tag}.html").write_text(html, encoding="utf-8")
         pages_written += 1
 
-    # 5. Thread pages
+    # 7. Thread pages
     print(f"Building threads.html + {len(threads)} thread pages…")
     (DOCS_DIR / "threads.html").write_text(build_threads_listing(threads), encoding="utf-8")
     pages_written += 1
@@ -2222,24 +2342,24 @@ def main() -> None:
         (THREADS_DIR / f"{thread['slug']}.html").write_text(html, encoding="utf-8")
         pages_written += 1
 
-    # 6. search.html
+    # 8. search.html
     print("Building search.html…")
     (DOCS_DIR / "search.html").write_text(build_search_page(), encoding="utf-8")
     pages_written += 1
 
-    # 7. search-index.json
+    # 9. search-index.json
     print("Building search-index.json…")
     (DOCS_DIR / "search-index.json").write_text(
         build_search_index(items, metadata, slug_to_threads), encoding="utf-8"
     )
 
-    # 8. threads-index.json
+    # 10. threads-index.json
     print("Building threads-index.json…")
     (DOCS_DIR / "threads-index.json").write_text(
         build_threads_index_json(threads), encoding="utf-8"
     )
 
-    # 9. .nojekyll
+    # 11. .nojekyll
     (DOCS_DIR / ".nojekyll").write_text("", encoding="utf-8")
 
     unique_tags = len({t for item in items for t in item["tags"]})
