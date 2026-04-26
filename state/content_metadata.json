@@ -1,6 +1,52 @@
 {
-  "extracted_at": "2026-04-26T05:14:27Z",
+  "extracted_at": "2026-04-26T05:36:45Z",
   "items": {
+    "2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis": {
+      "named_concepts": [
+        "information technology",
+        "shadow information",
+        "systems capability",
+        "capability debt",
+        "sequencing imperative",
+        "reviewed literature",
+        "workaround behaviour",
+        "human review",
+        "technology literature",
+        "workaround systems",
+        "workaround estates",
+        "causal chain",
+        "risk reduction",
+        "reduction first",
+        "clearest published",
+        "unmet system",
+        "current agentic-ai",
+        "agentic-ai governance",
+        "governance literature",
+        "amplification step"
+      ],
+      "source_urls": [
+        "https://cmdev.com/papers/debt-metaphor/",
+        "https://doi.org/10.1109/MS.2012.167",
+        "https://doi.org/10.1111/j.1468-0335.1937.tb00002.x",
+        "https://archive.org/details/economicinstitut00will",
+        "https://link.springer.com/article/10.1007/s10257-020-00472-6",
+        "https://www.academia.edu/9093645/On_the_Emergence_of_Shadow_IT_A_Transaction_Cost_Based_Approach",
+        "https://fis.tu-dresden.de/portal/en/publications/practitioners-perceptions-on-the-adoption-of-low-code-development-platforms(20818aa9-8856-45e1-accf-b95e10376406",
+        "https://research.universityofgalway.ie/en/publications/adoption-of-low-code-and-no-code-development-a-systematic-literat-6",
+        "https://pure.psu.edu/en/publications/citizen-development-low-codeno-code-platforms-and-the-evolution-o/",
+        "https://www.bis.org/bcbs/publ/d515.htm",
+        "https://www.bis.org/fsi/fsisummaries/psmor.htm",
+        "https://www.bis.org/bcbs/publ/d516.htm",
+        "https://www.bis.org/press/p210331a.htm",
+        "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+        "https://aws.amazon.com/blogs/security/four-security-principles-for-agentic-ai-systems/",
+        "https://sloanreview.mit.edu/article/agentic-ai-at-scale-redefining-management-for-a-superhuman-workforce/",
+        "https://davidamitchell.github.io/Research/research/2026-04-24-business-led-low-code-agent-governance.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-10-nature-of-the-firm-coase-organisations.html"
+      ],
+      "key_claims": []
+    },
     "2026-04-26-multi-ai-provider-control-planes": {
       "named_concepts": [
         "management layer",

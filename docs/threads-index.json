@@ -1725,14 +1725,14 @@
     "url": "/Research/threads/cost-allocation-financial-services-tbm-council.html"
   },
   {
-    "slug": "coding-agent-copilot-coding-github-copilot",
-    "title": "coding agent / copilot coding / github copilot",
+    "slug": "coding-agent-copilot-coding-agents-md",
+    "title": "coding agent / copilot coding / agents md",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "coding agent",
       "copilot coding",
-      "github copilot"
+      "agents md"
     ],
     "item_count": 5,
     "items": [
@@ -1762,7 +1762,42 @@
         "added": "2026-03-28"
       }
     ],
-    "url": "/Research/threads/coding-agent-copilot-coding-github-copilot.html"
+    "url": "/Research/threads/coding-agent-copilot-coding-agents-md.html"
+  },
+  {
+    "slug": "agentic-ai-access-control-regulated-banking",
+    "title": "agentic-ai / access-control / regulated-banking",
+    "kind": "implicit",
+    "tag_cluster": [
+      "agentic-ai",
+      "access-control",
+      "regulated-banking"
+    ],
+    "concept_cluster": [],
+    "item_count": 4,
+    "items": [
+      {
+        "slug": "2026-02-28-ai-strategy",
+        "title": "AI Strategy: global and NZ examples, policy frameworks, regulations, and use-case typologies",
+        "added": "2026-02-28"
+      },
+      {
+        "slug": "2026-03-16-adaptive-policy-authorization-compliance",
+        "title": "Adaptive Policy-Based Authorization (APBA): compliance alignment with National Institute of Standards and Technology (NIST) Special Publication (SP) 800-53 and International Organization for Standardization (ISO) / International Electrotechnical Commission (IEC) 27001, and impact on Policy as Code (PaC) and Artificial Intelligence (AI)-generated authorization code",
+        "added": "2026-03-16"
+      },
+      {
+        "slug": "2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment",
+        "title": "Regulatory and standards preconditions for deployment of Artificial Intelligence (AI) systems that can take multi-step actions: does incomplete access control and data governance constitute a control failure?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis",
+        "title": "Systems capability debt, citizen development, and agentic AI risk: is the causal chain and sequencing imperative a novel contribution?",
+        "added": "2026-04-26"
+      }
+    ],
+    "url": "/Research/threads/agentic-ai-access-control-regulated-banking.html"
   },
   {
     "slug": "evaluation-agents-research-loop",
@@ -1835,13 +1870,13 @@
     "url": "/Research/threads/youtube-transcripts-tooling.html"
   },
   {
-    "slug": "github-copilot-agents-md-claude-code",
-    "title": "github copilot / agents md / claude code",
+    "slug": "agents-md-github-copilot-claude-code",
+    "title": "agents md / github copilot / claude code",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "github copilot",
       "agents md",
+      "github copilot",
       "claude code"
     ],
     "item_count": 4,
@@ -1867,37 +1902,7 @@
         "added": "2026-04-20"
       }
     ],
-    "url": "/Research/threads/github-copilot-agents-md-claude-code.html"
-  },
-  {
-    "slug": "agentic-ai-access-control-dora",
-    "title": "agentic-ai / access-control / dora",
-    "kind": "implicit",
-    "tag_cluster": [
-      "agentic-ai",
-      "access-control",
-      "dora"
-    ],
-    "concept_cluster": [],
-    "item_count": 3,
-    "items": [
-      {
-        "slug": "2026-02-28-ai-strategy",
-        "title": "AI Strategy: global and NZ examples, policy frameworks, regulations, and use-case typologies",
-        "added": "2026-02-28"
-      },
-      {
-        "slug": "2026-03-16-adaptive-policy-authorization-compliance",
-        "title": "Adaptive Policy-Based Authorization (APBA): compliance alignment with National Institute of Standards and Technology (NIST) Special Publication (SP) 800-53 and International Organization for Standardization (ISO) / International Electrotechnical Commission (IEC) 27001, and impact on Policy as Code (PaC) and Artificial Intelligence (AI)-generated authorization code",
-        "added": "2026-03-16"
-      },
-      {
-        "slug": "2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment",
-        "title": "Regulatory and standards preconditions for deployment of Artificial Intelligence (AI) systems that can take multi-step actions: does incomplete access control and data governance constitute a control failure?",
-        "added": "2026-04-26"
-      }
-    ],
-    "url": "/Research/threads/agentic-ai-access-control-dora.html"
+    "url": "/Research/threads/agents-md-github-copilot-claude-code.html"
   },
   {
     "slug": "banking-architecture-financial-services",
@@ -2230,14 +2235,14 @@
     "url": "/Research/threads/workflow-process-tooling.html"
   },
   {
-    "slug": "ai-rmf-nist-ai-copilot-studio",
-    "title": "ai rmf / nist ai / copilot studio",
+    "slug": "nist-ai-ai-rmf-apra-cps",
+    "title": "nist ai / ai rmf / apra cps",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "ai rmf",
       "nist ai",
-      "copilot studio"
+      "ai rmf",
+      "apra cps"
     ],
     "item_count": 3,
     "items": [
@@ -2257,6 +2262,6 @@
         "added": "2026-04-24"
       }
     ],
-    "url": "/Research/threads/ai-rmf-nist-ai-copilot-studio.html"
+    "url": "/Research/threads/nist-ai-ai-rmf-apra-cps.html"
   }
 ]
