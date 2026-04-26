@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "How should decision rights, accountability, and liability be structured for Artificial Intelligence (AI) systems and low-code applications in enterprise environments?"
 added: 2026-04-26T10:11:11+00:00
 status: reviewing
