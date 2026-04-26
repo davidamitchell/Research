@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-04-26T19:25:40Z",
+  "extracted_at": "2026-04-26T19:46:43Z",
   "items": {
     "2026-04-26-systems-capability-debt-citizen-development-empirical-evidence": {
       "named_concepts": [
@@ -442,6 +442,55 @@
         "[inference;",
         "[inference;"
       ]
+    },
+    "2026-04-26-ai-lowcode-lifecycle-management": {
+      "named_concepts": [
+        "artefact class",
+        "separate lifecycle",
+        "state model",
+        "models prompts",
+        "rollback readiness",
+        "lifecycle model",
+        "control phases",
+        "change classes",
+        "reliable reproduction",
+        "standard normal",
+        "operational record",
+        "platform retirement",
+        "controlled change",
+        "change rollback",
+        "reproducibility fields",
+        "common lifecycle",
+        "prompt version",
+        "risk-based change",
+        "state machine",
+        "current tooling"
+      ],
+      "source_urls": [
+        "https://www.iso.org/standard/63712.html",
+        "https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1/itil-4-practitioner-change-enablement-3794",
+        "https://www.atlassian.com/itsm/change-management",
+        "https://www.manageengine.com/products/service-desk/it-change-management/it-change-types.html",
+        "https://mlflow.org/docs/latest/ml/model-registry/",
+        "https://learn.microsoft.com/en-us/power-platform/alm/",
+        "https://learn.microsoft.com/en-us/power-platform/alm/pipelines",
+        "https://learn.microsoft.com/en-us/power-platform/alm/solution-concepts-alm",
+        "https://learn.microsoft.com/en-us/power-platform/alm/delegated-deployments-setup",
+        "https://learn.microsoft.com/en-us/power-platform/alm/block-unmanaged-customizations",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/publication-fundamentals-publish-channels",
+        "https://learn.microsoft.com/en-us/azure/ai-studio/how-to/flow-deploy",
+        "https://docs.smith.langchain.com/langsmith/prompt-engineering",
+        "https://docs.wandb.ai/weave/tutorial-weave_models",
+        "https://www.federalreserve.gov/supervisionreg/srletters/SR2602.htm",
+        "https://www.federalreserve.gov/supervisionreg/srletters/SR2602.pdf",
+        "https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10",
+        "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-governance-enforcement-architecture.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html"
+      ],
+      "key_claims": []
     },
     "2026-04-26-ai-lowcode-governance-enforcement-architecture": {
       "named_concepts": [

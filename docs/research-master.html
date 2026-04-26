@@ -638,7 +638,7 @@ main {
   </div>
   <div class="research-master-content item-content">
     <h1>Research Master Document</h1>
-<p>Generated on: 2026-04-26 18:58 UTC</p>
+<p>Generated on: 2026-04-26 19:25 UTC</p>
 <p><a id="2026-04-26-systems-capability-debt-citizen-development-empirical-evidence-md"></a></p>
 <h2>Systems capability debt as the root cause of citizen development: empirical evidence and effective governance architectures</h2>
 <p><strong>Tags:</strong> [systems-capability-debt, citizen-development, shadow-it, operational-risk, governance, regulated-banking, nz-rbnz, pci-dss, microsoft-365, aws-bedrock, empirical-evidence]</p>
@@ -1527,6 +1527,128 @@ main {
 <li>[inference; source: https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-sharing-controls-limits; https://learn.microsoft.com/en-us/power-platform/alm/block-unmanaged-customizations] What is the least-privilege production role model for Copilot Studio that still allows monitoring and support but never allows direct publication?</li>
 <li>[inference; source: https://docs.github.com/en/actions/reference/workflows-and-actions/deployments-and-environments; https://learn.microsoft.com/en-us/azure/devops/pipelines/process/approvals?view=azure-devops] Which external gate host is operationally better for a regulated Microsoft low-code estate, GitHub Actions or Azure DevOps, once evidence capture, exceptions, and change-management integration are compared directly?</li>
 <li>[inference; source: https://learn.microsoft.com/en-us/power-platform/guidance/coe/starter-kit; https://learn.microsoft.com/en-us/power-platform/alm/extend-pipelines] What is the minimum metadata schema and system-of-record design required to operationalize owner registration, observability attestations, and blast-radius scoring at the release gate?</li>
+</ul>
+<hr />
+<hr />
+<p><a id="2026-04-26-ai-lowcode-governance-enforcement-architecture-md"></a></p>
+<h2>Where should governance enforcement points be implemented within enterprise architecture, and how should controls be applied consistently for AI and low-code systems?</h2>
+<p><strong>Tags:</strong> [governance-enforcement, enterprise-architecture, api-gateway, data-access, orchestration, policy-enforcement, ai-governance, low-code, controls]</p>
+<p><strong>Origin:</strong> https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-ai-lowcode-governance-enforcement-architecture.md</p>
+<h2>Research Question</h2>
+<p>Where should governance enforcement points be implemented within enterprise architecture for Artificial Intelligence (AI) and low-code systems, specifically, at which architectural layers (Application Programming Interface (API) gateways, data access layers, orchestration engines, or model runtimes) should controls be placed, what types of controls are appropriate at each layer (allow or deny policies, rate limits, content filters, action constraints), and how should conflicts between enforcement layers be resolved?</p>
+<h2>Findings</h2>
+<p><em>(Populated from §6 Synthesis above.)</em></p>
+<h3>Executive Summary</h3>
+<ul>
+<li>[inference; source: https://csrc.nist.gov/pubs/sp/800/207/final; https://learn.microsoft.com/en-us/azure/api-management/api-management-policies; https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention; https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/default-safety-policies; https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html] Enterprise AI and low-code governance should be enforced as a layered architecture in which gateways handle ingress identity and traffic controls, data systems remain authoritative for resource access, orchestration engines constrain tools and actions, and model runtimes apply semantic safety filters, because no single layer can enforce all four classes of control reliably.</li>
+<li>[inference; source: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html; https://davidamitchell.github.io/Research/research/2026-04-26-permission-safe-rag-enterprise-information-architecture.html; https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html] Gateway-only or runtime-only enforcement is insufficient, because best-effort quotas, stale permission copies, direct-publication paths, and unmanaged connectors each create bypass routes that only another layer can close.</li>
+<li>[inference; source: https://davidamitchell.github.io/Research/research/2026-04-26-policy-coherence-machine-checkable-prerequisite.html; https://csrc.nist.gov/pubs/sp/800/207/final] Conflicts between layers should resolve through canonical policy authoring plus fail-closed priority rules, with authoritative resource or identity denies never overridden downstream and local exceptions translated from the canonical policy source rather than hand-edited at enforcement points.</li>
+<li>[inference; source: https://davidamitchell.github.io/Research/research/2026-04-26-access-control-amplification-agentic-operations.html; https://davidamitchell.github.io/Research/research/2026-04-26-implicit-rate-limiting-controls-agentic-ai-removal.html] The strongest defense-in-depth pattern is selective duplication across layers that address different bypass vectors, especially for identity, rate control, action constraint, and auditability, because agentic execution amplifies the blast radius of any single missed control.</li>
+</ul>
+<h3>Key Findings</h3>
+<ol>
+<li>[inference; source: https://csrc.nist.gov/pubs/sp/800/207/final; https://learn.microsoft.com/en-us/azure/api-management/api-management-policies; https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-resource-policies.html; https://docs.mulesoft.com/api-manager/latest/manage-policies-overview] <strong>Confidence: high.</strong> Gateway layers should enforce ingress identity checks, coarse authorization, protocol normalization, schema validation, and rate controls because they intercept managed calls before business logic runs and expose the broadest set of transport-level controls across vendors.</li>
+<li>[inference; source: https://davidamitchell.github.io/Research/research/2026-04-26-permission-safe-rag-enterprise-information-architecture.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html; https://csrc.nist.gov/pubs/sp/800/207/final] <strong>Confidence: high.</strong> Data-access layers must remain authoritative for classification, row or document access, and resource-owner deny decisions because every upstream layer depends on their identity and permission semantics and cannot safely reconstruct them from partial metadata.</li>
+<li>[inference; source: https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention; https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-failure-modes-governance-mitigation.html] <strong>Confidence: high.</strong> Orchestration engines and low-code runtimes are the correct layer for tool allowlists, connector restrictions, approval checkpoints, and deployment gates because they govern executable workflow state transitions rather than only raw network traffic.</li>
+<li>[inference; source: https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/default-safety-policies; https://learn.microsoft.com/en-us/azure/foundry-classic/foundry-models/concepts/content-filter; https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html; https://help.salesforce.com/s/articleView?id=ai.generative_ai_trust_layer.htm&amp;language=en_US&amp;type=5] <strong>Confidence: high.</strong> Model-runtime enforcement is best reserved for prompt and response safety, masking, groundedness, jailbreak detection, and provider-facing trust controls because those checks require semantic visibility into generated content that gateways and data stores do not possess.</li>
+<li>[inference; source: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html; https://developer.konghq.com/plugins/rate-limiting/; https://davidamitchell.github.io/Research/research/2026-04-26-implicit-rate-limiting-controls-agentic-ai-removal.html] <strong>Confidence: medium.</strong> Rate limiting should be applied at both gateway and orchestration or execution layers when autonomous agents can loop or fan out, because gateway quotas alone may be best-effort, topology-dependent, or blind to internal tool recursion.</li>
+<li>[inference; source: https://davidamitchell.github.io/Research/research/2026-04-26-policy-coherence-machine-checkable-prerequisite.html; https://learn.microsoft.com/en-us/azure/api-management/api-management-howto-policies; https://csrc.nist.gov/pubs/sp/800/207/final] <strong>Confidence: high.</strong> Cross-layer policy conflicts should be resolved by canonical policy authoring plus explicit priority ordering, not by ad hoc local overrides, because selective defense in depth becomes policy drift unless every layer-specific rule is translated from one authoritative source.</li>
+<li>[inference; source: https://learn.microsoft.com/en-us/azure/api-management/api-management-policies; https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-resource-policies.html; https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention; https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/default-safety-policies] <strong>Confidence: high.</strong> The main bypass vectors are direct backend access, stale permission copies, direct maker publication, unmanaged connectors, and alternate model entry points, so each enforcement layer needs a paired compensating control at another layer instead of standing alone.</li>
+<li>[inference; source: https://learn.microsoft.com/en-us/azure/api-management/api-management-policies; https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-resource-policies.html; https://developer.konghq.com/plugins/; https://docs.mulesoft.com/api-manager/latest/manage-policies-overview; https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention; https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html] <strong>Confidence: high.</strong> Major enterprise platforms converge on the same layered pattern even though their products differ, which means a multi-vendor enterprise should design around control-surface roles rather than around any one vendor's product boundary.</li>
+<li>[inference; source: https://csrc.nist.gov/pubs/sp/800/207/final; https://learn.microsoft.com/en-us/azure/api-management/api-management-howto-policies; https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention; https://davidamitchell.github.io/Research/research/2026-04-26-policy-coherence-machine-checkable-prerequisite.html] <strong>Confidence: high.</strong> Selective duplication of controls across layers adds value only when each layer addresses a distinct bypass vector or failure mode, because duplicating the same logical rule without canonical translation creates policy drift instead of stronger protection.</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>Source</th>
+<th>Confidence</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[inference] Gateway layers should enforce ingress identity, coarse authorization, protocol normalization, schema validation, and rate controls.</td>
+<td>https://csrc.nist.gov/pubs/sp/800/207/final; https://learn.microsoft.com/en-us/azure/api-management/api-management-policies; https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-resource-policies.html; https://docs.mulesoft.com/api-manager/latest/manage-policies-overview</td>
+<td>high</td>
+<td>All reviewed gateway platforms expose these controls directly.</td>
+</tr>
+<tr>
+<td>[inference] Data-access layers must remain authoritative for classification and resource-owner deny decisions.</td>
+<td>https://csrc.nist.gov/pubs/sp/800/207/final; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html; https://davidamitchell.github.io/Research/research/2026-04-26-permission-safe-rag-enterprise-information-architecture.html</td>
+<td>high</td>
+<td>Upstream layers depend on source permission semantics.</td>
+</tr>
+<tr>
+<td>[inference] Orchestration layers are the correct place for tool allowlists, connector restrictions, approvals, and deployment gates.</td>
+<td>https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention; https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-failure-modes-governance-mitigation.html</td>
+<td>high</td>
+<td>Workflow systems know executable action sequences and maker publication paths.</td>
+</tr>
+<tr>
+<td>[inference] Model runtimes are strongest for semantic safety checks, masking, groundedness, and jailbreak detection, not final business authorization.</td>
+<td>https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/default-safety-policies; https://learn.microsoft.com/en-us/azure/foundry-classic/foundry-models/concepts/content-filter; https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html; https://help.salesforce.com/s/articleView?id=ai.generative_ai_trust_layer.htm&amp;language=en_US&amp;type=5</td>
+<td>high</td>
+<td>Runtime controls see prompt or response semantics but not authoritative permission state.</td>
+</tr>
+<tr>
+<td>[inference] Rate limiting needs duplication across gateway and execution layers for autonomous systems.</td>
+<td>https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html; https://developer.konghq.com/plugins/rate-limiting/; https://davidamitchell.github.io/Research/research/2026-04-26-implicit-rate-limiting-controls-agentic-ai-removal.html</td>
+<td>medium</td>
+<td>Gateway limits vary in hardness and may miss internal fan-out.</td>
+</tr>
+<tr>
+<td>[inference] Cross-layer conflicts require canonical policy authoring plus explicit priority ordering.</td>
+<td>https://davidamitchell.github.io/Research/research/2026-04-26-policy-coherence-machine-checkable-prerequisite.html; https://learn.microsoft.com/en-us/azure/api-management/api-management-howto-policies; https://csrc.nist.gov/pubs/sp/800/207/final</td>
+<td>high</td>
+<td><code>Most restrictive wins</code> needs canonical translation to avoid drift.</td>
+</tr>
+<tr>
+<td>[inference] Direct backend paths, stale permission copies, direct maker publication, unmanaged connectors, and alternate model entry points are the main bypass vectors.</td>
+<td>https://learn.microsoft.com/en-us/azure/api-management/api-management-policies; https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-resource-policies.html; https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention; https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/default-safety-policies</td>
+<td>high</td>
+<td>Each bypass path maps to a distinct control surface.</td>
+</tr>
+<tr>
+<td>[inference] Multi-vendor enterprise platforms converge on the same role-based layered pattern even when product boundaries differ.</td>
+<td>https://learn.microsoft.com/en-us/azure/api-management/api-management-policies; https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-resource-policies.html; https://developer.konghq.com/plugins/; https://docs.mulesoft.com/api-manager/latest/manage-policies-overview; https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention; https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html</td>
+<td>high</td>
+<td>The common pattern is more stable than any one vendor's product taxonomy.</td>
+</tr>
+<tr>
+<td>[inference] Selective duplication of controls adds value only when each layer addresses a distinct bypass vector or failure mode.</td>
+<td>https://csrc.nist.gov/pubs/sp/800/207/final; https://learn.microsoft.com/en-us/azure/api-management/api-management-howto-policies; https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention; https://davidamitchell.github.io/Research/research/2026-04-26-policy-coherence-machine-checkable-prerequisite.html</td>
+<td>high</td>
+<td>Defense in depth fails when duplicate rules drift without canonical translation.</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li>[assumption; source: https://help.salesforce.com/s/articleView?id=ai.generative_ai_trust_layer.htm&amp;language=en_US&amp;type=5] <strong>Assumption:</strong> Salesforce Einstein Trust Layer capabilities cited here still reflect current production controls. <strong>Justification:</strong> claims were limited to the broad control categories that Salesforce's official help material described directly.</li>
+<li>[assumption; source: https://www.openpolicyagent.org/docs/latest/philosophy/; https://csrc.nist.gov/pubs/sp/800/207/final] <strong>Assumption:</strong> OPA-style decoupled policy patterns are applicable to AI and low-code orchestration surfaces even when a vendor does not expose OPA directly. <strong>Justification:</strong> the evidence establishes the architectural pattern of separated decision and enforcement, not a requirement to deploy OPA itself.</li>
+</ul>
+<h3>Analysis</h3>
+<ul>
+<li>[inference; source: https://csrc.nist.gov/pubs/sp/800/207/final; https://www.openpolicyagent.org/docs/latest/philosophy/] The evidence weighs most strongly toward role separation by control surface, because zero-trust and decoupled-policy sources both reject the idea that one location can faithfully hold all governance logic.</li>
+<li>[inference; source: https://learn.microsoft.com/en-us/azure/api-management/api-management-policies; https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html; https://developer.konghq.com/plugins/rate-limiting/] Gateway evidence is strong on ingress control but weaker on hard guarantees for autonomous rate management, so rate control was treated as additive rather than gateway-exclusive.</li>
+<li>[inference; source: https://davidamitchell.github.io/Research/research/2026-04-26-permission-safe-rag-enterprise-information-architecture.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html] Data and identity layers were weighted as authoritative because adjacent completed items already showed that copied permission state and borrowed human identity are major failure mechanisms when treated as substitutes for source truth.</li>
+<li>[inference; source: https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention; https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html] Orchestration controls were treated as first-class rather than optional because low-code systems fail through connector choice, trigger configuration, and unmanaged promotion paths that neither gateways nor runtimes can fully constrain.</li>
+<li>[inference; source: https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/default-safety-policies; https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html] Runtime safety evidence is strong on semantic filtering and weak on business authorization, so the conclusion deliberately narrows runtime responsibilities to safety and trust functions rather than broader enterprise authorization.</li>
+</ul>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>[fact; source: https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention] Power Platform policy propagation is not instantaneous, so there is a residual timing window between policy authoring and full low-code runtime enforcement.</li>
+<li>[fact; source: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html] Amazon API Gateway usage-plan throttling is best-effort, so enterprises that need hard rate guarantees need compensating controls beyond usage plans alone.</li>
+<li>[assumption; source: https://help.salesforce.com/s/articleView?id=ai.generative_ai_trust_layer.htm&amp;language=en_US&amp;type=5] Salesforce-specific runtime-control detail remains less explicit in the reviewed evidence than the Microsoft and AWS documentation, so Salesforce claims were kept general and should be deepened with additional product documentation if the architecture will rely on Einstein-specific controls.</li>
+<li>[inference; source: https://www.openpolicyagent.org/docs/latest/management-bundles; https://davidamitchell.github.io/Research/research/2026-04-26-policy-coherence-machine-checkable-prerequisite.html] Policy distribution latency and translation drift remain material risks in any distributed layered model unless policy promotion, rollback, and verification are automated.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>[inference; source: https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html] What policy-translation workflow best converts one canonical governance rule into gateway, workflow, and runtime artifacts without human copy-and-paste drift?</li>
+<li>[inference; source: https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention] How small can the low-code policy-propagation window become in practice under enterprise scale, and what compensating controls are realistic during that window?</li>
+<li>[inference; source: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html; https://developer.konghq.com/plugins/rate-limiting/] Which rate-control design offers the best combination of hard guarantees, operational cost, and cross-vendor portability for autonomous agents that can recurse or fan out internally?</li>
 </ul>
 <hr />
 <hr />
