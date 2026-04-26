@@ -1,13 +1,13 @@
 ---
 title: "What is Microsoft 365 Copilot Cowork and what are its enterprise governance risks?"
 added: 2026-04-26
-status: reviewing
+status: completed
 review_count: 2
 priority: high  # low | medium | high
 blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
 tags: [microsoft, copilot, cowork, enterprise, governance, shadow-it, legal]
 started: 2026-04-26
-completed: ~
+completed: 2026-04-26
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item
 ---
 
@@ -124,7 +124,6 @@ What is Microsoft 365 (M365) Copilot Cowork, how does it technically differ from
 
 #### Source access and contradiction notes
 
-- Access note: seeded Microsoft 365 Copilot admin-guide URL inaccessible in this session; downstream claims use the current official `cowork-admin-governance` page instead.
 - [fact; source: https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/; https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/use-cowork; https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/cowork-faq] Microsoft's preview Cowork pages disagree on at least one operational detail, the custom-skill limit is stated as 20 on the overview page and 50 on the use and frequently asked questions pages, so the exact limit must be treated as preview-unstable.
 - [fact; source: https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/cowork-admin-governance; https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/get-started; https://adoption.microsoft.com/en-us/copilot/frontier-program/] Microsoft's preview pages also create rollout ambiguity, because some pages require Frontier enrollment for access while the admin-governance page says Cowork is available to all Microsoft 365 Copilot tenants and all licensed users by default.
 
