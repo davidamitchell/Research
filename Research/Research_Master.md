@@ -1,6 +1,6 @@
 # Research Master Document
 
-Generated on: 2026-04-26 10:32 UTC
+Generated on: 2026-04-26 10:54 UTC
 
 ## Table of Contents
 
@@ -12,6 +12,7 @@ Generated on: 2026-04-26 10:32 UTC
 * [What is Microsoft 365 Copilot Cowork and what are its enterprise governance risks?](#2026-04-26-ms-copilot-cowork-md)
 * [Implicit rate-limiting controls removed by agentic Artificial Intelligence (AI): blast radius amplification and the operational risk literature gap](#2026-04-26-implicit-rate-limiting-controls-agentic-ai-removal-md)
 * [Deployment pipeline as the only enforceable control gate for citizen-developed agents: DevOps literature support, low-code platform hook points, and architectural enforceability](#2026-04-26-deployment-pipeline-citizen-development-governed-gate-md)
+* [What control-plane architecture is required to manage Artificial Intelligence (AI) agents and low-code systems as distributed, semi-autonomous actors within enterprise environments?](#2026-04-26-ai-agent-control-plane-architecture-enterprise-md)
 * [Regulatory and standards preconditions for deployment of Artificial Intelligence (AI) systems that can take multi-step actions: does incomplete access control and data governance constitute a control failure?](#2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment-md)
 * [Access control amplification under agentic operations: whether existing frameworks address the worst-case permission inheritance problem](#2026-04-26-access-control-amplification-agentic-operations-md)
 * [Business-led low-code agent governance: conditions for durable value versus fragmentation in regulated environments](#2026-04-24-business-led-low-code-agent-governance-md)
@@ -772,6 +773,107 @@ In an environment where citizen development tooling is already licensed and acce
 - [inference; source: https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-sharing-controls-limits; https://learn.microsoft.com/en-us/power-platform/alm/block-unmanaged-customizations] What is the least-privilege production role model for Copilot Studio that still allows monitoring and support but never allows direct publication?
 - [inference; source: https://docs.github.com/en/actions/reference/workflows-and-actions/deployments-and-environments; https://learn.microsoft.com/en-us/azure/devops/pipelines/process/approvals?view=azure-devops] Which external gate host is operationally better for a regulated Microsoft low-code estate, GitHub Actions or Azure DevOps, once evidence capture, exceptions, and change-management integration are compared directly?
 - [inference; source: https://learn.microsoft.com/en-us/power-platform/guidance/coe/starter-kit; https://learn.microsoft.com/en-us/power-platform/alm/extend-pipelines] What is the minimum metadata schema and system-of-record design required to operationalize owner registration, observability attestations, and blast-radius scoring at the release gate?
+
+---
+
+---
+
+<a id="2026-04-26-ai-agent-control-plane-architecture-enterprise-md"></a>
+
+## What control-plane architecture is required to manage Artificial Intelligence (AI) agents and low-code systems as distributed, semi-autonomous actors within enterprise environments?
+
+**Tags:** [control-plane, ai-agents, low-code, enterprise-architecture, policy-propagation, distributed-systems, governance-architecture, feedback-loops, ai-governance]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-ai-agent-control-plane-architecture-enterprise.md
+
+## Research Question
+
+What control-plane architecture is required to manage AI agents and low-code systems as distributed, semi-autonomous actors within enterprise environments, specifically, how should policies be created, propagated, and enforced; how should control, execution, and observability layers interact; and how should feedback loops be established to continuously adapt governance controls based on system behaviour?
+
+## Findings
+
+### Executive Summary
+
+- [inference; source: https://csrc.nist.gov/pubs/sp/800/207/final; https://istio.io/latest/docs/ops/deployment/architecture/; https://www.openpolicyagent.org/docs/latest/philosophy/; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-9; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-multi-ai-provider-control-planes.md] The required enterprise architecture is a layered control plane with a central policy administration and decision core, a translation and distribution layer, heterogeneous enforcement adapters, and a closed-loop observability and review system; a single gateway or a single vendor administration plane is not sufficient.
+- [inference; source: https://csrc.nist.gov/pubs/sp/800/207/final; https://istio.io/latest/docs/ops/deployment/architecture/; https://www.openpolicyagent.org/docs/latest/management-bundles/] The best architectural analogue is NIST zero trust plus service mesh: keep control logic centralized, program distributed enforcement points through a separate control plane, and treat policy updates as versioned artifacts that can be staged, activated, and rolled back.
+- [inference; source: https://www.openpolicyagent.org/docs/latest/philosophy/; https://docs.cedarpolicy.com/; https://learn.microsoft.com/en-us/azure/governance/policy/overview] The policy stack should be composite rather than singular, with OPA-like general policy decisioning, Cedar-style fine-grained authorization where needed, and Azure-style scoped assignment, remediation, and compliance workflows for slower governance cadences.
+- [inference; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-12; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-72; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-24-business-led-low-code-agent-governance.md] The architecture must close the loop from observability to policy adaptation, because both risk-management frameworks and bounded low-code governance evidence show that policies only stay effective when runtime signals, incidents, and drift feed a documented review and change process.
+
+### Key Findings
+
+1. [inference; source: https://csrc.nist.gov/pubs/sp/800/207/final; https://istio.io/latest/docs/ops/deployment/architecture/; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-multi-ai-provider-control-planes.md] **High confidence:** An enterprise AI and low-code control plane must separate central policy decision and administration from distributed enforcement, because the evidence consistently shows that shared governance logic and local execution need different operating surfaces and cadences.
+2. [inference; source: https://www.openpolicyagent.org/docs/latest/philosophy/; https://www.openpolicyagent.org/docs/latest/management-bundles/; https://docs.cedarpolicy.com/; https://learn.microsoft.com/en-us/azure/governance/policy/overview] **High confidence:** The policy lifecycle should be implemented as policy packages that are authored, tested, approved, versioned, signed, distributed, activated, observed, and retired, rather than as hard-coded rules inside each agent platform or low-code tool.
+3. [inference; source: https://www.openpolicyagent.org/docs/latest/philosophy/; https://docs.cedarpolicy.com/; https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/what-is-avp.html; https://learn.microsoft.com/en-us/azure/governance/policy/overview] **Medium confidence:** No single reviewed engine spans every governance need, so the most credible design uses a portable general-purpose policy engine for broad decisions, a dedicated authorization language for fine-grained entitlements, and a scoped assignment system for remediation and compliance management.
+4. [inference; source: https://istio.io/latest/docs/ops/deployment/architecture/; https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/terminology.html; https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effect-basics] **Medium confidence:** High-level governance policy has to be compiled into layer-specific rules for gateways, application-level access controls, and orchestrators, and overlapping layers should default to deny-overrides semantics when those layers conflict.
+5. [inference; source: https://www.openpolicyagent.org/docs/latest/management-decision-logs/; https://learn.microsoft.com/en-us/azure/governance/policy/how-to/get-compliance-data#evaluation-triggers; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-72] **High confidence:** The observability plane must combine runtime decision logs, configuration drift, compliance scans, evaluation outcomes, and incident data into one evidence loop, because otherwise policy updates become reactive anecdotes instead of governed change.
+6. [inference; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-9; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-12; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-72] **High confidence:** NIST AI RMF and the EU AI Act both require lifecycle governance, traceability, and periodic or continuous review, so a compliant control plane has to preserve inventories, logs, review records, and residual-risk decisions beyond request-time enforcement.
+7. [inference; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-22-enterprise-ai-capability-model.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-24-business-led-low-code-agent-governance.md; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/] **High confidence:** The bootstrap path should begin with ownership, inventory, risk-tier intake, approved data and connector boundaries, central logging, and manual publication approval, because those controls create useful shared rails before deeper automation is mature.
+8. [inference; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-22-enterprise-ai-platform-operating-models.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-24-business-led-low-code-agent-governance.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-multi-ai-provider-control-planes.md] **Medium confidence:** The operating model that best matches this architecture is a central governance and platform core with domain teams consuming it as a service, not a fragmented split where each vendor stack owns its own separate governance system.
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [inference] Central policy decision and administration should be separated from distributed enforcement. | https://csrc.nist.gov/pubs/sp/800/207/final<br>https://istio.io/latest/docs/ops/deployment/architecture/<br>https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-multi-ai-provider-control-planes.md | high | Zero trust and service mesh both separate control and enforcement planes. |
+| [inference] Policy should move as versioned, testable packages rather than hard-coded tool logic. | https://www.openpolicyagent.org/docs/latest/philosophy/<br>https://www.openpolicyagent.org/docs/latest/management-bundles/<br>https://learn.microsoft.com/en-us/azure/governance/policy/overview | high | OPA bundles and Azure definitions show explicit lifecycle and distribution patterns. |
+| [inference] A composite engine stack is more credible than one universal engine. | https://www.openpolicyagent.org/docs/latest/philosophy/<br>https://docs.cedarpolicy.com/<br>https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/what-is-avp.html<br>https://learn.microsoft.com/en-us/azure/governance/policy/overview | medium | Each product solves a different slice of the lifecycle. |
+| [inference] Governance intent must be compiled into gateway, application-access, and orchestration artifacts with deny-overrides precedence. | https://istio.io/latest/docs/ops/deployment/architecture/<br>https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/terminology.html<br>https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effect-basics | medium | The cited evidence directly supports proxy enforcement, application enforcement, and cumulative-most-restrictive precedence. |
+| [inference] Observability must unify decision logs, drift, compliance, evaluations, and incidents into one feedback loop. | https://www.openpolicyagent.org/docs/latest/management-decision-logs/<br>https://learn.microsoft.com/en-us/azure/governance/policy/how-to/get-compliance-data#evaluation-triggers<br>https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-72 | high | The loop needs both fast operational signals and slower compliance evidence. |
+| [inference] Lifecycle governance and traceability obligations imply that the control plane must preserve reviewable records beyond request-time enforcement. | https://airc.nist.gov/airmf-resources/airmf/5-sec-core/<br>https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-9<br>https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-12<br>https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-72 | high | The obligations are explicit in the sources; the control-plane design implication is the inference. |
+| [inference] The first implementation stage should prioritize inventory, risk intake, guardrails, logging, and manual approvals. | https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-22-enterprise-ai-capability-model.md<br>https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-24-business-led-low-code-agent-governance.md<br>https://airc.nist.gov/airmf-resources/airmf/5-sec-core/ | high | These controls create shared rails before centralized runtime control is complete. |
+| [inference] A central governance core plus service-consuming domain teams fits the evidence better than stack-by-stack governance silos. | https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-22-enterprise-ai-platform-operating-models.md<br>https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-24-business-led-low-code-agent-governance.md<br>https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-multi-ai-provider-control-planes.md | medium | Prior repository synthesis is strong structural prior art, but not an external benchmark study. |
+
+### Assumptions
+
+- [assumption; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-multi-ai-provider-control-planes.md] Most material AI runtime traffic can be routed through a governed gateway, orchestrator, or proxy layer. **Justification:** if a large share of tools remains opaque and unproxyable, the runtime subplane loses some leverage and more policy must stay vendor-native.
+- [assumption; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-24-business-led-low-code-agent-governance.md; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/] The enterprise is willing to centralize ownership of inventory, risk-tier policy, and exception review even if execution stays distributed. **Justification:** the architecture depends on one shared governance core rather than purely local team discretion.
+- [assumption; source: https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-9; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-72] The EU AI Act is used here as an upper-bound governance reference rather than as a claim that every governed system in scope is a legally classified high-risk system. **Justification:** the article-level obligations are useful design tests for stronger lifecycle control even where they are not universally mandatory.
+
+### Analysis
+
+- [inference; source: https://csrc.nist.gov/pubs/sp/800/207/final; https://istio.io/latest/docs/ops/deployment/architecture/; https://www.openpolicyagent.org/docs/latest/philosophy/; https://learn.microsoft.com/en-us/azure/governance/policy/overview; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-72] The reference architecture below is the simplest composite design that satisfies the zero trust, service mesh, policy-engine, and lifecycle-governance evidence set.
+
+```mermaid
+flowchart LR
+    A[Governance workbench<br/>policy authoring, testing, approval] --> B[Policy registry and risk catalog]
+    B --> C[Decision and translation services<br/>general policy, entitlement policy, platform mappings]
+    C --> D[Distribution and activation bus<br/>signed packages, staged rollout, rollback]
+    D --> E1[Gateway and traffic enforcement]
+    D --> E2[Data and connector enforcement]
+    D --> E3[Orchestrator and tool enforcement]
+    D --> E4[Model-runtime guardrails]
+    D --> E5[Vendor-native admin adapters]
+    E1 --> F[Observability and evidence plane]
+    E2 --> F
+    E3 --> F
+    E4 --> F
+    E5 --> F
+    F --> G[Risk review and change control]
+    G --> A
+    H[Identity, inventory, posture, evaluation, incidents] --> C
+    H --> F
+```
+
+- [inference; source: https://csrc.nist.gov/pubs/sp/800/207/final; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-22-enterprise-ai-capability-model.md] **Component specification:** Governance workbench owns policy authoring, test harnesses, approval, exception handling, and risk-tier mappings.
+- [inference; source: https://csrc.nist.gov/pubs/sp/800/207/final; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-multi-ai-provider-control-planes.md] **Component specification:** Policy registry and risk catalog hold agent inventory, ownership, provider metadata, connector metadata, data-domain bindings, approved patterns, and residual-risk records.
+- [inference; source: https://www.openpolicyagent.org/docs/latest/philosophy/; https://docs.cedarpolicy.com/; https://learn.microsoft.com/en-us/azure/governance/policy/overview] **Component specification:** Decision and translation services evaluate common policy and compile it into OPA packages, Cedar-style authorization objects, and platform-specific configurations or assignments.
+- [inference; source: https://www.openpolicyagent.org/docs/latest/management-bundles/; https://istio.io/latest/docs/ops/deployment/architecture/] **Component specification:** Distribution and activation bus publishes signed configurations to enforcement points, supports staged rollout, and provides rollback when downstream verification fails.
+- [inference; source: https://istio.io/latest/docs/ops/deployment/architecture/; https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/terminology.html; https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effect-basics] **Component specification:** Enforcement adapters cover traffic gateways, connector and data controls, orchestrators, model runtimes, and vendor administration settings, because each layer exposes a different control grammar.
+- [inference; source: https://www.openpolicyagent.org/docs/latest/management-decision-logs/; https://learn.microsoft.com/en-us/azure/governance/policy/how-to/get-compliance-data#evaluation-triggers; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-12] **Component specification:** Observability and evidence plane aggregates policy decisions, audit events, traceability logs, evaluations, drift signals, and incident records into one searchable evidence base.
+- [inference; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-9; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-72] **Component specification:** Risk review and change control turns evidence into governed updates through triage, testing, approval, staged deployment, and residual-risk recording.
+
+### Risks, Gaps, and Uncertainties
+
+- [inference; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-multi-ai-provider-control-planes.md] The weakest part of the design remains vendor-native administration coverage, because many commercial AI tools still expose fragmented or incomplete administration APIs.
+- [inference; source: https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/what-is-avp.html; https://docs.cedarpolicy.com/; https://www.openpolicyagent.org/docs/latest/philosophy/] The policy-engine comparison is stronger on architecture than on large-scale operational benchmarks, because the reviewed sources document capabilities clearly but provide limited cross-vendor empirical evidence on enterprise operating trade-offs.
+- [inference; source: https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-9; https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-72] The regulatory argument is intentionally conservative, because not every in-scope system will be legally high-risk, yet using high-risk obligations as a design reference may over-specify controls for lower-risk cases.
+- [fact; source: https://docs.cedarpolicy.com/; https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/what-is-avp.html] Access note: Cedar evidence in this session came from the current docs root and Verified Permissions docs because the seeded `what-is-cedar` address no longer resolved.
+
+### Open Questions
+
+- Which enterprise products now expose enough administration API coverage to let vendor-native settings be reconciled automatically rather than through manual adapters?
+- What evaluation thresholds are strong enough to trigger automatic rollback for coding agents, research agents, or customer-facing assistants without generating unacceptable false positives?
+- Which governance signals should be universal across all AI and low-code systems, and which should vary by risk tier, customer segment, or deployment channel?
 
 ---
 
