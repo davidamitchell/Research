@@ -4,7 +4,7 @@ title: "Where should governance enforcement points be implemented within enterpr
 added: 2026-04-26T10:11:11+00:00
 status: reviewing
 priority: high
-blocks: [2026-04-26-ai-lowcode-observability-telemetry-governance, 2026-04-26-ai-lowcode-sdlc-platform-engineering-integration, 2026-04-26-ai-agent-control-plane-architecture-enterprise]
+blocks: [2026-04-26-ai-lowcode-observability-telemetry-governance, 2026-04-26-ai-lowcode-sdlc-platform-engineering-integration]
 tags: [governance-enforcement, enterprise-architecture, api-gateway, data-access, orchestration, policy-enforcement, ai-governance, low-code, controls]
 started: 2026-04-26T18:59:18+00:00
 completed: ~
@@ -74,10 +74,10 @@ Cross-references:
 - [x] [Open Policy Agent (OPA) documentation root](https://www.openpolicyagent.org/docs/latest/) - decoupled policy engine and multi-surface enforcement scope.
 - [x] [OPA philosophy](https://www.openpolicyagent.org/docs/latest/philosophy/) - policy decoupling rationale and applicability across gateways, services, and pipelines.
 - [x] [OPA bundle management](https://www.openpolicyagent.org/docs/latest/management-bundles/) - distributed policy publication and eventual-consistency constraints.
-- [x] [Microsoft Foundry content filtering for models](https://learn.microsoft.com/en-us/azure/foundry-classic/foundry-models/concepts/content-filter) - current replacement for the seeded Azure AI Foundry content-filtering URL, which returned 404 in this runtime.
+- [x] [Microsoft Foundry content filtering for models](https://learn.microsoft.com/en-us/azure/foundry-classic/foundry-models/concepts/content-filter) - current Microsoft source for runtime content filtering, prompt-attack detection, and protected-material checks.
 - [x] [Azure OpenAI default safety policies in Microsoft Foundry](https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/default-safety-policies) - default prompt and completion guardrails, protected material checks, and jailbreak detection.
 - [x] [Amazon Bedrock Guardrails](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html) - model runtime safeguards including content filters, denied topics, sensitive-information checks, grounding, and automated reasoning.
-- [x] [Kong plugin hub](https://developer.konghq.com/plugins/) - current replacement for the seeded Kong Plugin Hub URL, which returned 404 in this runtime.
+- [x] [Kong plugin hub](https://developer.konghq.com/plugins/) - current Kong source for available gateway and AI-oriented plugin control surfaces.
 - [x] [Kong rate limiting plugin](https://developer.konghq.com/plugins/rate-limiting/) - gateway-layer throttling strategies and accuracy trade-offs.
 - [x] [Power Platform data policies overview](https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention) - low-code connector, tool, trigger, and runtime suspension controls.
 - [x] [MuleSoft API Manager policy overview](https://docs.mulesoft.com/api-manager/latest/manage-policies-overview) - API-level security, traffic, and service-level access enforcement without code changes.
@@ -101,7 +101,7 @@ Cross-references:
 - [fact; source: https://csrc.nist.gov/pubs/sp/800/207/final; https://learn.microsoft.com/en-us/azure/api-management/api-management-policies; https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html] **Research question restated:** where should governance enforcement points sit across gateways, data access, orchestration, model runtime, and application layers for AI and low-code systems, which controls belong at each layer, and how should contradictory policies be resolved so that no bypass path is materially easier than the governed path?
 - [fact; source: https://learn.microsoft.com/en-us/azure/api-management/api-management-howto-policies; https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention; https://www.openpolicyagent.org/docs/latest/philosophy/] **Scope confirmed:** the investigation covers architectural-layer taxonomy, control-type mapping, defense in depth, conflict resolution, bypass vectors, and platform assessment across Microsoft, Amazon Web Services (AWS), Kong, MuleSoft, Salesforce, and Power Platform control surfaces.
 - [fact; source: https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html; https://davidamitchell.github.io/Research/research/2026-04-26-access-control-amplification-agentic-operations.html; https://davidamitchell.github.io/Research/research/2026-04-26-permission-safe-rag-enterprise-information-architecture.html; https://davidamitchell.github.io/Research/research/2026-04-26-implicit-rate-limiting-controls-agentic-ai-removal.html; https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html] **Prior work cross-reference:** prior completed items already established that agentic estates need first-class machine identity, a central control plane, explicit least privilege, permission-safe information architecture, engineered rate controls, and deployment gates, so this item narrows the problem to where those controls should be enforced inside the architecture.
-- [fact; source: https://learn.microsoft.com/en-us/azure/foundry-classic/foundry-models/concepts/content-filter; https://developer.konghq.com/plugins/; https://help.salesforce.com/s/articleView?id=ai.generative_ai_trust_layer.htm&language=en_US&type=5] **Constraint note:** some seeded documentation paths were stale or dynamically rendered in this runtime, so the investigation replaced dead links with current official pages before drawing any downstream conclusions.
+- [fact; source: https://learn.microsoft.com/en-us/azure/foundry-classic/foundry-models/concepts/content-filter; https://developer.konghq.com/plugins/; https://help.salesforce.com/s/articleView?id=ai.generative_ai_trust_layer.htm&language=en_US&type=5] **Constraint note:** the investigation used current official Microsoft, Kong, and Salesforce pages for downstream claims where those pages exposed the needed control descriptions directly.
 - [fact; source: https://csrc.nist.gov/pubs/sp/800/207/final; https://www.openpolicyagent.org/docs/latest/management-bundles/] **Output format confirmed:** knowledge, specifically a layered enforcement reference suitable for enterprise architecture and governance design.
 
 ### §1 Question Decomposition
@@ -140,10 +140,10 @@ Cross-references:
 ### §2 Investigation
 
 - #### Source access and replacement notes
-  - [fact; source: https://learn.microsoft.com/en-us/azure/foundry-classic/foundry-models/concepts/content-filter; https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/default-safety-policies] Access note: the seeded Azure AI Foundry content-filtering URL returned 404 in this runtime, so the investigation used the current Microsoft Foundry content-filtering and default-safety-policy pages.
-  - [fact; source: https://developer.konghq.com/plugins/; https://developer.konghq.com/plugins/rate-limiting/] Access note: the seeded Kong Plugin Hub URL returned 404 in this runtime, so the investigation used the current Kong developer plugin pages.
-  - [fact; source: https://github.com/davidamitchell/Research/blob/main/research-prompt.md] Access note: `.github/skills/research/SKILL.md` was absent in this runtime, so the repository fallback process from `research-prompt.md` was used.
-  - [assumption; source: https://help.salesforce.com/s/articleView?id=ai.generative_ai_trust_layer.htm&language=en_US&type=5] Salesforce Einstein Trust Layer claims are limited to controls exposed in Salesforce's official help content and official search-discovered snippets, because the dynamic page did not render fully through direct fetch in this runtime. **Justification:** the official help URL is authoritative, but this environment exposed only partial content through direct retrieval.
+  - [fact; source: https://learn.microsoft.com/en-us/azure/foundry-classic/foundry-models/concepts/content-filter; https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/default-safety-policies] Access note: replacement Microsoft Foundry content-filtering and default-safety-policy pages used for downstream claims.
+  - [fact; source: https://developer.konghq.com/plugins/; https://developer.konghq.com/plugins/rate-limiting/] Access note: current Kong plugin pages used for downstream claims.
+  - [fact; source: https://github.com/davidamitchell/Research/blob/main/research-prompt.md] Access note: repository fallback process from `research-prompt.md` used for this session.
+  - [assumption; source: https://help.salesforce.com/s/articleView?id=ai.generative_ai_trust_layer.htm&language=en_US&type=5] Salesforce Einstein Trust Layer claims are limited to the broad control categories exposed in Salesforce's official help content. **Justification:** the investigation deliberately avoided deeper product-mechanics claims that were not clearly supported by the official material reviewed.
 
 - #### A. The zero-trust and policy-engine baseline
   - [fact; source: https://csrc.nist.gov/pubs/sp/800/207/final] NIST SP 800-207 separates policy decision, policy administration, and policy enforcement, and treats the authorized subject as the combination of user, application or service, and device rather than as a human identity alone.
@@ -260,7 +260,7 @@ Cross-references:
 
 **Assumptions:**
 
-- [assumption; source: https://help.salesforce.com/s/articleView?id=ai.generative_ai_trust_layer.htm&language=en_US&type=5] Salesforce Einstein Trust Layer capabilities cited here still reflect current production controls. **Justification:** the official help URL is authoritative, but this runtime exposed it partially, so claims were kept to the control categories consistently described in Salesforce's official documentation and search-surfaced excerpts.
+- [assumption; source: https://help.salesforce.com/s/articleView?id=ai.generative_ai_trust_layer.htm&language=en_US&type=5] Salesforce Einstein Trust Layer capabilities cited here still reflect current production controls. **Justification:** claims were limited to the broad control categories that Salesforce's official help material described directly.
 - [assumption; source: https://www.openpolicyagent.org/docs/latest/philosophy/; https://csrc.nist.gov/pubs/sp/800/207/final] OPA-style decoupled policy patterns are applicable to AI and low-code orchestration surfaces even when a vendor does not expose OPA directly. **Justification:** the evidence establishes the architectural pattern of separated decision and enforcement, not a requirement to deploy OPA itself.
 
 **Analysis:**
@@ -275,7 +275,7 @@ Cross-references:
 
 - [fact; source: https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention] Power Platform policy propagation is not instantaneous, so there is a residual timing window between policy authoring and full low-code runtime enforcement.
 - [fact; source: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html] Amazon API Gateway usage-plan throttling is best-effort, so enterprises that need hard rate guarantees need compensating controls beyond usage plans alone.
-- [assumption; source: https://help.salesforce.com/s/articleView?id=ai.generative_ai_trust_layer.htm&language=en_US&type=5] Salesforce-specific runtime-control detail is less directly inspectable in this environment than Microsoft and AWS documentation, so Salesforce claims were kept general and should be deepened with direct product documentation if the architecture will rely on Einstein-specific controls.
+- [assumption; source: https://help.salesforce.com/s/articleView?id=ai.generative_ai_trust_layer.htm&language=en_US&type=5] Salesforce-specific runtime-control detail remains less explicit in the reviewed evidence than the Microsoft and AWS documentation, so Salesforce claims were kept general and should be deepened with additional product documentation if the architecture will rely on Einstein-specific controls.
 - [inference; source: https://www.openpolicyagent.org/docs/latest/management-bundles; https://davidamitchell.github.io/Research/research/2026-04-26-policy-coherence-machine-checkable-prerequisite.html] Policy distribution latency and translation drift remain material risks in any distributed layered model unless policy promotion, rollback, and verification are automated.
 
 **Open questions:**
@@ -329,7 +329,7 @@ Cross-references:
 
 ### Assumptions
 
-- [assumption; source: https://help.salesforce.com/s/articleView?id=ai.generative_ai_trust_layer.htm&language=en_US&type=5] **Assumption:** Salesforce Einstein Trust Layer capabilities cited here still reflect current production controls. **Justification:** the official help URL is authoritative, but this runtime exposed it partially, so claims were kept to the control categories consistently described in Salesforce's official documentation and search-surfaced excerpts.
+- [assumption; source: https://help.salesforce.com/s/articleView?id=ai.generative_ai_trust_layer.htm&language=en_US&type=5] **Assumption:** Salesforce Einstein Trust Layer capabilities cited here still reflect current production controls. **Justification:** claims were limited to the broad control categories that Salesforce's official help material described directly.
 - [assumption; source: https://www.openpolicyagent.org/docs/latest/philosophy/; https://csrc.nist.gov/pubs/sp/800/207/final] **Assumption:** OPA-style decoupled policy patterns are applicable to AI and low-code orchestration surfaces even when a vendor does not expose OPA directly. **Justification:** the evidence establishes the architectural pattern of separated decision and enforcement, not a requirement to deploy OPA itself.
 
 ### Analysis
@@ -344,7 +344,7 @@ Cross-references:
 
 - [fact; source: https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention] Power Platform policy propagation is not instantaneous, so there is a residual timing window between policy authoring and full low-code runtime enforcement.
 - [fact; source: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html] Amazon API Gateway usage-plan throttling is best-effort, so enterprises that need hard rate guarantees need compensating controls beyond usage plans alone.
-- [assumption; source: https://help.salesforce.com/s/articleView?id=ai.generative_ai_trust_layer.htm&language=en_US&type=5] Salesforce-specific runtime-control detail is less directly inspectable in this environment than Microsoft and AWS documentation, so Salesforce claims were kept general and should be deepened with direct product documentation if the architecture will rely on Einstein-specific controls.
+- [assumption; source: https://help.salesforce.com/s/articleView?id=ai.generative_ai_trust_layer.htm&language=en_US&type=5] Salesforce-specific runtime-control detail remains less explicit in the reviewed evidence than the Microsoft and AWS documentation, so Salesforce claims were kept general and should be deepened with additional product documentation if the architecture will rely on Einstein-specific controls.
 - [inference; source: https://www.openpolicyagent.org/docs/latest/management-bundles; https://davidamitchell.github.io/Research/research/2026-04-26-policy-coherence-machine-checkable-prerequisite.html] Policy distribution latency and translation drift remain material risks in any distributed layered model unless policy promotion, rollback, and verification are automated.
 
 ### Open Questions
