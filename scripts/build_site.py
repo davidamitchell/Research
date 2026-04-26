@@ -1740,7 +1740,12 @@ def build_browse(items: list[dict]) -> str:
 
 
 def build_all_items_page(items: list[dict]) -> str:
-    """Generate docs/all-items.html — complete list of all items, newest first."""
+    """Generate docs/all-items.html — complete list of all items.
+
+    Args:
+        items: Research items already sorted newest-first (as returned by load_items).
+               This function does not perform any sorting.
+    """
     cards_html = "".join(render_card(item) for item in items)
     count = len(items)
 
@@ -1769,7 +1774,12 @@ def build_all_items_page(items: list[dict]) -> str:
 
 
 def build_research_master_page() -> str:
-    """Generate docs/research-master.html from Research/Research_Master.md."""
+    """Generate docs/research-master.html from Research/Research_Master.md.
+
+    Reads RESEARCH_MASTER_MD from the filesystem and renders it as HTML.
+    Requires that the source file uses ``<a id="...">`` anchors (HTML5) rather
+    than the deprecated ``<a name="...">`` form so that TOC fragment links work.
+    """
     md_text = RESEARCH_MASTER_MD.read_text(encoding="utf-8")
     md = MarkdownIt().enable("table").enable("strikethrough")
     # Render markdown to HTML; <a id="..."> anchors are passed through as raw HTML
