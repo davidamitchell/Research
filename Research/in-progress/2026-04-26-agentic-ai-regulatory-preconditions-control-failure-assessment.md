@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Regulatory and standards preconditions for deployment of Artificial Intelligence (AI) systems that can take multi-step actions: does incomplete access control and data governance constitute a control failure?"
 added: 2026-04-26
 status: reviewing
