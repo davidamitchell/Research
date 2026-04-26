@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "How should AI and low-code governance integrate with existing software development and platform engineering practices?"
 added: 2026-04-26T10:11:11+00:00
 status: reviewing
