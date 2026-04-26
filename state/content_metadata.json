@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-04-26T06:03:29Z",
+  "extracted_at": "2026-04-26T08:24:36Z",
   "items": {
     "2026-04-26-systems-capability-debt-citizen-development-empirical-evidence": {
       "named_concepts": [
@@ -242,6 +242,68 @@
         "Medium confidence"
       ]
     },
+    "2026-04-26-deployment-pipeline-citizen-development-governed-gate": {
+      "named_concepts": [
+        "microsoft low-code",
+        "blocked unmanaged",
+        "promotion gate",
+        "enforceable controls",
+        "unmanaged customizations",
+        "managed artifacts",
+        "direct publish",
+        "ci cd",
+        "power platform",
+        "microsoft documentation",
+        "owner registration",
+        "copilot studio",
+        "direct publication",
+        "deployment pipeline",
+        "enforceable control",
+        "low-code estate",
+        "controls outside",
+        "policies environment",
+        "environment routing",
+        "routing sharing"
+      ],
+      "source_urls": [
+        "https://learn.microsoft.com/en-us/power-platform/alm/pipelines",
+        "https://learn.microsoft.com/en-us/power-platform/alm/set-up-pipelines",
+        "https://learn.microsoft.com/en-us/power-platform/alm/extend-pipelines",
+        "https://learn.microsoft.com/en-us/power-platform/alm/delegated-deployments-setup",
+        "https://learn.microsoft.com/en-us/power-platform/alm/block-unmanaged-customizations",
+        "https://learn.microsoft.com/en-us/power-platform/alm/solution-concepts-alm",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/environments-overview",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/sec-gov-phase2",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/authoring-solutions-overview",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/publication-fundamentals-publish-channels",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-sharing-controls-limits",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-data-loss-prevention",
+        "https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention",
+        "https://learn.microsoft.com/en-us/power-platform/admin/managed-environment-overview",
+        "https://learn.microsoft.com/en-us/power-platform/admin/managed-environment-sharing-limits",
+        "https://learn.microsoft.com/en-us/power-platform/admin/environments-overview",
+        "https://learn.microsoft.com/en-us/power-platform/admin/database-security",
+        "https://learn.microsoft.com/en-us/power-platform/admin/default-environment-routing",
+        "https://learn.microsoft.com/en-us/power-platform/guidance/coe/starter-kit",
+        "https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report",
+        "https://cloud.google.com/resources/content/2025-dora-ai-capabilities-model-report",
+        "https://csrc.nist.gov/pubs/sp/800/204/d/final",
+        "https://docs.github.com/en/actions/reference/workflows-and-actions/deployments-and-environments",
+        "https://learn.microsoft.com/en-us/azure/devops/pipelines/process/approvals?view=azure-devops",
+        "https://www.gartner.com/en/information-technology/insights/citizen-development"
+      ],
+      "key_claims": [
+        "[inference;",
+        "[fact;",
+        "[fact;",
+        "[assumption;",
+        "[fact;",
+        "[inference;",
+        "[inference;",
+        "[inference;"
+      ]
+    },
     "2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment": {
       "named_concepts": [
         "apra cps",
@@ -292,6 +354,60 @@
         "Medium confidence",
         "Medium confidence",
         "High confidence"
+      ]
+    },
+    "2026-04-26-access-control-amplification-agentic-operations": {
+      "named_concepts": [
+        "nist sp",
+        "agent access",
+        "apra cps",
+        "ai rmf",
+        "autonomous triggers",
+        "agent deployment",
+        "least privilege",
+        "four named",
+        "named frameworks",
+        "nist ai",
+        "human oversight",
+        "monitor agent",
+        "aws explicitly",
+        "explicitly says",
+        "says agents",
+        "agents operate",
+        "greater scale",
+        "separate agent",
+        "agent identities",
+        "human approval"
+      ],
+      "source_urls": [
+        "https://csrc.nist.gov/pubs/sp/800/207/final",
+        "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+        "https://handbook.apra.gov.au/standard/cps-230",
+        "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32022R2554",
+        "https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10",
+        "https://www.nist.gov/itl/ai-risk-management-framework/ai-rmf-playbook",
+        "https://www.nist.gov/news-events/news/2026/01/caisi-issues-request-information-about-securing-ai-agent-systems",
+        "https://www.nist.gov/news-events/news/2025/01/technical-blog-strengthening-ai-agent-hijacking-evaluations",
+        "https://aws.amazon.com/blogs/security/four-security-principles-for-agentic-ai-systems/",
+        "https://aws.amazon.com/blogs/security/the-agentic-ai-security-scoping-matrix-a-framework-for-securing-autonomous-ai-systems/",
+        "https://aws.amazon.com/ai/security/generative-ai-scoping-matrix/",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/add-tools-custom-agent#authentication-considerations-for-tools",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-data-loss-prevention",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/authoring-triggers-about",
+        "https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/digital-operational-resilience-act-dora",
+        "https://www.eba.europa.eu/regulation-and-policy/single-rulebook/interactive-single-rulebook/17716",
+        "https://www.brookings.edu/articles/keeping-workers-safe-in-the-automation-revolution/"
+      ],
+      "key_claims": [
+        "High confidence",
+        "Medium confidence",
+        "Medium confidence",
+        "Medium confidence",
+        "Medium confidence",
+        "Medium confidence",
+        "Medium confidence",
+        "Medium confidence"
       ]
     },
     "2026-04-24-business-led-low-code-agent-governance": {
