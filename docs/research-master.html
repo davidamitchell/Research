@@ -638,7 +638,7 @@ main {
   </div>
   <div class="research-master-content item-content">
     <h1>Research Master Document</h1>
-<p>Generated on: 2026-04-26 22:30 UTC</p>
+<p>Generated on: 2026-04-26 22:49 UTC</p>
 <p><a id="2026-04-26-systems-capability-debt-citizen-development-empirical-evidence-md"></a></p>
 <h2>Systems capability debt as the root cause of citizen development: empirical evidence and effective governance architectures</h2>
 <p><strong>Tags:</strong> [systems-capability-debt, citizen-development, shadow-it, operational-risk, governance, regulated-banking, nz-rbnz, pci-dss, microsoft-365, aws-bedrock, empirical-evidence]</p>
@@ -1527,6 +1527,114 @@ main {
 <li>[inference; source: https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-sharing-controls-limits; https://learn.microsoft.com/en-us/power-platform/alm/block-unmanaged-customizations] What is the least-privilege production role model for Copilot Studio that still allows monitoring and support but never allows direct publication?</li>
 <li>[inference; source: https://docs.github.com/en/actions/reference/workflows-and-actions/deployments-and-environments; https://learn.microsoft.com/en-us/azure/devops/pipelines/process/approvals?view=azure-devops] Which external gate host is operationally better for a regulated Microsoft low-code estate, GitHub Actions or Azure DevOps, once evidence capture, exceptions, and change-management integration are compared directly?</li>
 <li>[inference; source: https://learn.microsoft.com/en-us/power-platform/guidance/coe/starter-kit; https://learn.microsoft.com/en-us/power-platform/alm/extend-pipelines] What is the minimum metadata schema and system-of-record design required to operationalize owner registration, observability attestations, and blast-radius scoring at the release gate?</li>
+</ul>
+<hr />
+<hr />
+<p><a id="2026-04-26-ai-lowcode-sdlc-platform-engineering-integration-md"></a></p>
+<h2>How should AI and low-code governance integrate with existing software development and platform engineering practices?</h2>
+<p><strong>Tags:</strong> [sdlc, platform-engineering, ci-cd, devops, ai-governance, low-code, testing, release-management, infrastructure-as-code, enterprise-engineering]</p>
+<p><strong>Origin:</strong> https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-ai-lowcode-sdlc-platform-engineering-integration.md</p>
+<h2>Research Question</h2>
+<p>How should Artificial Intelligence (AI) and low-code governance integrate with existing software development and platform engineering practices, specifically, how should governance controls be integrated with Continuous Integration/Continuous Delivery (CI/CD) pipelines, infrastructure as code (IaC), testing frameworks, release management, and platform engineering standards to avoid fragmentation between traditional and AI or low-code delivery models?</p>
+<h2>Findings</h2>
+<h3>Executive Summary</h3>
+<p>[inference; source: https://csrc.nist.gov/pubs/sp/800/218/final; https://dora.dev/research/2024/dora-report/; https://learn.microsoft.com/en-us/power-platform/alm/pipelines] AI and low-code governance should be integrated into the same platform-engineering delivery system as conventional software, with any additional specialized assurance lane for higher-risk AI or low-code changes implemented as an extension of shared CI/CD, release, and environment controls rather than as a separate parallel process.</p>
+<p>[inference; source: https://docs.github.com/en/actions/reference/workflows-and-actions/deployments-and-environments; https://learn.microsoft.com/en-us/azure/devops/pipelines/process/approvals?view=azure-devops; https://learn.microsoft.com/en-us/power-platform/alm/block-unmanaged-customizations] Build pipelines can own repository-defined checks, but production promotion authority should stay on protected environments, resource-owned approvals, and low-code environment restrictions so that the release gate remains harder to bypass than a code change.</p>
+<p>[inference; source: https://docs.confident-ai.com/; https://docs.ragas.io/en/latest/; https://learn.microsoft.com/en-us/power-platform/alm/pipelines] AI testing belongs inside the ordinary test stack as scenario suites, regression thresholds, and experiment runs placed beside deterministic unit, dependency, and integration tests, because non-deterministic outputs need evidence loops rather than a separate quality discipline.</p>
+<p>[inference; source: https://backstage.io/docs/overview/what-is-backstage; https://backstage.io/docs/features/software-templates/; https://learn.microsoft.com/en-us/azure/foundry/how-to/create-resource-terraform] Platform teams should encode the governed path as templates, catalogs, modules, policy bundles, and deployment defaults so that teams start from a compliant scaffold instead of bolting governance on after delivery.</p>
+<h3>Key Findings</h3>
+<ol>
+<li>[inference; source: https://csrc.nist.gov/pubs/sp/800/218/final; https://dora.dev/research/2024/dora-report/] <strong>High:</strong> AI and low-code delivery should extend the existing SDLC rather than run a separate one, and when higher-risk changes need specialized assurance that lane should remain inside the shared delivery system because the SSDF is designed to integrate into each lifecycle implementation and DORA still ties software outcomes to testing, stability, and platform-engineering fundamentals.</li>
+<li>[inference; source: https://docs.github.com/en/actions/reference/workflows-and-actions/deployments-and-environments; https://docs.github.com/actions/deployment/protecting-deployments/configuring-custom-deployment-protection-rules; https://learn.microsoft.com/en-us/azure/devops/pipelines/process/approvals?view=azure-devops] <strong>High:</strong> The strongest pipeline split is repository-owned build logic plus resource-owned promotion authority, because protected environments, custom deployment gates, and approvals or checks outside YAML keep production release control independent from the change being proposed.</li>
+<li>[inference; source: https://docs.confident-ai.com/; https://docs.ragas.io/en/latest/; https://learn.microsoft.com/en-us/power-platform/alm/pipelines] <strong>High:</strong> AI-specific quality assurance should be inserted into the normal test stack, or into a higher-risk assurance lane that still uses the same release system, as evaluation suites and regression thresholds while low-code artifacts still undergo deterministic validation for dependencies, environment variables, and connector wiring.</li>
+<li>[inference; source: https://developer.hashicorp.com/terraform/docs; https://learn.microsoft.com/en-us/azure/foundry/how-to/create-resource-terraform; https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/bedrockagent_agent; https://openpolicyagent.org/docs/integration] <strong>High:</strong> IaC should cover AI platform resources, deployments, identities, environment defaults, and policy distribution wherever possible, because official Microsoft, Amazon, Terraform, and OPA sources all expose these surfaces as managed and reviewable configuration objects.</li>
+<li>[inference; source: https://learn.microsoft.com/en-us/microsoft-copilot-studio/publication-fundamentals-publish-channels; https://learn.microsoft.com/en-us/power-platform/alm/block-unmanaged-customizations; https://learn.microsoft.com/en-us/power-platform/admin/managed-environment-overview] <strong>Medium:</strong> Low-code governance is materially weaker when direct publication stays easier than governed promotion, because Copilot Studio supports in-product publishing and Microsoft separately documents environment controls that can force production changes back through approved ALM paths.</li>
+<li>[inference; source: https://backstage.io/docs/overview/what-is-backstage; https://backstage.io/docs/features/software-templates/; https://backstage.io/plugins/] <strong>Medium:</strong> IDPs should be the main platform-engineering vehicle for AI and low-code governance because templates, catalogs, docs, and plugins let teams inherit compliant repository structure, ownership metadata, and evidence hooks before development starts.</li>
+<li>[inference; source: https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-lifecycle-management.html; https://learn.microsoft.com/en-us/azure/ai-studio/how-to/flow-deploy; https://learn.microsoft.com/en-us/power-platform/alm/pipelines] <strong>Medium:</strong> Release management should promote code, prompt or model configuration, low-code packages, policy bundles, and environment metadata as one dependency-aware release set because each of those objects can materially change runtime behavior or rollback feasibility.</li>
+<li>[inference; source: https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-governance-enforcement-architecture.html; https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html; https://dora.dev/research/2024/dora-report/] <strong>Medium:</strong> The main organizational cost of fragmentation is not only duplicated process but weaker control authority, poorer evidence coherence, and lower change stability, because adjacent governance work and DORA both point to system design, not isolated checks, as the determinant of durable delivery quality.</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>Source</th>
+<th>Confidence</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[inference] AI and low-code delivery should extend the existing SDLC, with any higher-risk assurance lane kept inside the shared delivery system.</td>
+<td><a href="https://csrc.nist.gov/pubs/sp/800/218/final">NIST SP 800-218</a>; <a href="https://dora.dev/research/2024/dora-report/">DORA 2024</a></td>
+<td>high</td>
+<td>SSDF is lifecycle-integrated; DORA says AI does not remove the need for testing and stable delivery fundamentals.</td>
+</tr>
+<tr>
+<td>[inference] Production promotion authority should sit on protected environments or resource-owned checks, not only in repository pipeline code.</td>
+<td><a href="https://docs.github.com/en/actions/reference/workflows-and-actions/deployments-and-environments">GitHub environments</a>; <a href="https://docs.github.com/actions/deployment/protecting-deployments/configuring-custom-deployment-protection-rules">GitHub custom deployment protection rules</a>; <a href="https://learn.microsoft.com/en-us/azure/devops/pipelines/process/approvals?view=azure-devops">Azure DevOps approvals and checks</a></td>
+<td>high</td>
+<td>Each platform exposes non-repository-controlled approval or gating surfaces.</td>
+</tr>
+<tr>
+<td>[inference] AI quality assurance belongs beside conventional tests, or in a higher-risk assurance lane that still uses the same release system, as evaluation suites and regression thresholds.</td>
+<td><a href="https://docs.confident-ai.com/">DeepEval docs</a>; <a href="https://docs.ragas.io/en/latest/">Ragas docs</a>; <a href="https://learn.microsoft.com/en-us/power-platform/alm/pipelines">Power Platform pipelines</a></td>
+<td>high</td>
+<td>DeepEval and Ragas describe evaluation loops; Power Platform still performs deterministic deployment validation.</td>
+</tr>
+<tr>
+<td>[inference] IaC should cover AI platform resources, deployments, identities, defaults, and policy distribution wherever the platform exposes them as managed objects.</td>
+<td><a href="https://developer.hashicorp.com/terraform/docs">Terraform docs</a>; <a href="https://learn.microsoft.com/en-us/azure/foundry/how-to/create-resource-terraform">Microsoft Foundry Terraform</a>; <a href="https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/bedrockagent_agent">Terraform Bedrock agent resource</a>; <a href="https://openpolicyagent.org/docs/integration">OPA integration</a></td>
+<td>high</td>
+<td>Evidence spans generic IaC, Microsoft Foundry, Amazon Bedrock, and centralized policy management.</td>
+</tr>
+<tr>
+<td>[inference] Low-code governance is materially weaker when direct publication stays easier than governed promotion.</td>
+<td><a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/publication-fundamentals-publish-channels">Copilot Studio publish</a>; <a href="https://learn.microsoft.com/en-us/power-platform/alm/block-unmanaged-customizations">Block unmanaged customizations</a>; <a href="https://learn.microsoft.com/en-us/power-platform/admin/managed-environment-overview">Managed Environments overview</a></td>
+<td>medium</td>
+<td>The evidence is strong for Microsoft tooling, but cross-vendor generalization remains a synthesis step.</td>
+</tr>
+<tr>
+<td>[inference] IDPs should act as the main platform-engineering vehicle for AI and low-code governance defaults.</td>
+<td><a href="https://backstage.io/docs/overview/what-is-backstage">Backstage overview</a>; <a href="https://backstage.io/docs/features/software-templates/">Backstage software templates</a>; <a href="https://backstage.io/plugins/">Backstage plugins</a></td>
+<td>medium</td>
+<td>Official sources show the template, catalog, docs, and plugin mechanics; governance-specific implementation is a synthesis step.</td>
+</tr>
+<tr>
+<td>[inference] Release management should promote code, prompt or model configuration, low-code packages, policy bundles, and environment metadata as one dependency-aware release set.</td>
+<td><a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-lifecycle-management.html">Lifecycle management item</a>; <a href="https://learn.microsoft.com/en-us/azure/ai-studio/how-to/flow-deploy">Prompt Flow deployment</a>; <a href="https://learn.microsoft.com/en-us/power-platform/alm/pipelines">Power Platform pipelines</a></td>
+<td>medium</td>
+<td>Runtime behavior depends on more than source code, but the exact release-object recommendation remains a synthesis over adjacent evidence.</td>
+</tr>
+<tr>
+<td>[inference] Fragmentation weakens control authority, evidence coherence, and change stability rather than merely adding administrative overhead.</td>
+<td><a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-governance-enforcement-architecture.html">Enforcement architecture item</a>; <a href="https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html">Deployment pipeline item</a>; <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html">Control-plane architecture item</a>; <a href="https://dora.dev/research/2024/dora-report/">DORA 2024</a></td>
+<td>medium</td>
+<td>The conclusion is a cross-source synthesis over several governance surfaces rather than one direct quote.</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li>[inference; source: https://docs.confident-ai.com/; https://docs.ragas.io/en/latest/] This item does not rely on a separate unresolved assumption beyond the interpretive steps already marked as inference.</li>
+</ul>
+<h3>Analysis</h3>
+<p>[inference; source: https://csrc.nist.gov/pubs/sp/800/218/final; https://docs.github.com/en/actions/reference/workflows-and-actions/deployments-and-environments; https://learn.microsoft.com/en-us/azure/devops/pipelines/process/approvals?view=azure-devops] The strongest evidence supported reusing the existing engineering operating model because secure-development guidance and delivery platforms already separate mutable build logic from protected promotion authority.</p>
+<p>[inference; source: https://csrc.nist.gov/pubs/sp/800/218/final; https://dora.dev/research/2024/dora-report/; https://docs.confident-ai.com/; https://docs.ragas.io/en/latest/] A plausible competing model is a shared SDLC baseline plus a specialized assurance lane for higher-risk AI or low-code changes, and the evidence supports that variation only when the additional lane remains an overlay inside the same delivery and release system rather than becoming a separate end-to-end process.</p>
+<p>[inference; source: https://docs.confident-ai.com/; https://docs.ragas.io/en/latest/] AI evaluation tooling was treated as an extension to testing rather than as a replacement because both reviewed frameworks emphasize iterative experiments, metrics, and repeated runs instead of definitive one-shot judgments.</p>
+<p>[inference; source: https://learn.microsoft.com/en-us/microsoft-copilot-studio/publication-fundamentals-publish-channels; https://learn.microsoft.com/en-us/power-platform/alm/block-unmanaged-customizations] Low-code evidence was weighted heavily because the reviewed Microsoft documentation shows both sides of the governance problem directly, namely the native bypass path and the native administrative control that blocks it.</p>
+<p>[inference; source: https://backstage.io/docs/overview/what-is-backstage; https://learn.microsoft.com/en-us/azure/foundry/how-to/create-resource-terraform; https://openpolicyagent.org/docs/integration] The platform-engineering synthesis favored templates, modules, and policy distribution over checklist governance because those are the mechanisms that can scale across teams without depending on perfect manual compliance.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>[inference; source: https://docs.confident-ai.com/; https://docs.ragas.io/en/latest/] The reviewed AI evaluation sources clearly support CI integration, but they do not by themselves define sector-wide accepted pass thresholds for every enterprise use case.</li>
+<li>[inference; source: https://learn.microsoft.com/en-us/azure/ai-studio/how-to/flow-deploy] Microsoft is retiring Prompt Flow, so any release design built around that exact artifact needs migration planning and should not be treated as a durable long-term control surface.</li>
+<li>[inference; source: https://backstage.io/plugins/] Backstage's plugin ecosystem proves extensibility, but the evidence reviewed here does not show one standardized off-the-shelf plugin that already solves enterprise AI governance end to end.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>[inference; source: https://docs.confident-ai.com/; https://docs.ragas.io/en/latest/] Which evaluation-threshold patterns are reliable enough for regulated production promotion of customer-facing AI systems across repeated model upgrades?</li>
+<li>[inference; source: https://learn.microsoft.com/en-us/azure/foundry/how-to/create-resource-terraform; https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/bedrockagent_agent] Which portions of AI platform governance remain stubbornly outside declarative IaC and therefore require compensating runtime controls or post-deploy verification?</li>
+<li>[inference; source: https://backstage.io/docs/features/software-templates/; https://learn.microsoft.com/en-us/power-platform/alm/pipelines] How should an enterprise connect low-code pipeline metadata, AI evaluation results, and repository catalogs into one evidence object that auditors and release managers can read without tool hopping?</li>
 </ul>
 <hr />
 <hr />

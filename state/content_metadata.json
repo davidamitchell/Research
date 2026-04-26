@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-04-26T22:49:27Z",
+  "extracted_at": "2026-04-26T23:09:58Z",
   "items": {
     "2026-04-26-systems-capability-debt-citizen-development-empirical-evidence": {
       "named_concepts": [
@@ -437,6 +437,61 @@
         "[fact;",
         "[fact;",
         "[assumption;",
+        "[fact;",
+        "[inference;",
+        "[inference;",
+        "[inference;"
+      ]
+    },
+    "2026-04-26-data-governance-ai-lowcode-enterprise-enforcement": {
+      "named_concepts": [
+        "power platform",
+        "catalog metadata",
+        "lake formation",
+        "label-aware retrieval",
+        "catalog lineage",
+        "live checks",
+        "low-code systems",
+        "reviewed microsoft",
+        "microsoft documentation",
+        "native chain",
+        "classification metadata",
+        "runtime control",
+        "labels persist",
+        "azure ai",
+        "ai search",
+        "violating low-code",
+        "low-code assets",
+        "runtime controls",
+        "enforcement depends",
+        "connector blocking"
+      ],
+      "source_urls": [
+        "https://learn.microsoft.com/en-us/purview/purview",
+        "https://learn.microsoft.com/en-us/purview/ai-agents",
+        "https://learn.microsoft.com/en-us/purview/developer/secure-ai-with-purview",
+        "https://learn.microsoft.com/en-us/purview/sensitivity-labels",
+        "https://learn.microsoft.com/en-us/purview/data-gov-classic-lineage",
+        "https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention",
+        "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/governance-security-across-organization",
+        "https://gdpr-info.eu/art-5-gdpr/",
+        "https://www.nist.gov/privacy-framework",
+        "https://productresources.collibra.com/docs/collibra/latest/Content/AIGovernance/co_about-ai-governance.htm",
+        "https://productresources.collibra.com/docs/collibra/dqc/latest/Content/DataQuality/DQAdmin/co_sensitive-labels.htm",
+        "https://handbook.apra.gov.au/node/115112",
+        "https://mlflow.org/docs/latest/ml/dataset/",
+        "https://mlflow.org/docs/latest/genai/concepts/trace/",
+        "https://docs.aws.amazon.com/glue/latest/dg/security-lf-enable.html",
+        "https://docs.aws.amazon.com/lake-formation/latest/dg/tag-based-access-control.html",
+        "https://docs.aws.amazon.com/datazone/latest/userguide/datazone-data-lineage.html",
+        "https://docs.aws.amazon.com/whitepapers/latest/data-classification/data-classification-overview.html",
+        "https://www.alation.com/blog/data-governance-for-ai-agents-what-you-need-to-know/"
+      ],
+      "key_claims": [
+        "[inference;",
+        "[fact;",
+        "[fact;",
+        "[inference;",
         "[fact;",
         "[inference;",
         "[inference;",

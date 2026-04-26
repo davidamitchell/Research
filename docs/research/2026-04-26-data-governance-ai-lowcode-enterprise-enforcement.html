@@ -1,0 +1,743 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>AI and visual, minimal-code application environments? — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #0f1115;
+  --surface-2:       #161b22;
+  --border:          #252b33;
+  --text:            #e6e6e6;
+  --text-muted:      #666;
+  --accent:          #e6e6e6;
+  --accent-dim:      #333;
+  --tag-bg:          #161b22;
+  --tag-text:        #999;
+  --tag-active-bg:   #e6e6e6;
+  --tag-active-text: #0f1115;
+  --link:            #00C3A5;
+  --teal:            #00C3A5;
+  --dusk:            #E8A1A8;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  overflow-x: clip;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.75rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+.nav-links a.active { color: var(--teal); }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--teal); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+  min-width: 0;
+}
+.card:hover { border-color: var(--teal); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  word-break: break-word;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4em;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.item-title svg { flex-shrink: 0; margin-top: 0.2em; }
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+  word-break: break-all;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+  max-width: 100%;
+}
+.item-content pre code { background: none; padding: 0; word-break: normal; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--teal); text-decoration: underline; }
+.item-content a:hover { color: var(--text); text-decoration: underline; }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--dusk);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    top: 0;
+    height: auto;
+    padding: 0.5rem 1rem;
+  }
+  .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .nav-links {
+    width: 100%;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  main {
+    padding: 1.5rem 1rem 4rem;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; overflow: hidden; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); word-break: break-word; overflow-wrap: break-word; }
+.key-claims li:last-child { border-bottom: none; }
+.key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
+.key-claims a:hover { color: var(--text); }
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); flex-wrap: wrap; }
+.related-entry:last-child { border-bottom: none; }
+.related-entry a { color: var(--teal); word-break: break-word; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--dusk); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4em; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--teal); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-card-link { text-decoration: none; color: var(--text); display: block; }
+.thread-card-link:hover .thread-card { background: var(--surface-2); }
+.thread-card { background: var(--surface); border: 1px solid var(--border); padding: 1.5rem 1.75rem 1.75rem; }
+.thread-card-title { font-size: var(--text-base); font-weight: 600; margin-bottom: 0.5rem; }
+.thread-card-meta { font-size: var(--text-xs); color: var(--text-muted); margin-bottom: 0.75rem; letter-spacing: 0.05em; }
+.thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
+.thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Research</a>
+    <div class="nav-links">
+      <a href="/Research/threads.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>Threads</a>
+      <a href="/Research/tags/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>Tags</a>
+      <a href="/Research/search.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M8 1.5C4.41 1.5 1.5 4.41 1.5 8c0 2.87 1.86 5.3 4.44 6.16.32.06.44-.14.44-.31v-1.09c-1.8.39-2.18-.87-2.18-.87-.3-.75-.72-.95-.72-.95-.59-.4.04-.4.04-.4.65.05 1 .67 1 .67.58 1 1.53.71 1.9.54.06-.42.23-.71.41-.87-1.44-.16-2.95-.72-2.95-3.2 0-.71.25-1.28.67-1.74-.07-.16-.29-.82.06-1.71 0 0 .55-.18 1.8.67a6.27 6.27 0 0 1 3.28 0c1.25-.85 1.8-.67 1.8-.67.35.89.13 1.55.06 1.71.42.46.67 1.03.67 1.74 0 2.49-1.51 3.04-2.96 3.2.23.2.44.6.44 1.21v1.8c0 .17.12.37.44.31A6.5 6.5 0 0 0 14.5 8 6.5 6.5 0 0 0 8 1.5z"/></svg>GitHub</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>AI and visual, minimal-code application environments?</span>
+  </div>
+  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>AI and visual, minimal-code application environments?</h1>
+  <p class="full-title-subtitle">How can enterprise data governance frameworks be consistently enforced within Artificial Intelligence (AI) and visual, minimal-code application environments?</p>
+  <div class="meta-bar">
+    <span>2026-04-26</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/data-governance.html">data-governance</a> <a class="tag" href="/Research/tags/ai-governance.html">ai-governance</a> <a class="tag" href="/Research/tags/low-code.html">low-code</a> <a class="tag" href="/Research/tags/access-control.html">access-control</a> <a class="tag" href="/Research/tags/regulated-enterprise.html">regulated-enterprise</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-data-governance-ai-lowcode-enterprise-enforcement.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-04-26-data-governance-ai-lowcode-enterprise-enforcement" target="_blank" rel="noopener">wiki →</a>
+  </div>
+  <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>[inference;</li>
+<li>[fact;</li>
+<li>[fact;</li>
+<li>[inference;</li>
+<li>[fact;</li>
+<li>[inference;</li>
+<li>[inference;</li>
+<li>[inference;</li>
+</ol></div>
+
+  <div class="item-content">
+    <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
+<p>How can enterprise data governance frameworks be consistently enforced within Artificial Intelligence (AI) and visual, minimal-code application environments, specifically, how should data classification schemes, records of where data originated, how it moved, and how it was transformed, access control policies, and restrictions on sensitive data (personal, financial, regulated) be applied and enforced across all AI and low-code execution paths?</p>
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Findings</h2>
+<h3>Executive Summary</h3>
+<p>[inference; source: <a href="https://learn.microsoft.com/en-us/purview/developer/secure-ai-with-purview">Use Microsoft Purview capabilities to develop and deploy secure and compliant Microsoft Foundry or custom AI apps</a> <a href="https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention">Data policies overview for Power Platform</a> <a href="https://docs.aws.amazon.com/glue/latest/dg/security-lf-enable.html]">docs.aws.amazon.com</a> Enterprise data governance is only consistently enforceable in AI and low-code systems when catalog metadata is translated into runtime authorization, connector, retrieval, and output controls that execute against the invoking identity.
+[fact; source: <a href="https://learn.microsoft.com/en-us/purview/sensitivity-labels">Learn about sensitivity labels</a> <a href="https://learn.microsoft.com/en-us/purview/developer/secure-ai-with-purview">Use Microsoft Purview capabilities to develop and deploy secure and compliant Microsoft Foundry or custom AI apps</a> <a href="https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention]">learn.microsoft.com</a> The reviewed Microsoft documentation shows a native chain from classification metadata to runtime control, because Purview labels persist with content, Azure AI Search can enforce label-aware query filtering, and Power Platform data policies can suspend or disable violating low-code assets at runtime.
+[inference; source: <a href="https://docs.aws.amazon.com/glue/latest/dg/security-lf-enable.html">Using AWS Glue with AWS Lake Formation for fine-grained access control</a> <a href="https://docs.aws.amazon.com/lake-formation/latest/dg/tag-based-access-control.html">Lake Formation tag-based access control</a> <a href="https://docs.aws.amazon.com/datazone/latest/userguide/datazone-data-lineage.html]">docs.aws.amazon.com</a> AWS reaches similar control outcomes through a composed pattern, with Glue Data Catalog for metadata, Lake Formation and IAM for access enforcement, and DataZone for lineage, which means the catalog itself is not the sole enforcement endpoint.
+[inference; source: <a href="https://productresources.collibra.com/docs/collibra/latest/Content/AIGovernance/co_about-ai-governance.htm">About Collibra AI Governance</a> <a href="https://www.alation.com/blog/data-governance-for-ai-agents-what-you-need-to-know/">Data governance for AI agents: what you need to know</a> <a href="https://mlflow.org/docs/latest/genai/concepts/trace/]">mlflow.org</a> Collibra, Alation, and MLflow are valuable governance, lineage, and trace layers, but they do not remove the need for explicit runtime controls in AI applications, retrieval layers, connector engines, and low-code orchestration.</p>
+<h3>Key Findings</h3>
+<ol>
+<li><strong>[high]</strong> [inference; source: <a href="https://learn.microsoft.com/en-us/purview/developer/secure-ai-with-purview">Use Microsoft Purview capabilities to develop and deploy secure and compliant Microsoft Foundry or custom AI apps</a> <a href="https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention">Data policies overview for Power Platform</a> <a href="https://docs.aws.amazon.com/glue/latest/dg/security-lf-enable.html]">docs.aws.amazon.com</a> Enterprise data governance frameworks are not self-enforcing in AI and low-code environments, because every reviewed platform requires a separate runtime component such as middleware, query-time filters, connector policy, or Lake Formation-backed execution to turn catalog metadata into actual allow, deny, or filter decisions.</li>
+<li><strong>[high]</strong> [fact; source: <a href="https://learn.microsoft.com/en-us/purview/sensitivity-labels">Learn about sensitivity labels</a> <a href="https://learn.microsoft.com/en-us/purview/ai-agents">Use Microsoft Purview to manage data security and compliance for AI agents</a> <a href="https://learn.microsoft.com/en-us/purview/developer/secure-ai-with-purview]">learn.microsoft.com</a> Microsoft documentation shows a native chain from classification metadata to runtime control, because sensitivity labels persist with content, supported agent surfaces inherit information-protection controls, and Microsoft documents APIs plus Azure AI Search integrations that honor labels and prevent oversharing during retrieval and response generation.</li>
+<li><strong>[medium]</strong> [fact; source: <a href="https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention]">learn.microsoft.com</a> Power Platform data policies are a genuine runtime governance surface for low-code systems, because they can block certified, custom, virtual, and Model Context Protocol (MCP) connectors, suspend or quarantine violating apps and flows, disable blocked connections, and force blocked resources to fail when they execute.</li>
+<li><strong>[high]</strong> [inference; source: <a href="https://learn.microsoft.com/en-us/purview/data-gov-classic-lineage">Data lineage in classic Microsoft Purview Data Catalog</a> <a href="https://docs.aws.amazon.com/datazone/latest/userguide/datazone-data-lineage.html">Data lineage in Amazon DataZone</a> <a href="https://mlflow.org/docs/latest/genai/concepts/trace/]">mlflow.org</a> AI data governance requires two linked lineage layers, one for enterprise data movement and transformation and another for runtime prompts, retrieved documents, tool calls, and outputs, because no reviewed catalog product alone captured the full execution path of an AI or low-code workflow.</li>
+<li><strong>[high]</strong> [fact; source: <a href="https://docs.aws.amazon.com/whitepapers/latest/data-classification/data-classification-overview.html">Data classification overview</a> <a href="https://docs.aws.amazon.com/glue/latest/dg/security-lf-enable.html">Using AWS Glue with AWS Lake Formation for fine-grained access control</a> <a href="https://docs.aws.amazon.com/lake-formation/latest/dg/tag-based-access-control.html]">docs.aws.amazon.com</a> AWS Glue Data Catalog can support classification and metadata sharing, but consistent enforcement depends on coupling catalog resources to Lake Formation tags and permissions plus IAM rights, so the effective enforcement point sits in Lake Formation-governed execution rather than in the catalog entry itself.</li>
+<li><strong>[medium]</strong> [inference; source: <a href="https://productresources.collibra.com/docs/collibra/latest/Content/AIGovernance/co_about-ai-governance.htm">About Collibra AI Governance</a> <a href="https://productresources.collibra.com/docs/collibra/dqc/latest/Content/DataQuality/DQAdmin/co_sensitive-labels.htm">Sensitive Labels</a> <a href="https://www.alation.com/blog/data-governance-for-ai-agents-what-you-need-to-know/]">www.alation.com</a> Collibra and Alation are best understood as governance-control-plane products for registry, workflow, classification, and lineage, not as independent runtime enforcement layers, because the reviewed materials emphasize documentation, lifecycle, labels, and compliance tracking more than direct prompt, retrieval, or connector blocking.</li>
+<li><strong>[medium]</strong> [inference; source: <a href="https://gdpr-info.eu/art-5-gdpr/">Art. 5 GDPR - Principles relating to processing of personal data</a> <a href="https://handbook.apra.gov.au/node/115112">CPG 235 Managing Data Risk</a> <a href="https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/governance-security-across-organization">Governance and security for AI agents across the organization</a> <a href="https://learn.microsoft.com/en-us/purview/developer/secure-ai-with-purview]">learn.microsoft.com</a> Personal, financial, and other regulated data should default to live entitlement checks, least-privilege connector access, DLP inspection before model input and outbound transmission, and tightly bounded retention, because privacy and prudential guidance treat unnecessary processing or disclosure of sensitive data as a control failure rather than as a mere governance exception.</li>
+<li><strong>[medium]</strong> [inference; source: <a href="https://davidamitchell.github.io/Research/research/2026-04-26-permission-safe-rag-enterprise-information-architecture.html">davidamitchell.github.io</a> <a href="https://learn.microsoft.com/en-us/purview/developer/secure-ai-with-purview">Use Microsoft Purview capabilities to develop and deploy secure and compliant Microsoft Foundry or custom AI apps</a> <a href="https://docs.aws.amazon.com/glue/latest/dg/security-lf-enable.html]">docs.aws.amazon.com</a> Restricted and permission-variable data should avoid static copied indexes, exports, or cached memories unless entitlements are synchronized at query time or execution time, because prior repository research and current vendor documentation both show that copied permission models become fragile when access rights or sharing boundaries change.</li>
+</ol>
+<h3>Assumptions</h3>
+<ul>
+<li>[assumption; source: <a href="https://www.alation.com/blog/data-governance-for-ai-agents-what-you-need-to-know/]">www.alation.com</a> <strong>Assumption:</strong> Alation capability claims are treated as vendor-positioning evidence rather than as independently verified product mechanics. <strong>Justification:</strong> the official Alation source reviewed in this session was a vendor blog, not a product-reference page.</li>
+<li>[assumption; source: <a href="https://learn.microsoft.com/en-us/purview/sensitivity-labels">Learn about sensitivity labels</a> <a href="https://docs.aws.amazon.com/lake-formation/latest/dg/tag-based-access-control.html]">docs.aws.amazon.com</a> <strong>Assumption:</strong> The synthesized tier model below assumes enterprises map local labels or tags into a common operating pattern of public, internal, confidential, and restricted or regulated handling. <strong>Justification:</strong> the reviewed sources describe labels and tags but do not prescribe a universal four-tier taxonomy across vendors.</li>
+</ul>
+<h3>Analysis</h3>
+<p>[inference; source: <a href="https://learn.microsoft.com/en-us/purview/developer/secure-ai-with-purview">Use Microsoft Purview capabilities to develop and deploy secure and compliant Microsoft Foundry or custom AI apps</a> <a href="https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention">Data policies overview for Power Platform</a> <a href="https://docs.aws.amazon.com/glue/latest/dg/security-lf-enable.html]">docs.aws.amazon.com</a> The evidence was weighted toward platform documentation that described where decisions are actually executed, because the research question is about enforcement rather than about catalog completeness or governance-process maturity.
+[inference; source: <a href="https://learn.microsoft.com/en-us/purview/sensitivity-labels">Learn about sensitivity labels</a> <a href="https://docs.aws.amazon.com/lake-formation/latest/dg/tag-based-access-control.html]">docs.aws.amazon.com</a> Across vendors, the scalable pattern is attribute-linked authorization: a label or tag captures classification, and a runtime surface uses that attribute to decide whether a request, query, tool call, or connector action can proceed.
+[inference; source: <a href="https://learn.microsoft.com/en-us/purview/data-gov-classic-lineage">Data lineage in classic Microsoft Purview Data Catalog</a> <a href="https://docs.aws.amazon.com/datazone/latest/userguide/datazone-data-lineage.html">Data lineage in Amazon DataZone</a> <a href="https://mlflow.org/docs/latest/genai/concepts/trace/]">mlflow.org</a> Lineage had to be split into estate lineage and runtime lineage because governance teams need both provenance of source data and proof of what a specific AI or low-code execution actually touched.
+[inference; source: <a href="https://learn.microsoft.com/en-us/purview/sensitivity-labels">Learn about sensitivity labels</a> <a href="https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/governance-security-across-organization">Governance and security for AI agents across the organization</a> <a href="https://learn.microsoft.com/en-us/purview/developer/secure-ai-with-purview">Use Microsoft Purview capabilities to develop and deploy secure and compliant Microsoft Foundry or custom AI apps</a> <a href="https://docs.aws.amazon.com/lake-formation/latest/dg/tag-based-access-control.html]">docs.aws.amazon.com</a> A practical tier model is: public data can use ordinary authorization and standard logging; internal data adds approved-connector and ownership controls; confidential data adds label-aware retrieval, runtime traceability, and restricted outbound connectors; restricted or regulated data adds live entitlement checks, pre-input and pre-output DLP inspection, and a default ban on static copied stores unless explicitly approved.
+[inference; source: <a href="https://gdpr-info.eu/art-5-gdpr/">Art. 5 GDPR - Principles relating to processing of personal data</a> <a href="https://handbook.apra.gov.au/node/115112">CPG 235 Managing Data Risk</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-26-permission-safe-rag-enterprise-information-architecture.html]">davidamitchell.github.io</a> The practical trade-off is between the implementation convenience of copied stores and the control fidelity of live checks, with higher-sensitivity and more permission-volatile data pushing strongly toward live checks or label-aware retrieval over static copies.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>[fact; source: <a href="https://www.alation.com/blog/data-governance-for-ai-agents-what-you-need-to-know/]">www.alation.com</a> The Alation evidence base in this item is thinner than the Microsoft, AWS, and Collibra evidence base because it relied on official vendor blog material rather than product-reference documentation.</li>
+<li>[fact; source: <a href="https://handbook.apra.gov.au/node/115112]">handbook.apra.gov.au</a> The seeded APRA PDF URL was dead during this session, although the official APRA Handbook page exposed the necessary guidance content.</li>
+<li>[fact; source: <a href="https://www.nist.gov/privacy-framework]">www.nist.gov</a> The National Institute of Standards and Technology (NIST) Privacy Framework page establishes the framework's purpose and voluntary status, but this item did not rely on detailed subcategory mapping from the framework core because the fetched Portable Document Format (PDF) content was not cleanly machine-readable in this environment.</li>
+<li>[inference; source: <a href="https://learn.microsoft.com/en-us/purview/ai-agents">Use Microsoft Purview to manage data security and compliance for AI agents</a> <a href="https://learn.microsoft.com/en-us/purview/developer/secure-ai-with-purview]">learn.microsoft.com</a> Some Microsoft Purview AI pages are partially authorization-gated in rendered form, so this item limits itself to claims that were visible in the accessible page content.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>[inference; source: <a href="https://productresources.collibra.com/docs/collibra/latest/Content/AIGovernance/co_about-ai-governance.htm">About Collibra AI Governance</a> <a href="https://www.alation.com/blog/data-governance-for-ai-agents-what-you-need-to-know/]">www.alation.com</a> Which runtime integrations do Collibra and Alation customers actually deploy most often to convert catalog policy into AI prompt-time or low-code execution-time controls?</li>
+<li>[inference; source: <a href="https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention]">learn.microsoft.com</a> How should enterprises design compensating controls for the documented Power Platform policy-propagation window when emergency connector blocking is required faster than the normal propagation cycle?</li>
+<li>[inference; source: <a href="https://mlflow.org/docs/latest/genai/concepts/trace/">Trace Concepts</a> <a href="https://learn.microsoft.com/en-us/purview/data-gov-classic-lineage]">learn.microsoft.com</a> What is the cleanest enterprise pattern for joining catalog lineage graphs with AI runtime traces so that a single investigation can traverse from source record to generated output without manual correlation?</li>
+</ul>
+<hr />
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
+<ul>
+<li>[x] <a href="https://learn.microsoft.com/en-us/purview/purview">Learn about Microsoft Purview</a> - primary Microsoft overview for data security, governance, and compliance in AI-era estates</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/purview/ai-agents">Use Microsoft Purview to manage data security and compliance for AI agents</a> - official Microsoft matrix for Purview controls across Foundry, Copilot Studio, and related agent surfaces</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/purview/developer/secure-ai-with-purview">Use Microsoft Purview capabilities to develop and deploy secure and compliant Microsoft Foundry or custom AI apps</a> - official Microsoft description of runtime integration, oversharing prevention, and DLP enforcement hooks</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/purview/sensitivity-labels">Learn about sensitivity labels</a> - official Microsoft source for persistent classification and protection behavior</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/purview/data-gov-classic-lineage">Data lineage in classic Microsoft Purview Data Catalog</a> - official Microsoft source for entity, column, and process-execution lineage</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention">Data policies overview for Power Platform</a> - official Microsoft source for low-code connector restrictions, runtime suspension, and policy propagation</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/governance-security-across-organization">Governance and security for AI agents across the organization</a> - official Microsoft guidance linking identity, permissions, Purview controls, and runtime guardrails</li>
+<li>[x] <a href="https://gdpr-info.eu/art-5-gdpr/">Art. 5 GDPR - Principles relating to processing of personal data</a> - accessible text of Article 5 used for personal-data restriction principles in AI and low-code processing</li>
+<li>[x] <a href="https://www.nist.gov/privacy-framework">NIST Privacy Framework</a> - official National Institute of Standards and Technology (NIST) privacy-governance framework overview</li>
+<li>[x] <a href="https://productresources.collibra.com/docs/collibra/latest/Content/AIGovernance/co_about-ai-governance.htm">About Collibra AI Governance</a> - official Collibra description of AI use-case registry, model registry, and dataset-governance workflow</li>
+<li>[x] <a href="https://productresources.collibra.com/docs/collibra/dqc/latest/Content/DataQuality/DQAdmin/co_sensitive-labels.htm">Sensitive Labels</a> - official Collibra documentation for sensitive-label management in Data Quality and Observability Classic</li>
+<li>[x] <a href="https://handbook.apra.gov.au/node/115112">CPG 235 Managing Data Risk</a> - official Australian Prudential Regulation Authority (APRA) guidance page replacing the dead seeded PDF URL</li>
+<li>[x] <a href="https://mlflow.org/docs/latest/ml/dataset/">MLflow Dataset Tracking</a> - official MLflow source for dataset lineage, source tracking, and versioning</li>
+<li>[x] <a href="https://mlflow.org/docs/latest/genai/concepts/trace/">Trace Concepts</a> - official MLflow source for request, response, retrieval, and tool-call trace capture in AI systems</li>
+<li>[x] <a href="https://docs.aws.amazon.com/glue/latest/dg/security-lf-enable.html">Using AWS Glue with AWS Lake Formation for fine-grained access control</a> - official Amazon Web Services (AWS) source for row, column, and cell-level enforcement tied to cataloged tables</li>
+<li>[x] <a href="https://docs.aws.amazon.com/lake-formation/latest/dg/tag-based-access-control.html">Lake Formation tag-based access control</a> - official AWS source for attribute-based authorization over catalog resources</li>
+<li>[x] <a href="https://docs.aws.amazon.com/datazone/latest/userguide/datazone-data-lineage.html">Data lineage in Amazon DataZone</a> - official AWS source for OpenLineage-compatible lineage over Glue, Redshift, and catalog consumption</li>
+<li>[x] <a href="https://docs.aws.amazon.com/whitepapers/latest/data-classification/data-classification-overview.html">Data classification overview</a> - official AWS guidance on using the Glue Data Catalog in a classification program</li>
+<li>[x] <a href="https://www.alation.com/blog/data-governance-for-ai-agents-what-you-need-to-know/">Data governance for AI agents: what you need to know</a> - official vendor material used to assess Alation's claimed AI-governance surface</li>
+</ul>
+
+
+  </div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-04-26-ai-lowcode-risk-tier-classification-controls.html">How should Artificial Intelligence (AI) and low-code use cases be classified into risk tiers, and how should governance controls vary across those tiers?</a> <span class="related-note">via ai-governance, low-code, regulated-enterprise</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-26-ai-lowcode-sdlc-platform-engineering-integration.html">How should AI and low-code governance integrate with existing software development and platform engineering practices?</a> <span class="related-note">via ai-governance, low-code</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-26-ai-lowcode-regulatory-compliance-alignment.html">How can enterprise Artificial Intelligence (AI) and low-code governance frameworks be aligned with regulatory and compliance requirements?</a> <span class="related-note">via ai-governance, low-code</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html">What observability and telemetry model is required to govern Artificial Intelligence (AI) and low-code systems at scale?</a> <span class="related-note">via ai-governance, low-code</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-26-ai-lowcode-governance-enforcement-architecture.html">Where should governance enforcement points be implemented within enterprise architecture, and how should controls be applied consistently for AI and low-code systems?</a> <span class="related-note">via ai-governance, low-code</span></div>
+</div></div>
+
+  <div class="item-nav">
+    
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-04-26-ai-lowcode-sdlc-platform-engineering-integration.html">How should AI and low-code governance integrate with existing software…</a></div>
+  </div>
+</main>
+</body>
+</html>
