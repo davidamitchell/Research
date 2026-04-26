@@ -2,12 +2,12 @@
 review_count: 2
 title: "How should decision rights, accountability, and liability be structured for Artificial Intelligence (AI) systems and low-code applications in enterprise environments?"
 added: 2026-04-26T10:11:11+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: [2026-04-26-human-in-the-loop-ai-automated-workflows, 2026-04-26-ai-agent-control-plane-architecture-enterprise, 2026-04-26-ai-lowcode-governance-maturity-model]
 tags: [decision-rights, accountability, liability, raci, governance, ai-systems, low-code, enterprise-governance, operational-risk, escalation]
 started: 2026-04-26T18:16:34+00:00
-completed: ~
+completed: 2026-04-26T18:31:47+00:00
 output: [knowledge]
 ---
 

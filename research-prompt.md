@@ -124,7 +124,9 @@ aligned.
   reformulations of the research question, findings that apply generically to all
   research items, or findings that consist only of a label without a claim.
 - **Evidence Map** -- table: claim | source | confidence | notes. Every Key
-  Finding must appear here.
+  Finding must appear here. **The `source` cell in every row must contain one or
+  more URL-backed citations or DOIs, not only source names or shorthand labels,
+  so the row is independently verifiable on its own.**
 - **Assumptions** -- each assumption and its justification. Must match
   **[assumption]** labels in §2 Investigation.
 - **Analysis** -- how evidence was weighed, trade-offs identified, competing
@@ -252,7 +254,9 @@ easily-detectable issues.
     every Evidence Map row as claim-bearing prose, not as exempt scaffolding.
     Context sentences that assert factual or behavioral claims need inline
     labels and source binding, and every Evidence Map claim cell must begin
-    with `[fact]`, `[inference]`, or `[assumption]`. If a seed video, transcript,
+    with `[fact]`, `[inference]`, or `[assumption]`. Every Evidence Map
+    **source** cell must also contain URL-backed citations or DOIs rather than
+    bare source names. If a seed video, transcript,
     or other listed source was inaccessible in this session, do **not** cite it
     as direct support for downstream factual claims in Findings; either remove
     the citation, downgrade the claim, or mark the dependency as an assumption.
