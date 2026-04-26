@@ -1,12 +1,12 @@
 ---
 title: "Research loop evaluation rubric: LLM-as-judge specification for this repository's research loop agent"
-added: 2026-03-10
+added: 2026-03-14T07:48:55+00:00
 status: completed
 priority: high
 blocks: []
 tags: [agents, evaluation, rubric, research-loop, llm-as-judge, regression, quality-gate, ci]
-started: 2026-03-14
-completed: 2026-03-14
+started: 2026-03-14T07:48:55+00:00
+completed: 2026-03-14T07:48:55+00:00
 output: [knowledge, artefact]
 ---
 

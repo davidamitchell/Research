@@ -1,13 +1,13 @@
 ---
 review_count: 2
 title: "Access control amplification under agentic operations: whether existing frameworks address the worst-case permission inheritance problem"
-added: 2026-04-26
+added: 2026-04-26T07:40:17+00:00
 status: completed
 priority: high
 blocks: [2026-04-26-agentic-ai-foundational-conditions-dependency-ordering]
 tags: [access-control, agentic-ai, amplification, nist, apra-cps-230, dora, least-privilege, zero-trust, regulated-banking]
-started: 2026-04-26
-completed: 2026-04-26
+started: 2026-04-26T07:40:17+00:00
+completed: 2026-04-26T07:40:17+00:00
 output: [knowledge]
 ---
 

@@ -1,11 +1,11 @@
 ---
 title: "Knowledge Representation for Agent Context: LSE, Knowledge Graphs, Concept Maps, and Document Compression for Large-Scale Context Management"
-added: 2026-03-03
+added: 2026-03-03T09:58:16+00:00
 status: completed
 priority: high
 tags: [lse, lsa, knowledge-graphs, concept-maps, document-compression, context-management, rag, agents, knowledge-layering, intent-alignment, graphrag]
-started: 2026-03-03
-completed: 2026-03-03
+started: 2026-03-03T09:58:16+00:00
+completed: 2026-03-03T09:58:16+00:00
 output: [knowledge, backlog-item]
 ---
 

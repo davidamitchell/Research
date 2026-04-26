@@ -1,13 +1,13 @@
 ---
 review_count: 1
 title: "Prompt injection threat landscape: exploits, defences, and active research in agentic artificial intelligence (AI) systems"
-added: 2026-03-15
+added: 2026-03-19T06:58:09+00:00
 status: completed
 priority: high
 blocks: []
 tags: [prompt-injection, security, llm, agents, adversarial, owasp, mitre-atlas, red-team, ai-governance]
-started: 2026-03-18
-completed: 2026-03-19
+started: 2026-03-19T06:58:09+00:00
+completed: 2026-03-19T06:58:09+00:00
 output: [knowledge]
 ---
 

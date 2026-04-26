@@ -1,12 +1,12 @@
 ---
 title: "Latent Concept Extraction from Confluence: Embeddings, Knowledge Graphs, and Epistemic Evaluation"
-added: 2026-03-15
+added: 2026-03-16T09:16:52+00:00
 status: completed
 priority: high  # low | medium | high
 blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
 tags: [confluence, embeddings, vector-db, knowledge-graph, nlp, epistemics, rag, latent-concepts]
-started: 2026-03-16
-completed: 2026-03-16
+started: 2026-03-16T09:16:52+00:00
+completed: 2026-03-16T09:16:52+00:00
 output: [knowledge]
 ---
 

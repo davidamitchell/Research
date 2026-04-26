@@ -1,12 +1,12 @@
 ---
 title: "Three disciplines, one answer: Brooks, Dunbar, and network theory on why 5 is the coordination limit"
-added: 2026-03-12
+added: 2026-03-14T11:20:36+00:00
 status: completed
 priority: high
 blocks: []
 tags: [brooks-law, dunbar-number, network-theory, team-size, coordination-overhead, graph-theory, evolutionary-psychology, software-engineering, military]
-started: 2026-03-14
-completed: 2026-03-14
+started: 2026-03-14T11:20:36+00:00
+completed: 2026-03-14T11:20:36+00:00
 output: [knowledge]
 ---
 

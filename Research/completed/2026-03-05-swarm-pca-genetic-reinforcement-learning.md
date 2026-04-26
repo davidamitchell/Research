@@ -1,12 +1,12 @@
 ---
 title: "Swarm Intelligence, PCA, Genetic Algorithms, and Reinforcement Learning — advanced techniques for analytics teams"
-added: 2026-03-05
+added: 2026-03-05T20:31:21+00:00
 status: completed
 priority: high
 blocks: []
 tags: [machine-learning, analytics, swarm-intelligence, pca, dimensionality-reduction, genetic-algorithms, evolutionary-computation, reinforcement-learning, optimisation, advanced-analytics]
-started: 2026-03-05
-completed: 2026-03-05
+started: 2026-03-05T20:31:21+00:00
+completed: 2026-03-05T20:31:21+00:00
 output: [knowledge]
 ---
 

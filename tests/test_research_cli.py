@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import re
 import subprocess
 from datetime import date
 from pathlib import Path
@@ -89,6 +90,9 @@ def test_cmd_add_creates_file(research_dir: Path) -> None:
     assert path.parent.name == "backlog"
 
 
+_ISO_DATETIME_RE = re.compile(r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}[+-]\d{2}:\d{2}$")
+
+
 def test_cmd_add_filename_contains_today(research_dir: Path) -> None:
     path = cmd_add("My new item", research_root=research_dir)
     today = date.today().isoformat()
@@ -174,8 +178,12 @@ def test_cmd_start_sets_started_date(research_dir: Path) -> None:
     _make_item(research_dir, "backlog", "2026-02-28-test.md", SAMPLE_FRONTMATTER)
     dest = cmd_start("2026-02-28-test.md", research_root=research_dir)
     content = dest.read_text()
-    today = date.today().isoformat()
-    assert f"started: {today}" in content
+    # started: should be a full ISO 8601 datetime (not a bare date)
+    match = re.search(r"^started:\s*(.+)$", content, re.MULTILINE)
+    assert match is not None
+    assert _ISO_DATETIME_RE.match(match.group(1).strip()), (
+        f"started: expected ISO datetime, got {match.group(1).strip()!r}"
+    )
 
 
 def test_cmd_start_exits_on_missing(research_dir: Path) -> None:
@@ -210,8 +218,12 @@ def test_cmd_complete_sets_completed_date(research_dir: Path) -> None:
     _make_item(research_dir, "in-progress", "2026-02-28-test.md", content)
     dest = cmd_complete("2026-02-28-test.md", research_root=research_dir)
     updated_content = dest.read_text()
-    today = date.today().isoformat()
-    assert f"completed: {today}" in updated_content
+    # completed: should be a full ISO 8601 datetime (not a bare date)
+    match = re.search(r"^completed:\s*(.+)$", updated_content, re.MULTILINE)
+    assert match is not None
+    assert _ISO_DATETIME_RE.match(match.group(1).strip()), (
+        f"completed: expected ISO datetime, got {match.group(1).strip()!r}"
+    )
 
 
 def test_cmd_complete_exits_on_missing(research_dir: Path) -> None:

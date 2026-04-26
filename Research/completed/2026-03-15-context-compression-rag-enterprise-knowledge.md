@@ -1,12 +1,12 @@
 ---
 title: "Context Compression and RAG Techniques for Organisational Knowledge"
-added: 2026-03-15
+added: 2026-03-16T05:48:47+00:00
 status: completed
 priority: high  # low | medium | high
 blocks: [2026-03-15-context-layers-aligned-decisions-synthesis]  # slugs (filename without .md) of backlog items that cannot start until this one is complete
 tags: [rag, context-management, compression, llm, knowledge-architecture, enterprise-ai, context-window]
-started: 2026-03-16
-completed: 2026-03-16
+started: 2026-03-16T05:48:47+00:00
+completed: 2026-03-16T05:48:47+00:00
 output: [knowledge]
 ---
 

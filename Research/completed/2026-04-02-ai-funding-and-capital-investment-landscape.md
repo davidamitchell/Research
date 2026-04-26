@@ -1,12 +1,12 @@
 ---
 title: "AI Funding and Capital Investment Landscape"
-added: 2026-04-02
+added: 2026-04-02T08:40:00+00:00
 status: completed
 priority: high
 blocks: []
 tags: [ai, funding, investment, venture-capital, infrastructure, strategy]
-started: 2026-04-02
-completed: 2026-04-02
+started: 2026-04-02T08:40:00+00:00
+completed: 2026-04-02T08:40:00+00:00
 output: [knowledge]
 ---
 

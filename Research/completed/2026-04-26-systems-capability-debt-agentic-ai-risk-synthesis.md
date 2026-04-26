@@ -1,13 +1,13 @@
 ---
 review_count: 2
 title: "Systems capability debt, citizen development, and agentic AI risk: is the causal chain and sequencing imperative a novel contribution?"
-added: 2026-04-26
+added: 2026-04-26T05:36:34+00:00
 status: completed
 priority: high  # low | medium | high
 blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
 tags: [systems-capability-debt, technical-debt, agentic-ai, citizen-development, operational-risk, transaction-cost-economics, regulated-banking, novelty-assessment]
-started: 2026-04-26
-completed: 2026-04-26
+started: 2026-04-26T05:36:34+00:00
+completed: 2026-04-26T05:36:34+00:00
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item
 ---
 

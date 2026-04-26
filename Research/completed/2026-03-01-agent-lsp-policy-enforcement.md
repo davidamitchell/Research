@@ -1,11 +1,11 @@
 ---
 title: "Guiding Headless Agents via LSP-Like Mechanisms for Org Policy Conformance"
-added: 2026-03-01
+added: 2026-03-07T01:30:02+00:00
 status: completed
 priority: medium
 tags: [agentic-coding, lsp, policy-enforcement, headless-agents, architecture-governance, security, developer-tooling]
-started: 2026-03-07
-completed: 2026-03-07
+started: 2026-03-07T01:30:02+00:00
+completed: 2026-03-07T01:30:02+00:00
 output: [knowledge]
 ---
 

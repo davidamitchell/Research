@@ -1,13 +1,13 @@
 ---
 review_count: 2
 title: "Agent orchestration patterns: lessons from Anvil, Max, and Burke Holland's multi-model orchestration gist"
-added: 2026-03-23
+added: 2026-03-24T08:12:56+00:00
 status: completed
 priority: high  # low | medium | high
 blocks: []
 tags: [agents, orchestration, personal-assistant, multi-model, copilot-sdk, verification, adversarial-review, skills]
-started: 2026-03-24
-completed: 2026-03-24
+started: 2026-03-24T08:12:56+00:00
+completed: 2026-03-24T08:12:56+00:00
 output: [knowledge, backlog-item]
 ---
 

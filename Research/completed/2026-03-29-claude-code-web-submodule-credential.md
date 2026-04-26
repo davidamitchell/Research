@@ -1,13 +1,13 @@
 ---
 review_count: 2
 title: "Claude Code on the web: private submodule credential access and git submodule init mechanism"
-added: 2026-03-29
+added: 2026-03-29T10:07:36+00:00
 status: completed
 priority: high
 blocks: []
 tags: [claude-code, submodules, credentials, environment-setup, agent-tooling]
-started: 2026-03-29
-completed: 2026-03-29
+started: 2026-03-29T10:07:36+00:00
+completed: 2026-03-29T10:07:36+00:00
 output: [knowledge]
 ---
 

@@ -1,11 +1,11 @@
 ---
 title: "Reality Is A Controlled Hallucination — Anil Seth (Essentia Foundation): concept extraction and synthesis"
-added: 2026-02-28
+added: 2026-02-28T04:05:16+00:00
 status: completed
 priority: high
 tags: [youtube, consciousness, predictive-processing, anil-seth, perception, interoception, beast-machine, free-energy, entropy]
-started: 2026-02-28
-completed: 2026-02-28
+started: 2026-02-28T04:05:16+00:00
+completed: 2026-02-28T04:05:16+00:00
 output: [knowledge, backlog-item]
 ---
 

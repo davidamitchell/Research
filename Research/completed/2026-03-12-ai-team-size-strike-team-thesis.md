@@ -1,12 +1,12 @@
 ---
 title: "AI amplified the coordination tax: the 5-person strike team as the structural unit of the AI era"
-added: 2026-03-12
+added: 2026-03-14T10:22:40+00:00
 status: completed
 priority: high
 blocks: []
 tags: [team-size, ai, coordination-overhead, strike-team, organisational-design, productivity, ai-native]
-started: 2026-03-14
-completed: 2026-03-14
+started: 2026-03-14T10:22:40+00:00
+completed: 2026-03-14T10:22:40+00:00
 output: [knowledge]
 ---
 

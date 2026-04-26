@@ -1,12 +1,12 @@
 ---
 title: "Context engineering: first principles of steering LLM output without control"
-added: 2026-03-08
+added: 2026-03-09T08:08:08+00:00
 status: completed
 priority: high
 blocks: []
 tags: [context-engineering, prompt-engineering, llm, token-prediction, first-principles, steering, goal-alignment, rag, agent-instructions, compliance]
-started: 2026-03-09
-completed: 2026-03-09
+started: 2026-03-09T08:08:08+00:00
+completed: 2026-03-09T08:08:08+00:00
 output: [knowledge]
 ---
 

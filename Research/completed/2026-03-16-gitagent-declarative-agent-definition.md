@@ -1,13 +1,13 @@
 ---
 review_count: 1
 title: "GitAgent and declarative agent definition: concepts, adoption, and cross-platform integration"
-added: 2026-03-16
+added: 2026-03-19T08:56:14+00:00
 status: completed
 priority: high
 blocks: []
 tags: [agent, declarative-agent, gitagent, copilot, aws, azure, microsoft-365, git, ai-platform, multi-agent, agents, agentic-systems]
-started: 2026-03-19
-completed: 2026-03-19
+started: 2026-03-19T08:56:14+00:00
+completed: 2026-03-19T08:56:14+00:00
 output: [knowledge, backlog-item]
 ---
 

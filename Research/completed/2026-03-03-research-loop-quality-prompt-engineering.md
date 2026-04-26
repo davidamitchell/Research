@@ -1,12 +1,12 @@
 ---
 title: "Evaluating and improving autonomous research loop quality: prompt engineering and output assessment"
-added: 2026-03-03
+added: 2026-03-03T17:59:54+00:00
 status: completed
 priority: high
 blocks: []
 tags: [research-loop, prompt-engineering, quality, autonomous-research, evaluation, research-prompt, github-actions]
-started: 2026-03-03
-completed: 2026-03-03
+started: 2026-03-03T17:59:54+00:00
+completed: 2026-03-03T17:59:54+00:00
 output: [knowledge, tool, backlog-item]
 ---
 

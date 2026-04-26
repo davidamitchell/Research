@@ -1,13 +1,13 @@
 ---
 review_count: 2
 title: "Knowledge curation governance as an enterprise AI capability in regulated financial institutions"
-added: 2026-04-22
+added: 2026-04-22T21:59:10+00:00
 status: completed
 priority: high
 blocks: []
 tags: [ai-governance, financial-services, knowledge-management, auditability]
-started: 2026-04-22
-completed: 2026-04-22
+started: 2026-04-22T21:59:10+00:00
+completed: 2026-04-22T21:59:10+00:00
 output: [knowledge]
 ---
 

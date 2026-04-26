@@ -1,11 +1,11 @@
 ---
 title: "Slack and MS Teams integration for research delivery and capture"
-added: 2026-03-02
+added: 2026-03-08T03:18:48+00:00
 status: completed
 priority: medium
 tags: [slack, ms-teams, integration, delivery, notifications, bot, interface, distribution]
-started: 2026-03-08
-completed: 2026-03-08
+started: 2026-03-08T03:18:48+00:00
+completed: 2026-03-08T03:18:48+00:00
 output: [knowledge, backlog-item]
 ---
 

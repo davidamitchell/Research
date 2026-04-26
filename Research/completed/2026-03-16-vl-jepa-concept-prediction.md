@@ -1,13 +1,13 @@
 ---
 review_count: 2
 title: "Vision-Language Joint Embedding Predictive Architecture (VL-JEPA) and concept prediction: background and options for leveraging with frontier models"
-added: 2026-03-16
+added: 2026-03-20T04:32:09+00:00
 status: completed
 priority: high  # low | medium | high
 blocks: []
 tags: [machine-learning, vision-language, jepa, meta, yann-lecun, concept-prediction, frontier-models, github-copilot, claude-code, agentic-coding, ai-architecture]
-started: 2026-03-20
-completed: 2026-03-20
+started: 2026-03-20T04:32:09+00:00
+completed: 2026-03-20T04:32:09+00:00
 output: [knowledge]
 ---
 

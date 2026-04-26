@@ -1,6 +1,6 @@
 ---
 title: "Permission-safe Retrieval-Augmented Generation (RAG) in enterprise information architectures: technical constraints, architectural options, and failure modes at scale"
-added: 2026-04-26
+added: 2026-04-26T06:57:01+00:00
 status: backlog
 priority: high
 blocks: [2026-04-26-agentic-ai-foundational-conditions-dependency-ordering]

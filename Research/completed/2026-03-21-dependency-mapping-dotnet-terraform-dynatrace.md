@@ -1,13 +1,13 @@
 ---
 review_count: 2
 title: "Dependency Mapping Across .NET Codebases, Terraform, Dynatrace, Confluence, Log Aggregation, and the Configuration and Service Data Model (CSDM)"
-added: 2026-03-21
+added: 2026-03-22T05:04:25+00:00
 status: completed
 priority: high  # low | medium | high
 blocks: []
 tags: [dependency-mapping, dotnet, terraform, dynatrace, confluence, log-aggregation, csdm, architecture, discovery, agents, observability, infrastructure-as-code]
-started: 2026-03-22
-completed: 2026-03-22
+started: 2026-03-22T05:04:25+00:00
+completed: 2026-03-22T05:04:25+00:00
 output: [knowledge]
 ---
 

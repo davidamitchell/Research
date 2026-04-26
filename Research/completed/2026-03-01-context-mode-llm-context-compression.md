@@ -1,11 +1,11 @@
 ---
 title: "Context Mode: MCP tool output compression and the LLM context window management problem"
-added: 2026-03-01
+added: 2026-03-01T19:26:32+00:00
 status: completed
 priority: high
 tags: [llm, context-window, mcp, claude-code, context-management, tooling]
-started: 2026-03-01
-completed: 2026-03-01
+started: 2026-03-01T19:26:32+00:00
+completed: 2026-03-01T19:26:32+00:00
 output: [knowledge]
 ---
 

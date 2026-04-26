@@ -1,13 +1,13 @@
 ---
 review_count: 2
 title: "Automated governance assurance and change control verification patterns for AI-assisted delivery"
-added: 2026-04-22
+added: 2026-04-22T20:49:35+00:00
 status: completed
 priority: high
 blocks: []
 tags: [ai-governance, compliance, change-control, delivery-pipeline]
-started: 2026-04-22
-completed: 2026-04-22
+started: 2026-04-22T20:49:35+00:00
+completed: 2026-04-22T20:49:35+00:00
 output: [knowledge]
 ---
 

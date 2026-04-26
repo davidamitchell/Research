@@ -1,12 +1,12 @@
 ---
 title: "LanceDB index rebuild speed from git: enabling stateless deployment"
-added: 2026-03-08
+added: 2026-03-08T08:09:53+00:00
 status: completed
 priority: high
 blocks: []
 tags: [lancedb, performance, indexing, serverless, memory-system]
-started: 2026-03-08
-completed: 2026-03-08
+started: 2026-03-08T08:09:53+00:00
+completed: 2026-03-08T08:09:53+00:00
 output: [knowledge, backlog-item]
 ---
 

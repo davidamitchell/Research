@@ -1,13 +1,13 @@
 ---
 review_count: 2
 title: "Coding AI Agent Skills Survey: Existing Vendor and OSS Prompt Libraries for Software Engineering Domains"
-added: 2026-03-22
+added: 2026-03-22T07:39:46+00:00
 status: completed
 priority: high  # low | medium | high
 blocks: []
 tags: [ai-agents, copilot, skills, prompts, software-engineering, dotnet, python, ddd, cqrs, clean-architecture, solid, api-design, testing, security, kafka, airflow, data-pipelines, data-visualisation, jupyter]
-started: 2026-03-22
-completed: 2026-03-22
+started: 2026-03-22T07:39:46+00:00
+completed: 2026-03-22T07:39:46+00:00
 output: [knowledge]
 ---
 

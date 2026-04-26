@@ -1,12 +1,12 @@
 ---
 title: "Slack as a mobile memory capture and retrieval channel"
-added: 2026-03-08
+added: 2026-03-10T07:51:38+00:00
 status: completed
 priority: medium
 blocks: []
 tags: [mobile, slack, bot, capture, retrieval, memory-system]
-started: 2026-03-10
-completed: 2026-03-10
+started: 2026-03-10T07:51:38+00:00
+completed: 2026-03-10T07:51:38+00:00
 output: [knowledge]
 ---
 

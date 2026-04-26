@@ -1,12 +1,12 @@
 ---
 title: "Self-hosted MCP server options: enabling mobile AI app integration"
-added: 2026-03-08
+added: 2026-03-09T08:16:41+00:00
 status: completed
 priority: high
 blocks: []
 tags: [mcp, self-hosted, infrastructure, mobile, memory-system, cloudflare, serverless]
-started: 2026-03-09
-completed: 2026-03-09
+started: 2026-03-09T08:16:41+00:00
+completed: 2026-03-09T08:16:41+00:00
 output: [knowledge, backlog-item, adr]
 ---
 

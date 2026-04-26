@@ -1,11 +1,11 @@
 ---
 title: "GitHub wiki for research content: approach and tooling"
-added: 2026-03-01
+added: 2026-03-02T09:00:44+00:00
 status: completed
 priority: medium
 tags: [wiki, github, delivery, interface, output]
-started: 2026-03-02
-completed: 2026-03-02
+started: 2026-03-02T09:00:44+00:00
+completed: 2026-03-02T09:00:44+00:00
 output: [tool, knowledge, backlog-item]
 ---
 

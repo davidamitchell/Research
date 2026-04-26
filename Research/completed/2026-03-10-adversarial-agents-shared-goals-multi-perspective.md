@@ -1,12 +1,12 @@
 ---
 title: "Adversarial agents with shared goals: multi-perspective coverage across competencies and time horizons"
-added: 2026-03-10
+added: 2026-03-10T19:31:20+00:00
 status: completed
 priority: high
 blocks: []
 tags: [multi-agent, adversarial-collaboration, competency-coverage, time-horizons, fitness-functions, organisational-design, red-team, quality-assurance, values-alignment, agents, agentic-systems]
-started: 2026-03-10
-completed: 2026-03-10
+started: 2026-03-10T19:31:20+00:00
+completed: 2026-03-10T19:31:20+00:00
 output: [knowledge]
 ---
 

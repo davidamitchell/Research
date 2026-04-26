@@ -1,11 +1,11 @@
 ---
 title: "Jevons Paradox: efficiency gains, demand rebound, and the falling cost of software production"
-added: 2026-02-28
+added: 2026-02-28T09:33:14+00:00
 status: completed
 priority: high
 tags: [jevons-paradox, rebound-effect, economics, software-engineering, ai-coding, technology-forecasting]
-started: 2026-02-28
-completed: 2026-02-28
+started: 2026-02-28T09:33:14+00:00
+completed: 2026-02-28T09:33:14+00:00
 output: [knowledge]
 ---
 

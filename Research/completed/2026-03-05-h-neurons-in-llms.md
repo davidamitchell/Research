@@ -1,12 +1,12 @@
 ---
 title: "Hallucination-Associated Neurons (H-Neurons) in LLMs — Identification, Behavioural Impact, and Origins"
-added: 2026-03-05
+added: 2026-03-05T20:11:40+00:00
 status: completed
 priority: high
 blocks: [2026-03-05-h-neuron-over-compliance, 2026-03-05-h-neuron-pretraining-origins]
 tags: [llm, hallucinations, h-neurons, mechanistic-interpretability, over-compliance, pre-training, alignment, reliability, arxiv]
-started: 2026-03-05
-completed: 2026-03-05
+started: 2026-03-05T20:11:40+00:00
+completed: 2026-03-05T20:11:40+00:00
 output: [knowledge, backlog-item]
 ---
 

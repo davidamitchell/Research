@@ -1,11 +1,11 @@
 ---
 title: "Information synthesis: non-lossy compression, entropy, and information theory"
-added: 2026-02-27
+added: 2026-03-02T08:16:39+00:00
 status: completed
 priority: high
 tags: [synthesis, information-theory, entropy, compression, ai]
-started: 2026-03-02
-completed: 2026-03-02
+started: 2026-03-02T08:16:39+00:00
+completed: 2026-03-02T08:16:39+00:00
 output: [knowledge, skill]
 ---
 

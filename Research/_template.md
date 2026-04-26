@@ -1,6 +1,6 @@
 ---
 title: "TITLE"
-added: YYYY-MM-DD
+added: YYYY-MM-DDTHH:MM:SS+00:00
 status: backlog  # backlog | in-progress | reviewing | completed
 priority: medium  # low | medium | high
 blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete

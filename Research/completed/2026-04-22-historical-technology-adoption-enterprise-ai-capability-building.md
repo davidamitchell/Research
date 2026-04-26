@@ -1,13 +1,13 @@
 ---
 review_count: 2
 title: "Historical technology adoption patterns as analogues for enterprise Artificial Intelligence capability building"
-added: 2026-04-22
+added: 2026-04-24T08:45:11+00:00
 status: completed
 priority: high
 blocks: []
 tags: [enterprise-ai, technology-adoption, organisational-change, governance, operating-model, financial-services]
-started: 2026-04-24
-completed: 2026-04-24
+started: 2026-04-24T08:45:11+00:00
+completed: 2026-04-24T08:45:11+00:00
 output: [knowledge]
 ---
 

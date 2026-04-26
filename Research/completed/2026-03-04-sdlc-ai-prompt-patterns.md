@@ -1,12 +1,12 @@
 ---
 title: "Emergent Patterns in Software Engineering Prompts and SDLC Guidance"
-added: 2026-03-04
+added: 2026-03-08T09:07:24+00:00
 status: completed
 priority: high
 blocks: []
 tags: [ai-agents, prompts, sdlc, software-engineering, best-practices, prompt-engineering, developer-tooling]
-started: 2026-03-04
-completed: 2026-03-08
+started: 2026-03-08T09:07:24+00:00
+completed: 2026-03-08T09:07:24+00:00
 output: [knowledge, backlog-item]
 ---
 

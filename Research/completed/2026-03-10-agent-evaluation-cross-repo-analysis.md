@@ -1,12 +1,12 @@
 ---
 title: "Agent evaluation framework: cross-repo pattern analysis, commonality detection, and regression identification"
-added: 2026-03-10
+added: 2026-03-10T19:40:42+00:00
 status: completed
 priority: high
 blocks: []
 tags: [agents, evaluation, benchmarking, cross-repo-analysis, pattern-analysis, agentic-systems, metrics, regression, effectiveness, taxonomy]
-started: 2026-03-10
-completed: 2026-03-10
+started: 2026-03-10T19:40:42+00:00
+completed: 2026-03-10T19:40:42+00:00
 output: [knowledge, backlog-item]
 ---
 

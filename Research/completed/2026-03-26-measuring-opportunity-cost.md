@@ -1,13 +1,13 @@
 ---
 review_count: 2
 title: "The measurement asymmetry: why we cut costs but can't see lost opportunities"
-added: 2026-03-26
+added: 2026-03-27T11:35:08+00:00
 status: completed
 priority: high
 blocks: []
 tags: [strategy, opportunity-cost, measurement, finance, behavioral-economics, rory-sutherland]
-started: 2026-03-27
-completed: 2026-03-27
+started: 2026-03-27T11:35:08+00:00
+completed: 2026-03-27T11:35:08+00:00
 output: [knowledge]
 ---
 
