@@ -1,9 +1,10 @@
 # Research Master Document
 
-Generated on: 2026-04-24 23:03 UTC
+Generated on: 2026-04-26 01:30 UTC
 
 ## Table of Contents
 
+* [What is Microsoft 365 Copilot Cowork and what are its enterprise governance risks?](#2026-04-26-ms-copilot-cowork-md)
 * [Business-led low-code agent governance: conditions for durable value versus fragmentation in regulated environments](#2026-04-24-business-led-low-code-agent-governance-md)
 * [Global artificial intelligence agent regulation in financial services: non-functional requirement obligations and low-code citizen-development controls](#2026-04-24-ai-agent-regulation-global-financial-services-md)
 * [Recall competitive landscape and clone feasibility](#2026-04-22-recall-competitive-landscape-and-clone-feasibility-md)
@@ -155,6 +156,80 @@ Generated on: 2026-04-24 23:03 UTC
 * [AI Strategy Examples: Business Efficiency Focus](#2026-02-28-ai-strategy-business-efficiency-examples-md)
 * [AI Line 1 and Line 2 Risk Agents: Who Is Building Them?](#2026-02-28-ai-line-1-line-2-risk-agents-md)
 * [AI for Control Testing, Gap Identification, and Policies/Standards Reviews](#2026-02-28-ai-control-testing-and-assurance-md)
+
+---
+
+<a name="2026-04-26-ms-copilot-cowork-md"></a>
+
+## What is Microsoft 365 Copilot Cowork and what are its enterprise governance risks?
+
+**Tags:** [microsoft, copilot, cowork, enterprise, governance, shadow-it, legal]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-ms-copilot-cowork.md
+
+## Research Question
+
+What is Microsoft 365 (M365) Copilot Cowork, how does it technically differ from custom Microsoft Copilot Skills, and what are the governance, legal, and shadow Information Technology (IT) risks it introduces for enterprise organisations?
+
+## Findings
+
+*(Populated from section 6 Synthesis above.)*
+
+### Executive Summary
+
+[inference; source: https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/; https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/use-cowork; https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/agents-overview] Microsoft 365 Copilot Cowork is a preview, action-taking Microsoft agent whose main enterprise risk is the low-friction conversion of existing user permissions into user-authored automations, not the introduction of a wholly new extensibility stack. [fact; source: https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/use-cowork; https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/overview-declarative-agent; https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/overview-custom-engine-agent] It technically differs from formal Microsoft Copilot extensibility because Cowork custom skills are OneDrive-hosted instruction files loaded into a prebuilt agent, whereas declarative agents, custom engine agents, connectors, and Copilot APIs are explicit enterprise extensibility artifacts with manifests, deployment paths, or hosting models. [inference; source: https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-privacy; https://learn.microsoft.com/en-us/microsoft-365/copilot/connect-to-ai-subprocessor; https://learn.microsoft.com/en-us/purview/dlp-microsoft365-copilot-location-learn-about] The legal and regulatory posture is manageable but conditional, because core Microsoft 365 privacy and residency commitments remain in force while Anthropic subprocessor settings, regional exclusions, and a documented DLP gap for uploaded prompt attachments require separate governance decisions. [inference; source: https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/cowork-admin-governance; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-24-business-led-low-code-agent-governance.md] Enterprises should therefore govern Cowork as a business-led low-code automation surface, using pilot groups, permissions cleanup, DLP, audit, and explicit registration or review of user-created skills before wider enablement.
+
+### Key Findings
+
+1. **High confidence.** [fact; source: https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/; https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/use-cowork; https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/cowork-faq] Cowork is a preview Microsoft 365 Copilot agent that can execute multi-step work across Outlook, Teams, documents, calendars, and enterprise search, and it is explicitly designed to request user approval before sensitive actions.
+2. **High confidence.** [inference; source: https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/use-cowork; https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/overview-declarative-agent; https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/overview-custom-engine-agent] Cowork custom skills are not the same technical category as Microsoft's formal extensibility options, because they are per-user instruction files loaded into a prebuilt agent rather than packaged agents, connectors, or custom orchestration components.
+3. **High confidence.** [fact; source: https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/cowork-admin-governance; https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/cowork-faq] Cowork operates in the caller's existing Microsoft 365 security context, which means the dominant risk is not hidden privilege escalation but the faster operationalization of already overshared content and already overbroad user access.
+4. **High confidence.** [fact; source: https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/cowork-faq; https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/use-cowork] Microsoft explicitly states that custom skills created by users are not validated by Microsoft, so enterprises cannot treat those skills or their outputs as vendor-assured controls or reviewed business procedures.
+5. **High confidence.** [fact; source: https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-privacy; https://learn.microsoft.com/en-us/microsoft-365/enterprise/m365-dr-service-copilot; https://learn.microsoft.com/en-us/sharepoint/onedrive-privacy-security-overview] Microsoft's baseline privacy, retention, and residency commitments still apply to Cowork interaction content, including no training on prompts or responses, permission trimming, and local-geography storage commitments for interaction data at rest.
+6. **High confidence.** [fact; source: https://learn.microsoft.com/en-us/microsoft-365/copilot/connect-to-ai-subprocessor; https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-privacy; https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/get-started] Anthropic subprocessor dependence creates a material regional governance decision because Anthropic-backed features are outside the EU Data Boundary, disabled by default in the EU, EFTA, and UK, and unavailable in government and sovereign clouds.
+7. **High confidence.** [fact; source: https://learn.microsoft.com/en-us/purview/dlp-microsoft365-copilot-location-learn-about; https://learn.microsoft.com/en-us/purview/audit-copilot; https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/cowork-admin-governance] Microsoft supplies meaningful enterprise controls through DLP, audit logs, and group-scoped availability management, but the documented DLP inability to inspect the contents of uploaded prompt attachments leaves a concrete preventive-control gap.
+8. **Medium confidence.** [inference; source: https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/use-cowork; https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/planning-guide; https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/overview-custom-engine-agent] Cowork creates moderate operational lock-in because even though a skill file is portable as Markdown text, the useful workflow depends on Microsoft-specific permissions, data locations, scheduling, approval patterns, and integrated action surfaces.
+9. **Medium confidence.** [inference; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-24-business-led-low-code-agent-governance.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-22-enterprise-ai-use-case-routing-frameworks.md; https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/cowork-admin-governance] The defensible adoption pattern is a governed low-code rollout in which Cowork is limited to approved groups and bounded use cases until permissions cleanup, DLP coverage, audit review, and a skill registration process are demonstrably in place.
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [fact] Cowork is a preview, action-taking Microsoft 365 agent with approvals for sensitive actions. | [Overview](https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/); [Use Cowork](https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/use-cowork); [FAQ](https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/cowork-faq) | high | Direct product documentation. |
+| [inference] Cowork custom skills are prompt-layer extensions, not packaged enterprise extensibility artifacts. | [Use Cowork](https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/use-cowork); [Declarative agents](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/overview-declarative-agent); [Custom engine agents](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/overview-custom-engine-agent) | high | Strong primary-source contrast. |
+| [fact] Cowork's core governance issue is fast automation of existing permissions, not new privileges. | [Admin governance](https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/cowork-admin-governance); [FAQ](https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/cowork-faq) | high | Official docs confirm user-context authorization. |
+| [fact] Microsoft does not validate user-created custom skills. | [FAQ](https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/cowork-faq); [Use Cowork](https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/use-cowork) | high | Explicit limitation. |
+| [fact] Baseline Microsoft 365 privacy and residency commitments still apply to Cowork interaction content. | [Privacy](https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-privacy); [Data residency](https://learn.microsoft.com/en-us/microsoft-365/enterprise/m365-dr-service-copilot); [OneDrive privacy](https://learn.microsoft.com/en-us/sharepoint/onedrive-privacy-security-overview) | high | Multiple primary Microsoft sources agree. |
+| [fact] Anthropic dependency creates region-specific legal and rollout constraints. | [Anthropic subprocessor](https://learn.microsoft.com/en-us/microsoft-365/copilot/connect-to-ai-subprocessor); [Privacy](https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-privacy); [Get started](https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/get-started) | high | Direct official statements on exclusions and defaults. |
+| [fact] DLP, audit, and group-scoped access exist, but uploaded file contents in prompts are a documented DLP gap. | [DLP](https://learn.microsoft.com/en-us/purview/dlp-microsoft365-copilot-location-learn-about); [Audit](https://learn.microsoft.com/en-us/purview/audit-copilot); [Admin governance](https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/cowork-admin-governance) | high | Control surface and gap both documented. |
+| [inference] Cowork creates moderate operational lock-in despite text-portable skill files. | [Use Cowork](https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/use-cowork); [Planning guide](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/planning-guide); [Custom engine agents](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/overview-custom-engine-agent) | medium | Mostly structural inference from architecture. |
+| [inference] Cowork should be governed as a business-led low-code automation surface. | [Business-led low-code governance](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-24-business-led-low-code-agent-governance.md); [Use-case routing frameworks](https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-22-enterprise-ai-use-case-routing-frameworks.md); [Admin governance](https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/cowork-admin-governance) | medium | Prior repository synthesis plus official control surface. |
+
+### Assumptions
+
+Explicit assumptions made during the investigation and the justification for each.
+
+- **Assumption:** [assumption; source: https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/cowork-admin-governance; https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/use-cowork] Enterprises should assume user-created skills are unmanaged unless they build an internal registry or review workflow. **Justification:** accessible Microsoft documentation describes agent-level controls but no first-party skill approval or inventory mechanism.
+- **Assumption:** [assumption; source: https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/get-started; https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/cowork-admin-governance; https://adoption.microsoft.com/en-us/copilot/frontier-program/] The conflicting availability pages are safer to read as preview inconsistency than as proof of universal tenant readiness. **Justification:** primary sources disagree, so conservative rollout planning requires tenant validation.
+
+### Analysis
+
+[inference; source: https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/use-cowork; https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/overview-declarative-agent; https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/overview-custom-engine-agent] The evidence was weighted toward official Microsoft pages for architecture, controls, and legal commitments, and those pages support a clean distinction between Cowork's instruction-file model and the formal packaged extensibility surface used for enterprise agents. [inference; source: https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/cowork-admin-governance; https://learn.microsoft.com/en-us/purview/dlp-microsoft365-copilot-location-learn-about; https://learn.microsoft.com/en-us/purview/audit-copilot] Competing interpretations of Cowork as either "just another chat surface" or "a new privileged platform" were resolved by the user-context facts: it does not appear to grant new permissions, but it does materially increase the speed and repeatability with which existing permissions can be exercised. [inference; source: https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-privacy; https://learn.microsoft.com/en-us/microsoft-365/copilot/connect-to-ai-subprocessor; https://learn.microsoft.com/en-us/microsoft-365/enterprise/m365-dr-service-copilot] The legal trade-off is similarly bounded: Microsoft's existing enterprise commitments remain meaningful, but Anthropic regional exclusions and data-boundary carve-outs mean regulated tenants still need explicit provider-level review rather than relying on the generic Microsoft 365 control story alone. [inference; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-24-business-led-low-code-agent-governance.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-22-enterprise-ai-use-case-routing-frameworks.md] Prior repository research was used to interpret the governance pattern, not to replace primary evidence: Cowork's shape matches a governed low-code lane more closely than a centrally engineered pro-code lane.
+
+### Risks, Gaps, and Uncertainties
+
+- [fact; source: https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/; https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/use-cowork; https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/cowork-faq] Preview instability remains a live uncertainty because Microsoft documents contradict each other on both skill limits and rollout conditions.
+- [fact; source: https://learn.microsoft.com/en-us/purview/dlp-microsoft365-copilot-location-learn-about] A concrete control gap remains for files uploaded directly into prompts, because DLP does not inspect their contents before submission.
+- [inference; source: https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/cowork-admin-governance; https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/use-cowork] The accessible documentation does not show a first-party skill inventory, versioning, or approval surface, so enterprises may need compensating controls outside the product.
+- [inference; source: https://learn.microsoft.com/en-us/microsoft-365/copilot/connect-to-ai-subprocessor; https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-privacy] Region-sensitive organizations still need tenant-specific validation of Anthropic toggles, data-boundary behavior, and feature availability before legal review can be considered complete.
+
+### Open Questions
+
+- Should the repo add a dedicated backlog item on how enterprises should inventory, review, and retire Cowork custom skills when Microsoft does not yet expose clear first-party skill governance?
+- What export and migration path exists for scheduled prompts, custom skills, and conversation metadata if an enterprise later moves away from Cowork?
+- How should enterprises classify Cowork tasks that bridge multiple sensitivity zones, such as combining internal documents with customer-facing messaging, within a formal intake process?
+
+---
 
 ---
 
