@@ -2,7 +2,7 @@
 title: "What is Microsoft 365 Copilot Cowork and what are its enterprise governance risks?"
 added: 2026-04-26
 status: reviewing
-review_count: 1
+review_count: 2
 priority: high  # low | medium | high
 blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
 tags: [microsoft, copilot, cowork, enterprise, governance, shadow-it, legal]
