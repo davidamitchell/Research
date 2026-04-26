@@ -1,6 +1,6 @@
 # Research Master Document
 
-Generated on: 2026-04-26 10:54 UTC
+Generated on: 2026-04-26 18:15 UTC
 
 ## Table of Contents
 
@@ -12,6 +12,7 @@ Generated on: 2026-04-26 10:54 UTC
 * [What is Microsoft 365 Copilot Cowork and what are its enterprise governance risks?](#2026-04-26-ms-copilot-cowork-md)
 * [Implicit rate-limiting controls removed by agentic Artificial Intelligence (AI): blast radius amplification and the operational risk literature gap](#2026-04-26-implicit-rate-limiting-controls-agentic-ai-removal-md)
 * [Deployment pipeline as the only enforceable control gate for citizen-developed agents: DevOps literature support, low-code platform hook points, and architectural enforceability](#2026-04-26-deployment-pipeline-citizen-development-governed-gate-md)
+* [What identity and access management model is required for Artificial Intelligence (AI) agents and low-code artefacts operating within enterprise systems?](#2026-04-26-ai-agent-identity-access-management-enterprise-md)
 * [What control-plane architecture is required to manage Artificial Intelligence (AI) agents and low-code systems as distributed, semi-autonomous actors within enterprise environments?](#2026-04-26-ai-agent-control-plane-architecture-enterprise-md)
 * [Regulatory and standards preconditions for deployment of Artificial Intelligence (AI) systems that can take multi-step actions: does incomplete access control and data governance constitute a control failure?](#2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment-md)
 * [Access control amplification under agentic operations: whether existing frameworks address the worst-case permission inheritance problem](#2026-04-26-access-control-amplification-agentic-operations-md)
@@ -773,6 +774,85 @@ In an environment where citizen development tooling is already licensed and acce
 - [inference; source: https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-sharing-controls-limits; https://learn.microsoft.com/en-us/power-platform/alm/block-unmanaged-customizations] What is the least-privilege production role model for Copilot Studio that still allows monitoring and support but never allows direct publication?
 - [inference; source: https://docs.github.com/en/actions/reference/workflows-and-actions/deployments-and-environments; https://learn.microsoft.com/en-us/azure/devops/pipelines/process/approvals?view=azure-devops] Which external gate host is operationally better for a regulated Microsoft low-code estate, GitHub Actions or Azure DevOps, once evidence capture, exceptions, and change-management integration are compared directly?
 - [inference; source: https://learn.microsoft.com/en-us/power-platform/guidance/coe/starter-kit; https://learn.microsoft.com/en-us/power-platform/alm/extend-pipelines] What is the minimum metadata schema and system-of-record design required to operationalize owner registration, observability attestations, and blast-radius scoring at the release gate?
+
+---
+
+---
+
+<a id="2026-04-26-ai-agent-identity-access-management-enterprise-md"></a>
+
+## What identity and access management model is required for Artificial Intelligence (AI) agents and low-code artefacts operating within enterprise systems?
+
+**Tags:** [identity, access-management, machine-identity, ai-agents, low-code, credential-management, enterprise-iam, delegation, attribution]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-ai-agent-identity-access-management-enterprise.md
+
+## Research Question
+
+What identity and access management (IAM) model is required for non-human actors, AI agents and low-code artefacts, operating within enterprise systems, specifically: how should machine identities be assigned and managed; what delegation models (user-initiated vs autonomous execution) are appropriate; how should permission inheritance, credential management, and end-to-end attribution of actions across users, agents, and downstream systems be handled?
+
+## Findings
+
+### Executive Summary
+
+[inference; source: https://csrc.nist.gov/pubs/sp/800/207/final; https://www.rfc-editor.org/rfc/rfc8693; https://learn.microsoft.com/en-us/entra/workload-id/workload-identities-overview; https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html; https://cloud.google.com/iam/docs/workload-identity-federation] Enterprises need a first-class machine identity model for AI agents and low-code artefacts in which every consequential non-human actor has its own identity, user-initiated work uses bounded delegation where possible, autonomous work runs under the agent's own scoped identity, and credentials are short-lived by default.
+
+[fact; source: https://www.rfc-editor.org/rfc/rfc8693] The central standards distinction is that delegation preserves both the subject and the actor, while impersonation collapses the actor into the subject inside the token context.
+
+[inference; source: https://csrc.nist.gov/pubs/sp/800/207/final; https://docs.aws.amazon.com/rolesanywhere/latest/userguide/introduction.html; https://cloud.google.com/iam/docs/best-practices-service-accounts] That distinction means an agent should not inherit a user's full permission estate by default, because least privilege for non-human actors must be enforced through intersected scope, session policy, or single-purpose service-account grants.
+
+[inference; source: https://learn.microsoft.com/en-us/entra/identity/monitoring-health/concept-service-principal-sign-ins; https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html; https://cloud.google.com/iam/docs/service-account-impersonation] Attribution survives only when the design records the initiator, the machine identity, the credential exchange, and the downstream action as linked but distinct events.
+
+### Key Findings
+
+1. **High confidence.** [inference; source: https://csrc.nist.gov/pubs/sp/800/207/final; https://spiffe.io/; https://learn.microsoft.com/en-us/entra/workload-id/workload-identities-overview; https://docs.aws.amazon.com/rolesanywhere/latest/userguide/introduction.html; https://cloud.google.com/iam/docs/workload-identity-federation] An enterprise AI identity model should assign every consequential agent or low-code artefact its own machine identity, because the standards and vendor patterns all treat software workloads as first-class subjects rather than as invisible extensions of human users.
+2. **High confidence.** [inference; source: https://www.rfc-editor.org/rfc/rfc8693; https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html; https://cloud.google.com/iam/docs/service-account-impersonation] User-initiated agent actions are better governed through delegation semantics than impersonation, because RFC 8693 preserves both the original subject and the acting party, while AWS and Google both expose more useful audit chains when the acting identity remains distinguishable.
+3. **High confidence.** [inference; source: https://www.rfc-editor.org/rfc/rfc8693; https://csrc.nist.gov/pubs/sp/800/207/final] Autonomous or scheduled agent work should run under the agent's own pre-authorized identity instead of under a retained user delegation token, because the user is no longer actively supervising the session and the agent therefore requires an independently bounded authorization decision.
+4. **High confidence.** [inference; source: https://csrc.nist.gov/pubs/sp/800/207/final; https://docs.aws.amazon.com/rolesanywhere/latest/userguide/introduction.html; https://cloud.google.com/iam/docs/workload-identity-federation] The effective permission set for a delegated agent should be the intersection of user rights, agent rights, and resource policy, not the union of those rights, because least privilege must be enforced inside the session or token rather than left to convention.
+5. **High confidence.** [fact; source: https://learn.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview; https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html; https://cloud.google.com/iam/docs/workload-identity-federation; https://cloud.google.com/iam/docs/service-account-impersonation] Enterprises should default to secretless or short-lived credentials such as managed identities, federated identities, assumed roles, and short-lived service account impersonation, because every platform now provides these mechanisms specifically to avoid long-lived credential risk.
+6. **High confidence.** [inference; source: https://cloud.google.com/iam/docs/best-practices-service-accounts; https://learn.microsoft.com/en-us/entra/id-protection/concept-workload-identity-risk] If persistent credentials remain unavoidable, they must be single-purpose, inventoried, vaulted, rotated, revocable, and owned by a clear workload lifecycle, because shared or long-lived machine credentials materially weaken both blast-radius control and non-repudiation.
+7. **High confidence.** [inference; source: https://learn.microsoft.com/en-us/entra/identity/monitoring-health/concept-service-principal-sign-ins; https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html; https://cloud.google.com/iam/docs/service-account-impersonation] End-to-end attribution requires a linked audit chain that records the initiating principal, the machine identity, the credential exchange or role assumption, and the downstream resource action, because any missing hop makes forensic reconstruction incomplete.
+8. **Medium confidence.** [inference; source: https://learn.microsoft.com/en-us/entra/workload-id/workload-identities-overview; https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html; https://cloud.google.com/iam/docs/workload-identity-federation] Microsoft Entra, AWS IAM, and Google Cloud IAM converge on the same underlying model even though their implementation nouns differ, so a regulated enterprise can define one platform-neutral machine identity policy and translate it into vendor-specific controls.
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [inference] Each consequential agent or low-code artefact needs its own machine identity. | https://csrc.nist.gov/pubs/sp/800/207/final; https://spiffe.io/; https://learn.microsoft.com/en-us/entra/workload-id/workload-identities-overview; https://docs.aws.amazon.com/rolesanywhere/latest/userguide/introduction.html; https://cloud.google.com/iam/docs/workload-identity-federation | high | All sources treat workloads or services as first-class identities. |
+| [fact] Delegation preserves the actor while impersonation collapses it. | https://www.rfc-editor.org/rfc/rfc8693 | high | Direct standard language from RFC 8693 section 1.1. |
+| [inference] Autonomous work should run under the agent's own identity instead of a retained user token. | https://www.rfc-editor.org/rfc/rfc8693; https://csrc.nist.gov/pubs/sp/800/207/final | high | Derived from delegation semantics plus per-session authorization. |
+| [inference] Effective delegated permissions should be an intersection, not a union. | https://csrc.nist.gov/pubs/sp/800/207/final; https://docs.aws.amazon.com/rolesanywhere/latest/userguide/introduction.html; https://cloud.google.com/iam/docs/workload-identity-federation | high | Supported by least-privilege language and session-limiting mechanisms. |
+| [fact] Secretless or short-lived credentials are the preferred vendor pattern. | https://learn.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview; https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html; https://cloud.google.com/iam/docs/workload-identity-federation; https://cloud.google.com/iam/docs/service-account-impersonation | high | All three platforms explicitly position these patterns as safer than long-lived secrets. |
+| [inference] Persistent machine credentials require stronger lifecycle controls. | https://cloud.google.com/iam/docs/best-practices-service-accounts; https://learn.microsoft.com/en-us/entra/id-protection/concept-workload-identity-risk | high | Single-purpose design, disablement, leaked-credential response, and secret rotation all point to lifecycle ownership. |
+| [inference] Attribution requires a linked initiator, machine, exchange, and action chain. | https://learn.microsoft.com/en-us/entra/identity/monitoring-health/concept-service-principal-sign-ins; https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html; https://cloud.google.com/iam/docs/service-account-impersonation | high | Each platform exposes part of the chain if distinct identities are used. |
+| [inference] The three major cloud platforms converge on one platform-neutral model. | https://learn.microsoft.com/en-us/entra/workload-id/workload-identities-overview; https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html; https://cloud.google.com/iam/docs/workload-identity-federation | medium | The convergence is architectural, even though implementation details differ. |
+
+### Assumptions
+
+- [assumption; source: https://learn.microsoft.com/en-us/entra/workload-id/workload-identities-overview; https://cloud.google.com/iam/docs/service-account-overview; https://docs.aws.amazon.com/rolesanywhere/latest/userguide/introduction.html] **Assumption:** Low-code artefacts that perform API calls, write records, or trigger workflows can be governed as software workloads for IAM purposes. **Justification:** the reviewed platform documents define workload identity by operational behavior, not by whether the actor was authored in pro-code or low-code tooling.
+
+### Analysis
+
+[inference; source: https://pages.nist.gov/800-63-3/sp800-63c.html; https://csrc.nist.gov/pubs/sp/800/207/final] The evidence was weighted by direct applicability to non-human actors, which made NIST SP 800-207 more decisive than NIST SP 800-63C for workload identity even though both remain relevant standards.
+
+[inference; source: https://www.rfc-editor.org/rfc/rfc8693; https://cloud.google.com/iam/docs/service-account-impersonation; https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html] Delegation was favored over impersonation in the synthesis because the direct standard definition in RFC 8693 aligns better with the audit-preservation mechanisms exposed by AWS and Google than with identity-collapsing impersonation semantics alone.
+
+[inference; source: https://learn.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview; https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html; https://cloud.google.com/iam/docs/workload-identity-federation] Secretless and short-lived credential patterns were treated as higher-quality evidence than secret-management guidance because removing persistent credentials is a stronger control than rotating them after compromise.
+
+[inference; source: https://learn.microsoft.com/en-us/entra/identity/monitoring-health/concept-service-principal-sign-ins; https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html; https://cloud.google.com/iam/docs/service-account-impersonation] Competing interpretations about whether attached identities are sufficient for attribution were resolved against the attached-identity approach because the vendor documentation repeatedly shows that richer attribution exists only when delegation or impersonation events themselves are separately logged.
+
+### Risks, Gaps, and Uncertainties
+
+- [inference; source: https://learn.microsoft.com/en-us/entra/workload-id/workload-identity-federation-considerations] Microsoft federation configuration changes can take several minutes to propagate, so immediate cutover assumptions are unsafe unless retry behavior and staging windows are designed explicitly.
+- [inference; source: https://cloud.google.com/iam/docs/service-account-impersonation] Google notes that most audit logs include both identities for impersonation, which implies there are service-specific exceptions that can still weaken attribution if enterprises assume universal coverage.
+- [inference; source: https://learn.microsoft.com/en-us/entra/id-protection/concept-workload-identity-risk] Managed identities are not in scope for some Microsoft workload-risk detections, so enterprises may need compensating telemetry for those identities.
+- [inference; source: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html] AWS SourceIdentity must be required in trust and permissions policy to be reliable, so attribution quality is partly a policy-deployment question rather than a platform default.
+
+### Open Questions
+
+- When a low-code platform cannot preserve actor information inside downstream tokens, what minimum out-of-band provenance record is sufficient for non-repudiation?
+- Which enterprise Software as a Service (SaaS) products preserve delegated actor claims end to end, and which collapse them to a service account at the integration boundary?
+- What is the best platform-neutral pattern for human approval and re-authorization when an autonomous agent needs temporary elevation outside its baseline role?
 
 ---
 
