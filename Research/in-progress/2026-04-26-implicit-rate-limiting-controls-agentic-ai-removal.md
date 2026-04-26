@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Implicit rate-limiting controls removed by agentic Artificial Intelligence (AI): blast radius amplification and the operational risk literature gap"
 added: 2026-04-26
 status: reviewing
