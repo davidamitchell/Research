@@ -1144,7 +1144,9 @@ def load_items() -> tuple[list[dict], dict[str, int]]:
                 "thread": str(thread_field).strip() if thread_field else "",
             }
         )
-    items.sort(key=lambda x: x["added"], reverse=True)
+    # Primary key: added date (newest first). Secondary key: filename (reverse
+    # alphabetical) so same-date items have a deterministic, stable ordering.
+    items.sort(key=lambda x: (x["added"], x["filename"]), reverse=True)
     return items, {"meta_infra": excl_meta}
 
 
@@ -1777,12 +1779,24 @@ def build_research_master_page() -> str:
     """Generate docs/research-master.html from Research/Research_Master.md.
 
     Reads RESEARCH_MASTER_MD from the filesystem and renders it as HTML.
-    Requires that the source file uses ``<a id="...">`` anchors (HTML5) rather
-    than the deprecated ``<a name="...">`` form so that TOC fragment links work.
+    The Table of Contents section is stripped before rendering to reduce page
+    size and DOM element count.  Deprecated ``<a name="...">`` anchors are
+    converted to the HTML5 ``<a id="...">`` form.  No JavaScript is emitted.
     """
     md_text = RESEARCH_MASTER_MD.read_text(encoding="utf-8")
+
+    # Strip the TOC section (## Table of Contents ... --- separator) to reduce
+    # page size and DOM element count.
+    md_text = re.sub(
+        r"## Table of Contents\n\n(?:\* [^\n]+\n)+\n---\n\n",
+        "",
+        md_text,
+    )
+
+    # Convert deprecated <a name="..."> anchors to HTML5 <a id="..."> form.
+    md_text = md_text.replace('<a name="', '<a id="')
+
     md = MarkdownIt().enable("table").enable("strikethrough")
-    # Render markdown to HTML; <a id="..."> anchors are passed through as raw HTML
     body_html = md.render(md_text)
     return (
         html_head(
@@ -1820,8 +1834,7 @@ def build_research_master_page() -> str:
 <main>
   <div class="page-header">
     <h1>{ICON_NOTE_H1}Research Master</h1>
-    <p class="page-subtitle">complete research index with findings</p>
-    <p class="page-subtitle" style="margin-top:0.25rem">
+    <p class="page-subtitle">complete research index with findings —
       <a href="{RESEARCH_MASTER_GITHUB_URL}" target="_blank" rel="noopener"
          style="color:var(--teal);text-decoration:underline">view source on GitHub →</a>
     </p>

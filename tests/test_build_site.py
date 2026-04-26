@@ -331,6 +331,18 @@ def test_build_research_master_page_contains_toc_anchors() -> None:
     assert '<a name="' not in html
 
 
+def test_build_research_master_page_no_toc() -> None:
+    """TOC section is stripped from the rendered page."""
+    html = build_research_master_page()
+    assert "Table of Contents" not in html
+
+
+def test_build_research_master_page_no_javascript() -> None:
+    """research-master.html emits no JavaScript."""
+    html = build_research_master_page()
+    assert "<script" not in html
+
+
 def test_build_research_master_page_has_source_link() -> None:
     """Page includes a link back to the source file on GitHub."""
     html = build_research_master_page()
