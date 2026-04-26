@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-04-26T19:46:43Z",
+  "extracted_at": "2026-04-26T20:09:18Z",
   "items": {
     "2026-04-26-systems-capability-debt-citizen-development-empirical-evidence": {
       "named_concepts": [
@@ -442,6 +442,61 @@
         "[inference;",
         "[inference;"
       ]
+    },
+    "2026-04-26-ai-lowcode-observability-telemetry-governance": {
+      "named_concepts": [
+        "full prompt",
+        "reconstructive metadata",
+        "template identity",
+        "identity model",
+        "identifiers tool",
+        "token usage",
+        "low-code governance",
+        "separate administrative",
+        "governed ai",
+        "model requested",
+        "model served",
+        "served retrieval",
+        "response bodies",
+        "administrative audit",
+        "incident records",
+        "every material",
+        "material event",
+        "trace correlation",
+        "event detail",
+        "status token"
+      ],
+      "source_urls": [
+        "https://opentelemetry.io/docs/concepts/signals/traces/",
+        "https://opentelemetry.io/docs/specs/semconv/registry/attributes/gen-ai/",
+        "https://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-events/",
+        "https://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-metrics/",
+        "https://www.w3.org/TR/trace-context/",
+        "https://learn.microsoft.com/en-us/azure/azure-monitor/overview",
+        "https://learn.microsoft.com/en-us/azure/foundry/concepts/observability",
+        "https://learn.microsoft.com/en-us/azure/foundry/observability/how-to/trace-agent-setup",
+        "https://learn.microsoft.com/en-us/azure/foundry/observability/concepts/trace-agent-concept",
+        "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html",
+        "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html",
+        "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/model-invocation-logging.html",
+        "https://docs.aws.amazon.com/bedrock/latest/APIReference/API_PutModelInvocationLoggingConfiguration.html",
+        "https://gdpr-info.eu/art-5-gdpr/",
+        "https://gdpr-info.eu/art-17-gdpr/",
+        "https://handbook.apra.gov.au/standard/cps-230",
+        "https://handbook.apra.gov.au/ppg/cpg-230",
+        "https://csrc.nist.gov/pubs/sp/800/92/final",
+        "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1774",
+        "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022R2554",
+        "https://learn.microsoft.com/en-us/power-platform/admin/activity-logging-auditing/activity-logs-overview",
+        "https://learn.microsoft.com/en-us/power-platform/admin/activity-logging-auditing/activity-logs-power-automate",
+        "https://learn.microsoft.com/en-us/power-platform/admin/activity-logging-auditing/activity-logs-connectors",
+        "https://learn.microsoft.com/en-us/power-platform/admin/app-insights-cloud-flow",
+        "https://learn.microsoft.com/en-us/power-automate/dataverse/cloud-flow-run-metadata",
+        "https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/powerplatformconnectoractivity",
+        "https://learn.microsoft.com/en-us/purview/audit-log-retention-policies"
+      ],
+      "key_claims": []
     },
     "2026-04-26-ai-lowcode-lifecycle-management": {
       "named_concepts": [

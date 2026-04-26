@@ -1,0 +1,745 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>AI and low-code systems at scale? — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #0f1115;
+  --surface-2:       #161b22;
+  --border:          #252b33;
+  --text:            #e6e6e6;
+  --text-muted:      #666;
+  --accent:          #e6e6e6;
+  --accent-dim:      #333;
+  --tag-bg:          #161b22;
+  --tag-text:        #999;
+  --tag-active-bg:   #e6e6e6;
+  --tag-active-text: #0f1115;
+  --link:            #00C3A5;
+  --teal:            #00C3A5;
+  --dusk:            #E8A1A8;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  overflow-x: clip;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.75rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+.nav-links a.active { color: var(--teal); }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--teal); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+  min-width: 0;
+}
+.card:hover { border-color: var(--teal); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  word-break: break-word;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4em;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.item-title svg { flex-shrink: 0; margin-top: 0.2em; }
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+  word-break: break-all;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+  max-width: 100%;
+}
+.item-content pre code { background: none; padding: 0; word-break: normal; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--teal); text-decoration: underline; }
+.item-content a:hover { color: var(--text); text-decoration: underline; }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--dusk);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    top: 0;
+    height: auto;
+    padding: 0.5rem 1rem;
+  }
+  .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .nav-links {
+    width: 100%;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  main {
+    padding: 1.5rem 1rem 4rem;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; overflow: hidden; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); word-break: break-word; overflow-wrap: break-word; }
+.key-claims li:last-child { border-bottom: none; }
+.key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
+.key-claims a:hover { color: var(--text); }
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); flex-wrap: wrap; }
+.related-entry:last-child { border-bottom: none; }
+.related-entry a { color: var(--teal); word-break: break-word; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--dusk); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4em; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--teal); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-card-link { text-decoration: none; color: var(--text); display: block; }
+.thread-card-link:hover .thread-card { background: var(--surface-2); }
+.thread-card { background: var(--surface); border: 1px solid var(--border); padding: 1.5rem 1.75rem 1.75rem; }
+.thread-card-title { font-size: var(--text-base); font-weight: 600; margin-bottom: 0.5rem; }
+.thread-card-meta { font-size: var(--text-xs); color: var(--text-muted); margin-bottom: 0.75rem; letter-spacing: 0.05em; }
+.thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
+.thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Research</a>
+    <div class="nav-links">
+      <a href="/Research/threads.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>Threads</a>
+      <a href="/Research/tags/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>Tags</a>
+      <a href="/Research/search.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M8 1.5C4.41 1.5 1.5 4.41 1.5 8c0 2.87 1.86 5.3 4.44 6.16.32.06.44-.14.44-.31v-1.09c-1.8.39-2.18-.87-2.18-.87-.3-.75-.72-.95-.72-.95-.59-.4.04-.4.04-.4.65.05 1 .67 1 .67.58 1 1.53.71 1.9.54.06-.42.23-.71.41-.87-1.44-.16-2.95-.72-2.95-3.2 0-.71.25-1.28.67-1.74-.07-.16-.29-.82.06-1.71 0 0 .55-.18 1.8.67a6.27 6.27 0 0 1 3.28 0c1.25-.85 1.8-.67 1.8-.67.35.89.13 1.55.06 1.71.42.46.67 1.03.67 1.74 0 2.49-1.51 3.04-2.96 3.2.23.2.44.6.44 1.21v1.8c0 .17.12.37.44.31A6.5 6.5 0 0 0 14.5 8 6.5 6.5 0 0 0 8 1.5z"/></svg>GitHub</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>AI and low-code systems at scale?</span>
+  </div>
+  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>AI and low-code systems at scale?</h1>
+  <p class="full-title-subtitle">What observability and telemetry model is required to govern Artificial Intelligence (AI) and low-code systems at scale?</p>
+  <div class="meta-bar">
+    <span>2026-04-26</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/observability.html">observability</a> <a class="tag" href="/Research/tags/ai-governance.html">ai-governance</a> <a class="tag" href="/Research/tags/low-code.html">low-code</a> <a class="tag" href="/Research/tags/enterprise-governance.html">enterprise-governance</a> <a class="tag" href="/Research/tags/monitoring.html">monitoring</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-ai-lowcode-observability-telemetry-governance.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-04-26-ai-lowcode-observability-telemetry-governance" target="_blank" rel="noopener">wiki →</a>
+  </div>
+  
+  <div class="item-content">
+    <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
+<p>What observability and telemetry model is required to govern AI and low-code systems at scale, specifically, what must be logged, at what frequency, and at what level of granularity, including prompt and response logging, decision traceability, linkage between user intent and system actions, cross-system correlation, and the ability to reconstruct events for audit, debugging, and compliance purposes?</p>
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Findings</h2>
+<h3>Executive Summary</h3>
+<ul>
+<li>[inference; source: <a href="https://opentelemetry.io/docs/specs/semconv/registry/attributes/gen-ai/">OpenTelemetry generative AI attribute registry</a> <a href="https://www.w3.org/TR/trace-context/">World Wide Web Consortium (W3C) Trace Context</a> <a href="https://learn.microsoft.com/en-us/power-platform/admin/activity-logging-auditing/activity-logs-power-automate">Power Automate activity logs</a> <a href="https://learn.microsoft.com/en-us/power-platform/admin/app-insights-cloud-flow]">learn.microsoft.com</a> Enterprises need a three-layer observability model for governed AI and low-code systems: always-on reconstructive metadata, cross-system distributed tracing, and selective full-content capture for high-risk, sampled, or incident-driven cases.</li>
+<li>[fact; source: <a href="https://opentelemetry.io/docs/specs/semconv/registry/attributes/gen-ai/">OpenTelemetry generative AI attribute registry</a> <a href="https://learn.microsoft.com/en-us/azure/foundry/observability/how-to/trace-agent-setup">Set up tracing for AI agents in Microsoft Foundry</a> <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-invocation-logging.html]">docs.aws.amazon.com</a> The AI baseline should always record prompt or template identity, model requested and model served, retrieval context identifiers, tool calls and results, token usage, timing, and status, while leaving full prompt and response bodies behind an explicit higher-sensitivity policy gate.</li>
+<li>[fact; source: <a href="https://learn.microsoft.com/en-us/power-platform/admin/activity-logging-auditing/activity-logs-power-automate">Power Automate activity logs</a> <a href="https://learn.microsoft.com/en-us/power-platform/admin/app-insights-cloud-flow">Power Automate telemetry in Application Insights</a> <a href="https://learn.microsoft.com/en-us/power-platform/admin/activity-logging-auditing/activity-logs-connectors">Power Platform connector activity logs</a> <a href="https://learn.microsoft.com/en-us/power-automate/dataverse/cloud-flow-run-metadata]">learn.microsoft.com</a> Low-code governance needs separate administrative audit logs, runtime execution traces, and connector-call telemetry because no single reviewed log stream captures maker actions, flow behavior, and downstream API activity together.</li>
+<li>[inference; source: <a href="https://gdpr-info.eu/art-5-gdpr/">General Data Protection Regulation (GDPR) Article 5</a> <a href="https://gdpr-info.eu/art-17-gdpr/">General Data Protection Regulation (GDPR) Article 17</a> <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1774">Commission Delegated Regulation (EU) 2024/1774</a> <a href="https://handbook.apra.gov.au/standard/cps-230]">handbook.apra.gov.au</a> Retention and access should be category-based and purpose-bound because the reviewed regulators require secure, accessible evidence and incident records, while privacy law prohibits keeping identifying content longer than justified.</li>
+</ul>
+<h3>Key Findings</h3>
+<ol>
+<li>[inference; source: <a href="https://opentelemetry.io/docs/specs/semconv/registry/attributes/gen-ai/">OpenTelemetry generative AI attribute registry</a> <a href="https://www.w3.org/TR/trace-context/">World Wide Web Consortium (W3C) Trace Context</a> <a href="https://learn.microsoft.com/en-us/power-platform/admin/app-insights-cloud-flow">Power Automate telemetry in Application Insights</a> <a href="https://csrc.nist.gov/pubs/sp/800/92/final]">csrc.nist.gov</a> <strong>High confidence:</strong> A governable AI and low-code estate needs reconstructive metadata for every material event and portable trace correlation across systems, because post-incident reconstruction fails when event detail exists without linkage or linkage exists without event detail.</li>
+<li>[fact; source: <a href="https://opentelemetry.io/docs/specs/semconv/registry/attributes/gen-ai/">OpenTelemetry generative AI attribute registry</a> <a href="https://learn.microsoft.com/en-us/azure/foundry/observability/concepts/trace-agent-concept">Microsoft Foundry tracing concepts</a> <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-invocation-logging.html]">docs.aws.amazon.com</a> <strong>High confidence:</strong> Every governed AI event should record conversation or request identity, agent identity, prompt or template identity, model requested and model served, retrieval set identifiers, tool definitions, tool-call arguments and results, finish status, token usage, latency, and exceptions before full prompt or response bodies are considered.</li>
+<li>[inference; source: <a href="https://www.w3.org/TR/trace-context/">World Wide Web Consortium (W3C) Trace Context</a> <a href="https://opentelemetry.io/docs/concepts/signals/traces/]">opentelemetry.io</a> <strong>Medium confidence:</strong> W3C Trace Context and OpenTelemetry provide the strongest vendor-neutral baseline among the reviewed options for cross-system correlation because they standardize trace identifiers, parent-child span relationships, timestamps, attributes, and events while explicitly prohibiting sensitive payload data in trace headers.</li>
+<li>[fact; source: <a href="https://learn.microsoft.com/en-us/power-platform/admin/activity-logging-auditing/activity-logs-power-automate">Power Automate activity logs</a> <a href="https://learn.microsoft.com/en-us/power-platform/admin/app-insights-cloud-flow">Power Automate telemetry in Application Insights</a> <a href="https://learn.microsoft.com/en-us/power-automate/dataverse/cloud-flow-run-metadata">Cloud flow run history in Dataverse</a> <a href="https://learn.microsoft.com/en-us/power-platform/admin/activity-logging-auditing/activity-logs-connectors]">learn.microsoft.com</a> <strong>High confidence:</strong> Low-code governance requires distinct administrative, runtime, and connector telemetry streams because Microsoft documents that Purview alone does not capture individual runs, action executions, or connector calls at runtime.</li>
+<li>[inference; source: <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html">CloudTrail userIdentity element</a> <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html">Monitor and control actions taken with assumed roles</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html]">davidamitchell.github.io</a> <strong>Medium confidence:</strong> Enterprise attribution should bind initiator identity, acting machine identity, and session lineage on every material event because assumed-role chains and agent execution obscure accountability unless the original actor and workload identity are both preserved.</li>
+<li>[fact; source: <a href="https://gdpr-info.eu/art-5-gdpr/">General Data Protection Regulation (GDPR) Article 5</a> <a href="https://gdpr-info.eu/art-17-gdpr/">General Data Protection Regulation (GDPR) Article 17</a> <a href="https://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-events/">OpenTelemetry generative AI events</a> <a href="https://learn.microsoft.com/en-us/azure/foundry/observability/how-to/trace-agent-setup]">learn.microsoft.com</a> <strong>High confidence:</strong> Full prompt, response, and tool-payload logging should be opt-in, redacted where feasible, and access-restricted because the reviewed privacy and vendor sources treat those payloads as potentially personal or otherwise sensitive data rather than harmless diagnostics.</li>
+<li>[inference; source: <a href="https://learn.microsoft.com/en-us/power-automate/dataverse/cloud-flow-run-metadata">Cloud flow run history in Dataverse</a> <a href="https://learn.microsoft.com/en-us/purview/audit-log-retention-policies">Microsoft Purview audit log retention policies</a> <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html">AWS CloudTrail user guide</a> <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1774]">eur-lex.europa.eu</a> <strong>High confidence:</strong> Retention should be tiered by log purpose instead of standardized into one period because the reviewed platforms and regulations expose materially different windows for runtime telemetry, audit evidence, and incident records while requiring each period to be justified and secured.</li>
+<li>[fact; source: <a href="https://csrc.nist.gov/pubs/sp/800/92/final">National Institute of Standards and Technology (NIST) Special Publication (SP) 800-92</a> <a href="https://handbook.apra.gov.au/ppg/cpg-230">Australian Prudential Regulation Authority (APRA) Prudential Practice Guide (CPG) 230</a> <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022R2554]">eur-lex.europa.eu</a> <strong>Medium confidence:</strong> Governance telemetry must be centrally queryable, time-synchronized, tamper-resistant, and reviewable by control functions because the reviewed standards emphasize synchronized logs, effective monitoring, incident recording, and evidence for control review rather than raw data accumulation alone.</li>
+</ol>
+<h3>Assumptions</h3>
+<ul>
+<li>None.</li>
+</ul>
+<h3>Analysis</h3>
+<ul>
+<li>[inference; source: <a href="https://opentelemetry.io/docs/specs/semconv/registry/attributes/gen-ai/">OpenTelemetry generative AI attribute registry</a> <a href="https://learn.microsoft.com/en-us/power-platform/admin/activity-logging-auditing/activity-logs-power-automate">Power Automate activity logs</a> <a href="https://learn.microsoft.com/en-us/power-platform/admin/app-insights-cloud-flow]">learn.microsoft.com</a> The strongest pattern across sources is structural rather than vendor-specific: AI and low-code platforms both separate administrative audit from execution telemetry, so the enterprise model should formalize that separation instead of expecting one platform log to answer every governance question.</li>
+<li>[inference; source: <a href="https://www.w3.org/TR/trace-context/">World Wide Web Consortium (W3C) Trace Context</a> <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html">Monitor and control actions taken with assumed roles</a> <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html]">docs.aws.amazon.com</a> Cross-system correlation and identity attribution solve different problems and must be linked, not conflated, because a trace without actor lineage cannot prove accountability, while actor lineage without trace continuity cannot reconstruct a multi-step execution path.</li>
+<li>[inference; source: <a href="https://gdpr-info.eu/art-5-gdpr/">General Data Protection Regulation (GDPR) Article 5</a> <a href="https://gdpr-info.eu/art-17-gdpr/">General Data Protection Regulation (GDPR) Article 17</a> <a href="https://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-events/">OpenTelemetry generative AI events</a> <a href="https://learn.microsoft.com/en-us/azure/foundry/observability/how-to/trace-agent-setup]">learn.microsoft.com</a> The privacy trade-off does not support an all-or-nothing answer on prompt and response logging; the reviewed evidence supports a layered policy in which metadata is mandatory, payload capture is explicit and justified, and erasure or legal-hold decisions are handled per retention class.</li>
+<li>[inference; source: <a href="https://learn.microsoft.com/en-us/purview/audit-log-retention-policies">Microsoft Purview audit log retention policies</a> <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html">AWS CloudTrail user guide</a> <a href="https://learn.microsoft.com/en-us/power-automate/dataverse/cloud-flow-run-metadata">Cloud flow run history in Dataverse</a> <a href="https://handbook.apra.gov.au/standard/cps-230]">handbook.apra.gov.au</a> Because regulators reviewed here emphasize accessible evidence and effective monitoring rather than one fixed duration, the retention matrix should be anchored to business purpose, regulatory basis, and sensitivity of data, then enforced by platform-specific storage policies.</li>
+</ul>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>[fact; source: <a href="https://learn.microsoft.com/en-us/azure/foundry/observability/how-to/trace-agent-setup">Set up tracing for AI agents in Microsoft Foundry</a> <a href="https://learn.microsoft.com/en-us/azure/foundry/observability/concepts/trace-agent-concept]">learn.microsoft.com</a> Microsoft Foundry tracing is generally available only for prompt agents, while workflow, hosted, and custom agents remain in preview, so vendor-native observability coverage is still uneven for some AI execution patterns.</li>
+<li>[fact; source: <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-invocation-logging.html]">docs.aws.amazon.com</a> Bedrock invocation logging excludes calls made through some endpoints, such as the Responses API on <code>bedrock-mantle</code>, so an enterprise reference model still needs compensating telemetry outside the vendor-native logging feature.</li>
+<li>[fact; source: <a href="https://learn.microsoft.com/en-us/power-platform/admin/app-insights-cloud-flow]">learn.microsoft.com</a> <a href="https://learn.microsoft.com/en-us/power-platform/admin/app-insights-cloud-flow">Power Automate telemetry in Application Insights</a> is not fully lossless according to Microsoft, so authoritative forensic reconstruction should not rely on that stream alone when stronger transactional records exist elsewhere.</li>
+<li>[inference; source: <a href="https://handbook.apra.gov.au/standard/cps-230">Australian Prudential Regulation Authority (APRA) Prudential Standard (CPS) 230</a> <a href="https://handbook.apra.gov.au/ppg/cpg-230">Australian Prudential Regulation Authority (APRA) Prudential Practice Guide (CPG) 230</a> <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1774]">eur-lex.europa.eu</a> The reviewed APRA and DORA materials are principle-based rather than schema-level, so the exact field taxonomy still needs internal policy codification even though the direction of travel is clear.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>[inference; source: <a href="https://gdpr-info.eu/art-5-gdpr/">General Data Protection Regulation (GDPR) Article 5</a> <a href="https://gdpr-info.eu/art-17-gdpr/]">gdpr-info.eu</a> Which log classes in the target enterprise can rely on legal-obligation or legal-claims bases strongly enough to justify retaining identifiable prompt or response content beyond short operational windows?</li>
+<li>[inference; source: <a href="https://learn.microsoft.com/en-us/azure/foundry/observability/how-to/trace-agent-setup">Set up tracing for AI agents in Microsoft Foundry</a> <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-invocation-logging.html]">docs.aws.amazon.com</a> How much AI telemetry can be standardized entirely through OpenTelemetry adapters versus requiring vendor-specific side channels for payload capture and retention controls?</li>
+<li>[inference; source: <a href="https://learn.microsoft.com/en-us/power-platform/admin/activity-logging-auditing/activity-logs-connectors">Power Platform connector activity logs</a> <a href="https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/powerplatformconnectoractivity]">learn.microsoft.com</a> Which non-Microsoft low-code platforms expose equivalent connector-level correlation identifiers and runtime schemas, and where will compensating instrumentation be required?</li>
+</ul>
+<hr />
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
+<ul>
+<li>[x] <a href="https://opentelemetry.io/docs/concepts/signals/traces/">OpenTelemetry, traces concept</a> - baseline span, trace, attribute, and event model for distributed tracing.</li>
+<li>[x] <a href="https://opentelemetry.io/docs/specs/semconv/registry/attributes/gen-ai/">OpenTelemetry generative AI attribute registry</a> - canonical field set for model, prompt, retrieval, tool-call, and token telemetry.</li>
+<li>[x] <a href="https://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-events/">OpenTelemetry generative AI events</a> - opt-in guidance for prompt and response content capture.</li>
+<li>[x] <a href="https://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-metrics/">OpenTelemetry generative AI metrics</a> - canonical metric for token usage and model telemetry.</li>
+<li>[x] <a href="https://www.w3.org/TR/trace-context/">World Wide Web Consortium (W3C) Trace Context</a> - cross-system trace-correlation standard and privacy limits on trace headers.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/azure/azure-monitor/overview">Azure Monitor overview</a> - Microsoft observability platform covering metrics, logs, traces, events, and agent telemetry.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/azure/foundry/concepts/observability">Microsoft Foundry observability overview</a> - Microsoft view of evaluation, monitoring, and tracing for AI applications.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/azure/foundry/observability/how-to/trace-agent-setup">Set up tracing for AI agents in Microsoft Foundry</a> - prompt content, retrieval operations, token, and trace-storage details.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/azure/foundry/observability/concepts/trace-agent-concept">Microsoft Foundry tracing concepts</a> - inputs, outputs, tool usage, retries, latency, and cost telemetry guidance.</li>
+<li>[x] <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html">AWS CloudTrail user guide</a> - management event history, CloudTrail Lake retention, and log-delivery options.</li>
+<li>[x] <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html">CloudTrail userIdentity element</a> - identity lineage for temporary credentials and assumed roles.</li>
+<li>[x] <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html">Monitor and control actions taken with assumed roles</a> - source identity persistence for attribution across role chaining.</li>
+<li>[x] <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-invocation-logging.html">Amazon Bedrock model invocation logging</a> - full request, response, and metadata capture to CloudWatch Logs or Amazon Simple Storage Service (Amazon S3).</li>
+<li>[x] <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_PutModelInvocationLoggingConfiguration.html">PutModelInvocationLoggingConfiguration API</a> - modality-specific logging configuration for text, image, embedding, audio, and video data.</li>
+<li>[x] <a href="https://gdpr-info.eu/art-5-gdpr/">General Data Protection Regulation (GDPR) Article 5</a> - storage limitation, data minimisation, integrity, confidentiality, and accountability requirements.</li>
+<li>[x] <a href="https://gdpr-info.eu/art-17-gdpr/">General Data Protection Regulation (GDPR) Article 17</a> - right to erasure and exceptions for legal obligations and legal claims.</li>
+<li>[x] <a href="https://handbook.apra.gov.au/standard/cps-230">Australian Prudential Regulation Authority (APRA) Prudential Standard (CPS) 230</a> - operational risk, controls, monitoring, and resilience baseline.</li>
+<li>[x] <a href="https://handbook.apra.gov.au/ppg/cpg-230">Australian Prudential Regulation Authority (APRA) Prudential Practice Guide (CPG) 230</a> - guidance on monitoring, reporting, escalation, and internal controls under CPS 230.</li>
+<li>[x] <a href="https://csrc.nist.gov/pubs/sp/800/92/final">National Institute of Standards and Technology (NIST) Special Publication (SP) 800-92</a> - enterprise log-management principles and control objectives.</li>
+<li>[x] <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1774">Commission Delegated Regulation (EU) 2024/1774</a> - DORA regulatory technical standards including logging-procedure requirements.</li>
+<li>[x] <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022R2554">Regulation (EU) 2022/2554</a> - DORA core regulation including incident-recording expectations.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/power-platform/admin/activity-logging-auditing/activity-logs-overview">Power Platform activity logs overview</a> - Microsoft Purview audit model for low-code governance.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/power-platform/admin/activity-logging-auditing/activity-logs-power-automate">Power Automate activity logs</a> - lifecycle audit schema and runtime-logging limitations for cloud flows.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/power-platform/admin/activity-logging-auditing/activity-logs-connectors">Power Platform connector activity logs</a> - connector and custom API audit events, including correlation identifiers.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/power-platform/admin/app-insights-cloud-flow">Power Automate telemetry in Application Insights</a> - trigger, action, and run telemetry for managed environments.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/power-automate/dataverse/cloud-flow-run-metadata">Cloud flow run history in Dataverse</a> - per-run status, duration, trigger type, errors, owner, and retention controls.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/powerplatformconnectoractivity">PowerPlatformConnectorActivity table</a> - Azure Monitor schema for low-code connector audit events.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/purview/audit-log-retention-policies">Microsoft Purview audit log retention policies</a> - default and custom retention ranges for audit data.</li>
+</ul>
+
+
+  </div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-04-26-ai-lowcode-failure-modes-governance-mitigation.html">What are the primary failure modes in enterprise Artificial Intelligence (AI) and low-code deployments, and how can governance systems be designed to mitigate them?</a> <span class="related-note">via ai-governance, enterprise-governance, low-code</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-26-ai-lowcode-lifecycle-management.html">What lifecycle management model is required for Artificial Intelligence (AI) models, prompts, and low-code applications?</a> <span class="related-note">via enterprise-governance, low-code</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-26-ai-lowcode-governance-enforcement-architecture.html">Where should governance enforcement points be implemented within enterprise architecture, and how should controls be applied consistently for AI and low-code systems?</a> <span class="related-note">via ai-governance, low-code</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-26-ai-lowcode-decision-rights-accountability-liability.html">How should decision rights, accountability, and liability be structured for Artificial Intelligence (AI) systems and low-code applications in enterprise environments?</a> <span class="related-note">via enterprise-governance, low-code</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html">What control-plane architecture is required to manage Artificial Intelligence (AI) agents and low-code systems as distributed, semi-autonomous actors within enterprise environments?</a> <span class="related-note">via ai-governance, low-code</span></div>
+</div></div>
+
+  <div class="item-nav">
+    
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-04-26-ai-lowcode-lifecycle-management.html">AI models, prompts, and low-code applications?</a></div>
+  </div>
+</main>
+</body>
+</html>
