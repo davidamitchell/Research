@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "Regulatory and standards preconditions for agentic AI deployment: does incomplete access control and data governance constitute a control failure?"
 added: 2026-04-26
 status: reviewing
