@@ -1,0 +1,734 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>AI — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #0f1115;
+  --surface-2:       #161b22;
+  --border:          #252b33;
+  --text:            #e6e6e6;
+  --text-muted:      #666;
+  --accent:          #e6e6e6;
+  --accent-dim:      #333;
+  --tag-bg:          #161b22;
+  --tag-text:        #999;
+  --tag-active-bg:   #e6e6e6;
+  --tag-active-text: #0f1115;
+  --link:            #00C3A5;
+  --teal:            #00C3A5;
+  --dusk:            #E8A1A8;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  overflow-x: clip;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.75rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+.nav-links a.active { color: var(--teal); }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--teal); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+  min-width: 0;
+}
+.card:hover { border-color: var(--teal); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  word-break: break-word;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4em;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.item-title svg { flex-shrink: 0; margin-top: 0.2em; }
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+  word-break: break-all;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+  max-width: 100%;
+}
+.item-content pre code { background: none; padding: 0; word-break: normal; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--teal); text-decoration: underline; }
+.item-content a:hover { color: var(--text); text-decoration: underline; }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--dusk);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    top: 0;
+    height: auto;
+    padding: 0.5rem 1rem;
+  }
+  .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .nav-links {
+    width: 100%;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  main {
+    padding: 1.5rem 1rem 4rem;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; overflow: hidden; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); word-break: break-word; overflow-wrap: break-word; }
+.key-claims li:last-child { border-bottom: none; }
+.key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
+.key-claims a:hover { color: var(--text); }
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); flex-wrap: wrap; }
+.related-entry:last-child { border-bottom: none; }
+.related-entry a { color: var(--teal); word-break: break-word; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--dusk); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4em; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--teal); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-card-link { text-decoration: none; color: var(--text); display: block; }
+.thread-card-link:hover .thread-card { background: var(--surface-2); }
+.thread-card { background: var(--surface); border: 1px solid var(--border); padding: 1.5rem 1.75rem 1.75rem; }
+.thread-card-title { font-size: var(--text-base); font-weight: 600; margin-bottom: 0.5rem; }
+.thread-card-meta { font-size: var(--text-xs); color: var(--text-muted); margin-bottom: 0.75rem; letter-spacing: 0.05em; }
+.thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
+.thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Research</a>
+    <div class="nav-links">
+      <a href="/Research/threads.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>Threads</a>
+      <a href="/Research/tags/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>Tags</a>
+      <a href="/Research/search.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M8 1.5C4.41 1.5 1.5 4.41 1.5 8c0 2.87 1.86 5.3 4.44 6.16.32.06.44-.14.44-.31v-1.09c-1.8.39-2.18-.87-2.18-.87-.3-.75-.72-.95-.72-.95-.59-.4.04-.4.04-.4.65.05 1 .67 1 .67.58 1 1.53.71 1.9.54.06-.42.23-.71.41-.87-1.44-.16-2.95-.72-2.95-3.2 0-.71.25-1.28.67-1.74-.07-.16-.29-.82.06-1.71 0 0 .55-.18 1.8.67a6.27 6.27 0 0 1 3.28 0c1.25-.85 1.8-.67 1.8-.67.35.89.13 1.55.06 1.71.42.46.67 1.03.67 1.74 0 2.49-1.51 3.04-2.96 3.2.23.2.44.6.44 1.21v1.8c0 .17.12.37.44.31A6.5 6.5 0 0 0 14.5 8 6.5 6.5 0 0 0 8 1.5z"/></svg>GitHub</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>AI</span>
+  </div>
+  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>AI</h1>
+  <p class="full-title-subtitle">Implicit rate-limiting controls removed by agentic Artificial Intelligence (AI): blast radius amplification and the operational risk literature gap</p>
+  <div class="meta-bar">
+    <span>2026-04-26</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/operational-risk.html">operational-risk</a> <a class="tag" href="/Research/tags/agentic-ai.html">agentic-ai</a> <a class="tag" href="/Research/tags/citizen-development.html">citizen-development</a> <a class="tag" href="/Research/tags/regulated-banking.html">regulated-banking</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-implicit-rate-limiting-controls-agentic-ai-removal.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-04-26-implicit-rate-limiting-controls-agentic-ai-removal" target="_blank" rel="noopener">wiki →</a>
+  </div>
+  
+  <div class="item-content">
+    <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
+<p>Prior to agentic Artificial Intelligence (AI), the blast radius of ungoverned citizen development was implicitly bounded by human speed, attention, fatigue, and working hours, controls that are not documented in any risk framework but function as real operational constraints. Agentic AI removes these implicit rate-limiting controls without replacing them with engineered controls. Does any operational risk framework, automation risk framework, or AI governance framework explicitly account for the removal of these implicit controls, or does this represent a gap in current frameworks that must be constructed from the operational risk literature on automation and speed of consequence?</p>
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Findings</h2>
+<p><em>(Populated from Section 6 Synthesis above.)</em></p>
+<h3>Executive Summary</h3>
+<ul>
+<li>[inference; source: <a href="https://www.bis.org/fsi/fsisummaries/psmor.htm">Basel Committee on Banking Supervision, Principles for the Sound Management of Operational Risk, Executive Summary</a> <a href="https://handbook.apra.gov.au/standard/cps-230">APRA CPS 230, Operational Risk Management</a> <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32022R2554">Regulation (EU) 2022/2554, Digital Operational Resilience Act (DORA) Portable Document Format (PDF)</a> <a href="https://airc.nist.gov/airmf-resources/airmf/5-sec-core/">NIST AI RMF Core</a> <a href="https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final">NIST SP 800-53 Rev. 5, Security and Privacy Controls for Information Systems and Organizations</a> <a href="https://www.iso.org/standard/65694.html]">www.iso.org</a> The reviewed operational-risk, resilience, and AI-governance frameworks do not explicitly account for the removal of human speed, attention, fatigue, or working-hour constraints as a named control-substitution problem; that mechanism is a genuine conceptual gap in explicit framework language.</li>
+<li>[fact; source: <a href="https://www.bis.org/fsi/fsisummaries/psmor.htm">Basel Committee on Banking Supervision, Principles for the Sound Management of Operational Risk, Executive Summary</a> <a href="https://handbook.apra.gov.au/standard/cps-230">APRA CPS 230, Operational Risk Management</a> <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32022R2554">Regulation (EU) 2022/2554, Digital Operational Resilience Act (DORA) Portable Document Format (PDF)</a> <a href="https://airc.nist.gov/airmf-resources/airmf/5-sec-core/">NIST AI RMF Core</a> <a href="https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final">NIST SP 800-53 Rev. 5, Security and Privacy Controls for Information Systems and Organizations</a> <a href="https://www.iso.org/standard/65694.html]">www.iso.org</a> Those frameworks do, however, require explicit governance, monitoring, change control, resilience planning, and risk review, so unmanaged autonomy can still be criticised under existing duties even though the narrower mechanism is not named.</li>
+<li>[inference; source: <a href="https://www.sec.gov/files/marketevents-report.pdf">U.S. Securities and Exchange Commission (SEC) and Commodity Futures Trading Commission (CFTC), Findings Regarding the Market Events of May 6, 2010</a> <a href="https://doi.org/10.1007/s12599-018-0542-4">van der Aalst, Bichler, and Heinzl, Robotic Process Automation</a> <a href="https://www.isaca.org/resources/isaca-journal/issues/2023/volume-2/rpa-is-evolving-but-risk-still-exists]">www.isaca.org</a> The analogue evidence from high-frequency trading and RPA shows that once automation compresses time or extends operating windows, organizations add engineered pauses, monitoring, exception routing, and access controls to recreate the friction humans had been supplying implicitly.</li>
+<li>[inference; source: <a href="https://press.princeton.edu/books/paperback/9780691004129/normal-accidents">Princeton University Press, Normal Accidents: Living with High-Risk Technologies</a> <a href="https://www.sec.gov/files/marketevents-report.pdf]">www.sec.gov</a> Perrow's normal accident theory is the strongest first-principles foundation for the missing mechanism because tighter coupling and faster consequence propagation explain why blast radius increases when human slack disappears.</li>
+</ul>
+<h3>Key Findings</h3>
+<ol>
+<li>[inference; source: <a href="https://www.bis.org/fsi/fsisummaries/psmor.htm">Basel Committee on Banking Supervision, Principles for the Sound Management of Operational Risk, Executive Summary</a> <a href="https://handbook.apra.gov.au/standard/cps-230">APRA CPS 230, Operational Risk Management</a> <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32022R2554">Regulation (EU) 2022/2554, Digital Operational Resilience Act (DORA) Portable Document Format (PDF)</a> <a href="https://airc.nist.gov/airmf-resources/airmf/5-sec-core/">NIST AI RMF Core</a> <a href="https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final">NIST SP 800-53 Rev. 5, Security and Privacy Controls for Information Systems and Organizations</a> <a href="https://www.iso.org/standard/65694.html]">www.iso.org</a> <strong>Confidence: high.</strong> The reviewed frameworks require explicit governance, monitoring, change control, resilience, and risk-management processes, but none of the reviewed texts explicitly classify human speed, attention, fatigue, or working hours as controls whose removal must be replaced with engineered controls.</li>
+<li>[inference; source: <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32022R2554]">eur-lex.europa.eu</a> <strong>Confidence: medium.</strong> DORA comes closest to the missing mechanism because it mandates continuous monitoring, automatic alerting, automated isolation, controlled change management, and interdependency-aware continuity planning, yet it still frames those as explicit ICT controls rather than as substitutes for removed human rate limits.</li>
+<li>[inference; source: <a href="https://www.bis.org/fsi/fsisummaries/psmor.htm">Basel Committee on Banking Supervision, Principles for the Sound Management of Operational Risk, Executive Summary</a> <a href="https://handbook.apra.gov.au/standard/cps-230]">handbook.apra.gov.au</a> <strong>Confidence: high.</strong> Basel Committee operational-risk principles and APRA CPS 230 clearly require strong control environments, oversight controls for change, monitoring, remediation, and ICT risk management, but they do not name pre-existing human operational friction as a distinct mitigant category.</li>
+<li>[inference; source: <a href="https://airc.nist.gov/airmf-resources/airmf/5-sec-core/">NIST AI RMF Core</a> <a href="https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10]">www.nist.gov</a> <strong>Confidence: medium.</strong> NIST AI RMF 1.0 explicitly requires documented roles for human-AI configurations and oversight, ongoing monitoring, risk-tolerance setting, and safe decommissioning, but it does not instruct organizations to identify which human operating characteristics disappear when work shifts to continuous autonomous execution.</li>
+<li>[fact; source: <a href="https://www.sec.gov/files/marketevents-report.pdf]">www.sec.gov</a> <strong>Confidence: medium.</strong> The SEC and CFTC Flash Crash report shows that a volume-driven automated sell program compressed execution into 20 minutes, many liquidity providers paused simultaneously to reassess conditions, and exchanges then implemented circuit breakers to recreate assessment time explicitly.</li>
+<li>[inference; source: <a href="https://doi.org/10.1007/s12599-018-0542-4">van der Aalst, Bichler, and Heinzl, Robotic Process Automation</a> <a href="https://link.springer.com/article/10.1007/s10257-022-00553-8">Herm et al., A framework for implementing robotic process automation projects</a> <a href="https://www.isaca.org/resources/isaca-journal/issues/2023/volume-2/rpa-is-evolving-but-risk-still-exists]">www.isaca.org</a> <strong>Confidence: high.</strong> The RPA literature shows that humans had been serving as the glue across disconnected systems, that automation moves more of that long-tail work into software agents, and that reliable scaling then depends on explicit exception handling, monitoring, privileged-access control, and change management.</li>
+<li>[inference; source: <a href="https://press.princeton.edu/books/paperback/9780691004129/normal-accidents">Princeton University Press, Normal Accidents: Living with High-Risk Technologies</a> <a href="https://www.sec.gov/files/marketevents-report.pdf">U.S. Securities and Exchange Commission (SEC) and Commodity Futures Trading Commission (CFTC), Findings Regarding the Market Events of May 6, 2010</a> <a href="https://doi.org/10.1007/s12599-018-0542-4]">doi.org</a> <strong>Confidence: medium.</strong> Perrow's normal accident theory provides the clearest first-principles explanation for the gap because tighter coupling and interactive complexity make consequence propagation faster and harder to interrupt once human slack is removed.</li>
+<li>[inference; source: <a href="https://www.bis.org/fsi/fsisummaries/psmor.htm">Basel Committee on Banking Supervision, Principles for the Sound Management of Operational Risk, Executive Summary</a> <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32022R2554">Regulation (EU) 2022/2554, Digital Operational Resilience Act (DORA) Portable Document Format (PDF)</a> <a href="https://airc.nist.gov/airmf-resources/airmf/5-sec-core/">NIST AI RMF Core</a> <a href="https://www.iso.org/standard/65694.html]">www.iso.org</a> <strong>Confidence: medium.</strong> A framework provision that closed the gap would need to require organizations to inventory human-derived friction before autonomy increases and to prove that rate limits, approval thresholds, segmentation, monitoring, exception routing, and shutoff mechanisms replace the lost mitigation.</li>
+</ol>
+<h3>Assumptions</h3>
+<ul>
+<li>[assumption; source: <a href="https://doi.org/10.1007/s12599-018-0542-4">van der Aalst, Bichler, and Heinzl, Robotic Process Automation</a> <a href="https://doi.org/10.1007/s10257-020-00472-6]">doi.org</a> <strong>Assumption:</strong> Human speed, attention, fatigue, and working hours historically bounded citizen-development blast radius even though the reviewed corpus did not contain a direct pre-agentic measurement study. <strong>Justification:</strong> The claim is inferred from shadow-information-technology and automation analogues rather than from a direct quantitative historical study of citizen development specifically.</li>
+<li>[assumption; source: <a href="https://academic.oup.com/rfs/article/32/5/2024/5428080">Oxford Review of Financial Studies Flash Crash article</a> <a href="https://www.gartner.com/en/documents/3983454">Gartner RPA document</a> <a href="https://www.iso.org/standard/65694.html">ISO 31000:2018, Risk management - Guidelines</a> <a href="https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final]">csrc.nist.gov</a> <strong>Assumption:</strong> The explicit-gap conclusion is limited to the reviewed accessible framework texts and public summaries. <strong>Justification:</strong> Several seeded or granular sources were paywalled or inaccessible in this runtime, although no reviewed evidence suggested that those missing texts explicitly close the gap.</li>
+</ul>
+<h3>Analysis</h3>
+<ul>
+<li>[inference; source: <a href="https://www.bis.org/fsi/fsisummaries/psmor.htm">Basel Committee on Banking Supervision, Principles for the Sound Management of Operational Risk, Executive Summary</a> <a href="https://handbook.apra.gov.au/standard/cps-230">APRA CPS 230, Operational Risk Management</a> <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32022R2554">Regulation (EU) 2022/2554, Digital Operational Resilience Act (DORA) Portable Document Format (PDF)</a> <a href="https://airc.nist.gov/airmf-resources/airmf/5-sec-core/">NIST AI RMF Core</a> <a href="https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final">NIST SP 800-53 Rev. 5, Security and Privacy Controls for Information Systems and Organizations</a> <a href="https://www.iso.org/standard/65694.html]">www.iso.org</a> I weighted primary framework texts and official summaries more heavily than vendor or practitioner commentary when determining whether explicit coverage exists, so the explicit-gap conclusion is driven by regulator and standards documents rather than by later commentary.</li>
+<li>[inference; source: <a href="https://www.sec.gov/files/marketevents-report.pdf">U.S. Securities and Exchange Commission (SEC) and Commodity Futures Trading Commission (CFTC), Findings Regarding the Market Events of May 6, 2010</a> <a href="https://doi.org/10.1007/s12599-018-0542-4">van der Aalst, Bichler, and Heinzl, Robotic Process Automation</a> <a href="https://www.isaca.org/resources/isaca-journal/issues/2023/volume-2/rpa-is-evolving-but-risk-still-exists]">www.isaca.org</a> I used analogue evidence from high-frequency trading and RPA not to prove that the frameworks already contain the mechanism, but to test whether consequence speed, exception routing, and control substitution behave in practice the way the implicit-controls hypothesis predicts.</li>
+<li>[inference; source: <a href="https://press.princeton.edu/books/paperback/9780691004129/normal-accidents">Princeton University Press, Normal Accidents: Living with High-Risk Technologies</a> <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32022R2554]">eur-lex.europa.eu</a> Perrow's coupling model and DORA's explicit interdependency and continuity language align strongly enough that the first-principles argument is more credible than a pure novelty claim detached from operational-risk theory.</li>
+<li>[inference; source: <a href="https://doi.org/10.1007/s10257-020-00472-6">From Shadow IT to Business-managed IT</a> <a href="https://doi.org/10.1007/s12599-018-0542-4]">doi.org</a> The most important trade-off in the evidence is between directness and relevance: the shadow-information-technology and RPA sources are highly relevant to workaround estates but indirect on the exact phrase &quot;implicit controls,&quot; while the framework texts are direct on explicit controls but silent on the narrower mechanism.</li>
+</ul>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>[assumption; source: <a href="https://doi.org/10.1007/s12599-018-0542-4">van der Aalst, Bichler, and Heinzl, Robotic Process Automation</a> <a href="https://doi.org/10.1007/s10257-020-00472-6]">doi.org</a> Direct empirical studies that quantify human pace, attention, fatigue, or working hours as a measured blast-radius cap for citizen development were not found in the reviewed corpus.</li>
+<li>[assumption; source: <a href="https://academic.oup.com/rfs/article/32/5/2024/5428080">Oxford Review of Financial Studies Flash Crash article</a> <a href="https://www.gartner.com/en/documents/3983454]">www.gartner.com</a> The inaccessible Oxford and Gartner sources may contain additional supporting detail for the technology-analogue section, but they do not change the reviewed-framework conclusion because the explicit-gap claim is grounded in accessible primary framework texts.</li>
+<li>[assumption; source: <a href="https://www.iso.org/standard/65694.html">ISO 31000:2018, Risk management - Guidelines</a> <a href="https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final]">csrc.nist.gov</a> ISO 31000 and NIST SP 800-53 were only accessible at public-summary level in this runtime, so claims about their silence on the mechanism are lower precision than the DORA, Basel, APRA, NIST AI RMF, SEC, and RPA claims.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>[inference; source: <a href="https://www.sec.gov/files/marketevents-report.pdf">U.S. Securities and Exchange Commission (SEC) and Commodity Futures Trading Commission (CFTC), Findings Regarding the Market Events of May 6, 2010</a> <a href="https://doi.org/10.1007/s12599-018-0542-4]">doi.org</a> Which concrete control patterns best replace lost human friction in enterprise agent deployments, for example rate limits, mandatory approval thresholds, segmentation, exception-routing thresholds, or time-bounded credentials?</li>
+<li>[inference; source: <a href="https://www.bis.org/fsi/fsisummaries/psmor.htm">Basel Committee on Banking Supervision, Principles for the Sound Management of Operational Risk, Executive Summary</a> <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32022R2554">Regulation (EU) 2022/2554, Digital Operational Resilience Act (DORA) Portable Document Format (PDF)</a> <a href="https://airc.nist.gov/airmf-resources/airmf/5-sec-core/]">airc.nist.gov</a> How should boards and risk committees quantify blast-radius change when a workflow moves from human execution to continuous agent execution under otherwise unchanged permissions and process maps?</li>
+</ul>
+<hr />
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
+<ul>
+<li>[x] <a href="https://www.bis.org/bcbs/publ/d516.htm">Basel Committee on Banking Supervision, Principles for operational resilience</a> - primary resilience framework text.</li>
+<li>[x] <a href="https://www.bis.org/fsi/fsisummaries/psmor.htm">Basel Committee on Banking Supervision, Principles for the Sound Management of Operational Risk, Executive Summary</a> - primary operational-risk summary used for pinpointable principle language.</li>
+<li>[x] <a href="https://handbook.apra.gov.au/standard/cps-230">APRA CPS 230, Operational Risk Management</a> - primary prudential text.</li>
+<li>[x] <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32022R2554">Regulation (EU) 2022/2554, Digital Operational Resilience Act (DORA) Portable Document Format (PDF)</a> - primary legal text; the web reader path was unreliable in this runtime, so the PDF text extraction was used.</li>
+<li>[x] <a href="https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10">NIST AI RMF 1.0 publication page</a> - official framework publication page.</li>
+<li>[x] <a href="https://airc.nist.gov/airmf-resources/airmf/5-sec-core/">NIST AI RMF Core</a> - official categories and subcategories used for human-AI oversight and monitoring language.</li>
+<li>[x] <a href="https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final">NIST SP 800-53 Rev. 5, Security and Privacy Controls for Information Systems and Organizations</a> - official publication page and control-family summary; granular control pages were not directly accessible in this runtime.</li>
+<li>[x] <a href="https://www.iso.org/standard/65694.html">ISO 31000:2018, Risk management - Guidelines</a> - official public summary page; full text is paywalled.</li>
+<li>[x] <a href="https://press.princeton.edu/books/paperback/9780691004129/normal-accidents">Princeton University Press, Normal Accidents: Living with High-Risk Technologies</a> - accessible publisher summary used in place of the unstable Amazon listing.</li>
+<li>[x] <a href="https://www.sec.gov/files/marketevents-report.pdf">U.S. Securities and Exchange Commission (SEC) and Commodity Futures Trading Commission (CFTC), Findings Regarding the Market Events of May 6, 2010</a> - primary Flash Crash report; the originally seeded SEC URL returned 404 in this runtime and was replaced by the current official PDF.</li>
+<li>[x] <a href="https://academic.oup.com/rfs/article/32/5/2024/5428080">Oxford Review of Financial Studies Flash Crash article</a> - checked, returned 403 in this runtime, and was not used for downstream factual support.</li>
+<li>[x] <a href="https://doi.org/10.1007/s12599-018-0542-4">van der Aalst, Bichler, and Heinzl, Robotic Process Automation</a> - peer-reviewed RPA overview with explicit discussion of humans as the glue across systems, handoff of exceptional cases, and unnoticed automated failure.</li>
+<li>[x] <a href="https://link.springer.com/article/10.1007/s10257-022-00553-8">Herm et al., A framework for implementing robotic process automation projects</a> - peer-reviewed RPA implementation literature, including high failure-rate discussion and methodological challenges.</li>
+<li>[x] <a href="https://www.isaca.org/resources/isaca-journal/issues/2023/volume-2/rpa-is-evolving-but-risk-still-exists">ISACA Journal, RPA Is Evolving but Risk Still Exists</a> - practitioner guidance on command-and-control centers, continuous operation, privileged access, monitoring, and change control.</li>
+<li>[x] <a href="https://doi.org/10.1007/s10257-020-00472-6">From Shadow IT to Business-managed IT</a> - peer-reviewed shadow-IT study showing business units adopt local systems when central information technology cannot deliver suitable solutions quickly enough.</li>
+<li>[x] <a href="https://www.academia.edu/9093645/On_the_Emergence_of_Shadow_IT_A_Transaction_Cost_Based_Approach">On the Emergence of Shadow IT, A Transaction Cost-Based Approach</a> - checked, but the accessible view exposed references only in this runtime, so it was not used for downstream factual support.</li>
+<li>[x] <a href="https://www.gartner.com/en/documents/3983454">Gartner RPA document</a> - checked, returned 403 in this runtime, and was not used for downstream factual support.</li>
+</ul>
+
+
+  </div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis.html">Systems capability debt, citizen development, and agentic AI risk: is the causal chain and sequencing imperative a novel contribution?</a> <span class="related-note">via agentic-ai, citizen-development, operational-risk, regulated-banking</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-26-systems-capability-debt-citizen-development-empirical-evidence.html">Systems capability debt as the root cause of citizen development: empirical evidence and effective governance architectures</a> <span class="related-note">via citizen-development, operational-risk, regulated-banking</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html">Deployment pipeline as the only enforceable control gate for citizen-developed agents: DevOps literature support, low-code platform hook points, and architectural enforceability</a> <span class="related-note">via agentic-ai, citizen-development, regulated-banking</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment.html">Regulatory and standards preconditions for deployment of Artificial Intelligence (AI) systems that can take multi-step actions: does incomplete access control and data governance constitute a control failure?</a> <span class="related-note">via agentic-ai, operational-risk, regulated-banking</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-26-access-control-amplification-agentic-operations.html">Access control amplification under agentic operations: whether existing frameworks address the worst-case permission inheritance problem</a> <span class="related-note">via agentic-ai, regulated-banking</span></div>
+</div></div>
+
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-04-26-ms-copilot-cowork.html">What is Microsoft 365 Copilot Cowork and what are its enterprise governance…</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html">Deployment pipeline as the only enforceable control gate for citizen-developed…</a></div>
+  </div>
+</main>
+</body>
+</html>

@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-04-26T08:24:36Z",
+  "extracted_at": "2026-04-26T08:32:02Z",
   "items": {
     "2026-04-26-systems-capability-debt-citizen-development-empirical-evidence": {
       "named_concepts": [
@@ -241,6 +241,50 @@
         "High confidence",
         "Medium confidence"
       ]
+    },
+    "2026-04-26-implicit-rate-limiting-controls-agentic-ai-removal": {
+      "named_concepts": [
+        "attention fatigue",
+        "human speed",
+        "speed attention",
+        "change management",
+        "rate limits",
+        "framework texts",
+        "exception routing",
+        "normal accident",
+        "accident theory",
+        "blast radius",
+        "human slack",
+        "removed human",
+        "nist ai",
+        "ai rmf",
+        "explicit governance",
+        "governance monitoring",
+        "monitoring change",
+        "change control",
+        "control resilience",
+        "narrower mechanism"
+      ],
+      "source_urls": [
+        "https://www.bis.org/bcbs/publ/d516.htm",
+        "https://www.bis.org/fsi/fsisummaries/psmor.htm",
+        "https://handbook.apra.gov.au/standard/cps-230",
+        "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32022R2554",
+        "https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10",
+        "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+        "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final",
+        "https://www.iso.org/standard/65694.html",
+        "https://press.princeton.edu/books/paperback/9780691004129/normal-accidents",
+        "https://www.sec.gov/files/marketevents-report.pdf",
+        "https://academic.oup.com/rfs/article/32/5/2024/5428080",
+        "https://doi.org/10.1007/s12599-018-0542-4",
+        "https://link.springer.com/article/10.1007/s10257-022-00553-8",
+        "https://www.isaca.org/resources/isaca-journal/issues/2023/volume-2/rpa-is-evolving-but-risk-still-exists",
+        "https://doi.org/10.1007/s10257-020-00472-6",
+        "https://www.academia.edu/9093645/On_the_Emergence_of_Shadow_IT_A_Transaction_Cost_Based_Approach",
+        "https://www.gartner.com/en/documents/3983454"
+      ],
+      "key_claims": []
     },
     "2026-04-26-deployment-pipeline-citizen-development-governed-gate": {
       "named_concepts": [
