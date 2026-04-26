@@ -1,11 +1,12 @@
 # Research Master Document
 
-Generated on: 2026-04-26 10:01 UTC
+Generated on: 2026-04-26 10:32 UTC
 
 ## Table of Contents
 
 * [Systems capability debt as the root cause of citizen development: empirical evidence and effective governance architectures](#2026-04-26-systems-capability-debt-citizen-development-empirical-evidence-md)
 * [Systems capability debt, citizen development, and agentic AI risk: is the causal chain and sequencing imperative a novel contribution?](#2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis-md)
+* [Policy coherence as a machine-checkable prerequisite: policy-as-code, formal specification, and invariant registries for regulated financial institutions deploying agentic Artificial Intelligence (AI)](#2026-04-26-policy-coherence-machine-checkable-prerequisite-md)
 * [Permission-safe Retrieval-Augmented Generation (RAG) in enterprise information architectures: technical constraints, architectural options, and failure modes at scale](#2026-04-26-permission-safe-rag-enterprise-information-architecture-md)
 * [Multi-provider AI control planes: capabilities, vendors, and coverage gaps](#2026-04-26-multi-ai-provider-control-planes-md)
 * [What is Microsoft 365 Copilot Cowork and what are its enterprise governance risks?](#2026-04-26-ms-copilot-cowork-md)
@@ -328,6 +329,78 @@ Does the synthesis of technical debt literature (Cunningham, Kruchten), systems 
 - [inference; source: https://www.bis.org/fsi/fsisummaries/psmor.htm; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/] What is the best Risk and Control Self-Assessment design for surfacing workaround estates, excessive permissions, and low-code automations before agent deployment?
 - [inference; source: https://aws.amazon.com/blogs/security/four-security-principles-for-agentic-ai-systems/; https://sloanreview.mit.edu/article/agentic-ai-at-scale-redefining-management-for-a-superhuman-workforce/] At what action volume or privilege profile does human review become nominal rather than substantive for agentic systems in regulated enterprises?
 - [inference; source: https://link.springer.com/article/10.1007/s10257-020-00472-6; https://www.academia.edu/9093645/On_the_Emergence_of_Shadow_IT_A_Transaction_Cost_Based_Approach] Which governance interventions reduce workaround demand most effectively: better sanctioned delivery speed, better platform self-service, tighter controls, or some combination?
+
+---
+
+---
+
+<a id="2026-04-26-policy-coherence-machine-checkable-prerequisite-md"></a>
+
+## Policy coherence as a machine-checkable prerequisite: policy-as-code, formal specification, and invariant registries for regulated financial institutions deploying agentic Artificial Intelligence (AI)
+
+**Tags:** [policy-coherence, policy-as-code, open-policy-agent, formal-specification, invariant-registry, agentic-ai, regulated-banking, governance, automated-enforcement]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-policy-coherence-machine-checkable-prerequisite.md
+
+## Research Question
+
+Contradictory or outdated policy documents are a chronic governance failure that organisations tolerate because the consequences under human operation are slow-moving. Under agentic operation, agents built in good faith against one policy document will violate another, and will do so repeatedly at machine speed before detection. What does the literature say about policy coherence as a prerequisite for automated enforcement, and does the policy-as-code literature, formal policy specification, Open Policy Agent (OPA) patterns, and invariant registries, provide an applicable framework for ensuring agents operate within a coherent, non-contradictory policy space in a regulated financial institution?
+
+## Findings
+
+*(Populated from §6 Synthesis above.)*
+
+### Executive Summary
+
+- [inference; source: https://ar5iv.labs.arxiv.org/html/1503.02732; https://www.openpolicyagent.org/; https://docs.aws.amazon.com/prescriptive-guidance/latest/saas-multitenant-api-access-authorization/cedar.html; https://handbook.apra.gov.au/standard/cps-230; https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32022R2554; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-14-organisational-intent-formal-specification.md] Policy coherence is a practical prerequisite for any policy domain delegated to automated enforcement in a regulated financial institution, because policy engines can only enforce, test, and partially verify policies that have been translated into a coherent formal representation. [fact; source: https://github.com/open-policy-agent/opa/blob/master/ADOPTERS.md; https://www.infoq.com/presentations/opa-spring-boot-hocon/; https://arxiv.org/abs/2407.01688] The policy-as-code literature and public production evidence show that centralized, testable, auditable policy layers exist in production, but primarily at authorization and infrastructure-control scope rather than at full enterprise policy-corpus scope. [inference; source: https://cedar-policy.github.io/cedar-docs/; https://www.openpolicyagent.org/docs/policy-testing; https://pages.nist.gov/OSCAL/] Bounded-scope deployments can still succeed with local typed controls even when enterprise-wide policy-estate remediation is incomplete. [inference; source: https://pages.nist.gov/OSCAL/; https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final; https://cedar-policy.github.io/cedar-docs/] The strongest workable version of what this item calls an invariant registry, a definition-needed design label for a machine-readable control catalog plus typed schemas and centrally distributed policy bundles, is a governance pattern rather than a standalone product category. [inference; source: https://www.iso.org/standard/81230.html; https://www.bankofengland.co.uk/prudential-regulation/publication/2022/october/artificial-intelligence; https://www.bankofengland.co.uk/prudential-regulation/publication/2023/may/model-risk-management-principles-for-banks-ss] Regulators do not explicitly require that architecture today, but their governance and resilience expectations make it a strong derived precondition wherever agents can act at machine speed.
+
+### Key Findings
+
+1. [inference; source: https://ar5iv.labs.arxiv.org/html/1503.02732; https://www.openpolicyagent.org/; https://docs.aws.amazon.com/prescriptive-guidance/latest/saas-multitenant-api-access-authorization/cedar.html; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-14-organisational-intent-formal-specification.md] Policy-as-code does not resolve contradictory prose by itself; it becomes useful only after the policy domain being automated has been converted into a coherent, typed representation that an engine can evaluate consistently. **Confidence: high.**
+2. [fact; source: https://ar5iv.labs.arxiv.org/html/1503.02732; https://link.springer.com/article/10.1007/s10207-018-0421-5] The formal policy-analysis literature demonstrates that structured access-control policies can be checked for conflicts, incompleteness, and unreachable rules, which proves that machine-checkable coherence is technically achievable for formalized policy subsets. **Confidence: high.**
+3. [fact; source: https://www.openpolicyagent.org/; https://www.openpolicyagent.org/docs/policy-testing; https://www.openpolicyagent.org/docs/ocp/concepts] OPA provides a production pattern for centrally managed shared policies, automated policy testing, audit trails, and bundle-based distribution, which makes enforcement logic versioned, testable, and replayable across many systems. **Confidence: medium.**
+4. [fact; source: https://docs.aws.amazon.com/prescriptive-guidance/latest/saas-multitenant-api-access-authorization/cedar.html; https://cedar-policy.github.io/cedar-docs/; https://arxiv.org/abs/2407.01688] Cedar adds a stronger formal-verification story through typed schemas, authorization-specific semantics, and verification-guided development, but its guarantees apply to the modeled authorization layer rather than to the upstream policy corpus. **Confidence: medium.**
+5. [inference; source: https://pages.nist.gov/OSCAL/; https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final; https://www.openpolicyagent.org/docs/ocp/concepts] The closest practical implementation of what this item calls an invariant registry, a definition-needed design label for a centrally owned machine-readable control catalog feeding typed schemas and versioned policy bundles into enforcement engines, is a governance pattern rather than a standalone product with a settled industry definition. **Confidence: medium.**
+6. [fact; source: https://github.com/open-policy-agent/opa/blob/master/ADOPTERS.md; https://www.infoq.com/presentations/opa-spring-boot-hocon/] Public financial-services evidence confirms policy-as-code deployment in regulated institutions such as BNY Mellon, Capital One, and Goldman Sachs, but the public use cases are concentrated in authorization, admission control, and infrastructure governance. **Confidence: medium.**
+7. [inference; source: https://handbook.apra.gov.au/standard/cps-230; https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32022R2554; https://www.iso.org/standard/81230.html; https://www.bankofengland.co.uk/prudential-regulation/publication/2022/october/artificial-intelligence; https://www.bankofengland.co.uk/prudential-regulation/publication/2023/may/model-risk-management-principles-for-banks-ss] APRA, DORA, ISO/IEC 42001, and FCA/PRA guidance do not explicitly mandate machine-checkable policy coherence, but their control, governance, and resilience obligations make it a strong derived requirement for machine-speed agentic operations. **Confidence: medium.**
+8. [inference; source: https://cedar-policy.github.io/cedar-docs/; https://www.openpolicyagent.org/docs/policy-testing; https://pages.nist.gov/OSCAL/; https://davidamitchell.github.io/Research/research/2026-04-26-permission-safe-rag-enterprise-information-architecture.html] An unclassified or weakly owned policy and data estate does not make narrow policy-as-code deployments impossible, but it does make enterprise-wide policy coherence only partial and makes safe broad agentic deployment difficult to justify without prior remediation. **Confidence: medium.**
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [inference] Policy-as-code is downstream of coherent policy translation rather than a substitute for it. | https://ar5iv.labs.arxiv.org/html/1503.02732; https://www.openpolicyagent.org/; https://docs.aws.amazon.com/prescriptive-guidance/latest/saas-multitenant-api-access-authorization/cedar.html; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-14-organisational-intent-formal-specification.md | high | Formal checking only applies after policy is represented formally. |
+| [fact] Structured policy sets can be analyzed for conflict, incompleteness, and unreachable rules. | https://ar5iv.labs.arxiv.org/html/1503.02732; https://link.springer.com/article/10.1007/s10207-018-0421-5 | high | Strongest direct evidence from XACML and verification literature. |
+| [fact] OPA provides central policy management, testing, audit trails, and bundle-based distribution. | https://www.openpolicyagent.org/; https://www.openpolicyagent.org/docs/policy-testing; https://www.openpolicyagent.org/docs/ocp/concepts | medium | Demonstrated by official docs from one source family. |
+| [fact] Cedar provides typed schemas and a verification-guided authorization language with published bug-finding results. | https://docs.aws.amazon.com/prescriptive-guidance/latest/saas-multitenant-api-access-authorization/cedar.html; https://cedar-policy.github.io/cedar-docs/; https://arxiv.org/abs/2407.01688 | medium | Strong evidence, but largely from the Cedar source family. |
+| [inference] What this item calls an invariant registry is best implemented as a machine-readable control catalog plus schemas and bundles. | https://pages.nist.gov/OSCAL/; https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final; https://www.openpolicyagent.org/docs/ocp/concepts | medium | Architecture pattern is well supported; the exact label is not standardized, so the label remains definition-needed. |
+| [fact] Financial-services production deployments exist, but mainly at authorization and control-plane scope. | https://github.com/open-policy-agent/opa/blob/master/ADOPTERS.md; https://www.infoq.com/presentations/opa-spring-boot-hocon/ | medium | Good evidence for regulated use, but the named-institution evidence is thin outside BNY Mellon. |
+| [inference] Regulatory texts make machine-checkable coherence a strong derived prerequisite, not an explicit legal obligation. | https://handbook.apra.gov.au/standard/cps-230; https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32022R2554; https://www.iso.org/standard/81230.html; https://www.bankofengland.co.uk/prudential-regulation/publication/2022/october/artificial-intelligence; https://www.bankofengland.co.uk/prudential-regulation/publication/2023/may/model-risk-management-principles-for-banks-ss | medium | Strong on control outcomes, indirect on mechanism. |
+| [inference] Weak classification and ownership make enterprise-wide policy coherence partial and make safe broad agentic deployment difficult to justify without prior remediation. | https://cedar-policy.github.io/cedar-docs/; https://www.openpolicyagent.org/docs/policy-testing; https://pages.nist.gov/OSCAL/; https://davidamitchell.github.io/Research/research/2026-04-26-permission-safe-rag-enterprise-information-architecture.html | medium | Follows indirectly from schema, typing, and control-catalog requirements. |
+
+### Assumptions
+
+- [assumption; source: https://pages.nist.gov/OSCAL/; https://www.openpolicyagent.org/docs/ocp/concepts; https://cedar-policy.github.io/cedar-docs/] **Assumption:** "Invariant registry" is a design shorthand for a machine-readable catalog of non-negotiable controls, schemas, and distributed policy artifacts. **Justification:** the searched primary sources support the architecture but do not present a settled, authoritative definition under that exact term.
+
+### Analysis
+
+- [fact; source: https://ar5iv.labs.arxiv.org/html/1503.02732; https://link.springer.com/article/10.1007/s10207-018-0421-5] The strongest direct evidence concerns formal access-control policies, not enterprise policy manuals. That evidence is still relevant because it isolates the core technical question: can policy conflicts be detected mechanically once the policy space is formalized? The answer is yes.
+- [fact; source: https://www.openpolicyagent.org/; https://www.openpolicyagent.org/docs/policy-testing; https://docs.aws.amazon.com/prescriptive-guidance/latest/saas-multitenant-api-access-authorization/cedar.html; https://arxiv.org/abs/2407.01688] The engineering literature and official documentation then show that modern policy engines can operationalize those ideas through testing, schemas, audit trails, and formal reasoning, but only within the boundaries of the encoded model.
+- [inference; source: https://github.com/open-policy-agent/opa/blob/master/ADOPTERS.md; https://www.infoq.com/presentations/opa-spring-boot-hocon/; https://pages.nist.gov/OSCAL/] Production evidence and machine-readable control standards jointly support a realistic operating model for regulated banks: central control catalogs and policy repositories feeding runtime enforcement. What they do not support is the stronger claim that banks have already solved natural-language policy coherence end to end.
+- [inference; source: https://handbook.apra.gov.au/standard/cps-230; https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32022R2554; https://www.iso.org/standard/81230.html; https://www.bankofengland.co.uk/prudential-regulation/publication/2022/october/artificial-intelligence] Because the regulatory texts are mechanism-neutral, the conclusion is necessarily inferential rather than explicit: policy coherence is a prerequisite because otherwise the mandated control outcomes are not reliably demonstrable under machine-speed delegation.
+
+### Risks, Gaps, and Uncertainties
+
+- [fact; source: https://api.crossref.org/works/10.1145/3194133.3194139] One seeded academic source was mislabeled and had to be replaced.
+- [fact; source: https://www.iso.org/standard/81230.html] ISO/IEC 42001 evidence is lower resolution than APRA, DORA, or NIST evidence because only the official public summary was accessible in this runtime.
+- [fact; source: https://github.com/open-policy-agent/opa/blob/master/ADOPTERS.md] Public financial-services case studies confirm deployment, but they do not publish detailed metrics or full governance operating models for whole-enterprise policy coherence.
+- [inference; source: https://pages.nist.gov/OSCAL/; https://www.openpolicyagent.org/docs/ocp/concepts] The invariant-registry pattern is architecturally credible, but there is uncertainty about how many regulated institutions have formalized it explicitly as a named program rather than as dispersed control catalogs and policy repositories.
+
+### Open Questions
+
+- [inference; source: https://github.com/open-policy-agent/opa/blob/master/ADOPTERS.md; https://www.infoq.com/presentations/opa-spring-boot-hocon/] What governance model, ownership model, and change-control process do regulated banks use internally when they attempt to map free-text policy estates into machine-readable authorization or control artifacts?
+- [inference; source: https://pages.nist.gov/OSCAL/; https://cedar-policy.github.io/cedar-docs/] What is the minimum viable sequence for moving from prose policies to a typed invariant catalog in a bank with partial data classification and mixed legacy tooling?
+- [inference; source: https://www.bankofengland.co.uk/prudential-regulation/publication/2022/october/artificial-intelligence; https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32022R2554] Will supervisors eventually expect firms to provide machine-readable evidence of policy coherence for higher-autonomy systems, even if current texts remain mechanism-neutral?
 
 ---
 
