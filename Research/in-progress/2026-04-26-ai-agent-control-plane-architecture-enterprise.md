@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "What control-plane architecture is required to manage Artificial Intelligence (AI) agents and low-code systems as distributed, semi-autonomous actors within enterprise environments?"
 added: 2026-04-26T10:11:11+00:00
 status: reviewing
