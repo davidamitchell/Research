@@ -1,11 +1,11 @@
 ---
 title: "Keeping research backlog separate from repo improvement backlog"
-added: 2026-02-27
+added: 2026-03-02T08:19:48+00:00
 status: completed
 priority: high
 tags: [process, workflow, organisation]
-started: 2026-03-02
-completed: 2026-03-02
+started: 2026-03-02T08:19:48+00:00
+completed: 2026-03-02T08:19:48+00:00
 output: [knowledge]
 ---
 

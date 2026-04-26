@@ -1,11 +1,11 @@
 ---
 title: "YouTube transcripts via third-party transcript APIs (AssemblyAI / Supadata)"
-added: 2026-02-28
+added: 2026-03-10T17:16:57+00:00
 status: completed
 priority: low
 tags: [youtube, transcripts, assemblyai, supadata, tooling, automation]
-started: 2026-03-10
-completed: 2026-03-10
+started: 2026-03-10T17:16:57+00:00
+completed: 2026-03-10T17:16:57+00:00
 output: [tool]
 ---
 

@@ -1,12 +1,12 @@
 ---
 title: "iOS Shortcuts + GitHub API: zero-infrastructure mobile memory capture"
-added: 2026-03-08
+added: 2026-03-08T07:56:27+00:00
 status: completed
 priority: high
 blocks: []
 tags: [mobile, ios, shortcuts, github-api, capture, memory-system]
-started: 2026-03-08
-completed: 2026-03-08
+started: 2026-03-08T07:56:27+00:00
+completed: 2026-03-08T07:56:27+00:00
 output: [tool, knowledge]
 ---
 

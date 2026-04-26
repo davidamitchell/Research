@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from datetime import date
+from datetime import date, datetime
 from pathlib import Path
 
 
@@ -13,7 +13,7 @@ class ResearchItem:
 
     path: Path
     title: str
-    added: date
+    added: date | datetime
     status: str  # backlog | in-progress | reviewing | completed
     priority: str  # low | medium | high
     tags: list[str] = field(default_factory=list)
@@ -35,10 +35,26 @@ class ResearchItem:
 
         meta = yaml.safe_load(match.group(1))
 
+        # ``added`` may be stored as a date-only string, a Python date (parsed
+        # by YAML), or a full ISO-8601 datetime string / Python datetime.
+        # Normalise to whatever Python type PyYAML gives us; callers should
+        # treat it as a ``date | datetime`` union.
+        added_raw = meta.get("added", date.today())
+        if isinstance(added_raw, str):
+            # PyYAML returns strings only for unrecognised formats; try to
+            # parse as datetime first, then date.
+            try:
+                added_raw = datetime.fromisoformat(added_raw)
+            except ValueError:
+                try:
+                    added_raw = date.fromisoformat(added_raw)
+                except ValueError:
+                    added_raw = date.today()
+
         return cls(
             path=path,
             title=meta.get("title", path.stem),
-            added=meta.get("added", date.today()),
+            added=added_raw,
             status=meta.get("status", "backlog"),
             priority=meta.get("priority", "medium"),
             tags=meta.get("tags") or [],

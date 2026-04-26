@@ -1,13 +1,13 @@
 ---
 review_count: 2
 title: "The role of AGENTS.md in a repo using .github/copilot-instructions.md as the sole instructions source"
-added: 2026-03-28
+added: 2026-03-29T11:12:49+00:00
 status: completed
 priority: medium
 blocks: []
 tags: [agents-md, copilot, claude, instructions, cross-agent, consistency]
-started: 2026-03-29
-completed: 2026-03-29
+started: 2026-03-29T11:12:49+00:00
+completed: 2026-03-29T11:12:49+00:00
 output: [knowledge, backlog-item]
 ---
 

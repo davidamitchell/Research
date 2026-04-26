@@ -1,12 +1,12 @@
 ---
 title: "Failure mode taxonomy: empirical frequency, causal mechanisms, detection signals, and cascade patterns in production agentic systems"
-added: 2026-03-12
+added: 2026-03-14T11:06:19+00:00
 status: completed
 priority: high
 blocks: []
 tags: [failure-modes, taxonomy, hallucination, reward-hacking, prompt-injection, alignment, agentic-systems, owasp, safety, observability]
-started: 2026-03-14
-completed: 2026-03-14
+started: 2026-03-14T11:06:19+00:00
+completed: 2026-03-14T11:06:19+00:00
 output: [knowledge]
 ---
 

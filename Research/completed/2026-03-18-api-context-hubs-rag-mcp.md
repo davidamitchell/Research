@@ -1,13 +1,13 @@
 ---
 review_count: 2
 title: "Application Programming Interface (API) Context Hubs, Retrieval-Augmented Generation, and the Model Context Protocol: How Agents Discover and Use APIs"
-added: 2026-03-18
+added: 2026-03-20T07:48:58+00:00
 status: completed
 priority: high  # low | medium | high
 blocks: []
 tags: [api-discovery, context-hub, rag, mcp, model-context-protocol, retrieval-augmented-generation, agents, tooling, ai-agents, api-integration]
-started: 2026-03-20
-completed: 2026-03-20
+started: 2026-03-20T07:48:58+00:00
+completed: 2026-03-20T07:48:58+00:00
 output: [knowledge]
 ---
 

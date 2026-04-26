@@ -1,13 +1,13 @@
 ---
 review_count: 2
 title: "Tracking How Work Travels Across Organisational Systems"
-added: 2026-03-15
+added: 2026-03-22T09:37:48+00:00
 status: completed
 priority: medium  # low | medium | high
 blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
 tags: [knowledge-management, work-tracking, sharepoint, confluence, ado, jira, git, monitoring, data-platform, provenance]
-started: 2026-03-22
-completed: 2026-03-22
+started: 2026-03-22T09:37:48+00:00
+completed: 2026-03-22T09:37:48+00:00
 output: [knowledge]
 ---
 

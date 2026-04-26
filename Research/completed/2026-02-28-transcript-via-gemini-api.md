@@ -1,11 +1,11 @@
 ---
 title: "YouTube transcripts via Gemini API (native YouTube URL support)"
-added: 2026-02-28
+added: 2026-03-07T01:17:13+00:00
 status: completed
 priority: medium
 tags: [youtube, transcripts, gemini, tooling, automation]
-started: 2026-03-07
-completed: 2026-03-07
+started: 2026-03-07T01:17:13+00:00
+completed: 2026-03-07T01:17:13+00:00
 output: [tool]
 ---
 

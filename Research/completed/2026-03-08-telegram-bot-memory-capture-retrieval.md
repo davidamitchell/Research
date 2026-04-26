@@ -1,12 +1,12 @@
 ---
 title: "Telegram bot as mobile memory capture and retrieval channel"
-added: 2026-03-08
+added: 2026-03-10T07:59:54+00:00
 status: completed
 priority: medium
 blocks: []
 tags: [mobile, telegram, bot, capture, retrieval, memory-system, self-hosted]
-started: 2026-03-10
-completed: 2026-03-10
+started: 2026-03-10T07:59:54+00:00
+completed: 2026-03-10T07:59:54+00:00
 output: [tool, knowledge]
 ---
 

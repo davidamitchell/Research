@@ -1,13 +1,13 @@
 ---
 review_count: 2
 title: "Adaptive Policy-Based Authorization (APBA): compliance alignment with National Institute of Standards and Technology (NIST) Special Publication (SP) 800-53 and International Organization for Standardization (ISO) / International Electrotechnical Commission (IEC) 27001, and impact on Policy as Code (PaC) and Artificial Intelligence (AI)-generated authorization code"
-added: 2026-03-16
+added: 2026-03-19T08:21:30+00:00
 status: completed
 priority: high
 blocks: []
 tags: [authorization, policy-as-code, compliance, nist, iso-27001, ai, governance, least-privilege, access-control, iac]
-started: 2026-03-19
-completed: 2026-03-19
+started: 2026-03-19T08:21:30+00:00
+completed: 2026-03-19T08:21:30+00:00
 output: [knowledge]
 ---
 

@@ -1,13 +1,13 @@
 ---
 review_count: 2
 title: "Regulatory and standards preconditions for deployment of Artificial Intelligence (AI) systems that can take multi-step actions: does incomplete access control and data governance constitute a control failure?"
-added: 2026-04-26
+added: 2026-04-26T05:14:14+00:00
 status: completed
 priority: high  # low | medium | high
 blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
 tags: [agentic-ai, regulatory-compliance, control-failure, access-control, data-governance, regulated-banking, nz-rbnz, pci-dss, apra-cps-230, dora, iso-42001, nist, basel-committee, operational-risk]
-started: 2026-04-26
-completed: 2026-04-26
+started: 2026-04-26T05:14:14+00:00
+completed: 2026-04-26T05:14:14+00:00
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item
 ---
 

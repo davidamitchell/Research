@@ -1,12 +1,12 @@
 ---
 title: "Customer contact as strategic signal: why people call and whether they want self-service"
-added: 2026-03-26
+added: 2026-03-27T08:57:15+00:00
 status: completed
 priority: high
 blocks: []
 tags: [customer-service, strategy, behavioral-economics, ai, self-service, customer-delight, rory-sutherland]
-started: 2026-03-27
-completed: 2026-03-27
+started: 2026-03-27T08:57:15+00:00
+completed: 2026-03-27T08:57:15+00:00
 output: [knowledge]
 review_count: 2
 ---

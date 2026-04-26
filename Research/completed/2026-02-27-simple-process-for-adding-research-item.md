@@ -1,11 +1,11 @@
 ---
 title: "Simple process for adding a research item"
-added: 2026-02-27
+added: 2026-03-02T08:23:20+00:00
 status: completed
 priority: high
 tags: [process, workflow, tooling]
-started: 2026-03-02
-completed: 2026-03-02
+started: 2026-03-02T08:23:20+00:00
+completed: 2026-03-02T08:23:20+00:00
 output: [tool, knowledge]
 ---
 

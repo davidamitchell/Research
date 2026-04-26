@@ -1,12 +1,12 @@
 ---
 title: "Best practices in financial forecasting for IT operational run costs: assumptions, uncertainty, and regulatory considerations"
-added: 2026-03-13
+added: 2026-03-14T18:32:46+00:00
 status: completed
 priority: high
 blocks: []
 tags: [financial-forecasting, it-run-costs, uncertainty-modelling, regulatory, error-bars, infrastructure-costing, assumptions]
-started: 2026-03-14
-completed: 2026-03-14
+started: 2026-03-14T18:32:46+00:00
+completed: 2026-03-14T18:32:46+00:00
 output: [knowledge]
 ---
 

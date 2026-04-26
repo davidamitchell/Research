@@ -1,13 +1,13 @@
 ---
 review_count: 2
 title: "Artificial Intelligence (AI) agents as finishers and synthesisers: optimising AI agents to complement ideation-strong, execution-weak humans"
-added: 2026-03-22
+added: 2026-03-23T08:27:40+00:00
 status: completed
 priority: high  # low | medium | high
 blocks: []
 tags: [agents, human-ai-collaboration, productivity, finishing, synthesis, orchestration, cognitive-styles]
-started: 2026-03-23
-completed: 2026-03-23
+started: 2026-03-23T08:27:40+00:00
+completed: 2026-03-23T08:27:40+00:00
 output: [knowledge, backlog-item]
 ---
 

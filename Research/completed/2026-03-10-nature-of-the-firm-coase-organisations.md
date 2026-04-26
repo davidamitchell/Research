@@ -1,12 +1,12 @@
 ---
 title: "The Nature of the Firm: why organisations exist, their fitness functions, and invariants"
-added: 2026-03-10
+added: 2026-03-13T22:03:31+00:00
 status: completed
 priority: high
 blocks: []
 tags: [organisational-theory, transaction-costs, coase, williamson, north, institutions, team-topologies, fitness-functions, invariants, platform-strategy, institutional-economics]
-started: 2026-03-13
-completed: 2026-03-14
+started: 2026-03-13T22:03:31+00:00
+completed: 2026-03-13T22:03:31+00:00
 output: [knowledge]
 ---
 

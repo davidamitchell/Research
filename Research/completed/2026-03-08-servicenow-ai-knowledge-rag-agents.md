@@ -1,12 +1,12 @@
 ---
 title: "ServiceNow AI: Knowledge Management, RAG Pipelines, and Agent Frameworks"
-added: 2026-03-08
+added: 2026-03-09T10:32:01+00:00
 status: completed
 priority: medium
 blocks: [2026-03-08-servicenow-platform-strategy]
 tags: [servicenow, ai, now-assist, rag, knowledge-management, agent-frameworks, genai, llm, knowledge-base]
-started: 2026-03-09
-completed: 2026-03-09
+started: 2026-03-09T10:32:01+00:00
+completed: 2026-03-09T10:32:01+00:00
 output: [knowledge]
 ---
 

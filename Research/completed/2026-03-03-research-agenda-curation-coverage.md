@@ -1,12 +1,12 @@
 ---
 title: "Research agenda curation: prioritisation, coverage analysis, and avoiding research drift"
-added: 2026-03-03
+added: 2026-03-03T10:13:26+00:00
 status: completed
 priority: high
 blocks: []
 tags: [research-agenda, prioritisation, coverage, curation, strategy, backlog-management, research-drift]
-started: 2026-03-03
-completed: 2026-03-03
+started: 2026-03-03T10:13:26+00:00
+completed: 2026-03-03T10:13:26+00:00
 output: [knowledge, tool, backlog-item]
 ---
 

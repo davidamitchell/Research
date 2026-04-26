@@ -1,12 +1,12 @@
 ---
 title: "H-Neurons Synthesis — From Hallucination Mechanisms to Actionable LLM Reliability Engineering"
-added: 2026-03-05
+added: 2026-03-05T20:41:22+00:00
 status: completed
 priority: high
 blocks: []
 tags: [llm, hallucinations, h-neurons, mechanistic-interpretability, over-compliance, pre-training, alignment, reliability, synthesis]
-started: 2026-03-05
-completed: 2026-03-05
+started: 2026-03-05T20:41:22+00:00
+completed: 2026-03-05T20:41:22+00:00
 output: [knowledge, backlog-item]
 ---
 

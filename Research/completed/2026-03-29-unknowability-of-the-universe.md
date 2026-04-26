@@ -1,13 +1,13 @@
 ---
 review_count: 2
 title: "The Unknowability of the Universe"
-added: 2026-03-29
+added: 2026-03-30T08:51:59+00:00
 status: completed
 priority: medium  # low | medium | high
 blocks: []
 tags: [philosophy, physics, general-relativity, zen-buddhism, epistemology]
-started: 2026-03-30
-completed: 2026-03-30
+started: 2026-03-30T08:51:59+00:00
+completed: 2026-03-30T08:51:59+00:00
 output: []  # skill | tool | agent | knowledge | backlog-item
 ---
 

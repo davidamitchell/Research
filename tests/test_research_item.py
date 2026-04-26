@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from datetime import date
+from datetime import UTC, date, datetime
 from pathlib import Path
 
 import pytest
@@ -26,6 +26,21 @@ output: [knowledge]
 ## Question / Hypothesis
 
 A test question.
+"""
+
+SAMPLE_ITEM_WITH_DATETIME = """\
+---
+title: "Test research item with datetime"
+added: 2026-02-27T09:30:00+00:00
+status: backlog
+priority: high
+tags: [testing]
+started: ~
+completed: ~
+output: [knowledge]
+---
+
+# Test research item with datetime
 """
 
 
@@ -59,6 +74,15 @@ def test_from_file_loads_added_date(tmp_path: Path) -> None:
     f.write_text(SAMPLE_ITEM)
     item = ResearchItem.from_file(f)
     assert item.added == date(2026, 2, 27)
+
+
+def test_from_file_loads_added_datetime(tmp_path: Path) -> None:
+    """ResearchItem.from_file parses a full ISO 8601 datetime in the added field."""
+    f = tmp_path / "2026-02-27-test-dt.md"
+    f.write_text(SAMPLE_ITEM_WITH_DATETIME)
+    item = ResearchItem.from_file(f)
+    expected = datetime(2026, 2, 27, 9, 30, 0, tzinfo=UTC)
+    assert item.added == expected
 
 
 def test_from_file_raises_on_missing_frontmatter(tmp_path: Path) -> None:

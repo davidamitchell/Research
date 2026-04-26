@@ -1,11 +1,11 @@
 ---
 title: "AI for Control Testing, Gap Identification, and Policies/Standards Reviews"
-added: 2026-02-28
+added: 2026-03-03T02:26:48+00:00
 status: completed
 priority: high
 tags: [ai-strategy, grc, control-testing, compliance-automation, internal-audit, risk-management, financial-services]
-started: 2026-03-03
-completed: 2026-03-03
+started: 2026-03-03T02:26:48+00:00
+completed: 2026-03-03T02:26:48+00:00
 output: [knowledge]
 ---
 

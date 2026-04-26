@@ -1,12 +1,12 @@
 ---
 title: "Cost reduction is not a strategy: the opportunity vs efficiency mindset"
-added: 2026-03-26
+added: 2026-03-27T01:30:55+00:00
 status: completed
 priority: high
 blocks: []
 tags: [strategy, cost-reduction, ai, marketing, opportunity-mindset, behavioral-economics, rory-sutherland]
-started: 2026-03-27
-completed: 2026-03-27
+started: 2026-03-27T01:30:55+00:00
+completed: 2026-03-27T01:30:55+00:00
 output: [knowledge]
 review_count: 2
 ---

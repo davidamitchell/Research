@@ -1,12 +1,12 @@
 ---
 title: "Knowledge linking: building a connected research corpus via explicit cross-references and a knowledge graph"
-added: 2026-03-03
+added: 2026-03-03T09:37:29+00:00
 status: completed
 priority: high
 blocks: [2026-03-03-cross-item-synthesis-meta-insights]
 tags: [knowledge-graph, zettelkasten, cross-references, linking, synthesis, backlinks, corpus, knowledge-integration, knowledge-management]
-started: 2026-03-03
-completed: 2026-03-03
+started: 2026-03-03T09:37:29+00:00
+completed: 2026-03-03T09:37:29+00:00
 output: [knowledge, tool, backlog-item]
 ---
 

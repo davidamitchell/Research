@@ -1,13 +1,13 @@
 ---
 review_count: 1
 title: "Intent Driven Development: context and concept layering to bound the solution space"
-added: 2026-03-16
+added: 2026-03-20T04:03:13+00:00
 status: completed
 priority: high  # low | medium | high
 blocks: []
 tags: [intent, software-engineering, test-driven-development, specification-driven-development, context-layering, agentic-coding, artificial-intelligence, developer-tooling, design-methodology]
-started: 2026-03-20
-completed: 2026-03-20
+started: 2026-03-20T04:03:13+00:00
+completed: 2026-03-20T04:03:13+00:00
 output: [knowledge]
 ---
 

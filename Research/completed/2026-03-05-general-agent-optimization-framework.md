@@ -1,12 +1,12 @@
 ---
 title: "General Agent Optimization Framework"
-added: 2026-03-05
+added: 2026-03-05T20:22:11+00:00
 status: completed
 priority: high
 blocks: []
 tags: [ai-agents, optimization, benchmarks, dspy, evaluation, self-improvement, prompt-engineering, synthetic-data]
-started: 2026-03-05
-completed: 2026-03-05
+started: 2026-03-05T20:22:11+00:00
+completed: 2026-03-05T20:22:11+00:00
 output: [knowledge, backlog-item]
 ---
 

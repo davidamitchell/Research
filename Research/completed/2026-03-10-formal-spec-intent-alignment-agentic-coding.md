@@ -1,12 +1,12 @@
 ---
 title: "Formal intent specification and language choice for AI alignment in agentic coding systems"
-added: 2026-03-10
+added: 2026-03-10T17:02:39+00:00
 status: completed
 priority: high
 blocks: []
 tags: [formal-methods, intent-alignment, reward-hacking, agentic-systems, programming-languages, type-theory, out-of-the-tar-pit]
-started: 2026-03-10
-completed: 2026-03-10
+started: 2026-03-10T17:02:39+00:00
+completed: 2026-03-10T17:02:39+00:00
 output: [knowledge]
 ---
 

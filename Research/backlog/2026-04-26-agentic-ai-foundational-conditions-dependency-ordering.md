@@ -1,6 +1,6 @@
 ---
 title: "Dependency ordering of foundational conditions for safe agentic Artificial Intelligence (AI) deployment: the prerequisite graph and the regulatory consequence of deploying at any layer before the layer below it is satisfied"
-added: 2026-04-26
+added: 2026-04-26T06:57:01+00:00
 status: backlog
 priority: high
 blocks: []

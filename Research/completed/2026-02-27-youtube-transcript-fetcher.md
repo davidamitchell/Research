@@ -1,11 +1,11 @@
 ---
 title: "YouTube transcript fetcher for research"
-added: 2026-02-27
+added: 2026-03-03T02:21:31+00:00
 status: completed
 priority: high
 tags: [youtube, transcripts, fetching, tooling]
-started: 2026-03-03
-completed: 2026-03-03
+started: 2026-03-03T02:21:31+00:00
+completed: 2026-03-03T02:21:31+00:00
 output: [tool, backlog-item]
 ---
 

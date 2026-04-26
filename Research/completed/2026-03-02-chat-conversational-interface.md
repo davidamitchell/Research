@@ -1,11 +1,11 @@
 ---
 title: "Conversational and chat interface for querying the research corpus"
-added: 2026-03-02
+added: 2026-03-08T01:10:55+00:00
 status: completed
 priority: medium
 tags: [chat, conversational-interface, mcp, rag, search, interface, delivery, copilot-extension]
-started: 2026-03-08
-completed: 2026-03-08
+started: 2026-03-08T01:10:55+00:00
+completed: 2026-03-08T01:10:55+00:00
 output: [knowledge, tool, backlog-item]
 ---
 

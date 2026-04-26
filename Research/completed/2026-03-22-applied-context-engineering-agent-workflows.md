@@ -1,12 +1,12 @@
 ---
 title: "Applied context engineering: skills, workflows, and best practices for agent development"
-added: 2026-03-22
+added: 2026-03-22T08:08:06+00:00
 status: completed
 priority: high
 blocks: []
 tags: [context-engineering, agent-skills, workflows, best-practices, multi-agent, memory-systems, tool-design, project-development, evaluation, production-agents, agents]
-started: 2026-03-22
-completed: 2026-03-22
+started: 2026-03-22T08:08:06+00:00
+completed: 2026-03-22T08:08:06+00:00
 output: [knowledge]
 ---
 

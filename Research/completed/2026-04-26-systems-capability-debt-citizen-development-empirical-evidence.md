@@ -1,13 +1,13 @@
 ---
 review_count: 2
 title: "Systems capability debt as the root cause of citizen development: empirical evidence and effective governance architectures"
-added: 2026-04-26
+added: 2026-04-26T06:03:17+00:00
 status: completed
 priority: high  # low | medium | high
 blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
 tags: [systems-capability-debt, citizen-development, shadow-it, operational-risk, governance, regulated-banking, nz-rbnz, pci-dss, microsoft-365, aws-bedrock, empirical-evidence]
-started: 2026-04-26
-completed: 2026-04-26
+started: 2026-04-26T06:03:17+00:00
+completed: 2026-04-26T06:03:17+00:00
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item
 ---
 

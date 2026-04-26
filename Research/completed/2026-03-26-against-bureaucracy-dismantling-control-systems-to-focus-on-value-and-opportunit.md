@@ -1,12 +1,12 @@
 ---
 title: "Against bureaucracy: dismantling control systems to focus on value and opportunity exploration"
-added: 2026-03-26
+added: 2026-03-26T22:07:08+00:00
 status: completed
 priority: medium
 blocks: []
 tags: [bureaucracy, organisational-design, management, lean, value-creation, systems-thinking, self-management, rory-sutherland, behavioral-economics]
-started: 2026-03-26
-completed: 2026-03-26
+started: 2026-03-26T22:07:08+00:00
+completed: 2026-03-26T22:07:08+00:00
 output: [knowledge]
 ---
 

@@ -1,12 +1,12 @@
 ---
 title: "Over-Compliance in LLMs — How H-Neurons Drive Sycophancy and What Interventions Are Possible"
-added: 2026-03-05
+added: 2026-03-06T07:48:52+00:00
 status: completed
 priority: medium
 blocks: [2026-03-05-h-neurons-synthesis]
 tags: [llm, hallucinations, h-neurons, over-compliance, sycophancy, interventions, alignment, reliability, mechanistic-interpretability]
-started: 2026-03-06
-completed: 2026-03-06
+started: 2026-03-06T07:48:52+00:00
+completed: 2026-03-06T07:48:52+00:00
 output: [knowledge]
 ---
 

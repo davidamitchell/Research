@@ -1,13 +1,13 @@
 ---
 review_count: 2
 title: "Are Human Brains Just Prediction Machines? Comparing Predictive Processing and Large Language Model Next-Token Generation"
-added: 2026-03-18
+added: 2026-03-22T11:41:58+00:00
 status: completed
 priority: medium  # low | medium | high
 blocks: []
 tags: [neuroscience, cognitive-science, llm, predictive-processing, predictive-coding, next-token-prediction, world-models, consciousness, free-energy-principle]
-started: 2026-03-22
-completed: 2026-03-22
+started: 2026-03-22T11:41:58+00:00
+completed: 2026-03-22T11:41:58+00:00
 output: [knowledge]
 ---
 

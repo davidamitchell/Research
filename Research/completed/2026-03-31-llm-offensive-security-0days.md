@@ -1,12 +1,12 @@
 ---
 title: "Large Language Models as offensive security tools: autonomous 0-day discovery, exploit generation, and the emerging arms race"
-added: 2026-03-31
+added: 2026-03-31T13:07:11+00:00
 status: completed
 priority: high
 blocks: []
 tags: [llm, security, offensive-security, zero-day, vulnerability-discovery, nicholas-carlini, anthropic, ctf, red-team, arms-race]
-started: 2026-03-31
-completed: 2026-03-31
+started: 2026-03-31T13:07:11+00:00
+completed: 2026-03-31T13:07:11+00:00
 output: [knowledge]
 ---
 

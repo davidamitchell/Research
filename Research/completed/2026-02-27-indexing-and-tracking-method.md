@@ -1,11 +1,11 @@
 ---
 title: "Indexing and tracking method for research content"
-added: 2026-02-27
+added: 2026-02-28T09:06:25+00:00
 status: completed
 priority: high
 tags: [indexing, tracking, database, organisation]
-started: 2026-02-28
-completed: 2026-02-28
+started: 2026-02-28T09:06:25+00:00
+completed: 2026-02-28T09:06:25+00:00
 output: [knowledge, backlog-item]
 ---
 

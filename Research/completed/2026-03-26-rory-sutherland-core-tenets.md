@@ -1,13 +1,13 @@
 ---
 review_count: 2
 title: "Rory Sutherland's core tenets: anti-bureaucracy, customer thinking, and behavioral economics"
-added: 2026-03-26
+added: 2026-03-27T12:06:56+00:00
 status: completed
 priority: high
 blocks: []
 tags: [behavioral-economics, marketing, strategy, rory-sutherland, customer-thinking, anti-bureaucracy]
-started: 2026-03-27
-completed: 2026-03-27
+started: 2026-03-27T12:06:56+00:00
+completed: 2026-03-27T12:06:56+00:00
 output: [knowledge]
 ---
 

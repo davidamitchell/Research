@@ -1,13 +1,13 @@
 ---
 review_count: 2
 title: "How to best use awesome-copilot in this repo and across personal repos"
-added: 2026-03-22
+added: 2026-03-22T11:22:52+00:00
 status: completed
 priority: high  # low | medium | high
 blocks: []
 tags: [github-copilot, awesome-copilot, instructions, skills, agents, workflows, tooling, repo-setup]
-started: 2026-03-22
-completed: 2026-03-22
+started: 2026-03-22T11:22:52+00:00
+completed: 2026-03-22T11:22:52+00:00
 output: [knowledge, backlog-item]
 ---
 

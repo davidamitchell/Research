@@ -1,12 +1,12 @@
 ---
 title: "Backpressure Infrastructure and the Theory of Constraints"
-added: 2026-04-01
+added: 2026-04-01T12:03:49+00:00
 status: completed
 priority: medium
 blocks: []
 tags: [theory-of-constraints, backpressure, systems-thinking, operations, lean]
-started: 2026-04-01
-completed: 2026-04-01
+started: 2026-04-01T12:03:49+00:00
+completed: 2026-04-01T12:03:49+00:00
 output: []
 ---
 

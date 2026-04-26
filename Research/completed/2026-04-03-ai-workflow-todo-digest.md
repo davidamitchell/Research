@@ -1,13 +1,13 @@
 ---
 review_count: 2
 title: "Artificial Intelligence (AI)-assisted daily productivity digest: patterns, tooling, and automation approaches for personal task management"
-added: 2026-04-03
+added: 2026-04-19T23:32:08+00:00
 status: completed
 priority: medium  # low | medium | high
 blocks: []
 tags: [ai, productivity, automation, zapier, notion, slack, task-management, personal-assistant, memory-systems, messaging, ios, workflow]
-started: 2026-04-19
-completed: 2026-04-19
+started: 2026-04-19T23:32:08+00:00
+completed: 2026-04-19T23:32:08+00:00
 output: [knowledge]
 ---
 
