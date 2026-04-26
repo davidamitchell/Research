@@ -2,12 +2,12 @@
 review_count: 2
 title: "Implicit rate-limiting controls removed by agentic Artificial Intelligence (AI): blast radius amplification and the operational risk literature gap"
 added: 2026-04-26
-status: reviewing
+status: completed
 priority: high
 blocks: [2026-04-26-agentic-ai-foundational-conditions-dependency-ordering]
 tags: [operational-risk, automation-risk, agentic-ai, blast-radius, implicit-controls, citizen-development, rate-limiting, regulated-banking]
 started: 2026-04-26
-completed: ~
+completed: 2026-04-26
 output: [knowledge]
 ---
 

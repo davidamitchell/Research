@@ -64,6 +64,11 @@ follow leads they produce. Apply source-marking discipline as defined in
   Record broken or blocked URLs in §2 as plain `Access note:` bullets written
   as metadata fragments, not full declarative sentences; do not cite
   inaccessible URLs as support for their own 404/403 outcomes.
+- Treat every `Access note:` bullet and every failed-search note in §2 as
+  claim-bearing prose for review purposes: add an explicit `[fact]`,
+  `[inference]`, or `[assumption]` label if the note remains in visible text,
+  and bind any evidence-backed conclusion to accessible sources rather than to
+  the inaccessible URL itself.
 - **[inference]** = derived from evidence; **[assumption]** = not verified,
   state the justification.
 - Evidence sufficiency: at least two independent credible sources agree, or a
