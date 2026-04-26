@@ -26,6 +26,7 @@ import shutil
 import textwrap
 from collections import Counter
 from datetime import date
+from itertools import groupby
 from pathlib import Path
 
 import yaml
@@ -675,6 +676,27 @@ main {
 .thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
 .thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
 .thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+
+/* All items page — date group header */
+.all-group { margin-top: 2.5rem; }
+.all-group:first-child { margin-top: 0; }
+.all-group-header {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  text-transform: lowercase;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.all-group-count {
+  color: var(--text-muted);
+  font-size: var(--text-xs);
+  margin-left: 0.5em;
+}
 """
 
 # ---------------------------------------------------------------------------
@@ -777,6 +799,7 @@ def html_nav(active: str = "") -> str:
         '  <div class="nav-inner">\n'
         f'    <a class="nav-brand" href="/Research/">{ICON_NOTE}Research</a>\n'
         '    <div class="nav-links">\n'
+        f'      <a href="/Research/all.html"{_cls("all")}>{ICON_NOTE}All</a>\n'
         f'      <a href="/Research/threads.html"{_cls("threads")}>{ICON_THREAD}Threads</a>\n'
         f'      <a href="/Research/tags/"{_cls("tags")}>{ICON_TAG}Tags</a>\n'
         f'      <a href="/Research/search.html"{_cls("search")}>{ICON_SEARCH}Search</a>\n'
@@ -1613,6 +1636,46 @@ LANDING_SEARCH_JS = """
 # ---------------------------------------------------------------------------
 
 
+def build_all_items(items: list[dict]) -> str:
+    """Generate docs/all.html — complete chronological list of all completed items."""
+    count = len(items)
+
+    # Group items by year-month (items already sorted newest-first)
+    def _ym_key(item: dict) -> str:
+        return item["added"].strftime("%Y-%m")
+
+    groups_html = ""
+    for _ym, group_items in groupby(items, key=_ym_key):
+        group_list = list(group_items)
+        # Format as "April 2026"
+        label = group_list[0]["added"].strftime("%B %Y").lower()
+        cards_html = "".join(render_card(item) for item in group_list)
+        groups_html += (
+            f'<div class="all-group">\n'
+            f'  <div class="all-group-header">'
+            f"{ICON_NOTE_H2}{escape(label)}"
+            f'<span class="all-group-count">{len(group_list)}</span>'
+            f"</div>\n"
+            f'  <div class="card-grid">{cards_html}</div>\n'
+            f"</div>\n"
+        )
+
+    return (
+        html_head("All Items — Research")
+        + html_nav("all")
+        + f"""\
+<main>
+  <div class="page-header">
+    <h1>{ICON_NOTE_H1}All Items</h1>
+    <p class="page-subtitle">{count} completed items · most recent first</p>
+  </div>
+  {groups_html}
+</main>
+"""
+        + html_foot()
+    )
+
+
 def build_landing(items: list[dict], threads: list[dict]) -> str:
     """Generate docs/index.html — landing page."""
     count = len(items)
@@ -2184,7 +2247,12 @@ def main() -> None:
     (DOCS_DIR / "index.html").write_text(build_landing(items, threads), encoding="utf-8")
     pages_written += 1
 
-    # 2. browse.html (filterable grid)
+    # 2. all.html (complete chronological list)
+    print("Building all.html…")
+    (DOCS_DIR / "all.html").write_text(build_all_items(items), encoding="utf-8")
+    pages_written += 1
+
+    # 3. browse.html (filterable grid)
     print("Building browse.html…")
     (DOCS_DIR / "browse.html").write_text(build_browse(items), encoding="utf-8")
     pages_written += 1

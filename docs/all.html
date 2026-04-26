@@ -1,0 +1,1675 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>All Items — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #0f1115;
+  --surface-2:       #161b22;
+  --border:          #252b33;
+  --text:            #e6e6e6;
+  --text-muted:      #666;
+  --accent:          #e6e6e6;
+  --accent-dim:      #333;
+  --tag-bg:          #161b22;
+  --tag-text:        #999;
+  --tag-active-bg:   #e6e6e6;
+  --tag-active-text: #0f1115;
+  --link:            #00C3A5;
+  --teal:            #00C3A5;
+  --dusk:            #E8A1A8;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  overflow-x: clip;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.75rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+.nav-links a.active { color: var(--teal); }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--teal); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+  min-width: 0;
+}
+.card:hover { border-color: var(--teal); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  word-break: break-word;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4em;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.item-title svg { flex-shrink: 0; margin-top: 0.2em; }
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+  word-break: break-all;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+  max-width: 100%;
+}
+.item-content pre code { background: none; padding: 0; word-break: normal; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--teal); text-decoration: underline; }
+.item-content a:hover { color: var(--text); text-decoration: underline; }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--dusk);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    top: 0;
+    height: auto;
+    padding: 0.5rem 1rem;
+  }
+  .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .nav-links {
+    width: 100%;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  main {
+    padding: 1.5rem 1rem 4rem;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; overflow: hidden; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); word-break: break-word; overflow-wrap: break-word; }
+.key-claims li:last-child { border-bottom: none; }
+.key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
+.key-claims a:hover { color: var(--text); }
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); flex-wrap: wrap; }
+.related-entry:last-child { border-bottom: none; }
+.related-entry a { color: var(--teal); word-break: break-word; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--dusk); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4em; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--teal); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-card-link { text-decoration: none; color: var(--text); display: block; }
+.thread-card-link:hover .thread-card { background: var(--surface-2); }
+.thread-card { background: var(--surface); border: 1px solid var(--border); padding: 1.5rem 1.75rem 1.75rem; }
+.thread-card-title { font-size: var(--text-base); font-weight: 600; margin-bottom: 0.5rem; }
+.thread-card-meta { font-size: var(--text-xs); color: var(--text-muted); margin-bottom: 0.75rem; letter-spacing: 0.05em; }
+.thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
+.thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+
+/* All items page — date group header */
+.all-group { margin-top: 2.5rem; }
+.all-group:first-child { margin-top: 0; }
+.all-group-header {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  text-transform: lowercase;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.all-group-count {
+  color: var(--text-muted);
+  font-size: var(--text-xs);
+  margin-left: 0.5em;
+}
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Research</a>
+    <div class="nav-links">
+      <a href="/Research/all.html" class="active"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>All</a>
+      <a href="/Research/threads.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>Threads</a>
+      <a href="/Research/tags/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>Tags</a>
+      <a href="/Research/search.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M8 1.5C4.41 1.5 1.5 4.41 1.5 8c0 2.87 1.86 5.3 4.44 6.16.32.06.44-.14.44-.31v-1.09c-1.8.39-2.18-.87-2.18-.87-.3-.75-.72-.95-.72-.95-.59-.4.04-.4.04-.4.65.05 1 .67 1 .67.58 1 1.53.71 1.9.54.06-.42.23-.71.41-.87-1.44-.16-2.95-.72-2.95-3.2 0-.71.25-1.28.67-1.74-.07-.16-.29-.82.06-1.71 0 0 .55-.18 1.8.67a6.27 6.27 0 0 1 3.28 0c1.25-.85 1.8-.67 1.8-.67.35.89.13 1.55.06 1.71.42.46.67 1.03.67 1.74 0 2.49-1.51 3.04-2.96 3.2.23.2.44.6.44 1.21v1.8c0 .17.12.37.44.31A6.5 6.5 0 0 0 14.5 8 6.5 6.5 0 0 0 8 1.5z"/></svg>GitHub</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="page-header">
+    <h1><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>All Items</h1>
+    <p class="page-subtitle">163 completed items · most recent first</p>
+  </div>
+  <div class="all-group">
+  <div class="all-group-header"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>april 2026<span class="all-group-count">24</span></div>
+  <div class="card-grid"><a class="card" href="/Research/research/2026-04-26-multi-ai-provider-control-planes.html" data-title="multi-provider ai control planes" data-question="which platforms or architectural designs provide multi-provider artificial intelligence (ai) control planes that unify discoverability, oversight, logging, security, data-access control, financial ope" data-tags="ai-governance,microsoft,aws,cursor,codex,claude,security,observability">
+  <div class="card-title">Multi-provider AI control planes</div>
+  <div class="card-meta">2026-04-26</div>
+  <div class="card-tags"><span class="tag">ai-governance</span><span class="tag">microsoft</span><span class="tag">aws</span><span class="tag">cursor</span><span class="tag">codex</span><span class="tag">claude</span><span class="tag">security</span><span class="tag">observability</span></div>
+  <div class="card-excerpt">Which platforms or architectural designs provide multi-provider Artificial Intelligence (AI) control planes that unify discoverability, oversight, logging, security, data-access control, Financial Ope…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-26-ms-copilot-cowork.html" data-title="what is microsoft 365 copilot cowork and what are its enterprise governance…" data-question="what is microsoft 365 (m365) copilot cowork, how does it technically differ from custom microsoft copilot skills, and what are the governance, legal, and shadow information technology (it) risks it in" data-tags="microsoft,copilot,enterprise,governance">
+  <div class="card-title">What is Microsoft 365 Copilot Cowork and what are its enterprise governance…</div>
+  <div class="card-meta">2026-04-26</div>
+  <div class="card-tags"><span class="tag">microsoft</span><span class="tag">copilot</span><span class="tag">enterprise</span><span class="tag">governance</span></div>
+  <div class="card-excerpt">What is Microsoft 365 (M365) Copilot Cowork, how does it technically differ from custom Microsoft Copilot Skills, and what are the governance, legal, and shadow Information Technology (IT) risks it in…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-24-business-led-low-code-agent-governance.html" data-title="business-led low-code agent governance" data-question="under what conditions does business-led low-code artificial intelligence (ai) agent creation produce durable organisational value versus technical debt and governance fragmentation, and what foundatio" data-tags="artificial-intelligence,governance,low-code,citizen-development,operating-model,platform-governance">
+  <div class="card-title">Business-led low-code agent governance</div>
+  <div class="card-meta">2026-04-24</div>
+  <div class="card-tags"><span class="tag">artificial-intelligence</span><span class="tag">governance</span><span class="tag">low-code</span><span class="tag">citizen-development</span><span class="tag">operating-model</span><span class="tag">platform-governance</span></div>
+  <div class="card-excerpt">Under what conditions does business-led low-code Artificial Intelligence (AI) agent creation produce durable organisational value versus technical debt and governance fragmentation, and what foundatio…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-24-ai-agent-regulation-global-financial-services.html" data-title="global artificial intelligence agent regulation in financial services" data-question="what regulatory obligations do financial-services regulators globally, including the european union (eu), australia, new zealand (nz), the united states (us), and the united kingdom (uk), impose on ar" data-tags="artificial-intelligence,regulation,financial-services,governance,low-code,citizen-development,rbnz">
+  <div class="card-title">Global artificial intelligence agent regulation in financial services</div>
+  <div class="card-meta">2026-04-24</div>
+  <div class="card-tags"><span class="tag">artificial-intelligence</span><span class="tag">regulation</span><span class="tag">financial-services</span><span class="tag">governance</span><span class="tag">low-code</span><span class="tag">citizen-development</span><span class="tag">rbnz</span></div>
+  <div class="card-excerpt">What regulatory obligations do financial-services regulators globally, including the European Union (EU), Australia, New Zealand (NZ), the United States (US), and the United Kingdom (UK), impose on Ar…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-22-recall-competitive-landscape-and-clone-feasibility.html" data-title="recall competitive landscape and clone feasibility" data-question="what core capabilities does recall provide, who else is building similar products (including projects in the davidamitchell github organization and relevant open-source tools), what components can we" data-tags="recall,personal-assistant">
+  <div class="card-title">Recall competitive landscape and clone feasibility</div>
+  <div class="card-meta">2026-04-22</div>
+  <div class="card-tags"><span class="tag">recall</span><span class="tag">personal-assistant</span></div>
+  <div class="card-excerpt">What core capabilities does Recall provide, who else is building similar products (including projects in the davidamitchell GitHub organization and relevant open-source tools), what components can we…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-22-knowledge-curation-governance-for-regulated-ai.html" data-title="knowledge curation governance as an enterprise ai capability in regulated…" data-question="what operational models exist for governing authoritative knowledge as a managed enterprise capability for artificial intelligence (ai) consumption in regulated financial institutions, covering domain" data-tags="ai-governance,financial-services,knowledge-management">
+  <div class="card-title">Knowledge curation governance as an enterprise AI capability in regulated…</div>
+  <div class="card-meta">2026-04-22</div>
+  <div class="card-tags"><span class="tag">ai-governance</span><span class="tag">financial-services</span><span class="tag">knowledge-management</span></div>
+  <div class="card-excerpt">What operational models exist for governing authoritative knowledge as a managed enterprise capability for Artificial Intelligence (AI) consumption in regulated financial institutions, covering domain…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-22-historical-technology-adoption-enterprise-ai-capability-building.html" data-title="historical technology adoption patterns as analogues for enterprise artificial…" data-question="what can organisations learn from retrospectives of prior technology introductions, specifically personal computing, enterprise resource planning (erp), cloud computing, robotic process automation (rp" data-tags="enterprise-ai,technology-adoption,governance,operating-model,financial-services">
+  <div class="card-title">Historical technology adoption patterns as analogues for enterprise Artificial…</div>
+  <div class="card-meta">2026-04-22</div>
+  <div class="card-tags"><span class="tag">enterprise-ai</span><span class="tag">technology-adoption</span><span class="tag">governance</span><span class="tag">operating-model</span><span class="tag">financial-services</span></div>
+  <div class="card-excerpt">What can organisations learn from retrospectives of prior technology introductions, specifically personal computing, Enterprise Resource Planning (ERP), cloud computing, Robotic Process Automation (RP…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-22-enterprise-ai-use-case-routing-frameworks.html" data-title="enterprise ai use-case routing frameworks" data-question="what decision frameworks do enterprises use to route artificial intelligence (ai) use cases to the appropriate platform, implementation pattern, and risk tier, distinguishing low-code business-led, pr" data-tags="artificial-intelligence,platform-governance,operating-model">
+  <div class="card-title">Enterprise AI use-case routing frameworks</div>
+  <div class="card-meta">2026-04-22</div>
+  <div class="card-tags"><span class="tag">artificial-intelligence</span><span class="tag">platform-governance</span><span class="tag">operating-model</span></div>
+  <div class="card-excerpt">What decision frameworks do enterprises use to route Artificial Intelligence (AI) use cases to the appropriate platform, implementation pattern, and risk tier, distinguishing low-code business-led, pr…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-22-enterprise-ai-platform-operating-models.html" data-title="enterprise ai platform operating models" data-question="what organisational structures do enterprises use to operate multiple artificial intelligence (ai) platforms simultaneously, and what trade-offs emerge between (a) a single unified ai platform team, (" data-tags="operating-model,governance,financial-services">
+  <div class="card-title">Enterprise AI platform operating models</div>
+  <div class="card-meta">2026-04-22</div>
+  <div class="card-tags"><span class="tag">operating-model</span><span class="tag">governance</span><span class="tag">financial-services</span></div>
+  <div class="card-excerpt">What organisational structures do enterprises use to operate multiple Artificial Intelligence (AI) platforms simultaneously, and what trade-offs emerge between (a) a single unified AI platform team, (…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-22-enterprise-ai-capability-model.html" data-title="enterprise ai capability model for use-case maturity decisions" data-question="what enterprise-wide artificial intelligence (ai) capability model best supports deciding whether a candidate ai use case requires net-new foundational capabilities or can reuse capabilities already b" data-tags="ai,enterprise">
+  <div class="card-title">Enterprise AI capability model for use-case maturity decisions</div>
+  <div class="card-meta">2026-04-22</div>
+  <div class="card-tags"><span class="tag">ai</span><span class="tag">enterprise</span></div>
+  <div class="card-excerpt">What enterprise-wide Artificial Intelligence (AI) capability model best supports deciding whether a candidate AI use case requires net-new foundational capabilities or can reuse capabilities already b…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-22-ai-governance-assurance-change-control-verification.html" data-title="automated governance assurance and change control verification patterns for…" data-question="what technical patterns exist for automating governance assurance and change control verification in artificial intelligence (ai)-assisted delivery pipelines, specifically audit evidence generation, p" data-tags="ai-governance,compliance">
+  <div class="card-title">Automated governance assurance and change control verification patterns for…</div>
+  <div class="card-meta">2026-04-22</div>
+  <div class="card-tags"><span class="tag">ai-governance</span><span class="tag">compliance</span></div>
+  <div class="card-excerpt">What technical patterns exist for automating governance assurance and change control verification in Artificial Intelligence (AI)-assisted delivery pipelines, specifically audit evidence generation, p…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-20-harness-selection-tools-agents-skills-prompts-instructions.html" data-title="harness-level selection and use of tools, agents, skills, prompts, and…" data-question="when should teams choose tools, agent definition files, skills, prompts, instruction files, and agents.md, and what verifiable best practices align with how major harnesses actually select and apply e" data-tags="copilot,claude-code,codex,opencode,prompts,instructions,skills,tools,best-practices">
+  <div class="card-title">Harness-level selection and use of tools, agents, skills, prompts, and…</div>
+  <div class="card-meta">2026-04-20</div>
+  <div class="card-tags"><span class="tag">copilot</span><span class="tag">claude-code</span><span class="tag">codex</span><span class="tag">opencode</span><span class="tag">prompts</span><span class="tag">instructions</span><span class="tag">skills</span><span class="tag">tools</span><span class="tag">best-practices</span></div>
+  <div class="card-excerpt">When should teams choose tools, agent definition files, skills, prompts, instruction files, and AGENTS.md, and what verifiable best practices align with how major harnesses actually select and apply e…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-18-shopify-ai-strategy-red-queen-memo.html" data-title="shopify&#39;s ai strategy after the red queen memo" data-question="what is shopify&#39;s explicit artificial intelligence (ai) strategy as evidenced by toby lütke&#39;s &quot;prove ai cannot do it before you hire&quot; memo and follow-on operating decisions, and how has that strategy" data-tags="ai-strategy,hiring,model-context-protocol">
+  <div class="card-title">Shopify&#39;s AI strategy after the Red Queen memo</div>
+  <div class="card-meta">2026-04-18</div>
+  <div class="card-tags"><span class="tag">ai-strategy</span><span class="tag">hiring</span><span class="tag">model-context-protocol</span></div>
+  <div class="card-excerpt">What is Shopify&#39;s explicit Artificial Intelligence (AI) strategy as evidenced by Toby Lütke&#39;s &quot;prove AI cannot do it before you hire&quot; memo and follow-on operating decisions, and how has that strategy…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-18-latest-developments-trends-forecast.html" data-title="latest developments history" data-question="what trends, themes, and directional shifts are visible in the source material at `latest-developments-/history` and related public sources, and what are the most plausible evidence-grounded speculati" data-tags="forecasting,strategy">
+  <div class="card-title">Latest developments history</div>
+  <div class="card-meta">2026-04-18</div>
+  <div class="card-tags"><span class="tag">forecasting</span><span class="tag">strategy</span></div>
+  <div class="card-excerpt">What trends, themes, and directional shifts are visible in the source material at `Latest-developments-/history` and related public sources, and what are the most plausible evidence-grounded speculati…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-03-oh-my-codex-patterns.html" data-title="oh-my-codex and ai agent workflow patterns" data-question="what patterns from oh-my-codex (omx) and similar ai agent workflow projects (agents.md, skill.md, etc.) are most applicable to improving the instructions, skills, agents, and tooling across davidamitc" data-tags="ai-agents,tooling,instructions,skills,workflow,codex,copilot,agents-md">
+  <div class="card-title">oh-my-codex and AI Agent Workflow Patterns</div>
+  <div class="card-meta">2026-04-03</div>
+  <div class="card-tags"><span class="tag">ai-agents</span><span class="tag">tooling</span><span class="tag">instructions</span><span class="tag">skills</span><span class="tag">workflow</span><span class="tag">codex</span><span class="tag">copilot</span><span class="tag">agents-md</span></div>
+  <div class="card-excerpt">What patterns from oh-my-codex (OMX) and similar AI agent workflow projects (AGENTS.md, SKILL.md, etc.) are most applicable to improving the instructions, skills, agents, and tooling across davidamitc…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-03-ai-workflow-todo-digest.html" data-title="ai-assisted daily productivity digest" data-question="what are the established patterns and tooling approaches for using artificial intelligence (ai) to generate actionable daily and weekly productivity digests from personal task management systems?
+
+sup" data-tags="ai,productivity,automation,slack,personal-assistant,memory-systems,ios,workflow">
+  <div class="card-title">AI-assisted daily productivity digest</div>
+  <div class="card-meta">2026-04-03</div>
+  <div class="card-tags"><span class="tag">ai</span><span class="tag">productivity</span><span class="tag">automation</span><span class="tag">slack</span><span class="tag">personal-assistant</span><span class="tag">memory-systems</span><span class="tag">ios</span><span class="tag">workflow</span></div>
+  <div class="card-excerpt">What are the established patterns and tooling approaches for using Artificial Intelligence (AI) to generate actionable daily and weekly productivity digests from personal task management systems?
+
+Sup…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-02-org-shape-software-cost-zero.html" data-title="the shape of organisations when software is no longer the constraint" data-question="inside an organisation that requires software to be built, integrated, and maintained (including commercial off-the-shelf (cots) systems, software-as-a-service (saas) platforms, and bespoke-built syst" data-tags="org-design,ai,management,transaction-costs,automation">
+  <div class="card-title">The shape of organisations when software is no longer the constraint</div>
+  <div class="card-meta">2026-04-02</div>
+  <div class="card-tags"><span class="tag">org-design</span><span class="tag">ai</span><span class="tag">management</span><span class="tag">transaction-costs</span><span class="tag">automation</span></div>
+  <div class="card-excerpt">Inside an organisation that requires software to be built, integrated, and maintained (including Commercial Off-The-Shelf (COTS) systems, Software-as-a-Service (SaaS) platforms, and bespoke-built syst…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-02-claude-mythos.html" data-title="claude mythos" data-question="what is the &quot;claude mythos&quot; - the narrative, character, and values framework anthropic has built into claude - and who else in the industry is doing similar work on giving large language models (llms)" data-tags="claude,anthropic,llm,identity,alignment">
+  <div class="card-title">Claude mythos</div>
+  <div class="card-meta">2026-04-02</div>
+  <div class="card-tags"><span class="tag">claude</span><span class="tag">anthropic</span><span class="tag">llm</span><span class="tag">identity</span><span class="tag">alignment</span></div>
+  <div class="card-excerpt">What is the &quot;Claude mythos&quot; - the narrative, character, and values framework Anthropic has built into Claude - and who else in the industry is doing similar work on giving large language models (LLMs)…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-02-claude-code-npm-source-map-leak.html" data-title="claude code npm source map leak" data-question="how did the march 2026 accidental leak of anthropic&#39;s claude code source code via an npm (node package manager) package occur, and what processes and protections can organisations adopt to prevent sim" data-tags="security,npm,anthropic,claude">
+  <div class="card-title">Claude Code npm Source Map Leak</div>
+  <div class="card-meta">2026-04-02</div>
+  <div class="card-tags"><span class="tag">security</span><span class="tag">npm</span><span class="tag">anthropic</span><span class="tag">claude</span></div>
+  <div class="card-excerpt">How did the March 2026 accidental leak of Anthropic&#39;s Claude Code source code via an npm (Node Package Manager) package occur, and what processes and protections can organisations adopt to prevent sim…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-02-anthropic-claude-code-leak-architecture-prompting-and-hidden-features.html" data-title="anthropic claude code leak" data-question="what does the accidental march 2026 leak of anthropic&#39;s claude code source code reveal about: (1) the codebase architecture, (2) how key engineering problems are solved, (3) the prompting and instruct" data-tags="anthropic,claude,claude-code,architecture,agents,npm,memory,tools">
+  <div class="card-title">Anthropic Claude Code leak</div>
+  <div class="card-meta">2026-04-02</div>
+  <div class="card-tags"><span class="tag">anthropic</span><span class="tag">claude</span><span class="tag">claude-code</span><span class="tag">architecture</span><span class="tag">agents</span><span class="tag">npm</span><span class="tag">memory</span><span class="tag">tools</span></div>
+  <div class="card-excerpt">What does the accidental March 2026 leak of Anthropic&#39;s Claude Code source code reveal about: (1) the codebase architecture, (2) how key engineering problems are solved, (3) the prompting and instruct…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-02-ai-funding-and-capital-investment-landscape.html" data-title="ai funding and capital investment landscape" data-question="which artificial intelligence (ai)-related and tech companies are receiving and deploying capital investment in 2023-2026, who the major investors are, where investment is concentrated, and what actio" data-tags="ai,funding,infrastructure,strategy">
+  <div class="card-title">AI Funding and Capital Investment Landscape</div>
+  <div class="card-meta">2026-04-02</div>
+  <div class="card-tags"><span class="tag">ai</span><span class="tag">funding</span><span class="tag">infrastructure</span><span class="tag">strategy</span></div>
+  <div class="card-excerpt">Which Artificial Intelligence (AI)-related and tech companies are receiving and deploying capital investment in 2023-2026, who the major investors are, where investment is concentrated, and what actio…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-02-ai-company-hiring-strategies.html" data-title="ai company hiring strategies" data-question="what do recent and historical job advertisements and hiring patterns at major artificial intelligence (ai) companies signal about their current and emerging strategic priorities, and where are the mos" data-tags="ai,hiring,strategy,openai,anthropic">
+  <div class="card-title">AI company hiring strategies</div>
+  <div class="card-meta">2026-04-02</div>
+  <div class="card-tags"><span class="tag">ai</span><span class="tag">hiring</span><span class="tag">strategy</span><span class="tag">openai</span><span class="tag">anthropic</span></div>
+  <div class="card-excerpt">What do recent and historical job advertisements and hiring patterns at major Artificial Intelligence (AI) companies signal about their current and emerging strategic priorities, and where are the mos…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-01-timesfm-time-series-foundation-models.html" data-title="timesfm and the landscape of time-series foundation models" data-question="what are the practical use cases for timesfm (google&#39;s pretrained time-series foundation model), who is doing comparable work, and how does the foundation-model paradigm extend to other structured dat" data-tags="machine-learning,forecasting">
+  <div class="card-title">TimesFM and the Landscape of Time-Series Foundation Models</div>
+  <div class="card-meta">2026-04-01</div>
+  <div class="card-tags"><span class="tag">machine-learning</span><span class="tag">forecasting</span></div>
+  <div class="card-excerpt">What are the practical use cases for TimesFM (Google&#39;s pretrained time-series foundation model), who is doing comparable work, and how does the foundation-model paradigm extend to other structured dat…</div>
+</a>
+<a class="card" href="/Research/research/2026-04-01-backpressure-theory-of-constraints.html" data-title="backpressure infrastructure and the theory of constraints" data-question="what is backpressure infrastructure, specifically as it pertains to the theory of constraints (toc), and what does academic research and real-world white papers say about its practical application?" data-tags="theory-of-constraints,systems-thinking,operations,lean">
+  <div class="card-title">Backpressure Infrastructure and the Theory of Constraints</div>
+  <div class="card-meta">2026-04-01</div>
+  <div class="card-tags"><span class="tag">theory-of-constraints</span><span class="tag">systems-thinking</span><span class="tag">operations</span><span class="tag">lean</span></div>
+  <div class="card-excerpt">What is backpressure infrastructure, specifically as it pertains to the Theory of Constraints (TOC), and what does academic research and real-world white papers say about its practical application?</div>
+</a>
+</div>
+</div>
+<div class="all-group">
+  <div class="all-group-header"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>march 2026<span class="all-group-count">110</span></div>
+  <div class="card-grid"><a class="card" href="/Research/research/2026-03-31-llm-offensive-security-0days.html" data-title="large language models as offensive security tools" data-question="what is the current state of large language model (llm)-driven offensive security capability: can llms autonomously discover and exploit zero-day (0-day) vulnerabilities, what does the empirical evide" data-tags="llm,security,anthropic,red-team">
+  <div class="card-title">Large Language Models as offensive security tools</div>
+  <div class="card-meta">2026-03-31</div>
+  <div class="card-tags"><span class="tag">llm</span><span class="tag">security</span><span class="tag">anthropic</span><span class="tag">red-team</span></div>
+  <div class="card-excerpt">What is the current state of Large Language Model (LLM)-driven offensive security capability: can LLMs autonomously discover and exploit zero-day (0-day) vulnerabilities, what does the empirical evide…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-29-unknowability-of-the-universe.html" data-title="the unknowability of the universe" data-question="what does jb manchak&#39;s treatment of general relativity (gr) and zen buddhism reveal about the epistemological limits of human knowledge: specifically, is the universe fundamentally unknowable, and if" data-tags="epistemology">
+  <div class="card-title">The Unknowability of the Universe</div>
+  <div class="card-meta">2026-03-29</div>
+  <div class="card-tags"><span class="tag">epistemology</span></div>
+  <div class="card-excerpt">What does JB Manchak&#39;s treatment of General Relativity (GR) and Zen Buddhism reveal about the epistemological limits of human knowledge: specifically, is the universe fundamentally unknowable, and if…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-29-multi-agent-repo-setup.html" data-title="multi-agent repo setup" data-question="what are the best practices for setting up a github repository so that it can be worked on effectively by multiple artificial intelligence (ai) agents, specifically: (1) claude via the ios claude app," data-tags="copilot,claude,ios,github-issues,multi-agent,repo-setup,instructions,agents-md">
+  <div class="card-title">Multi-agent repo setup</div>
+  <div class="card-meta">2026-03-29</div>
+  <div class="card-tags"><span class="tag">copilot</span><span class="tag">claude</span><span class="tag">ios</span><span class="tag">github-issues</span><span class="tag">multi-agent</span><span class="tag">repo-setup</span><span class="tag">instructions</span><span class="tag">agents-md</span></div>
+  <div class="card-excerpt">What are the best practices for setting up a GitHub repository so that it can be worked on effectively by multiple Artificial Intelligence (AI) agents, specifically: (1) Claude via the iOS Claude app,…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-29-claude-code-web-submodule-credential.html" data-title="claude code on the web" data-question="does claude code on the web automatically initialise git submodules when cloning a repository, and if so, can it access private submodules (such as `davidamitchell/skills` referenced at `.github/skill" data-tags="claude-code,agent-tooling">
+  <div class="card-title">Claude Code on the web</div>
+  <div class="card-meta">2026-03-29</div>
+  <div class="card-tags"><span class="tag">claude-code</span><span class="tag">agent-tooling</span></div>
+  <div class="card-excerpt">Does Claude Code on the web automatically initialise git submodules when cloning a repository, and if so, can it access private submodules (such as `davidamitchell/Skills` referenced at `.github/skill…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-28-environment-setup-consistency.html" data-title="environment setup consistency" data-question="given the two primary agent entry points, (a) assigning a github issue to the copilot coding agent and (b) using the claude ios `code` feature, what environment does each agent start in, and what cont" data-tags="copilot,claude,ios,github-issues">
+  <div class="card-title">Environment setup consistency</div>
+  <div class="card-meta">2026-03-28</div>
+  <div class="card-tags"><span class="tag">copilot</span><span class="tag">claude</span><span class="tag">ios</span><span class="tag">github-issues</span></div>
+  <div class="card-excerpt">Given the two primary agent entry points, (A) assigning a GitHub issue to the Copilot coding agent and (B) using the Claude iOS `code` feature, what environment does each agent start in, and what cont…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-28-agents-md-role-and-cross-agent-instructions.html" data-title="the role of agents.md in a repo using .github/copilot-instructions.md as the…" data-question="`agents.md` has emerged as the cross-tool convergence format for agent project instructions, supported by openai codex, github copilot, claude code, cursor, aider, gemini command line interface (cli)," data-tags="agents-md,copilot,claude,instructions">
+  <div class="card-title">The role of AGENTS.md in a repo using .github/copilot-instructions.md as the…</div>
+  <div class="card-meta">2026-03-28</div>
+  <div class="card-tags"><span class="tag">agents-md</span><span class="tag">copilot</span><span class="tag">claude</span><span class="tag">instructions</span></div>
+  <div class="card-excerpt">`AGENTS.md` has emerged as the cross-tool convergence format for agent project instructions, supported by OpenAI Codex, GitHub Copilot, Claude Code, Cursor, Aider, Gemini Command Line Interface (CLI),…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-28-agent-instruction-loading-and-skills-access.html" data-title="agent instruction loading and skills access" data-question="given the current repo setup -- instructions in `.github/copilot-instructions.md`, skills submodule at `.github/skills/`, no `agents.md` at root, no `claude.md` at root -- what does each agent actuall" data-tags="copilot,claude,ios,agents-md,skills,instructions,github-issues">
+  <div class="card-title">Agent instruction loading and skills access</div>
+  <div class="card-meta">2026-03-28</div>
+  <div class="card-tags"><span class="tag">copilot</span><span class="tag">claude</span><span class="tag">ios</span><span class="tag">agents-md</span><span class="tag">skills</span><span class="tag">instructions</span><span class="tag">github-issues</span></div>
+  <div class="card-excerpt">Given the current repo setup -- instructions in `.github/copilot-instructions.md`, skills submodule at `.github/skills/`, no `AGENTS.md` at root, no `CLAUDE.md` at root -- what does each agent actuall…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-26-rory-sutherland-core-tenets.html" data-title="rory sutherland&#39;s core tenets" data-question="what are rory sutherland&#39;s core intellectual tenets, particularly around anti-bureaucracy, customer thinking, and behavioral economics, and what practical implications do they hold for business strate" data-tags="behavioral-economics,marketing,strategy,rory-sutherland">
+  <div class="card-title">Rory Sutherland&#39;s core tenets</div>
+  <div class="card-meta">2026-03-26</div>
+  <div class="card-tags"><span class="tag">behavioral-economics</span><span class="tag">marketing</span><span class="tag">strategy</span><span class="tag">rory-sutherland</span></div>
+  <div class="card-excerpt">What are Rory Sutherland&#39;s core intellectual tenets, particularly around anti-bureaucracy, customer thinking, and behavioral economics, and what practical implications do they hold for business strate…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-26-measuring-opportunity-cost.html" data-title="the measurement asymmetry" data-question="why is measuring opportunity cost systematically harder than measuring direct costs, and what cognitive and structural mechanisms cause organisations to destroy value while claiming efficiency gains?" data-tags="strategy,behavioral-economics,rory-sutherland">
+  <div class="card-title">The measurement asymmetry</div>
+  <div class="card-meta">2026-03-26</div>
+  <div class="card-tags"><span class="tag">strategy</span><span class="tag">behavioral-economics</span><span class="tag">rory-sutherland</span></div>
+  <div class="card-excerpt">Why is measuring opportunity cost systematically harder than measuring direct costs, and what cognitive and structural mechanisms cause organisations to destroy value while claiming efficiency gains?</div>
+</a>
+<a class="card" href="/Research/research/2026-03-26-customer-contact-and-delight.html" data-title="customer contact as strategic signal" data-question="when customers contact a business, what are they actually seeking — and how should organisations decide between self-service automation and human interaction to maximise long-term customer value?" data-tags="strategy,behavioral-economics,ai,rory-sutherland">
+  <div class="card-title">Customer contact as strategic signal</div>
+  <div class="card-meta">2026-03-26</div>
+  <div class="card-tags"><span class="tag">strategy</span><span class="tag">behavioral-economics</span><span class="tag">ai</span><span class="tag">rory-sutherland</span></div>
+  <div class="card-excerpt">When customers contact a business, what are they actually seeking — and how should organisations decide between self-service automation and human interaction to maximise long-term customer value?</div>
+</a>
+<a class="card" href="/Research/research/2026-03-26-cost-reduction-is-not-strategy.html" data-title="cost reduction is not a strategy" data-question="why is cost reduction insufficient as a business strategy, and how does framing artificial intelligence (ai) primarily as a cost-cutting tool risk destroying value through missed opportunities?" data-tags="strategy,ai,marketing,behavioral-economics,rory-sutherland">
+  <div class="card-title">Cost reduction is not a strategy</div>
+  <div class="card-meta">2026-03-26</div>
+  <div class="card-tags"><span class="tag">strategy</span><span class="tag">ai</span><span class="tag">marketing</span><span class="tag">behavioral-economics</span><span class="tag">rory-sutherland</span></div>
+  <div class="card-excerpt">Why is cost reduction insufficient as a business strategy, and how does framing artificial intelligence (AI) primarily as a cost-cutting tool risk destroying value through missed opportunities?</div>
+</a>
+<a class="card" href="/Research/research/2026-03-26-bureaucracy-growth-and-the-boomer-generation-hypothesis.html" data-title="bureaucracy growth and the boomer generation hypothesis" data-question="who has written or researched the idea that the growth of bureaucratic functions — specifically human resources (hr), finance, and procurement — was led or significantly amplified by the baby boomer g" data-tags="bureaucracy,management">
+  <div class="card-title">Bureaucracy growth and the boomer generation hypothesis</div>
+  <div class="card-meta">2026-03-26</div>
+  <div class="card-tags"><span class="tag">bureaucracy</span><span class="tag">management</span></div>
+  <div class="card-excerpt">Who has written or researched the idea that the growth of bureaucratic functions — specifically Human Resources (HR), Finance, and Procurement — was led or significantly amplified by the baby boomer g…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-26-against-bureaucracy-dismantling-control-systems-to-focus-on-value-and-opportunit.html" data-title="against bureaucracy" data-question="what does the synthesis of the anti-bureaucracy manifesto and james burnham&#39;s *the managerial revolution* reveal about how organisations can dismantle control systems and system waste while refocusing" data-tags="bureaucracy,organisational-design,management,lean,systems-thinking,rory-sutherland,behavioral-economics">
+  <div class="card-title">Against bureaucracy</div>
+  <div class="card-meta">2026-03-26</div>
+  <div class="card-tags"><span class="tag">bureaucracy</span><span class="tag">organisational-design</span><span class="tag">management</span><span class="tag">lean</span><span class="tag">systems-thinking</span><span class="tag">rory-sutherland</span><span class="tag">behavioral-economics</span></div>
+  <div class="card-excerpt">What does the synthesis of the Anti-Bureaucracy Manifesto and James Burnham&#39;s *The Managerial Revolution* reveal about how organisations can dismantle control systems and system waste while refocusing…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-24-public-sentiment-on-ai-in-banking-and-high-trust-institutions.html" data-title="public sentiment on ai in banking and high-trust institutions" data-question="what does current (2024–2025) survey data reveal about customer sentiment toward artificial intelligence (ai) in banking and high-trust financial services (fs) institutions — in australia, across asia" data-tags="ai,banking,architecture,financial-services,regulation">
+  <div class="card-title">Public sentiment on AI in banking and high-trust institutions</div>
+  <div class="card-meta">2026-03-24</div>
+  <div class="card-tags"><span class="tag">ai</span><span class="tag">banking</span><span class="tag">architecture</span><span class="tag">financial-services</span><span class="tag">regulation</span></div>
+  <div class="card-excerpt">What does current (2024–2025) survey data reveal about customer sentiment toward Artificial Intelligence (AI) in banking and high-trust Financial Services (FS) institutions — in Australia, across Asia…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-23-software-factory.html" data-title="the software factory" data-question="if the cost of producing high-quality, standardised, integrated software is approaching zero — as artificial intelligence (ai) coding agents and software factory patterns suggest — what must organisat" data-tags="ai-native,organisations,theory-of-constraints,banking">
+  <div class="card-title">The Software Factory</div>
+  <div class="card-meta">2026-03-23</div>
+  <div class="card-tags"><span class="tag">ai-native</span><span class="tag">organisations</span><span class="tag">theory-of-constraints</span><span class="tag">banking</span></div>
+  <div class="card-excerpt">If the cost of producing high-quality, standardised, integrated software is approaching zero — as Artificial Intelligence (AI) coding agents and software factory patterns suggest — what must organisat…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-23-agent-orchestration-anvil-max.html" data-title="agent orchestration patterns" data-question="what agent orchestration patterns, verification strategies, and multi-model delegation techniques are demonstrated by burke holland&#39;s anvil, max, and the orchestrator/planner/coder/designer multi-agen" data-tags="agents,orchestration,personal-assistant,verification,skills">
+  <div class="card-title">Agent orchestration patterns</div>
+  <div class="card-meta">2026-03-23</div>
+  <div class="card-tags"><span class="tag">agents</span><span class="tag">orchestration</span><span class="tag">personal-assistant</span><span class="tag">verification</span><span class="tag">skills</span></div>
+  <div class="card-excerpt">What agent orchestration patterns, verification strategies, and multi-model delegation techniques are demonstrated by Burke Holland&#39;s Anvil, Max, and the orchestrator/planner/coder/designer multi-agen…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-22-using-awesome-copilot-across-repos.html" data-title="how to best use awesome-copilot in this repo and across personal repos" data-question="what resources from `davidamitchell/awesome-copilot` — github copilot (ghc) instructions, skills, agents, workflows, hooks, and plugins — provide the most leverage when applied to this research repo a" data-tags="github-copilot,instructions,skills,agents,workflows,tooling,repo-setup">
+  <div class="card-title">How to best use awesome-copilot in this repo and across personal repos</div>
+  <div class="card-meta">2026-03-22</div>
+  <div class="card-tags"><span class="tag">github-copilot</span><span class="tag">instructions</span><span class="tag">skills</span><span class="tag">agents</span><span class="tag">workflows</span><span class="tag">tooling</span><span class="tag">repo-setup</span></div>
+  <div class="card-excerpt">What resources from `davidamitchell/awesome-copilot` — GitHub Copilot (GHC) instructions, skills, agents, workflows, hooks, and plugins — provide the most leverage when applied to this Research repo a…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-22-cross-scanner-compliance-evidence-normalisation.html" data-title="cross-scanner compliance evidence and waiver normalisation in github actions" data-question="how should an organisation running multiple compliance scanners in github actions normalise evidence, severity, waiver handling, and developer-facing output so that heterogeneous tools behave like one" data-tags="github-actions,compliance,policy-as-code,governance">
+  <div class="card-title">Cross-Scanner Compliance Evidence and Waiver Normalisation in GitHub Actions</div>
+  <div class="card-meta">2026-03-22</div>
+  <div class="card-tags"><span class="tag">github-actions</span><span class="tag">compliance</span><span class="tag">policy-as-code</span><span class="tag">governance</span></div>
+  <div class="card-excerpt">How should an organisation running multiple compliance scanners in GitHub Actions normalise evidence, severity, waiver handling, and developer-facing output so that heterogeneous tools behave like one…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-22-compliance-scanning-gh-actions.html" data-title="compliance scanning via github actions — broad policy as code across a…" data-question="how can github actions (with github advanced security (ghas) and codeql already enabled) be extended to enforce a broad, organisation-wide compliance policy — covering naming conventions, architectura" data-tags="github-actions,policy-as-code,compliance,dotnet,python,airflow,terraform">
+  <div class="card-title">Compliance Scanning via GitHub Actions — Broad Policy as Code Across a…</div>
+  <div class="card-meta">2026-03-22</div>
+  <div class="card-tags"><span class="tag">github-actions</span><span class="tag">policy-as-code</span><span class="tag">compliance</span><span class="tag">dotnet</span><span class="tag">python</span><span class="tag">airflow</span><span class="tag">terraform</span></div>
+  <div class="card-excerpt">How can GitHub Actions (with GitHub Advanced Security (GHAS) and CodeQL already enabled) be extended to enforce a broad, organisation-wide compliance policy — covering naming conventions, architectura…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-22-coding-ai-agent-skills-survey.html" data-title="coding ai agent skills survey" data-question="what actively maintained, publicly available agent skills, prompt libraries, instructions files, and system prompts exist — from vendors such as microsoft and from the open source software (oss) commu" data-tags="ai-agents,copilot,skills,prompts,software-engineering,dotnet,python,ddd,security,airflow">
+  <div class="card-title">Coding AI Agent Skills Survey</div>
+  <div class="card-meta">2026-03-22</div>
+  <div class="card-tags"><span class="tag">ai-agents</span><span class="tag">copilot</span><span class="tag">skills</span><span class="tag">prompts</span><span class="tag">software-engineering</span><span class="tag">dotnet</span><span class="tag">python</span><span class="tag">ddd</span><span class="tag">security</span><span class="tag">airflow</span></div>
+  <div class="card-excerpt">What actively maintained, publicly available agent skills, prompt libraries, instructions files, and system prompts exist — from vendors such as Microsoft and from the Open Source Software (OSS) commu…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-22-code-architecture-inspection.html" data-title="code architecture inspection across repositories" data-question="what practical implementation approaches exist for automatically inspecting and understanding how a set of repositories is architected, how they relate to and couple with each other, and whether they" data-tags="architecture,github-copilot,tooling">
+  <div class="card-title">Code Architecture Inspection Across Repositories</div>
+  <div class="card-meta">2026-03-22</div>
+  <div class="card-tags"><span class="tag">architecture</span><span class="tag">github-copilot</span><span class="tag">tooling</span></div>
+  <div class="card-excerpt">What practical implementation approaches exist for automatically inspecting and understanding how a set of repositories is architected, how they relate to and couple with each other, and whether they…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-22-applied-context-engineering-agent-workflows.html" data-title="applied context engineering" data-question="what practical patterns, workflow best practices, and agent development guidelines emerge from synthesising the `muratcankoylan/agent-skills-for-context-engineering` skill library with the context eng" data-tags="context-engineering,workflows,best-practices,multi-agent,memory-systems,evaluation,agents">
+  <div class="card-title">Applied context engineering</div>
+  <div class="card-meta">2026-03-22</div>
+  <div class="card-tags"><span class="tag">context-engineering</span><span class="tag">workflows</span><span class="tag">best-practices</span><span class="tag">multi-agent</span><span class="tag">memory-systems</span><span class="tag">evaluation</span><span class="tag">agents</span></div>
+  <div class="card-excerpt">What practical patterns, workflow best practices, and agent development guidelines emerge from synthesising the `muratcankoylan/Agent-Skills-for-Context-Engineering` skill library with the context eng…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-22-agents-as-finishers-and-synthesisers.html" data-title="ai agents as finishers and synthesisers" data-question="what agent configurations, prompt strategies, orchestration patterns, and tooling choices allow an ai agent (or agent team) to act as a reliable *finisher* and *synthesiser* - completing work that a h" data-tags="agents,productivity,synthesis,orchestration">
+  <div class="card-title">AI agents as finishers and synthesisers</div>
+  <div class="card-meta">2026-03-22</div>
+  <div class="card-tags"><span class="tag">agents</span><span class="tag">productivity</span><span class="tag">synthesis</span><span class="tag">orchestration</span></div>
+  <div class="card-excerpt">What agent configurations, prompt strategies, orchestration patterns, and tooling choices allow an AI agent (or agent team) to act as a reliable *finisher* and *synthesiser* - completing work that a h…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-21-technology-capability-models.html" data-title="technology capability models" data-question="what established and emerging it capability models define a complete, multi-level set of technical capabilities - such as authentication, networking, application programming interface (api) gateways," data-tags="enterprise-architecture,csdm">
+  <div class="card-title">Technology Capability Models</div>
+  <div class="card-meta">2026-03-21</div>
+  <div class="card-tags"><span class="tag">enterprise-architecture</span><span class="tag">csdm</span></div>
+  <div class="card-excerpt">What established and emerging IT capability models define a complete, multi-level set of technical capabilities - such as authentication, networking, Application Programming Interface (API) gateways,…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-21-dependency-mapping-dotnet-terraform-dynatrace.html" data-title="dependency mapping across .net codebases, terraform, dynatrace, confluence, log…" data-question="what practical tools and methodologies are being used to map dependencies across .net codebases, terraform configurations, dynatrace application performance management (apm) monitoring, and solution d" data-tags="dotnet,terraform,confluence,csdm,architecture,discovery,agents,observability">
+  <div class="card-title">Dependency Mapping Across .NET Codebases, Terraform, Dynatrace, Confluence, Log…</div>
+  <div class="card-meta">2026-03-21</div>
+  <div class="card-tags"><span class="tag">dotnet</span><span class="tag">terraform</span><span class="tag">confluence</span><span class="tag">csdm</span><span class="tag">architecture</span><span class="tag">discovery</span><span class="tag">agents</span><span class="tag">observability</span></div>
+  <div class="card-excerpt">What practical tools and methodologies are being used to map dependencies across .NET codebases, Terraform configurations, Dynatrace Application Performance Management (APM) monitoring, and solution d…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-19-layered-org-llm-architecture.html" data-title="layered organisation large language model" data-question="is it technically feasible and economically viable for an organisation to build a customised large language model (llm) layer that injects and optimises over organisation-specific context - internal k" data-tags="llm,rag,enterprise-ai,knowledge-management,architecture,retrieval-augmented-generation">
+  <div class="card-title">Layered Organisation Large Language Model</div>
+  <div class="card-meta">2026-03-19</div>
+  <div class="card-tags"><span class="tag">llm</span><span class="tag">rag</span><span class="tag">enterprise-ai</span><span class="tag">knowledge-management</span><span class="tag">architecture</span><span class="tag">retrieval-augmented-generation</span></div>
+  <div class="card-excerpt">Is it technically feasible and economically viable for an organisation to build a customised Large Language Model (LLM) layer that injects and optimises over organisation-specific context - internal k…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-18-stateless-agent-assumption-failure.html" data-title="stateless-agent assumption failure" data-question="when an agentic workflow spans multiple session boundaries — each session starting with a fresh context window and no memory of prior runs — what are the mechanisms by which external state becomes orp" data-tags="failure-modes,agentic-systems,state-management,workflow">
+  <div class="card-title">Stateless-agent assumption failure</div>
+  <div class="card-meta">2026-03-18</div>
+  <div class="card-tags"><span class="tag">failure-modes</span><span class="tag">agentic-systems</span><span class="tag">state-management</span><span class="tag">workflow</span></div>
+  <div class="card-excerpt">When an agentic workflow spans multiple session boundaries — each session starting with a fresh context window and no memory of prior runs — what are the mechanisms by which external state becomes orp…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-18-human-brain-prediction-machines.html" data-title="are human brains just prediction machines? comparing predictive processing and…" data-question="what is the fundamental difference between the predictive processing account of human cognition — in which the brain continuously generates and updates a generative model of the world — and large lang" data-tags="neuroscience,llm,predictive-processing,consciousness,free-energy-principle">
+  <div class="card-title">Are Human Brains Just Prediction Machines? Comparing Predictive Processing and…</div>
+  <div class="card-meta">2026-03-18</div>
+  <div class="card-tags"><span class="tag">neuroscience</span><span class="tag">llm</span><span class="tag">predictive-processing</span><span class="tag">consciousness</span><span class="tag">free-energy-principle</span></div>
+  <div class="card-excerpt">What is the fundamental difference between the predictive processing account of human cognition — in which the brain continuously generates and updates a generative model of the world — and Large Lang…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-18-formal-proof-engineering-leanstral.html" data-title="more formal proof engineering" data-question="what does leanstral - an open-source agent for formal proof engineering - offer as a practical path to trustworthy, formally verified software built with artificial intelligence (ai) assistance, and h" data-tags="formal-methods,formal-verification,lean,ai-agents,guardrails">
+  <div class="card-title">More formal proof engineering</div>
+  <div class="card-meta">2026-03-18</div>
+  <div class="card-tags"><span class="tag">formal-methods</span><span class="tag">formal-verification</span><span class="tag">lean</span><span class="tag">ai-agents</span><span class="tag">guardrails</span></div>
+  <div class="card-excerpt">What does Leanstral - an open-source agent for formal proof engineering - offer as a practical path to trustworthy, formally verified software built with Artificial Intelligence (AI) assistance, and h…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-18-explore-to-exploit-synthesis-gap.html" data-title="explore to exploit" data-question="when technology is moving fast, what is the synthesis step between exploration and exploitation, why is it so commonly skipped, what are the costs of skipping it, and what strategies allow organisatio" data-tags="strategy,exploration,synthesis,technology-adoption,decision-making">
+  <div class="card-title">Explore to exploit</div>
+  <div class="card-meta">2026-03-18</div>
+  <div class="card-tags"><span class="tag">strategy</span><span class="tag">exploration</span><span class="tag">synthesis</span><span class="tag">technology-adoption</span><span class="tag">decision-making</span></div>
+  <div class="card-excerpt">When technology is moving fast, what is the synthesis step between exploration and exploitation, why is it so commonly skipped, what are the costs of skipping it, and what strategies allow organisatio…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-18-api-context-hubs-rag-mcp.html" data-title="api context hubs, retrieval-augmented generation, and the model context…" data-question="what approaches are being used to enable artificial intelligence (ai) agents to discover, understand, and invoke external application programming interfaces (apis), and how do the three major emerging" data-tags="rag,mcp,model-context-protocol,retrieval-augmented-generation,agents,tooling,ai-agents">
+  <div class="card-title">API Context Hubs, Retrieval-Augmented Generation, and the Model Context…</div>
+  <div class="card-meta">2026-03-18</div>
+  <div class="card-tags"><span class="tag">rag</span><span class="tag">mcp</span><span class="tag">model-context-protocol</span><span class="tag">retrieval-augmented-generation</span><span class="tag">agents</span><span class="tag">tooling</span><span class="tag">ai-agents</span></div>
+  <div class="card-excerpt">What approaches are being used to enable Artificial Intelligence (AI) agents to discover, understand, and invoke external Application Programming Interfaces (APIs), and how do the three major emerging…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-17-ai-memory-systems-rag-neuroscience.html" data-title="ai memory systems" data-question="what is the current state of artificial intelligence (ai) memory systems — across retrieval-augmented generation (rag) research, commercial ai vendor implementations (github copilot, gemini, claude, a" data-tags="memory,retrieval-augmented-generation,neuroscience,github-copilot,gemini,claude,working-memory,knowledge-management">
+  <div class="card-title">AI Memory Systems</div>
+  <div class="card-meta">2026-03-17</div>
+  <div class="card-tags"><span class="tag">memory</span><span class="tag">retrieval-augmented-generation</span><span class="tag">neuroscience</span><span class="tag">github-copilot</span><span class="tag">gemini</span><span class="tag">claude</span><span class="tag">working-memory</span><span class="tag">knowledge-management</span></div>
+  <div class="card-excerpt">What is the current state of Artificial Intelligence (AI) memory systems — across Retrieval-Augmented Generation (RAG) research, commercial AI vendor implementations (GitHub Copilot, Gemini, Claude, a…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-16-vl-jepa-concept-prediction.html" data-title="vision-language joint embedding predictive architecture (vl-jepa) and concept…" data-question="what is vision-language joint embedding predictive architecture (vl-jepa) - specifically its concept prediction mechanism - and what practical options exist for a developer consumer of existing fronti" data-tags="machine-learning,github-copilot,claude-code,agentic-coding">
+  <div class="card-title">Vision-Language Joint Embedding Predictive Architecture (VL-JEPA) and concept…</div>
+  <div class="card-meta">2026-03-16</div>
+  <div class="card-tags"><span class="tag">machine-learning</span><span class="tag">github-copilot</span><span class="tag">claude-code</span><span class="tag">agentic-coding</span></div>
+  <div class="card-excerpt">What is Vision-Language Joint Embedding Predictive Architecture (VL-JEPA) - specifically its concept prediction mechanism - and what practical options exist for a developer consumer of existing fronti…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-16-intent-driven-development.html" data-title="intent driven development" data-question="what is intent driven development (idd) — as a methodology that moves past test driven development (tdd) and specification driven development (sdd) — and what context and concept layering mechanisms a" data-tags="intent,software-engineering,agentic-coding,artificial-intelligence,developer-tooling">
+  <div class="card-title">Intent Driven Development</div>
+  <div class="card-meta">2026-03-16</div>
+  <div class="card-tags"><span class="tag">intent</span><span class="tag">software-engineering</span><span class="tag">agentic-coding</span><span class="tag">artificial-intelligence</span><span class="tag">developer-tooling</span></div>
+  <div class="card-excerpt">What is Intent Driven Development (IDD) — as a methodology that moves past Test Driven Development (TDD) and Specification Driven Development (SDD) — and what context and concept layering mechanisms a…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-16-gitagent-declarative-agent-definition.html" data-title="gitagent and declarative agent definition" data-question="what is gitagent (https://github.com/open-gitagent/gitagent), how can it be used in this repository, what concepts does it build on and produce, and how does the broader idea of declarative agent defi" data-tags="copilot,aws,git,multi-agent,agents,agentic-systems">
+  <div class="card-title">GitAgent and declarative agent definition</div>
+  <div class="card-meta">2026-03-16</div>
+  <div class="card-tags"><span class="tag">copilot</span><span class="tag">aws</span><span class="tag">git</span><span class="tag">multi-agent</span><span class="tag">agents</span><span class="tag">agentic-systems</span></div>
+  <div class="card-excerpt">What is GitAgent (https://github.com/open-gitagent/gitagent), how can it be used in this repository, what concepts does it build on and produce, and how does the broader idea of declarative agent defi…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-16-adaptive-policy-authorization-compliance.html" data-title="apba" data-question="how does adaptive policy-based authorization (apba) align with the dynamic access-control requirements of national institute of standards and technology (nist) special publication (sp) 800-53 and iso/" data-tags="policy-as-code,compliance,ai,governance">
+  <div class="card-title">APBA</div>
+  <div class="card-meta">2026-03-16</div>
+  <div class="card-tags"><span class="tag">policy-as-code</span><span class="tag">compliance</span><span class="tag">ai</span><span class="tag">governance</span></div>
+  <div class="card-excerpt">How does Adaptive Policy-Based Authorization (APBA) align with the dynamic access-control requirements of National Institute of Standards and Technology (NIST) Special Publication (SP) 800-53 and ISO/…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-15-trusting-trust-ai-corpus-contamination.html" data-title="trusting trust and ai corpus contamination" data-question="ken thompson&#39;s &quot;trusting trust&quot; argument shows that you cannot verify a compiler by reading its source code if the compiler was compiled by a compromised toolchain — the contamination lives in the bin" data-tags="ai,epistemology,prompt-injection,security">
+  <div class="card-title">Trusting Trust and AI Corpus Contamination</div>
+  <div class="card-meta">2026-03-15</div>
+  <div class="card-tags"><span class="tag">ai</span><span class="tag">epistemology</span><span class="tag">prompt-injection</span><span class="tag">security</span></div>
+  <div class="card-excerpt">Ken Thompson&#39;s &quot;Trusting Trust&quot; argument shows that you cannot verify a compiler by reading its source code if the compiler was compiled by a compromised toolchain — the contamination lives in the bin…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-15-tracking-work-across-systems.html" data-title="tracking how work travels across organisational systems" data-question="can we track how a unit of &#39;work&#39; -- an idea or concept -- travels across organisational systems (sharepoint, confluence, azure devops (ado)/jira, git, monitoring systems, and data platforms), and wha" data-tags="knowledge-management,confluence,git,data-platform">
+  <div class="card-title">Tracking How Work Travels Across Organisational Systems</div>
+  <div class="card-meta">2026-03-15</div>
+  <div class="card-tags"><span class="tag">knowledge-management</span><span class="tag">confluence</span><span class="tag">git</span><span class="tag">data-platform</span></div>
+  <div class="card-excerpt">Can we track how a unit of &#39;Work&#39; -- an idea or concept -- travels across organisational systems (SharePoint, Confluence, Azure DevOps (ADO)/Jira, Git, monitoring systems, and data platforms), and wha…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-15-saas-banking-invariants.html" data-title="invariants in software as a service (saas) banking software" data-question="what capabilities do enterprise software as a service (saas) banking platforms (principally salesforce financial services cloud (fsc) and ncino) provide as true invariants - independent of customer im" data-tags="banking,enterprise,tco,architecture,ddd">
+  <div class="card-title">Invariants in Software as a Service (SaaS) Banking Software</div>
+  <div class="card-meta">2026-03-15</div>
+  <div class="card-tags"><span class="tag">banking</span><span class="tag">enterprise</span><span class="tag">tco</span><span class="tag">architecture</span><span class="tag">ddd</span></div>
+  <div class="card-excerpt">What capabilities do enterprise Software as a Service (SaaS) banking platforms (principally Salesforce Financial Services Cloud (FSC) and nCino) provide as true invariants - independent of customer im…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-15-prompt-injection-threat-landscape.html" data-title="prompt injection threat landscape" data-question="what is the current state of the prompt injection threat in agentic artificial intelligence (ai) systems: who is exploiting it, who is defending against it, and what does the research community consid" data-tags="prompt-injection,security,llm,agents,owasp,red-team,ai-governance">
+  <div class="card-title">Prompt injection threat landscape</div>
+  <div class="card-meta">2026-03-15</div>
+  <div class="card-tags"><span class="tag">prompt-injection</span><span class="tag">security</span><span class="tag">llm</span><span class="tag">agents</span><span class="tag">owasp</span><span class="tag">red-team</span><span class="tag">ai-governance</span></div>
+  <div class="card-excerpt">What is the current state of the prompt injection threat in agentic artificial intelligence (AI) systems: who is exploiting it, who is defending against it, and what does the research community consid…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-15-neurological-context-management.html" data-title="neurological basis of contextual reasoning and relevance filtering" data-question="how do human brains store, compress, retrieve, and dynamically layer multiple types of contextual knowledge — values, goals, rules, current state, and immediate task — when making decisions, and what" data-tags="neuroscience,cognition,context-management,working-memory,decision-making">
+  <div class="card-title">Neurological Basis of Contextual Reasoning and Relevance Filtering</div>
+  <div class="card-meta">2026-03-15</div>
+  <div class="card-tags"><span class="tag">neuroscience</span><span class="tag">cognition</span><span class="tag">context-management</span><span class="tag">working-memory</span><span class="tag">decision-making</span></div>
+  <div class="card-excerpt">How do human brains store, compress, retrieve, and dynamically layer multiple types of contextual knowledge — values, goals, rules, current state, and immediate task — when making decisions, and what…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-15-latent-concept-extraction-confluence.html" data-title="latent concept extraction from confluence" data-question="what are the best approaches for extracting latent concepts from a confluence wiki, representing them as word embeddings in a vector database (vdb) and as a knowledge graph (kg), and how can the resul" data-tags="confluence,embeddings,vector-db,knowledge-graph,rag">
+  <div class="card-title">Latent Concept Extraction from Confluence</div>
+  <div class="card-meta">2026-03-15</div>
+  <div class="card-tags"><span class="tag">confluence</span><span class="tag">embeddings</span><span class="tag">vector-db</span><span class="tag">knowledge-graph</span><span class="tag">rag</span></div>
+  <div class="card-excerpt">What are the best approaches for extracting latent concepts from a Confluence wiki, representing them as word embeddings in a vector database (VDB) and as a knowledge graph (KG), and how can the resul…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-15-context-layers-aligned-decisions-synthesis.html" data-title="aligned decision-making" data-question="what framework should an organisation adopt to ensure that ai agents making or supporting decisions have access to the right layered organisational context — spanning regulatory boundaries, values and" data-tags="alignment,decision-making,enterprise-ai,rag,knowledge-management,synthesis">
+  <div class="card-title">Aligned Decision-Making</div>
+  <div class="card-meta">2026-03-15</div>
+  <div class="card-tags"><span class="tag">alignment</span><span class="tag">decision-making</span><span class="tag">enterprise-ai</span><span class="tag">rag</span><span class="tag">knowledge-management</span><span class="tag">synthesis</span></div>
+  <div class="card-excerpt">What framework should an organisation adopt to ensure that AI agents making or supporting decisions have access to the right layered organisational context — spanning regulatory boundaries, values and…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-15-context-compression-rag-enterprise-knowledge.html" data-title="context compression and rag techniques for organisational knowledge" data-question="what are the current best practices and bleeding-edge techniques  -  including retrieval-augmented generation (rag), context compression, and context architecture  -  for selectively surfacing the rig" data-tags="rag,context-management,compression,llm,enterprise-ai,context-window">
+  <div class="card-title">Context Compression and RAG Techniques for Organisational Knowledge</div>
+  <div class="card-meta">2026-03-15</div>
+  <div class="card-tags"><span class="tag">rag</span><span class="tag">context-management</span><span class="tag">compression</span><span class="tag">llm</span><span class="tag">enterprise-ai</span><span class="tag">context-window</span></div>
+  <div class="card-excerpt">What are the current best practices and bleeding-edge techniques  -  including Retrieval-Augmented Generation (RAG), context compression, and context architecture  -  for selectively surfacing the rig…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-15-adam-smith-org-design-desire-paths-ai.html" data-title="adam smith, organisational design, desire paths, and ai strategy" data-question="what can adam smith&#39;s insights into human nature and morality - drawn from *the theory of moral sentiments* (toms) and *the wealth of nations* (won) - teach us about designing organisations that align" data-tags="economics,org-design,ai-strategy,coase,institutional-economics">
+  <div class="card-title">Adam Smith, Organisational Design, Desire Paths, and AI Strategy</div>
+  <div class="card-meta">2026-03-15</div>
+  <div class="card-tags"><span class="tag">economics</span><span class="tag">org-design</span><span class="tag">ai-strategy</span><span class="tag">coase</span><span class="tag">institutional-economics</span></div>
+  <div class="card-excerpt">What can Adam Smith&#39;s insights into human nature and morality - drawn from *The Theory of Moral Sentiments* (ToMS) and *The Wealth of Nations* (WoN) - teach us about designing organisations that align…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-14-ricardian-contract-model.html" data-title="ricardian contract model" data-question="what is the ricardian contract model proposed by ian grigg in 1996, how has it evolved over the past three decades, who is actively building with it today, and what does the latest academic and applie" data-tags="contracts,legal-technology,cryptography,blockchain,smart-contracts,fintech,ian-grigg,ricardian-contracts">
+  <div class="card-title">Ricardian Contract model</div>
+  <div class="card-meta">2026-03-14</div>
+  <div class="card-tags"><span class="tag">contracts</span><span class="tag">legal-technology</span><span class="tag">cryptography</span><span class="tag">blockchain</span><span class="tag">smart-contracts</span><span class="tag">fintech</span><span class="tag">ian-grigg</span><span class="tag">ricardian-contracts</span></div>
+  <div class="card-excerpt">What is the Ricardian Contract model proposed by Ian Grigg in 1996, how has it evolved over the past three decades, who is actively building with it today, and what does the latest academic and applie…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-14-reliable-software-llm-era.html" data-title="reliable software in the llm era" data-question="what strategies and formal-methods tooling exist for maintaining software reliability in the large language model (llm) era, and what does the quint formal specification language ecosystem - including" data-tags="llm,formal-methods,reliability,software-engineering,formal-verification,ai">
+  <div class="card-title">Reliable Software in the LLM Era</div>
+  <div class="card-meta">2026-03-14</div>
+  <div class="card-tags"><span class="tag">llm</span><span class="tag">formal-methods</span><span class="tag">reliability</span><span class="tag">software-engineering</span><span class="tag">formal-verification</span><span class="tag">ai</span></div>
+  <div class="card-excerpt">What strategies and formal-methods tooling exist for maintaining software reliability in the Large Language Model (LLM) era, and what does the Quint formal specification language ecosystem - including…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-14-organisational-intent-formal-specification.html" data-title="can organisational intent be expressed as a formally structured specification…" data-question="can organisational intent — mission, values, strategy, resource allocation — be expressed as a formally structured specification from which human-readable artefacts are derived, and against which obje" data-tags="formal-methods,strategy,funding,intent">
+  <div class="card-title">Can organisational intent be expressed as a formally structured specification…</div>
+  <div class="card-meta">2026-03-14</div>
+  <div class="card-tags"><span class="tag">formal-methods</span><span class="tag">strategy</span><span class="tag">funding</span><span class="tag">intent</span></div>
+  <div class="card-excerpt">Can organisational intent — mission, values, strategy, resource allocation — be expressed as a formally structured specification from which human-readable artefacts are derived, and against which Obje…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-13-financial-forecasting-it-run-costs.html" data-title="best practices in financial forecasting for it operational run costs" data-question="what are the established best practices for financially responsible forecasting of information technology (it) operational run costs — covering cost estimation by technology and infrastructure type, r" data-tags="financial-forecasting,it-run-costs,uncertainty-modelling,regulatory,error-bars,infrastructure-costing,assumptions">
+  <div class="card-title">Best practices in financial forecasting for IT operational run costs</div>
+  <div class="card-meta">2026-03-13</div>
+  <div class="card-tags"><span class="tag">financial-forecasting</span><span class="tag">it-run-costs</span><span class="tag">uncertainty-modelling</span><span class="tag">regulatory</span><span class="tag">error-bars</span><span class="tag">infrastructure-costing</span><span class="tag">assumptions</span></div>
+  <div class="card-excerpt">What are the established best practices for financially responsible forecasting of Information Technology (IT) operational run costs — covering cost estimation by technology and infrastructure type, r…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-12-volume-vs-correctness-ai-era.html" data-title="ai inverted the knowledge-work scarcity equation" data-question="before artificial intelligence (ai), throughput (volume of output) was the binding constraint on knowledge work. ai has
+dramatically reduced the cost of generating output. does the evidence support th" data-tags="quality,ai,productivity,verification">
+  <div class="card-title">AI inverted the knowledge-work scarcity equation</div>
+  <div class="card-meta">2026-03-12</div>
+  <div class="card-tags"><span class="tag">quality</span><span class="tag">ai</span><span class="tag">productivity</span><span class="tag">verification</span></div>
+  <div class="card-excerpt">Before Artificial Intelligence (AI), throughput (volume of output) was the binding constraint on knowledge work. AI has
+dramatically reduced the cost of generating output. Does the evidence support th…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-12-team-size-limits-brooks-dunbar-network-theory.html" data-title="three disciplines, one answer" data-question="software engineering (fred brooks, 1975), evolutionary psychology (robin dunbar, 1992), and graph
+theory each independently arrive at the same structural limit: approximately 5 people for a
+high-coord" data-tags="team-size,coordination-overhead,software-engineering">
+  <div class="card-title">Three disciplines, one answer</div>
+  <div class="card-meta">2026-03-12</div>
+  <div class="card-tags"><span class="tag">team-size</span><span class="tag">coordination-overhead</span><span class="tag">software-engineering</span></div>
+  <div class="card-excerpt">Software engineering (Fred Brooks, 1975), evolutionary psychology (Robin Dunbar, 1992), and graph
+theory each independently arrive at the same structural limit: approximately 5 people for a
+high-coord…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-12-swat-technique-loop-fresh-context.html" data-title="swat technique in a fresh-context loop" data-question="when the swat (strengths, weaknesses, assumptions, threats) technique is executed repeatedly in a loop where each invocation uses a fresh large language model (llm) context window and the caller blind" data-tags="agentic-systems,rag,hallucination,context-window,grounding">
+  <div class="card-title">SWAT technique in a fresh-context loop</div>
+  <div class="card-meta">2026-03-12</div>
+  <div class="card-tags"><span class="tag">agentic-systems</span><span class="tag">rag</span><span class="tag">hallucination</span><span class="tag">context-window</span><span class="tag">grounding</span></div>
+  <div class="card-excerpt">When the SWAT (Strengths, Weaknesses, Assumptions, Threats) technique is executed repeatedly in a loop where each invocation uses a fresh Large Language Model (LLM) context window and the caller blind…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-12-superpowers-integration-analysis.html" data-title="superpowers as inspiration" data-question="what ideas, patterns, and workflow practices from `davidamitchell/superpowers` (a fork of `obra/superpowers`) can be used as inspiration for improving agent tooling in `davidamitchell/latest-developme" data-tags="skills,claude-code,github-copilot,agent-tooling,workflow">
+  <div class="card-title">Superpowers as inspiration</div>
+  <div class="card-meta">2026-03-12</div>
+  <div class="card-tags"><span class="tag">skills</span><span class="tag">claude-code</span><span class="tag">github-copilot</span><span class="tag">agent-tooling</span><span class="tag">workflow</span></div>
+  <div class="card-excerpt">What ideas, patterns, and workflow practices from `davidamitchell/superpowers` (a fork of `obra/superpowers`) can be used as inspiration for improving agent tooling in `davidamitchell/Latest-developme…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-12-hosting-options-for-the-research-repo.html" data-title="hosting options for the research repo" data-question="what is the best free or very-low-cost hosting option for this research repository that supports full-text search, and optionally vector/graph database capabilities, without requiring seo, custom dns," data-tags="search,vector-db,infrastructure">
+  <div class="card-title">Hosting options for the Research repo</div>
+  <div class="card-meta">2026-03-12</div>
+  <div class="card-tags"><span class="tag">search</span><span class="tag">vector-db</span><span class="tag">infrastructure</span></div>
+  <div class="card-excerpt">What is the best free or very-low-cost hosting option for this research repository that supports full-text search, and optionally vector/graph database capabilities, without requiring SEO, custom DNS,…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-12-failure-mode-taxonomy-expansion.html" data-title="failure mode taxonomy" data-question="the five-layer failure mode taxonomy established in `2026-03-10-ai-concept-classification-taxonomy.md` (q5) provides a structurally sound classification, but leaves three empirical gaps unanswered: (1" data-tags="failure-modes,taxonomy,hallucination,reward-hacking,prompt-injection,alignment,agentic-systems,owasp,observability">
+  <div class="card-title">Failure mode taxonomy</div>
+  <div class="card-meta">2026-03-12</div>
+  <div class="card-tags"><span class="tag">failure-modes</span><span class="tag">taxonomy</span><span class="tag">hallucination</span><span class="tag">reward-hacking</span><span class="tag">prompt-injection</span><span class="tag">alignment</span><span class="tag">agentic-systems</span><span class="tag">owasp</span><span class="tag">observability</span></div>
+  <div class="card-excerpt">The five-layer failure mode taxonomy established in `2026-03-10-ai-concept-classification-taxonomy.md` (Q5) provides a structurally sound classification, but leaves three empirical gaps unanswered: (1…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-12-exploration-synthesis-gap.html" data-title="exploration-synthesis gap" data-question="during periods of rapid exploration — such as the current wave of artificial intelligence (ai) / large language model (llm) adoption inside organisations — individuals and teams routinely duplicate ef" data-tags="cognition,exploration,synthesis,agentic-systems">
+  <div class="card-title">Exploration-synthesis gap</div>
+  <div class="card-meta">2026-03-12</div>
+  <div class="card-tags"><span class="tag">cognition</span><span class="tag">exploration</span><span class="tag">synthesis</span><span class="tag">agentic-systems</span></div>
+  <div class="card-excerpt">During periods of rapid exploration — such as the current wave of Artificial Intelligence (AI) / Large Language Model (LLM) adoption inside organisations — individuals and teams routinely duplicate ef…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-12-ai-team-size-strike-team-thesis.html" data-title="ai amplified the coordination tax" data-question="artificial intelligence (ai) has increased per-person output by 5–10x. if coordination cost scales with the square of team size
+(see `2026-03-12-team-size-limits-brooks-dunbar-network-theory.md`), wha" data-tags="team-size,ai,coordination-overhead,organisational-design,productivity,ai-native">
+  <div class="card-title">AI amplified the coordination tax</div>
+  <div class="card-meta">2026-03-12</div>
+  <div class="card-tags"><span class="tag">team-size</span><span class="tag">ai</span><span class="tag">coordination-overhead</span><span class="tag">organisational-design</span><span class="tag">productivity</span><span class="tag">ai-native</span></div>
+  <div class="card-excerpt">Artificial Intelligence (AI) has increased per-person output by 5–10x. If coordination cost scales with the square of team size
+(see `2026-03-12-team-size-limits-brooks-dunbar-network-theory.md`), wha…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-12-ai-force-multiplier-ambition-expansion.html" data-title="force multiplier, not cost reducer" data-question="when artificial intelligence (ai) multiplies the productive capacity of each person by 5–10x, organisations face a
+strategic choice: reduce headcount to cut costs, or redeploy the same people against" data-tags="organisational-design,ai-native,strategy">
+  <div class="card-title">Force multiplier, not cost reducer</div>
+  <div class="card-meta">2026-03-12</div>
+  <div class="card-tags"><span class="tag">organisational-design</span><span class="tag">ai-native</span><span class="tag">strategy</span></div>
+  <div class="card-excerpt">When Artificial Intelligence (AI) multiplies the productive capacity of each person by 5–10x, organisations face a
+strategic choice: reduce headcount to cut costs, or redeploy the same people against…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-10-research-loop-evaluation-rubric.html" data-title="research loop evaluation rubric" data-question="what structured rubric should be used to evaluate the outputs of this repository&#39;s research loop agent — and what does a minimal viable implementation of a continuous integration (ci)-integrated eval" data-tags="agents,evaluation,research-loop,regression,ci">
+  <div class="card-title">Research loop evaluation rubric</div>
+  <div class="card-meta">2026-03-10</div>
+  <div class="card-tags"><span class="tag">agents</span><span class="tag">evaluation</span><span class="tag">research-loop</span><span class="tag">regression</span><span class="tag">ci</span></div>
+  <div class="card-excerpt">What structured rubric should be used to evaluate the outputs of this repository&#39;s research loop agent — and what does a minimal viable implementation of a Continuous Integration (CI)-integrated eval…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-10-nature-of-the-firm-coase-organisations.html" data-title="the nature of the firm" data-question="why do organisations (firms and business units) exist when markets are theoretically efficient? what are the fitness functions and invariants that determine when organisational form is the correct coo" data-tags="transaction-costs,coase,williamson,north,fitness-functions,platform-strategy,institutional-economics">
+  <div class="card-title">The Nature of the Firm</div>
+  <div class="card-meta">2026-03-10</div>
+  <div class="card-tags"><span class="tag">transaction-costs</span><span class="tag">coase</span><span class="tag">williamson</span><span class="tag">north</span><span class="tag">fitness-functions</span><span class="tag">platform-strategy</span><span class="tag">institutional-economics</span></div>
+  <div class="card-excerpt">Why do organisations (firms and business units) exist when markets are theoretically efficient? What are the fitness functions and invariants that determine when organisational form is the correct coo…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-10-language-for-llm-agent-output.html" data-title="language designed for llm agents to produce" data-question="is anyone actively developing a programming language or structured output format specifically designed for llm agents to generate — rather than humans to write — that structurally addresses generation" data-tags="agentic-systems,programming-languages,failure-modes,intent-alignment,reward-hacking,formal-methods">
+  <div class="card-title">Language designed for LLM agents to produce</div>
+  <div class="card-meta">2026-03-10</div>
+  <div class="card-tags"><span class="tag">agentic-systems</span><span class="tag">programming-languages</span><span class="tag">failure-modes</span><span class="tag">intent-alignment</span><span class="tag">reward-hacking</span><span class="tag">formal-methods</span></div>
+  <div class="card-excerpt">Is anyone actively developing a programming language or structured output format specifically designed for LLM agents to generate — rather than humans to write — that structurally addresses generation…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-10-formal-spec-intent-alignment-agentic-coding.html" data-title="formal intent specification and language choice for ai alignment in agentic…" data-question="can formal specification of task intent structurally eliminate reward hacking and intent mismatch in agentic coding systems? what is the expressiveness-verifiability tradeoff at each level of the spec" data-tags="formal-methods,intent-alignment,reward-hacking,agentic-systems,programming-languages">
+  <div class="card-title">Formal intent specification and language choice for AI alignment in agentic…</div>
+  <div class="card-meta">2026-03-10</div>
+  <div class="card-tags"><span class="tag">formal-methods</span><span class="tag">intent-alignment</span><span class="tag">reward-hacking</span><span class="tag">agentic-systems</span><span class="tag">programming-languages</span></div>
+  <div class="card-excerpt">Can formal specification of task intent structurally eliminate reward hacking and intent mismatch in agentic coding systems? What is the expressiveness-verifiability tradeoff at each level of the spec…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-10-dikw-transformation-functions.html" data-title="the dikw pyramid" data-question="what are the transformation functions that move between the levels of the dikw pyramid — data → information → knowledge → wisdom? what cognitive, computational, and organisational mechanisms perform e" data-tags="dikw,knowledge-management,epistemology,information-theory,wisdom,cognition,organisations">
+  <div class="card-title">The DIKW pyramid</div>
+  <div class="card-meta">2026-03-10</div>
+  <div class="card-tags"><span class="tag">dikw</span><span class="tag">knowledge-management</span><span class="tag">epistemology</span><span class="tag">information-theory</span><span class="tag">wisdom</span><span class="tag">cognition</span><span class="tag">organisations</span></div>
+  <div class="card-excerpt">What are the transformation functions that move between the levels of the DIKW pyramid — Data → Information → Knowledge → Wisdom? What cognitive, computational, and organisational mechanisms perform e…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-10-ai-concept-classification-taxonomy.html" data-title="ai concept classification taxonomy" data-question="what is a coherent, internally consistent classification taxonomy for the core concepts in ai-assisted and agentic systems — covering prompt types, instruction types, prompt/content/intent engineering" data-tags="taxonomy,classification,prompt-engineering,context-engineering,memory,failure-modes,guardrails,skills,tools,agents,agentic-systems">
+  <div class="card-title">AI concept classification taxonomy</div>
+  <div class="card-meta">2026-03-10</div>
+  <div class="card-tags"><span class="tag">taxonomy</span><span class="tag">classification</span><span class="tag">prompt-engineering</span><span class="tag">context-engineering</span><span class="tag">memory</span><span class="tag">failure-modes</span><span class="tag">guardrails</span><span class="tag">skills</span><span class="tag">tools</span><span class="tag">agents</span><span class="tag">agentic-systems</span></div>
+  <div class="card-excerpt">What is a coherent, internally consistent classification taxonomy for the core concepts in AI-assisted and agentic systems — covering prompt types, instruction types, prompt/content/intent engineering…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-10-agent-evaluation-cross-repo-analysis.html" data-title="agent evaluation framework" data-question="what evaluation framework allows systematic comparison of agent implementations across multiple repositories — identifying what problems each is solving, whether concepts are used idiomatically or in" data-tags="agents,evaluation,agentic-systems,regression,taxonomy">
+  <div class="card-title">Agent evaluation framework</div>
+  <div class="card-meta">2026-03-10</div>
+  <div class="card-tags"><span class="tag">agents</span><span class="tag">evaluation</span><span class="tag">agentic-systems</span><span class="tag">regression</span><span class="tag">taxonomy</span></div>
+  <div class="card-excerpt">What evaluation framework allows systematic comparison of agent implementations across multiple repositories — identifying what problems each is solving, whether concepts are used idiomatically or in…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-10-adversarial-agents-shared-goals-multi-perspective.html" data-title="adversarial agents with shared goals" data-question="what is the design pattern for a system of agents — human or ai — that share a common goal but deliberately occupy different competency domains and time horizons? how does &quot;adversarial collaboration&quot;" data-tags="multi-agent,fitness-functions,organisational-design,red-team,quality-assurance,agents,agentic-systems">
+  <div class="card-title">Adversarial agents with shared goals</div>
+  <div class="card-meta">2026-03-10</div>
+  <div class="card-tags"><span class="tag">multi-agent</span><span class="tag">fitness-functions</span><span class="tag">organisational-design</span><span class="tag">red-team</span><span class="tag">quality-assurance</span><span class="tag">agents</span><span class="tag">agentic-systems</span></div>
+  <div class="card-excerpt">What is the design pattern for a system of agents — human or AI — that share a common goal but deliberately occupy different competency domains and time horizons? How does &quot;adversarial collaboration&quot;…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-08-telegram-bot-memory-capture-retrieval.html" data-title="telegram bot as mobile memory capture and retrieval channel" data-question="can a telegram bot serve as a low-friction mobile capture and retrieval surface for the memory-system? specifically: (a) message received → file written to github repo via api, (b) messages starting w" data-tags="mobile,bot,capture,retrieval,memory-system,self-hosted">
+  <div class="card-title">Telegram bot as mobile memory capture and retrieval channel</div>
+  <div class="card-meta">2026-03-08</div>
+  <div class="card-tags"><span class="tag">mobile</span><span class="tag">bot</span><span class="tag">capture</span><span class="tag">retrieval</span><span class="tag">memory-system</span><span class="tag">self-hosted</span></div>
+  <div class="card-excerpt">Can a Telegram bot serve as a low-friction mobile capture and retrieval surface for the Memory-System? Specifically: (a) message received → file written to GitHub repo via API, (b) messages starting w…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-08-slack-bot-memory-capture-retrieval.html" data-title="slack as a mobile memory capture and retrieval channel" data-question="can a slack bot in a personal or team workspace serve as a memory capture and retrieval surface? what is the minimum viable setup: slash command vs bot, incoming webhook vs socket mode, and does a fre" data-tags="mobile,slack,bot,capture,retrieval,memory-system">
+  <div class="card-title">Slack as a mobile memory capture and retrieval channel</div>
+  <div class="card-meta">2026-03-08</div>
+  <div class="card-tags"><span class="tag">mobile</span><span class="tag">slack</span><span class="tag">bot</span><span class="tag">capture</span><span class="tag">retrieval</span><span class="tag">memory-system</span></div>
+  <div class="card-excerpt">Can a Slack bot in a personal or team workspace serve as a memory capture and retrieval surface? What is the minimum viable setup: slash command vs bot, incoming webhook vs Socket Mode, and does a fre…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-08-servicenow-process-mapping.html" data-title="servicenow process mapping" data-question="what options exist within servicenow for documenting, mapping, and maintaining business and it processes — and which approaches are sustainable enough in practice to stay meaningful, current, and actu" data-tags="servicenow,process-mapping,workflow,itsm">
+  <div class="card-title">ServiceNow Process Mapping</div>
+  <div class="card-meta">2026-03-08</div>
+  <div class="card-tags"><span class="tag">servicenow</span><span class="tag">process-mapping</span><span class="tag">workflow</span><span class="tag">itsm</span></div>
+  <div class="card-excerpt">What options exist within ServiceNow for documenting, mapping, and maintaining business and IT processes — and which approaches are sustainable enough in practice to stay meaningful, current, and actu…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-08-servicenow-platform-strategy.html" data-title="servicenow platform strategy" data-question="given the findings from the common service data model (csdm) data modelling, process mapping, and ai capability research, how should an organisation develop a coherent, practical servicenow platform s" data-tags="servicenow,platform-strategy,csdm,itsm,apm,spm,irm,grc,fso,ai,process-mapping,enterprise-architecture,tco">
+  <div class="card-title">ServiceNow Platform Strategy</div>
+  <div class="card-meta">2026-03-08</div>
+  <div class="card-tags"><span class="tag">servicenow</span><span class="tag">platform-strategy</span><span class="tag">csdm</span><span class="tag">itsm</span><span class="tag">apm</span><span class="tag">spm</span><span class="tag">irm</span><span class="tag">grc</span><span class="tag">fso</span><span class="tag">ai</span><span class="tag">process-mapping</span><span class="tag">enterprise-architecture</span><span class="tag">tco</span></div>
+  <div class="card-excerpt">Given the findings from the Common Service Data Model (CSDM) data modelling, process mapping, and AI capability research, how should an organisation develop a coherent, practical ServiceNow platform s…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-08-servicenow-csdm-data-modelling.html" data-title="servicenow csdm" data-question="how should organisations model their enterprise data in servicenow to meet the csdm standard while keeping the model maintainable and accurate — and what are the practical patterns for aligning it ser" data-tags="servicenow,csdm,itsm,apm,spm,irm,grc,fso,enterprise-architecture,application-portfolio">
+  <div class="card-title">ServiceNow CSDM</div>
+  <div class="card-meta">2026-03-08</div>
+  <div class="card-tags"><span class="tag">servicenow</span><span class="tag">csdm</span><span class="tag">itsm</span><span class="tag">apm</span><span class="tag">spm</span><span class="tag">irm</span><span class="tag">grc</span><span class="tag">fso</span><span class="tag">enterprise-architecture</span><span class="tag">application-portfolio</span></div>
+  <div class="card-excerpt">How should organisations model their enterprise data in ServiceNow to meet the CSDM standard while keeping the model maintainable and accurate — and what are the practical patterns for aligning IT Ser…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-08-servicenow-ai-knowledge-rag-agents.html" data-title="servicenow ai" data-question="how is servicenow evolving its platform to support ai-powered knowledge management, retrieval-augmented generation (rag), and agent frameworks — and what should an organisation investing in servicenow" data-tags="servicenow,ai,rag,knowledge-management,llm">
+  <div class="card-title">ServiceNow AI</div>
+  <div class="card-meta">2026-03-08</div>
+  <div class="card-tags"><span class="tag">servicenow</span><span class="tag">ai</span><span class="tag">rag</span><span class="tag">knowledge-management</span><span class="tag">llm</span></div>
+  <div class="card-excerpt">How is ServiceNow evolving its platform to support AI-powered knowledge management, retrieval-augmented generation (RAG), and agent frameworks — and what should an organisation investing in ServiceNow…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-08-self-hosted-mcp-server-options.html" data-title="self-hosted mcp server options" data-question="what is the minimum viable self-hosted deployment of `mcp_server.py` (or a write-only http wrapper) that: (a) is reachable from the public internet, (b) has zero or near-zero ongoing cost, (c) require" data-tags="mcp,self-hosted,infrastructure,mobile,memory-system,serverless">
+  <div class="card-title">Self-hosted MCP server options</div>
+  <div class="card-meta">2026-03-08</div>
+  <div class="card-tags"><span class="tag">mcp</span><span class="tag">self-hosted</span><span class="tag">infrastructure</span><span class="tag">mobile</span><span class="tag">memory-system</span><span class="tag">serverless</span></div>
+  <div class="card-excerpt">What is the minimum viable self-hosted deployment of `mcp_server.py` (or a write-only HTTP wrapper) that: (a) is reachable from the public internet, (b) has zero or near-zero ongoing cost, (c) require…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-08-lancedb-index-rebuild-from-git.html" data-title="lancedb index rebuild speed from git" data-question="can the lancedb index be rebuilt from the `.md` files in the repo on startup fast enough to enable stateless (per-request) deployment? measure rebuild time at: current corpus size, 100 files, 500 file" data-tags="indexing,serverless,memory-system">
+  <div class="card-title">LanceDB index rebuild speed from git</div>
+  <div class="card-meta">2026-03-08</div>
+  <div class="card-tags"><span class="tag">indexing</span><span class="tag">serverless</span><span class="tag">memory-system</span></div>
+  <div class="card-excerpt">Can the LanceDB index be rebuilt from the `.md` files in the repo on startup fast enough to enable stateless (per-request) deployment? Measure rebuild time at: current corpus size, 100 files, 500 file…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-08-ios-shortcuts-github-api-memory-capture.html" data-title="ios shortcuts + github api" data-question="can an ios shortcut write a timestamped `.md` file directly to a github repo via the contents api (`put /repos/{owner}/{repo}/contents/{path}`) with a stored personal access token (pat), with enough r" data-tags="mobile,ios,shortcuts,capture,memory-system">
+  <div class="card-title">iOS Shortcuts + GitHub API</div>
+  <div class="card-meta">2026-03-08</div>
+  <div class="card-tags"><span class="tag">mobile</span><span class="tag">ios</span><span class="tag">shortcuts</span><span class="tag">capture</span><span class="tag">memory-system</span></div>
+  <div class="card-excerpt">Can an iOS Shortcut write a timestamped `.md` file directly to a GitHub repo via the Contents API (`PUT /repos/{owner}/{repo}/contents/{path}`) with a stored Personal Access Token (PAT), with enough r…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-08-inbox-folder-capture-triage-pattern.html" data-title="inbox folder pattern" data-question="does removing the folder-selection decision from the capture path meaningfully reduce friction? design and evaluate an `inbox/` folder pattern where: (a) any capture tool writes unstructured notes to" data-tags="capture,ux,memory-system">
+  <div class="card-title">Inbox folder pattern</div>
+  <div class="card-meta">2026-03-08</div>
+  <div class="card-tags"><span class="tag">capture</span><span class="tag">ux</span><span class="tag">memory-system</span></div>
+  <div class="card-excerpt">Does removing the folder-selection decision from the capture path meaningfully reduce friction? Design and evaluate an `inbox/` folder pattern where: (a) any capture tool writes unstructured notes to…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-08-context-engineering-first-principles.html" data-title="context engineering" data-question="what are the first principles of context engineering — and what novel approaches emerge when it is understood as two distinct but coupled mechanisms: (1) making the next predicted token more likely to" data-tags="context-engineering,prompt-engineering,llm,rag,compliance">
+  <div class="card-title">Context engineering</div>
+  <div class="card-meta">2026-03-08</div>
+  <div class="card-tags"><span class="tag">context-engineering</span><span class="tag">prompt-engineering</span><span class="tag">llm</span><span class="tag">rag</span><span class="tag">compliance</span></div>
+  <div class="card-excerpt">What are the first principles of context engineering — and what novel approaches emerge when it is understood as two distinct but coupled mechanisms: (1) making the next predicted token more likely to…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-08-claude-ios-mcp-remote-integration.html" data-title="claude for ios" data-question="does the claude ios app support mcp connections to a remote server? if so: (a) what transport is supported (http/sse vs stdio), (b) does it require the same `.mcp.json` config as claude desktop, (c) w" data-tags="mobile,claude,ios,mcp,memory-system,self-hosted">
+  <div class="card-title">Claude for iOS</div>
+  <div class="card-meta">2026-03-08</div>
+  <div class="card-tags"><span class="tag">mobile</span><span class="tag">claude</span><span class="tag">ios</span><span class="tag">mcp</span><span class="tag">memory-system</span><span class="tag">self-hosted</span></div>
+  <div class="card-excerpt">Does the Claude iOS app support MCP connections to a remote server? If so: (a) what transport is supported (HTTP/SSE vs stdio), (b) does it require the same `.mcp.json` config as Claude Desktop, (c) w…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-08-chatgpt-actions-memory-integration.html" data-title="chatgpt actions and custom gpts" data-question="can a chatgpt custom generative pre-trained transformer (gpt) be configured with actions that: (a) call a self-hosted http endpoint to add a memory, (b) call `search_brain` before responding to surfac" data-tags="mobile,openai,memory-system">
+  <div class="card-title">ChatGPT Actions and custom GPTs</div>
+  <div class="card-meta">2026-03-08</div>
+  <div class="card-tags"><span class="tag">mobile</span><span class="tag">openai</span><span class="tag">memory-system</span></div>
+  <div class="card-excerpt">Can a ChatGPT custom Generative Pre-trained Transformer (GPT) be configured with Actions that: (a) call a self-hosted HTTP endpoint to add a memory, (b) call `search_brain` before responding to surfac…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-08-bbc-five-case-model.html" data-title="better business cases" data-question="what is the better business cases (bbc) five case model framework, what are the requirements and standards for each of the five cases, and how should an ai agent apply this framework to author, review" data-tags="strategy,economics">
+  <div class="card-title">Better Business Cases</div>
+  <div class="card-meta">2026-03-08</div>
+  <div class="card-tags"><span class="tag">strategy</span><span class="tag">economics</span></div>
+  <div class="card-excerpt">What is the Better Business Cases (BBC) Five Case Model framework, what are the requirements and standards for each of the five cases, and how should an AI agent apply this framework to author, review…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-08-ai-coding-harnesses-agent-philosophy.html" data-title="ai coding harnesses" data-question="what are the core architectural and philosophical principles behind the ai coding harnesses (agentic ides and agent runtimes) published or released by anthropic, openai, and the broader ecosystem of c" data-tags="ai-agents,anthropic,openai,cursor,opencode,context-management,memory,state-management">
+  <div class="card-title">AI coding harnesses</div>
+  <div class="card-meta">2026-03-08</div>
+  <div class="card-tags"><span class="tag">ai-agents</span><span class="tag">anthropic</span><span class="tag">openai</span><span class="tag">cursor</span><span class="tag">opencode</span><span class="tag">context-management</span><span class="tag">memory</span><span class="tag">state-management</span></div>
+  <div class="card-excerpt">What are the core architectural and philosophical principles behind the AI coding harnesses (agentic IDEs and agent runtimes) published or released by Anthropic, OpenAI, and the broader ecosystem of c…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-07-run-vs-build-it-spending-allocation.html" data-title="run vs build it spending allocation in non-it primary businesses" data-question="how do non-it primary businesses (manufacturing, retail, finance) calculate and apportion it spending between run (nondiscretionary operational sustainment) and build (discretionary strategic enhancem" data-tags="it-finance,run-build,cost-allocation">
+  <div class="card-title">RUN vs BUILD IT spending allocation in non-IT primary businesses</div>
+  <div class="card-meta">2026-03-07</div>
+  <div class="card-tags"><span class="tag">it-finance</span><span class="tag">run-build</span><span class="tag">cost-allocation</span></div>
+  <div class="card-excerpt">How do non-IT primary businesses (manufacturing, retail, finance) calculate and apportion IT spending between RUN (nondiscretionary operational sustainment) and BUILD (discretionary strategic enhancem…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-07-run-build-it-allocation-implementation-how.html" data-title="how organisations practically implement it run vs build cost allocation" data-question="how have organisations actually implemented a working run vs build it cost allocation — specifically: how did they agree on what counts as an &quot;application&quot;, how did they get consistent work-item taggi" data-tags="it-finance,run-build,cost-allocation,application-portfolio,organisational-design">
+  <div class="card-title">How organisations practically implement IT RUN vs BUILD cost allocation</div>
+  <div class="card-meta">2026-03-07</div>
+  <div class="card-tags"><span class="tag">it-finance</span><span class="tag">run-build</span><span class="tag">cost-allocation</span><span class="tag">application-portfolio</span><span class="tag">organisational-design</span></div>
+  <div class="card-excerpt">How have organisations actually implemented a working RUN vs BUILD IT cost allocation — specifically: how did they agree on what counts as an &quot;application&quot;, how did they get consistent work-item taggi…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-05-swarm-pca-genetic-reinforcement-learning.html" data-title="swarm intelligence, pca, genetic algorithms, and reinforcement learning —…" data-question="what is the structured, decision-oriented landscape of four advanced technique families — swarm intelligence, principal component analysis (pca) and its modern extensions, genetic algorithms and evolu" data-tags="machine-learning,analytics,advanced-analytics">
+  <div class="card-title">Swarm Intelligence, PCA, Genetic Algorithms, and Reinforcement Learning —…</div>
+  <div class="card-meta">2026-03-05</div>
+  <div class="card-tags"><span class="tag">machine-learning</span><span class="tag">analytics</span><span class="tag">advanced-analytics</span></div>
+  <div class="card-excerpt">What is the structured, decision-oriented landscape of four advanced technique families — Swarm Intelligence, Principal Component Analysis (PCA) and its modern extensions, Genetic Algorithms and Evolu…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-05-llm-hallucination-mechanisms.html" data-title="llm hallucinations — types, causes, and current mitigation approaches" data-question="what are the established types, root causes, and current mitigation strategies for hallucinations in large language models, and what does the macroscopic (training-level) view leave unexplained that m" data-tags="llm,hallucinations,reliability,alignment,grounding,mechanistic-interpretability">
+  <div class="card-title">LLM Hallucinations — Types, Causes, and Current Mitigation Approaches</div>
+  <div class="card-meta">2026-03-05</div>
+  <div class="card-tags"><span class="tag">llm</span><span class="tag">hallucinations</span><span class="tag">reliability</span><span class="tag">alignment</span><span class="tag">grounding</span><span class="tag">mechanistic-interpretability</span></div>
+  <div class="card-excerpt">What are the established types, root causes, and current mitigation strategies for hallucinations in large language models, and what does the macroscopic (training-level) view leave unexplained that m…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-05-h-neurons-synthesis.html" data-title="h-neurons synthesis — from hallucination mechanisms to actionable llm…" data-question="across all four preceding research items — the macroscopic hallucination landscape, the h-neurons paper, over-compliance interventions, and pre-training origins — what is the unified, actionable pictu" data-tags="llm,hallucinations,h-neurons,mechanistic-interpretability,over-compliance,pre-training,alignment,reliability,synthesis">
+  <div class="card-title">H-Neurons Synthesis — From Hallucination Mechanisms to Actionable LLM…</div>
+  <div class="card-meta">2026-03-05</div>
+  <div class="card-tags"><span class="tag">llm</span><span class="tag">hallucinations</span><span class="tag">h-neurons</span><span class="tag">mechanistic-interpretability</span><span class="tag">over-compliance</span><span class="tag">pre-training</span><span class="tag">alignment</span><span class="tag">reliability</span><span class="tag">synthesis</span></div>
+  <div class="card-excerpt">Across all four preceding research items — the macroscopic hallucination landscape, the H-Neurons paper, over-compliance interventions, and pre-training origins — what is the unified, actionable pictu…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-05-h-neurons-in-llms.html" data-title="hallucination-associated neurons (h-neurons) in llms — identification,…" data-question="what are hallucination-associated neurons (h-neurons) in large language models, how can they be identified, what behaviours do they cause, where do they come from, and what do these findings imply for" data-tags="llm,hallucinations,h-neurons,mechanistic-interpretability,over-compliance,pre-training,alignment,reliability,arxiv">
+  <div class="card-title">Hallucination-Associated Neurons (H-Neurons) in LLMs — Identification,…</div>
+  <div class="card-meta">2026-03-05</div>
+  <div class="card-tags"><span class="tag">llm</span><span class="tag">hallucinations</span><span class="tag">h-neurons</span><span class="tag">mechanistic-interpretability</span><span class="tag">over-compliance</span><span class="tag">pre-training</span><span class="tag">alignment</span><span class="tag">reliability</span><span class="tag">arxiv</span></div>
+  <div class="card-excerpt">What are Hallucination-Associated Neurons (H-Neurons) in large language models, how can they be identified, what behaviours do they cause, where do they come from, and what do these findings imply for…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-05-h-neuron-pretraining-origins.html" data-title="pre-training origins of hallucination-associated neurons — implications for llm…" data-question="given that hallucination-associated neurons (h-neurons) emerge during pre-training rather than instruction tuning or rlhf, what does this reveal about how hallucination-prone behaviour is encoded duri" data-tags="llm,hallucinations,h-neurons,pre-training,alignment,mechanistic-interpretability,reliability">
+  <div class="card-title">Pre-Training Origins of Hallucination-Associated Neurons — Implications for LLM…</div>
+  <div class="card-meta">2026-03-05</div>
+  <div class="card-tags"><span class="tag">llm</span><span class="tag">hallucinations</span><span class="tag">h-neurons</span><span class="tag">pre-training</span><span class="tag">alignment</span><span class="tag">mechanistic-interpretability</span><span class="tag">reliability</span></div>
+  <div class="card-excerpt">Given that Hallucination-Associated Neurons (H-Neurons) emerge during pre-training rather than instruction tuning or RLHF, what does this reveal about how hallucination-prone behaviour is encoded duri…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-05-h-neuron-over-compliance.html" data-title="over-compliance in llms — how h-neurons drive sycophancy and what interventions…" data-question="what exactly is over-compliance behaviour in llms, how do hallucination-associated neurons (h-neurons) cause it, and what neuron-level and inference-time interventions are feasible to reduce it withou" data-tags="llm,hallucinations,h-neurons,over-compliance,alignment,reliability,mechanistic-interpretability">
+  <div class="card-title">Over-Compliance in LLMs — How H-Neurons Drive Sycophancy and What Interventions…</div>
+  <div class="card-meta">2026-03-05</div>
+  <div class="card-tags"><span class="tag">llm</span><span class="tag">hallucinations</span><span class="tag">h-neurons</span><span class="tag">over-compliance</span><span class="tag">alignment</span><span class="tag">reliability</span><span class="tag">mechanistic-interpretability</span></div>
+  <div class="card-excerpt">What exactly is over-compliance behaviour in LLMs, how do Hallucination-Associated Neurons (H-Neurons) cause it, and what neuron-level and inference-time interventions are feasible to reduce it withou…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-05-general-agent-optimization-framework.html" data-title="general agent optimization framework" data-question="what is the most principled architecture for a self-improving ai agent evaluation loop — specifically, how should a nested inner/outer loop be designed so that a &quot;meta-optimizer&quot; rewrites system promp" data-tags="ai-agents,evaluation,prompt-engineering">
+  <div class="card-title">General Agent Optimization Framework</div>
+  <div class="card-meta">2026-03-05</div>
+  <div class="card-tags"><span class="tag">ai-agents</span><span class="tag">evaluation</span><span class="tag">prompt-engineering</span></div>
+  <div class="card-excerpt">What is the most principled architecture for a Self-Improving AI Agent Evaluation Loop — specifically, how should a nested inner/outer loop be designed so that a &quot;Meta-Optimizer&quot; rewrites system promp…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-04-sdlc-ai-prompt-patterns.html" data-title="emergent patterns in software engineering prompts and sdlc guidance" data-question="what are the current and emergent best practices for crafting ai agent prompts and tooling guidance tailored to each phase of the software development life cycle (sdlc) — covering discovery, requireme" data-tags="ai-agents,prompts,software-engineering,best-practices,prompt-engineering,developer-tooling">
+  <div class="card-title">Emergent Patterns in Software Engineering Prompts and SDLC Guidance</div>
+  <div class="card-meta">2026-03-04</div>
+  <div class="card-tags"><span class="tag">ai-agents</span><span class="tag">prompts</span><span class="tag">software-engineering</span><span class="tag">best-practices</span><span class="tag">prompt-engineering</span><span class="tag">developer-tooling</span></div>
+  <div class="card-excerpt">What are the current and emergent best practices for crafting AI agent prompts and tooling guidance tailored to each phase of the Software Development Life Cycle (SDLC) — covering discovery, requireme…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-03-research-loop-quality-prompt-engineering.html" data-title="evaluating and improving autonomous research loop quality" data-question="how can the quality of research items produced by the `research-loop.yml` autonomous pipeline be systematically evaluated, and what changes to `research-prompt.md` and the loop&#39;s prompting strategy wo" data-tags="research-loop,prompt-engineering,quality,evaluation,github-actions">
+  <div class="card-title">Evaluating and improving autonomous research loop quality</div>
+  <div class="card-meta">2026-03-03</div>
+  <div class="card-tags"><span class="tag">research-loop</span><span class="tag">prompt-engineering</span><span class="tag">quality</span><span class="tag">evaluation</span><span class="tag">github-actions</span></div>
+  <div class="card-excerpt">How can the quality of research items produced by the `research-loop.yml` autonomous pipeline be systematically evaluated, and what changes to `research-prompt.md` and the loop&#39;s prompting strategy wo…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-03-research-agenda-curation-coverage.html" data-title="research agenda curation" data-question="how should the research backlog be maintained and prioritised to ensure balanced coverage of important domains, detect over-concentration in one area (research drift), and surface high-value gaps — ra" data-tags="strategy">
+  <div class="card-title">Research agenda curation</div>
+  <div class="card-meta">2026-03-03</div>
+  <div class="card-tags"><span class="tag">strategy</span></div>
+  <div class="card-excerpt">How should the research backlog be maintained and prioritised to ensure balanced coverage of important domains, detect over-concentration in one area (research drift), and surface high-value gaps — ra…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-03-ml-techniques-and-algorithms.html" data-title="ml techniques, algorithms, and advanced analytics — a systematic reference for…" data-question="what is the complete, structured landscape of machine learning techniques and algorithms that an advanced analytics department should know, use, and actively pursue — covering foundational concepts, w" data-tags="machine-learning,analytics,advanced-analytics,best-practices">
+  <div class="card-title">ML techniques, algorithms, and advanced analytics — a systematic reference for…</div>
+  <div class="card-meta">2026-03-03</div>
+  <div class="card-tags"><span class="tag">machine-learning</span><span class="tag">analytics</span><span class="tag">advanced-analytics</span><span class="tag">best-practices</span></div>
+  <div class="card-excerpt">What is the complete, structured landscape of machine learning techniques and algorithms that an advanced analytics department should know, use, and actively pursue — covering foundational concepts, w…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-03-knowledge-retention-active-recall.html" data-title="knowledge retention" data-question="what mechanisms ensure that knowledge from completed research items is retained, recalled when contextually relevant, and applied to decisions — rather than being archived indefinitely with no re-enga" data-tags="recall,knowledge-management">
+  <div class="card-title">Knowledge retention</div>
+  <div class="card-meta">2026-03-03</div>
+  <div class="card-tags"><span class="tag">recall</span><span class="tag">knowledge-management</span></div>
+  <div class="card-excerpt">What mechanisms ensure that knowledge from completed research items is retained, recalled when contextually relevant, and applied to decisions — rather than being archived indefinitely with no re-enga…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-03-knowledge-representation-agent-context.html" data-title="knowledge representation for agent context" data-question="what techniques — latent semantic extraction, knowledge graphs, concept maps, hierarchical document compression, and layered abstraction — most effectively represent and compress large knowledge corpo" data-tags="knowledge-graphs,context-management,rag,agents,intent-alignment">
+  <div class="card-title">Knowledge Representation for Agent Context</div>
+  <div class="card-meta">2026-03-03</div>
+  <div class="card-tags"><span class="tag">knowledge-graphs</span><span class="tag">context-management</span><span class="tag">rag</span><span class="tag">agents</span><span class="tag">intent-alignment</span></div>
+  <div class="card-excerpt">What techniques — latent semantic extraction, knowledge graphs, concept maps, hierarchical document compression, and layered abstraction — most effectively represent and compress large knowledge corpo…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-03-knowledge-linking-connected-corpus.html" data-title="knowledge linking" data-question="what is the minimum viable approach to making the `research/completed/` corpus a connected knowledge network — where items explicitly reference related items, contradictions and confirmations are surf" data-tags="knowledge-graph,synthesis,knowledge-integration,knowledge-management">
+  <div class="card-title">Knowledge linking</div>
+  <div class="card-meta">2026-03-03</div>
+  <div class="card-tags"><span class="tag">knowledge-graph</span><span class="tag">synthesis</span><span class="tag">knowledge-integration</span><span class="tag">knowledge-management</span></div>
+  <div class="card-excerpt">What is the minimum viable approach to making the `Research/completed/` corpus a connected knowledge network — where items explicitly reference related items, contradictions and confirmations are surf…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-02-transaction-costs.html" data-title="transaction cost economics" data-question="what are the foundational concepts of transaction cost economics (coase → williamson → north → ostrom), and how might the analytical framework map onto software engineering organisation, ai agent desi" data-tags="transaction-costs,institutional-economics,coase,williamson,north,ai-agents,knowledge-management,context-engineering">
+  <div class="card-title">Transaction Cost Economics</div>
+  <div class="card-meta">2026-03-02</div>
+  <div class="card-tags"><span class="tag">transaction-costs</span><span class="tag">institutional-economics</span><span class="tag">coase</span><span class="tag">williamson</span><span class="tag">north</span><span class="tag">ai-agents</span><span class="tag">knowledge-management</span><span class="tag">context-engineering</span></div>
+  <div class="card-excerpt">What are the foundational concepts of transaction cost economics (Coase → Williamson → North → Ostrom), and how might the analytical framework map onto software engineering organisation, AI agent desi…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-02-slack-msteams-research-integration.html" data-title="slack and ms teams integration for research delivery and capture" data-question="what is the most practical way to integrate the research corpus with slack and/or microsoft teams — for both outbound delivery (notifying when new research is completed) and inbound capture (receiving" data-tags="slack,delivery,bot,interface">
+  <div class="card-title">Slack and MS Teams integration for research delivery and capture</div>
+  <div class="card-meta">2026-03-02</div>
+  <div class="card-tags"><span class="tag">slack</span><span class="tag">delivery</span><span class="tag">bot</span><span class="tag">interface</span></div>
+  <div class="card-excerpt">What is the most practical way to integrate the research corpus with Slack and/or Microsoft Teams — for both outbound delivery (notifying when new research is completed) and inbound capture (receiving…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-02-semantic-full-text-search.html" data-title="semantic and full-text search over the research corpus" data-question="what combination of full-text search (keyword/bm25) and semantic search (embeddings/vector) is most appropriate for querying the `research/completed/` corpus, given the constraints of a git-based, loc" data-tags="search,embeddings,indexing,rag">
+  <div class="card-title">Semantic and full-text search over the research corpus</div>
+  <div class="card-meta">2026-03-02</div>
+  <div class="card-tags"><span class="tag">search</span><span class="tag">embeddings</span><span class="tag">indexing</span><span class="tag">rag</span></div>
+  <div class="card-excerpt">What combination of full-text search (keyword/BM25) and semantic search (embeddings/vector) is most appropriate for querying the `Research/completed/` corpus, given the constraints of a git-based, loc…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-02-research-quality-assurance-methodology.html" data-title="research quality assurance and knowledge integration methodology" data-question="what review methodology is required to reliably move from information gathering through to applied knowledge and wisdom — and which of those steps can be automated in a ci pipeline versus requiring hu" data-tags="quality-assurance,knowledge-integration,ci,skills,synthesis">
+  <div class="card-title">Research Quality Assurance and Knowledge Integration Methodology</div>
+  <div class="card-meta">2026-03-02</div>
+  <div class="card-tags"><span class="tag">quality-assurance</span><span class="tag">knowledge-integration</span><span class="tag">ci</span><span class="tag">skills</span><span class="tag">synthesis</span></div>
+  <div class="card-excerpt">What review methodology is required to reliably move from information gathering through to applied knowledge and wisdom — and which of those steps can be automated in a CI pipeline versus requiring hu…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-02-ios-shortcuts-research.html" data-title="ios shortcuts for research capture and query" data-question="what ios shortcuts workflows provide the most value for a personal research system hosted on github — covering both low-friction research capture (adding a url or idea to the backlog from anywhere on" data-tags="ios,shortcuts,mobile,capture,interface,delivery">
+  <div class="card-title">iOS Shortcuts for research capture and query</div>
+  <div class="card-meta">2026-03-02</div>
+  <div class="card-tags"><span class="tag">ios</span><span class="tag">shortcuts</span><span class="tag">mobile</span><span class="tag">capture</span><span class="tag">interface</span><span class="tag">delivery</span></div>
+  <div class="card-excerpt">What iOS Shortcuts workflows provide the most value for a personal research system hosted on GitHub — covering both low-friction research capture (adding a URL or idea to the backlog from anywhere on…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-02-integrative-framework-agent-decision-making.html" data-title="an integrative framework for agent decision-making" data-question="how can the dikw (data → information → knowledge → wisdom) progression be operationalised within agentic systems to produce intent-aligned, context-aware decisions that reconcile conflicting knowledge" data-tags="agents,decision-making,dikw,knowledge-management,intent,memory,alignment,governance,wisdom">
+  <div class="card-title">An Integrative Framework for Agent Decision-Making</div>
+  <div class="card-meta">2026-03-02</div>
+  <div class="card-tags"><span class="tag">agents</span><span class="tag">decision-making</span><span class="tag">dikw</span><span class="tag">knowledge-management</span><span class="tag">intent</span><span class="tag">memory</span><span class="tag">alignment</span><span class="tag">governance</span><span class="tag">wisdom</span></div>
+  <div class="card-excerpt">How can the DIKW (Data → Information → Knowledge → Wisdom) progression be operationalised within agentic systems to produce intent-aligned, context-aware decisions that reconcile conflicting knowledge…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-02-chat-conversational-interface.html" data-title="conversational and chat interface for querying the research corpus" data-question="what is the best approach to expose the `research/completed/` corpus as a queryable, conversational interface — so that a user (or an ai agent) can ask &quot;what do i know about x?&quot; and receive a grounded" data-tags="mcp,rag,search,interface,delivery">
+  <div class="card-title">Conversational and chat interface for querying the research corpus</div>
+  <div class="card-meta">2026-03-02</div>
+  <div class="card-tags"><span class="tag">mcp</span><span class="tag">rag</span><span class="tag">search</span><span class="tag">interface</span><span class="tag">delivery</span></div>
+  <div class="card-excerpt">What is the best approach to expose the `Research/completed/` corpus as a queryable, conversational interface — so that a user (or an AI agent) can ask &quot;what do I know about X?&quot; and receive a grounded…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-02-ai-not-a-data-problem.html" data-title="ai capability is not a data problem - why the data/analytics department is the…" data-question="what is the strongest case - technical, architectural, organisational, legal, and regulatory - that an organisation&#39;s ai capability should not be owned by or coupled to its data/analytics department o" data-tags="ai-strategy,architecture,data-platform,agents,organisational-design,governance,mcp,identity">
+  <div class="card-title">AI capability is not a data problem - why the data/analytics department is the…</div>
+  <div class="card-meta">2026-03-02</div>
+  <div class="card-tags"><span class="tag">ai-strategy</span><span class="tag">architecture</span><span class="tag">data-platform</span><span class="tag">agents</span><span class="tag">organisational-design</span><span class="tag">governance</span><span class="tag">mcp</span><span class="tag">identity</span></div>
+  <div class="card-excerpt">What is the strongest case - technical, architectural, organisational, legal, and regulatory - that an organisation&#39;s AI capability should NOT be owned by or coupled to its data/analytics department o…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-02-agent-memory-management-context-injection.html" data-title="agent memory management and context injection" data-question="what is the current state of agent memory management systems — beyond rag — and which approaches best address the real constraints of latency, knowledge freshness, scoping, governance, quality, and di" data-tags="memory,rag,agents,knowledge-management,architecture,governance,dikw,knowledge-graphs,embeddings">
+  <div class="card-title">Agent Memory Management and Context Injection</div>
+  <div class="card-meta">2026-03-02</div>
+  <div class="card-tags"><span class="tag">memory</span><span class="tag">rag</span><span class="tag">agents</span><span class="tag">knowledge-management</span><span class="tag">architecture</span><span class="tag">governance</span><span class="tag">dikw</span><span class="tag">knowledge-graphs</span><span class="tag">embeddings</span></div>
+  <div class="card-excerpt">What is the current state of agent memory management systems — beyond RAG — and which approaches best address the real constraints of latency, knowledge freshness, scoping, governance, quality, and di…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-01-github-wiki-research-content.html" data-title="github wiki for research content" data-question="what is the best approach for publishing completed research items from `research/completed/` into the github wiki, and what tooling is needed to keep it current and readable?" data-tags="delivery,interface,output">
+  <div class="card-title">GitHub wiki for research content</div>
+  <div class="card-meta">2026-03-01</div>
+  <div class="card-tags"><span class="tag">delivery</span><span class="tag">interface</span><span class="tag">output</span></div>
+  <div class="card-excerpt">What is the best approach for publishing completed research items from `Research/completed/` into the GitHub wiki, and what tooling is needed to keep it current and readable?</div>
+</a>
+<a class="card" href="/Research/research/2026-03-01-github-specify-ralph-loop-lisa-planning.html" data-title="github specify, ralph loops, and lisa planning" data-question="what is &quot;specify&quot; in the context of github-integrated ai development workflows, how does the ralph loop implement proof-driven development in practice, and what role does lisa planning play in the spe" data-tags="ai-agents,github-copilot,software-engineering">
+  <div class="card-title">GitHub Specify, Ralph Loops, and Lisa Planning</div>
+  <div class="card-meta">2026-03-01</div>
+  <div class="card-tags"><span class="tag">ai-agents</span><span class="tag">github-copilot</span><span class="tag">software-engineering</span></div>
+  <div class="card-excerpt">What is &quot;Specify&quot; in the context of GitHub-integrated AI development workflows, how does the Ralph loop implement proof-driven development in practice, and what role does Lisa planning play in the spe…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-01-context-mode-llm-context-compression.html" data-title="context mode" data-question="what is context mode&#39;s architecture and actual effectiveness for compressing mcp tool outputs in claude code, what are its real-world limitations (especially regarding mcp tool interception), and what" data-tags="llm,context-window,mcp,claude-code,context-management,tooling">
+  <div class="card-title">Context Mode</div>
+  <div class="card-meta">2026-03-01</div>
+  <div class="card-tags"><span class="tag">llm</span><span class="tag">context-window</span><span class="tag">mcp</span><span class="tag">claude-code</span><span class="tag">context-management</span><span class="tag">tooling</span></div>
+  <div class="card-excerpt">What is Context Mode&#39;s architecture and actual effectiveness for compressing MCP tool outputs in Claude Code, what are its real-world limitations (especially regarding MCP tool interception), and what…</div>
+</a>
+<a class="card" href="/Research/research/2026-03-01-agent-lsp-policy-enforcement.html" data-title="guiding headless agents via lsp-like mechanisms for org policy conformance" data-question="who is building solutions that allow headless autonomous coding agents to be guided in real time by lsp-like mechanisms — rather than ci gates or pre-commit hooks — to conform to an organisation&#39;s sec" data-tags="agentic-coding,security,developer-tooling">
+  <div class="card-title">Guiding Headless Agents via LSP-Like Mechanisms for Org Policy Conformance</div>
+  <div class="card-meta">2026-03-01</div>
+  <div class="card-tags"><span class="tag">agentic-coding</span><span class="tag">security</span><span class="tag">developer-tooling</span></div>
+  <div class="card-excerpt">Who is building solutions that allow headless autonomous coding agents to be guided in real time by LSP-like mechanisms — rather than CI gates or pre-commit hooks — to conform to an organisation&#39;s sec…</div>
+</a>
+</div>
+</div>
+<div class="all-group">
+  <div class="all-group-header"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>february 2026<span class="all-group-count">29</span></div>
+  <div class="card-grid"><a class="card" href="/Research/research/2026-02-28-youtube-video-hyuos0gkgcs-concepts.html" data-title="reality is a controlled hallucination — anil seth (essentia foundation)" data-question="what are the key concepts presented in anil seth&#39;s &quot;reality is a controlled hallucination&quot; (https://youtu.be/hyuos0gkgcs), and how do they relate to and reinforce each other when synthesised?" data-tags="youtube,consciousness,predictive-processing,anil-seth,perception,interoception,entropy">
+  <div class="card-title">Reality Is A Controlled Hallucination — Anil Seth (Essentia Foundation)</div>
+  <div class="card-meta">2026-02-28</div>
+  <div class="card-tags"><span class="tag">youtube</span><span class="tag">consciousness</span><span class="tag">predictive-processing</span><span class="tag">anil-seth</span><span class="tag">perception</span><span class="tag">interoception</span><span class="tag">entropy</span></div>
+  <div class="card-excerpt">What are the key concepts presented in Anil Seth&#39;s &quot;Reality Is A Controlled Hallucination&quot; (https://youtu.be/HYUoS0GkGCs), and how do they relate to and reinforce each other when synthesised?</div>
+</a>
+<a class="card" href="/Research/research/2026-02-28-transcript-via-yt-dlp-whisper.html" data-title="youtube transcripts via yt-dlp audio + whisper transcription" data-question="can we bypass youtube&#39;s ip-based transcript block by downloading the **audio track** with
+`yt-dlp` (a different endpoint from the transcript api) and then transcribing it with
+openai whisper?" data-tags="youtube,transcripts,tooling,automation">
+  <div class="card-title">YouTube transcripts via yt-dlp audio + Whisper transcription</div>
+  <div class="card-meta">2026-02-28</div>
+  <div class="card-tags"><span class="tag">youtube</span><span class="tag">transcripts</span><span class="tag">tooling</span><span class="tag">automation</span></div>
+  <div class="card-excerpt">Can we bypass YouTube&#39;s IP-based transcript block by downloading the **audio track** with
+`yt-dlp` (a different endpoint from the transcript API) and then transcribing it with
+OpenAI Whisper?</div>
+</a>
+<a class="card" href="/Research/research/2026-02-28-transcript-via-third-party-apis.html" data-title="youtube transcripts via third-party transcript apis (assemblyai / supadata)" data-question="can a third-party transcript api (assemblyai, supadata, kagi, or similar) retrieve youtube
+transcripts from a github actions runner, bypassing youtube&#39;s ip-based block on the
+internal transcript endpo" data-tags="youtube,transcripts,tooling,automation">
+  <div class="card-title">YouTube transcripts via third-party transcript APIs (AssemblyAI / Supadata)</div>
+  <div class="card-meta">2026-02-28</div>
+  <div class="card-tags"><span class="tag">youtube</span><span class="tag">transcripts</span><span class="tag">tooling</span><span class="tag">automation</span></div>
+  <div class="card-excerpt">Can a third-party transcript API (AssemblyAI, Supadata, Kagi, or similar) retrieve YouTube
+transcripts from a GitHub Actions runner, bypassing YouTube&#39;s IP-based block on the
+internal transcript endpo…</div>
+</a>
+<a class="card" href="/Research/research/2026-02-28-transcript-via-gemini-api.html" data-title="youtube transcripts via gemini api (native youtube url support)" data-question="can we use the gemini api (already configured in `davidamitchell/latest-developments-`) to
+extract full transcripts from youtube videos without being blocked by youtube&#39;s ip restrictions?" data-tags="youtube,transcripts,gemini,tooling,automation">
+  <div class="card-title">YouTube transcripts via Gemini API (native YouTube URL support)</div>
+  <div class="card-meta">2026-02-28</div>
+  <div class="card-tags"><span class="tag">youtube</span><span class="tag">transcripts</span><span class="tag">gemini</span><span class="tag">tooling</span><span class="tag">automation</span></div>
+  <div class="card-excerpt">Can we use the Gemini API (already configured in `davidamitchell/Latest-developments-`) to
+extract full transcripts from YouTube videos without being blocked by YouTube&#39;s IP restrictions?</div>
+</a>
+<a class="card" href="/Research/research/2026-02-28-rbnz-ai-supervisory-expectations.html" data-title="rbnz ai supervisory expectations" data-question="what are the reserve bank of new zealand&#39;s specific supervisory expectations for ai use by regulated entities, and how do these align with or diverge from the expectations of comparator regulators (ap" data-tags="rbnz,ai-strategy,financial-services,model-risk">
+  <div class="card-title">RBNZ AI Supervisory Expectations</div>
+  <div class="card-meta">2026-02-28</div>
+  <div class="card-tags"><span class="tag">rbnz</span><span class="tag">ai-strategy</span><span class="tag">financial-services</span><span class="tag">model-risk</span></div>
+  <div class="card-excerpt">What are the Reserve Bank of New Zealand&#39;s specific supervisory expectations for AI use by regulated entities, and how do these align with or diverge from the expectations of comparator regulators (AP…</div>
+</a>
+<a class="card" href="/Research/research/2026-02-28-predictive-processing-active-inference.html" data-title="predictive processing and active inference" data-question="what exactly is the predictive processing / active inference framework, how does it differ from classical feedforward models of perception, and what is the empirical status of the free energy principl" data-tags="predictive-processing,active-inference,free-energy-principle,karl-friston,neuroscience">
+  <div class="card-title">Predictive processing and active inference</div>
+  <div class="card-meta">2026-02-28</div>
+  <div class="card-tags"><span class="tag">predictive-processing</span><span class="tag">active-inference</span><span class="tag">free-energy-principle</span><span class="tag">karl-friston</span><span class="tag">neuroscience</span></div>
+  <div class="card-excerpt">What exactly is the predictive processing / active inference framework, how does it differ from classical feedforward models of perception, and what is the empirical status of the free energy principl…</div>
+</a>
+<a class="card" href="/Research/research/2026-02-28-jevons-paradox.html" data-title="jevons paradox" data-question="how does jevons paradox operate across different sectors historically, what are the conditions under which cost or efficiency improvements *do not* increase total demand, and what do current thinkers" data-tags="economics,software-engineering">
+  <div class="card-title">Jevons Paradox</div>
+  <div class="card-meta">2026-02-28</div>
+  <div class="card-tags"><span class="tag">economics</span><span class="tag">software-engineering</span></div>
+  <div class="card-excerpt">How does Jevons Paradox operate across different sectors historically, what are the conditions under which cost or efficiency improvements *do not* increase total demand, and what do current thinkers…</div>
+</a>
+<a class="card" href="/Research/research/2026-02-28-interoception-and-the-predictive-self.html" data-title="interoception and the predictive self" data-question="what is the evidence that the sense of self emerges from interoceptive predictive processing — and what are the implications for understanding depersonalisation, emotion, and mental illness?" data-tags="interoception,consciousness,anil-seth,predictive-processing">
+  <div class="card-title">Interoception and the predictive self</div>
+  <div class="card-meta">2026-02-28</div>
+  <div class="card-tags"><span class="tag">interoception</span><span class="tag">consciousness</span><span class="tag">anil-seth</span><span class="tag">predictive-processing</span></div>
+  <div class="card-excerpt">What is the evidence that the sense of self emerges from interoceptive predictive processing — and what are the implications for understanding depersonalisation, emotion, and mental illness?</div>
+</a>
+<a class="card" href="/Research/research/2026-02-28-hard-problem-vs-real-problem-consciousness.html" data-title="the hard problem vs. the real problem of consciousness" data-question="what is the difference between chalmers&#39; &quot;hard problem&quot; and seth&#39;s &quot;real problem&quot; of consciousness — is the real-problem strategy a genuine advance or a deferrment of the original question?" data-tags="consciousness,anil-seth">
+  <div class="card-title">The hard problem vs. the real problem of consciousness</div>
+  <div class="card-meta">2026-02-28</div>
+  <div class="card-tags"><span class="tag">consciousness</span><span class="tag">anil-seth</span></div>
+  <div class="card-excerpt">What is the difference between Chalmers&#39; &quot;hard problem&quot; and Seth&#39;s &quot;real problem&quot; of consciousness — is the real-problem strategy a genuine advance or a deferrment of the original question?</div>
+</a>
+<a class="card" href="/Research/research/2026-02-28-free-energy-entropy-and-life.html" data-title="free energy, entropy, and life" data-question="why do living organisms need predictive brains? what is the precise relationship between the thermodynamic concept of entropy (disorder), the information-theoretic concept of free energy (surprise), k" data-tags="free-energy-principle,entropy,predictive-processing,active-inference,karl-friston,anil-seth,consciousness">
+  <div class="card-title">Free energy, entropy, and life</div>
+  <div class="card-meta">2026-02-28</div>
+  <div class="card-tags"><span class="tag">free-energy-principle</span><span class="tag">entropy</span><span class="tag">predictive-processing</span><span class="tag">active-inference</span><span class="tag">karl-friston</span><span class="tag">anil-seth</span><span class="tag">consciousness</span></div>
+  <div class="card-excerpt">Why do living organisms need predictive brains? What is the precise relationship between the thermodynamic concept of entropy (disorder), the information-theoretic concept of free energy (surprise), K…</div>
+</a>
+<a class="card" href="/Research/research/2026-02-28-exploit-explore-ai-portfolio-framework.html" data-title="exploit vs explore" data-question="how should organisations distinguish between exploitation and exploration ai investments in practice, and what diagnostic criteria and portfolio tools enable that distinction to be applied at budget a" data-tags="ai-strategy">
+  <div class="card-title">Exploit vs Explore</div>
+  <div class="card-meta">2026-02-28</div>
+  <div class="card-tags"><span class="tag">ai-strategy</span></div>
+  <div class="card-excerpt">How should organisations distinguish between exploitation and exploration AI investments in practice, and what diagnostic criteria and portfolio tools enable that distinction to be applied at budget a…</div>
+</a>
+<a class="card" href="/Research/research/2026-02-28-controlled-hallucination-perception-as-construction.html" data-title="controlled hallucination" data-question="what is the evidence that perception is a generative, top-down process rather than a bottom-up readout of the world — and what are the strongest objections to seth&#39;s &quot;controlled hallucination&quot; framing" data-tags="consciousness,perception,anil-seth,neuroscience">
+  <div class="card-title">Controlled hallucination</div>
+  <div class="card-meta">2026-02-28</div>
+  <div class="card-tags"><span class="tag">consciousness</span><span class="tag">perception</span><span class="tag">anil-seth</span><span class="tag">neuroscience</span></div>
+  <div class="card-excerpt">What is the evidence that perception is a generative, top-down process rather than a bottom-up readout of the world — and what are the strongest objections to Seth&#39;s &quot;controlled hallucination&quot; framing…</div>
+</a>
+<a class="card" href="/Research/research/2026-02-28-ai-strategy.html" data-title="ai strategy" data-question="what do leading global ai strategies look like, how does new zealand&#39;s regulatory and policy landscape (rbnz, dia, mbie, and others) compare, and what use-case typology — from human augmentation throu" data-tags="ai-strategy,regulation,rbnz,agentic-ai">
+  <div class="card-title">AI Strategy</div>
+  <div class="card-meta">2026-02-28</div>
+  <div class="card-tags"><span class="tag">ai-strategy</span><span class="tag">regulation</span><span class="tag">rbnz</span><span class="tag">agentic-ai</span></div>
+  <div class="card-excerpt">What do leading global AI strategies look like, how does New Zealand&#39;s regulatory and policy landscape (RBNZ, DIA, MBIE, and others) compare, and what use-case typology — from human augmentation throu…</div>
+</a>
+<a class="card" href="/Research/research/2026-02-28-ai-strategy-swe-focus.html" data-title="ai strategy examples" data-question="which organisations have published or disclosed coherent ai strategies specifically targeting software engineering, what outcomes have they measured, and what does the trajectory from ai-assisted codi" data-tags="ai-strategy,software-engineering">
+  <div class="card-title">AI Strategy Examples</div>
+  <div class="card-meta">2026-02-28</div>
+  <div class="card-tags"><span class="tag">ai-strategy</span><span class="tag">software-engineering</span></div>
+  <div class="card-excerpt">Which organisations have published or disclosed coherent AI strategies specifically targeting software engineering, what outcomes have they measured, and what does the trajectory from AI-assisted codi…</div>
+</a>
+<a class="card" href="/Research/research/2026-02-28-ai-strategy-security-focus.html" data-title="ai strategy examples" data-question="which organisations have developed coherent ai strategies with security as the primary objective — either using ai to enhance security posture or governing the security risks that ai systems themselve" data-tags="ai-strategy,security,ai-governance">
+  <div class="card-title">AI Strategy Examples</div>
+  <div class="card-meta">2026-02-28</div>
+  <div class="card-tags"><span class="tag">ai-strategy</span><span class="tag">security</span><span class="tag">ai-governance</span></div>
+  <div class="card-excerpt">Which organisations have developed coherent AI strategies with security as the primary objective — either using AI to enhance security posture or governing the security risks that AI systems themselve…</div>
+</a>
+<a class="card" href="/Research/research/2026-02-28-ai-strategy-risk-reduction-focus.html" data-title="ai strategy examples" data-question="which organisations have developed ai strategies explicitly framed around risk reduction — operational risk, credit risk, fraud, compliance, model risk — and what governance structures, outcome metric" data-tags="ai-strategy,risk-management,model-risk,ai-governance,financial-services">
+  <div class="card-title">AI Strategy Examples</div>
+  <div class="card-meta">2026-02-28</div>
+  <div class="card-tags"><span class="tag">ai-strategy</span><span class="tag">risk-management</span><span class="tag">model-risk</span><span class="tag">ai-governance</span><span class="tag">financial-services</span></div>
+  <div class="card-excerpt">Which organisations have developed AI strategies explicitly framed around risk reduction — operational risk, credit risk, fraud, compliance, model risk — and what governance structures, outcome metric…</div>
+</a>
+<a class="card" href="/Research/research/2026-02-28-ai-strategy-business-efficiency-examples.html" data-title="ai strategy examples" data-question="which published ai strategies — corporate, national, or sector-specific — are explicitly designed around business efficiency as the primary objective, what measurable outcomes have they produced, and" data-tags="ai-strategy,productivity,operations,financial-services">
+  <div class="card-title">AI Strategy Examples</div>
+  <div class="card-meta">2026-02-28</div>
+  <div class="card-tags"><span class="tag">ai-strategy</span><span class="tag">productivity</span><span class="tag">operations</span><span class="tag">financial-services</span></div>
+  <div class="card-excerpt">Which published AI strategies — corporate, national, or sector-specific — are explicitly designed around business efficiency as the primary objective, what measurable outcomes have they produced, and…</div>
+</a>
+<a class="card" href="/Research/research/2026-02-28-ai-line-1-line-2-risk-agents.html" data-title="ai line 1 and line 2 risk agents" data-question="who is currently building or deploying ai agents specifically positioned to operate within the three lines of defence model — line 1 (business/operational risk management) and line 2 (risk and complia" data-tags="ai-strategy,agentic-ai,financial-services,risk-management">
+  <div class="card-title">AI Line 1 and Line 2 Risk Agents</div>
+  <div class="card-meta">2026-02-28</div>
+  <div class="card-tags"><span class="tag">ai-strategy</span><span class="tag">agentic-ai</span><span class="tag">financial-services</span><span class="tag">risk-management</span></div>
+  <div class="card-excerpt">Who is currently building or deploying AI agents specifically positioned to operate within the three lines of defence model — line 1 (business/operational risk management) and line 2 (risk and complia…</div>
+</a>
+<a class="card" href="/Research/research/2026-02-28-ai-control-testing-and-assurance.html" data-title="ai for control testing, gap identification, and policies/standards reviews" data-question="which organisations are using ai to automate control testing, identify control gaps, or conduct policies and standards reviews — and what does the current vendor, practitioner, and regulatory landscap" data-tags="ai-strategy,grc,risk-management,financial-services">
+  <div class="card-title">AI for Control Testing, Gap Identification, and Policies/Standards Reviews</div>
+  <div class="card-meta">2026-02-28</div>
+  <div class="card-tags"><span class="tag">ai-strategy</span><span class="tag">grc</span><span class="tag">risk-management</span><span class="tag">financial-services</span></div>
+  <div class="card-excerpt">Which organisations are using AI to automate control testing, identify control gaps, or conduct policies and standards reviews — and what does the current vendor, practitioner, and regulatory landscap…</div>
+</a>
+<a class="card" href="/Research/research/2026-02-27-youtube-transcript-fetcher.html" data-title="youtube transcript fetcher for research" data-question="can we port the youtube transcript fetcher from `davidamitchell/latest-developments-` to this repo and adapt it for research use (bulk fetch, save transcripts, not just email digest)?" data-tags="youtube,transcripts,tooling">
+  <div class="card-title">YouTube transcript fetcher for research</div>
+  <div class="card-meta">2026-02-27</div>
+  <div class="card-tags"><span class="tag">youtube</span><span class="tag">transcripts</span><span class="tag">tooling</span></div>
+  <div class="card-excerpt">Can we port the YouTube transcript fetcher from `davidamitchell/Latest-developments-` to this repo and adapt it for research use (bulk fetch, save transcripts, not just email digest)?</div>
+</a>
+<a class="card" href="/Research/research/2026-02-27-sources-of-research.html" data-title="sources of research" data-question="what are the best sources for ai/ml research, and what is the right monitoring strategy for each — rss, youtube channels, arxiv, newsletters, github?" data-tags="discovery,youtube,arxiv">
+  <div class="card-title">Sources of research</div>
+  <div class="card-meta">2026-02-27</div>
+  <div class="card-tags"><span class="tag">discovery</span><span class="tag">youtube</span><span class="tag">arxiv</span></div>
+  <div class="card-excerpt">What are the best sources for AI/ML research, and what is the right monitoring strategy for each — RSS, YouTube channels, arXiv, newsletters, GitHub?</div>
+</a>
+<a class="card" href="/Research/research/2026-02-27-simple-process-for-adding-research-item.html" data-title="simple process for adding a research item" data-question="what is the minimum-friction workflow for adding a new research item so that good ideas get captured before they are lost?" data-tags="process,workflow,tooling">
+  <div class="card-title">Simple process for adding a research item</div>
+  <div class="card-meta">2026-02-27</div>
+  <div class="card-tags"><span class="tag">process</span><span class="tag">workflow</span><span class="tag">tooling</span></div>
+  <div class="card-excerpt">What is the minimum-friction workflow for adding a new research item so that good ideas get captured before they are lost?</div>
+</a>
+<a class="card" href="/Research/research/2026-02-27-research-output-types.html" data-title="research output types" data-question="what are the possible output types from a research item, and how should each type be handled, stored, and acted upon?" data-tags="classification,workflow">
+  <div class="card-title">Research output types</div>
+  <div class="card-meta">2026-02-27</div>
+  <div class="card-tags"><span class="tag">classification</span><span class="tag">workflow</span></div>
+  <div class="card-excerpt">What are the possible output types from a research item, and how should each type be handled, stored, and acted upon?</div>
+</a>
+<a class="card" href="/Research/research/2026-02-27-research-backlog-vs-repo-improvement-backlog.html" data-title="keeping research backlog separate from repo improvement backlog" data-question="what is the cleanest way to separate two distinct types of work — *what to research* vs *how to improve this repo* — so that neither overwhelms the other and each can be prioritised independently?" data-tags="process,workflow,organisation">
+  <div class="card-title">Keeping research backlog separate from repo improvement backlog</div>
+  <div class="card-meta">2026-02-27</div>
+  <div class="card-tags"><span class="tag">process</span><span class="tag">workflow</span><span class="tag">organisation</span></div>
+  <div class="card-excerpt">What is the cleanest way to separate two distinct types of work — *what to research* vs *how to improve this repo* — so that neither overwhelms the other and each can be prioritised independently?</div>
+</a>
+<a class="card" href="/Research/research/2026-02-27-local-index-vs-reference.html" data-title="local index vs reference" data-question="for each type of research content, should we store a local copy / index, or just maintain a reference (url, citation)? what are the right trade-offs between storage cost, offline access, durability, a" data-tags="indexing,storage,local">
+  <div class="card-title">Local index vs reference</div>
+  <div class="card-meta">2026-02-27</div>
+  <div class="card-tags"><span class="tag">indexing</span><span class="tag">storage</span><span class="tag">local</span></div>
+  <div class="card-excerpt">For each type of research content, should we store a local copy / index, or just maintain a reference (URL, citation)? What are the right trade-offs between storage cost, offline access, durability, a…</div>
+</a>
+<a class="card" href="/Research/research/2026-02-27-local-database.html" data-title="local database" data-question="if we decide to use a local database for indexing and state (rather than json files), what are the requirements and what technology should we choose?" data-tags="database,storage,local">
+  <div class="card-title">Local database</div>
+  <div class="card-meta">2026-02-27</div>
+  <div class="card-tags"><span class="tag">database</span><span class="tag">storage</span><span class="tag">local</span></div>
+  <div class="card-excerpt">If we decide to use a local database for indexing and state (rather than JSON files), what are the requirements and what technology should we choose?</div>
+</a>
+<a class="card" href="/Research/research/2026-02-27-interface-and-delivery.html" data-title="interface and delivery" data-question="once research is complete and outputs are produced, how should they be surfaced and delivered to the people (or agents) who need them? what interfaces make research outputs most usable?" data-tags="interface,delivery,output,ux">
+  <div class="card-title">Interface and delivery</div>
+  <div class="card-meta">2026-02-27</div>
+  <div class="card-tags"><span class="tag">interface</span><span class="tag">delivery</span><span class="tag">output</span><span class="tag">ux</span></div>
+  <div class="card-excerpt">Once research is complete and outputs are produced, how should they be surfaced and delivered to the people (or agents) who need them? What interfaces make research outputs most usable?</div>
+</a>
+<a class="card" href="/Research/research/2026-02-27-information-synthesis-entropy.html" data-title="information synthesis" data-question="what is the best way to synthesise information from multiple sources in a manner that is minimally lossy — preserving the most signal while compressing volume — drawing on information theory, entropy," data-tags="synthesis,information-theory,entropy,compression,ai">
+  <div class="card-title">Information synthesis</div>
+  <div class="card-meta">2026-02-27</div>
+  <div class="card-tags"><span class="tag">synthesis</span><span class="tag">information-theory</span><span class="tag">entropy</span><span class="tag">compression</span><span class="tag">ai</span></div>
+  <div class="card-excerpt">What is the best way to synthesise information from multiple sources in a manner that is minimally lossy — preserving the most signal while compressing volume — drawing on information theory, entropy,…</div>
+</a>
+<a class="card" href="/Research/research/2026-02-27-indexing-and-tracking-method.html" data-title="indexing and tracking method for research content" data-question="what is the best method for indexing and tracking research content (transcripts, papers, notes) given the constraints of a git-based, local-first repo?" data-tags="indexing,database,organisation">
+  <div class="card-title">Indexing and tracking method for research content</div>
+  <div class="card-meta">2026-02-27</div>
+  <div class="card-tags"><span class="tag">indexing</span><span class="tag">database</span><span class="tag">organisation</span></div>
+  <div class="card-excerpt">What is the best method for indexing and tracking research content (transcripts, papers, notes) given the constraints of a git-based, local-first repo?</div>
+</a>
+</div>
+</div>
+
+</main>
+</body>
+</html>
