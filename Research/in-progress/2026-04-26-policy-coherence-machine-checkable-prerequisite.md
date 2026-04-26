@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "Policy coherence as a machine-checkable prerequisite: policy-as-code, formal specification, and invariant registries for regulated financial institutions deploying agentic Artificial Intelligence (AI)"
 added: 2026-04-26T06:57:01+00:00
 status: reviewing
