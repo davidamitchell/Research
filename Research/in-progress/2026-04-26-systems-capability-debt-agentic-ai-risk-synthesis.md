@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "Systems capability debt, citizen development, and agentic AI risk: is the causal chain and sequencing imperative a novel contribution?"
 added: 2026-04-26
 status: reviewing
