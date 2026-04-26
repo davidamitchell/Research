@@ -274,6 +274,11 @@ easily-detectable issues.
    inline note recording the search query used and the "not found" outcome.
    A missing note here is a gap in Risks/Gaps -- add it before proceeding.
 
+7. **Staged-content sanity check** -- after `git add`, run `git diff --cached --stat`
+   and confirm the staged diff contains the full rewritten research item, not
+   just a file move or frontmatter change. Do not trigger review on a commit
+   unless the staged line count matches the amount of content you expect.
+
 If you fix anything in this self-review, re-read the affected sentences to
 confirm the fix did not introduce a new violation before proceeding.
 
@@ -283,6 +288,7 @@ confirm the fix did not introduce a new violation before proceeding.
 SLUG=$(basename <filename> .md)
 python -m src.main research draft <filename>
 git add Research/in-progress/<filename>
+git diff --cached --stat
 git commit -m "research: draft - ${SLUG}"
 git push origin main
 ```
