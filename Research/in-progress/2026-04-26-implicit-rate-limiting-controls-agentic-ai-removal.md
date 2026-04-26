@@ -116,15 +116,10 @@ Prior to agentic Artificial Intelligence (AI), the blast radius of ungoverned ci
 
 ### §2 Investigation
 
-#### Source access and search-record notes
+#### Search-record summary
 
-- Access note: `.github/skills/research/SKILL.md` absent in runtime; repository fallback process in `research-prompt.md` used.
-- Access note: seeded Oxford Review of Financial Studies Flash Crash article, 403 in runtime, downstream factual support not used.
-- Access note: seeded Gartner RPA source, 403 in runtime, downstream factual support not used.
-- Access note: seeded SEC Flash Crash URL, 404 in runtime; current official replacement `https://www.sec.gov/files/marketevents-report.pdf` used instead.
-- Access note: seeded Academia.edu transaction-cost paper, accessible view exposed references only, downstream factual support not used.
-- Failed primary-source search record: query `"implicit controls" operational risk framework`, query `"removal of implicit human controls" automation risk`, query `"human speed" control framework`; no credible framework text located.
-- Failed primary-source search record: query `"residual friction" operational risk automation`, query `"natural barriers" operational risk automation`; no settled operational-risk control taxonomy located.
+- [inference; source: https://www.bis.org/fsi/fsisummaries/psmor.htm; https://handbook.apra.gov.au/standard/cps-230; https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32022R2554; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final; https://www.iso.org/standard/65694.html] Queries such as `"implicit controls" operational risk framework`, `"removal of implicit human controls" automation risk`, and `"human speed" control framework` did not locate reviewed framework text that explicitly names removed human speed, attention, fatigue, or working-hours limits as controls.
+- [inference; source: https://www.bis.org/fsi/fsisummaries/psmor.htm; https://handbook.apra.gov.au/standard/cps-230; https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32022R2554; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final; https://www.iso.org/standard/65694.html; https://doi.org/10.1007/s12599-018-0542-4; https://link.springer.com/article/10.1007/s10257-022-00553-8; https://www.isaca.org/resources/isaca-journal/issues/2023/volume-2/rpa-is-evolving-but-risk-still-exists; https://press.princeton.edu/books/paperback/9780691004129/normal-accidents] Queries such as `"residual friction" operational risk automation` and `"natural barriers" operational risk automation` did not locate a settled operational-risk taxonomy in the reviewed framework and analogue literature that treats residual human friction or natural barriers as a formal control class.
 
 #### A. Conceptual status of implicit controls
 
