@@ -1,6 +1,6 @@
 ---
 title: "What lifecycle management model is required for Artificial Intelligence (AI) models, prompts, and low-code applications?"
-added: 2026-04-26
+added: 2026-04-26T10:11:11+00:00
 status: backlog
 priority: high
 blocks: [2026-04-26-ai-lowcode-sdlc-platform-engineering-integration, 2026-04-26-ai-agent-control-plane-architecture-enterprise]

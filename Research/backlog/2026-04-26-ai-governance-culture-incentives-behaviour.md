@@ -1,6 +1,6 @@
 ---
 title: "How do organisational incentives, culture, and behaviour influence adherence to governance in AI and low-code environments?"
-added: 2026-04-26
+added: 2026-04-26T10:11:11+00:00
 status: backlog
 priority: medium
 blocks: [2026-04-26-ai-lowcode-governance-maturity-model]

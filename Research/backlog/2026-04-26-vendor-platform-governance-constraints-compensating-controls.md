@@ -1,6 +1,6 @@
 ---
 title: "What constraints do vendor platforms impose on governance, and how should enterprises design compensating controls for AI and low-code systems?"
-added: 2026-04-26
+added: 2026-04-26T10:11:11+00:00
 status: backlog
 priority: medium
 blocks: [2026-04-26-ai-agent-control-plane-architecture-enterprise]

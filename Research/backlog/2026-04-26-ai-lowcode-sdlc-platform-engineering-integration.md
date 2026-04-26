@@ -1,6 +1,6 @@
 ---
 title: "How should AI and low-code governance integrate with existing software development and platform engineering practices?"
-added: 2026-04-26
+added: 2026-04-26T10:11:11+00:00
 status: backlog
 priority: high
 blocks: [2026-04-26-ai-governance-cost-performance-delivery-impact, 2026-04-26-ai-agent-control-plane-architecture-enterprise]

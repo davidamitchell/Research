@@ -1,6 +1,6 @@
 ---
 title: "What is the cost, performance, and delivery impact of governance controls on AI and low-code development?"
-added: 2026-04-26
+added: 2026-04-26T10:11:11+00:00
 status: backlog
 priority: medium
 blocks: [2026-04-26-ai-lowcode-governance-maturity-model]
