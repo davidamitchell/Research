@@ -640,7 +640,7 @@ main {
   </div>
   <div class="research-master-content item-content">
     <h1>Research Master Document</h1>
-<p>Generated on: 2026-04-27 11:54 UTC</p>
+<p>Generated on: 2026-04-27 12:28 UTC</p>
 <p><a id="2026-04-27-uelgf-synthesis-complete-framework-md"></a></p>
 <h2>Universal Entity Lifecycle Governance Framework (UELGF): complete framework synthesis, formal specification suitable for adoption as an organisational standard in a regulated financial institution and presentation to a board risk committee</h2>
 <p><strong>Tags:</strong> [uelgf, synthesis, governed-golden-rail, policy-architecture, entity-lifecycle, agentic-ai, citizen-development, regulated-banking, board-risk, systems-capability-debt, decommission, runtime-feedback, formal-specification]</p>
@@ -5095,6 +5095,121 @@ impact: scoped               # metadata-only | scoped | invalidates
 <li>How should Q5's risk-tier framework define the exact boundary between bounded self-service and delegated approval for internal productivity agents?</li>
 <li>How should vendor contracts, indemnities, and insurance be structured once the vendor-constraints item is complete?</li>
 <li>How should human-in-the-loop requirements from Q9 differ by approval tier and by high-risk category?</li>
+</ul>
+<hr />
+<hr />
+<p><a id="2026-04-26-ai-governance-cost-performance-delivery-impact-md"></a></p>
+<h2>What is the cost, performance, and delivery impact of governance controls on AI and low-code development?</h2>
+<p><strong>Tags:</strong> [governance-cost, delivery-performance, ai-governance, low-code, economic-model, developer-friction, centralised-governance, federated-governance, enterprise-governance]</p>
+<p><strong>Origin:</strong> https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-ai-governance-cost-performance-delivery-impact.md</p>
+<h2>Research Question</h2>
+<p>What is the cost, performance, and delivery impact of governance controls on AI and low-code development, specifically, what economic model quantifies the trade-offs between governance strength and delivery speed, what are the implementation costs and operational overhead of governance programmes, what developer friction is created by different governance models, and what is the impact of centralised versus federated governance approaches on productivity and scalability?</p>
+<h2>Findings</h2>
+<p><em>(Populated from §6 Synthesis above.)</em></p>
+<h3>Executive Summary</h3>
+<ul>
+<li>[inference; source: https://cloud.google.com/blog/products/devops-sre/announcing-the-2024-dora-report; https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report; https://cloud.google.com/resources/cloud-teams; https://teamtopologies.com/key-concepts; https://learn.microsoft.com/en-us/power-platform/guidance/coe/overview; https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-platform-operating-models.html] The available evidence favors a hub-and-spoke governance model for enterprise Artificial Intelligence (AI) and low-code development, with strong central guardrails, automated platform controls, and risk-tiered escalation, because the reviewed delivery and operating-model sources show that pure centralization creates bottlenecks while weak governance preserves large-loss exposure.</li>
+<li>[inference; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://www.ibm.com/reports/data-breach; https://www.isaca.org/resources/isaca-journal/issues/2023/volume-2/the-potential-impact-of-the-european-commissions-proposed-ai-act-on-smes] Governance Total Cost of Ownership should be modeled as fixed program cost plus recurring operating cost plus delivery drag, offset by expected avoided incident, remediation, and regulatory cost, rather than as a single compliance line item.</li>
+<li>[fact; source: https://cloud.google.com/blog/products/devops-sre/announcing-the-2024-dora-report] DevOps Research and Assessment (DORA) 2024 found that AI adoption improved documentation quality, code quality, and code review speed, but also reduced delivery throughput and stability when the surrounding workflow and testing system were not strong enough.</li>
+<li>[inference; source: https://www.ibm.com/reports/data-breach; https://www.isaca.org/resources/isaca-journal/issues/2023/volume-2/the-potential-impact-of-the-european-commissions-proposed-ai-act-on-smes] Current breach-loss benchmarks and accessible secondary summaries of European Commission impact-assessment figures indicate that downside exposure remains large enough to justify stronger governance for higher-risk uses.</li>
+</ul>
+<h3>Key Findings</h3>
+<ol>
+<li>[inference; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-center-of-excellence/introduction.html; https://learn.microsoft.com/en-us/power-platform/guidance/coe/overview; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html] Governance cost is not one thing but a stack of fixed policy-and-platform investment, recurring review-and-monitoring effort, evidence-generation overhead, incident-handling effort, and delivery delay, so any serious economic model must price each category separately rather than treat governance as a single compliance tax. <strong>Confidence:</strong> high.</li>
+<li>[inference; source: https://cloud.google.com/blog/products/devops-sre/announcing-the-2024-dora-report; https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report] DORA's 2024 and 2025 findings indicate that AI can raise local developer productivity while still lowering or stressing delivery throughput and stability, so governance should be judged partly on whether it preserves system-level flow and change quality instead of only on whether it speeds up coding tasks. <strong>Confidence:</strong> medium.</li>
+<li>[inference; source: https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report; https://cloud.google.com/resources/content/2025-dora-ai-capabilities-model-report; https://teamtopologies.com/key-concepts; https://cloud.google.com/resources/cloud-teams] Platform-mediated governance tends to become more cost-efficient at scale than repeated manual review because internal platforms, smaller dependency surfaces, and dedicated platform teams convert per-team governance work into reusable controls that can be applied without recreating the same approval effort in every delivery path. <strong>Confidence:</strong> medium.</li>
+<li>[inference; source: https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-center-of-excellence/introduction.html; https://cloud.google.com/resources/cloud-teams; https://learn.microsoft.com/en-us/power-platform/guidance/coe/overview; https://learn.microsoft.com/en-us/power-platform/admin/managed-environment-overview; https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-platform-operating-models.html] Purely centralized governance maximizes consistency but tends to accumulate queueing cost and bottleneck risk, while purely federated governance improves local responsiveness but multiplies variance and duplicated capability cost, so the evidence favors a central-guardrails-plus-federated-execution operating model for productivity and scalability. <strong>Confidence:</strong> medium.</li>
+<li>[inference; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-risk-tier-classification-controls.html; https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html] Risk-tiered governance materially improves economics because it reserves expensive controls such as dense telemetry, strict release gates, and higher review intensity for decision-support and action-capable systems, while leaving low-risk informational uses on a lighter but still governed path. <strong>Confidence:</strong> medium.</li>
+<li>[inference; source: https://www.ibm.com/reports/data-breach] Current IBM and Ponemon evidence supports modeling governance benefits as expected-loss reduction, because average breach losses remain at USD 4.4 million and organizations reporting AI-related incidents commonly lacked both AI access controls and AI governance policies. <strong>Confidence:</strong> medium.</li>
+<li>[inference; source: https://www.isaca.org/resources/isaca-journal/issues/2023/volume-2/the-potential-impact-of-the-european-commissions-proposed-ai-act-on-smes] Accessible secondary summaries of the European Commission AI Act impact assessment indicate that compliance overhead can absorb about 17% of AI investment and can become a step-change cost for high-risk systems, which suggests governance economics differ sharply between low-risk experimentation and regulated production deployment. <strong>Confidence:</strong> low.</li>
+<li>[inference; source: https://cloud.google.com/blog/products/devops-sre/announcing-the-2024-dora-report; https://www.ibm.com/reports/data-breach; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://www.isaca.org/resources/isaca-journal/issues/2023/volume-2/the-potential-impact-of-the-european-commissions-proposed-ai-act-on-smes; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-sdlc-platform-engineering-integration.html] Enterprises should choose the governance pattern with the lowest total expected cost, where total expected cost includes delivery drag, probability-weighted failure cost, and the degree to which automation and platform defaults reduce both terms. <strong>Confidence:</strong> medium.</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>Source</th>
+<th>Confidence</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[inference] Governance cost is a stack of fixed, recurring, failure-handling, and opportunity-cost components rather than a single line item.</td>
+<td>https://airc.nist.gov/airmf-resources/airmf/5-sec-core/ ; https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-center-of-excellence/introduction.html ; https://learn.microsoft.com/en-us/power-platform/guidance/coe/overview ; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html</td>
+<td>high</td>
+<td>Supported by governance-function descriptions and companion cost surfaces.</td>
+</tr>
+<tr>
+<td>[inference] DORA's 2024 and 2025 findings indicate that AI can improve local developer productivity while still lowering or stressing throughput and stability at the delivery-system level.</td>
+<td>https://cloud.google.com/blog/products/devops-sre/announcing-the-2024-dora-report ; https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report</td>
+<td>medium</td>
+<td>Combines direct 2024 quantified effects with the 2025 amplifier framing.</td>
+</tr>
+<tr>
+<td>[inference] Reusable internal platforms can lower marginal governance cost by turning manual review work into shared controls and lower-dependency delivery paths.</td>
+<td>https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report ; https://cloud.google.com/resources/content/2025-dora-ai-capabilities-model-report ; https://teamtopologies.com/key-concepts ; https://cloud.google.com/resources/cloud-teams</td>
+<td>medium</td>
+<td>External platform evidence supports the mechanism, but not as a direct cost benchmark.</td>
+</tr>
+<tr>
+<td>[inference] Central guardrails with federated execution scale better than either pure centralization or pure federation alone.</td>
+<td>https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-center-of-excellence/introduction.html ; https://cloud.google.com/resources/cloud-teams ; https://learn.microsoft.com/en-us/power-platform/guidance/coe/overview ; https://learn.microsoft.com/en-us/power-platform/admin/managed-environment-overview ; https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-platform-operating-models.html</td>
+<td>medium</td>
+<td>Strong pattern evidence, but not a single universal benchmark.</td>
+</tr>
+<tr>
+<td>[inference] Risk-tiering improves governance economics by concentrating expensive controls on higher-risk systems.</td>
+<td>https://airc.nist.gov/airmf-resources/airmf/5-sec-core/ ; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-risk-tier-classification-controls.html ; https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html</td>
+<td>medium</td>
+<td>NIST provides proportionality; repository work applies it to AI and low-code tiers.</td>
+</tr>
+<tr>
+<td>[fact] Average breach loss remains material and AI governance gaps are common among organizations reporting AI-related incidents.</td>
+<td>https://www.ibm.com/reports/data-breach</td>
+<td>medium</td>
+<td>Current incident-cost survey and governance-gap figures come from IBM and Ponemon.</td>
+</tr>
+<tr>
+<td>[inference] Accessible secondary summaries of European Commission impact-assessment figures point to about 17% compliance overhead and to high-risk step-change costs.</td>
+<td>https://www.isaca.org/resources/isaca-journal/issues/2023/volume-2/the-potential-impact-of-the-european-commissions-proposed-ai-act-on-smes</td>
+<td>low</td>
+<td>Quantitative figures are accessible through ISACA rather than directly readable Commission pages here.</td>
+</tr>
+<tr>
+<td>[inference] Enterprises should choose the governance pattern with the lowest total expected cost once delivery drag and probability-weighted failure loss are priced together.</td>
+<td>https://cloud.google.com/blog/products/devops-sre/announcing-the-2024-dora-report ; https://www.ibm.com/reports/data-breach ; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/ ; https://www.isaca.org/resources/isaca-journal/issues/2023/volume-2/the-potential-impact-of-the-european-commissions-proposed-ai-act-on-smes ; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-sdlc-platform-engineering-integration.html</td>
+<td>medium</td>
+<td>Synthesizes delivery, risk, and governance-cost evidence.</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li>[assumption; source: https://www.ibm.com/reports/data-breach; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/] <strong>Assumption:</strong> breach-loss figures can stand in as a proxy for the broader tail of governance failure. <strong>Justification:</strong> open public incident-cost datasets for AI-governance-specific failures remain sparse, and breach data provides the closest accessible large-loss anchor.</li>
+<li>[assumption; source: https://www.isaca.org/resources/isaca-journal/issues/2023/volume-2/the-potential-impact-of-the-european-commissions-proposed-ai-act-on-smes] <strong>Assumption:</strong> the ISACA article accurately reflects the European Commission impact-assessment figures it cites. <strong>Justification:</strong> the official underlying document was not directly readable in this runtime, so the figures are retained with medium confidence.</li>
+<li>[assumption; source: https://cloud.google.com/resources/cloud-teams; https://teamtopologies.com/key-concepts; https://learn.microsoft.com/en-us/power-platform/guidance/coe/overview] <strong>Assumption:</strong> platform-team and Cloud Center of Excellence operating-model evidence transfers well enough to AI and low-code governance to inform the centralized-versus-federated conclusion. <strong>Justification:</strong> the control-distribution problem is structurally the same across these internal platform contexts.</li>
+</ul>
+<h3>Analysis</h3>
+<ul>
+<li>[inference; source: https://cloud.google.com/blog/products/devops-sre/announcing-the-2024-dora-report; https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report] The DORA evidence was weighted heavily because it directly addresses the central paradox in this item, which is that individual productivity gains can coexist with worse delivery-system performance when the surrounding workflow is weak.</li>
+<li>[inference; source: https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-center-of-excellence/introduction.html; https://cloud.google.com/resources/cloud-teams; https://teamtopologies.com/key-concepts; https://learn.microsoft.com/en-us/power-platform/guidance/coe/overview] The operating-model evidence was treated as pattern evidence rather than as a precise benchmark, because the sources converge on the same central-guardrails-plus-federated-execution shape even though they cover cloud, platform, and low-code governance from different angles.</li>
+<li>[inference; source: https://www.ibm.com/reports/data-breach; https://www.isaca.org/resources/isaca-journal/issues/2023/volume-2/the-potential-impact-of-the-european-commissions-proposed-ai-act-on-smes; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/] The economic model gives the heaviest weight to expected-loss reduction for higher-risk systems and to delivery drag for lower-risk systems, because that is where the evidence most clearly distinguishes when governance is cheap insurance and when it becomes avoidable friction.</li>
+<li>[inference; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://cloud.google.com/resources/content/2025-dora-ai-capabilities-model-report; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-risk-tier-classification-controls.html] The main trade-off resolution is to automate the universal baseline and escalate only the risky edge cases, which is how the model reconciles NIST's proportionality logic with DORA's warning about brittle or dependency-heavy delivery systems.</li>
+</ul>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>[inference; source: https://www.ibm.com/reports/data-breach; https://www.isaca.org/resources/isaca-journal/issues/2023/volume-2/the-potential-impact-of-the-european-commissions-proposed-ai-act-on-smes] The open evidence used in this item is component-level rather than a full-program benchmark, because the accessible public figures here cover incident loss and secondary compliance-cost summaries rather than an end-to-end governance operating-cost dataset.</li>
+<li>[fact; source: https://www.isaca.org/resources/isaca-journal/issues/2023/volume-2/the-potential-impact-of-the-european-commissions-proposed-ai-act-on-smes] The most specific accessible European Union compliance-cost figures came through a secondary summary rather than a directly readable official impact-assessment document, so those numbers should be treated as indicative rather than definitive.</li>
+<li>[fact; source: https://www.ibm.com/reports/data-breach] IBM and Ponemon provide current incident-loss evidence, but they do not isolate AI governance failures cleanly from broader cyber and control failures.</li>
+<li>[inference; source: https://cloud.google.com/resources/cloud-teams; https://teamtopologies.com/key-concepts; https://learn.microsoft.com/en-us/power-platform/guidance/coe/overview] The centralized-versus-federated conclusion is robust at the pattern level but still lacks a clean public dataset that quantifies queueing cost, duplication cost, and incident variance across those models in one common sample.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>How should enterprises estimate the probability reduction delivered by specific governance controls, such as gated deployment, connector restrictions, or mandatory telemetry, when public incident datasets do not isolate those controls cleanly?</li>
+<li>What is the best lightweight metric bundle for measuring governance friction on low-risk informational AI use cases without creating a second measurement bureaucracy?</li>
+<li>At what scale of platform reuse does it become cheaper to internalize more governance capability into the platform team rather than leave it in embedded risk or compliance staff?</li>
 </ul>
 <hr />
 <hr />
