@@ -1,6 +1,56 @@
 {
-  "extracted_at": "2026-04-27T05:57:34Z",
+  "extracted_at": "2026-04-27T06:19:39Z",
   "items": {
+    "2026-04-27-uelgf-foundational-definitions-principles": {
+      "named_concepts": [
+        "governed golden",
+        "golden rail",
+        "universal entity",
+        "operating path",
+        "identity policy",
+        "entity definition",
+        "strongest comparable",
+        "machine-checkable purpose",
+        "product ownership",
+        "retirement parity",
+        "novel universal",
+        "standards describe",
+        "compliance mechanism",
+        "mechanism itself",
+        "uelgf onboarding",
+        "complete governed",
+        "governed scaffold",
+        "creation time",
+        "declared purpose",
+        "live licence"
+      ],
+      "source_urls": [
+        "https://csrc.nist.gov/pubs/sp/800/207/final",
+        "https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10",
+        "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+        "https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html",
+        "https://www.openpolicyagent.org/docs/latest/",
+        "https://www.openpolicyagent.org/docs/philosophy",
+        "https://docs.cedarpolicy.com/",
+        "https://www.fedramp.gov/docs/authority/m-24-15/process/",
+        "https://www.fedramp.gov/docs/rev5/playbook/csp/authorization/agency-authorization-path/",
+        "https://www.iso.org/standard/27001",
+        "https://docs.aws.amazon.com/prescriptive-guidance/latest/strategy-migration/aws-landing-zone.html",
+        "https://docs.aws.amazon.com/controltower/latest/userguide/what-is-control-tower.html",
+        "https://docs.aws.amazon.com/controltower/latest/userguide/account-factory.html",
+        "https://www.servicenow.com/community/cmdb-articles/configuration-management-database-cmdb-welcome-guide/ta-p/2301750",
+        "https://www.england.nhs.uk/long-read/digital-clinical-safety-assurance/",
+        "https://www.fda.gov/media/71023/download",
+        "https://www.faa.gov/documentLibrary/media/Advisory_Circular/AC_120-92D_FAA_Web.pdf",
+        "https://www.opengroup.org/togaf",
+        "https://www.opengroup.org/architecture/togaf7-doc/arch/p4/bbs/bbs_intro.htm",
+        "https://www.opengroup.org/archimate-forum/archimate-overview",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-24-business-led-low-code-agent-governance.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment.html"
+      ],
+      "key_claims": []
+    },
     "2026-04-27-uelgf-entity-taxonomy-cia-classification": {
       "named_concepts": [
         "blast radius",
