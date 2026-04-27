@@ -24,6 +24,7 @@ on:
     branches: [main]
     paths:
       - "Research/completed/**"
+      - "Research/backlog/**"
       - "scripts/*.py"
 
 jobs:

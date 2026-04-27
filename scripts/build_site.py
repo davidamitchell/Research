@@ -5,6 +5,7 @@ Generates:
   docs/index.html            — landing page with stats, threads, tags, search preview
   docs/browse.html           — filterable research card grid
   docs/all-items.html        — complete list of all completed items (newest first)
+  docs/backlog.html          — outstanding research questions from Research/backlog/
   docs/research/<slug>.html  — individual item pages with related items
   docs/tags/<tag>.html       — one page per unique tag
   docs/threads.html          — threads listing
@@ -39,6 +40,7 @@ from markdown_it import MarkdownIt
 
 REPO_ROOT = Path(__file__).parent.parent
 COMPLETED_DIR = REPO_ROOT / "Research" / "completed"
+BACKLOG_DIR = REPO_ROOT / "Research" / "backlog"
 RESEARCH_MASTER_MD = REPO_ROOT / "Research" / "Research_Master.md"
 DOCS_DIR = REPO_ROOT / "docs"
 RESEARCH_DIR = DOCS_DIR / "research"
@@ -783,6 +785,8 @@ def html_nav(active: str = "") -> str:
         '  <div class="nav-inner">\n'
         f'    <a class="nav-brand" href="/Research/">{ICON_NOTE}Research</a>\n'
         '    <div class="nav-links">\n'
+        f'      <a href="/Research/all-items.html"{_cls("all-items")}>{ICON_NOTE}All Items</a>\n'
+        f'      <a href="/Research/backlog.html"{_cls("backlog")}>{ICON_NOTE}Backlog</a>\n'
         f'      <a href="/Research/threads.html"{_cls("threads")}>{ICON_THREAD}Threads</a>\n'
         f'      <a href="/Research/tags/"{_cls("tags")}>{ICON_TAG}Tags</a>\n'
         f'      <a href="/Research/search.html"{_cls("search")}>{ICON_SEARCH}Search</a>\n'
@@ -1165,6 +1169,36 @@ def load_metadata() -> dict:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+def load_backlog_items() -> list[dict]:
+    """Load all items from Research/backlog/, sorted newest-first."""
+    items = []
+    for path in sorted(BACKLOG_DIR.glob("*.md"), reverse=True):
+        if path.name.lower() == "readme.md":
+            continue
+        try:
+            text = path.read_text(encoding="utf-8")
+            meta, body = parse_frontmatter(text)
+        except Exception as exc:
+            print(f"WARNING: failed to parse {path}: {exc}")
+            continue
+        sections = extract_sections(body)
+        question_raw = sections.get("Research Question", "")
+        question = re.sub(r"[*_`#\[\]()]", "", question_raw).strip()
+        question = question[:200] + "…" if len(question) > 200 else question
+        m = re.match(r"(\d{4}-\d{2}-\d{2})", path.stem)
+        date_str = m.group(1) if m else ""
+        items.append(
+            {
+                "title": str(meta.get("title", path.stem)),
+                "tags": list(meta.get("tags") or []),
+                "priority": str(meta.get("priority", "medium")),
+                "date": date_str,
+                "question": question,
+            }
+        )
+    return items
+
+
 def load_links(items: list[dict]) -> dict[str, list[dict]]:
     """Build a map of slug -> list of related items (by shared tags, >= 2 tags)."""
     links: dict[str, list[dict]] = {item["slug"]: [] for item in items}
@@ -1428,6 +1462,30 @@ def render_card(item: dict, link_prefix: str = "/Research/research/") -> str:
         f'  <div class="card-excerpt">{escape(excerpt)}</div>\n'
         f"</a>\n"
     )
+
+
+def render_backlog_card(item: dict) -> str:
+    """Render a non-linkable card for a Research/backlog/ item."""
+    title = escape(item.get("title", "Untitled"))
+    question = escape(item.get("question", ""))
+    tags_html = "".join(f'<span class="tag">{escape(t)}</span>' for t in item.get("tags", []))
+    priority = item.get("priority", "medium")
+    date_str = escape(item.get("date", ""))
+    priority_colour = {"high": "#e05252", "medium": "#e09a52", "low": "#52a0e0"}.get(
+        priority, "#999"
+    )
+    priority_badge = (
+        f'<span style="font-size:var(--text-xs);color:{priority_colour};'
+        f'letter-spacing:0.05em;margin-left:0.5rem">{escape(priority)}</span>'
+    )
+    return f"""\
+<div class="card">
+  <div class="card-title">{title}{priority_badge}</div>
+  <div class="card-meta">{date_str}</div>
+  <div class="card-tags">{tags_html}</div>
+  <div class="card-excerpt">{question}</div>
+</div>
+"""
 
 
 # ---------------------------------------------------------------------------
@@ -1777,6 +1835,28 @@ def build_all_items_page(items: list[dict]) -> str:
   <div id="no-results" class="no-results" style="display:none">No matching items.</div>
 </main>
 <script>{BROWSE_JS}</script>
+"""
+        + html_foot()
+    )
+
+
+def build_backlog_page(items: list[dict]) -> str:
+    """Generate docs/backlog.html — outstanding research questions."""
+    cards_html = "".join(render_backlog_card(item) for item in items)
+    count = len(items)
+    return (
+        html_head("Backlog — Research")
+        + html_nav("backlog")
+        + f"""\
+<main>
+  <div class="page-header">
+    <h1>{ICON_NOTE_H1}Backlog</h1>
+    <p class="page-subtitle">{count} outstanding research question{"s" if count != 1 else ""}</p>
+  </div>
+  <div class="card-grid">
+    {cards_html}
+  </div>
+</main>
 """
         + html_foot()
     )
@@ -2326,12 +2406,18 @@ def main() -> None:
     (DOCS_DIR / "all-items.html").write_text(build_all_items_page(items), encoding="utf-8")
     pages_written += 1
 
-    # 4. research-master.html
+    # 4. backlog.html
+    print("Building backlog.html…")
+    backlog_items = load_backlog_items()
+    (DOCS_DIR / "backlog.html").write_text(build_backlog_page(backlog_items), encoding="utf-8")
+    pages_written += 1
+
+    # 5. research-master.html
     print("Building research-master.html…")
     (DOCS_DIR / "research-master.html").write_text(build_research_master_page(), encoding="utf-8")
     pages_written += 1
 
-    # 5. Individual item pages
+    # 6. Individual item pages
     print(f"Building {len(items)} item pages…")
     for i, item in enumerate(items):
         prev_item = items[i - 1] if i > 0 else None
@@ -2342,7 +2428,7 @@ def main() -> None:
         (RESEARCH_DIR / f"{item['slug']}.html").write_text(html, encoding="utf-8")
         pages_written += 1
 
-    # 6. Tag pages
+    # 7. Tag pages
     tags_map: dict[str, list[dict]] = {}
     for item in items:
         for tag in item["tags"]:
@@ -2355,7 +2441,7 @@ def main() -> None:
         (TAGS_DIR / f"{tag}.html").write_text(html, encoding="utf-8")
         pages_written += 1
 
-    # 7. Thread pages
+    # 8. Thread pages
     print(f"Building threads.html + {len(threads)} thread pages…")
     (DOCS_DIR / "threads.html").write_text(build_threads_listing(threads), encoding="utf-8")
     pages_written += 1
@@ -2364,24 +2450,24 @@ def main() -> None:
         (THREADS_DIR / f"{thread['slug']}.html").write_text(html, encoding="utf-8")
         pages_written += 1
 
-    # 8. search.html
+    # 9. search.html
     print("Building search.html…")
     (DOCS_DIR / "search.html").write_text(build_search_page(), encoding="utf-8")
     pages_written += 1
 
-    # 9. search-index.json
+    # 10. search-index.json
     print("Building search-index.json…")
     (DOCS_DIR / "search-index.json").write_text(
         build_search_index(items, metadata, slug_to_threads), encoding="utf-8"
     )
 
-    # 10. threads-index.json
+    # 11. threads-index.json
     print("Building threads-index.json…")
     (DOCS_DIR / "threads-index.json").write_text(
         build_threads_index_json(threads), encoding="utf-8"
     )
 
-    # 11. .nojekyll
+    # 12. .nojekyll
     (DOCS_DIR / ".nojekyll").write_text("", encoding="utf-8")
 
     unique_tags = len({t for item in items for t in item["tags"]})
