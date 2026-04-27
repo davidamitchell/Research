@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "What does synthesising LeCun's architectural critique of Large Language Models with systems capability debt and citizen development arguments produce as a unified risk framework for regulated financial institutions?"
 added: 2026-04-26T18:31:29+00:00
 status: reviewing
