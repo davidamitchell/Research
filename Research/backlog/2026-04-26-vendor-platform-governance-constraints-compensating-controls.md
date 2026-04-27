@@ -3,7 +3,7 @@ title: "What constraints do vendor platforms impose on governance, and how shoul
 added: 2026-04-26T10:11:11+00:00
 status: backlog
 priority: medium
-blocks: [2026-04-26-ai-agent-control-plane-architecture-enterprise]
+blocks: []
 tags: [vendor-governance, low-code, ai-platforms, compensating-controls, enterprise-governance, platform-limitations, multi-platform, microsoft-power-platform, salesforce]
 started: ~
 completed: ~

@@ -924,5 +924,96 @@ updated: 2026-04-27
 ### Context
 
 Epic 2 — Static site. Makes the outstanding research question backlog visible on the published site without requiring access to the GitHub repository. Companion page to `all-items.html`.
+## W-0051
+
+status: open
+created: 2026-04-27
+updated: 2026-04-27
+
+### Outcome
+
+A synthesis workflow is implemented end-to-end:
+
+- `Knowledge/` directory created at repo root for cross-item synthesis artifacts (distinct from `Research/completed/` primary research items)
+- `Knowledge/_template.md` — synthesis item template with sections: Cluster (list of source item slugs), Synthesis Question, Perspectives Considered, Cross-Item Findings, Contradictions and Tensions, Confidence Map, Open Questions
+- `synthesis-prompt.md` — synthesis agent prompt analogous to `research-prompt.md`; instructs the agent to read all source items via `filesystem` MCP, apply multi-perspective synthesis (not concatenation), identify contradictions across items, and populate `cites:` with source slugs
+- `.github/workflows/synthesis-loop.yml` — manual-trigger-only workflow (`workflow_dispatch`) accepting `source_items` (comma-separated slugs) and `synthesis_question` inputs; feeds `synthesis-prompt.md` to the Copilot CLI; never runs on schedule
+- Site (`build_site.py`) updated to render `Knowledge/` items alongside `Research/completed/` items
+- `item_type: synthesis` items in `Research/` are excluded from the autonomous research loop (enforced by W-0046 type field logic)
+
+Blocked on W-0046 (item_type field) and W-0044 (cites field). ADR required.
+
+### Context
+
+The current system produces primary research items (single-question answers) but has no mechanism for producing knowledge artifacts that integrate findings across multiple items. This is the systematic review equivalent — a distinct output type with its own methodology. Without it, the gap between accumulated research and usable knowledge cannot be closed. The synthesis workflow is the prerequisite for the authoring workflow (W-0052).
+
+---
+
+## W-0052
+
+status: open
+created: 2026-04-27
+updated: 2026-04-27
+
+### Outcome
+
+An authoring workflow is implemented for producing finished papers and framework documents:
+
+- `Outputs/papers/` and `Outputs/frameworks/` directories created at repo root
+- `Outputs/_paper-template.md` — paper template: Abstract, Introduction, Background (with cites to synthesis and primary items), Argument, Evidence, Implications, Conclusion, References
+- `Outputs/_framework-template.md` — framework template: Purpose, Scope, Conditions for Use, Decision Criteria or Maturity Levels, Worked Examples, Limitations, References
+- `authoring-prompt.md` — authoring agent prompt; instructs the agent to draw on specified synthesis and primary items, apply the `strategy-author` and `strategic-persuasion` skills, produce a finished draft, and populate the references section from `cites:` fields
+- `.github/workflows/authoring-loop.yml` — manual-trigger-only workflow accepting `output_type` (paper | framework), `title`, and `source_items` inputs
+- Site updated to render `Outputs/` items alongside research and knowledge items
+
+Blocked on W-0051 (synthesis workflow must exist before authoring draws on synthesis items). ADR required.
+
+### Context
+
+The research corpus and synthesis layer produce material that has direct value as publishable articles and practical frameworks. Currently no workflow exists to take that material and produce a finished artifact. The authoring workflow closes the last gap in the DIKW chain: data → information (primary research) → knowledge (synthesis) → wisdom (authored output). Papers and frameworks are the deliverable form that makes the research useful to audiences beyond the researcher.
+
+---
+
+## W-0053
+
+status: open
+created: 2026-04-27
+updated: 2026-04-27
+
+### Outcome
+
+A tag co-occurrence review workflow complements W-0043's canonical vocabulary with an evidence-driven discovery mechanism:
+
+- `scripts/tag_report.py` scans all `Research/completed/*.md` and `Research/backlog/*.md` and computes: tag frequency, tag co-occurrence matrix, near-duplicate candidates (Levenshtein distance ≤ 2 or prefix/suffix overlap ≥ 0.8), singleton tags (appear only once), and strong co-occurrence pairs (appear together in >80% of each other's occurrences — strong synonymy signal)
+- Output written to `state/tag_report.json` and human-readable `state/tag_report.md`
+- A workflow (`tag-review.yml`) runs monthly and on `workflow_dispatch`, commits the updated report, and opens a GitHub issue listing near-duplicate and singleton candidates for human review
+- The vocabulary in W-0043 is populated by reviewing the tag report output rather than by manual curation from scratch — the co-occurrence data drives what gets added to the canonical map
+
+### Context
+
+W-0043 defines the canonical tag vocabulary as the goal; W-0053 provides the evidence base for building and maintaining it without predefined assumptions. Running the co-occurrence report first means the vocabulary reflects what tags actually cluster in the corpus rather than what seems reasonable in advance. This is the difference between top-down taxonomy (W-0043 alone) and bottom-up taxonomy with human curation (W-0043 + W-0053 together). The intent is that W-0053 runs first, the human reviews the report, and the W-0043 vocabulary is populated from that evidence. W-0053 should be implemented and run before W-0043 is executed.
+
+## W-0054
+
+status: open
+created: 2026-04-27
+updated: 2026-04-27
+
+### Outcome
+
+The research item picker enforces actual dependency ordering:
+
+- A `depends_on: []` frontmatter field is added to `Research/_template.md` — lists slugs of items that must be in `Research/completed/` before this item can be picked
+- `cmd_pick` in `src/research/cli.py` filters out any backlog item where one or more `depends_on` slugs are not present in `Research/completed/`
+- The `ResearchItem` dataclass is extended with `depends_on: list[str]`
+- The existing `blocks` field is retained as-is (it signals "I block these items" for priority sorting); `depends_on` is the inverse (it signals "I need these items done first")
+- Tests cover: item with satisfied dependencies is eligible; item with unsatisfied dependency is excluded; item with empty `depends_on` is always eligible
+- `copilot-instructions.md` updated to document both fields and their distinct semantics
+
+ADR required (picker behaviour change — items can now be excluded from picking, not just deprioritised).
+
+### Context
+
+The current picker uses the `blocks` field only as a priority sort tiebreaker — items with non-empty `blocks` lists are sorted higher, but items listed in `blocks` are not prevented from being picked before their prerequisites complete. Synthesis items that depend on multiple primary items being done first can be auto-started before their sources are available. The `depends_on` field provides actual gating: if prerequisites are not complete, the item is invisible to the picker.
 
 ---
