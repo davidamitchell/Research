@@ -1,6 +1,6 @@
 # Research Master Document
 
-Generated on: 2026-04-27 05:14 UTC
+Generated on: 2026-04-27 05:37 UTC
 
 ## Table of Contents
 
@@ -8,6 +8,7 @@ Generated on: 2026-04-27 05:14 UTC
 * [Invariant-based anomaly detection in the Policy Information Point (PIP): detecting permanent-invariant suppression through transient operating context and the decision signal to the Policy Decision Point (PDP)](#2026-04-27-pip-invariant-anomaly-detection-md)
 * [Universal policy synchronisation and integrity: ensuring the Policy Decision Point (PDP) evaluates governed assets against logically identical policy across all lifecycle phases](#2026-04-27-pdp-universal-policy-synchronisation-integrity-md)
 * [Policy Administration Point (PAP) dynamic policy profiling and proportionality: mapping asset metadata to a lifecycle-aware Policy Enforcement Point (PEP) topology scaled by inherent risk](#2026-04-27-pap-dynamic-policy-profiling-proportionality-md)
+* [Enterprise data stack value-distribution frameworks: what frameworks - including the seven-layer stack and Software Repricing Matrix discussed in the April 2026 ServiceNow investment analysis - are most useful for understanding where durable value accumulates in enterprise technology stacks, especially at the governance layer?](#2026-04-27-enterprise-stack-value-distribution-governance-frameworks-md)
 * [Systems capability debt as the root cause of citizen development: empirical evidence and effective governance architectures](#2026-04-26-systems-capability-debt-citizen-development-empirical-evidence-md)
 * [Systems capability debt, citizen development, and agentic AI risk: is the causal chain and sequencing imperative a novel contribution?](#2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis-md)
 * [Policy coherence as a machine-checkable prerequisite: policy-as-code, formal specification, and invariant registries for regulated financial institutions deploying agentic Artificial Intelligence (AI)](#2026-04-26-policy-coherence-machine-checkable-prerequisite-md)
@@ -506,6 +507,87 @@ How can a Policy Administration Point (PAP) dynamically map a governed asset's m
 - [fact; source: https://csrc.nist.gov/pubs/sp/800/162/final; https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html; https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-2/] Type: knowledge.
 - [inference; source: https://profsandhu.com/infs767/infs767spring04/lbac-6pg.pdf; https://classpages.cselabs.umn.edu/Fall-2021/csci5271/papers/SRL2003-02.pdf; https://davidamitchell.github.io/Research/research/2026-04-26-access-control-amplification-agentic-operations.html] Description: a standards-compatible formal mapping from invariant metadata and CIA rating to lifecycle-aware enforcement topology, plus a worked high-risk example and PAP design criteria.
 - [fact; source: https://csrc.nist.gov/pubs/sp/800/162/final; https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html; https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-2/] Links: https://csrc.nist.gov/pubs/sp/800/162/final ; https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html ; https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-2/
+
+---
+
+---
+
+<a id="2026-04-27-enterprise-stack-value-distribution-governance-frameworks-md"></a>
+
+## Enterprise data stack value-distribution frameworks: what frameworks - including the seven-layer stack and Software Repricing Matrix discussed in the April 2026 ServiceNow investment analysis - are most useful for understanding where durable value accumulates in enterprise technology stacks, especially at the governance layer?
+
+**Tags:** [enterprise-architecture, value-distribution, governance, seven-layer-stack, software-repricing-matrix, terminal-value, servicenow, snowflake, palantir, uipath, ai-commoditisation, investment-frameworks, platform-strategy]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-27-enterprise-stack-value-distribution-governance-frameworks.md
+
+## Research Question
+
+What frameworks - specifically the seven-layer enterprise stack and the Software Repricing Matrix described in the April 2026 Liam Hyland ServiceNow analysis video, together with comparable frameworks from enterprise architecture, investment analysis, and technology strategy literature - most clearly explain how durable economic value distributes across enterprise technology stacks as lower-layer resources (storage, compute, intelligence) commoditise, and what do these frameworks collectively say about governance as the layer that accumulates and compounds value that cannot be replicated by adding more compute?
+
+## Findings
+
+### Executive Summary
+
+[inference; source: https://www.leoniscap.com/research/openclaw-(aka-clawdbot)-and-the-ai-threshold-effect; https://www.wardleymaps.com/book-passages/wardley-on-evolution; https://www.nobelprize.org/prizes/economic-sciences/2009/press-release/; https://kubernetes.io/docs/concepts/architecture/] The most defensible conclusion is that durable value in enterprise stacks does not sit in "governance" as an isolated top layer, but in a governance-bearing control plane, used here in the systems sense of a layer that makes global decisions and responds to system events, that binds policy, identity, workflow context, and action as lower layers commoditise.
+
+[fact; source: https://www.opengroup.org/togaf; https://www.opengroup.org/archimate-forum/archimate-overview] Accessible enterprise-architecture standards support the importance of governance, but they model it as a cross-layer coordinating function rather than a clean seventh stack layer.
+
+[inference; source: https://geoffreyamoore.com/topics/; https://www.wardleymaps.com/guides/wardley-mapping-101; https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report; https://a16z.com/newsletter/big-ideas-2026-part-1] Strategy and operating-model frameworks agree more strongly with the Hyland thesis because they show value migrating toward differentiation, coordination, internal platform quality, and rule enforcement once compute and model access cheapen.
+
+[inference; source: https://pages.stern.nyu.edu/~adamodar/pdfiles/country/TerminalValue.pdf; https://finance.yahoo.com/markets/stocks/articles/servicenow-inc-q1-2026-earnings-001811104.html] The repricing logic is therefore directionally credible, but it depends on whether investors believe a vendor owns only workflow software or a hard-to-replace control plane with embedded institutional knowledge.
+
+### Key Findings
+
+1. **High confidence.** [inference; source: https://www.opengroup.org/togaf; https://www.opengroup.org/archimate-forum/archimate-overview; https://www.wardleymaps.com/guides/wardley-mapping-101] The seeded seven-layer stack is best understood as an investor-friendly synthesis of established architecture and strategy ideas, not as a canonical enterprise-architecture standard with an independently recognized seven-layer lineage.
+2. **High confidence.** [inference; source: https://geoffreyamoore.com/topics/; https://stvp.stanford.edu/av/core-and-context; https://www.wardleymaps.com/book-passages/wardley-on-evolution; https://www.leoniscap.com/research/openclaw-(aka-clawdbot)-and-the-ai-threshold-effect] Moore, Wardley, and Leonis all predict that once lower layers become cheaper and more standardized, durable value shifts toward constrained, differentiated layers that embed context, trust, and control.
+3. **High confidence.** [fact; source: https://www.opengroup.org/togaf; https://www.opengroup.org/archimate-forum/archimate-overview] TOGAF and ArchiMate support the importance of governance, but they treat it as an organizing discipline across business, application, and technology domains rather than as a standalone terminal technical layer.
+4. **High confidence.** [inference; source: https://www.nobelprize.org/prizes/economic-sciences/1991/press-release/; https://www.nobelprize.org/prizes/economic-sciences/2009/press-release/; https://davidamitchell.github.io/Research/research/2026-03-02-transaction-costs.html] Coase and Williamson provide the strongest economic explanation for governance-layer durability because they show that value persists where a platform lowers repeated coordination and conflict-resolution costs around relationship-specific assets.
+5. **Medium-high confidence.** [inference; source: https://hai-production.s3.amazonaws.com/files/hai_ai_index_report_2025.pdf; https://openai.com/index/gpt-4o-mini-advancing-cost-efficient-intelligence/; https://a16z.com/newsletter/big-ideas-2026-part-1; https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report] Falling inference cost strengthens the case for orchestration, policy, and internal-platform layers because cheaper intelligence appears to shift the practical bottleneck toward coordination and reliability rather than raw model access.
+6. **Medium-high confidence.** [inference; source: https://docs.aws.amazon.com/bedrock/latest/userguide/agents.html; https://docs.github.com/en/copilot/concepts/copilot-usage-metrics/copilot-metrics; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html; https://davidamitchell.github.io/Research/research/2026-04-26-multi-ai-provider-control-planes.html] Governance becomes durable only when it is bound to execution surfaces such as permissions, routing, telemetry, and action control, because purely semantic or reasoning layers remain easier to substitute.
+7. **Medium confidence.** [inference; source: https://pages.stern.nyu.edu/~adamodar/pdfiles/country/TerminalValue.pdf; https://pages.stern.nyu.edu/~adamodar/New_Home_Page/valquestions/termvalapproaches.htm; https://finance.yahoo.com/markets/stocks/articles/servicenow-inc-q1-2026-earnings-001811104.html] The Software Repricing Matrix logic is directionally compatible with standard discounted-cash-flow thinking because uncertainty about a firm's terminal moat can compress valuation even when current operating performance is intact.
+8. **Medium-high confidence.** [inference; source: https://www.wardleymaps.com/guides/wardley-mapping-101; https://a16z.com/newsletter/big-ideas-2026-part-1; https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-platform-operating-models.html] The main disagreement across frameworks is not whether lower layers commoditise, but whether the defensible asset is workflow software alone or a composite control plane that joins governance, identity, data, and action.
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [inference] The seven-layer stack is an investor-friendly synthesis rather than a canonical standard. | [TOGAF](https://www.opengroup.org/togaf); [ArchiMate overview](https://www.opengroup.org/archimate-forum/archimate-overview); [Wardley Mapping 101](https://www.wardleymaps.com/guides/wardley-mapping-101) | high | Accessible standards do not expose a matching seven-layer canonical model. |
+| [inference] Durable value shifts toward constrained, differentiated, trust-bearing layers. | [Geoffrey Moore topics](https://geoffreyamoore.com/topics/); [Stanford Core and Context](https://stvp.stanford.edu/av/core-and-context); [Wardley evolution passage](https://www.wardleymaps.com/book-passages/wardley-on-evolution); [Leonis AI Threshold Effect](https://www.leoniscap.com/research/openclaw-(aka-clawdbot)-and-the-ai-threshold-effect) | high | This is the strongest cross-source continuity finding. |
+| [fact] TOGAF and ArchiMate model governance as cross-layer coordination rather than a terminal technical layer. | [TOGAF](https://www.opengroup.org/togaf); [ArchiMate overview](https://www.opengroup.org/archimate-forum/archimate-overview) | high | Architecture standards emphasize relationship modeling and governance practice. |
+| [inference] Relationship-specific workflows and institutional rules make governance-heavy platforms durable. | [Nobel 1991 Coase press release](https://www.nobelprize.org/prizes/economic-sciences/1991/press-release/); [Nobel 2009 Williamson and Ostrom press release](https://www.nobelprize.org/prizes/economic-sciences/2009/press-release/); [Transaction Cost Economics completed item](https://davidamitchell.github.io/Research/research/2026-03-02-transaction-costs.html) | high | The economics is stronger than the vendor-specific investment framing. |
+| [inference] Cheaper model use appears to shift the bottleneck toward coordination and platform quality. | [AI Index 2025](https://hai-production.s3.amazonaws.com/files/hai_ai_index_report_2025.pdf); [OpenAI GPT-4o mini announcement](https://openai.com/index/gpt-4o-mini-advancing-cost-efficient-intelligence/); [a16z Big Ideas 2026 Part 1](https://a16z.com/newsletter/big-ideas-2026-part-1); [DORA 2025 overview](https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report) | medium-high | Cost collapse plus coordination bottleneck plus platform-quality dependence support this synthesis, but no single source states the full bottleneck shift claim alone. |
+| [inference] Durable governance requires execution-adjacent control surfaces, not only reasoning or semantics. | [Amazon Bedrock Agents](https://docs.aws.amazon.com/bedrock/latest/userguide/agents.html); [GitHub Copilot usage metrics](https://docs.github.com/en/copilot/concepts/copilot-usage-metrics/copilot-metrics); [AI agent control-plane architecture completed item](https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html); [Multi-provider AI control planes completed item](https://davidamitchell.github.io/Research/research/2026-04-26-multi-ai-provider-control-planes.html) | medium-high | Current product surfaces make action control and observability central. |
+| [inference] Repricing before earnings deterioration is plausible when the terminal moat is in doubt. | [Damodaran terminal value note](https://pages.stern.nyu.edu/~adamodar/pdfiles/country/TerminalValue.pdf); [Damodaran terminal value approaches](https://pages.stern.nyu.edu/~adamodar/New_Home_Page/valquestions/termvalapproaches.htm); [Yahoo Finance ServiceNow Q1 2026 earnings summary](https://finance.yahoo.com/markets/stocks/articles/servicenow-inc-q1-2026-earnings-001811104.html) | medium | This supports the valuation mechanism, not the exact quadrant labels from the inaccessible video. |
+| [inference] The defensible asset is likely a composite control plane, not workflow software alone. | [Wardley Mapping 101](https://www.wardleymaps.com/guides/wardley-mapping-101); [a16z Big Ideas 2026 Part 1](https://a16z.com/newsletter/big-ideas-2026-part-1); [Enterprise AI platform operating models completed item](https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-platform-operating-models.html); [Multi-provider AI control planes completed item](https://davidamitchell.github.io/Research/research/2026-04-26-multi-ai-provider-control-planes.html) | medium-high | This is the synthesis point with the most practical implications. |
+
+### Assumptions
+
+- [assumption; source: https://www.youtube.com/watch?v=JH65uE9oEqs] The seeded layer and quadrant descriptions are materially accurate summaries of the inaccessible video. **Justification:** they are the repository's explicit setup for this item, but they could not be checked against a transcript in this session.
+- [assumption; source: https://www.gartner.com/en/information-technology/glossary/pace-layering-application-strategy] Pace Layering is used only at the generic three-layer level because the official explanatory text was inaccessible here. **Justification:** the official page was found but blocked, so no finer claim is attributed to Gartner.
+- [assumption; source: https://www.hbs.edu/faculty/Pages/item.aspx?num=13375; https://www.hbs.edu/faculty/Pages/item.aspx?num=56505; https://store.hbr.org/product/commoditization-and-de-commoditization/420017] Christensen's commoditisation logic is adjacent but not central in this synthesis because direct primary text was inaccessible. **Justification:** stronger directly accessible evidence exists from Wardley, Moore, Leonis, Coase, and Williamson.
+
+### Analysis
+
+[fact; source: https://www.opengroup.org/togaf; https://www.opengroup.org/archimate-forum/archimate-overview] The architecture evidence is strongest on one point: governance is indispensable, but it is not modeled as an isolated layer floating above business, application, and technology.
+
+[inference; source: https://geoffreyamoore.com/topics/; https://www.wardleymaps.com/book-passages/wardley-on-evolution; https://www.nobelprize.org/prizes/economic-sciences/2009/press-release/] The strategy and economics evidence is strongest on a different point: value persists where a capability remains organization-specific, relationship-specific, or hard to standardize, which is exactly the territory occupied by approvals, permissions, routing rules, and embedded workflow knowledge.
+
+[inference; source: https://www.leoniscap.com/research/openclaw-(aka-clawdbot)-and-the-ai-threshold-effect; https://a16z.com/newsletter/big-ideas-2026-part-1; https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report] Current enterprise-AI sources strengthen the Hyland thesis because they show the active bottleneck moving away from raw model performance and toward coordination, constraint, and internal platform quality.
+
+[inference; source: https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html; https://davidamitchell.github.io/Research/research/2026-04-26-multi-ai-provider-control-planes.html] The best reconciliation is therefore that "governance" is economically durable only when instantiated as an operational control plane with authority over action, identity, telemetry, and policy propagation.
+
+### Risks, Gaps, and Uncertainties
+
+- [fact; source: https://www.youtube.com/watch?v=JH65uE9oEqs] The largest gap is direct source access: the video itself was blocked, so exact wording, exact quadrant labels, and exact vendor mappings could not be confirmed from a transcript.
+- [fact; source: https://www.gartner.com/en/information-technology/glossary/pace-layering-application-strategy; https://www.hbs.edu/faculty/Pages/item.aspx?num=13375] Gartner and Christensen primary pages were checked but were not fully accessible from this environment, which lowers confidence in claims that would depend on their fine-grained wording.
+- [inference; source: https://www.wardleymaps.com/guides/wardley-mapping-101; https://www.nobelprize.org/prizes/economic-sciences/2009/press-release/] The strongest external frameworks support upward value migration and governance durability broadly, but they do not by themselves prove that any particular vendor is the winner at that layer.
+- [inference; source: https://a16z.com/newsletter/big-ideas-2026-part-1; https://docs.aws.amazon.com/bedrock/latest/userguide/agents.html] Orchestration layers remain exposed if hyperscalers or model vendors absorb more of the control-plane surface, so the moat depends on how much execution governance stays vendor-neutral and workflow-specific.
+
+### Open Questions
+
+- [inference; source: https://www.youtube.com/watch?v=JH65uE9oEqs; https://finance.yahoo.com/markets/stocks/articles/servicenow-inc-q1-2026-earnings-001811104.html] What exact quadrant definitions and named company placements does the Software Repricing Matrix use in the video itself, and do those placements remain stable after the latest product launches?
+- [inference; source: https://www.leoniscap.com/research/openclaw-(aka-clawdbot)-and-the-ai-threshold-effect; https://a16z.com/newsletter/big-ideas-2026-part-1] Which parts of the enterprise control plane are likely to commoditise next: telemetry, agent identity, policy language, or cross-provider routing?
+- [inference; source: https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html; https://davidamitchell.github.io/Research/research/2026-04-26-multi-ai-provider-control-planes.html] How much of the durable moat in governance software comes from data model and process graph depth versus from the execution and evidence surfaces around that model?
 
 ---
 
