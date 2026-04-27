@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-04-27T09:13:53Z",
+  "extracted_at": "2026-04-27T09:28:28Z",
   "items": {
     "2026-04-27-uelgf-runtime-feedback-loop": {
       "named_concepts": [
@@ -527,6 +527,47 @@
         "Medium confidence",
         "Medium-high confidence"
       ]
+    },
+    "2026-04-27-academic-post-publication-amendment-practices": {
+      "named_concepts": [
+        "linked notices",
+        "original record",
+        "publishers preserve",
+        "living mode",
+        "executive summary",
+        "strongest minimal",
+        "minimal analogue",
+        "immutable completed",
+        "separate amendment",
+        "amendment file",
+        "reader-signal metadata",
+        "status originating",
+        "originating commit",
+        "journal publishers",
+        "publishers consistently",
+        "consistently treat",
+        "treat substantive",
+        "substantive post-publication",
+        "post-publication change",
+        "formal notice"
+      ],
+      "source_urls": [
+        "https://publicationethics.org/retraction-guidelines",
+        "https://publicationethics.org/cope-guidelines-retracting-articles",
+        "https://www.nature.com/nature/editorial-policies/correction-and-retraction-policy",
+        "https://www.nature.com/nature/for-authors/matters-arising",
+        "https://journals.plos.org/plosone/s/corrections-and-retractions",
+        "https://journals.plos.org/plosone/s/comments",
+        "https://authors.bmj.com/policies/correction-retraction-policies/",
+        "https://info.arxiv.org/help/submit/index.html",
+        "https://info.arxiv.org/help/versions.html",
+        "https://www.biorxiv.org/about/FAQ",
+        "https://www.cochrane.org/authors/handbooks-and-manuals/handbook/current",
+        "https://documentation.cochrane.org/emkb/editorial-manager-for-authors/new-and-returning-authors/update-an-existing-review/decision-frameworkfor-update-proposals",
+        "https://resources.cochrane.org/sites/resources.cochrane.org/files/uploads/inline-files/Transform/201912_LSR_Revised_Guidance.pdf",
+        "https://research.monash.edu/en/publications/the-living-guidelines-handbook-guidance-for-the-production-and-pu/"
+      ],
+      "key_claims": []
     },
     "2026-04-26-systems-capability-debt-citizen-development-empirical-evidence": {
       "named_concepts": [
