@@ -2680,13 +2680,13 @@
     "url": "/Research/threads/youtube-transcripts-tooling.html"
   },
   {
-    "slug": "nist-ai-ai-rmf-apra-cps",
-    "title": "nist ai / ai rmf / apra cps",
+    "slug": "ai-rmf-nist-ai-apra-cps",
+    "title": "ai rmf / nist ai / apra cps",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "nist ai",
       "ai rmf",
+      "nist ai",
       "apra cps"
     ],
     "item_count": 4,
@@ -2712,7 +2712,7 @@
         "added": "2026-04-26"
       }
     ],
-    "url": "/Research/threads/nist-ai-ai-rmf-apra-cps.html"
+    "url": "/Research/threads/ai-rmf-nist-ai-apra-cps.html"
   },
   {
     "slug": "agents-md-github-copilot-claude-code",
