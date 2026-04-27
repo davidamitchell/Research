@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "ServiceNow workflow orchestration and agentic Artificial Intelligence (AI) roadmap: what does ServiceNow currently provide for AI agent orchestration and governance, and what does their public roadmap indicate about future agentic AI capabilities?"
 added: 2026-04-27T04:15:46+00:00
 status: reviewing
