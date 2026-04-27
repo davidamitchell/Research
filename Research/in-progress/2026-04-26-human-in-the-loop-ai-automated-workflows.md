@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "When and how should human intervention be incorporated into Artificial Intelligence (AI)-driven and automated workflows?"
 added: 2026-04-26T10:11:11+00:00
 status: reviewing
