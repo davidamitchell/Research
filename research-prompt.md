@@ -302,6 +302,13 @@ easily-detectable issues.
     include it before drafting or revising Findings rather than waiting for the
     review workflow to surface the gap.
 
+2f. **Confidence-evidence alignment for synthesis claims** -- if a Key Finding
+    or Evidence Map row is supported mainly by same-repository companion-item
+    syntheses, do **not** assign `high` confidence unless the claim also cites
+    at least one independent primary source or credible external secondary
+    source at the point of claim. Otherwise downgrade the confidence to
+    `medium` or narrow the claim so the stronger confidence is actually earned.
+
 3. **Vague quantifiers** -- check for unsourced "many", "most", "significant",
    "state-of-the-art". Replace with specific numbers or add a source, or
    qualify as `[inference]`.
