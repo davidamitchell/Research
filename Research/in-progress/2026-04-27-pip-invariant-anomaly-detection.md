@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Invariant-based anomaly detection in the Policy Information Point (PIP): detecting permanent-invariant suppression through transient operating context and the decision signal to the Policy Decision Point (PDP)"
 added: 2026-04-27T00:55:35+00:00
 status: reviewing
