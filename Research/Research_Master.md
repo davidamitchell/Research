@@ -1,9 +1,10 @@
 # Research Master Document
 
-Generated on: 2026-04-27 02:46 UTC
+Generated on: 2026-04-27 03:14 UTC
 
 ## Table of Contents
 
+* [Policy Administration Point (PAP) dynamic policy profiling and proportionality: mapping asset metadata to a lifecycle-aware Policy Enforcement Point (PEP) topology scaled by inherent risk](#2026-04-27-pap-dynamic-policy-profiling-proportionality-md)
 * [Systems capability debt as the root cause of citizen development: empirical evidence and effective governance architectures](#2026-04-26-systems-capability-debt-citizen-development-empirical-evidence-md)
 * [Systems capability debt, citizen development, and agentic AI risk: is the causal chain and sequencing imperative a novel contribution?](#2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis-md)
 * [Policy coherence as a machine-checkable prerequisite: policy-as-code, formal specification, and invariant registries for regulated financial institutions deploying agentic Artificial Intelligence (AI)](#2026-04-26-policy-coherence-machine-checkable-prerequisite-md)
@@ -190,6 +191,92 @@ Generated on: 2026-04-27 02:46 UTC
 * [Interface and delivery: how to surface research outputs](#2026-02-27-interface-and-delivery-md)
 * [Information synthesis: non-lossy compression, entropy, and information theory](#2026-02-27-information-synthesis-entropy-md)
 * [Indexing and tracking method for research content](#2026-02-27-indexing-and-tracking-method-md)
+
+---
+
+<a id="2026-04-27-pap-dynamic-policy-profiling-proportionality-md"></a>
+
+## Policy Administration Point (PAP) dynamic policy profiling and proportionality: mapping asset metadata to a lifecycle-aware Policy Enforcement Point (PEP) topology scaled by inherent risk
+
+**Tags:** [pbac, pap, pep, policy-enforcement, agentic-ai, cia-classification, lifecycle-governance, lattice-access-control, capability-security, proportionality]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-27-pap-dynamic-policy-profiling-proportionality.md
+
+## Research Question
+
+How can a Policy Administration Point (PAP) dynamically map a governed asset's metadata, specifically its invariants and Confidentiality, Integrity, and Availability (CIA) ratings, to a proportional and lifecycle-aware set of Policy Enforcement Points (PEPs), such that the depth of governance applied scales with the asset's inherent risk profile rather than being applied uniformly?
+
+## Findings
+
+*(Populated from section 6 Synthesis above.)*
+
+### Executive Summary
+
+[inference; source: https://csrc.nist.gov/pubs/sp/800/162/final; https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html; https://profsandhu.com/infs767/infs767spring04/lbac-6pg.pdf; https://classpages.cselabs.umn.edu/Fall-2021/csci5271/papers/SRL2003-02.pdf] A defensible PAP should compute a monotone function `F(invariant set, CIA, lifecycle phase) -> PEP topology`, where higher-risk metadata never maps to weaker control coverage and incomparable invariants combine by union rather than by averaging.
+
+[inference; source: https://csrc.nist.gov/pubs/sp/800/162/final; https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html; https://csrc.nist.gov/glossary/term/Risk_Adaptive_Adaptable_Access_Control] Existing ABAC, XACML, and RAdAC material already supports dynamic authorization decisions, and the PAP-side lifecycle-topology derivation problem remains under-specified rather than directly named.
+
+[inference; source: https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-2/; https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-3/; https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-6/; https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-16/; https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-24/; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html; https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html] For practical design, the minimal basis set is registration and classification, identity and delegation, development sandbox and connector boundary, delivery and promotion, runtime authorization, runtime rate-limit and exception routing, and evidence and stop-authority gates, with hard gates required at Getting Started and Operation for CIA-High, privileged, or write-capable agents.
+
+[inference; source: https://davidamitchell.github.io/Research/research/2026-04-26-access-control-amplification-agentic-operations.html; https://davidamitchell.github.io/Research/research/2026-04-26-implicit-rate-limiting-controls-agentic-ai-removal.html; https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-citizen-development-empirical-evidence.html] Proportionality is necessary because uniform gating both over-governs low-risk utilities and under-governs high-risk agents whose machine-speed execution amplifies permission misuse and removes human friction.
+
+### Key Findings
+
+1. [inference; source: https://csrc.nist.gov/pubs/sp/800/162/final; https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html] Existing ABAC and XACML models are already dynamic at authorization time because they evaluate subject, resource, action, and environment attributes through PAP, PDP, PEP, and PIP roles, and the reviewed material leaves lifecycle-topology selection as an implementor-side architectural inference rather than an explicit standards algorithm. **Confidence: medium.**
+2. [inference; source: https://profsandhu.com/infs767/infs767spring04/lbac-6pg.pdf; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-risk-tier-classification-controls.html] A defensible formalisation is a monotone partial order over invariant set and CIA label, because Denning-Sandhu style ordering and highest-triggered-tier logic fit this multi-dimensional risk problem better than either one linear risk score or a literal single-axis secrecy lattice. **Confidence: medium.**
+3. [inference; source: https://classpages.cselabs.umn.edu/Fall-2021/csci5271/papers/SRL2003-02.pdf; https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-6/] Capability-based security supports deriving minimum PEP coverage from declared invariants because precise and minimal delegation is the right model for assets whose authority must stay bounded below both human and system maxima. **Confidence: medium.**
+4. [inference; source: https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-2/; https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-3/; https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-6/; https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-16/; https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-24/] NIST SP 800-53 provides the component controls from which a proportional topology-selection rule can be built by combining attribute registration, dynamic privilege management, least privilege, dynamic attribute association, and per-request authorization. **Confidence: medium.**
+5. [inference; source: https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html; https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html; https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-3/; https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-24/] The phase-distributed topology should reserve registration and identity gates for Getting Started, sandbox and connector gates for Development, promotion gates for Delivery, and authorization, rate, and stop-authority gates for Operation. **Confidence: medium.**
+6. [inference; source: https://davidamitchell.github.io/Research/research/2026-04-26-access-control-amplification-agentic-operations.html; https://davidamitchell.github.io/Research/research/2026-04-26-implicit-rate-limiting-controls-agentic-ai-removal.html; https://davidamitchell.github.io/Research/research/2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment.html] CIA-High, privileged, or write-capable agents require hard gates at Getting Started and Operation because identity scoping, rate controls, and runtime stop authority must exist before those agents can safely enter build or production states. **Confidence: medium.**
+7. [inference; source: https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-citizen-development-empirical-evidence.html; https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html] Uniform gate depth is economically and behaviorally unstable because it pushes low-risk utility demand toward workaround channels while failing to add the extra engineered safeguards that materially risky agents need. **Confidence: medium.**
+8. [inference; source: https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-2/; https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-6/; https://davidamitchell.github.io/Research/research/2026-04-26-access-control-amplification-agentic-operations.html; https://davidamitchell.github.io/Research/research/2026-04-26-implicit-rate-limiting-controls-agentic-ai-removal.html] A worked CIA-High agent that handles PII and executes financial transactions should never map below `{G0,G1}` at Getting Started, `{G1,G2}` in Development, `{G1,G3}` in Delivery, and `{G1,G4,G5,G6}` in Operation, because each phase exposes a distinct blast-radius mechanism. **Confidence: medium.**
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [inference] ABAC and XACML are dynamic for authorization decisions, and the reviewed material leaves lifecycle-topology derivation as an implementor-side inference rather than an explicit standards algorithm. | https://csrc.nist.gov/pubs/sp/800/162/final<br>https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html | medium | Request-time dynamics are direct; the topology-gap statement is still an inference from what the standards do and do not define. |
+| [inference] A monotone partial order is a defensible formal structure for invariant set and CIA composition. | https://profsandhu.com/infs767/infs767spring04/lbac-6pg.pdf<br>https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-risk-tier-classification-controls.html | medium | Sandhu provides partial-order and least-upper-bound logic, and the risk-tier item supports highest-triggered-tier logic; applying both to this topology problem remains synthesis. |
+| [inference] Capability-based security supports minimum-authority derivation through precise, minimal delegation and confused-deputy avoidance. | https://classpages.cselabs.umn.edu/Fall-2021/csci5271/papers/SRL2003-02.pdf<br>https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-6/ | medium | Capability evidence is direct; mapping that evidence to invariant-driven topology derivation is an inferential step. |
+| [inference] NIST SP 800-53 contains the component controls from which proportional topology selection can be built. | https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-2/<br>https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-3/<br>https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-6/<br>https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-16/<br>https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-24/ | medium | The control extracts are direct, but turning them into a topology-selection rule is still synthesis. |
+| [inference] Lifecycle topology should distribute gates across registration, development, delivery, and operation rather than collapse them into one point. | https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html<br>https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html<br>https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-24/ | medium | Identity work qualifies Getting Started, pipeline work qualifies Delivery, and per-request authorization qualifies Operation. |
+| [inference] CIA-High, privileged, or write-capable agents need hard gates at Getting Started and Operation. | https://davidamitchell.github.io/Research/research/2026-04-26-access-control-amplification-agentic-operations.html<br>https://davidamitchell.github.io/Research/research/2026-04-26-implicit-rate-limiting-controls-agentic-ai-removal.html<br>https://davidamitchell.github.io/Research/research/2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment.html | medium | Adjacent repository work strongly supports this threshold claim, but the evidence base is still a repository-level synthesis rather than independent primary studies. |
+| [inference] Uniform gate depth is unstable because it over-controls low-risk utilities and under-controls high-risk agents. | https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-citizen-development-empirical-evidence.html<br>https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html | medium | Empirical support is strongest on workaround demand and governance architecture, not on a numeric optimum. |
+| [inference] A CIA-High PII-handling transactional agent maps to a topology that includes registration, identity, promotion, runtime authorization, rate, and stop-authority gates. | https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-2/<br>https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-6/<br>https://davidamitchell.github.io/Research/research/2026-04-26-access-control-amplification-agentic-operations.html<br>https://davidamitchell.github.io/Research/research/2026-04-26-implicit-rate-limiting-controls-agentic-ai-removal.html | medium | Worked example is synthesis, not a standard-defined template. |
+
+### Assumptions
+
+- [fact; source: https://github.com/davidamitchell/Research/blob/main/Research/in-progress/2026-04-27-pap-dynamic-policy-profiling-proportionality.md] No standalone assumption entries are carried into Findings; the invariant taxonomy, gate basis set, and worked topology are explicitly labeled as inferences in this document rather than being presented as unsupported assumptions.
+
+### Analysis
+
+- [inference; source: https://csrc.nist.gov/pubs/sp/800/162/final; https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html] The strongest interpretive move in this item is separating **decision dynamism** from **topology dynamism**, because that avoids the false claim that modern access-control theory is static while still identifying an architectural gap worth solving.
+- [inference; source: https://profsandhu.com/infs767/infs767spring04/lbac-6pg.pdf] The lattice material was weighted as structural guidance rather than as a ready-made solution, because it directly supports ordering, joins, and monotonicity but does not decide which enterprise invariants matter operationally.
+- [inference; source: https://profsandhu.com/infs767/infs767spring04/lbac-6pg.pdf; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-risk-tier-classification-controls.html] Alternative formalisations were considered and rejected at a high level: a single linear score collapses incomparable hazards into one number, while a literal single-axis secrecy lattice does not fit mixed confidentiality, integrity, and operational-authority invariants as well as a partial-order with highest-triggered-tier logic.
+- [inference; source: https://classpages.cselabs.umn.edu/Fall-2021/csci5271/papers/SRL2003-02.pdf; https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-6/] The capability literature was weighted as the derivation principle for invariant classes, because precise delegation and least authority explain why a PAP should read invariant declarations as claims about the minimum set of enforcement surfaces required.
+- [inference; source: https://davidamitchell.github.io/Research/research/2026-04-26-access-control-amplification-agentic-operations.html; https://davidamitchell.github.io/Research/research/2026-04-26-implicit-rate-limiting-controls-agentic-ai-removal.html; https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-citizen-development-empirical-evidence.html] The repository's adjacent items were used to resolve the proportionality question, because they provide the operational consequence evidence missing from the formal models and explain why uniform gating is both behaviorally brittle and technically insufficient.
+- [inference; source: https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-2/; https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-3/; https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-6/; https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-16/; https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-24/; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html; https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html] The resulting mapping rule is therefore best read as an implementor's design specification built from standards-compatible control primitives rather than as a claim that one standards body already publishes this exact formula.
+
+### Risks, Gaps, and Uncertainties
+
+- [inference; source: https://csrc.nist.gov/pubs/sp/800/162/final; https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html] No reviewed primary source explicitly publishes a PAP function from invariant metadata to lifecycle PEP topology, so the exact formula remains a synthesis rather than a directly sourced standard pattern.
+- [inference; source: https://profsandhu.com/infs767/infs767spring04/lbac-6pg.pdf] The lattice evidence is structurally strong, but the source used here is a concise teaching summary rather than the original Denning or Bell-LaPadula papers, so the formalism claim is high-confidence for ordering logic and medium-confidence for any stronger historical reading.
+- [inference; source: https://classpages.cselabs.umn.edu/Fall-2021/csci5271/papers/SRL2003-02.pdf] The capability source is strong on least-authority delegation, but it does not discuss lifecycle phase design, so the jump from delegation theory to phase-distributed topology remains inferential.
+- [inference; source: https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-citizen-development-empirical-evidence.html] The empirical case is strongest for why uniform control patterns fail and weaker for any exact threshold where a soft gate should become a hard gate.
+
+### Open Questions
+
+- How should the PAP encode joins between incomparable invariants when one asset spans regulated data, financial transactions, and privileged configuration change in the same workflow?
+- What evidentiary thresholds should automatically reclassify an asset from soft-gated to hard-gated operation after deployment drift, connector growth, or new data exposure?
+- Which downstream runtime patterns, transaction signing, supervisory approval, or anomaly-triggered suspension, best implement the `G4-G6` operational topology for the highest-risk assets?
+
+### Output
+
+- [fact; source: https://csrc.nist.gov/pubs/sp/800/162/final; https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html; https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-2/] Type: knowledge.
+- [inference; source: https://profsandhu.com/infs767/infs767spring04/lbac-6pg.pdf; https://classpages.cselabs.umn.edu/Fall-2021/csci5271/papers/SRL2003-02.pdf; https://davidamitchell.github.io/Research/research/2026-04-26-access-control-amplification-agentic-operations.html] Description: a standards-compatible formal mapping from invariant metadata and CIA rating to lifecycle-aware enforcement topology, plus a worked high-risk example and PAP design criteria.
+- [fact; source: https://csrc.nist.gov/pubs/sp/800/162/final; https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html; https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-2/] Links: https://csrc.nist.gov/pubs/sp/800/162/final ; https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html ; https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-2/
+
+---
 
 ---
 
