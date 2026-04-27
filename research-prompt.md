@@ -74,6 +74,10 @@ follow leads they produce. Apply source-marking discipline as defined in
   `[inference]`, or `[assumption]` label if the note remains in visible text,
   and bind any evidence-backed conclusion to accessible sources rather than to
   the inaccessible URL itself.
+- Do not carry execution-path statements such as "blocked in this runtime",
+  "fetched via web search", or "direct page fetch failed" into Findings or
+  Risks/Gaps. Rewrite them as source-qualification claims grounded in the
+  accessible source itself, or omit them.
 - Cross-source continuity or evolution statements such as "the position remains
   consistent", "this sharpens the earlier claim", or "this is not a reversal"
   are usually **[inference]**, not **[fact]**, unless a single cited source
