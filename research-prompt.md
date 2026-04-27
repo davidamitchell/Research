@@ -265,7 +265,10 @@ easily-detectable issues.
     labels and source binding, and every Evidence Map claim cell must begin
     with `[fact]`, `[inference]`, or `[assumption]`. Every Evidence Map
     **source** cell must also contain URL-backed citations or DOIs rather than
-    bare source names. If a seed video, transcript,
+    bare source names. Evidence Map **notes** cells should stay short metadata
+    fragments rather than evaluative sentences; if a note needs its own claim,
+    move that claim into the labeled claim cell or Findings prose with source
+    binding. If a seed video, transcript,
     or other listed source was inaccessible in this session, do **not** cite it
     as direct support for downstream factual claims in Findings; either remove
     the citation, downgrade the claim, or mark the dependency as an assumption.

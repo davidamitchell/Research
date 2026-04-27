@@ -2,12 +2,12 @@
 review_count: 2
 title: "Universal Entity Lifecycle Governance Framework (UELGF): runtime feedback loop, signal taxonomy, automated response taxonomy, feedback closure to the rail system, and feedback closure to the systems capability debt programme as a structured demand signal"
 added: 2026-04-27T01:28:25+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: [2026-04-27-uelgf-synthesis-complete-framework]
 tags: [uelgf, runtime-feedback, continuous-evaluation, observability, signal-aggregation, scope-drift, rail-improvement, systems-capability-debt, demand-signal, pep, pip, regulated-banking]
 started: 2026-04-27T07:35:03+00:00
-completed: ~
+completed: 2026-04-27T07:58:55+00:00
 output: [knowledge]
 ---
 
@@ -99,8 +99,8 @@ Prior completed research directly informs this item:
 ### §0 Initialise
 
 - [fact; source: https://csrc.nist.gov/pubs/sp/800/137/final; https://www.fedramp.gov/docs/rev5/playbook/csp/continuous-monitoring/overview/; https://prometheus.io/docs/alerting/latest/alertmanager/] **Research question restated:** this item asks how the Universal Entity Lifecycle Governance Framework (UELGF) should turn runtime observations into a continuous-governance loop with typed signals, aggregation logic, proportionate automated responses, re-evaluation triggers, rail-improvement feedback, and a formal demand signal for the systems capability debt programme.
-- [fact; source: https://opentelemetry.io/docs/concepts/signals/; https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings.html; https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Anomaly_Detection.html] **Scope confirmed:** the investigation covers signal classes derived from observable Policy Enforcement Point (PEP) events, aggregation over logs, metrics, and traces, severity-calibrated responses, re-evaluation and suspension triggers, and structured outputs for both rail owners and engineering-investment owners.
-- [fact; source: https://handbook.apra.gov.au/standard/cps-230; https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/digital-operational-resilience-act-dora; https://www.eba.europa.eu/regulation-and-policy/single-rulebook/interactive-single-rulebook/17716] **Constraints confirmed:** the answer must satisfy continuous-monitoring and remediation duties in regulated operations, must keep thresholds parameterised by Confidentiality, Integrity, and Availability (CIA) tier and entity type, and must rely on system-derived evidence rather than builder self-reporting.
+- [inference; source: https://opentelemetry.io/docs/concepts/signals/; https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings.html; https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Anomaly_Detection.html] **Scope confirmed:** the investigation covers signal classes derived from observable Policy Enforcement Point (PEP) events, aggregation over logs, metrics, and traces, severity-calibrated responses, re-evaluation and suspension triggers, and structured reporting outputs.
+- [inference; source: https://handbook.apra.gov.au/standard/cps-230; https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/digital-operational-resilience-act-dora; https://www.eba.europa.eu/regulation-and-policy/single-rulebook/interactive-single-rulebook/17716] **Constraints confirmed:** the answer must satisfy continuous-monitoring and remediation duties in regulated operations, and those duties imply differentiated thresholds and machine-derived evidence rather than one universal static threshold or builder self-reporting.
 - [fact; source: https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html; https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis.html; https://davidamitchell.github.io/Research/research/2026-04-26-access-control-amplification-agentic-operations.html; https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-policy-architecture-8-layer-context.html; https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-governed-golden-rails.html] **Prior work cross-reference:** adjacent completed items already established the observability substrate, the enterprise control-plane pattern, the systems-capability-debt framing, the machine-speed blast-radius problem, the deny-first kill switch, and the rule that repeated rail exceptions should become rail evolution rather than endless one-off approvals.
 - [fact; source: https://opentelemetry.io/docs/concepts/signals/; https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings.html; https://www.law.cornell.edu/cfr/text/21/820.100] **Output format confirmed:** knowledge, expressed as a signal taxonomy, aggregation model, response ladder, re-evaluation specification, rail-feedback rule, and machine-readable demand-signal schema.
 
@@ -132,7 +132,7 @@ Prior completed research directly informs this item:
 
 ### §2 Investigation
 
-- [fact; source: https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/digital-operational-resilience-act-dora; https://www.eba.europa.eu/regulation-and-policy/single-rulebook/interactive-single-rulebook/17716] Access note: the originally seeded EUR-Lex DORA page was not machine-readable in this runtime, so official European Securities and Markets Authority (ESMA) and European Banking Authority (EBA) pages were used as the DORA evidence layer.
+- Access note: seeded EUR-Lex DORA page not machine-readable in this runtime; ESMA and EBA pages used as the DORA evidence layer.
 
 #### A. What continuous-monitoring and finding systems already provide
 
