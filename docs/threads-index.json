@@ -1245,6 +1245,66 @@
     "url": "/Research/threads/rag-llm-enterprise-ai.html"
   },
   {
+    "slug": "agentic-systems-failure-modes-reward-hacking",
+    "title": "agentic-systems / failure-modes / reward-hacking",
+    "kind": "implicit",
+    "tag_cluster": [
+      "agentic-systems",
+      "failure-modes",
+      "reward-hacking"
+    ],
+    "concept_cluster": [],
+    "item_count": 9,
+    "items": [
+      {
+        "slug": "2026-03-10-formal-spec-intent-alignment-agentic-coding",
+        "title": "Formal intent specification and language choice for AI alignment in agentic coding systems",
+        "added": "2026-03-10"
+      },
+      {
+        "slug": "2026-03-10-ai-concept-classification-taxonomy",
+        "title": "AI concept classification taxonomy: prompts, instructions, memory, failure modes, controls, and problem domains",
+        "added": "2026-03-10"
+      },
+      {
+        "slug": "2026-03-10-agent-evaluation-cross-repo-analysis",
+        "title": "Agent evaluation framework: cross-repo pattern analysis, commonality detection, and regression identification",
+        "added": "2026-03-10"
+      },
+      {
+        "slug": "2026-03-10-language-for-llm-agent-output",
+        "title": "Language designed for LLM agents to produce: addressing generation-layer failure modes in agentic systems",
+        "added": "2026-03-11"
+      },
+      {
+        "slug": "2026-03-12-failure-mode-taxonomy-expansion",
+        "title": "Failure mode taxonomy: empirical frequency, causal mechanisms, detection signals, and cascade patterns in production agentic systems",
+        "added": "2026-03-14"
+      },
+      {
+        "slug": "2026-03-12-swat-technique-loop-fresh-context",
+        "title": "SWAT technique in a fresh-context loop: reliability, drift, and the effect of web search and org RAG on blind-acceptance outcomes",
+        "added": "2026-03-14"
+      },
+      {
+        "slug": "2026-03-15-prompt-injection-threat-landscape",
+        "title": "Prompt injection threat landscape: exploits, defences, and active research in agentic artificial intelligence (AI) systems",
+        "added": "2026-03-19"
+      },
+      {
+        "slug": "2026-03-18-stateless-agent-assumption-failure",
+        "title": "Stateless-agent assumption failure: causes, detection, and recovery patterns for orphaned state in multi-session agentic workflows",
+        "added": "2026-03-20"
+      },
+      {
+        "slug": "2026-04-27-pip-invariant-anomaly-detection",
+        "title": "Invariant-based anomaly detection in the Policy Information Point (PIP): detecting permanent-invariant suppression through transient operating context and the decision signal to the Policy Decision Point (PDP)",
+        "added": "2026-04-27"
+      }
+    ],
+    "url": "/Research/threads/agentic-systems-failure-modes-reward-hacking.html"
+  },
+  {
     "slug": "mobile-interface-delivery",
     "title": "mobile / interface / delivery",
     "kind": "implicit",
@@ -1303,61 +1363,6 @@
       }
     ],
     "url": "/Research/threads/mobile-interface-delivery.html"
-  },
-  {
-    "slug": "agentic-systems-failure-modes-taxonomy",
-    "title": "agentic-systems / failure-modes / taxonomy",
-    "kind": "implicit",
-    "tag_cluster": [
-      "agentic-systems",
-      "failure-modes",
-      "taxonomy"
-    ],
-    "concept_cluster": [],
-    "item_count": 8,
-    "items": [
-      {
-        "slug": "2026-03-10-formal-spec-intent-alignment-agentic-coding",
-        "title": "Formal intent specification and language choice for AI alignment in agentic coding systems",
-        "added": "2026-03-10"
-      },
-      {
-        "slug": "2026-03-10-ai-concept-classification-taxonomy",
-        "title": "AI concept classification taxonomy: prompts, instructions, memory, failure modes, controls, and problem domains",
-        "added": "2026-03-10"
-      },
-      {
-        "slug": "2026-03-10-agent-evaluation-cross-repo-analysis",
-        "title": "Agent evaluation framework: cross-repo pattern analysis, commonality detection, and regression identification",
-        "added": "2026-03-10"
-      },
-      {
-        "slug": "2026-03-10-language-for-llm-agent-output",
-        "title": "Language designed for LLM agents to produce: addressing generation-layer failure modes in agentic systems",
-        "added": "2026-03-11"
-      },
-      {
-        "slug": "2026-03-12-failure-mode-taxonomy-expansion",
-        "title": "Failure mode taxonomy: empirical frequency, causal mechanisms, detection signals, and cascade patterns in production agentic systems",
-        "added": "2026-03-14"
-      },
-      {
-        "slug": "2026-03-12-swat-technique-loop-fresh-context",
-        "title": "SWAT technique in a fresh-context loop: reliability, drift, and the effect of web search and org RAG on blind-acceptance outcomes",
-        "added": "2026-03-14"
-      },
-      {
-        "slug": "2026-03-15-prompt-injection-threat-landscape",
-        "title": "Prompt injection threat landscape: exploits, defences, and active research in agentic artificial intelligence (AI) systems",
-        "added": "2026-03-19"
-      },
-      {
-        "slug": "2026-03-18-stateless-agent-assumption-failure",
-        "title": "Stateless-agent assumption failure: causes, detection, and recovery patterns for orphaned state in multi-session agentic workflows",
-        "added": "2026-03-20"
-      }
-    ],
-    "url": "/Research/threads/agentic-systems-failure-modes-taxonomy.html"
   },
   {
     "slug": "ai-strategy-financial-services-ai-governance",
@@ -1865,6 +1870,51 @@
     "url": "/Research/threads/ai-strategy-financial-services-rbnz.html"
   },
   {
+    "slug": "reward-hacking-pbac-agentic-ai",
+    "title": "reward-hacking / pbac / agentic-ai",
+    "kind": "implicit",
+    "tag_cluster": [
+      "reward-hacking",
+      "pbac",
+      "agentic-ai"
+    ],
+    "concept_cluster": [],
+    "item_count": 6,
+    "items": [
+      {
+        "slug": "2026-03-10-formal-spec-intent-alignment-agentic-coding",
+        "title": "Formal intent specification and language choice for AI alignment in agentic coding systems",
+        "added": "2026-03-10"
+      },
+      {
+        "slug": "2026-03-10-language-for-llm-agent-output",
+        "title": "Language designed for LLM agents to produce: addressing generation-layer failure modes in agentic systems",
+        "added": "2026-03-11"
+      },
+      {
+        "slug": "2026-03-12-failure-mode-taxonomy-expansion",
+        "title": "Failure mode taxonomy: empirical frequency, causal mechanisms, detection signals, and cascade patterns in production agentic systems",
+        "added": "2026-03-14"
+      },
+      {
+        "slug": "2026-04-27-pip-invariant-anomaly-detection",
+        "title": "Invariant-based anomaly detection in the Policy Information Point (PIP): detecting permanent-invariant suppression through transient operating context and the decision signal to the Policy Decision Point (PDP)",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-04-27-pdp-universal-policy-synchronisation-integrity",
+        "title": "Universal policy synchronisation and integrity: ensuring the Policy Decision Point (PDP) evaluates governed assets against logically identical policy across all lifecycle phases",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-04-27-pap-dynamic-policy-profiling-proportionality",
+        "title": "Policy Administration Point (PAP) dynamic policy profiling and proportionality: mapping asset metadata to a lifecycle-aware Policy Enforcement Point (PEP) topology scaled by inherent risk",
+        "added": "2026-04-27"
+      }
+    ],
+    "url": "/Research/threads/reward-hacking-pbac-agentic-ai.html"
+  },
+  {
     "slug": "ai-governance-security-control-plane",
     "title": "ai-governance / security / control-plane",
     "kind": "implicit",
@@ -2210,14 +2260,14 @@
     "url": "/Research/threads/servicenow-csdm-itsm.html"
   },
   {
-    "slug": "cost-allocation-tbm-council-financial-services",
-    "title": "cost allocation / tbm council / financial services",
+    "slug": "cost-allocation-financial-services-tbm-council",
+    "title": "cost allocation / financial services / tbm council",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "cost allocation",
-      "tbm council",
-      "financial services"
+      "financial services",
+      "tbm council"
     ],
     "item_count": 5,
     "items": [
@@ -2247,16 +2297,16 @@
         "added": "2026-03-09"
       }
     ],
-    "url": "/Research/threads/cost-allocation-tbm-council-financial-services.html"
+    "url": "/Research/threads/cost-allocation-financial-services-tbm-council.html"
   },
   {
-    "slug": "coding-agent-copilot-coding-github-copilot",
-    "title": "coding agent / copilot coding / github copilot",
+    "slug": "copilot-coding-coding-agent-github-copilot",
+    "title": "copilot coding / coding agent / github copilot",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "coding agent",
       "copilot coding",
+      "coding agent",
       "github copilot"
     ],
     "item_count": 5,
@@ -2287,7 +2337,7 @@
         "added": "2026-03-29"
       }
     ],
-    "url": "/Research/threads/coding-agent-copilot-coding-github-copilot.html"
+    "url": "/Research/threads/copilot-coding-coding-agent-github-copilot.html"
   },
   {
     "slug": "evaluation-agents-research-loop",

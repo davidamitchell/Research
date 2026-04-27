@@ -1,6 +1,60 @@
 {
-  "extracted_at": "2026-04-27T03:39:41Z",
+  "extracted_at": "2026-04-27T04:51:17Z",
   "items": {
+    "2026-04-27-pip-invariant-anomaly-detection": {
+      "named_concepts": [
+        "deterministic contradiction",
+        "high-invariant assets",
+        "hostile context",
+        "prompt injection",
+        "active suppression",
+        "invariant metadata",
+        "anomaly object",
+        "requested actions",
+        "broad access",
+        "implicated invariants",
+        "context substitution",
+        "bayesian surprise",
+        "ranking layer",
+        "contradiction rules",
+        "adversarial suppression",
+        "clear routine",
+        "practical pip",
+        "recommended routing",
+        "audit review",
+        "correct runtime"
+      ],
+      "source_urls": [
+        "https://davidamitchell.github.io/Research/research/2026-03-15-context-layers-aligned-decisions-synthesis.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-10-formal-spec-intent-alignment-agentic-coding.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-15-prompt-injection-threat-landscape.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-12-failure-mode-taxonomy-expansion.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-15-neurological-context-management.html",
+        "https://hbr.org/2007/11/a-leaders-framework-for-decision-making",
+        "https://thecynefin.co/effective-decision-making-support-tool/",
+        "https://en.wikipedia.org/wiki/Bayesian_inference",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC2782645/",
+        "https://csrc.nist.gov/pubs/sp/800/53/r5/final",
+        "https://csf.tools/reference/nist-sp-800-53/r5/si/si-4/",
+        "https://csf.tools/reference/nist-sp-800-53/r5/au/au-6/",
+        "https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html",
+        "https://owasp.org/www-project-top-10-for-large-language-model-applications/",
+        "https://genai.owasp.org/llmrisk/llm01-prompt-injection/",
+        "https://davidamitchell.github.io/Research/research/2026-04-27-pap-dynamic-policy-profiling-proportionality.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-27-pdp-universal-policy-synchronisation-integrity.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-access-control-amplification-agentic-operations.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html"
+      ],
+      "key_claims": [
+        "High confidence",
+        "High confidence",
+        "Medium confidence",
+        "Medium confidence",
+        "High confidence",
+        "Medium confidence",
+        "Medium confidence"
+      ]
+    },
     "2026-04-27-pdp-universal-policy-synchronisation-integrity": {
       "named_concepts": [
         "policy provenance",
