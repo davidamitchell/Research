@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-04-27T14:35:51Z",
+  "extracted_at": "2026-04-27T14:57:10Z",
   "items": {
     "2026-04-27-uelgf-synthesis-complete-framework": {
       "named_concepts": [
@@ -812,6 +812,61 @@
         "https://documentation.cochrane.org/emkb/editorial-manager-for-authors/new-and-returning-authors/update-an-existing-review/decision-frameworkfor-update-proposals",
         "https://resources.cochrane.org/sites/resources.cochrane.org/files/uploads/inline-files/Transform/201912_LSR_Revised_Guidance.pdf",
         "https://research.monash.edu/en/publications/the-living-guidelines-handbook-guidance-for-the-production-and-pu/"
+      ],
+      "key_claims": []
+    },
+    "2026-04-26-vendor-platform-governance-constraints-compensating-controls": {
+      "named_concepts": [
+        "native governance",
+        "native controls",
+        "azure openai",
+        "copilot studio",
+        "governance layer",
+        "governance controls",
+        "consolidated single-vendor",
+        "roadmap-sensitive estates",
+        "approval logic",
+        "vendor plane",
+        "approval workflow",
+        "native runtime",
+        "power platform",
+        "compensating controls",
+        "sit outside",
+        "external policy",
+        "openai direct",
+        "direct services",
+        "vendor platforms",
+        "complete portable"
+      ],
+      "source_urls": [
+        "https://learn.microsoft.com/en-us/power-platform/admin/governance-considerations",
+        "https://learn.microsoft.com/en-us/power-platform/guidance/coe/starter-kit",
+        "https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention",
+        "https://learn.microsoft.com/en-us/power-platform/admin/managed-environment-overview",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-data-loss-prevention",
+        "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/governance-security-across-organization",
+        "https://learn.microsoft.com/en-us/azure/foundry/concepts/architecture",
+        "https://learn.microsoft.com/en-us/azure/foundry/concepts/rbac-foundry",
+        "https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy",
+        "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/deployment-types",
+        "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/default-safety-policies",
+        "https://www.salesforce.com/blog/best-practices-for-secure-agentforce-implementation/",
+        "https://www.salesforce.com/blog/secure-agentforce-with-trusted-services/",
+        "https://www.salesforce.com/agentforce/",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/model-invocation-logging.html",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/data-protection.html",
+        "https://docs.aws.amazon.com/bedrock/latest/userguide/geographic-cross-region-inference.html",
+        "https://docs.uipath.com/automation-ops/automation-cloud-dedicated/latest/user-guide/governance-intro",
+        "https://developers.openai.com/api/docs/guides/your-data",
+        "https://academy.openai.com/public/clubs/admins-6o6xf/resources/data-governance-and-compliance",
+        "https://csrc.nist.gov/pubs/sp/800/207/final",
+        "https://www.servicenow.com/products/ai-control-tower.html",
+        "https://www.servicenow.com/content/dam/servicenow-assets/public/en-us/doc-type/resource-center/solution-brief/sb-ai-control-tower.pdf",
+        "https://www.servicenow.com/ai/what-is-ai-governance.html",
+        "https://www.gartner.com/en/documents/4006024"
       ],
       "key_claims": []
     },

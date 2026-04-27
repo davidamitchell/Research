@@ -125,6 +125,106 @@
     "url": "/Research/threads/regulated-banking-agentic-ai-citizen-development.html"
   },
   {
+    "slug": "low-code-ai-governance-enterprise-governance",
+    "title": "low-code / ai-governance / enterprise-governance",
+    "kind": "implicit",
+    "tag_cluster": [
+      "low-code",
+      "ai-governance",
+      "enterprise-governance"
+    ],
+    "concept_cluster": [],
+    "item_count": 17,
+    "items": [
+      {
+        "slug": "2026-04-24-ai-agent-regulation-global-financial-services",
+        "title": "Global artificial intelligence agent regulation in financial services: non-functional requirement obligations and low-code citizen-development controls",
+        "added": "2026-04-24"
+      },
+      {
+        "slug": "2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment",
+        "title": "Regulatory and standards preconditions for deployment of Artificial Intelligence (AI) systems that can take multi-step actions: does incomplete access control and data governance constitute a control failure?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-ai-lowcode-regulatory-compliance-alignment",
+        "title": "How can enterprise Artificial Intelligence (AI) and low-code governance frameworks be aligned with regulatory and compliance requirements?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-vendor-platform-governance-constraints-compensating-controls",
+        "title": "What constraints do vendor platforms impose on governance, and how should enterprises design compensating controls for Artificial Intelligence (AI) and low-code systems?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-human-in-the-loop-ai-automated-workflows",
+        "title": "When and how should human intervention be incorporated into Artificial Intelligence (AI)-driven and automated workflows?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-data-governance-ai-lowcode-enterprise-enforcement",
+        "title": "How can enterprise data governance frameworks be consistently enforced within Artificial Intelligence (AI) and visual, minimal-code application environments?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-ai-lowcode-sdlc-platform-engineering-integration",
+        "title": "How should AI and low-code governance integrate with existing software development and platform engineering practices?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-ai-lowcode-risk-tier-classification-controls",
+        "title": "How should Artificial Intelligence (AI) and low-code use cases be classified into risk tiers, and how should governance controls vary across those tiers?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-ai-lowcode-observability-telemetry-governance",
+        "title": "What observability and telemetry model is required to govern Artificial Intelligence (AI) and low-code systems at scale?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-ai-lowcode-lifecycle-management",
+        "title": "What lifecycle management model is required for Artificial Intelligence (AI) models, prompts, and low-code applications?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-ai-lowcode-governance-maturity-model",
+        "title": "What maturity model best describes the evolution of governance capabilities for Artificial Intelligence (AI) and low-code in enterprises?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-ai-lowcode-governance-enforcement-architecture",
+        "title": "Where should governance enforcement points be implemented within enterprise architecture, and how should controls be applied consistently for AI and low-code systems?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-ai-lowcode-failure-modes-governance-mitigation",
+        "title": "What are the primary failure modes in enterprise Artificial Intelligence (AI) and low-code deployments, and how can governance systems be designed to mitigate them?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-ai-lowcode-decision-rights-accountability-liability",
+        "title": "How should decision rights, accountability, and liability be structured for Artificial Intelligence (AI) systems and low-code applications in enterprise environments?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-ai-governance-culture-incentives-behaviour",
+        "title": "How do organisational incentives, culture, and behaviour influence adherence to governance in AI and low-code environments?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-ai-governance-cost-performance-delivery-impact",
+        "title": "What is the cost, performance, and delivery impact of governance controls on AI and low-code development?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-ai-agent-control-plane-architecture-enterprise",
+        "title": "What control-plane architecture is required to manage Artificial Intelligence (AI) agents and low-code systems as distributed, semi-autonomous actors within enterprise environments?",
+        "added": "2026-04-26"
+      }
+    ],
+    "url": "/Research/threads/low-code-ai-governance-enterprise-governance.html"
+  },
+  {
     "slug": "agentic-ai-regulated-banking-citizen-development",
     "title": "agentic-ai / regulated-banking / citizen-development",
     "kind": "implicit",
@@ -223,101 +323,6 @@
       }
     ],
     "url": "/Research/threads/agentic-ai-regulated-banking-citizen-development.html"
-  },
-  {
-    "slug": "low-code-ai-governance-enterprise-governance",
-    "title": "low-code / ai-governance / enterprise-governance",
-    "kind": "implicit",
-    "tag_cluster": [
-      "low-code",
-      "ai-governance",
-      "enterprise-governance"
-    ],
-    "concept_cluster": [],
-    "item_count": 16,
-    "items": [
-      {
-        "slug": "2026-04-24-ai-agent-regulation-global-financial-services",
-        "title": "Global artificial intelligence agent regulation in financial services: non-functional requirement obligations and low-code citizen-development controls",
-        "added": "2026-04-24"
-      },
-      {
-        "slug": "2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment",
-        "title": "Regulatory and standards preconditions for deployment of Artificial Intelligence (AI) systems that can take multi-step actions: does incomplete access control and data governance constitute a control failure?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-ai-lowcode-regulatory-compliance-alignment",
-        "title": "How can enterprise Artificial Intelligence (AI) and low-code governance frameworks be aligned with regulatory and compliance requirements?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-human-in-the-loop-ai-automated-workflows",
-        "title": "When and how should human intervention be incorporated into Artificial Intelligence (AI)-driven and automated workflows?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-data-governance-ai-lowcode-enterprise-enforcement",
-        "title": "How can enterprise data governance frameworks be consistently enforced within Artificial Intelligence (AI) and visual, minimal-code application environments?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-ai-lowcode-sdlc-platform-engineering-integration",
-        "title": "How should AI and low-code governance integrate with existing software development and platform engineering practices?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-ai-lowcode-risk-tier-classification-controls",
-        "title": "How should Artificial Intelligence (AI) and low-code use cases be classified into risk tiers, and how should governance controls vary across those tiers?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-ai-lowcode-observability-telemetry-governance",
-        "title": "What observability and telemetry model is required to govern Artificial Intelligence (AI) and low-code systems at scale?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-ai-lowcode-lifecycle-management",
-        "title": "What lifecycle management model is required for Artificial Intelligence (AI) models, prompts, and low-code applications?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-ai-lowcode-governance-maturity-model",
-        "title": "What maturity model best describes the evolution of governance capabilities for Artificial Intelligence (AI) and low-code in enterprises?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-ai-lowcode-governance-enforcement-architecture",
-        "title": "Where should governance enforcement points be implemented within enterprise architecture, and how should controls be applied consistently for AI and low-code systems?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-ai-lowcode-failure-modes-governance-mitigation",
-        "title": "What are the primary failure modes in enterprise Artificial Intelligence (AI) and low-code deployments, and how can governance systems be designed to mitigate them?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-ai-lowcode-decision-rights-accountability-liability",
-        "title": "How should decision rights, accountability, and liability be structured for Artificial Intelligence (AI) systems and low-code applications in enterprise environments?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-ai-governance-culture-incentives-behaviour",
-        "title": "How do organisational incentives, culture, and behaviour influence adherence to governance in AI and low-code environments?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-ai-governance-cost-performance-delivery-impact",
-        "title": "What is the cost, performance, and delivery impact of governance controls on AI and low-code development?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-ai-agent-control-plane-architecture-enterprise",
-        "title": "What control-plane architecture is required to manage Artificial Intelligence (AI) agents and low-code systems as distributed, semi-autonomous actors within enterprise environments?",
-        "added": "2026-04-26"
-      }
-    ],
-    "url": "/Research/threads/low-code-ai-governance-enterprise-governance.html"
   },
   {
     "slug": "agents-agentic-systems-memory",
@@ -2575,14 +2580,14 @@
     "url": "/Research/threads/ai-productivity-team-size.html"
   },
   {
-    "slug": "cost-allocation-financial-services-tbm-council",
-    "title": "cost allocation / financial services / tbm council",
+    "slug": "cost-allocation-tbm-council-financial-services",
+    "title": "cost allocation / tbm council / financial services",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "cost allocation",
-      "financial services",
-      "tbm council"
+      "tbm council",
+      "financial services"
     ],
     "item_count": 5,
     "items": [
@@ -2612,16 +2617,16 @@
         "added": "2026-03-09"
       }
     ],
-    "url": "/Research/threads/cost-allocation-financial-services-tbm-council.html"
+    "url": "/Research/threads/cost-allocation-tbm-council-financial-services.html"
   },
   {
-    "slug": "copilot-coding-coding-agent-agents-md",
-    "title": "copilot coding / coding agent / agents md",
+    "slug": "coding-agent-copilot-coding-agents-md",
+    "title": "coding agent / copilot coding / agents md",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "copilot coding",
       "coding agent",
+      "copilot coding",
       "agents md"
     ],
     "item_count": 5,
@@ -2652,7 +2657,7 @@
         "added": "2026-03-29"
       }
     ],
-    "url": "/Research/threads/copilot-coding-coding-agent-agents-md.html"
+    "url": "/Research/threads/coding-agent-copilot-coding-agents-md.html"
   },
   {
     "slug": "evaluation-agents-research-loop",
@@ -2725,13 +2730,13 @@
     "url": "/Research/threads/youtube-transcripts-tooling.html"
   },
   {
-    "slug": "ai-rmf-nist-ai-apra-cps",
-    "title": "ai rmf / nist ai / apra cps",
+    "slug": "nist-ai-ai-rmf-apra-cps",
+    "title": "nist ai / ai rmf / apra cps",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "ai rmf",
       "nist ai",
+      "ai rmf",
       "apra cps"
     ],
     "item_count": 4,
@@ -2757,7 +2762,7 @@
         "added": "2026-04-26"
       }
     ],
-    "url": "/Research/threads/ai-rmf-nist-ai-apra-cps.html"
+    "url": "/Research/threads/nist-ai-ai-rmf-apra-cps.html"
   },
   {
     "slug": "agents-md-github-copilot-claude-code",
@@ -3185,14 +3190,14 @@
     "url": "/Research/threads/llm-context-window-mcp.html"
   },
   {
-    "slug": "ai-rmf-nist-ai-environment-separation",
-    "title": "ai rmf / nist ai / environment separation",
+    "slug": "nist-ai-ai-rmf-iso-iec",
+    "title": "nist ai / ai rmf / iso iec",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "ai rmf",
       "nist ai",
-      "environment separation"
+      "ai rmf",
+      "iso iec"
     ],
     "item_count": 3,
     "items": [
@@ -3212,17 +3217,17 @@
         "added": "2026-04-26"
       }
     ],
-    "url": "/Research/threads/ai-rmf-nist-ai-environment-separation.html"
+    "url": "/Research/threads/nist-ai-ai-rmf-iso-iec.html"
   },
   {
-    "slug": "ai-rmf-nist-ai-environment-separation",
-    "title": "ai rmf / nist ai / environment separation",
+    "slug": "nist-ai-ai-rmf-copilot-studio",
+    "title": "nist ai / ai rmf / copilot studio",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "ai rmf",
       "nist ai",
-      "environment separation"
+      "ai rmf",
+      "copilot studio"
     ],
     "item_count": 3,
     "items": [
@@ -3242,6 +3247,6 @@
         "added": "2026-04-26"
       }
     ],
-    "url": "/Research/threads/ai-rmf-nist-ai-environment-separation.html"
+    "url": "/Research/threads/nist-ai-ai-rmf-copilot-studio.html"
   }
 ]
