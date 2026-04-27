@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-04-27T11:05:58Z",
+  "extracted_at": "2026-04-27T11:36:03Z",
   "items": {
     "2026-04-27-uelgf-runtime-feedback-loop": {
       "named_concepts": [
@@ -461,6 +461,54 @@
         "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html",
         "https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html",
         "https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-risk-tier-classification-controls.html"
+      ],
+      "key_claims": []
+    },
+    "2026-04-27-out-of-band-policy-invalidation-remediation": {
+      "named_concepts": [
+        "external containment",
+        "eventual consistency",
+        "cia-high confidentiality",
+        "consistency-first invalidation",
+        "containment points",
+        "bounded eventual",
+        "policy state",
+        "layer regulatory",
+        "consequential operations",
+        "stale execution",
+        "minimum viable",
+        "viable kill-switch",
+        "online status",
+        "cached signed",
+        "restricted mode",
+        "bypassed assets",
+        "triggers map",
+        "fresh policy",
+        "uninterrupted service",
+        "regulatory triggers"
+      ],
+      "source_urls": [
+        "https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-24-business-led-low-code-agent-governance.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-access-control-amplification-agentic-operations.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-27-pdp-universal-policy-synchronisation-integrity.html",
+        "https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-01-backpressure-theory-of-constraints.html",
+        "https://www.comp.nus.edu.sg/~gilbert/pubs/BrewersConjecture-SigAct.pdf",
+        "https://sites.cs.ucsb.edu/~rich/class/cs293b-cloud/papers/brewer-cap.pdf",
+        "https://www.rfc-editor.org/rfc/rfc5280",
+        "https://www.rfc-editor.org/rfc/rfc6960",
+        "https://doi.org/10.6028/NIST.SP.800-53r5",
+        "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+        "https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/digital-operational-resilience-act-dora",
+        "https://eba.europa.eu/regulation-and-policy/single-rulebook/interactive-single-rulebook/17716",
+        "https://www.nist.gov/news-events/news/2026/01/caisi-issues-request-information-about-securing-ai-agent-systems",
+        "https://aws.amazon.com/blogs/security/four-security-principles-for-agentic-ai-systems/",
+        "https://docs.snowflake.com/en/user-guide/ocsp",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-human-in-the-loop-ai-automated-workflows.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-decommission-lifecycle.html"
       ],
       "key_claims": []
     },

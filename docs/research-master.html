@@ -640,7 +640,7 @@ main {
   </div>
   <div class="research-master-content item-content">
     <h1>Research Master Document</h1>
-<p>Generated on: 2026-04-27 10:50 UTC</p>
+<p>Generated on: 2026-04-27 11:25 UTC</p>
 <p><a id="2026-04-27-uelgf-runtime-feedback-loop-md"></a></p>
 <h2>Universal Entity Lifecycle Governance Framework (UELGF): runtime feedback loop, signal taxonomy, automated response taxonomy, feedback closure to the rail system, and feedback closure to the systems capability debt programme as a structured demand signal</h2>
 <p><strong>Tags:</strong> [uelgf, runtime-feedback, continuous-evaluation, observability, signal-aggregation, scope-drift, rail-improvement, systems-capability-debt, demand-signal, pep, pip, regulated-banking]</p>
@@ -1976,6 +1976,118 @@ main {
 <li>[fact; source: https://csrc.nist.gov/pubs/sp/800/162/final; https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html; https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-2/] Type: knowledge.</li>
 <li>[inference; source: https://profsandhu.com/infs767/infs767spring04/lbac-6pg.pdf; https://classpages.cselabs.umn.edu/Fall-2021/csci5271/papers/SRL2003-02.pdf; https://davidamitchell.github.io/Research/research/2026-04-26-access-control-amplification-agentic-operations.html] Description: a standards-compatible formal mapping from invariant metadata and CIA rating to lifecycle-aware enforcement topology, plus a worked high-risk example and PAP design criteria.</li>
 <li>[fact; source: https://csrc.nist.gov/pubs/sp/800/162/final; https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html; https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-2/] Links: https://csrc.nist.gov/pubs/sp/800/162/final ; https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html ; https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-2/</li>
+</ul>
+<hr />
+<hr />
+<p><a id="2026-04-27-out-of-band-policy-invalidation-remediation-md"></a></p>
+<h2>Out-of-band policy invalidation and remediation: consistency model for policy-authoring-to-policy-enforcement propagation and minimum viable kill-switch architecture</h2>
+<p><strong>Tags:</strong> [pbac, pap, pep, policy-invalidation, kill-switch, distributed-systems, cap-theorem, consistency-model, agentic-ai, cia-classification, operational-risk, lifecycle-governance]</p>
+<p><strong>Origin:</strong> https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-27-out-of-band-policy-invalidation-remediation.md</p>
+<h2>Research Question</h2>
+<p>What consistency model governs <a href="https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html">Policy Administration Point (PAP)</a>-to-<a href="https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html">Policy Enforcement Point (PEP)</a> policy propagation for assets already in Delivery or Operation, under what conditions does synchronous invalidation override eventual consistency guarantees, and what is the minimum viable kill-switch architecture that satisfies those conditions without producing a liveness failure in the operational system?</p>
+<h2>Findings</h2>
+<h3>Executive Summary</h3>
+<ul>
+<li>[inference; source: https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html; https://www.comp.nus.edu.sg/~gilbert/pubs/BrewersConjecture-SigAct.pdf; https://sites.cs.ucsb.edu/~rich/class/cs293b-cloud/papers/brewer-cap.pdf; https://www.rfc-editor.org/rfc/rfc6960] PAP-to-PEP invalidation for already-operating assets should default to bounded eventual consistency only for low-consequence changes, because partition-tolerant systems cannot guarantee both fresh policy state and uninterrupted service when revocation status is uncertain.</li>
+<li>[inference; source: https://doi.org/10.6028/NIST.SP.800-53r5; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/digital-operational-resilience-act-dora; https://davidamitchell.github.io/Research/research/2026-04-26-access-control-amplification-agentic-operations.html] Layer 1 regulatory triggers and CIA-High confidentiality or integrity failures should switch consequential operations to consistency-first invalidation, because stale execution in those cases conflicts with containment, integrity-restoration, and risk-management duties.</li>
+<li>[inference; source: https://www.rfc-editor.org/rfc/rfc5280; https://www.rfc-editor.org/rfc/rfc6960; https://aws.amazon.com/blogs/security/four-security-principles-for-agentic-ai-systems/; https://docs.snowflake.com/en/user-guide/ocsp] The minimum viable kill-switch is a signed revocation-certificate service with online status checks, cached signed revocation lists, external containment points outside the asset, and a restricted-mode grace path for medium-tier availability-sensitive services.</li>
+</ul>
+<h3>Key Findings</h3>
+<ol>
+<li>[inference; confidence: high; source: https://www.comp.nus.edu.sg/~gilbert/pubs/BrewersConjecture-SigAct.pdf; https://sites.cs.ucsb.edu/~rich/class/cs293b-cloud/papers/brewer-cap.pdf] Policy invalidation for operating assets is a partition-time decision, so any PAP-to-PEP design that promises both fresh global policy state and uninterrupted operation under communication failure is overstating what distributed systems can guarantee.</li>
+<li>[inference; confidence: high; source: https://doi.org/10.6028/NIST.SP.800-53r5; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/digital-operational-resilience-act-dora; https://davidamitchell.github.io/Research/research/2026-04-26-access-control-amplification-agentic-operations.html] Layer 1 regulatory triggers and CIA-High confidentiality or integrity breaks should force consistency-first invalidation for consequential operations, because stale execution defeats incident containment and integrity-restoration duties more seriously than temporary service denial.</li>
+<li>[inference; confidence: medium; source: https://www.rfc-editor.org/rfc/rfc5280; https://www.rfc-editor.org/rfc/rfc6960] The minimum viable kill-switch is a signed revocation-certificate system with both online status checking and cached signed list distribution, because the RFC revocation model pairs timely online answers with explicit freshness windows and offline survivability.</li>
+<li>[inference; confidence: medium; source: https://www.rfc-editor.org/rfc/rfc6960; https://docs.snowflake.com/en/user-guide/ocsp; https://davidamitchell.github.io/Research/research/2026-04-26-human-in-the-loop-ai-automated-workflows.html] PEP behavior should be tiered rather than universally fail-closed, with hard-stop treatment for high-consequence writes and external actions, and restricted mode plus human approval for medium-tier services that still need bounded continuity.</li>
+<li>[inference; confidence: medium; source: https://aws.amazon.com/blogs/security/four-security-principles-for-agentic-ai-systems/; https://www.nist.gov/news-events/news/2026/01/caisi-issues-request-information-about-securing-ai-agent-systems; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html] Non-cooperative or unreachable assets require external containment points such as identity revocation, secret rotation, gateway denial, scheduler pause, or channel unpublish, because an asset that ignores the kill instruction cannot be trusted to terminate itself.</li>
+<li>[inference; confidence: medium; source: https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis.html; https://davidamitchell.github.io/Research/research/2026-04-24-business-led-low-code-agent-governance.html; https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html; https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-decommission-lifecycle.html] Shadow IT, zombie agents, and pipeline-bypass assets make kill-switch reach probabilistic unless runtime inventory reconciliation already exists, because unknown or unregistered assets do not expose a dependable enforcement surface.</li>
+<li>[inference; confidence: medium; source: https://davidamitchell.github.io/Research/research/2026-04-01-backpressure-theory-of-constraints.html; https://sites.cs.ucsb.edu/~rich/class/cs293b-cloud/papers/brewer-cap.pdf; https://davidamitchell.github.io/Research/research/2026-04-26-human-in-the-loop-ai-automated-workflows.html] Synchronous invalidation is a deliberate throughput constraint, so its acceptable use depends on whether the harm from stale policy execution exceeds the cost of routing work through the revocation service and any associated human-review queue.</li>
+<li>[inference; confidence: medium; source: https://doi.org/10.6028/NIST.SP.800-53r5; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-decommission-lifecycle.html] Out-of-band invalidation should be operated as an incident-response and safe-decommission procedure, not as a best-effort administrative toggle, because the credible evidence chain includes detection, containment, remediation, phase-out, and post-event learning.</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>Source</th>
+<th>Confidence</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[inference] Partition-time invalidation cannot preserve both fresh policy state and uninterrupted service under communication failure.</td>
+<td>https://www.comp.nus.edu.sg/~gilbert/pubs/BrewersConjecture-SigAct.pdf<br>https://sites.cs.ucsb.edu/~rich/class/cs293b-cloud/papers/brewer-cap.pdf</td>
+<td>high</td>
+<td>primary CAP sources</td>
+</tr>
+<tr>
+<td>[inference] Regulatory and CIA-High confidentiality or integrity triggers should force consistency-first invalidation for consequential operations.</td>
+<td>https://doi.org/10.6028/NIST.SP.800-53r5<br>https://airc.nist.gov/airmf-resources/airmf/5-sec-core/<br>https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/digital-operational-resilience-act-dora<br>https://davidamitchell.github.io/Research/research/2026-04-26-access-control-amplification-agentic-operations.html</td>
+<td>high</td>
+<td>primary plus adjacent repository evidence</td>
+</tr>
+<tr>
+<td>[inference] Minimum viable kill-switch architecture requires signed online status plus cached signed list distribution.</td>
+<td>https://www.rfc-editor.org/rfc/rfc5280<br>https://www.rfc-editor.org/rfc/rfc6960</td>
+<td>medium</td>
+<td>primary revocation standards</td>
+</tr>
+<tr>
+<td>[inference] PEP behavior should be tiered across hard stop, restricted mode, and bounded eventual consistency.</td>
+<td>https://www.rfc-editor.org/rfc/rfc6960<br>https://docs.snowflake.com/en/user-guide/ocsp<br>https://davidamitchell.github.io/Research/research/2026-04-26-human-in-the-loop-ai-automated-workflows.html</td>
+<td>medium</td>
+<td>primary plus operating practice</td>
+</tr>
+<tr>
+<td>[inference] Non-cooperative assets require external containment points outside the asset itself.</td>
+<td>https://aws.amazon.com/blogs/security/four-security-principles-for-agentic-ai-systems/<br>https://www.nist.gov/news-events/news/2026/01/caisi-issues-request-information-about-securing-ai-agent-systems<br>https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html</td>
+<td>medium</td>
+<td>external controls focus</td>
+</tr>
+<tr>
+<td>[inference] Shadow and bypassed assets make kill-switch reach probabilistic without inventory reconciliation.</td>
+<td>https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis.html<br>https://davidamitchell.github.io/Research/research/2026-04-24-business-led-low-code-agent-governance.html<br>https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html<br>https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-decommission-lifecycle.html</td>
+<td>medium</td>
+<td>repository synthesis</td>
+</tr>
+<tr>
+<td>[inference] Synchronous invalidation is a deliberate throughput constraint whose cost must be justified by harm avoided.</td>
+<td>https://davidamitchell.github.io/Research/research/2026-04-01-backpressure-theory-of-constraints.html<br>https://sites.cs.ucsb.edu/~rich/class/cs293b-cloud/papers/brewer-cap.pdf<br>https://davidamitchell.github.io/Research/research/2026-04-26-human-in-the-loop-ai-automated-workflows.html</td>
+<td>medium</td>
+<td>systems-thinking synthesis</td>
+</tr>
+<tr>
+<td>[inference] Out-of-band invalidation should be run as incident response plus safe decommissioning, not as a best-effort admin action.</td>
+<td>https://doi.org/10.6028/NIST.SP.800-53r5<br>https://airc.nist.gov/airmf-resources/airmf/5-sec-core/<br>https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-decommission-lifecycle.html</td>
+<td>medium</td>
+<td>standards plus lifecycle analogue</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li>[assumption; source: https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html; https://davidamitchell.github.io/Research/research/2026-04-24-business-led-low-code-agent-governance.html; https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis.html] Most in-scope governed assets can be mapped to at least one machine identity, runtime, or platform control point. <strong>Justification:</strong> if that mapping does not exist, the organization has a discovery problem before it has a revocation-propagation problem.</li>
+<li>[assumption; source: https://docs.snowflake.com/en/user-guide/ocsp; https://davidamitchell.github.io/Research/research/2026-04-26-human-in-the-loop-ai-automated-workflows.html] Numeric freshness windows and reviewer response times must be locally parameterized. <strong>Justification:</strong> the evidence supports explicit freshness and bounded review, but it does not justify one universal timeout across all entities and risk classes.</li>
+</ul>
+<h3>Analysis</h3>
+<ul>
+<li>[inference; source: https://www.comp.nus.edu.sg/~gilbert/pubs/BrewersConjecture-SigAct.pdf; https://sites.cs.ucsb.edu/~rich/class/cs293b-cloud/papers/brewer-cap.pdf; https://www.rfc-editor.org/rfc/rfc5280; https://www.rfc-editor.org/rfc/rfc6960; https://doi.org/10.6028/NIST.SP.800-53r5] Evidence was weighted in three layers: CAP sources for what is impossible during partitions, RFC revocation sources for how freshness and status distribution are usually represented, and NIST or DORA sources for when stale execution becomes a control failure rather than a convenience issue.</li>
+<li>[inference; source: https://doi.org/10.6028/NIST.SP.800-53r5; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/digital-operational-resilience-act-dora] The regulatory sources do not specify one canonical kill-switch architecture, but they do make containment, integrity action, monitoring, and safe phase-out explicit duties, which narrows the acceptable design space to architectures that can prove freshness, containment, and auditability.</li>
+<li>[inference; source: https://www.rfc-editor.org/rfc/rfc5280; https://www.rfc-editor.org/rfc/rfc6960] The revocation-certificate minimum field set should include asset identifier, current or revoked policy digest, trigger class, revocation scope, <code>issued_at</code>, <code>invalidity_time</code>, <code>thisUpdate</code>, <code>nextUpdate</code>, replacement policy reference, required enforcement posture, and issuer signature, because those fields are the minimum needed to bind identity, freshness, reason, and action.</li>
+<li>[inference; source: https://www.comp.nus.edu.sg/~gilbert/pubs/BrewersConjecture-SigAct.pdf; https://sites.cs.ucsb.edu/~rich/class/cs293b-cloud/papers/brewer-cap.pdf; https://www.rfc-editor.org/rfc/rfc6960; https://docs.snowflake.com/en/user-guide/ocsp] The decision framework is therefore: Layer 1 regulatory or CIA-High confidentiality or integrity triggers map to consistency-first invalidation with no grace for consequential writes, egress, or external actuation; CIA-High availability-sensitive but reversible operations map to restricted mode plus human approval; CIA-Medium triggers map to bounded eventual consistency for non-expanding operations with mandatory refresh before consequential actions; CIA-Low operational triggers map to eventual consistency within the signed freshness budget.</li>
+<li>[inference; source: https://aws.amazon.com/blogs/security/four-security-principles-for-agentic-ai-systems/; https://www.nist.gov/news-events/news/2026/01/caisi-issues-request-information-about-securing-ai-agent-systems; https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-decommission-lifecycle.html] The incident protocol that follows from that framework is six-step: issue the signed revocation, distribute status through online and cached channels, deny new consequential actions at the PEP, trigger external containment against non-cooperative assets, reconcile runtime inventory for bypassed assets, and close the event through decommission or replacement plus lessons learned.</li>
+</ul>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>[fact; source: https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/digital-operational-resilience-act-dora; https://eba.europa.eu/regulation-and-policy/single-rulebook/interactive-single-rulebook/17716] The runtime did not expose detailed EUR-Lex article text, so DORA support in this item rests on official ESMA and EBA summary layers rather than line-level article extraction.</li>
+<li>[fact; source: https://www.rfc-editor.org/rfc/rfc5280; https://www.rfc-editor.org/rfc/rfc6960; https://docs.snowflake.com/en/user-guide/ocsp] The source base strongly supports freshness semantics and fail-open versus fail-close behavior, but it does not supply one universally accepted staleness budget for enterprise policy invalidation.</li>
+<li>[inference; source: https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis.html; https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-decommission-lifecycle.html] Reach remains the weakest part of the architecture, because unknown assets can only be contained indirectly, and the protocol's guarantees degrade to the quality of asset inventory and off-rail detection.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>[inference; source: https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-decommission-lifecycle.html; https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis.html] What measurable runtime-reconciliation standard is sufficient to claim that shadow and bypassed assets are discoverable enough for the kill-switch design to be relied upon?</li>
+<li>[inference; source: https://docs.snowflake.com/en/user-guide/ocsp; https://davidamitchell.github.io/Research/research/2026-04-26-human-in-the-loop-ai-automated-workflows.html] Which numeric freshness budgets and reviewer service levels should be set for each CIA class in this environment, given actual queueing and outage tolerances?</li>
+<li>[inference; source: https://aws.amazon.com/blogs/security/four-security-principles-for-agentic-ai-systems/; https://www.nist.gov/news-events/news/2026/01/caisi-issues-request-information-about-securing-ai-agent-systems] Which concrete external containment points, identity provider, network control plane, gateway, scheduler, low-code platform, are available in the target enterprise stack, and which assets remain outside all of them?</li>
 </ul>
 <hr />
 <hr />
