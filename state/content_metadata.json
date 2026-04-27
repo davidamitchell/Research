@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-04-27T12:08:57Z",
+  "extracted_at": "2026-04-27T12:28:37Z",
   "items": {
     "2026-04-27-uelgf-synthesis-complete-framework": {
       "named_concepts": [
@@ -1887,6 +1887,53 @@
         "https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-use-case-routing-frameworks.html",
         "https://davidamitchell.github.io/Research/research/2026-04-24-business-led-low-code-agent-governance.html",
         "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-platform-operating-models.html"
+      ],
+      "key_claims": []
+    },
+    "2026-04-26-ai-governance-cost-performance-delivery-impact": {
+      "named_concepts": [
+        "delivery drag",
+        "european commission",
+        "commission impact-assessment",
+        "impact-assessment figures",
+        "governance cost",
+        "ai governance",
+        "total expected",
+        "expected cost",
+        "directly readable",
+        "central guardrails",
+        "pure centralization",
+        "cost plus",
+        "single compliance",
+        "delivery throughput",
+        "surrounding workflow",
+        "economic model",
+        "local developer",
+        "developer productivity",
+        "still lowering",
+        "manual review"
+      ],
+      "source_urls": [
+        "https://dora.dev/research/2024/dora-report/",
+        "https://cloud.google.com/blog/products/devops-sre/announcing-the-2024-dora-report",
+        "https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report",
+        "https://cloud.google.com/resources/content/2025-dora-ai-capabilities-model-report",
+        "https://www.ibm.com/reports/data-breach",
+        "https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier",
+        "https://teamtopologies.com/key-concepts",
+        "https://cloud.google.com/resources/cloud-teams",
+        "https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-center-of-excellence/introduction.html",
+        "https://learn.microsoft.com/en-us/power-platform/guidance/coe/overview",
+        "https://learn.microsoft.com/en-us/power-platform/admin/managed-environment-overview",
+        "https://www.nist.gov/itl/ai-risk-management-framework",
+        "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+        "https://www.isaca.org/resources/isaca-journal/issues/2023/volume-2/the-potential-impact-of-the-european-commissions-proposed-ai-act-on-smes",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-governance-enforcement-architecture.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-lifecycle-management.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-sdlc-platform-engineering-integration.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-risk-tier-classification-controls.html",
         "https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-platform-operating-models.html"
       ],
       "key_claims": []
