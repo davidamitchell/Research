@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "Governance-as-moat thesis and prior research implications: how does the argument that governance is the durable value layer in Artificial Intelligence (AI)-augmented enterprise stacks validate, challenge, or extend the AI governance architecture frameworks developed in the prior research programme?"
 added: 2026-04-27T04:15:46+00:00
 status: reviewing
