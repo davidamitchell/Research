@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-04-27T13:28:16Z",
+  "extracted_at": "2026-04-27T13:44:06Z",
   "items": {
     "2026-04-27-uelgf-synthesis-complete-framework": {
       "named_concepts": [
@@ -350,6 +350,63 @@
         "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32017R0565",
         "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
         "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html"
+      ],
+      "key_claims": []
+    },
+    "2026-04-27-servicenow-orchestration-agentic-ai-roadmap": {
+      "named_concepts": [
+        "control tower",
+        "ai agent",
+        "ai control",
+        "exact slogan",
+        "legacy workflow",
+        "directionally supported",
+        "integration hub",
+        "servicenow already",
+        "cmdb relationships",
+        "ai agents",
+        "verified verbatim",
+        "agent orchestrator",
+        "orchestrator ai",
+        "agent studio",
+        "prebuilt agent",
+        "agent catalogs",
+        "fabric integration",
+        "integrationhub etl",
+        "etl position",
+        "position servicenow"
+      ],
+      "source_urls": [
+        "https://docs.servicenow.com/",
+        "https://investor.servicenow.com/news/news-details/2026/ServiceNow-Reports-First-Quarter-2026-Financial-Results/default.aspx",
+        "https://news.alphastreet.com/servicenow-inc-now-q1-2026-earnings-call-transcript/",
+        "https://www.fool.com/earnings/call-transcripts/2026/04/22/servicenow-now-q1-2026-earnings-transcript/",
+        "https://newsroom.servicenow.com/press-releases/details/2025/ServiceNow-announces-new-agentic-AI-innovations-to-autonomously-solve-the-most-complex-enterprise-challenges-01-29-2025-traffic/default.aspx",
+        "https://www.cio.com/article/3813359/servicenow-adds-ai-agent-orchestrator-studio-to-its-now-platform.html",
+        "https://newsroom.servicenow.com/press-releases/details/2025/ServiceNow-Launches-AI-Control-Tower-a-Centralized-Command-Center-to-Govern-Manage-Secure-and-Realize-Value-From-Any-AI-Agent-Model-and-Workflow/default.aspx",
+        "https://www.servicenow.com/community/admin-experience-blogs/introducing-the-servicenow-ai-control-tower-from-intelligent/ba-p/3261185",
+        "https://www.servicenow.com/community/workflow-data-fabric-articles/starter-guide-for-workflow-data-fabric/ta-p/3364887",
+        "https://www.servicenow.com/community/cmdb-articles/how-to-use-integrationhub-etl/ta-p/2300472",
+        "https://www.servicenow.com/community/now-assist-articles/enable-mcp-and-a2a-for-your-agentic-workflows-with-faqs-updated/ta-p/3373907",
+        "https://www.servicenow.com/community/ceg-ai-coe-articles/mcp-the-protocol-powering-agentic-ai/ta-p/3508887",
+        "https://www.bloomberg.com/news/videos/2026-04-23/ai-is-central-to-servicenow-platform-ceo-mcdermott-says-video",
+        "https://www.cxtoday.com/customer-analytics-intelligence/nvidia-ceo-servicenow-is-destined-to-be-the-best-platform-for-enterprise-ai-agents/",
+        "https://economictimes.indiatimes.com/tech/artificial-intelligence/servicenow-nvidia-expand-partnership-launch-new-ai-agent/articleshow/120999550.cms",
+        "https://www.youtube.com/watch?v=JH65uE9oEqs",
+        "https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=JH65uE9oEqs&format=json",
+        "https://davidamitchell.github.io/Research/research/2026-03-08-servicenow-platform-strategy.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-08-servicenow-ai-knowledge-rag-agents.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-platform-operating-models.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-access-control-amplification-agentic-operations.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-implicit-rate-limiting-controls-agentic-ai-removal.html",
+        "https://www.salesforce.com/agentforce/",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/generative-orchestration",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/architecture/multi-agent-patterns",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-logging-copilot-studio",
+        "https://docs.uipath.com/maestro/automation-cloud/latest/user-guide/introduction-to-maestro",
+        "https://www.uipath.com/platform/agentic-automation/agentic-orchestration"
       ],
       "key_claims": []
     },

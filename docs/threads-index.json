@@ -9,7 +9,7 @@
       "citizen-development"
     ],
     "concept_cluster": [],
-    "item_count": 21,
+    "item_count": 22,
     "items": [
       {
         "slug": "2026-04-24-business-led-low-code-agent-governance",
@@ -109,6 +109,11 @@
       {
         "slug": "2026-04-27-uelgf-decommission-lifecycle",
         "title": "Universal Entity Lifecycle Governance Framework (UELGF): decommission lifecycle, trigger taxonomy, procedural requirements by confidentiality, integrity, and availability (CIA) tier, ghost-entity detection and remediation, and the dependency-elimination trigger as the formal connection to systems capability debt",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-04-27-servicenow-orchestration-agentic-ai-roadmap",
+        "title": "ServiceNow workflow orchestration and agentic Artificial Intelligence (AI) roadmap: what does ServiceNow currently provide for AI agent orchestration and governance, and what does their public roadmap indicate about future agentic AI capabilities?",
         "added": "2026-04-27"
       },
       {
@@ -645,6 +650,146 @@
     "url": "/Research/threads/agentic-ai-regulated-banking-uelgf.html"
   },
   {
+    "slug": "servicenow-governance-enterprise-architecture",
+    "title": "servicenow / governance / enterprise-architecture",
+    "kind": "implicit",
+    "tag_cluster": [
+      "servicenow",
+      "governance",
+      "enterprise-architecture"
+    ],
+    "concept_cluster": [],
+    "item_count": 11,
+    "items": [
+      {
+        "slug": "2026-03-08-servicenow-csdm-data-modelling",
+        "title": "ServiceNow CSDM: Practical Data Modelling Across ITSM, APM, SPM, IRM, and FSO",
+        "added": "2026-03-08"
+      },
+      {
+        "slug": "2026-03-08-servicenow-platform-strategy",
+        "title": "ServiceNow Platform Strategy: Holistic Integration of CSDM, Modules, Process, and AI",
+        "added": "2026-03-09"
+      },
+      {
+        "slug": "2026-03-08-servicenow-process-mapping",
+        "title": "ServiceNow Process Mapping: Maintainable Process Documentation in SNOW",
+        "added": "2026-03-09"
+      },
+      {
+        "slug": "2026-04-22-historical-technology-adoption-enterprise-ai-capability-building",
+        "title": "Historical technology adoption patterns as analogues for enterprise Artificial Intelligence capability building",
+        "added": "2026-04-24"
+      },
+      {
+        "slug": "2026-04-26-policy-coherence-machine-checkable-prerequisite",
+        "title": "Policy coherence as a machine-checkable prerequisite: policy-as-code, formal specification, and invariant registries for regulated financial institutions deploying agentic Artificial Intelligence (AI)",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-permission-safe-rag-enterprise-information-architecture",
+        "title": "Permission-safe Retrieval-Augmented Generation (RAG) in enterprise information architectures: technical constraints, architectural options, and failure modes at scale",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-ai-agent-control-plane-architecture-enterprise",
+        "title": "What control-plane architecture is required to manage Artificial Intelligence (AI) agents and low-code systems as distributed, semi-autonomous actors within enterprise environments?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-27-uelgf-foundational-definitions-principles",
+        "title": "Universal Entity Lifecycle Governance Framework (UELGF): foundational definitions, formal principles, and the inseparability of governance and acceleration in the governed golden rail",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-04-27-servicenow-orchestration-agentic-ai-roadmap",
+        "title": "ServiceNow workflow orchestration and agentic Artificial Intelligence (AI) roadmap: what does ServiceNow currently provide for AI agent orchestration and governance, and what does their public roadmap indicate about future agentic AI capabilities?",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-04-27-governance-moat-prior-research-implications",
+        "title": "Governance-as-moat thesis and prior research implications: how does the argument that governance is the durable value layer in Artificial Intelligence (AI)-augmented enterprise stacks validate, challenge, or extend the AI governance architecture frameworks developed in the prior research programme?",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-04-27-enterprise-stack-value-distribution-governance-frameworks",
+        "title": "Enterprise data stack value-distribution frameworks: what frameworks - including the seven-layer stack and Software Repricing Matrix discussed in the April 2026 ServiceNow investment analysis - are most useful for understanding where durable value accumulates in enterprise technology stacks, especially at the governance layer?",
+        "added": "2026-04-27"
+      }
+    ],
+    "url": "/Research/threads/servicenow-governance-enterprise-architecture.html"
+  },
+  {
+    "slug": "agentic-ai-governance-servicenow",
+    "title": "agentic-ai / governance / servicenow",
+    "kind": "implicit",
+    "tag_cluster": [
+      "agentic-ai",
+      "governance",
+      "servicenow"
+    ],
+    "concept_cluster": [],
+    "item_count": 11,
+    "items": [
+      {
+        "slug": "2026-03-08-servicenow-csdm-data-modelling",
+        "title": "ServiceNow CSDM: Practical Data Modelling Across ITSM, APM, SPM, IRM, and FSO",
+        "added": "2026-03-08"
+      },
+      {
+        "slug": "2026-03-08-servicenow-platform-strategy",
+        "title": "ServiceNow Platform Strategy: Holistic Integration of CSDM, Modules, Process, and AI",
+        "added": "2026-03-09"
+      },
+      {
+        "slug": "2026-04-26-policy-coherence-machine-checkable-prerequisite",
+        "title": "Policy coherence as a machine-checkable prerequisite: policy-as-code, formal specification, and invariant registries for regulated financial institutions deploying agentic Artificial Intelligence (AI)",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-llm-verifiability-asymmetry-code-world-action",
+        "title": "What is the precise technical distinction between code generation and other Large Language Model outputs in terms of external verifiability, and what does this asymmetry imply for safe deployment boundaries in a regulated financial institution?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-lecun-critique-citizen-development-enterprise-risk",
+        "title": "What does synthesising LeCun's architectural critique of Large Language Models with systems capability debt and citizen development arguments produce as a unified risk framework for regulated financial institutions?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-27-uelgf-synthesis-complete-framework",
+        "title": "Universal Entity Lifecycle Governance Framework (UELGF): complete framework synthesis, formal specification suitable for adoption as an organisational standard in a regulated financial institution and presentation to a board risk committee",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-04-27-uelgf-foundational-definitions-principles",
+        "title": "Universal Entity Lifecycle Governance Framework (UELGF): foundational definitions, formal principles, and the inseparability of governance and acceleration in the governed golden rail",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-04-27-uelgf-entity-taxonomy-cia-classification",
+        "title": "Universal Entity Lifecycle Governance Framework (UELGF): canonical entity taxonomy and Confidentiality, Integrity, and Availability (CIA) classification system for determining governance intensity",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-04-27-governance-moat-prior-research-implications",
+        "title": "Governance-as-moat thesis and prior research implications: how does the argument that governance is the durable value layer in Artificial Intelligence (AI)-augmented enterprise stacks validate, challenge, or extend the AI governance architecture frameworks developed in the prior research programme?",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-04-27-servicenow-orchestration-agentic-ai-roadmap",
+        "title": "ServiceNow workflow orchestration and agentic Artificial Intelligence (AI) roadmap: what does ServiceNow currently provide for AI agent orchestration and governance, and what does their public roadmap indicate about future agentic AI capabilities?",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-04-27-enterprise-stack-value-distribution-governance-frameworks",
+        "title": "Enterprise data stack value-distribution frameworks: what frameworks - including the seven-layer stack and Software Repricing Matrix discussed in the April 2026 ServiceNow investment analysis - are most useful for understanding where durable value accumulates in enterprise technology stacks, especially at the governance layer?",
+        "added": "2026-04-27"
+      }
+    ],
+    "url": "/Research/threads/agentic-ai-governance-servicenow.html"
+  },
+  {
     "slug": "agentic-ai-regulated-banking-pbac",
     "title": "agentic-ai / regulated-banking / pbac",
     "kind": "implicit",
@@ -993,71 +1138,6 @@
       }
     ],
     "url": "/Research/threads/rag-knowledge-management-synthesis.html"
-  },
-  {
-    "slug": "agentic-ai-governance-servicenow",
-    "title": "agentic-ai / governance / servicenow",
-    "kind": "implicit",
-    "tag_cluster": [
-      "agentic-ai",
-      "governance",
-      "servicenow"
-    ],
-    "concept_cluster": [],
-    "item_count": 10,
-    "items": [
-      {
-        "slug": "2026-03-08-servicenow-csdm-data-modelling",
-        "title": "ServiceNow CSDM: Practical Data Modelling Across ITSM, APM, SPM, IRM, and FSO",
-        "added": "2026-03-08"
-      },
-      {
-        "slug": "2026-03-08-servicenow-platform-strategy",
-        "title": "ServiceNow Platform Strategy: Holistic Integration of CSDM, Modules, Process, and AI",
-        "added": "2026-03-09"
-      },
-      {
-        "slug": "2026-04-26-policy-coherence-machine-checkable-prerequisite",
-        "title": "Policy coherence as a machine-checkable prerequisite: policy-as-code, formal specification, and invariant registries for regulated financial institutions deploying agentic Artificial Intelligence (AI)",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-llm-verifiability-asymmetry-code-world-action",
-        "title": "What is the precise technical distinction between code generation and other Large Language Model outputs in terms of external verifiability, and what does this asymmetry imply for safe deployment boundaries in a regulated financial institution?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-lecun-critique-citizen-development-enterprise-risk",
-        "title": "What does synthesising LeCun's architectural critique of Large Language Models with systems capability debt and citizen development arguments produce as a unified risk framework for regulated financial institutions?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-27-uelgf-synthesis-complete-framework",
-        "title": "Universal Entity Lifecycle Governance Framework (UELGF): complete framework synthesis, formal specification suitable for adoption as an organisational standard in a regulated financial institution and presentation to a board risk committee",
-        "added": "2026-04-27"
-      },
-      {
-        "slug": "2026-04-27-uelgf-foundational-definitions-principles",
-        "title": "Universal Entity Lifecycle Governance Framework (UELGF): foundational definitions, formal principles, and the inseparability of governance and acceleration in the governed golden rail",
-        "added": "2026-04-27"
-      },
-      {
-        "slug": "2026-04-27-uelgf-entity-taxonomy-cia-classification",
-        "title": "Universal Entity Lifecycle Governance Framework (UELGF): canonical entity taxonomy and Confidentiality, Integrity, and Availability (CIA) classification system for determining governance intensity",
-        "added": "2026-04-27"
-      },
-      {
-        "slug": "2026-04-27-governance-moat-prior-research-implications",
-        "title": "Governance-as-moat thesis and prior research implications: how does the argument that governance is the durable value layer in Artificial Intelligence (AI)-augmented enterprise stacks validate, challenge, or extend the AI governance architecture frameworks developed in the prior research programme?",
-        "added": "2026-04-27"
-      },
-      {
-        "slug": "2026-04-27-enterprise-stack-value-distribution-governance-frameworks",
-        "title": "Enterprise data stack value-distribution frameworks: what frameworks - including the seven-layer stack and Software Repricing Matrix discussed in the April 2026 ServiceNow investment analysis - are most useful for understanding where durable value accumulates in enterprise technology stacks, especially at the governance layer?",
-        "added": "2026-04-27"
-      }
-    ],
-    "url": "/Research/threads/agentic-ai-governance-servicenow.html"
   },
   {
     "slug": "llm-reliability-hallucinations",
@@ -2085,56 +2165,6 @@
     "url": "/Research/threads/agents-agentic-systems-multi-agent.html"
   },
   {
-    "slug": "servicenow-enterprise-architecture-csdm",
-    "title": "servicenow / enterprise-architecture / csdm",
-    "kind": "implicit",
-    "tag_cluster": [
-      "servicenow",
-      "enterprise-architecture",
-      "csdm"
-    ],
-    "concept_cluster": [],
-    "item_count": 7,
-    "items": [
-      {
-        "slug": "2026-03-08-servicenow-csdm-data-modelling",
-        "title": "ServiceNow CSDM: Practical Data Modelling Across ITSM, APM, SPM, IRM, and FSO",
-        "added": "2026-03-08"
-      },
-      {
-        "slug": "2026-03-08-servicenow-platform-strategy",
-        "title": "ServiceNow Platform Strategy: Holistic Integration of CSDM, Modules, Process, and AI",
-        "added": "2026-03-09"
-      },
-      {
-        "slug": "2026-03-08-servicenow-ai-knowledge-rag-agents",
-        "title": "ServiceNow AI: Knowledge Management, RAG Pipelines, and Agent Frameworks",
-        "added": "2026-03-09"
-      },
-      {
-        "slug": "2026-03-08-servicenow-process-mapping",
-        "title": "ServiceNow Process Mapping: Maintainable Process Documentation in SNOW",
-        "added": "2026-03-09"
-      },
-      {
-        "slug": "2026-03-21-technology-capability-models",
-        "title": "Technology Capability Models: Survey, Comparison, and Recommendation for Multi-Level IT Capability Mapping",
-        "added": "2026-03-22"
-      },
-      {
-        "slug": "2026-04-27-governance-moat-prior-research-implications",
-        "title": "Governance-as-moat thesis and prior research implications: how does the argument that governance is the durable value layer in Artificial Intelligence (AI)-augmented enterprise stacks validate, challenge, or extend the AI governance architecture frameworks developed in the prior research programme?",
-        "added": "2026-04-27"
-      },
-      {
-        "slug": "2026-04-27-enterprise-stack-value-distribution-governance-frameworks",
-        "title": "Enterprise data stack value-distribution frameworks: what frameworks - including the seven-layer stack and Software Repricing Matrix discussed in the April 2026 ServiceNow investment analysis - are most useful for understanding where durable value accumulates in enterprise technology stacks, especially at the governance layer?",
-        "added": "2026-04-27"
-      }
-    ],
-    "url": "/Research/threads/servicenow-enterprise-architecture-csdm.html"
-  },
-  {
     "slug": "interface-delivery-rag",
     "title": "interface / delivery / rag",
     "kind": "implicit",
@@ -2580,14 +2610,14 @@
     "url": "/Research/threads/cost-allocation-tbm-council-financial-services.html"
   },
   {
-    "slug": "copilot-coding-coding-agent-agents-md",
-    "title": "copilot coding / coding agent / agents md",
+    "slug": "coding-agent-copilot-coding-github-copilot",
+    "title": "coding agent / copilot coding / github copilot",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "copilot coding",
       "coding agent",
-      "agents md"
+      "copilot coding",
+      "github copilot"
     ],
     "item_count": 5,
     "items": [
@@ -2617,7 +2647,7 @@
         "added": "2026-03-29"
       }
     ],
-    "url": "/Research/threads/copilot-coding-coding-agent-agents-md.html"
+    "url": "/Research/threads/coding-agent-copilot-coding-github-copilot.html"
   },
   {
     "slug": "evaluation-agents-research-loop",
@@ -2725,13 +2755,13 @@
     "url": "/Research/threads/ai-rmf-nist-ai-apra-cps.html"
   },
   {
-    "slug": "agents-md-github-copilot-claude-code",
-    "title": "agents md / github copilot / claude code",
+    "slug": "github-copilot-agents-md-claude-code",
+    "title": "github copilot / agents md / claude code",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "agents md",
       "github copilot",
+      "agents md",
       "claude code"
     ],
     "item_count": 4,
@@ -2757,7 +2787,7 @@
         "added": "2026-04-20"
       }
     ],
-    "url": "/Research/threads/agents-md-github-copilot-claude-code.html"
+    "url": "/Research/threads/github-copilot-agents-md-claude-code.html"
   },
   {
     "slug": "banking-architecture-financial-services",
@@ -2788,6 +2818,36 @@
       }
     ],
     "url": "/Research/threads/banking-architecture-financial-services.html"
+  },
+  {
+    "slug": "enterprise-architecture-csdm-servicenow",
+    "title": "enterprise-architecture / csdm / servicenow",
+    "kind": "implicit",
+    "tag_cluster": [
+      "enterprise-architecture",
+      "csdm",
+      "servicenow"
+    ],
+    "concept_cluster": [],
+    "item_count": 3,
+    "items": [
+      {
+        "slug": "2026-03-08-servicenow-csdm-data-modelling",
+        "title": "ServiceNow CSDM: Practical Data Modelling Across ITSM, APM, SPM, IRM, and FSO",
+        "added": "2026-03-08"
+      },
+      {
+        "slug": "2026-03-08-servicenow-platform-strategy",
+        "title": "ServiceNow Platform Strategy: Holistic Integration of CSDM, Modules, Process, and AI",
+        "added": "2026-03-09"
+      },
+      {
+        "slug": "2026-03-21-technology-capability-models",
+        "title": "Technology Capability Models: Survey, Comparison, and Recommendation for Multi-Level IT Capability Mapping",
+        "added": "2026-03-22"
+      }
+    ],
+    "url": "/Research/threads/enterprise-architecture-csdm-servicenow.html"
   },
   {
     "slug": "synthesis-exploration-decision-making",
