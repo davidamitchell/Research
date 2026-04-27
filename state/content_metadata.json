@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-04-27T01:38:41Z",
+  "extracted_at": "2026-04-27T02:03:41Z",
   "items": {
     "2026-04-26-systems-capability-debt-citizen-development-empirical-evidence": {
       "named_concepts": [
@@ -336,6 +336,48 @@
         "High confidence",
         "Medium confidence"
       ]
+    },
+    "2026-04-26-lecun-critique-citizen-development-enterprise-risk": {
+      "named_concepts": [
+        "regulated financial",
+        "architectural mismatch",
+        "llm agents",
+        "formal policy",
+        "deterministic external",
+        "autonomous action",
+        "financial institutions",
+        "compensating-control mix",
+        "strongly compounding",
+        "natural-language governance",
+        "policy specification",
+        "strongest evidenced",
+        "evidenced control",
+        "control pattern",
+        "bounded assistive",
+        "assistive tasks",
+        "external controls",
+        "citizen-developed llm",
+        "governance gap",
+        "predictive world"
+      ],
+      "source_urls": [
+        "https://openreview.net/forum?id=BZ5a1r-kVsf",
+        "https://www.gartner.com/en/information-technology/insights/low-code-development",
+        "https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier",
+        "https://www.anthropic.com/responsible-scaling-policy",
+        "https://www-cdn.anthropic.com/872c653b2d0501d6ab44cf87f43e1dc4853e4d37.pdf",
+        "https://owasp.org/www-project-top-10-for-large-language-model-applications/",
+        "https://genai.owasp.org/llm-top-10/",
+        "https://www.fca.org.uk/publications/discussion-papers/dp22-4-artificial-intelligence-and-machine-learning",
+        "https://www.bankofengland.co.uk/prudential-regulation/publication/2022/october/artificial-intelligence",
+        "https://www.cs.umd.edu/content/logic-based-access-control-policy-specification-and-management",
+        "https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html",
+        "https://www.scitepress.org/Papers/2025/133572/133572.pdf",
+        "https://aws.amazon.com/blogs/security/four-security-principles-for-agentic-ai-systems/",
+        "https://www.nist.gov/news-events/news/2026/01/caisi-issues-request-information-about-securing-ai-agent-systems",
+        "https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10"
+      ],
+      "key_claims": []
     },
     "2026-04-26-implicit-rate-limiting-controls-agentic-ai-removal": {
       "named_concepts": [

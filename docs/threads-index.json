@@ -260,6 +260,81 @@
     "url": "/Research/threads/low-code-ai-governance-enterprise-governance.html"
   },
   {
+    "slug": "agentic-ai-regulated-banking-citizen-development",
+    "title": "agentic-ai / regulated-banking / citizen-development",
+    "kind": "implicit",
+    "tag_cluster": [
+      "agentic-ai",
+      "regulated-banking",
+      "citizen-development"
+    ],
+    "concept_cluster": [],
+    "item_count": 12,
+    "items": [
+      {
+        "slug": "2026-04-24-business-led-low-code-agent-governance",
+        "title": "Business-led low-code agent governance: conditions for durable value versus fragmentation in regulated environments",
+        "added": "2026-04-24"
+      },
+      {
+        "slug": "2026-04-24-ai-agent-regulation-global-financial-services",
+        "title": "Global artificial intelligence agent regulation in financial services: non-functional requirement obligations and low-code citizen-development controls",
+        "added": "2026-04-24"
+      },
+      {
+        "slug": "2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment",
+        "title": "Regulatory and standards preconditions for deployment of Artificial Intelligence (AI) systems that can take multi-step actions: does incomplete access control and data governance constitute a control failure?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis",
+        "title": "Systems capability debt, citizen development, and agentic AI risk: is the causal chain and sequencing imperative a novel contribution?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-systems-capability-debt-citizen-development-empirical-evidence",
+        "title": "Systems capability debt as the root cause of citizen development: empirical evidence and effective governance architectures",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-policy-coherence-machine-checkable-prerequisite",
+        "title": "Policy coherence as a machine-checkable prerequisite: policy-as-code, formal specification, and invariant registries for regulated financial institutions deploying agentic Artificial Intelligence (AI)",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-permission-safe-rag-enterprise-information-architecture",
+        "title": "Permission-safe Retrieval-Augmented Generation (RAG) in enterprise information architectures: technical constraints, architectural options, and failure modes at scale",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-access-control-amplification-agentic-operations",
+        "title": "Access control amplification under agentic operations: whether existing frameworks address the worst-case permission inheritance problem",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-deployment-pipeline-citizen-development-governed-gate",
+        "title": "Deployment pipeline as the only enforceable control gate for citizen-developed agents: DevOps literature support, low-code platform hook points, and architectural enforceability",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-implicit-rate-limiting-controls-agentic-ai-removal",
+        "title": "Implicit rate-limiting controls removed by agentic Artificial Intelligence (AI): blast radius amplification and the operational risk literature gap",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-ai-lowcode-sdlc-platform-engineering-integration",
+        "title": "How should AI and low-code governance integrate with existing software development and platform engineering practices?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-lecun-critique-citizen-development-enterprise-risk",
+        "title": "What does synthesising LeCun's architectural critique of Large Language Models with systems capability debt and citizen development arguments produce as a unified risk framework for regulated financial institutions?",
+        "added": "2026-04-26"
+      }
+    ],
+    "url": "/Research/threads/agentic-ai-regulated-banking-citizen-development.html"
+  },
+  {
     "slug": "agentic-ai-regulated-banking-access-control",
     "title": "agentic-ai / regulated-banking / access-control",
     "kind": "implicit",
@@ -333,76 +408,6 @@
       }
     ],
     "url": "/Research/threads/agentic-ai-regulated-banking-access-control.html"
-  },
-  {
-    "slug": "regulated-banking-agentic-ai-citizen-development",
-    "title": "regulated-banking / agentic-ai / citizen-development",
-    "kind": "implicit",
-    "tag_cluster": [
-      "regulated-banking",
-      "agentic-ai",
-      "citizen-development"
-    ],
-    "concept_cluster": [],
-    "item_count": 11,
-    "items": [
-      {
-        "slug": "2026-04-24-business-led-low-code-agent-governance",
-        "title": "Business-led low-code agent governance: conditions for durable value versus fragmentation in regulated environments",
-        "added": "2026-04-24"
-      },
-      {
-        "slug": "2026-04-24-ai-agent-regulation-global-financial-services",
-        "title": "Global artificial intelligence agent regulation in financial services: non-functional requirement obligations and low-code citizen-development controls",
-        "added": "2026-04-24"
-      },
-      {
-        "slug": "2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment",
-        "title": "Regulatory and standards preconditions for deployment of Artificial Intelligence (AI) systems that can take multi-step actions: does incomplete access control and data governance constitute a control failure?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis",
-        "title": "Systems capability debt, citizen development, and agentic AI risk: is the causal chain and sequencing imperative a novel contribution?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-systems-capability-debt-citizen-development-empirical-evidence",
-        "title": "Systems capability debt as the root cause of citizen development: empirical evidence and effective governance architectures",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-policy-coherence-machine-checkable-prerequisite",
-        "title": "Policy coherence as a machine-checkable prerequisite: policy-as-code, formal specification, and invariant registries for regulated financial institutions deploying agentic Artificial Intelligence (AI)",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-permission-safe-rag-enterprise-information-architecture",
-        "title": "Permission-safe Retrieval-Augmented Generation (RAG) in enterprise information architectures: technical constraints, architectural options, and failure modes at scale",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-access-control-amplification-agentic-operations",
-        "title": "Access control amplification under agentic operations: whether existing frameworks address the worst-case permission inheritance problem",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-deployment-pipeline-citizen-development-governed-gate",
-        "title": "Deployment pipeline as the only enforceable control gate for citizen-developed agents: DevOps literature support, low-code platform hook points, and architectural enforceability",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-implicit-rate-limiting-controls-agentic-ai-removal",
-        "title": "Implicit rate-limiting controls removed by agentic Artificial Intelligence (AI): blast radius amplification and the operational risk literature gap",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-ai-lowcode-sdlc-platform-engineering-integration",
-        "title": "How should AI and low-code governance integrate with existing software development and platform engineering practices?",
-        "added": "2026-04-26"
-      }
-    ],
-    "url": "/Research/threads/regulated-banking-agentic-ai-citizen-development.html"
   },
   {
     "slug": "governance-financial-services-low-code",
@@ -2190,14 +2195,14 @@
     "url": "/Research/threads/cost-allocation-financial-services-tbm-council.html"
   },
   {
-    "slug": "coding-agent-copilot-coding-github-copilot",
-    "title": "coding agent / copilot coding / github copilot",
+    "slug": "coding-agent-copilot-coding-agents-md",
+    "title": "coding agent / copilot coding / agents md",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "coding agent",
       "copilot coding",
-      "github copilot"
+      "agents md"
     ],
     "item_count": 5,
     "items": [
@@ -2227,7 +2232,7 @@
         "added": "2026-03-29"
       }
     ],
-    "url": "/Research/threads/coding-agent-copilot-coding-github-copilot.html"
+    "url": "/Research/threads/coding-agent-copilot-coding-agents-md.html"
   },
   {
     "slug": "evaluation-agents-research-loop",
@@ -2300,13 +2305,13 @@
     "url": "/Research/threads/youtube-transcripts-tooling.html"
   },
   {
-    "slug": "ai-rmf-nist-ai-apra-cps",
-    "title": "ai rmf / nist ai / apra cps",
+    "slug": "nist-ai-ai-rmf-apra-cps",
+    "title": "nist ai / ai rmf / apra cps",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "ai rmf",
       "nist ai",
+      "ai rmf",
       "apra cps"
     ],
     "item_count": 4,
@@ -2332,7 +2337,7 @@
         "added": "2026-04-26"
       }
     ],
-    "url": "/Research/threads/ai-rmf-nist-ai-apra-cps.html"
+    "url": "/Research/threads/nist-ai-ai-rmf-apra-cps.html"
   },
   {
     "slug": "agents-md-github-copilot-claude-code",
