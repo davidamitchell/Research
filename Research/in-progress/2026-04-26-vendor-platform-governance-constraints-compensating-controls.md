@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "What constraints do vendor platforms impose on governance, and how should enterprises design compensating controls for Artificial Intelligence (AI) and low-code systems?"
 added: 2026-04-26T10:11:11+00:00
 status: reviewing
