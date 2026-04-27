@@ -1,5 +1,95 @@
 [
   {
+    "slug": "regulated-banking-agentic-ai-citizen-development",
+    "title": "regulated-banking / agentic-ai / citizen-development",
+    "kind": "implicit",
+    "tag_cluster": [
+      "regulated-banking",
+      "agentic-ai",
+      "citizen-development"
+    ],
+    "concept_cluster": [],
+    "item_count": 15,
+    "items": [
+      {
+        "slug": "2026-04-24-business-led-low-code-agent-governance",
+        "title": "Business-led low-code agent governance: conditions for durable value versus fragmentation in regulated environments",
+        "added": "2026-04-24"
+      },
+      {
+        "slug": "2026-04-24-ai-agent-regulation-global-financial-services",
+        "title": "Global artificial intelligence agent regulation in financial services: non-functional requirement obligations and low-code citizen-development controls",
+        "added": "2026-04-24"
+      },
+      {
+        "slug": "2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment",
+        "title": "Regulatory and standards preconditions for deployment of Artificial Intelligence (AI) systems that can take multi-step actions: does incomplete access control and data governance constitute a control failure?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis",
+        "title": "Systems capability debt, citizen development, and agentic AI risk: is the causal chain and sequencing imperative a novel contribution?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-systems-capability-debt-citizen-development-empirical-evidence",
+        "title": "Systems capability debt as the root cause of citizen development: empirical evidence and effective governance architectures",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-policy-coherence-machine-checkable-prerequisite",
+        "title": "Policy coherence as a machine-checkable prerequisite: policy-as-code, formal specification, and invariant registries for regulated financial institutions deploying agentic Artificial Intelligence (AI)",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-permission-safe-rag-enterprise-information-architecture",
+        "title": "Permission-safe Retrieval-Augmented Generation (RAG) in enterprise information architectures: technical constraints, architectural options, and failure modes at scale",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-access-control-amplification-agentic-operations",
+        "title": "Access control amplification under agentic operations: whether existing frameworks address the worst-case permission inheritance problem",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-deployment-pipeline-citizen-development-governed-gate",
+        "title": "Deployment pipeline as the only enforceable control gate for citizen-developed agents: DevOps literature support, low-code platform hook points, and architectural enforceability",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-implicit-rate-limiting-controls-agentic-ai-removal",
+        "title": "Implicit rate-limiting controls removed by agentic Artificial Intelligence (AI): blast radius amplification and the operational risk literature gap",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-lecun-critique-citizen-development-enterprise-risk",
+        "title": "What does synthesising LeCun's architectural critique of Large Language Models with systems capability debt and citizen development arguments produce as a unified risk framework for regulated financial institutions?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-27-uelgf-foundational-definitions-principles",
+        "title": "Universal Entity Lifecycle Governance Framework (UELGF): foundational definitions, formal principles, and the inseparability of governance and acceleration in the governed golden rail",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-04-27-uelgf-governed-golden-rails",
+        "title": "Universal Entity Lifecycle Governance Framework (UELGF): governed golden rail specifications: generative scaffold, persona-adapted interfaces, citizen development rails, and deviation handling",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-04-27-uelgf-entity-taxonomy-cia-classification",
+        "title": "Universal Entity Lifecycle Governance Framework (UELGF): canonical entity taxonomy and Confidentiality, Integrity, and Availability (CIA) classification system for determining governance intensity",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-04-27-uelgf-decommission-lifecycle",
+        "title": "Universal Entity Lifecycle Governance Framework (UELGF): decommission lifecycle, trigger taxonomy, procedural requirements by confidentiality, integrity, and availability (CIA) tier, ghost-entity detection and remediation, and the dependency-elimination trigger as the formal connection to systems capability debt",
+        "added": "2026-04-27"
+      }
+    ],
+    "url": "/Research/threads/regulated-banking-agentic-ai-citizen-development.html"
+  },
+  {
     "slug": "agents-agentic-systems-memory",
     "title": "agents / agentic-systems / memory",
     "kind": "implicit",
@@ -180,91 +270,6 @@
     "url": "/Research/threads/rag-agents-knowledge-management.html"
   },
   {
-    "slug": "regulated-banking-agentic-ai-citizen-development",
-    "title": "regulated-banking / agentic-ai / citizen-development",
-    "kind": "implicit",
-    "tag_cluster": [
-      "regulated-banking",
-      "agentic-ai",
-      "citizen-development"
-    ],
-    "concept_cluster": [],
-    "item_count": 14,
-    "items": [
-      {
-        "slug": "2026-04-24-business-led-low-code-agent-governance",
-        "title": "Business-led low-code agent governance: conditions for durable value versus fragmentation in regulated environments",
-        "added": "2026-04-24"
-      },
-      {
-        "slug": "2026-04-24-ai-agent-regulation-global-financial-services",
-        "title": "Global artificial intelligence agent regulation in financial services: non-functional requirement obligations and low-code citizen-development controls",
-        "added": "2026-04-24"
-      },
-      {
-        "slug": "2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment",
-        "title": "Regulatory and standards preconditions for deployment of Artificial Intelligence (AI) systems that can take multi-step actions: does incomplete access control and data governance constitute a control failure?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis",
-        "title": "Systems capability debt, citizen development, and agentic AI risk: is the causal chain and sequencing imperative a novel contribution?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-systems-capability-debt-citizen-development-empirical-evidence",
-        "title": "Systems capability debt as the root cause of citizen development: empirical evidence and effective governance architectures",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-policy-coherence-machine-checkable-prerequisite",
-        "title": "Policy coherence as a machine-checkable prerequisite: policy-as-code, formal specification, and invariant registries for regulated financial institutions deploying agentic Artificial Intelligence (AI)",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-permission-safe-rag-enterprise-information-architecture",
-        "title": "Permission-safe Retrieval-Augmented Generation (RAG) in enterprise information architectures: technical constraints, architectural options, and failure modes at scale",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-access-control-amplification-agentic-operations",
-        "title": "Access control amplification under agentic operations: whether existing frameworks address the worst-case permission inheritance problem",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-deployment-pipeline-citizen-development-governed-gate",
-        "title": "Deployment pipeline as the only enforceable control gate for citizen-developed agents: DevOps literature support, low-code platform hook points, and architectural enforceability",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-implicit-rate-limiting-controls-agentic-ai-removal",
-        "title": "Implicit rate-limiting controls removed by agentic Artificial Intelligence (AI): blast radius amplification and the operational risk literature gap",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-lecun-critique-citizen-development-enterprise-risk",
-        "title": "What does synthesising LeCun's architectural critique of Large Language Models with systems capability debt and citizen development arguments produce as a unified risk framework for regulated financial institutions?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-27-uelgf-foundational-definitions-principles",
-        "title": "Universal Entity Lifecycle Governance Framework (UELGF): foundational definitions, formal principles, and the inseparability of governance and acceleration in the governed golden rail",
-        "added": "2026-04-27"
-      },
-      {
-        "slug": "2026-04-27-uelgf-entity-taxonomy-cia-classification",
-        "title": "Universal Entity Lifecycle Governance Framework (UELGF): canonical entity taxonomy and Confidentiality, Integrity, and Availability (CIA) classification system for determining governance intensity",
-        "added": "2026-04-27"
-      },
-      {
-        "slug": "2026-04-27-uelgf-decommission-lifecycle",
-        "title": "Universal Entity Lifecycle Governance Framework (UELGF): decommission lifecycle, trigger taxonomy, procedural requirements by confidentiality, integrity, and availability (CIA) tier, ghost-entity detection and remediation, and the dependency-elimination trigger as the formal connection to systems capability debt",
-        "added": "2026-04-27"
-      }
-    ],
-    "url": "/Research/threads/regulated-banking-agentic-ai-citizen-development.html"
-  },
-  {
     "slug": "agentic-ai-regulated-banking-citizen-development",
     "title": "agentic-ai / regulated-banking / citizen-development",
     "kind": "implicit",
@@ -430,16 +435,16 @@
     "url": "/Research/threads/low-code-ai-governance-enterprise-governance.html"
   },
   {
-    "slug": "governance-financial-services-low-code",
-    "title": "governance / financial-services / low-code",
+    "slug": "governance-low-code-citizen-development",
+    "title": "governance / low-code / citizen-development",
     "kind": "implicit",
     "tag_cluster": [
       "governance",
-      "financial-services",
-      "low-code"
+      "low-code",
+      "citizen-development"
     ],
     "concept_cluster": [],
-    "item_count": 12,
+    "item_count": 13,
     "items": [
       {
         "slug": "2026-02-28-ai-strategy",
@@ -497,12 +502,17 @@
         "added": "2026-04-26"
       },
       {
+        "slug": "2026-04-27-uelgf-governed-golden-rails",
+        "title": "Universal Entity Lifecycle Governance Framework (UELGF): governed golden rail specifications: generative scaffold, persona-adapted interfaces, citizen development rails, and deviation handling",
+        "added": "2026-04-27"
+      },
+      {
         "slug": "2026-04-27-uelgf-foundational-definitions-principles",
         "title": "Universal Entity Lifecycle Governance Framework (UELGF): foundational definitions, formal principles, and the inseparability of governance and acceleration in the governed golden rail",
         "added": "2026-04-27"
       }
     ],
-    "url": "/Research/threads/governance-financial-services-low-code.html"
+    "url": "/Research/threads/governance-low-code-citizen-development.html"
   },
   {
     "slug": "skills-copilot-instructions",
@@ -2215,14 +2225,14 @@
     "url": "/Research/threads/cost-allocation-financial-services-tbm-council.html"
   },
   {
-    "slug": "coding-agent-copilot-coding-agents-md",
-    "title": "coding agent / copilot coding / agents md",
+    "slug": "copilot-coding-coding-agent-github-copilot",
+    "title": "copilot coding / coding agent / github copilot",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "coding agent",
       "copilot coding",
-      "agents md"
+      "coding agent",
+      "github copilot"
     ],
     "item_count": 5,
     "items": [
@@ -2252,7 +2262,7 @@
         "added": "2026-03-29"
       }
     ],
-    "url": "/Research/threads/coding-agent-copilot-coding-agents-md.html"
+    "url": "/Research/threads/copilot-coding-coding-agent-github-copilot.html"
   },
   {
     "slug": "llm-large-language-models-formal-verification",
@@ -2395,13 +2405,13 @@
     "url": "/Research/threads/nist-ai-ai-rmf-apra-cps.html"
   },
   {
-    "slug": "agents-md-github-copilot-claude-code",
-    "title": "agents md / github copilot / claude code",
+    "slug": "github-copilot-agents-md-claude-code",
+    "title": "github copilot / agents md / claude code",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "agents md",
       "github copilot",
+      "agents md",
       "claude code"
     ],
     "item_count": 4,
@@ -2427,7 +2437,7 @@
         "added": "2026-04-20"
       }
     ],
-    "url": "/Research/threads/agents-md-github-copilot-claude-code.html"
+    "url": "/Research/threads/github-copilot-agents-md-claude-code.html"
   },
   {
     "slug": "banking-architecture-financial-services",
