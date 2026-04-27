@@ -189,7 +189,7 @@
       "enterprise-governance"
     ],
     "concept_cluster": [],
-    "item_count": 12,
+    "item_count": 13,
     "items": [
       {
         "slug": "2026-04-24-ai-agent-regulation-global-financial-services",
@@ -204,6 +204,11 @@
       {
         "slug": "2026-04-26-ai-lowcode-regulatory-compliance-alignment",
         "title": "How can enterprise Artificial Intelligence (AI) and low-code governance frameworks be aligned with regulatory and compliance requirements?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-human-in-the-loop-ai-automated-workflows",
+        "title": "When and how should human intervention be incorporated into Artificial Intelligence (AI)-driven and automated workflows?",
         "added": "2026-04-26"
       },
       {
@@ -2185,14 +2190,14 @@
     "url": "/Research/threads/cost-allocation-financial-services-tbm-council.html"
   },
   {
-    "slug": "coding-agent-copilot-coding-agents-md",
-    "title": "coding agent / copilot coding / agents md",
+    "slug": "coding-agent-copilot-coding-github-copilot",
+    "title": "coding agent / copilot coding / github copilot",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "coding agent",
       "copilot coding",
-      "agents md"
+      "github copilot"
     ],
     "item_count": 5,
     "items": [
@@ -2222,7 +2227,7 @@
         "added": "2026-03-29"
       }
     ],
-    "url": "/Research/threads/coding-agent-copilot-coding-agents-md.html"
+    "url": "/Research/threads/coding-agent-copilot-coding-github-copilot.html"
   },
   {
     "slug": "evaluation-agents-research-loop",

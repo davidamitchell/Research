@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-04-27T01:25:37Z",
+  "extracted_at": "2026-04-27T01:38:41Z",
   "items": {
     "2026-04-26-systems-capability-debt-citizen-development-empirical-evidence": {
       "named_concepts": [
@@ -378,6 +378,53 @@
         "https://doi.org/10.1007/s10257-020-00472-6",
         "https://www.academia.edu/9093645/On_the_Emergence_of_Shadow_IT_A_Transaction_Cost_Based_Approach",
         "https://www.gartner.com/en/documents/3983454"
+      ],
+      "key_claims": []
+    },
+    "2026-04-26-human-in-the-loop-ai-automated-workflows": {
+      "named_concepts": [
+        "stop rights",
+        "reviewed sources",
+        "human intervention",
+        "critical-operation tolerance",
+        "safe degradation",
+        "default waiting",
+        "waiting behavior",
+        "real enforcement",
+        "reduce automation",
+        "automation bias",
+        "lower-risk workflows",
+        "humans retain",
+        "retain real",
+        "bounded operating",
+        "operating envelopes",
+        "review queues",
+        "response-time expectations",
+        "enforcement points",
+        "pre-approval review",
+        "review mode"
+      ],
+      "source_urls": [
+        "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai",
+        "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-14",
+        "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-26",
+        "https://gdpr-info.eu/art-22-gdpr/",
+        "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/individual-rights/individual-rights/rights-related-to-automated-decision-making-including-profiling/",
+        "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/guidance-on-ai-and-data-protection/how-do-we-ensure-fairness-in-ai/what-is-the-impact-of-article-22-of-the-uk-gdpr-on-fairness/",
+        "https://ico.org.uk/for-organisations/advice-and-services/audits/data-protection-audit-framework/toolkits/artificial-intelligence/human-review/",
+        "https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10",
+        "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+        "https://web.mit.edu/16.459/www/parasuraman.pdf",
+        "https://www.sciencedirect.com/science/article/abs/pii/S107158199990349X",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC3240751/",
+        "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2023.1118723/full",
+        "https://www.adalovelaceinstitute.org/report/keeping-an-eye-on-ai/",
+        "https://www.adalovelaceinstitute.org/report/new-rules-ai-regulation/",
+        "https://handbook.apra.gov.au/standard/cps-230",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-risk-tier-classification-controls.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-decision-rights-accountability-liability.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-governance-enforcement-architecture.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html"
       ],
       "key_claims": []
     },
