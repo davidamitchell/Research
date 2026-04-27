@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "Cryptographic preservation and runtime evaluation of original intent: a representation formalism for Getting Started phase intent that is simultaneously verifiable and semantically stable across the full operational lifecycle"
 added: 2026-04-27T00:55:35+00:00
 status: reviewing
