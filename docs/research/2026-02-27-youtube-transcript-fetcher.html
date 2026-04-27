@@ -655,7 +655,7 @@ main {
 <h3>Key Findings</h3>
 <ol>
 <li><code>src/fetchers/youtube.py</code> is implemented and passes all 18 tests (<code>pytest tests/test_fetchers_youtube.py</code>); the port is complete.</li>
-<li>Channel discovery uses the YouTube Atom feed (<code><a href="https://www.youtube.com/feeds/videos.xml?channel_id=&lt;id&gt;</code>">www.youtube.com</a> — no API key needed for feed-based discovery, unlike the companion repo which requires <code>YOUTUBE_API_KEY</code> for the search endpoint.</li>
+<li>Channel discovery uses the YouTube Atom feed (<code><a href="https://www.youtube.com/feeds/videos.xml?channel_id=&lt;id&gt">www.youtube.com</a></code>) — no API key needed for feed-based discovery, unlike the companion repo which requires <code>YOUTUBE_API_KEY</code> for the search endpoint.</li>
 <li>Single-video fetch uses <code>python -m src.main fetch youtube --video &lt;url&gt;</code> and accepts full YouTube URLs, <code>youtu.be</code> short URLs, or bare video IDs.</li>
 <li>The fetcher implements a three-tier fallback when transcripts are blocked: (1) <code>youtube-transcript-api</code>, (2) YouTube Data API v3 description (if <code>YOUTUBE_DATA_API</code> env var is set), (3) <code>og:description</code> meta tag scraped from the watch page.</li>
 <li>The CLI (<code>python -m src.main fetch youtube</code>) outputs transcript content to stdout; saving to <code>Research/transcripts/</code> is handled by the <code>fetch-transcript.yml</code> GitHub Actions workflow, which uses <code>yt-dlp</code> and commits the file to the repo.</li>
@@ -691,7 +691,7 @@ main {
 <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
 <ul>
 <li>[x] <code>davidamitchell/Latest-developments-/src/fetchers/youtube.py</code></li>
-<li>[x] <code>youtube-transcript-api</code> docs: <a href="https://github.com/jdepoix/youtube-transcript-api">github.com</a>
+<li>[x] <code>youtube-transcript-api</code> docs: <a href="https://github.com/jdepoix/youtube-transcript-api">x] `youtube-transcript-api` docs</a></li>
 <li>[x] Known issue: transcripts blocked on GitHub Actions cloud IPs — see Latest-developments- deferred backlog</li>
 </ul>
 

@@ -682,7 +682,7 @@ main {
 <p><strong>iOS Shortcuts has no native access to the iOS Keychain, so the PAT must be stored as a hardcoded text value in the Shortcut definition.</strong> The standard community practice is to store the token inline, keep the Shortcut private (not shared via iCloud link), and use a fine-grained PAT with minimal scope and a reasonable expiry (90–365 days).</p>
 </li>
 <li>
-<p><strong>The GitHub wiki quick-access shortcut is a single &quot;Open URLs&quot; action pointing to <code><a href="https://github.com/davidamitchell/Research/wiki/Home</code>">github.com</a> this is trivially implementable and adds Siri invocability over a plain Safari bookmark.</strong> The wiki is already published and maintained by the <code>publish-wiki.yml</code> workflow established in <code>2026-03-01-github-wiki-research-content.md</code>.</p>
+<p><strong>The GitHub wiki quick-access shortcut is a single &quot;Open URLs&quot; action pointing to <code><a href="https://github.com/davidamitchell/Research/wiki/Home">github.com</a></code>; this is trivially implementable and adds Siri invocability over a plain Safari bookmark.</strong> The wiki is already published and maintained by the <code>publish-wiki.yml</code> workflow established in <code>2026-03-01-github-wiki-research-content.md</code>.</p>
 </li>
 <li>
 <p><strong>GitHub Actions <code>workflow_dispatch</code> is triggerable from iOS Shortcuts using the same &quot;Get Contents of URL&quot; pattern as issue creation, with endpoint <code>POST /repos/{owner}/{repo}/actions/workflows/{workflow_file}/dispatches</code> and JSON body <code>{&quot;ref&quot;: &quot;main&quot;, &quot;inputs&quot;: {...}}</code>.</strong> This pattern is confirmed by the island94.org GitHub employee post and independently by theporteur.com.</p>
@@ -735,7 +735,7 @@ main {
 <li>[ ] <code>Research/backlog/2026-03-02-chat-conversational-interface.md</code> — query interface (dependency for query shortcut Option B)</li>
 <li>[<a href="https://docs.github.com/en/rest/repos/contents">x] GitHub REST API — Contents</a>: <a href="https://docs.github.com/en/rest/repos/contents">x] GitHub REST API — Contents</a> — <code>PUT</code> to create/update a file</li>
 <li>[<a href="https://docs.github.com/en/rest/issues/issues">x] GitHub REST API — Issues</a>: <a href="https://docs.github.com/en/rest/issues/issues">x] GitHub REST API — Issues</a> — <code>POST</code> to create an issue</li>
-<li>[<a href="https://docs.github.com/en/rest/actions/workflows#create-a-workflow-dispatch-event">x] GitHub REST API — Actions (workflow_dispatch)</a>: <a href="https://docs.github.com/en/rest/actions/workflows#create-a-workflow-dispatch-event">docs.github.com</a>
+<li>[<a href="https://docs.github.com/en/rest/actions/workflows#create-a-workflow-dispatch-event">x] GitHub REST API — Actions (workflow_dispatch)</a>: <a href="https://docs.github.com/en/rest/actions/workflows#create-a-workflow-dispatch-event">x] GitHub REST API — Actions (workflow_dispatch)</a></li>
 <li>[<a href="https://support.apple.com/guide/shortcuts/welcome/ios">x] Apple Shortcuts User Guide</a>: <a href="https://support.apple.com/guide/shortcuts/welcome/ios">x] Apple Shortcuts User Guide</a> — Share Sheet, Get URL, Get Contents of URL, Ask for Input, Show Notification</li>
 <li>[x] Apple Shortcuts — Get Contents of URL action: supports arbitrary HTTP methods and headers (suitable for GitHub API calls)</li>
 <li>[x] Community iOS Shortcut examples for GitHub API calls — island94.org, theporteur.com, Apple Community discussions</li>
