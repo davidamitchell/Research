@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-04-27T08:15:17Z",
+  "extracted_at": "2026-04-27T08:24:43Z",
   "items": {
     "2026-04-27-uelgf-runtime-feedback-loop": {
       "named_concepts": [
@@ -1756,6 +1756,51 @@
         "Medium confidence",
         "High confidence"
       ]
+    },
+    "2026-04-26-agentic-ai-foundational-conditions-dependency-ordering": {
+      "named_concepts": [
+        "information architecture",
+        "deployment pipeline",
+        "credential scoping",
+        "minimum bar",
+        "board test",
+        "delegated domain",
+        "machine identity",
+        "agent credential",
+        "permission-safe rag",
+        "safe agentic",
+        "agentic deployment",
+        "pipeline gate",
+        "lower layer",
+        "control failure",
+        "control objects",
+        "coherent policy",
+        "access representation",
+        "acting identity",
+        "lower-layer artefacts",
+        "maturity model"
+      ],
+      "source_urls": [
+        "https://davidamitchell.github.io/Research/research/2026-04-26-policy-coherence-machine-checkable-prerequisite.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-permission-safe-rag-enterprise-information-architecture.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-access-control-amplification-agentic-operations.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-implicit-rate-limiting-controls-agentic-ai-removal.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment.html",
+        "https://csrc.nist.gov/pubs/sp/800/207/final",
+        "https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10",
+        "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+        "https://www.nist.gov/itl/ai-risk-management-framework/nist-ai-rmf-playbook",
+        "https://www.iso.org/standard/81230.html",
+        "https://www.iso.org/home/insights-news/resources/iso-42001-explained-what-it-is.html",
+        "https://handbook.apra.gov.au/standard/cps-230",
+        "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32022R2554",
+        "https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/digital-operational-resilience-act-dora",
+        "https://www.sei.cmu.edu/library/capability-maturity-model-for-software-version-11/",
+        "https://sei.cmu.edu/library/key-practices-of-the-capability-maturity-model-version-11/"
+      ],
+      "key_claims": []
     },
     "2026-04-26-access-control-amplification-agentic-operations": {
       "named_concepts": [
