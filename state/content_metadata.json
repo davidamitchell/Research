@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-04-27T09:39:10Z",
+  "extracted_at": "2026-04-27T09:57:24Z",
   "items": {
     "2026-04-27-uelgf-runtime-feedback-loop": {
       "named_concepts": [
@@ -527,6 +527,51 @@
         "Medium confidence",
         "Medium-high confidence"
       ]
+    },
+    "2026-04-27-cryptographic-intent-preservation-runtime-evaluation": {
+      "named_concepts": [
+        "typed claims",
+        "reviewed alternatives",
+        "dual artefact",
+        "runtime evaluation",
+        "purpose classes",
+        "canonical runtime",
+        "runtime identity",
+        "original triple",
+        "authorised-capability-set authorised-data-scope",
+        "evaluation surface",
+        "bounded typed",
+        "legitimate lifecycle",
+        "lifecycle evolution",
+        "original intent",
+        "semantic stability",
+        "base declaration",
+        "policy decision",
+        "decision point",
+        "policy information",
+        "information point"
+      ],
+      "source_urls": [
+        "https://davidamitchell.github.io/Research/research/2026-03-14-organisational-intent-formal-specification.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-16-intent-driven-development.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-14-ricardian-contract-model.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-10-language-for-llm-agent-output.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-10-dikw-transformation-functions.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-10-formal-spec-intent-alignment-agentic-coding.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-27-pdp-universal-policy-synchronisation-integrity.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-27-pip-invariant-anomaly-detection.html",
+        "https://iang.org/papers/ricardian_contract.html",
+        "https://doi.org/10.6028/NIST.SP.800-53r5",
+        "https://csrc.nist.gov/pubs/sp/800/53/r5/final",
+        "https://csrc.nist.gov/pubs/sp/800/162/final",
+        "https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html",
+        "https://www.w3.org/TR/vc-data-model/",
+        "https://w3c-ccg.github.io/zcap-spec/",
+        "https://github.com/in-toto/attestation/blob/main/spec/v1/statement.md",
+        "https://github.com/in-toto/attestation/blob/main/spec/v1/resource_descriptor.md",
+        "https://slsa.dev/spec/v1.0/provenance"
+      ],
+      "key_claims": []
     },
     "2026-04-27-academic-post-publication-amendment-practices": {
       "named_concepts": [
