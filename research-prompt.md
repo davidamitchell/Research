@@ -277,6 +277,16 @@ easily-detectable issues.
     as direct support for downstream factual claims in Findings; either remove
     the citation, downgrade the claim, or mark the dependency as an assumption.
 
+2bb. **Synthesis-table audit** -- treat every table in `§6 Synthesis` and
+    `## Findings`, not just the Evidence Map, as claim-bearing content. If a
+    stage table, capability matrix, progression table, or assessment table
+    contains proposed thresholds or design judgments, each row must make the
+    epistemic status explicit, for example `[inference]` or `[assumption]`,
+    and each row must carry direct supporting sources in the row itself, not
+    only in surrounding prose. Do not leave synthesis tables as bare unlabeled
+    fragments, because review treats unlabeled table cells as unsupported
+    claims.
+
 2c. **No self-referential citations** -- do not cite "this file", "self-audit",
     "investigation record", or similar internal phrases as sources in `§0`,
     `§7`, or `## Findings`. Every cited claim must bind to a verifiable URL or

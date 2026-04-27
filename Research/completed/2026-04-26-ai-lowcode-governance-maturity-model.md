@@ -2,12 +2,12 @@
 review_count: 1
 title: "What maturity model best describes the evolution of governance capabilities for Artificial Intelligence (AI) and low-code in enterprises?"
 added: 2026-04-26T10:11:11+00:00
-status: reviewing
+status: completed
 priority: medium
 blocks: []
 tags: [maturity-model, ai-governance, low-code, enterprise-governance, capability-model, benchmarks, progression, assessment, regulated-enterprise]
 started: 2026-04-27T13:44:41+00:00
-completed: ~
+completed: 2026-04-27T14:14:19+00:00
 output: [knowledge]
 ---
 
