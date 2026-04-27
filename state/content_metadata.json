@@ -1,6 +1,54 @@
 {
-  "extracted_at": "2026-04-27T02:47:01Z",
+  "extracted_at": "2026-04-27T03:14:58Z",
   "items": {
+    "2026-04-27-pap-dynamic-policy-profiling-proportionality": {
+      "named_concepts": [
+        "getting started",
+        "stop-authority gates",
+        "hard gates",
+        "cia-high privileged",
+        "write-capable agents",
+        "highest-triggered-tier logic",
+        "incomparable invariants",
+        "existing abac",
+        "authorization decisions",
+        "lifecycle-topology derivation",
+        "problem remains",
+        "promotion runtime",
+        "runtime authorization",
+        "uniform gating",
+        "low-risk utilities",
+        "high-risk agents",
+        "reviewed material",
+        "material leaves",
+        "leaves lifecycle-topology",
+        "explicit standards"
+      ],
+      "source_urls": [
+        "https://csrc.nist.gov/pubs/sp/800/162/final",
+        "https://csrc.nist.gov/pubs/sp/800/53/r5/final",
+        "https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-2/",
+        "https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-3/",
+        "https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-6/",
+        "https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-16/",
+        "https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-24/",
+        "https://csrc.nist.gov/pubs/sp/800/207/final",
+        "https://csrc.nist.gov/glossary/term/Risk_Adaptive_Adaptable_Access_Control",
+        "https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html",
+        "https://profsandhu.com/infs767/infs767spring04/lbac-6pg.pdf",
+        "https://classpages.cselabs.umn.edu/Fall-2021/csci5271/papers/SRL2003-02.pdf",
+        "https://davidamitchell.github.io/Research/research/2026-03-15-context-layers-aligned-decisions-synthesis.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-16-adaptive-policy-authorization-compliance.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-access-control-amplification-agentic-operations.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-implicit-rate-limiting-controls-agentic-ai-removal.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-citizen-development-empirical-evidence.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-risk-tier-classification-controls.html"
+      ],
+      "key_claims": []
+    },
     "2026-04-26-systems-capability-debt-citizen-development-empirical-evidence": {
       "named_concepts": [
         "citizen development",

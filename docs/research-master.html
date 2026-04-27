@@ -638,7 +638,7 @@ main {
   </div>
   <div class="research-master-content item-content">
     <h1>Research Master Document</h1>
-<p>Generated on: 2026-04-27 02:26 UTC</p>
+<p>Generated on: 2026-04-27 02:46 UTC</p>
 <p><a id="2026-04-26-systems-capability-debt-citizen-development-empirical-evidence-md"></a></p>
 <h2>Systems capability debt as the root cause of citizen development: empirical evidence and effective governance architectures</h2>
 <p><strong>Tags:</strong> [systems-capability-debt, citizen-development, shadow-it, operational-risk, governance, regulated-banking, nz-rbnz, pci-dss, microsoft-365, aws-bedrock, empirical-evidence]</p>
@@ -1312,6 +1312,117 @@ main {
 <li>Should the repo add a dedicated backlog item on how enterprises should inventory, review, and retire Cowork custom skills when Microsoft does not yet expose clear first-party skill governance?</li>
 <li>What export and migration path exists for scheduled prompts, custom skills, and conversation metadata if an enterprise later moves away from Cowork?</li>
 <li>How should enterprises classify Cowork tasks that bridge multiple sensitivity zones, such as combining internal documents with customer-facing messaging, within a formal intake process?</li>
+</ul>
+<hr />
+<hr />
+<p><a id="2026-04-26-llm-verifiability-asymmetry-code-world-action-md"></a></p>
+<h2>What is the precise technical distinction between code generation and other Large Language Model outputs in terms of external verifiability, and what does this asymmetry imply for safe deployment boundaries in a regulated financial institution?</h2>
+<p><strong>Tags:</strong> [llm, large-language-models, verifiability, code-generation, formal-verification, external-verifiers, regulated-financial-services, deployment-boundary, agentic-ai, consequential-actions]</p>
+<p><strong>Origin:</strong> https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-llm-verifiability-asymmetry-code-world-action.md</p>
+<h2>Research Question</h2>
+<p>What is the precise technical distinction between code generation and other Large Language Model (LLM)-generated outputs in terms of external verifiability, specifically, that code operates in a formal system with deterministic external verifiers (compilers, type checkers, test suites, linters, formal proof assistants) that can confirm or refute correctness independently of the LLM's confidence, whereas world actions (updating records, triggering workflows, sending communications, making judgments about customer situations) have no equivalent external verifier and therefore produce outputs that are indistinguishable from correct outputs until consequence lands, and what does this asymmetry imply for the boundary between safe and unsafe LLM deployment in a regulated financial institution; specifically, does this asymmetry constitute a principled technical basis for the claim that Artificial Intelligence (AI)-assisted software engineering is the highest-confidence LLM deployment domain, while LLM-based agents taking consequential world actions are operating in a domain where errors are structurally undetectable before harm occurs?</p>
+<h2>Findings</h2>
+<p><em>(Populated from §6 Synthesis above.)</em></p>
+<h3>Executive Summary</h3>
+<p>[inference; source: https://gcc.gnu.org/onlinedocs/gcc-14.3.0/gcc/Warnings-and-Errors.html; https://www.typescriptlang.org/docs/handbook/2/basic-types.html; https://mypy.readthedocs.io/en/stable/getting_started.html; https://docs.astral.sh/ruff/; https://codeql.github.com/docs/codeql-overview/about-codeql/; https://www.microsoft.com/en-us/research/project/dafny-a-language-and-program-verifier-for-functional-correctness/; https://people.eecs.berkeley.edu/~sseshia/pubs/b2hd-seshia-atva18.html] The best-supported technical boundary is that LLM-assisted software engineering is the highest-confidence deployment domain only when generated artifacts are accepted through external verifier gates, while consequential world actions remain structurally lower-confidence because no comparable domain-complete pre-consequence verifier exists.
+[inference; source: https://arxiv.org/abs/2107.03374; https://arxiv.org/abs/2203.07814; https://github.blog/2022-09-07-research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/] Empirical code-generation benchmarks and studies evaluate outputs with external tests, program judges, or behavior-based tasks, which is consistent with accepting code through verifier-gated workflows rather than through model confidence alone.
+[inference; source: https://aclanthology.org/2024.naacl-long.366/; https://www.nature.com/articles/s42256-024-00976-7; https://www.bankofengland.co.uk/prudential-regulation/publication/2022/october/artificial-intelligence; https://www.bankofengland.co.uk/prudential-regulation/publication/2023/may/model-risk-management-principles-for-banks] Regulated financial institutions should therefore treat verifier-gated coding assistance as conditionally acceptable, but should require explicit human approval or deterministic non-LLM controls for consequential write actions and other impact-bearing decisions.
+[inference; source: https://www.microsoft.com/en-us/research/project/dafny-a-language-and-program-verifier-for-functional-correctness/; https://people.eecs.berkeley.edu/~sseshia/pubs/b2hd-seshia-atva18.html] This is not an absolute safety claim about code, because assurance still depends on specification quality, environment, and the exact verifier stack, but it is a principled asymmetry that explains why software engineering currently offers the strongest LLM deployment surface.</p>
+<h3>Key Findings</h3>
+<ol>
+<li>[inference; source: https://gcc.gnu.org/onlinedocs/gcc-14.3.0/gcc/Warnings-and-Errors.html; https://www.typescriptlang.org/docs/handbook/2/basic-types.html; https://mypy.readthedocs.io/en/stable/getting_started.html; https://docs.astral.sh/ruff/; https://codeql.github.com/docs/codeql-overview/about-codeql/; https://www.microsoft.com/en-us/research/project/dafny-a-language-and-program-verifier-for-functional-correctness/] <strong>Confidence: high.</strong> Code generation admits multiple independent verifier classes that can compute reproducible pre-release judgments over formal artifacts before software is accepted for release.</li>
+<li>[inference; source: https://gcc.gnu.org/onlinedocs/gcc-14.3.0/gcc/Warnings-and-Errors.html; https://www.typescriptlang.org/docs/handbook/2/basic-types.html; https://mypy.readthedocs.io/en/stable/getting_started.html; https://docs.astral.sh/ruff/; https://codeql.github.com/docs/codeql-overview/about-codeql/; https://www.microsoft.com/en-us/research/project/dafny-a-language-and-program-verifier-for-functional-correctness/; https://people.eecs.berkeley.edu/~sseshia/pubs/b2hd-seshia-atva18.html] <strong>Confidence: high.</strong> Code is only conditionally verifiable rather than absolutely verifiable, because every compiler, analyzer, test suite, or proof tool certifies only the specific properties represented in its rules or formal specification.</li>
+<li>[inference; source: https://arxiv.org/abs/2107.03374; https://arxiv.org/abs/2203.07814; https://github.blog/2022-09-07-research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/] <strong>Confidence: high.</strong> HumanEval, AlphaCode, and GitHub's controlled Copilot study all operationalize code quality through external tests or behavior-based evaluation, which shows that published code-generation performance is assessed through verifier-style gates rather than through model confidence alone.</li>
+<li>[inference; source: https://www.microsoft.com/en-us/research/project/dafny-a-language-and-program-verifier-for-functional-correctness/; https://people.eecs.berkeley.edu/~sseshia/pubs/b2hd-seshia-atva18.html] <strong>Confidence: high.</strong> Formal methods strengthen the case for software engineering as a comparatively safe LLM domain, but they also show that assurance collapses when the specification is incomplete, wrong, or unavailable.</li>
+<li>[inference; source: https://www.nist.gov/publications/towards-standard-identifying-and-managing-bias-artificial-intelligence; https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10; https://www.bankofengland.co.uk/prudential-regulation/publication/2022/october/artificial-intelligence] <strong>Confidence: medium.</strong> Database writes, workflow triggers, outbound communications, customer decisions, and compliance judgments lack domain-complete external verifiers because their correctness depends on open-world facts, authorization context, ambiguity, and downstream effects.</li>
+<li>[inference; source: https://aclanthology.org/2024.naacl-long.366/; https://www.nature.com/articles/s42256-024-00976-7] <strong>Confidence: high.</strong> LLM confidence cannot substitute for an external verifier in consequential domains because calibration remains imperfect and human users typically infer confidence from persuasive language rather than from the model's internal probabilities.</li>
+<li>[inference; source: https://www.bankofengland.co.uk/prudential-regulation/publication/2022/october/artificial-intelligence; https://www.bankofengland.co.uk/prudential-regulation/publication/2023/october/artificial-intelligence-and-machine-learning; https://www.bankofengland.co.uk/prudential-regulation/publication/2023/may/model-risk-management-principles-for-banks; https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10] <strong>Confidence: high.</strong> United Kingdom supervisory and NIST materials treat consequential AI primarily as a governance, monitoring, and model-risk problem, which is consistent with a domain where correctness cannot be mechanically certified before impact.</li>
+<li>[inference; source: https://arxiv.org/abs/2107.03374; https://arxiv.org/abs/2203.07814; https://www.bankofengland.co.uk/prudential-regulation/publication/2022/october/artificial-intelligence; https://davidamitchell.github.io/Research/research/2026-04-26-access-control-amplification-agentic-operations.html; https://davidamitchell.github.io/Research/research/2026-04-26-implicit-rate-limiting-controls-agentic-ai-removal.html; https://davidamitchell.github.io/Research/research/2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment.html] <strong>Confidence: medium.</strong> A regulated financial institution should place its default LLM deployment boundary at verifier-gated coding assistance and should require explicit human approval or deterministic non-LLM controls for consequential write actions.</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>Source</th>
+<th>Confidence</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[inference] Code generation admits independent verifier classes that can compute pre-release judgments over formal artifacts.</td>
+<td>https://gcc.gnu.org/onlinedocs/gcc-14.3.0/gcc/Warnings-and-Errors.html; https://www.typescriptlang.org/docs/handbook/2/basic-types.html; https://mypy.readthedocs.io/en/stable/getting_started.html; https://docs.astral.sh/ruff/; https://codeql.github.com/docs/codeql-overview/about-codeql/; https://www.microsoft.com/en-us/research/project/dafny-a-language-and-program-verifier-for-functional-correctness/</td>
+<td>high</td>
+<td>The claim is about the existence of verifier classes, not about universal code safety.</td>
+</tr>
+<tr>
+<td>[inference] Code remains only conditionally verifiable because each verifier checks only the properties encoded in its rules or specification.</td>
+<td>https://gcc.gnu.org/onlinedocs/gcc-14.3.0/gcc/Warnings-and-Errors.html; https://www.microsoft.com/en-us/research/project/dafny-a-language-and-program-verifier-for-functional-correctness/; https://people.eecs.berkeley.edu/~sseshia/pubs/b2hd-seshia-atva18.html</td>
+<td>high</td>
+<td>This resolves the apparent tension between strong and weak claims about code safety.</td>
+</tr>
+<tr>
+<td>[fact] Code-generation performance is operationalized through external tests, judges, and correctness suites.</td>
+<td>https://arxiv.org/abs/2107.03374; https://arxiv.org/abs/2203.07814; https://github.blog/2022-09-07-research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/</td>
+<td>high</td>
+<td>HumanEval uses unit tests, AlphaCode uses behavior-based filtering, and GitHub's study scored correctness with a test suite.</td>
+</tr>
+<tr>
+<td>[inference] Formal methods strengthen software-engineering assurance but expose the same specification bottleneck that limits verification in harder domains.</td>
+<td>https://www.microsoft.com/en-us/research/project/dafny-a-language-and-program-verifier-for-functional-correctness/; https://people.eecs.berkeley.edu/~sseshia/pubs/b2hd-seshia-atva18.html</td>
+<td>high</td>
+<td>The distinction is strongest where specifications are crisp and enforceable.</td>
+</tr>
+<tr>
+<td>[inference] Consequential world actions lack domain-complete external verifiers because correctness depends on open-world facts, ambiguity, and downstream effects.</td>
+<td>https://www.nist.gov/publications/towards-standard-identifying-and-managing-bias-artificial-intelligence; https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10; https://www.bankofengland.co.uk/prudential-regulation/publication/2022/october/artificial-intelligence</td>
+<td>medium</td>
+<td>Schema checks and authorization checks are partial, not domain-complete.</td>
+</tr>
+<tr>
+<td>[inference] LLM confidence is not an adequate release criterion for consequential actions.</td>
+<td>https://aclanthology.org/2024.naacl-long.366/; https://www.nature.com/articles/s42256-024-00976-7</td>
+<td>high</td>
+<td>Human users see language, not internal confidence, and calibration remains imperfect.</td>
+</tr>
+<tr>
+<td>[inference] Regulatory texts frame consequential AI as a governance and model-risk problem rather than a mechanically verified one.</td>
+<td>https://www.bankofengland.co.uk/prudential-regulation/publication/2022/october/artificial-intelligence; https://www.bankofengland.co.uk/prudential-regulation/publication/2023/october/artificial-intelligence-and-machine-learning; https://www.bankofengland.co.uk/prudential-regulation/publication/2023/may/model-risk-management-principles-for-banks; https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10</td>
+<td>high</td>
+<td>This aligns with the absence of decisive pre-consequence verifiers for world actions.</td>
+</tr>
+<tr>
+<td>[inference] The safe default deployment boundary in regulated finance is verifier-gated coding assistance, not autonomous consequential write action.</td>
+<td>https://arxiv.org/abs/2107.03374; https://arxiv.org/abs/2203.07814; https://www.bankofengland.co.uk/prudential-regulation/publication/2022/october/artificial-intelligence; https://davidamitchell.github.io/Research/research/2026-04-26-access-control-amplification-agentic-operations.html; https://davidamitchell.github.io/Research/research/2026-04-26-implicit-rate-limiting-controls-agentic-ai-removal.html; https://davidamitchell.github.io/Research/research/2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment.html</td>
+<td>medium</td>
+<td>Adjacent completed items sharpen the access, rate, and governance consequences once actions cross into the world.</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li>[assumption; source: https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10; https://davidamitchell.github.io/Research/research/2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment.html] <strong>Assumption:</strong> When a workflow mixes verifier-gated code production with consequential write actions, the overall deployment classification should follow the least verifiable consequential step. <strong>Justification:</strong> The reviewed governance evidence evaluates risk at the boundary where harm can occur, not at the most testable upstream artifact.</li>
+</ul>
+<h3>Analysis</h3>
+<ul>
+<li>[inference; source: https://arxiv.org/abs/2107.03374; https://arxiv.org/abs/2203.07814; https://www.microsoft.com/en-us/research/project/dafny-a-language-and-program-verifier-for-functional-correctness/] The evidence supports a layered view of code assurance, where compilers and type checkers provide low-cost syntactic and semantic rejection, tests and program judges provide behavioral rejection, and formal methods provide the strongest but most specification-dependent guarantees.</li>
+<li>[inference; source: https://people.eecs.berkeley.edu/~sseshia/pubs/b2hd-seshia-atva18.html; https://www.nist.gov/publications/towards-standard-identifying-and-managing-bias-artificial-intelligence] The decisive contrast with world actions is the specification bottleneck: enterprise actions embed ambiguity, policy, entitlement, and real-world context that institutions usually cannot reduce to complete machine-checkable contracts.</li>
+<li>[inference; source: https://aclanthology.org/2024.naacl-long.366/; https://www.nature.com/articles/s42256-024-00976-7] Confidence calibration evidence weakens any counterargument that internal model probabilities or fluent uncertainty language can stand in for external verification.</li>
+<li>[inference; source: https://www.bankofengland.co.uk/prudential-regulation/publication/2022/october/artificial-intelligence; https://www.bankofengland.co.uk/prudential-regulation/publication/2023/may/model-risk-management-principles-for-banks; https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10] The regulatory material does not prove the technical asymmetry directly, but it fits it closely: where pre-consequence verification is weak, firms are expected to compensate with governance, monitoring, accountability, and human challenge rather than with automated acceptance.</li>
+</ul>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>[fact; source: https://github.blog/2022-09-07-research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/] The GitHub Copilot study is strongest on productivity under a test-gated task and weaker on long-run defect rates or production incident rates.</li>
+<li>[fact; source: https://people.eecs.berkeley.edu/~sseshia/pubs/b2hd-seshia-atva18.html] The neural-network verification source is about formal specification limits rather than about LLM world-action agents specifically, so part of the asymmetry argument remains an inference from specification theory.</li>
+<li>[inference; source: https://www.nist.gov/publications/towards-standard-identifying-and-managing-bias-artificial-intelligence; https://www.bankofengland.co.uk/prudential-regulation/publication/2022/october/artificial-intelligence] Some narrow world actions may admit partial machine-checkable contracts, such as field-level validation, deterministic policy rules, or dual-control approval gates, so &quot;unverifiable&quot; here means &quot;not domain-completely externally verifiable&quot; rather than &quot;completely unconstrained.&quot;</li>
+<li>[inference; source: https://aclanthology.org/2024.naacl-long.366/; https://www.nature.com/articles/s42256-024-00976-7] Calibration research is evolving, and future models may express uncertainty better than current ones, but that would still not by itself solve the open-world oracle problem for consequential actions.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>[inference; source: https://people.eecs.berkeley.edu/~sseshia/pubs/b2hd-seshia-atva18.html] Which regulated workflow classes can realistically be reduced to machine-checkable contracts strong enough to create a narrow external verifier for a consequential step?</li>
+<li>[inference; source: https://www.microsoft.com/en-us/research/project/dafny-a-language-and-program-verifier-for-functional-correctness/] What minimum verifier stack, compilation, type-checking, testing, static analysis, human review, and rollback, is sufficient for regulated institutions to classify AI-assisted software engineering as operationally acceptable?</li>
+<li>[inference; source: https://www.bankofengland.co.uk/prudential-regulation/publication/2022/october/artificial-intelligence; https://www.bankofengland.co.uk/prudential-regulation/publication/2023/may/model-risk-management-principles-for-banks] How should a firm evidence to supervisors that a mixed workflow's consequential step is still human-controlled when upstream drafting or coding was LLM-assisted?</li>
 </ul>
 <hr />
 <hr />
