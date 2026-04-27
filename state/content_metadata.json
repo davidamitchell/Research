@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-04-27T02:03:41Z",
+  "extracted_at": "2026-04-27T02:26:37Z",
   "items": {
     "2026-04-26-systems-capability-debt-citizen-development-empirical-evidence": {
       "named_concepts": [
@@ -336,6 +336,45 @@
         "High confidence",
         "Medium confidence"
       ]
+    },
+    "2026-04-26-lecun-llm-critique-primary-sources": {
+      "named_concepts": [
+        "positive boundary",
+        "predictive world",
+        "world model",
+        "cannot predict",
+        "boundary around",
+        "formal systems",
+        "external verifiers",
+        "fully accessible",
+        "common sense",
+        "positive claim",
+        "world action",
+        "autonomous intelligence",
+        "evaluate imagined",
+        "tokenized generative",
+        "generative models",
+        "goal-directed search",
+        "brown lecture",
+        "around formal",
+        "recoverable here",
+        "world models"
+      ],
+      "source_urls": [
+        "https://openreview.net/forum?id=BZ5a1r-kVsf",
+        "https://openreview.net/pdf?id=BZ5a1r-kVsf",
+        "https://www.brown.edu/news/2026-04-01/yann-lecun-artificial-intelligence-pioneer",
+        "https://lemley-lecture.brown.edu/past-lecture/2026-lemley-lecture-featuring-ai-pioneer-yann-lecun",
+        "https://livestream.brown.edu/lemley",
+        "https://www.youtube.com/watch?v=ZbrfvMLZZK4",
+        "https://podcasts.apple.com/us/podcast/why-cant-ai-make-its-own-discoveries-with-yann-lecun/id1522960417?i=1000699824574",
+        "https://open.spotify.com/episode/2mOKCpKSUdaLkFPz8Shgbp",
+        "https://www.youtube.com/watch?v=8sS9UJzb_t4",
+        "https://pioneerworks.org/broadcast/video/ai-yann-lecun-adam-brown",
+        "https://www.youtube.com/watch?v=ykfQD1_WPBQ",
+        "https://www.youtube.com/watch?v=EIo1YKEUac4"
+      ],
+      "key_claims": []
     },
     "2026-04-26-lecun-critique-citizen-development-enterprise-risk": {
       "named_concepts": [
