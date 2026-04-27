@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-04-27T12:45:10Z",
+  "extracted_at": "2026-04-27T13:07:07Z",
   "items": {
     "2026-04-27-uelgf-synthesis-complete-framework": {
       "named_concepts": [
@@ -1888,6 +1888,57 @@
         "https://davidamitchell.github.io/Research/research/2026-04-24-business-led-low-code-agent-governance.html",
         "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html",
         "https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-platform-operating-models.html"
+      ],
+      "key_claims": []
+    },
+    "2026-04-26-ai-governance-culture-incentives-behaviour": {
+      "named_concepts": [
+        "covert shadow",
+        "shadow behaviour",
+        "systematic review",
+        "sanctioned path",
+        "weak awareness",
+        "delivery pressure",
+        "durable compliance",
+        "sanctioned self-service",
+        "self-service inside",
+        "inside visible",
+        "visible guardrails",
+        "confidence shadow",
+        "low-code circumvention",
+        "driven primarily",
+        "unmet delivery",
+        "delivery demand",
+        "demand poor",
+        "poor business-it",
+        "business-it alignment",
+        "slow sanctioned"
+      ],
+      "source_urls": [
+        "https://www.gartner.com/en/documents",
+        "https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai-2024",
+        "https://link.springer.com/article/10.1007/s00779-004-0308-5",
+        "https://aisel.aisnet.org/misq/vol34/iss3/7/",
+        "https://www.jmis-web.org/articles/927",
+        "https://jitm.ubalt.edu/XXX-4/article1.pdf",
+        "https://www.sciencesphere.org/ijispm/archive/ijispm-070102.pdf",
+        "https://d-nb.info/1270139835/34",
+        "https://www.ibm.com/think/insights/rising-ai-adoption-creating-shadow-risks",
+        "https://www.ibm.com/think/topics/shadow-ai",
+        "https://www.cyberhaven.com/blog/shadow-ai-how-employees-are-leading-the-charge-in-ai-adoption-and-putting-company-data-at-risk",
+        "https://www.ibm.com/reports/data-breach",
+        "https://cloud.google.com/blog/products/devops-sre/announcing-the-2024-dora-report",
+        "https://cloud.google.com/resources/content/2025-dora-ai-capabilities-model-report",
+        "https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report",
+        "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+        "https://www.nist.gov/itl/ai-risk-management-framework/nist-ai-rmf-playbook",
+        "https://learn.microsoft.com/en-us/power-platform/guidance/coe/overview",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-data-loss-prevention",
+        "https://davidamitchell.github.io/Research/research/2026-04-24-business-led-low-code-agent-governance.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-governance-cost-performance-delivery-impact.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-citizen-development-empirical-evidence.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-decision-rights-accountability-liability.html"
       ],
       "key_claims": []
     },
