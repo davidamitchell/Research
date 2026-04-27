@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "What is the strongest evidence-based argument that investing in software engineering capability rather than citizen development tooling is simultaneously the correct response to systems capability debt and the correct way to capture genuine Large Language Model value in a regulated financial institution?"
 added: 2026-04-26T18:31:29+00:00
 status: reviewing
