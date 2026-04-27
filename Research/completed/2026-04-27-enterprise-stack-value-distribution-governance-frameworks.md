@@ -2,12 +2,12 @@
 review_count: 2
 title: "Enterprise data stack value-distribution frameworks: what frameworks - including the seven-layer stack and Software Repricing Matrix discussed in the April 2026 ServiceNow investment analysis - are most useful for understanding where durable value accumulates in enterprise technology stacks, especially at the governance layer?"
 added: 2026-04-27T04:15:46+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: [2026-04-27-governance-moat-prior-research-implications]
 tags: [enterprise-architecture, value-distribution, governance, seven-layer-stack, software-repricing-matrix, terminal-value, servicenow, snowflake, palantir, uipath, ai-commoditisation, investment-frameworks, platform-strategy]
 started: 2026-04-27T05:14:37+00:00
-completed: ~
+completed: 2026-04-27T05:33:14+00:00
 output: [knowledge]
 ---
 
