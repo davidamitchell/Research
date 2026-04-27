@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-04-27T10:16:49Z",
+  "extracted_at": "2026-04-27T10:50:11Z",
   "items": {
     "2026-04-27-uelgf-runtime-feedback-loop": {
       "named_concepts": [
@@ -463,6 +463,61 @@
         "https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-risk-tier-classification-controls.html"
       ],
       "key_claims": []
+    },
+    "2026-04-27-governance-moat-prior-research-implications": {
+      "named_concepts": [
+        "pap pdp",
+        "pdp pep",
+        "coherent digest-bound",
+        "governance architecture",
+        "platform product",
+        "policy coherence",
+        "governance layer",
+        "historical process",
+        "workaround demand",
+        "control surfaces",
+        "governance-as-moat thesis",
+        "machine-enforced execution",
+        "execution layer",
+        "becomes durable",
+        "regulated financial",
+        "financial institution",
+        "fund governance",
+        "durable governance",
+        "proprietary workflow",
+        "workflow depth"
+      ],
+      "source_urls": [
+        "https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=JH65uE9oEqs&format=json",
+        "https://www.youtube.com/watch?v=JH65uE9oEqs",
+        "https://www.leoniscap.com/research/openclaw-(aka-clawdbot",
+        "https://finance.yahoo.com/markets/stocks/articles/servicenow-inc-q1-2026-earnings-001811104.html",
+        "https://istio.io/latest/docs/ops/deployment/architecture/",
+        "https://davidamitchell.github.io/Research/research/2026-04-27-enterprise-stack-value-distribution-governance-frameworks.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-foundational-definitions-principles.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-governed-golden-rails.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-entity-taxonomy-cia-classification.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-policy-architecture-8-layer-context.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-27-pap-dynamic-policy-profiling-proportionality.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-27-pdp-universal-policy-synchronisation-integrity.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-decision-rights-accountability-liability.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-human-in-the-loop-ai-automated-workflows.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-access-control-amplification-agentic-operations.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-policy-coherence-machine-checkable-prerequisite.html"
+      ],
+      "key_claims": [
+        "High confidence",
+        "Medium confidence",
+        "Medium confidence",
+        "Medium confidence",
+        "Medium confidence",
+        "Medium confidence",
+        "Medium confidence",
+        "Medium confidence"
+      ]
     },
     "2026-04-27-enterprise-stack-value-distribution-governance-frameworks": {
       "named_concepts": [
