@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Out-of-band policy invalidation and remediation: consistency model for policy-authoring-to-policy-enforcement propagation and minimum viable kill-switch architecture"
 added: 2026-04-27T00:55:35+00:00
 status: reviewing
