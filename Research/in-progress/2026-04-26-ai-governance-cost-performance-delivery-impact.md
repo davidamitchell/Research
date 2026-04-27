@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "What is the cost, performance, and delivery impact of governance controls on AI and low-code development?"
 added: 2026-04-26T10:11:11+00:00
 status: reviewing
