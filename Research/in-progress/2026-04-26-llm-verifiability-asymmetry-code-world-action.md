@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "What is the precise technical distinction between code generation and other Large Language Model outputs in terms of external verifiability, and what does this asymmetry imply for safe deployment boundaries in a regulated financial institution?"
 added: 2026-04-26T18:31:29+00:00
 status: reviewing
