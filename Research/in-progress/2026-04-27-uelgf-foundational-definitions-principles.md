@@ -280,10 +280,10 @@ What are the foundational definitions, formal principles, and architectural prop
 
 ### §7 Recursive Review
 
-- Review outcome: all claims in the Research Skill Output are labeled as fact, inference, or assumption, and external claims are bound to web-backed sources.
-- Review outcome: abbreviation first-use checks were applied for UELGF, Zero Trust Architecture (ZTA), Extensible Access Control Markup Language (XACML), Open Policy Agent (OPA), Federal Risk and Authorization Management Program (FedRAMP), Information Security Management System (ISMS), Configuration Management Database (CMDB), Food and Drug Administration (FDA), Federal Aviation Administration (FAA), and Safety Management System (SMS).
-- Review outcome: the synthesis and Findings below use the same eight key findings, the same confidence levels, and the same source structure.
-- Review outcome: no em dashes remain in the rewritten content.
+- [fact; source: https://github.com/davidamitchell/Research/blob/main/Research/in-progress/2026-04-27-uelgf-foundational-definitions-principles.md] Review outcome: all visible claim-bearing lines in the Research Skill Output are labeled as fact, inference, or assumption, and the external claims are bound to explicit web sources.
+- [fact; source: https://github.com/davidamitchell/Research/blob/main/Research/in-progress/2026-04-27-uelgf-foundational-definitions-principles.md] Review outcome: abbreviation first-use checks were applied for UELGF, Zero Trust Architecture (ZTA), Extensible Access Control Markup Language (XACML), Open Policy Agent (OPA), Federal Risk and Authorization Management Program (FedRAMP), Information Security Management System (ISMS), Configuration Management Database (CMDB), Food and Drug Administration (FDA), Federal Aviation Administration (FAA), and Safety Management System (SMS).
+- [fact; source: https://github.com/davidamitchell/Research/blob/main/Research/in-progress/2026-04-27-uelgf-foundational-definitions-principles.md] Review outcome: the synthesis and Findings sections use the same eight key findings, the same confidence levels, and the same source structure.
+- [fact; source: https://github.com/davidamitchell/Research/blob/main/Research/in-progress/2026-04-27-uelgf-foundational-definitions-principles.md] Review outcome: no em dashes remain in the rewritten content.
 
 ---
 
