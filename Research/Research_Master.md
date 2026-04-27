@@ -1,6 +1,6 @@
 # Research Master Document
 
-Generated on: 2026-04-27 08:54 UTC
+Generated on: 2026-04-27 09:28 UTC
 
 ## Table of Contents
 
@@ -14,6 +14,7 @@ Generated on: 2026-04-27 08:54 UTC
 * [Universal policy synchronisation and integrity: ensuring the Policy Decision Point (PDP) evaluates governed assets against logically identical policy across all lifecycle phases](#2026-04-27-pdp-universal-policy-synchronisation-integrity-md)
 * [Policy Administration Point (PAP) dynamic policy profiling and proportionality: mapping asset metadata to a lifecycle-aware Policy Enforcement Point (PEP) topology scaled by inherent risk](#2026-04-27-pap-dynamic-policy-profiling-proportionality-md)
 * [Enterprise data stack value-distribution frameworks: what frameworks - including the seven-layer stack and Software Repricing Matrix discussed in the April 2026 ServiceNow investment analysis - are most useful for understanding where durable value accumulates in enterprise technology stacks, especially at the governance layer?](#2026-04-27-enterprise-stack-value-distribution-governance-frameworks-md)
+* [How do academic and scientific publishing systems handle post-publication corrections, amendments, retractions, and commentary, and what is the minimal viable analogue for a versioned git-based research corpus?](#2026-04-27-academic-post-publication-amendment-practices-md)
 * [Systems capability debt as the root cause of citizen development: empirical evidence and effective governance architectures](#2026-04-26-systems-capability-debt-citizen-development-empirical-evidence-md)
 * [Systems capability debt, citizen development, and agentic AI risk: is the causal chain and sequencing imperative a novel contribution?](#2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis-md)
 * [What is the strongest evidence-based argument that investing in software engineering capability rather than citizen development tooling is simultaneously the correct response to systems capability debt and the correct way to capture genuine Large Language Model value in a regulated financial institution?](#2026-04-26-software-engineering-investment-case-llm-md)
@@ -1056,6 +1057,114 @@ What frameworks - specifically the seven-layer enterprise stack and the Software
 - [inference; source: https://www.youtube.com/watch?v=JH65uE9oEqs; https://finance.yahoo.com/markets/stocks/articles/servicenow-inc-q1-2026-earnings-001811104.html] What exact quadrant definitions and named company placements does the Software Repricing Matrix use in the video itself, and do those placements remain stable after the latest product launches?
 - [inference; source: https://www.leoniscap.com/research/openclaw-(aka-clawdbot)-and-the-ai-threshold-effect; https://a16z.com/newsletter/big-ideas-2026-part-1] Which parts of the enterprise control plane are likely to commoditise next: telemetry, agent identity, policy language, or cross-provider routing?
 - [inference; source: https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html; https://davidamitchell.github.io/Research/research/2026-04-26-multi-ai-provider-control-planes.html] How much of the durable moat in governance software comes from data model and process graph depth versus from the execution and evidence surfaces around that model?
+
+---
+
+---
+
+<a id="2026-04-27-academic-post-publication-amendment-practices-md"></a>
+
+## How do academic and scientific publishing systems handle post-publication corrections, amendments, retractions, and commentary, and what is the minimal viable analogue for a versioned git-based research corpus?
+
+**Tags:** [academic-publishing, post-publication, corrections, retractions, amendments, rebuttal, immutability, versioning, knowledge-management, research-methodology, doi, corrigendum, erratum]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-27-academic-post-publication-amendment-practices.md
+
+## Research Question
+
+How do established academic and scientific publishing systems (journal publishers, preprint servers, living review platforms) handle post-publication corrections, amendments, retractions, and formal commentary, and what is the minimal viable analogue for a versioned, git-based private research corpus where completed items should be treated as immutable records with narrow, explicitly defined exceptions?
+
+## Findings
+
+### Executive Summary
+
+[inference; source: https://www.nature.com/nature/editorial-policies/correction-and-retraction-policy; https://journals.plos.org/plosone/s/corrections-and-retractions; https://authors.bmj.com/policies/correction-retraction-policies/; https://info.arxiv.org/help/versions.html] The strongest minimal analogue for this repository is an immutable completed item plus a separate amendment file, with the original item carrying only reader-signal metadata such as status, originating commit, and linked notices.
+
+[fact; source: https://www.nature.com/nature/editorial-policies/correction-and-retraction-policy; https://journals.plos.org/plosone/s/corrections-and-retractions; https://authors.bmj.com/policies/correction-retraction-policies/] Journal publishers consistently treat substantive post-publication change as a formal notice problem rather than a silent editing problem, because they preserve the original record and publish linked notices for correction, concern, or retraction.
+
+[fact; source: https://www.nature.com/nature/for-authors/matters-arising; https://info.arxiv.org/help/versions.html] Formal challenge and reply are separate objects from correction, which means the repository should support commentary without forcing every dispute into either overwrite or invalidation.
+
+[fact; source: https://documentation.cochrane.org/emkb/editorial-manager-for-authors/new-and-returning-authors/update-an-existing-review/decision-frameworkfor-update-proposals; https://resources.cochrane.org/sites/resources.cochrane.org/files/uploads/inline-files/Transform/201912_LSR_Revised_Guidance.pdf; https://www.biorxiv.org/about/FAQ] Living-update behavior should be opt-in rather than default, because mature systems keep one evolving record only while the question and method remain stable and the version history remains visible.
+
+[inference; source: https://info.arxiv.org/help/versions.html; https://www.biorxiv.org/about/FAQ; https://authors.bmj.com/policies/correction-retraction-policies/] A pure in-place version chain remains a plausible later design, but it would stop being "minimal" here because it also needs reader-facing version-history surfaces comparable to arXiv submission history or BMJ previous-version notices.
+
+### Key Findings
+
+1. [fact; source: https://www.nature.com/nature/editorial-policies/correction-and-retraction-policy; https://journals.plos.org/plosone/s/corrections-and-retractions; https://authors.bmj.com/policies/correction-retraction-policies/] Major publishers preserve the published record and attach a separately published notice when interpretation, metadata, or trustworthiness changes, which means substantive amendment is modeled as linked record-keeping rather than as silent overwrite. **Confidence: high**
+2. [fact; source: https://journals.plos.org/plosone/s/corrections-and-retractions; https://authors.bmj.com/policies/correction-retraction-policies/] The practical threshold for a formal correction is effect on understanding, indexing, or scientific integrity, while typographical cleanup and other low-impact issues are usually rejected or diverted into lightweight comment channels. **Confidence: high**
+3. [fact; source: https://www.nature.com/nature/editorial-policies/correction-and-retraction-policy; https://journals.plos.org/plosone/s/corrections-and-retractions; https://authors.bmj.com/policies/correction-retraction-policies/] Retraction systems are designed to preserve discoverability while clearly marking unreliability, because readers need both the reason for invalidation and access to the prior record for auditability and scholarly traceability. **Confidence: high**
+4. [fact; source: https://www.nature.com/nature/for-authors/matters-arising; https://journals.plos.org/plosone/s/comments; https://info.arxiv.org/help/versions.html] Post-publication commentary is a distinct mechanism from correction or retraction, because challenge and reply preserve debate and clarification without rewriting the original or declaring it invalid. **Confidence: high**
+5. [fact; source: https://documentation.cochrane.org/emkb/editorial-manager-for-authors/new-and-returning-authors/update-an-existing-review/decision-frameworkfor-update-proposals; https://resources.cochrane.org/sites/resources.cochrane.org/files/uploads/inline-files/Transform/201912_LSR_Revised_Guidance.pdf; https://research.monash.edu/en/publications/the-living-guidelines-handbook-guidance-for-the-production-and-pu/] Living-review systems only keep updating the same record while the question remains stable, decision-relevant, and operationally funded, and they switch to a new protocol or leave living mode when scope or method drift becomes material. **Confidence: high**
+6. [fact; source: https://info.arxiv.org/help/submit/index.html; https://info.arxiv.org/help/versions.html; https://www.biorxiv.org/about/FAQ] Preprint platforms treat revision as a stable-identifier, visible-version-history problem, which shows that history-preserving updates can work without replacing the original public object or fragmenting it into unrelated records. **Confidence: high**
+7. [inference; source: https://www.nature.com/nature/editorial-policies/correction-and-retraction-policy; https://authors.bmj.com/policies/correction-retraction-policies/; https://info.arxiv.org/help/versions.html] For this repository, the minimum frontmatter on the original completed item is `record_status`, `version_of_record`, meaning the canonical published instance that later notices amend, and `amendments`, because those three fields are enough to tell readers the current interpretive state, the commit being amended, and where to find the notices. **Confidence: medium**
+8. [inference; source: https://journals.plos.org/plosone/s/corrections-and-retractions; https://authors.bmj.com/policies/correction-retraction-policies/; https://documentation.cochrane.org/emkb/editorial-manager-for-authors/new-and-returning-authors/update-an-existing-review/decision-frameworkfor-update-proposals] The only silent post-completion edits that fit the publisher evidence are broken-URL repair, tag updates, and citation-URL normalization, because each can improve access or classification without changing the interpretive content of the record. **Confidence: medium**
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [fact] Publishers preserve the original record and attach linked amendment notices for substantive change. | [Nature policy](https://www.nature.com/nature/editorial-policies/correction-and-retraction-policy); [PLOS policy](https://journals.plos.org/plosone/s/corrections-and-retractions); [BMJ policy](https://authors.bmj.com/policies/correction-retraction-policies/) | high | Cross-publisher convergence |
+| [fact] Correction threshold is impact on interpretation, indexing, or integrity, not trivial wording cleanup. | [PLOS policy](https://journals.plos.org/plosone/s/corrections-and-retractions); [BMJ policy](https://authors.bmj.com/policies/correction-retraction-policies/) | high | Minor issues diverted or rejected |
+| [fact] Retraction preserves discoverability while marking unreliability and publishing reasons. | [Nature policy](https://www.nature.com/nature/editorial-policies/correction-and-retraction-policy); [PLOS policy](https://journals.plos.org/plosone/s/corrections-and-retractions); [BMJ policy](https://authors.bmj.com/policies/correction-retraction-policies/) | high | Removal is exceptional |
+| [fact] Commentary and reply are separate from correction and retraction. | [Nature Matters Arising](https://www.nature.com/nature/for-authors/matters-arising); [PLOS comments](https://journals.plos.org/plosone/s/comments); [arXiv versions](https://info.arxiv.org/help/versions.html) | high | Debate path, not invalidation path |
+| [fact] Living mode continues only while question, priority, and methods remain stable enough to justify one evolving record. | [Cochrane update framework](https://documentation.cochrane.org/emkb/editorial-manager-for-authors/new-and-returning-authors/update-an-existing-review/decision-frameworkfor-update-proposals); [Cochrane living-review guidance](https://resources.cochrane.org/sites/resources.cochrane.org/files/uploads/inline-files/Transform/201912_LSR_Revised_Guidance.pdf); [Living Guidelines Handbook](https://research.monash.edu/en/publications/the-living-guidelines-handbook-guidance-for-the-production-and-pu/) | high | New protocol when drift becomes material |
+| [fact] Preprint revision preserves stable identity and visible version history. | [arXiv submission guidance](https://info.arxiv.org/help/submit/index.html); [arXiv versions](https://info.arxiv.org/help/versions.html); [bioRxiv FAQ](https://www.biorxiv.org/about/FAQ) | high | Revision, withdrawal, and comment all keep history visible |
+| [inference] Original completed items need `record_status`, `version_of_record`, and `amendments` as minimum structured metadata. | [Nature policy](https://www.nature.com/nature/editorial-policies/correction-and-retraction-policy); [BMJ policy](https://authors.bmj.com/policies/correction-retraction-policies/); [arXiv versions](https://info.arxiv.org/help/versions.html); [Knowledge curation governance](https://davidamitchell.github.io/Research/research/2026-04-22-knowledge-curation-governance-for-regulated-ai.html) | medium | Minimal reader-signal set |
+| [inference] Only broken-URL repair, tag updates, and citation-URL normalization should remain silent. | [PLOS policy](https://journals.plos.org/plosone/s/corrections-and-retractions); [BMJ policy](https://authors.bmj.com/policies/correction-retraction-policies/); [Cochrane update framework](https://documentation.cochrane.org/emkb/editorial-manager-for-authors/new-and-returning-authors/update-an-existing-review/decision-frameworkfor-update-proposals) | medium | Access or classification only |
+
+### Assumptions
+
+- [assumption; source: https://davidamitchell.github.io/Research/research/2026-04-22-knowledge-curation-governance-for-regulated-ai.html] **Assumption:** a git commit hash can stand in for a canonical version-of-record identifier. **Justification:** this repository already treats git history as the authoritative provenance layer, so the missing mechanism is reader-facing notice and linkage rather than immutable storage.
+- [assumption; source: https://www.nature.com/nature/editorial-policies/correction-and-retraction-policy; https://authors.bmj.com/policies/correction-retraction-policies/] **Assumption:** updating a completed item's frontmatter to expose `record_status` and `amendments` is acceptable if the same commit also adds the amendment file. **Justification:** publisher systems update reader-facing status on the original record while preserving the original content, and the same pattern can be reproduced here without silent content rewrite.
+
+### Analysis
+
+[inference; source: https://www.nature.com/nature/editorial-policies/correction-and-retraction-policy; https://journals.plos.org/plosone/s/corrections-and-retractions; https://authors.bmj.com/policies/correction-retraction-policies/] The decisive evidence came from publisher policies because they make the post-publication control model explicit, and those policies converged on the same rule: preserve the original, publish a notice, and signal the amended state to readers.
+
+[inference; source: https://www.nature.com/nature/for-authors/matters-arising; https://journals.plos.org/plosone/s/comments; https://info.arxiv.org/help/versions.html] Commentary was kept separate from correction because the sources consistently frame disagreement and clarification as discourse objects, not necessarily as defects in the original record.
+
+[inference; source: https://documentation.cochrane.org/emkb/editorial-manager-for-authors/new-and-returning-authors/update-an-existing-review/decision-frameworkfor-update-proposals; https://resources.cochrane.org/sites/resources.cochrane.org/files/uploads/inline-files/Transform/201912_LSR_Revised_Guidance.pdf; https://info.arxiv.org/help/versions.html] Living-review and preprint evidence mattered because both show how one logical work can evolve over time without erasing history, but both also impose visible version lineage and explicit stopping rules.
+
+[inference; source: https://davidamitchell.github.io/Research/research/2026-04-22-knowledge-curation-governance-for-regulated-ai.html; https://davidamitchell.github.io/Research/research/2026-03-02-agent-memory-management-context-injection.html] The local design choice was then narrowed by repository context: git already solves archival immutability, so the required analogue is a notice-and-linkage layer that tells readers which commit is the canonical version of record and how later files reinterpret it.
+
+[inference; source: https://info.arxiv.org/help/versions.html; https://www.biorxiv.org/about/FAQ; https://authors.bmj.com/policies/correction-retraction-policies/] A pure git or arXiv-style in-place version chain with visible history remains a credible later design, but it is not the minimal analogue for this repository because arXiv, bioRxiv, and BMJ pair that model with reader-facing version-history surfaces that this corpus does not yet expose.
+
+[inference; source: https://www.nature.com/nature/editorial-policies/correction-and-retraction-policy; https://authors.bmj.com/policies/correction-retraction-policies/; https://info.arxiv.org/help/versions.html] **Recommended original-item frontmatter schema:** the minimal original-record metadata is:
+
+```yaml
+record_status: active        # active | corrected | commented | retracted | living
+version_of_record: <commit-sha>
+amendments: []
+```
+
+[inference; source: https://www.nature.com/nature/for-authors/matters-arising; https://documentation.cochrane.org/emkb/editorial-manager-for-authors/new-and-returning-authors/update-an-existing-review/decision-frameworkfor-update-proposals; https://info.arxiv.org/help/versions.html] **Recommended amendment-item frontmatter schema:** the minimal amendment metadata is:
+
+```yaml
+title: "<human-readable amendment title>"
+added: <iso-8601 timestamp>
+status: completed
+priority: medium
+tags: [amendment]
+amends: <original-item-slug>
+amendment_type: correction   # correction | commentary | reply | retraction | living-update
+target_version: <commit-sha>
+impact: scoped               # metadata-only | scoped | invalidates
+```
+
+[inference; source: https://info.arxiv.org/help/versions.html; https://authors.bmj.com/policies/correction-retraction-policies/] **Recommended file naming convention and template:** amendment files should use `YYYY-MM-DD-<original-slug>-<amendment-type>.md` and contain the sections `## Summary`, `## Trigger`, `## What Changed`, `## Impact on Findings`, `## Evidence`, and `## Reader Action`, because that is the smallest structure that preserves reason, scope, evidence, and downstream interpretation.
+
+### Risks, Gaps, and Uncertainties
+
+- [fact; source: https://journals.plos.org/plosone/s/corrections-and-retractions; https://www.nature.com/nature/editorial-policies/correction-and-retraction-policy] Direct COPE text is not quoted in this item, so COPE-aligned conclusions are supported indirectly through accessible publisher policies rather than by direct quotation from COPE.
+- [fact; source: https://www.biorxiv.org/about/FAQ] The bioRxiv evidence in this item is limited to the revision rule stated in the Frequently Asked Questions (FAQ), so it supports the stable-identifier claim but not a broader reconstruction of bioRxiv's full versioning model.
+- [fact; source: https://research.monash.edu/en/publications/the-living-guidelines-handbook-guidance-for-the-production-and-pu/] The non-Cochrane living-guidance evidence was thinner than the Cochrane evidence, so the external corroboration for stop-or-continue criteria should be treated as supportive rather than decisive.
+- [inference; source: https://authors.bmj.com/policies/correction-retraction-policies/; https://info.arxiv.org/help/versions.html] The implementation question that remains open is how the site should render amendment banners or notice blocks so readers see current status without opening a second file first.
+
+### Open Questions
+
+- [inference; source: https://resources.cochrane.org/sites/resources.cochrane.org/files/uploads/inline-files/Transform/201912_LSR_Revised_Guidance.pdf; https://info.arxiv.org/help/versions.html] Should the repository support an explicit `living` class of research item now, or should it first implement only correction, commentary, and retraction notices and add living mode later when a concrete use case appears?
+- [inference; source: https://www.nature.com/nature/for-authors/matters-arising; https://journals.plos.org/plosone/s/comments] Should formal commentary in this repository require a reply path from the original author, or is one-way comment linkage sufficient for the first implementation?
+- [inference; source: https://authors.bmj.com/policies/correction-retraction-policies/; https://info.arxiv.org/help/versions.html] Should `version_of_record` store only the completion commit hash, or also store the completion date and original path to simplify future rendering and audits?
 
 ---
 
