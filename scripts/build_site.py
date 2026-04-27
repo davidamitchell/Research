@@ -936,7 +936,7 @@ def autolink_html(html: str, source_refs: dict[str, str]) -> str:
     url_to_name = {url: name for name, url in source_refs.items() if name and url}
 
     def autolink_bare_urls(html_text: str) -> str:
-        url_pattern = re.compile(r"https://\S+")
+        url_pattern = re.compile(r"https://[^\s<>\"']+")
 
         def replace_url(um: re.Match) -> str:
             url = um.group(0).rstrip(".,;)")
