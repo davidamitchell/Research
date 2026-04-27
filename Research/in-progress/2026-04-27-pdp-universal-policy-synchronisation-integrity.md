@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "Universal policy synchronisation and integrity: ensuring the Policy Decision Point (PDP) evaluates governed assets against logically identical policy across all lifecycle phases"
 added: 2026-04-27T00:55:35+00:00
 status: reviewing
