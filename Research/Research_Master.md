@@ -1,6 +1,6 @@
 # Research Master Document
 
-Generated on: 2026-04-27 02:03 UTC
+Generated on: 2026-04-27 02:26 UTC
 
 ## Table of Contents
 
@@ -10,6 +10,7 @@ Generated on: 2026-04-27 02:03 UTC
 * [Permission-safe Retrieval-Augmented Generation (RAG) in enterprise information architectures: technical constraints, architectural options, and failure modes at scale](#2026-04-26-permission-safe-rag-enterprise-information-architecture-md)
 * [Multi-provider AI control planes: capabilities, vendors, and coverage gaps](#2026-04-26-multi-ai-provider-control-planes-md)
 * [What is Microsoft 365 Copilot Cowork and what are its enterprise governance risks?](#2026-04-26-ms-copilot-cowork-md)
+* [What is Yann LeCun's complete argument against Large Language Models as a path to autonomous machine intelligence, and what is the precise technical basis for each claim?](#2026-04-26-lecun-llm-critique-primary-sources-md)
 * [What does synthesising LeCun's architectural critique of Large Language Models with systems capability debt and citizen development arguments produce as a unified risk framework for regulated financial institutions?](#2026-04-26-lecun-critique-citizen-development-enterprise-risk-md)
 * [Implicit rate-limiting controls removed by agentic Artificial Intelligence (AI): blast radius amplification and the operational risk literature gap](#2026-04-26-implicit-rate-limiting-controls-agentic-ai-removal-md)
 * [When and how should human intervention be incorporated into Artificial Intelligence (AI)-driven and automated workflows?](#2026-04-26-human-in-the-loop-ai-automated-workflows-md)
@@ -642,6 +643,78 @@ Explicit assumptions made during the investigation and the justification for eac
 - Should the repo add a dedicated backlog item on how enterprises should inventory, review, and retire Cowork custom skills when Microsoft does not yet expose clear first-party skill governance?
 - What export and migration path exists for scheduled prompts, custom skills, and conversation metadata if an enterprise later moves away from Cowork?
 - How should enterprises classify Cowork tasks that bridge multiple sensitivity zones, such as combining internal documents with customer-facing messaging, within a formal intake process?
+
+---
+
+---
+
+<a id="2026-04-26-lecun-llm-critique-primary-sources-md"></a>
+
+## What is Yann LeCun's complete argument against Large Language Models as a path to autonomous machine intelligence, and what is the precise technical basis for each claim?
+
+**Tags:** [lecun, llm, large-language-models, autonomous-intelligence, causal-reasoning, world-models, ai-critique, primary-sources]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-lecun-llm-critique-primary-sources.md
+
+## Research Question
+
+What is Yann LeCun's complete and precise argument against Large Language Models (LLMs) as a path to autonomous machine intelligence, meaning Artificial Intelligence (AI) that can reason, plan, and act autonomously, drawing only on primary or host-published source material around "A Path Towards Autonomous Machine Intelligence" (OpenReview, 2022), the Brown University lecture, the accessible April 2025 interview material, the seeded VivaTech keynote URL, and the November 2025 "Do LLMs Understand?" conversation; what is the specific technical basis for his claim that LLMs are text-trained statistical predictors without a causal world model or reliable consequence reasoning; where does he draw the boundary between domains where optimization over constrained symbolic structures can work and domains where real-world action requires predictive world modelling; and how stable is that position across the accessible 2022 to 2026 record?
+
+## Findings
+
+### Executive Summary
+
+- [fact; source: https://openreview.net/pdf?id=BZ5a1r-kVsf; https://www.brown.edu/news/2026-04-01/yann-lecun-artificial-intelligence-pioneer] LeCun's core claim is that text-trained Large Language Models are not a sufficient path to autonomous machine intelligence because autonomous intelligence requires a predictive world model that can represent plausible future states, evaluate imagined actions, and support planning before acting.
+- [fact; source: https://openreview.net/pdf?id=BZ5a1r-kVsf] The precise technical basis in the accessible paper is twofold: tokenized generative models handle discrete text well but are poorly suited to continuous, uncertainty-rich world modelling, and they lack the abstract latent-variable machinery LeCun says is required for richer reasoning and goal-directed search.
+- [fact; source: https://www.brown.edu/news/2026-04-01/yann-lecun-artificial-intelligence-pioneer; https://www.youtube.com/watch?v=ZbrfvMLZZK4] The later Brown lecture material sharpens that argument into a public warning, namely that systems which manipulate language but cannot predict the consequences of their actions are unsafe foundations for agentic action in the physical or operational world.
+- [inference; source: https://pioneerworks.org/broadcast/video/ai-yann-lecun-adam-brown; https://podcasts.apple.com/us/podcast/why-cant-ai-make-its-own-discoveries-with-yann-lecun/id1522960417?i=1000699824574; https://www.brown.edu/news/2026-04-01/yann-lecun-artificial-intelligence-pioneer] Across the accessible 2025 to 2026 record, LeCun's stance appears consistent and rhetorically sharper, but the exact positive boundary around "formal systems with external verifiers" remains only partially recoverable here because the needed transcripts were not fully accessible in this runtime.
+
+### Key Findings
+
+1. [fact; source: https://openreview.net/pdf?id=BZ5a1r-kVsf; https://www.brown.edu/news/2026-04-01/yann-lecun-artificial-intelligence-pioneer] **High confidence:** In the 2022 paper and Brown's 2026 coverage, LeCun argues that common sense, planning, and safe action depend on predictive world models that encode what states of the world are likely, plausible, or impossible and that let an agent evaluate imagined action sequences before acting.
+2. [fact; source: https://openreview.net/pdf?id=BZ5a1r-kVsf] **Medium confidence:** LeCun gives two explicit technical reasons that scaling token-based generative models is insufficient, namely that they are ill-suited to representing uncertainty in continuous high-dimensional domains and that their lack of abstract latent variables limits multi-interpretation reasoning and goal-directed search.
+3. [fact; source: https://openreview.net/pdf?id=BZ5a1r-kVsf] **Medium confidence:** The paper does not claim that LLMs know nothing; instead, it says they extract substantial background knowledge from text while still exhibiting shallow common sense because text alone omits much of the physical and causal structure humans learn through worldly interaction.
+4. [fact; source: https://www.brown.edu/news/2026-04-01/yann-lecun-artificial-intelligence-pioneer; https://openreview.net/pdf?id=BZ5a1r-kVsf] **High confidence:** By the Brown lecture, LeCun is publicly applying the same mechanism to agentic systems, arguing that systems which can produce actions in the world but cannot predict the outcomes of those actions are dangerous foundations for autonomous behaviour.
+5. [inference; source: https://openreview.net/pdf?id=BZ5a1r-kVsf] **Medium confidence:** The paper suggests a narrower positive claim than the item's original wording, because it frames reasoning as optimization or constraint satisfaction over latent possibilities, which fits bounded objective-driven problems better than open-ended world action without itself specifying a full list of safe domains.
+6. [inference; source: https://podcasts.apple.com/us/podcast/why-cant-ai-make-its-own-discoveries-with-yann-lecun/id1522960417?i=1000699824574; https://www.brown.edu/news/2026-04-01/yann-lecun-artificial-intelligence-pioneer; https://pioneerworks.org/broadcast/video/ai-yann-lecun-adam-brown] **Medium confidence:** The accessible 2025 to 2026 host materials indicate continuity rather than reversal, because they keep returning to the same distinction between text knowledge and abstract world knowledge even when the public rhetoric becomes much blunter.
+7. [inference; source: https://openreview.net/pdf?id=BZ5a1r-kVsf; https://www.youtube.com/watch?v=ZbrfvMLZZK4; https://www.youtube.com/watch?v=ykfQD1_WPBQ] **Low confidence:** The item's original positive-boundary wording about "formal systems with external verifiers" is directionally compatible with the accessible evidence, but it could not be directly confirmed as LeCun's own exact formulation from the primary material available in this runtime.
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [fact] Autonomous intelligence requires predictive world models for plausible-state judgement, consequence prediction, and planning. | https://openreview.net/pdf?id=BZ5a1r-kVsf ; https://www.brown.edu/news/2026-04-01/yann-lecun-artificial-intelligence-pioneer | high | Core mechanism is stated in the paper and echoed in Brown's official quotation about planning. |
+| [fact] Scaling LLM-style models is insufficient because tokenized generative training handles continuous uncertainty poorly and lacks latent-variable reasoning machinery. | https://openreview.net/pdf?id=BZ5a1r-kVsf | medium | Section 8.3.1 provides the two explicit reasons, but this row rests on one source. |
+| [fact] LLMs extract background knowledge from text but exhibit shallow common sense because they lack direct experience with underlying reality. | https://openreview.net/pdf?id=BZ5a1r-kVsf | medium | Directly stated in the paper, but this row rests on one source. |
+| [fact] Agentic systems that cannot predict action outcomes are dangerous. | https://www.brown.edu/news/2026-04-01/yann-lecun-artificial-intelligence-pioneer ; https://openreview.net/pdf?id=BZ5a1r-kVsf | high | Brown provides the direct quotation and the paper provides the underlying consequence-prediction mechanism. |
+| [inference] The paper suggests a narrower positive claim than the item's original wording because it frames reasoning as optimization or constraint satisfaction over latent possibilities. | https://openreview.net/pdf?id=BZ5a1r-kVsf | medium | This is a paper-grounded inference, not a transcript-level quote from a later talk. |
+| [inference] The accessible 2025 to 2026 host materials show continuity of the same world-knowledge-versus-text-knowledge critique. | https://podcasts.apple.com/us/podcast/why-cant-ai-make-its-own-discoveries-with-yann-lecun/id1522960417?i=1000699824574 ; https://www.brown.edu/news/2026-04-01/yann-lecun-artificial-intelligence-pioneer ; https://pioneerworks.org/broadcast/video/ai-yann-lecun-adam-brown | medium | Host summaries are thinner than the paper, so this is inferential rather than transcript-level. |
+| [assumption] The exact phrase "formal systems with external verifiers" is part of LeCun's explicit positive boundary. | https://www.youtube.com/watch?v=8sS9UJzb_t4 ; https://www.youtube.com/watch?v=EIo1YKEUac4 ; https://www.youtube.com/watch?v=ykfQD1_WPBQ | low | Compatible with accessible material but not directly recoverable here. |
+
+### Assumptions
+
+- [assumption; source: https://www.youtube.com/watch?v=8sS9UJzb_t4; https://www.youtube.com/watch?v=EIo1YKEUac4; https://www.youtube.com/watch?v=ykfQD1_WPBQ] **Assumption:** The inaccessible transcript-level detail in the 2025 talks would likely reinforce rather than reverse the paper-level mechanism. **Justification:** every accessible host summary remains aligned with the world-model critique, but the missing transcripts prevent a stronger claim.
+- [assumption; source: https://www.youtube.com/watch?v=8sS9UJzb_t4; https://www.youtube.com/watch?v=EIo1YKEUac4; https://www.youtube.com/watch?v=ykfQD1_WPBQ] **Assumption:** The inaccessible transcript detail in the 2025 talks may spell out a broader positive boundary around constrained, optimizable, or externally verifiable reasoning tasks. **Justification:** the accessible host material points in that direction, but the missing transcripts prevent direct confirmation.
+
+### Analysis
+
+- [inference; source: https://openreview.net/pdf?id=BZ5a1r-kVsf] The paper should carry the most evidential weight because it contains the only fully accessible primary technical exposition of LeCun's mechanism in this session.
+- [inference; source: https://www.brown.edu/news/2026-04-01/yann-lecun-artificial-intelligence-pioneer; https://www.youtube.com/watch?v=ZbrfvMLZZK4] Brown should carry the next-highest weight because it provides direct quotations and an official lecture context that restates the planning-and-consequence argument in public-facing language.
+- [inference; source: https://podcasts.apple.com/us/podcast/why-cant-ai-make-its-own-discoveries-with-yann-lecun/id1522960417?i=1000699824574; https://pioneerworks.org/broadcast/video/ai-yann-lecun-adam-brown] The Apple Podcasts and Pioneer Works pages are useful mainly for chronology and continuity because they are host-published summaries rather than full transcripts.
+- [inference; source: https://openreview.net/pdf?id=BZ5a1r-kVsf; https://www.brown.edu/news/2026-04-01/yann-lecun-artificial-intelligence-pioneer] The resulting reconstruction is therefore strongest on the negative claim, namely that text-only LLMs are architecturally unsuited for autonomous world action, and weaker on the most detailed version of the positive claim, namely exactly which constrained domains LeCun still treats as suitable.
+
+### Risks, Gaps, and Uncertainties
+
+- [fact; source: https://www.youtube.com/watch?v=8sS9UJzb_t4; https://www.youtube.com/watch?v=EIo1YKEUac4; https://www.youtube.com/watch?v=ykfQD1_WPBQ] Full transcripts for the April 2025, seeded VivaTech, and November 2025 video sources were not publicly accessible in this runtime, so those sources could not support line-by-line reconstruction.
+- [fact; source: https://www.youtube.com/watch?v=EIo1YKEUac4] The seeded VivaTech URL was accessible only as a YouTube page in this session, so it could serve as a checked source location but not as a detailed evidence source.
+- [inference; source: https://openreview.net/pdf?id=BZ5a1r-kVsf; https://www.youtube.com/watch?v=ZbrfvMLZZK4] The claim that LLMs lack an internal mechanism for detecting their own errors is only indirectly supported here through the missing-world-model and shallow-common-sense argument, not through a direct accessible quote using that exact phrasing.
+- [inference; source: https://openreview.net/pdf?id=BZ5a1r-kVsf; https://www.youtube.com/watch?v=8sS9UJzb_t4; https://www.youtube.com/watch?v=EIo1YKEUac4; https://www.youtube.com/watch?v=ykfQD1_WPBQ] The positive boundary around formal or externally verifiable tasks remains medium-to-low confidence because the paper supports only a general optimization-and-constraint-satisfaction framing while the later talk transcripts were not fully accessible.
+
+### Open Questions
+
+- [inference; source: https://www.youtube.com/watch?v=8sS9UJzb_t4; https://www.youtube.com/watch?v=ykfQD1_WPBQ] Do the inaccessible 2025 transcripts contain a more explicit statement that LLMs are acceptable in code or other externally checkable domains while remaining unfit for consequential world action?
+- [inference; source: https://openreview.net/pdf?id=BZ5a1r-kVsf] How far does LeCun think optimization-based reasoning can go without a richer world model when the task is symbolic rather than physical?
+- [inference; source: https://openreview.net/pdf?id=BZ5a1r-kVsf] Which parts of LeCun's proposed architecture, especially the world model, critic, and configurator, are intended as immediate engineering proposals versus long-horizon research directions?
 
 ---
 
