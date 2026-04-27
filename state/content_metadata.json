@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-04-27T02:26:37Z",
+  "extracted_at": "2026-04-27T02:47:01Z",
   "items": {
     "2026-04-26-systems-capability-debt-citizen-development-empirical-evidence": {
       "named_concepts": [
@@ -336,6 +336,50 @@
         "High confidence",
         "Medium confidence"
       ]
+    },
+    "2026-04-26-llm-verifiability-asymmetry-code-world-action": {
+      "named_concepts": [
+        "world actions",
+        "software engineering",
+        "consequential write",
+        "external verifier",
+        "external tests",
+        "verifier-gated coding",
+        "coding assistance",
+        "write actions",
+        "verifier classes",
+        "consequential step",
+        "machine-checkable contracts",
+        "consequential world",
+        "program judges",
+        "model confidence",
+        "confidence alone",
+        "regulated financial",
+        "explicit human",
+        "human approval",
+        "deterministic non-llm",
+        "non-llm controls"
+      ],
+      "source_urls": [
+        "https://github.blog/2022-09-07-research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/",
+        "https://arxiv.org/abs/2107.03374",
+        "https://arxiv.org/abs/2203.07814",
+        "https://www.bankofengland.co.uk/prudential-regulation/publication/2022/october/artificial-intelligence",
+        "https://www.bankofengland.co.uk/prudential-regulation/publication/2023/may/model-risk-management-principles-for-banks",
+        "https://www.bankofengland.co.uk/prudential-regulation/publication/2023/october/artificial-intelligence-and-machine-learning",
+        "https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10",
+        "https://www.nist.gov/publications/towards-standard-identifying-and-managing-bias-artificial-intelligence",
+        "https://www.microsoft.com/en-us/research/project/dafny-a-language-and-program-verifier-for-functional-correctness/",
+        "https://people.eecs.berkeley.edu/~sseshia/pubs/b2hd-seshia-atva18.html",
+        "https://www.typescriptlang.org/docs/handbook/2/basic-types.html",
+        "https://mypy.readthedocs.io/en/stable/getting_started.html",
+        "https://gcc.gnu.org/onlinedocs/gcc-14.3.0/gcc/Warnings-and-Errors.html",
+        "https://codeql.github.com/docs/codeql-overview/about-codeql/",
+        "https://docs.astral.sh/ruff/",
+        "https://aclanthology.org/2024.naacl-long.366/",
+        "https://www.nature.com/articles/s42256-024-00976-7"
+      ],
+      "key_claims": []
     },
     "2026-04-26-lecun-llm-critique-primary-sources": {
       "named_concepts": [
