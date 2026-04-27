@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Universal Entity Lifecycle Governance Framework (UELGF): canonical entity taxonomy and Confidentiality, Integrity, and Availability (CIA) classification system for determining governance intensity"
 added: 2026-04-27T01:28:25+00:00
 status: reviewing
