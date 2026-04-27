@@ -1017,3 +1017,23 @@ ADR required (picker behaviour change — items can now be excluded from picking
 The current picker uses the `blocks` field only as a priority sort tiebreaker — items with non-empty `blocks` lists are sorted higher, but items listed in `blocks` are not prevented from being picked before their prerequisites complete. Synthesis items that depend on multiple primary items being done first can be auto-started before their sources are available. The `depends_on` field provides actual gating: if prerequisites are not complete, the item is invisible to the picker.
 
 ---
+
+## W-0055
+
+status: open
+created: 2026-04-27
+updated: 2026-04-27
+
+### Outcome
+
+`BACKLOG.md` is split into per-item files under a `backlog-items/` directory (or similar). Each W-XXXX item becomes its own file: `backlog-items/W-0001.md`, `backlog-items/W-0002.md`, etc. A single `BACKLOG.md` is generated from these files (or `BACKLOG.md` is replaced with an index linking to them).
+
+This eliminates the W-number collision class of merge conflicts: every PR that adds a new item creates a new file rather than appending to a shared file. Two PRs open simultaneously cannot conflict as long as they choose different filenames.
+
+Migration path: convert existing items, update `research-loop.yml` to write to the per-item format, update any tooling that reads `BACKLOG.md`.
+
+### Context
+
+W-number collisions happen whenever a feature PR stays open while the research loop appends a new W-item to `BACKLOG.md` on `main`. Both branches independently compute "next number = last number + 1" and choose the same value. The conflict is structurally inevitable given the current monolithic append model. Splitting to per-item files is the root-cause fix documented in the Known Recurring Patterns table of `.github/copilot-instructions.md`.
+
+---
