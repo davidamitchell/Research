@@ -649,6 +649,216 @@ updated: 2026-04-27
 
 ### Outcome
 
+`davidamitchell/Skills` `research/SKILL.md` contains a new §0.5 step: before §1 Question Decomposition, the agent asks "what disciplines, roles, or stakeholders would approach this question differently?" and generates one sub-question per perspective. The step is labelled **§0.5 Perspective Discovery**. `research-prompt.md` in this repo is updated to invoke §0.5 before §1. Existing §0–§7 numbering is preserved; §0.5 is inserted between them.
+
+### Context
+
+STORM (NAACL 2024) demonstrated a +10% improvement in coverage breadth against baseline RAG by surveying related viewpoints before decomposing a question into sub-questions. The current research skill starts directly at §1 Question Decomposition from a single perspective. Adding a perspective-discovery pass increases the breadth of sub-questions generated without changing downstream steps. Requires a PR to `davidamitchell/Skills` then a submodule pointer update here via `sync-skills.yml`.
+
+---
+
+## W-0039
+
+status: open
+created: 2026-04-27
+updated: 2026-04-27
+
+### Outcome
+
+`research-prompt.md` contains an explicit instruction after §4 Findings: use `sequential_thinking` to take the position of a sceptic or adjacent-domain expert and generate at least two objections to the draft findings. Unresolved objections are recorded in `## Risks, Gaps`. The instruction names `sequential_thinking` by its MCP tool name so the agent calls it correctly.
+
+### Context
+
+The research loop runs a monologue, not a dialogue. STORM's simulated expert conversation surfaces gaps that single-pass question decomposition misses. The `sequential_thinking` MCP server is already configured in `.mcp.json` and is the nearest available equivalent. Adding an adversarial challenge step after drafting findings — before finalising — catches shallow reasoning before the item is committed.
+
+---
+
+## W-0040
+
+status: open
+created: 2026-04-27
+updated: 2026-04-27
+
+### Outcome
+
+(a) `Research/_template.md` frontmatter contains a new `gaps:` field (YAML list, default `[]`). Each gap is a short string: the open question left unanswered by this item.
+
+(b) A script `scripts/aggregate_gaps.py` reads `gaps:` from all completed items, counts occurrences of identical or near-identical gap strings, and writes `state/gap_registry.json` mapping each gap string to the list of item slugs that raised it and an occurrence count.
+
+(c) `research-prompt.md` contains an instruction: after completing §6 Synthesis, extract 1–5 open questions that the research could not answer and write them into the `gaps:` frontmatter field of the completed item.
+
+(d) Items where a gap appears in three or more completed items are flagged in `gap_registry.json` with `"promote": true`. The research loop prompt instructs the agent to check `gap_registry.json` at the start of a session and create a new backlog item for any gap flagged `promote: true` that does not already have a corresponding backlog item.
+
+Tests cover: template field presence, script output schema, promotion threshold logic.
+
+### Context
+
+~280 instances of gap/risk language exist across completed items but all are inside body text — none are structured data. There is no mechanism to turn "outstanding question X" into a backlog item, and no way to query the gap corpus. This is the biggest structural gap in the research system. The Knowledge Explorer pattern (structured gap register with automatic promotion) is the design to follow. Lightweight: YAML list in frontmatter + a Python aggregator script.
+
+---
+
+## W-0041
+
+status: open
+created: 2026-04-27
+updated: 2026-04-27
+
+### Outcome
+
+`research-prompt.md` contains an instruction after §4 Findings: before moving to §5, write 3–5 key concepts discovered in this item and their relationships into the memory graph using the `@modelcontextprotocol/server-memory` MCP tools (`create_entities`, `create_relations`, `add_observations`). Each concept is an entity; each relationship between concepts is a relation. The item slug is added as an observation on each entity so provenance is traceable.
+
+A corresponding instruction at §0 Initialise: query the memory graph for entities related to the research question before beginning investigation, to surface what prior sessions already established.
+
+### Context
+
+The `@modelcontextprotocol/server-memory` MCP server is already configured in `.mcp.json` but is not used by the research loop. The loop currently accumulates knowledge in files but does not build a cross-session knowledge graph. The pattern from Letta and persistent memory systems: as each item completes, key concepts and relations are written into the graph; subsequent sessions query the graph first. This converts the corpus from passive storage into an active, queryable knowledge base. Implementation is ~10 lines of prompt instruction using existing infrastructure.
+
+---
+
+## W-0042
+
+status: open
+created: 2026-04-27
+updated: 2026-04-27
+
+### Outcome
+
+`research-prompt.md` contains an explicit step in §2 Investigation: for any claim designated as an anchor finding (a claim that a Key Finding will directly depend on), search arXiv using `arxiv_mcp_server` to locate the primary paper that makes that claim, verify the paper says what the claim asserts, and record the arXiv ID in the source list. Claims that cannot be verified against primary literature are downgraded from `[fact]` to `[inference]` with a note.
+
+### Context
+
+The `arxiv_mcp_server` MCP is configured in `.mcp.json` but the research prompt does not instruct the agent to use it for claim verification. Academic research systems use citation verification (claim → find the paper → check what the paper actually says) rather than multi-source frequency agreement. This is a higher-fidelity verification heuristic. The step applies only to anchor claims — those that Key Findings directly depend on — to keep session time bounded.
+
+---
+
+## W-0043
+
+status: open
+created: 2026-04-27
+updated: 2026-04-27
+
+### Outcome
+
+(a) A canonical tag vocabulary is defined in `docs/tag-vocabulary.md`. It maps synonym clusters to a single canonical form. At minimum, it resolves: `ai` / `ai-agents` / `agentic-ai` / `agentic-systems` / `agents` → canonical; `llm` / `large-language-model` / `llm-agent` → canonical; and the top 20 singleton-or-near-synonym clusters identified by inspection.
+
+(b) A script `scripts/canonicalise_tags.py` reads the vocabulary map and rewrites `tags:` frontmatter in all files under `Research/completed/`, `Research/backlog/`, and `Research/in-progress/` to use canonical forms only.
+
+(c) `Research/_template.md` references `docs/tag-vocabulary.md` in a comment on the `tags:` field.
+
+(d) `research-prompt.md` includes an instruction: when assigning tags, consult `docs/tag-vocabulary.md` and use only canonical forms.
+
+Tests cover: vocabulary file exists and is valid YAML, script produces correct output on a fixture file, no new singleton tags are introduced by the script.
+
+### Context
+
+798 unique tags exist across ~180 completed items (~4.4 per item). The majority appear only once. Near-synonyms proliferate with no canonical form and no hierarchy. Tags are currently useless for navigation at scale. This is a high-priority fix because the static site tag pages are the primary navigation mechanism.
+
+---
+
+## W-0044
+
+status: open
+created: 2026-04-27
+updated: 2026-04-27
+
+### Outcome
+
+`Research/_template.md` frontmatter contains three new fields:
+- `cites: []` — list of item slugs this item directly depends on or quotes
+- `related: []` — list of item slugs that are thematically connected
+- `superseded_by: ~` — slug of a later item that overrides or replaces this item's conclusions (null if not superseded)
+
+`research-prompt.md` instructs the agent to populate these fields during §0 Initialise (check completed corpus for prior related work) and §6 Synthesis (record which items this one cites or is related to).
+
+`scripts/build_site.py` reads `cites:` and `related:` from frontmatter and renders them on item pages as structured link lists, in addition to the existing tag-overlap-based related items. `superseded_by:` renders as a banner warning on the item page.
+
+Tests cover: frontmatter parsing of new fields, site builder renders cites/related/superseded correctly.
+
+### Context
+
+Cross-references currently exist only as inline prose. There is no `cites:` or `related:` in the frontmatter schema. A citation graph cannot be built; "what items does this one depend on?" cannot be answered programmatically. The knowledge-linking research item (`2026-03-03-knowledge-linking-connected-corpus.md`) established the relationship types (`extends`, `contradicts`, `depends-on`, `spawned-from`, `see-also`) and the auto-detection approach. This item implements the structured frontmatter fields that make those relationships machine-readable.
+
+---
+
+## W-0045
+
+status: open
+created: 2026-04-27
+updated: 2026-04-27
+
+### Outcome
+
+(a) `Research/_template.md` frontmatter contains `superseded_by: ~` (covered by W-0044) and a new `supersedes: ~` field — the slug of an older item that this item replaces or materially updates.
+
+(b) `scripts/build_site.py` renders a banner on any item where `superseded_by:` is set, linking to the superseding item. Items with a non-null `superseded_by:` are visually marked in browse/tag pages.
+
+(c) `research-prompt.md` instructs the agent: when completing an item, check whether any existing completed item is materially contradicted or superseded by the new findings; if so, set `supersedes:` on the new item and `superseded_by:` on the old item and commit both changes.
+
+### Context
+
+Older items may be contradicted or superseded by newer ones with no signal to the reader. A reader of a 2026-02 item gets no indication that 20 subsequent items have refined or overturned parts of it. Freshness signalling requires: (1) a frontmatter field pair (`supersedes`/`superseded_by`), (2) a site rendering change, and (3) a prompt instruction. Depends on W-0044 for the frontmatter schema extension pattern.
+
+---
+
+## W-0046
+
+status: open
+created: 2026-04-27
+updated: 2026-04-27
+
+### Outcome
+
+`Research/_template.md` frontmatter contains a new `item_type: primary` field with allowed values `primary | synthesis`. Items produced by a single research session answering a specific question use `primary`. Items produced by cross-item integration (combining findings from multiple completed items) use `synthesis`.
+
+`research-prompt.md` instructs the agent: set `item_type: synthesis` when the research question explicitly asks to integrate or compare findings across existing completed items; otherwise set `item_type: primary`.
+
+`scripts/build_site.py` renders `item_type: synthesis` items with a distinct visual indicator on browse and tag pages.
+
+`src/research/item.py` parses `item_type` and `python -m src.main research list` displays it.
+
+Tests cover: frontmatter parsing, CLI output, site builder rendering.
+
+### Context
+
+`output: [knowledge]` currently covers everything from a narrow factual lookup to a major multi-week synthesis. There is no distinction between primary research (answering a specific question) and secondary synthesis (integrating findings across items). The research loop treats all items identically. Differentiating item types enables filtering ("show me only synthesis items"), drives the research prompt to apply the synthesis skill for integration work, and makes the corpus navigable by depth.
+
+---
+
+## W-0047
+
+status: open
+created: 2026-04-27
+updated: 2026-04-27
+
+### Outcome
+
+`Research/_template.md` frontmatter contains a new `confidence: medium` field with allowed values `high | medium | low` and definitions in a comment:
+- `high` — all key findings supported by primary sources; no unresolved contradictions
+- `medium` — key findings supported by secondary sources or inference chains with low uncertainty
+- `low` — key findings rely on a single source, significant gaps remain, or multiple unresolved contradictions exist
+
+`research-prompt.md` instructs the agent to set `confidence:` at §7 Recursive Review based on the evidence quality of the Key Findings taken as a whole.
+
+`scripts/build_site.py` renders the confidence grade on item pages and allows filtering by confidence in browse/tag pages.
+
+`src/research/item.py` parses `confidence` and `python -m src.main research list` displays it.
+
+Tests cover: frontmatter parsing, CLI output, site builder rendering.
+
+### Context
+
+Individual claims carry `[fact]`/`[inference]`/`[assumption]` labels (good), but there is no overall confidence or evidence grade for an item as a whole. A reader cannot filter "show me only high-confidence findings." An item with 20 `[assumption]` labels and an item with 20 `[fact]` labels both appear identical in browse/tag navigation. Item-level confidence grades make corpus reliability visible at a glance.
+
+---
+
+## W-0048
+
+status: open
+created: 2026-04-27
+updated: 2026-04-27
+
+### Outcome
+
 Confirmed, documented answers to:
 1. What are the practical norms from arXiv, SSRN, OSF (Open Science Framework), and registered reports for handling corrections, commentary, replication, and disputes in a file-based corpus?
 2. How do Zettelkasten implementations (Obsidian Publish, Roam, Logseq) handle note versioning and amendment?
@@ -667,14 +877,14 @@ Spawned from design session 2026-04-27 on academic norms for completed research 
 
 ### Notes
 
-Two implementation options for W-0039:
+Two implementation options for W-0049:
 
-- **Option A (research first):** Complete W-0038 before implementing W-0039. The `versions:` field is low-risk but the relationship vocabulary question is unresolved without evidence.
-- **Option B (implement now, validate later):** Implement W-0039 immediately with the pragmatic model. If W-0038 findings contradict the design, an ADR (Architecture Decision Record) supersedes and the schema is updated. The version history itself captures the correction.
+- **Option A (research first):** Complete W-0048 before implementing W-0049. The `versions:` field is low-risk but the relationship vocabulary question is unresolved without evidence.
+- **Option B (implement now, validate later):** Implement W-0049 immediately with the pragmatic model. If W-0048 findings contradict the design, an ADR (Architecture Decision Record) supersedes and the schema is updated. The version history itself captures the correction.
 
 ---
 
-## W-0039
+## W-0049
 
 status: open
 created: 2026-04-27
@@ -697,6 +907,6 @@ Version numbering convention:
 - `1.x` — minor corrections (label fixes, acronym expansions, broken URL replacements, formatting)
 - `2.0` — substantive revision (findings changed, conclusions revised, major new evidence added)
 
-Blocked on W-0038 if Option A is chosen; can proceed independently under Option B.
+Blocked on W-0048 if Option A is chosen; can proceed independently under Option B.
 
 ---
