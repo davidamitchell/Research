@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "Universal Entity Lifecycle Governance Framework (UELGF): runtime feedback loop, signal taxonomy, automated response taxonomy, feedback closure to the rail system, and feedback closure to the systems capability debt programme as a structured demand signal"
 added: 2026-04-27T01:28:25+00:00
 status: reviewing
