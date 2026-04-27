@@ -70,3 +70,11 @@ Copy `.env.example` to `.env` and fill in values. Never commit `.env`.
 
 - [Latest Developments](https://github.com/davidamitchell/Latest-developments-) — daily AI/ML digest pipeline; YouTube transcript fetcher code lives there and will be ported here
 - [Skills](https://github.com/davidamitchell/Skills) — shared agent skills submodule
+
+## 💰 Bounty Contribution
+
+- **Task:** New research question
+- **Reward:** $469
+- **Source:** GitHub-Paid
+- **Date:** 2026-04-27
+
