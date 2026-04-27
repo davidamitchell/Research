@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "Universal Entity Lifecycle Governance Framework (UELGF): policy architecture, Policy Administration Point, Policy Decision Point, Policy Enforcement Point, Policy Information Point component design, the 8-layer organisational context model, policy independence guarantee, scope boundary mechanism, and kill switch"
 added: 2026-04-27T01:28:25+00:00
 status: reviewing
