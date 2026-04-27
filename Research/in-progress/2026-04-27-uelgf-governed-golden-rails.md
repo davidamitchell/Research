@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "Universal Entity Lifecycle Governance Framework (UELGF): governed golden rail specifications: generative scaffold, persona-adapted interfaces, citizen development rails, and deviation handling"
 added: 2026-04-27T01:28:25+00:00
 status: reviewing
