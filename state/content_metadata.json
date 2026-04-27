@@ -1,6 +1,60 @@
 {
-  "extracted_at": "2026-04-27T06:39:14Z",
+  "extracted_at": "2026-04-27T06:54:58Z",
   "items": {
+    "2026-04-27-uelgf-policy-architecture-8-layer-context": {
+      "named_concepts": [
+        "policy independence",
+        "ordered constraint",
+        "constraint stack",
+        "kill switch",
+        "workload credentials",
+        "workload identity",
+        "target estate",
+        "one canonical",
+        "scope object",
+        "trigger automatic",
+        "entity whose",
+        "decision cannot",
+        "recomputed inside",
+        "freshness window",
+        "prove compliance",
+        "zero trust",
+        "trust architecture",
+        "policy logic",
+        "signed revision",
+        "revision publication"
+      ],
+      "source_urls": [
+        "https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html",
+        "https://www.openpolicyagent.org/docs/latest/philosophy/",
+        "https://www.openpolicyagent.org/docs/latest/management-bundles/",
+        "https://www.openpolicyagent.org/docs/latest/management-decision-logs/",
+        "https://docs.cedarpolicy.com/",
+        "https://docs.cedarpolicy.com/policies/validation.html",
+        "https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/what-is-avp.html",
+        "https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/terminology.html",
+        "https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/policy-templates.html",
+        "https://datatracker.ietf.org/doc/html/rfc7009",
+        "https://www.rfc-editor.org/rfc/rfc6960.txt",
+        "https://www.rfc-editor.org/rfc/rfc5280.txt",
+        "https://csrc.nist.gov/pubs/sp/800/162/final",
+        "https://csrc.nist.gov/pubs/sp/800/207/final",
+        "https://learn.microsoft.com/en-us/azure/governance/policy/overview",
+        "https://learn.microsoft.com/en-us/azure/governance/policy/how-to/get-compliance-data#evaluation-triggers",
+        "https://spiffe.io/docs/latest/spiffe-about/overview/",
+        "https://spiffe.io/docs/latest/spiffe-about/spiffe-concepts/"
+      ],
+      "key_claims": [
+        "High confidence: [inference;",
+        "High confidence: [inference;",
+        "High confidence: [inference;",
+        "High confidence: [inference;",
+        "High confidence: [inference;",
+        "Medium confidence: [inference;",
+        "High confidence: [inference;",
+        "Medium confidence: [inference;"
+      ]
+    },
     "2026-04-27-uelgf-governed-golden-rails": {
       "named_concepts": [
         "hard gates",

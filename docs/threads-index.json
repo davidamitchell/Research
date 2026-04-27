@@ -9,7 +9,7 @@
       "citizen-development"
     ],
     "concept_cluster": [],
-    "item_count": 15,
+    "item_count": 16,
     "items": [
       {
         "slug": "2026-04-24-business-led-low-code-agent-governance",
@@ -69,6 +69,11 @@
       {
         "slug": "2026-04-27-uelgf-foundational-definitions-principles",
         "title": "Universal Entity Lifecycle Governance Framework (UELGF): foundational definitions, formal principles, and the inseparability of governance and acceleration in the governed golden rail",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-04-27-uelgf-policy-architecture-8-layer-context",
+        "title": "Universal Entity Lifecycle Governance Framework (UELGF): policy architecture, Policy Administration Point, Policy Decision Point, Policy Enforcement Point, Policy Information Point component design, the 8-layer organisational context model, policy independence guarantee, scope boundary mechanism, and kill switch",
         "added": "2026-04-27"
       },
       {
@@ -1335,6 +1340,61 @@
     "url": "/Research/threads/mobile-interface-delivery.html"
   },
   {
+    "slug": "agentic-ai-regulated-banking-uelgf",
+    "title": "agentic-ai / regulated-banking / uelgf",
+    "kind": "implicit",
+    "tag_cluster": [
+      "agentic-ai",
+      "regulated-banking",
+      "uelgf"
+    ],
+    "concept_cluster": [],
+    "item_count": 8,
+    "items": [
+      {
+        "slug": "2026-04-26-policy-coherence-machine-checkable-prerequisite",
+        "title": "Policy coherence as a machine-checkable prerequisite: policy-as-code, formal specification, and invariant registries for regulated financial institutions deploying agentic Artificial Intelligence (AI)",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-27-pip-invariant-anomaly-detection",
+        "title": "Invariant-based anomaly detection in the Policy Information Point (PIP): detecting permanent-invariant suppression through transient operating context and the decision signal to the Policy Decision Point (PDP)",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-04-27-pdp-universal-policy-synchronisation-integrity",
+        "title": "Universal policy synchronisation and integrity: ensuring the Policy Decision Point (PDP) evaluates governed assets against logically identical policy across all lifecycle phases",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-04-27-pap-dynamic-policy-profiling-proportionality",
+        "title": "Policy Administration Point (PAP) dynamic policy profiling and proportionality: mapping asset metadata to a lifecycle-aware Policy Enforcement Point (PEP) topology scaled by inherent risk",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-04-27-uelgf-policy-architecture-8-layer-context",
+        "title": "Universal Entity Lifecycle Governance Framework (UELGF): policy architecture, Policy Administration Point, Policy Decision Point, Policy Enforcement Point, Policy Information Point component design, the 8-layer organisational context model, policy independence guarantee, scope boundary mechanism, and kill switch",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-04-27-uelgf-foundational-definitions-principles",
+        "title": "Universal Entity Lifecycle Governance Framework (UELGF): foundational definitions, formal principles, and the inseparability of governance and acceleration in the governed golden rail",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-04-27-uelgf-entity-taxonomy-cia-classification",
+        "title": "Universal Entity Lifecycle Governance Framework (UELGF): canonical entity taxonomy and Confidentiality, Integrity, and Availability (CIA) classification system for determining governance intensity",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-04-27-uelgf-decommission-lifecycle",
+        "title": "Universal Entity Lifecycle Governance Framework (UELGF): decommission lifecycle, trigger taxonomy, procedural requirements by confidentiality, integrity, and availability (CIA) tier, ghost-entity detection and remediation, and the dependency-elimination trigger as the formal connection to systems capability debt",
+        "added": "2026-04-27"
+      }
+    ],
+    "url": "/Research/threads/agentic-ai-regulated-banking-uelgf.html"
+  },
+  {
     "slug": "ai-strategy-financial-services-ai-governance",
     "title": "ai-strategy / financial-services / ai-governance",
     "kind": "implicit",
@@ -1388,6 +1448,56 @@
       }
     ],
     "url": "/Research/threads/ai-strategy-financial-services-ai-governance.html"
+  },
+  {
+    "slug": "reward-hacking-pbac-pdp",
+    "title": "reward-hacking / pbac / pdp",
+    "kind": "implicit",
+    "tag_cluster": [
+      "reward-hacking",
+      "pbac",
+      "pdp"
+    ],
+    "concept_cluster": [],
+    "item_count": 7,
+    "items": [
+      {
+        "slug": "2026-03-10-formal-spec-intent-alignment-agentic-coding",
+        "title": "Formal intent specification and language choice for AI alignment in agentic coding systems",
+        "added": "2026-03-10"
+      },
+      {
+        "slug": "2026-03-10-language-for-llm-agent-output",
+        "title": "Language designed for LLM agents to produce: addressing generation-layer failure modes in agentic systems",
+        "added": "2026-03-11"
+      },
+      {
+        "slug": "2026-03-12-failure-mode-taxonomy-expansion",
+        "title": "Failure mode taxonomy: empirical frequency, causal mechanisms, detection signals, and cascade patterns in production agentic systems",
+        "added": "2026-03-14"
+      },
+      {
+        "slug": "2026-04-27-pip-invariant-anomaly-detection",
+        "title": "Invariant-based anomaly detection in the Policy Information Point (PIP): detecting permanent-invariant suppression through transient operating context and the decision signal to the Policy Decision Point (PDP)",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-04-27-pdp-universal-policy-synchronisation-integrity",
+        "title": "Universal policy synchronisation and integrity: ensuring the Policy Decision Point (PDP) evaluates governed assets against logically identical policy across all lifecycle phases",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-04-27-pap-dynamic-policy-profiling-proportionality",
+        "title": "Policy Administration Point (PAP) dynamic policy profiling and proportionality: mapping asset metadata to a lifecycle-aware Policy Enforcement Point (PEP) topology scaled by inherent risk",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-04-27-uelgf-policy-architecture-8-layer-context",
+        "title": "Universal Entity Lifecycle Governance Framework (UELGF): policy architecture, Policy Administration Point, Policy Decision Point, Policy Enforcement Point, Policy Information Point component design, the 8-layer organisational context model, policy independence guarantee, scope boundary mechanism, and kill switch",
+        "added": "2026-04-27"
+      }
+    ],
+    "url": "/Research/threads/reward-hacking-pbac-pdp.html"
   },
   {
     "slug": "strategy-behavioral-economics-rory-sutherland",
@@ -1790,51 +1900,6 @@
     "url": "/Research/threads/ai-strategy-financial-services-rbnz.html"
   },
   {
-    "slug": "reward-hacking-pbac-agentic-ai",
-    "title": "reward-hacking / pbac / agentic-ai",
-    "kind": "implicit",
-    "tag_cluster": [
-      "reward-hacking",
-      "pbac",
-      "agentic-ai"
-    ],
-    "concept_cluster": [],
-    "item_count": 6,
-    "items": [
-      {
-        "slug": "2026-03-10-formal-spec-intent-alignment-agentic-coding",
-        "title": "Formal intent specification and language choice for AI alignment in agentic coding systems",
-        "added": "2026-03-10"
-      },
-      {
-        "slug": "2026-03-10-language-for-llm-agent-output",
-        "title": "Language designed for LLM agents to produce: addressing generation-layer failure modes in agentic systems",
-        "added": "2026-03-11"
-      },
-      {
-        "slug": "2026-03-12-failure-mode-taxonomy-expansion",
-        "title": "Failure mode taxonomy: empirical frequency, causal mechanisms, detection signals, and cascade patterns in production agentic systems",
-        "added": "2026-03-14"
-      },
-      {
-        "slug": "2026-04-27-pip-invariant-anomaly-detection",
-        "title": "Invariant-based anomaly detection in the Policy Information Point (PIP): detecting permanent-invariant suppression through transient operating context and the decision signal to the Policy Decision Point (PDP)",
-        "added": "2026-04-27"
-      },
-      {
-        "slug": "2026-04-27-pdp-universal-policy-synchronisation-integrity",
-        "title": "Universal policy synchronisation and integrity: ensuring the Policy Decision Point (PDP) evaluates governed assets against logically identical policy across all lifecycle phases",
-        "added": "2026-04-27"
-      },
-      {
-        "slug": "2026-04-27-pap-dynamic-policy-profiling-proportionality",
-        "title": "Policy Administration Point (PAP) dynamic policy profiling and proportionality: mapping asset metadata to a lifecycle-aware Policy Enforcement Point (PEP) topology scaled by inherent risk",
-        "added": "2026-04-27"
-      }
-    ],
-    "url": "/Research/threads/reward-hacking-pbac-agentic-ai.html"
-  },
-  {
     "slug": "ai-governance-security-control-plane",
     "title": "ai-governance / security / control-plane",
     "kind": "implicit",
@@ -2185,14 +2250,14 @@
     "url": "/Research/threads/ai-productivity-team-size.html"
   },
   {
-    "slug": "cost-allocation-financial-services-tbm-council",
-    "title": "cost allocation / financial services / tbm council",
+    "slug": "cost-allocation-tbm-council-financial-services",
+    "title": "cost allocation / tbm council / financial services",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "cost allocation",
-      "financial services",
-      "tbm council"
+      "tbm council",
+      "financial services"
     ],
     "item_count": 5,
     "items": [
@@ -2222,7 +2287,7 @@
         "added": "2026-03-09"
       }
     ],
-    "url": "/Research/threads/cost-allocation-financial-services-tbm-council.html"
+    "url": "/Research/threads/cost-allocation-tbm-council-financial-services.html"
   },
   {
     "slug": "copilot-coding-coding-agent-github-copilot",
@@ -2370,13 +2435,13 @@
     "url": "/Research/threads/youtube-transcripts-tooling.html"
   },
   {
-    "slug": "nist-ai-ai-rmf-apra-cps",
-    "title": "nist ai / ai rmf / apra cps",
+    "slug": "ai-rmf-nist-ai-apra-cps",
+    "title": "ai rmf / nist ai / apra cps",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "nist ai",
       "ai rmf",
+      "nist ai",
       "apra cps"
     ],
     "item_count": 4,
@@ -2402,7 +2467,7 @@
         "added": "2026-04-26"
       }
     ],
-    "url": "/Research/threads/nist-ai-ai-rmf-apra-cps.html"
+    "url": "/Research/threads/ai-rmf-nist-ai-apra-cps.html"
   },
   {
     "slug": "github-copilot-agents-md-claude-code",
