@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "Universal Entity Lifecycle Governance Framework (UELGF): complete framework synthesis, formal specification suitable for adoption as an organisational standard in a regulated financial institution and presentation to a board risk committee"
 added: 2026-04-27T01:28:25+00:00
 status: reviewing
