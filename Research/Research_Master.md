@@ -1,9 +1,10 @@
 # Research Master Document
 
-Generated on: 2026-04-27 03:39 UTC
+Generated on: 2026-04-27 04:51 UTC
 
 ## Table of Contents
 
+* [Invariant-based anomaly detection in the Policy Information Point (PIP): detecting permanent-invariant suppression through transient operating context and the decision signal to the Policy Decision Point (PDP)](#2026-04-27-pip-invariant-anomaly-detection-md)
 * [Universal policy synchronisation and integrity: ensuring the Policy Decision Point (PDP) evaluates governed assets against logically identical policy across all lifecycle phases](#2026-04-27-pdp-universal-policy-synchronisation-integrity-md)
 * [Policy Administration Point (PAP) dynamic policy profiling and proportionality: mapping asset metadata to a lifecycle-aware Policy Enforcement Point (PEP) topology scaled by inherent risk](#2026-04-27-pap-dynamic-policy-profiling-proportionality-md)
 * [Systems capability debt as the root cause of citizen development: empirical evidence and effective governance architectures](#2026-04-26-systems-capability-debt-citizen-development-empirical-evidence-md)
@@ -192,6 +193,81 @@ Generated on: 2026-04-27 03:39 UTC
 * [Interface and delivery: how to surface research outputs](#2026-02-27-interface-and-delivery-md)
 * [Information synthesis: non-lossy compression, entropy, and information theory](#2026-02-27-information-synthesis-entropy-md)
 * [Indexing and tracking method for research content](#2026-02-27-indexing-and-tracking-method-md)
+
+---
+
+<a id="2026-04-27-pip-invariant-anomaly-detection-md"></a>
+
+## Invariant-based anomaly detection in the Policy Information Point (PIP): detecting permanent-invariant suppression through transient operating context and the decision signal to the Policy Decision Point (PDP)
+
+**Tags:** [pbac, pip, pdp, invariant, anomaly-detection, agentic-ai, intent-alignment, prompt-injection, cynefin, bayesian-reasoning, reward-hacking, context-synthesis]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-27-pip-invariant-anomaly-detection.md
+
+## Research Question
+
+How can the Policy Information Point (PIP) detect when a governed asset's transient operating context is being used, intentionally or through task creep, to suppress or obscure a permanent invariant, and what decision signal should the PIP surface to the Policy Decision Point (PDP) when that suppression pattern is detected?
+
+## Findings
+
+*(Populated from §6 Synthesis above.)*
+
+### Executive Summary
+
+[inference; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC2782645/; https://davidamitchell.github.io/Research/research/2026-03-15-context-layers-aligned-decisions-synthesis.html; https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html] The PIP should combine deterministic contradiction checks with a Bayesian-style surprise layer over the mismatch between permanent invariant metadata and transient task signals, then surface a typed anomaly object to the PDP instead of trying to resolve the policy conflict itself. [inference; source: https://genai.owasp.org/llmrisk/llm01-prompt-injection/; https://davidamitchell.github.io/Research/research/2026-03-15-prompt-injection-threat-landscape.html] The decisive distinction is between passive suppression, where framing and requested actions agree that invariants are not in play, and active or adversarial suppression, where the requested actions would touch invariant-bearing resources despite framing that says otherwise. [inference; source: https://thecynefin.co/effective-decision-making-support-tool/; https://davidamitchell.github.io/Research/research/2026-04-27-pap-dynamic-policy-profiling-proportionality.html] Cynefin task-complexity declarations should modify the prior because high-invariant assets declaring Clear routine work while requesting broad access or state-changing tools are lower-probability combinations than comparable tasks declared as Complicated or Complex. [inference; source: https://csf.tools/reference/nist-sp-800-53/r5/si/si-4/; https://csf.tools/reference/nist-sp-800-53/r5/au/au-6/; https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html] A practical PIP output should therefore carry `signal_type`, `confidence_score`, `surprise_score`, implicated invariants, contradictory observations, provenance, and a recommended routing path so that monitoring, audit review, and remediation remain explainable and proportionate.
+
+### Key Findings
+
+1. **High confidence.** [inference; source: https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html; https://davidamitchell.github.io/Research/research/2026-03-15-context-layers-aligned-decisions-synthesis.html] The PIP is the correct runtime detection surface because it already synthesises the attribute values that connect Layer 3 Asset Metadata to Layer 8 Task Intent before the PDP evaluates policy.
+2. **High confidence.** [inference; source: https://davidamitchell.github.io/Research/research/2026-03-10-formal-spec-intent-alignment-agentic-coding.html; https://davidamitchell.github.io/Research/research/2026-04-26-access-control-amplification-agentic-operations.html] Invariant-shadowing should be typed into passive, active, and adversarial classes, because the operational response depends on whether the framing-to-action mismatch is absent, accidental, or linked to hostile context substitution.
+3. **Medium confidence.** [inference; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC2782645/; https://davidamitchell.github.io/Research/research/2026-03-15-neurological-context-management.html] Bayesian surprise provides a principled ranking layer above deterministic contradiction rules, because it measures how strongly an observed task tuple shifts legitimacy beliefs for that invariant-bearing asset.
+4. **Medium confidence.** [inference; source: https://thecynefin.co/effective-decision-making-support-tool/; https://hbr.org/2007/11/a-leaders-framework-for-decision-making] Cynefin domain declarations should be treated as probabilistic context features, with Clear declarations lowering the expected probability of broad access or state change for high-invariant assets and Chaotic declarations increasing review pressure rather than relaxing control.
+5. **High confidence.** [inference; source: https://genai.owasp.org/llmrisk/llm01-prompt-injection/; https://davidamitchell.github.io/Research/research/2026-03-15-prompt-injection-threat-landscape.html] Prompt injection should be modelled inside the PIP as hostile context substitution, and not merely as suspicious text, because the security-relevant event is the attempt to make transient input outrank registered invariant metadata.
+6. **Medium confidence.** [inference; source: https://csf.tools/reference/nist-sp-800-53/r5/si/si-4/; https://csf.tools/reference/nist-sp-800-53/r5/au/au-6/; https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html] A practical PIP-to-PDP signal should be a typed and explainable anomaly object carrying score, confidence, implicated invariants, provenance, and recommended routing so that monitoring and audit review remain actionable.
+7. **Medium confidence.** [inference; source: https://davidamitchell.github.io/Research/research/2026-04-27-pap-dynamic-policy-profiling-proportionality.html; https://davidamitchell.github.io/Research/research/2026-04-27-pdp-universal-policy-synchronisation-integrity.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html] The anomaly object becomes materially stronger when it also carries lifecycle policy-version and machine-identity context, because adjacent governance failures can otherwise masquerade as task-framing anomalies.
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [inference] The PIP is the correct runtime detection surface because it already assembles the attributes used by the PDP to evaluate policy. | https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html ; https://davidamitchell.github.io/Research/research/2026-03-15-context-layers-aligned-decisions-synthesis.html | high | Ties XACML role definitions to the repository's Layer 3 to Layer 8 architecture. |
+| [inference] Invariant-shadowing should be typed into passive, active, and adversarial classes because the remediation path depends on whether contradiction and hostile context are present. | https://davidamitchell.github.io/Research/research/2026-03-10-formal-spec-intent-alignment-agentic-coding.html ; https://davidamitchell.github.io/Research/research/2026-04-26-access-control-amplification-agentic-operations.html ; https://genai.owasp.org/llmrisk/llm01-prompt-injection/ | medium | Distinguishes legitimate non-activation from risky mismatch and hostile substitution. |
+| [inference] Bayesian surprise provides a principled ranking layer above deterministic contradiction rules because the anomaly is a belief shift about legitimacy conditioned on invariants. | https://pmc.ncbi.nlm.nih.gov/articles/PMC2782645/ ; https://davidamitchell.github.io/Research/research/2026-03-15-neurological-context-management.html | medium | Connects formal surprise to prior-weighted relevance filtering. |
+| [inference] Cynefin declarations should change the prior over legitimate operations, with Clear routine framing making broad access or state change less probable for high-invariant assets. | https://thecynefin.co/effective-decision-making-support-tool/ ; https://hbr.org/2007/11/a-leaders-framework-for-decision-making ; https://davidamitchell.github.io/Research/research/2026-04-27-pap-dynamic-policy-profiling-proportionality.html | medium | Useful as a prior-adjustment feature, not sufficient alone. |
+| [inference] Prompt injection should be modelled as hostile context substitution because it tries to make untrusted external content outrank registered invariant metadata and tool constraints. | https://genai.owasp.org/llmrisk/llm01-prompt-injection/ ; https://davidamitchell.github.io/Research/research/2026-03-15-prompt-injection-threat-landscape.html | high | Converts a text-security issue into a policy-routing issue. |
+| [inference] A practical PIP signal should be typed, auditable, and explainable, carrying score, confidence, implicated invariants, provenance, and recommended route. | https://csf.tools/reference/nist-sp-800-53/r5/si/si-4/ ; https://csf.tools/reference/nist-sp-800-53/r5/au/au-6/ ; https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html | medium | Field set is a design recommendation derived from monitoring, review, and role separation. |
+| [inference] Policy-version and machine-identity context strengthen suppression detection by separating runtime framing anomalies from adjacent governance failures. | https://davidamitchell.github.io/Research/research/2026-04-27-pdp-universal-policy-synchronisation-integrity.html ; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html ; https://davidamitchell.github.io/Research/research/2026-04-27-pap-dynamic-policy-profiling-proportionality.html | medium | Cross-item synthesis across lifecycle integrity, identity, and proportional control depth. |
+
+### Assumptions
+
+- [assumption; source: https://davidamitchell.github.io/Research/research/2026-04-27-pap-dynamic-policy-profiling-proportionality.html] The PAP or asset-registration process produces enough invariant-class structure to seed priors for newly created assets. **Justification:** a surprise score needs a baseline, and new assets otherwise lack historical usage.
+- [assumption; source: https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html] Requested tools and data scopes are visible to the PIP before the PDP renders a final decision. **Justification:** active suppression cannot be detected if the PIP only sees the free-form prompt and not the planned operations.
+- [assumption; source: https://thecynefin.co/effective-decision-making-support-tool/] The calling context provides either an explicit Cynefin-style task declaration or enough structured metadata for the platform to infer one. **Justification:** the Cynefin-by-invariant matrix cannot influence priors without a complexity signal.
+
+### Analysis
+
+- [inference; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC2782645/; https://davidamitchell.github.io/Research/research/2026-03-15-neurological-context-management.html] Deterministic contradiction rules are still needed to catch direct mismatches between framing and requested actions, while Bayesian surprise provides a ranking layer for borderline or context-dependent cases by measuring belief shift against prior expectations.
+- [inference; source: https://genai.owasp.org/llmrisk/llm01-prompt-injection/; https://davidamitchell.github.io/Research/research/2026-03-15-prompt-injection-threat-landscape.html] OWASP and the prior prompt-injection item justify treating provenance and hostile override patterns as score multipliers, but they do not justify equating every suspicious string with active suppression, so action mismatch remains the decisive discriminator.
+- [inference; source: https://thecynefin.co/effective-decision-making-support-tool/; https://hbr.org/2007/11/a-leaders-framework-for-decision-making] The Cynefin framework helps because it changes what "normal" looks like for the task, but it remains a contextual prior rather than direct proof, so its contribution is medium-confidence and subordinate to invariant-action contradiction.
+- [inference; source: https://csf.tools/reference/nist-sp-800-53/r5/si/si-4/; https://csf.tools/reference/nist-sp-800-53/r5/au/au-6/] NIST monitoring controls tilt the design toward typed, explainable routing objects rather than hidden scores, because anomaly detection that cannot be reviewed, correlated, or reported cleanly would fail the stated monitoring purpose.
+- [inference; source: https://davidamitchell.github.io/Research/research/2026-04-27-pap-dynamic-policy-profiling-proportionality.html; https://davidamitchell.github.io/Research/research/2026-04-27-pdp-universal-policy-synchronisation-integrity.html] Adjacent PBAC items sharpen the trade-off: low-risk assets need low-friction monitoring, while high-invariant assets need higher-confidence escalation paths, so the signal must remain typed and proportional rather than binary.
+
+### Risks, Gaps, and Uncertainties
+
+- [inference; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC2782645/] The surprise formula is well founded conceptually, but this item does not establish production calibration thresholds for specific invariant classes, so implementation still needs empirical tuning.
+- [inference; source: https://thecynefin.co/effective-decision-making-support-tool/] Cynefin declarations are partly behavioural and can be gamed or misclassified, so they should influence priors but should not be treated as authoritative evidence on their own.
+- [inference; source: https://genai.owasp.org/llmrisk/llm01-prompt-injection/] Prompt injection remains a partly unsolved prevention problem, so adversarial suppression detection will necessarily produce some false positives and false negatives.
+- [inference; source: https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html] If tool plans are assembled late or outside the PIP's visibility boundary, active suppression may only be partially detectable at the point this item targets.
+
+### Open Questions
+
+- How should invariant-class priors be learned and refreshed without letting manipulated traffic poison the baseline?
+- What is the minimum structured tool-plan representation the PIP must receive to detect active suppression before execution begins?
+- How should policy-version drift and suppression anomalies be jointly handled when both appear in the same request path?
+- Which invariant classes deserve hard fail-closed thresholds versus step-up review thresholds?
+- How should multimodal prompt injection alter the provenance-risk term for assets that ingest images, audio, or Portable Document Format (PDF) documents?
+
+---
 
 ---
 
