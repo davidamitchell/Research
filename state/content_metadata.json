@@ -1,6 +1,56 @@
 {
-  "extracted_at": "2026-04-27T03:14:58Z",
+  "extracted_at": "2026-04-27T03:39:41Z",
   "items": {
+    "2026-04-27-pdp-universal-policy-synchronisation-integrity": {
+      "named_concepts": [
+        "policy provenance",
+        "pre-deployment admission",
+        "policy digest",
+        "canonical policy",
+        "phase projections",
+        "mandatory promotion-stage",
+        "promotion-stage re-synchronisation",
+        "synchronous check",
+        "evaluation envelope",
+        "synchronous validation",
+        "asset digest",
+        "policy bundle",
+        "remain logically",
+        "logically identical",
+        "diagnostic surface",
+        "parent digest",
+        "re-synchronisation checkpoint",
+        "admission remains",
+        "consequential assets",
+        "digest against"
+      ],
+      "source_urls": [
+        "https://davidamitchell.github.io/Research/research/2026-03-01-agent-lsp-policy-enforcement.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-22-compliance-scanning-gh-actions.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-22-cross-scanner-compliance-evidence-normalisation.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-14-organisational-intent-formal-specification.html",
+        "https://davidamitchell.github.io/Research/research/2026-03-18-stateless-agent-assumption-failure.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-policy-coherence-machine-checkable-prerequisite.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-permission-safe-rag-enterprise-information-architecture.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-27-pap-dynamic-policy-profiling-proportionality.html",
+        "https://csrc.nist.gov/pubs/sp/800/162/final",
+        "https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html",
+        "https://www.openpolicyagent.org/docs/latest/management-bundles/",
+        "https://www.openpolicyagent.org/docs/latest/management/",
+        "https://git-scm.com/book/en/v2/Git-Internals-Git-Objects",
+        "https://github.com/opencontainers/image-spec/blob/main/spec.md#content-addressability",
+        "https://github.com/opencontainers/distribution-spec/blob/main/spec.md#content-addressable-storage",
+        "https://in-toto.io",
+        "https://github.com/in-toto/attestation/blob/main/spec/v1/statement.md",
+        "https://github.com/in-toto/attestation/blob/main/spec/v1/resource_descriptor.md",
+        "https://slsa.dev/spec/v1.0/provenance",
+        "https://docs.sigstore.dev/cosign/signing/signing_with_containers/",
+        "https://semver.org/"
+      ],
+      "key_claims": []
+    },
     "2026-04-27-pap-dynamic-policy-profiling-proportionality": {
       "named_concepts": [
         "getting started",
