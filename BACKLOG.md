@@ -850,3 +850,63 @@ Tests cover: frontmatter parsing, CLI output, site builder rendering.
 Individual claims carry `[fact]`/`[inference]`/`[assumption]` labels (good), but there is no overall confidence or evidence grade for an item as a whole. A reader cannot filter "show me only high-confidence findings." An item with 20 `[assumption]` labels and an item with 20 `[fact]` labels both appear identical in browse/tag navigation. Item-level confidence grades make corpus reliability visible at a glance.
 
 ---
+
+## W-0048
+
+status: open
+created: 2026-04-27
+updated: 2026-04-27
+
+### Outcome
+
+Confirmed, documented answers to:
+1. What are the practical norms from arXiv, SSRN, OSF (Open Science Framework), and registered reports for handling corrections, commentary, replication, and disputes in a file-based corpus?
+2. How do Zettelkasten implementations (Obsidian Publish, Roam, Logseq) handle note versioning and amendment?
+3. What is the minimum viable design for `replicates:` and `corrects:` relationship types in `## Related Items` to cover the gaps in the current five-type edge vocabulary (`extends`, `contradicts`, `depends-on`, `spawned-from`, `see-also`)?
+4. Does the pragmatic versioning model (frontmatter `versions:` array + git history as the diff) provide sufficient auditability, or is a strict arXiv-style vN file approach warranted?
+
+Findings stored in `Research/completed/YYYY-MM-DD-research-item-versioning-norms.md`. An ADR (Architecture Decision Record) is written if the findings change the frontmatter design or output type vocabulary.
+
+### Context
+
+Completed items in this repo are currently edited post-completion (acronym fixes, label corrections, finding revisions) with no formal record of what changed. The proposed design keeps the same file, uses git history as the diff, and adds a `versions:` frontmatter array as the human-readable index (version number, commit SHA, date, progress log path, one-line summary).
+
+This research item validates that design against academic pre-print and PKM (Personal Knowledge Management) norms before the frontmatter schema is locked in. It also evaluates whether `replicates` and `corrects` should join the `## Related Items` relationship vocabulary.
+
+Spawned from design session 2026-04-27 on academic norms for completed research items.
+
+### Notes
+
+Two implementation options for W-0049:
+
+- **Option A (research first):** Complete W-0048 before implementing W-0049. The `versions:` field is low-risk but the relationship vocabulary question is unresolved without evidence.
+- **Option B (implement now, validate later):** Implement W-0049 immediately with the pragmatic model. If W-0048 findings contradict the design, an ADR (Architecture Decision Record) supersedes and the schema is updated. The version history itself captures the correction.
+
+---
+
+## W-0049
+
+status: open
+created: 2026-04-27
+updated: 2026-04-27
+
+### Outcome
+
+1. `Research/_template.md` has a `versions:` array field with sub-fields: `version`, `sha`, `changed`, `progress`, `summary`.
+2. `src/research/item.py` `ResearchItem` dataclass has `versions: list[dict]` field; parses cleanly from existing completed items (defaults to empty list when field is absent — no migration of existing files required).
+3. `.github/copilot-instructions.md` has an explicit immutability rule: any edit to a completed item's findings, claims, or conclusions requires a new `versions:` entry, a progress log, and SHA (commit hash) populated after the commit. Tag additions and `## Related Items` changes are exempt from this rule.
+4. `scripts/build_site.py` renders a version history table on item pages: version number, date, one-line summary, and SHA (commit hash) linked to the GitHub commit URL.
+5. Tests in `tests/test_research_cli.py` or a new test file cover: parsing a `versions:` field; defaulting to empty list when the field is absent; correct rendering in the site build (if applicable).
+
+### Context
+
+When completed items are edited there is currently no record of what changed, when, or why. This item implements the design decided 2026-04-27: same file path (no file renaming or archiving), git history as the diff, frontmatter `versions:` array as the human-readable index.
+
+Version numbering convention:
+- `1.0` — initial completion
+- `1.x` — minor corrections (label fixes, acronym expansions, broken URL replacements, formatting)
+- `2.0` — substantive revision (findings changed, conclusions revised, major new evidence added)
+
+Blocked on W-0048 if Option A is chosen; can proceed independently under Option B.
+
+---
