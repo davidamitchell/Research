@@ -1,9 +1,10 @@
 # Research Master Document
 
-Generated on: 2026-04-27 05:37 UTC
+Generated on: 2026-04-27 05:57 UTC
 
 ## Table of Contents
 
+* [Universal Entity Lifecycle Governance Framework (UELGF): canonical entity taxonomy and Confidentiality, Integrity, and Availability (CIA) classification system for determining governance intensity](#2026-04-27-uelgf-entity-taxonomy-cia-classification-md)
 * [Universal Entity Lifecycle Governance Framework (UELGF): decommission lifecycle, trigger taxonomy, procedural requirements by confidentiality, integrity, and availability (CIA) tier, ghost-entity detection and remediation, and the dependency-elimination trigger as the formal connection to systems capability debt](#2026-04-27-uelgf-decommission-lifecycle-md)
 * [Invariant-based anomaly detection in the Policy Information Point (PIP): detecting permanent-invariant suppression through transient operating context and the decision signal to the Policy Decision Point (PDP)](#2026-04-27-pip-invariant-anomaly-detection-md)
 * [Universal policy synchronisation and integrity: ensuring the Policy Decision Point (PDP) evaluates governed assets against logically identical policy across all lifecycle phases](#2026-04-27-pdp-universal-policy-synchronisation-integrity-md)
@@ -195,6 +196,147 @@ Generated on: 2026-04-27 05:37 UTC
 * [Interface and delivery: how to surface research outputs](#2026-02-27-interface-and-delivery-md)
 * [Information synthesis: non-lossy compression, entropy, and information theory](#2026-02-27-information-synthesis-entropy-md)
 * [Indexing and tracking method for research content](#2026-02-27-indexing-and-tracking-method-md)
+
+---
+
+<a id="2026-04-27-uelgf-entity-taxonomy-cia-classification-md"></a>
+
+## Universal Entity Lifecycle Governance Framework (UELGF): canonical entity taxonomy and Confidentiality, Integrity, and Availability (CIA) classification system for determining governance intensity
+
+**Tags:** [uelgf, entity-taxonomy, cia-classification, governance-profile, agentic-ai, autonomous-agents, citizen-development, saas, data-products, regulated-banking, risk-tiering]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-27-uelgf-entity-taxonomy-cia-classification.md
+
+## Research Question
+
+What canonical entity taxonomy and Confidentiality, Integrity, and Availability (CIA) classification system should the UELGF use to determine governance intensity, ensuring that every entity type, from a fully autonomous Artificial Intelligence (AI) agent to a procurement decision, receives a governance profile that is proportionate to its actual risk and that the classification process cannot be gamed by builder self-assessment at high CIA tiers?
+
+## Findings
+
+### Executive Summary
+
+[inference; source: https://handbook.apra.gov.au/standard/cps-234; https://www.apra.gov.au/sites/default/files/cpg_234_information_security_june_2019.pdf; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://www.pcisecuritystandards.org/standards/pci-dss/] The UELGF should classify every governed object into one canonical entity type and one CIA tier using highest-triggered-axis scoring plus mandatory floors, because APRA separates availability impact from confidentiality or integrity impact, NIST requires documented context and impact analysis, and PCI shows that some control surfaces are high consequence by rule rather than by self-description.
+
+[inference; source: https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html; https://publications.opengroup.org/c260; https://davidamitchell.github.io/Research/research/2026-03-08-servicenow-csdm-data-modelling.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html] The canonical taxonomy should distinguish passive policy or content artefacts, passive data products, interactive frontend applications, integration components, software services, SaaS products, decision workflows, and four mutually exclusive AI agent autonomy classes, with classification assigned to the highest-action surface exposed at rail entry.
+
+[inference; source: https://www.faa.gov/documentLibrary/media/Order/FAA_Order_8110.49A.pdf; https://handbook.apra.gov.au/standard/cps-234; https://www.pcisecuritystandards.org/standards/pci-dss/; https://davidamitchell.github.io/Research/research/2026-04-26-access-control-amplification-agentic-operations.html] Builder self-assessment should stop at evidence submission, because the accessible high-assurance analogues all place minimum consequence class assignment outside developer discretion, and machine-speed blast radius means autonomy, privileged access, and regulated-data adjacency must impose automatic floors before builder optimism can reduce them.
+
+[inference; source: https://davidamitchell.github.io/Research/research/2026-03-15-context-layers-aligned-decisions-synthesis.html; https://davidamitchell.github.io/Research/research/2026-04-27-pap-dynamic-policy-profiling-proportionality.html] Governance intensity should then be applied compositionally: tier baselines determine which policy layers, gates, manual checkpoints, observability controls, and review cadences apply, while entity-type modifiers add specific controls for agents, decision workflows, data products, and privileged execution surfaces.
+
+### Key Findings
+
+1. [inference; confidence: high; source: https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html; https://publications.opengroup.org/c260; https://davidamitchell.github.io/Research/research/2026-03-08-servicenow-csdm-data-modelling.html] A stable UELGF taxonomy should classify entities by dominant executed function rather than by owning team or implementation medium, because operational taxonomies remain durable only when runtime consequence, service role, and domain boundary are separated explicitly.
+2. [inference; confidence: high; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://davidamitchell.github.io/Research/research/2026-04-24-business-led-low-code-agent-governance.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html] AI agents need four mutually exclusive autonomy classes with observable falsifiers, because human oversight, trigger mode, and task persistence cleanly separate attended assistants from tool-using, event-triggered, and fully autonomous actors at intake.
+3. [inference; confidence: high; source: https://handbook.apra.gov.au/standard/cps-234; https://www.apra.gov.au/sites/default/files/cpg_234_information_security_june_2019.pdf; https://csrc.nist.gov/pubs/sp/800/30/r1/final; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/] The CIA model should keep Confidentiality, Integrity, and Availability separate and set overall tier to the highest triggered axis, because regulated guidance treats those harms as distinct and a single catastrophic action surface must not be averaged away.
+4. [inference; confidence: medium; source: https://handbook.apra.gov.au/standard/cps-234; https://csrc.nist.gov/pubs/sp/800/30/r1/final; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://davidamitchell.github.io/Research/research/2026-04-26-access-control-amplification-agentic-operations.html] Confidentiality thresholds should be driven by data class and subject scale, Integrity thresholds by reversibility and action-consequence blast radius, and Availability thresholds by dependency criticality and outage tolerance, because those are the observable factors the reviewed standards and adjacent agentic-governance work require teams to document.
+5. [inference; confidence: high; source: https://www.pcisecuritystandards.org/standards/pci-dss/; https://handbook.apra.gov.au/standard/cps-234; https://www.faa.gov/documentLibrary/media/Order/FAA_Order_8110.49A.pdf; https://davidamitchell.github.io/Research/research/2026-04-26-access-control-amplification-agentic-operations.html] Mandatory floors must be attached to entity type and consequence-bearing surfaces rather than to builder opinion, because payment-card scope, prudential information-security accountability, software-assurance levels, and agentic blast-radius evidence all show that some classes are too consequential for discretionary downgrading.
+6. [inference; confidence: medium; source: https://handbook.apra.gov.au/standard/cps-234; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://davidamitchell.github.io/Research/research/2026-04-24-business-led-low-code-agent-governance.html] High and Critical assignments should be independently validated and downward appeals should require specific contrary evidence instead of compensating-control narratives, because the enterprise bears the downside of under-classification while the builder experiences only the local cost of stronger governance.
+7. [inference; confidence: high; source: https://www.apra.gov.au/sites/default/files/cpg_234_information_security_june_2019.pdf; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html; https://davidamitchell.github.io/Research/research/2026-04-27-pap-dynamic-policy-profiling-proportionality.html] Scaffold generation should stamp immutable invariants for entity type, autonomy class, data class, write capability, privilege level, external exposure, dependency criticality, and human-checkpoint pattern, because any change to those attributes materially changes risk and enforcement topology.
+8. [inference; confidence: medium; source: https://davidamitchell.github.io/Research/research/2026-03-15-context-layers-aligned-decisions-synthesis.html; https://davidamitchell.github.io/Research/research/2026-04-27-pap-dynamic-policy-profiling-proportionality.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-risk-tier-classification-controls.html] The governance profile should be implemented as tier baselines plus entity modifiers rather than as a flat bespoke matrix, because that structure is exhaustive, composable, and directly consumable by the adjacent policy-layer and PAP-topology items.
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [inference] Dominant-function taxonomy is more durable than owner-based classification. | https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ; https://publications.opengroup.org/c260 ; https://davidamitchell.github.io/Research/research/2026-03-08-servicenow-csdm-data-modelling.html | high | External operational taxonomies plus prior completed ServiceNow work support the split between passive, interactive, and execution entities. |
+| [inference] Four autonomy classes with falsifiers are operationally distinguishable. | https://airc.nist.gov/airmf-resources/airmf/5-sec-core/ ; https://davidamitchell.github.io/Research/research/2026-04-24-business-led-low-code-agent-governance.html ; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html | high | Human oversight, trigger mode, and persistent work are the decisive separators. |
+| [inference] Overall CIA tier should equal the highest triggered axis. | https://handbook.apra.gov.au/standard/cps-234 ; https://www.apra.gov.au/sites/default/files/cpg_234_information_security_june_2019.pdf ; https://csrc.nist.gov/pubs/sp/800/30/r1/final ; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/ | high | APRA's split and NIST's impact framing both support non-averaged consequence handling. |
+| [inference] Axis thresholds should be tied to data class, reversibility or action-consequence blast radius, and dependency criticality. | https://handbook.apra.gov.au/standard/cps-234 ; https://csrc.nist.gov/pubs/sp/800/30/r1/final ; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/ ; https://davidamitchell.github.io/Research/research/2026-04-26-access-control-amplification-agentic-operations.html | medium | Primary sources support data class, impact, and oversight inputs strongly; the blast-radius phrasing is reinforced by adjacent repository synthesis. |
+| [inference] Mandatory floors should be rule-based for certain types and surfaces. | https://www.pcisecuritystandards.org/standards/pci-dss/ ; https://handbook.apra.gov.au/standard/cps-234 ; https://www.faa.gov/documentLibrary/media/Order/FAA_Order_8110.49A.pdf ; https://davidamitchell.github.io/Research/research/2026-04-26-access-control-amplification-agentic-operations.html | high | PCI scoping, APRA board accountability, FAA assigned software levels, and agentic blast radius all point to non-discretionary minima. |
+| [inference] High and Critical assignments should be independently validated and only downgraded with specific contrary evidence. | https://handbook.apra.gov.au/standard/cps-234 ; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/ ; https://davidamitchell.github.io/Research/research/2026-04-24-business-led-low-code-agent-governance.html | medium | The reviewed sources support independent oversight strongly; the exact appeal rule is a design inference from incentive asymmetry. |
+| [inference] Scaffold-time invariants must include type, autonomy, data, write surface, privilege, exposure, dependency, and checkpoint pattern. | https://www.apra.gov.au/sites/default/files/cpg_234_information_security_june_2019.pdf ; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/ ; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html ; https://davidamitchell.github.io/Research/research/2026-04-27-pap-dynamic-policy-profiling-proportionality.html | high | Those attributes drive lifecycle controls and topology derivation. |
+| [inference] Tier baselines plus entity modifiers are the right governance-profile construction method. | https://davidamitchell.github.io/Research/research/2026-03-15-context-layers-aligned-decisions-synthesis.html ; https://davidamitchell.github.io/Research/research/2026-04-27-pap-dynamic-policy-profiling-proportionality.html ; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-risk-tier-classification-controls.html | medium | This is a repository-level architecture inference rather than a direct primary-source prescription. |
+
+### Assumptions
+
+- [assumption; source: https://handbook.apra.gov.au/ppg/cpg-234; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/] Subject-count bands can be used as an intake proxy for Confidentiality where exact live counts are unavailable. **Justification:** pre-deployment classification still requires measurable thresholds before runtime history exists.
+- [assumption; source: https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html; https://publications.opengroup.org/c260; https://davidamitchell.github.io/Research/research/2026-03-08-servicenow-csdm-data-modelling.html] The accessible AWS and ArchiMate sources plus the completed ServiceNow CSDM item are sufficient to anchor the entity-family split despite the seeded ServiceNow hierarchy page being inaccessible in this runtime. **Justification:** all three sources support the same active-versus-passive and strategic-versus-runtime distinctions.
+
+### Analysis
+
+[inference; source: https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html; https://publications.opengroup.org/c260; https://davidamitchell.github.io/Research/research/2026-03-08-servicenow-csdm-data-modelling.html; https://davidamitchell.github.io/Research/research/2026-03-10-ai-concept-classification-taxonomy.html] **Proposed canonical entity taxonomy and default floors:**
+
+| Entity type | Distinguishing property | Observable entry evidence | Mandatory builder inputs | Scaffold invariants | Default floor |
+|---|---|---|---|---|---|
+| Policy or content artefact | Declares, constrains, or communicates but does not execute | file type, publication target, no runtime identity | audience, regulated use, downstream enforcement use | regulated use, publication channel | Low |
+| Data product | Primary value is maintained data for consumption by others | dataset schema, access path, producer, consumers | data classes, subject-count band, refresh cadence | data classes, subject-count band, external sharing | Low, or High if regulated data |
+| Frontend application | Interactive user surface without independent orchestration | user interface, session model, channel exposure | auth model, data classes, write surfaces | auth mode, write surfaces, external exposure | Low |
+| Integration component | Moves, transforms, or synchronizes data or commands across systems | connector list, endpoints, triggers | source and target systems, directionality, write surfaces | endpoint scope, trigger mode, write surfaces | Medium |
+| Software service | Hosts business or technical capability behind an interface | service endpoint, deployment identity, dependent systems | dependency class, write surfaces, recovery tolerance | dependency criticality, privilege level | Medium |
+| SaaS product | Externally provided application surface with tenant-level governance | vendor platform, tenant boundaries, admin surface | vendor role, system-of-record status, data classes | vendor role, system-of-record status | Medium |
+| Decision workflow | Produces binding approval or rejection state | workflow engine, approval outcome, downstream actuation | decision consequence, reversal path, human checkpoint | decision consequence, checkpoint pattern | High |
+| AI agent | Uses model-led reasoning to answer, decide, or act | model component, tool surface, trigger mode | autonomy class, tool set, checkpoint pattern | autonomy class, tool set, checkpoint pattern | Class-dependent |
+
+[inference; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://davidamitchell.github.io/Research/research/2026-04-24-business-led-low-code-agent-governance.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html] **AI agent autonomy sub-taxonomy:**
+
+| Class | Definition | Entry test | Falsification trigger | Floor |
+|---|---|---|---|---|
+| Agent-1 Declarative or scoped assistant | Generates content or analysis inside a user-invoked interaction and has no side-effecting tool execution | no external write, no independent trigger | any side-effecting tool call | Low |
+| Agent-2 User-invoked action agent | Runs only inside an explicit user request but can call tools or APIs to read or write during that session | user initiation required per run | scheduled or event-triggered execution | Medium |
+| Agent-3 Event-triggered bounded autonomous agent | Executes on schedule or event without per-run initiation, but goal is predefined and bounded | autonomous trigger, fixed scope | persistent task creation or reprioritization | High |
+| Agent-4 Fully autonomous agent | Can create, chain, or reprioritize work across time and operate under its own bounded machine identity | persistent work graph or independent re-entry | not applicable, this is top class | High, or Critical with privileged or consequential write access |
+
+[inference; source: https://handbook.apra.gov.au/standard/cps-234; https://www.apra.gov.au/sites/default/files/cpg_234_information_security_june_2019.pdf; https://csrc.nist.gov/pubs/sp/800/30/r1/final; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://www.pcisecuritystandards.org/standards/pci-dss/] **CIA threshold model:**
+
+| Axis | Low | Medium | High | Critical |
+|---|---|---|---|---|
+| Confidentiality | public or internal operational data, no regulated personal or secret material | internal confidential business data or limited personal data | customer personal, financial, authentication, or security-sensitive data, or broad subject-scale exposure | payment credentials, encryption keys, privileged secrets, or data whose exposure materially threatens customers or enterprise control |
+| Integrity | read-only or fully reversible internal changes | bounded writes with routine correction path | consequential writes to production, regulated records, customer communications, or approval states | legally, financially, or operationally irreversible machine-speed action, including privileged policy or payment execution |
+| Availability | outage tolerable for more than five business days with simple workaround | outage tolerable for one to five business days with costly workaround | outage materially disrupts critical operations or customers within one business day | outage threatens critical operation, regulatory obligation, or customer access within hours |
+
+[inference; source: https://www.pcisecuritystandards.org/standards/pci-dss/; https://handbook.apra.gov.au/standard/cps-234; https://www.faa.gov/documentLibrary/media/Order/FAA_Order_8110.49A.pdf; https://davidamitchell.github.io/Research/research/2026-04-26-access-control-amplification-agentic-operations.html] **Automatic floors and assignment process:**
+
+| Trigger | Minimum result | Why it floors |
+|---|---|---|
+| Cardholder or sensitive authentication data, or system can impact that environment | Confidentiality High and overall High minimum | PCI treats those surfaces as in scope by rule |
+| Privileged credentials, policy mutation, payment execution, or production deployment authority | Integrity Critical | Reversal is too slow or incomplete once action is exercised |
+| Decision workflow affecting customer, credit, procurement, or regulatory commitment | Integrity High minimum | The primary risk is wrong or premature binding state change |
+| Agent-3 autonomy | overall High minimum | Non-attended execution removes per-run human initiation |
+| Agent-4 plus privileged or consequential write access | overall Critical minimum | Machine-speed multi-step action creates enterprise-scale blast radius |
+| System of record for critical operation | Availability High minimum | Operational dependency dominates governance intensity |
+
+| Step | Actor | Rule |
+|---|---|---|
+| Evidence submission | builder | declares type, surfaces, data, dependencies, autonomy, and checkpoints |
+| Provisional scoring | platform or PAP | computes axis scores and floors automatically |
+| Medium validation | architecture plus security owner | confirms declared evidence and floors |
+| High validation | architecture, security, and risk owner | required before rail approval |
+| Critical validation | architecture, security, risk, and accountable executive | required before build or deployment progresses |
+| Downward appeal | independent review body | allowed only if triggering attribute is factually absent |
+
+[inference; source: https://davidamitchell.github.io/Research/research/2026-03-15-context-layers-aligned-decisions-synthesis.html; https://davidamitchell.github.io/Research/research/2026-04-27-pap-dynamic-policy-profiling-proportionality.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-risk-tier-classification-controls.html] **Governance profile matrix, built as tier baselines plus entity modifiers:**
+
+| Tier baseline | Applicable policy layers | Mandatory hard gates | Manual checkpoints | Observability | Maximum re-evaluation interval |
+|---|---|---|---|---|---|
+| Low | Layers 5, 7, 8 | scaffold lint and policy conformance only | none by default | inventory plus basic audit log | 12 months |
+| Medium | Layers 5, 6, 7, 8 | intake validation, identity check, delivery gate | owner approval | inventory, decision log, change log, dependency map | 6 months |
+| High | Layers 1, 5, 6, 7, 8 | intake gate, identity gate, delivery gate, pre-production readiness gate | architecture, security, and risk checkpoint | full decision logs, access logs, policy-denial logs, anomaly alerts | 90 days |
+| Critical | Layers 1, 2, 3, 5, 6, 7, 8 | hard intake gate, hard identity gate, hard delivery gate, production enablement gate | accountable executive plus independent risk sign-off | real-time telemetry, immutable audit trail, rollback and kill-switch validation, continuous anomaly monitoring | 30 days |
+
+| Entity modifier | Extra controls added to baseline |
+|---|---|
+| Policy or content artefact | add review for regulated publication and version integrity when downstream enforcement depends on content |
+| Data product | add schema drift, access-pattern, and downstream-consumer monitoring |
+| Frontend application | add user-session telemetry and channel-specific abuse monitoring |
+| Integration component | add connector allow-list, source-target lineage, and rate anomaly monitoring |
+| Software service | add dependency health, privileged-operation logging, and release provenance |
+| SaaS product | add vendor-admin review, tenant-boundary review, and compensating-control check |
+| Decision workflow | add mandatory human override route, outcome attribution, and decision-sampling review |
+| AI agent | add autonomy-specific tool-call logs, prompt or policy version binding, and checkpoint-failure escalation |
+
+### Risks, Gaps, and Uncertainties
+
+- [fact; source: https://www.federalregister.gov/documents/2025/09/24/2025-18468/computer-software-assurance-for-production-and-quality-system-software-guidance-for-industry-and-food] The official Federal Register path for current FDA Computer Software Assurance guidance was anti-bot gated in this runtime, so pharmaceutical-manufacturing evidence was not used to support the final floor model.
+- [fact; source: https://www.apra.gov.au/sites/default/files/cpg_234_information_security_june_2019.pdf] APRA gives methodology direction rather than numeric thresholds, so the exact subject-count and outage-tolerance bands in the proposed model are a synthesis layer rather than regulator-prescribed numbers.
+- [fact; source: https://www.faa.gov/documentLibrary/media/Order/FAA_Order_8110.49A.pdf; https://www.faa.gov/documentLibrary/media/Advisory_Circular/AC_20-115C.pdf] FAA material in this runtime was more usable for the governance pattern of assigned consequence classes than for a detailed extraction of all software-level definitions, so aviation is used here as an assignment analogue rather than as a one-to-one numeric template.
+
+### Open Questions
+
+- [inference; source: https://davidamitchell.github.io/Research/research/2026-04-27-pap-dynamic-policy-profiling-proportionality.html] Should the PAP expose floors as human-readable policy rules or only as computed outputs from a topology-derivation function?
+- [inference; source: https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html] Should Agent-4 entities be split again by whether they can modify their own tool graph or only their task graph?
+- [inference; source: https://www.apra.gov.au/sites/default/files/cpg_234_information_security_june_2019.pdf; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/] What empirical subject-count and outage-tolerance thresholds best fit the target banking context without creating unnecessary High classifications for low-consequence internal data sets?
+
+---
 
 ---
 
