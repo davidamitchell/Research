@@ -1,6 +1,47 @@
 {
-  "extracted_at": "2026-04-27T11:36:03Z",
+  "extracted_at": "2026-04-27T11:54:12Z",
   "items": {
+    "2026-04-27-uelgf-synthesis-complete-framework": {
+      "named_concepts": [
+        "technical specification",
+        "board view",
+        "information architecture",
+        "runtime feedback",
+        "policy architecture",
+        "one lifecycle",
+        "typed scope",
+        "lifecycle grammar",
+        "one canonical",
+        "explicit limitations",
+        "rail entry",
+        "detection lag",
+        "scope object",
+        "delegated-domain policy",
+        "consequential entities",
+        "every consequential",
+        "consequential entity",
+        "builder persona",
+        "coherent information",
+        "workaround demand"
+      ],
+      "source_urls": [
+        "https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-foundational-definitions-principles.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-entity-taxonomy-cia-classification.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-governed-golden-rails.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-policy-architecture-8-layer-context.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-decommission-lifecycle.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-runtime-feedback-loop.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-agentic-ai-foundational-conditions-dependency-ordering.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-access-control-amplification-agentic-operations.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-permission-safe-rag-enterprise-information-architecture.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-policy-coherence-machine-checkable-prerequisite.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html"
+      ],
+      "key_claims": []
+    },
     "2026-04-27-uelgf-runtime-feedback-loop": {
       "named_concepts": [
         "cia tier",

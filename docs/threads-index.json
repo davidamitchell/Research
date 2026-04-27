@@ -9,7 +9,7 @@
       "citizen-development"
     ],
     "concept_cluster": [],
-    "item_count": 20,
+    "item_count": 21,
     "items": [
       {
         "slug": "2026-04-24-business-led-low-code-agent-governance",
@@ -82,6 +82,11 @@
         "added": "2026-04-27"
       },
       {
+        "slug": "2026-04-27-uelgf-synthesis-complete-framework",
+        "title": "Universal Entity Lifecycle Governance Framework (UELGF): complete framework synthesis, formal specification suitable for adoption as an organisational standard in a regulated financial institution and presentation to a board risk committee",
+        "added": "2026-04-27"
+      },
+      {
         "slug": "2026-04-27-uelgf-runtime-feedback-loop",
         "title": "Universal Entity Lifecycle Governance Framework (UELGF): runtime feedback loop, signal taxonomy, automated response taxonomy, feedback closure to the rail system, and feedback closure to the systems capability debt programme as a structured demand signal",
         "added": "2026-04-27"
@@ -115,16 +120,16 @@
     "url": "/Research/threads/regulated-banking-agentic-ai-citizen-development.html"
   },
   {
-    "slug": "agentic-ai-regulated-banking-access-control",
-    "title": "agentic-ai / regulated-banking / access-control",
+    "slug": "agentic-ai-regulated-banking-citizen-development",
+    "title": "agentic-ai / regulated-banking / citizen-development",
     "kind": "implicit",
     "tag_cluster": [
       "agentic-ai",
       "regulated-banking",
-      "access-control"
+      "citizen-development"
     ],
     "concept_cluster": [],
-    "item_count": 16,
+    "item_count": 17,
     "items": [
       {
         "slug": "2026-02-28-ai-strategy",
@@ -197,6 +202,11 @@
         "added": "2026-04-27"
       },
       {
+        "slug": "2026-04-27-uelgf-synthesis-complete-framework",
+        "title": "Universal Entity Lifecycle Governance Framework (UELGF): complete framework synthesis, formal specification suitable for adoption as an organisational standard in a regulated financial institution and presentation to a board risk committee",
+        "added": "2026-04-27"
+      },
+      {
         "slug": "2026-04-27-uelgf-foundational-definitions-principles",
         "title": "Universal Entity Lifecycle Governance Framework (UELGF): foundational definitions, formal principles, and the inseparability of governance and acceleration in the governed golden rail",
         "added": "2026-04-27"
@@ -207,7 +217,7 @@
         "added": "2026-04-27"
       }
     ],
-    "url": "/Research/threads/agentic-ai-regulated-banking-access-control.html"
+    "url": "/Research/threads/agentic-ai-regulated-banking-citizen-development.html"
   },
   {
     "slug": "agents-agentic-systems-memory",
@@ -559,7 +569,7 @@
       "uelgf"
     ],
     "concept_cluster": [],
-    "item_count": 11,
+    "item_count": 12,
     "items": [
       {
         "slug": "2026-04-26-policy-coherence-machine-checkable-prerequisite",
@@ -594,6 +604,11 @@
       {
         "slug": "2026-04-27-uelgf-policy-architecture-8-layer-context",
         "title": "Universal Entity Lifecycle Governance Framework (UELGF): policy architecture, Policy Administration Point, Policy Decision Point, Policy Enforcement Point, Policy Information Point component design, the 8-layer organisational context model, policy independence guarantee, scope boundary mechanism, and kill switch",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-04-27-uelgf-synthesis-complete-framework",
+        "title": "Universal Entity Lifecycle Governance Framework (UELGF): complete framework synthesis, formal specification suitable for adoption as an organisational standard in a regulated financial institution and presentation to a board risk committee",
         "added": "2026-04-27"
       },
       {
@@ -970,6 +985,71 @@
     "url": "/Research/threads/rag-knowledge-management-synthesis.html"
   },
   {
+    "slug": "agentic-ai-governance-servicenow",
+    "title": "agentic-ai / governance / servicenow",
+    "kind": "implicit",
+    "tag_cluster": [
+      "agentic-ai",
+      "governance",
+      "servicenow"
+    ],
+    "concept_cluster": [],
+    "item_count": 10,
+    "items": [
+      {
+        "slug": "2026-03-08-servicenow-csdm-data-modelling",
+        "title": "ServiceNow CSDM: Practical Data Modelling Across ITSM, APM, SPM, IRM, and FSO",
+        "added": "2026-03-08"
+      },
+      {
+        "slug": "2026-03-08-servicenow-platform-strategy",
+        "title": "ServiceNow Platform Strategy: Holistic Integration of CSDM, Modules, Process, and AI",
+        "added": "2026-03-09"
+      },
+      {
+        "slug": "2026-04-26-policy-coherence-machine-checkable-prerequisite",
+        "title": "Policy coherence as a machine-checkable prerequisite: policy-as-code, formal specification, and invariant registries for regulated financial institutions deploying agentic Artificial Intelligence (AI)",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-llm-verifiability-asymmetry-code-world-action",
+        "title": "What is the precise technical distinction between code generation and other Large Language Model outputs in terms of external verifiability, and what does this asymmetry imply for safe deployment boundaries in a regulated financial institution?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-lecun-critique-citizen-development-enterprise-risk",
+        "title": "What does synthesising LeCun's architectural critique of Large Language Models with systems capability debt and citizen development arguments produce as a unified risk framework for regulated financial institutions?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-27-uelgf-synthesis-complete-framework",
+        "title": "Universal Entity Lifecycle Governance Framework (UELGF): complete framework synthesis, formal specification suitable for adoption as an organisational standard in a regulated financial institution and presentation to a board risk committee",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-04-27-uelgf-foundational-definitions-principles",
+        "title": "Universal Entity Lifecycle Governance Framework (UELGF): foundational definitions, formal principles, and the inseparability of governance and acceleration in the governed golden rail",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-04-27-uelgf-entity-taxonomy-cia-classification",
+        "title": "Universal Entity Lifecycle Governance Framework (UELGF): canonical entity taxonomy and Confidentiality, Integrity, and Availability (CIA) classification system for determining governance intensity",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-04-27-governance-moat-prior-research-implications",
+        "title": "Governance-as-moat thesis and prior research implications: how does the argument that governance is the durable value layer in Artificial Intelligence (AI)-augmented enterprise stacks validate, challenge, or extend the AI governance architecture frameworks developed in the prior research programme?",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-04-27-enterprise-stack-value-distribution-governance-frameworks",
+        "title": "Enterprise data stack value-distribution frameworks: what frameworks - including the seven-layer stack and Software Repricing Matrix discussed in the April 2026 ServiceNow investment analysis - are most useful for understanding where durable value accumulates in enterprise technology stacks, especially at the governance layer?",
+        "added": "2026-04-27"
+      }
+    ],
+    "url": "/Research/threads/agentic-ai-governance-servicenow.html"
+  },
+  {
     "slug": "llm-reliability-hallucinations",
     "title": "llm / reliability / hallucinations",
     "kind": "implicit",
@@ -1100,66 +1180,6 @@
     "url": "/Research/threads/mobile-ios-memory-system.html"
   },
   {
-    "slug": "agentic-ai-governance-servicenow",
-    "title": "agentic-ai / governance / servicenow",
-    "kind": "implicit",
-    "tag_cluster": [
-      "agentic-ai",
-      "governance",
-      "servicenow"
-    ],
-    "concept_cluster": [],
-    "item_count": 9,
-    "items": [
-      {
-        "slug": "2026-03-08-servicenow-csdm-data-modelling",
-        "title": "ServiceNow CSDM: Practical Data Modelling Across ITSM, APM, SPM, IRM, and FSO",
-        "added": "2026-03-08"
-      },
-      {
-        "slug": "2026-03-08-servicenow-platform-strategy",
-        "title": "ServiceNow Platform Strategy: Holistic Integration of CSDM, Modules, Process, and AI",
-        "added": "2026-03-09"
-      },
-      {
-        "slug": "2026-04-26-policy-coherence-machine-checkable-prerequisite",
-        "title": "Policy coherence as a machine-checkable prerequisite: policy-as-code, formal specification, and invariant registries for regulated financial institutions deploying agentic Artificial Intelligence (AI)",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-llm-verifiability-asymmetry-code-world-action",
-        "title": "What is the precise technical distinction between code generation and other Large Language Model outputs in terms of external verifiability, and what does this asymmetry imply for safe deployment boundaries in a regulated financial institution?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-lecun-critique-citizen-development-enterprise-risk",
-        "title": "What does synthesising LeCun's architectural critique of Large Language Models with systems capability debt and citizen development arguments produce as a unified risk framework for regulated financial institutions?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-27-uelgf-foundational-definitions-principles",
-        "title": "Universal Entity Lifecycle Governance Framework (UELGF): foundational definitions, formal principles, and the inseparability of governance and acceleration in the governed golden rail",
-        "added": "2026-04-27"
-      },
-      {
-        "slug": "2026-04-27-uelgf-entity-taxonomy-cia-classification",
-        "title": "Universal Entity Lifecycle Governance Framework (UELGF): canonical entity taxonomy and Confidentiality, Integrity, and Availability (CIA) classification system for determining governance intensity",
-        "added": "2026-04-27"
-      },
-      {
-        "slug": "2026-04-27-governance-moat-prior-research-implications",
-        "title": "Governance-as-moat thesis and prior research implications: how does the argument that governance is the durable value layer in Artificial Intelligence (AI)-augmented enterprise stacks validate, challenge, or extend the AI governance architecture frameworks developed in the prior research programme?",
-        "added": "2026-04-27"
-      },
-      {
-        "slug": "2026-04-27-enterprise-stack-value-distribution-governance-frameworks",
-        "title": "Enterprise data stack value-distribution frameworks: what frameworks - including the seven-layer stack and Software Repricing Matrix discussed in the April 2026 ServiceNow investment analysis - are most useful for understanding where durable value accumulates in enterprise technology stacks, especially at the governance layer?",
-        "added": "2026-04-27"
-      }
-    ],
-    "url": "/Research/threads/agentic-ai-governance-servicenow.html"
-  },
-  {
     "slug": "pbac-agentic-ai-pdp",
     "title": "pbac / agentic-ai / pdp",
     "kind": "implicit",
@@ -1218,6 +1238,66 @@
       }
     ],
     "url": "/Research/threads/pbac-agentic-ai-pdp.html"
+  },
+  {
+    "slug": "citizen-development-systems-capability-debt-llm",
+    "title": "citizen-development / systems-capability-debt / llm",
+    "kind": "implicit",
+    "tag_cluster": [
+      "citizen-development",
+      "systems-capability-debt",
+      "llm"
+    ],
+    "concept_cluster": [],
+    "item_count": 9,
+    "items": [
+      {
+        "slug": "2026-03-14-reliable-software-llm-era",
+        "title": "Reliable Software in the LLM Era",
+        "added": "2026-03-16"
+      },
+      {
+        "slug": "2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis",
+        "title": "Systems capability debt, citizen development, and agentic AI risk: is the causal chain and sequencing imperative a novel contribution?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-systems-capability-debt-citizen-development-empirical-evidence",
+        "title": "Systems capability debt as the root cause of citizen development: empirical evidence and effective governance architectures",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-software-engineering-investment-case-llm",
+        "title": "What is the strongest evidence-based argument that investing in software engineering capability rather than citizen development tooling is simultaneously the correct response to systems capability debt and the correct way to capture genuine Large Language Model value in a regulated financial institution?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-llm-verifiability-asymmetry-code-world-action",
+        "title": "What is the precise technical distinction between code generation and other Large Language Model outputs in terms of external verifiability, and what does this asymmetry imply for safe deployment boundaries in a regulated financial institution?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-lecun-llm-critique-primary-sources",
+        "title": "What is Yann LeCun's complete argument against Large Language Models as a path to autonomous machine intelligence, and what is the precise technical basis for each claim?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-lecun-critique-citizen-development-enterprise-risk",
+        "title": "What does synthesising LeCun's architectural critique of Large Language Models with systems capability debt and citizen development arguments produce as a unified risk framework for regulated financial institutions?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-27-uelgf-synthesis-complete-framework",
+        "title": "Universal Entity Lifecycle Governance Framework (UELGF): complete framework synthesis, formal specification suitable for adoption as an organisational standard in a regulated financial institution and presentation to a board risk committee",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-04-27-uelgf-foundational-definitions-principles",
+        "title": "Universal Entity Lifecycle Governance Framework (UELGF): foundational definitions, formal principles, and the inseparability of governance and acceleration in the governed golden rail",
+        "added": "2026-04-27"
+      }
+    ],
+    "url": "/Research/threads/citizen-development-systems-capability-debt-llm.html"
   },
   {
     "slug": "llm-alignment-hallucinations",
@@ -1638,61 +1718,6 @@
       }
     ],
     "url": "/Research/threads/mobile-interface-delivery.html"
-  },
-  {
-    "slug": "citizen-development-llm-systems-capability-debt",
-    "title": "citizen-development / llm / systems-capability-debt",
-    "kind": "implicit",
-    "tag_cluster": [
-      "citizen-development",
-      "llm",
-      "systems-capability-debt"
-    ],
-    "concept_cluster": [],
-    "item_count": 8,
-    "items": [
-      {
-        "slug": "2026-03-14-reliable-software-llm-era",
-        "title": "Reliable Software in the LLM Era",
-        "added": "2026-03-16"
-      },
-      {
-        "slug": "2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis",
-        "title": "Systems capability debt, citizen development, and agentic AI risk: is the causal chain and sequencing imperative a novel contribution?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-systems-capability-debt-citizen-development-empirical-evidence",
-        "title": "Systems capability debt as the root cause of citizen development: empirical evidence and effective governance architectures",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-software-engineering-investment-case-llm",
-        "title": "What is the strongest evidence-based argument that investing in software engineering capability rather than citizen development tooling is simultaneously the correct response to systems capability debt and the correct way to capture genuine Large Language Model value in a regulated financial institution?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-llm-verifiability-asymmetry-code-world-action",
-        "title": "What is the precise technical distinction between code generation and other Large Language Model outputs in terms of external verifiability, and what does this asymmetry imply for safe deployment boundaries in a regulated financial institution?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-lecun-llm-critique-primary-sources",
-        "title": "What is Yann LeCun's complete argument against Large Language Models as a path to autonomous machine intelligence, and what is the precise technical basis for each claim?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-26-lecun-critique-citizen-development-enterprise-risk",
-        "title": "What does synthesising LeCun's architectural critique of Large Language Models with systems capability debt and citizen development arguments produce as a unified risk framework for regulated financial institutions?",
-        "added": "2026-04-26"
-      },
-      {
-        "slug": "2026-04-27-uelgf-foundational-definitions-principles",
-        "title": "Universal Entity Lifecycle Governance Framework (UELGF): foundational definitions, formal principles, and the inseparability of governance and acceleration in the governed golden rail",
-        "added": "2026-04-27"
-      }
-    ],
-    "url": "/Research/threads/citizen-development-llm-systems-capability-debt.html"
   },
   {
     "slug": "ai-strategy-financial-services-ai-governance",
