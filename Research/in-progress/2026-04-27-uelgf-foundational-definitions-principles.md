@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "Universal Entity Lifecycle Governance Framework (UELGF): foundational definitions, formal principles, and the inseparability of governance and acceleration in the governed golden rail"
 added: 2026-04-27T01:28:25+00:00
 status: reviewing
