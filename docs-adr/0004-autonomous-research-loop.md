@@ -1,7 +1,7 @@
 # ADR-0004: Autonomous Research Loop Design and Safety Controls
 
 Date: 2026-03-02
-Status: accepted
+Status: accepted (safety control values superseded by [ADR-0012](0012-research-loop-safety-control-value-uplift.md))
 
 ## Context
 
