@@ -2,12 +2,12 @@
 review_count: 2
 title: "What is Yann LeCun's complete argument against Large Language Models as a path to autonomous machine intelligence, and what is the precise technical basis for each claim?"
 added: 2026-04-26T18:31:29+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: [2026-04-26-lecun-critique-citizen-development-enterprise-risk, 2026-04-26-software-engineering-investment-case-llm]
 tags: [lecun, llm, large-language-models, autonomous-intelligence, causal-reasoning, world-models, ai-critique, primary-sources]
 started: 2026-04-27T02:04:05+00:00
-completed: ~
+completed: 2026-04-27T02:25:23+00:00
 output: [knowledge]
 ---
 
@@ -148,7 +148,7 @@ What is Yann LeCun's complete and precise argument against Large Language Models
 - [fact; source: https://www.brown.edu/news/2026-04-01/yann-lecun-artificial-intelligence-pioneer] Brown also quotes LeCun defining a world model as a predictive system that, given the current state of the world and an imagined action, predicts the next state of the world, and saying that this predictive ability enables planning.
 - [fact; source: https://www.brown.edu/news/2026-04-01/yann-lecun-artificial-intelligence-pioneer] Brown's report says LeCun views the text-only Large Language Model approach as essentially a dead end.
 - [fact; source: https://www.youtube.com/watch?v=ZbrfvMLZZK4; https://livestream.brown.edu/lemley] The official Brown lecture video page and Brown livestream page establish the lecture's identity and availability, but because a public transcript was not accessible in this runtime, this item does not rely on the video page alone for specific quoted phrasing.
-- [fact; source: https://pioneerworks.org/broadcast/video/ai-yann-lecun-adam-brown; https://www.youtube.com/watch?v=ykfQD1_WPBQ] Pioneer Works presents the November 2025 conversation as a discussion of what LLMs can and cannot do and whether machines are anywhere close to thinking the way humans do, which is consistent with the same control question rather than a reversal of his earlier position.
+- [inference; source: https://pioneerworks.org/broadcast/video/ai-yann-lecun-adam-brown; https://www.youtube.com/watch?v=ykfQD1_WPBQ] Pioneer Works presents the November 2025 conversation as a discussion of what LLMs can and cannot do and whether machines are anywhere close to thinking the way humans do, which is consistent with the same control question rather than a reversal of his earlier position.
 
 #### D. Domain boundary, what is strongly supported and what is weaker
 
@@ -158,7 +158,7 @@ What is Yann LeCun's complete and precise argument against Large Language Models
 
 #### E. Position evolution check
 
-- [fact; source: https://openreview.net/pdf?id=BZ5a1r-kVsf; https://podcasts.apple.com/us/podcast/why-cant-ai-make-its-own-discoveries-with-yann-lecun/id1522960417?i=1000699824574; https://www.brown.edu/news/2026-04-01/yann-lecun-artificial-intelligence-pioneer; https://pioneerworks.org/broadcast/video/ai-yann-lecun-adam-brown] Across the accessible 2022 to 2026 sources, LeCun's position remains structurally consistent: text-trained models capture linguistic knowledge, but intelligence that can reason, plan, and act safely requires an abstract predictive model of the world.
+- [inference; source: https://openreview.net/pdf?id=BZ5a1r-kVsf; https://podcasts.apple.com/us/podcast/why-cant-ai-make-its-own-discoveries-with-yann-lecun/id1522960417?i=1000699824574; https://www.brown.edu/news/2026-04-01/yann-lecun-artificial-intelligence-pioneer; https://pioneerworks.org/broadcast/video/ai-yann-lecun-adam-brown] Across the accessible 2022 to 2026 sources, LeCun's position remains structurally consistent: text-trained models capture linguistic knowledge, but intelligence that can reason, plan, and act safely requires an abstract predictive model of the world.
 - [inference; source: https://openreview.net/pdf?id=BZ5a1r-kVsf; https://www.brown.edu/news/2026-04-01/yann-lecun-artificial-intelligence-pioneer] What changes over time is not the mechanism but the bluntness of the public framing, from a technical position paper in 2022 to explicit public statements in 2026 that the text-only path to human-level intelligence is "complete BS."
 - [assumption; source: https://www.youtube.com/watch?v=8sS9UJzb_t4; https://www.youtube.com/watch?v=ykfQD1_WPBQ; https://www.youtube.com/watch?v=EIo1YKEUac4] Because the April 2025, VivaTech, and November 2025 transcripts were not fully accessible here, subtle shifts of emphasis within those talks cannot be resolved with high confidence.
 

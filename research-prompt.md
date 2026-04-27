@@ -74,6 +74,10 @@ follow leads they produce. Apply source-marking discipline as defined in
   `[inference]`, or `[assumption]` label if the note remains in visible text,
   and bind any evidence-backed conclusion to accessible sources rather than to
   the inaccessible URL itself.
+- Cross-source continuity or evolution statements such as "the position remains
+  consistent", "this sharpens the earlier claim", or "this is not a reversal"
+  are usually **[inference]**, not **[fact]**, unless a single cited source
+  explicitly makes that comparison itself.
 - **[inference]** = derived from evidence; **[assumption]** = not verified,
   state the justification.
 - Evidence sufficiency: at least two independent credible sources agree, or a
