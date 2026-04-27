@@ -2,12 +2,12 @@
 review_count: 2
 title: "Out-of-band policy invalidation and remediation: consistency model for policy-authoring-to-policy-enforcement propagation and minimum viable kill-switch architecture"
 added: 2026-04-27T00:55:35+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 tags: [pbac, pap, pep, policy-invalidation, kill-switch, distributed-systems, cap-theorem, consistency-model, agentic-ai, cia-classification, operational-risk, lifecycle-governance]
 started: 2026-04-27T10:50:39+00:00
-completed: ~
+completed: 2026-04-27T11:21:51+00:00
 output: [knowledge]
 ---
 
