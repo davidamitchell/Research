@@ -2,12 +2,12 @@
 review_count: 2
 title: "Universal Entity Lifecycle Governance Framework (UELGF): foundational definitions, formal principles, and the inseparability of governance and acceleration in the governed golden rail"
 added: 2026-04-27T01:28:25+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: [2026-04-27-uelgf-synthesis-complete-framework]
 tags: [uelgf, governance, entity-lifecycle, governed-golden-rail, policy-engine, agentic-ai, citizen-development, systems-capability-debt, regulated-banking, framework-design]
 started: 2026-04-27T05:57:56+00:00
-completed: ~
+completed: 2026-04-27T06:13:52+00:00
 output: [knowledge]
 ---
 
@@ -280,10 +280,10 @@ What are the foundational definitions, formal principles, and architectural prop
 
 ### §7 Recursive Review
 
-- [fact; source: https://github.com/davidamitchell/Research/blob/main/Research/in-progress/2026-04-27-uelgf-foundational-definitions-principles.md] Review outcome: all visible claim-bearing lines in the Research Skill Output are labeled as fact, inference, or assumption, and the external claims are bound to explicit web sources.
-- [fact; source: https://github.com/davidamitchell/Research/blob/main/Research/in-progress/2026-04-27-uelgf-foundational-definitions-principles.md] Review outcome: abbreviation first-use checks were applied for UELGF, Zero Trust Architecture (ZTA), Extensible Access Control Markup Language (XACML), Open Policy Agent (OPA), Federal Risk and Authorization Management Program (FedRAMP), Information Security Management System (ISMS), Configuration Management Database (CMDB), Food and Drug Administration (FDA), Federal Aviation Administration (FAA), and Safety Management System (SMS).
-- [fact; source: https://github.com/davidamitchell/Research/blob/main/Research/in-progress/2026-04-27-uelgf-foundational-definitions-principles.md] Review outcome: the synthesis and Findings sections use the same eight key findings, the same confidence levels, and the same source structure.
-- [fact; source: https://github.com/davidamitchell/Research/blob/main/Research/in-progress/2026-04-27-uelgf-foundational-definitions-principles.md] Review outcome: no em dashes remain in the rewritten content.
+- [fact; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-27-uelgf-foundational-definitions-principles.md] Review outcome: all visible claim-bearing lines in the Research Skill Output are labeled as fact, inference, or assumption, and the external claims are bound to explicit web sources.
+- [fact; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-27-uelgf-foundational-definitions-principles.md] Review outcome: abbreviation first-use checks were applied for UELGF, Zero Trust Architecture (ZTA), Extensible Access Control Markup Language (XACML), Open Policy Agent (OPA), Federal Risk and Authorization Management Program (FedRAMP), Information Security Management System (ISMS), Configuration Management Database (CMDB), Food and Drug Administration (FDA), Federal Aviation Administration (FAA), and Safety Management System (SMS).
+- [fact; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-27-uelgf-foundational-definitions-principles.md] Review outcome: the synthesis and Findings sections use the same eight key findings, the same confidence levels, and the same source structure.
+- [fact; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-27-uelgf-foundational-definitions-principles.md] Review outcome: no em dashes remain in the rewritten content.
 
 ---
 
@@ -305,7 +305,7 @@ What are the foundational definitions, formal principles, and architectural prop
 5. [inference; confidence: high; source: https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html; https://www.openpolicyagent.org/docs/philosophy; https://docs.cedarpolicy.com/] Policy lifecycle must remain independent from entity lifecycle, with distinct authoring, decision, enforcement, and attribute-supply components, because embedding policy inside each entity would make governance drift with implementation detail and release timing.
 6. [inference; confidence: high; source: https://www.fedramp.gov/docs/authority/m-24-15/process/; https://www.iso.org/standard/27001; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://docs.aws.amazon.com/controltower/latest/userguide/what-is-control-tower.html] The licence to operate should be a continuously maintained authorization state tied to current policy, posture, evidence, and drift status, not a one-time approval artifact issued at creation or first deployment.
 7. [inference; confidence: medium; source: https://www.fedramp.gov/docs/rev5/playbook/csp/authorization/agency-authorization-path/; https://www.fedramp.gov/docs/authority/m-24-15/process/; https://docs.aws.amazon.com/controltower/latest/userguide/what-is-control-tower.html; https://www.england.nhs.uk/long-read/digital-clinical-safety-assurance/] UELGF adoption should be incentive-first and mandate-second, because reusable evidence, self-service templates, and standardized support make the sanctioned path locally cheaper, while explicit mandation remains necessary only for high-risk cases and repeated bypass.
-8. [inference; confidence: high; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-platform-operating-models.html; https://davidamitchell.github.io/Research/research/2026-04-22-ai-governance-assurance-change-control-verification.html; https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis.html] UELGF must be owned as a long-lived product capability with equal rigor for retirement, because ongoing governance, evidence loops, and workaround suppression are enterprise control-plane functions rather than finite project deliverables.
+8. [inference; confidence: medium; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-platform-operating-models.html; https://davidamitchell.github.io/Research/research/2026-04-22-ai-governance-assurance-change-control-verification.html; https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis.html] UELGF must be owned as a long-lived product capability with equal rigor for retirement, because ongoing governance, evidence loops, and workaround suppression are enterprise control-plane functions rather than finite project deliverables.
 
 ### Evidence Map
 
@@ -318,7 +318,7 @@ What are the foundational definitions, formal principles, and architectural prop
 | [inference] Policy lifecycle must remain independent from entity lifecycle. | https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html; https://www.openpolicyagent.org/docs/philosophy; https://docs.cedarpolicy.com/ | high | Clear convergence across standards and tooling. |
 | [inference] A licence to operate should be continuously maintained rather than one-time. | https://www.fedramp.gov/docs/authority/m-24-15/process/; https://www.iso.org/standard/27001; https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://docs.aws.amazon.com/controltower/latest/userguide/what-is-control-tower.html | high | Continuous authorization, continual improvement, and drift visibility converge on the same design. |
 | [inference] UELGF adoption should be incentive-first with mandation as the backstop. | https://www.fedramp.gov/docs/rev5/playbook/csp/authorization/agency-authorization-path/; https://www.fedramp.gov/docs/authority/m-24-15/process/; https://docs.aws.amazon.com/controltower/latest/userguide/what-is-control-tower.html; https://www.england.nhs.uk/long-read/digital-clinical-safety-assurance/ | medium | Strong on reusable evidence and templated paths; less direct on the optimal incentive/mandate split. |
-| [inference] UELGF must be a product capability with retirement parity and workaround-suppression purpose. | https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-platform-operating-models.html; https://davidamitchell.github.io/Research/research/2026-04-22-ai-governance-assurance-change-control-verification.html; https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis.html | high | External standards anchor lifecycle rigor; prior completed items anchor product ownership and the workaround problem. |
+| [inference] UELGF must be a product capability with retirement parity and workaround-suppression purpose. | https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-platform-operating-models.html; https://davidamitchell.github.io/Research/research/2026-04-22-ai-governance-assurance-change-control-verification.html; https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis.html | medium | Strong repository synthesis and one external lifecycle source support the claim, but the evidence base is less independent than the highest-confidence findings. |
 
 ### Assumptions
 
@@ -350,5 +350,8 @@ What are the foundational definitions, formal principles, and architectural prop
 ## Output
 
 - Type: knowledge
-- Description:
+- Description: Formal UELGF definitions for entity, governed golden rail, licence to operate, and Policy Decision Point, plus twelve testable invariants for evaluating whether an implementation truly embeds governance into the delivery rail.
 - Links:
+  - https://csrc.nist.gov/pubs/sp/800/207/final
+  - https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html
+  - https://airc.nist.gov/airmf-resources/airmf/5-sec-core/

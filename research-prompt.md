@@ -277,6 +277,10 @@ easily-detectable issues.
     completed research item with a GitHub URL. If a sentence is only describing
     the item's own structure or workflow state, either remove the citation need
     by rewriting it as pure metadata or cite the item's GitHub URL explicitly.
+    `§7 Recursive Review` is audited the same way as the rest of `## Research Skill Output`:
+    if you leave visible review-outcome sentences there, they need `[fact]`,
+    `[inference]`, or `[assumption]` labels and either an explicit GitHub URL
+    citation for the item or a rewrite into pure metadata fragments.
 
 2d. **Source substitution and surface coverage** -- if a seeded URL is dead,
     redirected away from the needed content, or replaced by a newer official
