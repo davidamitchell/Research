@@ -1,9 +1,10 @@
 # Research Master Document
 
-Generated on: 2026-04-27 06:39 UTC
+Generated on: 2026-04-27 06:54 UTC
 
 ## Table of Contents
 
+* [Universal Entity Lifecycle Governance Framework (UELGF): policy architecture, Policy Administration Point, Policy Decision Point, Policy Enforcement Point, Policy Information Point component design, the 8-layer organisational context model, policy independence guarantee, scope boundary mechanism, and kill switch](#2026-04-27-uelgf-policy-architecture-8-layer-context-md)
 * [Universal Entity Lifecycle Governance Framework (UELGF): governed golden rail specifications: generative scaffold, persona-adapted interfaces, citizen development rails, and deviation handling](#2026-04-27-uelgf-governed-golden-rails-md)
 * [Universal Entity Lifecycle Governance Framework (UELGF): foundational definitions, formal principles, and the inseparability of governance and acceleration in the governed golden rail](#2026-04-27-uelgf-foundational-definitions-principles-md)
 * [Universal Entity Lifecycle Governance Framework (UELGF): canonical entity taxonomy and Confidentiality, Integrity, and Availability (CIA) classification system for determining governance intensity](#2026-04-27-uelgf-entity-taxonomy-cia-classification-md)
@@ -198,6 +199,86 @@ Generated on: 2026-04-27 06:39 UTC
 * [Interface and delivery: how to surface research outputs](#2026-02-27-interface-and-delivery-md)
 * [Information synthesis: non-lossy compression, entropy, and information theory](#2026-02-27-information-synthesis-entropy-md)
 * [Indexing and tracking method for research content](#2026-02-27-indexing-and-tracking-method-md)
+
+---
+
+<a id="2026-04-27-uelgf-policy-architecture-8-layer-context-md"></a>
+
+## Universal Entity Lifecycle Governance Framework (UELGF): policy architecture, Policy Administration Point, Policy Decision Point, Policy Enforcement Point, Policy Information Point component design, the 8-layer organisational context model, policy independence guarantee, scope boundary mechanism, and kill switch
+
+**Tags:** [uelgf, policy-architecture, pap, pdp, pep, pip, policy-independence, scope-boundary, kill-switch, organisational-context, policy-as-code, regulated-banking, xacml, opa]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-27-uelgf-policy-architecture-8-layer-context.md
+
+## Research Question
+
+What policy architecture, covering Policy Administration Point (PAP), Policy Decision Point (PDP), Policy Enforcement Point (PEP), and Policy Information Point (PIP), and what 8-layer organisational context model should the UELGF specify to provide architecturally enforced policy independence, a machine-checkable scope boundary mechanism replacing intent-based reasoning, and a kill switch operable at single-entity, entity-class, and entity-type levels?
+
+## Findings
+
+### Executive Summary
+
+[inference; source: https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html; https://www.openpolicyagent.org/docs/latest/management-bundles/; https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/policy-templates.html; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-policy-coherence-machine-checkable-prerequisite.md] UELGF should implement policy independence through one canonical PAP that publishes signed policy revisions to stateless PDPs, with every PEP failing closed when freshness cannot be proven, because standards and current policy-engine practice support separated roles and bounded revision fanout but do not support safe local override.
+
+[inference; source: https://csrc.nist.gov/pubs/sp/800/162/final; https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html; https://docs.cedarpolicy.com/policies/validation.html] The 8-layer context model should be encoded as an ordered constraint stack in which Layers 1 to 7 are organisation-wide constants and Layer 8 is a typed per-entity scope object, because deterministic ABAC and XACML-style evaluation requires structured attributes and precedence, not intent interpretation.
+
+[inference; source: https://datatracker.ietf.org/doc/html/rfc7009; https://www.rfc-editor.org/rfc/rfc6960.txt; https://spiffe.io/docs/latest/spiffe-about/spiffe-concepts/] The kill switch should suspend licence-to-operate first and then fan out revocation across tokens, workload credentials, pending work, and dependencies, because each revocation mechanism covers a different delay surface and none is sufficient on its own for high-consequence stop authority.
+
+[inference; source: https://csrc.nist.gov/pubs/sp/800/207/final; https://learn.microsoft.com/en-us/azure/governance/policy/how-to/get-compliance-data#evaluation-triggers; https://www.openpolicyagent.org/docs/latest/management-decision-logs/] A new Layer 1 rule should trigger automatic portfolio re-evaluation without entity-owner action, and any entity whose new licence decision cannot be recomputed inside the freshness window should move to `suspended_pending_revalidation` until the architecture can prove compliance under the new revision.
+
+### Key Findings
+
+1. **High confidence:** [inference; source: https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html; https://csrc.nist.gov/pubs/sp/800/207/final] The component split should follow the standards model closely enough that the PAP authors and publishes policy, the PDP evaluates policy, the PEP enforces returned decisions and obligations, and the PIP supplies entity and runtime attributes, because both XACML and Zero Trust Architecture rely on that separation to prevent policy logic from collapsing into enforcement code.
+2. **High confidence:** [inference; source: https://www.openpolicyagent.org/docs/latest/management-bundles/; https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/policy-templates.html; https://www.openpolicyagent.org/docs/latest/management-decision-logs/] Policy independence is best specified as signed revision publication plus bounded-distribution freshness guarantees rather than literal global synchrony, because distributed PDP estates can converge quickly but not instantaneously, and the safe response to missed freshness is automatic suspension rather than silent continued authorization.
+3. **High confidence:** [inference; source: https://csrc.nist.gov/pubs/sp/800/162/final; https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-policy-coherence-machine-checkable-prerequisite.md] The 8-layer model should be encoded as an ordered constraint stack where lower layers may specialize but never weaken higher layers, because otherwise entity scope or local procedure could override regulation, risk appetite, or enterprise standards and destroy machine-checkable policy coherence.
+4. **High confidence:** [inference; source: https://docs.cedarpolicy.com/policies/validation.html; https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html; https://spiffe.io/docs/latest/spiffe-about/spiffe-concepts/] The machine-checkable scope boundary must be a typed object covering actions, resources, data domains, connectors, side effects, approval requirements, and numeric limits, because neither workload identity nor coarse string scopes can tell the PDP whether a specific requested action lies inside the registered licence envelope.
+5. **High confidence:** [inference; source: https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html; https://docs.cedarpolicy.com/policies/validation.html] Scope violations and policy denials must be recorded as different decision classes, because an out-of-scope request signals an entity-registration or misuse defect while an in-scope denial signals a valid organisational prohibition being enforced as intended.
+6. **Medium confidence:** [inference; source: https://datatracker.ietf.org/doc/html/rfc7009; https://www.rfc-editor.org/rfc/rfc6960.txt; https://www.rfc-editor.org/rfc/rfc5280.txt; https://spiffe.io/docs/latest/spiffe-about/spiffe-concepts/] The kill switch should execute as a multi-channel stop protocol with single-entity suspension in 60 seconds, class suspension in 180 seconds, and type suspension in 300 seconds, because deny-first licence publication is fast while token, certificate, queue, and dependency propagation complete on a slightly slower control path.
+7. **High confidence:** [inference; source: https://csrc.nist.gov/pubs/sp/800/207/final; https://learn.microsoft.com/en-us/azure/governance/policy/how-to/get-compliance-data#evaluation-triggers; https://www.openpolicyagent.org/docs/latest/management-decision-logs/] A Layer 1 regulatory update should trigger automatic re-evaluation of all active licensed entities from the PIP registry without owner action, and any entity whose new decision cannot be recomputed inside the freshness window should move to suspended pending revalidation until the architecture can prove compliance under the new revision.
+8. **Medium confidence:** [inference; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-ai-lowcode-governance-enforcement-architecture.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-ai-agent-control-plane-architecture-enterprise.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-27-pap-dynamic-policy-profiling-proportionality.md] The architecture should treat CIA tier as a hardening selector over one shared policy stack rather than as a separate governance regime, because adjacent repository work shows that layered enforcement, control-plane composition, and proportional PAP logic are strongest when they share one canonical source of truth.
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [fact] PAP, PDP, PEP, and PIP should remain separate roles. | https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html ; https://csrc.nist.gov/pubs/sp/800/207/final | high | Direct standards anchor. |
+| [inference] Policy independence requires signed revision publication, freshness checks, and fail-closed suspension on staleness. | https://www.openpolicyagent.org/docs/latest/management-bundles/ ; https://www.openpolicyagent.org/docs/latest/management-decision-logs/ ; https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/policy-templates.html ; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-27-pdp-universal-policy-synchronisation-integrity.md | high | Distribution can be bounded and audited, not truly synchronous. |
+| [inference] The 8-layer model should be encoded as an ordered constraint stack. | https://csrc.nist.gov/pubs/sp/800/162/final ; https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html ; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-policy-coherence-machine-checkable-prerequisite.md | high | Layer 8 specializes but never weakens higher layers. |
+| [inference] The scope boundary must be a typed object, not a coarse scope string or workload identity alone. | https://docs.cedarpolicy.com/policies/validation.html ; https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html ; https://spiffe.io/docs/latest/spiffe-about/spiffe-concepts/ | high | Deterministic evaluation needs typed request semantics. |
+| [inference] Scope violations and policy denials are different decision classes. | https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html ; https://docs.cedarpolicy.com/policies/validation.html | high | Different classes imply different escalation and remediation paths. |
+| [inference] The kill switch should use deny-first licence suspension plus token, certificate, queue, and dependency actions with bounded latency. | https://datatracker.ietf.org/doc/html/rfc7009 ; https://www.rfc-editor.org/rfc/rfc6960.txt ; https://www.rfc-editor.org/rfc/rfc5280.txt ; https://spiffe.io/docs/latest/spiffe-about/spiffe-concepts/ | medium | Exact timings are synthesis-level design. |
+| [inference] Layer 1 regulatory change must re-evaluate all active entities automatically and suspend stale or unrecomputed ones. | https://csrc.nist.gov/pubs/sp/800/207/final ; https://learn.microsoft.com/en-us/azure/governance/policy/how-to/get-compliance-data#evaluation-triggers ; https://www.openpolicyagent.org/docs/latest/management-decision-logs/ | high | Owner-mediated acknowledgement would break policy independence. |
+| [inference] CIA tier should harden one shared policy stack instead of creating a second governance regime. | https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-ai-lowcode-governance-enforcement-architecture.md ; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-ai-agent-control-plane-architecture-enterprise.md ; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-27-pap-dynamic-policy-profiling-proportionality.md | medium | Repository cross-reference qualifies this design choice. |
+
+### Assumptions
+
+- [assumption; source: https://spiffe.io/docs/latest/spiffe-about/spiffe-concepts/; https://datatracker.ietf.org/doc/html/rfc7009] **Assumption:** The target estate can revoke connector sessions or stop renewing workload credentials quickly enough that queue drain and notification become the dominant residual delay. **Justification:** the standards prove the revocation patterns exist, but they do not prove one universal enterprise propagation speed.
+- [assumption; source: https://www.openpolicyagent.org/docs/latest/management-decision-logs/; https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/terminology.html] **Assumption:** The target estate can centralize decision evidence by entity identifier and policy revision. **Justification:** the sources prove rich decision metadata can be emitted, but not that every platform already writes into one durable evidence store.
+
+### Analysis
+
+[inference; source: https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html; https://csrc.nist.gov/pubs/sp/800/207/final] The strongest architecture anchors were XACML and Zero Trust Architecture because both define clean role boundaries and support the claim that policy logic should not live inside every enforcement surface.
+
+[inference; source: https://www.openpolicyagent.org/docs/latest/management-bundles/; https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/policy-templates.html; https://learn.microsoft.com/en-us/azure/governance/policy/how-to/get-compliance-data#evaluation-triggers] The propagation conclusion weighs OPA, Verified Permissions, and Azure Policy together because they expose the real design space: rapid signed fanout, managed logical propagation inside a policy store, and slower estate-wide reassessment loops.
+
+[inference; source: https://docs.cedarpolicy.com/policies/validation.html; https://spiffe.io/docs/latest/spiffe-about/spiffe-concepts/] The scope-boundary conclusion rejects both plain-language intent and identity-only licensing because the evidence shows that schema-validated request semantics and workload identity solve different halves of the determinism problem.
+
+[inference; source: https://datatracker.ietf.org/doc/html/rfc7009; https://www.rfc-editor.org/rfc/rfc6960.txt; https://spiffe.io/docs/latest/spiffe-about/spiffe-concepts/] The kill-switch timing remains medium confidence because the revocation mechanisms are well supported, but the exact second-count service-level objectives are an engineering synthesis rather than a quoted external requirement.
+
+### Risks, Gaps, and Uncertainties
+
+- [fact; source: https://www.openpolicyagent.org/docs/latest/management-bundles/] OPA bundle activation is eventually consistent, so any UELGF wording that promises literal globally simultaneous activation would overstate what the source supports.
+- [fact; source: https://learn.microsoft.com/en-us/azure/governance/policy/how-to/get-compliance-data#evaluation-triggers] Azure Policy demonstrates useful reassessment triggers, but its slower compliance cycles make it an analogue for broad correction rather than for sub-minute suspension.
+- [assumption; source: https://spiffe.io/docs/latest/spiffe-about/spiffe-concepts/] The proposed kill-switch timings assume short-lived workload credentials and accessible renewal controls.
+- [assumption; source: https://docs.cedarpolicy.com/policies/validation.html] The typed scope-object design assumes the enterprise can model actions, resources, connectors, and side-effect classes in a stable schema and keep that schema current.
+
+### Open Questions
+
+- [inference; source: https://www.openpolicyagent.org/docs/latest/management-bundles/; https://docs.cedarpolicy.com/policies/validation.html] What compatibility rules should allow a policy revision to reuse a prior scope object without forcing entity re-registration?
+- [inference; source: https://spiffe.io/docs/latest/spiffe-about/spiffe-concepts/; https://datatracker.ietf.org/doc/html/rfc7009] Which connector classes in the target estate support immediate session revocation, which support only non-renewal, and which require compensating PEP-side hard blocks?
+- [inference; source: https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-27-pip-invariant-anomaly-detection.md] How should high-confidence anomaly signals from the PIP influence the scope-violation path without producing excessive false suspensions?
+
+---
 
 ---
 
