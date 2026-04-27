@@ -1,5 +1,5 @@
 ---
-review_count: 0
+review_count: 1
 title: "Out-of-band policy invalidation and remediation: consistency model for Policy Administration Point (PAP)-to-Policy Enforcement Point (PEP) propagation and minimum viable kill-switch architecture"
 added: 2026-04-27T00:55:35+00:00
 status: reviewing
