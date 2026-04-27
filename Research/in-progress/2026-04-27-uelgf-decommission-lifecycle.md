@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Universal Entity Lifecycle Governance Framework (UELGF): decommission lifecycle, trigger taxonomy, procedural requirements by confidentiality, integrity, and availability (CIA) tier, ghost-entity detection and remediation, and the dependency-elimination trigger as the formal connection to systems capability debt"
 added: 2026-04-27T01:28:25+00:00
 status: reviewing
