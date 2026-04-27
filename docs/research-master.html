@@ -638,7 +638,227 @@ main {
   </div>
   <div class="research-master-content item-content">
     <h1>Research Master Document</h1>
-<p>Generated on: 2026-04-27 03:39 UTC</p>
+<p>Generated on: 2026-04-27 05:37 UTC</p>
+<p><a id="2026-04-27-uelgf-decommission-lifecycle-md"></a></p>
+<h2>Universal Entity Lifecycle Governance Framework (UELGF): decommission lifecycle, trigger taxonomy, procedural requirements by confidentiality, integrity, and availability (CIA) tier, ghost-entity detection and remediation, and the dependency-elimination trigger as the formal connection to systems capability debt</h2>
+<p><strong>Tags:</strong> [uelgf, decommission, ghost-entity, lifecycle, systems-capability-debt, credential-revocation, dependency-elimination, archive, off-rail-detection, regulated-banking]</p>
+<p><strong>Origin:</strong> https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-27-uelgf-decommission-lifecycle.md</p>
+<h2>Research Question</h2>
+<p>How should the UELGF formally specify the decommission lifecycle, including a complete trigger taxonomy, procedural requirements differentiated by CIA tier, a ghost-entity detection and remediation mechanism, and the dependency-elimination trigger as the formal connection between the UELGF and the systems capability debt remediation programme, such that decommission is a first-class lifecycle stage with the same governance rigour as any other stage?</p>
+<h2>Findings</h2>
+<h3>Executive Summary</h3>
+<ul>
+<li>[inference; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://kubernetes.io/docs/tutorials/services/pods-and-endpoint-termination-flow/; https://datatracker.ietf.org/doc/html/rfc7009; https://docs.aws.amazon.com/IAM/latest/UserGuide/id-credentials-access-keys-update.html; https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-closing.html] UELGF should define decommission as a gated lifecycle state that is reached only after new work is blocked, in-flight work is drained or cancelled safely, credentials are revoked through a staged sequence, dependencies are updated, and an archive record is sealed.</li>
+<li>[inference; source: https://learn.microsoft.com/en-us/azure/governance/resource-graph/overview; https://learn.microsoft.com/en-us/azure/advisor/advisor-azure-resource-graph; https://docs.aws.amazon.com/IAM/latest/UserGuide/id-credentials-access-keys-update.html] Ghost-entity control should be based on registry-to-runtime divergence, because resource discovery, configuration-change history, and credential last-used signals provide machine-observable evidence that an entity exists off-rail or remains active after its approved lifecycle ended.</li>
+<li>[inference; source: https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02016R0679-20160504; https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32017R0565; https://csrc.nist.gov/pubs/sp/800/88/r1/final] The framework should retain governance evidence longer than operational payload, because storage-limitation rules constrain unnecessary payload retention while regulated record-keeping and confidentiality-based sanitisation justify a separate archive policy.</li>
+<li>[inference; source: https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis.html; https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-citizen-development-empirical-evidence.html] The dependency-elimination trigger should be the formal bridge between UELGF and the systems-capability-debt programme, because it turns replacement of workaround entities into a measurable remediation event instead of an informal cleanup aspiration.</li>
+</ul>
+<h3>Key Findings</h3>
+<ol>
+<li>[inference; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-lifecycle-management.html; https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-closing.html] <strong>High confidence:</strong> A UELGF entity should be considered decommissioned only when five exit conditions are simultaneously true, no new work can be admitted, all in-flight work has been completed or cancelled safely, credentials no longer authorize activity, dependencies have been updated or warned, and a lifecycle archive record has been sealed.</li>
+<li>[inference; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://docs.aws.amazon.com/IAM/latest/UserGuide/id-credentials-access-keys-update.html; https://learn.microsoft.com/en-us/azure/governance/resource-graph/overview; https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis.html; https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-citizen-development-empirical-evidence.html] <strong>Medium confidence:</strong> The complete trigger taxonomy should include scheduled sunset, explicit decision, owner departure, policy violation after failed remediation, CIA-tier escalation, dependency elimination, and ghost-entity detection, because the taxonomy combines standards-backed lifecycle obligations with governance inferences required to retire workaround entities and reconcile off-rail runtime activity.</li>
+<li>[inference; source: https://learn.microsoft.com/en-us/azure/governance/resource-graph/overview; https://learn.microsoft.com/en-us/azure/advisor/advisor-azure-resource-graph; https://docs.aws.amazon.com/IAM/latest/UserGuide/id-credentials-access-keys-update.html] <strong>High confidence:</strong> Ghost-entity detection should be implemented as registry-to-runtime reconciliation across discovered resources, recent configuration changes, credential last-used evidence, and dependency links, because those signals expose unregistered, orphaned, lapsed, and tier-drifted entities without depending on owner honesty or awareness.</li>
+<li>[inference; source: https://kubernetes.io/docs/tutorials/services/pods-and-endpoint-termination-flow/; https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/; https://datatracker.ietf.org/doc/html/rfc7009; https://docs.aws.amazon.com/IAM/latest/UserGuide/id-credentials-access-keys-update.html] <strong>High confidence:</strong> The decommission sequence should be freeze new admissions, drain or compensate work, revoke grants and session pathways, deactivate standing credentials, verify inactivity, and only then destroy credentials, because the source corpus consistently supports graceful shutdown and reversible verification rather than delete-first termination.</li>
+<li>[assumption; source: https://kubernetes.io/docs/reference/using-api/deprecation-policy/; https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-closing.html] <strong>Medium confidence:</strong> UELGF should set minimum dependency-notice windows of 30 days for Low CIA, 90 days for Medium CIA, and 180 days for High CIA entities, with emergency override for active compromise, because platform deprecation practice shows a need for bounded adaptation windows and higher-tier entities carry heavier dependency and assurance burdens.</li>
+<li>[inference; source: https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02016R0679-20160504; https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32017R0565; https://csrc.nist.gov/pubs/sp/800/88/r1/final; https://www.iso.org/standard/27001] <strong>High confidence:</strong> UELGF should separate operational payload disposition from governance-archive retention, because personal-data minimisation and confidentiality-based sanitisation argue for deletion or anonymisation of unnecessary payload, while regulated oversight still requires durable proof of how the entity was approved, operated, and retired.</li>
+<li>[assumption; source: https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02016R0679-20160504; https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32017R0565; https://csrc.nist.gov/pubs/sp/800/88/r1/final] <strong>Medium confidence:</strong> A workable minimum governance-archive schedule is 2 years for Low CIA entities, 5 years for Medium CIA entities, and 7 years for High CIA or regulated-record entities, while operational payload follows the stricter of the source-system rule or applicable regulation.</li>
+<li>[inference; source: https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis.html; https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-citizen-development-empirical-evidence.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-lifecycle-management.html] <strong>Medium confidence:</strong> The dependency-elimination trigger should record the retired entity, the capability-gap item it bridged, the sanctioned replacement capability, the replacement-live date, and the retirement archive identifier, because that is what turns workaround retirement into an auditable systems-capability-debt remediation event.</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>Source</th>
+<th>Confidence</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[inference] Decommission requires five simultaneous exit conditions rather than a single status flip.</td>
+<td>https://airc.nist.gov/airmf-resources/airmf/5-sec-core/ ; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-lifecycle-management.html ; https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-closing.html</td>
+<td>high</td>
+<td>Combines lifecycle-governance baseline with explicit post-closure controls.</td>
+</tr>
+<tr>
+<td>[inference] The complete trigger taxonomy includes sunset, explicit decision, owner departure, policy failure, CIA escalation, dependency elimination, and ghost detection.</td>
+<td>https://airc.nist.gov/airmf-resources/airmf/5-sec-core/ ; https://docs.aws.amazon.com/IAM/latest/UserGuide/id-credentials-access-keys-update.html ; https://learn.microsoft.com/en-us/azure/governance/resource-graph/overview ; https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis.html ; https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-citizen-development-empirical-evidence.html</td>
+<td>medium</td>
+<td>Standards cover part of the taxonomy; dependency elimination and ghost detection are applied UELGF synthesis.</td>
+</tr>
+<tr>
+<td>[inference] Ghost-entity detection should use registry-to-runtime reconciliation across resources, credentials, and dependency state.</td>
+<td>https://learn.microsoft.com/en-us/azure/governance/resource-graph/overview ; https://learn.microsoft.com/en-us/azure/advisor/advisor-azure-resource-graph ; https://docs.aws.amazon.com/IAM/latest/UserGuide/id-credentials-access-keys-update.html ; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html</td>
+<td>high</td>
+<td>Observable-state detection rather than owner declaration.</td>
+</tr>
+<tr>
+<td>[inference] Safe retirement order is freeze, drain, revoke, deactivate, observe, destroy.</td>
+<td>https://kubernetes.io/docs/tutorials/services/pods-and-endpoint-termination-flow/ ; https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/ ; https://datatracker.ietf.org/doc/html/rfc7009 ; https://docs.aws.amazon.com/IAM/latest/UserGuide/id-credentials-access-keys-update.html</td>
+<td>high</td>
+<td>Each source anchors one step of the sequence.</td>
+</tr>
+<tr>
+<td>[assumption] Minimum notice windows should be 30, 90, and 180 days by CIA tier.</td>
+<td>https://kubernetes.io/docs/reference/using-api/deprecation-policy/ ; https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-closing.html</td>
+<td>medium</td>
+<td>Exact day counts are an applied governance choice, not a direct mandate.</td>
+</tr>
+<tr>
+<td>[inference] Payload retention and governance-archive retention must be governed separately.</td>
+<td>https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02016R0679-20160504 ; https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32017R0565 ; https://csrc.nist.gov/pubs/sp/800/88/r1/final ; https://www.iso.org/standard/27001</td>
+<td>high</td>
+<td>Resolves minimisation versus auditability tension.</td>
+</tr>
+<tr>
+<td>[assumption] Minimum archive retention should be 2, 5, and 7 years by CIA tier.</td>
+<td>https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02016R0679-20160504 ; https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32017R0565 ; https://csrc.nist.gov/pubs/sp/800/88/r1/final</td>
+<td>medium</td>
+<td>Year bands are inferred from regulatory anchors and sensitivity-based sanitisation.</td>
+</tr>
+<tr>
+<td>[inference] Dependency elimination is the formal bridge from UELGF to systems-capability-debt remediation.</td>
+<td>https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis.html ; https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-citizen-development-empirical-evidence.html ; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-lifecycle-management.html</td>
+<td>medium</td>
+<td>Strong repository synthesis, but not yet supported by independent primary sources as a named external control pattern.</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li>[assumption; source: https://kubernetes.io/docs/reference/using-api/deprecation-policy/; https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-closing.html] <strong>Notice windows by CIA tier:</strong> UELGF should use 30, 90, and 180 days for Low, Medium, and High CIA entities. <strong>Justification:</strong> the corpus shows a need for explicit adaptation windows, but it does not prescribe UELGF-specific day counts.</li>
+<li>[assumption; source: https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02016R0679-20160504; https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32017R0565; https://csrc.nist.gov/pubs/sp/800/88/r1/final] <strong>Archive-retention schedule:</strong> UELGF should use 2, 5, and 7 years for Low, Medium, and High CIA governance archives. <strong>Justification:</strong> the corpus supports differentiated retention and sanitisation, but it does not prescribe a universal enterprise schedule across all entity classes.</li>
+</ul>
+<h3>Analysis</h3>
+<ul>
+<li>[inference; source: https://airc.nist.gov/airmf-resources/airmf/5-sec-core/; https://learn.microsoft.com/en-us/azure/governance/resource-graph/overview] The most defensible design choice is to define decommission as a convergence test across registry, runtime, credential, and archive state, because inventory and monitoring obligations make lifecycle status meaningful only when observable systems agree with the registry.</li>
+<li>[inference; source: https://kubernetes.io/docs/tutorials/services/pods-and-endpoint-termination-flow/; https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/; https://docs.aws.amazon.com/IAM/latest/UserGuide/id-credentials-access-keys-update.html] Platform shutdown evidence strongly favours reversible retirement stages over one-step deletion, so UELGF should explicitly distinguish draining, deactivated, and destroyed credential states instead of collapsing them into one boolean retired flag.</li>
+<li>[inference; source: https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02016R0679-20160504; https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32017R0565; https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-closing.html] Retention trade-offs are resolved by separating payload and governance evidence, because the organisation usually needs durable proof of retirement even when it should no longer keep the underlying personal or operational payload.</li>
+<li>[inference; source: https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis.html; https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-citizen-development-empirical-evidence.html] The dependency-elimination trigger is the most UELGF-specific contribution in this item, because it ties retirement not only to risk and hygiene but also to the explicit closure of the capability gap that originally justified the entity.</li>
+<li>[inference; source: https://docs.aws.amazon.com/IAM/latest/UserGuide/id-credentials-access-keys-update.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html] Owner departure was weighed more heavily than a conventional housekeeping trigger because the evidence shows it is also a credential-lifecycle trigger, which makes missing stewardship an active risk signal rather than an administrative nuisance.</li>
+</ul>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>[fact; source: https://www.apra.gov.au/sites/default/files/Prudential-Standard-CPS-231-Outsourcing-%28July-2017%29.pdf] The seeded APRA source was checked but not used for downstream archive-retention claims, so the prudential-banking angle in this item rests more on MiFID-style record-retention anchors and prior repository governance work than on a directly extracted APRA clause.</li>
+<li>[fact; source: https://www.servicenow.com/docs/r/servicenow-platform/configuration-management-database-cmdb/id-detect-dup-ci.html] The seeded ServiceNow duplicate-detection page was not machine-readable in this runtime, so the ghost-entity detection design relies on other observable-state sources rather than on direct CMDB reconciliation text from ServiceNow.</li>
+<li>[assumption; source: https://kubernetes.io/docs/reference/using-api/deprecation-policy/; https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-closing.html] Exact notice windows by CIA tier remain an applied governance choice and would need owner confirmation if UELGF must hard-code different numbers.</li>
+<li>[assumption; source: https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32017R0565; https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02016R0679-20160504] Exact archive-retention years for non-regulated Low CIA entities remain a policy choice rather than a directly mandated number in the reviewed corpus.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>[inference; source: https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html] Should UELGF require a mandatory escrow steward for High CIA entities so that owner departure triggers reassignment before full decommission becomes necessary?</li>
+<li>[inference; source: https://learn.microsoft.com/en-us/azure/governance/resource-graph/overview; https://learn.microsoft.com/en-us/azure/advisor/advisor-azure-resource-graph] Should ghost-entity detection run as a central daily reconciliation job, or should each platform adapter publish divergence events directly into the control plane?</li>
+<li>[inference; source: https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis.html] Should the systems-capability-debt programme treat failure to retire a workaround after replacement goes live as a distinct governance violation with its own timer and escalation path?</li>
+</ul>
+<hr />
+<hr />
+<p><a id="2026-04-27-pip-invariant-anomaly-detection-md"></a></p>
+<h2>Invariant-based anomaly detection in the Policy Information Point (PIP): detecting permanent-invariant suppression through transient operating context and the decision signal to the Policy Decision Point (PDP)</h2>
+<p><strong>Tags:</strong> [pbac, pip, pdp, invariant, anomaly-detection, agentic-ai, intent-alignment, prompt-injection, cynefin, bayesian-reasoning, reward-hacking, context-synthesis]</p>
+<p><strong>Origin:</strong> https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-27-pip-invariant-anomaly-detection.md</p>
+<h2>Research Question</h2>
+<p>How can the Policy Information Point (PIP) detect when a governed asset's transient operating context is being used, intentionally or through task creep, to suppress or obscure a permanent invariant, and what decision signal should the PIP surface to the Policy Decision Point (PDP) when that suppression pattern is detected?</p>
+<h2>Findings</h2>
+<p><em>(Populated from §6 Synthesis above.)</em></p>
+<h3>Executive Summary</h3>
+<p>[inference; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC2782645/; https://davidamitchell.github.io/Research/research/2026-03-15-context-layers-aligned-decisions-synthesis.html; https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html] The PIP should combine deterministic contradiction checks with a Bayesian-style surprise layer over the mismatch between permanent invariant metadata and transient task signals, then surface a typed anomaly object to the PDP instead of trying to resolve the policy conflict itself. [inference; source: https://genai.owasp.org/llmrisk/llm01-prompt-injection/; https://davidamitchell.github.io/Research/research/2026-03-15-prompt-injection-threat-landscape.html] The decisive distinction is between passive suppression, where framing and requested actions agree that invariants are not in play, and active or adversarial suppression, where the requested actions would touch invariant-bearing resources despite framing that says otherwise. [inference; source: https://thecynefin.co/effective-decision-making-support-tool/; https://davidamitchell.github.io/Research/research/2026-04-27-pap-dynamic-policy-profiling-proportionality.html] Cynefin task-complexity declarations should modify the prior because high-invariant assets declaring Clear routine work while requesting broad access or state-changing tools are lower-probability combinations than comparable tasks declared as Complicated or Complex. [inference; source: https://csf.tools/reference/nist-sp-800-53/r5/si/si-4/; https://csf.tools/reference/nist-sp-800-53/r5/au/au-6/; https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html] A practical PIP output should therefore carry <code>signal_type</code>, <code>confidence_score</code>, <code>surprise_score</code>, implicated invariants, contradictory observations, provenance, and a recommended routing path so that monitoring, audit review, and remediation remain explainable and proportionate.</p>
+<h3>Key Findings</h3>
+<ol>
+<li><strong>High confidence.</strong> [inference; source: https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html; https://davidamitchell.github.io/Research/research/2026-03-15-context-layers-aligned-decisions-synthesis.html] The PIP is the correct runtime detection surface because it already synthesises the attribute values that connect Layer 3 Asset Metadata to Layer 8 Task Intent before the PDP evaluates policy.</li>
+<li><strong>High confidence.</strong> [inference; source: https://davidamitchell.github.io/Research/research/2026-03-10-formal-spec-intent-alignment-agentic-coding.html; https://davidamitchell.github.io/Research/research/2026-04-26-access-control-amplification-agentic-operations.html] Invariant-shadowing should be typed into passive, active, and adversarial classes, because the operational response depends on whether the framing-to-action mismatch is absent, accidental, or linked to hostile context substitution.</li>
+<li><strong>Medium confidence.</strong> [inference; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC2782645/; https://davidamitchell.github.io/Research/research/2026-03-15-neurological-context-management.html] Bayesian surprise provides a principled ranking layer above deterministic contradiction rules, because it measures how strongly an observed task tuple shifts legitimacy beliefs for that invariant-bearing asset.</li>
+<li><strong>Medium confidence.</strong> [inference; source: https://thecynefin.co/effective-decision-making-support-tool/; https://hbr.org/2007/11/a-leaders-framework-for-decision-making] Cynefin domain declarations should be treated as probabilistic context features, with Clear declarations lowering the expected probability of broad access or state change for high-invariant assets and Chaotic declarations increasing review pressure rather than relaxing control.</li>
+<li><strong>High confidence.</strong> [inference; source: https://genai.owasp.org/llmrisk/llm01-prompt-injection/; https://davidamitchell.github.io/Research/research/2026-03-15-prompt-injection-threat-landscape.html] Prompt injection should be modelled inside the PIP as hostile context substitution, and not merely as suspicious text, because the security-relevant event is the attempt to make transient input outrank registered invariant metadata.</li>
+<li><strong>Medium confidence.</strong> [inference; source: https://csf.tools/reference/nist-sp-800-53/r5/si/si-4/; https://csf.tools/reference/nist-sp-800-53/r5/au/au-6/; https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html] A practical PIP-to-PDP signal should be a typed and explainable anomaly object carrying score, confidence, implicated invariants, provenance, and recommended routing so that monitoring and audit review remain actionable.</li>
+<li><strong>Medium confidence.</strong> [inference; source: https://davidamitchell.github.io/Research/research/2026-04-27-pap-dynamic-policy-profiling-proportionality.html; https://davidamitchell.github.io/Research/research/2026-04-27-pdp-universal-policy-synchronisation-integrity.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html] The anomaly object becomes materially stronger when it also carries lifecycle policy-version and machine-identity context, because adjacent governance failures can otherwise masquerade as task-framing anomalies.</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>Source</th>
+<th>Confidence</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[inference] The PIP is the correct runtime detection surface because it already assembles the attributes used by the PDP to evaluate policy.</td>
+<td>https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html ; https://davidamitchell.github.io/Research/research/2026-03-15-context-layers-aligned-decisions-synthesis.html</td>
+<td>high</td>
+<td>Ties XACML role definitions to the repository's Layer 3 to Layer 8 architecture.</td>
+</tr>
+<tr>
+<td>[inference] Invariant-shadowing should be typed into passive, active, and adversarial classes because the remediation path depends on whether contradiction and hostile context are present.</td>
+<td>https://davidamitchell.github.io/Research/research/2026-03-10-formal-spec-intent-alignment-agentic-coding.html ; https://davidamitchell.github.io/Research/research/2026-04-26-access-control-amplification-agentic-operations.html ; https://genai.owasp.org/llmrisk/llm01-prompt-injection/</td>
+<td>medium</td>
+<td>Distinguishes legitimate non-activation from risky mismatch and hostile substitution.</td>
+</tr>
+<tr>
+<td>[inference] Bayesian surprise provides a principled ranking layer above deterministic contradiction rules because the anomaly is a belief shift about legitimacy conditioned on invariants.</td>
+<td>https://pmc.ncbi.nlm.nih.gov/articles/PMC2782645/ ; https://davidamitchell.github.io/Research/research/2026-03-15-neurological-context-management.html</td>
+<td>medium</td>
+<td>Connects formal surprise to prior-weighted relevance filtering.</td>
+</tr>
+<tr>
+<td>[inference] Cynefin declarations should change the prior over legitimate operations, with Clear routine framing making broad access or state change less probable for high-invariant assets.</td>
+<td>https://thecynefin.co/effective-decision-making-support-tool/ ; https://hbr.org/2007/11/a-leaders-framework-for-decision-making ; https://davidamitchell.github.io/Research/research/2026-04-27-pap-dynamic-policy-profiling-proportionality.html</td>
+<td>medium</td>
+<td>Useful as a prior-adjustment feature, not sufficient alone.</td>
+</tr>
+<tr>
+<td>[inference] Prompt injection should be modelled as hostile context substitution because it tries to make untrusted external content outrank registered invariant metadata and tool constraints.</td>
+<td>https://genai.owasp.org/llmrisk/llm01-prompt-injection/ ; https://davidamitchell.github.io/Research/research/2026-03-15-prompt-injection-threat-landscape.html</td>
+<td>high</td>
+<td>Converts a text-security issue into a policy-routing issue.</td>
+</tr>
+<tr>
+<td>[inference] A practical PIP signal should be typed, auditable, and explainable, carrying score, confidence, implicated invariants, provenance, and recommended route.</td>
+<td>https://csf.tools/reference/nist-sp-800-53/r5/si/si-4/ ; https://csf.tools/reference/nist-sp-800-53/r5/au/au-6/ ; https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html</td>
+<td>medium</td>
+<td>Field set is a design recommendation derived from monitoring, review, and role separation.</td>
+</tr>
+<tr>
+<td>[inference] Policy-version and machine-identity context strengthen suppression detection by separating runtime framing anomalies from adjacent governance failures.</td>
+<td>https://davidamitchell.github.io/Research/research/2026-04-27-pdp-universal-policy-synchronisation-integrity.html ; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html ; https://davidamitchell.github.io/Research/research/2026-04-27-pap-dynamic-policy-profiling-proportionality.html</td>
+<td>medium</td>
+<td>Cross-item synthesis across lifecycle integrity, identity, and proportional control depth.</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li>[assumption; source: https://davidamitchell.github.io/Research/research/2026-04-27-pap-dynamic-policy-profiling-proportionality.html] The PAP or asset-registration process produces enough invariant-class structure to seed priors for newly created assets. <strong>Justification:</strong> a surprise score needs a baseline, and new assets otherwise lack historical usage.</li>
+<li>[assumption; source: https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html] Requested tools and data scopes are visible to the PIP before the PDP renders a final decision. <strong>Justification:</strong> active suppression cannot be detected if the PIP only sees the free-form prompt and not the planned operations.</li>
+<li>[assumption; source: https://thecynefin.co/effective-decision-making-support-tool/] The calling context provides either an explicit Cynefin-style task declaration or enough structured metadata for the platform to infer one. <strong>Justification:</strong> the Cynefin-by-invariant matrix cannot influence priors without a complexity signal.</li>
+</ul>
+<h3>Analysis</h3>
+<ul>
+<li>[inference; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC2782645/; https://davidamitchell.github.io/Research/research/2026-03-15-neurological-context-management.html] Deterministic contradiction rules are still needed to catch direct mismatches between framing and requested actions, while Bayesian surprise provides a ranking layer for borderline or context-dependent cases by measuring belief shift against prior expectations.</li>
+<li>[inference; source: https://genai.owasp.org/llmrisk/llm01-prompt-injection/; https://davidamitchell.github.io/Research/research/2026-03-15-prompt-injection-threat-landscape.html] OWASP and the prior prompt-injection item justify treating provenance and hostile override patterns as score multipliers, but they do not justify equating every suspicious string with active suppression, so action mismatch remains the decisive discriminator.</li>
+<li>[inference; source: https://thecynefin.co/effective-decision-making-support-tool/; https://hbr.org/2007/11/a-leaders-framework-for-decision-making] The Cynefin framework helps because it changes what &quot;normal&quot; looks like for the task, but it remains a contextual prior rather than direct proof, so its contribution is medium-confidence and subordinate to invariant-action contradiction.</li>
+<li>[inference; source: https://csf.tools/reference/nist-sp-800-53/r5/si/si-4/; https://csf.tools/reference/nist-sp-800-53/r5/au/au-6/] NIST monitoring controls tilt the design toward typed, explainable routing objects rather than hidden scores, because anomaly detection that cannot be reviewed, correlated, or reported cleanly would fail the stated monitoring purpose.</li>
+<li>[inference; source: https://davidamitchell.github.io/Research/research/2026-04-27-pap-dynamic-policy-profiling-proportionality.html; https://davidamitchell.github.io/Research/research/2026-04-27-pdp-universal-policy-synchronisation-integrity.html] Adjacent PBAC items sharpen the trade-off: low-risk assets need low-friction monitoring, while high-invariant assets need higher-confidence escalation paths, so the signal must remain typed and proportional rather than binary.</li>
+</ul>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>[inference; source: https://pmc.ncbi.nlm.nih.gov/articles/PMC2782645/] The surprise formula is well founded conceptually, but this item does not establish production calibration thresholds for specific invariant classes, so implementation still needs empirical tuning.</li>
+<li>[inference; source: https://thecynefin.co/effective-decision-making-support-tool/] Cynefin declarations are partly behavioural and can be gamed or misclassified, so they should influence priors but should not be treated as authoritative evidence on their own.</li>
+<li>[inference; source: https://genai.owasp.org/llmrisk/llm01-prompt-injection/] Prompt injection remains a partly unsolved prevention problem, so adversarial suppression detection will necessarily produce some false positives and false negatives.</li>
+<li>[inference; source: https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html] If tool plans are assembled late or outside the PIP's visibility boundary, active suppression may only be partially detectable at the point this item targets.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>How should invariant-class priors be learned and refreshed without letting manipulated traffic poison the baseline?</li>
+<li>What is the minimum structured tool-plan representation the PIP must receive to detect active suppression before execution begins?</li>
+<li>How should policy-version drift and suppression anomalies be jointly handled when both appear in the same request path?</li>
+<li>Which invariant classes deserve hard fail-closed thresholds versus step-up review thresholds?</li>
+<li>How should multimodal prompt injection alter the provenance-risk term for assets that ingest images, audio, or Portable Document Format (PDF) documents?</li>
+</ul>
+<hr />
+<hr />
 <p><a id="2026-04-27-pdp-universal-policy-synchronisation-integrity-md"></a></p>
 <h2>Universal policy synchronisation and integrity: ensuring the Policy Decision Point (PDP) evaluates governed assets against logically identical policy across all lifecycle phases</h2>
 <p><strong>Tags:</strong> [pbac, pdp, pap, policy-synchronisation, lifecycle-governance, versioning, content-addressing, policy-lsp, governance-decay, agentic-ai]</p>
@@ -871,6 +1091,116 @@ main {
 <li>[fact; source: https://csrc.nist.gov/pubs/sp/800/162/final; https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html; https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-2/] Type: knowledge.</li>
 <li>[inference; source: https://profsandhu.com/infs767/infs767spring04/lbac-6pg.pdf; https://classpages.cselabs.umn.edu/Fall-2021/csci5271/papers/SRL2003-02.pdf; https://davidamitchell.github.io/Research/research/2026-04-26-access-control-amplification-agentic-operations.html] Description: a standards-compatible formal mapping from invariant metadata and CIA rating to lifecycle-aware enforcement topology, plus a worked high-risk example and PAP design criteria.</li>
 <li>[fact; source: https://csrc.nist.gov/pubs/sp/800/162/final; https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html; https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-2/] Links: https://csrc.nist.gov/pubs/sp/800/162/final ; https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html ; https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-2/</li>
+</ul>
+<hr />
+<hr />
+<p><a id="2026-04-27-enterprise-stack-value-distribution-governance-frameworks-md"></a></p>
+<h2>Enterprise data stack value-distribution frameworks: what frameworks - including the seven-layer stack and Software Repricing Matrix discussed in the April 2026 ServiceNow investment analysis - are most useful for understanding where durable value accumulates in enterprise technology stacks, especially at the governance layer?</h2>
+<p><strong>Tags:</strong> [enterprise-architecture, value-distribution, governance, seven-layer-stack, software-repricing-matrix, terminal-value, servicenow, snowflake, palantir, uipath, ai-commoditisation, investment-frameworks, platform-strategy]</p>
+<p><strong>Origin:</strong> https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-27-enterprise-stack-value-distribution-governance-frameworks.md</p>
+<h2>Research Question</h2>
+<p>What frameworks - specifically the seven-layer enterprise stack and the Software Repricing Matrix described in the April 2026 Liam Hyland ServiceNow analysis video, together with comparable frameworks from enterprise architecture, investment analysis, and technology strategy literature - most clearly explain how durable economic value distributes across enterprise technology stacks as lower-layer resources (storage, compute, intelligence) commoditise, and what do these frameworks collectively say about governance as the layer that accumulates and compounds value that cannot be replicated by adding more compute?</p>
+<h2>Findings</h2>
+<h3>Executive Summary</h3>
+<p>[inference; source: https://www.leoniscap.com/research/openclaw-(aka-clawdbot)-and-the-ai-threshold-effect; https://www.wardleymaps.com/book-passages/wardley-on-evolution; https://www.nobelprize.org/prizes/economic-sciences/2009/press-release/; https://kubernetes.io/docs/concepts/architecture/] The most defensible conclusion is that durable value in enterprise stacks does not sit in &quot;governance&quot; as an isolated top layer, but in a governance-bearing control plane, used here in the systems sense of a layer that makes global decisions and responds to system events, that binds policy, identity, workflow context, and action as lower layers commoditise.</p>
+<p>[fact; source: https://www.opengroup.org/togaf; https://www.opengroup.org/archimate-forum/archimate-overview] Accessible enterprise-architecture standards support the importance of governance, but they model it as a cross-layer coordinating function rather than a clean seventh stack layer.</p>
+<p>[inference; source: https://geoffreyamoore.com/topics/; https://www.wardleymaps.com/guides/wardley-mapping-101; https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report; https://a16z.com/newsletter/big-ideas-2026-part-1] Strategy and operating-model frameworks agree more strongly with the Hyland thesis because they show value migrating toward differentiation, coordination, internal platform quality, and rule enforcement once compute and model access cheapen.</p>
+<p>[inference; source: https://pages.stern.nyu.edu/~adamodar/pdfiles/country/TerminalValue.pdf; https://finance.yahoo.com/markets/stocks/articles/servicenow-inc-q1-2026-earnings-001811104.html] The repricing logic is therefore directionally credible, but it depends on whether investors believe a vendor owns only workflow software or a hard-to-replace control plane with embedded institutional knowledge.</p>
+<h3>Key Findings</h3>
+<ol>
+<li><strong>High confidence.</strong> [inference; source: https://www.opengroup.org/togaf; https://www.opengroup.org/archimate-forum/archimate-overview; https://www.wardleymaps.com/guides/wardley-mapping-101] The seeded seven-layer stack is best understood as an investor-friendly synthesis of established architecture and strategy ideas, not as a canonical enterprise-architecture standard with an independently recognized seven-layer lineage.</li>
+<li><strong>High confidence.</strong> [inference; source: https://geoffreyamoore.com/topics/; https://stvp.stanford.edu/av/core-and-context; https://www.wardleymaps.com/book-passages/wardley-on-evolution; https://www.leoniscap.com/research/openclaw-(aka-clawdbot)-and-the-ai-threshold-effect] Moore, Wardley, and Leonis all predict that once lower layers become cheaper and more standardized, durable value shifts toward constrained, differentiated layers that embed context, trust, and control.</li>
+<li><strong>High confidence.</strong> [fact; source: https://www.opengroup.org/togaf; https://www.opengroup.org/archimate-forum/archimate-overview] TOGAF and ArchiMate support the importance of governance, but they treat it as an organizing discipline across business, application, and technology domains rather than as a standalone terminal technical layer.</li>
+<li><strong>High confidence.</strong> [inference; source: https://www.nobelprize.org/prizes/economic-sciences/1991/press-release/; https://www.nobelprize.org/prizes/economic-sciences/2009/press-release/; https://davidamitchell.github.io/Research/research/2026-03-02-transaction-costs.html] Coase and Williamson provide the strongest economic explanation for governance-layer durability because they show that value persists where a platform lowers repeated coordination and conflict-resolution costs around relationship-specific assets.</li>
+<li><strong>Medium-high confidence.</strong> [inference; source: https://hai-production.s3.amazonaws.com/files/hai_ai_index_report_2025.pdf; https://openai.com/index/gpt-4o-mini-advancing-cost-efficient-intelligence/; https://a16z.com/newsletter/big-ideas-2026-part-1; https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report] Falling inference cost strengthens the case for orchestration, policy, and internal-platform layers because cheaper intelligence appears to shift the practical bottleneck toward coordination and reliability rather than raw model access.</li>
+<li><strong>Medium-high confidence.</strong> [inference; source: https://docs.aws.amazon.com/bedrock/latest/userguide/agents.html; https://docs.github.com/en/copilot/concepts/copilot-usage-metrics/copilot-metrics; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html; https://davidamitchell.github.io/Research/research/2026-04-26-multi-ai-provider-control-planes.html] Governance becomes durable only when it is bound to execution surfaces such as permissions, routing, telemetry, and action control, because purely semantic or reasoning layers remain easier to substitute.</li>
+<li><strong>Medium confidence.</strong> [inference; source: https://pages.stern.nyu.edu/~adamodar/pdfiles/country/TerminalValue.pdf; https://pages.stern.nyu.edu/~adamodar/New_Home_Page/valquestions/termvalapproaches.htm; https://finance.yahoo.com/markets/stocks/articles/servicenow-inc-q1-2026-earnings-001811104.html] The Software Repricing Matrix logic is directionally compatible with standard discounted-cash-flow thinking because uncertainty about a firm's terminal moat can compress valuation even when current operating performance is intact.</li>
+<li><strong>Medium-high confidence.</strong> [inference; source: https://www.wardleymaps.com/guides/wardley-mapping-101; https://a16z.com/newsletter/big-ideas-2026-part-1; https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-platform-operating-models.html] The main disagreement across frameworks is not whether lower layers commoditise, but whether the defensible asset is workflow software alone or a composite control plane that joins governance, identity, data, and action.</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>Source</th>
+<th>Confidence</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[inference] The seven-layer stack is an investor-friendly synthesis rather than a canonical standard.</td>
+<td><a href="https://www.opengroup.org/togaf">TOGAF</a>; <a href="https://www.opengroup.org/archimate-forum/archimate-overview">ArchiMate overview</a>; <a href="https://www.wardleymaps.com/guides/wardley-mapping-101">Wardley Mapping 101</a></td>
+<td>high</td>
+<td>Accessible standards do not expose a matching seven-layer canonical model.</td>
+</tr>
+<tr>
+<td>[inference] Durable value shifts toward constrained, differentiated, trust-bearing layers.</td>
+<td><a href="https://geoffreyamoore.com/topics/">Geoffrey Moore topics</a>; <a href="https://stvp.stanford.edu/av/core-and-context">Stanford Core and Context</a>; <a href="https://www.wardleymaps.com/book-passages/wardley-on-evolution">Wardley evolution passage</a>; <a href="https://www.leoniscap.com/research/openclaw-(aka-clawdbot)-and-the-ai-threshold-effect">Leonis AI Threshold Effect</a></td>
+<td>high</td>
+<td>This is the strongest cross-source continuity finding.</td>
+</tr>
+<tr>
+<td>[fact] TOGAF and ArchiMate model governance as cross-layer coordination rather than a terminal technical layer.</td>
+<td><a href="https://www.opengroup.org/togaf">TOGAF</a>; <a href="https://www.opengroup.org/archimate-forum/archimate-overview">ArchiMate overview</a></td>
+<td>high</td>
+<td>Architecture standards emphasize relationship modeling and governance practice.</td>
+</tr>
+<tr>
+<td>[inference] Relationship-specific workflows and institutional rules make governance-heavy platforms durable.</td>
+<td><a href="https://www.nobelprize.org/prizes/economic-sciences/1991/press-release/">Nobel 1991 Coase press release</a>; <a href="https://www.nobelprize.org/prizes/economic-sciences/2009/press-release/">Nobel 2009 Williamson and Ostrom press release</a>; <a href="https://davidamitchell.github.io/Research/research/2026-03-02-transaction-costs.html">Transaction Cost Economics completed item</a></td>
+<td>high</td>
+<td>The economics is stronger than the vendor-specific investment framing.</td>
+</tr>
+<tr>
+<td>[inference] Cheaper model use appears to shift the bottleneck toward coordination and platform quality.</td>
+<td><a href="https://hai-production.s3.amazonaws.com/files/hai_ai_index_report_2025.pdf">AI Index 2025</a>; <a href="https://openai.com/index/gpt-4o-mini-advancing-cost-efficient-intelligence/">OpenAI GPT-4o mini announcement</a>; <a href="https://a16z.com/newsletter/big-ideas-2026-part-1">a16z Big Ideas 2026 Part 1</a>; <a href="https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report">DORA 2025 overview</a></td>
+<td>medium-high</td>
+<td>Cost collapse plus coordination bottleneck plus platform-quality dependence support this synthesis, but no single source states the full bottleneck shift claim alone.</td>
+</tr>
+<tr>
+<td>[inference] Durable governance requires execution-adjacent control surfaces, not only reasoning or semantics.</td>
+<td><a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents.html">Amazon Bedrock Agents</a>; <a href="https://docs.github.com/en/copilot/concepts/copilot-usage-metrics/copilot-metrics">GitHub Copilot usage metrics</a>; <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html">AI agent control-plane architecture completed item</a>; <a href="https://davidamitchell.github.io/Research/research/2026-04-26-multi-ai-provider-control-planes.html">Multi-provider AI control planes completed item</a></td>
+<td>medium-high</td>
+<td>Current product surfaces make action control and observability central.</td>
+</tr>
+<tr>
+<td>[inference] Repricing before earnings deterioration is plausible when the terminal moat is in doubt.</td>
+<td><a href="https://pages.stern.nyu.edu/~adamodar/pdfiles/country/TerminalValue.pdf">Damodaran terminal value note</a>; <a href="https://pages.stern.nyu.edu/~adamodar/New_Home_Page/valquestions/termvalapproaches.htm">Damodaran terminal value approaches</a>; <a href="https://finance.yahoo.com/markets/stocks/articles/servicenow-inc-q1-2026-earnings-001811104.html">Yahoo Finance ServiceNow Q1 2026 earnings summary</a></td>
+<td>medium</td>
+<td>This supports the valuation mechanism, not the exact quadrant labels from the inaccessible video.</td>
+</tr>
+<tr>
+<td>[inference] The defensible asset is likely a composite control plane, not workflow software alone.</td>
+<td><a href="https://www.wardleymaps.com/guides/wardley-mapping-101">Wardley Mapping 101</a>; <a href="https://a16z.com/newsletter/big-ideas-2026-part-1">a16z Big Ideas 2026 Part 1</a>; <a href="https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-platform-operating-models.html">Enterprise AI platform operating models completed item</a>; <a href="https://davidamitchell.github.io/Research/research/2026-04-26-multi-ai-provider-control-planes.html">Multi-provider AI control planes completed item</a></td>
+<td>medium-high</td>
+<td>This is the synthesis point with the most practical implications.</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li>[assumption; source: https://www.youtube.com/watch?v=JH65uE9oEqs] The seeded layer and quadrant descriptions are materially accurate summaries of the inaccessible video. <strong>Justification:</strong> they are the repository's explicit setup for this item, but they could not be checked against a transcript in this session.</li>
+<li>[assumption; source: https://www.gartner.com/en/information-technology/glossary/pace-layering-application-strategy] Pace Layering is used only at the generic three-layer level because the official explanatory text was inaccessible here. <strong>Justification:</strong> the official page was found but blocked, so no finer claim is attributed to Gartner.</li>
+<li>[assumption; source: https://www.hbs.edu/faculty/Pages/item.aspx?num=13375; https://www.hbs.edu/faculty/Pages/item.aspx?num=56505; https://store.hbr.org/product/commoditization-and-de-commoditization/420017] Christensen's commoditisation logic is adjacent but not central in this synthesis because direct primary text was inaccessible. <strong>Justification:</strong> stronger directly accessible evidence exists from Wardley, Moore, Leonis, Coase, and Williamson.</li>
+</ul>
+<h3>Analysis</h3>
+<p>[fact; source: https://www.opengroup.org/togaf; https://www.opengroup.org/archimate-forum/archimate-overview] The architecture evidence is strongest on one point: governance is indispensable, but it is not modeled as an isolated layer floating above business, application, and technology.</p>
+<p>[inference; source: https://geoffreyamoore.com/topics/; https://www.wardleymaps.com/book-passages/wardley-on-evolution; https://www.nobelprize.org/prizes/economic-sciences/2009/press-release/] The strategy and economics evidence is strongest on a different point: value persists where a capability remains organization-specific, relationship-specific, or hard to standardize, which is exactly the territory occupied by approvals, permissions, routing rules, and embedded workflow knowledge.</p>
+<p>[inference; source: https://www.leoniscap.com/research/openclaw-(aka-clawdbot)-and-the-ai-threshold-effect; https://a16z.com/newsletter/big-ideas-2026-part-1; https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report] Current enterprise-AI sources strengthen the Hyland thesis because they show the active bottleneck moving away from raw model performance and toward coordination, constraint, and internal platform quality.</p>
+<p>[inference; source: https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html; https://davidamitchell.github.io/Research/research/2026-04-26-multi-ai-provider-control-planes.html] The best reconciliation is therefore that &quot;governance&quot; is economically durable only when instantiated as an operational control plane with authority over action, identity, telemetry, and policy propagation.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>[fact; source: https://www.youtube.com/watch?v=JH65uE9oEqs] The largest gap is direct source access: the video itself was blocked, so exact wording, exact quadrant labels, and exact vendor mappings could not be confirmed from a transcript.</li>
+<li>[fact; source: https://www.gartner.com/en/information-technology/glossary/pace-layering-application-strategy; https://www.hbs.edu/faculty/Pages/item.aspx?num=13375] Gartner and Christensen primary pages were checked but were not fully accessible from this environment, which lowers confidence in claims that would depend on their fine-grained wording.</li>
+<li>[inference; source: https://www.wardleymaps.com/guides/wardley-mapping-101; https://www.nobelprize.org/prizes/economic-sciences/2009/press-release/] The strongest external frameworks support upward value migration and governance durability broadly, but they do not by themselves prove that any particular vendor is the winner at that layer.</li>
+<li>[inference; source: https://a16z.com/newsletter/big-ideas-2026-part-1; https://docs.aws.amazon.com/bedrock/latest/userguide/agents.html] Orchestration layers remain exposed if hyperscalers or model vendors absorb more of the control-plane surface, so the moat depends on how much execution governance stays vendor-neutral and workflow-specific.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>[inference; source: https://www.youtube.com/watch?v=JH65uE9oEqs; https://finance.yahoo.com/markets/stocks/articles/servicenow-inc-q1-2026-earnings-001811104.html] What exact quadrant definitions and named company placements does the Software Repricing Matrix use in the video itself, and do those placements remain stable after the latest product launches?</li>
+<li>[inference; source: https://www.leoniscap.com/research/openclaw-(aka-clawdbot)-and-the-ai-threshold-effect; https://a16z.com/newsletter/big-ideas-2026-part-1] Which parts of the enterprise control plane are likely to commoditise next: telemetry, agent identity, policy language, or cross-provider routing?</li>
+<li>[inference; source: https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html; https://davidamitchell.github.io/Research/research/2026-04-26-multi-ai-provider-control-planes.html] How much of the durable moat in governance software comes from data model and process graph depth versus from the execution and evidence surfaces around that model?</li>
 </ul>
 <hr />
 <hr />
