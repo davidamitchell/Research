@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-04-27T08:38:48Z",
+  "extracted_at": "2026-04-27T08:54:37Z",
   "items": {
     "2026-04-27-uelgf-runtime-feedback-loop": {
       "named_concepts": [
@@ -644,6 +644,63 @@
         "https://davidamitchell.github.io/Research/research/2026-04-24-business-led-low-code-agent-governance.html",
         "https://davidamitchell.github.io/Research/research/2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment.html",
         "https://davidamitchell.github.io/Research/research/2026-03-10-nature-of-the-firm-coase-organisations.html"
+      ],
+      "key_claims": []
+    },
+    "2026-04-26-software-engineering-investment-case-llm": {
+      "named_concepts": [
+        "engineering capability",
+        "citizen development",
+        "engineering investment",
+        "citizen-development tooling",
+        "verifier-gated engineering",
+        "speed versus",
+        "versus rigor",
+        "release controls",
+        "regulated financial",
+        "financial institution",
+        "investing first",
+        "software engineering",
+        "productivity gains",
+        "testing version",
+        "version control",
+        "feedback loops",
+        "internal platforms",
+        "bounded local",
+        "durable value",
+        "investment choice"
+      ],
+      "source_urls": [
+        "https://openreview.net/forum?id=BZ5a1r-kVsf",
+        "https://www.brown.edu/news/2026-04-01/yann-lecun-artificial-intelligence-pioneer",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-lecun-llm-critique-primary-sources.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-llm-verifiability-asymmetry-code-world-action.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-lecun-critique-citizen-development-enterprise-risk.html",
+        "https://arxiv.org/abs/2302.06590",
+        "https://github.blog/2022-09-07-research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/",
+        "https://arxiv.org/abs/2205.06537",
+        "https://arxiv.org/abs/2203.07814",
+        "https://gcc.gnu.org/onlinedocs/gcc-14.3.0/gcc/Warnings-and-Errors.html",
+        "https://www.typescriptlang.org/docs/handbook/2/basic-types.html",
+        "https://codeql.github.com/docs/codeql-overview/about-codeql/",
+        "https://www.microsoft.com/en-us/research/project/dafny-a-language-and-program-verifier-for-functional-correctness/",
+        "https://csrc.nist.gov/pubs/sp/800/204/d/final",
+        "https://arxiv.org/search/?searchtype=all&query=formal+verification+software+engineering+pipeline",
+        "https://dora.dev/research/",
+        "https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report",
+        "https://cloud.google.com/resources/content/2025-dora-ai-capabilities-model-report",
+        "https://itrevolution.com/book/accelerate/",
+        "https://fis.tu-dresden.de/portal/en/publications/practitioners-perceptions-on-the-adoption-of-low-code-development-platforms(20818aa9-8856-45e1-accf-b95e10376406",
+        "https://research.universityofgalway.ie/en/publications/adoption-of-low-code-and-no-code-development-a-systematic-literat-6",
+        "https://learn.microsoft.com/en-us/power-platform/guidance/coe/overview",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-data-loss-prevention",
+        "https://www.fca.org.uk/publications/discussion-papers/dp22-4-artificial-intelligence-and-machine-learning",
+        "https://www.bankofengland.co.uk/prudential-regulation/publication/2022/october/artificial-intelligence",
+        "https://www.bankofengland.co.uk/prudential-regulation/publication/2023/may/model-risk-management-principles-for-banks",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-citizen-development-empirical-evidence.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-24-business-led-low-code-agent-governance.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html"
       ],
       "key_claims": []
     },
