@@ -1,0 +1,936 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>AI and low-code in enterprises? — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #0f1115;
+  --surface-2:       #161b22;
+  --border:          #252b33;
+  --text:            #e6e6e6;
+  --text-muted:      #666;
+  --accent:          #e6e6e6;
+  --accent-dim:      #333;
+  --tag-bg:          #161b22;
+  --tag-text:        #999;
+  --tag-active-bg:   #e6e6e6;
+  --tag-active-text: #0f1115;
+  --link:            #00C3A5;
+  --teal:            #00C3A5;
+  --dusk:            #E8A1A8;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  overflow-x: clip;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.75rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+.nav-links a.active { color: var(--teal); }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--teal); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+  min-width: 0;
+}
+.card:hover { border-color: var(--teal); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  word-break: break-word;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4em;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.item-title svg { flex-shrink: 0; margin-top: 0.2em; }
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+  word-break: break-all;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+  max-width: 100%;
+}
+.item-content pre code { background: none; padding: 0; word-break: normal; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--teal); text-decoration: underline; }
+.item-content a:hover { color: var(--text); text-decoration: underline; }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--dusk);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    top: 0;
+    height: auto;
+    padding: 0.5rem 1rem;
+  }
+  .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .nav-links {
+    width: 100%;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  main {
+    padding: 1.5rem 1rem 4rem;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; overflow: hidden; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); word-break: break-word; overflow-wrap: break-word; }
+.key-claims li:last-child { border-bottom: none; }
+.key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
+.key-claims a:hover { color: var(--text); }
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); flex-wrap: wrap; }
+.related-entry:last-child { border-bottom: none; }
+.related-entry a { color: var(--teal); word-break: break-word; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--dusk); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4em; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--teal); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-card-link { text-decoration: none; color: var(--text); display: block; }
+.thread-card-link:hover .thread-card { background: var(--surface-2); }
+.thread-card { background: var(--surface); border: 1px solid var(--border); padding: 1.5rem 1.75rem 1.75rem; }
+.thread-card-title { font-size: var(--text-base); font-weight: 600; margin-bottom: 0.5rem; }
+.thread-card-meta { font-size: var(--text-xs); color: var(--text-muted); margin-bottom: 0.75rem; letter-spacing: 0.05em; }
+.thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
+.thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Research</a>
+    <div class="nav-links">
+      <a href="/Research/all-items.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>All Items</a>
+      <a href="/Research/backlog.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Backlog</a>
+      <a href="/Research/threads.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>Threads</a>
+      <a href="/Research/tags/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>Tags</a>
+      <a href="/Research/search.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M8 1.5C4.41 1.5 1.5 4.41 1.5 8c0 2.87 1.86 5.3 4.44 6.16.32.06.44-.14.44-.31v-1.09c-1.8.39-2.18-.87-2.18-.87-.3-.75-.72-.95-.72-.95-.59-.4.04-.4.04-.4.65.05 1 .67 1 .67.58 1 1.53.71 1.9.54.06-.42.23-.71.41-.87-1.44-.16-2.95-.72-2.95-3.2 0-.71.25-1.28.67-1.74-.07-.16-.29-.82.06-1.71 0 0 .55-.18 1.8.67a6.27 6.27 0 0 1 3.28 0c1.25-.85 1.8-.67 1.8-.67.35.89.13 1.55.06 1.71.42.46.67 1.03.67 1.74 0 2.49-1.51 3.04-2.96 3.2.23.2.44.6.44 1.21v1.8c0 .17.12.37.44.31A6.5 6.5 0 0 0 14.5 8 6.5 6.5 0 0 0 8 1.5z"/></svg>GitHub</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>AI and low-code in enterprises?</span>
+  </div>
+  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>AI and low-code in enterprises?</h1>
+  <p class="full-title-subtitle">What maturity model best describes the evolution of governance capabilities for Artificial Intelligence (AI) and low-code in enterprises?</p>
+  <div class="meta-bar">
+    <span>2026-04-26</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/ai-governance.html">ai-governance</a> <a class="tag" href="/Research/tags/low-code.html">low-code</a> <a class="tag" href="/Research/tags/enterprise-governance.html">enterprise-governance</a> <a class="tag" href="/Research/tags/capability-model.html">capability-model</a> <a class="tag" href="/Research/tags/benchmarks.html">benchmarks</a> <a class="tag" href="/Research/tags/regulated-enterprise.html">regulated-enterprise</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-ai-lowcode-governance-maturity-model.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-04-26-ai-lowcode-governance-maturity-model" target="_blank" rel="noopener">wiki →</a>
+  </div>
+  
+  <div class="item-content">
+    <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
+<p>What maturity model best describes the evolution of governance capabilities for AI and low-code in enterprises, specifically, what are the clearly defined maturity stages, capability benchmarks, and progression pathways that allow an organisation to assess its current governance capability state and plan incremental improvements across all governance dimensions?</p>
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Findings</h2>
+<h3>Executive Summary</h3>
+<ul>
+<li>[inference; source: <a href="https://cmmiinstitute.com/learning/appraisals">CMMI appraisal method</a> <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/maturity-model-overview">Microsoft agentic AI adoption maturity model overview</a> <a href="https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10">National Institute of Standards and Technology (NIST) Artificial Intelligence Risk Management Framework (AI RMF) 1.0 publication page</a> <a href="https://www.iso.org/standard/81230.html">International Organization for Standardization (ISO) and International Electrotechnical Commission (IEC) 42001:2023 overview</a> <a href="https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report">DevOps Research and Assessment (DORA) 2025 report announcement</a> <a href="https://cisr.mit.edu/publication/2024_1201_EnterpriseAIMaturityModel_WeillWoernerSebastian">MIT Center for Information Systems Research (MIT CISR) Enterprise AI Maturity Model</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html">davidamitchell.github.io</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-governance-enforcement-architecture.html]">davidamitchell.github.io</a> The best maturity model for enterprise AI and low-code governance is a five-stage hybrid that combines CMMI-style staged appraisal, Microsoft-style AI-specific capability pillars, and NIST AI RMF plus ISO/IEC 42001 governance baselines, because no single public model simultaneously provides benchmarkable stages, AI-specific governance detail, and full multi-surface enterprise control coverage.</li>
+<li>[inference; source: <a href="https://cmmiinstitute.com/learning/appraisals">CMMI appraisal method</a> <a href="https://www.nist.gov/itl/ai-risk-management-framework/nist-ai-rmf-playbook">NIST AI RMF Playbook</a> <a href="https://www.iso.org/standard/81230.html]">www.iso.org</a> The model should be evidence-based rather than questionnaire-based, using artefacts, operating metrics, and assurance records to determine whether a capability is merely documented, consistently exercised, measured in production, or continuously improved.</li>
+<li>[inference; source: <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-governance-culture-incentives-behaviour.html">davidamitchell.github.io</a> <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/maturity-model-readiness]">learn.microsoft.com</a> Behavioural maturity must cap structural maturity, because organisations with policies, tools, and councils but with routine bypass behaviour are less mature in practice than their formal control inventory suggests.</li>
+<li>[inference; source: <a href="https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report">DevOps Research and Assessment (DORA) 2025 report announcement</a> <a href="https://cisr.mit.edu/publication/2024_1201_EnterpriseAIMaturityModel_WeillWoernerSebastian">MIT Center for Information Systems Research (MIT CISR) Enterprise AI Maturity Model</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-24-business-led-low-code-agent-governance.html]">davidamitchell.github.io</a> Progression should move from ad hoc experimentation to guarded repeatability, then to defined federated governance, measured risk-tiered scale, and finally adaptive assurance, because the public evidence consistently shows that shared foundations and disciplined scaling precede durable value.</li>
+</ul>
+<h3>Key Findings</h3>
+<ol>
+<li>[inference; source: <a href="https://cmmiinstitute.com/learning/appraisals">CMMI appraisal method</a> <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/maturity-model-overview">Microsoft agentic AI adoption maturity model overview</a> <a href="https://www.nist.gov/itl/ai-risk-management-framework">NIST AI RMF overview</a> <a href="https://www.iso.org/standard/81230.html">International Organization for Standardization (ISO) and International Electrotechnical Commission (IEC) 42001:2023 overview</a> <a href="https://www.gov.uk/government/collections/responsible-ai-toolkit">Responsible AI Toolkit</a> <a href="https://www.bsigroup.com/en-GB/products-and-services/modular-solutions/ai-foundation-framework/]">www.bsigroup.com</a> <strong>High confidence.</strong> Existing public frameworks divide into staged benchmark models, governance-system baselines, and assurance toolkits, so the most defensible enterprise maturity model is a composite rather than an unchanged adoption of any one external framework.</li>
+<li>[inference; source: <a href="https://cmmiinstitute.com/learning/appraisals">CMMI appraisal method</a> <a href="https://cmmiinstitute.com/cmmi]">cmmiinstitute.com</a> <strong>Medium confidence.</strong> CMMI is a useful scaffold for the hybrid model because it provides public benchmark levels and appraisal mechanics, but its public material is too generic to serve alone as an AI and low-code governance maturity model.</li>
+<li>[inference; source: <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/maturity-model-overview">Microsoft agentic AI adoption maturity model overview</a> <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/maturity-model-security-governance">Microsoft governance, security, and operations maturity pillar</a> <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/maturity-model-technology">Microsoft technology and data maturity pillar</a> <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/maturity-model-readiness]">learn.microsoft.com</a> <strong>Medium confidence.</strong> Microsoft's current public agentic AI maturity model is a useful AI-specific reference because it describes five levels, explicit anti-patterns, and progression actions across governance, technology, business-process, and cultural pillars, even though its framing remains vendor-shaped.</li>
+<li>[inference; source: <a href="https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10">National Institute of Standards and Technology (NIST) Artificial Intelligence Risk Management Framework (AI RMF) 1.0 publication page</a> <a href="https://www.nist.gov/itl/ai-risk-management-framework/nist-ai-rmf-playbook">NIST AI RMF Playbook</a> <a href="https://www.iso.org/standard/81230.html]">www.iso.org</a> <strong>High confidence.</strong> NIST AI RMF and ISO/IEC 42001 should define the baseline control content for each stage, but they are not sufficient on their own because they specify governance functions and management-system requirements rather than explicit maturity thresholds.</li>
+<li>[inference; source: <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-decision-rights-accountability-liability.html">davidamitchell.github.io</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html">davidamitchell.github.io</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-governance-enforcement-architecture.html">davidamitchell.github.io</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-lifecycle-management.html">davidamitchell.github.io</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-regulatory-compliance-alignment.html]">davidamitchell.github.io</a> <strong>Medium confidence.</strong> The maturity model must explicitly gate progression on the weakest mandatory control surfaces, especially decision rights, identity and access, enforcement, lifecycle, and regulatory alignment, because failure on those surfaces invalidates claims of enterprise maturity elsewhere.</li>
+<li>[inference; source: <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-governance-culture-incentives-behaviour.html">davidamitchell.github.io</a> <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/maturity-model-readiness]">learn.microsoft.com</a> <strong>Medium confidence.</strong> Behavioural maturity should cap structural maturity because teams that routinely bypass the sanctioned path remain effectively immature even when control documents, councils, and review workflows formally exist.</li>
+<li>[inference; source: <a href="https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report">DevOps Research and Assessment (DORA) 2025 report announcement</a> <a href="https://cloud.google.com/resources/content/2025-dora-ai-capabilities-model-report">DORA AI capabilities model report page</a> <a href="https://cisr.mit.edu/publication/2024_1201_EnterpriseAIMaturityModel_WeillWoernerSebastian]">cisr.mit.edu</a> <strong>High confidence.</strong> The supported progression pathway runs from policy, literacy, and inventory, to basic guardrails and tiering, to standardised shared controls, then to automated risk-tiered operations and finally to adaptive assurance, because value appears only after foundations become reusable and measurable.</li>
+<li>[inference; source: <a href="https://cmmiinstitute.com/learning/appraisals">CMMI appraisal method</a> <a href="https://www.nist.gov/itl/ai-risk-management-framework/nist-ai-rmf-playbook">NIST AI RMF Playbook</a> <a href="https://www.iso.org/standard/81230.html">International Organization for Standardization (ISO) and International Electrotechnical Commission (IEC) 42001:2023 overview</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html]">davidamitchell.github.io</a> <strong>High confidence.</strong> A credible assessment mechanism must require evidence artefacts, operating evidence, and assurance evidence for every scored dimension, because governance maturity cannot be validated by interviews or questionnaires alone.</li>
+</ol>
+<h3>Assumptions</h3>
+<ul>
+<li>[assumption; source: <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-decision-rights-accountability-liability.html">davidamitchell.github.io</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-regulatory-compliance-alignment.html]">davidamitchell.github.io</a> The completed companion items are a sufficiently complete inventory of governance dimensions for this capstone model. <strong>Justification:</strong> the workflow intentionally sequenced this item after those companion items, and the remaining uncertainty is about staging and benchmarking, not about discovering wholly new governance surfaces.</li>
+<li>[assumption; source: <a href="https://www.gartner.com/en/documents">Gartner documents portal</a> <a href="https://www.bsigroup.com/en-GB/products-and-services/modular-solutions/ai-foundation-framework/]">www.bsigroup.com</a> The inaccessible Gartner material and non-public details behind BSI offerings would refine the model more than overturn it. <strong>Justification:</strong> the public sources already agree on staged progression and governance-system foundations, so the missing material is more likely to add benchmarking nuance than to reverse the core conclusion.</li>
+</ul>
+<h3>Analysis</h3>
+<ul>
+<li>[inference; source: <a href="https://cmmiinstitute.com/learning/appraisals">CMMI appraisal method</a> <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/maturity-model-overview">Microsoft agentic AI adoption maturity model overview</a> <a href="https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10">National Institute of Standards and Technology (NIST) Artificial Intelligence Risk Management Framework (AI RMF) 1.0 publication page</a> <a href="https://www.iso.org/standard/81230.html">International Organization for Standardization (ISO) and International Electrotechnical Commission (IEC) 42001:2023 overview</a> <a href="https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report">DevOps Research and Assessment (DORA) 2025 report announcement</a> <a href="https://cisr.mit.edu/publication/2024_1201_EnterpriseAIMaturityModel_WeillWoernerSebastian]">cisr.mit.edu</a> The proposed model is a five-stage hybrid called the <strong>Enterprise AI and Low-Code Governance Maturity Model</strong>, and it uses CMMI-style appraisal logic, Microsoft's five-level AI-specific ladder, and NIST plus ISO governance baselines as its external backbone.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Stage</th>
+<th>Name</th>
+<th>Proposed threshold</th>
+<th>Typical evidence</th>
+<th>Basis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Ad hoc experimentation</td>
+<td>[inference] Local pilots exist, but there is no enterprise inventory, no tiering, no AI-specific governance, and no repeatable maker or deployment path.</td>
+<td>[inference] Pilot demos, informal approvals, personal workspaces, fragmented logs</td>
+<td><a href="https://cisr.mit.edu/publication/2024_1201_EnterpriseAIMaturityModel_WeillWoernerSebastian">MIT Center for Information Systems Research (MIT CISR) Enterprise AI Maturity Model</a><br><a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/maturity-model-overview">Microsoft agentic AI adoption maturity model overview</a></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Guardrailed repeatability</td>
+<td>[inference] Basic policy, ownership, environment separation, intake, and low-risk guardrails exist, but enforcement is still partial and manual.</td>
+<td>[inference] Acceptable-use policy, named owners, dev-test-prod separation, simple intake form, first connector restrictions</td>
+<td><a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/maturity-model-security-governance">Microsoft governance, security, and operations maturity pillar</a><br><a href="https://www.gov.uk/government/collections/responsible-ai-toolkit">Responsible AI Toolkit</a><br><a href="https://cisr.mit.edu/publication/2024_1201_EnterpriseAIMaturityModel_WeillWoernerSebastian">MIT Center for Information Systems Research (MIT CISR) Enterprise AI Maturity Model</a></td>
+</tr>
+<tr>
+<td>3</td>
+<td>Defined federated governance</td>
+<td>[inference] Enterprise standards, role clarity, risk tiers, approved build paths, lifecycle gates, registry, telemetry, and delegated low-risk execution exist under shared guardrails.</td>
+<td>[inference] Standard control library, risk-tier matrix, registry, approved reference architectures, lifecycle checklist, baseline dashboards</td>
+<td><a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/maturity-model-overview">Microsoft agentic AI adoption maturity model overview</a><br><a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/maturity-model-security-governance">Microsoft governance, security, and operations maturity pillar</a><br><a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-risk-tier-classification-controls.html">davidamitchell.github.io</a><br><a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-lifecycle-management.html">davidamitchell.github.io</a></td>
+</tr>
+<tr>
+<td>4</td>
+<td>Managed risk-tiered scale</td>
+<td>[inference] Controls are measured in production, approvals and enforcement are increasingly automated, and value, risk, and reliability are reviewed by tier.</td>
+<td>[inference] Automated policy checks, release gates, alerting, value dashboards, exception workflow, retirement reviews</td>
+<td><a href="https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report">DevOps Research and Assessment (DORA) 2025 report announcement</a><br><a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/maturity-model-security-governance">Microsoft governance, security, and operations maturity pillar</a><br><a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html">davidamitchell.github.io</a></td>
+</tr>
+<tr>
+<td>5</td>
+<td>Adaptive assurance</td>
+<td>[inference] Governance, assurance, and optimisation adapt continuously using telemetry, incident learning, regulatory change, and predictive risk signals.</td>
+<td>[inference] Continuous compliance evidence, predictive risk analytics, automated remediation, cross-functional optimisation cadence, external assurance artefacts</td>
+<td><a href="https://www.iso.org/standard/81230.html">International Organization for Standardization (ISO) and International Electrotechnical Commission (IEC) 42001:2023 overview</a><br><a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/maturity-model-security-governance">Microsoft governance, security, and operations maturity pillar</a><br><a href="https://www.nist.gov/itl/ai-risk-management-framework">NIST AI RMF overview</a></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>[inference; source: <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-decision-rights-accountability-liability.html">davidamitchell.github.io</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html">davidamitchell.github.io</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-governance-enforcement-architecture.html">davidamitchell.github.io</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html">davidamitchell.github.io</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-risk-tier-classification-controls.html">davidamitchell.github.io</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-26-data-governance-ai-lowcode-enterprise-enforcement.html">davidamitchell.github.io</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-lifecycle-management.html">davidamitchell.github.io</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-26-human-in-the-loop-ai-automated-workflows.html">davidamitchell.github.io</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-sdlc-platform-engineering-integration.html">davidamitchell.github.io</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-failure-modes-governance-mitigation.html">davidamitchell.github.io</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-governance-culture-incentives-behaviour.html">davidamitchell.github.io</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-regulatory-compliance-alignment.html]">davidamitchell.github.io</a> The capability matrix below maps the companion governance dimensions to stage thresholds so organisations can see where maturity is constrained.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Dimension</th>
+<th>Stage 2 threshold</th>
+<th>Stage 3 threshold</th>
+<th>Stage 4 threshold</th>
+<th>Stage 5 threshold</th>
+<th>Basis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Decision rights and accountability</td>
+<td>[inference] Named owner per use case</td>
+<td>[inference] Responsibility-assignment matrix and escalation by agent class</td>
+<td>[inference] Delegated approvals by risk tier</td>
+<td>[inference] Dynamic decision rights reviewed by telemetry and incidents</td>
+<td><a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-decision-rights-accountability-liability.html">davidamitchell.github.io</a><br><a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/maturity-model-readiness">Microsoft organisation and culture maturity pillar</a></td>
+</tr>
+<tr>
+<td>Identity and access</td>
+<td>[inference] Basic role-based access control and approved identities</td>
+<td>[inference] Machine and human identities governed with least privilege</td>
+<td>[inference] Policy-driven identity enforcement and periodic access review</td>
+<td>[inference] Continuous identity assurance and anomaly-driven remediation</td>
+<td><a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html">davidamitchell.github.io</a><br><a href="https://www.nist.gov/itl/ai-risk-management-framework">NIST AI RMF overview</a></td>
+</tr>
+<tr>
+<td>Enforcement architecture</td>
+<td>[inference] Basic connector and action restrictions</td>
+<td>[inference] Standard enforcement points defined across gateways, connectors, and runtimes</td>
+<td>[inference] Automated multi-layer enforcement with exception workflow</td>
+<td>[inference] Adaptive policy tuning and cross-layer consistency checks</td>
+<td><a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-governance-enforcement-architecture.html">davidamitchell.github.io</a><br><a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/maturity-model-security-governance">Microsoft governance, security, and operations maturity pillar</a></td>
+</tr>
+<tr>
+<td>Observability and telemetry</td>
+<td>[inference] Usage logs captured for shared systems</td>
+<td>[inference] Standard dashboards, alerts, and audit trails by class</td>
+<td>[inference] Production reliability, safety, and compliance metrics reviewed routinely</td>
+<td>[inference] Predictive analytics and automated anomaly response</td>
+<td><a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html">davidamitchell.github.io</a><br><a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/maturity-model-security-governance">Microsoft governance, security, and operations maturity pillar</a></td>
+</tr>
+<tr>
+<td>Risk tiering</td>
+<td>[inference] Initial low-medium-high use-case categorisation</td>
+<td>[inference] Tier-specific controls, approvals, and deployment paths</td>
+<td>[inference] Tier-specific service levels and automated policy selection</td>
+<td>[inference] Dynamic re-tiering based on behaviour, incidents, and context</td>
+<td><a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-risk-tier-classification-controls.html">davidamitchell.github.io</a><br><a href="https://www.nist.gov/itl/ai-risk-management-framework/nist-ai-rmf-playbook">NIST AI RMF Playbook</a></td>
+</tr>
+<tr>
+<td>Data governance</td>
+<td>[inference] Approved data sources and basic separation</td>
+<td>[inference] Data classification, approved retrieval patterns, and connector policy</td>
+<td>[inference] Data lineage, sensitive-data controls, and monitored exceptions</td>
+<td>[inference] Continuous data-policy verification and adaptive protection</td>
+<td><a href="https://davidamitchell.github.io/Research/research/2026-04-26-data-governance-ai-lowcode-enterprise-enforcement.html">davidamitchell.github.io</a><br><a href="https://www.iso.org/standard/81230.html">International Organization for Standardization (ISO) and International Electrotechnical Commission (IEC) 42001:2023 overview</a></td>
+</tr>
+<tr>
+<td>Lifecycle management</td>
+<td>[inference] Manual review before production</td>
+<td>[inference] Standard build-test-release-retire gates by class</td>
+<td>[inference] Automated release gates, periodic recertification, retirement triggers</td>
+<td>[inference] Continuous lifecycle optimisation with policy and model refresh</td>
+<td><a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-lifecycle-management.html">davidamitchell.github.io</a><br><a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/maturity-model-security-governance">Microsoft governance, security, and operations maturity pillar</a></td>
+</tr>
+<tr>
+<td>Business value and cost governance</td>
+<td>[inference] Basic success criteria and owner</td>
+<td>[inference] Baselines, key metrics, and portfolio visibility</td>
+<td>[inference] Value and cost reviewed by risk tier and lifecycle status</td>
+<td>[inference] Real-time value-risk optimisation and retirement discipline</td>
+<td><a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-governance-cost-performance-delivery-impact.html">davidamitchell.github.io</a><br><a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/maturity-model-business-process">Microsoft business strategy maturity pillar</a></td>
+</tr>
+<tr>
+<td>Human oversight</td>
+<td>[inference] Human approval for sensitive actions</td>
+<td>[inference] Defined human-in-the-loop patterns by risk tier</td>
+<td>[inference] Escalation logic and auditability for overrides</td>
+<td>[inference] Dynamic oversight calibrated by confidence and incident learning</td>
+<td><a href="https://davidamitchell.github.io/Research/research/2026-04-26-human-in-the-loop-ai-automated-workflows.html">davidamitchell.github.io</a><br><a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/maturity-model-business-process">Microsoft business strategy maturity pillar</a></td>
+</tr>
+<tr>
+<td>SDLC and platform engineering</td>
+<td>[inference] Shared repository and basic environment separation</td>
+<td>[inference] Reference architectures, templates, and approved build paths</td>
+<td>[inference] Automated testing, policy-as-code, and platform self-service with guardrails</td>
+<td>[inference] Platform continuously evolves from telemetry and failure analysis</td>
+<td><a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-sdlc-platform-engineering-integration.html">davidamitchell.github.io</a><br><a href="https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report">DevOps Research and Assessment (DORA) 2025 report announcement</a></td>
+</tr>
+<tr>
+<td>Vendor and platform constraints</td>
+<td>[inference] Known platform limits recorded for major tools</td>
+<td>[inference] Compensating controls documented and approved</td>
+<td>[inference] Constraint monitoring and standard fallback patterns</td>
+<td>[inference] Constraint-aware routing and automatic policy adaptation</td>
+<td><a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html">davidamitchell.github.io</a><br><a href="https://www.iso.org/standard/81230.html">International Organization for Standardization (ISO) and International Electrotechnical Commission (IEC) 42001:2023 overview</a></td>
+</tr>
+<tr>
+<td>Failure-mode management</td>
+<td>[inference] Incident logging and basic postmortems</td>
+<td>[inference] Failure taxonomy and standard mitigations</td>
+<td>[inference] Near-miss tracking, control testing, and scenario drills</td>
+<td>[inference] Predictive prevention and closed-loop remediation</td>
+<td><a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-failure-modes-governance-mitigation.html">davidamitchell.github.io</a><br><a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/maturity-model-security-governance">Microsoft governance, security, and operations maturity pillar</a></td>
+</tr>
+<tr>
+<td>Culture and incentives</td>
+<td>[inference] Basic training and sponsorship</td>
+<td>[inference] Sanctioned-path norms, champions, and clear expectations</td>
+<td>[inference] Incentives reinforce responsible use and escalation</td>
+<td>[inference] Responsible autonomy is normalised and measured</td>
+<td><a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-governance-culture-incentives-behaviour.html">davidamitchell.github.io</a><br><a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/maturity-model-readiness">Microsoft organisation and culture maturity pillar</a></td>
+</tr>
+<tr>
+<td>Regulatory alignment</td>
+<td>[inference] Baseline legal and compliance review</td>
+<td>[inference] Mapped obligations by use-case tier</td>
+<td>[inference] Evidence pack and review cadence aligned to material regulations</td>
+<td>[inference] Continuous compliance monitoring and external assurance readiness</td>
+<td><a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-regulatory-compliance-alignment.html">davidamitchell.github.io</a><br><a href="https://www.nist.gov/itl/ai-risk-management-framework">NIST AI RMF overview</a><br><a href="https://www.iso.org/standard/81230.html">International Organization for Standardization (ISO) and International Electrotechnical Commission (IEC) 42001:2023 overview</a></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>[inference; source: <a href="https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report">DevOps Research and Assessment (DORA) 2025 report announcement</a> <a href="https://cisr.mit.edu/publication/2024_1201_EnterpriseAIMaturityModel_WeillWoernerSebastian">MIT Center for Information Systems Research (MIT CISR) Enterprise AI Maturity Model</a> <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/maturity-model-security-governance">Microsoft governance, security, and operations maturity pillar</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-24-business-led-low-code-agent-governance.html]">davidamitchell.github.io</a> The recommended progression pathway is sequential rather than opportunistic.</li>
+</ul>
+<ol>
+<li>[inference; source: <a href="https://cisr.mit.edu/publication/2024_1201_EnterpriseAIMaturityModel_WeillWoernerSebastian">MIT Center for Information Systems Research (MIT CISR) Enterprise AI Maturity Model</a> <a href="https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10]">www.nist.gov</a> Establish AI literacy, acceptable-use policy, ownership, and a minimum inventory before scaling pilots.</li>
+<li>[inference; source: <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/maturity-model-security-governance">Microsoft governance, security, and operations maturity pillar</a> <a href="https://www.gov.uk/government/collections/responsible-ai-toolkit]">www.gov.uk</a> Introduce guardrails, intake, environment separation, basic risk tiers, and reviewable evidence for shared or production use cases.</li>
+<li>[inference; source: <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/maturity-model-technology">Microsoft technology and data maturity pillar</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html">davidamitchell.github.io</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-lifecycle-management.html]">davidamitchell.github.io</a> Standardise the sanctioned build path with identity, data, lifecycle, and deployment controls embedded into reusable enterprise patterns.</li>
+<li>[inference; source: <a href="https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report">DevOps Research and Assessment (DORA) 2025 report announcement</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html">davidamitchell.github.io</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-risk-tier-classification-controls.html]">davidamitchell.github.io</a> Move to measured scale by automating policy checks, release gates, telemetry, exception handling, and value-risk reviews by tier.</li>
+<li>[inference; source: <a href="https://www.iso.org/standard/81230.html">International Organization for Standardization (ISO) and International Electrotechnical Commission (IEC) 42001:2023 overview</a> <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/maturity-model-security-governance]">learn.microsoft.com</a> Reach adaptive assurance only after the organisation can continuously update controls, assurance, and operating patterns from incidents, telemetry, and regulatory change.</li>
+</ol>
+<ul>
+<li>[inference; source: <a href="https://cmmiinstitute.com/learning/appraisals">CMMI appraisal method</a> <a href="https://www.nist.gov/itl/ai-risk-management-framework/nist-ai-rmf-playbook">NIST AI RMF Playbook</a> <a href="https://www.iso.org/standard/81230.html">International Organization for Standardization (ISO) and International Electrotechnical Commission (IEC) 42001:2023 overview</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-governance-culture-incentives-behaviour.html]">davidamitchell.github.io</a> The assessment mechanism should use the following rules.</li>
+</ul>
+<ol>
+<li>[inference; source: <a href="https://cmmiinstitute.com/learning/appraisals">CMMI appraisal method</a> <a href="https://www.nist.gov/itl/ai-risk-management-framework/nist-ai-rmf-playbook]">www.nist.gov</a> Score each dimension only when evidence is present in three forms: design evidence, operating evidence, and assurance evidence.</li>
+<li>[inference; source: <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html">davidamitchell.github.io</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-regulatory-compliance-alignment.html]">davidamitchell.github.io</a> Determine overall maturity using the lowest common stage across mandatory control dimensions rather than the average of all dimensions.</li>
+<li>[inference; source: <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-governance-culture-incentives-behaviour.html">davidamitchell.github.io</a> <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/maturity-model-readiness]">learn.microsoft.com</a> Apply a behavioural cap so that if culture and incentives are more than one stage below structural controls, effective maturity is capped at the behavioural stage.</li>
+<li>[inference; source: <a href="https://cmmiinstitute.com/learning/appraisals">CMMI appraisal method</a> <a href="https://www.iso.org/standard/81230.html]">www.iso.org</a> Reassess quarterly, after major incidents, and before materially increasing autonomy, because maturity is an operating condition rather than a one-time certification.</li>
+<li>[inference; source: <a href="https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report">DevOps Research and Assessment (DORA) 2025 report announcement</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-governance-cost-performance-delivery-impact.html]">davidamitchell.github.io</a> Treat a maturity claim as credible only when the organisation can show that higher control rigor is improving stability, delivery quality, or measurable governance outcomes rather than adding untracked friction.</li>
+<li>[inference; source: <a href="https://cisr.mit.edu/publication/2024_1201_EnterpriseAIMaturityModel_WeillWoernerSebastian">MIT Center for Information Systems Research (MIT CISR) Enterprise AI Maturity Model</a> <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/maturity-model-overview">Microsoft agentic AI adoption maturity model overview</a> <a href="https://cmmiinstitute.com/learning/appraisals]">cmmiinstitute.com</a> A four-stage model was considered but rejected because it collapses the distinction between basic repeatability and measured enterprise scale that Microsoft's five-level ladder and CMMI-style staged benchmarking keep separate.</li>
+<li>[inference; source: <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html">davidamitchell.github.io</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-governance-enforcement-architecture.html">davidamitchell.github.io</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-regulatory-compliance-alignment.html]">davidamitchell.github.io</a> Weighted-dimension scoring was considered but rejected because it would let strong scores on non-critical dimensions mask failure on identity, enforcement, or regulatory controls.</li>
+<li>[inference; source: <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-governance-culture-incentives-behaviour.html">davidamitchell.github.io</a> <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/maturity-model-readiness]">learn.microsoft.com</a> Separate structural and behavioural scores were considered, but a behavioural cap was chosen for the headline maturity rating because publishing a high structural score beside a low behavioural score would still overstate effective maturity in practice.</li>
+</ol>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>[fact; source: <a href="https://www.gartner.com/en/documents]">www.gartner.com</a> Paywalled Gartner material was unavailable, so the synthesis does not compare its analyst framing directly with the public hybrid model.</li>
+<li>[fact; source: <a href="https://www.gov.uk/government/collections/responsible-ai-toolkit">Responsible AI Toolkit</a> <a href="https://www.bsigroup.com/en-GB/products-and-services/modular-solutions/ai-foundation-framework/]">www.bsigroup.com</a> The public DSIT and BSI materials are useful but high-level, which limits how much public evidence exists for externally benchmarked AI-governance maturity assessment mechanisms.</li>
+<li>[inference; source: <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-decision-rights-accountability-liability.html">davidamitchell.github.io</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-regulatory-compliance-alignment.html]">davidamitchell.github.io</a> Some dimension-specific thresholds rely partly on same-repository companion syntheses, so those rows are medium confidence until more public cross-enterprise benchmarking studies become accessible.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>[inference; source: <a href="https://www.gartner.com/en/documents">Gartner documents portal</a> <a href="https://www.bsigroup.com/en-GB/products-and-services/modular-solutions/ai-foundation-framework/]">www.bsigroup.com</a> How closely would analyst or proprietary assurance frameworks agree with the proposed gating rule and behavioural cap if their full scoring rubrics were accessible?</li>
+<li>[inference; source: <a href="https://www.nist.gov/itl/ai-risk-management-framework">NIST AI RMF overview</a> <a href="https://www.iso.org/standard/81230.html]">www.iso.org</a> Which sectors should require Stage 4 rather than Stage 3 as the minimum operating threshold for production generative or agentic use cases?</li>
+<li>[inference; source: <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/maturity-model-security-governance">Microsoft governance, security, and operations maturity pillar</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html]">davidamitchell.github.io</a> Which telemetry and assurance signals are most predictive of a pending maturity downgrade before a major incident occurs?</li>
+</ul>
+<hr />
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
+<p>Starting points, papers, articles, standards, and guidance. <strong>Every source includes a Uniform Resource Locator (URL).</strong></p>
+<ul>
+<li>[x] <a href="https://cmmiinstitute.com/">CMMI Institute overview</a> - public overview of CMMI as a staged capability-improvement and benchmarking model</li>
+<li>[x] <a href="https://cmmiinstitute.com/cmmi">CMMI model overview</a> - public description of CMMI domains, business-performance framing, and benchmarking logic</li>
+<li>[x] <a href="https://cmmiinstitute.com/learning/appraisals">CMMI appraisal method</a> - public description of appraisal, benchmark maturity levels, and capability-level assessment</li>
+<li>[x] <a href="https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10">National Institute of Standards and Technology (NIST) Artificial Intelligence Risk Management Framework (AI RMF) 1.0 publication page</a> - primary framework publication record and citation</li>
+<li>[x] <a href="https://www.nist.gov/itl/ai-risk-management-framework">NIST AI RMF overview</a> - official NIST page covering framework purpose, profiles, and companion assets</li>
+<li>[x] <a href="https://www.nist.gov/itl/ai-risk-management-framework/nist-ai-rmf-playbook">NIST AI RMF Playbook</a> - official playbook page showing voluntary guidance and implementation support</li>
+<li>[x] <a href="https://www.iso.org/standard/81230.html">International Organization for Standardization (ISO) and International Electrotechnical Commission (IEC) 42001:2023 overview</a> - official overview of the Artificial Intelligence Management System standard and continual-improvement framing</li>
+<li>[x] <a href="https://www.gov.uk/government/collections/responsible-ai-toolkit">Responsible AI Toolkit</a> - current United Kingdom government toolkit collection for safe and responsible AI development and deployment</li>
+<li>[x] <a href="https://www.bsigroup.com/en-GB/products-and-services/modular-solutions/ai-foundation-framework/">British Standards Institution (BSI) AI Foundation Framework</a> - official BSI page describing modular, stepwise AI trust and capability building</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/maturity-model-overview">Microsoft agentic AI adoption maturity model overview</a> - current public five-level AI maturity model with five pillars</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/maturity-model-security-governance">Microsoft governance, security, and operations maturity pillar</a> - detailed public stage descriptions for governance and lifecycle evolution</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/maturity-model-technology">Microsoft technology and data maturity pillar</a> - public stage descriptions for technology, data, and Application Lifecycle Management (ALM) evolution</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/maturity-model-readiness">Microsoft organisation and culture maturity pillar</a> - public stage descriptions for behaviour, enablement, and cultural maturity</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/maturity-model-business-process">Microsoft business strategy maturity pillar</a> - public stage descriptions for business-process redesign and value realisation</li>
+<li>[x] <a href="https://mitsloan.mit.edu/ideas-made-to-matter/whats-your-companys-ai-maturity-level">MIT Sloan article on enterprise AI maturity</a> - practitioner summary of the MIT Center for Information Systems Research (MIT CISR) maturity model</li>
+<li>[x] <a href="https://cisr.mit.edu/publication/2024_1201_EnterpriseAIMaturityModel_WeillWoernerSebastian">MIT Center for Information Systems Research (MIT CISR) Enterprise AI Maturity Model</a> - research briefing linking four maturity stages to enterprise performance</li>
+<li>[x] <a href="https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report">DevOps Research and Assessment (DORA) 2025 report announcement</a> - public summary of foundational-capability findings</li>
+<li>[x] <a href="https://cloud.google.com/resources/content/2025-dora-ai-capabilities-model-report">DORA AI capabilities model report page</a> - public summary of the seven foundational capabilities and platform findings</li>
+<li>[x] <a href="https://www.gartner.com/en/documents">Gartner documents portal</a> - seeded analyst source, access-gated in this session and not used for downstream factual support</li>
+</ul>
+
+
+  </div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-04-26-ai-lowcode-risk-tier-classification-controls.html">How should Artificial Intelligence (AI) and low-code use cases be classified into risk tiers, and how should governance controls vary across those tiers?</a> <span class="related-note">via ai-governance, enterprise-governance, low-code, regulated-enterprise</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-26-data-governance-ai-lowcode-enterprise-enforcement.html">How can enterprise data governance frameworks be consistently enforced within Artificial Intelligence (AI) and visual, minimal-code application environments?</a> <span class="related-note">via ai-governance, low-code, regulated-enterprise</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-26-ai-lowcode-regulatory-compliance-alignment.html">How can enterprise Artificial Intelligence (AI) and low-code governance frameworks be aligned with regulatory and compliance requirements?</a> <span class="related-note">via ai-governance, enterprise-governance, low-code</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html">What observability and telemetry model is required to govern Artificial Intelligence (AI) and low-code systems at scale?</a> <span class="related-note">via ai-governance, enterprise-governance, low-code</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-26-ai-lowcode-failure-modes-governance-mitigation.html">What are the primary failure modes in enterprise Artificial Intelligence (AI) and low-code deployments, and how can governance systems be designed to mitigate them?</a> <span class="related-note">via ai-governance, enterprise-governance, low-code</span></div>
+</div></div>
+
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-04-26-ai-lowcode-lifecycle-management.html">AI models, prompts, and low-code applications?</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-04-26-ai-lowcode-governance-enforcement-architecture.html">Where should governance enforcement points be implemented within enterprise…</a></div>
+  </div>
+</main>
+</body>
+</html>

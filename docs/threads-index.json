@@ -234,7 +234,7 @@
       "enterprise-governance"
     ],
     "concept_cluster": [],
-    "item_count": 15,
+    "item_count": 16,
     "items": [
       {
         "slug": "2026-04-24-ai-agent-regulation-global-financial-services",
@@ -279,6 +279,11 @@
       {
         "slug": "2026-04-26-ai-lowcode-lifecycle-management",
         "title": "What lifecycle management model is required for Artificial Intelligence (AI) models, prompts, and low-code applications?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-ai-lowcode-governance-maturity-model",
+        "title": "What maturity model best describes the evolution of governance capabilities for Artificial Intelligence (AI) and low-code in enterprises?",
         "added": "2026-04-26"
       },
       {
@@ -2570,14 +2575,14 @@
     "url": "/Research/threads/ai-productivity-team-size.html"
   },
   {
-    "slug": "cost-allocation-financial-services-tbm-council",
-    "title": "cost allocation / financial services / tbm council",
+    "slug": "cost-allocation-tbm-council-financial-services",
+    "title": "cost allocation / tbm council / financial services",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "cost allocation",
-      "financial services",
-      "tbm council"
+      "tbm council",
+      "financial services"
     ],
     "item_count": 5,
     "items": [
@@ -2607,7 +2612,7 @@
         "added": "2026-03-09"
       }
     ],
-    "url": "/Research/threads/cost-allocation-financial-services-tbm-council.html"
+    "url": "/Research/threads/cost-allocation-tbm-council-financial-services.html"
   },
   {
     "slug": "copilot-coding-coding-agent-github-copilot",
@@ -2720,13 +2725,13 @@
     "url": "/Research/threads/youtube-transcripts-tooling.html"
   },
   {
-    "slug": "nist-ai-ai-rmf-apra-cps",
-    "title": "nist ai / ai rmf / apra cps",
+    "slug": "ai-rmf-nist-ai-apra-cps",
+    "title": "ai rmf / nist ai / apra cps",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "nist ai",
       "ai rmf",
+      "nist ai",
       "apra cps"
     ],
     "item_count": 4,
@@ -2752,7 +2757,7 @@
         "added": "2026-04-26"
       }
     ],
-    "url": "/Research/threads/nist-ai-ai-rmf-apra-cps.html"
+    "url": "/Research/threads/ai-rmf-nist-ai-apra-cps.html"
   },
   {
     "slug": "github-copilot-agents-md-claude-code",
@@ -3178,5 +3183,65 @@
       }
     ],
     "url": "/Research/threads/llm-context-window-mcp.html"
+  },
+  {
+    "slug": "ai-rmf-nist-ai-environment-separation",
+    "title": "ai rmf / nist ai / environment separation",
+    "kind": "concept",
+    "tag_cluster": [],
+    "concept_cluster": [
+      "ai rmf",
+      "nist ai",
+      "environment separation"
+    ],
+    "item_count": 3,
+    "items": [
+      {
+        "slug": "2026-02-28-ai-strategy",
+        "title": "AI Strategy: global and NZ examples, policy frameworks, regulations, and use-case typologies",
+        "added": "2026-02-28"
+      },
+      {
+        "slug": "2026-04-24-business-led-low-code-agent-governance",
+        "title": "Business-led low-code agent governance: conditions for durable value versus fragmentation in regulated environments",
+        "added": "2026-04-24"
+      },
+      {
+        "slug": "2026-04-26-ai-lowcode-governance-maturity-model",
+        "title": "What maturity model best describes the evolution of governance capabilities for Artificial Intelligence (AI) and low-code in enterprises?",
+        "added": "2026-04-26"
+      }
+    ],
+    "url": "/Research/threads/ai-rmf-nist-ai-environment-separation.html"
+  },
+  {
+    "slug": "ai-rmf-nist-ai-copilot-studio",
+    "title": "ai rmf / nist ai / copilot studio",
+    "kind": "concept",
+    "tag_cluster": [],
+    "concept_cluster": [
+      "ai rmf",
+      "nist ai",
+      "copilot studio"
+    ],
+    "item_count": 3,
+    "items": [
+      {
+        "slug": "2026-04-22-knowledge-curation-governance-for-regulated-ai",
+        "title": "Knowledge curation governance as an enterprise AI capability in regulated financial institutions",
+        "added": "2026-04-22"
+      },
+      {
+        "slug": "2026-04-24-business-led-low-code-agent-governance",
+        "title": "Business-led low-code agent governance: conditions for durable value versus fragmentation in regulated environments",
+        "added": "2026-04-24"
+      },
+      {
+        "slug": "2026-04-26-ai-lowcode-governance-maturity-model",
+        "title": "What maturity model best describes the evolution of governance capabilities for Artificial Intelligence (AI) and low-code in enterprises?",
+        "added": "2026-04-26"
+      }
+    ],
+    "url": "/Research/threads/ai-rmf-nist-ai-copilot-studio.html"
   }
 ]

@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-04-27T13:58:04Z",
+  "extracted_at": "2026-04-27T14:17:46Z",
   "items": {
     "2026-04-27-uelgf-synthesis-complete-framework": {
       "named_concepts": [
@@ -1798,6 +1798,52 @@
         "https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html",
         "https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-governance-enforcement-architecture.html",
         "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html"
+      ],
+      "key_claims": []
+    },
+    "2026-04-26-ai-lowcode-governance-maturity-model": {
+      "named_concepts": [
+        "maturity model",
+        "adaptive assurance",
+        "low-code governance",
+        "stage threshold",
+        "nist ai",
+        "ai rmf",
+        "iso iec",
+        "governance baselines",
+        "artefacts operating",
+        "cap structural",
+        "structural maturity",
+        "governance maturity",
+        "mandatory control",
+        "decision rights",
+        "regulatory alignment",
+        "identity enforcement",
+        "environment separation",
+        "release gates",
+        "risk tier",
+        "behavioural cap"
+      ],
+      "source_urls": [
+        "https://cmmiinstitute.com/",
+        "https://cmmiinstitute.com/cmmi",
+        "https://cmmiinstitute.com/learning/appraisals",
+        "https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10",
+        "https://www.nist.gov/itl/ai-risk-management-framework",
+        "https://www.nist.gov/itl/ai-risk-management-framework/nist-ai-rmf-playbook",
+        "https://www.iso.org/standard/81230.html",
+        "https://www.gov.uk/government/collections/responsible-ai-toolkit",
+        "https://www.bsigroup.com/en-GB/products-and-services/modular-solutions/ai-foundation-framework/",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/maturity-model-overview",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/maturity-model-security-governance",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/maturity-model-technology",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/maturity-model-readiness",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/maturity-model-business-process",
+        "https://mitsloan.mit.edu/ideas-made-to-matter/whats-your-companys-ai-maturity-level",
+        "https://cisr.mit.edu/publication/2024_1201_EnterpriseAIMaturityModel_WeillWoernerSebastian",
+        "https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report",
+        "https://cloud.google.com/resources/content/2025-dora-ai-capabilities-model-report",
+        "https://www.gartner.com/en/documents"
       ],
       "key_claims": []
     },
