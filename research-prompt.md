@@ -309,6 +309,13 @@ easily-detectable issues.
     source at the point of claim. Otherwise downgrade the confidence to
     `medium` or narrow the claim so the stronger confidence is actually earned.
 
+2g. **Comparative-claim coverage** -- if a sentence compares two control
+    surfaces, operating models, or investment choices, confirm the cited
+    sources directly support **both** sides of the comparison. Evidence for
+    only one side does not support the comparison by itself: either add the
+    missing source, narrow the sentence to the supported half, or keep it as
+    `[inference]` and lower confidence.
+
 3. **Vague quantifiers** -- check for unsourced "many", "most", "significant",
    "state-of-the-art". Replace with specific numbers or add a source, or
    qualify as `[inference]`.
