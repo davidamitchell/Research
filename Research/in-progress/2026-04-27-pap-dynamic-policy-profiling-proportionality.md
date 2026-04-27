@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "Policy Administration Point (PAP) dynamic policy profiling and proportionality: mapping asset metadata to a lifecycle-aware Policy Enforcement Point (PEP) topology scaled by inherent risk"
 added: 2026-04-27T00:55:35+00:00
 status: reviewing
