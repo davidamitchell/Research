@@ -640,7 +640,7 @@ main {
   </div>
   <div class="research-master-content item-content">
     <h1>Research Master Document</h1>
-<p>Generated on: 2026-04-27 09:28 UTC</p>
+<p>Generated on: 2026-04-27 09:57 UTC</p>
 <p><a id="2026-04-27-uelgf-runtime-feedback-loop-md"></a></p>
 <h2>Universal Entity Lifecycle Governance Framework (UELGF): runtime feedback loop, signal taxonomy, automated response taxonomy, feedback closure to the rail system, and feedback closure to the systems capability debt programme as a structured demand signal</h2>
 <p><strong>Tags:</strong> [uelgf, runtime-feedback, continuous-evaluation, observability, signal-aggregation, scope-drift, rail-improvement, systems-capability-debt, demand-signal, pep, pip, regulated-banking]</p>
@@ -2086,6 +2086,109 @@ main {
 <li>[inference; source: https://www.youtube.com/watch?v=JH65uE9oEqs; https://finance.yahoo.com/markets/stocks/articles/servicenow-inc-q1-2026-earnings-001811104.html] What exact quadrant definitions and named company placements does the Software Repricing Matrix use in the video itself, and do those placements remain stable after the latest product launches?</li>
 <li>[inference; source: https://www.leoniscap.com/research/openclaw-(aka-clawdbot)-and-the-ai-threshold-effect; https://a16z.com/newsletter/big-ideas-2026-part-1] Which parts of the enterprise control plane are likely to commoditise next: telemetry, agent identity, policy language, or cross-provider routing?</li>
 <li>[inference; source: https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html; https://davidamitchell.github.io/Research/research/2026-04-26-multi-ai-provider-control-planes.html] How much of the durable moat in governance software comes from data model and process graph depth versus from the execution and evidence surfaces around that model?</li>
+</ul>
+<hr />
+<hr />
+<p><a id="2026-04-27-cryptographic-intent-preservation-runtime-evaluation-md"></a></p>
+<h2>Cryptographic preservation and runtime evaluation of original intent: a representation formalism for Getting Started phase intent that is simultaneously verifiable and semantically stable across the full operational lifecycle</h2>
+<p><strong>Tags:</strong> [pbac, pdp, pip, intent-preservation, cryptographic-binding, ricardian-contract, formal-specification, agentic-ai, lifecycle-governance, dikw, intent-driven-development, semantic-stability]</p>
+<p><strong>Origin:</strong> https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-27-cryptographic-intent-preservation-runtime-evaluation.md</p>
+<h2>Research Question</h2>
+<p>What representation of original intent, captured at the Getting Started phase, is simultaneously cryptographically verifiable and semantically stable enough to function as a meaningful evaluation baseline for the Policy Decision Point (PDP) across the full operational lifecycle of a governed asset, including legitimate scope evolution?</p>
+<h2>Findings</h2>
+<h3>Executive Summary</h3>
+<p>[inference; source: https://iang.org/papers/ricardian_contract.html; https://www.w3.org/TR/vc-data-model/; https://github.com/in-toto/attestation/blob/main/spec/v1/statement.md] Among the reviewed alternatives, the best-fitting representation of original asset intent is a signed, digest-addressed dual artefact that pairs a human-readable intent statement with a machine-readable intent declaration whose canonical runtime identity is the hash of the declaration rather than the prose. [inference; source: https://csrc.nist.gov/pubs/sp/800/162/final; https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html; https://w3c-ccg.github.io/zcap-spec/] The declaration can keep the original triple of authorised-capability-set, authorised-data-scope, and authorised-action-envelope as its runtime evaluation surface, but only if each component is encoded as bounded typed claims that a policy engine can compare against subject, resource, action, and environment attributes and that can express capability attenuation. [inference; source: https://github.com/in-toto/attestation/blob/main/spec/v1/resource_descriptor.md; https://slsa.dev/spec/v1.0/provenance; https://davidamitchell.github.io/Research/research/2026-04-27-pdp-universal-policy-synchronisation-integrity.html] Legitimate lifecycle evolution should not rewrite the original intent record, because semantic stability is preserved best by keeping the base declaration immutable and adding append-only signed amendments that reference prior digests and carry explicit delta claims. [inference; source: https://davidamitchell.github.io/Research/research/2026-04-27-pip-invariant-anomaly-detection.html; https://davidamitchell.github.io/Research/research/2026-03-10-language-for-llm-agent-output.html] This structure gives the Policy Decision Point and Policy Information Point a shared evaluable baseline and gives Large Language Model agents a bounded format they can compare tool calls against without relying on free-form prose interpretation.</p>
+<h3>Key Findings</h3>
+<ol>
+<li>[inference; source: https://iang.org/papers/ricardian_contract.html; https://www.w3.org/TR/vc-data-model/; https://github.com/in-toto/attestation/blob/main/spec/v1/statement.md] <strong>Medium:</strong> A dual artefact that combines Ricardian-style prose, verifiable-credential-style typed claims, and an in-toto-style digest-bound subject is the best-fitting composite pattern among the reviewed alternatives for preserving original intent as both auditable human meaning and immutable runtime identity across the lifecycle.</li>
+<li>[inference; source: https://csrc.nist.gov/pubs/sp/800/162/final; https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html; https://w3c-ccg.github.io/zcap-spec/] <strong>Medium:</strong> The original triple of authorised-capability-set, authorised-data-scope, and authorised-action-envelope can serve as a workable runtime evaluation surface only when each component is expressed as bounded typed claims covering verbs, resource types, caveats, data classes, sinks, purpose classes, sequences, and quantitative limits.</li>
+<li>[inference; source: https://davidamitchell.github.io/Research/research/2026-03-10-formal-spec-intent-alignment-agentic-coding.html; https://davidamitchell.github.io/Research/research/2026-03-16-intent-driven-development.html] <strong>Medium:</strong> The human-readable statement should remain an audit and rationale layer rather than the canonical runtime baseline, because semantic stability fails when prose remains unchanged while effective authority expands or when prose wording changes while machine authority does not.</li>
+<li>[inference; source: https://github.com/in-toto/attestation/blob/main/spec/v1/resource_descriptor.md; https://slsa.dev/spec/v1.0/provenance; https://davidamitchell.github.io/Research/research/2026-04-27-pdp-universal-policy-synchronisation-integrity.html] <strong>High:</strong> Legitimate lifecycle evolution should be encoded as an append-only amendment chain in which every amendment references the base declaration digest and prior amendment digest, because mutable overwrites destroy the provenance required for later policy verification and audit.</li>
+<li>[inference; source: https://davidamitchell.github.io/Research/research/2026-03-10-dikw-transformation-functions.html; https://csrc.nist.gov/pubs/sp/800/162/final] <strong>Medium:</strong> The Policy Decision Point only needs a Knowledge-level event tuple derived from raw tool-call data, and that tuple should normalize actor, tool class, verb, resource type, data class, source, sink, purpose, side effects, and phase into the same vocabulary used by the declaration.</li>
+<li>[inference; source: https://davidamitchell.github.io/Research/research/2026-03-10-language-for-llm-agent-output.html; https://www.w3.org/TR/vc-data-model/] <strong>Medium:</strong> Large Language Model agent evaluability depends on closed vocabularies, credential schemas, examples, and stable type URLs in the declaration, because free-text fields alone leave decisive semantics inside unconstrained strings that agents cannot compare reliably.</li>
+<li>[inference; source: https://davidamitchell.github.io/Research/research/2026-04-27-pip-invariant-anomaly-detection.html; https://csrc.nist.gov/pubs/sp/800/162/final] <strong>Medium:</strong> The same typed declaration is a plausible baseline for prior-based Policy Information Point anomaly detection if it includes sensitivity tiers, forbidden sinks, purpose classes, and quantitative ceilings, because those features expose the attributes a prior model would need to estimate whether the observed task framing is plausible for the registered asset.</li>
+<li>[inference; source: https://doi.org/10.6028/NIST.SP.800-53r5; https://csrc.nist.gov/pubs/sp/800/53/r5/final; https://davidamitchell.github.io/Research/research/2026-03-14-organisational-intent-formal-specification.html] <strong>Medium:</strong> A lifecycle change should be processed as an amendment when asset identity, trust boundary, and primary protected-data family remain stable, while a new registration is required when those foundations change enough that the prior baseline no longer describes the same governed asset.</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>Source</th>
+<th>Confidence</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[inference] Dual artefact plus typed claims plus digest subject is the best fit for intent preservation among the reviewed alternatives.</td>
+<td><a href="https://iang.org/papers/ricardian_contract.html">Ricardian Contract</a>; <a href="https://www.w3.org/TR/vc-data-model/">VC Data Model</a>; <a href="https://github.com/in-toto/attestation/blob/main/spec/v1/statement.md">in-toto Statement</a></td>
+<td>medium</td>
+<td>comparative synthesis</td>
+</tr>
+<tr>
+<td>[inference] The triple can serve as a workable runtime evaluation surface only when tightly typed for capability, data, and action evaluation.</td>
+<td><a href="https://csrc.nist.gov/pubs/sp/800/162/final">NIST SP 800-162</a>; <a href="https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html">XACML 3.0</a>; <a href="https://w3c-ccg.github.io/zcap-spec/">ZCAP-LD</a></td>
+<td>medium</td>
+<td>runtime evaluation surface</td>
+</tr>
+<tr>
+<td>[inference] Prose should remain an audit layer rather than the canonical runtime baseline.</td>
+<td><a href="https://davidamitchell.github.io/Research/research/2026-03-10-formal-spec-intent-alignment-agentic-coding.html">Formal intent specification and reward hacking</a>; <a href="https://davidamitchell.github.io/Research/research/2026-03-16-intent-driven-development.html">Intent-Driven Development</a></td>
+<td>medium</td>
+<td>same-repo synthesis plus prior art</td>
+</tr>
+<tr>
+<td>[inference] Legitimate evolution requires an append-only amendment chain.</td>
+<td><a href="https://github.com/in-toto/attestation/blob/main/spec/v1/resource_descriptor.md">in-toto ResourceDescriptor</a>; <a href="https://slsa.dev/spec/v1.0/provenance">SLSA provenance</a>; <a href="https://davidamitchell.github.io/Research/research/2026-04-27-pdp-universal-policy-synchronisation-integrity.html">Universal policy synchronisation and integrity</a></td>
+<td>high</td>
+<td>immutable identity and lifecycle lineage</td>
+</tr>
+<tr>
+<td>[inference] Runtime Data must be normalized into a Knowledge-level event tuple for PDP comparison.</td>
+<td><a href="https://davidamitchell.github.io/Research/research/2026-03-10-dikw-transformation-functions.html">DIKW transformation functions</a>; <a href="https://csrc.nist.gov/pubs/sp/800/162/final">NIST SP 800-162</a></td>
+<td>medium</td>
+<td>transformation function definition</td>
+</tr>
+<tr>
+<td>[inference] Agent evaluability depends on schemas, examples, and stable type vocabularies.</td>
+<td><a href="https://davidamitchell.github.io/Research/research/2026-03-10-language-for-llm-agent-output.html">Language for LLM agent output</a>; <a href="https://www.w3.org/TR/vc-data-model/">VC Data Model</a></td>
+<td>medium</td>
+<td>bounded-format requirement</td>
+</tr>
+<tr>
+<td>[inference] The same declaration is a plausible baseline for PIP anomaly detection.</td>
+<td><a href="https://davidamitchell.github.io/Research/research/2026-04-27-pip-invariant-anomaly-detection.html">PIP invariant anomaly detection</a>; <a href="https://csrc.nist.gov/pubs/sp/800/162/final">NIST SP 800-162</a></td>
+<td>medium</td>
+<td>shared baseline across control surfaces</td>
+</tr>
+<tr>
+<td>[inference] Amendment versus new registration should follow architecture-boundary change rules.</td>
+<td><a href="https://doi.org/10.6028/NIST.SP.800-53r5">NIST SP 800-53 Rev. 5</a>; <a href="https://csrc.nist.gov/pubs/sp/800/53/r5/final">NIST landing page</a>; <a href="https://davidamitchell.github.io/Research/research/2026-03-14-organisational-intent-formal-specification.html">Organisational intent formal specification</a></td>
+<td>medium</td>
+<td>lifecycle governance rule</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li>[assumption; source: https://csrc.nist.gov/pubs/sp/800/162/final] <strong>Assumption:</strong> runtime telemetry can be normalized into stable subject, object, action, and environment style attributes for every relevant tool call. <strong>Justification:</strong> ABAC assumes such attributes exist, but this item did not test a concrete telemetry collector.</li>
+<li>[assumption; source: https://www.w3.org/TR/vc-data-model/; https://github.com/in-toto/attestation/blob/main/spec/v1/statement.md] <strong>Assumption:</strong> a production implementation can combine a verifiable credential envelope with an in-toto digest subject without incompatible trust semantics. <strong>Justification:</strong> the standards are composable on paper, but this item did not build an interoperability profile.</li>
+</ul>
+<h3>Analysis</h3>
+<p>[inference; source: https://iang.org/papers/ricardian_contract.html; https://www.w3.org/TR/vc-data-model/] A Ricardian-only artefact preserves prose plus identifier semantics but lacks the richer schema, status, and evidence structures that modern interoperable claim exchange expects, while a verifiable-credential-only envelope preserves typed claims but does not on its own make the declaration hash the first-class runtime equality token. [inference; source: https://github.com/in-toto/attestation/blob/main/spec/v1/statement.md; https://slsa.dev/spec/v1.0/provenance] In-toto and Supply-chain Levels for Software Artifacts (SLSA) add the missing immutable-subject and dependency-lineage discipline needed to prevent silent mutation of the authoritative runtime baseline. [inference; source: https://csrc.nist.gov/pubs/sp/800/162/final; https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html] ABAC and XACML then anchor the runtime side of the design, because they show that policy evaluation ultimately compares bounded attributes rather than prose intentions. [inference; source: https://davidamitchell.github.io/Research/research/2026-03-10-language-for-llm-agent-output.html; https://davidamitchell.github.io/Research/research/2026-03-10-formal-spec-intent-alignment-agentic-coding.html] The central tradeoff is therefore explicit: richer prose improves human context, but only typed bounded claims preserve machine evaluability and reduce reward-hacking opportunities.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>[fact; source: https://www.w3.org/TR/vc-data-model/] The Verifiable Credentials Data Model does not define a domain ontology for capability, data, or action classes, so a production system still needs a controlled vocabulary profile.</li>
+<li>[fact; source: https://w3c-ccg.github.io/zcap-spec/] ZCAP-LD is a community draft rather than a finalized broad standard, so its caveat and delegation model is a strong reference but not a settled interoperability baseline.</li>
+<li>[inference; source: https://davidamitchell.github.io/Research/research/2026-04-27-pip-invariant-anomaly-detection.html] The representation is rich enough for the PIP prior model in principle, but this item did not estimate how much historical telemetry is needed before those priors become dependable in practice.</li>
+<li>[assumption; source: https://doi.org/10.6028/NIST.SP.800-53r5; https://csrc.nist.gov/pubs/sp/800/53/r5/final] Regulatory alignment was inferred from architecture-control language rather than from sector-specific supervisory guidance written specifically for agentic systems.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>[inference; source: https://w3c-ccg.github.io/zcap-spec/; https://www.w3.org/TR/vc-data-model/] What controlled vocabulary for purpose classes, action patterns, and caveats will remain portable across tools and organizations without becoming so abstract that runtime evaluation loses precision?</li>
+<li>[inference; source: https://github.com/in-toto/attestation/blob/main/spec/v1/statement.md; https://slsa.dev/spec/v1.0/provenance] Should partial revocation of individual capabilities be modeled as a special amendment type, or should revocation always issue a whole new declaration to keep verification simpler?</li>
+<li>[inference; source: https://davidamitchell.github.io/Research/research/2026-04-27-pip-invariant-anomaly-detection.html] How should the PIP handle rare but legitimate emergency overrides without normalizing exceptional high-risk behavior into the asset's expected baseline?</li>
 </ul>
 <hr />
 <hr />
