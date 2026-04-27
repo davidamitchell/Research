@@ -17,8 +17,8 @@ name: Research Loop
 #     fetch transcripts and metadata. Without this, YouTube fetches fail silently.
 #
 # Safety controls (see ADR-0004):
-#   - Job-level timeout: 90 minutes hard ceiling per run.
-#   - Per-run cap: scheduled runs process at most 3 items; dispatch default is 1.
+#   - Job-level timeout: 150 minutes hard ceiling per run.
+#   - Per-run cap: scheduled runs process at most 4 items; dispatch default is 1.
 #   - Absolute iteration ceiling: HARD_MAX_ITERATIONS (10).
 #   - Failure limit: 2 consecutive Copilot failures abort the run.
 #     Rate limit hits are NOT counted as failures -- they break the loop cleanly.
@@ -27,13 +27,13 @@ name: Research Loop
 #
 # Trigger options:
 #   1. Manual: Actions tab -> "Research Loop" -> Run workflow -> set max_items
-#   2. Scheduled: runs automatically on weekday mornings (processes 3 items)
+#   2. Scheduled: runs automatically on weekday mornings (processes 4 items)
 
 on:
   workflow_dispatch:
     inputs:
       max_items:
-        description: "Max items to process (1-5). Defaults to 1 for safety."
+        description: "Max items to process (1-7). Defaults to 1 for safety."
         required: false
         default: "1"
         type: choice
@@ -43,6 +43,8 @@ on:
           - "3"
           - "4"
           - "5"
+          - "6"
+          - "7"
 
   schedule:
     # Weekdays at 07:00 UTC -- runs after the skills sync (Monday 06:00 UTC)
@@ -58,8 +60,8 @@ jobs:
     name: Work research backlog
     runs-on: ubuntu-latest
 
-    # Hard ceiling: no single run may exceed 90 minutes regardless of backlog size.
-    timeout-minutes: 90
+    # Hard ceiling: no single run may exceed 150 minutes regardless of backlog size.
+    timeout-minutes: 150
 
     permissions:
       contents: write
@@ -115,7 +117,7 @@ jobs:
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             MAX_ITEMS="${{ inputs.max_items }}"
           else
-            MAX_ITEMS="3"
+            MAX_ITEMS="4"
           fi
 
           echo "Configuration: MAX_ITEMS=$MAX_ITEMS, HARD_MAX_ITERATIONS=$HARD_MAX_ITERATIONS, FAILURE_THRESHOLD=$FAILURE_THRESHOLD"

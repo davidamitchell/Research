@@ -515,7 +515,7 @@ When executing the `research` skill or conducting a research item end-to-end:
 - Copilot reads `research-prompt.md`, picks the highest-priority backlog item, researches it, marks it as a draft, triggers the quality review workflow (and waits for it), then completes the item and commits it + a new `progress/` session log directly to `main`.
 - The outer `while` loop restarts Copilot for the next item until `max_items` is reached or the backlog is empty.
 
-**Automatic schedule:** Runs weekdays at 07:00 UTC, processes 3 items per day.
+**Automatic schedule:** Runs weekdays at 07:00 UTC, processes 4 items per day.
 
 **Manual trigger:**
 1. Go to the repository on GitHub
@@ -523,7 +523,7 @@ When executing the `research` skill or conducting a research item end-to-end:
 3. Click **"Research Loop"** in the left sidebar
 4. Click **"Run workflow"** → select `max_items` from the dropdown (default `1`) → click **"Run workflow"**
 
-**Safety controls:** The loop has multiple runaway-loop guards — see ADR-0004 for full details. Conservative defaults: max 1 item per manual run, max 3 per scheduled run, 90-minute job timeout, 10-iteration hard ceiling, 30-second inter-iteration sleep, abort after 2 consecutive Copilot failures.
+**Safety controls:** The loop has multiple runaway-loop guards — see ADR-0004 for full details. Conservative defaults: max 1 item per manual run, max 4 per scheduled run, 150-minute job timeout, 10-iteration hard ceiling, 30-second inter-iteration sleep, abort after 2 consecutive Copilot failures.
 
 **Tuning:** Edit `research-prompt.md` to adjust what Copilot looks for, how findings are structured, or which items to prioritise. The prompt is the only lever — no code changes needed.
 
