@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "How do academic and scientific publishing systems handle post-publication corrections, amendments, retractions, and commentary, and what is the minimal viable analogue for a versioned git-based research corpus?"
 added: 2026-04-27T06:20:00+00:00
 status: reviewing
