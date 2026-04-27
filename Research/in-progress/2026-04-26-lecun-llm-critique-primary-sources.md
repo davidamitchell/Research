@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "What is Yann LeCun's complete argument against Large Language Models as a path to autonomous machine intelligence, and what is the precise technical basis for each claim?"
 added: 2026-04-26T18:31:29+00:00
 status: reviewing
