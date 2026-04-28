@@ -640,7 +640,208 @@ main {
   </div>
   <div class="research-master-content item-content">
     <h1>Research Master Document</h1>
-<p>Generated on: 2026-04-28 10:13 UTC</p>
+<p>Generated on: 2026-04-28 10:53 UTC</p>
+<p><a id="2026-04-28-uelgf-tooling-reference-architecture-md"></a></p>
+<h2>Universal Entity Lifecycle Governance Framework (UELGF) extension: tooling specification and reference architecture for policy-as-code, observability, and Identity and Access Management (IAM) implementation</h2>
+<p><strong>Tags:</strong> [uelgf, tooling, reference-architecture, policy-as-code, opa, cedar, opentelemetry, iam, revocable-credentials, governed-golden-rail, platform-engineering]</p>
+<p><strong>Origin:</strong> https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-28-uelgf-tooling-reference-architecture.md</p>
+<h2>Research Question</h2>
+<p>What concrete reference architecture and tooling specification, covering policy-as-code engines such as Open Policy Agent (OPA) and Cedar, observability pipelines such as OpenTelemetry (OTel), and modern Identity and Access Management (IAM) systems for revocable credentials, is required to implement the Universal Entity Lifecycle Governance Framework (UELGF) rail and policy stack as deployable engineering infrastructure in a regulated financial institution?</p>
+<h2>Findings</h2>
+<p><em>(Seeded directly from §6 Synthesis. No substantive claims appear here that do not already appear in the synthesis above.)</em></p>
+<h3>Executive Summary</h3>
+<ul>
+<li>[inference; source: https://www.openpolicyagent.org/docs/management-bundles; https://www.openpolicyagent.org/docs/management-decision-logs; https://www.openpolicyagent.org/docs/latest/policy-performance/; https://opentelemetry.io/docs/collector/architecture/; https://spiffe.io/docs/latest/spiffe-about/overview/; https://developer.hashicorp.com/vault/docs/concepts/lease] A deployable UELGF rail for a regulated financial institution should use signed OPA bundles as the default policy runtime, OTel Collectors as the telemetry transport, and centrally issued short-lived workload credentials with PEP-side deny and revocation hooks as the kill-switch backbone, because that stack already implements the framework's required policy, feedback, and containment mechanics.</li>
+<li>[inference; source: https://docs.cedarpolicy.com/policies/validation.html; https://docs.cedarpolicy.com/auth/authorization.html; https://www.openpolicyagent.org/docs/management-bundles] Cedar is still useful in that architecture as a schema-validated authoring or bounded-domain authorization layer, but the retrieved Cedar materials do not provide the same operational publication and audit surfaces that OPA exposes for a full rail implementation.</li>
+<li>[inference; source: https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-continuous-access-evaluation-workload; https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html; https://cloud.google.com/iam/docs/workload-identity-federation; https://developer.hashicorp.com/vault/docs/concepts/lease] The kill switch becomes credible only where workloads receive centrally minted short-lived or explicitly revocable credentials, so off-rail credentials and unsupported managed-identity scenarios remain residual-risk populations that the platform must detect and contain rather than fully control.</li>
+<li>[inference; source: https://www.eiopa.europa.eu/digital-operational-resilience-act-dora_en; https://www.federalreserve.gov/boarddocs/srletters/2011/sr1107a1.pdf; https://www.bankofengland.co.uk/prudential-regulation/publication/2023/may/model-risk-management-principles-for-banks-ss] A regulated-bank reference architecture should therefore use a centralized policy and evidence hub with local enforcement spokes, designed to preserve central inventory, validation, and auditability while keeping the governed component count as small as possible.</li>
+</ul>
+<h3>Key Findings</h3>
+<ol>
+<li>[inference; source: https://www.openpolicyagent.org/docs/management-bundles; https://www.openpolicyagent.org/docs/management-decision-logs; https://www.openpolicyagent.org/docs/latest/policy-performance/] <strong>Medium confidence:</strong> OPA is a well-supported default PDP runtime for the UELGF rail because its official feature set already covers versioned bundle distribution, immediate enforcement after activation, revision-aware decision logs, sensitive-field masking, and low-latency evaluation guidance that aligns with enforcement-point budgets.</li>
+<li>[inference; source: https://docs.cedarpolicy.com/policies/validation.html; https://docs.cedarpolicy.com/schema/schema.html; https://docs.cedarpolicy.com/auth/authorization.html] <strong>Medium confidence:</strong> Cedar is well suited for schema-validated policy authoring and tightly bounded authorization domains, but a Cedar-only deployment still needs a separate publication, revision-tracking, and audit plane before it can satisfy the full UELGF lifecycle-governance contract.</li>
+<li>[inference; source: https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html; https://davidamitchell.github.io/Research/research/2026-04-27-pdp-universal-policy-synchronisation-integrity.html; https://davidamitchell.github.io/Research/research/2026-04-27-pap-dynamic-policy-profiling-proportionality.html] <strong>High confidence:</strong> The reference architecture should separate canonical policy authoring and approval, stateless decision evaluation, stateful entity and signal context, and runtime enforcement adapters, because the UELGF component research already defines those surfaces as independent control responsibilities rather than as one merged service.</li>
+<li>[inference; source: https://opentelemetry.io/docs/concepts/context-propagation/; https://opentelemetry.io/docs/concepts/signals/baggage/; https://opentelemetry.io/docs/collector/components/processor/; https://opentelemetry.io/docs/specs/semconv/registry/attributes/gen-ai/] <strong>Medium confidence:</strong> The runtime feedback loop should use OTel trace context for causal correlation, tightly scoped baggage for non-sensitive identifiers, and a Collector processor chain that redacts, enriches, and batches telemetry before export, because the default OTel model separates correlation metadata from sensitive payload capture.</li>
+<li>[inference; source: https://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-events/; https://opentelemetry.io/docs/concepts/signals/baggage/; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html] <strong>Medium confidence:</strong> High-fidelity prompts, tool calls, retrieved documents, and system instructions should be captured only through opt-in generative AI events and approved redacted sinks, because propagated headers and baggage are unsuitable places for sensitive governance evidence.</li>
+<li>[inference; source: https://spiffe.io/docs/latest/spiffe-about/overview/; https://developer.hashicorp.com/vault/docs/concepts/lease; https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html; https://cloud.google.com/iam/docs/workload-identity-federation] <strong>High confidence:</strong> Centrally issued short-lived credentials are the core identity primitive for a credible UELGF kill switch, because SPIFFE, Vault leases, AWS temporary credentials, and Google federated workloads all reduce standing secrets and bound the residual life of compromised access.</li>
+<li>[inference; source: https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-continuous-access-evaluation-workload; https://learn.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview; https://davidamitchell.github.io/Research/research/2026-04-27-out-of-band-policy-invalidation-remediation.html] <strong>Medium confidence:</strong> Instant revocation cannot be guaranteed uniformly across managed identities, cached cloud tokens, and off-rail credentials, so the kill-switch design has to combine credential revocation with PEP-side deny lists, queue draining, and service disablement rather than relying on identity expiry alone.</li>
+<li>[inference; source: https://www.eiopa.europa.eu/digital-operational-resilience-act-dora_en; https://www.federalreserve.gov/boarddocs/srletters/2011/sr1107a1.pdf; https://www.bankofengland.co.uk/prudential-regulation/publication/2023/may/model-risk-management-principles-for-banks-ss; https://github.com/cncf/tag-security/blob/main/community/resources/security-whitepaper/v2/cloud-native-security-whitepaper.md] <strong>High confidence:</strong> A regulated-bank implementation has to centralize policy publication, model or policy inventory, telemetry evidence, and independent validation, because the relevant supervisory and cloud-native guidance all treat those controls as governance obligations, not optional platform niceties.</li>
+<li>[inference; source: https://www.openpolicyagent.org/docs/management-bundles; https://opentelemetry.io/docs/collector/architecture/; https://learn.microsoft.com/en-us/entra/workload-id/workload-identities-overview; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html; https://www.eiopa.europa.eu/digital-operational-resilience-act-dora_en; https://www.federalreserve.gov/boarddocs/srletters/2011/sr1107a1.pdf] <strong>Medium confidence:</strong> The minimum viable UELGF stack can be limited to a signed OPA publication path, a stateful PIP registry, an OTel Collector pipeline, one managed workload-identity system, and a central audit sink, while SPIFFE, Cedar, or Vault are optional hardening layers for institutions that need stronger cross-platform identity or dynamic-secret revocation.</li>
+</ol>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>Source</th>
+<th>Confidence</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[inference] OPA is a well-supported default PDP runtime because it combines bundle publication, immediate post-load enforcement, revision-aware decision logging, and low-latency evaluation guidance.</td>
+<td>https://www.openpolicyagent.org/docs/management-bundles ; https://www.openpolicyagent.org/docs/management-decision-logs ; https://www.openpolicyagent.org/docs/latest/policy-performance/</td>
+<td>medium</td>
+<td>Retrieved official docs cover the runtime control-plane surface directly.</td>
+</tr>
+<tr>
+<td>[inference] Cedar is useful for schema-validated authoring and bounded authorization, but it still needs a companion publication and audit plane for full UELGF deployment.</td>
+<td>https://docs.cedarpolicy.com/policies/validation.html ; https://docs.cedarpolicy.com/schema/schema.html ; https://docs.cedarpolicy.com/auth/authorization.html</td>
+<td>medium</td>
+<td>Strong language and validator, thinner operations surface.</td>
+</tr>
+<tr>
+<td>[inference] The reference architecture must keep PAP publication, PDP evaluation, PIP state, and PEP enforcement as separate services or adapters.</td>
+<td>https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html ; https://davidamitchell.github.io/Research/research/2026-04-27-pap-dynamic-policy-profiling-proportionality.html ; https://davidamitchell.github.io/Research/research/2026-04-27-pdp-universal-policy-synchronisation-integrity.html</td>
+<td>high</td>
+<td>Mirrors UELGF component decomposition.</td>
+</tr>
+<tr>
+<td>[inference] The feedback loop should use OTel trace context plus a Collector chain that limits memory, filters or redacts, enriches attributes, and batches exports.</td>
+<td>https://opentelemetry.io/docs/concepts/context-propagation/ ; https://opentelemetry.io/docs/concepts/signals/baggage/ ; https://opentelemetry.io/docs/collector/architecture/ ; https://opentelemetry.io/docs/collector/components/processor/</td>
+<td>medium</td>
+<td>Keeps correlation and privacy controls separated.</td>
+</tr>
+<tr>
+<td>[inference] Prompt, tool-call, and retrieval evidence belongs in opt-in generative AI events and redacted sinks, not in baggage or generic headers.</td>
+<td>https://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-events/ ; https://opentelemetry.io/docs/specs/semconv/registry/attributes/gen-ai/ ; https://opentelemetry.io/docs/concepts/signals/baggage/</td>
+<td>medium</td>
+<td>Sensitive payload capture must be explicit.</td>
+</tr>
+<tr>
+<td>[inference] Short-lived centrally minted credentials are the core identity primitive for the kill switch.</td>
+<td>https://spiffe.io/docs/latest/spiffe-about/overview/ ; https://developer.hashicorp.com/vault/docs/concepts/lease ; https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html ; https://cloud.google.com/iam/docs/workload-identity-federation</td>
+<td>high</td>
+<td>Review converges on expiry or revocation instead of standing secrets.</td>
+</tr>
+<tr>
+<td>[inference] Identity revocation alone is insufficient on all platforms, so PEP-side deny and disable actions remain necessary.</td>
+<td>https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-continuous-access-evaluation-workload ; https://learn.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview ; https://davidamitchell.github.io/Research/research/2026-04-27-out-of-band-policy-invalidation-remediation.html</td>
+<td>medium</td>
+<td>Managed-identity and cached-token limits remain.</td>
+</tr>
+<tr>
+<td>[inference] Central inventory, independent validation, and durable evidence are mandatory regulated-bank constraints on the tooling design.</td>
+<td>https://www.eiopa.europa.eu/digital-operational-resilience-act-dora_en ; https://www.federalreserve.gov/boarddocs/srletters/2011/sr1107a1.pdf ; https://www.bankofengland.co.uk/prudential-regulation/publication/2023/may/model-risk-management-principles-for-banks-ss</td>
+<td>high</td>
+<td>Governance obligations shape architecture directly.</td>
+</tr>
+<tr>
+<td>[inference] The minimum viable stack can be limited to signed OPA publication, a stateful PIP registry, an OTel Collector pipeline, one managed workload-identity system, and a central audit sink, with SPIFFE, Cedar, or Vault reserved as optional hardening layers.</td>
+<td>https://www.openpolicyagent.org/docs/management-bundles ; https://opentelemetry.io/docs/collector/architecture/ ; https://learn.microsoft.com/en-us/entra/workload-id/workload-identities-overview ; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html ; https://www.eiopa.europa.eu/digital-operational-resilience-act-dora_en ; https://www.federalreserve.gov/boarddocs/srletters/2011/sr1107a1.pdf</td>
+<td>medium</td>
+<td>Audit centralization and hardening needs come from governance duties plus telemetry-control evidence.</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li>[assumption; source: https://www.federalreserve.gov/boarddocs/srletters/2011/sr1107a1.pdf; https://www.bankofengland.co.uk/prudential-regulation/publication/2023/may/model-risk-management-principles-for-banks-ss] Large financial institutions usually face lower approval cost when extending existing identity and telemetry estates than when introducing wholly new governed control planes. <strong>Justification:</strong> the official governance sources raise inventory, validation, and oversight requirements for every new critical control-plane component.</li>
+<li>[assumption; source: https://www.eiopa.europa.eu/digital-operational-resilience-act-dora_en; https://davidamitchell.github.io/Research/research/2026-04-27-out-of-band-policy-invalidation-remediation.html] A UELGF implementation can enforce PEP-side deny and queue-drain hooks at the main runtime surfaces that matter. <strong>Justification:</strong> if material workloads bypass all reachable enforcement points, the framework can still detect and flag them, but not guarantee active stop.</li>
+</ul>
+<h3>Analysis</h3>
+<ul>
+<li>[inference; source: https://www.openpolicyagent.org/docs/management-bundles; https://www.openpolicyagent.org/docs/management-decision-logs; https://docs.cedarpolicy.com/policies/validation.html; https://docs.cedarpolicy.com/auth/authorization.html] The reviewed engine evidence favors OPA for the deployed PDP because UELGF needs publication, freshness, and audit mechanics more urgently than it needs a second policy language, while Cedar adds its clearest value as an authoring and validation discipline around narrower authorization domains.</li>
+<li>[inference; source: https://opentelemetry.io/docs/concepts/context-propagation/; https://opentelemetry.io/docs/concepts/signals/baggage/; https://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-events/] The observability design has to separate correlation metadata from sensitive payloads, because UELGF needs end-to-end traceability across agent, tool, and service boundaries but the OTel docs explicitly warn against using propagated carriers for sensitive data.</li>
+<li>[inference; source: https://spiffe.io/docs/latest/spiffe-about/overview/; https://developer.hashicorp.com/vault/docs/concepts/lease; https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html; https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-continuous-access-evaluation-workload] The credential review shows that the kill switch is a layered containment problem, not a single identity-platform feature, because some platforms provide immediate revocation signals, some provide only bounded expiry, and unmanaged credentials sit outside both models.</li>
+<li>[inference; source: https://www.eiopa.europa.eu/digital-operational-resilience-act-dora_en; https://www.federalreserve.gov/boarddocs/srletters/2011/sr1107a1.pdf; https://www.bankofengland.co.uk/prudential-regulation/publication/2023/may/model-risk-management-principles-for-banks-ss; https://github.com/cncf/tag-security/blob/main/community/resources/security-whitepaper/v2/cloud-native-security-whitepaper.md] The regulatory and operating-model evidence pushes the architecture toward centralization of policy publication, inventory, and evidence while keeping enforcement adapters close to workloads, which is why a hub-and-spoke control plane with local PEPs is a better fit than application-embedded policy logic.</li>
+</ul>
+<p>Reference architecture specification:</p>
+<table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>Primary tools</th>
+<th>Interfaces</th>
+<th>Sources</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[inference] <strong>Canonical policy authoring and publication plane</strong> should own authoring, approval, signing, packaging, and release of digest-addressed policy bundles.</td>
+<td>OPA authoring repository and bundle builder, optional Cedar authoring or validation stage, immutable artifact registry</td>
+<td>PAP -&gt; bundle registry; PAP -&gt; validation workflow; PAP -&gt; audit store</td>
+<td>https://www.openpolicyagent.org/docs/management-bundles ; https://docs.cedarpolicy.com/policies/validation.html ; https://davidamitchell.github.io/Research/research/2026-04-27-pdp-universal-policy-synchronisation-integrity.html</td>
+</tr>
+<tr>
+<td>[inference] <strong>Stateless decision tier</strong> should evaluate typed requests close to enforcement points and return permit, deny, indeterminate, obligations, and policy revision metadata.</td>
+<td>OPA sidecar or central PDP replicas, optional Cedar authorizer for bounded domains</td>
+<td>PEP -&gt; PDP decision API; PDP -&gt; PIP context lookup; PDP -&gt; decision log exporter</td>
+<td>https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html ; https://www.openpolicyagent.org/docs/latest/policy-performance/ ; https://docs.cedarpolicy.com/auth/authorization.html</td>
+</tr>
+<tr>
+<td>[inference] <strong>Stateful PIP and entity registry</strong> should hold entity registration, declared scope, risk tier, active credential references, and anomaly signals.</td>
+<td>Registry database plus signal store, fed by scaffold registration and runtime monitors</td>
+<td>Scaffold -&gt; PIP registration API; PIP -&gt; PDP context API; runtime sensors -&gt; PIP signal API</td>
+<td>https://davidamitchell.github.io/Research/research/2026-04-27-pip-invariant-anomaly-detection.html ; https://davidamitchell.github.io/Research/research/2026-04-27-pap-dynamic-policy-profiling-proportionality.html</td>
+</tr>
+<tr>
+<td>[inference] <strong>PEP adapters</strong> should sit in deployment pipelines, service gateways, tool runners, workflow engines, and queue consumers so that policy decisions can actually stop or degrade execution.</td>
+<td>Application Programming Interface (API) gateway hooks, workflow interceptors, deployment gate, queue and secret brokers</td>
+<td>PEP -&gt; PDP; PEP -&gt; credential authority revoke or disable; PEP -&gt; OTel telemetry</td>
+<td>https://davidamitchell.github.io/Research/research/2026-04-27-out-of-band-policy-invalidation-remediation.html ; https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html</td>
+</tr>
+<tr>
+<td>[inference] <strong>Credential authority</strong> should mint short-lived identities where possible and expose explicit revoke, disable, or expire operations for kill-switch workflows.</td>
+<td>SPIFFE or SPIFFE Runtime Environment (SPIRE)-style workload identity, Vault dynamic secrets, cloud-native federation or impersonation paths</td>
+<td>Credential authority -&gt; workload token issuance; PEP -&gt; revoke or disable; audit -&gt; credential event log</td>
+<td>https://spiffe.io/docs/latest/spiffe-about/overview/ ; https://developer.hashicorp.com/vault/docs/concepts/lease ; https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html ; https://cloud.google.com/iam/docs/workload-identity-federation ; https://learn.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview</td>
+</tr>
+<tr>
+<td>[inference] <strong>Telemetry and evidence plane</strong> should collect always-on control metadata, optional redacted high-fidelity generative AI events, and immutable audit evidence linked to policy revisions.</td>
+<td>OTel Collector pipelines, central log or event platform, immutable audit store</td>
+<td>Runtime -&gt; Collector; Collector -&gt; SIEM or lakehouse; Collector -&gt; append-only audit sink</td>
+<td>https://opentelemetry.io/docs/collector/architecture/ ; https://opentelemetry.io/docs/collector/components/processor/ ; https://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-events/ ; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html</td>
+</tr>
+</tbody>
+</table>
+<p>Minimum viable stack:</p>
+<table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>Scope included</th>
+<th>Residual risk</th>
+<th>Sources</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[inference] <strong>Stage 1 minimum viable stack</strong> = signed OPA bundles, one central PIP registry, PEP hooks in the deployment path and main runtime gateway, OTel Collector with redaction, and one existing cloud workload-identity system.</td>
+<td>Policy freshness, deployment gating, baseline runtime telemetry, bounded short-lived credentials on the main estate</td>
+<td>Weaker cross-platform workload identity, incomplete off-rail containment, limited formal policy validation outside OPA and admission gates</td>
+<td>https://www.openpolicyagent.org/docs/management-bundles ; https://opentelemetry.io/docs/collector/architecture/ ; https://learn.microsoft.com/en-us/entra/workload-id/workload-identities-overview ; https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html</td>
+</tr>
+<tr>
+<td>[inference] <strong>Stage 2 hardening</strong> = add Vault or SPIFFE for dynamic secret and cross-platform identity issuance where cloud-native identities are insufficient.</td>
+<td>Stronger revocation for databases, brokers, and heterogeneous workloads</td>
+<td>New approval, operating, and integration cost for a second identity control plane</td>
+<td>https://developer.hashicorp.com/vault/docs/concepts/lease ; https://spiffe.io/docs/latest/spiffe-about/overview/</td>
+</tr>
+<tr>
+<td>[inference] <strong>Stage 3 policy-language specialization</strong> = add Cedar where schema-validated, bounded-domain authorization justifies another authorizer or authoring surface.</td>
+<td>Better typed authoring and tighter action-resource semantics for specific domains</td>
+<td>Additional policy-language and publication-plane complexity if adopted too early</td>
+<td>https://docs.cedarpolicy.com/policies/validation.html ; https://docs.cedarpolicy.com/auth/authorization.html</td>
+</tr>
+</tbody>
+</table>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>[fact; source: https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-continuous-access-evaluation-workload] CAE for workload identities does not cover managed identities and is limited to Microsoft Graph for supported service principals, so Microsoft-centric kill-switch behavior remains uneven across workload types.</li>
+<li>[fact; source: https://opentelemetry.io/docs/specs/semconv/gen-ai/gen-ai-events/] The OTel generative AI event model is still marked development status, which means schema drift and instrumentation churn are plausible if the institution standardizes on those fields too aggressively too early.</li>
+<li>[inference; source: https://docs.cedarpolicy.com/policies/validation.html; https://www.openpolicyagent.org/docs/management-bundles] A dual-engine design that combines Cedar authoring with OPA runtime could improve type safety, but it also introduces translation or duplication risk that this item does not fully resolve.</li>
+<li>[assumption; source: https://www.eiopa.europa.eu/digital-operational-resilience-act-dora_en; https://github.com/cncf/tag-security/blob/main/community/resources/security-whitepaper/v2/cloud-native-security-whitepaper.md] Data residency, append-only storage implementation, and key-management choices are institution-specific and need local platform mapping before the reference architecture becomes a deployment blueprint. <strong>Justification:</strong> the reviewed regulatory and architecture sources state the obligation classes, not one universal implementation product.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>Would a Cedar-to-OPA publication pipeline reduce policy-authoring error enough to justify a second policy language in the first release?</li>
+<li>Which existing bank platforms already provide append-only audit storage, so the evidence plane can extend them instead of creating a new logging subsystem?</li>
+<li>Which runtime surfaces remain outside reachable PEP control in the target institution, and should those become explicit exception classes in the UELGF operating model?</li>
+</ul>
+<hr />
+<hr />
 <p><a id="2026-04-28-uelgf-human-oversight-accountability-layer-md"></a></p>
 <h2>Universal Entity Lifecycle Governance Framework (UELGF) extension: human oversight and accountability layer, named owners, escalation paths, and accountability alignment with emerging agentic Artificial Intelligence (AI) governance standards</h2>
 <p><strong>Tags:</strong> [uelgf, human-oversight, accountability, escalation, agentic-ai, governance, human-owner, board-risk, openai-practices, eu-ai-act, regulated-banking]</p>
