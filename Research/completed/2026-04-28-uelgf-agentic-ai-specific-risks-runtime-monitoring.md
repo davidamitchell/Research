@@ -2,12 +2,12 @@
 review_count: 2
 title: "Universal Entity Lifecycle Governance Framework (UELGF) extension: agentic Artificial Intelligence (AI)-specific risks and runtime monitoring for non-deterministic behaviour"
 added: 2026-04-28T07:19:00+00:00
-status: reviewing
+status: completed
 priority: high
 blocks: []
 tags: [uelgf, agentic-ai, emergent-behaviour, goal-misalignment, multi-agent, hallucination, runtime-monitoring, non-determinism, observability, governed-golden-rail]
 started: 2026-04-28T09:14:33+00:00
-completed: ~
+completed: 2026-04-28T09:43:47+00:00
 output: [knowledge]
 ---
 
@@ -128,9 +128,6 @@ What agentic Artificial Intelligence (AI)-specific risk categories, specifically
 
 #### Source access and substitution notes
 
-- Access note: [fact; source: https://deepmind.google/research/publications/78150/] the seeded generic Google DeepMind research Uniform Resource Locator (URL) did not identify the cited paper precisely enough, so this item replaces it with the specific Google DeepMind publication page for *Evaluating Frontier Models for Dangerous Capabilities*.
-- Access note: [fact; source: https://philsci-archive.pitt.edu/21523/] the seeded Association for Computing Machinery (ACM) Digital Library entry for Weidinger et al. was fetch-blocked in this runtime, so the same paper was read through the accessible PhilSci-Archive copy.
-- Failed primary-source search note: [fact; source: https://deepmind.google/research/publications/78150/] search query `site:deepmind.google "Evaluating the Capabilities and Risks of AI Agents"` did not surface an official Google DeepMind page with that exact title; the official substitute used here was *Evaluating Frontier Models for Dangerous Capabilities* because it directly covers agent capability evaluation and early-warning thresholds.
 - Access note: [assumption] the seeded OpenAI pages were not directly retrievable with the available fetch tools in this session, so downstream claims rely on accessible NIST, Anthropic, Google DeepMind, Microsoft, and peer-reviewed sources rather than on blocked OpenAI text.
 
 #### 2.1 What the current UELGF runtime loop already covers

@@ -74,6 +74,12 @@ follow leads they produce. Apply source-marking discipline as defined in
   `[inference]`, or `[assumption]` label if the note remains in visible text,
   and bind any evidence-backed conclusion to accessible sources rather than to
   the inaccessible URL itself.
+- If an `Access note:` only reports what happened in this session, for example a
+  blocked fetch, a broad search query that found nothing useful, or a manual
+  source substitution decision, do **not** label it as `[fact]` using the
+  substitute source alone. Either rewrite it as an `[assumption]` or pure
+  metadata fragment, or delete it after updating `## Sources` to the working
+  source.
 - Do not carry execution-path statements such as "blocked in this runtime",
   "fetched via web search", or "direct page fetch failed" into Findings or
   Risks/Gaps. Rewrite them as source-qualification claims grounded in the
