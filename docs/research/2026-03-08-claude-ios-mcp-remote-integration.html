@@ -647,7 +647,16 @@ main {
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-08-claude-ios-mcp-remote-integration" target="_blank" rel="noopener">wiki →</a>
   </div>
-  
+  <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>The Claude iOS app accesses remote MCP servers through Anthropic&#39;s Connectors system, explicitly listed in official Anthropic documentation as available across &quot;Claude web, Claude Desktop, our Claude mobile apps, Claude Code, and our API.&quot;</li>
+<li>Remote MCP uses Streamable HTTP transport (the current MCP standard) or backwards-compatible legacy HTTP+SSE; stdio transport is architecturally impossible for iOS because it requires launching a subprocess on the client device</li>
+<li>Configuration for remote connectors is done via the claude.ai web Settings → Connectors → &quot;Add custom connector&quot; UI, not `.mcp.json`; that file is exclusively a Claude Desktop mechanism for local stdio servers</li>
+<li>Connectors configured on the claude.ai web UI sync to the Claude iOS app at login; there is no native iOS connector configuration UI — the iOS app consumes connector state set up on the web</li>
+<li>The server must be HTTPS (explicitly required by the Anthropic MCP connector API: URL &quot;must start with https://&quot;) and publicly reachable from Anthropic&#39;s infrastructure, which acts as relay between the iOS app and the remote MCP server</li>
+<li>Authentication is optional per the MCP specification; the claude.ai custom connector UI supports no-auth (open endpoint) or OAuth 2.1; static bearer tokens (not OAuth) are available only through the Messages API and do not apply to the claude.ai/iOS connector path</li>
+<li>Custom connectors require a paid Claude plan (Pro at $20/month minimum); the free plan cannot add custom connector URLs</li>
+<li>A no-auth remote MCP server is accessible to any caller who discovers the URL; for personal memory data, IP allowlisting to Anthropic&#39;s published IP ranges or OAuth 2.1 is the minimum security measure</li>
+</ol></div>
+
   <div class="item-content">
     <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
 <p>Does the Claude iOS app support MCP connections to a remote server? If so: (a) what transport is supported (HTTP/SSE vs stdio), (b) does it require the same <code>.mcp.json</code> config as Claude Desktop, (c) what is the minimum self-hosted deployment that would make <code>mcp_server.py</code> reachable from the app? What is Anthropic's roadmap for remote MCP and personal context/memory features?</p>

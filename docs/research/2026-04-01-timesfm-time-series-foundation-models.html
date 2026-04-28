@@ -646,7 +646,16 @@ main {
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-04-01-timesfm-time-series-foundation-models" target="_blank" rel="noopener">wiki →</a>
   </div>
-  
+  <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>TimesFM is a 200 million-parameter decoder-only transformer that divides input series into non-overlapping 32-step patches processed by a residual MLP before causal self-attention, enabling efficient autoregressive forecasting over context windows up to 16,384 steps</li>
+<li>TimesFM was pretrained on more than 100 billion real-world time points drawn from Google Trends, Wikipedia, electricity, traffic, and weather datasets, supplemented by ARIMA-generated synthetic series to broaden distributional coverage and reduce overfitting to any single domain</li>
+<li>The six primary use case domains for TimesFM are: retail demand forecasting, financial instrument price and volume forecasting, healthcare resource and epidemiology forecasting, energy grid load forecasting, traffic and logistics planning, and web/IoT sensor analytics</li>
+<li>Google integrated TimesFM into BigQuery ML via the `AI.FORECAST` and `AI.DETECT_ANOMALIES` functions, enabling enterprise analysts to invoke foundation-model forecasting through SQL without model deployment or infrastructure overhead</li>
+<li>TimesFM is a univariate forecaster by design, requiring the model to be run independently per series; cross-series correlations are not captured natively, making it less suitable than MOIRAI-2 for multivariate tasks where inter-series dependencies matter</li>
+<li>Amazon&#39;s Chronos tokenises continuous time-series values into discrete bins and applies a T5 encoder-decoder architecture (20 M to 710 M parameters), achieving strong zero-shot multivariate performance and production throughput exceeding 300 forecasts per second on a GPU</li>
+<li>Salesforce&#39;s MOIRAI-2 uses Mixture-of-Experts routing and an any-variate attention mechanism that natively processes any number of correlated input series, making it the leading open-source TSFM for multivariate and cross-domain forecasting tasks as of early 2026</li>
+<li>The Microsoft ProbTS benchmarking framework provides reproducible evaluation of TimesFM, Chronos, MOIRAI, Lag-Llama, and UniTS across multiple forecast horizons and dataset types, and is the most comprehensive public TSFM comparison resource available</li>
+</ol></div>
+
   <div class="item-content">
     <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
 <p>What are the practical use cases for TimesFM (Google's pretrained time-series foundation model), who is doing comparable work, and how does the foundation-model paradigm extend to other structured data types such as graphs and trees?</p>

@@ -16,6 +16,7 @@ from build_site import (
     build_research_master_page,
     detect_concept_threads,
     detect_threads,
+    strip_evidence_labels,
 )
 
 # ---------------------------------------------------------------------------
@@ -354,3 +355,61 @@ def test_build_research_master_page_has_source_link() -> None:
     html = build_research_master_page()
     assert "Research_Master.md" in html
     assert "github.com/davidamitchell/Research" in html
+
+
+# ---------------------------------------------------------------------------
+# strip_evidence_labels
+# ---------------------------------------------------------------------------
+
+
+def test_strip_evidence_labels_paragraph_to_bullets() -> None:
+    """A bare paragraph with inline [type; source: ...] labels is split into bullet items."""
+    text = (
+        "[inference; source: https://a.com] Sentence one. "
+        "[fact; source: https://b.com; https://c.com] Sentence two."
+    )
+    result = strip_evidence_labels(text)
+    assert result == "- Sentence one.\n- Sentence two."
+
+
+def test_strip_evidence_labels_list_item_strips_inline_label() -> None:
+    """Existing bullet items have embedded labels stripped, list marker preserved."""
+    text = "- [inference; source: https://a.com] The feedback loop should operate."
+    assert strip_evidence_labels(text) == "- The feedback loop should operate."
+
+
+def test_strip_evidence_labels_numbered_list_strips_label() -> None:
+    """Numbered list items have embedded labels stripped."""
+    text = "1. **High confidence.** [inference; source: https://a.com] Claim text."
+    assert strip_evidence_labels(text) == "1. **High confidence.** Claim text."
+
+
+def test_strip_evidence_labels_numbered_list_label_first() -> None:
+    """Format 3 Key Findings (label before bold confidence) is handled."""
+    text = "1. [inference; source: https://a.com] **Medium confidence:** OPA is suitable."
+    assert strip_evidence_labels(text) == "1. **Medium confidence:** OPA is suitable."
+
+
+def test_strip_evidence_labels_bare_label_unchanged() -> None:
+    """Bare [inference] / [fact] labels without '; source:' are left untouched."""
+    text = "- **[assumption] Something is true.** Justification follows."
+    assert strip_evidence_labels(text) == text
+
+
+def test_strip_evidence_labels_headings_unchanged() -> None:
+    """Lines starting with # are not modified."""
+    text = "### Key Findings\n[inference; source: https://a.com] Para text."
+    result = strip_evidence_labels(text)
+    assert result.startswith("### Key Findings")
+    # The paragraph line (not a heading) should be converted to bullet
+    assert "- Para text." in result
+
+
+def test_strip_evidence_labels_empty_text() -> None:
+    assert strip_evidence_labels("") == ""
+
+
+def test_strip_evidence_labels_plain_paragraph_unchanged() -> None:
+    """Plain paragraphs without evidence labels are not modified."""
+    text = "Three disciplines converge on the ~5-person limit for high-coordination teams."
+    assert strip_evidence_labels(text) == text

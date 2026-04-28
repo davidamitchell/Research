@@ -647,14 +647,14 @@ main {
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-02-27-information-synthesis-entropy" target="_blank" rel="noopener">wiki →</a>
   </div>
-  <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Shannon entropy identifies information-dense text</li>
-<li>Chain of Density (CoD) prompting is the leading LLM-native synthesis technique</li>
-<li>The Information Bottleneck (IB) method provides formal grounding for the compression–relevance trade-off</li>
-<li>Minimum Description Length (MDL) frames summarisation as lossless coding</li>
-<li>Semantic deduplication is a prerequisite for cross-source synthesis</li>
-<li>Graph-based synthesis (GraphRAG) outperforms flat retrieval for multi-source reasoning</li>
-<li>Naive per-source LLM summarisation introduces compounding errors</li>
-<li>ROME/MEMIT (Meng 2022) shows that factual knowledge is localised in transformer mid-layer feed-forward modules</li>
+  <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Shannon entropy identifies information-dense text. High-entropy sections are less predictable and carry more signal; low-entropy sections are repetitive and safe to compress. Entropy can be computed per-sentence or per-paragraph to guide extractive summarisation, selecting sentences that contribute most to document entropy</li>
+<li>Chain of Density (CoD) prompting is the leading LLM-native synthesis technique. Adams et al. (2023) demonstrate that iteratively rewriting a summary to add 1–3 missed salient entities per pass — without increasing length — produces summaries rated more informative and faithful than baseline GPT-4. Human preference peaks at a mid-density level that matches human-written reference summaries; beyond that, density harms readability</li>
+<li>The Information Bottleneck (IB) method provides formal grounding for the compression–relevance trade-off. Tishby et al. formalise synthesis as finding a compressed representation T of input X that maximises mutual information with the target variable Y while minimising I(X;T). This captures exactly the problem: keep what is predictive of meaning, discard the rest. The β parameter controls the compression–fidelity trade-off</li>
+<li>Minimum Description Length (MDL) frames summarisation as lossless coding. A summary is optimal under MDL when the sum of (summary length + reconstruction model length) is minimised. This is equivalent to finding the most compressible representation of the source — exploiting regularities (grammar, redundancy) while preserving unique content</li>
+<li>Semantic deduplication is a prerequisite for cross-source synthesis. String/hash-based deduplication misses paraphrases. Embedding-based methods (SemDeDup, MinHash/LSH) cluster semantically equivalent content across documents and suppress it before synthesis, preventing diluted or repeated outputs. Cross-document topic-aligned chunking (2025 arxiv) extends this by aligning semantically similar chunks across sources before retrieval</li>
+<li>Graph-based synthesis (GraphRAG) outperforms flat retrieval for multi-source reasoning. Microsoft&#39;s GraphRAG constructs a knowledge graph from an LLM-processed corpus, with entities as nodes and relationships as edges, then uses community-level summarisation to answer queries that span multiple documents. It outperforms naive RAG on complex, multi-hop queries that require integrating evidence from different sources</li>
+<li>Naive per-source LLM summarisation introduces compounding errors. Hallucinations in LLM summaries arise from limited context windows, exposure bias, and noisy training data. When each source is summarised independently and summaries are concatenated, errors compound and cross-source context is permanently lost. RAG with grounded retrieval is consistently found to reduce hallucination rates versus independent summarisation</li>
+<li>ROME/MEMIT (Meng 2022) shows that factual knowledge is localised in transformer mid-layer feed-forward modules. While this is primarily a knowledge-editing result, it implies that LLMs store facts in structured, addressable representations — supporting the view that synthesis quality can in principle be improved by intervening at the representation level, not just at the prompt level</li>
 </ol></div>
 
   <div class="item-content">

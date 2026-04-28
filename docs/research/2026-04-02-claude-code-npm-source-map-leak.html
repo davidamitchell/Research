@@ -646,14 +646,14 @@ main {
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-04-02-claude-code-npm-source-map-leak" target="_blank" rel="noopener">wiki →</a>
   </div>
-  <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Root cause was a missing package exclusion and no source-map suppression in production</li>
-<li>The `sourcesContent` field of source maps embeds raw source inline</li>
-<li>No model weights, user data, or cloud credentials were exposed</li>
-<li>Chaofan Shou&#39;s immediate public disclosure triggered viral spread</li>
-<li>Anthropic&#39;s DMCA sweep removed 8,100+ repositories, including non-infringing ones</li>
-<li>Recurrence within 13 months confirms a systemic gap, not a one-off mistake</li>
-<li>Open-source reimplementations are largely DMCA-immune</li>
-<li>Malicious actors exploited the leak brand to distribute malware</li>
+  <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Root cause was a missing package exclusion and no source-map suppression in production. Bun generates source maps by default; without `*.map` in `.npmignore` or an explicit `files` whitelist in `package.json`, the build artifact was published alongside production code</li>
+<li>The `sourcesContent` field of source maps embeds raw source inline. This made the leaked `.map` file self-contained and complete — 512,000+ lines across ~1,900 files</li>
+<li>No model weights, user data, or cloud credentials were exposed. The damage was confined to the Claude Code CLI source code and product roadmap signals (44+ unreleased feature flags)</li>
+<li>Chaofan Shou&#39;s immediate public disclosure triggered viral spread. Thousands of GitHub forks appeared within hours; retraction is practically impossible once a package reaches the public npm registry and is mirrored at scale</li>
+<li>Anthropic&#39;s DMCA sweep removed 8,100+ repositories, including non-infringing ones. Automated at-scale takedowns are blunt instruments that create collateral damage and reputational harm</li>
+<li>Recurrence within 13 months confirms a systemic gap, not a one-off mistake. No durable process change was applied after the first incident</li>
+<li>Open-source reimplementations are largely DMCA-immune. Code independently rewritten from disclosed architectural insights is legally distinct from copies of the leaked code; &quot;OpenCode&quot; and similar projects survived the DMCA sweep</li>
+<li>Malicious actors exploited the leak brand to distribute malware. Security researcher Zscaler ThreatLabz documented &quot;Claude Code leak&quot; lures used to deliver malicious payloads — a secondary threat triggered by the high-profile disclosure</li>
 </ol></div>
 
   <div class="item-content">

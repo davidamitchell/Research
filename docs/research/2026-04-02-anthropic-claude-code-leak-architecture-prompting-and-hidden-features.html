@@ -647,7 +647,16 @@ main {
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-04-02-anthropic-claude-code-leak-architecture-prompting-and-hidden-features" target="_blank" rel="noopener">wiki →</a>
   </div>
-  
+  <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>The leak was a packaging error: a JavaScript (JS) source map file was not excluded from the npm package, exposing the full TypeScript source via a trivially reversible reconstruction</li>
+<li>No model weights, training data, or user conversations were exposed -- only the orchestration and harness layer</li>
+<li>The architecture is modular and permissioned: 40-60 tools, each with explicit permission checks enforced by a central orchestration loop, implementing safety-by-architecture rather than safety-by-policy alone</li>
+<li>A five-level configuration cascade and seven-stage session bootstrap provide fine-grained, layered control over every agent session</li>
+<li>The CLAUDE.md hierarchy (global, org, project, subdirectory) loads up to 40,000 characters of persistent custom instructions per session, functioning as a RAG-style retrieval of project-specific context</li>
+<li>The three-tier memory system -- session compaction (nine segments), pointer-index `MEMORY.md`, and AutoDream async consolidation -- addresses long-session context drift without flooding the model context window</li>
+<li>44+ named feature flags were found in the source, enabling per-user, per-cohort, and per-environment feature control without redeployment</li>
+<li>KAIROS (always-on daemon with background tick, proactive insights, and GitHub webhook monitoring), BUDDY (virtual pet with 18 species and gamified stats), Undercover Mode (AI-attribution stripping for public repos), UltraPlan (30-minute autonomous planning cycles), and Voice/Bridge Mode (STT and WebSocket remote access) are confirmed unreleased features</li>
+</ol></div>
+
   <div class="item-content">
     <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
 <p>What does the accidental March 2026 leak of Anthropic's Claude Code source code reveal about: (1) the codebase architecture, (2) how key engineering problems are solved, (3) the prompting and instruction strategy, (4) feature-flagging practices, (5) hidden features, (6) the product roadmap, (7) lessons for prompt engineering using skills, memory, Retrieval-Augmented Generation (RAG)-style patterns, and tool descriptions, and (8) any other insights for practitioners building agent systems?</p>

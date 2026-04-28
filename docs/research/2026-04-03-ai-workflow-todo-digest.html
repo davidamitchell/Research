@@ -647,14 +647,14 @@ main {
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-04-03-ai-workflow-todo-digest" target="_blank" rel="noopener">wiki →</a>
   </div>
-  <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Medium confidence</li>
-<li>Low confidence</li>
-<li>Medium confidence</li>
-<li>Medium confidence</li>
-<li>Medium confidence</li>
-<li>Medium confidence</li>
-<li>Medium confidence</li>
-<li>Low confidence</li>
+  <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>The most visible public implementations of proactive digests use a scheduled collector, a canonical source system, a constrained extraction step, and a push destination, which suggests that pipeline-oriented automation is the clearest current pattern even though the accessible examples skew toward meetings and news rather than personal task digests ((https://zapier.com/apps/notion/integrations/slack); (https://n8n.io/workflows/10286-ai-meeting-summary-and-action-item-tracker-with-notion-slack-and-gmail/); (https://github.com/hoangsonww/AI-News-Briefing))</li>
+<li>The most actionable prompt pattern appears to be schema-first extraction with explicit sections for actions, blockers, decisions, dates, and owners, because the clearest checked public workflow exposes those structures directly for routing and rendering, but the inspectable evidence base is thin ((https://n8n.io/workflows/10286-ai-meeting-summary-and-action-item-tracker-with-notion-slack-and-gmail/))</li>
+<li>Proactive digests should be delivered at predictable review boundaries, such as the start of a day or week, because interruption research links arbitrary interruptions with degraded performance while task-switch-timed interventions perform better ((https://link.springer.com/article/10.1007/s41233-023-00060-9); (https://doi.org/10.1145/3290605.3300558))</li>
+<li>Slack appears to be the strongest rich-format delivery destination among the checked options when the user already spends time there, because Block Kit provides the most mature structured-message surface, while Telegram is simpler, Teams is heavier, and Apple Shortcuts is more local-action-oriented ((https://api.slack.com/block-kit); (https://core.telegram.org/bots/api); (https://learn.microsoft.com/en-us/microsoftteams/platform/bots/what-are-bots); (https://support.apple.com/guide/shortcuts/welcome/ios); (https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-02-slack-msteams-research-integration.md); (https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-slack-bot-memory-capture-retrieval.md))</li>
+<li>Telegram is the strongest personal-only alternative when setup simplicity matters more than rich cards or team context, because its bot surface is operationally simpler than Slack&#39;s workspace app model and better matched to solo automation ((https://core.telegram.org/bots/api); (https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-telegram-bot-memory-capture-retrieval.md))</li>
+<li>Apple Shortcuts should be treated as a complementary iOS control surface for capture, quick-open, and manual review, rather than as the primary endpoint for externally scheduled rich digests, because Apple&#39;s evidence emphasizes local action composition rather than external rich-message push ((https://support.apple.com/guide/shortcuts/welcome/ios); (https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-02-ios-shortcuts-research.md))</li>
+<li>Memory systems such as MemGPT and product-memory features complement digest automation by preserving context and improving retrieval quality, but they do not replace scheduled digests because they do not inherently solve the problem of when to surface the next three tasks to the user ((https://arxiv.org/abs/2310.08560); (https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-17-ai-memory-systems-rag-neuroscience.md))</li>
+<li>For the davidamitchell ecosystem, the nearest reusable pattern may be the combination of this Research repository&#39;s governance discipline with the `Latest-developments-` style of scheduled summarization, because the checked public repositories show adjacent summarization and agent-evaluation work but no visible dedicated task-digest product ((https://github.com/davidamitchell?tab=repositories))</li>
 </ol></div>
 
   <div class="item-content">

@@ -647,7 +647,16 @@ main {
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-29-multi-agent-repo-setup" target="_blank" rel="noopener">wiki →</a>
   </div>
-  
+  <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>The Copilot coding agent reads both `.github/copilot-instructions.md` and `AGENTS.md` when both are present at the repository root; both files are combined additively, giving complete instruction coverage from either file independently</li>
+<li>The absence of `.github/workflows/copilot-setup-steps.yml` means the Copilot coding agent starts in a bare Ubuntu environment without Python dependencies, without the virtual environment, and without the `.github/skills/` submodule, this is a silent failure that prevents the agent from running `make check` or `make test` as required by the existing instructions</li>
+<li>Claude Code GitHub Actions (`anthropics/claude-code-action`) reads `CLAUDE.md` via Claude Code&#39;s normal file-discovery walk; it does not read `.github/copilot-instructions.md`, meaning the current single-file approach leaves Claude Code without any project instructions</li>
+<li>The Claude-via-GitHub-Issues surface requires `ANTHROPIC_API_KEY` (or equivalent Bedrock/Vertex credentials) and a GitHub App (`APP_ID`, `APP_PRIVATE_KEY`); none are in this repo&#39;s credential table, so this surface is blocked under the current no-new-credentials constraint</li>
+<li>Copilot Spaces can launch Copilot coding agent tasks that write code and create pull requests; Spaces itself is a Q&amp;A tool that does not auto-read per-repo instruction files, but when it launches a coding agent task, that agent respects the repository&#39;s configuration files</li>
+<li>Claude Code on iOS is a full coding agent that can write code, create commits, and open pull requests in cloud-based sandboxed environments; it does not auto-load instruction files at session start but can discover and use `CLAUDE.md` and other files during execution</li>
+<li>`AGENTS.md` is a Linux Foundation-stewarded open standard supported by over 20 tools (including GitHub Copilot, OpenAI Codex, Cursor, and Claude Code) and present in over 60,000 repositories; adding a thin pointer file at the root costs nothing and restores coverage for all AGENTS.md-native agents</li>
+<li>ADR-0006&#39;s consolidation to `.github/copilot-instructions.md` was correct for Copilot-only usage; adding `AGENTS.md` (as a pointer) and `CLAUDE.md` extends coverage to Claude Code surfaces without contradicting ADR-0006&#39;s intent of a single canonical instruction file</li>
+</ol></div>
+
   <div class="item-content">
     <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
 <p>What are the best practices for setting up a GitHub repository so that it can be worked on effectively by multiple Artificial Intelligence (AI) agents, specifically: (1) Claude via the iOS Claude app, (2) Claude via GitHub Issues assigned to Claude, (3) Copilot via Copilot Spaces, and (4) Copilot via GitHub Issues assigned to the Copilot coding agent, with consistent instruction loading, environment setup, and quality outcomes across all four surfaces?</p>

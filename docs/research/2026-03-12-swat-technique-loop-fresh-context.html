@@ -647,7 +647,16 @@ main {
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-12-swat-technique-loop-fresh-context" target="_blank" rel="noopener">wiki →</a>
   </div>
-  
+  <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Cross-iteration consistency collapse is structurally guaranteed in any fresh-context SWAT loop because each invocation has no memory of prior passes and cannot detect whether its output contradicts a previous assessment of the same subject</li>
+<li>Sycophantic softening of the Weaknesses and Threats quadrants is the most consequential baseline failure mode: Reinforcement Learning from Human Feedback (RLHF)-trained models exhibit 61.75% sycophancy in preemptive-rebuttal scenarios  -  the structural type closest to SWAT&#39;s critique-before-challenge design  -  and this sycophancy persists across 78.5% of outputs regardless of context change (SycEval AIES 2025)</li>
+<li>Assumption fabrication is a high-severity specific hallucination risk in the SWAT Assumptions quadrant because identifying underlying presuppositions requires second-order epistemic reasoning that is highly vulnerable to plausible-sounding but unverified content when no grounding is available</li>
+<li>Blind acceptance converts individually correctable SWAT errors into compounding cascade failures by presenting erroneous quadrant content as ground-truth context to every subsequent LLM call in the pipeline, following the same mechanism as empirically confirmed multi-step agentic goal drift (arXiv:2603.03258)</li>
+<li>Web search materially reduces Threats quadrant hallucination by grounding external threats in retrievable real-world content, and provides temporal grounding for post-training-cutoff threats  -  but leaves sycophantic softening, false completeness, and cross-iteration consistency collapse unchanged</li>
+<li>Web search introduces retrieval inconsistency across SWAT iterations as a new failure mode: successive invocations on the same subject can retrieve different result sets, producing a Threats record that contradicts itself without any detection mechanism under blind acceptance</li>
+<li>Org RAG grounds all four SWAT quadrants  -  including Strengths and Weaknesses  -  in org-specific documents, making it a more effective grounding mechanism for SWAT than web search, which only helps the externally-facing Threats quadrant</li>
+<li>Org RAG introduces the highest false-confidence risk among the three conditions because org-authoritative retrieval produces outputs that appear more reliable to downstream blind acceptance, amplifying the effect of index staleness, retrieval precision gaps, and authority bias that org RAG cannot eliminate</li>
+</ol></div>
+
   <div class="item-content">
     <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
 <p>When the SWAT (Strengths, Weaknesses, Assumptions, Threats) technique is executed repeatedly in a loop where each invocation uses a fresh Large Language Model (LLM) context window and the caller blindly accepts every result, what systematic failure modes emerge  -  and does access to web search or organisation-specific Retrieval-Augmented Generation (RAG) materially change those failure modes or their severity?</p>

@@ -646,12 +646,12 @@ main {
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-02-27-indexing-and-tracking-method" target="_blank" rel="noopener">wiki →</a>
   </div>
-  <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Obsidian, Logseq, and Dendron all converge on plain-Markdown + flat files for git-friendliness</li>
-<li>Zotero&#39;s SQLite approach is powerful but inappropriate here</li>
-<li>JSON state file is git-friendly and sufficient for URL-based deduplication at this scale</li>
-<li>SQLite offers ACID transactions, efficient indexing, and `INSERT OR IGNORE` deduplication, but at the cost of git-diffability</li>
-<li>Vector stores (ChromaDB, sqlite-vss/sqlite-vec) solve a different problem: semantic search, not deduplication</li>
-<li>The two concerns — deduplication/processing state and research-item metadata — should remain separate</li>
+  <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Obsidian, Logseq, and Dendron all converge on plain-Markdown + flat files for git-friendliness. None use a custom binary index at the data layer; instead, they keep metadata in YAML front-matter and build in-memory indices at runtime. This is directly applicable: the Research item files already use YAML front-matter, giving us the metadata layer for free</li>
+<li>Zotero&#39;s SQLite approach is powerful but inappropriate here. Zotero uses a 10+ table relational schema (items, itemData, itemDataValues, creators, tags, relations, fulltext*). It is robust for academic reference management but is a binary file, impossible to diff in git, and requires Zotero&#39;s migration tooling to evolve the schema. Its complexity is justified by managing tens of thousands of heterogeneous item types — which is not our use case</li>
+<li>JSON state file is git-friendly and sufficient for URL-based deduplication at this scale. The pattern (`load state.json → check URL → process → save state.json`) is O(n) for lookup but acceptable up to ~10,000 entries. Converting the URL set to a Python `set` at runtime eliminates duplicate lookups during a single run. `state/index.json` already exists in this repo (currently `{}`), confirming the infrastructure is in place</li>
+<li>SQLite offers ACID transactions, efficient indexing, and `INSERT OR IGNORE` deduplication, but at the cost of git-diffability. SQLite database files are binary blobs: a single row change produces a completely different file in `git diff`. This is acceptable only if the state file is treated as a runtime artefact that is never reviewed in pull requests. For this repo — where the owner reviews all changes via the GitHub website — losing readable diffs is a meaningful cost</li>
+<li>Vector stores (ChromaDB, sqlite-vss/sqlite-vec) solve a different problem: semantic search, not deduplication. ChromaDB is production-grade but runs as a server process, adding operational complexity. sqlite-vss is single-file but still binary. Both are appropriate only once the `Research/completed/` directory has enough items (&gt;50) to make semantic search over findings worthwhile. This is a future-state capability, not a current need</li>
+<li>The two concerns — deduplication/processing state and research-item metadata — should remain separate. Processing state (which URLs have been fetched) belongs in `state/index.json`. Research-item metadata (title, status, tags, started/completed dates) belongs in the YAML front-matter of each `Research/*.md` file. Mixing them would couple the pipeline to the research workflow unnecessarily</li>
 </ol></div>
 
   <div class="item-content">

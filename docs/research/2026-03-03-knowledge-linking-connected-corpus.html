@@ -647,14 +647,14 @@ main {
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-03-knowledge-linking-connected-corpus" target="_blank" rel="noopener">wiki →</a>
   </div>
-  <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Zettelkasten&#39;s core principle is connection over collection; the date-prefixed filename already satisfies the fixed-address requirement</li>
-<li>A dedicated `## Related Items` section using typed relative Markdown links is the optimal cross-reference format</li>
-<li>Backlinks must be derived by file scanning, not written into referenced files</li>
-<li>A separate `state/links.json` committed to the repository is the correct edge store</li>
-<li>The edge store is a derived artifact, regenerable entirely from `## Related Items` sections</li>
-<li>[fact + inference] Five relationship types cover the corpus&#39;s actual usage patterns</li>
-<li>Auto-detection via tag overlap (≥ 2 narrow tags) and shared source URLs produces actionable suggestions with manageable false-positive rates</li>
-<li>The existing `src/wiki/publish.py` pipeline can append &quot;Related Items&quot; sections to wiki pages from `state/links.json` with ~20 lines of additional code</li>
+  <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Zettelkasten&#39;s core principle is connection over collection; the date-prefixed filename already satisfies the fixed-address requirement. The only missing element is machine-readable links between items. The Zettelkasten method&#39;s value proposition — insight emerging from connections, not individual notes — directly applies to this research corpus</li>
+<li>A dedicated `## Related Items` section using typed relative Markdown links is the optimal cross-reference format. Format: `- &lt;type&gt;: (../completed/slug.md) — rationale`. Human-readable on GitHub, clickable, parseable by regex, and non-intrusive to the Findings prose</li>
+<li>Backlinks must be derived by file scanning, not written into referenced files. Obsidian and Logseq — two independently developed Zettelkasten tools — both derive backlinks at runtime from scanning all files. Writing backlinks into referenced files causes merge conflicts and git history pollution</li>
+<li>A separate `state/links.json` committed to the repository is the correct edge store. It must be separate from `state/index.json` (fetch semantics) and committed (not gitignored) so agents can read it without re-running CI. The `.gitignore` must be updated with `!state/links.json`</li>
+<li>The edge store is a derived artifact, regenerable entirely from `## Related Items` sections. Markdown files are the authoritative source; `state/links.json` is a cache. It can be deleted and rebuilt without data loss</li>
+<li>Five relationship types cover the corpus&#39;s actual usage patterns. `extends`, `contradicts`, `depends-on`, `spawned-from`, `see-also`. The `spawned-from` type already exists informally in frontmatter and must be consolidated into the `## Related Items` section for uniform machine-readability</li>
+<li>Auto-detection via tag overlap (≥ 2 narrow tags) and shared source URLs produces actionable suggestions with manageable false-positive rates. The tool should produce proposals for agent review, not automatic insertions. A narrow tag is any tag that is not a broad domain label (`ai-strategy`, `knowledge`, `tooling`)</li>
+<li>The existing `src/wiki/publish.py` pipeline can append &quot;Related Items&quot; sections to wiki pages from `state/links.json` with ~20 lines of additional code. GitHub wiki&#39;s `]` syntax enables clickable cross-links between wiki pages, directly from the edge store</li>
 </ol></div>
 
   <div class="item-content">

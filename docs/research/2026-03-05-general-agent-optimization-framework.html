@@ -646,7 +646,16 @@ main {
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-05-general-agent-optimization-framework" target="_blank" rel="noopener">wiki →</a>
   </div>
-  
+  <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>DSPy is the only surveyed automated prompt optimization framework that provides both inner-loop instruction search and outer-loop metric-based evaluation within a single codebase, making it the correct integration target for a Self-Improving Agent Evaluation Loop. (Confidence: high)</li>
+<li>APE automated instruction generation outperformed human-annotated prompts on 19 of 24 NLP tasks and matched on the remaining 5, establishing that systematic instruction search has materially higher ceiling than hand-tuning. (Confidence: high)</li>
+<li>OPRO&#39;s meta-prompt optimization outperforms human-designed prompts by up to 8% on GSM8K and up to 50% on Big-Bench Hard tasks, with gains attributable to accumulated optimization history in the meta-prompt rather than any single instruction change. (Confidence: high)</li>
+<li>TextGrad&#39;s text-backpropagation mechanism improved GPT-4o GPQA accuracy from 51% to 55% zero-shot, but its per-update LLM call overhead makes it a poor fit for repeated self-improvement cycles in API-cost-constrained environments. (Confidence: medium)</li>
+<li>DSPy MIPRO with default settings (~4 candidates, 4 demos, 10 trials, batch of 35) requires approximately 370 LLM API calls per optimization run, placing weekly automated runs within operational budget but ruling out per-commit CI integration. (Confidence: high)</li>
+<li>AgentBench is the only benchmark in the surveyed set with an explicit training split across 8 interactive environments, making it the best-suited source for DSPy inner-loop bootstrapping as opposed to evaluation-only use. (Confidence: high)</li>
+<li>Chambers and Partners Global Practice Guides are copyright-protected and their terms explicitly prohibit bulk extraction and redistribution for AI training purposes, requiring direct commercial negotiation for any Golden Set use — a path that is not self-serviceable. (Confidence: high)</li>
+<li>FinBen (36 datasets, 24 financial tasks, NeurIPS 2024) is open-source and directly applicable as a domain Golden Set for NZ financial services agents, though it requires NZ-specific regulatory supplementation because its tasks are US-centric. (Confidence: medium)</li>
+</ol></div>
+
   <div class="item-content">
     <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
 <p>What is the most principled architecture for a Self-Improving AI Agent Evaluation Loop — specifically, how should a nested inner/outer loop be designed so that a &quot;Meta-Optimizer&quot; rewrites system prompts based on failure analysis without causing instruction drift or overfitting to specific training questions?</p>

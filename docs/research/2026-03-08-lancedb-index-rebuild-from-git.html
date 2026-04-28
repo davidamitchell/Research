@@ -647,7 +647,16 @@ main {
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-08-lancedb-index-rebuild-from-git" target="_blank" rel="noopener">wiki →</a>
   </div>
-  
+  <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>LanceDB write operations take under 30ms even at 1000 documents; the embedding model accounts for 99%+ of cold-start rebuild time at every tested corpus size</li>
+<li>BAAI/bge-small-en-v1.5 loads from disk cache in 0.68s; the model file is 133 MB, giving a first-download load time of ~2.25s from HuggingFace Hub on a typical connection</li>
+<li>BGE-small-en-v1.5 embeds at ~34.5ms/doc for short synthetic texts but ~177ms/doc for real research items; BERT&#39;s O(n²) attention cost means document length — not document count — is the primary driver of embedding time</li>
+<li>At the current corpus size of 61 items with full Markdown text, cold-start rebuild takes 11.5s with BGE-small, already exceeding the 5–10s target and with no improvement path as the corpus grows</li>
+<li>Pre-computed embeddings stored as JSON in git (7.74 KB per 384-dim document) load and write into LanceDB in under 0.2s for 1000 documents, making startup time effectively O(1) with respect to corpus size</li>
+<li>JSON storage cost for pre-computed BGE-small embeddings is 7.74 MB for 1000 documents; for a personal research corpus of 200–300 items, this is under 2.5 MB, an acceptable git repository size</li>
+<li>all-MiniLM-L6-v2 is approximately 2× faster than BGE-small at embedding (16.4ms/doc vs 34.5ms/doc for short texts) but does not change the fundamental scaling failure: at 500 real research items, MiniLM would still require over 20s to rebuild</li>
+<li>GitHub code search is rate-limited to 10 requests per minute, is keyword-only with no semantic understanding, and may return incomplete results for large queries; it is not a viable replacement for vector search and only useful as a supplementary lexical search layer</li>
+</ol></div>
+
   <div class="item-content">
     <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
 <p>Can the LanceDB index be rebuilt from the <code>.md</code> files in the repo on startup fast enough to enable stateless (per-request) deployment? Measure rebuild time at: current corpus size, 100 files, 500 files, 1000 files. Is the embedding model load time (BAAI/bge-small-en-v1.5) the bottleneck or the LanceDB write operations? Would a lighter embedding model (e.g. MiniLM) or pre-computed embeddings stored in git change the equation?</p>

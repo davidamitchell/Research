@@ -647,7 +647,16 @@ main {
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-05-h-neurons-synthesis" target="_blank" rel="noopener">wiki →</a>
   </div>
-  
+  <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>A sparse subset of FFN neurons (&lt; 1‰ of total, ranging 0.01‰–0.35‰ across six models in Mistral, Gemma-3, and Llama-3 families) causally drives LLM hallucination via an over-compliance pathway, confirmed by controlled activation scaling experiments across four structurally independent benchmarks</li>
+<li>Hallucination, sycophancy, and jailbreak susceptibility are not independent failure modes but three expressions of the same over-compliance disposition encoded in H-Neurons, established by a single neuron set responding to all three behaviours under activation perturbation</li>
+<li>H-Neurons originate during pre-training because the next-token prediction objective rewards statistically plausible agreeable continuation on corpora containing sycophantic and confidently-stated false text; these circuits are present in base models before any instruction tuning or RLHF</li>
+<li>H-Neurons exhibit parameter inertia under SFT — they are among the least-modified neurons during the base-to-instruction-tuned transition (Mistral-Small normalised rank ≈ 0.97, P &lt; 0.001), explaining why alignment reduces surface sycophancy without eliminating the underlying mechanism and why hallucination reappears under distributional shift</li>
+<li>H-Neuron activation levels are a demonstrated real-time hallucination risk signal, with a sparse linear classifier achieving 10+ percentage-point accuracy improvements over random-neuron baselines across all six models and all test conditions, with open-source implementation available</li>
+<li>All mainstream hallucination mitigations — RAG, RLHF, Constitutional AI, chain-of-thought prompting, SelfCheckGPT — operate before or after generation, not on the model&#39;s internal state during a specific token generation event; H-Neuron monitoring is the first demonstrated during-generation intervention</li>
+<li>Inference-time H-Neuron activation suppression reduces over-compliance rates in controlled experiments, but the paper explicitly states that simple global suppression is insufficient for production deployment because it degrades legitimate compliant behaviour along with harmful over-compliance; context-aware selective suppression is the required next step</li>
+<li>Larger models show lower sensitivity to H-Neuron perturbation (average compliance slope 2.40) than smaller models (average slope 3.03), indicating the over-compliance disposition is more diffusely encoded at scale, making sparse neuron targeting less decisive in frontier models</li>
+</ol></div>
+
   <div class="item-content">
     <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
 <p>Across all four preceding research items — the macroscopic hallucination landscape, the H-Neurons paper, over-compliance interventions, and pre-training origins — what is the unified, actionable picture for understanding and reducing LLM hallucinations, and what are the highest-leverage next steps for organisations that care about LLM reliability?</p>

@@ -646,7 +646,16 @@ main {
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-02-27-simple-process-for-adding-research-item" target="_blank" rel="noopener">wiki →</a>
   </div>
-  
+  <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>`python -m src.main research add &quot;&lt;title&gt;&quot;` is fully implemented in `src/research/cli.py`. It creates a dated backlog file with a template, requiring only a title. This is the lowest-friction path for any agent or automated process</li>
+<li>The repository owner operates exclusively via GitHub website and iOS app; the CLI is inaccessible without a terminal. A capture mechanism that works from any browser is required for the owner</li>
+<li>GitHub issue forms (`.github/ISSUE_TEMPLATE/*.yml`) render as structured, mobile-responsive web forms — accessible from the iOS GitHub app and any browser without any local tooling</li>
+<li>A GitHub Actions workflow triggered on `issues: ` with a specific label can parse the issue title and body, then call `python -m src.main research add` (or directly commit a new backlog file), automating the issue-to-file conversion</li>
+<li>Zettelkasten systems converge on a two-phase model: (a) instant frictionless capture into a single inbox with minimal metadata, and (b) batch structuring during a later review pass. Forcing structure at capture increases abandonment</li>
+<li>The existing template already supplies all default metadata (`status: backlog`, `priority: medium`, `started: ~`, `completed: ~`). Only `title` is needed at capture time; all other fields can be populated when the item is started</li>
+<li>GitHub&#39;s issue form schema supports `input`, `textarea`, `dropdown`, and `checkboxes` fields, and renders correctly on mobile. A minimal form with only a title field and an optional context textarea is sufficient for research capture</li>
+<li>Direct file creation via the GitHub website file editor is possible but high-friction: it requires navigating to the correct folder, naming the file with the correct date-slug convention, and pasting the template — typically 6–8 manual steps</li>
+</ol></div>
+
   <div class="item-content">
     <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
 <p>What is the minimum-friction workflow for adding a new research item so that good ideas get captured before they are lost?</p>

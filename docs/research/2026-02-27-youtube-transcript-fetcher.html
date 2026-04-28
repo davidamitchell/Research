@@ -646,7 +646,16 @@ main {
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-02-27-youtube-transcript-fetcher" target="_blank" rel="noopener">wiki →</a>
   </div>
-  
+  <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>`src/fetchers/youtube.py` is implemented and passes all 18 tests (`pytest tests/test_fetchers_youtube.py`); the port is complete</li>
+<li>Channel discovery uses the YouTube Atom feed (`https://www.youtube.com/feeds/videos.xml?channel_id=&lt;id&gt;`) — no API key needed for feed-based discovery, unlike the companion repo which requires `YOUTUBE_API_KEY` for the search endpoint</li>
+<li>Single-video fetch uses `python -m src.main fetch youtube --video &lt;url&gt;` and accepts full YouTube URLs, `youtu.be` short URLs, or bare video IDs</li>
+<li>The fetcher implements a three-tier fallback when transcripts are blocked: (1) `youtube-transcript-api`, (2) YouTube Data API v3 description (if `YOUTUBE_DATA_API` env var is set), (3) `og:description` meta tag scraped from the watch page</li>
+<li>The CLI (`python -m src.main fetch youtube`) outputs transcript content to stdout; saving to `Research/transcripts/` is handled by the `fetch-transcript.yml` GitHub Actions workflow, which uses `yt-dlp` and commits the file to the repo</li>
+<li>Transcript requests from GitHub Actions cloud IPs (AWS/GCP ranges) are blocked by YouTube at the network level. This is a hard restriction with no reliable workaround from a cloud runner; the workflow commits step-by-step manual instructions when automated fetch fails</li>
+<li>Bulk channel fetch is limited to recent videos. The Atom feed returns approximately the last 15 videos; the `--max-videos` flag can cap this further. Historical backlog fetch beyond the feed window is not supported via this approach</li>
+<li>URL deduplication via `StateStore` (`state/index.json`) prevents reprocessing already-fetched items across runs</li>
+</ol></div>
+
   <div class="item-content">
     <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
 <p>Can we port the YouTube transcript fetcher from <code>davidamitchell/Latest-developments-</code> to this repo and adapt it for research use (bulk fetch, save transcripts, not just email digest)?</p>

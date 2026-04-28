@@ -647,7 +647,16 @@ main {
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-08-chatgpt-actions-memory-integration" target="_blank" rel="noopener">wiki →</a>
   </div>
-  
+  <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>A custom GPT Action can call any public HTTPS endpoint described by an OpenAPI schema; the call is made server-side by OpenAI&#39;s infrastructure, making CORS irrelevant and requiring no changes to an existing Cloudflare Workers or Fly.io backend</li>
+<li>API key authentication with a custom header (e.g., `X-Api-Key`) is supported in the GPT editor UI as a server-side secret  -  it is never visible to the user  -  and works reliably on the ChatGPT iOS mobile app, unlike OAuth 2.0 which has documented persistent failures on iOS and Android through mid-2025</li>
+<li>The `add_memory` write path (stateless Cloudflare Workers proxy to GitHub Contents API) is directly compatible with GPT Actions and requires no modifications to the backend established in `2026-03-08-self-hosted-mcp-server-options.md`</li>
+<li>The `search_brain` retrieval path can be triggered before every GPT response via a system prompt instruction such as &quot;Before every response, call the search_brain action with the user&#39;s query and incorporate the results as context&quot;; compliance is probabilistic (system prompt enforcement) rather than protocol-guaranteed, but is sufficient for personal single-user deployment</li>
+<li>OpenAI&#39;s built-in ChatGPT memory system exposes no programmatic API: there is no endpoint for reading, writing, or importing saved memories; the data export available via the privacy portal is a manual one-time ZIP download, not a synchronisation hook</li>
+<li>Creating a custom GPT with Actions requires ChatGPT Plus at $20/month (identical to the Claude Pro requirement for Claude iOS MCP Connectors), meaning the cost parity between the two paths is exact and not a differentiating factor</li>
+<li>A single backend deployment can serve both GPT Actions (REST/JSON) and Claude iOS MCP (Streamable HTTP) endpoints without conflict, meaning the cross-tool memory portability goal  -  capturing from ChatGPT and retrieving in Claude, and vice versa  -  can be achieved with no additional hosting cost beyond the Fly.io/Railway instance already required for vector search</li>
+<li>The ChatGPT Actions path has one structural limitation compared to Claude iOS MCP Connectors: retrieval only activates when the user opens the specific memory-retrieval custom GPT, whereas Claude Connectors apply automatically to every Claude conversation once configured</li>
+</ol></div>
+
   <div class="item-content">
     <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
 <p>Can a ChatGPT custom Generative Pre-trained Transformer (GPT) be configured with Actions that: (a) call a self-hosted HTTP endpoint to add a memory, (b) call <code>search_brain</code> before responding to surface relevant context? What is OpenAI's native Memory Application Programming Interface (API)  -  is there any export/import hook to sync ChatGPT's built-in memories into this repo? What are the auth and hosting requirements?</p>

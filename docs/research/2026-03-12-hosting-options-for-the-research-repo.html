@@ -646,7 +646,16 @@ main {
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-12-hosting-options-for-the-research-repo" target="_blank" rel="noopener">wiki →</a>
   </div>
-  
+  <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>GitHub Pages deployed via a custom GitHub Actions workflow requires only `GITHUB_TOKEN` with `pages: write; id-token: write` permissions — the only evaluated hosting option requiring no new credential while keeping all build steps inside GitHub Actions</li>
+<li>Cloudflare Pages free tier provides unlimited bandwidth versus GitHub Pages&#39; 100 GB/month soft limit, but at the expected traffic scale for a personal research site this difference is not material; both platforms are technically viable</li>
+<li>MkDocs Material is the best-fit static-site generator for this repository: it is Python-native (consistent with `src/`), reads YAML frontmatter `tags` via its built-in tags plugin, and provides an official GitHub Actions deployment recipe that uses only `GITHUB_TOKEN`</li>
+<li>Pagefind v1.0 is a stable post-processor that indexes built HTML from any SSG and produces a chunked client-side search index; for 50–200 research items the total search payload is under 50 kB, and it supports tag-based filtering via `data-pagefind-filter` HTML attributes on tag links</li>
+<li>Enabling Pagefind tag filtering in a MkDocs Material site requires a small template override to emit `data-pagefind-filter=&quot;tag&quot;` on tag links in the built HTML; without this customisation, tag navigation and keyword search remain separate UI surfaces</li>
+<li>No free-forever cloud-hosted vector database (Qdrant Cloud, LanceDB Cloud, or Weaviate Cloud) can be integrated without a new API credential not currently in the approved credentials table, making all of them a hard stop under the existing workflow constraints</li>
+<li>Orama (open-source JavaScript library) supports browser-side full-text, vector, and hybrid search with no server requirement, using pre-computed embeddings stored as a static JSON file; at 200 research items using 384-dimension embeddings the JSON file is approximately 300 kB, and the CI embedding generation step adds roughly 60–90 seconds to each build</li>
+<li>LanceDB Cloud is in public beta with a 30-day free trial — it is not a free-forever option — and LanceDB OSS is an in-process embedded database that cannot serve queries from a static site without a serverless function wrapper</li>
+</ol></div>
+
   <div class="item-content">
     <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
 <p>What is the best free or very-low-cost hosting option for this research repository that supports full-text search, and optionally vector/graph database capabilities, without requiring SEO, custom DNS, or authentication?</p>

@@ -647,7 +647,16 @@ main {
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-03-research-loop-quality-prompt-engineering" target="_blank" rel="noopener">wiki →</a>
   </div>
-  
+  <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Items with the Research Skill Output section (§0–§7) produce dramatically better outputs: avg 12.8 sources checked vs. 3.1 without it, and avg 43 key findings vs. 14. The section is the most impactful quality lever already deployed</li>
+<li>40% of pre-2026-03-03 items have at least some sources listed but not consulted; 20% (4/20) have all sources unchecked. This is the primary source engagement failure and is prompt-caused: no explicit instruction existed to mark sources `` when consulted</li>
+<li>The current `research-prompt.md` lacks an instruction to search `Research/completed/` for prior related work before starting a new item. As the corpus grows beyond 20 items this gap becomes a structural deficiency: each new item that ignores prior completed work duplicates effort and misses synthesis opportunities</li>
+<li>Priority ordering in the loop is correct and respected in practice: `research-prompt.md` contains explicit `priority: high → medium → low` rules, confirmed by both document inspection and observed execution order. No fix required</li>
+<li>Chain-of-thought prompting in the form of structured step decomposition (§1 → §2 → §6) is the mechanism behind the Research Skill Output section&#39;s quality improvement, consistent with The Prompt Report (arXiv:2406.06608) documenting CoT as one of 58+ validated techniques</li>
+<li>Negative constraints work better when paired with positive instructions. &quot;Do not reproduce template headings without substantive content&quot; should be paired with &quot;each section must contain defensible prose before the next heading.&quot;</li>
+<li>The Fabric `extract_wisdom` pattern&#39;s use of minimum output counts per section is a more reliable specificity enforcement mechanism than negative constraints alone. Adapting this to Key Findings — requiring each finding to be ≥ 20 words — is the direct route to eliminating one-line vague findings</li>
+<li>A four-check shell quality gate detects the three primary failure modes at low false-positive cost: completed date populated, executive summary word count ≥ 80, ≥ 2 key findings with ≥ 15 words each, and ≥ 1 source marked ``</li>
+</ol></div>
+
   <div class="item-content">
     <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
 <p>How can the quality of research items produced by the <code>research-loop.yml</code> autonomous pipeline be systematically evaluated, and what changes to <code>research-prompt.md</code> and the loop's prompting strategy would produce higher-quality, deeper, more synthesis-rich research outputs?</p>
