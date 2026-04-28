@@ -976,9 +976,9 @@ The research corpus and synthesis layer produce material that has direct value a
 
 ## W-0053
 
-status: open
+status: done
 created: 2026-04-27
-updated: 2026-04-27
+updated: 2026-04-28
 
 ### Outcome
 

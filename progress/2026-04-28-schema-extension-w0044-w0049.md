@@ -1,4 +1,4 @@
-# 2026-04-28 -- Schema Extension: New Research Item Frontmatter Fields (W-0044 to W-0049)
+# 2026-04-28 -- Schema Extension: New Research Item Frontmatter Fields (W-0044 to W-0049) + Tag Co-occurrence Report (W-0053)
 
 **Completed:**
 
@@ -12,17 +12,22 @@
 - `docs-adr/README.md` — updated index with ADR-0013
 - `.github/copilot-instructions.md` — added versions immutability rule to Non-Negotiable Constraints
 - Migration of ~214 completed items + 1 backlog item — all new fields added with defaults via automated script
+- `scripts/tag_report.py` — tag co-occurrence report generator (W-0053): scans completed + backlog items, computes tag frequency, co-occurrence matrix, near-duplicate candidates (Levenshtein ≤ 2 or prefix/suffix overlap ≥ 0.8), singleton tags, strong co-occurrence pairs (>80% threshold, min co-occurrence 2)
+- `.github/workflows/tag-review.yml` — monthly workflow (1st of month, 06:00 UTC) + workflow_dispatch: generates report, commits to main, opens GitHub issue with near-duplicate and singleton candidates
+- `state/tag_report.json` + `state/tag_report.md` — initial report: 214 items scanned, 949 unique tags, 658 singletons, 26 strong synonym pairs, 68 near-duplicate candidates
+- `tests/test_tag_report.py` — 27 tests covering Levenshtein distance, prefix/suffix overlap, tag extraction, co-occurrence matrix, strong pairs, near-duplicates, full report structure, and Markdown rendering
+- `BACKLOG.md` — W-0043 remains open (depends on reviewing W-0053 output); W-0053 marked done
 
 ## Mini-Retro
 
-1. **Did the process work?** Yes. Batching five backlog items into one PR was the right call; the migration could be done once rather than five times. The `swe` → `tdd` → `code-review` loop was applied implicitly throughout.
+1. **Did the process work?** Yes. The W-0053 implementation was clean and self-contained — pure tooling with no migration needed.
 
-2. **What slowed down or went wrong?** One test assertion needed fixing: checking `"superseded-banner" not in html` was too broad because the CSS string contains that class name. The correct assertion is `'<div class="superseded-banner">' not in html`. This is a known pattern with inline-CSS page builders.
+2. **What slowed down or went wrong?** The initial strong-pairs detection was too aggressive: singleton tags (1 occurrence each) that happen to appear in the same item trivially produce 100% co-occurrence ratios, flooding the output with noise. Fixed by requiring `min_cooccurrence ≥ 2`.
 
-3. **What single change would prevent this next time?** For tests that check absence of rendered elements in pages with inline CSS, always check for the full HTML tag form (`<div class="...">`) rather than just the class name string.
+3. **What single change would prevent this next time?** When building co-occurrence metrics, always apply a minimum count filter to exclude trivially-satisfied ratios from low-frequency items. This is a standard data quality pattern for co-occurrence analysis.
 
-4. **Is this a pattern?** Not a recurring one specifically, but "absence test in HTML with inline CSS" is a class of pitfall worth remembering.
+4. **Is this a pattern?** Not previously documented — adding to known patterns: "co-occurrence ratio with no minimum count yields trivial 100% matches."
 
-5. **Does any documentation need updating?** `.github/copilot-instructions.md` updated with versions immutability rule. ADR-0013 written and indexed.
+5. **Does any documentation need updating?** No changes needed beyond what was done here.
 
-6. **Do the default instructions need updating?** No new conventions beyond what was already added in this session.
+6. **Do the default instructions need updating?** No new conventions needed.
