@@ -5,7 +5,7 @@ added: 2026-04-19T23:32:08+00:00
 status: completed
 priority: medium  # low | medium | high
 blocks: []
-tags: [ai, productivity, automation, zapier, notion, slack, task-management, personal-assistant, memory-systems, messaging, ios, workflow]
+tags: [agentic-ai, productivity, automation, zapier, notion, slack, task-management, personal-assistant, memory-system, messaging, ios, workflow]
 started: 2026-04-19T23:32:08+00:00
 completed: 2026-04-19T23:32:08+00:00
 output: [knowledge]

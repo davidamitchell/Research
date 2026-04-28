@@ -5,7 +5,7 @@ added: 2026-03-19T08:21:30+00:00
 status: completed
 priority: high
 blocks: []
-tags: [authorization, policy-as-code, compliance, nist, iso-27001, ai, governance, least-privilege, access-control, iac]
+tags: [authorization, policy-as-code, compliance, nist, iso-27001, agentic-ai, governance, least-privilege, access-control, iac]
 started: 2026-03-19T08:21:30+00:00
 completed: 2026-03-19T08:21:30+00:00
 output: [knowledge]

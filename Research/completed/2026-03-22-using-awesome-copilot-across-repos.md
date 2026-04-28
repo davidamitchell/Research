@@ -5,7 +5,7 @@ added: 2026-03-22T11:22:52+00:00
 status: completed
 priority: high  # low | medium | high
 blocks: []
-tags: [github-copilot, awesome-copilot, instructions, skills, agents, workflows, tooling, repo-setup]
+tags: [github-copilot, awesome-copilot, instructions, skills, agentic-ai, workflow, tooling, repo-setup]
 started: 2026-03-22T11:22:52+00:00
 completed: 2026-03-22T11:22:52+00:00
 output: [knowledge, backlog-item]

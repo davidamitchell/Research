@@ -3,7 +3,7 @@ title: "GitHub Specify, Ralph Loops, and Lisa Planning: Proof-Driven Development
 added: 2026-03-02T05:09:06+00:00
 status: completed
 priority: high
-tags: [proof-driven-development, ai-agents, ralph-loop, lisa-planning, specify, autonomous-development, github-copilot, software-engineering]
+tags: [proof-driven-development, agentic-ai, ralph-loop, lisa-planning, specify, autonomous-development, github-copilot, software-engineering]
 started: 2026-03-02T05:09:06+00:00
 completed: 2026-03-02T05:09:06+00:00
 output: [knowledge]

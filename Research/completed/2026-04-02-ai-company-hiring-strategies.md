@@ -5,7 +5,7 @@ added: 2026-04-19T22:18:52+00:00
 status: completed
 priority: medium  # low | medium | high
 blocks: []
-tags: [ai, hiring, strategy, competitive-intelligence, openai, anthropic, google-deepmind, meta-ai, xai, job-market, wayback-machine]
+tags: [agentic-ai, hiring, strategy, competitive-intelligence, openai, anthropic, google-deepmind, meta-ai, xai, job-market, wayback-machine]
 started: 2026-04-19T22:18:52+00:00
 completed: 2026-04-19T22:18:52+00:00
 output: [knowledge]

@@ -4,7 +4,7 @@ added: 2026-04-02T08:40:00+00:00
 status: completed
 priority: high
 blocks: []
-tags: [ai, funding, investment, venture-capital, infrastructure, strategy]
+tags: [agentic-ai, funding, investment, venture-capital, infrastructure, strategy]
 started: 2026-04-02T08:40:00+00:00
 completed: 2026-04-02T08:40:00+00:00
 output: [knowledge]

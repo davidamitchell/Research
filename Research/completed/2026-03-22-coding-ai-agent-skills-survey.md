@@ -5,7 +5,7 @@ added: 2026-03-22T07:39:46+00:00
 status: completed
 priority: high  # low | medium | high
 blocks: []
-tags: [ai-agents, copilot, skills, prompts, software-engineering, dotnet, python, ddd, cqrs, clean-architecture, solid, api-design, testing, security, kafka, airflow, data-pipelines, data-visualisation, jupyter]
+tags: [agentic-ai, copilot, skills, prompts, software-engineering, dotnet, python, ddd, cqrs, clean-architecture, solid, api-design, testing, security, kafka, airflow, data-pipelines, data-visualisation, jupyter]
 started: 2026-03-22T07:39:46+00:00
 completed: 2026-03-22T07:39:46+00:00
 output: [knowledge]

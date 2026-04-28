@@ -5,7 +5,7 @@ added: 2026-04-28T07:19:00+00:00
 status: completed
 priority: high
 blocks: []
-tags: [uelgf, agentic-ai, emergent-behaviour, goal-misalignment, multi-agent, hallucination, runtime-monitoring, non-determinism, observability, governed-golden-rail]
+tags: [uelgf, agentic-ai, emergent-behaviour, goal-misalignment, multi-agent, hallucinations, runtime-monitoring, non-determinism, observability, governed-golden-rail]
 started: 2026-04-28T09:14:33+00:00
 completed: 2026-04-28T09:43:47+00:00
 output: [knowledge]

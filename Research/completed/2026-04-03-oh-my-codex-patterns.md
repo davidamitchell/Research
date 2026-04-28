@@ -4,7 +4,7 @@ added: 2026-04-03T00:27:58+00:00
 status: completed
 priority: high
 blocks: []
-tags: [ai-agents, tooling, instructions, skills, workflow, codex, copilot, agents-md]
+tags: [agentic-ai, tooling, instructions, skills, workflow, codex, copilot, agents-md]
 started: 2026-04-03T00:27:58+00:00
 completed: 2026-04-03T00:27:58+00:00
 output: [knowledge, backlog-item]

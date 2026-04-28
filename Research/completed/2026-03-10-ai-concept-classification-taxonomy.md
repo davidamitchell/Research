@@ -4,7 +4,7 @@ added: 2026-03-10T19:22:14+00:00
 status: completed
 priority: high
 blocks: [2026-03-10-agent-evaluation-cross-repo-analysis]
-tags: [taxonomy, classification, prompt-engineering, context-engineering, intent-engineering, memory, failure-modes, guardrails, skills, tools, agents, agentic-systems]
+tags: [taxonomy, classification, prompt-engineering, context-engineering, intent-engineering, memory, failure-modes, guardrails, skills, tools, agentic-ai]
 started: 2026-03-10T19:22:14+00:00
 completed: 2026-03-10T19:22:14+00:00
 output: [knowledge]

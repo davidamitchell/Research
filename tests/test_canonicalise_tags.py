@@ -344,36 +344,40 @@ def test_canonicalise_directory_missing_subdir(tmp_path: Path) -> None:
 
 
 def test_no_new_singletons_after_canonicalisation(tmp_path: Path) -> None:
-    """Running canonicalise_directory on the real corpus must not introduce new singletons.
+    """Running canonicalise_directory on the real corpus must not introduce new tags.
 
-    After canonicalisation every tag that was an alias must have disappeared
-    (replaced by its canonical form).  The number of unique tags in the corpus
-    must not increase.
+    After canonicalisation every alias must have been replaced by its canonical
+    form.  The set of unique tags post-canonicalisation must be a subset of the
+    pre-canonicalisation tags (no brand-new tags created).
     """
     root = Path(__file__).parent.parent
     alias_map = load_vocabulary(VOCAB_PATH)
 
-    # Count unique tags BEFORE
+    # Count unique tags BEFORE (in canonical form already or as aliases)
     _, tag_to_slugs_before = collect_tags(root)
     unique_before = set(tag_to_slugs_before.keys())
 
-    # Run canonicalisation in dry-run against real corpus (no writes)
-    changed = canonicalise_directory(root, alias_map, dry_run=True)
-    # At least one file should be changed (corpus has alias tags)
-    assert len(changed) > 0
-
-    # Simulate canonicalised tags to check no new tags appear
-    # (dry-run: we verify the logic without touching files)
-    # Collect all tags that WOULD exist post-canonicalisation
+    # Simulate canonicalised tags (may already be applied to corpus)
     simulated_tags: set[str] = set()
     for _slug, tags in collect_tags(root)[0].items():
         canonical_tags = _canonicalise_list(tags, alias_map)
         simulated_tags.update(canonical_tags)
 
     # After canonicalisation, no tag should appear that wasn't already in the corpus
-    # as a canonical tag (i.e. a canonical tag that was completely absent before)
+    # (i.e. canonicalisation must not introduce previously-unseen strings)
     new_tags = simulated_tags - unique_before
     assert new_tags == set(), f"Canonicalisation would introduce new unknown tags: {new_tags}"
+
+    # Every canonical form in the alias_map that has at least one alias in the corpus
+    # must itself be in the post-canonicalisation set (the alias was replaced).
+    # This asserts that the vocabulary is consistent with the current corpus state.
+    for alias, canonical in alias_map.items():
+        if alias in unique_before and alias != canonical:
+            # alias was present before; it should now map to canonical
+            assert canonical in simulated_tags, (
+                f"Alias '{alias}' was in corpus but canonical '{canonical}' "
+                f"is not in post-canonicalisation tag set"
+            )
 
 
 # ---------------------------------------------------------------------------

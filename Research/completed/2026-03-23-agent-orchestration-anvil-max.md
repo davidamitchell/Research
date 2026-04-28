@@ -5,7 +5,7 @@ added: 2026-03-24T08:12:56+00:00
 status: completed
 priority: high  # low | medium | high
 blocks: []
-tags: [agents, orchestration, personal-assistant, multi-model, copilot-sdk, verification, adversarial-review, skills]
+tags: [agentic-ai, orchestration, personal-assistant, multi-model, copilot-sdk, verification, adversarial-review, skills]
 started: 2026-03-24T08:12:56+00:00
 completed: 2026-03-24T08:12:56+00:00
 output: [knowledge, backlog-item]

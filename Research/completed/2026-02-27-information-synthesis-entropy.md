@@ -3,7 +3,7 @@ title: "Information synthesis: non-lossy compression, entropy, and information t
 added: 2026-03-02T08:16:39+00:00
 status: completed
 priority: high
-tags: [synthesis, information-theory, entropy, compression, ai]
+tags: [synthesis, information-theory, entropy, compression, agentic-ai]
 started: 2026-03-02T08:16:39+00:00
 completed: 2026-03-02T08:16:39+00:00
 output: [knowledge, skill]

@@ -5,7 +5,7 @@ added: 2026-03-20T04:03:13+00:00
 status: completed
 priority: high  # low | medium | high
 blocks: []
-tags: [intent, software-engineering, test-driven-development, specification-driven-development, context-layering, agentic-coding, artificial-intelligence, developer-tooling, design-methodology]
+tags: [intent, software-engineering, tdd, specification-driven-development, context-layering, agentic-coding, artificial-intelligence, developer-tooling, design-methodology]
 started: 2026-03-20T04:03:13+00:00
 completed: 2026-03-20T04:03:13+00:00
 output: [knowledge]

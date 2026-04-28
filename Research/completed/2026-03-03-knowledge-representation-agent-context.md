@@ -3,7 +3,7 @@ title: "Knowledge Representation for Agent Context: LSE, Knowledge Graphs, Conce
 added: 2026-03-03T09:58:16+00:00
 status: completed
 priority: high
-tags: [lse, lsa, knowledge-graphs, concept-maps, document-compression, context-management, rag, agents, knowledge-layering, intent-alignment, graphrag]
+tags: [lse, lsa, knowledge-graph, concept-maps, document-compression, context-management, rag, agentic-ai, knowledge-layering, intent-alignment, graphrag]
 started: 2026-03-03T09:58:16+00:00
 completed: 2026-03-03T09:58:16+00:00
 output: [knowledge, backlog-item]

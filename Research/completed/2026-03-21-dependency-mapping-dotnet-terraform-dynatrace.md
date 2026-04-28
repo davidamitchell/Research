@@ -5,7 +5,7 @@ added: 2026-03-22T05:04:25+00:00
 status: completed
 priority: high  # low | medium | high
 blocks: []
-tags: [dependency-mapping, dotnet, terraform, dynatrace, confluence, log-aggregation, csdm, architecture, discovery, agents, observability, infrastructure-as-code]
+tags: [dependency-mapping, dotnet, terraform, dynatrace, confluence, log-aggregation, csdm, architecture, discovery, agentic-ai, observability, infrastructure-as-code]
 started: 2026-03-22T05:04:25+00:00
 completed: 2026-03-22T05:04:25+00:00
 output: [knowledge]

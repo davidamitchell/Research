@@ -5,7 +5,7 @@ added: 2026-04-26T10:11:11+00:00
 status: completed
 priority: high
 blocks: [2026-04-26-ai-lowcode-governance-maturity-model]
-tags: [control-plane, ai-agents, low-code, enterprise-architecture, policy-propagation, distributed-systems, governance-architecture, feedback-loops, ai-governance]
+tags: [control-plane, agentic-ai, low-code, enterprise-architecture, policy-propagation, distributed-systems, governance-architecture, feedback-loops, ai-governance]
 started: 2026-04-26T10:33:09+00:00
 completed: 2026-04-26T10:52:29+00:00
 output: [knowledge]

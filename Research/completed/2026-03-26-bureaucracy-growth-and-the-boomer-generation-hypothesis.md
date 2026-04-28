@@ -4,7 +4,7 @@ added: 2026-03-26T22:04:26+00:00
 status: completed
 priority: medium
 blocks: []
-tags: [bureaucracy, demographics, baby-boomers, HR, organizational-theory, management, workforce]
+tags: [bureaucracy, demographics, baby-boomers, HR, organisational-theory, management, workforce]
 started: 2026-03-26T22:04:26+00:00
 completed: 2026-03-26T22:04:26+00:00
 output: [knowledge]

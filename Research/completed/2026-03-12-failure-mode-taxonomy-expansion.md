@@ -4,7 +4,7 @@ added: 2026-03-14T11:06:19+00:00
 status: completed
 priority: high
 blocks: []
-tags: [failure-modes, taxonomy, hallucination, reward-hacking, prompt-injection, alignment, agentic-systems, owasp, safety, observability]
+tags: [failure-modes, taxonomy, hallucinations, reward-hacking, prompt-injection, alignment, agentic-ai, owasp, safety, observability]
 started: 2026-03-14T11:06:19+00:00
 completed: 2026-03-14T11:06:19+00:00
 output: [knowledge]

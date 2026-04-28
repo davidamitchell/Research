@@ -5,7 +5,7 @@ added: 2026-04-26T10:11:11+00:00
 status: completed
 priority: medium
 blocks: []
-tags: [vendor-governance, low-code, ai-platforms, compensating-controls, enterprise-governance, platform-limitations, multi-platform, microsoft-power-platform, salesforce]
+tags: [vendor-governance, low-code, ai-platform, compensating-controls, enterprise-governance, platform-limitations, multi-platform, microsoft-power-platform, salesforce]
 started: 2026-04-27T14:18:27+00:00
 completed: 2026-04-27T14:51:41+00:00
 output: [knowledge]

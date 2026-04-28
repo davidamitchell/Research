@@ -4,7 +4,7 @@ added: 2026-03-09T10:22:27+00:00
 status: completed
 priority: high
 blocks: []
-tags: [servicenow, platform-strategy, csdm, itsm, apm, spm, irm, grc, fso, ai, process-mapping, enterprise-architecture, tco]
+tags: [servicenow, platform-strategy, csdm, itsm, apm, spm, irm, grc, fso, agentic-ai, process-mapping, enterprise-architecture, tco]
 started: 2026-03-09T10:22:27+00:00
 completed: 2026-03-09T10:22:27+00:00
 output: [knowledge, backlog-item]
