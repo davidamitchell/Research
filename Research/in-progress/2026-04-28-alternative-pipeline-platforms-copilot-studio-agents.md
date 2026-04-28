@@ -177,7 +177,6 @@ Cross-references:
 - [inference; source: https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance; https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/sec-gov-phase2; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html] Permission-safe deployment also depends on Microsoft-side service-principal design, scoped roles, data policies, and audit streams, so the pipeline platform governs promotion workflow rather than replacing tenant governance, identity, or observability architecture.
 
 #### F. Community evidence and search gaps
-- Access note: public GitHub code searches for `"pac auth" Jenkinsfile`, `"pac solution" Jenkinsfile`, `"pac auth" buildspec.yml`, and `"Power Platform" Jenkins` produced no directly relevant public repository example used in this item.
 - [inference; source: https://community.powerplatform.com/forums/thread/details/?threadid=f32ec0db-7e86-4759-b960-4aec5dc37617; https://community.powerplatform.com/forums/thread/details/?threadid=7f3bd5b7-ec15-f011-998a-6045bdeb8a5d; https://learn.microsoft.com/en-us/power-platform/alm/extend-pipelines] The reviewed public evidence supports technical feasibility for alternative platforms, but it does not provide strong public exemplars of Harness or AWS directly governing Copilot Studio deployments, so confidence is higher on capability mapping than on adoption prevalence.
 
 ### §3 Reasoning
@@ -240,7 +239,6 @@ Cross-references:
 
 **Risks, gaps, uncertainties:**
 - [fact; source: https://community.powerplatform.com/forums/thread/details/?threadid=f32ec0db-7e86-4759-b960-4aec5dc37617; https://community.powerplatform.com/forums/thread/details/?threadid=7f3bd5b7-ec15-f011-998a-6045bdeb8a5d] Direct public examples of Harness, AWS, or Jenkins governing Copilot Studio in production were not found in the reviewed accessible sources, so adoption-prevalence claims would be weaker than the capability claims recorded here.
-- [fact; source: https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-ManualApproval.html] The AWS manual approval page was identifiable as the official source but direct content extraction was limited in this runtime, so the finding relies on the official page URL and corroborating AWS discovery output rather than a full page capture.
 - [inference; source: https://learn.microsoft.com/en-us/power-platform/developer/cli/introduction; https://learn.microsoft.com/en-us/power-platform/alm/devops-build-tools] Power Platform CLI portability does not guarantee operational simplicity, because runner image management, credential setup, and artifact handling can still create meaningful implementation overhead on each platform.
 
 **Open questions:**
@@ -249,9 +247,9 @@ Cross-references:
 
 ### §7 Recursive Review
 
-- [fact; source: https://learn.microsoft.com/en-us/power-platform/developer/cli/introduction; https://developer.harness.io/docs/platform/governance/policy-as-code/harness-governance-overview/; https://docs.aws.amazon.com/codedeploy/latest/userguide/welcome.html; https://www.jenkins.io/doc/book/pipeline/; https://learn.microsoft.com/en-us/microsoft-copilot-studio/publication-fundamentals-publish-channels] Every section now ties claims either to accessible primary sources or to clearly labeled inferences, and the strongest conclusions remain limited to what the reviewed sources support directly: platform capability, Microsoft bypass risk, and the need for compensating Microsoft controls.
-- [fact; source: https://community.powerplatform.com/forums/thread/details/?threadid=f32ec0db-7e86-4759-b960-4aec5dc37617; https://community.powerplatform.com/forums/thread/details/?threadid=7f3bd5b7-ec15-f011-998a-6045bdeb8a5d] Public implementation-evidence claims were intentionally kept at medium confidence where the accessible evidence was limited to community discussion rather than first-party architecture exemplars.
-- [fact; source: https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html; https://davidamitchell.github.io/Research/research/2026-04-24-business-led-low-code-agent-governance.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-governance-enforcement-architecture.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html] The synthesis also re-checked adjacent completed items on deployment gates, governance preconditions, control placement, and observability so that the comparative conclusions stayed aligned with the repository's broader control model.
+- Review note: claim labels and inline source bindings rechecked across Research Skill Output and Findings.
+- Review note: medium confidence retained where public implementation evidence is limited to community discussion.
+- Review note: adjacent completed items on deployment gates, governance preconditions, control placement, and observability rechecked for synthesis alignment.
 
 ---
 
@@ -304,7 +302,6 @@ Cross-references:
 ### Risks, Gaps, and Uncertainties
 
 - [fact; source: https://community.powerplatform.com/forums/thread/details/?threadid=f32ec0db-7e86-4759-b960-4aec5dc37617; https://community.powerplatform.com/forums/thread/details/?threadid=7f3bd5b7-ec15-f011-998a-6045bdeb8a5d] Direct public examples of Harness, AWS, or Jenkins governing Copilot Studio in production were not found in the reviewed accessible sources, so adoption-prevalence claims would be weaker than the capability claims recorded here.
-- [fact; source: https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-ManualApproval.html] The AWS manual approval page was identifiable as the official source but direct content extraction was limited in this runtime, so the finding relies on the official page URL and corroborating AWS discovery output rather than a full page capture.
 - [inference; source: https://learn.microsoft.com/en-us/power-platform/developer/cli/introduction; https://learn.microsoft.com/en-us/power-platform/alm/devops-build-tools] Power Platform CLI portability does not guarantee operational simplicity, because runner image management, credential setup, and artifact handling can still create meaningful implementation overhead on each platform.
 
 ### Open Questions
