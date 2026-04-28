@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-04-28T18:49:37Z",
+  "extracted_at": "2026-04-28T19:05:01Z",
   "items": {
     "2026-04-28-uelgf-tooling-reference-architecture": {
       "named_concepts": [
@@ -153,6 +153,61 @@
         "https://arxiv.org/abs/2506.03053",
         "https://openreview.net/forum?id=zt5JpGQ8WhH",
         "https://www.anthropic.com/research/emergent-misalignment-reward-hacking"
+      ],
+      "key_claims": []
+    },
+    "2026-04-28-alternative-pipeline-platforms-copilot-studio-agents": {
+      "named_concepts": [
+        "copilot studio",
+        "power platform",
+        "harness aws",
+        "codepipeline plus",
+        "plus codebuild",
+        "environment controls",
+        "direct publish",
+        "native governance",
+        "minimum viable",
+        "three platforms",
+        "delegated microsoft",
+        "platform cli",
+        "platform pipelines",
+        "microsoft deployment",
+        "studio deployments",
+        "mostly orthogonal",
+        "deployment targets",
+        "microsoft identity",
+        "human approval",
+        "protected stages"
+      ],
+      "source_urls": [
+        "https://learn.microsoft.com/en-us/power-platform/alm/pipelines",
+        "https://learn.microsoft.com/en-us/power-platform/alm/extend-pipelines",
+        "https://learn.microsoft.com/en-us/power-platform/alm/delegated-deployments-setup",
+        "https://learn.microsoft.com/en-us/power-platform/developer/cli/introduction",
+        "https://learn.microsoft.com/en-us/power-platform/developer/cli/reference/pipeline",
+        "https://learn.microsoft.com/en-us/power-platform/alm/devops-build-tools",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/sec-gov-phase2",
+        "https://learn.microsoft.com/en-us/microsoft-copilot-studio/publication-fundamentals-publish-channels",
+        "https://learn.microsoft.com/en-us/power-platform/guidance/coe/starter-kit",
+        "https://developer.harness.io/docs/continuous-delivery/",
+        "https://developer.harness.io/docs/platform/governance/policy-as-code/harness-governance-overview/",
+        "https://developer.harness.io/docs/continuous-delivery/x-platform-cd-features/cd-steps/approvals/using-harness-approval-steps-in-cd-stages/",
+        "https://developer.harness.io/docs/continuous-delivery/x-platform-cd-features/cd-steps/utilities/shell-script-step/",
+        "https://developer.harness.io/docs/platform/approvals/custom-approvals/",
+        "https://docs.aws.amazon.com/codepipeline/latest/userguide/welcome.html",
+        "https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-ManualApproval.html",
+        "https://docs.aws.amazon.com/codebuild/latest/userguide/welcome.html",
+        "https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html",
+        "https://docs.aws.amazon.com/codedeploy/latest/userguide/welcome.html",
+        "https://www.jenkins.io/doc/book/pipeline/",
+        "https://www.jenkins.io/doc/book/pipeline/shared-libraries/",
+        "https://community.powerplatform.com/forums/thread/details/?threadid=f32ec0db-7e86-4759-b960-4aec5dc37617",
+        "https://community.powerplatform.com/forums/thread/details/?threadid=7f3bd5b7-ec15-f011-998a-6045bdeb8a5d",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-24-business-led-low-code-agent-governance.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-governance-enforcement-architecture.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html"
       ],
       "key_claims": []
     },
