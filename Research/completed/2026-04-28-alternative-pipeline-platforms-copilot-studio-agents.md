@@ -2,12 +2,12 @@
 review_count: 2
 title: "Alternative Continuous Integration and Continuous Delivery pipeline platforms for governing agents built with Microsoft Copilot Studio: Harness, Amazon Web Services CodeBuild and CodeDeploy, and Jenkins"
 added: 2026-04-28T09:33:38+00:00
-status: reviewing
+status: completed
 priority: medium
 blocks: []
 tags: [pipeline-platforms, ci-cd, copilot-studio, power-platform, harness, aws-codebuild, aws-codedeploy, jenkins, governance, orchestration, deployment-pipeline, citizen-development]
 started: 2026-04-28T18:33:09+00:00
-completed: ~
+completed: 2026-04-28T19:02:09+00:00
 output: [knowledge]
 ---
 
