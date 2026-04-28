@@ -2635,14 +2635,14 @@
     "url": "/Research/threads/ai-productivity-team-size.html"
   },
   {
-    "slug": "cost-allocation-tbm-council-financial-services",
-    "title": "cost allocation / tbm council / financial services",
+    "slug": "cost-allocation-financial-services-tbm-council",
+    "title": "cost allocation / financial services / tbm council",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "cost allocation",
-      "tbm council",
-      "financial services"
+      "financial services",
+      "tbm council"
     ],
     "item_count": 5,
     "items": [
@@ -2672,7 +2672,7 @@
         "added": "2026-03-09"
       }
     ],
-    "url": "/Research/threads/cost-allocation-tbm-council-financial-services.html"
+    "url": "/Research/threads/cost-allocation-financial-services-tbm-council.html"
   },
   {
     "slug": "copilot-coding-coding-agent-github-copilot",
@@ -2820,14 +2820,14 @@
     "url": "/Research/threads/nist-ai-ai-rmf-apra-cps.html"
   },
   {
-    "slug": "nist-ai-ai-rmf-copilot-studio",
-    "title": "nist ai / ai rmf / copilot studio",
+    "slug": "nist-ai-ai-rmf-environment-separation",
+    "title": "nist ai / ai rmf / environment separation",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "nist ai",
       "ai rmf",
-      "copilot studio"
+      "environment separation"
     ],
     "item_count": 4,
     "items": [
@@ -2852,7 +2852,7 @@
         "added": "2026-04-28"
       }
     ],
-    "url": "/Research/threads/nist-ai-ai-rmf-copilot-studio.html"
+    "url": "/Research/threads/nist-ai-ai-rmf-environment-separation.html"
   },
   {
     "slug": "github-copilot-agents-md-claude-code",
@@ -3280,14 +3280,14 @@
     "url": "/Research/threads/llm-context-window-mcp.html"
   },
   {
-    "slug": "nist-ai-ai-rmf-iso-iec",
-    "title": "nist ai / ai rmf / iso iec",
+    "slug": "nist-ai-ai-rmf-environment-separation",
+    "title": "nist ai / ai rmf / environment separation",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "nist ai",
       "ai rmf",
-      "iso iec"
+      "environment separation"
     ],
     "item_count": 3,
     "items": [
@@ -3307,17 +3307,17 @@
         "added": "2026-04-26"
       }
     ],
-    "url": "/Research/threads/nist-ai-ai-rmf-iso-iec.html"
+    "url": "/Research/threads/nist-ai-ai-rmf-environment-separation.html"
   },
   {
-    "slug": "agentic-ai-ai-systems-nist-ai",
-    "title": "agentic ai / ai systems / nist ai",
+    "slug": "ai-systems-agentic-ai-prompt-injection",
+    "title": "ai systems / agentic ai / prompt injection",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "agentic ai",
       "ai systems",
-      "nist ai"
+      "agentic ai",
+      "prompt injection"
     ],
     "item_count": 3,
     "items": [
@@ -3337,6 +3337,6 @@
         "added": "2026-04-28"
       }
     ],
-    "url": "/Research/threads/agentic-ai-ai-systems-nist-ai.html"
+    "url": "/Research/threads/ai-systems-agentic-ai-prompt-injection.html"
   }
 ]
