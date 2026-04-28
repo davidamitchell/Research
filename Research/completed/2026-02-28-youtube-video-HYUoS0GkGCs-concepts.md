@@ -7,6 +7,13 @@ tags: [youtube, consciousness, predictive-processing, anil-seth, perception, int
 started: 2026-02-28T04:05:16+00:00
 completed: 2026-02-28T04:05:16+00:00
 output: [knowledge, backlog-item]
+cites: []          # slugs of items this item directly depends on or quotes
+related: []        # slugs of thematically connected items
+superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)
+supersedes: ~      # slug of an older item this one replaces (null if not applicable)
+item_type: primary # primary | synthesis
+confidence: medium # high | medium | low
+versions: []       # entries: {version: "1.0", sha: "<commit-hash>", changed: YYYY-MM-DD, progress: "<path>", summary: "<one-line>"}
 ---
 
 # Reality Is A Controlled Hallucination — Anil Seth (Essentia Foundation): concept extraction and synthesis

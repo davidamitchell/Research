@@ -1,0 +1,138 @@
+name: Tag Review
+
+# Generates a tag co-occurrence report and opens a GitHub issue listing
+# near-duplicate and singleton tag candidates for human review.
+#
+# Outputs:
+#   state/tag_report.json  — machine-readable data
+#   state/tag_report.md    — human-readable summary committed back to main
+#
+# The generated issue summarises strong synonym pairs and near-duplicate
+# candidates so the vocabulary work (W-0043) can be done from evidence
+# rather than from manual inspection.
+#
+# Trigger: monthly on the 1st at 06:00 UTC, or manual workflow_dispatch.
+# No secrets required (reads only; GITHUB_TOKEN used for commit and issue).
+
+on:
+  schedule:
+    - cron: "0 6 1 * *"  # monthly on the 1st
+  workflow_dispatch: {}
+
+concurrency:
+  group: tag-review
+  cancel-in-progress: true
+
+jobs:
+  generate-report:
+    name: Generate tag report
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      issues: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: pip install -e ".[dev]"
+
+      - name: Generate tag report
+        run: python scripts/tag_report.py
+
+      - name: Commit report
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add state/tag_report.json state/tag_report.md
+          if git diff --cached --quiet; then
+            echo "No changes to tag report — skipping commit."
+          else
+            git commit -m "chore: update tag report [skip ci]"
+            git push origin HEAD:main
+          fi
+
+      - name: Build issue body
+        id: issue-body
+        run: |
+          python - <<'PYEOF'
+          import json
+          from pathlib import Path
+
+          data = json.loads(Path("state/tag_report.json").read_text())
+          s = data["summary"]
+
+          lines = [
+              "## Tag review report",
+              "",
+              f"**Total tags:** {s['total_tags']}  ",
+              f"**Items scanned:** {s['total_items_scanned']}  ",
+              f"**Singleton tags:** {s['singleton_count']}  ",
+              f"**Strong synonym pairs:** {s['strong_pair_count']}  ",
+              f"**Near-duplicate candidates:** {s['near_duplicate_count']}",
+              "",
+              "---",
+              "",
+              "### Strong synonym pairs (>80% co-occurrence)",
+              "",
+              "These are highest-priority candidates for the W-0043 canonical vocabulary.",
+              "",
+          ]
+
+          if data["strong_pairs"]:
+              lines += ["| Tag A | Tag B | Co-occ |", "|---|---|---|"]
+              for p in data["strong_pairs"][:20]:
+                  lines.append(f"| `{p['tag_a']}` | `{p['tag_b']}` | {p['cooccurrence']} |")
+          else:
+              lines.append("_None found._")
+
+          lines += [
+              "",
+              "---",
+              "",
+              "### Near-duplicate candidates (distance ≤ 2 or overlap ≥ 0.8)",
+              "",
+          ]
+
+          if data["near_duplicates"]:
+              lines += ["| Tag A | Count | Tag B | Count |", "|---|---|---|---|"]
+              for d in data["near_duplicates"][:30]:
+                  lines.append(
+                      f"| `{d['tag_a']}` | {d['count_a']} | `{d['tag_b']}` | {d['count_b']} |"
+                  )
+          else:
+              lines.append("_None found._")
+
+          lines += [
+              "",
+              "---",
+              "",
+              f"Full report: [`state/tag_report.md`](https://github.com/${{ github.repository }}/blob/main/state/tag_report.md)",
+              "",
+              "_Use this report to populate the canonical vocabulary in W-0043._",
+          ]
+
+          body = "\n".join(lines)
+          # Write to a file to avoid shell quoting issues
+          Path("/tmp/issue_body.md").write_text(body)
+          PYEOF
+
+      - name: Open review issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh issue create \
+            --title "Tag review: $(date +%Y-%m-%d)" \
+            --body-file /tmp/issue_body.md \
+            --label "tag-review" || \
+          gh issue create \
+            --title "Tag review: $(date +%Y-%m-%d)" \
+            --body-file /tmp/issue_body.md

@@ -613,6 +613,28 @@ main {
 .thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
 .thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
 .thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+
+/* Item type / confidence badges */
+.badge { display: inline-block; padding: 0.1rem 0.45rem; font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; border: 1px solid transparent; font-family: 'IBM Plex Mono', monospace; }
+.badge-synthesis { background: transparent; border-color: var(--dusk); color: var(--dusk); }
+.badge-confidence-high { background: transparent; border-color: #52c496; color: #52c496; }
+.badge-confidence-medium { background: transparent; border-color: var(--text-muted); color: var(--text-muted); }
+.badge-confidence-low { background: transparent; border-color: #e05252; color: #e05252; }
+
+/* Superseded banner */
+.superseded-banner { background: var(--surface-2); border: 1px solid var(--dusk); color: var(--dusk); font-size: var(--text-sm); padding: 0.6rem 1rem; margin-bottom: 1.5rem; line-height: 1.4; }
+.superseded-banner a { color: var(--dusk); text-decoration: underline; }
+
+/* Cites / related items */
+.cites-section { margin-top: 2.5rem; }
+.cites-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.cites-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); }
+.cites-entry:last-child { border-bottom: none; }
+.cites-entry a { color: var(--teal); word-break: break-word; }
+
+/* Version history table */
+.versions-section { margin-top: 2.5rem; }
+.versions-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
 </style>
 
         </head>
@@ -643,11 +665,13 @@ main {
     <span class="meta-sep">·</span>
     <a class="tag" href="/Research/tags/financial-forecasting.html">financial-forecasting</a> <a class="tag" href="/Research/tags/it-run-costs.html">it-run-costs</a> <a class="tag" href="/Research/tags/uncertainty-modelling.html">uncertainty-modelling</a> <a class="tag" href="/Research/tags/regulatory.html">regulatory</a> <a class="tag" href="/Research/tags/error-bars.html">error-bars</a> <a class="tag" href="/Research/tags/infrastructure-costing.html">infrastructure-costing</a> <a class="tag" href="/Research/tags/assumptions.html">assumptions</a> 
     <span class="meta-sep">·</span>
+    <span class="badge badge-confidence-medium">medium</span> 
+    <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-13-financial-forecasting-it-run-costs.md" target="_blank" rel="noopener">source →</a>
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-13-financial-forecasting-it-run-costs" target="_blank" rel="noopener">wiki →</a>
   </div>
-  <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>The TBM Council V4 taxonomy is the de facto industry standard for categorising IT operational costs, providing a cost pool layer — labour, Software-as-a-Service (SaaS), cloud services, hardware, telecom, and facilities — that forms the required structure for building auditable run-cost estimates across all deployment models</li>
+    <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>The TBM Council V4 taxonomy is the de facto industry standard for categorising IT operational costs, providing a cost pool layer — labour, Software-as-a-Service (SaaS), cloud services, hardware, telecom, and facilities — that forms the required structure for building auditable run-cost estimates across all deployment models</li>
 <li>Infrastructure-as-a-Service (IaaS) cloud compute costs are consumption-driven and metered by the second, making them the highest-volatility IT cost category: cloud spend can increase 20–30% annually without active governance, driven by usage growth that outpaces the per-unit price reductions that cloud providers have historically delivered</li>
 <li>Eight canonical assumptions must be documented for an IT run-cost estimate to be auditable: consumption growth rate by category, unit prices and vendor escalation clauses, staffing headcount and grade mix, currency and exchange rate assumptions, vendor contract terms and renewal dates, capitalisation versus expense treatment, hardware refresh cycle schedule, and planned organisational changes such as cloud migrations or divestitures</li>
 <li>Scenario analysis, sensitivity analysis (tornado charts), and Monte Carlo simulation are complementary uncertainty modelling techniques addressing different aspects of forecast uncertainty: scenario analysis describes qualitatively different futures; sensitivity analysis identifies which assumptions drive the most variance; Monte Carlo produces a probability distribution of outcomes required for regulatory or board-level defensibility</li>
@@ -795,6 +819,8 @@ main {
 
 
   </div>
+  
+  
   
   <div class="item-nav">
     <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-12-hosting-options-for-the-research-repo.html">Hosting options for the Research repo</a></div>

@@ -8,6 +8,13 @@ tags: [agentic-systems, programming-languages, dsl, failure-modes, intent-alignm
 started: 2026-03-11T07:54:09+00:00
 completed: 2026-03-11T07:54:09+00:00
 output: []
+cites: []          # slugs of items this item directly depends on or quotes
+related: []        # slugs of thematically connected items
+superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)
+supersedes: ~      # slug of an older item this one replaces (null if not applicable)
+item_type: primary # primary | synthesis
+confidence: medium # high | medium | low
+versions: []       # entries: {version: "1.0", sha: "<commit-hash>", changed: YYYY-MM-DD, progress: "<path>", summary: "<one-line>"}
 ---
 
 # Language designed for LLM agents to produce: addressing generation-layer failure modes in agentic systems

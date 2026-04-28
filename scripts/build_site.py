@@ -683,6 +683,28 @@ main {
 .thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
 .thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
 .thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+
+/* Item type / confidence badges */
+.badge { display: inline-block; padding: 0.1rem 0.45rem; font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; border: 1px solid transparent; font-family: 'IBM Plex Mono', monospace; }
+.badge-synthesis { background: transparent; border-color: var(--dusk); color: var(--dusk); }
+.badge-confidence-high { background: transparent; border-color: #52c496; color: #52c496; }
+.badge-confidence-medium { background: transparent; border-color: var(--text-muted); color: var(--text-muted); }
+.badge-confidence-low { background: transparent; border-color: #e05252; color: #e05252; }
+
+/* Superseded banner */
+.superseded-banner { background: var(--surface-2); border: 1px solid var(--dusk); color: var(--dusk); font-size: var(--text-sm); padding: 0.6rem 1rem; margin-bottom: 1.5rem; line-height: 1.4; }
+.superseded-banner a { color: var(--dusk); text-decoration: underline; }
+
+/* Cites / related items */
+.cites-section { margin-top: 2.5rem; }
+.cites-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.cites-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); }
+.cites-entry:last-child { border-bottom: none; }
+.cites-entry a { color: var(--teal); word-break: break-word; }
+
+/* Version history table */
+.versions-section { margin-top: 2.5rem; }
+.versions-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
 """
 
 # ---------------------------------------------------------------------------
@@ -1196,6 +1218,12 @@ def load_items() -> tuple[list[dict], dict[str, int]]:
         sources_text = extract_section(body, "Sources")
         question = sections.get("Research Question", "")
         thread_field = meta.get("thread", "")
+        superseded_by = meta.get("superseded_by") or None
+        if superseded_by:
+            superseded_by = str(superseded_by).strip()
+        supersedes = meta.get("supersedes") or None
+        if supersedes:
+            supersedes = str(supersedes).strip()
         items.append(
             {
                 "slug": slug,
@@ -1211,6 +1239,13 @@ def load_items() -> tuple[list[dict], dict[str, int]]:
                 "question_excerpt": question[:200].strip(),
                 "github_url": GITHUB_BASE + name,
                 "thread": str(thread_field).strip() if thread_field else "",
+                "cites": list(meta.get("cites") or []),
+                "related_slugs": list(meta.get("related") or []),
+                "superseded_by": superseded_by,
+                "supersedes": supersedes,
+                "item_type": str(meta.get("item_type") or "primary"),
+                "confidence": str(meta.get("confidence") or "medium"),
+                "versions": list(meta.get("versions") or []),
             }
         )
     # Sort newest-first by full datetime; within the same second the filename
@@ -1509,12 +1544,19 @@ def render_card(item: dict, link_prefix: str = "/Research/research/") -> str:
     excerpt = item["question_excerpt"]
     if len(item["question"]) > 200:
         excerpt = excerpt.rstrip() + "…"
+    item_type = item.get("item_type", "primary")
+    synthesis_badge = (
+        '<span class="badge badge-synthesis">synthesis</span> ' if item_type == "synthesis" else ""
+    )
+    superseded_by = item.get("superseded_by")
+    superseded_attr = ' data-superseded="true"' if superseded_by else ""
     return (
         f'<a class="card" href="{link_prefix}{item["slug"]}.html"'
         f' data-title="{escape(item["display_title"].lower())}"'
         f' data-question="{escape(item["question_excerpt"].lower())}"'
-        f' data-tags="{escape(",".join(item["tags"]))}">\n'
-        f'  <div class="card-title">{escape(item["display_title"])}</div>\n'
+        f' data-tags="{escape(",".join(item["tags"]))}"'
+        f"{superseded_attr}>\n"
+        f'  <div class="card-title">{escape(item["display_title"])}{synthesis_badge}</div>\n'
         f'  <div class="card-meta">{item["added_str"]}</div>\n'
         f'  <div class="card-tags">{tags_html}</div>\n'
         f'  <div class="card-excerpt">{escape(excerpt)}</div>\n'
@@ -2049,12 +2091,131 @@ def _render_related(related: list[dict]) -> str:
     )
 
 
+def _render_cites_related(
+    item: dict,
+    slug_to_item: dict[str, dict],
+) -> str:
+    """Render cites and frontmatter-related sections for an item page."""
+    parts = []
+
+    cites_slugs = item.get("cites") or []
+    if cites_slugs:
+        entries_html = ""
+        for slug in cites_slugs:
+            other = slug_to_item.get(slug)
+            if other:
+                entries_html += (
+                    f'<div class="cites-entry">'
+                    f'<span class="rel-pill">cites</span> '
+                    f'<a href="/Research/research/{escape(other["slug"])}.html">'
+                    f"{escape(other['title'])}</a>"
+                    f"</div>\n"
+                )
+            else:
+                entries_html += (
+                    f'<div class="cites-entry">'
+                    f'<span class="rel-pill">cites</span> '
+                    f"<span>{escape(slug)}</span>"
+                    f"</div>\n"
+                )
+        parts.append(
+            f'<div class="cites-section">'
+            f'<div class="cites-group-label">cites</div>'
+            f"{entries_html}"
+            f"</div>\n"
+        )
+
+    related_slugs = item.get("related_slugs") or []
+    if related_slugs:
+        entries_html = ""
+        for slug in related_slugs:
+            other = slug_to_item.get(slug)
+            if other:
+                entries_html += (
+                    f'<div class="cites-entry">'
+                    f'<span class="rel-pill">related</span> '
+                    f'<a href="/Research/research/{escape(other["slug"])}.html">'
+                    f"{escape(other['title'])}</a>"
+                    f"</div>\n"
+                )
+            else:
+                entries_html += (
+                    f'<div class="cites-entry">'
+                    f'<span class="rel-pill">related</span> '
+                    f"<span>{escape(slug)}</span>"
+                    f"</div>\n"
+                )
+        parts.append(
+            f'<div class="cites-section">'
+            f'<div class="cites-group-label">related (frontmatter)</div>'
+            f"{entries_html}"
+            f"</div>\n"
+        )
+
+    supersedes_slug = item.get("supersedes")
+    if supersedes_slug:
+        other = slug_to_item.get(supersedes_slug)
+        if other:
+            entry = (
+                f'<div class="cites-entry">'
+                f'<span class="rel-pill">supersedes</span> '
+                f'<a href="/Research/research/{escape(other["slug"])}.html">'
+                f"{escape(other['title'])}</a>"
+                f"</div>\n"
+            )
+        else:
+            entry = (
+                f'<div class="cites-entry">'
+                f'<span class="rel-pill">supersedes</span> '
+                f"<span>{escape(supersedes_slug)}</span>"
+                f"</div>\n"
+            )
+        parts.append(
+            f'<div class="cites-section">'
+            f'<div class="cites-group-label">supersedes</div>'
+            f"{entry}"
+            f"</div>\n"
+        )
+
+    return "".join(parts)
+
+
+def _render_versions(item: dict) -> str:
+    """Render version history table for an item page."""
+    versions = item.get("versions") or []
+    if not versions:
+        return ""
+    commit_base = "https://github.com/davidamitchell/Research/commit/"
+    rows = ""
+    for v in versions:
+        ver = escape(str(v.get("version", "")))
+        changed = escape(str(v.get("changed", "")))
+        summary = escape(str(v.get("summary", "")))
+        sha = str(v.get("sha", "")).strip()
+        sha_cell = (
+            f'<a href="{commit_base}{escape(sha)}" target="_blank" rel="noopener">'
+            f"{escape(sha[:7])}</a>"
+            if sha and sha not in ("~", "null", "None")
+            else ""
+        )
+        rows += f"<tr><td>{ver}</td><td>{changed}</td><td>{sha_cell}</td><td>{summary}</td></tr>\n"
+    return (
+        '<div class="versions-section">'
+        '<div class="versions-label">version history</div>'
+        "<table><thead><tr>"
+        "<th>version</th><th>date</th><th>commit</th><th>summary</th>"
+        f"</tr></thead><tbody>{rows}</tbody></table>"
+        "</div>\n"
+    )
+
+
 def build_item_page(
     item: dict,
     prev_item: dict | None,
     next_item: dict | None,
     related: list[dict] | None = None,
     meta_claims: list[str] | None = None,
+    slug_to_item: dict[str, dict] | None = None,
 ) -> str:
     """Generate docs/research/<slug>.html."""
     md = MarkdownIt().enable("table").enable("strikethrough")
@@ -2067,6 +2228,21 @@ def build_item_page(
         f'<a class="tag" href="/Research/tags/{escape(t)}.html">{escape(t)}</a> '
         for t in item["tags"]
     )
+
+    # Synthesis badge
+    item_type = item.get("item_type", "primary")
+    synthesis_badge = (
+        '<span class="badge badge-synthesis">synthesis</span> ' if item_type == "synthesis" else ""
+    )
+
+    # Confidence badge
+    confidence = item.get("confidence", "medium")
+    conf_class = {
+        "high": "badge-confidence-high",
+        "medium": "badge-confidence-medium",
+        "low": "badge-confidence-low",
+    }.get(confidence, "badge-confidence-medium")
+    confidence_badge = f'<span class="badge {conf_class}">{escape(confidence)}</span> '
 
     # Key claims from pre-extracted metadata (clean, source-URL-free sentences)
     key_claims_html = _render_key_claims(meta_claims or [])
@@ -2096,6 +2272,25 @@ def build_item_page(
         sections_html += f"<h2>{ICON_TAG_H2}sources</h2>\n{rendered_sources}\n"
 
     related_html = _render_related(related or [])
+    cites_related_html = _render_cites_related(item, slug_to_item or {})
+    versions_html = _render_versions(item)
+
+    # Superseded banner
+    superseded_by = item.get("superseded_by")
+    superseded_html = ""
+    if superseded_by:
+        other = (slug_to_item or {}).get(superseded_by)
+        if other:
+            superseded_html = (
+                f'<div class="superseded-banner">⚠ This item has been superseded by '
+                f'<a href="/Research/research/{escape(other["slug"])}.html">'
+                f"{escape(other['title'])}</a>. Findings may be out of date.</div>\n"
+            )
+        else:
+            superseded_html = (
+                f'<div class="superseded-banner">⚠ This item has been superseded by '
+                f"{escape(superseded_by)}. Findings may be out of date.</div>\n"
+            )
 
     # Subtitle line shown when display_title has been shortened
     subtitle_html = ""
@@ -2138,15 +2333,19 @@ def build_item_page(
     <span class="meta-sep">·</span>
     {tags_html}
     <span class="meta-sep">·</span>
+    {synthesis_badge}{confidence_badge}
+    <span class="meta-sep">·</span>
     <a class="source-link" href="{item["github_url"]}" target="_blank" rel="noopener">source →</a>
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/{wiki_slug}" target="_blank" rel="noopener">wiki →</a>
   </div>
-  {key_claims_html}
+  {superseded_html}  {key_claims_html}
   <div class="item-content">
     {sections_html}
   </div>
   {related_html}
+  {cites_related_html}
+  {versions_html}
   <div class="item-nav">
     {prev_html}
     {next_html}
@@ -2478,12 +2677,13 @@ def main() -> None:
 
     # 6. Individual item pages
     print(f"Building {len(items)} item pages…")
+    slug_to_item: dict[str, dict] = {item["slug"]: item for item in items}
     for i, item in enumerate(items):
         prev_item = items[i - 1] if i > 0 else None
         next_item = items[i + 1] if i < len(items) - 1 else None
         related = links.get(item["slug"], [])
         meta_claims = metadata.get("items", {}).get(item["slug"], {}).get("key_claims", [])
-        html = build_item_page(item, prev_item, next_item, related, meta_claims)
+        html = build_item_page(item, prev_item, next_item, related, meta_claims, slug_to_item)
         (RESEARCH_DIR / f"{item['slug']}.html").write_text(html, encoding="utf-8")
         pages_written += 1
 

@@ -613,6 +613,28 @@ main {
 .thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
 .thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
 .thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+
+/* Item type / confidence badges */
+.badge { display: inline-block; padding: 0.1rem 0.45rem; font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; border: 1px solid transparent; font-family: 'IBM Plex Mono', monospace; }
+.badge-synthesis { background: transparent; border-color: var(--dusk); color: var(--dusk); }
+.badge-confidence-high { background: transparent; border-color: #52c496; color: #52c496; }
+.badge-confidence-medium { background: transparent; border-color: var(--text-muted); color: var(--text-muted); }
+.badge-confidence-low { background: transparent; border-color: #e05252; color: #e05252; }
+
+/* Superseded banner */
+.superseded-banner { background: var(--surface-2); border: 1px solid var(--dusk); color: var(--dusk); font-size: var(--text-sm); padding: 0.6rem 1rem; margin-bottom: 1.5rem; line-height: 1.4; }
+.superseded-banner a { color: var(--dusk); text-decoration: underline; }
+
+/* Cites / related items */
+.cites-section { margin-top: 2.5rem; }
+.cites-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.cites-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); }
+.cites-entry:last-child { border-bottom: none; }
+.cites-entry a { color: var(--teal); word-break: break-word; }
+
+/* Version history table */
+.versions-section { margin-top: 2.5rem; }
+.versions-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
 </style>
 
         </head>
@@ -643,11 +665,13 @@ main {
     <span class="meta-sep">·</span>
     <a class="tag" href="/Research/tags/formal-methods.html">formal-methods</a> <a class="tag" href="/Research/tags/formal-verification.html">formal-verification</a> <a class="tag" href="/Research/tags/lean.html">lean</a> <a class="tag" href="/Research/tags/ai-agents.html">ai-agents</a> <a class="tag" href="/Research/tags/guardrails.html">guardrails</a> 
     <span class="meta-sep">·</span>
+    <span class="badge badge-confidence-medium">medium</span> 
+    <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-18-formal-proof-engineering-leanstral.md" target="_blank" rel="noopener">source →</a>
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-18-formal-proof-engineering-leanstral" target="_blank" rel="noopener">wiki →</a>
   </div>
-  <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Leanstral is officially presented as an open-source Lean 4 proof-engineering agent with Mistral Vibe integration, a free model endpoint, and specialized training for realistic formal repositories, which makes it best understood as a focused proving tool rather than as a general-purpose safe-coding assistant</li>
+    <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Leanstral is officially presented as an open-source Lean 4 proof-engineering agent with Mistral Vibe integration, a free model endpoint, and specialized training for realistic formal repositories, which makes it best understood as a focused proving tool rather than as a general-purpose safe-coding assistant</li>
 <li>Lean 4 provides a stronger trust anchor than ordinary AI coding workflows because its kernel checks proof terms, its toolchain includes replay and build-verification tools such as leanchecker and Lake, and its ecosystem includes a mature shared library in mathlib</li>
 <li>The surrounding Lean ecosystem already demonstrates multiple viable patterns for AI-assisted proving - repository tracing and retrieval in LeanDojo and ReProver, interactive backtracking search in Copra, and human-in-the-loop editor assistance in Lean Copilot - so Leanstral extends an existing trajectory rather than inventing the category</li>
 <li>Leanstral&#39;s main differentiator is likely productization and cost-focused specialization for repository-scale proof engineering, but its stronger benchmark claims should be treated as provisional until independently reproduced because the available evidence comes from vendor-controlled evaluation materials</li>
@@ -751,6 +775,8 @@ main {
   <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-03-14-reliable-software-llm-era.html">Reliable Software in the LLM Era</a> <span class="related-note">via formal-methods, formal-verification</span></div>
 </div></div>
 
+  
+  
   <div class="item-nav">
     <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-19-layered-org-llm-architecture.html">Layered Organisation Large Language Model</a></div>
     <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-18-explore-to-exploit-synthesis-gap.html">Explore to exploit</a></div>

@@ -613,6 +613,28 @@ main {
 .thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
 .thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
 .thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+
+/* Item type / confidence badges */
+.badge { display: inline-block; padding: 0.1rem 0.45rem; font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; border: 1px solid transparent; font-family: 'IBM Plex Mono', monospace; }
+.badge-synthesis { background: transparent; border-color: var(--dusk); color: var(--dusk); }
+.badge-confidence-high { background: transparent; border-color: #52c496; color: #52c496; }
+.badge-confidence-medium { background: transparent; border-color: var(--text-muted); color: var(--text-muted); }
+.badge-confidence-low { background: transparent; border-color: #e05252; color: #e05252; }
+
+/* Superseded banner */
+.superseded-banner { background: var(--surface-2); border: 1px solid var(--dusk); color: var(--dusk); font-size: var(--text-sm); padding: 0.6rem 1rem; margin-bottom: 1.5rem; line-height: 1.4; }
+.superseded-banner a { color: var(--dusk); text-decoration: underline; }
+
+/* Cites / related items */
+.cites-section { margin-top: 2.5rem; }
+.cites-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.cites-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); }
+.cites-entry:last-child { border-bottom: none; }
+.cites-entry a { color: var(--teal); word-break: break-word; }
+
+/* Version history table */
+.versions-section { margin-top: 2.5rem; }
+.versions-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
 </style>
 
         </head>
@@ -642,11 +664,13 @@ main {
     <span class="meta-sep">·</span>
     <a class="tag" href="/Research/tags/search.html">search</a> <a class="tag" href="/Research/tags/embeddings.html">embeddings</a> <a class="tag" href="/Research/tags/indexing.html">indexing</a> <a class="tag" href="/Research/tags/rag.html">rag</a> 
     <span class="meta-sep">·</span>
+    <span class="badge badge-confidence-medium">medium</span> 
+    <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-02-semantic-full-text-search.md" target="_blank" rel="noopener">source →</a>
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-02-semantic-full-text-search" target="_blank" rel="noopener">wiki →</a>
   </div>
-  <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>SQLite FTS5 BM25 full-text search requires zero additional Python dependencies beyond the stdlib `sqlite3` module and delivers sub-millisecond query latency for corpora of fewer than 500 documents, making it the correct and sufficient Phase 1 implementation</li>
+    <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>SQLite FTS5 BM25 full-text search requires zero additional Python dependencies beyond the stdlib `sqlite3` module and delivers sub-millisecond query latency for corpora of fewer than 500 documents, making it the correct and sufficient Phase 1 implementation</li>
 <li>The four query patterns for this corpus — tag-based, keyword, topic/conceptual, and recency — split cleanly: tag and recency queries require only YAML front-matter metadata lookups; keyword queries are served by FTS5; only conceptual queries (&quot;what do I know about X&quot;) require semantic search, and these are the least frequent query type for a single-owner corpus</li>
 <li>Model2Vec (potion-base-8M) is the correct embedding model for Phase 2: it is ~30–50 MB, requires only numpy (no PyTorch), runs ~200x faster on CPU than all-MiniLM-L6-v2, and achieves 91–93% of MiniLM&#39;s MTEB accuracy, which is adequate for structured research-item retrieval</li>
 <li>sqlite-vec is a pre-v1 extension with explicitly declared breaking-change risk; it must be pinned to a specific version in `requirements.txt`/`pyproject.toml` and upgraded only intentionally, with the Phase 2 ADR documenting this constraint</li>
@@ -745,6 +769,8 @@ main {
 <div class="related-entry"><a href="/Research/research/2026-03-02-agent-memory-management-context-injection.html">Agent Memory Management and Context Injection</a> <span class="related-note">via embeddings, rag</span></div>
 </div></div>
 
+  
+  
   <div class="item-nav">
     <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-02-slack-msteams-research-integration.html">Slack and MS Teams integration for research delivery and capture</a></div>
     <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-07-run-vs-build-it-spending-allocation.html">RUN vs BUILD IT spending allocation in non-IT primary businesses</a></div>

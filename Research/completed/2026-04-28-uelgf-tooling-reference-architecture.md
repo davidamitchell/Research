@@ -9,6 +9,13 @@ tags: [uelgf, tooling, reference-architecture, policy-as-code, opa, cedar, opent
 started: 2026-04-28T10:14:29+00:00
 completed: 2026-04-28T10:50:36+00:00
 output: [knowledge]
+cites: []          # slugs of items this item directly depends on or quotes
+related: []        # slugs of thematically connected items
+superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)
+supersedes: ~      # slug of an older item this one replaces (null if not applicable)
+item_type: primary # primary | synthesis
+confidence: medium # high | medium | low
+versions: []       # entries: {version: "1.0", sha: "<commit-hash>", changed: YYYY-MM-DD, progress: "<path>", summary: "<one-line>"}
 ---
 
 # UELGF extension: tooling specification and reference architecture for policy-as-code, observability, and IAM implementation

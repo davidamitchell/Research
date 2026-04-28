@@ -613,6 +613,28 @@ main {
 .thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
 .thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
 .thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+
+/* Item type / confidence badges */
+.badge { display: inline-block; padding: 0.1rem 0.45rem; font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; border: 1px solid transparent; font-family: 'IBM Plex Mono', monospace; }
+.badge-synthesis { background: transparent; border-color: var(--dusk); color: var(--dusk); }
+.badge-confidence-high { background: transparent; border-color: #52c496; color: #52c496; }
+.badge-confidence-medium { background: transparent; border-color: var(--text-muted); color: var(--text-muted); }
+.badge-confidence-low { background: transparent; border-color: #e05252; color: #e05252; }
+
+/* Superseded banner */
+.superseded-banner { background: var(--surface-2); border: 1px solid var(--dusk); color: var(--dusk); font-size: var(--text-sm); padding: 0.6rem 1rem; margin-bottom: 1.5rem; line-height: 1.4; }
+.superseded-banner a { color: var(--dusk); text-decoration: underline; }
+
+/* Cites / related items */
+.cites-section { margin-top: 2.5rem; }
+.cites-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.cites-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); }
+.cites-entry:last-child { border-bottom: none; }
+.cites-entry a { color: var(--teal); word-break: break-word; }
+
+/* Version history table */
+.versions-section { margin-top: 2.5rem; }
+.versions-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
 </style>
 
         </head>
@@ -642,11 +664,13 @@ main {
     <span class="meta-sep">·</span>
     <a class="tag" href="/Research/tags/research-methodology.html">research-methodology</a> <a class="tag" href="/Research/tags/quality-assurance.html">quality-assurance</a> <a class="tag" href="/Research/tags/knowledge-integration.html">knowledge-integration</a> <a class="tag" href="/Research/tags/ci.html">ci</a> <a class="tag" href="/Research/tags/skills.html">skills</a> <a class="tag" href="/Research/tags/synthesis.html">synthesis</a> 
     <span class="meta-sep">·</span>
+    <span class="badge badge-confidence-medium">medium</span> 
+    <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-02-research-quality-assurance-methodology.md" target="_blank" rel="noopener">source →</a>
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-02-research-quality-assurance-methodology" target="_blank" rel="noopener">wiki →</a>
   </div>
-  <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>The three existing skills leave logical coherence, alternative explanations, and cross-item integration uncovered</li>
+    <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>The three existing skills leave logical coherence, alternative explanations, and cross-item integration uncovered</li>
 <li>LLM agents can check logical coherence and missing alternative explanations at a quality level matching median human peer reviewers</li>
 <li>A four-tier quality review pipeline sequenced by automation cost is the correct architecture: structural checks → single-item agent review → cross-item agent review → human domain review</li>
 <li>The existing `research-review.yml` Tier 2 agent review should be extended with two new checks: logical coherence (does §6 Synthesis follow from §2 Investigation?) and evidence sufficiency (is the confidence level calibrated to source count and independence?)</li>
@@ -753,6 +777,8 @@ main {
   <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-03-03-knowledge-linking-connected-corpus.html">Knowledge linking: building a connected research corpus via explicit cross-references and a knowledge graph</a> <span class="related-note">via knowledge-integration, synthesis</span></div>
 </div></div>
 
+  
+  
   <div class="item-nav">
     <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-07-run-vs-build-it-spending-allocation.html">RUN vs BUILD IT spending allocation in non-IT primary businesses</a></div>
     <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-02-ios-shortcuts-research.html">iOS Shortcuts for research capture and query</a></div>

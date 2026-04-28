@@ -9,6 +9,13 @@ tags: [governance-cost, delivery-performance, ai-governance, low-code, economic-
 started: 2026-04-27T11:54:45+00:00
 completed: 2026-04-27T12:25:39+00:00
 output: [knowledge]
+cites: []          # slugs of items this item directly depends on or quotes
+related: []        # slugs of thematically connected items
+superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)
+supersedes: ~      # slug of an older item this one replaces (null if not applicable)
+item_type: primary # primary | synthesis
+confidence: medium # high | medium | low
+versions: []       # entries: {version: "1.0", sha: "<commit-hash>", changed: YYYY-MM-DD, progress: "<path>", summary: "<one-line>"}
 ---
 
 # What is the cost, performance, and delivery impact of governance controls on AI and low-code development?

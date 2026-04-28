@@ -8,6 +8,13 @@ tags: [knowledge-graph, zettelkasten, cross-references, linking, synthesis, back
 started: 2026-03-03T09:37:29+00:00
 completed: 2026-03-03T09:37:29+00:00
 output: [knowledge, tool, backlog-item]
+cites: []          # slugs of items this item directly depends on or quotes
+related: []        # slugs of thematically connected items
+superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)
+supersedes: ~      # slug of an older item this one replaces (null if not applicable)
+item_type: primary # primary | synthesis
+confidence: medium # high | medium | low
+versions: []       # entries: {version: "1.0", sha: "<commit-hash>", changed: YYYY-MM-DD, progress: "<path>", summary: "<one-line>"}
 ---
 
 # Knowledge linking: building a connected research corpus via explicit cross-references and a knowledge graph

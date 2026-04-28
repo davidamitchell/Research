@@ -39,6 +39,29 @@ failure mechanism, especially identity, access control, information
 architecture, rate limiting, deployment pipelines, systems-capability debt, and
 other governance surfaces your conclusions touch.
 
+**Frontmatter fields to populate during research (set before committing):**
+
+- `cites:` — after §2 Investigation, list the slugs (filename without `.md`) of
+  any completed items this item directly depends on or quotes. Set during §6
+  Synthesis when evidence from prior items is used.
+- `related:` — list slugs of completed items that are thematically connected but
+  not directly cited. Set during §6 Synthesis.
+- `supersedes:` — if the new findings materially contradict or replace the
+  conclusions of an existing completed item, set this to that item's slug and
+  also update `superseded_by:` in the older item to this item's slug.
+- `item_type:` — set to `synthesis` if the research question explicitly asks to
+  integrate or compare findings across existing completed items; otherwise leave
+  as `primary`.
+- `confidence:` — set at §7 Recursive Review based on the overall evidence
+  quality of the Key Findings:
+  - `high` — all key findings supported by primary sources; no unresolved contradictions
+  - `medium` — key findings supported by secondary sources or inference chains with low uncertainty
+  - `low` — key findings rely on a single source, significant gaps remain, or multiple unresolved contradictions exist
+- `versions:` — leave as `[]` on initial completion. Add a version entry
+  (`version: "1.0"`, `sha: <commit hash>`, `changed: YYYY-MM-DD`,
+  `progress: <session log path>`, `summary: "Initial completion"`) after the
+  item is committed and you have the commit SHA.
+
 ### 2. Research the item -- follow the research skill in full
 
 Open `.github/skills/research/SKILL.md` and run every section. Write the
