@@ -1,6 +1,55 @@
 {
-  "extracted_at": "2026-04-28T09:31:33Z",
+  "extracted_at": "2026-04-28T09:46:25Z",
   "items": {
+    "2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring": {
+      "named_concepts": [
+        "tighter admission",
+        "admission controls",
+        "verification hold",
+        "narrower scope",
+        "early-warning thresholds",
+        "source-confidence thresholds",
+        "action execution",
+        "non-deterministic agents",
+        "controls narrower",
+        "stronger post-action",
+        "post-action containment",
+        "containment remain",
+        "remain necessary",
+        "existing response",
+        "runtime precursor",
+        "precursor monitoring",
+        "governed rail",
+        "continuous lifecycle-wide",
+        "lifecycle-wide monitoring",
+        "weak verification"
+      ],
+      "source_urls": [
+        "https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-synthesis-complete-framework.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-runtime-feedback-loop.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-governed-golden-rails.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-entity-taxonomy-cia-classification.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html",
+        "https://davidamitchell.github.io/Research/research/2026-04-27-pip-invariant-anomaly-detection.html",
+        "https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10",
+        "https://airc.nist.gov/AI_RMF_Knowledge_Base/AI_RMF/Core_And_Profiles/5-sec-core#tab:govlongtblr",
+        "https://airc.nist.gov/AI_RMF_Knowledge_Base/Playbook",
+        "https://www.anthropic.com/research/claude-character",
+        "https://openai.com/index/practices-for-governing-agentic-ai-systems/",
+        "https://openai.com/index/how-we-monitor-internal-coding-agents-misalignment/",
+        "https://deepmind.google/research/publications/78150/",
+        "https://arxiv.org/abs/2211.09527",
+        "https://philsci-archive.pitt.edu/21523/",
+        "https://arxiv.org/abs/2403.16527",
+        "https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/best-practices-for-mitigating-hallucinations-in-large-language-models-llms/4403129",
+        "https://iclr.cc/virtual/2025/33314",
+        "https://arxiv.org/abs/2506.03053",
+        "https://openreview.net/forum?id=zt5JpGQ8WhH",
+        "https://www.anthropic.com/research/emergent-misalignment-reward-hacking"
+      ],
+      "key_claims": []
+    },
     "2026-04-27-uelgf-synthesis-complete-framework": {
       "named_concepts": [
         "technical specification",
