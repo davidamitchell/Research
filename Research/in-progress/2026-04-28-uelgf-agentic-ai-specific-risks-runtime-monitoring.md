@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Universal Entity Lifecycle Governance Framework (UELGF) extension: agentic Artificial Intelligence (AI)-specific risks and runtime monitoring for non-deterministic behaviour"
 added: 2026-04-28T07:19:00+00:00
 status: reviewing
