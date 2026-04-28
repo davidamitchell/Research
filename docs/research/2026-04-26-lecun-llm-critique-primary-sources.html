@@ -613,6 +613,28 @@ main {
 .thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
 .thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
 .thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+
+/* Item type / confidence badges */
+.badge { display: inline-block; padding: 0.1rem 0.45rem; font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; border: 1px solid transparent; font-family: 'IBM Plex Mono', monospace; }
+.badge-synthesis { background: transparent; border-color: var(--dusk); color: var(--dusk); }
+.badge-confidence-high { background: transparent; border-color: #52c496; color: #52c496; }
+.badge-confidence-medium { background: transparent; border-color: var(--text-muted); color: var(--text-muted); }
+.badge-confidence-low { background: transparent; border-color: #e05252; color: #e05252; }
+
+/* Superseded banner */
+.superseded-banner { background: var(--surface-2); border: 1px solid var(--dusk); color: var(--dusk); font-size: var(--text-sm); padding: 0.6rem 1rem; margin-bottom: 1.5rem; line-height: 1.4; }
+.superseded-banner a { color: var(--dusk); text-decoration: underline; }
+
+/* Cites / related items */
+.cites-section { margin-top: 2.5rem; }
+.cites-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.cites-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); }
+.cites-entry:last-child { border-bottom: none; }
+.cites-entry a { color: var(--teal); word-break: break-word; }
+
+/* Version history table */
+.versions-section { margin-top: 2.5rem; }
+.versions-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
 </style>
 
         </head>
@@ -643,11 +665,13 @@ main {
     <span class="meta-sep">·</span>
     <a class="tag" href="/Research/tags/lecun.html">lecun</a> <a class="tag" href="/Research/tags/llm.html">llm</a> <a class="tag" href="/Research/tags/large-language-models.html">large-language-models</a> <a class="tag" href="/Research/tags/causal-reasoning.html">causal-reasoning</a> <a class="tag" href="/Research/tags/world-models.html">world-models</a> 
     <span class="meta-sep">·</span>
+    <span class="badge badge-confidence-medium">medium</span> 
+    <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-lecun-llm-critique-primary-sources.md" target="_blank" rel="noopener">source →</a>
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-04-26-lecun-llm-critique-primary-sources" target="_blank" rel="noopener">wiki →</a>
   </div>
-  
+    
   <div class="item-content">
     <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
 <p>What is Yann LeCun's complete and precise argument against Large Language Models (LLMs) as a path to autonomous machine intelligence, meaning Artificial Intelligence (AI) that can reason, plan, and act autonomously, drawing only on primary or host-published source material around &quot;A Path Towards Autonomous Machine Intelligence&quot; (OpenReview, 2022), the Brown University lecture, the accessible April 2025 interview material, the seeded VivaTech keynote URL, and the November 2025 &quot;Do LLMs Understand?&quot; conversation; what is the specific technical basis for his claim that LLMs are text-trained statistical predictors without a causal world model or reliable consequence reasoning; where does he draw the boundary between domains where optimization over constrained symbolic structures can work and domains where real-world action requires predictive world modelling; and how stable is that position across the accessible 2022 to 2026 record?</p>
@@ -721,6 +745,8 @@ main {
 <div class="related-entry"><a href="/Research/research/2026-03-18-human-brain-prediction-machines.html">Are Human Brains Just Prediction Machines? Comparing Predictive Processing and Large Language Model Next-Token Generation</a> <span class="related-note">via llm, world-models</span></div>
 </div></div>
 
+  
+  
   <div class="item-nav">
     <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-04-26-llm-verifiability-asymmetry-code-world-action.html">What is the precise technical distinction between code generation and other…</a></div>
     <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-04-26-lecun-critique-citizen-development-enterprise-risk.html">What does synthesising LeCun&#39;s architectural critique of Large Language Models…</a></div>

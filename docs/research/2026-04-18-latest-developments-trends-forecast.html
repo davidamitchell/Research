@@ -613,6 +613,28 @@ main {
 .thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
 .thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
 .thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+
+/* Item type / confidence badges */
+.badge { display: inline-block; padding: 0.1rem 0.45rem; font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; border: 1px solid transparent; font-family: 'IBM Plex Mono', monospace; }
+.badge-synthesis { background: transparent; border-color: var(--dusk); color: var(--dusk); }
+.badge-confidence-high { background: transparent; border-color: #52c496; color: #52c496; }
+.badge-confidence-medium { background: transparent; border-color: var(--text-muted); color: var(--text-muted); }
+.badge-confidence-low { background: transparent; border-color: #e05252; color: #e05252; }
+
+/* Superseded banner */
+.superseded-banner { background: var(--surface-2); border: 1px solid var(--dusk); color: var(--dusk); font-size: var(--text-sm); padding: 0.6rem 1rem; margin-bottom: 1.5rem; line-height: 1.4; }
+.superseded-banner a { color: var(--dusk); text-decoration: underline; }
+
+/* Cites / related items */
+.cites-section { margin-top: 2.5rem; }
+.cites-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.cites-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); }
+.cites-entry:last-child { border-bottom: none; }
+.cites-entry a { color: var(--teal); word-break: break-word; }
+
+/* Version history table */
+.versions-section { margin-top: 2.5rem; }
+.versions-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
 </style>
 
         </head>
@@ -643,11 +665,13 @@ main {
     <span class="meta-sep">·</span>
     <a class="tag" href="/Research/tags/forecasting.html">forecasting</a> <a class="tag" href="/Research/tags/strategy.html">strategy</a> 
     <span class="meta-sep">·</span>
+    <span class="badge badge-confidence-medium">medium</span> 
+    <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-18-latest-developments-trends-forecast.md" target="_blank" rel="noopener">source →</a>
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-04-18-latest-developments-trends-forecast" target="_blank" rel="noopener">wiki →</a>
   </div>
-  <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>The history corpus should be treated as a builder-attention feed rather than a neutral industry census because representative files across the visible window repeatedly foreground Hacker News, Nate Jones, and Wes Roth material, and the active feed configuration explicitly concentrates on Large Language Model and agent topics</li>
+    <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>The history corpus should be treated as a builder-attention feed rather than a neutral industry census because representative files across the visible window repeatedly foreground Hacker News, Nate Jones, and Wes Roth material, and the active feed configuration explicitly concentrates on Large Language Model and agent topics</li>
 <li>Even after accounting for that bias, the internal center of gravity still shifts across the seven-week window from mixed model commentary toward agent infrastructure, with late-March and April entries clustering around memory, interoperability, versioned state, runtime control, and agent-ready web interaction</li>
 <li>Current primary vendor documentation indicates convergence on a common agent stack composed of tool use, persistent memory or state, interoperability protocols, and orchestration surfaces, even though each vendor packages those primitives differently</li>
 <li>Current security guidance repeatedly foregrounds tool misuse, isolation, authentication, and controlled execution in agent-deployment documentation, as shown across OWASP&#39;s agentic-risk taxonomy and vendor guidance for autonomous tooling</li>
@@ -795,6 +819,8 @@ main {
 
 
   </div>
+  
+  
   
   <div class="item-nav">
     <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-04-20-harness-selection-tools-agents-skills-prompts-instructions.html">Harness-level selection and use of tools, agents, skills, prompts, and…</a></div>

@@ -613,6 +613,28 @@ main {
 .thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
 .thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
 .thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+
+/* Item type / confidence badges */
+.badge { display: inline-block; padding: 0.1rem 0.45rem; font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; border: 1px solid transparent; font-family: 'IBM Plex Mono', monospace; }
+.badge-synthesis { background: transparent; border-color: var(--dusk); color: var(--dusk); }
+.badge-confidence-high { background: transparent; border-color: #52c496; color: #52c496; }
+.badge-confidence-medium { background: transparent; border-color: var(--text-muted); color: var(--text-muted); }
+.badge-confidence-low { background: transparent; border-color: #e05252; color: #e05252; }
+
+/* Superseded banner */
+.superseded-banner { background: var(--surface-2); border: 1px solid var(--dusk); color: var(--dusk); font-size: var(--text-sm); padding: 0.6rem 1rem; margin-bottom: 1.5rem; line-height: 1.4; }
+.superseded-banner a { color: var(--dusk); text-decoration: underline; }
+
+/* Cites / related items */
+.cites-section { margin-top: 2.5rem; }
+.cites-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.cites-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); }
+.cites-entry:last-child { border-bottom: none; }
+.cites-entry a { color: var(--teal); word-break: break-word; }
+
+/* Version history table */
+.versions-section { margin-top: 2.5rem; }
+.versions-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
 </style>
 
         </head>
@@ -643,11 +665,13 @@ main {
     <span class="meta-sep">·</span>
     <a class="tag" href="/Research/tags/transaction-costs.html">transaction-costs</a> <a class="tag" href="/Research/tags/coase.html">coase</a> <a class="tag" href="/Research/tags/williamson.html">williamson</a> <a class="tag" href="/Research/tags/north.html">north</a> <a class="tag" href="/Research/tags/fitness-functions.html">fitness-functions</a> <a class="tag" href="/Research/tags/platform-strategy.html">platform-strategy</a> <a class="tag" href="/Research/tags/institutional-economics.html">institutional-economics</a> 
     <span class="meta-sep">·</span>
+    <span class="badge badge-confidence-medium">medium</span> 
+    <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-10-nature-of-the-firm-coase-organisations.md" target="_blank" rel="noopener">source →</a>
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-10-nature-of-the-firm-coase-organisations" target="_blank" rel="noopener">wiki →</a>
   </div>
-  <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Team Topologies&#39; three interaction modes (collaboration, X-as-a-Service, facilitation) map directly and consistently onto Williamson&#39;s three governance structures (hybrid, market, quasi-hierarchical), providing a practical translation of TCE theory into software team design with real-world validation at Amazon (two-pizza teams) and Spotify (squads-tribes model)</li>
+    <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Team Topologies&#39; three interaction modes (collaboration, X-as-a-Service, facilitation) map directly and consistently onto Williamson&#39;s three governance structures (hybrid, market, quasi-hierarchical), providing a practical translation of TCE theory into software team design with real-world validation at Amazon (two-pizza teams) and Spotify (squads-tribes model)</li>
 <li>API boundaries are transaction cost artefacts: a well-designed API reduces consumer search costs through documentation and discoverability, negotiation costs through stable versioning and clear contracts, and enforcement costs through automated integration testing and schema validation; an API that fails any dimension externalises transaction costs onto consumers</li>
 <li>Four structural invariants are necessary conditions for any stable, purpose-serving organisation: (i) residual claimancy clarity — someone bears the upside and downside of each decision; (ii) authority commensurate with accountability — the accountable party controls the relevant resources; (iii) information flows matching decision rights — information reaches whoever must act on it; (iv) shared purpose as informal institution — without it, internal coordination costs approach market-contracting costs</li>
 <li>The correct fitness functions for a firm, derived from TCE and institutional theory, are: coordination efficiency (internal cost &lt; market cost for internalised activities), governance-transaction alignment (governance mode matches transaction dimensions), institutional coherence (formal and informal institutions reinforce each other), and institutional adaptability (the firm can reconfigure boundaries as the cost landscape changes)</li>
@@ -751,6 +775,8 @@ main {
 <div class="related-entry"><a href="/Research/research/2026-03-15-adam-smith-org-design-desire-paths-ai.html">Adam Smith, Organisational Design, Desire Paths, and AI Strategy</a> <span class="related-note">via coase, institutional-economics</span></div>
 </div></div>
 
+  
+  
   <div class="item-nav">
     <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-10-research-loop-evaluation-rubric.html">Research loop evaluation rubric</a></div>
     <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-12-superpowers-integration-analysis.html">Superpowers as inspiration</a></div>

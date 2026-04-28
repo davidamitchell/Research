@@ -613,6 +613,28 @@ main {
 .thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
 .thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
 .thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+
+/* Item type / confidence badges */
+.badge { display: inline-block; padding: 0.1rem 0.45rem; font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; border: 1px solid transparent; font-family: 'IBM Plex Mono', monospace; }
+.badge-synthesis { background: transparent; border-color: var(--dusk); color: var(--dusk); }
+.badge-confidence-high { background: transparent; border-color: #52c496; color: #52c496; }
+.badge-confidence-medium { background: transparent; border-color: var(--text-muted); color: var(--text-muted); }
+.badge-confidence-low { background: transparent; border-color: #e05252; color: #e05252; }
+
+/* Superseded banner */
+.superseded-banner { background: var(--surface-2); border: 1px solid var(--dusk); color: var(--dusk); font-size: var(--text-sm); padding: 0.6rem 1rem; margin-bottom: 1.5rem; line-height: 1.4; }
+.superseded-banner a { color: var(--dusk); text-decoration: underline; }
+
+/* Cites / related items */
+.cites-section { margin-top: 2.5rem; }
+.cites-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.cites-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); }
+.cites-entry:last-child { border-bottom: none; }
+.cites-entry a { color: var(--teal); word-break: break-word; }
+
+/* Version history table */
+.versions-section { margin-top: 2.5rem; }
+.versions-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
 </style>
 
         </head>
@@ -643,11 +665,13 @@ main {
     <span class="meta-sep">·</span>
     <a class="tag" href="/Research/tags/team-size.html">team-size</a> <a class="tag" href="/Research/tags/ai.html">ai</a> <a class="tag" href="/Research/tags/coordination-overhead.html">coordination-overhead</a> <a class="tag" href="/Research/tags/organisational-design.html">organisational-design</a> <a class="tag" href="/Research/tags/productivity.html">productivity</a> <a class="tag" href="/Research/tags/ai-native.html">ai-native</a> 
     <span class="meta-sep">·</span>
+    <span class="badge badge-confidence-medium">medium</span> 
+    <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-12-ai-team-size-strike-team-thesis.md" target="_blank" rel="noopener">source →</a>
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-12-ai-team-size-strike-team-thesis" target="_blank" rel="noopener">wiki →</a>
   </div>
-  <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>The communication-channel formula from Frederick Brooks&#39; *The Mythical Man-Month* (1975) — n(n-1)/2 — establishes that expanding a 5-person team to 6 people increases coordination pathways by 50%, from 10 channels to 15, while adding only one additional contributor</li>
+    <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>The communication-channel formula from Frederick Brooks&#39; *The Mythical Man-Month* (1975) — n(n-1)/2 — establishes that expanding a 5-person team to 6 people increases coordination pathways by 50%, from 10 channels to 15, while adding only one additional contributor</li>
 <li>When AI multiplies per-person productive output from approximately $250K/year to $2M/year, the economic cost of each additional coordination channel rises by the same multiple, making the penalty for each hire above the 5-person threshold approximately 5–10x more expensive than in the pre-AI era</li>
 <li>Midjourney operated at approximately $4.6M in revenue per employee in 2025 — approximately 107 employees generating $500M in annual revenue — a ratio approximately 35x the private SaaS median revenue per employee of $129,724</li>
 <li>ElevenLabs operated at $569K–$825K in ARR per employee as of late 2025 ($330M ARR, 400–580 employees depending on source), representing 4–6x the private SaaS median, achieved by maintaining a small team relative to revenue scale</li>
@@ -795,6 +819,8 @@ how organisations should be designed today?</p>
 <div class="related-entry"><a href="/Research/research/2026-03-12-ai-force-multiplier-ambition-expansion.html">Force multiplier, not cost reducer: expanding organisational ambition when AI multiplies per-person output</a> <span class="related-note">via ai-native, organisational-design</span></div>
 </div></div>
 
+  
+  
   <div class="item-nav">
     <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-12-exploration-synthesis-gap.html">Exploration-synthesis gap</a></div>
     <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-12-ai-force-multiplier-ambition-expansion.html">Force multiplier, not cost reducer</a></div>

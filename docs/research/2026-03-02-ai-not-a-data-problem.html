@@ -613,6 +613,28 @@ main {
 .thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
 .thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
 .thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+
+/* Item type / confidence badges */
+.badge { display: inline-block; padding: 0.1rem 0.45rem; font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; border: 1px solid transparent; font-family: 'IBM Plex Mono', monospace; }
+.badge-synthesis { background: transparent; border-color: var(--dusk); color: var(--dusk); }
+.badge-confidence-high { background: transparent; border-color: #52c496; color: #52c496; }
+.badge-confidence-medium { background: transparent; border-color: var(--text-muted); color: var(--text-muted); }
+.badge-confidence-low { background: transparent; border-color: #e05252; color: #e05252; }
+
+/* Superseded banner */
+.superseded-banner { background: var(--surface-2); border: 1px solid var(--dusk); color: var(--dusk); font-size: var(--text-sm); padding: 0.6rem 1rem; margin-bottom: 1.5rem; line-height: 1.4; }
+.superseded-banner a { color: var(--dusk); text-decoration: underline; }
+
+/* Cites / related items */
+.cites-section { margin-top: 2.5rem; }
+.cites-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.cites-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); }
+.cites-entry:last-child { border-bottom: none; }
+.cites-entry a { color: var(--teal); word-break: break-word; }
+
+/* Version history table */
+.versions-section { margin-top: 2.5rem; }
+.versions-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
 </style>
 
         </head>
@@ -643,11 +665,13 @@ main {
     <span class="meta-sep">·</span>
     <a class="tag" href="/Research/tags/ai-strategy.html">ai-strategy</a> <a class="tag" href="/Research/tags/architecture.html">architecture</a> <a class="tag" href="/Research/tags/data-platform.html">data-platform</a> <a class="tag" href="/Research/tags/agents.html">agents</a> <a class="tag" href="/Research/tags/organisational-design.html">organisational-design</a> <a class="tag" href="/Research/tags/governance.html">governance</a> <a class="tag" href="/Research/tags/mcp.html">mcp</a> <a class="tag" href="/Research/tags/zero-trust.html">zero-trust</a> <a class="tag" href="/Research/tags/identity.html">identity</a> 
     <span class="meta-sep">·</span>
+    <span class="badge badge-confidence-medium">medium</span> 
+    <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-02-ai-not-a-data-problem.md" target="_blank" rel="noopener">source →</a>
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-02-ai-not-a-data-problem" target="_blank" rel="noopener">wiki →</a>
   </div>
-  <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Analytics platforms fail production AI agent NFRs by design, not by deficiency: they are built for batch/analytical workloads and cannot satisfy the sub-second latency, HADR, fine-grained delegated authorisation, mutation auditability, and zero-trust requirements that production agents demand</li>
+    <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Analytics platforms fail production AI agent NFRs by design, not by deficiency: they are built for batch/analytical workloads and cannot satisfy the sub-second latency, HADR, fine-grained delegated authorisation, mutation auditability, and zero-trust requirements that production agents demand</li>
 <li>Martin Fowler&#39;s data mesh architecture explicitly establishes that operational data is served through microservice APIs and that &quot;data is hidden on the inside of each microservice, controlled and accessed through the microservice&#39;s APIs&quot; - meaning agents that consume operational data must integrate through the API layer, not the analytical plane</li>
 <li>RFC 8693 (OAuth 2.0 Token Exchange) and the IETF AI agent extension draft provide the STS delegation model that agents require for auditable, narrowly-scoped, per-user-per-context delegated access - a capability that analytics platforms do not support and cannot be retrofitted to provide</li>
 <li>MCP (Model Context Protocol), adopted by Microsoft, AWS, Google, and Anthropic in 2024–2025 as an industry standard, implements the API-layer integration pattern: declared capabilities, access scopes, JSON-RPC over HTTPS/mTLS, audit logging, and per-request policy enforcement, with no analytics platform analogue</li>
@@ -776,6 +800,8 @@ main {
 <div class="related-entry"><a href="/Research/research/2026-03-10-adversarial-agents-shared-goals-multi-perspective.html">Adversarial agents with shared goals: multi-perspective coverage across competencies and time horizons</a> <span class="related-note">via agents, organisational-design</span></div>
 </div></div>
 
+  
+  
   <div class="item-nav">
     <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-02-chat-conversational-interface.html">Conversational and chat interface for querying the research corpus</a></div>
     <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-01-agent-lsp-policy-enforcement.html">Guiding Headless Agents via LSP-Like Mechanisms for Org Policy Conformance</a></div>

@@ -613,6 +613,28 @@ main {
 .thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
 .thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
 .thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+
+/* Item type / confidence badges */
+.badge { display: inline-block; padding: 0.1rem 0.45rem; font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; border: 1px solid transparent; font-family: 'IBM Plex Mono', monospace; }
+.badge-synthesis { background: transparent; border-color: var(--dusk); color: var(--dusk); }
+.badge-confidence-high { background: transparent; border-color: #52c496; color: #52c496; }
+.badge-confidence-medium { background: transparent; border-color: var(--text-muted); color: var(--text-muted); }
+.badge-confidence-low { background: transparent; border-color: #e05252; color: #e05252; }
+
+/* Superseded banner */
+.superseded-banner { background: var(--surface-2); border: 1px solid var(--dusk); color: var(--dusk); font-size: var(--text-sm); padding: 0.6rem 1rem; margin-bottom: 1.5rem; line-height: 1.4; }
+.superseded-banner a { color: var(--dusk); text-decoration: underline; }
+
+/* Cites / related items */
+.cites-section { margin-top: 2.5rem; }
+.cites-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.cites-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); }
+.cites-entry:last-child { border-bottom: none; }
+.cites-entry a { color: var(--teal); word-break: break-word; }
+
+/* Version history table */
+.versions-section { margin-top: 2.5rem; }
+.versions-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
 </style>
 
         </head>
@@ -642,11 +664,13 @@ main {
     <span class="meta-sep">·</span>
     <a class="tag" href="/Research/tags/agentic-coding.html">agentic-coding</a> <a class="tag" href="/Research/tags/policy-enforcement.html">policy-enforcement</a> <a class="tag" href="/Research/tags/security.html">security</a> <a class="tag" href="/Research/tags/developer-tooling.html">developer-tooling</a> 
     <span class="meta-sep">·</span>
+    <span class="badge badge-confidence-medium">medium</span> 
+    <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-01-agent-lsp-policy-enforcement.md" target="_blank" rel="noopener">source →</a>
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-01-agent-lsp-policy-enforcement" target="_blank" rel="noopener">wiki →</a>
   </div>
-  <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>LSAP (Language Server Agent Protocol) exists as an open protocol at v1.0.0-alpha, hosted at github.com/lsp-client/LSAP with a Python SDK (`lsap-sdk` on PyPI) and CLI, and is the most likely project behind the user&#39;s &quot;LSAP/LASP&quot; reference</li>
+    <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>LSAP (Language Server Agent Protocol) exists as an open protocol at v1.0.0-alpha, hosted at github.com/lsp-client/LSAP with a Python SDK (`lsap-sdk` on PyPI) and CLI, and is the most likely project behind the user&#39;s &quot;LSAP/LASP&quot; reference</li>
 <li>LSAP&#39;s core design wraps sequences of atomic LSP operations into single-request cognitive capabilities returning structured Markdown, solving the token-efficiency and positional fragility problems that prevent agents from consuming raw LSP JSON directly</li>
 <li>A headless process can act as a full LSP client over JSON-RPC stdio or TCP without any IDE or GUI host; the `textDocument/publishDiagnostics` notification requires only an async listener, not a rendering layer</li>
 <li>Lanser-CLI (arXiv:2510.22907, October 2025) formalises the headless LSP client for coding agents and CI, introducing a Selector DSL for stable addressing, deterministic Analysis Bundles with content hashes, and a process reward signal derived from LSP diagnostic deltas — the closest production-grade implementation of LSP-guided headless agent feedback</li>
@@ -744,6 +768,8 @@ main {
   <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-03-16-intent-driven-development.html">Intent Driven Development: context and concept layering to bound the solution space</a> <span class="related-note">via agentic-coding, developer-tooling</span></div>
 </div></div>
 
+  
+  
   <div class="item-nav">
     <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-02-ai-not-a-data-problem.html">AI capability is not a data problem - why the data/analytics department is the…</a></div>
     <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-02-28-transcript-via-yt-dlp-whisper.html">YouTube transcripts via yt-dlp audio + Whisper transcription</a></div>

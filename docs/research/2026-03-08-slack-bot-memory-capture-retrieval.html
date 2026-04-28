@@ -613,6 +613,28 @@ main {
 .thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
 .thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
 .thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+
+/* Item type / confidence badges */
+.badge { display: inline-block; padding: 0.1rem 0.45rem; font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; border: 1px solid transparent; font-family: 'IBM Plex Mono', monospace; }
+.badge-synthesis { background: transparent; border-color: var(--dusk); color: var(--dusk); }
+.badge-confidence-high { background: transparent; border-color: #52c496; color: #52c496; }
+.badge-confidence-medium { background: transparent; border-color: var(--text-muted); color: var(--text-muted); }
+.badge-confidence-low { background: transparent; border-color: #e05252; color: #e05252; }
+
+/* Superseded banner */
+.superseded-banner { background: var(--surface-2); border: 1px solid var(--dusk); color: var(--dusk); font-size: var(--text-sm); padding: 0.6rem 1rem; margin-bottom: 1.5rem; line-height: 1.4; }
+.superseded-banner a { color: var(--dusk); text-decoration: underline; }
+
+/* Cites / related items */
+.cites-section { margin-top: 2.5rem; }
+.cites-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.cites-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); }
+.cites-entry:last-child { border-bottom: none; }
+.cites-entry a { color: var(--teal); word-break: break-word; }
+
+/* Version history table */
+.versions-section { margin-top: 2.5rem; }
+.versions-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
 </style>
 
         </head>
@@ -642,11 +664,13 @@ main {
     <span class="meta-sep">·</span>
     <a class="tag" href="/Research/tags/mobile.html">mobile</a> <a class="tag" href="/Research/tags/slack.html">slack</a> <a class="tag" href="/Research/tags/bot.html">bot</a> <a class="tag" href="/Research/tags/capture.html">capture</a> <a class="tag" href="/Research/tags/retrieval.html">retrieval</a> <a class="tag" href="/Research/tags/memory-system.html">memory-system</a> 
     <span class="meta-sep">·</span>
+    <span class="badge badge-confidence-medium">medium</span> 
+    <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-slack-bot-memory-capture-retrieval.md" target="_blank" rel="noopener">source →</a>
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-08-slack-bot-memory-capture-retrieval" target="_blank" rel="noopener">wiki →</a>
   </div>
-  <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Socket Mode is available on free Slack workspaces, requires no public URL, and is the correct transport  for a personal memory bot — the bot process connects outward to Slack via WebSocket without needing any inbound HTTP endpoint</li>
+    <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Socket Mode is available on free Slack workspaces, requires no public URL, and is the correct transport  for a personal memory bot — the bot process connects outward to Slack via WebSocket without needing any inbound HTTP endpoint</li>
 <li>A single Slack app handles both capture (message event subscription) and retrieval (slash command), counts as 1 of 10 allowed integrations on a free workspace, and satisfies both use cases with no free-tier API feature restrictions</li>
 <li>The minimum viable bot scope set is `channels:history`, `channels:read`, `chat:write`, and an App Token with `connections:write`; the full capture and retrieval handler is approximately 15–20 lines of Bolt for Python using the `message.channels` event and a slash command</li>
 <li>The 3-second Slack slash command ACK requirement is satisfied by the `ack(&quot;Searching…&quot;)` + `respond()` async pattern: the bot acknowledges immediately with interim feedback, runs `search_brain` asynchronously, and posts results within 30 minutes using the `response_url` provided in the command payload</li>
@@ -746,6 +770,8 @@ main {
 <div class="related-entry"><a href="/Research/research/2026-03-08-inbox-folder-capture-triage-pattern.html">Inbox folder pattern: frictionless capture without forced structure</a> <span class="related-note">via capture, memory-system</span></div>
 </div></div>
 
+  
+  
   <div class="item-nav">
     <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-08-telegram-bot-memory-capture-retrieval.html">Telegram bot as mobile memory capture and retrieval channel</a></div>
     <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-08-bbc-five-case-model.html">Better Business Cases</a></div>

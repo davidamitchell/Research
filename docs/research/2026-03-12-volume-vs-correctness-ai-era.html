@@ -613,6 +613,28 @@ main {
 .thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
 .thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
 .thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+
+/* Item type / confidence badges */
+.badge { display: inline-block; padding: 0.1rem 0.45rem; font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; border: 1px solid transparent; font-family: 'IBM Plex Mono', monospace; }
+.badge-synthesis { background: transparent; border-color: var(--dusk); color: var(--dusk); }
+.badge-confidence-high { background: transparent; border-color: #52c496; color: #52c496; }
+.badge-confidence-medium { background: transparent; border-color: var(--text-muted); color: var(--text-muted); }
+.badge-confidence-low { background: transparent; border-color: #e05252; color: #e05252; }
+
+/* Superseded banner */
+.superseded-banner { background: var(--surface-2); border: 1px solid var(--dusk); color: var(--dusk); font-size: var(--text-sm); padding: 0.6rem 1rem; margin-bottom: 1.5rem; line-height: 1.4; }
+.superseded-banner a { color: var(--dusk); text-decoration: underline; }
+
+/* Cites / related items */
+.cites-section { margin-top: 2.5rem; }
+.cites-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.cites-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); }
+.cites-entry:last-child { border-bottom: none; }
+.cites-entry a { color: var(--teal); word-break: break-word; }
+
+/* Version history table */
+.versions-section { margin-top: 2.5rem; }
+.versions-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
 </style>
 
         </head>
@@ -643,11 +665,13 @@ main {
     <span class="meta-sep">·</span>
     <a class="tag" href="/Research/tags/quality.html">quality</a> <a class="tag" href="/Research/tags/ai.html">ai</a> <a class="tag" href="/Research/tags/productivity.html">productivity</a> <a class="tag" href="/Research/tags/verification.html">verification</a> 
     <span class="meta-sep">·</span>
+    <span class="badge badge-confidence-medium">medium</span> 
+    <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-12-volume-vs-correctness-ai-era.md" target="_blank" rel="noopener">source →</a>
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-12-volume-vs-correctness-ai-era" target="_blank" rel="noopener">wiki →</a>
   </div>
-  <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Volume up, delivery flat: AI coding assistants increased individual task completion by 21% and PR merges by 98% across 10,000+ developers in the Faros AI 2025 telemetry study, yet organisational delivery metrics — throughput, stability, change failure rate — remained flat</li>
+    <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Volume up, delivery flat: AI coding assistants increased individual task completion by 21% and PR merges by 98% across 10,000+ developers in the Faros AI 2025 telemetry study, yet organisational delivery metrics — throughput, stability, change failure rate — remained flat</li>
 <li>3x top-decile quality with structured AI use: In the Dell&#39;Acqua et al</li>
 <li>AI substitutes for average collaboration, not peak collaboration: AI-enabled individuals in the P&amp;G RCT matched the average quality of two-person human teams working without AI, but the highest quality outputs still came from human teams augmented by AI; peak collaborative judgment, not average competence, is the differentiating constraint</li>
 <li>The verification bottleneck is empirically measured: Faros AI 2025 data shows PR review time increased 91% and PR size grew 154% alongside high AI adoption; the human review step did not accelerate to match AI generation speed</li>
@@ -770,6 +794,8 @@ quality should be managed in the AI era?</p>
 <div class="related-entry"><a href="/Research/research/2026-03-12-ai-team-size-strike-team-thesis.html">AI amplified the coordination tax: the 5-person strike team as the structural unit of the AI era</a> <span class="related-note">via ai, productivity</span></div>
 </div></div>
 
+  
+  
   <div class="item-nav">
     <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-13-financial-forecasting-it-run-costs.html">Best practices in financial forecasting for IT operational run costs</a></div>
     <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-12-team-size-limits-brooks-dunbar-network-theory.html">Three disciplines, one answer</a></div>

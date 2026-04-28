@@ -613,6 +613,28 @@ main {
 .thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
 .thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
 .thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+
+/* Item type / confidence badges */
+.badge { display: inline-block; padding: 0.1rem 0.45rem; font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; border: 1px solid transparent; font-family: 'IBM Plex Mono', monospace; }
+.badge-synthesis { background: transparent; border-color: var(--dusk); color: var(--dusk); }
+.badge-confidence-high { background: transparent; border-color: #52c496; color: #52c496; }
+.badge-confidence-medium { background: transparent; border-color: var(--text-muted); color: var(--text-muted); }
+.badge-confidence-low { background: transparent; border-color: #e05252; color: #e05252; }
+
+/* Superseded banner */
+.superseded-banner { background: var(--surface-2); border: 1px solid var(--dusk); color: var(--dusk); font-size: var(--text-sm); padding: 0.6rem 1rem; margin-bottom: 1.5rem; line-height: 1.4; }
+.superseded-banner a { color: var(--dusk); text-decoration: underline; }
+
+/* Cites / related items */
+.cites-section { margin-top: 2.5rem; }
+.cites-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.cites-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); }
+.cites-entry:last-child { border-bottom: none; }
+.cites-entry a { color: var(--teal); word-break: break-word; }
+
+/* Version history table */
+.versions-section { margin-top: 2.5rem; }
+.versions-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
 </style>
 
         </head>
@@ -643,11 +665,13 @@ main {
     <span class="meta-sep">·</span>
     <a class="tag" href="/Research/tags/indexing.html">indexing</a> <a class="tag" href="/Research/tags/storage.html">storage</a> <a class="tag" href="/Research/tags/local.html">local</a> 
     <span class="meta-sep">·</span>
+    <span class="badge badge-confidence-medium">medium</span> 
+    <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-02-27-local-index-vs-reference.md" target="_blank" rel="noopener">source →</a>
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-02-27-local-index-vs-reference" target="_blank" rel="noopener">wiki →</a>
   </div>
-  <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>YouTube transcripts must be stored locally as `.txt` files because cloud IP blocking makes on-demand re-fetching unreliable, and text files are fully git-diffable and accessible from the GitHub website without any special tooling</li>
+    <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>YouTube transcripts must be stored locally as `.txt` files because cloud IP blocking makes on-demand re-fetching unreliable, and text files are fully git-diffable and accessible from the GitHub website without any special tooling</li>
 <li>arXiv papers must remain reference-only because PDFs are binary files that produce unreadable git diffs, arXiv URLs are permanently stable (the service has operated since 1991 with institutional backing), and the relevant content can be represented as text excerpts within research items rather than full PDFs</li>
 <li>Web pages that are primary sources for key findings should have their relevant 1–3 paragraph excerpt pasted directly into the research item&#39;s Context or Findings section at the time of research, because 38% of web pages from 2013 were inaccessible by 2023 (Pew Research, 2023) and 23% of news articles already contained dead URLs by 2023</li>
 <li>General web URLs that are peripheral sources (background reading, not direct evidence for a specific finding) should be recorded as references only, because the overhead of snapshotting every source is not proportionate to the benefit at current corpus scale</li>
@@ -732,6 +756,8 @@ main {
   <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-02-27-local-database.html">Local database: requirements and technology choice</a> <span class="related-note">via local, storage</span></div>
 </div></div>
 
+  
+  
   <div class="item-nav">
     <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-02-27-research-output-types.html">Research output types</a></div>
     <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-02-27-local-database.html">Local database</a></div>

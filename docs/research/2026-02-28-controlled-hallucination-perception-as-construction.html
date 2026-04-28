@@ -613,6 +613,28 @@ main {
 .thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
 .thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
 .thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+
+/* Item type / confidence badges */
+.badge { display: inline-block; padding: 0.1rem 0.45rem; font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; border: 1px solid transparent; font-family: 'IBM Plex Mono', monospace; }
+.badge-synthesis { background: transparent; border-color: var(--dusk); color: var(--dusk); }
+.badge-confidence-high { background: transparent; border-color: #52c496; color: #52c496; }
+.badge-confidence-medium { background: transparent; border-color: var(--text-muted); color: var(--text-muted); }
+.badge-confidence-low { background: transparent; border-color: #e05252; color: #e05252; }
+
+/* Superseded banner */
+.superseded-banner { background: var(--surface-2); border: 1px solid var(--dusk); color: var(--dusk); font-size: var(--text-sm); padding: 0.6rem 1rem; margin-bottom: 1.5rem; line-height: 1.4; }
+.superseded-banner a { color: var(--dusk); text-decoration: underline; }
+
+/* Cites / related items */
+.cites-section { margin-top: 2.5rem; }
+.cites-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.cites-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); }
+.cites-entry:last-child { border-bottom: none; }
+.cites-entry a { color: var(--teal); word-break: break-word; }
+
+/* Version history table */
+.versions-section { margin-top: 2.5rem; }
+.versions-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
 </style>
 
         </head>
@@ -643,11 +665,13 @@ main {
     <span class="meta-sep">·</span>
     <a class="tag" href="/Research/tags/consciousness.html">consciousness</a> <a class="tag" href="/Research/tags/perception.html">perception</a> <a class="tag" href="/Research/tags/anil-seth.html">anil-seth</a> <a class="tag" href="/Research/tags/neuroscience.html">neuroscience</a> 
     <span class="meta-sep">·</span>
+    <span class="badge badge-confidence-medium">medium</span> 
+    <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-02-28-controlled-hallucination-perception-as-construction.md" target="_blank" rel="noopener">source →</a>
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-02-28-controlled-hallucination-perception-as-construction" target="_blank" rel="noopener">wiki →</a>
   </div>
-  <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Predictive coding in visual cortex is mechanistically established: Rao &amp; Ballard (1999) showed that hierarchical feedback predictions plus feedforward error signals account for extra-classical receptive field effects (surround suppression, end-stopping) in V1 that purely feedforward models cannot explain, providing the computational architecture underlying controlled hallucination</li>
+    <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Predictive coding in visual cortex is mechanistically established: Rao &amp; Ballard (1999) showed that hierarchical feedback predictions plus feedforward error signals account for extra-classical receptive field effects (surround suppression, end-stopping) in V1 that purely feedforward models cannot explain, providing the computational architecture underlying controlled hallucination</li>
 <li>The rubber hand illusion demonstrates that body ownership is a top-down prediction, not a sensory readout: Synchronous visual-tactile stroking induces ownership of a rubber hand; the effect requires anatomical plausibility, confirming that the brain&#39;s prior body model — not raw sensory input — determines ownership attribution</li>
 <li>Binocular rivalry shows the brain selects among competing generative hypotheses rather than averaging inputs: When different images are presented to each eye, perception alternates rather than fuses; top-down beta-band oscillations from frontal cortex modulate which hypothesis wins, consistent with active predictive inference</li>
 <li>Mismatch negativity provides direct neural evidence for ongoing prediction-error computation across sensory modalities: MMN is elicited automatically in audition and vision when expectation is violated, demonstrating that prediction error signalling is a continuous, attention-independent perceptual process, not a special-case phenomenon</li>
@@ -740,6 +764,8 @@ main {
 <div class="related-entry"><a href="/Research/research/2026-02-28-free-energy-entropy-and-life.html">Free energy, entropy, and life: why organisms predict — from Schrödinger to Friston to Seth</a> <span class="related-note">via anil-seth, consciousness</span></div>
 </div></div>
 
+  
+  
   <div class="item-nav">
     <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-02-28-exploit-explore-ai-portfolio-framework.html">Exploit vs Explore</a></div>
     <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-02-28-ai-strategy-swe-focus.html">AI Strategy Examples</a></div>
