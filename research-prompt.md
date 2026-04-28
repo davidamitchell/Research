@@ -61,6 +61,11 @@ other governance surfaces your conclusions touch.
   (`version: "1.0"`, `sha: <commit hash>`, `changed: YYYY-MM-DD`,
   `progress: <session log path>`, `summary: "Initial completion"`) after the
   item is committed and you have the commit SHA.
+- `tags:` — assign tags at §6 Synthesis. **Consult `docs/tag-vocabulary.md`
+  and use only canonical forms.** Do not create tags that are near-synonyms of
+  existing canonical tags. Use `agentic-ai` not `ai`; use `llm` not
+  `large-language-model`; check the vocabulary table for all 20 canonical
+  clusters before assigning tags.
 
 ### 2. Research the item -- follow the research skill in full
 

@@ -4,7 +4,7 @@ added: YYYY-MM-DDTHH:MM:SS+00:00
 status: backlog  # backlog | in-progress | reviewing | completed
 priority: medium  # low | medium | high
 blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
-tags: []  # e.g. [youtube, transcripts, tooling]
+tags: []  # Use canonical forms from docs/tag-vocabulary.md — e.g. [agentic-ai, llm, governance]
 started: ~
 completed: ~
 output: []  # skill | tool | agent | knowledge | backlog-item
