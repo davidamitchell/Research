@@ -1,0 +1,767 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>AI agents and low-code systems as distributed, semi-autonomous actors within… — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #0f1115;
+  --surface-2:       #161b22;
+  --border:          #252b33;
+  --text:            #e6e6e6;
+  --text-muted:      #666;
+  --accent:          #e6e6e6;
+  --accent-dim:      #333;
+  --tag-bg:          #161b22;
+  --tag-text:        #999;
+  --tag-active-bg:   #e6e6e6;
+  --tag-active-text: #0f1115;
+  --link:            #00C3A5;
+  --teal:            #00C3A5;
+  --dusk:            #E8A1A8;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  overflow-x: clip;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.75rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+.nav-links a.active { color: var(--teal); }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--teal); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+  min-width: 0;
+}
+.card:hover { border-color: var(--teal); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  word-break: break-word;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4em;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.item-title svg { flex-shrink: 0; margin-top: 0.2em; }
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+  word-break: break-all;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+  max-width: 100%;
+}
+.item-content pre code { background: none; padding: 0; word-break: normal; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--teal); text-decoration: underline; }
+.item-content a:hover { color: var(--text); text-decoration: underline; }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--dusk);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    top: 0;
+    height: auto;
+    padding: 0.5rem 1rem;
+  }
+  .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .nav-links {
+    width: 100%;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  main {
+    padding: 1.5rem 1rem 4rem;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; overflow: hidden; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); word-break: break-word; overflow-wrap: break-word; }
+.key-claims li:last-child { border-bottom: none; }
+.key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
+.key-claims a:hover { color: var(--text); }
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); flex-wrap: wrap; }
+.related-entry:last-child { border-bottom: none; }
+.related-entry a { color: var(--teal); word-break: break-word; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--dusk); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4em; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--teal); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-card-link { text-decoration: none; color: var(--text); display: block; }
+.thread-card-link:hover .thread-card { background: var(--surface-2); }
+.thread-card { background: var(--surface); border: 1px solid var(--border); padding: 1.5rem 1.75rem 1.75rem; }
+.thread-card-title { font-size: var(--text-base); font-weight: 600; margin-bottom: 0.5rem; }
+.thread-card-meta { font-size: var(--text-xs); color: var(--text-muted); margin-bottom: 0.75rem; letter-spacing: 0.05em; }
+.thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
+.thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Research</a>
+    <div class="nav-links">
+      <a href="/Research/all-items.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>All Items</a>
+      <a href="/Research/backlog.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Backlog</a>
+      <a href="/Research/threads.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>Threads</a>
+      <a href="/Research/tags/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>Tags</a>
+      <a href="/Research/search.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M8 1.5C4.41 1.5 1.5 4.41 1.5 8c0 2.87 1.86 5.3 4.44 6.16.32.06.44-.14.44-.31v-1.09c-1.8.39-2.18-.87-2.18-.87-.3-.75-.72-.95-.72-.95-.59-.4.04-.4.04-.4.65.05 1 .67 1 .67.58 1 1.53.71 1.9.54.06-.42.23-.71.41-.87-1.44-.16-2.95-.72-2.95-3.2 0-.71.25-1.28.67-1.74-.07-.16-.29-.82.06-1.71 0 0 .55-.18 1.8.67a6.27 6.27 0 0 1 3.28 0c1.25-.85 1.8-.67 1.8-.67.35.89.13 1.55.06 1.71.42.46.67 1.03.67 1.74 0 2.49-1.51 3.04-2.96 3.2.23.2.44.6.44 1.21v1.8c0 .17.12.37.44.31A6.5 6.5 0 0 0 14.5 8 6.5 6.5 0 0 0 8 1.5z"/></svg>GitHub</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>AI agents and low-code systems as distributed, semi-autonomous actors within…</span>
+  </div>
+  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>AI agents and low-code systems as distributed, semi-autonomous actors within…</h1>
+  <p class="full-title-subtitle">What control-plane architecture is required to manage Artificial Intelligence (AI) agents and low-code systems as distributed, semi-autonomous actors within enterprise environments?</p>
+  <div class="meta-bar">
+    <span>2026-04-26</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/control-plane.html">control-plane</a> <a class="tag" href="/Research/tags/ai-agents.html">ai-agents</a> <a class="tag" href="/Research/tags/low-code.html">low-code</a> <a class="tag" href="/Research/tags/enterprise-architecture.html">enterprise-architecture</a> <a class="tag" href="/Research/tags/distributed-systems.html">distributed-systems</a> <a class="tag" href="/Research/tags/governance-architecture.html">governance-architecture</a> <a class="tag" href="/Research/tags/ai-governance.html">ai-governance</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-ai-agent-control-plane-architecture-enterprise.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-04-26-ai-agent-control-plane-architecture-enterprise" target="_blank" rel="noopener">wiki →</a>
+  </div>
+  
+  <div class="item-content">
+    <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
+<p>What control-plane architecture is required to manage AI agents and low-code systems as distributed, semi-autonomous actors within enterprise environments, specifically, how should policies be created, propagated, and enforced; how should control, execution, and observability layers interact; and how should feedback loops be established to continuously adapt governance controls based on system behaviour?</p>
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Findings</h2>
+<h3>Executive Summary</h3>
+<ul>
+<li>[inference; source: <a href="https://csrc.nist.gov/pubs/sp/800/207/final">National Institute of Standards and Technology (NIST) Special Publication (SP) 800-207 - Zero Trust Architecture</a> <a href="https://istio.io/latest/docs/ops/deployment/architecture/">Istio architecture</a> <a href="https://www.openpolicyagent.org/docs/latest/philosophy/">Open Policy Agent (OPA) - policy engine architecture</a> <a href="https://airc.nist.gov/airmf-resources/airmf/5-sec-core/">NIST AI RMF Core</a> <a href="https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-9">EU AI Act Service Desk - Article 9</a> <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-multi-ai-provider-control-planes.md]">github.com</a> The required enterprise architecture is a layered control plane with a central policy administration and decision core, a translation and distribution layer, heterogeneous enforcement adapters, and a closed-loop observability and review system; a single gateway or a single vendor administration plane is not sufficient.</li>
+<li>[inference; source: <a href="https://csrc.nist.gov/pubs/sp/800/207/final">National Institute of Standards and Technology (NIST) Special Publication (SP) 800-207 - Zero Trust Architecture</a> <a href="https://istio.io/latest/docs/ops/deployment/architecture/">Istio architecture</a> <a href="https://www.openpolicyagent.org/docs/latest/management-bundles/]">www.openpolicyagent.org</a> The best architectural analogue is NIST zero trust plus service mesh: keep control logic centralized, program distributed enforcement points through a separate control plane, and treat policy updates as versioned artifacts that can be staged, activated, and rolled back.</li>
+<li>[inference; source: <a href="https://www.openpolicyagent.org/docs/latest/philosophy/">Open Policy Agent (OPA) - policy engine architecture</a> <a href="https://docs.cedarpolicy.com/">Cedar policy language</a> <a href="https://learn.microsoft.com/en-us/azure/governance/policy/overview]">learn.microsoft.com</a> The policy stack should be composite rather than singular, with OPA-like general policy decisioning, Cedar-style fine-grained authorization where needed, and Azure-style scoped assignment, remediation, and compliance workflows for slower governance cadences.</li>
+<li>[inference; source: <a href="https://airc.nist.gov/airmf-resources/airmf/5-sec-core/">NIST AI RMF Core</a> <a href="https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-12">EU AI Act Service Desk - Article 12</a> <a href="https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-72">EU AI Act Service Desk - Article 72</a> <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-24-business-led-low-code-agent-governance.md]">github.com</a> The architecture must close the loop from observability to policy adaptation, because both risk-management frameworks and bounded low-code governance evidence show that policies only stay effective when runtime signals, incidents, and drift feed a documented review and change process.</li>
+</ul>
+<h3>Key Findings</h3>
+<ol>
+<li>[inference; source: <a href="https://csrc.nist.gov/pubs/sp/800/207/final">National Institute of Standards and Technology (NIST) Special Publication (SP) 800-207 - Zero Trust Architecture</a> <a href="https://istio.io/latest/docs/ops/deployment/architecture/">Istio architecture</a> <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-multi-ai-provider-control-planes.md]">github.com</a> <strong>High confidence:</strong> An enterprise AI and low-code control plane must separate central policy decision and administration from distributed enforcement, because the evidence consistently shows that shared governance logic and local execution need different operating surfaces and cadences.</li>
+<li>[inference; source: <a href="https://www.openpolicyagent.org/docs/latest/philosophy/">Open Policy Agent (OPA) - policy engine architecture</a> <a href="https://www.openpolicyagent.org/docs/latest/management-bundles/">OPA bundle distribution</a> <a href="https://docs.cedarpolicy.com/">Cedar policy language</a> <a href="https://learn.microsoft.com/en-us/azure/governance/policy/overview]">learn.microsoft.com</a> <strong>High confidence:</strong> The policy lifecycle should be implemented as policy packages that are authored, tested, approved, versioned, signed, distributed, activated, observed, and retired, rather than as hard-coded rules inside each agent platform or low-code tool.</li>
+<li>[inference; source: <a href="https://www.openpolicyagent.org/docs/latest/philosophy/">Open Policy Agent (OPA) - policy engine architecture</a> <a href="https://docs.cedarpolicy.com/">Cedar policy language</a> <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/what-is-avp.html">Amazon Verified Permissions</a> <a href="https://learn.microsoft.com/en-us/azure/governance/policy/overview]">learn.microsoft.com</a> <strong>Medium confidence:</strong> No single reviewed engine spans every governance need, so the most credible design uses a portable general-purpose policy engine for broad decisions, a dedicated authorization language for fine-grained entitlements, and a scoped assignment system for remediation and compliance management.</li>
+<li>[inference; source: <a href="https://istio.io/latest/docs/ops/deployment/architecture/">Istio architecture</a> <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/terminology.html">Amazon Verified Permissions terminology</a> <a href="https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effect-basics]">learn.microsoft.com</a> <strong>Medium confidence:</strong> High-level governance policy has to be compiled into layer-specific rules for gateways, application-level access controls, and orchestrators, and overlapping layers should default to deny-overrides semantics when those layers conflict.</li>
+<li>[inference; source: <a href="https://www.openpolicyagent.org/docs/latest/management-decision-logs/">OPA decision logs</a> <a href="https://learn.microsoft.com/en-us/azure/governance/policy/how-to/get-compliance-data#evaluation-triggers">Azure Policy evaluation triggers</a> <a href="https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-72]">ai-act-service-desk.ec.europa.eu</a> <strong>High confidence:</strong> The observability plane must combine runtime decision logs, configuration drift, compliance scans, evaluation outcomes, and incident data into one evidence loop, because otherwise policy updates become reactive anecdotes instead of governed change.</li>
+<li>[inference; source: <a href="https://airc.nist.gov/airmf-resources/airmf/5-sec-core/">NIST AI RMF Core</a> <a href="https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-9">EU AI Act Service Desk - Article 9</a> <a href="https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-12">EU AI Act Service Desk - Article 12</a> <a href="https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-72]">ai-act-service-desk.ec.europa.eu</a> <strong>High confidence:</strong> NIST AI RMF and the EU AI Act both require lifecycle governance, traceability, and periodic or continuous review, so a compliant control plane has to preserve inventories, logs, review records, and residual-risk decisions beyond request-time enforcement.</li>
+<li>[inference; source: <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-22-enterprise-ai-capability-model.md">github.com</a> <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-24-business-led-low-code-agent-governance.md">github.com</a> <a href="https://airc.nist.gov/airmf-resources/airmf/5-sec-core/]">airc.nist.gov</a> <strong>High confidence:</strong> The bootstrap path should begin with ownership, inventory, risk-tier intake, approved data and connector boundaries, central logging, and manual publication approval, because those controls create useful shared rails before deeper automation is mature.</li>
+<li>[inference; source: <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-22-enterprise-ai-platform-operating-models.md">github.com</a> <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-24-business-led-low-code-agent-governance.md">github.com</a> <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-multi-ai-provider-control-planes.md]">github.com</a> <strong>Medium confidence:</strong> The operating model that best matches this architecture is a central governance and platform core with domain teams consuming it as a service, not a fragmented split where each vendor stack owns its own separate governance system.</li>
+</ol>
+<h3>Assumptions</h3>
+<ul>
+<li>[assumption; source: <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-multi-ai-provider-control-planes.md]">github.com</a> Most material AI runtime traffic can be routed through a governed gateway, orchestrator, or proxy layer. <strong>Justification:</strong> if a large share of tools remains opaque and unproxyable, the runtime subplane loses some leverage and more policy must stay vendor-native.</li>
+<li>[assumption; source: <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-24-business-led-low-code-agent-governance.md">github.com</a> <a href="https://airc.nist.gov/airmf-resources/airmf/5-sec-core/]">airc.nist.gov</a> The enterprise is willing to centralize ownership of inventory, risk-tier policy, and exception review even if execution stays distributed. <strong>Justification:</strong> the architecture depends on one shared governance core rather than purely local team discretion.</li>
+<li>[assumption; source: <a href="https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-9">EU AI Act Service Desk - Article 9</a> <a href="https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-72]">ai-act-service-desk.ec.europa.eu</a> The EU AI Act is used here as an upper-bound governance reference rather than as a claim that every governed system in scope is a legally classified high-risk system. <strong>Justification:</strong> the article-level obligations are useful design tests for stronger lifecycle control even where they are not universally mandatory.</li>
+</ul>
+<h3>Analysis</h3>
+<ul>
+<li>[inference; source: <a href="https://csrc.nist.gov/pubs/sp/800/207/final">National Institute of Standards and Technology (NIST) Special Publication (SP) 800-207 - Zero Trust Architecture</a> <a href="https://istio.io/latest/docs/ops/deployment/architecture/">Istio architecture</a> <a href="https://www.openpolicyagent.org/docs/latest/philosophy/">Open Policy Agent (OPA) - policy engine architecture</a> <a href="https://learn.microsoft.com/en-us/azure/governance/policy/overview">Azure Policy - enterprise policy management at scale</a> <a href="https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-72]">ai-act-service-desk.ec.europa.eu</a> The reference architecture below is the simplest composite design that satisfies the zero trust, service mesh, policy-engine, and lifecycle-governance evidence set.</li>
+</ul>
+<pre><code class="language-mermaid">flowchart LR
+    A[Governance workbench&lt;br/&gt;policy authoring, testing, approval] --&gt; B[Policy registry and risk catalog]
+    B --&gt; C[Decision and translation services&lt;br/&gt;general policy, entitlement policy, platform mappings]
+    C --&gt; D[Distribution and activation bus&lt;br/&gt;signed packages, staged rollout, rollback]
+    D --&gt; E1[Gateway and traffic enforcement]
+    D --&gt; E2[Data and connector enforcement]
+    D --&gt; E3[Orchestrator and tool enforcement]
+    D --&gt; E4[Model-runtime guardrails]
+    D --&gt; E5[Vendor-native admin adapters]
+    E1 --&gt; F[Observability and evidence plane]
+    E2 --&gt; F
+    E3 --&gt; F
+    E4 --&gt; F
+    E5 --&gt; F
+    F --&gt; G[Risk review and change control]
+    G --&gt; A
+    H[Identity, inventory, posture, evaluation, incidents] --&gt; C
+    H --&gt; F
+</code></pre>
+<ul>
+<li>[inference; source: <a href="https://csrc.nist.gov/pubs/sp/800/207/final">National Institute of Standards and Technology (NIST) Special Publication (SP) 800-207 - Zero Trust Architecture</a> <a href="https://airc.nist.gov/airmf-resources/airmf/5-sec-core/">NIST AI RMF Core</a> <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-22-enterprise-ai-capability-model.md]">github.com</a> <strong>Component specification:</strong> Governance workbench owns policy authoring, test harnesses, approval, exception handling, and risk-tier mappings.</li>
+<li>[inference; source: <a href="https://csrc.nist.gov/pubs/sp/800/207/final">National Institute of Standards and Technology (NIST) Special Publication (SP) 800-207 - Zero Trust Architecture</a> <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-multi-ai-provider-control-planes.md]">github.com</a> <strong>Component specification:</strong> Policy registry and risk catalog hold agent inventory, ownership, provider metadata, connector metadata, data-domain bindings, approved patterns, and residual-risk records.</li>
+<li>[inference; source: <a href="https://www.openpolicyagent.org/docs/latest/philosophy/">Open Policy Agent (OPA) - policy engine architecture</a> <a href="https://docs.cedarpolicy.com/">Cedar policy language</a> <a href="https://learn.microsoft.com/en-us/azure/governance/policy/overview]">learn.microsoft.com</a> <strong>Component specification:</strong> Decision and translation services evaluate common policy and compile it into OPA packages, Cedar-style authorization objects, and platform-specific configurations or assignments.</li>
+<li>[inference; source: <a href="https://www.openpolicyagent.org/docs/latest/management-bundles/">OPA bundle distribution</a> <a href="https://istio.io/latest/docs/ops/deployment/architecture/]">istio.io</a> <strong>Component specification:</strong> Distribution and activation bus publishes signed configurations to enforcement points, supports staged rollout, and provides rollback when downstream verification fails.</li>
+<li>[inference; source: <a href="https://istio.io/latest/docs/ops/deployment/architecture/">Istio architecture</a> <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/terminology.html">Amazon Verified Permissions terminology</a> <a href="https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effect-basics]">learn.microsoft.com</a> <strong>Component specification:</strong> Enforcement adapters cover traffic gateways, connector and data controls, orchestrators, model runtimes, and vendor administration settings, because each layer exposes a different control grammar.</li>
+<li>[inference; source: <a href="https://www.openpolicyagent.org/docs/latest/management-decision-logs/">OPA decision logs</a> <a href="https://learn.microsoft.com/en-us/azure/governance/policy/how-to/get-compliance-data#evaluation-triggers">Azure Policy evaluation triggers</a> <a href="https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-12]">ai-act-service-desk.ec.europa.eu</a> <strong>Component specification:</strong> Observability and evidence plane aggregates policy decisions, audit events, traceability logs, evaluations, drift signals, and incident records into one searchable evidence base.</li>
+<li>[inference; source: <a href="https://airc.nist.gov/airmf-resources/airmf/5-sec-core/">NIST AI RMF Core</a> <a href="https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-9">EU AI Act Service Desk - Article 9</a> <a href="https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-72]">ai-act-service-desk.ec.europa.eu</a> <strong>Component specification:</strong> Risk review and change control turns evidence into governed updates through triage, testing, approval, staged deployment, and residual-risk recording.</li>
+</ul>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>[inference; source: <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-multi-ai-provider-control-planes.md]">github.com</a> The weakest part of the design remains vendor-native administration coverage, because many commercial AI tools still expose fragmented or incomplete administration APIs.</li>
+<li>[inference; source: <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/what-is-avp.html">Amazon Verified Permissions</a> <a href="https://docs.cedarpolicy.com/">Cedar policy language</a> <a href="https://www.openpolicyagent.org/docs/latest/philosophy/]">www.openpolicyagent.org</a> The policy-engine comparison is stronger on architecture than on large-scale operational benchmarks, because the reviewed sources document capabilities clearly but provide limited cross-vendor empirical evidence on enterprise operating trade-offs.</li>
+<li>[inference; source: <a href="https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-9">EU AI Act Service Desk - Article 9</a> <a href="https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-72]">ai-act-service-desk.ec.europa.eu</a> The regulatory argument is intentionally conservative, because not every in-scope system will be legally high-risk, yet using high-risk obligations as a design reference may over-specify controls for lower-risk cases.</li>
+<li>[fact; source: <a href="https://docs.cedarpolicy.com/">Cedar policy language</a> <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/what-is-avp.html]">docs.aws.amazon.com</a> Access note: Cedar evidence in this session came from the current docs root and Verified Permissions docs because the seeded <code>what-is-cedar</code> address no longer resolved.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>Which enterprise products now expose enough administration API coverage to let vendor-native settings be reconciled automatically rather than through manual adapters?</li>
+<li>What evaluation thresholds are strong enough to trigger automatic rollback for coding agents, research agents, or customer-facing assistants without generating unacceptable false positives?</li>
+<li>Which governance signals should be universal across all AI and low-code systems, and which should vary by risk tier, customer segment, or deployment channel?</li>
+</ul>
+<hr />
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
+<ul>
+<li>[x] <a href="https://csrc.nist.gov/pubs/sp/800/207/final">National Institute of Standards and Technology (NIST) Special Publication (SP) 800-207 - Zero Trust Architecture</a> - primary architectural reference; defines the policy decision point (PDP), policy enforcement point (PEP), and policy administration point (PAP) model applicable to AI governance control planes</li>
+<li>[x] <a href="https://www.openpolicyagent.org/docs/latest/philosophy/">Open Policy Agent (OPA) - policy engine architecture</a> - open-source policy engine; assess for control-plane policy store and decision engine role</li>
+<li>[x] <a href="https://docs.cedarpolicy.com/">Cedar policy language</a> - Amazon's policy language and engine; assess as alternative to OPA for control-plane policy decisions</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/azure/governance/policy/overview">Azure Policy - enterprise policy management at scale</a> - cloud-native policy enforcement; assess for AI governance control-plane integration</li>
+<li>[x] <a href="https://istio.io/latest/docs/concepts/what-is-istio/">Istio - service mesh control plane</a> - service mesh control-plane architecture; assess for architectural pattern applicability to AI agent governance</li>
+<li>[x] <a href="https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10">NIST Artificial Intelligence Risk Management Framework (AI RMF) 1.0</a> - assess for control-plane function alignment with NIST AI RMF structure</li>
+<li>[x] <a href="https://airc.nist.gov/airmf-resources/airmf/5-sec-core/">NIST AI RMF Core</a> - primary source for Govern, Map, Measure, and Manage lifecycle functions</li>
+<li>[x] <a href="https://airc.nist.gov/AI_RMF_Knowledge_Base/Playbook">NIST AI RMF Playbook</a> - companion guidance on tailoring lifecycle actions</li>
+<li>[x] <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024R1689">European Union (EU) AI Act</a> - canonical legal text for high-risk lifecycle obligations</li>
+<li>[x] <a href="https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-9">EU AI Act Service Desk - Article 9</a> - continuous iterative risk-management obligations</li>
+<li>[x] <a href="https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-12">EU AI Act Service Desk - Article 12</a> - logging and traceability obligations</li>
+<li>[x] <a href="https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-72">EU AI Act Service Desk - Article 72</a> - post-market monitoring obligations</li>
+<li>[x] <a href="https://www.openpolicyagent.org/docs/latest/management-bundles/">OPA bundle distribution</a> - runtime policy distribution and activation pattern</li>
+<li>[x] <a href="https://www.openpolicyagent.org/docs/latest/management-decision-logs/">OPA decision logs</a> - observability and audit pattern</li>
+<li>[x] <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/what-is-avp.html">Amazon Verified Permissions</a> - managed authorization control-plane pattern for Cedar</li>
+<li>[x] <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/terminology.html">Amazon Verified Permissions terminology</a> - policy-store, authorization-request, and enforcement model details</li>
+<li>[x] <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/policy-templates.html">Amazon Verified Permissions policy templates</a> - template-linked policy propagation model</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effect-basics">Azure Policy effects</a> - effect precedence and cumulative-most-restrictive behavior</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/azure/governance/policy/how-to/get-compliance-data#evaluation-triggers">Azure Policy evaluation triggers</a> - event-driven and recurring compliance evaluation</li>
+<li>[x] <a href="https://istio.io/latest/docs/ops/deployment/architecture/">Istio architecture</a> - explicit control-plane and data-plane split</li>
+</ul>
+<hr />
+
+
+  </div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-04-26-ai-lowcode-governance-enforcement-architecture.html">Where should governance enforcement points be implemented within enterprise architecture, and how should controls be applied consistently for AI and low-code systems?</a> <span class="related-note">via ai-governance, enterprise-architecture, low-code</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-27-servicenow-orchestration-agentic-ai-roadmap.html">ServiceNow workflow orchestration and agentic Artificial Intelligence (AI) roadmap: what does ServiceNow currently provide for AI agent orchestration and governance, and what does their public roadmap indicate about future agentic AI capabilities?</a> <span class="related-note">via ai-agents, enterprise-architecture</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-26-data-governance-ai-lowcode-enterprise-enforcement.html">How can enterprise data governance frameworks be consistently enforced within Artificial Intelligence (AI) and visual, minimal-code application environments?</a> <span class="related-note">via ai-governance, low-code</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-26-ai-lowcode-sdlc-platform-engineering-integration.html">How should AI and low-code governance integrate with existing software development and platform engineering practices?</a> <span class="related-note">via ai-governance, low-code</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-26-ai-lowcode-risk-tier-classification-controls.html">How should Artificial Intelligence (AI) and low-code use cases be classified into risk tiers, and how should governance controls vary across those tiers?</a> <span class="related-note">via ai-governance, low-code</span></div>
+</div></div>
+
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html">AI agents and low-code artefacts operating within enterprise systems?</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-04-26-implicit-rate-limiting-controls-agentic-ai-removal.html">AI</a></div>
+  </div>
+</main>
+</body>
+</html>

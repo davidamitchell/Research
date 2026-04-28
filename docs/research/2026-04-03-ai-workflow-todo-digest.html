@@ -1,0 +1,758 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>AI-assisted daily productivity digest — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #0f1115;
+  --surface-2:       #161b22;
+  --border:          #252b33;
+  --text:            #e6e6e6;
+  --text-muted:      #666;
+  --accent:          #e6e6e6;
+  --accent-dim:      #333;
+  --tag-bg:          #161b22;
+  --tag-text:        #999;
+  --tag-active-bg:   #e6e6e6;
+  --tag-active-text: #0f1115;
+  --link:            #00C3A5;
+  --teal:            #00C3A5;
+  --dusk:            #E8A1A8;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  overflow-x: clip;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.75rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+.nav-links a.active { color: var(--teal); }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--teal); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+  min-width: 0;
+}
+.card:hover { border-color: var(--teal); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  word-break: break-word;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4em;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.item-title svg { flex-shrink: 0; margin-top: 0.2em; }
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+  word-break: break-all;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+  max-width: 100%;
+}
+.item-content pre code { background: none; padding: 0; word-break: normal; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--teal); text-decoration: underline; }
+.item-content a:hover { color: var(--text); text-decoration: underline; }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--dusk);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    top: 0;
+    height: auto;
+    padding: 0.5rem 1rem;
+  }
+  .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .nav-links {
+    width: 100%;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  main {
+    padding: 1.5rem 1rem 4rem;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; overflow: hidden; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); word-break: break-word; overflow-wrap: break-word; }
+.key-claims li:last-child { border-bottom: none; }
+.key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
+.key-claims a:hover { color: var(--text); }
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); flex-wrap: wrap; }
+.related-entry:last-child { border-bottom: none; }
+.related-entry a { color: var(--teal); word-break: break-word; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--dusk); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4em; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--teal); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-card-link { text-decoration: none; color: var(--text); display: block; }
+.thread-card-link:hover .thread-card { background: var(--surface-2); }
+.thread-card { background: var(--surface); border: 1px solid var(--border); padding: 1.5rem 1.75rem 1.75rem; }
+.thread-card-title { font-size: var(--text-base); font-weight: 600; margin-bottom: 0.5rem; }
+.thread-card-meta { font-size: var(--text-xs); color: var(--text-muted); margin-bottom: 0.75rem; letter-spacing: 0.05em; }
+.thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
+.thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Research</a>
+    <div class="nav-links">
+      <a href="/Research/all-items.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>All Items</a>
+      <a href="/Research/backlog.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Backlog</a>
+      <a href="/Research/threads.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>Threads</a>
+      <a href="/Research/tags/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>Tags</a>
+      <a href="/Research/search.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M8 1.5C4.41 1.5 1.5 4.41 1.5 8c0 2.87 1.86 5.3 4.44 6.16.32.06.44-.14.44-.31v-1.09c-1.8.39-2.18-.87-2.18-.87-.3-.75-.72-.95-.72-.95-.59-.4.04-.4.04-.4.65.05 1 .67 1 .67.58 1 1.53.71 1.9.54.06-.42.23-.71.41-.87-1.44-.16-2.95-.72-2.95-3.2 0-.71.25-1.28.67-1.74-.07-.16-.29-.82.06-1.71 0 0 .55-.18 1.8.67a6.27 6.27 0 0 1 3.28 0c1.25-.85 1.8-.67 1.8-.67.35.89.13 1.55.06 1.71.42.46.67 1.03.67 1.74 0 2.49-1.51 3.04-2.96 3.2.23.2.44.6.44 1.21v1.8c0 .17.12.37.44.31A6.5 6.5 0 0 0 14.5 8 6.5 6.5 0 0 0 8 1.5z"/></svg>GitHub</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>AI-assisted daily productivity digest</span>
+  </div>
+  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>AI-assisted daily productivity digest</h1>
+  <p class="full-title-subtitle">Artificial Intelligence (AI)-assisted daily productivity digest: patterns, tooling, and automation approaches for personal task management</p>
+  <div class="meta-bar">
+    <span>2026-04-19</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/ai.html">ai</a> <a class="tag" href="/Research/tags/productivity.html">productivity</a> <a class="tag" href="/Research/tags/automation.html">automation</a> <a class="tag" href="/Research/tags/slack.html">slack</a> <a class="tag" href="/Research/tags/personal-assistant.html">personal-assistant</a> <a class="tag" href="/Research/tags/memory-systems.html">memory-systems</a> <a class="tag" href="/Research/tags/ios.html">ios</a> <a class="tag" href="/Research/tags/workflow.html">workflow</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-03-ai-workflow-todo-digest.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-04-03-ai-workflow-todo-digest" target="_blank" rel="noopener">wiki →</a>
+  </div>
+  <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Medium confidence</li>
+<li>Low confidence</li>
+<li>Medium confidence</li>
+<li>Medium confidence</li>
+<li>Medium confidence</li>
+<li>Medium confidence</li>
+<li>Medium confidence</li>
+<li>Low confidence</li>
+</ol></div>
+
+  <div class="item-content">
+    <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
+<p>What are the established patterns and tooling approaches for using Artificial Intelligence (AI) to generate actionable daily and weekly productivity digests from personal task management systems?</p>
+<p>Supporting questions:</p>
+<ul>
+<li>What automation stacks exist today for pulling tasks from personal knowledge bases (Notion, Obsidian, Todoist, etc.) and summarising them via a Large Language Model (LLM)?</li>
+<li>What prompt patterns produce the most useful digests (top actions, stuck items, small wins)?</li>
+<li>What does public research say about &quot;proactive push&quot; vs &quot;pull-on-demand&quot; information delivery for knowledge workers?</li>
+<li>Which messaging platforms (Slack, Teams, Telegram, iMessage) are best suited for AI digest delivery on Apple iPhone Operating System (iOS)?</li>
+<li>How do memory and personal assistant systems (LLM memory layers, vector stores, context windows) complement or replace scheduled digest automation?</li>
+<li>Who else is building or publishing similar systems publicly, and what have they learned?</li>
+</ul>
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Findings</h2>
+<p><em>(Populated from §6 Synthesis above.)</em></p>
+<h3>Executive Summary</h3>
+<p>[inference] The best-supported pattern for a personal productivity digest is a scheduled workflow that pulls structured task data from one canonical system, extracts a compact set of actions, blockers, and reinforcement signals, and pushes the result to a phone-native chat surface, rather than relying on free-form summarization or on-demand retrieval alone (<a href="https://zapier.com/apps/notion/integrations/slack">Zapier</a>; <a href="https://n8n.io/workflows/10286-ai-meeting-summary-and-action-item-tracker-with-notion-slack-and-gmail/">n8n workflow template</a>; <a href="https://github.com/hoangsonww/AI-News-Briefing">AI News Briefing repository</a>).</p>
+<p>[inference] The strongest checked prompt designs are schema-first: they explicitly extract actions, blockers, decisions, owners, and dates before rendering a short digest, although the evidence base here is thin because only one directly inspectable public workflow exposed its prompt structure in enough detail to verify that pattern (<a href="https://n8n.io/workflows/10286-ai-meeting-summary-and-action-item-tracker-with-notion-slack-and-gmail/">n8n workflow template</a>).</p>
+<p>[fact] Push delivery is useful only when it is bounded and timed well, because the checked HCI and proactive-agent literature shows that interruptions can reduce performance and satisfaction, while interventions aligned to task boundaries are materially better than arbitrary interruptions (<a href="https://link.springer.com/article/10.1007/s41233-023-00060-9">Human-Workspace Interaction review</a>; <a href="https://doi.org/10.1145/3290605.3300558">Lee et al. 2019 DOI</a>; <a href="https://link.springer.com/article/10.1007/s12599-024-00918-y">When AI-Based Agents Are Proactive</a>).</p>
+<p>[inference] For an iOS-primary, Notion-centric workflow, the practical next step is to prototype a daily and weekly digest with Zapier or n8n, deliver it to Slack if Slack is already in the user's daily path or to Telegram if the workflow is purely personal, and add a memory layer only after the digest proves behavior change (<a href="https://api.slack.com/block-kit">Slack Block Kit</a>; <a href="https://core.telegram.org/bots/api">Telegram Bot API</a>; <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-02-slack-msteams-research-integration.md">completed Slack and Teams research</a>; <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-slack-bot-memory-capture-retrieval.md">completed Slack bot memory research</a>; <a href="https://arxiv.org/abs/2310.08560">MemGPT paper</a>).</p>
+<h3>Key Findings</h3>
+<ol>
+<li><strong>Medium confidence.</strong> [inference] The most visible public implementations of proactive digests use a scheduled collector, a canonical source system, a constrained extraction step, and a push destination, which suggests that pipeline-oriented automation is the clearest current pattern even though the accessible examples skew toward meetings and news rather than personal task digests (<a href="https://zapier.com/apps/notion/integrations/slack">Zapier</a>; <a href="https://n8n.io/workflows/10286-ai-meeting-summary-and-action-item-tracker-with-notion-slack-and-gmail/">n8n workflow template</a>; <a href="https://github.com/hoangsonww/AI-News-Briefing">AI News Briefing repository</a>).</li>
+<li><strong>Low confidence.</strong> [inference] The most actionable prompt pattern appears to be schema-first extraction with explicit sections for actions, blockers, decisions, dates, and owners, because the clearest checked public workflow exposes those structures directly for routing and rendering, but the inspectable evidence base is thin (<a href="https://n8n.io/workflows/10286-ai-meeting-summary-and-action-item-tracker-with-notion-slack-and-gmail/">n8n workflow template</a>).</li>
+<li><strong>Medium confidence.</strong> [fact] Proactive digests should be delivered at predictable review boundaries, such as the start of a day or week, because interruption research links arbitrary interruptions with degraded performance while task-switch-timed interventions perform better (<a href="https://link.springer.com/article/10.1007/s41233-023-00060-9">Human-Workspace Interaction review</a>; <a href="https://doi.org/10.1145/3290605.3300558">Lee et al. 2019 DOI</a>).</li>
+<li><strong>Medium confidence.</strong> [inference] Slack appears to be the strongest rich-format delivery destination among the checked options when the user already spends time there, because Block Kit provides the most mature structured-message surface, while Telegram is simpler, Teams is heavier, and Apple Shortcuts is more local-action-oriented (<a href="https://api.slack.com/block-kit">Slack Block Kit</a>; <a href="https://core.telegram.org/bots/api">Telegram Bot API</a>; <a href="https://learn.microsoft.com/en-us/microsoftteams/platform/bots/what-are-bots">Microsoft Teams bots</a>; <a href="https://support.apple.com/guide/shortcuts/welcome/ios">Apple Shortcuts guide</a>; <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-02-slack-msteams-research-integration.md">completed Slack and Teams research</a>; <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-slack-bot-memory-capture-retrieval.md">completed Slack bot memory research</a>).</li>
+<li><strong>Medium confidence.</strong> [inference] Telegram is the strongest personal-only alternative when setup simplicity matters more than rich cards or team context, because its bot surface is operationally simpler than Slack's workspace app model and better matched to solo automation (<a href="https://core.telegram.org/bots/api">Telegram Bot API</a>; <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-telegram-bot-memory-capture-retrieval.md">completed Telegram research</a>).</li>
+<li><strong>Medium confidence.</strong> [inference] Apple Shortcuts should be treated as a complementary iOS control surface for capture, quick-open, and manual review, rather than as the primary endpoint for externally scheduled rich digests, because Apple's evidence emphasizes local action composition rather than external rich-message push (<a href="https://support.apple.com/guide/shortcuts/welcome/ios">Apple Shortcuts guide</a>; <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-02-ios-shortcuts-research.md">completed iOS Shortcuts research</a>).</li>
+<li><strong>Medium confidence.</strong> [inference] Memory systems such as MemGPT and product-memory features complement digest automation by preserving context and improving retrieval quality, but they do not replace scheduled digests because they do not inherently solve the problem of when to surface the next three tasks to the user (<a href="https://arxiv.org/abs/2310.08560">MemGPT paper</a>; <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-17-ai-memory-systems-rag-neuroscience.md">completed AI memory systems research</a>).</li>
+<li><strong>Low confidence.</strong> [inference] For the davidamitchell ecosystem, the nearest reusable pattern may be the combination of this Research repository's governance discipline with the <code>Latest-developments-</code> style of scheduled summarization, because the checked public repositories show adjacent summarization and agent-evaluation work but no visible dedicated task-digest product (<a href="https://github.com/davidamitchell?tab=repositories">davidamitchell repositories</a>).</li>
+</ol>
+<h3>Assumptions</h3>
+<ul>
+<li><strong>Assumption:</strong> The owner is willing to receive a digest in at least one third-party messaging surface if that materially reduces friction. <strong>Justification:</strong> The scoped platform comparison explicitly includes Slack, Teams, and Telegram rather than assuming Apple-native-only delivery. [assumption]</li>
+<li><strong>Assumption:</strong> Notion or an equivalent structured task database remains the source of truth for active work. <strong>Justification:</strong> The seed pattern, checked sources, and final recommendation all depend on a canonical structured source rather than on reconstructing priorities from unstructured chat. [assumption]</li>
+</ul>
+<h3>Analysis</h3>
+<p>[inference] The key architectural lesson is to separate collection, extraction, ranking, and rendering. Once those concerns are separated, the same digest logic can target Slack, Telegram, or a simpler Apple Shortcuts open-link action without rewriting the whole system (<a href="https://zapier.com/apps/notion/integrations/slack">Zapier</a>; <a href="https://n8n.io/workflows/10286-ai-meeting-summary-and-action-item-tracker-with-notion-slack-and-gmail/">n8n workflow template</a>).</p>
+<p>[inference] The evidence also shows that &quot;more context&quot; is not the same as &quot;better digest&quot;. A memory layer may improve ranking quality, but if the source system is stale or the notification timing is poor, the user still experiences the digest as noise rather than guidance (<a href="https://arxiv.org/abs/2310.08560">MemGPT paper</a>; <a href="https://link.springer.com/article/10.1007/s41233-023-00060-9">Human-Workspace Interaction review</a>).</p>
+<p>[inference] That makes the recommended implementation order clear: first prove value with a scheduled, structured, low-frequency digest over trusted task data; then add richer delivery formatting; then add memory only if it clearly improves prioritization or continuity (<a href="https://zapier.com/apps/notion/integrations/slack">Zapier</a>; <a href="https://n8n.io/workflows/10286-ai-meeting-summary-and-action-item-tracker-with-notion-slack-and-gmail/">n8n workflow template</a>; <a href="https://arxiv.org/abs/2310.08560">MemGPT paper</a>).</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>[fact] The seed video's transcript could not be retrieved in this environment because YouTube blocked transcript access from the cloud runner IP.</li>
+<li>[fact] Direct-source evidence for Make, OpenAI Memory, Rewind.ai, Reddit, and Hacker News was unavailable or degraded because of HTTP 403, HTTP 404, or fetch failures.</li>
+<li>[fact] The original source list contained an incorrect DOI for the 2015 proactive-agent paper, which required correction during research.</li>
+<li>[inference] Because several public implementations found were meeting or news digests rather than personal task digests, some conclusions are architectural analogies rather than exact personal-productivity replications.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>[inference] Which ranking heuristic most improves digest usefulness in practice, due date proximity, stalled age, explicit priority, or recent inactivity?</li>
+<li>[inference] What privacy and secret-governance controls are required when a single digest touches Notion, a messaging platform, and an external model provider?</li>
+<li>[inference] Would write-back state, such as reviewed or deferred, improve the digest loop enough to justify the extra integration complexity?</li>
+<li>[inference] What is the smallest memory layer that materially improves digest quality without creating a new governance burden?</li>
+</ul>
+<hr />
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
+<ul>
+<li>[x] <a href="https://youtu.be/hFRQb2e5cJs?si=6NppPd82VwLaEKts">YouTube: AI workflow help with todo lists</a> -- primary seed source; direct transcript fetch was attempted on 2026-04-19 and failed because YouTube blocked transcript retrieval from the cloud runner Internet Protocol (IP) address</li>
+<li>[x] <a href="https://zapier.com/apps/notion/integrations/slack">Zapier documentation: Notion + Slack multi-step Zaps</a> -- official docs for the core automation stack described in the video</li>
+<li>[x] <a href="https://www.make.com/en/integrations/notion/slack">Make (formerly Integromat) Notion + Slack integration</a> -- direct fetch returned Hypertext Transfer Protocol (HTTP) 403 in this environment; treated as checked but evidence-poor</li>
+<li>[x] <a href="https://n8n.io/">n8n: self-hosted workflow automation</a> -- open-source alternative; relevant for users who want to avoid third-party data access</li>
+<li>[x] <a href="https://arxiv.org/abs/2310.08560">MemGPT: towards LLMs as operating systems (paper)</a> -- foundational paper on memory-tier management for Large Language Models (LLMs)</li>
+<li>[x] <a href="https://mem.ai/">Mem.ai personal AI</a> -- checked; page rendered only a browser-update interstitial in this environment, so product-detail evidence is limited</li>
+<li>[x] <a href="https://www.rewind.ai/">Rewind.ai: the AI that remembers everything</a> -- checked; direct fetch failed in this environment</li>
+<li>[x] <a href="https://help.openai.com/en/articles/8590148-memory-in-chatgpt">OpenAI Memory feature documentation</a> -- checked; direct fetch returned HTTP 403 in this environment</li>
+<li>[x] <a href="https://news.ycombinator.com/search?q=ai+daily+digest+productivity">Hacker News: &quot;Show Hacker News (HN)&quot; and &quot;Ask Hacker News (HN)&quot; threads on personal productivity automation</a> -- checked; direct fetch returned HTTP 404, so no usable evidence was extracted</li>
+<li>[x] <a href="https://www.reddit.com/r/Notion/search/?q=ai+daily+digest">Reddit r/Notion: AI automation workflows</a> -- checked; direct fetch returned HTTP 403</li>
+<li>[x] <a href="https://www.reddit.com/r/selfhosted/search/?q=llm+daily+summary">Reddit r/selfhosted: LLM workflow automation</a> -- checked; direct fetch returned HTTP 403</li>
+<li>[x] <a href="https://forum.obsidian.md/search?q=ai+daily+digest">Obsidian community: daily notes and AI summarisation plugins</a> -- checked; returned a placeholder page with no usable results</li>
+<li>[x] <a href="https://core.telegram.org/bots/api">Telegram Bot Application Programming Interface (API) documentation</a> -- used for delivery-channel comparison</li>
+<li>[x] <a href="https://api.slack.com/block-kit">Slack Block Kit and Application Programming Interface (API) documentation</a> -- used for delivery-channel comparison</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/microsoftteams/platform/bots/what-are-bots">Microsoft Teams Bot Framework documentation</a> -- used for delivery-channel comparison</li>
+<li>[x] <a href="https://support.apple.com/guide/shortcuts/welcome/ios">Apple Shortcuts: web Application Programming Interface (API) and notification actions</a> -- used for iOS-native delivery comparison</li>
+<li>[x] <a href="https://doi.org/10.1007/s00146-015-0607-8">Yasira Iqbal, &quot;A Taxonomy of Proactive Intelligent Agents&quot; (2015, AI &amp; Society)</a> -- the original Uniform Resource Locator (URL) in the item pointed to the wrong Digital Object Identifier (DOI); the corrected DOI was located by follow-on search, although direct fetch remained unreliable in this environment</li>
+<li>[x] <a href="https://community.n8n.io/t/personal-ai-assistant/30000">Building a personal AI assistant with n8n and Notion (community tutorial)</a> -- checked; thread is about Google Forms triggers rather than a personal assistant workflow, so relevance is low</li>
+<li>[x] <a href="https://docs.anthropic.com/en/api/getting-started">Anthropic Claude Application Programming Interface (API) documentation: system prompts and summarisation</a> -- used to confirm the LLM layer integration shape</li>
+<li>[x] <a href="https://github.com/davidamitchell?tab=repositories">davidamitchell GitHub repositories</a> -- used to review adjacent repos for reuse opportunities</li>
+<li>[x] <a href="https://n8n.io/workflows/10286-ai-meeting-summary-and-action-item-tracker-with-notion-slack-and-gmail/">n8n workflow template: AI meeting summary &amp; action item tracker with Notion, Slack, and Gmail</a> -- concrete public implementation with structured prompt outputs and notification routing</li>
+<li>[x] <a href="https://github.com/hoangsonww/AI-News-Briefing">GitHub: hoangsonww/AI-News-Briefing</a> -- concrete public implementation of a scheduled daily briefing pipeline that publishes to Notion, Obsidian, Slack, and Teams</li>
+<li>[x] <a href="https://doi.org/10.1145/3290605.3300558">Lee et al. (2019), &quot;The Effects of Interruption Timings on Autonomous Height-Adjustable Desks that Respond to Task Changes&quot;</a> -- used for evidence on timing proactive interventions at task boundaries</li>
+<li>[x] <a href="https://link.springer.com/article/10.1007/s12599-024-00918-y">When AI-Based Agents Are Proactive: Implications for Competence and System Satisfaction in Human-AI Collaboration</a> -- used as a follow-on source for proactive versus reactive assistance trade-offs</li>
+</ul>
+<hr />
+
+
+  </div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-04-02-org-shape-software-cost-zero.html">The shape of organisations when software is no longer the constraint</a> <span class="related-note">via ai, automation</span></div>
+<div class="related-entry"><a href="/Research/research/2026-03-12-volume-vs-correctness-ai-era.html">AI inverted the knowledge-work scarcity equation: volume is free, correctness is the scarce resource</a> <span class="related-note">via ai, productivity</span></div>
+<div class="related-entry"><a href="/Research/research/2026-03-12-ai-team-size-strike-team-thesis.html">AI amplified the coordination tax: the 5-person strike team as the structural unit of the AI era</a> <span class="related-note">via ai, productivity</span></div>
+</div></div>
+
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-04-18-latest-developments-trends-forecast.html">Latest developments history</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-04-02-claude-mythos.html">Claude mythos</a></div>
+  </div>
+</main>
+</body>
+</html>

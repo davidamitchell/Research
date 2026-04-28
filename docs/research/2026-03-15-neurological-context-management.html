@@ -1,0 +1,724 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Neurological Basis of Contextual Reasoning and Relevance Filtering — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #0f1115;
+  --surface-2:       #161b22;
+  --border:          #252b33;
+  --text:            #e6e6e6;
+  --text-muted:      #666;
+  --accent:          #e6e6e6;
+  --accent-dim:      #333;
+  --tag-bg:          #161b22;
+  --tag-text:        #999;
+  --tag-active-bg:   #e6e6e6;
+  --tag-active-text: #0f1115;
+  --link:            #00C3A5;
+  --teal:            #00C3A5;
+  --dusk:            #E8A1A8;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  overflow-x: clip;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.75rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+.nav-links a.active { color: var(--teal); }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--teal); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+  min-width: 0;
+}
+.card:hover { border-color: var(--teal); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  word-break: break-word;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4em;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.item-title svg { flex-shrink: 0; margin-top: 0.2em; }
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+  word-break: break-all;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+  max-width: 100%;
+}
+.item-content pre code { background: none; padding: 0; word-break: normal; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--teal); text-decoration: underline; }
+.item-content a:hover { color: var(--text); text-decoration: underline; }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--dusk);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    top: 0;
+    height: auto;
+    padding: 0.5rem 1rem;
+  }
+  .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .nav-links {
+    width: 100%;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  main {
+    padding: 1.5rem 1rem 4rem;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; overflow: hidden; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); word-break: break-word; overflow-wrap: break-word; }
+.key-claims li:last-child { border-bottom: none; }
+.key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
+.key-claims a:hover { color: var(--text); }
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); flex-wrap: wrap; }
+.related-entry:last-child { border-bottom: none; }
+.related-entry a { color: var(--teal); word-break: break-word; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--dusk); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4em; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--teal); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-card-link { text-decoration: none; color: var(--text); display: block; }
+.thread-card-link:hover .thread-card { background: var(--surface-2); }
+.thread-card { background: var(--surface); border: 1px solid var(--border); padding: 1.5rem 1.75rem 1.75rem; }
+.thread-card-title { font-size: var(--text-base); font-weight: 600; margin-bottom: 0.5rem; }
+.thread-card-meta { font-size: var(--text-xs); color: var(--text-muted); margin-bottom: 0.75rem; letter-spacing: 0.05em; }
+.thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
+.thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Research</a>
+    <div class="nav-links">
+      <a href="/Research/all-items.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>All Items</a>
+      <a href="/Research/backlog.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Backlog</a>
+      <a href="/Research/threads.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>Threads</a>
+      <a href="/Research/tags/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>Tags</a>
+      <a href="/Research/search.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M8 1.5C4.41 1.5 1.5 4.41 1.5 8c0 2.87 1.86 5.3 4.44 6.16.32.06.44-.14.44-.31v-1.09c-1.8.39-2.18-.87-2.18-.87-.3-.75-.72-.95-.72-.95-.59-.4.04-.4.04-.4.65.05 1 .67 1 .67.58 1 1.53.71 1.9.54.06-.42.23-.71.41-.87-1.44-.16-2.95-.72-2.95-3.2 0-.71.25-1.28.67-1.74-.07-.16-.29-.82.06-1.71 0 0 .55-.18 1.8.67a6.27 6.27 0 0 1 3.28 0c1.25-.85 1.8-.67 1.8-.67.35.89.13 1.55.06 1.71.42.46.67 1.03.67 1.74 0 2.49-1.51 3.04-2.96 3.2.23.2.44.6.44 1.21v1.8c0 .17.12.37.44.31A6.5 6.5 0 0 0 14.5 8 6.5 6.5 0 0 0 8 1.5z"/></svg>GitHub</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>Neurological Basis of Contextual Reasoning and Relevance Filtering</span>
+  </div>
+  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Neurological Basis of Contextual Reasoning and Relevance Filtering</h1>
+    <div class="meta-bar">
+    <span>2026-03-22</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/neuroscience.html">neuroscience</a> <a class="tag" href="/Research/tags/cognition.html">cognition</a> <a class="tag" href="/Research/tags/context-management.html">context-management</a> <a class="tag" href="/Research/tags/working-memory.html">working-memory</a> <a class="tag" href="/Research/tags/decision-making.html">decision-making</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-15-neurological-context-management.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-15-neurological-context-management" target="_blank" rel="noopener">wiki →</a>
+  </div>
+  
+  <div class="item-content">
+    <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
+<p>How do human brains store, compress, retrieve, and dynamically layer multiple types of contextual knowledge — values, goals, rules, current state, and immediate task — when making decisions, and what design principles for Artificial Intelligence (AI) context management can be derived from this neurological understanding?</p>
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Findings</h2>
+<h3>Executive Summary</h3>
+<p>[inference] The brain handles contextual reasoning by compressing experience into a few active chunks, using prefrontal control to keep the most relevant chunk in play, and leaning on hippocampal-prefrontal schema machinery so that recurring experience can be reused without replaying every detail from scratch. [Sources: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC2864034/">pmc.ncbi.nlm.nih.gov</a> ; <a href="https://pubmed.ncbi.nlm.nih.gov/11283309/">pubmed.ncbi.nlm.nih.gov</a> ; <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3789138/]">pmc.ncbi.nlm.nih.gov</a></p>
+<p>[inference] Working-memory evidence, attention research, and schema-consolidation studies all point away from a flat &quot;load everything&quot; model of context use and toward selective activation, multimodal binding, and gradual abstraction from episodes into more reusable structures. [Sources: <a href="https://pubmed.ncbi.nlm.nih.gov/11058819/">pubmed.ncbi.nlm.nih.gov</a> ; <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC2864034/">pmc.ncbi.nlm.nih.gov</a> ; <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6689265/">pmc.ncbi.nlm.nih.gov</a> ; <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3789138/]">pmc.ncbi.nlm.nih.gov</a></p>
+<p>[inference] For AI context management, the practical lesson is to keep compact high-authority priors resident, retrieve situational detail only when it matters, preserve episodic provenance, and escalate from cheap schema-led reasoning to slower deliberation when novelty or conflict rises. [Sources: <a href="https://pubmed.ncbi.nlm.nih.gov/11283309/">pubmed.ncbi.nlm.nih.gov</a> ; <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3789138/">pmc.ncbi.nlm.nih.gov</a> ; <a href="https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2022.805386/full">www.frontiersin.org</a> ; <a href="https://doi.org/10.1038/nrn2787]">doi.org</a></p>
+<p>[inference] That answer is best treated as an architectural constraint set rather than as evidence that digital systems should mimic biological circuitry one-for-one. [Sources: <a href="https://pubmed.ncbi.nlm.nih.gov/11283309/">pubmed.ncbi.nlm.nih.gov</a> ; <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3789138/">pmc.ncbi.nlm.nih.gov</a> ; <a href="https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2022.805386/full]">www.frontiersin.org</a></p>
+<h3>Key Findings</h3>
+<ol>
+<li>[inference] [confidence: high] Human working memory can actively maintain only a small number of meaningful chunks at once, so robust context systems must compress and bind information into compact units rather than trying to expose the reasoner to every relevant raw document simultaneously. [Sources: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC2864034/">pmc.ncbi.nlm.nih.gov</a> ; <a href="https://pubmed.ncbi.nlm.nih.gov/11058819/]">pubmed.ncbi.nlm.nih.gov</a></li>
+<li>[inference] [confidence: high] Prefrontal control research shows that goal maintenance and biasing are separate functions from storage itself, which means effective AI context architectures need an explicit controller that chooses what remains active instead of assuming retrieval alone solves selection. [Sources: <a href="https://pubmed.ncbi.nlm.nih.gov/11283309/">pubmed.ncbi.nlm.nih.gov</a> ; <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5447931/]">pmc.ncbi.nlm.nih.gov</a></li>
+<li>[inference] [confidence: high] Attention and working memory share overlapping top-down machinery, and inhibition of return shows that search quality improves when previously visited or low-yield regions are suppressed, so context ranking should include anti-redundancy and anti-revisit signals rather than relevance alone. [Sources: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6689265/">pmc.ncbi.nlm.nih.gov</a> ; <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6969912/]">pmc.ncbi.nlm.nih.gov</a></li>
+<li>[inference] [confidence: medium] Predictive-processing evidence suggests that stable higher-order goals behave like priors that determine which mismatches are salient, so context assembly should emphasise changes, exceptions, and conflicts against those priors instead of repeatedly reinjecting unchanged background guidance. [Sources: <a href="https://doi.org/10.1038/nrn2787">doi.org</a> ; <a href="https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2022.805386/full]">www.frontiersin.org</a></li>
+<li>[inference] [confidence: high] Schema-consolidation research indicates that detailed episodic traces and higher-level abstractions play different roles in cognition, so AI memory should preserve both a provenance-rich episodic layer and a compressed schema layer with explicit promotion between them. [Sources: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3789138/">pmc.ncbi.nlm.nih.gov</a> ; <a href="https://www.frontiersin.org/journals/human-neuroscience/articles/10.3389/fnhum.2023.1217093/full]">www.frontiersin.org</a></li>
+<li>[inference] [confidence: medium] Dual-process evidence supports a split between fast low-cost contextual guesses and slower controlled evaluation, so practical AI systems should treat schema-led reasoning as the default path and reserve heavier deliberate reasoning for ambiguity, conflict, or novelty. [Sources: <a href="https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2022.805386/full">www.frontiersin.org</a> ; <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5447931/]">pmc.ncbi.nlm.nih.gov</a></li>
+<li>[inference] [confidence: high] The most supportable overall architecture is a layered one with always-on high-authority goals and values, a tightly bounded active task buffer, on-demand retrieval of situational evidence, and explicit conflict resolution between long-horizon priorities and immediate task demands. [Sources: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC2864034/">pmc.ncbi.nlm.nih.gov</a> ; <a href="https://pubmed.ncbi.nlm.nih.gov/11283309/">pubmed.ncbi.nlm.nih.gov</a> ; <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3789138/">pmc.ncbi.nlm.nih.gov</a> ; <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6689265/]">pmc.ncbi.nlm.nih.gov</a></li>
+</ol>
+<h3>Assumptions</h3>
+<ul>
+<li>[assumption] AI architectures can validly borrow functional constraints from neuroscience without needing neuron-level biological fidelity. <strong>Justification:</strong> the question asks for design principles, and the evidence base is strongest at the level of memory structure, control, and filtering. [Sources: <a href="https://pubmed.ncbi.nlm.nih.gov/11283309/">pubmed.ncbi.nlm.nih.gov</a> ; <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3789138/]">pmc.ncbi.nlm.nih.gov</a></li>
+<li>[assumption] Fast-path versus slow-path AI reasoning is an analogy to human dual-process distinctions, not a literal mechanistic equivalence. <strong>Justification:</strong> the human evidence is strong enough to justify the design analogy but not a one-to-one mapping. [Sources: <a href="https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2022.805386/full">www.frontiersin.org</a> ; <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5447931/]">pmc.ncbi.nlm.nih.gov</a></li>
+</ul>
+<h3>Analysis</h3>
+<p>[inference] Across the source set, the recurring theme is scarcity: active context is limited, competition between representations is real, and control matters because too much simultaneously active material creates interference. [Sources: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC2864034/">pmc.ncbi.nlm.nih.gov</a> ; <a href="https://pubmed.ncbi.nlm.nih.gov/11283309/">pubmed.ncbi.nlm.nih.gov</a> ; <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5447931/]">pmc.ncbi.nlm.nih.gov</a></p>
+<p>[inference] By contrast, the consolidation literature explains why cognition does not collapse under that scarcity: repeated episodes are gradually transformed into schemas that can be reactivated cheaply, provided detailed traces remain available when nuance is needed. [Sources: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3789138/">pmc.ncbi.nlm.nih.gov</a> ; <a href="https://www.frontiersin.org/journals/human-neuroscience/articles/10.3389/fnhum.2023.1217093/full]">www.frontiersin.org</a></p>
+<p>[inference] Attention and inhibition findings sharpen the design trade-off further, because they show that successful reasoning depends not just on finding relevant material but on suppressing already-checked or distracting material that would otherwise consume limited active bandwidth. [Sources: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6689265/">pmc.ncbi.nlm.nih.gov</a> ; <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6969912/]">pmc.ncbi.nlm.nih.gov</a></p>
+<p>[inference] Finally, predictive-processing and dual-process work together to suggest when escalation is needed: stable priors can cheaply guide routine interpretation, but mismatches, ambiguity, and conflict are the moments when the system must pay the cost of slower more deliberate reasoning. [Sources: <a href="https://doi.org/10.1038/nrn2787">doi.org</a> ; <a href="https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2022.805386/full]">www.frontiersin.org</a></p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>[inference] The literature cited here supports architectural constraints more directly than it supports concrete implementation choices such as exact retrieval algorithms or threshold values for escalation. [Sources: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC2864034/">pmc.ncbi.nlm.nih.gov</a> ; <a href="https://pubmed.ncbi.nlm.nih.gov/11283309/">pubmed.ncbi.nlm.nih.gov</a> ; <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3789138/">pmc.ncbi.nlm.nih.gov</a> ; <a href="https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2022.805386/full]">www.frontiersin.org</a></li>
+<li>[inference] Schema-based compression improves speed and generalisation, but it also risks over-abstraction and loss of episode-specific detail if the promotion path from episodes to schemas is too aggressive. [Sources: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3789138/">pmc.ncbi.nlm.nih.gov</a> ; <a href="https://www.frontiersin.org/journals/human-neuroscience/articles/10.3389/fnhum.2023.1217093/full]">www.frontiersin.org</a></li>
+<li>[inference] Predictive-processing analogies can become overextended if they are used to justify every design choice, so only the narrower salience-and-error-prioritisation lesson should be treated as well supported here. [Sources: <a href="https://doi.org/10.1038/nrn2787">doi.org</a> ; <a href="https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2022.805386/full]">www.frontiersin.org</a></li>
+<li>[inference] The best-supported design still needs empirical validation in AI systems, especially around when to escalate from fast context use to slower deliberate reasoning. [Sources: <a href="https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2022.805386/full">www.frontiersin.org</a> ; <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5447931/]">pmc.ncbi.nlm.nih.gov</a></li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>What practical promotion criteria should move an AI memory from episodic trace to reusable schema without losing provenance?</li>
+<li>How should an AI controller detect that conflict or novelty is high enough to warrant switching from fast-path reasoning to slower deliberate reasoning?</li>
+<li>Which organisational context layers should be always resident because they behave like high-authority priors, and which should stay retrievable but usually inactive?</li>
+</ul>
+<hr />
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
+<ul>
+<li>[x] Alan Baddeley (2000) — &quot;The episodic buffer: a new component of working memory?&quot; — PubMed abstract — <a href="https://pubmed.ncbi.nlm.nih.gov/11058819/">pubmed.ncbi.nlm.nih.gov</a></li>
+<li>[x] Nelson Cowan (2010) — &quot;The Magical Mystery Four: How is Working Memory Capacity Limited, and Why?&quot; — PubMed Central (PMC) full text — <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC2864034/">pmc.ncbi.nlm.nih.gov</a></li>
+<li>[x] Earl K. Miller and Jonathan D. Cohen (2001) — &quot;An integrative theory of prefrontal cortex function&quot; — PubMed abstract — <a href="https://pubmed.ncbi.nlm.nih.gov/11283309/">pubmed.ncbi.nlm.nih.gov</a></li>
+<li>[x] Shintaro Funahashi (2017) — &quot;Working Memory in the Prefrontal Cortex&quot; — PubMed Central (PMC) full text — <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5447931/">pmc.ncbi.nlm.nih.gov</a></li>
+<li>[x] Sajad Rahmati, Miguel A. Bols, and Tirin Moore (2019) — &quot;Prefrontal Contributions to Attention and Working Memory&quot; — PubMed Central (PMC) full text — <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6689265/">pmc.ncbi.nlm.nih.gov</a></li>
+<li>[x] Mark W. Preston and Howard Eichenbaum (2013) — &quot;Interplay of hippocampus and prefrontal cortex in memory&quot; — PubMed Central (PMC) full text — <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3789138/">pmc.ncbi.nlm.nih.gov</a></li>
+<li>[x] Raymond M. Klein and Steven P. Hilchey (2020) — &quot;What Neuroscientific Studies Tell Us about Inhibition of Return&quot; — PubMed Central (PMC) full text — <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6969912/">pmc.ncbi.nlm.nih.gov</a></li>
+<li>[x] Junaid Younas et al. (2023) — &quot;Cognitive neuroscience perspective on memory&quot; — Frontiers in Human Neuroscience — <a href="https://www.frontiersin.org/journals/human-neuroscience/articles/10.3389/fnhum.2023.1217093/full">www.frontiersin.org</a></li>
+<li>[x] Guilherme Bellini-Leite (2022) — &quot;Dual Process Theory: Embodied and Predictive; Symbolic and Classical&quot; — Frontiers in Psychology — <a href="https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2022.805386/full">www.frontiersin.org</a></li>
+<li>[x] Karl Friston (2010) — &quot;The free-energy principle: a unified brain theory?&quot; — Digital Object Identifier (DOI) landing page — <a href="https://doi.org/10.1038/nrn2787">doi.org</a></li>
+<li>[x] Prior completed item — <code>Research/completed/2026-02-28-predictive-processing-active-inference.md</code></li>
+<li>[x] Prior completed item — <code>Research/completed/2026-03-17-ai-memory-systems-rag-neuroscience.md</code></li>
+<li>[x] Prior completed item — <code>Research/completed/2026-03-15-context-layers-aligned-decisions-synthesis.md</code></li>
+</ul>
+<hr />
+
+
+  </div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-03-17-ai-memory-systems-rag-neuroscience.html">Artificial Intelligence (AI) Memory Systems: Retrieval-Augmented Generation (RAG), Vendor Implementations, and Neuroscience Foundations</a> <span class="related-note">via neuroscience, working-memory</span></div>
+</div></div>
+
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-15-tracking-work-across-systems.html">Tracking How Work Travels Across Organisational Systems</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-22-cross-scanner-compliance-evidence-normalisation.html">Cross-Scanner Compliance Evidence and Waiver Normalisation in GitHub Actions</a></div>
+  </div>
+</main>
+</body>
+</html>

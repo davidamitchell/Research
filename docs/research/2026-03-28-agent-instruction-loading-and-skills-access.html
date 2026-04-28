@@ -1,0 +1,769 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Agent instruction loading and skills access — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #0f1115;
+  --surface-2:       #161b22;
+  --border:          #252b33;
+  --text:            #e6e6e6;
+  --text-muted:      #666;
+  --accent:          #e6e6e6;
+  --accent-dim:      #333;
+  --tag-bg:          #161b22;
+  --tag-text:        #999;
+  --tag-active-bg:   #e6e6e6;
+  --tag-active-text: #0f1115;
+  --link:            #00C3A5;
+  --teal:            #00C3A5;
+  --dusk:            #E8A1A8;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  overflow-x: clip;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.75rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+.nav-links a.active { color: var(--teal); }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--teal); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+  min-width: 0;
+}
+.card:hover { border-color: var(--teal); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  word-break: break-word;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4em;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.item-title svg { flex-shrink: 0; margin-top: 0.2em; }
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+  word-break: break-all;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+  max-width: 100%;
+}
+.item-content pre code { background: none; padding: 0; word-break: normal; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--teal); text-decoration: underline; }
+.item-content a:hover { color: var(--text); text-decoration: underline; }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--dusk);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    top: 0;
+    height: auto;
+    padding: 0.5rem 1rem;
+  }
+  .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .nav-links {
+    width: 100%;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  main {
+    padding: 1.5rem 1rem 4rem;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; overflow: hidden; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); word-break: break-word; overflow-wrap: break-word; }
+.key-claims li:last-child { border-bottom: none; }
+.key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
+.key-claims a:hover { color: var(--text); }
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); flex-wrap: wrap; }
+.related-entry:last-child { border-bottom: none; }
+.related-entry a { color: var(--teal); word-break: break-word; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--dusk); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4em; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--teal); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-card-link { text-decoration: none; color: var(--text); display: block; }
+.thread-card-link:hover .thread-card { background: var(--surface-2); }
+.thread-card { background: var(--surface); border: 1px solid var(--border); padding: 1.5rem 1.75rem 1.75rem; }
+.thread-card-title { font-size: var(--text-base); font-weight: 600; margin-bottom: 0.5rem; }
+.thread-card-meta { font-size: var(--text-xs); color: var(--text-muted); margin-bottom: 0.75rem; letter-spacing: 0.05em; }
+.thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
+.thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Research</a>
+    <div class="nav-links">
+      <a href="/Research/all-items.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>All Items</a>
+      <a href="/Research/backlog.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Backlog</a>
+      <a href="/Research/threads.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>Threads</a>
+      <a href="/Research/tags/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>Tags</a>
+      <a href="/Research/search.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M8 1.5C4.41 1.5 1.5 4.41 1.5 8c0 2.87 1.86 5.3 4.44 6.16.32.06.44-.14.44-.31v-1.09c-1.8.39-2.18-.87-2.18-.87-.3-.75-.72-.95-.72-.95-.59-.4.04-.4.04-.4.65.05 1 .67 1 .67.58 1 1.53.71 1.9.54.06-.42.23-.71.41-.87-1.44-.16-2.95-.72-2.95-3.2 0-.71.25-1.28.67-1.74-.07-.16-.29-.82.06-1.71 0 0 .55-.18 1.8.67a6.27 6.27 0 0 1 3.28 0c1.25-.85 1.8-.67 1.8-.67.35.89.13 1.55.06 1.71.42.46.67 1.03.67 1.74 0 2.49-1.51 3.04-2.96 3.2.23.2.44.6.44 1.21v1.8c0 .17.12.37.44.31A6.5 6.5 0 0 0 14.5 8 6.5 6.5 0 0 0 8 1.5z"/></svg>GitHub</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>Agent instruction loading and skills access</span>
+  </div>
+  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Agent instruction loading and skills access</h1>
+  <p class="full-title-subtitle">Agent instruction loading and skills access: Copilot coding agent, Claude iOS code feature, and the role of AGENTS.md</p>
+  <div class="meta-bar">
+    <span>2026-03-29</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/copilot.html">copilot</a> <a class="tag" href="/Research/tags/claude.html">claude</a> <a class="tag" href="/Research/tags/ios.html">ios</a> <a class="tag" href="/Research/tags/agents-md.html">agents-md</a> <a class="tag" href="/Research/tags/skills.html">skills</a> <a class="tag" href="/Research/tags/instructions.html">instructions</a> <a class="tag" href="/Research/tags/github-issues.html">github-issues</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-28-agent-instruction-loading-and-skills-access.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-28-agent-instruction-loading-and-skills-access" target="_blank" rel="noopener">wiki →</a>
+  </div>
+  
+  <div class="item-content">
+    <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
+<p>Given the current repo setup -- instructions in <code>.github/copilot-instructions.md</code>, skills submodule at <code>.github/skills/</code>, no <code>AGENTS.md</code> at root, no <code>CLAUDE.md</code> at root -- what does each agent actually load at the point it starts work, and does it have access to the skills?</p>
+<h3>Q1 -- GitHub Copilot coding agent (GitHub issue → assign to Copilot → draft pull request (PR))</h3>
+<ul>
+<li>When a GitHub issue is assigned to Copilot via the GitHub Issues User Interface (UI), which files does it read before starting planning? Does it read <code>.github/copilot-instructions.md</code> automatically? Does it read <code>.github/skills/</code>? Does it look for <code>AGENTS.md</code> at the repo root?</li>
+<li>What is the confirmed loading order: does <code>.github/copilot-instructions.md</code> take priority over a root <code>AGENTS.md</code> if both exist?</li>
+<li>Does the Copilot coding agent materialise the skills submodule (run <code>git submodule update</code>) before reading <code>.github/skills/</code>, or does it see an empty directory?</li>
+</ul>
+<h3>Q2 -- Claude iOS app (<code>code</code> section / feature)</h3>
+<ul>
+<li>When the Research repo is opened in Claude's iOS <code>code</code> feature, which files does Claude load into context? Does it look for <code>CLAUDE.md</code>, <code>AGENTS.md</code>, or <code>.github/copilot-instructions.md</code>? Does it read any of them automatically?</li>
+<li>Can Claude iOS access <code>.github/skills/</code>? What path does it scan for instructions?</li>
+<li>Does the <code>code</code> feature on iOS behave identically to Claude Code Command Line Interface (CLI) in terms of file-loading behaviour, or is it a different surface with different rules?</li>
+</ul>
+<h3>Q3 -- The role of <code>AGENTS.md</code> for both agents</h3>
+<ul>
+<li><code>AGENTS.md</code> is the emerging cross-tool convergence format (supported by Copilot, Claude Code, Cursor, Aider, Codex, Gemini CLI). Architecture Decision Record (ADR)-0006 deleted it from this repo in favour of <code>.github/copilot-instructions.md</code>. Does the Copilot coding agent read <code>AGENTS.md</code> at the repo root when assigned a GitHub issue? Does Claude iOS?</li>
+<li>If both agents read <code>AGENTS.md</code>, is the right answer to restore it as a thin pointer to <code>.github/copilot-instructions.md</code>, or to move content back to <code>AGENTS.md</code> and have <code>copilot-instructions.md</code> point to it?</li>
+<li>Does restoring <code>AGENTS.md</code> break ADR-0006 or supersede it?</li>
+</ul>
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Findings</h2>
+<h3>Executive Summary</h3>
+<p>The GitHub Copilot coding agent reads <code>.github/copilot-instructions.md</code> automatically when assigned a GitHub issue, and since August 2025 also reads <code>AGENTS.md</code>, <code>CLAUDE.md</code>, and <code>GEMINI.md</code> when present. Claude Code on the web (the Claude iOS app's <code>code</code> feature) reads <code>CLAUDE.md</code> automatically and is inferred to read <code>AGENTS.md</code> based on cross-tool documentation patterns, but does NOT read <code>.github/copilot-instructions.md</code> -- this path is Copilot-specific. The current repo has neither <code>CLAUDE.md</code> nor <code>AGENTS.md</code> at root, meaning every Claude Code session starts without project instructions, context, or research workflow guidance. The fix is to create <code>AGENTS.md</code> at the repo root pointing to or containing the instructions; this single change closes the Claude Code instruction gap without disrupting the Copilot coding agent setup. ADR-0006's stated assumption that <code>.github/copilot-instructions.md</code> was &quot;sufficient for all agents&quot; was incorrect and must be amended.</p>
+<h3>Key Findings</h3>
+<ol>
+<li>
+<p>The GitHub Copilot coding agent, when triggered by a GitHub issue assignment, reads <code>.github/copilot-instructions.md</code> automatically before starting work, as confirmed by GitHub's official documentation and the August 2025 coding agent changelog. (high confidence)</p>
+</li>
+<li>
+<p>The Copilot coding agent has supported <code>AGENTS.md</code> at the repo root since August 2025, and when both <code>AGENTS.md</code> and <code>.github/copilot-instructions.md</code> exist, both files are loaded and provided to the agent as context -- the dual-loading behaviour is documented for the Copilot CLI and inferred to apply to the coding agent. (medium confidence -- coding-agent-specific dual-loading confirmation not in primary source)</p>
+</li>
+<li>
+<p>The Copilot coding agent does not initialise git submodules by default, meaning the <code>.github/skills/</code> submodule directory appears as an empty folder during all agent sessions unless a <code>copilot-setup-steps.yml</code> workflow is configured with <code>submodules: recursive</code> and a token with access to the submodule repository. (high confidence)</p>
+</li>
+<li>
+<p>The Claude iOS app's <code>code</code> feature is Claude Code on the web: Anthropic's remote code execution environment where the user selects a GitHub repository and Claude works on tasks in a sandboxed cloud environment, creating a pull request (PR) when complete. (high confidence)</p>
+</li>
+<li>
+<p>Claude Code on the web follows the same instruction file loading behaviour as Claude Code CLI: it reads <code>CLAUDE.md</code> and <code>AGENTS.md</code> at the repository root automatically, and does not read <code>.github/copilot-instructions.md</code> because that path is Copilot-specific and is not part of Claude Code's file discovery logic. (medium confidence -- AGENTS.md reading is inferred from VS Code docs and cross-tool patterns, not from a primary Anthropic statement)</p>
+</li>
+<li>
+<p>The current repo has no <code>CLAUDE.md</code> and no <code>AGENTS.md</code> at the root, which means Claude Code (in all surfaces including iOS) starts every session without any of the project's non-negotiable constraints, research workflow rules, coding standards, or session log requirements. (high confidence)</p>
+</li>
+<li>
+<p>ADR-0006 (2026-03-07) removed <code>AGENTS.md</code> based on the incorrect assumption that <code>.github/copilot-instructions.md</code> was sufficient for all agents, leaving Claude Code without an instruction entry point; this is a documented gap in the ADR's reasoning that warrants an amendment. (high confidence)</p>
+</li>
+<li>
+<p>Restoring <code>AGENTS.md</code> at the repo root resolves the Claude Code instruction gap without disrupting the Copilot coding agent setup, because the Copilot CLI documentation confirms both files are loaded when present and this behaviour is inferred to extend to the coding agent. (medium confidence -- follows from the same dual-loading inference as KF2)</p>
+</li>
+<li>
+<p>The practitioner-recommended approach for multi-agent instruction sharing is to keep <code>.github/copilot-instructions.md</code> as the Copilot-specific file and to place <code>AGENTS.md</code> (or symlink it) at the repo root as the cross-agent entry point read by Claude Code, Cursor, Aider, Codex, Gemini CLI, and others. (medium confidence -- well-supported by practitioner evidence but not explicitly stated in any single official source)</p>
+</li>
+<li>
+<p>Enabling submodule access for the Copilot coding agent requires creating <code>.github/workflows/copilot-setup-steps.yml</code> with an <code>actions/checkout@v4</code> step using <code>submodules: recursive</code> and a PAT stored as a secret in the <code>copilot</code> GitHub Actions environment with read access to <code>davidamitchell/Skills</code>. (high confidence)</p>
+</li>
+</ol>
+<h3>Assumptions</h3>
+<ul>
+<li><strong>Assumption 1:</strong> The Claude iOS <code>code</code> feature follows the same instruction loading behaviour as Claude Code CLI. <strong>Justification:</strong> Both are Claude Code product variants. Anthropic's &quot;Claude Code on the web&quot; help article confirms the remote execution architecture is the same product accessed via browser or iOS app. No Anthropic documentation contradicts this. Gap: Anthropic has not published iOS-specific instruction loading documentation -- this remains an inference from the product architecture.</li>
+<li><strong>Assumption 2:</strong> ADR-0006's assumption that <code>.github/copilot-instructions.md</code> is sufficient for all agents was incorrect. <strong>Justification:</strong> Confirmed by evidence that Claude Code reads <code>CLAUDE.md</code>/<code>AGENTS.md</code>, not <code>.github/copilot-instructions.md</code>. The ADR was written in March 2026 before this verification was done.</li>
+<li><strong>Assumption 3:</strong> Restoring <code>AGENTS.md</code> at root will be read by Claude Code on the web (iOS). <strong>Justification:</strong> Claude Code on the web accesses the repository via GitHub; root files are accessible. No evidence of exclusions for cloud execution. Inference from Claude Code CLI behaviour which is confirmed to read root <code>AGENTS.md</code>.</li>
+</ul>
+<h3>Analysis</h3>
+<p><strong>How evidence was weighed:</strong>
+Primary sources (GitHub official documentation, Anthropic official documentation) provided the foundational facts. Community discussion threads provided confirmation for the submodule gap -- an area where official documentation is silent. Practitioner articles (symlink patterns) confirmed the Claude Code file-loading behaviour by demonstrating the workaround that would be unnecessary if Claude Code read <code>.github/copilot-instructions.md</code> natively.</p>
+<p><strong>Trade-offs:</strong></p>
+<ul>
+<li>Option A (add <code>AGENTS.md</code> at root with full content): Simple for Claude Code users, but creates a second place to maintain instructions alongside <code>.github/copilot-instructions.md</code>. Risk: content drift.</li>
+<li>Option B (add <code>AGENTS.md</code> as thin pointer): Reduces maintenance burden. <code>AGENTS.md</code> says &quot;See <code>.github/copilot-instructions.md</code> for full instructions.&quot; Claude Code loads the pointer but must then discover the full file separately. This may not work if Claude Code does not follow the pointer automatically -- it depends on whether Claude Code follows file references in <code>AGENTS.md</code>. Not confirmed.</li>
+<li>Option C (symlink <code>AGENTS.md</code> -&gt; <code>.github/copilot-instructions.md</code>): Works perfectly in any git-cloned environment. In GitHub's cloud execution environments (both Copilot and Claude Code on the web), symlinks are likely followed correctly because the environments use standard Linux git checkouts, but this is an inference.</li>
+<li>Option D (add <code>CLAUDE.md</code> instead): Equivalent to Option A but Anthropic-specific. Provides no benefit over <code>AGENTS.md</code> for cross-tool coverage.</li>
+</ul>
+<p><strong>Recommended resolution:</strong> Option A (restore <code>AGENTS.md</code> with full instructions content, or content that references and supplements <code>copilot-instructions.md</code>). [Opinion] This is the most direct solution with the best-confirmed loading behaviour across both agents.</p>
+<p><strong>ADR-0006 assessment:</strong> [Opinion] The decision's intent (a single unified instruction source) was sound. The execution was incomplete: the assumption that <code>.github/copilot-instructions.md</code> covers all agents was not verified at the time. The right outcome is not to reverse ADR-0006 but to amend it: <code>.github/copilot-instructions.md</code> is the canonical content file; <code>AGENTS.md</code> is the cross-agent entry point that makes the content accessible to non-Copilot tools.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li><strong>Claude Code on the web submodule access:</strong> Whether Claude Code on the web initialises git submodules is not documented by Anthropic. If it does not, <code>.github/skills/</code> will be empty for Claude Code sessions too. Research needed: check whether Claude Code on the web's GitHub checkout includes submodule initialisation.</li>
+<li><strong>iOS-specific loading confirmation:</strong> Anthropic has not published iOS-specific instruction loading documentation. The finding that iOS behaves identically to Claude Code on the web is an inference from product architecture, not a confirmed primary source.</li>
+<li><strong>Pointer behaviour in <code>AGENTS.md</code>:</strong> Whether Claude Code automatically follows a file reference pointer in <code>AGENTS.md</code> (Option B above) is unconfirmed. The safest option is to include the full content rather than a pointer.</li>
+<li><strong>Copilot plan tier differences:</strong> GitHub documentation does not explicitly confirm whether the coding agent's instruction loading behaviour differs by plan tier (Pro, Business, Enterprise). The changelog and documentation appear to apply to all tiers but this has not been verified.</li>
+</ul>
+<h3>Open Questions</h3>
+<ol>
+<li>Does Claude Code on the web initialise git submodules, or does it also see <code>.github/skills/</code> as an empty directory? If so, skills are inaccessible from both primary entry points. (Proposed backlog item: <code>2026-03-29-claude-code-web-submodule-access.md</code>)</li>
+<li>Does creating <code>AGENTS.md</code> as a thin pointer to <code>.github/copilot-instructions.md</code> work, or does Claude Code require the content to be directly in the file it loads?</li>
+<li>Does the Copilot coding agent's instruction loading behaviour differ between plan tiers (Copilot Pro, Business, Enterprise)?</li>
+<li>What is the correct ADR amendment format for updating ADR-0006 to reflect the Claude Code gap?</li>
+</ol>
+<h3>Output</h3>
+<ul>
+<li><strong>Type:</strong> knowledge</li>
+<li><strong>Description:</strong> Confirmed instruction loading for Copilot coding agent (reads <code>.github/copilot-instructions.md</code> and <code>AGENTS.md</code>) and Claude Code on the web / iOS (reads <code>CLAUDE.md</code> and <code>AGENTS.md</code>, not <code>.github/copilot-instructions.md</code>). Confirmed submodule gap for Copilot coding agent. Identified instruction gap for Claude Code due to absent <code>AGENTS.md</code>/<code>CLAUDE.md</code>. Recommended actions: restore <code>AGENTS.md</code> at root; create <code>copilot-setup-steps.yml</code> for submodule access; amend ADR-0006.</li>
+<li><strong>Links:</strong>
+<ul>
+<li><a href="https://github.blog/changelog/2025-08-28-copilot-coding-agent-now-supports-agents-md-custom-instructions/">github.blog</a> -- definitive Copilot coding agent instruction loading confirmation</li>
+<li><a href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents">www.anthropic.com</a> -- Claude Code CLAUDE.md loading behaviour confirmed</li>
+<li><a href="https://docs.github.com/en/copilot/customizing-copilot/customizing-the-development-environment-for-copilot-coding-agent">docs.github.com</a> -- Copilot coding agent environment setup (basis for submodule fix)</li>
+</ul>
+</li>
+</ul>
+
+
+  </div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-03-29-multi-agent-repo-setup.html">Multi-agent repo setup: best practices for configuring a repository to be worked on by Claude (iOS and GitHub Issues) and Copilot (Spaces and GitHub Issues)</a> <span class="related-note">via agents-md, claude, copilot, github-issues, instructions, ios</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-03-oh-my-codex-patterns.html">oh-my-codex and AI Agent Workflow Patterns: What Can We Leverage?</a> <span class="related-note">via agents-md, copilot, instructions, skills</span></div>
+<div class="related-entry"><a href="/Research/research/2026-03-28-agents-md-role-and-cross-agent-instructions.html">The role of AGENTS.md in a repo using .github/copilot-instructions.md as the sole instructions source</a> <span class="related-note">via agents-md, claude, copilot, instructions</span></div>
+<div class="related-entry"><a href="/Research/research/2026-03-28-environment-setup-consistency.html">Environment setup consistency: what each agent sees when it starts work in this repo and how to make it consistent</a> <span class="related-note">via claude, copilot, github-issues, ios</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-20-harness-selection-tools-agents-skills-prompts-instructions.html">Harness-level selection and use of tools, agents, skills, prompts, and instruction files</a> <span class="related-note">via copilot, instructions, skills</span></div>
+</div></div>
+
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-28-environment-setup-consistency.html">Environment setup consistency</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-26-rory-sutherland-core-tenets.html">Rory Sutherland&#39;s core tenets</a></div>
+  </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,758 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>The DIKW pyramid — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #0f1115;
+  --surface-2:       #161b22;
+  --border:          #252b33;
+  --text:            #e6e6e6;
+  --text-muted:      #666;
+  --accent:          #e6e6e6;
+  --accent-dim:      #333;
+  --tag-bg:          #161b22;
+  --tag-text:        #999;
+  --tag-active-bg:   #e6e6e6;
+  --tag-active-text: #0f1115;
+  --link:            #00C3A5;
+  --teal:            #00C3A5;
+  --dusk:            #E8A1A8;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  overflow-x: clip;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.75rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+.nav-links a.active { color: var(--teal); }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--teal); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+  min-width: 0;
+}
+.card:hover { border-color: var(--teal); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  word-break: break-word;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4em;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.item-title svg { flex-shrink: 0; margin-top: 0.2em; }
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+  word-break: break-all;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+  max-width: 100%;
+}
+.item-content pre code { background: none; padding: 0; word-break: normal; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--teal); text-decoration: underline; }
+.item-content a:hover { color: var(--text); text-decoration: underline; }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--dusk);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    top: 0;
+    height: auto;
+    padding: 0.5rem 1rem;
+  }
+  .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .nav-links {
+    width: 100%;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  main {
+    padding: 1.5rem 1rem 4rem;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; overflow: hidden; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); word-break: break-word; overflow-wrap: break-word; }
+.key-claims li:last-child { border-bottom: none; }
+.key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
+.key-claims a:hover { color: var(--text); }
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); flex-wrap: wrap; }
+.related-entry:last-child { border-bottom: none; }
+.related-entry a { color: var(--teal); word-break: break-word; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--dusk); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4em; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--teal); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-card-link { text-decoration: none; color: var(--text); display: block; }
+.thread-card-link:hover .thread-card { background: var(--surface-2); }
+.thread-card { background: var(--surface); border: 1px solid var(--border); padding: 1.5rem 1.75rem 1.75rem; }
+.thread-card-title { font-size: var(--text-base); font-weight: 600; margin-bottom: 0.5rem; }
+.thread-card-meta { font-size: var(--text-xs); color: var(--text-muted); margin-bottom: 0.75rem; letter-spacing: 0.05em; }
+.thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
+.thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Research</a>
+    <div class="nav-links">
+      <a href="/Research/all-items.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>All Items</a>
+      <a href="/Research/backlog.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Backlog</a>
+      <a href="/Research/threads.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>Threads</a>
+      <a href="/Research/tags/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>Tags</a>
+      <a href="/Research/search.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M8 1.5C4.41 1.5 1.5 4.41 1.5 8c0 2.87 1.86 5.3 4.44 6.16.32.06.44-.14.44-.31v-1.09c-1.8.39-2.18-.87-2.18-.87-.3-.75-.72-.95-.72-.95-.59-.4.04-.4.04-.4.65.05 1 .67 1 .67.58 1 1.53.71 1.9.54.06-.42.23-.71.41-.87-1.44-.16-2.95-.72-2.95-3.2 0-.71.25-1.28.67-1.74-.07-.16-.29-.82.06-1.71 0 0 .55-.18 1.8.67a6.27 6.27 0 0 1 3.28 0c1.25-.85 1.8-.67 1.8-.67.35.89.13 1.55.06 1.71.42.46.67 1.03.67 1.74 0 2.49-1.51 3.04-2.96 3.2.23.2.44.6.44 1.21v1.8c0 .17.12.37.44.31A6.5 6.5 0 0 0 14.5 8 6.5 6.5 0 0 0 8 1.5z"/></svg>GitHub</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>The DIKW pyramid</span>
+  </div>
+  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>The DIKW pyramid</h1>
+  <p class="full-title-subtitle">The DIKW pyramid: transformation functions from data to information to knowledge to wisdom</p>
+  <div class="meta-bar">
+    <span>2026-03-10</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/dikw.html">dikw</a> <a class="tag" href="/Research/tags/knowledge-management.html">knowledge-management</a> <a class="tag" href="/Research/tags/epistemology.html">epistemology</a> <a class="tag" href="/Research/tags/information-theory.html">information-theory</a> <a class="tag" href="/Research/tags/wisdom.html">wisdom</a> <a class="tag" href="/Research/tags/cognition.html">cognition</a> <a class="tag" href="/Research/tags/organisations.html">organisations</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-10-dikw-transformation-functions.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-10-dikw-transformation-functions" target="_blank" rel="noopener">wiki →</a>
+  </div>
+  
+  <div class="item-content">
+    <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
+<p>What are the transformation functions that move between the levels of the DIKW pyramid — Data → Information → Knowledge → Wisdom? What cognitive, computational, and organisational mechanisms perform each transformation? What is preserved, gained, and lost at each step — and can these transformations be formalised or automated?</p>
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Findings</h2>
+<p><em>(Populated from §6 Synthesis above.)</em></p>
+<h3>Executive Summary</h3>
+<p>The DIKW pyramid has four distinct transformation functions: D→I (contextualisation and compression, formally tractable via Shannon mutual information and the Information Bottleneck); I→K (abstraction and causal inference, partially automatable but with a material human–machine gap at the abstraction and causal reasoning stages); K→W (value alignment and epistemic humility, structurally resistant to full automation because value specification cannot be reduced to any finite formal system without Goodhart's Law gaps); and the emergent D→W chain in which each step's losses compound. Every transformation is lossy and irreversible — granularity decreases monotonically, and compression artifacts introduced at lower levels propagate upward, corrupting higher-level outputs. In AI systems, hallucination is a D→I failure, reward hacking is a K→W failure, and the I→K gap is the primary capability ceiling for current large language models (LLMs). In organisations, the same structural asymmetry holds: D→I is the most technically solved but K→W is the most strategically critical and the most systematically under-resourced.</p>
+<h3>Key Findings</h3>
+<ol>
+<li>
+<p>Ackoff (1989) formalised DIKW with five tiers by inserting &quot;understanding&quot; (knowing <em>why</em> — causal comprehension) between knowledge and wisdom; the tier answers why, whereas wisdom answers what should be done. The four-tier DIKW widely used in practice collapses or omits this distinction, losing precision about the causal-inference step. <strong>Confidence: high.</strong></p>
+</li>
+<li>
+<p>The D→I transformation consists of five operations — contextualisation, categorisation, calculation, correction, and condensation — and is the only DIKW transformation with a rigorous formal foundation: mutual information I(X;Y) = H(X) − H(X|Y) quantifies how much a representation I reduces uncertainty about a target Y, and the Information Bottleneck framework specifies the optimal compression under a relevance constraint. <strong>Confidence: high.</strong></p>
+</li>
+<li>
+<p>The I→K transformation requires four cognitive operations — pattern recognition, abstraction, causal inference, and generalisation — and the critical human–machine gap sits at abstraction and causal inference: current LLMs achieve high-quality statistical pattern matching but fail at genuine concept formation and counterfactual causal reasoning, making their outputs brittle at distribution shift. <strong>Confidence: high.</strong></p>
+</li>
+<li>
+<p>The K→W transformation is the least formalised and least automatable because it requires importing human values: value alignment, epistemic humility, long-horizon consequence modelling, and ethical grounding cannot be reduced to any finite formal specification without leaving residual gaps exploitable by Goodhart's Law, as demonstrated empirically by Gao et al. (2022) reward model scaling laws. <strong>Confidence: high.</strong></p>
+</li>
+<li>
+<p>Every DIKW transformation is lossy and irreversible: D→I discards individual records and outliers; I→K discards specific informational context in favour of generalisations; K→W discards the data-level traceability of principles. Errors introduced at any step compound upward as &quot;compression artifacts,&quot; making data quality a prerequisite for knowledge quality and knowledge quality a prerequisite for wise decision-making. <strong>Confidence: high.</strong></p>
+</li>
+<li>
+<p>LLM hallucination is a D→I failure — the token-prediction objective rewards fluency over fidelity, producing information untraceable to real data. Reward hacking is a K→W failure — the model optimises a proxy metric rather than true value alignment. LLM sycophancy is an I→K failure — the model learns information about user preferences but fails to form knowledge about when those preferences conflict with truth. <strong>Confidence: high.</strong></p>
+</li>
+<li>
+<p>Organisations systematically under-invest in I→K and K→W relative to D→I because the returns are slower and harder to attribute: ETL (Extract, Transform, Load) pipelines and dashboards are visible and measurable; institutional knowledge creation (post-mortems, documentation, communities of practice) and strategic wisdom (ethics functions, long-range planning) have longer and noisier return cycles. The predictable result is data-rich, knowledge-poor, wisdom-starved organisations. <strong>Confidence: medium.</strong></p>
+</li>
+<li>
+<p>Tacit knowledge (Polanyi) represents a distinct second loss pathway at I→K beyond abstraction-loss: knowledge that exists only in expert minds cannot be retrieved by machines or preserved across expert attrition, and requires active knowledge elicitation and documentation programmes as its own mitigation strategy. <strong>Confidence: high.</strong></p>
+</li>
+<li>
+<p>The DIKW hierarchy's intellectual lineage spans from Aristotle's episteme/techne/phronesis through T.S. Eliot's 1934 poetic formulation to Zeleny (1987) and Ackoff (1989), suggesting the hierarchy reflects a genuine and persistent cognitive structure rather than an arbitrary classification. <strong>Confidence: medium.</strong></p>
+</li>
+<li>
+<p>This research corpus's own skill framework (question decomposition → evidence gathering → reasoning → consistency checking → synthesis) is a structured implementation of the I→K transformation: it converts information (gathered evidence) into knowledge (structured findings with confidence labels), making the DIKW framing directly applicable to research pipeline design and quality assessment. <strong>Confidence: high.</strong></p>
+</li>
+</ol>
+<h3>Assumptions</h3>
+<ul>
+<li><strong>Assumption 1:</strong> Ackoff's 1989 paper says what secondary sources attribute to it. <strong>Justification:</strong> Multiple independent secondary sources (Wikipedia, EBSCO, web synthesis) are internally consistent; no source contradicts any other; the paper is widely cited in peer-reviewed literature making systematic misattribution unlikely.</li>
+<li><strong>Assumption 2:</strong> Rowley (2007) and Zeleny (1987) say what secondary sources attribute to them. <strong>Justification:</strong> Same reasoning as Assumption 1; Wikipedia cites Rowley with specific page numbers.</li>
+<li><strong>Assumption 3:</strong> The Information Bottleneck is the appropriate formal model for D→I. <strong>Justification:</strong> The IB objective — compress X to maximally preserve mutual information with target Y — exactly matches the operational definition of contextualisation and relevance filtering in D→I; the framing is consistent with the completed entropy item's conclusions.</li>
+</ul>
+<h3>Analysis</h3>
+<p>The evidence supports a four-transformation model with a clear gradient of automation tractability: D→I is formally tractable, I→K is partially tractable, K→W is structurally resistant. The key asymmetry is that each harder transformation is also the more consequential one when it fails.</p>
+<p>The &quot;compression artifact&quot; framing integrates the loss and irreversibility evidence: because each transformation discards information, the quality of higher-level outputs is bounded by the quality of lower-level inputs. This justifies treating data quality not as a technical hygiene concern but as a strategic epistemic investment — the base of the pyramid determines what is possible at the apex.</p>
+<p>The organisational and AI evidence converge on the same structural observation: the failure modes at each level are qualitatively distinct, require different diagnoses, and cannot be fixed by investing in the wrong level. An organisation that buys more analytics tooling to address a K→W failure has misdiagnosed the problem.</p>
+<p>The K→W formalisation literature (virtue epistemology, proportional duty frameworks, alignment scaling laws) converges on a consistent negative result: there is no purely mechanical procedure that produces wisdom from knowledge, because wisdom requires specifying what is worth doing, and that specification cannot be produced algorithmically from within the formal system — it must be imported from outside.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li><strong>Primary sources not consulted.</strong> Ackoff (1989), Rowley (2007), and Zeleny (1987) were characterised via secondary synthesis and Wikipedia only. There is a risk that nuances — particularly the specific transformation mechanisms Ackoff proposed — are not fully captured. Accessing the primary papers would strengthen findings 1 and 2.</li>
+<li><strong>&quot;Understanding&quot; tier ambiguity.</strong> Ackoff's fifth tier (understanding, between knowledge and wisdom) is analytically useful but not universally adopted. The standard four-tier model collapses knowledge and understanding. This investigation uses the five-tier framing in the analysis but the four-tier framing in the key findings to avoid confusion.</li>
+<li><strong>K→W formalisation extent uncertain.</strong> The Principle of Proportional Duty (Kahl) is a preprint covering epistemic humility operationalisation but not the full K→W space. The degree to which K→W is &quot;partially&quot; vs &quot;not at all&quot; formalisable is unclear; the conclusion that it is structurally resistant but not completely intractable is an inference.</li>
+<li><strong>Fast-moving I→K frontier.</strong> The human–machine I→K gap evidence (2023–2025) is current but the field is advancing rapidly. Neuro-symbolic architectures, causal machine learning, and world models may narrow this gap faster than current evidence suggests.</li>
+<li><strong>Organisational causal claim.</strong> The claim that organisations under-invest in I→K and K→W because of incentive misalignment rather than inherent difficulty is inferential. Alternative explanation: I→K and K→W are genuinely harder, so under-investment reflects rational allocation of effort to tractable problems.</li>
+</ul>
+<h3>Open Questions</h3>
+<ol>
+<li>
+<p><strong>Unified formal theory of K→W.</strong> Is there a framework that covers value alignment, epistemic humility, and long-horizon consequence modelling in a single formal account? The Principle of Proportional Duty covers one component. A unified treatment may not yet exist and could become a backlog item.</p>
+</li>
+<li>
+<p><strong>Empirical evidence on organisational I→K conversion rates.</strong> Post-mortems and communities of practice are widely recommended for I→K. What is the empirical evidence on whether they actually produce the conversion? This gap could support a research item on <em>organisational knowledge management effectiveness</em>.</p>
+</li>
+<li>
+<p><strong>Data lineage as compression-artifact mitigation.</strong> If each DIKW transformation step retains provenance metadata about what was discarded and why, could higher-level failures be diagnosed by tracing back through the chain? This maps onto the explainability and data lineage problem in ML and data engineering.</p>
+</li>
+<li>
+<p><strong>DIKW × transaction cost theory.</strong> The pending item <code>2026-03-10-nature-of-the-firm-coase-organisations.md</code> investigates Coase/Williamson transaction cost theory. The DIKW transformation costs (what it costs to perform each transformation reliably) may map directly onto Williamson's transaction costs, providing a unified theory of why organisations exist partly to internalise I→K and K→W transformations that markets cannot perform efficiently.</p>
+</li>
+<li>
+<p><strong>DIKW as a research evaluation rubric axis.</strong> The pending item <code>2026-03-10-research-loop-evaluation-rubric.md</code> asks how to evaluate research loop outputs. The I→K transformation framing — does the output represent causally grounded, generalisable knowledge or merely structured information? — could provide the rubric's primary scoring dimension: <em>does this output cross the I→K threshold?</em></p>
+</li>
+</ol>
+<hr />
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
+<ul>
+<li>[ ] Ackoff, R.L. (1989). &quot;From Data to Wisdom.&quot; <em>Journal of Applied Systems Analysis</em>, 16, 3–9. — original DIKW conceptualisation; accessed via secondary synthesis only</li>
+<li>[x] Rowley, J. (2007). &quot;The wisdom hierarchy: representations of the DIKW hierarchy.&quot; <em>Journal of Information Science</em>, 33(2), 163–180. — critical survey; accessed via secondary synthesis and Wikipedia citation</li>
+<li>[ ] Zeleny, M. (1987). &quot;Management Support Systems: Towards Integrated Knowledge Management.&quot; <em>Human Systems Management</em>, 7(1), 59–70. — precursor framing; accessed via secondary synthesis only</li>
+<li>[x] Bernstein, J.H. (2009). &quot;The Data-Information-Knowledge-Wisdom Hierarchy and its Antithesis.&quot; NASKO proceedings. <a href="https://journals.lib.washington.edu/index.php/nasko/article/view/12806">journals.lib.washington.edu</a> — critical perspective; extracted key claims</li>
+<li>[x] Wikipedia, &quot;DIKW pyramid&quot; — <a href="https://en.wikipedia.org/wiki/DIKW_Pyramid">en.wikipedia.org</a> — historical overview; directly consulted</li>
+<li>[x] EBSCO Research Starters, &quot;DIKW Pyramid&quot; — <a href="https://www.ebsco.com/research-starters/library-and-information-science/dikw-pyramid">www.ebsco.com</a> — secondary survey; referenced</li>
+<li>[x] <code>Research/completed/2026-02-27-information-synthesis-entropy.md</code> — information-theoretic angle; directly read</li>
+<li>[x] <code>Research/completed/2026-03-03-knowledge-representation-agent-context.md</code> — knowledge representation; directly read</li>
+<li>[x] <code>Research/completed/2026-03-10-formal-spec-intent-alignment-agentic-coding.md</code> — intent alignment as K→W problem; directly read</li>
+<li>[ ] <code>Research/backlog/2026-03-10-nature-of-the-firm-coase-organisations.md</code> — organisational transformation functions; not yet completed</li>
+</ul>
+<hr />
+
+
+  </div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-03-02-integrative-framework-agent-decision-making.html">An Integrative Framework for Agent Decision-Making: Aligning Knowledge Management, Intent Understanding, and Contextual Decision Frameworks</a> <span class="related-note">via dikw, knowledge-management, wisdom</span></div>
+<div class="related-entry"><a href="/Research/research/2026-03-02-agent-memory-management-context-injection.html">Agent Memory Management and Context Injection</a> <span class="related-note">via dikw, knowledge-management</span></div>
+</div></div>
+
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-10-language-for-llm-agent-output.html">Language designed for LLM agents to produce</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-10-agent-evaluation-cross-repo-analysis.html">Agent evaluation framework</a></div>
+  </div>
+</main>
+</body>
+</html>

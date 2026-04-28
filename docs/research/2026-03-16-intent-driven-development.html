@@ -1,0 +1,751 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Intent Driven Development — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #0f1115;
+  --surface-2:       #161b22;
+  --border:          #252b33;
+  --text:            #e6e6e6;
+  --text-muted:      #666;
+  --accent:          #e6e6e6;
+  --accent-dim:      #333;
+  --tag-bg:          #161b22;
+  --tag-text:        #999;
+  --tag-active-bg:   #e6e6e6;
+  --tag-active-text: #0f1115;
+  --link:            #00C3A5;
+  --teal:            #00C3A5;
+  --dusk:            #E8A1A8;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  overflow-x: clip;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.75rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+.nav-links a.active { color: var(--teal); }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--teal); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+  min-width: 0;
+}
+.card:hover { border-color: var(--teal); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  word-break: break-word;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4em;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.item-title svg { flex-shrink: 0; margin-top: 0.2em; }
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+  word-break: break-all;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+  max-width: 100%;
+}
+.item-content pre code { background: none; padding: 0; word-break: normal; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--teal); text-decoration: underline; }
+.item-content a:hover { color: var(--text); text-decoration: underline; }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--dusk);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    top: 0;
+    height: auto;
+    padding: 0.5rem 1rem;
+  }
+  .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .nav-links {
+    width: 100%;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  main {
+    padding: 1.5rem 1rem 4rem;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; overflow: hidden; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); word-break: break-word; overflow-wrap: break-word; }
+.key-claims li:last-child { border-bottom: none; }
+.key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
+.key-claims a:hover { color: var(--text); }
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); flex-wrap: wrap; }
+.related-entry:last-child { border-bottom: none; }
+.related-entry a { color: var(--teal); word-break: break-word; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--dusk); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4em; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--teal); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-card-link { text-decoration: none; color: var(--text); display: block; }
+.thread-card-link:hover .thread-card { background: var(--surface-2); }
+.thread-card { background: var(--surface); border: 1px solid var(--border); padding: 1.5rem 1.75rem 1.75rem; }
+.thread-card-title { font-size: var(--text-base); font-weight: 600; margin-bottom: 0.5rem; }
+.thread-card-meta { font-size: var(--text-xs); color: var(--text-muted); margin-bottom: 0.75rem; letter-spacing: 0.05em; }
+.thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
+.thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Research</a>
+    <div class="nav-links">
+      <a href="/Research/all-items.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>All Items</a>
+      <a href="/Research/backlog.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Backlog</a>
+      <a href="/Research/threads.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>Threads</a>
+      <a href="/Research/tags/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>Tags</a>
+      <a href="/Research/search.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M8 1.5C4.41 1.5 1.5 4.41 1.5 8c0 2.87 1.86 5.3 4.44 6.16.32.06.44-.14.44-.31v-1.09c-1.8.39-2.18-.87-2.18-.87-.3-.75-.72-.95-.72-.95-.59-.4.04-.4.04-.4.65.05 1 .67 1 .67.58 1 1.53.71 1.9.54.06-.42.23-.71.41-.87-1.44-.16-2.95-.72-2.95-3.2 0-.71.25-1.28.67-1.74-.07-.16-.29-.82.06-1.71 0 0 .55-.18 1.8.67a6.27 6.27 0 0 1 3.28 0c1.25-.85 1.8-.67 1.8-.67.35.89.13 1.55.06 1.71.42.46.67 1.03.67 1.74 0 2.49-1.51 3.04-2.96 3.2.23.2.44.6.44 1.21v1.8c0 .17.12.37.44.31A6.5 6.5 0 0 0 14.5 8 6.5 6.5 0 0 0 8 1.5z"/></svg>GitHub</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>Intent Driven Development</span>
+  </div>
+  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Intent Driven Development</h1>
+  <p class="full-title-subtitle">Intent Driven Development: context and concept layering to bound the solution space</p>
+  <div class="meta-bar">
+    <span>2026-03-20</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/intent.html">intent</a> <a class="tag" href="/Research/tags/software-engineering.html">software-engineering</a> <a class="tag" href="/Research/tags/agentic-coding.html">agentic-coding</a> <a class="tag" href="/Research/tags/artificial-intelligence.html">artificial-intelligence</a> <a class="tag" href="/Research/tags/developer-tooling.html">developer-tooling</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-16-intent-driven-development.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-16-intent-driven-development" target="_blank" rel="noopener">wiki →</a>
+  </div>
+  <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Public sources do not identify a single canonical inventor, standard, or governing body for Intent Driven Development (IDD); instead, they show overlapping practitioner formulations that agree on intent-first alignment but diverge on specification depth, automation level, and the role of human review</li>
+<li>StrongDM Factory operationalizes the most radical public form of IDD by combining NLSpecs, holdout scenarios, feedback loops, and Digital Twin Universe (DTU) environments while explicitly forbidding human-written and human-reviewed code in its published workflow</li>
+<li>Test Driven Development (TDD) constrains agent behavior through executable examples, but StrongDM&#39;s own field notes show that tests alone can be shortcut or reward-hacked when an agent can satisfy narrow checks without preserving the broader user intent</li>
+<li>Design by Contract (DbC) and related specification-driven approaches provide stronger local guarantees than TDD because they express preconditions, postconditions, and invariants, yet they still miss organisational priorities, architectural preferences, and unspoken trade-offs unless those concerns are represented elsewhere</li>
+<li>The consulted public evidence shows that mature &quot;intent-driven&quot; systems do not replace specification with vague prompting; they expand intent into a layered artefact stack containing problem statements, outcome criteria, scope boundaries, domain models, policies, examples, and machine-checkable constraints</li>
+<li>A complete intent layer for AI coding agents requires both stable high-authority context and dynamic task context, which matches the layered context architecture already identified in prior research on aligned organisational decision-making and agent guidance</li>
+<li>The most reusable StrongDM contributions are architectural rather than ideological, because rich seed artefacts, scenario-based validation, context storage, provider-aligned agent loops, and near-production harnesses can transfer to other teams even if the &quot;no human code&quot; rule does not</li>
+<li>IDD is partially production-ready today because many component practices already exist, but the field still lacks standard schemas, interoperable policy-injection protocols, comparative outcome evidence across organisations, and defensible thresholds for when high token spend is better than disciplined human review</li>
+</ol></div>
+
+  <div class="item-content">
+    <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
+<p>What is Intent Driven Development (IDD) — as a methodology that moves past Test Driven Development (TDD) and Specification Driven Development (SDD) — and what context and concept layering mechanisms are required to sufficiently bound the potential solution space so that Artificial Intelligence (AI) coding agents produce outputs that are aligned with developer and organisational intent?</p>
+<p>Supporting questions:</p>
+<ul>
+<li>What is IDD? Is it a named methodology, an emergent practice, or a set of loosely related ideas? Who coined it or is actively defining it?</li>
+<li>How does IDD differ from TDD and SDD? What does each paradigm use as its primary constraint on the solution space, and where does each break down with AI-assisted development?</li>
+<li>What does StrongDM Factory (<a href="https://factory.strongdm.ai/">factory.strongdm.ai</a> represent as a concrete implementation of intent-driven principles in infrastructure and access management? What can be generalised?</li>
+<li>What is the structure of a complete &quot;intent layer&quot;? What artefacts (natural language, formal specs, constraints, examples, policies) are needed and in what combination?</li>
+<li>How do concept layering and context architecture interact with intent? What are the relevant findings from context-compression and aligned decision-making research?</li>
+<li>What does the Hacker News (HN) community (<a href="https://news.ycombinator.com/item?id=46924426">news.ycombinator.com</a> identify as the key challenges, precedents, and open problems in intent-driven approaches?</li>
+</ul>
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Findings</h2>
+<h3>Executive Summary</h3>
+<p>Intent Driven Development (IDD) is not yet a settled industry standard; it is an emerging intent-first, validation-heavy practice whose strongest public implementations depend on layered artefacts rather than on intent statements alone. StrongDM Factory is the clearest radical example: it uses Natural Language Specifications (NLSpecs), holdout scenarios, feedback loops, digital-twin validation, and explicit context tooling while excluding human-written and human-reviewed code. Compared with Test Driven Development (TDD) and Specification Driven Development (SDD) / Design by Contract (DbC), IDD shifts the highest-authority constraint upward from tests or contracts to a richer stack of outcomes, boundaries, policies, domain concepts, and runtime context, while still keeping tests and contracts as lower-level validators. The stack is partially buildable today, but standard schemas, interoperable policy and context protocols, comparative outcome evidence, and clear economic boundaries are still missing.</p>
+<h3>Key Findings</h3>
+<ol>
+<li><strong>[Medium]</strong> Public sources do not identify a single canonical inventor, standard, or governing body for Intent Driven Development (IDD); instead, they show overlapping practitioner formulations that agree on intent-first alignment but diverge on specification depth, automation level, and the role of human review.</li>
+<li><strong>[High]</strong> StrongDM Factory operationalizes the most radical public form of IDD by combining NLSpecs, holdout scenarios, feedback loops, and Digital Twin Universe (DTU) environments while explicitly forbidding human-written and human-reviewed code in its published workflow.</li>
+<li><strong>[High]</strong> Test Driven Development (TDD) constrains agent behavior through executable examples, but StrongDM's own field notes show that tests alone can be shortcut or reward-hacked when an agent can satisfy narrow checks without preserving the broader user intent.</li>
+<li><strong>[High]</strong> Design by Contract (DbC) and related specification-driven approaches provide stronger local guarantees than TDD because they express preconditions, postconditions, and invariants, yet they still miss organisational priorities, architectural preferences, and unspoken trade-offs unless those concerns are represented elsewhere.</li>
+<li><strong>[High]</strong> The consulted public evidence shows that mature &quot;intent-driven&quot; systems do not replace specification with vague prompting; they expand intent into a layered artefact stack containing problem statements, outcome criteria, scope boundaries, domain models, policies, examples, and machine-checkable constraints.</li>
+<li><strong>[Medium]</strong> A complete intent layer for AI coding agents requires both stable high-authority context and dynamic task context, which matches the layered context architecture already identified in prior research on aligned organisational decision-making and agent guidance.</li>
+<li><strong>[Medium]</strong> The most reusable StrongDM contributions are architectural rather than ideological, because rich seed artefacts, scenario-based validation, context storage, provider-aligned agent loops, and near-production harnesses can transfer to other teams even if the &quot;no human code&quot; rule does not.</li>
+<li><strong>[Medium]</strong> IDD is partially production-ready today because many component practices already exist, but the field still lacks standard schemas, interoperable policy-injection protocols, comparative outcome evidence across organisations, and defensible thresholds for when high token spend is better than disciplined human review.</li>
+</ol>
+<h3>Assumptions</h3>
+<ul>
+<li><strong>Assumption:</strong> The term &quot;Intent Driven Development&quot; can legitimately cover adjacent public practices that use different labels, such as StrongDM's &quot;Software Factory.&quot; <strong>Justification:</strong> The consulted sources share the same governing pattern of intent capture plus validation, even when the branding differs.</li>
+<li><strong>Assumption:</strong> The Hacker News thread is useful as practitioner-discussion evidence but not as proof of performance. <strong>Justification:</strong> It contains reactions and one firsthand implementation report, but it is not controlled evidence.</li>
+<li><strong>Assumption:</strong> Prior completed items remain valid synthesis inputs for context layering, policy enforcement, and formal-specification trade-offs. <strong>Justification:</strong> They are used here for cross-item integration, not to avoid checking current public sources.</li>
+</ul>
+<h3>Analysis</h3>
+<p>The evidence supports a layered interpretation of IDD. Tests and contracts still matter, but they no longer sit at the top of the stack when an AI coding agent is doing meaningful implementation work. Higher-authority artefacts must first define what success means, what boundaries may not be crossed, which concepts matter, and which organisational or technical constraints should dominate local optimization.</p>
+<p>StrongDM supplies the clearest concrete picture of this stack. Its public materials show that the practical implementation of an intent-first workflow is much heavier than the phrase sounds: long NLSpecs, explicit agent loops, scenario harnesses, digital twins, context storage, and aggressive token budgets. That makes StrongDM a better source for implementation detail than for the canonical definition of the field.</p>
+<p>Keyhole is useful because it shows the same move in a more conservative enterprise form. It retains ordinary human delivery roles, but still shifts value upstream into intent capture and downstream into build-first documentation. Taken together, the two sources support a spectrum model: conservative IDD keeps humans inside the build; radical factory IDD pushes humans almost entirely into artefact design and harness supervision.</p>
+<p>The unresolved issue is whether IDD is genuinely new or mainly a recombination of older techniques for a new execution environment. The evidence favors the recombination view. The novelty lies less in its primitives than in the fact that AI agents make incomplete specifications more dangerous and make upstream intent artefacts more economically valuable.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>Public evidence is dominated by vendor and practitioner material rather than by peer-reviewed comparative studies.</li>
+<li>StrongDM's benchmark documentation explicitly says current totals are not yet valid for ranking, which weakens claims that benchmark performance already proves a superior methodology.</li>
+<li>The economic viability of heavy-token factory workflows is openly disputed in practitioner discussion and is likely to vary sharply by domain.</li>
+<li>No consulted source provides a standard machine-readable schema for intent artefacts that multiple tools or vendors can exchange.</li>
+<li>No consulted source resolves how long NLSpecs, policies, scenarios, and generated code should stay synchronized over the lifetime of a changing system.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>What is the minimum interoperable schema for an intent artefact that different coding agents, policy engines, and retrieval systems can consume consistently?</li>
+<li>Which intent artefacts should stay as natural-language documents, and which should be promoted into tests, contracts, types, or formal specifications?</li>
+<li>What runtime protocol should deliver high-authority policy and architecture feedback to a headless coding agent before code is committed?</li>
+<li>How should teams measure satisfaction, correctness, and economic return together so that scenario success does not hide local invariant failures or runaway token spend?</li>
+</ul>
+<hr />
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
+<ul>
+<li>[x] Hacker News (HN) thread on intent-driven development — <a href="https://news.ycombinator.com/item?id=46924426">news.ycombinator.com</a></li>
+<li>[x] StrongDM Factory main page — <a href="https://factory.strongdm.ai/">factory.strongdm.ai</a></li>
+<li>[x] StrongDM Factory principles — <a href="https://factory.strongdm.ai/principles">factory.strongdm.ai</a></li>
+<li>[x] StrongDM Factory techniques — <a href="https://factory.strongdm.ai/techniques">factory.strongdm.ai</a></li>
+<li>[x] StrongDM Factory products — <a href="https://factory.strongdm.ai/products">factory.strongdm.ai</a></li>
+<li>[x] StrongDM Attractor README — <a href="https://raw.githubusercontent.com/strongdm/attractor/main/README.md">raw.githubusercontent.com</a></li>
+<li>[x] StrongDM Attractor specification — <a href="https://raw.githubusercontent.com/strongdm/attractor/main/attractor-spec.md">raw.githubusercontent.com</a></li>
+<li>[x] StrongDM coding agent loop specification — <a href="https://raw.githubusercontent.com/strongdm/attractor/main/coding-agent-loop-spec.md">raw.githubusercontent.com</a></li>
+<li>[x] AttractorBench README — <a href="https://raw.githubusercontent.com/strongdm/attractorbench/main/README.md">raw.githubusercontent.com</a></li>
+<li>[x] Keyhole Software — &quot;Intent-Driven Development: A Modern SDLC for AI-Accelerated Teams&quot; — <a href="https://keyholesoftware.com/intent-driven-development-build-first-documentation/">keyholesoftware.com</a></li>
+<li>[x] Martin Fowler — &quot;Test-Driven Development&quot; — <a href="https://martinfowler.com/bliki/TestDrivenDevelopment.html">martinfowler.com</a></li>
+<li>[x] Eiffel documentation — &quot;Design by Contract basics&quot; — <a href="https://www.eiffel.org/doc/uuid/2ef367c9-34d9-d45e-a722-163b39581405">www.eiffel.org</a></li>
+<li>[x] Prior completed research: <code>Research/completed/2026-03-01-agent-lsp-policy-enforcement.md</code></li>
+<li>[x] Prior completed research: <code>Research/completed/2026-03-10-formal-spec-intent-alignment-agentic-coding.md</code></li>
+<li>[x] Prior completed research: <code>Research/completed/2026-03-14-reliable-software-llm-era.md</code></li>
+<li>[x] Prior completed research: <code>Research/completed/2026-03-14-ricardian-contract-model.md</code></li>
+<li>[x] Prior completed research: <code>Research/completed/2026-03-15-context-layers-aligned-decisions-synthesis.md</code></li>
+<li>[ ] Amazon Web Services (AWS) — AI-driven development life cycle article linked from Keyhole — <a href="https://aws.amazon.com/blogs/devops/ai-driven-development-life-cycle/">aws.amazon.com</a></li>
+<li>[ ] Microsoft Azure Apps on Azure blog — AI-led SDLC article linked from Keyhole — <a href="https://techcommunity.microsoft.com/blog/appsonazureblog/an-ai-led-sdlc-building-an-end-to-end-agentic-software-development-lifecycle-wit/4491896">techcommunity.microsoft.com</a></li>
+</ul>
+<hr />
+
+
+  </div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-03-04-sdlc-ai-prompt-patterns.html">Emergent Patterns in Software Engineering Prompts and SDLC Guidance</a> <span class="related-note">via developer-tooling, software-engineering</span></div>
+<div class="related-entry"><a href="/Research/research/2026-03-01-agent-lsp-policy-enforcement.html">Guiding Headless Agents via LSP-Like Mechanisms for Org Policy Conformance</a> <span class="related-note">via agentic-coding, developer-tooling</span></div>
+</div></div>
+
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-16-vl-jepa-concept-prediction.html">Vision-Language Joint Embedding Predictive Architecture (VL-JEPA) and concept…</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-16-gitagent-declarative-agent-definition.html">GitAgent and declarative agent definition</a></div>
+  </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,750 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Multi-provider AI control planes — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #0f1115;
+  --surface-2:       #161b22;
+  --border:          #252b33;
+  --text:            #e6e6e6;
+  --text-muted:      #666;
+  --accent:          #e6e6e6;
+  --accent-dim:      #333;
+  --tag-bg:          #161b22;
+  --tag-text:        #999;
+  --tag-active-bg:   #e6e6e6;
+  --tag-active-text: #0f1115;
+  --link:            #00C3A5;
+  --teal:            #00C3A5;
+  --dusk:            #E8A1A8;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  overflow-x: clip;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.75rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+.nav-links a.active { color: var(--teal); }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--teal); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+  min-width: 0;
+}
+.card:hover { border-color: var(--teal); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  word-break: break-word;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4em;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.item-title svg { flex-shrink: 0; margin-top: 0.2em; }
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+  word-break: break-all;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+  max-width: 100%;
+}
+.item-content pre code { background: none; padding: 0; word-break: normal; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--teal); text-decoration: underline; }
+.item-content a:hover { color: var(--text); text-decoration: underline; }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--dusk);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    top: 0;
+    height: auto;
+    padding: 0.5rem 1rem;
+  }
+  .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .nav-links {
+    width: 100%;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  main {
+    padding: 1.5rem 1rem 4rem;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; overflow: hidden; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); word-break: break-word; overflow-wrap: break-word; }
+.key-claims li:last-child { border-bottom: none; }
+.key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
+.key-claims a:hover { color: var(--text); }
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); flex-wrap: wrap; }
+.related-entry:last-child { border-bottom: none; }
+.related-entry a { color: var(--teal); word-break: break-word; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--dusk); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4em; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--teal); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-card-link { text-decoration: none; color: var(--text); display: block; }
+.thread-card-link:hover .thread-card { background: var(--surface-2); }
+.thread-card { background: var(--surface); border: 1px solid var(--border); padding: 1.5rem 1.75rem 1.75rem; }
+.thread-card-title { font-size: var(--text-base); font-weight: 600; margin-bottom: 0.5rem; }
+.thread-card-meta { font-size: var(--text-xs); color: var(--text-muted); margin-bottom: 0.75rem; letter-spacing: 0.05em; }
+.thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
+.thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Research</a>
+    <div class="nav-links">
+      <a href="/Research/all-items.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>All Items</a>
+      <a href="/Research/backlog.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Backlog</a>
+      <a href="/Research/threads.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>Threads</a>
+      <a href="/Research/tags/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>Tags</a>
+      <a href="/Research/search.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M8 1.5C4.41 1.5 1.5 4.41 1.5 8c0 2.87 1.86 5.3 4.44 6.16.32.06.44-.14.44-.31v-1.09c-1.8.39-2.18-.87-2.18-.87-.3-.75-.72-.95-.72-.95-.59-.4.04-.4.04-.4.65.05 1 .67 1 .67.58 1 1.53.71 1.9.54.06-.42.23-.71.41-.87-1.44-.16-2.95-.72-2.95-3.2 0-.71.25-1.28.67-1.74-.07-.16-.29-.82.06-1.71 0 0 .55-.18 1.8.67a6.27 6.27 0 0 1 3.28 0c1.25-.85 1.8-.67 1.8-.67.35.89.13 1.55.06 1.71.42.46.67 1.03.67 1.74 0 2.49-1.51 3.04-2.96 3.2.23.2.44.6.44 1.21v1.8c0 .17.12.37.44.31A6.5 6.5 0 0 0 14.5 8 6.5 6.5 0 0 0 8 1.5z"/></svg>GitHub</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>Multi-provider AI control planes</span>
+  </div>
+  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Multi-provider AI control planes</h1>
+  <p class="full-title-subtitle">Multi-provider AI control planes: capabilities, vendors, and coverage gaps</p>
+  <div class="meta-bar">
+    <span>2026-04-26</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/ai-governance.html">ai-governance</a> <a class="tag" href="/Research/tags/control-plane.html">control-plane</a> <a class="tag" href="/Research/tags/microsoft.html">microsoft</a> <a class="tag" href="/Research/tags/aws.html">aws</a> <a class="tag" href="/Research/tags/cursor.html">cursor</a> <a class="tag" href="/Research/tags/codex.html">codex</a> <a class="tag" href="/Research/tags/claude.html">claude</a> <a class="tag" href="/Research/tags/security.html">security</a> <a class="tag" href="/Research/tags/observability.html">observability</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-multi-ai-provider-control-planes.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-04-26-multi-ai-provider-control-planes" target="_blank" rel="noopener">wiki →</a>
+  </div>
+  
+  <div class="item-content">
+    <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
+<p>Which platforms or architectural designs provide multi-provider Artificial Intelligence (AI) control planes that unify discoverability, oversight, logging, security, data-access control, Financial Operations (FinOps), and quality of service (QoS) across Microsoft (GitHub Copilot, Microsoft 365 (M365) Copilot, Azure AI Foundry), Amazon Web Services (AWS) Bedrock and AWS Agent Core, Cursor, OpenAI Codex Command Line Interface (CLI), and Anthropic Claude Code, and what capability gaps remain unaddressed?</p>
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Findings</h2>
+<p><em>(Populated from §6 Synthesis above.)</em></p>
+<h3>Executive Summary</h3>
+<p>[inference; source: <a href="https://learn.microsoft.com/en-us/azure/foundry/control-plane/overview">Microsoft Foundry Control Plane overview</a> <a href="https://cloud.google.com/solutions/apigee-ai">Apigee AI solutions</a> <a href="https://docs.konghq.com/gateway/latest/ai-gateway/">Kong AI Gateway</a> <a href="https://docs.portkey.ai/docs/product/ai-gateway/configs">Portkey gateway configs</a> <a href="https://docs.github.com/en/copilot/concepts/policies">GitHub Copilot policies</a> <a href="https://learn.microsoft.com/en-us/microsoft-365/copilot/copilot-control-system/security-governance]">learn.microsoft.com</a> No reviewed product currently provides one shared management layer for discovery, governance, logging, and routing across the named Microsoft, Amazon Web Services (AWS), and developer-tool surfaces, so enterprises still need a layered architecture that combines vendor-native administration with a cross-provider gateway or Application Programming Interface (API) management layer. [inference; source: <a href="https://learn.microsoft.com/en-us/azure/foundry/control-plane/overview">Microsoft Foundry Control Plane overview</a> <a href="https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/governance-security-across-organization]">learn.microsoft.com</a> Microsoft Foundry Control Plane documents the richest native shared-management feature set in one vendor stack, but its documented reach remains centered on Foundry-era agents and connected resources rather than GitHub Copilot, Cursor, OpenAI Codex Command Line Interface (CLI), or Anthropic Claude Code as first-class managed surfaces. [fact; source: <a href="https://docs.portkey.ai/docs/product/ai-gateway/configs">Portkey gateway configs</a> <a href="https://docs.konghq.com/gateway/latest/ai-gateway/">Kong AI Gateway</a> <a href="https://cloud.google.com/solutions/apigee-ai">Apigee AI solutions</a> <a href="https://docs.litellm.ai/docs/proxy/quick_start]">docs.litellm.ai</a> Portkey, <a href="https://docs.konghq.com/gateway/latest/ai-gateway/">Kong AI Gateway</a>, Apigee AI, and LiteLLM all document shipping multi-provider routing, logging, policy, and traffic-control features, but they do so at the gateway layer rather than by administering the native seats, tenants, and content permissions of every named copilot. [inference; source: <a href="https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/review-audit-logs">GitHub Copilot audit logs</a> <a href="https://support.claude.com/en/articles/9970975-access-audit-logs">Anthropic audit logs</a> <a href="https://learn.microsoft.com/en-us/purview/audit-copilot]">learn.microsoft.com</a> The biggest persistent gaps are unified discoverability across all assistants, cross-platform identity and data-access enforcement, and one shared cost-control and service-quality layer that can manage both software-as-a-service copilots and runtime model traffic.</p>
+<h3>Key Findings</h3>
+<ol>
+<li>[medium] [fact; source: <a href="https://learn.microsoft.com/en-us/azure/foundry/control-plane/overview">Microsoft Foundry Control Plane overview</a> <a href="https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/governance-security-across-organization]">learn.microsoft.com</a> Microsoft Foundry Control Plane documents shared inventory, observability, compliance, quota, and administration for a multi-platform agent fleet, while Microsoft's broader governance guidance explicitly recommends one organizational management layer above all agents.</li>
+<li>[medium] [fact; source: <a href="https://docs.github.com/en/copilot/concepts/policies">GitHub Copilot policies</a> <a href="https://docs.github.com/en/copilot/concepts/copilot-usage-metrics/copilot-metrics">GitHub Copilot usage metrics</a> <a href="https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/review-audit-logs">GitHub Copilot audit logs</a> <a href="https://docs.github.com/en/rest/copilot/copilot-user-management]">docs.github.com</a> GitHub Copilot Enterprise documents policy, seat, usage, and audit control for its own surface, but GitHub's own audit documentation excludes local client session data, so it governs plan state and adoption more fully than end-to-end prompt-level runtime behavior.</li>
+<li>[medium] [fact; source: <a href="https://learn.microsoft.com/en-us/microsoft-365-copilot/microsoft-365-copilot-setup">Microsoft 365 Copilot setup guide</a> <a href="https://learn.microsoft.com/en-us/microsoft-365/copilot/copilot-control-system/security-governance">Microsoft 365 Copilot security and governance</a> <a href="https://learn.microsoft.com/en-us/purview/audit-copilot">Microsoft Purview audit logs for Copilot and AI applications</a> <a href="https://learn.microsoft.com/en-us/microsoft-365/admin/activity-reports/microsoft-365-copilot-usage?view=o365-worldwide]">learn.microsoft.com</a> Microsoft 365 Copilot documents native coverage for data-access policy, oversharing remediation, auditability, and adoption reporting because it sits directly on the Microsoft 365 content plane and inherits Microsoft Purview and SharePoint governance surfaces.</li>
+<li>[medium] [inference; source: <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html">Amazon Bedrock overview</a> <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html">Amazon Bedrock model access</a> <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html">Amazon Bedrock Guardrails</a> <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents.html">Amazon Bedrock Agents</a> <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/evaluation.html]">docs.aws.amazon.com</a> Amazon Bedrock and Bedrock Agents appear to form a robust multi-model operating layer inside AWS through model access control, guardrails, traces, permissions, and evaluation, but the current documentation does not describe them as a centralized governance layer for external coding assistants or software-as-a-service copilots.</li>
+<li>[medium] [fact; source: <a href="https://cursor.com/docs/enterprise/identity-and-access-management">Cursor identity and access management</a> <a href="https://cursor.com/docs/enterprise/model-and-integration-management">Cursor model and integration management</a> <a href="https://cursor.com/docs/account/teams/dashboard">Cursor dashboard</a> <a href="https://developers.openai.com/codex/enterprise/admin-setup">Codex enterprise admin setup</a> <a href="https://developers.openai.com/codex/enterprise/governance">Codex governance and observability</a> <a href="https://platform.claude.com/docs/en/build-with-claude/administration-api">Anthropic Administration API</a> <a href="https://platform.claude.com/docs/en/build-with-claude/claude-code-analytics-api">Anthropic Claude Code Analytics API</a> <a href="https://support.claude.com/en/articles/9970975-access-audit-logs]">support.claude.com</a> Cursor, Codex, and Claude Code each ship meaningful enterprise management surfaces such as identity controls, approvals, workspace scoping, analytics, and audit exports, but each one remains scoped to its own tool family rather than to a shared enterprise layer across providers.</li>
+<li>[medium] [inference; source: <a href="https://docs.litellm.ai/docs/proxy/quick_start">LiteLLM proxy quick start</a> <a href="https://docs.portkey.ai/docs/introduction/feature-overview">Portkey feature overview</a> <a href="https://docs.portkey.ai/docs/product/ai-gateway/configs]">docs.portkey.ai</a> LiteLLM and Portkey each document unified provider access plus budgets, routing, fallbacks, logging, and caching, which makes them plausible multi-provider gateway options for engineering teams even though their public governance story is thinner on content entitlement and enterprise-wide identity.</li>
+<li>[medium] [inference; source: <a href="https://docs.konghq.com/gateway/latest/ai-gateway/">Kong AI Gateway</a> <a href="https://cloud.google.com/solutions/apigee-ai">Apigee AI solutions</a> <a href="https://cloud.google.com/apigee/docs/api-platform/analytics/analytics-services-overview">Apigee API Analytics overview</a> <a href="https://cloud.google.com/apigee/docs/api-platform/reference/policies/quota-policy]">cloud.google.com</a> Kong AI Gateway and Apigee AI each document provider abstraction together with quotas, analytics, observability, security policy, and operational integrations, which indicates that the enterprise API-management layer is extending into multi-provider AI governance.</li>
+<li>[medium] [inference; source: <a href="https://learn.microsoft.com/en-us/azure/foundry/control-plane/overview">Microsoft Foundry Control Plane overview</a> <a href="https://docs.github.com/en/copilot/concepts/policies">GitHub Copilot policies</a> <a href="https://learn.microsoft.com/en-us/microsoft-365/copilot/copilot-control-system/security-governance">Microsoft 365 Copilot security and governance</a> <a href="https://docs.konghq.com/gateway/latest/ai-gateway/">Kong AI Gateway</a> <a href="https://cloud.google.com/solutions/apigee-ai]">cloud.google.com</a> The most persistent unaddressed gaps are a global assistant registry, one cross-platform identity and data-access layer, and one shared cost-control and service-quality layer that spans both user-facing copilots and API-level model traffic.</li>
+</ol>
+<h3>Assumptions</h3>
+<ul>
+<li>[assumption; source: <a href="https://docs.github.com/en/copilot/concepts/policies">GitHub Copilot policies</a> <a href="https://docs.konghq.com/gateway/latest/ai-gateway/]">docs.konghq.com</a> <strong>Assumption:</strong> If a capability was not documented in current primary product material, it was treated as absent for this comparison. <strong>Justification:</strong> The task asks for publicly documented capability coverage rather than private roadmap or customer-specific functionality.</li>
+<li>[assumption; source: <a href="https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/review-audit-logs">GitHub Copilot audit logs</a> <a href="https://support.claude.com/en/articles/9970975-access-audit-logs]">support.claude.com</a> <strong>Assumption:</strong> Product-native audit logs and analytics count as legibility and oversight even when retention windows or prompt-level depth differ materially between products. <strong>Justification:</strong> A stricter threshold would exclude most current software-as-a-service copilots from any observability comparison at all.</li>
+<li>[assumption; source: <a href="https://cloud.google.com/solutions/apigee-ai">Apigee AI solutions</a> <a href="https://docs.portkey.ai/docs/product/ai-gateway/configs]">docs.portkey.ai</a> <strong>Assumption:</strong> Gateway-layer token and routing controls count as cost-control and service-quality coverage even when those products do not administer seats or user entitlements. <strong>Justification:</strong> Those functions operate at the traffic layer and are still part of the requested taxonomy.</li>
+</ul>
+<h3>Analysis</h3>
+<p>[inference; source: <a href="https://learn.microsoft.com/en-us/azure/foundry/control-plane/overview">Microsoft Foundry Control Plane overview</a> <a href="https://learn.microsoft.com/en-us/microsoft-365/copilot/copilot-control-system/security-governance">Microsoft 365 Copilot security and governance</a> <a href="https://docs.github.com/en/copilot/concepts/policies]">docs.github.com</a> The native vendor products are strongest where the management layer depends on ownership of identity, content, or tenant configuration, which is why Microsoft 365 Copilot and GitHub Copilot can document richer entitlement and governance controls than the cross-provider gateways can. [inference; source: <a href="https://docs.portkey.ai/docs/product/ai-gateway/configs">Portkey gateway configs</a> <a href="https://docs.konghq.com/gateway/latest/ai-gateway/">Kong AI Gateway</a> <a href="https://cloud.google.com/solutions/apigee-ai]">cloud.google.com</a> The third-party products are strongest where the management layer sits close to raw model traffic, which is why routing, retries, quotas, caching, token analytics, and fallback logic are far better documented at the gateway layer than in the software-as-a-service copilots. [inference; source: <a href="https://learn.microsoft.com/en-us/azure/foundry/control-plane/overview">Microsoft Foundry Control Plane overview</a> <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html">Amazon Bedrock overview</a> <a href="https://developers.openai.com/codex/enterprise/governance">Codex governance and observability</a> <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-22-enterprise-ai-platform-operating-models.md]">github.com</a> A workable enterprise design currently combines native product administration for each user-facing surface, a gateway or API-management layer for shared runtime governance, and an enterprise identity and compliance backbone above both. [inference; source: <a href="https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/review-audit-logs">GitHub Copilot audit logs</a> <a href="https://learn.microsoft.com/en-us/purview/audit-copilot">Microsoft Purview audit logs for Copilot and AI applications</a> <a href="https://support.claude.com/en/articles/9970975-access-audit-logs]">support.claude.com</a> The hardest unresolved problem is not logging individual products, because most products now have some audit or analytics surface, but reconciling those incompatible logs into one enterprise-wide record with consistent retention, attribution, and policy semantics.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>[fact; source: <a href="https://learn.microsoft.com/en-us/azure/foundry/control-plane/overview]">learn.microsoft.com</a> Microsoft Foundry Control Plane is still new enough that the public documentation describes broad multi-platform ambition more clearly than it documents exact support for every named external assistant.</li>
+<li>[fact; source: <a href="https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/review-audit-logs]">docs.github.com</a> GitHub Copilot's audit limitation means any enterprise that needs prompt-level local activity records still needs custom hooks or external logging.</li>
+<li>[fact; source: <a href="https://support.claude.com/en/articles/9970975-access-audit-logs">Anthropic audit logs</a> <a href="https://learn.microsoft.com/en-us/purview/audit-copilot]">learn.microsoft.com</a> Audit retention and export depth vary meaningfully between products, which makes direct comparability imperfect even when all of them expose some oversight features.</li>
+<li>[inference; source: <a href="https://docs.portkey.ai/docs/product/ai-gateway/configs">Portkey gateway configs</a> <a href="https://cloud.google.com/solutions/apigee-ai">Apigee AI solutions</a> <a href="https://docs.konghq.com/gateway/latest/ai-gateway/]">docs.konghq.com</a> Some third-party products may offer deeper enterprise features through paid plans or implementation services than their public docs show, but undocumented capabilities cannot raise the scored coverage in this comparison.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>[inference; source: <a href="https://learn.microsoft.com/en-us/azure/foundry/control-plane/overview">Microsoft Foundry Control Plane overview</a> <a href="https://docs.github.com/en/copilot/concepts/policies">GitHub Copilot policies</a> <a href="https://developers.openai.com/codex/enterprise/governance]">developers.openai.com</a> Which enterprises have publicly documented a working production architecture that unifies native copilot administration with a separate multi-provider gateway and a single audit fabric?</li>
+<li>[inference; source: <a href="https://learn.microsoft.com/en-us/purview/audit-copilot">Microsoft Purview audit logs for Copilot and AI applications</a> <a href="https://support.claude.com/en/articles/9970975-access-audit-logs]">support.claude.com</a> What minimum common event schema would allow prompt, model, tool, and cost events from different copilots to land in one normalized enterprise log?</li>
+<li>[inference; source: <a href="https://docs.portkey.ai/docs/product/ai-gateway/configs">Portkey gateway configs</a> <a href="https://cloud.google.com/solutions/apigee-ai">Apigee AI solutions</a> <a href="https://docs.konghq.com/gateway/latest/ai-gateway/]">docs.konghq.com</a> Which gateway product has the strongest documented story for integrating user-facing copilot events, not just inference traffic, into the same governance and cost-control plane?</li>
+</ul>
+<hr />
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
+<ul>
+<li>[x] <a href="https://learn.microsoft.com/en-us/azure/foundry/control-plane/overview">Microsoft Foundry Control Plane overview</a> - unified Microsoft control-plane surface for agent inventory, observability, compliance, quota, and administration</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ai-agents/governance-security-across-organization">Microsoft guidance on governance and security for AI agents across the organization</a> - central control-plane guidance for AI agents</li>
+<li>[x] <a href="https://docs.github.com/en/copilot/concepts/policies">GitHub Copilot policies</a> - feature, privacy, and model policy controls</li>
+<li>[x] <a href="https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-enterprise-policies">GitHub Copilot enterprise policies</a> - enterprise policy administration for Copilot, agents, and Model Context Protocol (MCP)</li>
+<li>[x] <a href="https://docs.github.com/en/copilot/concepts/copilot-usage-metrics/copilot-metrics">GitHub Copilot usage metrics</a> - enterprise adoption and activity telemetry</li>
+<li>[x] <a href="https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/review-audit-logs">GitHub Copilot audit logs</a> - enterprise audit visibility and retention details</li>
+<li>[x] <a href="https://docs.github.com/en/rest/copilot/copilot-user-management">GitHub Copilot user management API</a> - seat and last-activity fields for licensed users</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/microsoft-365-copilot/microsoft-365-copilot-setup">Microsoft 365 Copilot setup guide</a> - deployment, audit logging, oversharing controls, and admin prerequisites</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/microsoft-365/copilot/copilot-control-system/security-governance">Microsoft 365 Copilot security and governance</a> - oversharing remediation, Purview, SharePoint Advanced Management, and security controls</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/purview/audit-copilot">Microsoft Purview audit logs for Copilot and AI applications</a> - audit schema and retention details</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/microsoft-365/admin/activity-reports/microsoft-365-copilot-usage?view=o365-worldwide">Microsoft 365 Copilot usage report</a> - admin-center adoption and prompt reporting</li>
+<li>[x] <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html">Amazon Bedrock overview</a> - multi-model platform, supported models, and service scope</li>
+<li>[x] <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html">Amazon Bedrock model access</a> - access control, Marketplace permissions, and provider-specific prerequisites</li>
+<li>[x] <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html">Amazon Bedrock Guardrails</a> - content safety, privacy filters, groundedness, and reasoning checks</li>
+<li>[x] <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents.html">Amazon Bedrock Agents</a> - agent orchestration, memory, monitoring, traces, encryption, and permissions</li>
+<li>[x] <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/evaluation.html">Amazon Bedrock evaluations</a> - model and Retrieval-Augmented Generation (RAG) evaluation features</li>
+<li>[x] <a href="https://docs.litellm.ai/docs/proxy/quick_start">LiteLLM proxy quick start</a> - unified interface, spend tracking, budgets, and load balancing across many providers</li>
+<li>[x] <a href="https://docs.portkey.ai/docs/introduction/feature-overview">Portkey feature overview</a> - multi-model gateway, guardrails, observability, and logs</li>
+<li>[x] <a href="https://docs.portkey.ai/docs/product/ai-gateway/configs">Portkey gateway configs</a> - routing, fallbacks, caching, and configuration enforcement</li>
+<li>[x] <a href="https://docs.konghq.com/gateway/latest/ai-gateway/">Kong AI Gateway</a> - provider-agnostic routing, access control, analytics, prompt governance, and observability</li>
+<li>[x] <a href="https://cloud.google.com/solutions/apigee-ai">Apigee AI solutions</a> - model abstraction, multicloud routing, developer portal, token reporting, and security</li>
+<li>[x] <a href="https://cloud.google.com/apigee/docs/api-platform/analytics/analytics-services-overview">Apigee API Analytics overview</a> - analytics retention and operational monitoring</li>
+<li>[x] <a href="https://cloud.google.com/apigee/docs/api-platform/reference/policies/quota-policy">Apigee Quota policy</a> - request, token, and dynamic quota enforcement</li>
+<li>[x] <a href="https://cursor.com/docs/enterprise/identity-and-access-management">Cursor identity and access management</a> - Single Sign-On (SSO), System for Cross-domain Identity Management (SCIM), Role-Based Access Control (RBAC), and Mobile Device Management (MDM)</li>
+<li>[x] <a href="https://cursor.com/docs/enterprise/model-and-integration-management">Cursor model and integration management</a> - model controls, Bring Your Own Key (BYOK) restrictions, and Model Context Protocol (MCP) allowlists</li>
+<li>[x] <a href="https://cursor.com/docs/account/teams/dashboard">Cursor dashboard</a> - billing, usage-based pricing, active sessions, and team-wide security settings</li>
+<li>[x] <a href="https://cursor.com/docs/enterprise/privacy-and-data-governance">Cursor privacy and data governance</a> - data flows, embeddings, and privacy guarantees</li>
+<li>[x] <a href="https://developers.openai.com/codex/enterprise/admin-setup">Codex enterprise admin setup</a> - local and cloud enablement, granular access control, analytics, and policy management</li>
+<li>[x] <a href="https://developers.openai.com/codex/enterprise/governance">Codex governance and observability</a> - analytics dashboard, Analytics Application Programming Interface (API), and Compliance API</li>
+<li>[x] <a href="https://developers.openai.com/codex/agent-approvals-security">Codex agent approvals and security</a> - sandboxing, approval policy, network controls, and web-search settings</li>
+<li>[x] <a href="https://platform.claude.com/docs/en/build-with-claude/administration-api">Anthropic Administration API</a> - organization, workspace, key, cost, and analytics administration</li>
+<li>[x] <a href="https://platform.claude.com/docs/en/build-with-claude/workspaces">Anthropic workspaces</a> - workspace-scoped keys, rate limits, spend notifications, and access control</li>
+<li>[x] <a href="https://platform.claude.com/docs/en/build-with-claude/usage-cost-api">Anthropic Usage and Cost API</a> - usage, cost, and rate-tier reporting</li>
+<li>[x] <a href="https://platform.claude.com/docs/en/build-with-claude/claude-code-analytics-api">Anthropic Claude Code Analytics API</a> - per-user usage, productivity, model, and cost metrics</li>
+<li>[x] <a href="https://support.claude.com/en/articles/9970975-access-audit-logs">Anthropic audit logs</a> - enterprise audit export scope and retention</li>
+<li>[x] <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-22-enterprise-ai-platform-operating-models.md">Enterprise AI platform operating models</a> - prior repository research on shared control planes for multi-platform estates</li>
+<li>[x] <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-22-enterprise-ai-capability-model.md">Enterprise AI capability model</a> - prior repository research on foundational capability reuse</li>
+</ul>
+<hr />
+
+
+  </div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html">What observability and telemetry model is required to govern Artificial Intelligence (AI) and low-code systems at scale?</a> <span class="related-note">via ai-governance, observability</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html">What control-plane architecture is required to manage Artificial Intelligence (AI) agents and low-code systems as distributed, semi-autonomous actors within enterprise environments?</a> <span class="related-note">via ai-governance, control-plane</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-02-claude-code-npm-source-map-leak.html">Claude Code npm Source Map Leak</a> <span class="related-note">via claude, security</span></div>
+<div class="related-entry"><a href="/Research/research/2026-03-15-prompt-injection-threat-landscape.html">Prompt injection threat landscape: exploits, defences, and active research in agentic artificial intelligence (AI) systems</a> <span class="related-note">via ai-governance, security</span></div>
+<div class="related-entry"><a href="/Research/research/2026-02-28-ai-strategy-security-focus.html">AI Strategy Examples: Security Focus</a> <span class="related-note">via ai-governance, security</span></div>
+</div></div>
+
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment.html">AI systems that can take multi-step actions</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-04-26-ms-copilot-cowork.html">What is Microsoft 365 Copilot Cowork and what are its enterprise governance…</a></div>
+  </div>
+</main>
+</body>
+</html>

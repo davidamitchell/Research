@@ -1,0 +1,728 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Cryptographic preservation and runtime evaluation of original intent — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #0f1115;
+  --surface-2:       #161b22;
+  --border:          #252b33;
+  --text:            #e6e6e6;
+  --text-muted:      #666;
+  --accent:          #e6e6e6;
+  --accent-dim:      #333;
+  --tag-bg:          #161b22;
+  --tag-text:        #999;
+  --tag-active-bg:   #e6e6e6;
+  --tag-active-text: #0f1115;
+  --link:            #00C3A5;
+  --teal:            #00C3A5;
+  --dusk:            #E8A1A8;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  overflow-x: clip;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.75rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+.nav-links a.active { color: var(--teal); }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--teal); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+  min-width: 0;
+}
+.card:hover { border-color: var(--teal); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  word-break: break-word;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4em;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.item-title svg { flex-shrink: 0; margin-top: 0.2em; }
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+  word-break: break-all;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+  max-width: 100%;
+}
+.item-content pre code { background: none; padding: 0; word-break: normal; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--teal); text-decoration: underline; }
+.item-content a:hover { color: var(--text); text-decoration: underline; }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--dusk);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    top: 0;
+    height: auto;
+    padding: 0.5rem 1rem;
+  }
+  .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .nav-links {
+    width: 100%;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  main {
+    padding: 1.5rem 1rem 4rem;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; overflow: hidden; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); word-break: break-word; overflow-wrap: break-word; }
+.key-claims li:last-child { border-bottom: none; }
+.key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
+.key-claims a:hover { color: var(--text); }
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); flex-wrap: wrap; }
+.related-entry:last-child { border-bottom: none; }
+.related-entry a { color: var(--teal); word-break: break-word; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--dusk); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4em; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--teal); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-card-link { text-decoration: none; color: var(--text); display: block; }
+.thread-card-link:hover .thread-card { background: var(--surface-2); }
+.thread-card { background: var(--surface); border: 1px solid var(--border); padding: 1.5rem 1.75rem 1.75rem; }
+.thread-card-title { font-size: var(--text-base); font-weight: 600; margin-bottom: 0.5rem; }
+.thread-card-meta { font-size: var(--text-xs); color: var(--text-muted); margin-bottom: 0.75rem; letter-spacing: 0.05em; }
+.thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
+.thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Research</a>
+    <div class="nav-links">
+      <a href="/Research/all-items.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>All Items</a>
+      <a href="/Research/backlog.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Backlog</a>
+      <a href="/Research/threads.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>Threads</a>
+      <a href="/Research/tags/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>Tags</a>
+      <a href="/Research/search.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M8 1.5C4.41 1.5 1.5 4.41 1.5 8c0 2.87 1.86 5.3 4.44 6.16.32.06.44-.14.44-.31v-1.09c-1.8.39-2.18-.87-2.18-.87-.3-.75-.72-.95-.72-.95-.59-.4.04-.4.04-.4.65.05 1 .67 1 .67.58 1 1.53.71 1.9.54.06-.42.23-.71.41-.87-1.44-.16-2.95-.72-2.95-3.2 0-.71.25-1.28.67-1.74-.07-.16-.29-.82.06-1.71 0 0 .55-.18 1.8.67a6.27 6.27 0 0 1 3.28 0c1.25-.85 1.8-.67 1.8-.67.35.89.13 1.55.06 1.71.42.46.67 1.03.67 1.74 0 2.49-1.51 3.04-2.96 3.2.23.2.44.6.44 1.21v1.8c0 .17.12.37.44.31A6.5 6.5 0 0 0 14.5 8 6.5 6.5 0 0 0 8 1.5z"/></svg>GitHub</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>Cryptographic preservation and runtime evaluation of original intent</span>
+  </div>
+  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Cryptographic preservation and runtime evaluation of original intent</h1>
+  <p class="full-title-subtitle">Cryptographic preservation and runtime evaluation of original intent: a representation formalism for Getting Started phase intent that is simultaneously verifiable and semantically stable across the full operational lifecycle</p>
+  <div class="meta-bar">
+    <span>2026-04-27</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/pbac.html">pbac</a> <a class="tag" href="/Research/tags/pdp.html">pdp</a> <a class="tag" href="/Research/tags/pip.html">pip</a> <a class="tag" href="/Research/tags/formal-specification.html">formal-specification</a> <a class="tag" href="/Research/tags/agentic-ai.html">agentic-ai</a> <a class="tag" href="/Research/tags/lifecycle-governance.html">lifecycle-governance</a> <a class="tag" href="/Research/tags/dikw.html">dikw</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-27-cryptographic-intent-preservation-runtime-evaluation.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-04-27-cryptographic-intent-preservation-runtime-evaluation" target="_blank" rel="noopener">wiki →</a>
+  </div>
+  
+  <div class="item-content">
+    <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
+<p>What representation of original intent, captured at the Getting Started phase, is simultaneously cryptographically verifiable and semantically stable enough to function as a meaningful evaluation baseline for the Policy Decision Point (PDP) across the full operational lifecycle of a governed asset, including legitimate scope evolution?</p>
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Findings</h2>
+<h3>Executive Summary</h3>
+<p>[inference; source: <a href="https://iang.org/papers/ricardian_contract.html">Ricardian Contracts, Ian Grigg</a> <a href="https://www.w3.org/TR/vc-data-model/">Verifiable Credentials Data Model, W3C Recommendation</a> <a href="https://github.com/in-toto/attestation/blob/main/spec/v1/statement.md]">github.com</a> Among the reviewed alternatives, the best-fitting representation of original asset intent is a signed, digest-addressed dual artefact that pairs a human-readable intent statement with a machine-readable intent declaration whose canonical runtime identity is the hash of the declaration rather than the prose. [inference; source: <a href="https://csrc.nist.gov/pubs/sp/800/162/final">Guide to Attribute Based Access Control (ABAC), NIST SP 800-162</a> <a href="https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html">eXtensible Access Control Markup Language (XACML) 3.0 core specification</a> <a href="https://w3c-ccg.github.io/zcap-spec/]">w3c-ccg.github.io</a> The declaration can keep the original triple of authorised-capability-set, authorised-data-scope, and authorised-action-envelope as its runtime evaluation surface, but only if each component is encoded as bounded typed claims that a policy engine can compare against subject, resource, action, and environment attributes and that can express capability attenuation. [inference; source: <a href="https://github.com/in-toto/attestation/blob/main/spec/v1/resource_descriptor.md">ResourceDescriptor field type specification, in-toto attestation</a> <a href="https://slsa.dev/spec/v1.0/provenance">Supply-chain Levels for Software Artifacts (SLSA) provenance v1.0</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-27-pdp-universal-policy-synchronisation-integrity.html]">davidamitchell.github.io</a> Legitimate lifecycle evolution should not rewrite the original intent record, because semantic stability is preserved best by keeping the base declaration immutable and adding append-only signed amendments that reference prior digests and carry explicit delta claims. [inference; source: <a href="https://davidamitchell.github.io/Research/research/2026-04-27-pip-invariant-anomaly-detection.html">Invariant-based anomaly detection in the Policy Information Point (PIP), completed item</a> <a href="https://davidamitchell.github.io/Research/research/2026-03-10-language-for-llm-agent-output.html]">davidamitchell.github.io</a> This structure gives the Policy Decision Point and Policy Information Point a shared evaluable baseline and gives Large Language Model agents a bounded format they can compare tool calls against without relying on free-form prose interpretation.</p>
+<h3>Key Findings</h3>
+<ol>
+<li>[inference; source: <a href="https://iang.org/papers/ricardian_contract.html">Ricardian Contracts, Ian Grigg</a> <a href="https://www.w3.org/TR/vc-data-model/">Verifiable Credentials Data Model, W3C Recommendation</a> <a href="https://github.com/in-toto/attestation/blob/main/spec/v1/statement.md]">github.com</a> <strong>Medium:</strong> A dual artefact that combines Ricardian-style prose, verifiable-credential-style typed claims, and an in-toto-style digest-bound subject is the best-fitting composite pattern among the reviewed alternatives for preserving original intent as both auditable human meaning and immutable runtime identity across the lifecycle.</li>
+<li>[inference; source: <a href="https://csrc.nist.gov/pubs/sp/800/162/final">Guide to Attribute Based Access Control (ABAC), NIST SP 800-162</a> <a href="https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html">eXtensible Access Control Markup Language (XACML) 3.0 core specification</a> <a href="https://w3c-ccg.github.io/zcap-spec/]">w3c-ccg.github.io</a> <strong>Medium:</strong> The original triple of authorised-capability-set, authorised-data-scope, and authorised-action-envelope can serve as a workable runtime evaluation surface only when each component is expressed as bounded typed claims covering verbs, resource types, caveats, data classes, sinks, purpose classes, sequences, and quantitative limits.</li>
+<li>[inference; source: <a href="https://davidamitchell.github.io/Research/research/2026-03-10-formal-spec-intent-alignment-agentic-coding.html">Formal intent specification and reward hacking, completed item</a> <a href="https://davidamitchell.github.io/Research/research/2026-03-16-intent-driven-development.html]">davidamitchell.github.io</a> <strong>Medium:</strong> The human-readable statement should remain an audit and rationale layer rather than the canonical runtime baseline, because semantic stability fails when prose remains unchanged while effective authority expands or when prose wording changes while machine authority does not.</li>
+<li>[inference; source: <a href="https://github.com/in-toto/attestation/blob/main/spec/v1/resource_descriptor.md">ResourceDescriptor field type specification, in-toto attestation</a> <a href="https://slsa.dev/spec/v1.0/provenance">Supply-chain Levels for Software Artifacts (SLSA) provenance v1.0</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-27-pdp-universal-policy-synchronisation-integrity.html]">davidamitchell.github.io</a> <strong>High:</strong> Legitimate lifecycle evolution should be encoded as an append-only amendment chain in which every amendment references the base declaration digest and prior amendment digest, because mutable overwrites destroy the provenance required for later policy verification and audit.</li>
+<li>[inference; source: <a href="https://davidamitchell.github.io/Research/research/2026-03-10-dikw-transformation-functions.html">DIKW transformation functions, completed item</a> <a href="https://csrc.nist.gov/pubs/sp/800/162/final]">csrc.nist.gov</a> <strong>Medium:</strong> The Policy Decision Point only needs a Knowledge-level event tuple derived from raw tool-call data, and that tuple should normalize actor, tool class, verb, resource type, data class, source, sink, purpose, side effects, and phase into the same vocabulary used by the declaration.</li>
+<li>[inference; source: <a href="https://davidamitchell.github.io/Research/research/2026-03-10-language-for-llm-agent-output.html">Language designed for LLM agents to produce, completed item</a> <a href="https://www.w3.org/TR/vc-data-model/]">www.w3.org</a> <strong>Medium:</strong> Large Language Model agent evaluability depends on closed vocabularies, credential schemas, examples, and stable type URLs in the declaration, because free-text fields alone leave decisive semantics inside unconstrained strings that agents cannot compare reliably.</li>
+<li>[inference; source: <a href="https://davidamitchell.github.io/Research/research/2026-04-27-pip-invariant-anomaly-detection.html">Invariant-based anomaly detection in the Policy Information Point (PIP), completed item</a> <a href="https://csrc.nist.gov/pubs/sp/800/162/final]">csrc.nist.gov</a> <strong>Medium:</strong> The same typed declaration is a plausible baseline for prior-based Policy Information Point anomaly detection if it includes sensitivity tiers, forbidden sinks, purpose classes, and quantitative ceilings, because those features expose the attributes a prior model would need to estimate whether the observed task framing is plausible for the registered asset.</li>
+<li>[inference; source: <a href="https://doi.org/10.6028/NIST.SP.800-53r5">Security and Privacy Controls for Information Systems and Organizations, NIST SP 800-53 Rev. 5</a> <a href="https://csrc.nist.gov/pubs/sp/800/53/r5/final">NIST SP 800-53 Rev. 5 landing page</a> <a href="https://davidamitchell.github.io/Research/research/2026-03-14-organisational-intent-formal-specification.html]">davidamitchell.github.io</a> <strong>Medium:</strong> A lifecycle change should be processed as an amendment when asset identity, trust boundary, and primary protected-data family remain stable, while a new registration is required when those foundations change enough that the prior baseline no longer describes the same governed asset.</li>
+</ol>
+<h3>Assumptions</h3>
+<ul>
+<li>[assumption; source: <a href="https://csrc.nist.gov/pubs/sp/800/162/final]">csrc.nist.gov</a> <strong>Assumption:</strong> runtime telemetry can be normalized into stable subject, object, action, and environment style attributes for every relevant tool call. <strong>Justification:</strong> ABAC assumes such attributes exist, but this item did not test a concrete telemetry collector.</li>
+<li>[assumption; source: <a href="https://www.w3.org/TR/vc-data-model/">Verifiable Credentials Data Model, W3C Recommendation</a> <a href="https://github.com/in-toto/attestation/blob/main/spec/v1/statement.md]">github.com</a> <strong>Assumption:</strong> a production implementation can combine a verifiable credential envelope with an in-toto digest subject without incompatible trust semantics. <strong>Justification:</strong> the standards are composable on paper, but this item did not build an interoperability profile.</li>
+</ul>
+<h3>Analysis</h3>
+<p>[inference; source: <a href="https://iang.org/papers/ricardian_contract.html">Ricardian Contracts, Ian Grigg</a> <a href="https://www.w3.org/TR/vc-data-model/]">www.w3.org</a> A Ricardian-only artefact preserves prose plus identifier semantics but lacks the richer schema, status, and evidence structures that modern interoperable claim exchange expects, while a verifiable-credential-only envelope preserves typed claims but does not on its own make the declaration hash the first-class runtime equality token. [inference; source: <a href="https://github.com/in-toto/attestation/blob/main/spec/v1/statement.md">Statement layer specification, in-toto attestation</a> <a href="https://slsa.dev/spec/v1.0/provenance]">slsa.dev</a> In-toto and Supply-chain Levels for Software Artifacts (SLSA) add the missing immutable-subject and dependency-lineage discipline needed to prevent silent mutation of the authoritative runtime baseline. [inference; source: <a href="https://csrc.nist.gov/pubs/sp/800/162/final">Guide to Attribute Based Access Control (ABAC), NIST SP 800-162</a> <a href="https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html]">docs.oasis-open.org</a> ABAC and XACML then anchor the runtime side of the design, because they show that policy evaluation ultimately compares bounded attributes rather than prose intentions. [inference; source: <a href="https://davidamitchell.github.io/Research/research/2026-03-10-language-for-llm-agent-output.html">Language designed for LLM agents to produce, completed item</a> <a href="https://davidamitchell.github.io/Research/research/2026-03-10-formal-spec-intent-alignment-agentic-coding.html]">davidamitchell.github.io</a> The central tradeoff is therefore explicit: richer prose improves human context, but only typed bounded claims preserve machine evaluability and reduce reward-hacking opportunities.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>[fact; source: <a href="https://www.w3.org/TR/vc-data-model/]">www.w3.org</a> The Verifiable Credentials Data Model does not define a domain ontology for capability, data, or action classes, so a production system still needs a controlled vocabulary profile.</li>
+<li>[fact; source: <a href="https://w3c-ccg.github.io/zcap-spec/]">w3c-ccg.github.io</a> ZCAP-LD is a community draft rather than a finalized broad standard, so its caveat and delegation model is a strong reference but not a settled interoperability baseline.</li>
+<li>[inference; source: <a href="https://davidamitchell.github.io/Research/research/2026-04-27-pip-invariant-anomaly-detection.html]">davidamitchell.github.io</a> The representation is rich enough for the PIP prior model in principle, but this item did not estimate how much historical telemetry is needed before those priors become dependable in practice.</li>
+<li>[assumption; source: <a href="https://doi.org/10.6028/NIST.SP.800-53r5">Security and Privacy Controls for Information Systems and Organizations, NIST SP 800-53 Rev. 5</a> <a href="https://csrc.nist.gov/pubs/sp/800/53/r5/final]">csrc.nist.gov</a> Regulatory alignment was inferred from architecture-control language rather than from sector-specific supervisory guidance written specifically for agentic systems.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>[inference; source: <a href="https://w3c-ccg.github.io/zcap-spec/">Authorization Capabilities for Linked Data (ZCAP-LD)</a> <a href="https://www.w3.org/TR/vc-data-model/]">www.w3.org</a> What controlled vocabulary for purpose classes, action patterns, and caveats will remain portable across tools and organizations without becoming so abstract that runtime evaluation loses precision?</li>
+<li>[inference; source: <a href="https://github.com/in-toto/attestation/blob/main/spec/v1/statement.md">Statement layer specification, in-toto attestation</a> <a href="https://slsa.dev/spec/v1.0/provenance]">slsa.dev</a> Should partial revocation of individual capabilities be modeled as a special amendment type, or should revocation always issue a whole new declaration to keep verification simpler?</li>
+<li>[inference; source: <a href="https://davidamitchell.github.io/Research/research/2026-04-27-pip-invariant-anomaly-detection.html]">davidamitchell.github.io</a> How should the PIP handle rare but legitimate emergency overrides without normalizing exceptional high-risk behavior into the asset's expected baseline?</li>
+</ul>
+<hr />
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
+<ul>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-03-14-organisational-intent-formal-specification.html">Organisational intent formal specification, completed item</a> - organisation-level analogue and machine-checkable derivation precedent</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-03-16-intent-driven-development.html">Intent-Driven Development (IDD), completed item</a> - intent as the primary specification primitive above tests and contracts</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-03-14-ricardian-contract-model.html">Ricardian Contract model, completed item</a> - prose plus machine-readable plus cryptographic binding pattern</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-03-10-language-for-llm-agent-output.html">Language designed for LLM agents to produce, completed item</a> - bounded output format constraints for agent evaluability</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-03-10-dikw-transformation-functions.html">DIKW transformation functions, completed item</a> - Data to Knowledge transformation framing for runtime evaluation</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-03-10-formal-spec-intent-alignment-agentic-coding.html">Formal intent specification and reward hacking, completed item</a> - why incomplete specifications are gameable</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-27-pdp-universal-policy-synchronisation-integrity.html">Universal policy synchronisation and integrity, completed item</a> - digest-bound lifecycle identity and attestation pattern</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-27-pip-invariant-anomaly-detection.html">Invariant-based anomaly detection in the Policy Information Point (PIP), completed item</a> - prior-based anomaly detection requirement that consumes the baseline</li>
+<li>[x] <a href="https://iang.org/papers/ricardian_contract.html">Ricardian Contracts, Ian Grigg</a> - original architecture for human-readable plus machine-processable document binding</li>
+<li>[x] <a href="https://doi.org/10.6028/NIST.SP.800-53r5">Security and Privacy Controls for Information Systems and Organizations, NIST SP 800-53 Rev. 5</a> - authoritative control catalog</li>
+<li>[x] <a href="https://csrc.nist.gov/pubs/sp/800/53/r5/final">NIST SP 800-53 Rev. 5 landing page</a> - official publication landing page for the control catalog</li>
+<li>[x] <a href="https://csrc.nist.gov/pubs/sp/800/162/final">Guide to Attribute Based Access Control (ABAC), NIST SP 800-162</a> - subject, object, action, and environment evaluation model</li>
+<li>[x] <a href="https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html">eXtensible Access Control Markup Language (XACML) 3.0 core specification</a> - authoritative definitions of PAP, PDP, Policy Enforcement Point (PEP), and PIP</li>
+<li>[x] <a href="https://www.w3.org/TR/vc-data-model/">Verifiable Credentials Data Model, W3C Recommendation</a> - signed claims, schemas, proofs, status, and credential graphs</li>
+<li>[x] <a href="https://w3c-ccg.github.io/zcap-spec/">Authorization Capabilities for Linked Data (ZCAP-LD)</a> - capability delegation, attenuation, and caveats as a modern object capability reference</li>
+<li>[x] <a href="https://github.com/in-toto/attestation/blob/main/spec/v1/statement.md">Statement layer specification, in-toto attestation</a> - digest-bound immutable subject semantics</li>
+<li>[x] <a href="https://github.com/in-toto/attestation/blob/main/spec/v1/resource_descriptor.md">ResourceDescriptor field type specification, in-toto attestation</a> - immutable digest and annotation semantics</li>
+<li>[x] <a href="https://slsa.dev/spec/v1.0/provenance">Supply-chain Levels for Software Artifacts (SLSA) provenance v1.0</a> - externalParameters, resolvedDependencies, and subject binding for provenance-carrying records</li>
+</ul>
+
+
+  </div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-04-27-pip-invariant-anomaly-detection.html">Invariant-based anomaly detection in the Policy Information Point (PIP): detecting permanent-invariant suppression through transient operating context and the decision signal to the Policy Decision Point (PDP)</a> <span class="related-note">via agentic-ai, pbac, pdp, pip</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-27-pdp-universal-policy-synchronisation-integrity.html">Universal policy synchronisation and integrity: ensuring the Policy Decision Point (PDP) evaluates governed assets against logically identical policy across all lifecycle phases</a> <span class="related-note">via agentic-ai, lifecycle-governance, pbac, pdp</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-27-pap-dynamic-policy-profiling-proportionality.html">Policy Administration Point (PAP) dynamic policy profiling and proportionality: mapping asset metadata to a lifecycle-aware Policy Enforcement Point (PEP) topology scaled by inherent risk</a> <span class="related-note">via agentic-ai, lifecycle-governance, pbac</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-27-out-of-band-policy-invalidation-remediation.html">Out-of-band policy invalidation and remediation: consistency model for policy-authoring-to-policy-enforcement propagation and minimum viable kill-switch architecture</a> <span class="related-note">via agentic-ai, lifecycle-governance, pbac</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-27-uelgf-synthesis-complete-framework.html">Universal Entity Lifecycle Governance Framework (UELGF): complete framework synthesis, formal specification suitable for adoption as an organisational standard in a regulated financial institution and presentation to a board risk committee</a> <span class="related-note">via agentic-ai, formal-specification</span></div>
+</div></div>
+
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-04-27-out-of-band-policy-invalidation-remediation.html">Out-of-band policy invalidation and remediation</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-04-26-software-engineering-investment-case-llm.html">What is the strongest evidence-based argument that investing in software…</a></div>
+  </div>
+</main>
+</body>
+</html>

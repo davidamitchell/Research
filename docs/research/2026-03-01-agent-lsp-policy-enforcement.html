@@ -1,0 +1,753 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Guiding Headless Agents via LSP-Like Mechanisms for Org Policy Conformance — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #0f1115;
+  --surface-2:       #161b22;
+  --border:          #252b33;
+  --text:            #e6e6e6;
+  --text-muted:      #666;
+  --accent:          #e6e6e6;
+  --accent-dim:      #333;
+  --tag-bg:          #161b22;
+  --tag-text:        #999;
+  --tag-active-bg:   #e6e6e6;
+  --tag-active-text: #0f1115;
+  --link:            #00C3A5;
+  --teal:            #00C3A5;
+  --dusk:            #E8A1A8;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  overflow-x: clip;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.75rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+.nav-links a.active { color: var(--teal); }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--teal); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+  min-width: 0;
+}
+.card:hover { border-color: var(--teal); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  word-break: break-word;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4em;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.item-title svg { flex-shrink: 0; margin-top: 0.2em; }
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+  word-break: break-all;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+  max-width: 100%;
+}
+.item-content pre code { background: none; padding: 0; word-break: normal; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--teal); text-decoration: underline; }
+.item-content a:hover { color: var(--text); text-decoration: underline; }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--dusk);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    top: 0;
+    height: auto;
+    padding: 0.5rem 1rem;
+  }
+  .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .nav-links {
+    width: 100%;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  main {
+    padding: 1.5rem 1rem 4rem;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; overflow: hidden; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); word-break: break-word; overflow-wrap: break-word; }
+.key-claims li:last-child { border-bottom: none; }
+.key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
+.key-claims a:hover { color: var(--text); }
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); flex-wrap: wrap; }
+.related-entry:last-child { border-bottom: none; }
+.related-entry a { color: var(--teal); word-break: break-word; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--dusk); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4em; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--teal); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-card-link { text-decoration: none; color: var(--text); display: block; }
+.thread-card-link:hover .thread-card { background: var(--surface-2); }
+.thread-card { background: var(--surface); border: 1px solid var(--border); padding: 1.5rem 1.75rem 1.75rem; }
+.thread-card-title { font-size: var(--text-base); font-weight: 600; margin-bottom: 0.5rem; }
+.thread-card-meta { font-size: var(--text-xs); color: var(--text-muted); margin-bottom: 0.75rem; letter-spacing: 0.05em; }
+.thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
+.thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Research</a>
+    <div class="nav-links">
+      <a href="/Research/all-items.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>All Items</a>
+      <a href="/Research/backlog.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Backlog</a>
+      <a href="/Research/threads.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>Threads</a>
+      <a href="/Research/tags/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>Tags</a>
+      <a href="/Research/search.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M8 1.5C4.41 1.5 1.5 4.41 1.5 8c0 2.87 1.86 5.3 4.44 6.16.32.06.44-.14.44-.31v-1.09c-1.8.39-2.18-.87-2.18-.87-.3-.75-.72-.95-.72-.95-.59-.4.04-.4.04-.4.65.05 1 .67 1 .67.58 1 1.53.71 1.9.54.06-.42.23-.71.41-.87-1.44-.16-2.95-.72-2.95-3.2 0-.71.25-1.28.67-1.74-.07-.16-.29-.82.06-1.71 0 0 .55-.18 1.8.67a6.27 6.27 0 0 1 3.28 0c1.25-.85 1.8-.67 1.8-.67.35.89.13 1.55.06 1.71.42.46.67 1.03.67 1.74 0 2.49-1.51 3.04-2.96 3.2.23.2.44.6.44 1.21v1.8c0 .17.12.37.44.31A6.5 6.5 0 0 0 14.5 8 6.5 6.5 0 0 0 8 1.5z"/></svg>GitHub</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>Guiding Headless Agents via LSP-Like Mechanisms for Org Policy Conformance</span>
+  </div>
+  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Guiding Headless Agents via LSP-Like Mechanisms for Org Policy Conformance</h1>
+    <div class="meta-bar">
+    <span>2026-03-07</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/agentic-coding.html">agentic-coding</a> <a class="tag" href="/Research/tags/policy-enforcement.html">policy-enforcement</a> <a class="tag" href="/Research/tags/security.html">security</a> <a class="tag" href="/Research/tags/developer-tooling.html">developer-tooling</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-01-agent-lsp-policy-enforcement.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-01-agent-lsp-policy-enforcement" target="_blank" rel="noopener">wiki →</a>
+  </div>
+  <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>LSAP (Language Server Agent Protocol) exists as an open protocol at v1.0.0-alpha, hosted at github.com/lsp-client/LSAP with a Python SDK (`lsap-sdk` on PyPI) and CLI, and is the most likely project behind the user&#39;s &quot;LSAP/LASP&quot; reference</li>
+<li>LSAP&#39;s core design wraps sequences of atomic LSP operations into single-request cognitive capabilities returning structured Markdown, solving the token-efficiency and positional fragility problems that prevent agents from consuming raw LSP JSON directly</li>
+<li>A headless process can act as a full LSP client over JSON-RPC stdio or TCP without any IDE or GUI host; the `textDocument/publishDiagnostics` notification requires only an async listener, not a rendering layer</li>
+<li>Lanser-CLI (arXiv:2510.22907, October 2025) formalises the headless LSP client for coding agents and CI, introducing a Selector DSL for stable addressing, deterministic Analysis Bundles with content hashes, and a process reward signal derived from LSP diagnostic deltas — the closest production-grade implementation of LSP-guided headless agent feedback</li>
+<li>Semgrep has a functional LSP server mode (`semgrep lsp`) that delivers custom policy rules as typed diagnostics to any LSP client; because LSP is transport-agnostic, this server can in principle be consumed by a headless agent, but no documented production deployment of this pattern exists</li>
+<li>OPA (Open Policy Agent) does not expose an LSP interface; its VS Code plugin provides Rego editing assistance, not policy enforcement as diagnostics for consuming agents; connecting OPA policy decisions to an agent via LSP requires a custom bridge layer</li>
+<li>None of the major agent frameworks surveyed — AutoGen, LangGraph, Devin, GitHub Copilot Workspace — implement LSP-based in-loop policy conformance; LangGraph&#39;s checkpoint nodes provide the best textual approximation but deliver policy feedback as plain context text, not as typed, range-attributed LSP diagnostics</li>
+<li>ACP (Agent Client Protocol), launched by Zed and JetBrains and in public preview in GitHub Copilot CLI as of January 2026, standardises editor-to-agent communication — the reverse direction from the policy enforcement problem, which requires agent-to-language-server communication</li>
+</ol></div>
+
+  <div class="item-content">
+    <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
+<p>Who is building solutions that allow headless autonomous coding agents to be guided in real time by LSP-like mechanisms — rather than CI gates or pre-commit hooks — to conform to an organisation's security, architectural, and engineering policies? What is the current state of the art, and what is the protocol or project the user heard referred to as &quot;LSAP&quot; or &quot;LASP&quot;?</p>
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Findings</h2>
+<h3>Executive Summary</h3>
+<p>LSAP (Language Server Agent Protocol), at <code>github.com/lsp-client/LSAP</code>, is the project behind the user's &quot;LSAP/LASP&quot; reference: an open protocol at v1.0.0-alpha that transforms LSP's atomic editor operations into agent-native cognitive capabilities (code navigation, symbol finding, semantic rename) with Markdown-first responses and positional semantic anchoring. LSAP solves the code-intelligence-for-agents problem; it does not yet implement policy enforcement. The broader goal — delivering org policy violations to a headless coding agent via LSP-like diagnostics in real time — is technically feasible (a headless process can be a full LSP client over stdio without any IDE host) but not yet assembled into a production-ready open-source tool. Semgrep's LSP server mode and the Lanser-CLI process-reward framework are the two closest components; combining them with an agent runtime would close the gap, but no production deployment of this pattern has been publicly documented.</p>
+<h3>Key Findings</h3>
+<ol>
+<li>
+<p><strong>LSAP (Language Server Agent Protocol) exists as an open protocol at v1.0.0-alpha, hosted at github.com/lsp-client/LSAP with a Python SDK (<code>lsap-sdk</code> on PyPI) and CLI, and is the most likely project behind the user's &quot;LSAP/LASP&quot; reference.</strong> (Confidence: high)</p>
+</li>
+<li>
+<p><strong>LSAP's core design wraps sequences of atomic LSP operations into single-request cognitive capabilities returning structured Markdown, solving the token-efficiency and positional fragility problems that prevent agents from consuming raw LSP JSON directly.</strong> (Confidence: high)</p>
+</li>
+<li>
+<p><strong>A headless process can act as a full LSP client over JSON-RPC stdio or TCP without any IDE or GUI host; the <code>textDocument/publishDiagnostics</code> notification requires only an async listener, not a rendering layer.</strong> (Confidence: high)</p>
+</li>
+<li>
+<p><strong>Lanser-CLI (arXiv:2510.22907, October 2025) formalises the headless LSP client for coding agents and CI, introducing a Selector DSL for stable addressing, deterministic Analysis Bundles with content hashes, and a process reward signal derived from LSP diagnostic deltas — the closest production-grade implementation of LSP-guided headless agent feedback.</strong> (Confidence: high)</p>
+</li>
+<li>
+<p><strong>Semgrep has a functional LSP server mode (<code>semgrep lsp</code>) that delivers custom policy rules as typed diagnostics to any LSP client; because LSP is transport-agnostic, this server can in principle be consumed by a headless agent, but no documented production deployment of this pattern exists.</strong> (Confidence: medium)</p>
+</li>
+<li>
+<p><strong>OPA (Open Policy Agent) does not expose an LSP interface; its VS Code plugin provides Rego editing assistance, not policy enforcement as diagnostics for consuming agents; connecting OPA policy decisions to an agent via LSP requires a custom bridge layer.</strong> (Confidence: high)</p>
+</li>
+<li>
+<p><strong>None of the major agent frameworks surveyed — AutoGen, LangGraph, Devin, GitHub Copilot Workspace — implement LSP-based in-loop policy conformance; LangGraph's checkpoint nodes provide the best textual approximation but deliver policy feedback as plain context text, not as typed, range-attributed LSP diagnostics.</strong> (Confidence: high)</p>
+</li>
+<li>
+<p><strong>ACP (Agent Client Protocol), launched by Zed and JetBrains and in public preview in GitHub Copilot CLI as of January 2026, standardises editor-to-agent communication — the reverse direction from the policy enforcement problem, which requires agent-to-language-server communication.</strong> (Confidence: high)</p>
+</li>
+<li>
+<p><strong>The gap between current state and a full &quot;policy-guided headless agent via LSP&quot; is one integration layer: a headless LSP client wrapper that opens agent-generated code as a virtual document to a Semgrep (or custom) policy LSP server, receives <code>publishDiagnostics</code>, and injects violations into the agent's context as structured tool-call results.</strong> (Confidence: high)</p>
+</li>
+<li>
+<p><strong>LSAP's v1.0.0-alpha schema directory contains no policy capability; org policy enforcement is described in promotional material as a future direction enabled by the orchestration layer, not a shipped feature.</strong> (Confidence: high)</p>
+</li>
+</ol>
+<h3>Assumptions</h3>
+<ul>
+<li><strong>Assumption:</strong> Semgrep LSP server can be consumed by a headless agent using standard LSP wire protocol. <strong>Justification:</strong> The LSP spec makes no mention of requiring an IDE host on the client side; the JSON-RPC transport over stdio works for any process. No evidence contradicts this; no production deployment confirms it.</li>
+<li><strong>Assumption:</strong> LSAP is the project the user referred to (not LASP, which could be a distinct acronym). <strong>Justification:</strong> No project named LASP (Language Agent Standard Protocol or similar) was found. LSAP as Language Server Agent Protocol is the only active project matching the description and acronym space. The design narrative (agent-oriented, built on LSP) matches the user's context.</li>
+</ul>
+<h3>Analysis</h3>
+<p>Three separate efforts converge on the same problem space from different angles. LSAP addresses the code-intelligence layer — making LSP usable for agents rather than editors. Lanser-CLI addresses the headless operation layer — making LSP deterministic and rewardable for CI-grade agent workflows. ACP addresses the editor-agent integration layer — how editors invoke agents rather than how agents use language servers. Policy enforcement sits at the intersection: it requires an agent (headless) to query a language server (policy LSP) and receive structured feedback mid-generation. None of the three existing initiatives covers this intersection end-to-end.</p>
+<p>The Semgrep LSP approach is the most tractable path to a working prototype: Semgrep rules can encode architectural, security, and style policies; the LSP server mode delivers them as typed diagnostics; the LSP protocol is transport-agnostic. The missing piece is a tested integration pattern connecting agent-generated code (as a virtual document) to the Semgrep LSP server and surfacing violations to the agent's reasoning loop.</p>
+<p>LangGraph checkpoint nodes are the pragmatic enterprise alternative: they deliver policy feedback without LSP infrastructure and are already production-deployed. The tradeoff is that textual feedback is less precise than ranged, typed LSP diagnostics, and the audit trail is weaker.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li><strong>Semgrep LSP headless use case unconfirmed:</strong> No production deployment of Semgrep LSP consumed by an autonomous agent was found. The integration may have latency or virtual-document lifecycle issues not documented in public sources.</li>
+<li><strong>LSAP maturity:</strong> v1.0.0-alpha is early-stage. The policy capability described in promotional material is not implemented. The project may pivot or stall.</li>
+<li><strong>Nuanced blog inaccessible:</strong> The blog post at <code>nuanced.dev/blog/evaluating-lsp</code> (which reportedly evaluated LSP impact on coding agents empirically) returned only a marketing stub. Its findings could not be incorporated.</li>
+<li><strong>Devin internal mechanisms unknown:</strong> Cognition AI has not published technical details on constraint or policy mechanisms. Devin may already implement something analogous to LSP-guided policy feedback internally.</li>
+<li><strong>Virtual document lifecycle complexity:</strong> Opening agent-generated code as a virtual LSP document mid-generation (before it exists as a real file) requires careful handling of <code>textDocument/didOpen</code>, <code>didChange</code>, and <code>didClose</code> lifecycle events. This is a non-trivial implementation detail.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>Is there a way to run LSAP's cognitive capabilities against a custom policy-as-code backend, rather than a standard language server? A &quot;policy LSAP server&quot; that accepts code snippets and returns policy violations in Markdown diagnostic format would be a natural extension of the protocol.</li>
+<li>What are the latency characteristics of Semgrep LSP for short in-memory code snippets? If per-diagnostic latency is &gt;500ms, the real-time feedback model breaks down for interactive agent generation loops.</li>
+<li>Has Cognition AI (Devin) published any technical detail on in-loop policy or constraint mechanisms since early 2025?</li>
+<li>Would a purpose-built &quot;policy language server&quot; (receiving code over LSP and querying OPA/Semgrep/custom rules) be a viable open-source project, and what would be the minimum viable implementation?</li>
+</ul>
+<hr />
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
+<ul>
+<li>[<a href="https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/">x] LSP Specification</a>: <a href="https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/">x] LSP Specification</a> — particularly <code>textDocument/publishDiagnostics</code> and the JSON-RPC transport</li>
+<li>[ ] VS Code extension docs on agent mode and custom language server integration</li>
+<li>[x] GitHub: search <code>lsap agent lsp</code>, <code>lasp language agent</code>, <code>headless lsp client agent</code> for relevant repos — found <a href="https://github.com/lsp-client/LSAP/">github.com</a></li>
+<li>[x] arXiv: search &quot;language server protocol agent&quot; and &quot;LSAP&quot; — found arXiv:2510.22907 (Lanser-CLI)</li>
+<li>[ ] OPA (Open Policy Agent) LSP extension or plugin documentation</li>
+<li>[x] Semgrep LSP server mode documentation</li>
+<li>[ ] AutoGen / Microsoft: any policy-enforcement mechanisms in agentic coding pipelines</li>
+<li>[ ] Devin (Cognition AI) public documentation on policy or constraint mechanisms</li>
+<li>[ ] Anthropic MCP specification — tool-use patterns that simulate in-loop feedback</li>
+<li>[x] LangChain / LangGraph: any &quot;guardrails&quot; or &quot;policy tool&quot; patterns</li>
+<li>[ ] <a href="https://github.com/guardrails-ai/guardrails">Guardrails AI</a>: <a href="https://github.com/guardrails-ai/guardrails">Guardrails AI</a> — closest existing analogue?</li>
+<li>[x] LinkedIn / X / blog posts referencing &quot;LSAP&quot; or &quot;LASP&quot; in an agent+LSP context — found <a href="https://lsp-client.github.io/blog/designing-lsap/">lsp-client.github.io</a></li>
+</ul>
+<hr />
+
+
+  </div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-03-16-intent-driven-development.html">Intent Driven Development: context and concept layering to bound the solution space</a> <span class="related-note">via agentic-coding, developer-tooling</span></div>
+</div></div>
+
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-02-ai-not-a-data-problem.html">AI capability is not a data problem - why the data/analytics department is the…</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-02-28-transcript-via-yt-dlp-whisper.html">YouTube transcripts via yt-dlp audio + Whisper transcription</a></div>
+  </div>
+</main>
+</body>
+</html>

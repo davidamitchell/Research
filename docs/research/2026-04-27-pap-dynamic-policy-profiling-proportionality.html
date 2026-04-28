@@ -1,0 +1,747 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>PAP dynamic policy profiling and proportionality — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #0f1115;
+  --surface-2:       #161b22;
+  --border:          #252b33;
+  --text:            #e6e6e6;
+  --text-muted:      #666;
+  --accent:          #e6e6e6;
+  --accent-dim:      #333;
+  --tag-bg:          #161b22;
+  --tag-text:        #999;
+  --tag-active-bg:   #e6e6e6;
+  --tag-active-text: #0f1115;
+  --link:            #00C3A5;
+  --teal:            #00C3A5;
+  --dusk:            #E8A1A8;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  overflow-x: clip;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.75rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+.nav-links a.active { color: var(--teal); }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--teal); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+  min-width: 0;
+}
+.card:hover { border-color: var(--teal); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  word-break: break-word;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4em;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.item-title svg { flex-shrink: 0; margin-top: 0.2em; }
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+  word-break: break-all;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+  max-width: 100%;
+}
+.item-content pre code { background: none; padding: 0; word-break: normal; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--teal); text-decoration: underline; }
+.item-content a:hover { color: var(--text); text-decoration: underline; }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--dusk);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    top: 0;
+    height: auto;
+    padding: 0.5rem 1rem;
+  }
+  .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .nav-links {
+    width: 100%;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  main {
+    padding: 1.5rem 1rem 4rem;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; overflow: hidden; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); word-break: break-word; overflow-wrap: break-word; }
+.key-claims li:last-child { border-bottom: none; }
+.key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
+.key-claims a:hover { color: var(--text); }
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); flex-wrap: wrap; }
+.related-entry:last-child { border-bottom: none; }
+.related-entry a { color: var(--teal); word-break: break-word; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--dusk); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4em; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--teal); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-card-link { text-decoration: none; color: var(--text); display: block; }
+.thread-card-link:hover .thread-card { background: var(--surface-2); }
+.thread-card { background: var(--surface); border: 1px solid var(--border); padding: 1.5rem 1.75rem 1.75rem; }
+.thread-card-title { font-size: var(--text-base); font-weight: 600; margin-bottom: 0.5rem; }
+.thread-card-meta { font-size: var(--text-xs); color: var(--text-muted); margin-bottom: 0.75rem; letter-spacing: 0.05em; }
+.thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
+.thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Research</a>
+    <div class="nav-links">
+      <a href="/Research/all-items.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>All Items</a>
+      <a href="/Research/backlog.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Backlog</a>
+      <a href="/Research/threads.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>Threads</a>
+      <a href="/Research/tags/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>Tags</a>
+      <a href="/Research/search.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M8 1.5C4.41 1.5 1.5 4.41 1.5 8c0 2.87 1.86 5.3 4.44 6.16.32.06.44-.14.44-.31v-1.09c-1.8.39-2.18-.87-2.18-.87-.3-.75-.72-.95-.72-.95-.59-.4.04-.4.04-.4.65.05 1 .67 1 .67.58 1 1.53.71 1.9.54.06-.42.23-.71.41-.87-1.44-.16-2.95-.72-2.95-3.2 0-.71.25-1.28.67-1.74-.07-.16-.29-.82.06-1.71 0 0 .55-.18 1.8.67a6.27 6.27 0 0 1 3.28 0c1.25-.85 1.8-.67 1.8-.67.35.89.13 1.55.06 1.71.42.46.67 1.03.67 1.74 0 2.49-1.51 3.04-2.96 3.2.23.2.44.6.44 1.21v1.8c0 .17.12.37.44.31A6.5 6.5 0 0 0 14.5 8 6.5 6.5 0 0 0 8 1.5z"/></svg>GitHub</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>PAP dynamic policy profiling and proportionality</span>
+  </div>
+  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>PAP dynamic policy profiling and proportionality</h1>
+  <p class="full-title-subtitle">Policy Administration Point (PAP) dynamic policy profiling and proportionality: mapping asset metadata to a lifecycle-aware Policy Enforcement Point (PEP) topology scaled by inherent risk</p>
+  <div class="meta-bar">
+    <span>2026-04-27</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/pbac.html">pbac</a> <a class="tag" href="/Research/tags/pap.html">pap</a> <a class="tag" href="/Research/tags/pep.html">pep</a> <a class="tag" href="/Research/tags/policy-enforcement.html">policy-enforcement</a> <a class="tag" href="/Research/tags/agentic-ai.html">agentic-ai</a> <a class="tag" href="/Research/tags/cia-classification.html">cia-classification</a> <a class="tag" href="/Research/tags/lifecycle-governance.html">lifecycle-governance</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-27-pap-dynamic-policy-profiling-proportionality.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-04-27-pap-dynamic-policy-profiling-proportionality" target="_blank" rel="noopener">wiki →</a>
+  </div>
+  
+  <div class="item-content">
+    <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
+<p>How can a Policy Administration Point (PAP) dynamically map a governed asset's metadata, specifically its invariants and Confidentiality, Integrity, and Availability (CIA) ratings, to a proportional and lifecycle-aware set of Policy Enforcement Points (PEPs), such that the depth of governance applied scales with the asset's inherent risk profile rather than being applied uniformly?</p>
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Findings</h2>
+<p><em>(Populated from section 6 Synthesis above.)</em></p>
+<h3>Executive Summary</h3>
+<p>[inference; source: <a href="https://csrc.nist.gov/pubs/sp/800/162/final">National Institute of Standards and Technology (NIST) Special Publication (SP) 800-162, Guide to Attribute Based Access Control (ABAC)</a> <a href="https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html">OASIS eXtensible Access Control Markup Language (XACML) 3.0 core specification</a> <a href="https://profsandhu.com/infs767/infs767spring04/lbac-6pg.pdf">Ravi Sandhu, Lattice-Based Access Control Models</a> <a href="https://classpages.cselabs.umn.edu/Fall-2021/csci5271/papers/SRL2003-02.pdf]">classpages.cselabs.umn.edu</a> A defensible PAP should compute a monotone function <code>F(invariant set, CIA, lifecycle phase) -&gt; PEP topology</code>, where higher-risk metadata never maps to weaker control coverage and incomparable invariants combine by union rather than by averaging.</p>
+<p>[inference; source: <a href="https://csrc.nist.gov/pubs/sp/800/162/final">National Institute of Standards and Technology (NIST) Special Publication (SP) 800-162, Guide to Attribute Based Access Control (ABAC)</a> <a href="https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html">OASIS eXtensible Access Control Markup Language (XACML) 3.0 core specification</a> <a href="https://csrc.nist.gov/glossary/term/Risk_Adaptive_Adaptable_Access_Control]">csrc.nist.gov</a> Existing ABAC, XACML, and RAdAC material already supports dynamic authorization decisions, and the PAP-side lifecycle-topology derivation problem remains under-specified rather than directly named.</p>
+<p>[inference; source: <a href="https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-2/">NIST SP 800-53 control extracts, AC-2</a> <a href="https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-3/">NIST SP 800-53 control extracts, AC-3</a> <a href="https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-6/">NIST SP 800-53 control extracts, AC-6</a> <a href="https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-16/">NIST SP 800-53 control extracts, AC-16</a> <a href="https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-24/">NIST SP 800-53 control extracts, AC-24</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html">What identity and access management model is required for AI agents and low-code artefacts operating within enterprise systems?</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html]">davidamitchell.github.io</a> For practical design, the minimal basis set is registration and classification, identity and delegation, development sandbox and connector boundary, delivery and promotion, runtime authorization, runtime rate-limit and exception routing, and evidence and stop-authority gates, with hard gates required at Getting Started and Operation for CIA-High, privileged, or write-capable agents.</p>
+<p>[inference; source: <a href="https://davidamitchell.github.io/Research/research/2026-04-26-access-control-amplification-agentic-operations.html">Access control amplification under agentic operations</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-26-implicit-rate-limiting-controls-agentic-ai-removal.html">Implicit rate-limiting controls removed by agentic AI</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-citizen-development-empirical-evidence.html]">davidamitchell.github.io</a> Proportionality is necessary because uniform gating both over-governs low-risk utilities and under-governs high-risk agents whose machine-speed execution amplifies permission misuse and removes human friction.</p>
+<h3>Key Findings</h3>
+<ol>
+<li>[inference; source: <a href="https://csrc.nist.gov/pubs/sp/800/162/final">National Institute of Standards and Technology (NIST) Special Publication (SP) 800-162, Guide to Attribute Based Access Control (ABAC)</a> <a href="https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html]">docs.oasis-open.org</a> Existing ABAC and XACML models are already dynamic at authorization time because they evaluate subject, resource, action, and environment attributes through PAP, PDP, PEP, and PIP roles, and the reviewed material leaves lifecycle-topology selection as an implementor-side architectural inference rather than an explicit standards algorithm. <strong>Confidence: medium.</strong></li>
+<li>[inference; source: <a href="https://profsandhu.com/infs767/infs767spring04/lbac-6pg.pdf">Ravi Sandhu, Lattice-Based Access Control Models</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-risk-tier-classification-controls.html]">davidamitchell.github.io</a> A defensible formalisation is a monotone partial order over invariant set and CIA label, because Denning-Sandhu style ordering and highest-triggered-tier logic fit this multi-dimensional risk problem better than either one linear risk score or a literal single-axis secrecy lattice. <strong>Confidence: medium.</strong></li>
+<li>[inference; source: <a href="https://classpages.cselabs.umn.edu/Fall-2021/csci5271/papers/SRL2003-02.pdf">Miller, Yee, and Shapiro, Capability Myths Demolished</a> <a href="https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-6/]">csf.tools</a> Capability-based security supports deriving minimum PEP coverage from declared invariants because precise and minimal delegation is the right model for assets whose authority must stay bounded below both human and system maxima. <strong>Confidence: medium.</strong></li>
+<li>[inference; source: <a href="https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-2/">NIST SP 800-53 control extracts, AC-2</a> <a href="https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-3/">NIST SP 800-53 control extracts, AC-3</a> <a href="https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-6/">NIST SP 800-53 control extracts, AC-6</a> <a href="https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-16/">NIST SP 800-53 control extracts, AC-16</a> <a href="https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-24/]">csf.tools</a> NIST SP 800-53 provides the component controls from which a proportional topology-selection rule can be built by combining attribute registration, dynamic privilege management, least privilege, dynamic attribute association, and per-request authorization. <strong>Confidence: medium.</strong></li>
+<li>[inference; source: <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html">What identity and access management model is required for AI agents and low-code artefacts operating within enterprise systems?</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html">Deployment pipeline as the only enforceable control gate for citizen-developed agents</a> <a href="https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-3/">NIST SP 800-53 control extracts, AC-3</a> <a href="https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-24/]">csf.tools</a> The phase-distributed topology should reserve registration and identity gates for Getting Started, sandbox and connector gates for Development, promotion gates for Delivery, and authorization, rate, and stop-authority gates for Operation. <strong>Confidence: medium.</strong></li>
+<li>[inference; source: <a href="https://davidamitchell.github.io/Research/research/2026-04-26-access-control-amplification-agentic-operations.html">Access control amplification under agentic operations</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-26-implicit-rate-limiting-controls-agentic-ai-removal.html">Implicit rate-limiting controls removed by agentic AI</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment.html]">davidamitchell.github.io</a> CIA-High, privileged, or write-capable agents require hard gates at Getting Started and Operation because identity scoping, rate controls, and runtime stop authority must exist before those agents can safely enter build or production states. <strong>Confidence: medium.</strong></li>
+<li>[inference; source: <a href="https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-citizen-development-empirical-evidence.html">Systems capability debt as the root cause of citizen development: empirical evidence and effective governance architectures</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html]">davidamitchell.github.io</a> Uniform gate depth is economically and behaviorally unstable because it pushes low-risk utility demand toward workaround channels while failing to add the extra engineered safeguards that materially risky agents need. <strong>Confidence: medium.</strong></li>
+<li>[inference; source: <a href="https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-2/">NIST SP 800-53 control extracts, AC-2</a> <a href="https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-6/">NIST SP 800-53 control extracts, AC-6</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-26-access-control-amplification-agentic-operations.html">Access control amplification under agentic operations</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-26-implicit-rate-limiting-controls-agentic-ai-removal.html]">davidamitchell.github.io</a> A worked CIA-High agent that handles PII and executes financial transactions should never map below <code>{G0,G1}</code> at Getting Started, <code>{G1,G2}</code> in Development, <code>{G1,G3}</code> in Delivery, and <code>{G1,G4,G5,G6}</code> in Operation, because each phase exposes a distinct blast-radius mechanism. <strong>Confidence: medium.</strong></li>
+</ol>
+<h3>Assumptions</h3>
+<ul>
+<li>[fact; source: <a href="https://github.com/davidamitchell/Research/blob/main/Research/in-progress/2026-04-27-pap-dynamic-policy-profiling-proportionality.md]">github.com</a> No standalone assumption entries are carried into Findings; the invariant taxonomy, gate basis set, and worked topology are explicitly labeled as inferences in this document rather than being presented as unsupported assumptions.</li>
+</ul>
+<h3>Analysis</h3>
+<ul>
+<li>[inference; source: <a href="https://csrc.nist.gov/pubs/sp/800/162/final">National Institute of Standards and Technology (NIST) Special Publication (SP) 800-162, Guide to Attribute Based Access Control (ABAC)</a> <a href="https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html]">docs.oasis-open.org</a> The strongest interpretive move in this item is separating <strong>decision dynamism</strong> from <strong>topology dynamism</strong>, because that avoids the false claim that modern access-control theory is static while still identifying an architectural gap worth solving.</li>
+<li>[inference; source: <a href="https://profsandhu.com/infs767/infs767spring04/lbac-6pg.pdf]">profsandhu.com</a> The lattice material was weighted as structural guidance rather than as a ready-made solution, because it directly supports ordering, joins, and monotonicity but does not decide which enterprise invariants matter operationally.</li>
+<li>[inference; source: <a href="https://profsandhu.com/infs767/infs767spring04/lbac-6pg.pdf">Ravi Sandhu, Lattice-Based Access Control Models</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-risk-tier-classification-controls.html]">davidamitchell.github.io</a> Alternative formalisations were considered and rejected at a high level: a single linear score collapses incomparable hazards into one number, while a literal single-axis secrecy lattice does not fit mixed confidentiality, integrity, and operational-authority invariants as well as a partial-order with highest-triggered-tier logic.</li>
+<li>[inference; source: <a href="https://classpages.cselabs.umn.edu/Fall-2021/csci5271/papers/SRL2003-02.pdf">Miller, Yee, and Shapiro, Capability Myths Demolished</a> <a href="https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-6/]">csf.tools</a> The capability literature was weighted as the derivation principle for invariant classes, because precise delegation and least authority explain why a PAP should read invariant declarations as claims about the minimum set of enforcement surfaces required.</li>
+<li>[inference; source: <a href="https://davidamitchell.github.io/Research/research/2026-04-26-access-control-amplification-agentic-operations.html">Access control amplification under agentic operations</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-26-implicit-rate-limiting-controls-agentic-ai-removal.html">Implicit rate-limiting controls removed by agentic AI</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-citizen-development-empirical-evidence.html]">davidamitchell.github.io</a> The repository's adjacent items were used to resolve the proportionality question, because they provide the operational consequence evidence missing from the formal models and explain why uniform gating is both behaviorally brittle and technically insufficient.</li>
+<li>[inference; source: <a href="https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-2/">NIST SP 800-53 control extracts, AC-2</a> <a href="https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-3/">NIST SP 800-53 control extracts, AC-3</a> <a href="https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-6/">NIST SP 800-53 control extracts, AC-6</a> <a href="https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-16/">NIST SP 800-53 control extracts, AC-16</a> <a href="https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-24/">NIST SP 800-53 control extracts, AC-24</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html">What identity and access management model is required for AI agents and low-code artefacts operating within enterprise systems?</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html]">davidamitchell.github.io</a> The resulting mapping rule is therefore best read as an implementor's design specification built from standards-compatible control primitives rather than as a claim that one standards body already publishes this exact formula.</li>
+</ul>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>[inference; source: <a href="https://csrc.nist.gov/pubs/sp/800/162/final">National Institute of Standards and Technology (NIST) Special Publication (SP) 800-162, Guide to Attribute Based Access Control (ABAC)</a> <a href="https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html]">docs.oasis-open.org</a> No reviewed primary source explicitly publishes a PAP function from invariant metadata to lifecycle PEP topology, so the exact formula remains a synthesis rather than a directly sourced standard pattern.</li>
+<li>[inference; source: <a href="https://profsandhu.com/infs767/infs767spring04/lbac-6pg.pdf]">profsandhu.com</a> The lattice evidence is structurally strong, but the source used here is a concise teaching summary rather than the original Denning or Bell-LaPadula papers, so the formalism claim is high-confidence for ordering logic and medium-confidence for any stronger historical reading.</li>
+<li>[inference; source: <a href="https://classpages.cselabs.umn.edu/Fall-2021/csci5271/papers/SRL2003-02.pdf]">classpages.cselabs.umn.edu</a> The capability source is strong on least-authority delegation, but it does not discuss lifecycle phase design, so the jump from delegation theory to phase-distributed topology remains inferential.</li>
+<li>[inference; source: <a href="https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-citizen-development-empirical-evidence.html]">davidamitchell.github.io</a> The empirical case is strongest for why uniform control patterns fail and weaker for any exact threshold where a soft gate should become a hard gate.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>How should the PAP encode joins between incomparable invariants when one asset spans regulated data, financial transactions, and privileged configuration change in the same workflow?</li>
+<li>What evidentiary thresholds should automatically reclassify an asset from soft-gated to hard-gated operation after deployment drift, connector growth, or new data exposure?</li>
+<li>Which downstream runtime patterns, transaction signing, supervisory approval, or anomaly-triggered suspension, best implement the <code>G4-G6</code> operational topology for the highest-risk assets?</li>
+</ul>
+<h3>Output</h3>
+<ul>
+<li>[fact; source: <a href="https://csrc.nist.gov/pubs/sp/800/162/final">National Institute of Standards and Technology (NIST) Special Publication (SP) 800-162, Guide to Attribute Based Access Control (ABAC)</a> <a href="https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html">OASIS eXtensible Access Control Markup Language (XACML) 3.0 core specification</a> <a href="https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-2/]">csf.tools</a> Type: knowledge.</li>
+<li>[inference; source: <a href="https://profsandhu.com/infs767/infs767spring04/lbac-6pg.pdf">Ravi Sandhu, Lattice-Based Access Control Models</a> <a href="https://classpages.cselabs.umn.edu/Fall-2021/csci5271/papers/SRL2003-02.pdf">Miller, Yee, and Shapiro, Capability Myths Demolished</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-26-access-control-amplification-agentic-operations.html]">davidamitchell.github.io</a> Description: a standards-compatible formal mapping from invariant metadata and CIA rating to lifecycle-aware enforcement topology, plus a worked high-risk example and PAP design criteria.</li>
+<li>[fact; source: <a href="https://csrc.nist.gov/pubs/sp/800/162/final">National Institute of Standards and Technology (NIST) Special Publication (SP) 800-162, Guide to Attribute Based Access Control (ABAC)</a> <a href="https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html">OASIS eXtensible Access Control Markup Language (XACML) 3.0 core specification</a> <a href="https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-2/]">csf.tools</a> Links: <a href="https://csrc.nist.gov/pubs/sp/800/162/final">National Institute of Standards and Technology (NIST) Special Publication (SP) 800-162, Guide to Attribute Based Access Control (ABAC)</a> ; <a href="https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html">OASIS eXtensible Access Control Markup Language (XACML) 3.0 core specification</a> ; <a href="https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-2/">NIST SP 800-53 control extracts, AC-2</a></li>
+</ul>
+<hr />
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
+<ul>
+<li>[x] <a href="https://csrc.nist.gov/pubs/sp/800/162/final">National Institute of Standards and Technology (NIST) Special Publication (SP) 800-162, Guide to Attribute Based Access Control (ABAC)</a> - primary ABAC definition and current baseline for dynamic authorization logic</li>
+<li>[x] <a href="https://csrc.nist.gov/pubs/sp/800/53/r5/final">NIST SP 800-53 Rev. 5, Security and Privacy Controls for Information Systems and Organizations</a> - primary control catalog page for proportional-control context</li>
+<li>[x] <a href="https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-2/">NIST SP 800-53 control extracts, AC-2</a> - primary account-attribute, dynamic privilege, and dynamic account-management text</li>
+<li>[x] <a href="https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-3/">NIST SP 800-53 control extracts, AC-3</a> - primary access-enforcement and ABAC text</li>
+<li>[x] <a href="https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-6/">NIST SP 800-53 control extracts, AC-6</a> - primary least-privilege text for users and processes acting on behalf of users</li>
+<li>[x] <a href="https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-16/">NIST SP 800-53 control extracts, AC-16</a> - primary attribute-association and dynamic-attribute text</li>
+<li>[x] <a href="https://csf.tools/reference/nist-sp-800-53/r5/ac/ac-24/">NIST SP 800-53 control extracts, AC-24</a> - primary per-request authorization-decision text</li>
+<li>[x] <a href="https://csrc.nist.gov/pubs/sp/800/207/final">NIST SP 800-207, Zero Trust Architecture (ZTA)</a> - primary dynamic authorization and per-session least-privilege context</li>
+<li>[x] <a href="https://csrc.nist.gov/glossary/term/Risk_Adaptive_Adaptable_Access_Control">NIST glossary entry, Risk-Adaptive Access Control (RAdAC)</a> - primary definition of risk-adaptive access control</li>
+<li>[x] <a href="https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html">OASIS eXtensible Access Control Markup Language (XACML) 3.0 core specification</a> - primary definition of PAP, PDP, PEP, PIP, attributes, obligations, and decision context</li>
+<li>[x] <a href="https://profsandhu.com/infs767/infs767spring04/lbac-6pg.pdf">Ravi Sandhu, Lattice-Based Access Control Models</a> - secondary but technically direct summary of Denning axioms, partial orders, least upper bound, Bell-LaPadula, Biba, and dynamic labels</li>
+<li>[x] <a href="https://classpages.cselabs.umn.edu/Fall-2021/csci5271/papers/SRL2003-02.pdf">Miller, Yee, and Shapiro, Capability Myths Demolished</a> - secondary but technically direct source on least-privilege delegation, confused deputy avoidance, and capability precision</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-03-15-context-layers-aligned-decisions-synthesis.html">Aligned Decision-Making: Context Architecture for AI Agents in Organisations</a> - prior completed item defining the eight-layer organisational context model</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-03-16-adaptive-policy-authorization-compliance.html">Adaptive Policy-Based Authorization (APBA): compliance alignment with NIST SP 800-53 and ISO/IEC 27001</a> - prior completed item closest to current adaptive-policy analogue</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-26-access-control-amplification-agentic-operations.html">Access control amplification under agentic operations</a> - prior completed item on worst-case permission inheritance</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-26-implicit-rate-limiting-controls-agentic-ai-removal.html">Implicit rate-limiting controls removed by agentic AI</a> - prior completed item on the loss of human friction</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment.html">Regulatory and standards preconditions for deployment of AI systems that can take multi-step actions</a> - prior completed item on when foundational weaknesses become control failures</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-26-systems-capability-debt-citizen-development-empirical-evidence.html">Systems capability debt as the root cause of citizen development: empirical evidence and effective governance architectures</a> - prior completed empirical grounding for workaround demand and uniform-control failure</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html">What identity and access management model is required for AI agents and low-code artefacts operating within enterprise systems?</a> - prior completed item on machine identity and bounded delegation</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html">Deployment pipeline as the only enforceable control gate for citizen-developed agents</a> - prior completed item on the Delivery-phase enforcement surface</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-risk-tier-classification-controls.html">How should Artificial Intelligence (AI) and low-code use cases be classified into risk tiers, and how should governance controls vary across those tiers?</a> - prior completed item on highest-triggered-tier logic and proportional control depth</li>
+</ul>
+
+
+  </div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-04-27-out-of-band-policy-invalidation-remediation.html">Out-of-band policy invalidation and remediation: consistency model for policy-authoring-to-policy-enforcement propagation and minimum viable kill-switch architecture</a> <span class="related-note">via agentic-ai, cia-classification, lifecycle-governance, pap, pbac, pep</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-27-pdp-universal-policy-synchronisation-integrity.html">Universal policy synchronisation and integrity: ensuring the Policy Decision Point (PDP) evaluates governed assets against logically identical policy across all lifecycle phases</a> <span class="related-note">via agentic-ai, lifecycle-governance, pap, pbac</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-27-cryptographic-intent-preservation-runtime-evaluation.html">Cryptographic preservation and runtime evaluation of original intent: a representation formalism for Getting Started phase intent that is simultaneously verifiable and semantically stable across the full operational lifecycle</a> <span class="related-note">via agentic-ai, lifecycle-governance, pbac</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-27-uelgf-policy-architecture-8-layer-context.html">Universal Entity Lifecycle Governance Framework (UELGF): policy architecture, Policy Administration Point, Policy Decision Point, Policy Enforcement Point, Policy Information Point component design, the 8-layer organisational context model, policy independence guarantee, scope boundary mechanism, and kill switch</a> <span class="related-note">via pap, pep</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-27-uelgf-entity-taxonomy-cia-classification.html">Universal Entity Lifecycle Governance Framework (UELGF): canonical entity taxonomy and Confidentiality, Integrity, and Availability (CIA) classification system for determining governance intensity</a> <span class="related-note">via agentic-ai, cia-classification</span></div>
+</div></div>
+
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-04-27-pdp-universal-policy-synchronisation-integrity.html">Universal policy synchronisation and integrity</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-04-27-out-of-band-policy-invalidation-remediation.html">Out-of-band policy invalidation and remediation</a></div>
+  </div>
+</main>
+</body>
+</html>

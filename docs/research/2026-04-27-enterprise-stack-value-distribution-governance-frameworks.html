@@ -1,0 +1,754 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Enterprise data stack value-distribution frameworks — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #0f1115;
+  --surface-2:       #161b22;
+  --border:          #252b33;
+  --text:            #e6e6e6;
+  --text-muted:      #666;
+  --accent:          #e6e6e6;
+  --accent-dim:      #333;
+  --tag-bg:          #161b22;
+  --tag-text:        #999;
+  --tag-active-bg:   #e6e6e6;
+  --tag-active-text: #0f1115;
+  --link:            #00C3A5;
+  --teal:            #00C3A5;
+  --dusk:            #E8A1A8;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  overflow-x: clip;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.75rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+.nav-links a.active { color: var(--teal); }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--teal); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+  min-width: 0;
+}
+.card:hover { border-color: var(--teal); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  word-break: break-word;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4em;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.item-title svg { flex-shrink: 0; margin-top: 0.2em; }
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+  word-break: break-all;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+  max-width: 100%;
+}
+.item-content pre code { background: none; padding: 0; word-break: normal; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--teal); text-decoration: underline; }
+.item-content a:hover { color: var(--text); text-decoration: underline; }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--dusk);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    top: 0;
+    height: auto;
+    padding: 0.5rem 1rem;
+  }
+  .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .nav-links {
+    width: 100%;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  main {
+    padding: 1.5rem 1rem 4rem;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; overflow: hidden; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); word-break: break-word; overflow-wrap: break-word; }
+.key-claims li:last-child { border-bottom: none; }
+.key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
+.key-claims a:hover { color: var(--text); }
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); flex-wrap: wrap; }
+.related-entry:last-child { border-bottom: none; }
+.related-entry a { color: var(--teal); word-break: break-word; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--dusk); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4em; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--teal); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-card-link { text-decoration: none; color: var(--text); display: block; }
+.thread-card-link:hover .thread-card { background: var(--surface-2); }
+.thread-card { background: var(--surface); border: 1px solid var(--border); padding: 1.5rem 1.75rem 1.75rem; }
+.thread-card-title { font-size: var(--text-base); font-weight: 600; margin-bottom: 0.5rem; }
+.thread-card-meta { font-size: var(--text-xs); color: var(--text-muted); margin-bottom: 0.75rem; letter-spacing: 0.05em; }
+.thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
+.thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Research</a>
+    <div class="nav-links">
+      <a href="/Research/all-items.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>All Items</a>
+      <a href="/Research/backlog.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Backlog</a>
+      <a href="/Research/threads.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>Threads</a>
+      <a href="/Research/tags/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>Tags</a>
+      <a href="/Research/search.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M8 1.5C4.41 1.5 1.5 4.41 1.5 8c0 2.87 1.86 5.3 4.44 6.16.32.06.44-.14.44-.31v-1.09c-1.8.39-2.18-.87-2.18-.87-.3-.75-.72-.95-.72-.95-.59-.4.04-.4.04-.4.65.05 1 .67 1 .67.58 1 1.53.71 1.9.54.06-.42.23-.71.41-.87-1.44-.16-2.95-.72-2.95-3.2 0-.71.25-1.28.67-1.74-.07-.16-.29-.82.06-1.71 0 0 .55-.18 1.8.67a6.27 6.27 0 0 1 3.28 0c1.25-.85 1.8-.67 1.8-.67.35.89.13 1.55.06 1.71.42.46.67 1.03.67 1.74 0 2.49-1.51 3.04-2.96 3.2.23.2.44.6.44 1.21v1.8c0 .17.12.37.44.31A6.5 6.5 0 0 0 14.5 8 6.5 6.5 0 0 0 8 1.5z"/></svg>GitHub</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>Enterprise data stack value-distribution frameworks</span>
+  </div>
+  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Enterprise data stack value-distribution frameworks</h1>
+  <p class="full-title-subtitle">Enterprise data stack value-distribution frameworks: what frameworks - including the seven-layer stack and Software Repricing Matrix discussed in the April 2026 ServiceNow investment analysis - are most useful for understanding where durable value accumulates in enterprise technology stacks, especially at the governance layer?</p>
+  <div class="meta-bar">
+    <span>2026-04-27</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/enterprise-architecture.html">enterprise-architecture</a> <a class="tag" href="/Research/tags/governance.html">governance</a> <a class="tag" href="/Research/tags/terminal-value.html">terminal-value</a> <a class="tag" href="/Research/tags/servicenow.html">servicenow</a> <a class="tag" href="/Research/tags/snowflake.html">snowflake</a> <a class="tag" href="/Research/tags/ai-commoditisation.html">ai-commoditisation</a> <a class="tag" href="/Research/tags/platform-strategy.html">platform-strategy</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-27-enterprise-stack-value-distribution-governance-frameworks.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-04-27-enterprise-stack-value-distribution-governance-frameworks" target="_blank" rel="noopener">wiki →</a>
+  </div>
+  <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>High confidence</li>
+<li>High confidence</li>
+<li>High confidence</li>
+<li>High confidence</li>
+<li>Medium-high confidence</li>
+<li>Medium-high confidence</li>
+<li>Medium confidence</li>
+<li>Medium-high confidence</li>
+</ol></div>
+
+  <div class="item-content">
+    <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
+<p>What frameworks - specifically the seven-layer enterprise stack and the Software Repricing Matrix described in the April 2026 Liam Hyland ServiceNow analysis video, together with comparable frameworks from enterprise architecture, investment analysis, and technology strategy literature - most clearly explain how durable economic value distributes across enterprise technology stacks as lower-layer resources (storage, compute, intelligence) commoditise, and what do these frameworks collectively say about governance as the layer that accumulates and compounds value that cannot be replicated by adding more compute?</p>
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Findings</h2>
+<h3>Executive Summary</h3>
+<p>[inference; source: <a href="https://www.leoniscap.com/research/openclaw-(aka-clawdbot)-and-the-ai-threshold-effect">www.leoniscap.com</a> <a href="https://www.wardleymaps.com/book-passages/wardley-on-evolution">Wardley Maps - evolution passage</a> <a href="https://www.nobelprize.org/prizes/economic-sciences/2009/press-release/">Nobel Prize 2009 press release for Elinor Ostrom and Oliver Williamson</a> <a href="https://kubernetes.io/docs/concepts/architecture/]">kubernetes.io</a> The most defensible conclusion is that durable value in enterprise stacks does not sit in &quot;governance&quot; as an isolated top layer, but in a governance-bearing control plane, used here in the systems sense of a layer that makes global decisions and responds to system events, that binds policy, identity, workflow context, and action as lower layers commoditise.</p>
+<p>[fact; source: <a href="https://www.opengroup.org/togaf">The Open Group - TOGAF</a> <a href="https://www.opengroup.org/archimate-forum/archimate-overview]">www.opengroup.org</a> Accessible enterprise-architecture standards support the importance of governance, but they model it as a cross-layer coordinating function rather than a clean seventh stack layer.</p>
+<p>[inference; source: <a href="https://geoffreyamoore.com/topics/">Geoffrey Moore topics page</a> <a href="https://www.wardleymaps.com/guides/wardley-mapping-101">Wardley Mapping 101</a> <a href="https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report">Google Cloud - announcing the 2025 DevOps Research and Assessment (DORA) report</a> <a href="https://a16z.com/newsletter/big-ideas-2026-part-1]">a16z.com</a> Strategy and operating-model frameworks agree more strongly with the Hyland thesis because they show value migrating toward differentiation, coordination, internal platform quality, and rule enforcement once compute and model access cheapen.</p>
+<p>[inference; source: <a href="https://pages.stern.nyu.edu/~adamodar/pdfiles/country/TerminalValue.pdf">Damodaran terminal value note</a> <a href="https://finance.yahoo.com/markets/stocks/articles/servicenow-inc-q1-2026-earnings-001811104.html]">finance.yahoo.com</a> The repricing logic is therefore directionally credible, but it depends on whether investors believe a vendor owns only workflow software or a hard-to-replace control plane with embedded institutional knowledge.</p>
+<h3>Key Findings</h3>
+<ol>
+<li><strong>High confidence.</strong> [inference; source: <a href="https://www.opengroup.org/togaf">The Open Group - TOGAF</a> <a href="https://www.opengroup.org/archimate-forum/archimate-overview">The Open Group - ArchiMate overview</a> <a href="https://www.wardleymaps.com/guides/wardley-mapping-101]">www.wardleymaps.com</a> The seeded seven-layer stack is best understood as an investor-friendly synthesis of established architecture and strategy ideas, not as a canonical enterprise-architecture standard with an independently recognized seven-layer lineage.</li>
+<li><strong>High confidence.</strong> [inference; source: <a href="https://geoffreyamoore.com/topics/">Geoffrey Moore topics page</a> <a href="https://stvp.stanford.edu/av/core-and-context">Stanford Entrepreneurial Thought Leaders - Core and Context</a> <a href="https://www.wardleymaps.com/book-passages/wardley-on-evolution">Wardley Maps - evolution passage</a> <a href="https://www.leoniscap.com/research/openclaw-(aka-clawdbot)-and-the-ai-threshold-effect]">www.leoniscap.com</a> Moore, Wardley, and Leonis all predict that once lower layers become cheaper and more standardized, durable value shifts toward constrained, differentiated layers that embed context, trust, and control.</li>
+<li><strong>High confidence.</strong> [fact; source: <a href="https://www.opengroup.org/togaf">The Open Group - TOGAF</a> <a href="https://www.opengroup.org/archimate-forum/archimate-overview]">www.opengroup.org</a> TOGAF and ArchiMate support the importance of governance, but they treat it as an organizing discipline across business, application, and technology domains rather than as a standalone terminal technical layer.</li>
+<li><strong>High confidence.</strong> [inference; source: <a href="https://www.nobelprize.org/prizes/economic-sciences/1991/press-release/">Nobel Prize 1991 press release for Ronald Coase</a> <a href="https://www.nobelprize.org/prizes/economic-sciences/2009/press-release/">Nobel Prize 2009 press release for Elinor Ostrom and Oliver Williamson</a> <a href="https://davidamitchell.github.io/Research/research/2026-03-02-transaction-costs.html]">davidamitchell.github.io</a> Coase and Williamson provide the strongest economic explanation for governance-layer durability because they show that value persists where a platform lowers repeated coordination and conflict-resolution costs around relationship-specific assets.</li>
+<li><strong>Medium-high confidence.</strong> [inference; source: <a href="https://hai-production.s3.amazonaws.com/files/hai_ai_index_report_2025.pdf">Artificial Intelligence Index Report 2025</a> <a href="https://openai.com/index/gpt-4o-mini-advancing-cost-efficient-intelligence/">OpenAI Generative Pre-trained Transformer (GPT)-4o mini announcement</a> <a href="https://a16z.com/newsletter/big-ideas-2026-part-1">a16z Big Ideas 2026 Part 1</a> <a href="https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report]">cloud.google.com</a> Falling inference cost strengthens the case for orchestration, policy, and internal-platform layers because cheaper intelligence appears to shift the practical bottleneck toward coordination and reliability rather than raw model access.</li>
+<li><strong>Medium-high confidence.</strong> [inference; source: <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents.html">Amazon Bedrock Agents documentation</a> <a href="https://docs.github.com/en/copilot/concepts/copilot-usage-metrics/copilot-metrics">GitHub Copilot usage metrics</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html">AI agent control-plane architecture - completed research item</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-26-multi-ai-provider-control-planes.html]">davidamitchell.github.io</a> Governance becomes durable only when it is bound to execution surfaces such as permissions, routing, telemetry, and action control, because purely semantic or reasoning layers remain easier to substitute.</li>
+<li><strong>Medium confidence.</strong> [inference; source: <a href="https://pages.stern.nyu.edu/~adamodar/pdfiles/country/TerminalValue.pdf">Damodaran terminal value note</a> <a href="https://pages.stern.nyu.edu/~adamodar/New_Home_Page/valquestions/termvalapproaches.htm">Damodaran terminal value approaches</a> <a href="https://finance.yahoo.com/markets/stocks/articles/servicenow-inc-q1-2026-earnings-001811104.html]">finance.yahoo.com</a> The Software Repricing Matrix logic is directionally compatible with standard discounted-cash-flow thinking because uncertainty about a firm's terminal moat can compress valuation even when current operating performance is intact.</li>
+<li><strong>Medium-high confidence.</strong> [inference; source: <a href="https://www.wardleymaps.com/guides/wardley-mapping-101">Wardley Mapping 101</a> <a href="https://a16z.com/newsletter/big-ideas-2026-part-1">a16z Big Ideas 2026 Part 1</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-platform-operating-models.html]">davidamitchell.github.io</a> The main disagreement across frameworks is not whether lower layers commoditise, but whether the defensible asset is workflow software alone or a composite control plane that joins governance, identity, data, and action.</li>
+</ol>
+<h3>Assumptions</h3>
+<ul>
+<li>[assumption; source: <a href="https://www.youtube.com/watch?v=JH65uE9oEqs]">www.youtube.com</a> The seeded layer and quadrant descriptions are materially accurate summaries of the inaccessible video. <strong>Justification:</strong> they are the repository's explicit setup for this item, but they could not be checked against a transcript in this session.</li>
+<li>[assumption; source: <a href="https://www.gartner.com/en/information-technology/glossary/pace-layering-application-strategy]">www.gartner.com</a> Pace Layering is used only at the generic three-layer level because the official explanatory text was inaccessible here. <strong>Justification:</strong> the official page was found but blocked, so no finer claim is attributed to Gartner.</li>
+<li>[assumption; source: <a href="https://www.hbs.edu/faculty/Pages/item.aspx?num=13375">www.hbs.edu</a> <a href="https://www.hbs.edu/faculty/Pages/item.aspx?num=56505">www.hbs.edu</a> <a href="https://store.hbr.org/product/commoditization-and-de-commoditization/420017]">store.hbr.org</a> Christensen's commoditisation logic is adjacent but not central in this synthesis because direct primary text was inaccessible. <strong>Justification:</strong> stronger directly accessible evidence exists from Wardley, Moore, Leonis, Coase, and Williamson.</li>
+</ul>
+<h3>Analysis</h3>
+<p>[fact; source: <a href="https://www.opengroup.org/togaf">The Open Group - TOGAF</a> <a href="https://www.opengroup.org/archimate-forum/archimate-overview]">www.opengroup.org</a> The architecture evidence is strongest on one point: governance is indispensable, but it is not modeled as an isolated layer floating above business, application, and technology.</p>
+<p>[inference; source: <a href="https://geoffreyamoore.com/topics/">Geoffrey Moore topics page</a> <a href="https://www.wardleymaps.com/book-passages/wardley-on-evolution">Wardley Maps - evolution passage</a> <a href="https://www.nobelprize.org/prizes/economic-sciences/2009/press-release/]">www.nobelprize.org</a> The strategy and economics evidence is strongest on a different point: value persists where a capability remains organization-specific, relationship-specific, or hard to standardize, which is exactly the territory occupied by approvals, permissions, routing rules, and embedded workflow knowledge.</p>
+<p>[inference; source: <a href="https://www.leoniscap.com/research/openclaw-(aka-clawdbot)-and-the-ai-threshold-effect">www.leoniscap.com</a> <a href="https://a16z.com/newsletter/big-ideas-2026-part-1">a16z Big Ideas 2026 Part 1</a> <a href="https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report]">cloud.google.com</a> Current enterprise-AI sources strengthen the Hyland thesis because they show the active bottleneck moving away from raw model performance and toward coordination, constraint, and internal platform quality.</p>
+<p>[inference; source: <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html">AI agent control-plane architecture - completed research item</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-26-multi-ai-provider-control-planes.html]">davidamitchell.github.io</a> The best reconciliation is therefore that &quot;governance&quot; is economically durable only when instantiated as an operational control plane with authority over action, identity, telemetry, and policy propagation.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>[fact; source: <a href="https://www.youtube.com/watch?v=JH65uE9oEqs]">www.youtube.com</a> The largest gap is direct source access: the video itself was blocked, so exact wording, exact quadrant labels, and exact vendor mappings could not be confirmed from a transcript.</li>
+<li>[fact; source: <a href="https://www.gartner.com/en/information-technology/glossary/pace-layering-application-strategy">Gartner Pace Layering glossary page</a> <a href="https://www.hbs.edu/faculty/Pages/item.aspx?num=13375]">www.hbs.edu</a> Gartner and Christensen primary pages were checked but were not fully accessible from this environment, which lowers confidence in claims that would depend on their fine-grained wording.</li>
+<li>[inference; source: <a href="https://www.wardleymaps.com/guides/wardley-mapping-101">Wardley Mapping 101</a> <a href="https://www.nobelprize.org/prizes/economic-sciences/2009/press-release/]">www.nobelprize.org</a> The strongest external frameworks support upward value migration and governance durability broadly, but they do not by themselves prove that any particular vendor is the winner at that layer.</li>
+<li>[inference; source: <a href="https://a16z.com/newsletter/big-ideas-2026-part-1">a16z Big Ideas 2026 Part 1</a> <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents.html]">docs.aws.amazon.com</a> Orchestration layers remain exposed if hyperscalers or model vendors absorb more of the control-plane surface, so the moat depends on how much execution governance stays vendor-neutral and workflow-specific.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>[inference; source: <a href="https://www.youtube.com/watch?v=JH65uE9oEqs">Liam Hyland ServiceNow video</a> <a href="https://finance.yahoo.com/markets/stocks/articles/servicenow-inc-q1-2026-earnings-001811104.html]">finance.yahoo.com</a> What exact quadrant definitions and named company placements does the Software Repricing Matrix use in the video itself, and do those placements remain stable after the latest product launches?</li>
+<li>[inference; source: <a href="https://www.leoniscap.com/research/openclaw-(aka-clawdbot)-and-the-ai-threshold-effect">www.leoniscap.com</a> <a href="https://a16z.com/newsletter/big-ideas-2026-part-1]">a16z.com</a> Which parts of the enterprise control plane are likely to commoditise next: telemetry, agent identity, policy language, or cross-provider routing?</li>
+<li>[inference; source: <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html">AI agent control-plane architecture - completed research item</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-26-multi-ai-provider-control-planes.html]">davidamitchell.github.io</a> How much of the durable moat in governance software comes from data model and process graph depth versus from the execution and evidence surfaces around that model?</li>
+</ul>
+<hr />
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
+<ul>
+<li>[x] <a href="https://www.youtube.com/watch?v=JH65uE9oEqs">Liam Hyland ServiceNow video</a> - checked; watch page returned a bot-confirmation wall in this environment</li>
+<li>[x] <a href="https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=JH65uE9oEqs&amp;format=json">YouTube oEmbed metadata for the video</a> - accessible metadata for title and author</li>
+<li>[x] <a href="https://www.leoniscap.com/research/openclaw-(aka-clawdbot)-and-the-ai-threshold-effect">Leonis Capital - &quot;OpenClaw (aka Clawdbot) and the AI Threshold Effect&quot;</a> - accessible source for &quot;control is not friction, it is the product&quot; and constrained-enterprise framing</li>
+<li>[x] <a href="https://www.opengroup.org/togaf">The Open Group - TOGAF</a> - checked</li>
+<li>[x] <a href="https://www.opengroup.org/archimate-forum/archimate-overview">The Open Group - ArchiMate overview</a> - checked</li>
+<li>[x] <a href="https://www.gartner.com/en/information-technology/glossary/pace-layering-application-strategy">Gartner Pace Layering glossary page</a> - checked; returned 403 in this environment</li>
+<li>[x] <a href="https://geoffreyamoore.com/topics/">Geoffrey Moore topics page</a> - checked; accessible summary of core/context and stack orchestration topics</li>
+<li>[x] <a href="https://stvp.stanford.edu/av/core-and-context">Stanford Entrepreneurial Thought Leaders - Core and Context</a> - checked</li>
+<li>[x] <a href="https://www.wardleymaps.com/guides/wardley-mapping-101">Wardley Mapping 101</a> - checked</li>
+<li>[x] <a href="https://www.wardleymaps.com/book-passages/wardley-on-evolution">Wardley Maps - evolution passage</a> - checked</li>
+<li>[x] <a href="https://stratechery.com/aggregation-theory/">Stratechery aggregation theory overview</a> - checked</li>
+<li>[x] <a href="https://a16z.com/newsletter/big-ideas-2026-part-1">a16z Big Ideas 2026 Part 1</a> - checked</li>
+<li>[x] <a href="https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report">Google Cloud - announcing the 2025 DevOps Research and Assessment (DORA) report</a> - checked</li>
+<li>[x] <a href="https://hai-production.s3.amazonaws.com/files/hai_ai_index_report_2025.pdf">Artificial Intelligence Index Report 2025</a> - checked</li>
+<li>[x] <a href="https://openai.com/index/gpt-4o-mini-advancing-cost-efficient-intelligence/">OpenAI Generative Pre-trained Transformer (GPT)-4o mini announcement</a> - checked via web search citation because direct fetch returned 403 in this environment</li>
+<li>[x] <a href="https://kubernetes.io/docs/concepts/architecture/">Kubernetes architecture</a> - checked for an authoritative systems definition of control plane</li>
+<li>[x] <a href="https://pages.stern.nyu.edu/~adamodar/pdfiles/country/TerminalValue.pdf">Damodaran terminal value note</a> - checked</li>
+<li>[x] <a href="https://pages.stern.nyu.edu/~adamodar/New_Home_Page/valquestions/termvalapproaches.htm">Damodaran terminal value approaches</a> - checked</li>
+<li>[x] <a href="https://www.nobelprize.org/prizes/economic-sciences/1991/press-release/">Nobel Prize 1991 press release for Ronald Coase</a> - checked</li>
+<li>[x] <a href="https://www.nobelprize.org/prizes/economic-sciences/2009/press-release/">Nobel Prize 2009 press release for Elinor Ostrom and Oliver Williamson</a> - checked</li>
+<li>[x] <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents.html">Amazon Bedrock Agents documentation</a> - checked</li>
+<li>[x] <a href="https://docs.github.com/en/copilot/concepts/copilot-usage-metrics/copilot-metrics">GitHub Copilot usage metrics</a> - checked</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-03-08-servicenow-platform-strategy.html">ServiceNow Platform Strategy - completed research item</a> - checked</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-03-02-transaction-costs.html">Transaction Cost Economics - completed research item</a> - checked</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-03-23-software-factory.html">The Software Factory - completed research item</a> - checked</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-22-enterprise-ai-platform-operating-models.html">Enterprise AI platform operating models - completed research item</a> - checked</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html">AI agent control-plane architecture - completed research item</a> - checked</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-26-multi-ai-provider-control-planes.html">Multi-provider AI control planes - completed research item</a> - checked</li>
+</ul>
+<hr />
+
+
+  </div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-04-27-governance-moat-prior-research-implications.html">Governance-as-moat thesis and prior research implications: how does the argument that governance is the durable value layer in Artificial Intelligence (AI)-augmented enterprise stacks validate, challenge, or extend the AI governance architecture frameworks developed in the prior research programme?</a> <span class="related-note">via ai-commoditisation, enterprise-architecture, governance, servicenow, terminal-value</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-27-servicenow-orchestration-agentic-ai-roadmap.html">ServiceNow workflow orchestration and agentic Artificial Intelligence (AI) roadmap: what does ServiceNow currently provide for AI agent orchestration and governance, and what does their public roadmap indicate about future agentic AI capabilities?</a> <span class="related-note">via enterprise-architecture, governance, servicenow</span></div>
+<div class="related-entry"><a href="/Research/research/2026-03-08-servicenow-platform-strategy.html">ServiceNow Platform Strategy: Holistic Integration of CSDM, Modules, Process, and AI</a> <span class="related-note">via enterprise-architecture, platform-strategy, servicenow</span></div>
+<div class="related-entry"><a href="/Research/research/2026-03-08-servicenow-csdm-data-modelling.html">ServiceNow CSDM: Practical Data Modelling Across ITSM, APM, SPM, IRM, and FSO</a> <span class="related-note">via enterprise-architecture, servicenow</span></div>
+</div></div>
+
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-04-27-governance-moat-prior-research-implications.html">Governance-as-moat thesis and prior research implications</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-04-27-uelgf-synthesis-complete-framework.html">UELGF</a></div>
+  </div>
+</main>
+</body>
+</html>

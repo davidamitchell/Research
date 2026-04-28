@@ -1,0 +1,742 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Compliance Scanning via GitHub Actions — Broad Policy as Code Across a… — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #0f1115;
+  --surface-2:       #161b22;
+  --border:          #252b33;
+  --text:            #e6e6e6;
+  --text-muted:      #666;
+  --accent:          #e6e6e6;
+  --accent-dim:      #333;
+  --tag-bg:          #161b22;
+  --tag-text:        #999;
+  --tag-active-bg:   #e6e6e6;
+  --tag-active-text: #0f1115;
+  --link:            #00C3A5;
+  --teal:            #00C3A5;
+  --dusk:            #E8A1A8;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  overflow-x: clip;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.75rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+.nav-links a.active { color: var(--teal); }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--teal); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+  min-width: 0;
+}
+.card:hover { border-color: var(--teal); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  word-break: break-word;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4em;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.item-title svg { flex-shrink: 0; margin-top: 0.2em; }
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+  word-break: break-all;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+  max-width: 100%;
+}
+.item-content pre code { background: none; padding: 0; word-break: normal; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--teal); text-decoration: underline; }
+.item-content a:hover { color: var(--text); text-decoration: underline; }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--dusk);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    top: 0;
+    height: auto;
+    padding: 0.5rem 1rem;
+  }
+  .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .nav-links {
+    width: 100%;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  main {
+    padding: 1.5rem 1rem 4rem;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; overflow: hidden; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); word-break: break-word; overflow-wrap: break-word; }
+.key-claims li:last-child { border-bottom: none; }
+.key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
+.key-claims a:hover { color: var(--text); }
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); flex-wrap: wrap; }
+.related-entry:last-child { border-bottom: none; }
+.related-entry a { color: var(--teal); word-break: break-word; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--dusk); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4em; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--teal); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-card-link { text-decoration: none; color: var(--text); display: block; }
+.thread-card-link:hover .thread-card { background: var(--surface-2); }
+.thread-card { background: var(--surface); border: 1px solid var(--border); padding: 1.5rem 1.75rem 1.75rem; }
+.thread-card-title { font-size: var(--text-base); font-weight: 600; margin-bottom: 0.5rem; }
+.thread-card-meta { font-size: var(--text-xs); color: var(--text-muted); margin-bottom: 0.75rem; letter-spacing: 0.05em; }
+.thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
+.thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Research</a>
+    <div class="nav-links">
+      <a href="/Research/all-items.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>All Items</a>
+      <a href="/Research/backlog.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Backlog</a>
+      <a href="/Research/threads.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>Threads</a>
+      <a href="/Research/tags/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>Tags</a>
+      <a href="/Research/search.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M8 1.5C4.41 1.5 1.5 4.41 1.5 8c0 2.87 1.86 5.3 4.44 6.16.32.06.44-.14.44-.31v-1.09c-1.8.39-2.18-.87-2.18-.87-.3-.75-.72-.95-.72-.95-.59-.4.04-.4.04-.4.65.05 1 .67 1 .67.58 1 1.53.71 1.9.54.06-.42.23-.71.41-.87-1.44-.16-2.95-.72-2.95-3.2 0-.71.25-1.28.67-1.74-.07-.16-.29-.82.06-1.71 0 0 .55-.18 1.8.67a6.27 6.27 0 0 1 3.28 0c1.25-.85 1.8-.67 1.8-.67.35.89.13 1.55.06 1.71.42.46.67 1.03.67 1.74 0 2.49-1.51 3.04-2.96 3.2.23.2.44.6.44 1.21v1.8c0 .17.12.37.44.31A6.5 6.5 0 0 0 14.5 8 6.5 6.5 0 0 0 8 1.5z"/></svg>GitHub</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>Compliance Scanning via GitHub Actions — Broad Policy as Code Across a…</span>
+  </div>
+  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Compliance Scanning via GitHub Actions — Broad Policy as Code Across a…</h1>
+  <p class="full-title-subtitle">Compliance Scanning via GitHub Actions — Broad Policy as Code Across a Heterogeneous Stack</p>
+  <div class="meta-bar">
+    <span>2026-03-22</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/github-actions.html">github-actions</a> <a class="tag" href="/Research/tags/policy-as-code.html">policy-as-code</a> <a class="tag" href="/Research/tags/compliance.html">compliance</a> <a class="tag" href="/Research/tags/dotnet.html">dotnet</a> <a class="tag" href="/Research/tags/python.html">python</a> <a class="tag" href="/Research/tags/airflow.html">airflow</a> <a class="tag" href="/Research/tags/snowflake.html">snowflake</a> <a class="tag" href="/Research/tags/terraform.html">terraform</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-22-compliance-scanning-gh-actions.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-22-compliance-scanning-gh-actions" target="_blank" rel="noopener">wiki →</a>
+  </div>
+  
+  <div class="item-content">
+    <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
+<p>How can GitHub Actions (with GitHub Advanced Security (GHAS) and CodeQL already enabled) be extended to enforce a broad, organisation-wide compliance policy — covering naming conventions, architectural patterns, directory layout, Application Programming Interface (API) specifications, event schemas, and technology-stack-specific usage rules — across a heterogeneous estate of .NET, Kubernetes (k8s), Python, React, Go, Airflow, DBT (Data Build Tool), Snowflake, Relational Database Service (RDS), Terraform, Ansible, Representational State Transfer (REST) APIs, Graph APIs (GraphQL), and event-driven systems, where policies are defined once and shared across multiple enforcement points?</p>
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Findings</h2>
+<h3>Executive Summary</h3>
+<ul>
+<li>[inference] The most defensible way to extend GHAS and CodeQL into broad compliance scanning is to treat them as the supported-language security layer inside a larger GitHub Actions architecture that also governs manifests, schemas, SQL, and project structure. Basis: <a href="https://docs.github.com/en/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql">x] GitHub Docs — About code scanning with CodeQL</a> ; <a href="https://docs.github.com/en/actions/sharing-automations/reusing-workflows">x] GitHub Docs — Reusable workflows</a> ; <a href="https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets#require-workflows-to-pass-before-merging">x] GitHub Docs — Available rules for rulesets / require workflows to pass before merging</a></li>
+<li>[fact] GitHub already provides the cross-repository control-plane primitives needed for that design: reusable workflows centralise execution logic, while organisation rulesets and required status checks make shared checks mandatory. Sources: <a href="https://docs.github.com/en/actions/sharing-automations/reusing-workflows">x] GitHub Docs — Reusable workflows</a> ; <a href="https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-organization-settings/creating-rulesets-for-repositories-in-your-organization">x] GitHub Docs — Creating organisation rulesets</a></li>
+<li>[inference] The correct operating model is a multi-tool policy portfolio organised by artefact type, not an attempt to stretch CodeQL into every compliance domain named in the question. Basis: <a href="https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/">x] CodeQL docs — Supported languages and frameworks</a> ; <a href="https://github.com/bridgecrewio/checkov">github.com</a> ; <a href="https://github.com/stoplightio/spectral">x] Spectral repository and documentation entry point</a> ; <a href="https://the-guild.dev/graphql/inspector/docs/index">x] GraphQL Inspector docs</a> ; <a href="https://sqlfluff.com/">x] SQLFluff documentation</a> ; <a href="https://github.com/dbt-labs/dbt-project-evaluator">x] dbt-project-evaluator repository</a></li>
+<li>[inference] The safest adoption path is to centralise policy artefacts, run them first in Evaluate or soft-fail mode, and only then promote them into merge-blocking rulesets after outputs, ownership, and exceptions are stable. Basis: <a href="https://wellarchitected.github.com/library/governance/recommendations/managing-repositories-at-scale/rulesets-best-practices/">x] GitHub Well-Architected — Rulesets best practices</a> ; <a href="https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/centralized-custom-checkov-scanning.html">x] AWS Prescriptive Guidance — centralised custom Checkov scanning</a></li>
+</ul>
+<h3>Key Findings</h3>
+<ol>
+<li>[inference][high] Because the CodeQL support matrix is language-centric, any estate that also needs Terraform, Kubernetes, OpenAPI, AsyncAPI, SQL, or dbt governance must add dedicated artefact scanners instead of expecting GHAS alone to enforce those surfaces. Basis: <a href="https://docs.github.com/en/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql">x] GitHub Docs — About code scanning with CodeQL</a> ; <a href="https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/">x] CodeQL docs — Supported languages and frameworks</a></li>
+<li>[fact][high] GitHub separates shared execution from shared enforcement: reusable workflows encapsulate the shared scanning logic, while organisation rulesets and required checks apply merge-blocking governance across targeted repositories. Sources: <a href="https://docs.github.com/en/actions/sharing-automations/reusing-workflows">x] GitHub Docs — Reusable workflows</a> ; <a href="https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-organization-settings/creating-rulesets-for-repositories-in-your-organization">x] GitHub Docs — Creating organisation rulesets</a> ; <a href="https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets#require-workflows-to-pass-before-merging">x] GitHub Docs — Available rules for rulesets / require workflows to pass before merging</a></li>
+<li>[fact][high] CodeQL packs are an important extension point for supported languages, but the official pack model still assumes CodeQL-compatible artefacts and therefore cannot replace specialised validation tools for schemas, manifests, and SQL-focused repositories. Sources: <a href="https://docs.github.com/en/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/publishing-and-using-codeql-packs">x] GitHub Docs — CodeQL custom queries and packs</a> ; <a href="https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/">x] CodeQL docs — Supported languages and frameworks</a></li>
+<li>[fact][high] The open-source toolchain retrieved in this item is already broad enough to cover most of the named estate when organised by artefact type, combining Semgrep and Conftest for generic policy, Checkov and kube-score for IaC and Kubernetes, Spectral and AsyncAPI CLI for API and event contracts, GraphQL Inspector for GraphQL, and SQLFluff plus dbt-project-evaluator for data-platform governance. Sources: <a href="https://semgrep.dev/docs/writing-rules/overview">x] Semgrep rule-writing overview</a> ; <a href="https://www.conftest.dev/">x] Open Policy Agent (OPA) / Conftest</a> ; <a href="https://github.com/bridgecrewio/checkov">github.com</a> ; <a href="https://github.com/zegl/kube-score">x] kube-score repository</a> ; <a href="https://github.com/stoplightio/spectral">x] Spectral repository and documentation entry point</a> ; <a href="https://www.asyncapi.com/tools/cli">x] AsyncAPI Command Line Interface (CLI)</a> ; <a href="https://the-guild.dev/graphql/inspector/docs/index">x] GraphQL Inspector docs</a> ; <a href="https://sqlfluff.com/">x] SQLFluff documentation</a> ; <a href="https://github.com/dbt-labs/dbt-project-evaluator">x] dbt-project-evaluator repository</a></li>
+<li>[inference][medium] A central policy-repository model is more maintainable than embedding scanner logic in every application repository, because central rule bundles and reusable workflows reduce drift, simplify ownership, and let policy teams update standards without mass copy-editing downstream repositories. Basis: <a href="https://docs.github.com/en/actions/sharing-automations/reusing-workflows">x] GitHub Docs — Reusable workflows</a> ; <a href="https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/centralized-custom-checkov-scanning.html">x] AWS Prescriptive Guidance — centralised custom Checkov scanning</a> ; <a href="https://wellarchitected.github.com/library/governance/recommendations/managing-repositories-at-scale/rulesets-best-practices/">x] GitHub Well-Architected — Rulesets best practices</a></li>
+<li>[inference][high] A staged rollout with Evaluate mode, soft-fail where appropriate, rule insights, and explicit bypass governance is not just a convenience feature but the operational control that prevents multi-scanner compliance programmes from collapsing under false positives and unstable checks. Basis: <a href="https://wellarchitected.github.com/library/governance/recommendations/managing-repositories-at-scale/rulesets-best-practices/">x] GitHub Well-Architected — Rulesets best practices</a> ; <a href="https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/centralized-custom-checkov-scanning.html">x] AWS Prescriptive Guidance — centralised custom Checkov scanning</a></li>
+<li>[inference][medium] The minimum viable architecture for this problem is a portfolio of four reusable workflow domains — code, infrastructure, APIs/events, and data — each backed by centrally versioned policies and attached to repository tiers through organisation rulesets. Basis: <a href="https://docs.github.com/en/actions/sharing-automations/reusing-workflows">x] GitHub Docs — Reusable workflows</a> ; <a href="https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets#require-workflows-to-pass-before-merging">x] GitHub Docs — Available rules for rulesets / require workflows to pass before merging</a> ; <a href="https://wellarchitected.github.com/library/governance/recommendations/managing-repositories-at-scale/rulesets-best-practices/">x] GitHub Well-Architected — Rulesets best practices</a></li>
+<li>[inference][medium] GraphQL and event-driven contract governance deserve first-class treatment in the compliance model, because the retrieved evidence shows dedicated schema-aware tools for those artefacts and does not support treating them as a by-product of generic source-code scanning. Basis: <a href="https://the-guild.dev/graphql/inspector/docs/index">x] GraphQL Inspector docs</a> ; <a href="https://www.asyncapi.com/tools/cli">x] AsyncAPI Command Line Interface (CLI)</a> ; <a href="https://github.com/stoplightio/spectral">x] Spectral repository and documentation entry point</a></li>
+</ol>
+<h3>Assumptions</h3>
+<ul>
+<li>[assumption] <strong>Assumption:</strong> The organisation can maintain central policy repositories and a small reusable-workflow portfolio. <strong>Justification:</strong> Without central ownership, the proposed architecture degenerates into per-repository duplication and loses its main scale advantage.</li>
+<li>[assumption] <strong>Assumption:</strong> Teams can tolerate an Evaluate or soft-fail adoption period before strict merge blocking. <strong>Justification:</strong> GitHub and AWS guidance both point to staged rollout as the practical way to reduce developer friction and tune rules.</li>
+</ul>
+<h3>Analysis</h3>
+<ul>
+<li>[inference] The evidence supports a compositional architecture rather than a monolithic scanner strategy. GitHub supplies the orchestration and enforcement layer, while specialised tools supply the domain semantics. Basis: <a href="https://docs.github.com/en/actions/sharing-automations/reusing-workflows">x] GitHub Docs — Reusable workflows</a> ; <a href="https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets#require-workflows-to-pass-before-merging">x] GitHub Docs — Available rules for rulesets / require workflows to pass before merging</a> ; <a href="https://github.com/bridgecrewio/checkov">github.com</a> ; <a href="https://github.com/stoplightio/spectral">x] Spectral repository and documentation entry point</a> ; <a href="https://sqlfluff.com/">x] SQLFluff documentation</a></li>
+<li>[inference] That compositional design also fits realistic ownership boundaries, because platform or security teams can own shared rules and workflows while application teams remain responsible only for repository-local adoption and exception handling. Basis: <a href="https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/centralized-custom-checkov-scanning.html">x] AWS Prescriptive Guidance — centralised custom Checkov scanning</a> ; <a href="https://wellarchitected.github.com/library/governance/recommendations/managing-repositories-at-scale/rulesets-best-practices/">x] GitHub Well-Architected — Rulesets best practices</a></li>
+<li>[inference] The main remaining architecture gap is not scanner availability but result normalisation: a serious enterprise rollout will eventually need a common severity, waiver, and reporting model across these otherwise independent tools. Basis: <a href="https://github.com/bridgecrewio/checkov">github.com</a> ; <a href="https://github.com/stoplightio/spectral">x] Spectral repository and documentation entry point</a> ; <a href="https://the-guild.dev/graphql/inspector/docs/index">x] GraphQL Inspector docs</a> ; <a href="https://sqlfluff.com/">x] SQLFluff documentation</a> ; <a href="https://github.com/dbt-labs/dbt-project-evaluator">x] dbt-project-evaluator repository</a></li>
+</ul>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>[fact] The original Spectral documentation page supplied in the item was inaccessible during retrieval, so Spectral capability claims rely on the project readme rather than the exact seed page. Sources: <a href="https://docs.stoplight.io/docs/spectral/">Original Stoplight Spectral documentation page in the seed item returned 404 at retrieval time</a> ; <a href="https://github.com/stoplightio/spectral">x] Spectral repository and documentation entry point</a></li>
+<li>[inference] GitHub's required-workflows feature history is partially split between older launch posts and newer rulesets documentation, so any implementation should validate plan support against current product docs for the target organisation. Basis: <a href="https://github.blog/enterprise-software/devops/introducing-required-workflows-and-configuration-variables-to-github-actions/">x] GitHub Blog — Required workflows and configuration variables</a> ; <a href="https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets#require-workflows-to-pass-before-merging">x] GitHub Docs — Available rules for rulesets / require workflows to pass before merging</a></li>
+<li>[inference] GraphQL governance beyond schema diffing and document validation remains underexplored in this item and would benefit from a dedicated follow-up on style, naming, and resolver policy tooling. Basis: <a href="https://the-guild.dev/graphql/inspector/docs/index">x] GraphQL Inspector docs</a></li>
+<li>[inference] A common evidence and waiver layer for multi-scanner GitHub Actions compliance remains an open design problem not resolved by the retrieved sources. Basis: gap across the retrieved tool documentation.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>[inference] How should heterogeneous scanner outputs be normalised into one durable evidence model for audit, waiver management, and developer triage inside GitHub?</li>
+<li>[inference] What is the best open-source governance toolchain for GraphQL style and schema policy beyond change detection and operation validation?</li>
+<li>[inference] When central workflows become merge-blocking, which checks should emit GitHub code-scanning alerts versus regular check-run summaries so that developers see one coherent signal instead of many parallel failure surfaces?</li>
+</ul>
+<hr />
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
+<ul>
+<li>[<a href="https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets#require-workflows-to-pass-before-merging">x] GitHub Docs — Available rules for rulesets / require workflows to pass before merging</a>: <a href="https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets#require-workflows-to-pass-before-merging">x] GitHub Docs — Available rules for rulesets / require workflows to pass before merging</a></li>
+<li>[<a href="https://docs.github.com/en/actions/sharing-automations/reusing-workflows">x] GitHub Docs — Reusable workflows</a>: <a href="https://docs.github.com/en/actions/sharing-automations/reusing-workflows">x] GitHub Docs — Reusable workflows</a></li>
+<li>[<a href="https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-organization-settings/creating-rulesets-for-repositories-in-your-organization">x] GitHub Docs — Creating organisation rulesets</a>: <a href="https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-organization-settings/creating-rulesets-for-repositories-in-your-organization">x] GitHub Docs — Creating organisation rulesets</a></li>
+<li>[<a href="https://docs.github.com/en/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql">x] GitHub Docs — About code scanning with CodeQL</a>: <a href="https://docs.github.com/en/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql">x] GitHub Docs — About code scanning with CodeQL</a></li>
+<li>[<a href="https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/">x] CodeQL docs — Supported languages and frameworks</a>: <a href="https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/">x] CodeQL docs — Supported languages and frameworks</a></li>
+<li>[<a href="https://docs.github.com/en/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/publishing-and-using-codeql-packs">x] GitHub Docs — CodeQL custom queries and packs</a>: <a href="https://docs.github.com/en/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/publishing-and-using-codeql-packs">x] GitHub Docs — CodeQL custom queries and packs</a></li>
+<li>[<a href="https://github.blog/enterprise-software/devops/introducing-required-workflows-and-configuration-variables-to-github-actions/">x] GitHub Blog — Required workflows and configuration variables</a>: <a href="https://github.blog/enterprise-software/devops/introducing-required-workflows-and-configuration-variables-to-github-actions/">x] GitHub Blog — Required workflows and configuration variables</a></li>
+<li>[<a href="https://wellarchitected.github.com/library/governance/recommendations/managing-repositories-at-scale/rulesets-best-practices/">x] GitHub Well-Architected — Rulesets best practices</a>: <a href="https://wellarchitected.github.com/library/governance/recommendations/managing-repositories-at-scale/rulesets-best-practices/">x] GitHub Well-Architected — Rulesets best practices</a></li>
+<li>[<a href="https://www.conftest.dev/">x] Open Policy Agent (OPA) / Conftest</a>: <a href="https://www.conftest.dev/">x] Open Policy Agent (OPA) / Conftest</a></li>
+<li>[<a href="https://semgrep.dev/docs/writing-rules/overview">x] Semgrep rule-writing overview</a>: <a href="https://semgrep.dev/docs/writing-rules/overview">x] Semgrep rule-writing overview</a></li>
+<li>[<a href="https://github.com/stoplightio/spectral">x] Spectral repository and documentation entry point</a>: <a href="https://github.com/stoplightio/spectral">x] Spectral repository and documentation entry point</a></li>
+<li>[ ] <a href="https://docs.stoplight.io/docs/spectral/">Original Stoplight Spectral documentation page in the seed item returned 404 at retrieval time</a>: <a href="https://docs.stoplight.io/docs/spectral/">Original Stoplight Spectral documentation page in the seed item returned 404 at retrieval time</a></li>
+<li>[<a href="https://www.checkov.io/">x] Checkov documentation and repository</a>: <a href="https://www.checkov.io/">x] Checkov documentation and repository</a> ; <a href="https://github.com/bridgecrewio/checkov">github.com</a></li>
+<li>[<a href="https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/centralized-custom-checkov-scanning.html">x] AWS Prescriptive Guidance — centralised custom Checkov scanning</a>: <a href="https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/centralized-custom-checkov-scanning.html">x] AWS Prescriptive Guidance — centralised custom Checkov scanning</a></li>
+<li>[<a href="https://github.com/dbt-labs/dbt-project-evaluator">x] dbt-project-evaluator repository</a>: <a href="https://github.com/dbt-labs/dbt-project-evaluator">x] dbt-project-evaluator repository</a></li>
+<li>[<a href="https://sqlfluff.com/">x] SQLFluff documentation</a>: <a href="https://sqlfluff.com/">x] SQLFluff documentation</a></li>
+<li>[<a href="https://golangci-lint.run/">x] golangci-lint documentation and repository</a>: <a href="https://golangci-lint.run/">x] golangci-lint documentation and repository</a> ; <a href="https://github.com/golangci/golangci-lint">github.com</a></li>
+<li>[<a href="https://github.com/zegl/kube-score">x] kube-score repository</a>: <a href="https://github.com/zegl/kube-score">x] kube-score repository</a></li>
+<li>[<a href="https://www.asyncapi.com/tools/cli">x] AsyncAPI Command Line Interface (CLI)</a>: <a href="https://www.asyncapi.com/tools/cli">x] AsyncAPI Command Line Interface (CLI)</a></li>
+<li>[<a href="https://the-guild.dev/graphql/inspector/docs/index">x] GraphQL Inspector docs</a>: <a href="https://the-guild.dev/graphql/inspector/docs/index">x] GraphQL Inspector docs</a></li>
+<li>[<a href="https://docs.astral.sh/ruff/">x] Ruff docs</a>: <a href="https://docs.astral.sh/ruff/">x] Ruff docs</a></li>
+<li>[x] Prior related item — adaptive policy authorisation compliance: <code>Research/completed/2026-03-16-adaptive-policy-authorization-compliance.md</code></li>
+<li>[x] Prior related item — agent Language Server Protocol (LSP) policy enforcement: <code>Research/completed/2026-03-01-agent-lsp-policy-enforcement.md</code></li>
+</ul>
+<hr />
+
+
+  </div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-03-22-cross-scanner-compliance-evidence-normalisation.html">Cross-Scanner Compliance Evidence and Waiver Normalisation in GitHub Actions</a> <span class="related-note">via compliance, github-actions, policy-as-code</span></div>
+<div class="related-entry"><a href="/Research/research/2026-03-22-coding-ai-agent-skills-survey.html">Coding AI Agent Skills Survey: Existing Vendor and OSS Prompt Libraries for Software Engineering Domains</a> <span class="related-note">via airflow, dotnet, python</span></div>
+<div class="related-entry"><a href="/Research/research/2026-03-21-dependency-mapping-dotnet-terraform-dynatrace.html">Dependency Mapping Across .NET Codebases, Terraform, Dynatrace, Confluence, Log Aggregation, and the Configuration and Service Data Model (CSDM)</a> <span class="related-note">via dotnet, terraform</span></div>
+<div class="related-entry"><a href="/Research/research/2026-03-16-adaptive-policy-authorization-compliance.html">Adaptive Policy-Based Authorization (APBA): compliance alignment with National Institute of Standards and Technology (NIST) Special Publication (SP) 800-53 and International Organization for Standardization (ISO) / International Electrotechnical Commission (IEC) 27001, and impact on Policy as Code (PaC) and Artificial Intelligence (AI)-generated authorization code</a> <span class="related-note">via compliance, policy-as-code</span></div>
+</div></div>
+
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-22-cross-scanner-compliance-evidence-normalisation.html">Cross-Scanner Compliance Evidence and Waiver Normalisation in GitHub Actions</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-22-applied-context-engineering-agent-workflows.html">Applied context engineering</a></div>
+  </div>
+</main>
+</body>
+</html>

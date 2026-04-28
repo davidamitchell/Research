@@ -1,0 +1,745 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Deployment pipeline as the only enforceable control gate for citizen-developed… — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #0f1115;
+  --surface-2:       #161b22;
+  --border:          #252b33;
+  --text:            #e6e6e6;
+  --text-muted:      #666;
+  --accent:          #e6e6e6;
+  --accent-dim:      #333;
+  --tag-bg:          #161b22;
+  --tag-text:        #999;
+  --tag-active-bg:   #e6e6e6;
+  --tag-active-text: #0f1115;
+  --link:            #00C3A5;
+  --teal:            #00C3A5;
+  --dusk:            #E8A1A8;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  overflow-x: clip;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.75rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+.nav-links a.active { color: var(--teal); }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--teal); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+  min-width: 0;
+}
+.card:hover { border-color: var(--teal); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  word-break: break-word;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4em;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.item-title svg { flex-shrink: 0; margin-top: 0.2em; }
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+  word-break: break-all;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+  max-width: 100%;
+}
+.item-content pre code { background: none; padding: 0; word-break: normal; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--teal); text-decoration: underline; }
+.item-content a:hover { color: var(--text); text-decoration: underline; }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--dusk);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    top: 0;
+    height: auto;
+    padding: 0.5rem 1rem;
+  }
+  .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .nav-links {
+    width: 100%;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  main {
+    padding: 1.5rem 1rem 4rem;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; overflow: hidden; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); word-break: break-word; overflow-wrap: break-word; }
+.key-claims li:last-child { border-bottom: none; }
+.key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
+.key-claims a:hover { color: var(--text); }
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); flex-wrap: wrap; }
+.related-entry:last-child { border-bottom: none; }
+.related-entry a { color: var(--teal); word-break: break-word; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--dusk); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4em; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--teal); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-card-link { text-decoration: none; color: var(--text); display: block; }
+.thread-card-link:hover .thread-card { background: var(--surface-2); }
+.thread-card { background: var(--surface); border: 1px solid var(--border); padding: 1.5rem 1.75rem 1.75rem; }
+.thread-card-title { font-size: var(--text-base); font-weight: 600; margin-bottom: 0.5rem; }
+.thread-card-meta { font-size: var(--text-xs); color: var(--text-muted); margin-bottom: 0.75rem; letter-spacing: 0.05em; }
+.thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
+.thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Research</a>
+    <div class="nav-links">
+      <a href="/Research/all-items.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>All Items</a>
+      <a href="/Research/backlog.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Backlog</a>
+      <a href="/Research/threads.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>Threads</a>
+      <a href="/Research/tags/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>Tags</a>
+      <a href="/Research/search.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M8 1.5C4.41 1.5 1.5 4.41 1.5 8c0 2.87 1.86 5.3 4.44 6.16.32.06.44-.14.44-.31v-1.09c-1.8.39-2.18-.87-2.18-.87-.3-.75-.72-.95-.72-.95-.59-.4.04-.4.04-.4.65.05 1 .67 1 .67.58 1 1.53.71 1.9.54.06-.42.23-.71.41-.87-1.44-.16-2.95-.72-2.95-3.2 0-.71.25-1.28.67-1.74-.07-.16-.29-.82.06-1.71 0 0 .55-.18 1.8.67a6.27 6.27 0 0 1 3.28 0c1.25-.85 1.8-.67 1.8-.67.35.89.13 1.55.06 1.71.42.46.67 1.03.67 1.74 0 2.49-1.51 3.04-2.96 3.2.23.2.44.6.44 1.21v1.8c0 .17.12.37.44.31A6.5 6.5 0 0 0 14.5 8 6.5 6.5 0 0 0 8 1.5z"/></svg>GitHub</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>Deployment pipeline as the only enforceable control gate for citizen-developed…</span>
+  </div>
+  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Deployment pipeline as the only enforceable control gate for citizen-developed…</h1>
+  <p class="full-title-subtitle">Deployment pipeline as the only enforceable control gate for citizen-developed agents: DevOps literature support, low-code platform hook points, and architectural enforceability</p>
+  <div class="meta-bar">
+    <span>2026-04-26</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/deployment-pipeline.html">deployment-pipeline</a> <a class="tag" href="/Research/tags/devops.html">devops</a> <a class="tag" href="/Research/tags/citizen-development.html">citizen-development</a> <a class="tag" href="/Research/tags/platform-engineering.html">platform-engineering</a> <a class="tag" href="/Research/tags/low-code.html">low-code</a> <a class="tag" href="/Research/tags/agentic-ai.html">agentic-ai</a> <a class="tag" href="/Research/tags/regulated-banking.html">regulated-banking</a> <a class="tag" href="/Research/tags/copilot-studio.html">copilot-studio</a> <a class="tag" href="/Research/tags/power-platform.html">power-platform</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-deployment-pipeline-citizen-development-governed-gate.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-04-26-deployment-pipeline-citizen-development-governed-gate" target="_blank" rel="noopener">wiki →</a>
+  </div>
+  <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>[inference;</li>
+<li>[fact;</li>
+<li>[fact;</li>
+<li>[assumption;</li>
+<li>[fact;</li>
+<li>[inference;</li>
+<li>[inference;</li>
+<li>[inference;</li>
+</ol></div>
+
+  <div class="item-content">
+    <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
+<p>In an environment where citizen development tooling is already licensed and accessible to non-technical staff, and where the distinction between personal productivity and production automation has collapsed because enterprise collaboration platforms, cloud-hosted data, and Application Programming Interface (API)-connected Software as a Service (SaaS) systems are simultaneously personal working environments and organisational systems of record, is the deployment pipeline the only enforceable control point that does not either suppress legitimate demand or drive behaviour underground? Is this framing supported by the DevOps and platform engineering literature? What pipeline hook points do low-code citizen development platforms, specifically Microsoft Copilot Studio and Power Platform, actually expose versus what must be built externally? And is a pipeline-as-gate model architecturally enforceable given that many platforms allow direct publication to production environments by default?</p>
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Findings</h2>
+<p><em>(Populated from §6 Synthesis above.)</em></p>
+<h3>Executive Summary</h3>
+<p>[inference; source: <a href="https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention">Power Platform data policies overview</a> <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-data-loss-prevention">Copilot Studio data loss prevention</a> <a href="https://learn.microsoft.com/en-us/power-platform/admin/default-environment-routing">Environment routing</a> <a href="https://learn.microsoft.com/en-us/power-platform/alm/block-unmanaged-customizations">Block unmanaged customizations in Dataverse environments</a> <a href="https://learn.microsoft.com/en-us/power-platform/alm/extend-pipelines]">learn.microsoft.com</a> The deployment pipeline is not the only enforceable control in a Microsoft low-code estate, but it is the only practical place to combine arbitrary release-governance checks into a single programmable promotion gate without shutting down legitimate maker activity. [fact; source: <a href="https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention">Power Platform data policies overview</a> <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-data-loss-prevention">Copilot Studio data loss prevention</a> <a href="https://learn.microsoft.com/en-us/power-platform/admin/default-environment-routing">Environment routing</a> <a href="https://learn.microsoft.com/en-us/power-platform/alm/block-unmanaged-customizations">Block unmanaged customizations in Dataverse environments</a> <a href="https://learn.microsoft.com/en-us/power-platform/admin/environments-overview">Power Platform environments overview</a> <a href="https://learn.microsoft.com/en-us/power-platform/admin/database-security]">learn.microsoft.com</a> Microsoft already provides other enforceable controls outside the pipeline, including data policies, environment routing, sharing limits, role-based access, and production lock-down through blocked unmanaged customizations. [fact; source: <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/publication-fundamentals-publish-channels">Publish and deploy your agent in Copilot Studio</a> <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-sharing-controls-limits">Control how agents are shared</a> <a href="https://learn.microsoft.com/en-us/power-platform/alm/set-up-pipelines]">learn.microsoft.com</a> The pipeline-as-gate model is therefore not architecturally enforceable by default, because makers and editors can still publish or deploy through direct product paths whenever target-environment permissions remain open. [inference; source: <a href="https://learn.microsoft.com/en-us/power-platform/alm/block-unmanaged-customizations">Block unmanaged customizations in Dataverse environments</a> <a href="https://learn.microsoft.com/en-us/power-platform/alm/delegated-deployments-setup">Deploy pipelines as a service principal or pipeline owner</a> <a href="https://learn.microsoft.com/en-us/power-platform/alm/set-up-pipelines">Set up pipelines in Power Platform</a> <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/sec-gov-phase2">Implement a zoned governance strategy</a> <a href="https://docs.github.com/en/actions/reference/workflows-and-actions/deployments-and-environments">GitHub Actions deployments and environments</a> <a href="https://learn.microsoft.com/en-us/azure/devops/pipelines/process/approvals?view=azure-devops]">learn.microsoft.com</a> It becomes enforceable only when production environments are locked to managed artifacts and delegated identities, direct publish paths are neutralized, and a central platform or governance team owns the promotion gate and its exceptions.</p>
+<h3>Key Findings</h3>
+<ol>
+<li><strong>[high]</strong> [inference; source: <a href="https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention">Power Platform data policies overview</a> <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-data-loss-prevention">Copilot Studio data loss prevention</a> <a href="https://learn.microsoft.com/en-us/power-platform/admin/default-environment-routing">Environment routing</a> <a href="https://learn.microsoft.com/en-us/power-platform/alm/block-unmanaged-customizations">Block unmanaged customizations in Dataverse environments</a> <a href="https://learn.microsoft.com/en-us/power-platform/admin/environments-overview">Power Platform environments overview</a> <a href="https://learn.microsoft.com/en-us/power-platform/admin/database-security]">learn.microsoft.com</a> Microsoft low-code estates expose several enforceable controls before deployment, including data policies, environment routing, sharing limits, role-based access, and blocked unmanaged changes, so the literal claim that the pipeline is the only enforceable control point is not supported.</li>
+<li><strong>[high]</strong> [fact; source: <a href="https://csrc.nist.gov/pubs/sp/800/204/d/final">National Institute of Standards and Technology (NIST) Special Publication (SP) 800-204D</a> <a href="https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report">DORA 2025 report overview</a> <a href="https://cloud.google.com/resources/content/2025-dora-ai-capabilities-model-report]">cloud.google.com</a> DevOps and platform-engineering evidence does support treating CI/CD pipelines as the strongest programmable release chokepoint, because NIST centers software-supply-chain security in pipelines and DORA ties AI success to strong control systems, workflows, and internal platforms.</li>
+<li><strong>[high]</strong> [fact; source: <a href="https://learn.microsoft.com/en-us/power-platform/alm/pipelines">Power Platform pipelines overview</a> <a href="https://learn.microsoft.com/en-us/power-platform/alm/extend-pipelines">Extend pipelines in Power Platform</a> <a href="https://learn.microsoft.com/en-us/power-platform/alm/delegated-deployments-setup]">learn.microsoft.com</a> Power Platform pipelines provide real governance hook points, specifically pre-export validation, delegated deployment approval, and pre-deployment checks, while also preserving artifact immutability and sequential stage promotion once a deployment request begins.</li>
+<li><strong>[medium]</strong> [assumption; source: <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-data-loss-prevention">Copilot Studio data loss prevention</a> <a href="https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention">Power Platform data policies overview</a> <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/sec-gov-phase2]">learn.microsoft.com</a> Based on the current public Microsoft documentation reviewed here, institutions should assume richer release checks such as blast-radius sign-off, owner registration, and observability evidence capture require custom extensions rather than first-class native objects.</li>
+<li><strong>[high]</strong> [fact; source: <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/publication-fundamentals-publish-channels">Publish and deploy your agent in Copilot Studio</a> <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-sharing-controls-limits">Control how agents are shared</a> <a href="https://learn.microsoft.com/en-us/power-platform/alm/set-up-pipelines]">learn.microsoft.com</a> Copilot Studio and Power Platform remain bypassable by default because the product user interface still exposes direct publish and deployment paths to users who already hold the necessary environment or editor permissions.</li>
+<li><strong>[medium]</strong> [inference; source: <a href="https://learn.microsoft.com/en-us/power-platform/alm/solution-concepts-alm">Solution concepts with Power Platform</a> <a href="https://learn.microsoft.com/en-us/power-platform/alm/block-unmanaged-customizations">Block unmanaged customizations in Dataverse environments</a> <a href="https://learn.microsoft.com/en-us/power-platform/alm/delegated-deployments-setup]">learn.microsoft.com</a> A pipeline-as-gate model becomes technically enforceable only when downstream environments accept managed artifacts, block unmanaged customizations, and use delegated deployment identities rather than maker identities for production promotion.</li>
+<li><strong>[medium]</strong> [inference; source: <a href="https://docs.github.com/en/actions/reference/workflows-and-actions/deployments-and-environments">GitHub Actions deployments and environments</a> <a href="https://learn.microsoft.com/en-us/azure/devops/pipelines/process/approvals?view=azure-devops]">learn.microsoft.com</a> GitHub Actions and Azure DevOps can provide more independent gate patterns than the native low-code surface alone because approvals, branch restrictions, required templates, secrets release, and custom checks can be owned outside the asset-authoring surface.</li>
+<li><strong>[medium]</strong> [inference; source: <a href="https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report">DORA 2025 report overview</a> <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/sec-gov-phase2">Implement a zoned governance strategy</a> <a href="https://learn.microsoft.com/en-us/power-platform/admin/default-environment-routing]">learn.microsoft.com</a> The pipeline gate remains organizationally credible only when institutions preserve low-friction personal and team experimentation paths, because otherwise release friction simply shifts maker demand toward direct publication paths or shadow tooling rather than eliminating it.</li>
+</ol>
+<h3>Assumptions</h3>
+<ul>
+<li><strong>Assumption:</strong> [assumption; source: <a href="https://learn.microsoft.com/en-us/power-platform/alm/extend-pipelines">Extend pipelines in Power Platform</a> <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-data-loss-prevention">Copilot Studio data loss prevention</a> <a href="https://learn.microsoft.com/en-us/power-platform/guidance/coe/starter-kit]">learn.microsoft.com</a> Blast-radius assessment, owner registration, and observability evidence capture are not native first-class gate objects in Microsoft low-code release tooling. <strong>Justification:</strong> the available Microsoft documentation describes approvals, connector and channel restrictions, solution validation, and governance-process tooling, but it does not describe built-in release forms or metadata entities for those richer controls.</li>
+</ul>
+<h3>Analysis</h3>
+<p>[inference; source: <a href="https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention">Power Platform data policies overview</a> <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-data-loss-prevention">Copilot Studio data loss prevention</a> <a href="https://learn.microsoft.com/en-us/power-platform/admin/default-environment-routing">Environment routing</a> <a href="https://learn.microsoft.com/en-us/power-platform/alm/block-unmanaged-customizations]">learn.microsoft.com</a> The evidence supports a layered conclusion rather than a slogan. [inference; source: <a href="https://csrc.nist.gov/pubs/sp/800/204/d/final">National Institute of Standards and Technology (NIST) Special Publication (SP) 800-204D</a> <a href="https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report">DORA 2025 report overview</a> <a href="https://learn.microsoft.com/en-us/power-platform/alm/extend-pipelines]">learn.microsoft.com</a> Pipelines are the strongest composite control because they sit at promotion time, where artifact integrity, approval evidence, and custom validation can be bound together. [fact; source: <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/publication-fundamentals-publish-channels">Publish and deploy your agent in Copilot Studio</a> <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-sharing-controls-limits">Control how agents are shared</a> <a href="https://learn.microsoft.com/en-us/power-platform/alm/set-up-pipelines]">learn.microsoft.com</a> But the platform also exposes direct publication and deployment surfaces, so the pipeline only becomes a real gate after the institution removes the alternative path through permissions, managed-environment rules, and blocked unmanaged customizations. [inference; source: <a href="https://docs.github.com/en/actions/reference/workflows-and-actions/deployments-and-environments">GitHub Actions deployments and environments</a> <a href="https://learn.microsoft.com/en-us/azure/devops/pipelines/process/approvals?view=azure-devops]">learn.microsoft.com</a> External CI/CD increases independence between maker and approver and is therefore the cleaner home for bespoke governance checks that should not be editable from inside the low-code platform.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>Access note: seeded Gartner source inaccessible in this runtime, not used for downstream claims.</li>
+<li>Access note: seeded Copilot Studio environments page unavailable in this runtime, replaced by current Microsoft pages listed in Sources.</li>
+<li>[inference; source: <a href="https://learn.microsoft.com/en-us/power-platform/admin/advanced-connector-policies]">learn.microsoft.com</a> Advanced connector policies appear in preview and do not yet cover every connector type, so future Microsoft policy features could tighten upstream enforceability beyond what is documented here.</li>
+<li>[inference; source: <a href="https://learn.microsoft.com/en-us/power-platform/admin/managed-environment-sharing-limits]">learn.microsoft.com</a> Some enforcement controls are non-retroactive or delayed, which means the practical residual risk after policy changes depends on how much legacy access already exists.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>[inference; source: <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-sharing-controls-limits">Control how agents are shared</a> <a href="https://learn.microsoft.com/en-us/power-platform/alm/block-unmanaged-customizations]">learn.microsoft.com</a> What is the least-privilege production role model for Copilot Studio that still allows monitoring and support but never allows direct publication?</li>
+<li>[inference; source: <a href="https://docs.github.com/en/actions/reference/workflows-and-actions/deployments-and-environments">GitHub Actions deployments and environments</a> <a href="https://learn.microsoft.com/en-us/azure/devops/pipelines/process/approvals?view=azure-devops]">learn.microsoft.com</a> Which external gate host is operationally better for a regulated Microsoft low-code estate, GitHub Actions or Azure DevOps, once evidence capture, exceptions, and change-management integration are compared directly?</li>
+<li>[inference; source: <a href="https://learn.microsoft.com/en-us/power-platform/guidance/coe/starter-kit">Power Platform Center of Excellence (CoE) Starter Kit</a> <a href="https://learn.microsoft.com/en-us/power-platform/alm/extend-pipelines]">learn.microsoft.com</a> What is the minimum metadata schema and system-of-record design required to operationalize owner registration, observability attestations, and blast-radius scoring at the release gate?</li>
+</ul>
+<hr />
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
+<ul>
+<li>[x] <a href="https://learn.microsoft.com/en-us/power-platform/alm/pipelines">Power Platform pipelines overview</a> - primary source for native pipeline capability, Application Lifecycle Management (ALM) positioning, delegated deployments, immutable artifacts, and sequential stage enforcement.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/power-platform/alm/set-up-pipelines">Set up pipelines in Power Platform</a> - primary source for platform host versus custom host behavior, personal pipeline creation, and the fact that makers do not gain elevated target-environment access through pipelines.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/power-platform/alm/extend-pipelines">Extend pipelines in Power Platform</a> - primary source for pre-export, delegated deployment, and pre-deployment gated extensions and the Dataverse event hook points available to custom logic.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/power-platform/alm/delegated-deployments-setup">Deploy pipelines as a service principal or pipeline owner</a> - primary source for delegated deployments, approval flows, and deployment identities.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/power-platform/alm/block-unmanaged-customizations">Block unmanaged customizations in Dataverse environments</a> - primary source for production lock-down behavior; confirms that Copilot Studio publishing fails when unmanaged customizations are blocked.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/power-platform/alm/solution-concepts-alm">Solution concepts with Power Platform</a> - primary source for managed versus unmanaged solutions and why managed artifacts are the intended deployment unit for test and production environments.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/environments-overview">Microsoft Copilot Studio environments overview</a> - original seeded page returned 404 in this runtime and was replaced by the current security, governance, solutions, and publish/deploy pages below.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance">Microsoft Copilot Studio security and governance</a> - primary source for tenant, environment, and agent controls, including data policies, channel publication controls, and the ability to disable publishing of agents that use generative Artificial Intelligence (AI).</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/sec-gov-phase2">Implement a zoned governance strategy</a> - Microsoft's current reference architecture for citizen, partnered, and professional development zones, including ALM pipelines and information-technology-admin approval to publish in higher-risk zones.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/authoring-solutions-overview">Create and manage custom solutions in Copilot Studio</a> - current Copilot Studio source for solution-based ALM and pipeline integration across environments.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/publication-fundamentals-publish-channels">Publish and deploy your agent in Copilot Studio</a> - current source for the direct in-product publish flow that pushes updates to all connected channels.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-sharing-controls-limits">Control how agents are shared</a> - primary source for Managed Environments sharing controls and the fact that Editor assignments allow editing, sharing, and publishing.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-data-loss-prevention">Copilot Studio data loss prevention</a> - primary source for blocking unauthenticated use, channels, knowledge sources, Hypertext Transfer Protocol (HTTP) requests, tools, skills, and triggers.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/power-platform/admin/wp-data-loss-prevention">Power Platform data policies overview</a> - primary source for design-time and runtime enforcement, suspension and quarantine behavior, disabled connections, and enforcement latency.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/power-platform/admin/managed-environment-overview">Managed Environments overview</a> - primary source for the managed-environment governance capability set.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/power-platform/admin/managed-environment-sharing-limits">Managed Environments sharing limits</a> - primary source for environment-level sharing controls and their non-retroactive enforcement behavior.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/power-platform/admin/environments-overview">Power Platform environments overview</a> - primary source for environment separation, production-environment characteristics, and built-in environment roles.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/power-platform/admin/database-security">Configure user security in an environment</a> - primary source for Dataverse role-based access and least-privilege expectations in environments.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/power-platform/admin/default-environment-routing">Environment routing</a> - primary source for routing makers into managed personal developer environments instead of the default environment.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/power-platform/guidance/coe/starter-kit">Power Platform Center of Excellence (CoE) Starter Kit</a> - Microsoft's governance reference implementation for admin visibility, governance processes, and maker enablement.</li>
+<li>[x] <a href="https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report">DORA 2025 report overview</a> - primary source for AI as an amplifier of existing delivery systems and for the emphasis on safety nets, workflows, and internal platforms.</li>
+<li>[x] <a href="https://cloud.google.com/resources/content/2025-dora-ai-capabilities-model-report">DORA AI capabilities model report landing page</a> - confirms the platform-adoption and platform-team figures and the seven foundational capabilities framing.</li>
+<li>[x] <a href="https://csrc.nist.gov/pubs/sp/800/204/d/final">National Institute of Standards and Technology (NIST) Special Publication (SP) 800-204D</a> - primary source on integrating software supply chain security into continuous integration and continuous deployment (CI/CD) pipelines.</li>
+<li>[x] <a href="https://docs.github.com/en/actions/reference/workflows-and-actions/deployments-and-environments">GitHub Actions deployments and environments</a> - primary source for deployment protection rules, required reviewers, branch restrictions, and custom third-party deployment gates.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/azure/devops/pipelines/process/approvals?view=azure-devops">Azure DevOps approvals and checks</a> - primary source for resource-owned approvals and checks that pipeline authors cannot modify in Yet Another Markup Language (YAML).</li>
+<li>[x] <a href="https://www.gartner.com/en/information-technology/insights/citizen-development">Gartner citizen development insights</a> - returned 403 in this runtime and was not used for downstream claims.</li>
+</ul>
+
+
+  </div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-04-28-alternative-pipeline-platforms-copilot-studio-agents.html">Alternative Continuous Integration and Continuous Delivery pipeline platforms for governing agents built with Microsoft Copilot Studio: Harness, Amazon Web Services CodeBuild and CodeDeploy, and Jenkins</a> <span class="related-note">via citizen-development, copilot-studio, deployment-pipeline, power-platform</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-27-uelgf-synthesis-complete-framework.html">Universal Entity Lifecycle Governance Framework (UELGF): complete framework synthesis, formal specification suitable for adoption as an organisational standard in a regulated financial institution and presentation to a board risk committee</a> <span class="related-note">via agentic-ai, citizen-development, regulated-banking</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-27-uelgf-governed-golden-rails.html">Universal Entity Lifecycle Governance Framework (UELGF): governed golden rail specifications: generative scaffold, persona-adapted interfaces, citizen development rails, and deviation handling</a> <span class="related-note">via citizen-development, low-code, platform-engineering</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-27-uelgf-foundational-definitions-principles.html">Universal Entity Lifecycle Governance Framework (UELGF): foundational definitions, formal principles, and the inseparability of governance and acceleration in the governed golden rail</a> <span class="related-note">via agentic-ai, citizen-development, regulated-banking</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-27-uelgf-entity-taxonomy-cia-classification.html">Universal Entity Lifecycle Governance Framework (UELGF): canonical entity taxonomy and Confidentiality, Integrity, and Availability (CIA) classification system for determining governance intensity</a> <span class="related-note">via agentic-ai, citizen-development, regulated-banking</span></div>
+</div></div>
+
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-04-26-implicit-rate-limiting-controls-agentic-ai-removal.html">AI</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-04-26-access-control-amplification-agentic-operations.html">Access control amplification under agentic operations</a></div>
+  </div>
+</main>
+</body>
+</html>

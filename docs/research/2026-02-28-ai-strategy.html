@@ -1,0 +1,770 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>AI Strategy — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #0f1115;
+  --surface-2:       #161b22;
+  --border:          #252b33;
+  --text:            #e6e6e6;
+  --text-muted:      #666;
+  --accent:          #e6e6e6;
+  --accent-dim:      #333;
+  --tag-bg:          #161b22;
+  --tag-text:        #999;
+  --tag-active-bg:   #e6e6e6;
+  --tag-active-text: #0f1115;
+  --link:            #00C3A5;
+  --teal:            #00C3A5;
+  --dusk:            #E8A1A8;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  overflow-x: clip;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.75rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+.nav-links a.active { color: var(--teal); }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--teal); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+  min-width: 0;
+}
+.card:hover { border-color: var(--teal); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  word-break: break-word;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4em;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.item-title svg { flex-shrink: 0; margin-top: 0.2em; }
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+  word-break: break-all;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+  max-width: 100%;
+}
+.item-content pre code { background: none; padding: 0; word-break: normal; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--teal); text-decoration: underline; }
+.item-content a:hover { color: var(--text); text-decoration: underline; }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--dusk);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    top: 0;
+    height: auto;
+    padding: 0.5rem 1rem;
+  }
+  .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .nav-links {
+    width: 100%;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  main {
+    padding: 1.5rem 1rem 4rem;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; overflow: hidden; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); word-break: break-word; overflow-wrap: break-word; }
+.key-claims li:last-child { border-bottom: none; }
+.key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
+.key-claims a:hover { color: var(--text); }
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); flex-wrap: wrap; }
+.related-entry:last-child { border-bottom: none; }
+.related-entry a { color: var(--teal); word-break: break-word; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--dusk); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4em; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--teal); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-card-link { text-decoration: none; color: var(--text); display: block; }
+.thread-card-link:hover .thread-card { background: var(--surface-2); }
+.thread-card { background: var(--surface); border: 1px solid var(--border); padding: 1.5rem 1.75rem 1.75rem; }
+.thread-card-title { font-size: var(--text-base); font-weight: 600; margin-bottom: 0.5rem; }
+.thread-card-meta { font-size: var(--text-xs); color: var(--text-muted); margin-bottom: 0.75rem; letter-spacing: 0.05em; }
+.thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
+.thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Research</a>
+    <div class="nav-links">
+      <a href="/Research/all-items.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>All Items</a>
+      <a href="/Research/backlog.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Backlog</a>
+      <a href="/Research/threads.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>Threads</a>
+      <a href="/Research/tags/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>Tags</a>
+      <a href="/Research/search.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M8 1.5C4.41 1.5 1.5 4.41 1.5 8c0 2.87 1.86 5.3 4.44 6.16.32.06.44-.14.44-.31v-1.09c-1.8.39-2.18-.87-2.18-.87-.3-.75-.72-.95-.72-.95-.59-.4.04-.4.04-.4.65.05 1 .67 1 .67.58 1 1.53.71 1.9.54.06-.42.23-.71.41-.87-1.44-.16-2.95-.72-2.95-3.2 0-.71.25-1.28.67-1.74-.07-.16-.29-.82.06-1.71 0 0 .55-.18 1.8.67a6.27 6.27 0 0 1 3.28 0c1.25-.85 1.8-.67 1.8-.67.35.89.13 1.55.06 1.71.42.46.67 1.03.67 1.74 0 2.49-1.51 3.04-2.96 3.2.23.2.44.6.44 1.21v1.8c0 .17.12.37.44.31A6.5 6.5 0 0 0 14.5 8 6.5 6.5 0 0 0 8 1.5z"/></svg>GitHub</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>AI Strategy</span>
+  </div>
+  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>AI Strategy</h1>
+  <p class="full-title-subtitle">AI Strategy: global and NZ examples, policy frameworks, regulations, and use-case typologies</p>
+  <div class="meta-bar">
+    <span>2026-02-28</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/ai-strategy.html">ai-strategy</a> <a class="tag" href="/Research/tags/regulation.html">regulation</a> <a class="tag" href="/Research/tags/rbnz.html">rbnz</a> <a class="tag" href="/Research/tags/dora.html">dora</a> <a class="tag" href="/Research/tags/agentic-ai.html">agentic-ai</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-02-28-ai-strategy.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-02-28-ai-strategy" target="_blank" rel="noopener">wiki →</a>
+  </div>
+  <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Global strategies share eight common pillars — foundational research, human-AI symbiosis, ethical/legal frameworks, trust and safety, AI infrastructure, workforce formation, governance, and export controls — but diverge significantly on enforcement model</li>
+<li>NZ&#39;s &quot;Investing with Confidence&quot; (July 2025) is a sophisticated-adopter strategy, not a leadership play</li>
+<li>NZ&#39;s regulatory landscape is fragmented across agencies with no single AI regulator</li>
+<li>NZ political alignment on AI is asymmetric: the National-led coalition (with ACT and NZ First) backs light-touch, pro-growth adoption</li>
+<li>NZ case law on AI is thin but moving fast</li>
+<li>The dominant policy frameworks are complementary, not competing</li>
+<li>Singapore&#39;s Model AI Governance Framework (2024 Gen-AI update) is the most operationally useful reference for NZ financial services organisations</li>
+<li>The four-type use-case typology captures meaningful strategic distinctions:</li>
+</ol></div>
+
+  <div class="item-content">
+    <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
+<p>What do leading global AI strategies look like, how does New Zealand's regulatory and policy landscape (RBNZ, DIA, MBIE, and others) compare, and what use-case typology — from human augmentation through to fully agentic business units — best describes where organisations should focus their AI adoption efforts given their context and objectives?</p>
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Findings</h2>
+<h3>Executive Summary</h3>
+<p>New Zealand released its first national AI strategy, <em>Investing with Confidence</em>, in July 2025. It is adoption-focused and deliberately light-touch: the government chose to use existing legal instruments rather than introduce AI-specific legislation. The strategy aligns with OECD AI Principles and is led by MBIE, with supporting roles for DIA, RBNZ, and the Privacy Commissioner. Internationally, strategies diverge sharply — the EU has enacted binding risk-based law; the US relies on executive action and voluntary standards; Singapore runs a collaborative, testbed-driven model. For organisations navigating this landscape, the most useful planning lens is a four-type use-case typology (augmentation → agentic business units) combined with March's exploit/explore distinction, which exposes whether an AI investment is deepening existing capability or genuinely searching for new advantage.</p>
+<h3>Key Findings</h3>
+<ol>
+<li>
+<p><strong>Global strategies share eight common pillars</strong> — foundational research, human-AI symbiosis, ethical/legal frameworks, trust and safety, AI infrastructure, workforce formation, governance, and export controls — but diverge significantly on enforcement model. The EU mandates compliance via the AI Act; the US, UK, and Singapore operate largely through voluntary or sector-specific guidance.</p>
+</li>
+<li>
+<p><strong>NZ's &quot;Investing with Confidence&quot; (July 2025) is a sophisticated-adopter strategy</strong>, not a leadership play. It estimates $76B in GDP uplift by 2038 from targeted adoption in agriculture, healthcare, and education. It is principles-based, relies on existing laws (Privacy Act 2020, Human Rights Act, Consumer Law Reform Bill), and explicitly declines to create new AI-specific regulation at this stage.</p>
+</li>
+<li>
+<p><strong>NZ's regulatory landscape is fragmented across agencies</strong> with no single AI regulator. MBIE leads strategy; DIA governs the Algorithm Charter for Aotearoa and digital public services; RBNZ has AI considerations embedded in prudential risk supervision; the Privacy Commissioner enforces Privacy Act 2020, which has broad reach over automated decision-making involving personal data.</p>
+</li>
+<li>
+<p><strong>NZ political alignment on AI is asymmetric</strong>: the National-led coalition (with ACT and NZ First) backs light-touch, pro-growth adoption. Labour's last government created the Algorithm Charter and would likely favour stronger oversight if returned to power. The Greens push for binding ethical guardrails and environmental safeguards on AI. Current bipartisan consensus exists only on the economic opportunity; the regulatory approach is contested.</p>
+</li>
+<li>
+<p><strong>NZ case law on AI is thin but moving fast.</strong> Wikeley v Kea Investments Ltd [2024] NZCA 609 is the leading case — it flagged AI-hallucinated citations as a material procedural risk. The judiciary published generative AI guidelines in December 2023. No binding case law yet governs the legality of automated government decisions; that terrain is anticipated, not settled.</p>
+</li>
+<li>
+<p><strong>The dominant policy frameworks are complementary, not competing.</strong> EU AI Act provides risk classification (unacceptable / high / limited / minimal); NIST AI RMF 1.0 (Govern / Map / Measure / Manage) provides voluntary best-practice process; ISO/IEC 42001:2023 provides a certifiable management system; DORA (EU 2022/2554) is not an AI framework per se but catches any AI system that affects the operational resilience of covered financial institutions. ISO 42001 implementation is the strongest evidence base for EU AI Act high-risk compliance.</p>
+</li>
+<li>
+<p><strong>Singapore's Model AI Governance Framework (2024 Gen-AI update) is the most operationally useful reference</strong> for NZ financial services organisations. Its nine dimensions — accountability, data, trusted development/deployment, incident reporting, testing and assurance, security, content provenance, safety and alignment, AI for public good — translate directly to internal governance design.</p>
+</li>
+<li>
+<p><strong>The four-type use-case typology captures meaningful strategic distinctions:</strong></p>
+<ul>
+<li><em>Type 1 — Augmentation</em>: AI assists humans; humans decide and act. Examples: copilots, analytics dashboards, document summarisation. Risk is primarily quality and over-reliance.</li>
+<li><em>Type 2 — Agentic builders</em>: AI generates artefacts (code, reports, contracts, designs) that humans review and approve. Risk is accuracy, IP, and accountability for outputs.</li>
+<li><em>Type 3 — Delegated authority agents</em>: AI makes decisions within defined parameters with human escalation paths. Examples: credit pre-screening, fraud flagging, dynamic pricing. Risk is bias, explainability, and regulatory exposure.</li>
+<li><em>Type 4 — Fully agentic business units</em>: AI operates an organisational function end-to-end with periodic human governance. Emerging but not yet mainstream. Risk is systemic — loss of oversight, correlated failures, accountability gaps.</li>
+</ul>
+</li>
+<li>
+<p><strong>The exploit/explore distinction from March (1991) is the most important strategic framing device not in NZ's current policy discourse.</strong> Exploitation AI investment (refining known patterns, optimising cost, reducing error rates) returns value quickly but does not create durable advantage. Exploration AI investment (discovering new capabilities, entering new value spaces, redesigning operating models) carries higher risk and delayed return but is the source of compounding strategic advantage. Most NZ organisations are currently in exploitation mode. The risk is &quot;competency traps&quot;: locking into AI as an efficiency tool while competitors use exploration to redefine what efficiency means.</p>
+</li>
+</ol>
+<h3>Assumptions</h3>
+<ul>
+<li><strong>Assumption:</strong> The NZ AI Strategy document retrieved (July 2025) represents the current authoritative government position. <strong>Justification:</strong> MBIE's official website, the Beehive publication, and multiple independent legal commentators consistently reference the same document.</li>
+<li><strong>Assumption:</strong> &quot;Investing with Confidence&quot; will not be materially superseded by new legislation within the 12-month horizon of this research. <strong>Justification:</strong> The strategy explicitly declines new AI law at this stage; no active bills in Parliament as at research date.</li>
+<li><strong>Assumption:</strong> DORA's AI implications for NZ financial institutions depend on whether those institutions have EU-regulated entities or EU-facing services. <strong>Justification:</strong> DORA's jurisdictional reach is the EU financial sector; NZ institutions with European subsidiaries or operations are in scope, others are not directly bound.</li>
+<li><strong>Assumption:</strong> The four-type typology captures the strategic distinctions that matter for NZ senior leaders. <strong>Justification:</strong> Built from evidence (MIT CISR, McKinsey, BCG maturity models); additional sub-types exist but are distinctions within types, not new categories.</li>
+</ul>
+<h3>Analysis</h3>
+<p><strong>Where NZ sits globally:</strong> NZ's strategy is well-positioned as a sophisticated adopter. The decision to use existing law rather than introduce new AI-specific regulation is defensible given the pace of change — locking in regulatory definitions of &quot;AI system&quot; risks obsolescence within a legislative cycle. The light-touch approach is also consistent with NZ's resource constraints and trade relationships. The risk is that it leaves gaps in enforcement where existing laws do not clearly reach (e.g., automated government decisions, bias in private-sector AI affecting protected groups).</p>
+<p><strong>The agency coordination problem:</strong> Having MBIE lead strategy, DIA govern the Algorithm Charter, RBNZ supervise financial AI risk, and the Privacy Commissioner handle personal data creates genuine coordination gaps. No agency owns cross-sectoral AI risk. This is common internationally — the US has similar fragmentation — but it means NZ organisations face regulatory uncertainty about which agency's guidance prevails when frameworks overlap or conflict.</p>
+<p><strong>Political risk:</strong> The current government's light-touch approach is subject to electoral revision. If Labour returns to government, a shift toward binding algorithmic accountability standards is probable given their prior Algorithm Charter work. Organisations building AI-dependent processes should design for this regulatory shift, not against it.</p>
+<p><strong>Use-case typology for NZ organisations:</strong> Most NZ enterprises are currently deploying Type 1 (augmentation) and Type 2 (agentic builders). Type 3 deployments (delegated authority) are concentrated in financial services and utilities. Type 4 (fully agentic business units) is experimental globally and not yet a near-term NZ reality for regulated industries. The strategic question is whether organisations are progressing through this typology with deliberate governance design or by default.</p>
+<p><strong>Exploit vs explore in NZ context:</strong> The dominant narrative in NZ's strategy is exploitation — using AI to make existing processes more efficient. This is rational given productivity gaps (NZ's long-standing productivity challenge) but incomplete. The $76B GDP estimate implicitly assumes exploration as well: new sectors, new business models. There is a structural tension between a strategy aimed at catching up (exploit) and one aimed at getting ahead (explore) that the current document does not fully resolve.</p>
+<p><strong>Framework selection for NZ organisations:</strong> The practical stack for a NZ-headquartered organisation is: NIST AI RMF for internal risk process design; ISO/IEC 42001 for certifiable governance (especially if exporting to EU markets or dealing with EU counterparties); Singapore's Model AI Governance Framework as a sector-tested operational reference for financial services; EU AI Act awareness for any system that might be classified high-risk under EU definitions.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li><strong>NZ enforcement gap:</strong> With no AI-specific legislation and no clear lead regulator for cross-sectoral AI risk, it is unclear who enforces against, say, a biased recruitment AI used by a large NZ employer. The Privacy Act 2020 may reach this in some scenarios; it likely does not in others.</li>
+<li><strong>RBNZ position:</strong> As at research date, RBNZ has not published a standalone AI strategy or supervisory expectation document. RBNZ AI risk considerations are embedded in ICT risk supervision, but the specific expectations for AI-assisted credit decisions, stress testing, or fraud detection are not publicly documented.</li>
+<li><strong>Thin NZ case law:</strong> The absence of binding case law on automated government decision legality means the legal risk for early movers is unquantified. This is a feature of the current landscape, not a permanent state.</li>
+<li><strong>Typology boundary cases:</strong> Type 2 and Type 3 blur when an &quot;agentic builder&quot; produces artefacts that are acted upon without meaningful human review. Many organisations believe they are in Type 2 but are functionally in Type 3.</li>
+<li><strong>Exploit/explore measurement:</strong> There is no established NZ organisational metric for whether AI investment is exploitation or exploration. Without this, the strategic intent in budget processes is invisible.</li>
+<li><strong>EU AI Act extraterritorial reach:</strong> NZ organisations supplying AI systems or outputs to EU entities may be subject to EU AI Act requirements even without EU establishment. The extraterritorial application is unsettled in practice.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>What are RBNZ's specific supervisory expectations for AI use in NZ-regulated financial institutions? (No public document found — potential Official Information Act request or engagement with RBNZ prudential team.)</li>
+<li>How do DIA's Algorithm Charter attestation processes work in practice, and which agencies are currently compliant?</li>
+<li>Are there any NZ cases before the Employment Court or Human Rights Review Tribunal involving AI-assisted HR decisions? (NZLII search warranted with terms: &quot;algorithm&quot;, &quot;automated&quot;, &quot;AI&quot; + &quot;employment&quot; + 2022-2025.)</li>
+<li>What corporate AI strategy frameworks (not national strategies) have been published by NZ-headquartered companies? The research surfaced global consulting frameworks but no NZ-specific corporate examples.</li>
+<li>How should organisations distinguish between exploitation and exploration AI investment in their portfolio planning processes? A decision tool or framework for this would be strategically valuable.</li>
+</ul>
+<hr />
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
+<ul>
+<li>[x] OECD AI Policy Observatory — country policy notes for NZ and comparator countries (oecd.ai) — <a href="https://oecd.ai/">oecd.ai</a></li>
+<li>[x] NZ Government &quot;Algorithm Charter&quot; and associated agency attestations (data.govt.nz) — <a href="https://www.data.govt.nz/toolkit/data-ethics/government-algorithm-transparency-and-accountability/algorithm-charter/">www.data.govt.nz</a></li>
+<li>[x] NZ political party AI policy documents: National, ACT, NZ First coalition agreement AI-relevant clauses; Labour and Green party policy statements (parliament.nz, party websites)</li>
+<li>[x] RBNZ — any publications or speeches on AI in financial services regulation — <a href="https://www.rbnz.govt.nz/">www.rbnz.govt.nz</a></li>
+<li>[x] DIA — &quot;Digital Strategy for Aotearoa&quot; and related AI-specific guidance — <a href="https://www.digital.govt.nz/dmsdocument/238~digital-strategy-for-aotearoa/html">www.digital.govt.nz</a></li>
+<li>[x] MBIE — &quot;Digital Technologies Industry Transformation Plan&quot; and related workforce/AI material; NZ AI Strategy &quot;Investing with Confidence&quot; (July 2025) — <a href="https://www.mbie.govt.nz/science-and-technology/science-and-innovation/research-and-data/nz-artificial-intelligence-strategy/">www.mbie.govt.nz</a></li>
+<li>[x] EU AI Act (consolidated text, 2024) — <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1689">eur-lex.europa.eu</a></li>
+<li>[x] DORA (EU) Regulation 2022/2554 — ICT risk management and AI capability references — <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022R2554">eur-lex.europa.eu</a></li>
+<li>[x] NIST AI Risk Management Framework 1.0 (2023) — <a href="https://doi.org/10.6028/NIST.AI.100-1">doi.org</a></li>
+<li>[x] Singapore IMDA/MAS &quot;Model AI Governance Framework&quot; (2020, updated 2023/2024) — <a href="https://www.imda.gov.sg/resources/blog/2024/01/model-ai-governance-framework-second-edition">www.imda.gov.sg</a></li>
+<li>[x] ISO/IEC 42001:2023 — AI management systems standard — <a href="https://www.iso.org/standard/81230.html">www.iso.org</a></li>
+<li>[x] March, J.G. (1991). &quot;Exploration and exploitation in organizational learning.&quot; <em>Organization Science.</em> (foundational exploit/explore framing) — <a href="https://doi.org/10.1287/orsc.2.1.71">doi.org</a></li>
+<li>[x] NZ case law search: NZLII, Ministry of Justice decisions database (search terms: &quot;automated decision&quot;, &quot;algorithmic&quot;, &quot;artificial intelligence&quot;) — key case: Wikeley v Kea Investments Ltd [2024] NZCA 609 — <a href="https://www.nzlii.org/">www.nzlii.org</a></li>
+<li>[x] Commercially published AI strategy frameworks: McKinsey, BCG, Gartner, MIT CISR research on AI maturity models</li>
+</ul>
+<hr />
+
+
+  </div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-04-26-access-control-amplification-agentic-operations.html">Access control amplification under agentic operations: whether existing frameworks address the worst-case permission inheritance problem</a> <span class="related-note">via agentic-ai, dora</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment.html">Regulatory and standards preconditions for deployment of Artificial Intelligence (AI) systems that can take multi-step actions: does incomplete access control and data governance constitute a control failure?</a> <span class="related-note">via agentic-ai, dora</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-24-ai-agent-regulation-global-financial-services.html">Global artificial intelligence agent regulation in financial services: non-functional requirement obligations and low-code citizen-development controls</a> <span class="related-note">via rbnz, regulation</span></div>
+<div class="related-entry"><a href="/Research/research/2026-02-28-rbnz-ai-supervisory-expectations.html">RBNZ AI Supervisory Expectations: What Do Regulated Entities Need to Know?</a> <span class="related-note">via ai-strategy, rbnz</span></div>
+<div class="related-entry"><a href="/Research/research/2026-02-28-ai-line-1-line-2-risk-agents.html">AI Line 1 and Line 2 Risk Agents: Who Is Building Them?</a> <span class="related-note">via agentic-ai, ai-strategy</span></div>
+</div></div>
+
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-01-context-mode-llm-context-compression.html">Context Mode</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-02-28-predictive-processing-active-inference.html">Predictive processing and active inference</a></div>
+  </div>
+</main>
+</body>
+</html>

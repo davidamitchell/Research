@@ -1,0 +1,741 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Enterprise AI capability model for use-case maturity decisions — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #0f1115;
+  --surface-2:       #161b22;
+  --border:          #252b33;
+  --text:            #e6e6e6;
+  --text-muted:      #666;
+  --accent:          #e6e6e6;
+  --accent-dim:      #333;
+  --tag-bg:          #161b22;
+  --tag-text:        #999;
+  --tag-active-bg:   #e6e6e6;
+  --tag-active-text: #0f1115;
+  --link:            #00C3A5;
+  --teal:            #00C3A5;
+  --dusk:            #E8A1A8;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  overflow-x: clip;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.75rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+.nav-links a.active { color: var(--teal); }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--teal); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+  min-width: 0;
+}
+.card:hover { border-color: var(--teal); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  word-break: break-word;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4em;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.item-title svg { flex-shrink: 0; margin-top: 0.2em; }
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+  word-break: break-all;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+  max-width: 100%;
+}
+.item-content pre code { background: none; padding: 0; word-break: normal; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--teal); text-decoration: underline; }
+.item-content a:hover { color: var(--text); text-decoration: underline; }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--dusk);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    top: 0;
+    height: auto;
+    padding: 0.5rem 1rem;
+  }
+  .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .nav-links {
+    width: 100%;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  main {
+    padding: 1.5rem 1rem 4rem;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; overflow: hidden; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); word-break: break-word; overflow-wrap: break-word; }
+.key-claims li:last-child { border-bottom: none; }
+.key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
+.key-claims a:hover { color: var(--text); }
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); flex-wrap: wrap; }
+.related-entry:last-child { border-bottom: none; }
+.related-entry a { color: var(--teal); word-break: break-word; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--dusk); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4em; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--teal); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-card-link { text-decoration: none; color: var(--text); display: block; }
+.thread-card-link:hover .thread-card { background: var(--surface-2); }
+.thread-card { background: var(--surface); border: 1px solid var(--border); padding: 1.5rem 1.75rem 1.75rem; }
+.thread-card-title { font-size: var(--text-base); font-weight: 600; margin-bottom: 0.5rem; }
+.thread-card-meta { font-size: var(--text-xs); color: var(--text-muted); margin-bottom: 0.75rem; letter-spacing: 0.05em; }
+.thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
+.thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Research</a>
+    <div class="nav-links">
+      <a href="/Research/all-items.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>All Items</a>
+      <a href="/Research/backlog.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Backlog</a>
+      <a href="/Research/threads.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>Threads</a>
+      <a href="/Research/tags/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>Tags</a>
+      <a href="/Research/search.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M8 1.5C4.41 1.5 1.5 4.41 1.5 8c0 2.87 1.86 5.3 4.44 6.16.32.06.44-.14.44-.31v-1.09c-1.8.39-2.18-.87-2.18-.87-.3-.75-.72-.95-.72-.95-.59-.4.04-.4.04-.4.65.05 1 .67 1 .67.58 1 1.53.71 1.9.54.06-.42.23-.71.41-.87-1.44-.16-2.95-.72-2.95-3.2 0-.71.25-1.28.67-1.74-.07-.16-.29-.82.06-1.71 0 0 .55-.18 1.8.67a6.27 6.27 0 0 1 3.28 0c1.25-.85 1.8-.67 1.8-.67.35.89.13 1.55.06 1.71.42.46.67 1.03.67 1.74 0 2.49-1.51 3.04-2.96 3.2.23.2.44.6.44 1.21v1.8c0 .17.12.37.44.31A6.5 6.5 0 0 0 14.5 8 6.5 6.5 0 0 0 8 1.5z"/></svg>GitHub</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>Enterprise AI capability model for use-case maturity decisions</span>
+  </div>
+  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Enterprise AI capability model for use-case maturity decisions</h1>
+    <div class="meta-bar">
+    <span>2026-04-22</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/ai.html">ai</a> <a class="tag" href="/Research/tags/enterprise.html">enterprise</a> <a class="tag" href="/Research/tags/capability-model.html">capability-model</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-22-enterprise-ai-capability-model.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-04-22-enterprise-ai-capability-model" target="_blank" rel="noopener">wiki →</a>
+  </div>
+  
+  <div class="item-content">
+    <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
+<p>What enterprise-wide Artificial Intelligence (AI) capability model best supports deciding whether a candidate AI use case requires net-new foundational capabilities or can reuse capabilities already built across the enterprise?</p>
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Findings</h2>
+<p><em>(Seeded from section 6 synthesis above.)</em></p>
+<h3>Executive Summary</h3>
+<p>[inference; source: <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/maturity-model-overview">Microsoft agentic AI adoption maturity model overview</a> <a href="https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report">cloud.google.com</a> <a href="https://doi.org/10.6028/NIST.AI.100-1">doi.org</a> <a href="https://www.iso.org/standard/81230.html]">www.iso.org</a> The best enterprise AI capability model for use-case maturity decisions is a three-layer dependency map in which shared foundational capabilities are assessed before any use case is allowed to claim reuse, while a five-level maturity model remains a separate portfolio overlay.
+[inference; source: <a href="https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report">cloud.google.com</a> <a href="https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/">github.blog</a> <a href="https://www.faros.ai/blog/translating-ai-powered-developer-velocity-into-business-outcomes]">www.faros.ai</a> Software-delivery evidence shows why: model access and local productivity gains are easy to obtain, but organisation-level reuse only works when governance, internal context, platform safety nets, evaluation, and workflow redesign already exist as shared enterprise rails.
+[inference; source: <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/maturity-model-overview]">learn.microsoft.com</a> A five-level maturity model remains useful as a separate portfolio view because it helps leaders assess broad organisational progression from experimentation to enterprise-scale operation, but it does not replace the dependency checks needed at use-case intake.
+[inference; source: <a href="https://doi.org/10.6028/NIST.AI.100-1">doi.org</a> <a href="https://www.iso.org/standard/81230.html]">www.iso.org</a> A candidate use case should trigger foundational investment whenever one of those rails is missing, because governance and lifecycle control are not project-specific add-ons but reusable enterprise capabilities.
+[inference; source: <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-19-layered-org-llm-architecture.md">github.com</a> <a href="https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report]">cloud.google.com</a> Net-new enabling or differentiating capability is justified only after the foundations are already proved and the use case clearly needs specialised routing, internalised domain heuristics, or higher-assurance verification.</p>
+<h3>Key Findings</h3>
+<ol>
+<li>[inference; source: <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/maturity-model-overview">Microsoft agentic AI adoption maturity model overview</a> <a href="https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report">cloud.google.com</a> <a href="https://doi.org/10.6028/NIST.AI.100-1">doi.org</a> <a href="https://www.iso.org/standard/81230.html]">www.iso.org</a> <strong>High confidence:</strong> The most useful enterprise AI capability model for use-case intake is a dependency map that separates foundational shared rails from enabling and differentiating layers, because the decision problem is whether a specific use case can safely ride existing enterprise capability rather than where the enterprise sits on a single five-level maturity model.</li>
+<li>[fact; source: <a href="https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report]">cloud.google.com</a> <strong>Medium confidence:</strong> DORA's 2025 research shows that AI amplifies existing system quality, so clear AI policies, internal context, high-quality internal platforms, user-centric workflow design, and safety nets are prerequisites for reliable reuse across a portfolio of use cases.</li>
+<li>[inference; source: <a href="https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/">github.blog</a> <a href="https://www.faros.ai/blog/translating-ai-powered-developer-velocity-into-business-outcomes">Faros follow-on analysis</a> <a href="https://www.gitclear.com/coding_on_copilot_data_shows_ais_downward_pressure_on_code_quality]">www.gitclear.com</a> <strong>High confidence:</strong> Individual AI productivity gains cannot be treated as sufficient evidence of enterprise readiness, because faster task completion can coexist with higher churn, larger review queues, and flat company-level outcomes when downstream controls remain weak.</li>
+<li>[inference; source: <a href="https://doi.org/10.6028/NIST.AI.100-1">doi.org</a> <a href="https://www.iso.org/standard/81230.html]">www.iso.org</a> <strong>High confidence:</strong> Governance capability belongs in the foundational layer because both NIST AI RMF and ISO/IEC 42001 require organisation-wide intake, mapping, measurement, management, and lifecycle controls that are reusable across multiple AI use cases.</li>
+<li>[inference; source: <a href="https://hai.stanford.edu/assets/files/hai_ai_index_report_2025.pdf">hai.stanford.edu</a> <a href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai]">www.mckinsey.com</a> <strong>Medium confidence:</strong> Enterprise pressure to deploy AI is already intense, but scaling maturity remains uneven, which implies that operating-model and governance capability are now a stronger constraint than simple access to models or pilot opportunities.</li>
+<li>[inference; source: <a href="https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report">cloud.google.com</a> <a href="https://doi.org/10.6028/NIST.AI.100-1">doi.org</a> <a href="https://www.iso.org/standard/81230.html]">www.iso.org</a> <strong>High confidence:</strong> The foundational layer should contain governance and intake, authoritative context and access, platform and workflow safety nets, evaluation and measurement, and workforce adoption and change management, because each of these capabilities is repeatedly required before safe reuse becomes plausible.</li>
+<li>[inference; source: <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-19-layered-org-llm-architecture.md">github.com</a> <a href="https://doi.org/10.6028/NIST.AI.100-1]">doi.org</a> <strong>Medium confidence:</strong> Net-new enabling or differentiating capability should only be added after the foundations are already in place and the use case clearly needs specialised routing, internalised domain heuristics, domain ontologies, or stronger review and checking layers than the shared baseline provides.</li>
+<li>[inference; source: <a href="https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report">cloud.google.com</a> <a href="https://www.faros.ai/blog/translating-ai-powered-developer-velocity-into-business-outcomes">Faros follow-on analysis</a> <a href="https://www.gitclear.com/coding_on_copilot_data_shows_ais_downward_pressure_on_code_quality]">www.gitclear.com</a> <strong>High confidence:</strong> The default enterprise failure mode is to scale generation before scaling control, which produces pilot sprawl, weak provenance, quality regressions, and local enthusiasm that never becomes reusable organisational learning.</li>
+</ol>
+<h3>Assumptions</h3>
+<ul>
+<li>[assumption; source: <a href="https://www.stateof.ai/]">www.stateof.ai</a> <strong>Assumption:</strong> The <a href="https://www.stateof.ai/">State of AI Report</a> is useful as ecosystem context but not as direct capability-design evidence. <strong>Justification:</strong> the report is broad and signal-rich, but less direct than DORA, NIST, ISO, AI Index, GitHub, GitClear, and Faros for this decision problem.</li>
+<li>[assumption; source: <a href="https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/superagency-in-the-workplace-empowering-people-to-unlock-ais-full-potential">McKinsey Superagency in the Workplace</a> <a href="https://www.mckinsey.com/~/media/mckinsey/business%20functions/quantumblack/our%20insights/superagency%20in%20the%20workplace%20empowering%20people%20to%20unlock%20ais%20full%20potential%20at%20work/superagency-in-the-workplace-empowering-people-to-unlock-ais-full-potential-v4.pdf]">www.mckinsey.com</a> <strong>Assumption:</strong> McKinsey Superagency is a useful secondary reinforcement for workforce and operating-model capability, not a primary pillar of the final model. <strong>Justification:</strong> the listed page was not directly fetchable in this environment.</li>
+</ul>
+<h3>Analysis</h3>
+<p>[inference; source: <a href="https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report">cloud.google.com</a> <a href="https://www.faros.ai/blog/translating-ai-powered-developer-velocity-into-business-outcomes]">www.faros.ai</a> I weighted software-delivery evidence heavily because it shows the exact enterprise failure mode that a reuse-versus-build model needs to prevent: faster local generation arriving before shared control systems are ready.
+[inference; source: <a href="https://doi.org/10.6028/NIST.AI.100-1">doi.org</a> <a href="https://www.iso.org/standard/81230.html]">www.iso.org</a> I weighted NIST AI RMF and ISO/IEC 42001 heavily because they turn vague maturity language into explicit organisational capabilities that can be reused across use cases and checked at intake.
+[inference; source: <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/maturity-model-overview">Microsoft agentic AI adoption maturity model overview</a> <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-21-technology-capability-models.md]">github.com</a> I resolved the model-shape question by comparing a concrete five-level maturity model, Microsoft's, with the prior repository conclusion that durable enterprise maps separate stable taxonomy from assessment overlays, because that keeps the AI capability map stable while still allowing portfolio-level progression scoring.
+[inference; source: <a href="https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report">cloud.google.com</a> <a href="https://doi.org/10.6028/NIST.AI.100-1">doi.org</a> <a href="https://www.iso.org/standard/81230.html]">www.iso.org</a> The resulting model is intentionally conservative: if a use case exposes a gap in governance, context, platform safety nets, evaluation, or operating-model readiness, the right answer is foundational investment first rather than custom capability on top of weak ground.</p>
+<h4>Consolidated capability model</h4>
+<ul>
+<li>[inference; source: <a href="https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report">cloud.google.com</a> <a href="https://doi.org/10.6028/NIST.AI.100-1">doi.org</a> <a href="https://www.iso.org/standard/81230.html]">www.iso.org</a> <strong>Foundational - governance and intake:</strong> reuse is plausible only when a use case has a named owner, risk class, approved policy, and escalation path; if any of those are missing, the right decision is foundational investment first.</li>
+<li>[inference; source: <a href="https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report">cloud.google.com</a> <a href="https://doi.org/10.6028/NIST.AI.100-1]">doi.org</a> <strong>Foundational - authoritative context and access:</strong> reuse is plausible only when trusted sources, permissions, provenance, and refresh rules already exist as shared capability; if they do not, the gap is foundational.</li>
+<li>[inference; source: <a href="https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report">cloud.google.com</a> <a href="https://www.faros.ai/blog/translating-ai-powered-developer-velocity-into-business-outcomes]">www.faros.ai</a> <strong>Foundational - platform and workflow safety nets:</strong> reuse is plausible only when logging, testing, review, rollback, and fast feedback loops already exist as shared delivery controls; if they do not, the gap is foundational.</li>
+<li>[inference; source: <a href="https://doi.org/10.6028/NIST.AI.100-1">doi.org</a> <a href="https://www.iso.org/standard/81230.html]">www.iso.org</a> <strong>Foundational - evaluation and measurement:</strong> reuse is plausible only when benchmark sets, error thresholds, incident metrics, and drift checks already exist as shared capability; if they do not, the gap is foundational.</li>
+<li>[inference; source: <a href="https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report">cloud.google.com</a> <a href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai]">www.mckinsey.com</a> <strong>Foundational - workforce adoption and change:</strong> reuse is plausible only when training, workflow redesign, support, and user accountability are already planned as operating capability; if they are not, the gap is foundational.</li>
+<li>[inference; source: <a href="https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report">cloud.google.com</a> <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-19-layered-org-llm-architecture.md]">github.com</a> <strong>Enabling - reusable retrieval and orchestration:</strong> shared context stacks, routing, policy enforcement, and human approvals should be reused once the foundational layer is already in place.</li>
+<li>[inference; source: <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-19-layered-org-llm-architecture.md">github.com</a> <a href="https://doi.org/10.6028/NIST.AI.100-1]">doi.org</a> <strong>Differentiating - domain-specific optimisation:</strong> ontologies, adapters, specialised review components, and specialised benchmarks should be added only after foundations are proven and a specific use case clearly needs them.</li>
+</ul>
+<h4>Triage rubric</h4>
+<ol>
+<li>[inference; source: <a href="https://doi.org/10.6028/NIST.AI.100-1">doi.org</a> <a href="https://www.iso.org/standard/81230.html]">www.iso.org</a> <strong>Gate 1:</strong> If the use case lacks an owner, risk class, or lifecycle control path, classify it as foundational investment first.</li>
+<li>[inference; source: <a href="https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report]">cloud.google.com</a> <strong>Gate 2:</strong> If the use case lacks authoritative context, internal data access, platform safety nets, or measurable evaluation, classify it as foundational investment first.</li>
+<li>[inference; source: <a href="https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report">cloud.google.com</a> <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-19-layered-org-llm-architecture.md]">github.com</a> <strong>Gate 3:</strong> If all foundations exist and the use case mainly needs configuration on shared retrieval, policy, and evaluation rails, classify it as reuse shared capability.</li>
+<li>[inference; source: <a href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-19-layered-org-llm-architecture.md">github.com</a> <a href="https://doi.org/10.6028/NIST.AI.100-1]">doi.org</a> <strong>Gate 4:</strong> If all foundations exist but the use case needs specialised routing, internalised domain heuristics, or higher-assurance verification, classify it as add new enabling or differentiating capability.</li>
+</ol>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<p>[fact; source: <a href="https://a16z.com/big-ideas-in-tech/]">a16z.com</a> The listed a16z source was inaccessible as a live page in this environment, so venture-style strategy framing is underweighted in the final synthesis.
+[fact; source: <a href="https://faros.ai/blog/the-ai-productivity-paradox]">faros.ai</a> The listed Faros source URL was inaccessible as a live page, so Faros support relies on a later Faros analysis page and linked PDF rather than the original destination.
+[fact; source: <a href="https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/superagency-in-the-workplace-empowering-people-to-unlock-ais-full-potential]">www.mckinsey.com</a> The listed McKinsey Superagency page did not fetch directly, so workforce and training claims from that seed source carry less weight than the DORA, NIST, ISO, AI Index, GitHub, GitClear, and Faros evidence.
+[inference; source: <a href="https://hai.stanford.edu/assets/files/hai_ai_index_report_2025.pdf">hai.stanford.edu</a> <a href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai]">www.mckinsey.com</a> The evidence is very strong on adoption pressure and governance gaps, but it is still weak on the exact cost threshold at which an enterprise should graduate from shared foundations to expensive differentiating layers such as adapters, ontologies, or specialised checking components.</p>
+<h3>Open Questions</h3>
+<p>[inference; source: <a href="https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report]">cloud.google.com</a> What benchmark should tell an enterprise that its shared retrieval, policy, and evaluation rails are mature enough for higher-autonomy use cases?
+[inference; source: <a href="https://doi.org/10.6028/NIST.AI.100-1">doi.org</a> <a href="https://www.iso.org/standard/81230.html]">www.iso.org</a> Which governance controls can remain fully shared across the enterprise, and which must always remain specialised by domain or risk class?
+[inference; source: <a href="https://www.faros.ai/blog/translating-ai-powered-developer-velocity-into-business-outcomes">Faros follow-on analysis</a> <a href="https://www.gitclear.com/coding_on_copilot_data_shows_ais_downward_pressure_on_code_quality]">www.gitclear.com</a> What is the best early-warning metric for the point where generation capacity begins to outrun verification capacity in enterprise delivery systems?</p>
+<hr />
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
+<p>Starting points - papers, articles, videos, repos, docs.
+<strong>Every source must include a Uniform Resource Locator (URL).</strong> Use <code>[<a href="https://url">Display Name</a>](<a href="https://url">Display Name</a></code> for named sources or a bare <code><a href="https://url">Display Name</a></code> for direct links. Sources without URLs cannot be verified or linked on the site.</p>
+<ul>
+<li>[x] <a href="https://dora.dev/research/">DevOps Research and Assessment (DORA) Research Program</a> - primary source for the 2024 and 2025 DORA reports and associated AI capability guidance</li>
+<li>[x] <a href="https://cloud.google.com/devops">Google Cloud DORA overview</a> - contextual landing page for DORA report publication and capability framing</li>
+<li>[x] <a href="https://www.gitclear.com/coding_on_copilot_data_shows_ais_downward_pressure_on_code_quality">GitClear AI code quality research</a> - telemetry-based counterpoint on code churn and cloning</li>
+<li>[x] <a href="https://www.stateof.ai/">State of AI Report</a> - annual ecosystem synthesis across research, market, and policy signals</li>
+<li>[x] <a href="https://hai.stanford.edu/ai-index">Stanford Human-Centered Artificial Intelligence (HAI) AI Index</a> - data-heavy annual benchmark across investment, policy, education, and model progress</li>
+<li>[x] <a href="https://a16z.com/big-ideas-in-tech/">a16z Big Ideas in Tech</a> - listed URL returned a 404 page in this environment, so it was checked for context but not used for core evidence</li>
+<li>[x] <a href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai">McKinsey State of AI</a> - enterprise survey evidence on adoption and scaling bottlenecks</li>
+<li>[x] <a href="https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/superagency-in-the-workplace-empowering-people-to-unlock-ais-full-potential">McKinsey Superagency in the Workplace</a> - listed page failed to fetch directly in this environment; supporting claims use the associated <a href="https://www.mckinsey.com/~/media/mckinsey/business%20functions/quantumblack/our%20insights/superagency%20in%20the%20workplace%20empowering%20people%20to%20unlock%20ais%20full%20potential%20at%20work/superagency-in-the-workplace-empowering-people-to-unlock-ais-full-potential-v4.pdf">McKinsey Portable Document Format (PDF) file</a> when noted</li>
+<li>[x] <a href="https://octoverse.github.com/">GitHub Octoverse</a> - software ecosystem and developer workflow trend context</li>
+<li>[x] <a href="https://github.blog/news-insights/research/">GitHub Research and impact posts</a> - publicly shared findings on Copilot productivity and developer outcomes</li>
+<li>[x] <a href="https://faros.ai/blog/the-ai-productivity-paradox">Faros AI Productivity Paradox</a> - listed URL resolved to a page-missing page in this environment; supporting claims use <a href="https://www.faros.ai/blog/translating-ai-powered-developer-velocity-into-business-outcomes">Faros follow-on analysis</a> and the linked <a href="https://cdn.prod.website-files.com/66f2fa250759eeb1f2b1199a/68d6e93f3060b3c8a32e72bf_AI_Engineering_Impact_Report_July_2025_Faros_AI.pdf">Faros report PDF</a></li>
+<li>[x] <a href="https://www.nist.gov/itl/ai-risk-management-framework">NIST AI Risk Management Framework</a> - governance and risk capability baseline for enterprise maturity</li>
+<li>[x] <a href="https://www.iso.org/standard/81230.html">ISO/IEC 42001 standard overview</a> - AI management system standard relevant to organisational capability design</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/maturity-model-overview">Microsoft agentic AI adoption maturity model overview</a> - concrete five-level maturity model used here as the comparison point for why maturity models are useful overlays but weaker primary intake tools</li>
+</ul>
+<hr />
+
+
+  </div>
+  
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-04-22-recall-competitive-landscape-and-clone-feasibility.html">Recall competitive landscape and clone feasibility</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-04-20-harness-selection-tools-agents-skills-prompts-instructions.html">Harness-level selection and use of tools, agents, skills, prompts, and…</a></div>
+  </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,754 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Semantic and full-text search over the research corpus — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #0f1115;
+  --surface-2:       #161b22;
+  --border:          #252b33;
+  --text:            #e6e6e6;
+  --text-muted:      #666;
+  --accent:          #e6e6e6;
+  --accent-dim:      #333;
+  --tag-bg:          #161b22;
+  --tag-text:        #999;
+  --tag-active-bg:   #e6e6e6;
+  --tag-active-text: #0f1115;
+  --link:            #00C3A5;
+  --teal:            #00C3A5;
+  --dusk:            #E8A1A8;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  overflow-x: clip;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.75rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+.nav-links a.active { color: var(--teal); }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--teal); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+  min-width: 0;
+}
+.card:hover { border-color: var(--teal); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  word-break: break-word;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4em;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.item-title svg { flex-shrink: 0; margin-top: 0.2em; }
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+  word-break: break-all;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+  max-width: 100%;
+}
+.item-content pre code { background: none; padding: 0; word-break: normal; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--teal); text-decoration: underline; }
+.item-content a:hover { color: var(--text); text-decoration: underline; }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--dusk);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    top: 0;
+    height: auto;
+    padding: 0.5rem 1rem;
+  }
+  .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .nav-links {
+    width: 100%;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  main {
+    padding: 1.5rem 1rem 4rem;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; overflow: hidden; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); word-break: break-word; overflow-wrap: break-word; }
+.key-claims li:last-child { border-bottom: none; }
+.key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
+.key-claims a:hover { color: var(--text); }
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); flex-wrap: wrap; }
+.related-entry:last-child { border-bottom: none; }
+.related-entry a { color: var(--teal); word-break: break-word; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--dusk); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4em; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--teal); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-card-link { text-decoration: none; color: var(--text); display: block; }
+.thread-card-link:hover .thread-card { background: var(--surface-2); }
+.thread-card { background: var(--surface); border: 1px solid var(--border); padding: 1.5rem 1.75rem 1.75rem; }
+.thread-card-title { font-size: var(--text-base); font-weight: 600; margin-bottom: 0.5rem; }
+.thread-card-meta { font-size: var(--text-xs); color: var(--text-muted); margin-bottom: 0.75rem; letter-spacing: 0.05em; }
+.thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
+.thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Research</a>
+    <div class="nav-links">
+      <a href="/Research/all-items.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>All Items</a>
+      <a href="/Research/backlog.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Backlog</a>
+      <a href="/Research/threads.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>Threads</a>
+      <a href="/Research/tags/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>Tags</a>
+      <a href="/Research/search.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M8 1.5C4.41 1.5 1.5 4.41 1.5 8c0 2.87 1.86 5.3 4.44 6.16.32.06.44-.14.44-.31v-1.09c-1.8.39-2.18-.87-2.18-.87-.3-.75-.72-.95-.72-.95-.59-.4.04-.4.04-.4.65.05 1 .67 1 .67.58 1 1.53.71 1.9.54.06-.42.23-.71.41-.87-1.44-.16-2.95-.72-2.95-3.2 0-.71.25-1.28.67-1.74-.07-.16-.29-.82.06-1.71 0 0 .55-.18 1.8.67a6.27 6.27 0 0 1 3.28 0c1.25-.85 1.8-.67 1.8-.67.35.89.13 1.55.06 1.71.42.46.67 1.03.67 1.74 0 2.49-1.51 3.04-2.96 3.2.23.2.44.6.44 1.21v1.8c0 .17.12.37.44.31A6.5 6.5 0 0 0 14.5 8 6.5 6.5 0 0 0 8 1.5z"/></svg>GitHub</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>Semantic and full-text search over the research corpus</span>
+  </div>
+  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Semantic and full-text search over the research corpus</h1>
+    <div class="meta-bar">
+    <span>2026-03-08</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/search.html">search</a> <a class="tag" href="/Research/tags/embeddings.html">embeddings</a> <a class="tag" href="/Research/tags/indexing.html">indexing</a> <a class="tag" href="/Research/tags/rag.html">rag</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-02-semantic-full-text-search.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-02-semantic-full-text-search" target="_blank" rel="noopener">wiki →</a>
+  </div>
+  <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>SQLite FTS5 BM25 full-text search requires zero additional Python dependencies beyond the stdlib `sqlite3` module and delivers sub-millisecond query latency for corpora of fewer than 500 documents, making it the correct and sufficient Phase 1 implementation</li>
+<li>The four query patterns for this corpus — tag-based, keyword, topic/conceptual, and recency — split cleanly: tag and recency queries require only YAML front-matter metadata lookups; keyword queries are served by FTS5; only conceptual queries (&quot;what do I know about X&quot;) require semantic search, and these are the least frequent query type for a single-owner corpus</li>
+<li>Model2Vec (potion-base-8M) is the correct embedding model for Phase 2: it is ~30–50 MB, requires only numpy (no PyTorch), runs ~200x faster on CPU than all-MiniLM-L6-v2, and achieves 91–93% of MiniLM&#39;s MTEB accuracy, which is adequate for structured research-item retrieval</li>
+<li>sqlite-vec is a pre-v1 extension with explicitly declared breaking-change risk; it must be pinned to a specific version in `requirements.txt`/`pyproject.toml` and upgraded only intentionally, with the Phase 2 ADR documenting this constraint</li>
+<li>Reciprocal Rank Fusion (RRF, k=60) is a ~10-line pure-Python merge of BM25 and KNN ranked lists that requires no score calibration and no additional dependencies, making it the correct fusion strategy for this use case</li>
+<li>The correct fields to index are title, tags, executive summary, and key findings text (concatenated as a single FTS5 row per item); indexing the full findings section adds noise without improving recall at this corpus scale, and sub-item chunking is not warranted until the corpus exceeds several hundred items</li>
+<li>The search index should be stored at `state/search.db` (gitignored), rebuilt lazily at query time when any completed item&#39;s mtime is newer than the index file, and never committed to git — the Markdown files with YAML front-matter remain the sole source of truth</li>
+<li>Phase 2 (hybrid search) requires an ADR before implementation to document the model2vec dependency, the sqlite-vec pre-v1 API risk, the state/search.db schema, and the HuggingFace cache configuration for GitHub Actions</li>
+</ol></div>
+
+  <div class="item-content">
+    <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
+<p>What combination of full-text search (keyword/BM25) and semantic search (embeddings/vector) is most appropriate for querying the <code>Research/completed/</code> corpus, given the constraints of a git-based, local-first, single-owner repository with tens to hundreds of items, and what is the simplest implementation path?</p>
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Findings</h2>
+<h3>Executive Summary</h3>
+<p>SQLite FTS5 (BM25) alone is the correct implementation for this corpus at current scale (12–100 items), requiring zero new dependencies beyond Python's standard library; Model2Vec (potion-base-8M) + sqlite-vec hybrid search should be introduced when the corpus reaches 100 items, using Reciprocal Rank Fusion to combine BM25 and vector rankings. The dominant query patterns for a single-owner corpus — keyword lookup and tag filtering — are well-served by FTS5; semantic search addresses the vocabulary-mismatch failure mode that becomes material only as the corpus grows past ~100 items and the author can no longer recall the exact vocabulary used in older items. Model2Vec is preferred over sentence-transformers/all-MiniLM-L6-v2 for Phase 2 because it has no PyTorch dependency, downloads at ~30–50 MB (vs 80–90 MB + ~200–500 MB PyTorch), and runs ~200x faster on CPU with 91–93% of MiniLM's MTEB accuracy. Both phases store the index at <code>state/search.db</code> (gitignored derived artefact), keeping the Markdown + YAML front-matter files as the sole source of truth.</p>
+<h3>Key Findings</h3>
+<ol>
+<li>
+<p><strong>SQLite FTS5 BM25 full-text search requires zero additional Python dependencies beyond the stdlib <code>sqlite3</code> module and delivers sub-millisecond query latency for corpora of fewer than 500 documents, making it the correct and sufficient Phase 1 implementation.</strong> [high]</p>
+</li>
+<li>
+<p><strong>The four query patterns for this corpus — tag-based, keyword, topic/conceptual, and recency — split cleanly: tag and recency queries require only YAML front-matter metadata lookups; keyword queries are served by FTS5; only conceptual queries (&quot;what do I know about X&quot;) require semantic search, and these are the least frequent query type for a single-owner corpus.</strong> [high]</p>
+</li>
+<li>
+<p><strong>Model2Vec (potion-base-8M) is the correct embedding model for Phase 2: it is ~30–50 MB, requires only numpy (no PyTorch), runs ~200x faster on CPU than all-MiniLM-L6-v2, and achieves 91–93% of MiniLM's MTEB accuracy, which is adequate for structured research-item retrieval.</strong> [high]</p>
+</li>
+<li>
+<p><strong>sqlite-vec is a pre-v1 extension with explicitly declared breaking-change risk; it must be pinned to a specific version in <code>requirements.txt</code>/<code>pyproject.toml</code> and upgraded only intentionally, with the Phase 2 ADR documenting this constraint.</strong> [high]</p>
+</li>
+<li>
+<p><strong>Reciprocal Rank Fusion (RRF, k=60) is a ~10-line pure-Python merge of BM25 and KNN ranked lists that requires no score calibration and no additional dependencies, making it the correct fusion strategy for this use case.</strong> [high]</p>
+</li>
+<li>
+<p><strong>The correct fields to index are title, tags, executive summary, and key findings text (concatenated as a single FTS5 row per item); indexing the full findings section adds noise without improving recall at this corpus scale, and sub-item chunking is not warranted until the corpus exceeds several hundred items.</strong> [medium]</p>
+</li>
+<li>
+<p><strong>The search index should be stored at <code>state/search.db</code> (gitignored), rebuilt lazily at query time when any completed item's mtime is newer than the index file, and never committed to git — the Markdown files with YAML front-matter remain the sole source of truth.</strong> [high]</p>
+</li>
+<li>
+<p><strong>Phase 2 (hybrid search) requires an ADR before implementation to document the model2vec dependency, the sqlite-vec pre-v1 API risk, the state/search.db schema, and the HuggingFace cache configuration for GitHub Actions.</strong> [high]</p>
+</li>
+<li>
+<p><strong>The Phase 2 corpus threshold is ≥ 100 completed items; the prior indexing-and-tracking research deferred vector search at ~50 items, and the current corpus of ~52 items has reached but not clearly exceeded that threshold, so Phase 1 should be implemented immediately and Phase 2 planned within the next research loop cycle.</strong> [medium]</p>
+</li>
+<li>
+<p><strong>The hybrid retrieval approach (FTS5 + Model2Vec + sqlite-vec + RRF) was validated in a directly analogous real-world implementation (15,800-file Obsidian vault, 49,746 chunks) documented in the context-mode completed research, providing practitioner-level evidence that the stack works at scale significantly beyond this corpus.</strong> [high]</p>
+</li>
+</ol>
+<h3>Assumptions</h3>
+<ul>
+<li><strong>Assumption:</strong> The author queries their own corpus using the vocabulary they wrote, making vocabulary mismatch rare at small scale. <strong>Justification:</strong> Single-owner corpus; author wrote every item and reads them during the research loop. This assumption weakens as the corpus grows and older items fade from memory.</li>
+<li><strong>Assumption:</strong> Model2Vec's static (non-contextual) embeddings are adequate for research-item retrieval, despite the 6-point MTEB gap vs. MiniLM. <strong>Justification:</strong> Research items are structured, domain-specific documents with well-defined sections. The failure mode of static embeddings (missing context-dependent meaning) is less relevant for &quot;find item about topic X&quot; queries than for open-domain QA or sentiment analysis. The practitioner case from context-mode research used the same model for a structurally similar corpus.</li>
+<li><strong>Assumption:</strong> The corpus will grow at the observed rate of ~5–10 items per week, reaching 100 items within 3–6 months. <strong>Justification:</strong> The research loop schedule runs weekdays at 3 items/day. This rate could change if the backlog is exhausted or the loop is paused.</li>
+</ul>
+<h3>Analysis</h3>
+<p>The core trade-off is implementation complexity vs. search quality at each corpus size. FTS5-only has near-zero complexity cost (it is already in the Python stdlib and the prior local-database research designed the schema for it). Hybrid adds two dependencies and ~50 lines of code for a meaningful improvement in recall on conceptual queries. The phased approach resolves this trade-off by deferring the complexity cost until the quality improvement is actually needed.</p>
+<p>The embedding model choice (Model2Vec vs. sentence-transformers) was resolved decisively by the CI constraint. The absence of PyTorch is not just a convenience — it is the difference between an index rebuild that fits in a GitHub Actions free tier (2-core, 7 GB RAM, ~6-minute job limit for free runners) and one that may run over time or exhaust memory. Model2Vec's numpy-only dependency and ~200x speedup make the difference between a 5-second rebuild and a 5-minute rebuild for 200 items.</p>
+<p>The field selection (title + tags + executive summary + key findings) was driven by signal-to-noise analysis. The executive summary is explicitly designed to be the direct answer to the research question — it is the highest-signal field. Key findings are the structured claims that constitute the research output. Indexing these fields over the full findings body ensures BM25 term weights are not diluted by the lower-signal Analysis and Risks sections.</p>
+<p>OpenAI embeddings were eliminated at the constraint stage — they require an API key that is not in the approved credentials table. This is a hard constraint, not a preference.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li><strong>sqlite-vec pre-v1 API risk.</strong> The extension has declared breaking changes before 1.0. Until it reaches 1.0, the Phase 2 implementation may need a minor version upgrade at arbitrary intervals. Version pinning mitigates this but adds maintenance overhead.</li>
+<li><strong>Model2Vec accuracy on this specific corpus is unknown.</strong> The MTEB benchmark is over a broad range of tasks; performance on structured research-item retrieval (short, domain-specific, single-author) has not been independently measured. The practitioner case (context-mode Key Finding 6) is the closest evidence, but it is a single data point.</li>
+<li><strong>Lazy-rebuild index freshness.</strong> If the search index rebuild fails silently (e.g., due to a model download error in a constrained environment), the user receives stale results without warning. The rebuild step should log its status explicitly.</li>
+<li><strong>The 100-item Phase 2 threshold is a heuristic, not an empirically validated measurement.</strong> It is possible that vocabulary-mismatch false negatives become a real problem at 60 items or not until 150. A better trigger would be the first observed false negative, but that requires the user to notice and report it.</li>
+<li><strong>tantivy Python bindings were not directly tested.</strong> They were eliminated on complexity grounds (Rust build dependency) without a full evaluation. If FTS5 performance proves inadequate at large scale, tantivy should be re-evaluated.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li><strong>Should the search index be rebuilt and committed as part of the research loop workflow, rather than lazily at query time?</strong> Committing the index would make it available immediately in any environment without a rebuild step, but it would introduce a binary file into git (violating the git-friendliness constraint). This is a workflow design question for the implementation slice.</li>
+<li><strong>Is Model2Vec's accuracy adequate for conceptual queries in this specific corpus?</strong> A quick evaluation when Phase 2 is implemented — running 5–10 representative queries against both FTS5-only and hybrid modes — would confirm or refute the assumption.</li>
+<li><strong>Should the CLI output include a relevance score or confidence indicator?</strong> This would help the user calibrate how much to trust ranked results, especially in hybrid mode where the RRF score is not directly interpretable.</li>
+<li><strong>Does the conversational interface (<code>Research/completed/2026-03-02-chat-conversational-interface.md</code>) expect search to return item content or only item metadata (path, title, tags)?</strong> The answer affects whether the CLI needs a <code>--include-content</code> flag or whether the conversational layer fetches the full item after receiving search results.</li>
+</ul>
+<hr />
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
+<ul>
+<li>[x] <code>Research/completed/2026-02-27-indexing-and-tracking-method.md</code> — prior decision: JSON + YAML front-matter; deferred vector search (Key Finding 5)</li>
+<li>[x] <code>Research/completed/2026-03-01-context-mode-llm-context-compression.md</code> — hybrid BM25+Model2Vec+sqlite-vec+RRF pattern (Key Finding 6)</li>
+<li>[x] <code>Research/backlog/2026-02-27-local-database.md</code> — database technology options including sqlite-vec, ChromaDB, <a href="https://lancedb.github.io/lancedb/">LanceDB</a> (now in completed/)</li>
+<li>[<a href="https://github.com/asg017/sqlite-vec">x] sqlite-vec</a>: <a href="https://github.com/asg017/sqlite-vec">x] sqlite-vec</a> — vector search extension for SQLite</li>
+<li>[<a href="https://www.sqlite.org/fts5.html">x] SQLite FTS5</a>: <a href="https://www.sqlite.org/fts5.html">x] SQLite FTS5</a> — full-text search</li>
+<li>[<a href="https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2">x] sentence-transformers (all-MiniLM-L6-v2)</a>: <a href="https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2">x] sentence-transformers (all-MiniLM-L6-v2)</a></li>
+<li>[<a href="https://github.com/MinishLab/model2vec">x] Model2Vec (potion-base-8M)</a>: <a href="https://github.com/MinishLab/model2vec">x] Model2Vec (potion-base-8M)</a> — small, fast, static sentence embeddings</li>
+<li>[ ] <code>tantivy</code> Python bindings: <a href="https://github.com/quickwit-oss/tantivy">`tantivy` Python bindings</a> — Rust-based BM25 search library</li>
+<li>[ ] LanceDB: <a href="https://lancedb.github.io/lancedb/">LanceDB</a> — embedded vector store with full-text search</li>
+</ul>
+<hr />
+
+
+  </div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-03-15-latent-concept-extraction-confluence.html">Latent Concept Extraction from Confluence: Embeddings, Knowledge Graphs, and Epistemic Evaluation</a> <span class="related-note">via embeddings, rag</span></div>
+<div class="related-entry"><a href="/Research/research/2026-03-02-chat-conversational-interface.html">Conversational and chat interface for querying the research corpus</a> <span class="related-note">via rag, search</span></div>
+<div class="related-entry"><a href="/Research/research/2026-03-02-agent-memory-management-context-injection.html">Agent Memory Management and Context Injection</a> <span class="related-note">via embeddings, rag</span></div>
+</div></div>
+
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-03-02-slack-msteams-research-integration.html">Slack and MS Teams integration for research delivery and capture</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-03-07-run-vs-build-it-spending-allocation.html">RUN vs BUILD IT spending allocation in non-IT primary businesses</a></div>
+  </div>
+</main>
+</body>
+</html>

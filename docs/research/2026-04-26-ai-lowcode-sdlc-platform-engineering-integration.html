@@ -1,0 +1,738 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>How should AI and low-code governance integrate with existing software… — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #0f1115;
+  --surface-2:       #161b22;
+  --border:          #252b33;
+  --text:            #e6e6e6;
+  --text-muted:      #666;
+  --accent:          #e6e6e6;
+  --accent-dim:      #333;
+  --tag-bg:          #161b22;
+  --tag-text:        #999;
+  --tag-active-bg:   #e6e6e6;
+  --tag-active-text: #0f1115;
+  --link:            #00C3A5;
+  --teal:            #00C3A5;
+  --dusk:            #E8A1A8;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  overflow-x: clip;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.75rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+.nav-links a.active { color: var(--teal); }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--teal); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+  min-width: 0;
+}
+.card:hover { border-color: var(--teal); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  word-break: break-word;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4em;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.item-title svg { flex-shrink: 0; margin-top: 0.2em; }
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+  word-break: break-all;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+  max-width: 100%;
+}
+.item-content pre code { background: none; padding: 0; word-break: normal; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--teal); text-decoration: underline; }
+.item-content a:hover { color: var(--text); text-decoration: underline; }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--dusk);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    top: 0;
+    height: auto;
+    padding: 0.5rem 1rem;
+  }
+  .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .nav-links {
+    width: 100%;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  main {
+    padding: 1.5rem 1rem 4rem;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; overflow: hidden; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); word-break: break-word; overflow-wrap: break-word; }
+.key-claims li:last-child { border-bottom: none; }
+.key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
+.key-claims a:hover { color: var(--text); }
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); flex-wrap: wrap; }
+.related-entry:last-child { border-bottom: none; }
+.related-entry a { color: var(--teal); word-break: break-word; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--dusk); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4em; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--teal); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-card-link { text-decoration: none; color: var(--text); display: block; }
+.thread-card-link:hover .thread-card { background: var(--surface-2); }
+.thread-card { background: var(--surface); border: 1px solid var(--border); padding: 1.5rem 1.75rem 1.75rem; }
+.thread-card-title { font-size: var(--text-base); font-weight: 600; margin-bottom: 0.5rem; }
+.thread-card-meta { font-size: var(--text-xs); color: var(--text-muted); margin-bottom: 0.75rem; letter-spacing: 0.05em; }
+.thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
+.thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Research</a>
+    <div class="nav-links">
+      <a href="/Research/all-items.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>All Items</a>
+      <a href="/Research/backlog.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Backlog</a>
+      <a href="/Research/threads.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>Threads</a>
+      <a href="/Research/tags/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>Tags</a>
+      <a href="/Research/search.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M8 1.5C4.41 1.5 1.5 4.41 1.5 8c0 2.87 1.86 5.3 4.44 6.16.32.06.44-.14.44-.31v-1.09c-1.8.39-2.18-.87-2.18-.87-.3-.75-.72-.95-.72-.95-.59-.4.04-.4.04-.4.65.05 1 .67 1 .67.58 1 1.53.71 1.9.54.06-.42.23-.71.41-.87-1.44-.16-2.95-.72-2.95-3.2 0-.71.25-1.28.67-1.74-.07-.16-.29-.82.06-1.71 0 0 .55-.18 1.8.67a6.27 6.27 0 0 1 3.28 0c1.25-.85 1.8-.67 1.8-.67.35.89.13 1.55.06 1.71.42.46.67 1.03.67 1.74 0 2.49-1.51 3.04-2.96 3.2.23.2.44.6.44 1.21v1.8c0 .17.12.37.44.31A6.5 6.5 0 0 0 14.5 8 6.5 6.5 0 0 0 8 1.5z"/></svg>GitHub</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>How should AI and low-code governance integrate with existing software…</span>
+  </div>
+  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>How should AI and low-code governance integrate with existing software…</h1>
+  <p class="full-title-subtitle">How should AI and low-code governance integrate with existing software development and platform engineering practices?</p>
+  <div class="meta-bar">
+    <span>2026-04-26</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/sdlc.html">sdlc</a> <a class="tag" href="/Research/tags/platform-engineering.html">platform-engineering</a> <a class="tag" href="/Research/tags/ci-cd.html">ci-cd</a> <a class="tag" href="/Research/tags/devops.html">devops</a> <a class="tag" href="/Research/tags/ai-governance.html">ai-governance</a> <a class="tag" href="/Research/tags/low-code.html">low-code</a> <a class="tag" href="/Research/tags/testing.html">testing</a> <a class="tag" href="/Research/tags/infrastructure-as-code.html">infrastructure-as-code</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-ai-lowcode-sdlc-platform-engineering-integration.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-04-26-ai-lowcode-sdlc-platform-engineering-integration" target="_blank" rel="noopener">wiki →</a>
+  </div>
+  
+  <div class="item-content">
+    <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
+<p>How should Artificial Intelligence (AI) and low-code governance integrate with existing software development and platform engineering practices, specifically, how should governance controls be integrated with Continuous Integration/Continuous Delivery (CI/CD) pipelines, infrastructure as code (IaC), testing frameworks, release management, and platform engineering standards to avoid fragmentation between traditional and AI or low-code delivery models?</p>
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Findings</h2>
+<h3>Executive Summary</h3>
+<p>[inference; source: <a href="https://csrc.nist.gov/pubs/sp/800/218/final">National Institute of Standards and Technology (NIST) Special Publication (SP) 800-218, Secure Software Development Framework (SSDF)</a> <a href="https://dora.dev/research/2024/dora-report/">DevOps Research and Assessment (DORA) Accelerate State of DevOps Report 2024</a> <a href="https://learn.microsoft.com/en-us/power-platform/alm/pipelines]">learn.microsoft.com</a> AI and low-code governance should be integrated into the same platform-engineering delivery system as conventional software, with any additional specialized assurance lane for higher-risk AI or low-code changes implemented as an extension of shared CI/CD, release, and environment controls rather than as a separate parallel process.</p>
+<p>[inference; source: <a href="https://docs.github.com/en/actions/reference/workflows-and-actions/deployments-and-environments">GitHub Actions deployments and environments</a> <a href="https://learn.microsoft.com/en-us/azure/devops/pipelines/process/approvals?view=azure-devops">Azure DevOps approvals and checks</a> <a href="https://learn.microsoft.com/en-us/power-platform/alm/block-unmanaged-customizations]">learn.microsoft.com</a> Build pipelines can own repository-defined checks, but production promotion authority should stay on protected environments, resource-owned approvals, and low-code environment restrictions so that the release gate remains harder to bypass than a code change.</p>
+<p>[inference; source: <a href="https://docs.confident-ai.com/">DeepEval documentation</a> <a href="https://docs.ragas.io/en/latest/">Ragas documentation</a> <a href="https://learn.microsoft.com/en-us/power-platform/alm/pipelines]">learn.microsoft.com</a> AI testing belongs inside the ordinary test stack as scenario suites, regression thresholds, and experiment runs placed beside deterministic unit, dependency, and integration tests, because non-deterministic outputs need evidence loops rather than a separate quality discipline.</p>
+<p>[inference; source: <a href="https://backstage.io/docs/overview/what-is-backstage">Backstage overview</a> <a href="https://backstage.io/docs/features/software-templates/">Backstage software templates</a> <a href="https://learn.microsoft.com/en-us/azure/foundry/how-to/create-resource-terraform]">learn.microsoft.com</a> Platform teams should encode the governed path as templates, catalogs, modules, policy bundles, and deployment defaults so that teams start from a compliant scaffold instead of bolting governance on after delivery.</p>
+<h3>Key Findings</h3>
+<ol>
+<li>[inference; source: <a href="https://csrc.nist.gov/pubs/sp/800/218/final">National Institute of Standards and Technology (NIST) Special Publication (SP) 800-218, Secure Software Development Framework (SSDF)</a> <a href="https://dora.dev/research/2024/dora-report/]">dora.dev</a> <strong>High:</strong> AI and low-code delivery should extend the existing SDLC rather than run a separate one, and when higher-risk changes need specialized assurance that lane should remain inside the shared delivery system because the SSDF is designed to integrate into each lifecycle implementation and DORA still ties software outcomes to testing, stability, and platform-engineering fundamentals.</li>
+<li>[inference; source: <a href="https://docs.github.com/en/actions/reference/workflows-and-actions/deployments-and-environments">GitHub Actions deployments and environments</a> <a href="https://docs.github.com/actions/deployment/protecting-deployments/configuring-custom-deployment-protection-rules">GitHub custom deployment protection rules</a> <a href="https://learn.microsoft.com/en-us/azure/devops/pipelines/process/approvals?view=azure-devops]">learn.microsoft.com</a> <strong>High:</strong> The strongest pipeline split is repository-owned build logic plus resource-owned promotion authority, because protected environments, custom deployment gates, and approvals or checks outside YAML keep production release control independent from the change being proposed.</li>
+<li>[inference; source: <a href="https://docs.confident-ai.com/">DeepEval documentation</a> <a href="https://docs.ragas.io/en/latest/">Ragas documentation</a> <a href="https://learn.microsoft.com/en-us/power-platform/alm/pipelines]">learn.microsoft.com</a> <strong>High:</strong> AI-specific quality assurance should be inserted into the normal test stack, or into a higher-risk assurance lane that still uses the same release system, as evaluation suites and regression thresholds while low-code artifacts still undergo deterministic validation for dependencies, environment variables, and connector wiring.</li>
+<li>[inference; source: <a href="https://developer.hashicorp.com/terraform/docs">Terraform documentation</a> <a href="https://learn.microsoft.com/en-us/azure/foundry/how-to/create-resource-terraform">Use Terraform to create Microsoft Foundry</a> <a href="https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/bedrockagent_agent">Terraform resource for Amazon Bedrock agents</a> <a href="https://openpolicyagent.org/docs/integration]">openpolicyagent.org</a> <strong>High:</strong> IaC should cover AI platform resources, deployments, identities, environment defaults, and policy distribution wherever possible, because official Microsoft, Amazon, Terraform, and OPA sources all expose these surfaces as managed and reviewable configuration objects.</li>
+<li>[inference; source: <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/publication-fundamentals-publish-channels">Publish and deploy your agent in Copilot Studio</a> <a href="https://learn.microsoft.com/en-us/power-platform/alm/block-unmanaged-customizations">Block unmanaged customizations</a> <a href="https://learn.microsoft.com/en-us/power-platform/admin/managed-environment-overview]">learn.microsoft.com</a> <strong>Medium:</strong> Low-code governance is materially weaker when direct publication stays easier than governed promotion, because Copilot Studio supports in-product publishing and Microsoft separately documents environment controls that can force production changes back through approved ALM paths.</li>
+<li>[inference; source: <a href="https://backstage.io/docs/overview/what-is-backstage">Backstage overview</a> <a href="https://backstage.io/docs/features/software-templates/">Backstage software templates</a> <a href="https://backstage.io/plugins/]">backstage.io</a> <strong>Medium:</strong> IDPs should be the main platform-engineering vehicle for AI and low-code governance because templates, catalogs, docs, and plugins let teams inherit compliant repository structure, ownership metadata, and evidence hooks before development starts.</li>
+<li>[inference; source: <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-lifecycle-management.html">What lifecycle management model is required for AI models, prompts, and low-code applications?</a> <a href="https://learn.microsoft.com/en-us/azure/ai-studio/how-to/flow-deploy">Deploy a prompt flow for real-time inference</a> <a href="https://learn.microsoft.com/en-us/power-platform/alm/pipelines]">learn.microsoft.com</a> <strong>Medium:</strong> Release management should promote code, prompt or model configuration, low-code packages, policy bundles, and environment metadata as one dependency-aware release set because each of those objects can materially change runtime behavior or rollback feasibility.</li>
+<li>[inference; source: <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-governance-enforcement-architecture.html">Where should governance enforcement points be implemented within enterprise architecture?</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html">Deployment pipeline as the only enforceable control gate for citizen-developed agents</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html">What control-plane architecture is required to manage AI agents and low-code systems as distributed, semi-autonomous actors within enterprise environments?</a> <a href="https://dora.dev/research/2024/dora-report/]">dora.dev</a> <strong>Medium:</strong> The main organizational cost of fragmentation is not only duplicated process but weaker control authority, poorer evidence coherence, and lower change stability, because adjacent governance work and DORA both point to system design, not isolated checks, as the determinant of durable delivery quality.</li>
+</ol>
+<h3>Assumptions</h3>
+<ul>
+<li>[inference; source: <a href="https://docs.confident-ai.com/">DeepEval documentation</a> <a href="https://docs.ragas.io/en/latest/]">docs.ragas.io</a> This item does not rely on a separate unresolved assumption beyond the interpretive steps already marked as inference.</li>
+</ul>
+<h3>Analysis</h3>
+<p>[inference; source: <a href="https://csrc.nist.gov/pubs/sp/800/218/final">National Institute of Standards and Technology (NIST) Special Publication (SP) 800-218, Secure Software Development Framework (SSDF)</a> <a href="https://docs.github.com/en/actions/reference/workflows-and-actions/deployments-and-environments">GitHub Actions deployments and environments</a> <a href="https://learn.microsoft.com/en-us/azure/devops/pipelines/process/approvals?view=azure-devops]">learn.microsoft.com</a> The strongest evidence supported reusing the existing engineering operating model because secure-development guidance and delivery platforms already separate mutable build logic from protected promotion authority.</p>
+<p>[inference; source: <a href="https://csrc.nist.gov/pubs/sp/800/218/final">National Institute of Standards and Technology (NIST) Special Publication (SP) 800-218, Secure Software Development Framework (SSDF)</a> <a href="https://dora.dev/research/2024/dora-report/">DevOps Research and Assessment (DORA) Accelerate State of DevOps Report 2024</a> <a href="https://docs.confident-ai.com/">DeepEval documentation</a> <a href="https://docs.ragas.io/en/latest/]">docs.ragas.io</a> A plausible competing model is a shared SDLC baseline plus a specialized assurance lane for higher-risk AI or low-code changes, and the evidence supports that variation only when the additional lane remains an overlay inside the same delivery and release system rather than becoming a separate end-to-end process.</p>
+<p>[inference; source: <a href="https://docs.confident-ai.com/">DeepEval documentation</a> <a href="https://docs.ragas.io/en/latest/]">docs.ragas.io</a> AI evaluation tooling was treated as an extension to testing rather than as a replacement because both reviewed frameworks emphasize iterative experiments, metrics, and repeated runs instead of definitive one-shot judgments.</p>
+<p>[inference; source: <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/publication-fundamentals-publish-channels">Publish and deploy your agent in Copilot Studio</a> <a href="https://learn.microsoft.com/en-us/power-platform/alm/block-unmanaged-customizations]">learn.microsoft.com</a> Low-code evidence was weighted heavily because the reviewed Microsoft documentation shows both sides of the governance problem directly, namely the native bypass path and the native administrative control that blocks it.</p>
+<p>[inference; source: <a href="https://backstage.io/docs/overview/what-is-backstage">Backstage overview</a> <a href="https://learn.microsoft.com/en-us/azure/foundry/how-to/create-resource-terraform">Use Terraform to create Microsoft Foundry</a> <a href="https://openpolicyagent.org/docs/integration]">openpolicyagent.org</a> The platform-engineering synthesis favored templates, modules, and policy distribution over checklist governance because those are the mechanisms that can scale across teams without depending on perfect manual compliance.</p>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>[inference; source: <a href="https://docs.confident-ai.com/">DeepEval documentation</a> <a href="https://docs.ragas.io/en/latest/]">docs.ragas.io</a> The reviewed AI evaluation sources clearly support CI integration, but they do not by themselves define sector-wide accepted pass thresholds for every enterprise use case.</li>
+<li>[inference; source: <a href="https://learn.microsoft.com/en-us/azure/ai-studio/how-to/flow-deploy]">learn.microsoft.com</a> Microsoft is retiring Prompt Flow, so any release design built around that exact artifact needs migration planning and should not be treated as a durable long-term control surface.</li>
+<li>[inference; source: <a href="https://backstage.io/plugins/]">backstage.io</a> Backstage's plugin ecosystem proves extensibility, but the evidence reviewed here does not show one standardized off-the-shelf plugin that already solves enterprise AI governance end to end.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>[inference; source: <a href="https://docs.confident-ai.com/">DeepEval documentation</a> <a href="https://docs.ragas.io/en/latest/]">docs.ragas.io</a> Which evaluation-threshold patterns are reliable enough for regulated production promotion of customer-facing AI systems across repeated model upgrades?</li>
+<li>[inference; source: <a href="https://learn.microsoft.com/en-us/azure/foundry/how-to/create-resource-terraform">Use Terraform to create Microsoft Foundry</a> <a href="https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/bedrockagent_agent]">registry.terraform.io</a> Which portions of AI platform governance remain stubbornly outside declarative IaC and therefore require compensating runtime controls or post-deploy verification?</li>
+<li>[inference; source: <a href="https://backstage.io/docs/features/software-templates/">Backstage software templates</a> <a href="https://learn.microsoft.com/en-us/power-platform/alm/pipelines]">learn.microsoft.com</a> How should an enterprise connect low-code pipeline metadata, AI evaluation results, and repository catalogs into one evidence object that auditors and release managers can read without tool hopping?</li>
+</ul>
+<hr />
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
+<ul>
+<li>[x] <a href="https://dora.dev/research/2024/dora-report/">DevOps Research and Assessment (DORA) Accelerate State of DevOps Report 2024</a> - platform engineering, delivery stability, testing, and continuous-improvement evidence.</li>
+<li>[x] <a href="https://csrc.nist.gov/pubs/sp/800/218/final">National Institute of Standards and Technology (NIST) Special Publication (SP) 800-218, Secure Software Development Framework (SSDF)</a> - secure-development practices intended to integrate into each Software Development Life Cycle (SDLC) implementation.</li>
+<li>[x] <a href="https://docs.github.com/en/actions/reference/workflows-and-actions/deployments-and-environments">GitHub Actions deployments and environments</a> - protected environments, required reviewers, branch restrictions, and third-party deployment gates.</li>
+<li>[x] <a href="https://docs.github.com/actions/deployment/protecting-deployments/configuring-custom-deployment-protection-rules">GitHub custom deployment protection rules</a> - external change, observability, and quality systems as release gates.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/azure/devops/pipelines/process/approvals?view=azure-devops">Azure DevOps approvals and checks</a> - resource-owned approvals and checks outside pipeline code.</li>
+<li>[x] <a href="https://backstage.io/docs/overview/what-is-backstage">Backstage overview</a> - developer portal, software catalog, templates, docs, and plugin model.</li>
+<li>[x] <a href="https://backstage.io/docs/features/software-templates/">Backstage software templates</a> - scaffolding steps, input review, task execution, and standardization mechanisms.</li>
+<li>[x] <a href="https://backstage.io/plugins/">Backstage plugins</a> - evidence that Backstage exposes an extensible plugin ecosystem rather than a fixed portal surface.</li>
+<li>[x] <a href="https://docs.confident-ai.com/">DeepEval documentation</a> - pytest-native AI evaluations that run in CI/CD and expose research-backed metrics.</li>
+<li>[x] <a href="https://docs.ragas.io/en/latest/">Ragas documentation</a> - experiments-first evaluation loops for RAG and other LLM applications.</li>
+<li>[x] <a href="https://developer.hashicorp.com/terraform/docs">Terraform documentation</a> - reusable modules, Command Line Interface (CLI) workflows, and team governance.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/azure/foundry/how-to/create-resource-terraform">Use Terraform to create Microsoft Foundry</a> - official Microsoft source showing AI Foundry resources, projects, deployments, connections, and capability hosts managed with Terraform providers.</li>
+<li>[x] <a href="https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/bedrockagent_agent">Terraform resource for Amazon Bedrock agents</a> - official registry evidence that Amazon Bedrock agent resources are represented as Terraform-managed objects.</li>
+<li>[x] <a href="https://openpolicyagent.org/docs/integration">Open Policy Agent (OPA) integration</a> - policy decision decoupling, management interfaces, status, health, and decision logs.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/power-platform/alm/pipelines">Power Platform pipelines</a> - native low-code pipeline governance, deployment validation, delegated deployments, and extensibility.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/power-platform/alm/block-unmanaged-customizations">Block unmanaged customizations</a> - production lock-down and explicit statement that Copilot Studio publishing fails when unmanaged customizations are blocked.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/power-platform/admin/managed-environment-overview">Managed Environments overview</a> - environment-level governance features for Power Platform.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/publication-fundamentals-publish-channels">Publish and deploy your agent in Copilot Studio</a> - direct publish behavior across connected channels and the need for publish-time testing.</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/azure/ai-studio/how-to/flow-deploy">Deploy a prompt flow for real-time inference</a> - direct deployment flow for prompt-based AI endpoints and current retirement notice for Prompt Flow.</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-lifecycle-management.html">What lifecycle management model is required for AI models, prompts, and low-code applications?</a> - related repository work on versioning, rollback, and promoted artifact state.</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-governance-enforcement-architecture.html">Where should governance enforcement points be implemented within enterprise architecture?</a> - related repository work on layered enforcement.</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html">Deployment pipeline as the only enforceable control gate for citizen-developed agents</a> - related repository work on low-code release governance.</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html">What control-plane architecture is required to manage AI agents and low-code systems as distributed, semi-autonomous actors within enterprise environments?</a> - related repository work on policy distribution and feedback loops.</li>
+</ul>
+
+
+  </div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html">Deployment pipeline as the only enforceable control gate for citizen-developed agents: DevOps literature support, low-code platform hook points, and architectural enforceability</a> <span class="related-note">via devops, low-code, platform-engineering</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-27-uelgf-governed-golden-rails.html">Universal Entity Lifecycle Governance Framework (UELGF): governed golden rail specifications: generative scaffold, persona-adapted interfaces, citizen development rails, and deviation handling</a> <span class="related-note">via low-code, platform-engineering</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-26-data-governance-ai-lowcode-enterprise-enforcement.html">How can enterprise data governance frameworks be consistently enforced within Artificial Intelligence (AI) and visual, minimal-code application environments?</a> <span class="related-note">via ai-governance, low-code</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-26-ai-lowcode-risk-tier-classification-controls.html">How should Artificial Intelligence (AI) and low-code use cases be classified into risk tiers, and how should governance controls vary across those tiers?</a> <span class="related-note">via ai-governance, low-code</span></div>
+<div class="related-entry"><a href="/Research/research/2026-04-26-ai-lowcode-regulatory-compliance-alignment.html">How can enterprise Artificial Intelligence (AI) and low-code governance frameworks be aligned with regulatory and compliance requirements?</a> <span class="related-note">via ai-governance, low-code</span></div>
+</div></div>
+
+  <div class="item-nav">
+    <div class="item-nav-prev"><span class="item-nav-label">← newer</span><a href="/Research/research/2026-04-26-data-governance-ai-lowcode-enterprise-enforcement.html">AI and visual, minimal-code application environments?</a></div>
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-04-26-ai-lowcode-risk-tier-classification-controls.html">AI and low-code use cases be classified into risk tiers, and how should…</a></div>
+  </div>
+</main>
+</body>
+</html>
