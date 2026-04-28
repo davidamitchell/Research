@@ -1,0 +1,753 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>LLM-as-judge as pipeline validation checkpoints — Research</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:              #0d0d0d;
+  --surface:         #0f1115;
+  --surface-2:       #161b22;
+  --border:          #252b33;
+  --text:            #e6e6e6;
+  --text-muted:      #666;
+  --accent:          #e6e6e6;
+  --accent-dim:      #333;
+  --tag-bg:          #161b22;
+  --tag-text:        #999;
+  --tag-active-bg:   #e6e6e6;
+  --tag-active-text: #0f1115;
+  --link:            #00C3A5;
+  --teal:            #00C3A5;
+  --dusk:            #E8A1A8;
+
+  --text-xs:   0.7rem;
+  --text-sm:   0.8rem;
+  --text-base: 0.9rem;
+  --text-lg:   1.1rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  2rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  overflow-x: clip;
+}
+
+a { color: var(--text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Nav */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+.nav-inner {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.75rem;
+}
+.nav-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.nav-links a:hover { color: var(--text); text-decoration: none; }
+.nav-links a.active { color: var(--teal); }
+
+/* Main content */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 2rem 4rem;
+}
+
+/* Page header */
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.page-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Search input */
+.search-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--text-sm);
+  padding: 0.6rem 0.8rem;
+  outline: none;
+  border-radius: 0;
+  letter-spacing: 0.02em;
+}
+.search-input:focus { border-color: var(--teal); }
+.search-input::placeholder { color: var(--text-muted); }
+
+/* Tag filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+.filter-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-right: 0.25rem;
+}
+.clear-filters {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+}
+.clear-filters:hover { color: var(--text); }
+
+/* Tag pills */
+.tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+.tag:hover { color: var(--text); text-decoration: none; }
+.tag.active {
+  background: var(--tag-active-bg);
+  color: var(--tag-active-text);
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  border-radius: 0;
+  transition: border-color 200ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text);
+  min-width: 0;
+}
+.card:hover { border-color: var(--teal); text-decoration: none; }
+.card-title {
+  font-size: var(--text-base);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  word-break: break-word;
+}
+.card-meta {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.card-excerpt {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+.card .tag { cursor: default; }
+
+/* No results */
+.no-results {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  padding: 2rem 0;
+}
+
+/* Item page */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: var(--text-muted); }
+.breadcrumb a:hover { color: var(--text); }
+.breadcrumb span { margin: 0 0.4em; }
+
+.item-title {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4em;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.item-title svg { flex-shrink: 0; margin-top: 0.2em; }
+
+.meta-bar {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+.meta-sep { margin: 0 0.2em; }
+.source-link {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.source-link:hover { text-decoration: underline; }
+
+.item-content h2 {
+  font-size: var(--text-sm);
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.item-content h3 {
+  font-size: var(--text-base);
+  font-weight: 500;
+  margin-top: 1.5rem;
+  letter-spacing: 0.02em;
+}
+.item-content h4, .item-content h5, .item-content h6 {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-top: 1.2rem;
+  letter-spacing: 0.02em;
+}
+.item-content p { margin-top: 0.8rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content ul, .item-content ol {
+  margin-top: 0.8rem;
+  padding-left: 1.5rem;
+}
+.item-content li { margin-top: 0.3rem; word-break: break-word; overflow-wrap: break-word; }
+.item-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}
+.item-content th, .item-content td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.item-content th {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+}
+.item-content code {
+  background: var(--surface-2);
+  padding: 0.1em 0.3em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+  word-break: break-all;
+}
+.item-content pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-top: 1rem;
+  max-width: 100%;
+}
+.item-content pre code { background: none; padding: 0; word-break: normal; }
+.item-content blockquote {
+  border-left: 2px solid var(--border);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  margin-top: 0.8rem;
+}
+.item-content a { color: var(--teal); text-decoration: underline; }
+.item-content a:hover { color: var(--text); text-decoration: underline; }
+.item-content strong { font-weight: 600; }
+.item-content em { font-style: italic; }
+.item-content hr {
+  border: none;
+  border-top: 1px solid var(--dusk);
+  margin: 2rem 0;
+}
+
+/* Prev / Next navigation */
+.item-nav {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-size: var(--text-sm);
+  gap: 1rem;
+}
+.item-nav a { color: var(--text-muted); }
+.item-nav a:hover { color: var(--text); text-decoration: none; }
+.item-nav-prev { text-align: left; }
+.item-nav-next { text-align: right; }
+.item-nav-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* Tag page */
+.tag-page-header {
+  margin-bottom: 2rem;
+}
+.tag-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.back-link {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  display: inline-block;
+  margin-top: 1rem;
+}
+.back-link:hover { color: var(--text); }
+
+/* Search page */
+.search-page-header {
+  margin-bottom: 1.5rem;
+}
+.search-page-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.search-results-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+/* Tags list (all tags index) */
+.tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.tags-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tag-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  :root {
+    --text-xs: 0.75rem;
+    --text-sm: 0.85rem;
+    --text-base: 1rem;
+    --text-lg: 1.15rem;
+    --text-xl: 1.3rem;
+    --text-2xl: 1.6rem;
+  }
+  nav {
+    position: sticky;
+    top: 0;
+    height: auto;
+    padding: 0.5rem 1rem;
+  }
+  .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .nav-links {
+    width: 100%;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  main {
+    padding: 1.5rem 1rem 4rem;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+  }
+  .stat-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-item:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .stat-item:nth-child(3),
+  .stat-item:nth-child(4) {
+    border-bottom: none;
+  }
+  .meta-bar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+  }
+  .key-claims {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .item-content h2 {
+    margin-top: 2rem;
+  }
+  .item-nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .breadcrumb {
+    font-size: var(--text-sm);
+  }
+  .card {
+    padding: 1rem;
+  }
+  .tag {
+    padding: 0.2rem 0.6rem;
+  }
+  .search-input {
+    padding: 0.75rem 1rem;
+    font-size: var(--text-base);
+  }
+  .full-title-subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.full-title-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Stats block */
+.stats-block { display: flex; border: 1px solid var(--border); margin: 2rem 0; }
+.stat-item { flex: 1; padding: 1.25rem; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-number { font-size: var(--text-2xl); color: var(--text); display: block; line-height: 1.2; }
+.stat-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; display: block; margin-top: 0.25rem; }
+
+/* Key claims block */
+.key-claims { background: var(--surface-2); border-left: 2px solid var(--border); padding: 1rem 1.25rem; margin-bottom: 2rem; overflow: hidden; }
+.key-claims-label { font-size: var(--text-xs); text-transform: lowercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem; }
+.key-claims ol { list-style: none; padding: 0; margin: 0; }
+.key-claims li { font-size: var(--text-sm); line-height: 1.6; padding: 0.3rem 0; border-bottom: 1px solid var(--border); word-break: break-word; overflow-wrap: break-word; }
+.key-claims li:last-child { border-bottom: none; }
+.key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
+.key-claims a:hover { color: var(--text); }
+
+/* Relationship type pill */
+.rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
+
+/* Related items */
+.related-section { margin-top: 2.5rem; }
+.related-group { margin-top: 1rem; }
+.related-group-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; text-transform: lowercase; margin-bottom: 0.5rem; }
+.related-entry { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: var(--text-sm); flex-wrap: wrap; }
+.related-entry:last-child { border-bottom: none; }
+.related-entry a { color: var(--teal); word-break: break-word; }
+.related-note { color: var(--text-muted); font-size: var(--text-xs); }
+
+/* Thread connector */
+.thread-connector { text-align: center; font-size: var(--text-xs); color: var(--dusk); letter-spacing: 0.05em; padding: 0.5rem 0; }
+
+/* Thread card variant */
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.5; flex: 1; }
+
+/* Featured sections on landing page */
+.landing-desc { font-size: var(--text-sm); color: var(--text-muted); margin: 1.5rem 0; line-height: 1.6; }
+.featured-section { margin: 2rem 0; }
+.featured-label { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.1em; text-transform: lowercase; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4em; }
+.featured-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.thread-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem; background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: var(--text-xs); letter-spacing: 0.05em; text-decoration: none; }
+.thread-pill:hover { border-color: var(--teal); text-decoration: none; }
+.thread-pill-count { color: var(--text-muted); }
+.tag-pill-link { display: inline-block; padding: 0.15rem 0.5rem; background: var(--tag-bg); color: var(--tag-text); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; text-decoration: none; font-family: 'IBM Plex Mono', monospace; }
+.tag-pill-link:hover { color: var(--text); text-decoration: none; }
+
+/* Search preview on landing */
+.search-preview-wrap { position: relative; margin-bottom: 2rem; }
+.search-preview-results { background: var(--surface); border: 1px solid var(--border); border-top: none; display: none; }
+.search-preview-item { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: var(--text-sm); gap: 1rem; }
+.search-preview-item:last-child { border-bottom: none; }
+.search-preview-item:hover { background: var(--surface-2); text-decoration: none; }
+.search-preview-date { font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.05em; flex-shrink: 0; }
+.search-see-all { display: block; text-align: right; padding: 0.4rem 0.8rem; font-size: var(--text-xs); color: var(--text-muted); border-top: 1px solid var(--border); text-decoration: none; }
+.search-see-all:hover { color: var(--text); text-decoration: none; }
+
+/* Thread filter row */
+.thread-filter-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; align-items: center; }
+.thread-filter-btn { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; cursor: pointer; font-family: 'IBM Plex Mono', monospace; text-transform: lowercase; }
+.thread-filter-btn.active { background: var(--surface-2); border-color: var(--text); color: var(--text); }
+
+/* Threads listing */
+.thread-list { display: flex; flex-direction: column; gap: 0; }
+.thread-card-link { text-decoration: none; color: var(--text); display: block; }
+.thread-card-link:hover .thread-card { background: var(--surface-2); }
+.thread-card { background: var(--surface); border: 1px solid var(--border); padding: 1.5rem 1.75rem 1.75rem; }
+.thread-card-title { font-size: var(--text-base); font-weight: 600; margin-bottom: 0.5rem; }
+.thread-card-meta { font-size: var(--text-xs); color: var(--text-muted); margin-bottom: 0.75rem; letter-spacing: 0.05em; }
+.thread-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; }
+.thread-card-excerpt { font-size: var(--text-xs); color: var(--text-muted); line-height: 1.6; }
+.thread-card-hr { border: none; border-top: 1px solid var(--dusk); opacity: 0.4; margin: 1rem 0; }
+</style>
+
+        </head>
+        <body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="/Research/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Research</a>
+    <div class="nav-links">
+      <a href="/Research/all-items.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>All Items</a>
+      <a href="/Research/backlog.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Backlog</a>
+      <a href="/Research/threads.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M6 8a3.5 3.5 0 0 0 5 0l2-2a3.5 3.5 0 0 0-5-5L7 2"/><path d="M10 8a3.5 3.5 0 0 0-5 0L3 10a3.5 3.5 0 0 0 5 5l1-1"/></svg>Threads</a>
+      <a href="/Research/tags/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>Tags</a>
+      <a href="/Research/search.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Search</a>
+      <a href="https://github.com/davidamitchell/Research" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M8 1.5C4.41 1.5 1.5 4.41 1.5 8c0 2.87 1.86 5.3 4.44 6.16.32.06.44-.14.44-.31v-1.09c-1.8.39-2.18-.87-2.18-.87-.3-.75-.72-.95-.72-.95-.59-.4.04-.4.04-.4.65.05 1 .67 1 .67.58 1 1.53.71 1.9.54.06-.42.23-.71.41-.87-1.44-.16-2.95-.72-2.95-3.2 0-.71.25-1.28.67-1.74-.07-.16-.29-.82.06-1.71 0 0 .55-.18 1.8.67a6.27 6.27 0 0 1 3.28 0c1.25-.85 1.8-.67 1.8-.67.35.89.13 1.55.06 1.71.42.46.67 1.03.67 1.74 0 2.49-1.51 3.04-2.96 3.2.23.2.44.6.44 1.21v1.8c0 .17.12.37.44.31A6.5 6.5 0 0 0 14.5 8 6.5 6.5 0 0 0 8 1.5z"/></svg>GitHub</a>
+    </div>
+  </div>
+</nav>
+<main>
+  <div class="breadcrumb">
+    <a href="/Research/">Research</a>
+    <span>/</span>
+    <span>LLM-as-judge as pipeline validation checkpoints</span>
+  </div>
+  <h1 class="item-title"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>LLM-as-judge as pipeline validation checkpoints</h1>
+  <p class="full-title-subtitle">Large Language Model (LLM)-as-judge as pipeline validation checkpoints: who is defining and operationalising this pattern</p>
+  <div class="meta-bar">
+    <span>2026-04-28</span>
+    <span class="meta-sep">·</span>
+    <a class="tag" href="/Research/tags/evaluation.html">evaluation</a> <a class="tag" href="/Research/tags/benchmarking.html">benchmarking</a> <a class="tag" href="/Research/tags/copilot-studio.html">copilot-studio</a> 
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-28-llm-as-judge-pipeline-validation-checkpoints.md" target="_blank" rel="noopener">source →</a>
+    <span class="meta-sep">·</span>
+    <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-04-28-llm-as-judge-pipeline-validation-checkpoints" target="_blank" rel="noopener">wiki →</a>
+  </div>
+  
+  <div class="item-content">
+    <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
+<p>Which organisations, projects, and frameworks are defining and operationalising Large Language Model (LLM)-as-judge evaluation, the use of one model to assess another model's outputs, as automated validation checkpoints in Continuous Integration/Continuous Delivery (CI/CD) and agent deployment pipelines, and what implementation patterns, tooling, and emerging standards are in use?</p>
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M9 2H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V6z"/><path d="M9 2v4h4"/></svg>Findings</h2>
+<h3>Executive Summary</h3>
+<ul>
+<li>[inference; source: <a href="https://www.promptfoo.dev/docs/integrations/ci-cd/">Promptfoo CI/CD integration</a> <a href="https://www.confident-ai.com/docs/llm-evaluation/unit-testing-cicd">DeepEval unit testing in CI/CD</a> <a href="https://www.braintrust.dev/docs/evaluate/run-evaluations">Braintrust run evaluations</a> <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/analytics-agent-evaluation-intro">Copilot Studio agent evaluation overview</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-28-alternative-pipeline-platforms-copilot-studio-agents.html]">davidamitchell.github.io</a> LLM-as-judge is already operationalised as an automated validation checkpoint by several evaluation frameworks and, increasingly, by Microsoft tooling, but the surveyed sources show the clearest hard-gate patterns in dedicated eval platforms rather than in platform-native deployment controls.</li>
+<li>[inference; source: <a href="https://arxiv.org/abs/2306.05685">Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena (Zheng et al., 2023)</a> <a href="https://www.promptfoo.dev/docs/guides/llm-as-a-judge/]">www.promptfoo.dev</a> The method appears mature enough for pipeline use because primary research and current framework practice both support scalable semantic grading, but the same sources show it is not reliable enough to stand alone without deterministic checks, calibration, and human review paths.</li>
+<li>[inference; source: <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/analytics-agent-evaluation-overview">Copilot Studio evaluation methods</a> <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/analytics-agent-evaluation-intro">Copilot Studio agent evaluation overview</a> <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/sec-gov-phase2">Copilot Studio zoned governance guidance</a> <a href="https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/evaluate-generative-ai-app]">learn.microsoft.com</a> For Copilot Studio teams, the best-supported current pattern is to run native automated evaluations inside an Application Lifecycle Management (ALM) workflow, or to run Azure AI Foundry evaluators in adjacent automated test flows, then use pipeline or approval logic outside the product to decide promotion.</li>
+<li>[inference; source: <a href="https://www.nist.gov/itl/ai-risk-management-framework">NIST AI Risk Management Framework page</a> <a href="https://www.iso.org/standard/42001">ISO/IEC 42001:2023 official page</a> <a href="https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai]">digital-strategy.ec.europa.eu</a> The reviewed standards and regulatory sources create pressure for auditable evaluation, monitoring, documentation, and governance disciplines, but they do not yet formalise LLM-as-judge as the accepted method, so the technique remains a community practice layered under broader governance obligations.</li>
+</ul>
+<h3>Key Findings</h3>
+<ol>
+<li>[fact; source: <a href="https://arxiv.org/abs/2306.05685]">arxiv.org/abs/2306.05685]</a> <strong>Medium:</strong> Zheng et al. established the modern LLM-as-judge pattern in 2023 by showing that a strong judge model could approximate human preference on open-ended responses while explicitly naming bias modes that make naive deployment unsafe.</li>
+<li>[fact; source: <a href="https://www.promptfoo.dev/docs/integrations/ci-cd/">Promptfoo CI/CD integration</a> <a href="https://www.confident-ai.com/docs/llm-evaluation/unit-testing-cicd">DeepEval unit testing in CI/CD</a> <a href="https://www.braintrust.dev/docs/evaluate/run-evaluations]">www.braintrust.dev</a> <strong>High:</strong> Promptfoo, DeepEval, and Braintrust are the clearest current examples of judge-based evaluation being operationalised as a release checkpoint because each documents concrete Continuous Integration/Continuous Delivery (CI/CD) jobs, thresholds, and build-fail behavior.</li>
+<li>[fact; source: <a href="https://docs.smith.langchain.com/evaluation">LangSmith evaluation concepts</a> <a href="https://docs.langchain.com/langsmith/online-evaluations-llm-as-judge">LangSmith online evaluations with LLM-as-a-judge</a> <a href="https://www.braintrust.dev/docs/guides/evals]">www.braintrust.dev</a> <strong>High:</strong> LangSmith and Braintrust show that the operational pattern is not limited to pre-merge regression tests, because judge-based scoring is also used on live traces for post-deployment regression detection and dataset expansion.</li>
+<li>[fact; source: <a href="https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/evaluation-approach-gen-ai">Azure AI Foundry evaluation approach for generative AI</a> <a href="https://learn.microsoft.com/en-us/azure/foundry/concepts/evaluation-evaluators/agent-evaluators">Azure AI Foundry agent evaluators</a> <a href="https://learn.microsoft.com/en-us/python/api/overview/azure/ai-evaluation-readme?view=azure-python]">learn.microsoft.com</a> <strong>Medium:</strong> Microsoft has moved beyond generic quality scoring by shipping Azure AI Foundry evaluators that judge task completion, task adherence, tool use, and other agent-process behaviors in addition to final-output quality.</li>
+<li>[inference; source: <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/analytics-agent-evaluation-intro">Copilot Studio agent evaluation overview</a> <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/analytics-agent-evaluation-overview">Copilot Studio evaluation methods</a> <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/analytics-agent-evaluation-results">Copilot Studio evaluation results</a> <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/sec-gov-phase2">Copilot Studio zoned governance guidance</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-28-alternative-pipeline-platforms-copilot-studio-agents.html]">davidamitchell.github.io</a> <strong>Medium:</strong> Copilot Studio now natively supports automated agent evaluation, including an LLM-based general-quality method and automation through Application Programming Interface (API) calls or connectors, which makes it pipeline-compatible even though the documented hard release gate still sits in surrounding pipeline or approval controls.</li>
+<li>[inference; source: <a href="https://www.promptfoo.dev/docs/guides/llm-as-a-judge/">Promptfoo LLM-as-a-judge guide</a> <a href="https://docs.langchain.com/langsmith/llm-as-judge">LangSmith LLM-as-a-judge evaluator</a> <a href="https://www.braintrust.dev/docs/evaluate/write-scorers">Braintrust write scorers</a> <a href="https://deepeval.com/docs/metrics-introduction]">deepeval.com</a> <strong>High:</strong> A common documented implementation pattern is layered evaluation, where deterministic checks handle exact structure or executable correctness and judge-based checks handle semantic quality, safety, or task completion.</li>
+<li>[inference; source: <a href="https://docs.ragas.io/en/stable/concepts/experimentation/">Ragas experimentation</a> <a href="https://github.com/openai/evals/blob/main/docs/run-evals.md">OpenAI Evals run-evals guide</a> <a href="https://ai.pydantic.dev/evals/]">ai.pydantic.dev</a> <strong>Medium:</strong> Ragas, OpenAI Evals, and <a href="https://ai.pydantic.dev/evals/">Pydantic Evals</a> are better understood as programmable eval infrastructure than as documented release-gate products, because their official materials emphasize experiments, local runners, and code-defined evaluators rather than hosted promotion controls.</li>
+<li>[inference; source: <a href="https://www.nist.gov/itl/ai-risk-management-framework">NIST AI Risk Management Framework page</a> <a href="https://www.iso.org/standard/42001">ISO/IEC 42001:2023 official page</a> <a href="https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai">European Commission AI Act regulatory framework page</a> <a href="https://www.nist.gov/artificial-intelligence/ai-standards]">www.nist.gov</a> <strong>Medium:</strong> The reviewed standards landscape formalises the obligation to evaluate, document, monitor, and govern Artificial Intelligence (AI) systems, while the examined official summaries do not explicitly specify LLM-as-judge as an auditable or required validation technique.</li>
+</ol>
+<h3>Assumptions</h3>
+<ul>
+<li>[assumption] The absence of explicit LLM-as-judge language in the examined official standards pages is sufficient to treat the technique as non-formalised today. <strong>Justification:</strong> no explicit naming was found in the official summaries reviewed, but full-text legal or paid standards review could refine this.</li>
+</ul>
+<h3>Analysis</h3>
+<ul>
+<li>[fact; source: <a href="https://www.promptfoo.dev/docs/integrations/ci-cd/">Promptfoo CI/CD integration</a> <a href="https://www.confident-ai.com/docs/llm-evaluation/unit-testing-cicd">DeepEval unit testing in CI/CD</a> <a href="https://www.braintrust.dev/docs/evaluate/run-evaluations]">www.braintrust.dev</a> The decisive evidence for operationalisation is not merely that a framework supports a judge, but that it documents repeatable automation, thresholding, and workflow failure semantics.</li>
+<li>[inference; source: <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/analytics-agent-evaluation-intro">Copilot Studio agent evaluation overview</a> <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/sec-gov-phase2">Copilot Studio zoned governance guidance</a> <a href="https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html]">davidamitchell.github.io</a> Microsoft's tooling now covers enough of the evaluation surface that Copilot Studio teams do not need to start from zero, but they still need a surrounding governed promotion path to convert test outcomes into an enforceable release decision.</li>
+<li>[inference; source: <a href="https://arxiv.org/abs/2306.05685">Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena (Zheng et al., 2023)</a> <a href="https://www.promptfoo.dev/docs/guides/llm-as-a-judge/">Promptfoo LLM-as-a-judge guide</a> <a href="https://docs.langchain.com/langsmith/llm-as-judge]">docs.langchain.com</a> The pattern is strongest when used as one layer in a composite gate because the same literature that validates judge usefulness also documents the reasons it can mis-score outputs if used alone.</li>
+<li>[inference; source: <a href="https://www.nist.gov/itl/ai-risk-management-framework">NIST AI Risk Management Framework page</a> <a href="https://www.iso.org/standard/42001">ISO/IEC 42001:2023 official page</a> <a href="https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai]">digital-strategy.ec.europa.eu</a> Standards pressure increases demand for auditable evaluation artifacts, but it does not settle which scoring method auditors will ultimately prefer, so teams should preserve datasets, prompts, thresholds, and review evidence rather than assuming judge scores alone are self-explanatory.</li>
+</ul>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>[fact; source: <a href="https://arxiv.org/abs/2306.05685">Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena (Zheng et al., 2023)</a> <a href="https://www.promptfoo.dev/docs/guides/llm-as-a-judge/]">www.promptfoo.dev</a> Judge bias, prompt sensitivity, and self-preference remain live risks, so a release gate that relies only on judge output can still pass unsafe or low-quality behavior.</li>
+<li>[fact; source: <a href="https://learn.microsoft.com/en-us/azure/foundry/concepts/evaluation-evaluators/agent-evaluators]">learn.microsoft.com</a> Several Azure agent evaluators are still marked preview, which limits how strongly they can be treated as stable long-term governance controls.</li>
+<li>[assumption] Microsoft may later publish stronger native release-gate guidance for Copilot Studio evaluations, but the reviewed documents do not yet show that end-to-end enforcement pattern.</li>
+<li>[assumption] A full clause-level review of the complete legal and standards texts could surface more specific language on acceptable testing methods than the accessible official summaries expose.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>[inference; source: <a href="https://www.promptfoo.dev/docs/integrations/ci-cd/">Promptfoo CI/CD integration</a> <a href="https://www.braintrust.dev/docs/evaluate/run-evaluations">Braintrust run evaluations</a> <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/analytics-agent-evaluation-intro]">learn.microsoft.com</a> Which enterprises are publicly documenting judge-based release gates in regulated environments outside framework vendors themselves?</li>
+<li>[inference; source: <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/analytics-agent-evaluation-intro">Copilot Studio agent evaluation overview</a> <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/sec-gov-phase2">Copilot Studio zoned governance guidance</a> <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance]">learn.microsoft.com</a> How quickly will Microsoft connect Copilot Studio evaluation outputs to first-class deployment approvals or environment-promotion rules?</li>
+<li>[inference; source: <a href="https://www.nist.gov/itl/ai-risk-management-framework/roadmap-nist-artificial-intelligence-risk-management-framework-ai">NIST AI RMF Roadmap</a> <a href="https://www.nist.gov/artificial-intelligence/ai-standards">NIST AI standards page</a> <a href="https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai]">digital-strategy.ec.europa.eu</a> Will future NIST testing, evaluation, validation, and verification work or European harmonised standards define acceptable evidence patterns for LLM-based evaluators?</li>
+</ul>
+<hr />
+
+<h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><path d="M2 2h5.5l6.5 6.5-5.5 5.5L2 7.5V2z"/><circle cx="6" cy="6" r="1"/></svg>sources</h2>
+<ul>
+<li>[x] <a href="https://arxiv.org/abs/2306.05685">Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena (Zheng et al., 2023)</a> - foundational paper defining the LLM-as-judge methodology and naming its core biases</li>
+<li>[x] <a href="https://docs.ragas.io/en/latest/">Ragas introduction</a> - framework positioning for continuous evaluation loops</li>
+<li>[x] <a href="https://docs.ragas.io/en/stable/concepts/experimentation/">Ragas experimentation</a> - official experiment and result-storage pattern</li>
+<li>[x] <a href="https://docs.confident-ai.com/">DeepEval documentation home</a> - framework overview and CI/CD positioning</li>
+<li>[x] <a href="https://www.confident-ai.com/docs/llm-evaluation/unit-testing-cicd">DeepEval unit testing in CI/CD</a> - official GitHub Actions pattern for judge-based tests</li>
+<li>[x] <a href="https://deepeval.com/docs/metrics-introduction">DeepEval metrics introduction</a> - official statement that most metrics use LLM-as-a-judge</li>
+<li>[x] <a href="https://www.promptfoo.dev/docs/intro/">Promptfoo introduction</a> - evaluation framework overview</li>
+<li>[x] <a href="https://www.promptfoo.dev/docs/integrations/ci-cd/">Promptfoo CI/CD integration</a> - official pipeline gating patterns</li>
+<li>[x] <a href="https://www.promptfoo.dev/docs/guides/llm-as-a-judge/">Promptfoo LLM-as-a-judge guide</a> - official judge configuration and compensating controls</li>
+<li>[x] <a href="https://docs.smith.langchain.com/evaluation">LangSmith evaluation concepts</a> - offline and online evaluation lifecycle</li>
+<li>[x] <a href="https://docs.langchain.com/langsmith/llm-as-judge">LangSmith LLM-as-a-judge evaluator</a> - official offline judge setup</li>
+<li>[x] <a href="https://docs.langchain.com/langsmith/online-evaluations-llm-as-judge">LangSmith online evaluations with LLM-as-a-judge</a> - official production-trace judge pattern</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/evaluation-approach-gen-ai">Azure AI Foundry evaluation approach for generative AI</a> - Microsoft's official AI evaluation approach including LLM-as-judge</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/evaluate-generative-ai-app">Run evaluations from the Foundry portal</a> - pre-production and agent evaluation flow</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/python/api/overview/azure/ai-evaluation-readme?view=azure-python">Azure AI Evaluation Software Development Kit (SDK) for Python</a> - built-in evaluators and custom evaluators</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/azure/foundry/concepts/evaluation-evaluators/agent-evaluators">Azure AI Foundry agent evaluators</a> - pass/fail agent-specific evaluators for workflow steps</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/analytics-agent-evaluation-intro">Copilot Studio agent evaluation overview</a> - native evaluation and automation entry point</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/analytics-agent-evaluation-overview">Copilot Studio evaluation methods</a> - general-quality evaluator and scoring methods</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/analytics-agent-evaluation-results">Copilot Studio evaluation results</a> - programmatic runs, pass rate, result export, and Power Platform Application Programming Interface (API) support</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/evaluation-overview">Copilot Studio evaluation guidance</a> - Microsoft guidance to run regression tests before release</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance">Copilot Studio security and governance</a> - governance controls around publishing and data policies</li>
+<li>[x] <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/sec-gov-phase2">Copilot Studio zoned governance guidance</a> - Application Lifecycle Management (ALM) pipeline context and publish approval</li>
+<li>[x] <a href="https://github.com/openai/evals">OpenAI Evals repository</a> - official open-source eval framework positioning</li>
+<li>[x] <a href="https://github.com/openai/evals/blob/main/docs/eval-templates.md">OpenAI Evals model-graded templates</a> - official model-graded eval template details</li>
+<li>[x] <a href="https://github.com/openai/evals/blob/main/docs/run-evals.md">OpenAI Evals run-evals guide</a> - official local Command Line Interface (CLI) execution pattern</li>
+<li>[x] <a href="https://www.braintrust.dev/docs/guides/evals">Braintrust evals guide</a> - official evaluation lifecycle</li>
+<li>[x] <a href="https://www.braintrust.dev/docs/evaluate/run-evaluations">Braintrust run evaluations</a> - official experiment and CI/CD workflow including pull request (PR) runs</li>
+<li>[x] <a href="https://www.braintrust.dev/docs/evaluate/write-scorers">Braintrust write scorers</a> - official LLM-as-a-judge scorer configuration</li>
+<li>[x] <a href="https://ai.pydantic.dev/evals/">Pydantic Evals</a> - code-first evaluation framework with LLM judge support</li>
+<li>[x] <a href="https://www.nist.gov/itl/ai-risk-management-framework">NIST AI Risk Management Framework page</a> - official framework overview and linked canonical documents</li>
+<li>[x] <a href="https://airc.nist.gov/AI_RMF_Knowledge_Base/Playbook">NIST AI RMF Playbook</a> - official implementation playbook</li>
+<li>[x] <a href="https://www.nist.gov/itl/ai-risk-management-framework/roadmap-nist-artificial-intelligence-risk-management-framework-ai">NIST AI RMF Roadmap</a> - official roadmap emphasizing testing, evaluation, validation, and verification</li>
+<li>[x] <a href="https://www.nist.gov/artificial-intelligence/ai-standards">NIST AI standards page</a> - NIST standards posture and crosswalks</li>
+<li>[x] <a href="https://www.iso.org/standard/42001">ISO/IEC 42001:2023 official page</a> - official Artificial Intelligence Management System (AIMS) standard summary</li>
+<li>[x] <a href="https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai">European Commission AI Act regulatory framework page</a> - official AI Act summary and high-risk obligations</li>
+<li>[x] <a href="https://digital-strategy.ec.europa.eu/en/policies/european-approach-artificial-intelligence">European approach to Artificial Intelligence</a> - official policy framing and implementation context</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html">Deployment pipeline as the only enforceable control gate</a> - companion completed research on pipeline-as-gate governance</li>
+<li>[x] <a href="https://davidamitchell.github.io/Research/research/2026-03-10-agent-evaluation-cross-repo-analysis.html">Agent evaluation framework: cross-repo pattern analysis, commonality detection, and regression identification</a> - prior repository synthesis on evals and regression patterns</li>
+</ul>
+
+
+  </div>
+  <div class="related-section"><div class="related-group-label">related items</div><div class="related-group"><div class="related-entry"><a href="/Research/research/2026-03-10-agent-evaluation-cross-repo-analysis.html">Agent evaluation framework: cross-repo pattern analysis, commonality detection, and regression identification</a> <span class="related-note">via benchmarking, evaluation</span></div>
+</div></div>
+
+  <div class="item-nav">
+    
+    <div class="item-nav-next"><span class="item-nav-label">older →</span><a href="/Research/research/2026-04-28-alternative-pipeline-platforms-copilot-studio-agents.html">Alternative Continuous Integration and Continuous Delivery pipeline platforms…</a></div>
+  </div>
+</main>
+</body>
+</html>

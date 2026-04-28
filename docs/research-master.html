@@ -640,7 +640,7 @@ main {
   </div>
   <div class="research-master-content item-content">
     <h1>Research Master Document</h1>
-<p>Generated on: 2026-04-28 10:53 UTC</p>
+<p>Generated on: 2026-04-28 19:04 UTC</p>
 <p><a id="2026-04-28-uelgf-tooling-reference-architecture-md"></a></p>
 <h2>Universal Entity Lifecycle Governance Framework (UELGF) extension: tooling specification and reference architecture for policy-as-code, observability, and Identity and Access Management (IAM) implementation</h2>
 <p><strong>Tags:</strong> [uelgf, tooling, reference-architecture, policy-as-code, opa, cedar, opentelemetry, iam, revocable-credentials, governed-golden-rail, platform-engineering]</p>
@@ -1044,6 +1044,148 @@ main {
 <li>[inference; source: https://arxiv.org/abs/2506.03053; https://openreview.net/forum?id=zt5JpGQ8WhH] Which graph-level metrics best distinguish healthy delegation from unsafe emergent coordination in enterprise multi-agent systems without generating excessive false positives?</li>
 <li>[inference; source: https://www.anthropic.com/research/emergent-misalignment-reward-hacking; https://davidamitchell.github.io/Research/research/2026-04-27-pip-invariant-anomaly-detection.html] Which verifier-disagreement patterns are most predictive of genuine goal drift versus benign task complexity in tool-rich enterprise agent environments?</li>
 <li>[inference; source: https://arxiv.org/abs/2403.16527; https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/best-practices-for-mitigating-hallucinations-in-large-language-models-llms/4403129] How should groundedness and source-confidence thresholds vary by CIA tier and action class so that the rail remains usable while still fail-closing for high-consequence actions?</li>
+</ul>
+<hr />
+<hr />
+<p><a id="2026-04-28-alternative-pipeline-platforms-copilot-studio-agents-md"></a></p>
+<h2>Alternative Continuous Integration and Continuous Delivery pipeline platforms for governing agents built with Microsoft Copilot Studio: Harness, Amazon Web Services CodeBuild and CodeDeploy, and Jenkins</h2>
+<p><strong>Tags:</strong> [pipeline-platforms, ci-cd, copilot-studio, power-platform, harness, aws-codebuild, aws-codedeploy, jenkins, governance, orchestration, deployment-pipeline, citizen-development]</p>
+<p><strong>Origin:</strong> https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-28-alternative-pipeline-platforms-copilot-studio-agents.md</p>
+<h2>Research Question</h2>
+<p>What alternative Continuous Integration and Continuous Delivery (CI/CD) pipeline platforms, specifically Harness, Amazon Web Services (AWS) CodeBuild and CodeDeploy, and Jenkins, can serve as the governance enforcement layer for agents built with Microsoft Copilot Studio, and how do their orchestration hook points and integration capabilities compare to the Azure DevOps and GitHub Actions patterns established in existing deployment pipeline research?</p>
+<h2>Findings</h2>
+<p><em>(Seeded from §6 Synthesis and kept substantively aligned.)</em></p>
+<h3>Executive Summary</h3>
+<ul>
+<li>[inference; source: https://developer.harness.io/docs/platform/governance/policy-as-code/harness-governance-overview/; https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html; https://www.jenkins.io/doc/book/pipeline/; https://learn.microsoft.com/en-us/microsoft-copilot-studio/publication-fundamentals-publish-channels; https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance] Harness, AWS CodePipeline plus CodeBuild, and Jenkins can all serve as external governance orchestrators for Microsoft Copilot Studio deployments, but none of them can independently enforce the full pipeline-as-gate model unless Microsoft tenant and environment controls also remove or constrain direct publish paths.</li>
+<li>[inference; source: https://developer.harness.io/docs/platform/governance/policy-as-code/harness-governance-overview/; https://developer.harness.io/docs/platform/approvals/custom-approvals/; https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-ManualApproval.html; https://www.jenkins.io/doc/book/pipeline/shared-libraries/] Harness offers the strongest native governance surface because it combines OPA-backed policy-as-code with manual and script-driven approvals, while AWS and Jenkins rely more heavily on generic stage controls and custom scripting.</li>
+<li>[inference; source: https://docs.aws.amazon.com/codedeploy/latest/userguide/welcome.html; https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html; https://learn.microsoft.com/en-us/power-platform/developer/cli/introduction] In the AWS stack, CodeBuild is the relevant execution layer for Power Platform automation and CodeDeploy is mostly orthogonal, because Copilot Studio promotion uses Microsoft interfaces rather than AWS compute deployment targets.</li>
+<li>[inference; source: https://learn.microsoft.com/en-us/power-platform/developer/cli/introduction; https://learn.microsoft.com/en-us/power-platform/alm/extend-pipelines; https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html] The minimum viable pattern on any of the three platforms is to run <code>pac</code> or Microsoft Dataverse-based validation and deployment steps under a delegated Microsoft identity, require human approval for protected stages, and pair the pipeline with managed environments, data policies, scoped roles, and publish restrictions inside Microsoft Power Platform.</li>
+</ul>
+<h3>Key Findings</h3>
+<ul>
+<li>
+<ol>
+<li>[inference; confidence: medium; source: https://developer.harness.io/docs/platform/governance/policy-as-code/harness-governance-overview/; https://developer.harness.io/docs/continuous-delivery/x-platform-cd-features/cd-steps/approvals/using-harness-approval-steps-in-cd-stages/; https://developer.harness.io/docs/platform/approvals/custom-approvals/; https://developer.harness.io/docs/continuous-delivery/x-platform-cd-features/cd-steps/utilities/shell-script-step/; https://learn.microsoft.com/en-us/power-platform/developer/cli/introduction] Harness can credibly serve as the governance orchestrator for Copilot Studio deployments because it natively combines policy-as-code, manual approvals, scripted custom approvals, and generic shell execution, but Microsoft-specific checks still have to be implemented as custom logic rather than as first-class Harness objects.</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>[inference; confidence: high; source: https://docs.aws.amazon.com/codepipeline/latest/userguide/welcome.html; https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-ManualApproval.html; https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html; https://docs.aws.amazon.com/codedeploy/latest/userguide/welcome.html; https://learn.microsoft.com/en-us/power-platform/developer/cli/introduction] AWS can support the governance pattern through CodePipeline plus CodeBuild, but CodeDeploy is a weak fit for Copilot Studio because its documented deployment targets are Amazon EC2, AWS Lambda, Amazon ECS, and on-premises compute rather than Dataverse or Copilot metadata.</li>
+</ol>
+</li>
+<li>
+<ol start="3">
+<li>[inference; confidence: medium; source: https://www.jenkins.io/doc/book/pipeline/; https://www.jenkins.io/doc/book/pipeline/shared-libraries/; https://community.powerplatform.com/forums/thread/details/?threadid=f32ec0db-7e86-4759-b960-4aec5dc37617; https://community.powerplatform.com/forums/thread/details/?threadid=7f3bd5b7-ec15-f011-998a-6045bdeb8a5d; https://learn.microsoft.com/en-us/power-platform/developer/cli/introduction] Jenkins can implement the same CLI-driven governance pattern as Harness and AWS, but its control model is mostly self-authored through <code>Jenkinsfile</code> and Shared Library code, and the reviewed public evidence for Power Platform-specific implementations is notably thinner.</li>
+</ol>
+</li>
+<li>
+<ol start="4">
+<li>[fact; confidence: medium; source: https://learn.microsoft.com/en-us/power-platform/developer/cli/introduction; https://learn.microsoft.com/en-us/power-platform/developer/cli/reference/pipeline; https://learn.microsoft.com/en-us/power-platform/alm/devops-build-tools; https://learn.microsoft.com/en-us/power-platform/alm/extend-pipelines] Microsoft's deployment interfaces are platform agnostic at the runner layer because Power Platform CLI is cross-platform, the Build Tools are CLI based, and Power Platform pipelines expose callable deployment and extension interfaces that any pipeline engine can invoke.</li>
+</ol>
+</li>
+<li>
+<ol start="5">
+<li>[inference; confidence: medium; source: https://learn.microsoft.com/en-us/microsoft-copilot-studio/publication-fundamentals-publish-channels; https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance; https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/sec-gov-phase2; https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html; https://davidamitchell.github.io/Research/research/2026-04-24-business-led-low-code-agent-governance.html] None of the alternative pipeline platforms can close Copilot Studio's direct-publish bypass on their own, because Microsoft still exposes in-product publication and documents tenant, environment, sharing, and publish controls as the complementary restrictions needed to make pipeline governance authoritative.</li>
+</ol>
+</li>
+<li>
+<ol start="6">
+<li>[inference; confidence: medium; source: https://developer.harness.io/docs/platform/governance/policy-as-code/harness-governance-overview/; https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-ManualApproval.html; https://www.jenkins.io/doc/book/pipeline/; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-governance-enforcement-architecture.html] Across Harness, AWS, and Jenkins, approval gates and generic script hooks are native platform features, but permission-scope validation, data-classification checks, blast-radius assessment, owner registration, and most observability assertions are custom controls that must call Microsoft or enterprise control systems.</li>
+</ol>
+</li>
+<li>
+<ol start="7">
+<li>[inference; confidence: medium; source: https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance; https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/sec-gov-phase2; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html] The real governance boundary remains Microsoft-side identity, environment, data policy, and telemetry design, so choosing an external pipeline platform mostly changes how governance workflow is authored and audited rather than which substantive Copilot Studio controls exist.</li>
+</ol>
+</li>
+<li>
+<ol start="8">
+<li>[inference; confidence: medium; source: https://learn.microsoft.com/en-us/power-platform/alm/delegated-deployments-setup; https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/sec-gov-phase2; https://developer.harness.io/docs/platform/approvals/custom-approvals/; https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html; https://www.jenkins.io/doc/book/pipeline/shared-libraries/] For organizations already committed to one of these pipeline estates, the minimum viable implementation is delegated Microsoft deployment identity, scripted validation steps before deployment, human approval for protected stages, and Microsoft environment controls that keep production promotion inside IT-managed zones.</li>
+</ol>
+</li>
+</ul>
+<h3>Evidence Map</h3>
+<table>
+<thead>
+<tr>
+<th>Claim</th>
+<th>Source</th>
+<th>Confidence</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[inference] Harness is the strongest alternative platform for native governance because it combines policy-as-code, manual approvals, and scripted approval logic before production stages.</td>
+<td>https://developer.harness.io/docs/platform/governance/policy-as-code/harness-governance-overview/; https://developer.harness.io/docs/continuous-delivery/x-platform-cd-features/cd-steps/approvals/using-harness-approval-steps-in-cd-stages/; https://developer.harness.io/docs/platform/approvals/custom-approvals/; https://developer.harness.io/docs/continuous-delivery/x-platform-cd-features/cd-steps/utilities/shell-script-step/</td>
+<td>medium</td>
+<td>native policy surface</td>
+</tr>
+<tr>
+<td>[inference] AWS support for Copilot Studio governance runs mainly through CodePipeline plus CodeBuild, while CodeDeploy is mostly orthogonal because it targets compute deployments rather than Dataverse promotion.</td>
+<td>https://docs.aws.amazon.com/codepipeline/latest/userguide/welcome.html; https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-ManualApproval.html; https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html; https://docs.aws.amazon.com/codedeploy/latest/userguide/welcome.html; https://learn.microsoft.com/en-us/power-platform/developer/cli/introduction</td>
+<td>high</td>
+<td>CodeDeploy fit is weak</td>
+</tr>
+<tr>
+<td>[inference] Jenkins is feasible but governance-heavy because reusable control logic must be authored in Jenkinsfile and Shared Library code, and public Power Platform examples are sparse.</td>
+<td>https://www.jenkins.io/doc/book/pipeline/; https://www.jenkins.io/doc/book/pipeline/shared-libraries/; https://community.powerplatform.com/forums/thread/details/?threadid=f32ec0db-7e86-4759-b960-4aec5dc37617; https://community.powerplatform.com/forums/thread/details/?threadid=7f3bd5b7-ec15-f011-998a-6045bdeb8a5d</td>
+<td>medium</td>
+<td>limited public exemplars</td>
+</tr>
+<tr>
+<td>[fact] Microsoft's Application Lifecycle Management interfaces are portable because Power Platform CLI is cross-platform and Power Platform pipelines expose callable deployment and extension hooks.</td>
+<td>https://learn.microsoft.com/en-us/power-platform/developer/cli/introduction; https://learn.microsoft.com/en-us/power-platform/developer/cli/reference/pipeline; https://learn.microsoft.com/en-us/power-platform/alm/devops-build-tools; https://learn.microsoft.com/en-us/power-platform/alm/extend-pipelines</td>
+<td>medium</td>
+<td>runner-agnostic interface</td>
+</tr>
+<tr>
+<td>[inference] External pipelines cannot be authoritative on their own because Copilot Studio still exposes direct publish and Microsoft documents separate tenant and environment controls for publication governance.</td>
+<td>https://learn.microsoft.com/en-us/microsoft-copilot-studio/publication-fundamentals-publish-channels; https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance; https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/sec-gov-phase2; https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html; https://davidamitchell.github.io/Research/research/2026-04-24-business-led-low-code-agent-governance.html</td>
+<td>medium</td>
+<td>bypass remains unless closed</td>
+</tr>
+<tr>
+<td>[inference] All three platforms expose native approval or stage-control hooks, but the substantive enterprise governance checks are mostly custom integrations to Microsoft or enterprise control systems.</td>
+<td>https://developer.harness.io/docs/platform/governance/policy-as-code/harness-governance-overview/; https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-ManualApproval.html; https://www.jenkins.io/doc/book/pipeline/; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-governance-enforcement-architecture.html</td>
+<td>medium</td>
+<td>native gate, custom checks</td>
+</tr>
+<tr>
+<td>[inference] Microsoft-side identity, data-policy, and telemetry controls remain the substantive governance boundary, so pipeline choice mainly changes implementation style rather than control substance.</td>
+<td>https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance; https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/sec-gov-phase2; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-identity-access-management-enterprise.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-lowcode-observability-telemetry-governance.html</td>
+<td>medium</td>
+<td>Microsoft remains system of control</td>
+</tr>
+<tr>
+<td>[inference] The minimum viable implementation on any of the three platforms is delegated Microsoft identity plus scripted validations, human approvals, and IT-managed Microsoft environments.</td>
+<td>https://learn.microsoft.com/en-us/power-platform/alm/delegated-deployments-setup; https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/sec-gov-phase2; https://developer.harness.io/docs/platform/approvals/custom-approvals/; https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html; https://www.jenkins.io/doc/book/pipeline/shared-libraries/</td>
+<td>medium</td>
+<td>implementation baseline</td>
+</tr>
+</tbody>
+</table>
+<h3>Assumptions</h3>
+<ul>
+<li>[assumption; source: https://learn.microsoft.com/en-us/power-platform/developer/cli/introduction; https://learn.microsoft.com/en-us/power-platform/alm/extend-pipelines; https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html; https://developer.harness.io/docs/continuous-delivery/x-platform-cd-features/cd-steps/utilities/shell-script-step/; https://www.jenkins.io/doc/book/pipeline/] Any pipeline engine that can host supported .NET tooling, inject secrets, and run shell commands can execute the Microsoft deployment pattern. Justification: Microsoft's portable command-line and Dataverse hook model do not require Azure DevOps or GitHub specific runners, even though those two platforms have the best documented vendor examples.</li>
+</ul>
+<h3>Analysis</h3>
+<ul>
+<li>[inference; source: https://learn.microsoft.com/en-us/power-platform/developer/cli/introduction; https://learn.microsoft.com/en-us/power-platform/alm/extend-pipelines; https://learn.microsoft.com/en-us/microsoft-copilot-studio/security-and-governance] The evidence was weighted in two layers: first, whether the platform can technically invoke Microsoft deployment and validation interfaces, and second, whether the platform natively helps govern the pipeline definition or only the pipeline run.</li>
+<li>[inference; source: https://developer.harness.io/docs/platform/governance/policy-as-code/harness-governance-overview/; https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-ManualApproval.html; https://www.jenkins.io/doc/book/pipeline/] That weighting favors Harness on native governance because it can enforce policy before a pipeline is even saved or run, while AWS and Jenkins primarily gate execution after teams have authored the pipeline logic.</li>
+<li>[inference; source: https://learn.microsoft.com/en-us/microsoft-copilot-studio/publication-fundamentals-publish-channels; https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/sec-gov-phase2; https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html] The bypass question overrides platform comparisons because Microsoft's direct publish path means a technically elegant external pipeline still fails as a control if makers can route around it.</li>
+<li>[inference; source: https://community.powerplatform.com/forums/thread/details/?threadid=f32ec0db-7e86-4759-b960-4aec5dc37617; https://community.powerplatform.com/forums/thread/details/?threadid=7f3bd5b7-ec15-f011-998a-6045bdeb8a5d] Community evidence was used only to test whether public implementation patterns are mature, and it reduced confidence for Jenkins case-study prevalence without undermining the underlying capability mapping.</li>
+</ul>
+<h3>Risks, Gaps, and Uncertainties</h3>
+<ul>
+<li>[inference; source: https://community.powerplatform.com/forums/thread/details/?threadid=f32ec0db-7e86-4759-b960-4aec5dc37617; https://community.powerplatform.com/forums/thread/details/?threadid=7f3bd5b7-ec15-f011-998a-6045bdeb8a5d] The accessible public evidence reviewed for this item did not include direct production examples of Harness, AWS, or Jenkins governing Copilot Studio, so adoption-prevalence claims remain weaker than the capability claims recorded here.</li>
+<li>[inference; source: https://learn.microsoft.com/en-us/power-platform/developer/cli/introduction; https://learn.microsoft.com/en-us/power-platform/alm/devops-build-tools] Power Platform CLI portability does not guarantee operational simplicity, because runner image management, credential setup, and artifact handling can still create meaningful implementation overhead on each platform.</li>
+</ul>
+<h3>Open Questions</h3>
+<ul>
+<li>[inference; source: https://community.powerplatform.com/forums/thread/details/?threadid=f32ec0db-7e86-4759-b960-4aec5dc37617; https://community.powerplatform.com/forums/thread/details/?threadid=7f3bd5b7-ec15-f011-998a-6045bdeb8a5d] Would a targeted search of enterprise blogs, conference talks, or private customer references reveal materially stronger Jenkins case studies than the accessible public sources used here?</li>
+<li>[inference; source: https://learn.microsoft.com/en-us/power-platform/alm/extend-pipelines; https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/sec-gov-phase2] For organizations that keep native Power Platform pipelines for maker experience but add Harness, AWS, or Jenkins above them, which split of responsibilities between native and external gates minimizes bypass risk and operational duplication?</li>
 </ul>
 <hr />
 <hr />
