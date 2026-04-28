@@ -8,6 +8,13 @@ tags: [llm-as-judge, evaluation, validation, pipeline, ci-cd, agentic-ai, qualit
 started: ~
 completed: ~
 output: [knowledge]
+cites: []          # slugs of items this item directly depends on or quotes
+related: []        # slugs of thematically connected items
+superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)
+supersedes: ~      # slug of an older item this one replaces (null if not applicable)
+item_type: primary # primary | synthesis
+confidence: medium # high | medium | low
+versions: []       # entries: {version: "1.0", sha: "<commit-hash>", changed: YYYY-MM-DD, progress: "<path>", summary: "<one-line>"}
 ---
 
 # LLM-as-judge as pipeline validation checkpoints: who is defining and operationalising this pattern

@@ -9,6 +9,13 @@ tags: [shopify, ai-strategy, talent-market, selection-pressure, hiring, model-co
 started: 2026-04-19T21:43:08+00:00
 completed: 2026-04-19T21:43:08+00:00
 output: [knowledge]  # skill | tool | agent | knowledge | backlog-item
+cites: []          # slugs of items this item directly depends on or quotes
+related: []        # slugs of thematically connected items
+superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)
+supersedes: ~      # slug of an older item this one replaces (null if not applicable)
+item_type: primary # primary | synthesis
+confidence: medium # high | medium | low
+versions: []       # entries: {version: "1.0", sha: "<commit-hash>", changed: YYYY-MM-DD, progress: "<path>", summary: "<one-line>"}
 ---
 
 # Shopify's Artificial Intelligence (AI) strategy after the Red Queen memo: selection pressure, talent-market effects, and copycat outcomes

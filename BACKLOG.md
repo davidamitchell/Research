@@ -757,9 +757,9 @@ Tests cover: vocabulary file exists and is valid YAML, script produces correct o
 
 ## W-0044
 
-status: open
+status: done
 created: 2026-04-27
-updated: 2026-04-27
+updated: 2026-04-28
 
 ### Outcome
 
@@ -782,9 +782,9 @@ Cross-references currently exist only as inline prose. There is no `cites:` or `
 
 ## W-0045
 
-status: open
+status: done
 created: 2026-04-27
-updated: 2026-04-27
+updated: 2026-04-28
 
 ### Outcome
 
@@ -802,9 +802,9 @@ Older items may be contradicted or superseded by newer ones with no signal to th
 
 ## W-0046
 
-status: open
+status: done
 created: 2026-04-27
-updated: 2026-04-27
+updated: 2026-04-28
 
 ### Outcome
 
@@ -826,9 +826,9 @@ Tests cover: frontmatter parsing, CLI output, site builder rendering.
 
 ## W-0047
 
-status: open
+status: done
 created: 2026-04-27
-updated: 2026-04-27
+updated: 2026-04-28
 
 ### Outcome
 
@@ -886,9 +886,9 @@ Two implementation options for W-0049:
 
 ## W-0049
 
-status: open
+status: done
 created: 2026-04-27
-updated: 2026-04-27
+updated: 2026-04-28
 
 ### Outcome
 

@@ -8,6 +8,13 @@ tags: [ai-agents, coding, ide, anthropic, openai, cursor, opencode, aider, cline
 started: 2026-03-09T07:56:47+00:00
 completed: 2026-03-09T07:56:47+00:00
 output: [knowledge]
+cites: []          # slugs of items this item directly depends on or quotes
+related: []        # slugs of thematically connected items
+superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)
+supersedes: ~      # slug of an older item this one replaces (null if not applicable)
+item_type: primary # primary | synthesis
+confidence: medium # high | medium | low
+versions: []       # entries: {version: "1.0", sha: "<commit-hash>", changed: YYYY-MM-DD, progress: "<path>", summary: "<one-line>"}
 ---
 
 # AI coding harnesses: agent execution model, memory, and context management across commercial and OSS tools

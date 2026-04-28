@@ -9,6 +9,13 @@ tags: [human-in-the-loop, human-oversight, ai-governance, automated-workflows, i
 started: 2026-04-27T01:19:45+00:00
 completed: 2026-04-27T01:36:59+00:00
 output: [knowledge]
+cites: []          # slugs of items this item directly depends on or quotes
+related: []        # slugs of thematically connected items
+superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)
+supersedes: ~      # slug of an older item this one replaces (null if not applicable)
+item_type: primary # primary | synthesis
+confidence: medium # high | medium | low
+versions: []       # entries: {version: "1.0", sha: "<commit-hash>", changed: YYYY-MM-DD, progress: "<path>", summary: "<one-line>"}
 ---
 
 # When and how should human intervention be incorporated into Artificial Intelligence (AI)-driven and automated workflows?

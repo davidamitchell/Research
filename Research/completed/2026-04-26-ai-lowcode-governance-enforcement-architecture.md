@@ -9,6 +9,13 @@ tags: [governance-enforcement, enterprise-architecture, api-gateway, data-access
 started: 2026-04-26T18:59:18+00:00
 completed: 2026-04-26T19:22:16+00:00
 output: [knowledge]
+cites: []          # slugs of items this item directly depends on or quotes
+related: []        # slugs of thematically connected items
+superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)
+supersedes: ~      # slug of an older item this one replaces (null if not applicable)
+item_type: primary # primary | synthesis
+confidence: medium # high | medium | low
+versions: []       # entries: {version: "1.0", sha: "<commit-hash>", changed: YYYY-MM-DD, progress: "<path>", summary: "<one-line>"}
 ---
 
 # Where should governance enforcement points be implemented within enterprise architecture, and how should controls be applied consistently for AI and low-code systems?

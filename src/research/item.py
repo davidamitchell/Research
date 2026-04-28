@@ -19,6 +19,13 @@ class ResearchItem:
     tags: list[str] = field(default_factory=list)
     blocks: list[str] = field(default_factory=list)
     output: list[str] = field(default_factory=list)
+    cites: list[str] = field(default_factory=list)
+    related: list[str] = field(default_factory=list)
+    superseded_by: str | None = None
+    supersedes: str | None = None
+    item_type: str = "primary"  # primary | synthesis
+    confidence: str = "medium"  # high | medium | low
+    versions: list[dict] = field(default_factory=list)
 
     @classmethod
     def from_file(cls, path: Path) -> ResearchItem:
@@ -60,6 +67,13 @@ class ResearchItem:
             tags=meta.get("tags") or [],
             blocks=meta.get("blocks") or [],
             output=meta.get("output") or [],
+            cites=meta.get("cites") or [],
+            related=meta.get("related") or [],
+            superseded_by=meta.get("superseded_by") or None,
+            supersedes=meta.get("supersedes") or None,
+            item_type=str(meta.get("item_type") or "primary"),
+            confidence=str(meta.get("confidence") or "medium"),
+            versions=meta.get("versions") or [],
         )
 
     def state_dir_name(self) -> str:
