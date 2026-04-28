@@ -126,14 +126,14 @@ Final pass: every section justified, all threads synthesised, every claim source
 
 ### Executive Summary
 
-3–5 sentences. What is the answer to the research question? State the key conclusion directly.
+3–5 sentences. What is the answer to the research question? State the key conclusion directly. Write plain prose — no prefix labels. Bind sources as trailing inline citations: `Claim text. [inference; source: https://url]`
 
 ### Key Findings
 
-Ordered list. Each finding is a specific, evidence-backed claim.
+Ordered list. Each finding is a specific, evidence-backed claim with confidence and source as a trailing parenthetical.
 
-1.
-2.
+1. **Claim text as a complete sentence.** (high confidence; source: https://url)
+2. **Claim text as a complete sentence.** (medium confidence; source: https://url)
 
 ### Evidence Map
 

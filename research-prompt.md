@@ -158,13 +158,16 @@ aligned.
   falsifiable claim -- not a restatement of the question, not a description of
   what the item covers, not a hedged "it depends." If the answer is genuinely
   uncertain, state the best-supported conclusion followed by the primary
-  uncertainty.** State the key conclusion first.
+  uncertainty.** State the key conclusion first. Write plain prose; do not
+  prefix sentences with `[type; source:]` labels.
 - **Key Findings** -- ordered list, 6-12 items. Each is a specific,
-  evidence-backed claim with confidence label (high / medium / low). **Each Key
-  Finding must be a complete sentence of at least 20 words containing a subject,
-  a verb, and a specific object or complement.** Do not include findings that are
-  reformulations of the research question, findings that apply generically to all
-  research items, or findings that consist only of a label without a claim.
+  evidence-backed claim with a confidence label and source as a trailing
+  parenthetical. Format: `1. **Claim text as a complete sentence.** (high
+  confidence; source: https://url1; https://url2)` **Each Key Finding must be
+  a complete sentence of at least 20 words containing a subject, a verb, and a
+  specific object or complement.** Do not include findings that are
+  reformulations of the research question, findings that apply generically to
+  all research items, or findings that consist only of a label without a claim.
 - **Evidence Map** -- table: claim | source | confidence | notes. Every Key
   Finding must appear here. **The `source` cell in every row must contain one or
   more URL-backed citations or DOIs, not only source names or shorthand labels,
@@ -180,10 +183,17 @@ aligned.
 - **Output section** -- type (`knowledge`), description, and links to the three
   most important sources.
 - **Inline evidence discipline in Findings** -- every sentence in Findings that
-  asserts a factual or inferential claim must carry an inline `[fact]`,
-  `[inference]`, or `[assumption]` label and bind its supporting source at the
-  point of claim. The Evidence Map is required, but it does **not** substitute
-  for inline source binding in Executive Summary, Key Findings, or Analysis.
+  asserts a factual or inferential claim must bind its epistemic label and
+  supporting source inline. Use the **suffix** (trailing) form:
+  - **Executive Summary and Analysis:** plain prose sentences; each sentence
+    that makes a claim ends with a trailing citation:
+    `Claim text. [inference; source: https://url1; https://url2]`
+  - **Key Findings:** confidence and source as a trailing parenthetical after
+    the claim: `1. **Claim text.** (high confidence; source: https://url1)`
+  Do not write labels **before** the claim text (prefix style such as
+  `[inference; source: URL] Claim text.`). The Evidence Map is required, but it
+  does **not** substitute for inline source binding in Executive Summary, Key
+  Findings, or Analysis.
 
 **Writing style:**
 - Direct, declarative prose. State findings as facts or clearly labelled
@@ -282,8 +292,12 @@ easily-detectable issues.
 
 2a. **Findings inline labels and sources** -- every factual or inferential
     claim in `## Findings`, especially Executive Summary, Key Findings, and
-    Analysis, must also carry an inline `[fact]`, `[inference]`, or
-    `[assumption]` label and bind its supporting source at the point of claim.
+    Analysis, must carry an inline `[fact]`, `[inference]`, or `[assumption]`
+    label and bind its supporting source AFTER the claim text (suffix style).
+    Use `Claim text. [inference; source: URL]` for prose and
+    `1. **Claim text.** (high confidence; source: URL)` for Key Findings.
+    Prefix-style labels placed before the claim (such as
+    `[inference; source: URL] Claim text.`) are non-conforming.
     The Evidence Map alone is insufficient.
 
 2aa. **Synthesis/Findings parity** -- if any post-review fix changes wording,
