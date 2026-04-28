@@ -671,14 +671,14 @@ main {
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-01-github-wiki-research-content" target="_blank" rel="noopener">wiki →</a>
   </div>
-    <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>The GitHub wiki is a distinct git repo</li>
-<li>`GITHUB_TOKEN` is sufficient — no PAT needed</li>
-<li>Pages are flat — no subdirectories</li>
-<li>Three special pages control structure</li>
-<li>Internal wiki links use `[[Page Name]]` syntax</li>
-<li>Full rebuild is simpler than incremental</li>
-<li>YAML front-matter must be stripped</li>
-<li>The wiki must be enabled before the first push</li>
+    <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>The GitHub wiki is a distinct git repo. Every repository&#39;s wiki lives at `https://github.com/{owner}/{repo}.wiki.git`. It can be cloned and pushed like any git repository. `actions/checkout@v4` supports a `repository:` parameter that accepts `${{ github.repository }}.wiki`, making checkout straightforward</li>
+<li>`GITHUB_TOKEN` is sufficient — no PAT needed. Actions workflows with `permissions: contents: write` can push to the wiki repo of the same repository using `${{ secrets.GITHUB_TOKEN }}`. No additional secrets are required</li>
+<li>Pages are flat — no subdirectories. The wiki URL structure is `/{owner}/{repo}/wiki/{Page-Name}`. Filenames map directly to page names; slashes in filenames are not supported. The constraint is acceptable for research items because each item already has a unique date-prefixed filename</li>
+<li>Three special pages control structure. `Home.md` is the landing page for the Wiki tab. `_Sidebar.md` renders a persistent sidebar on every page. `_Footer.md` renders a persistent footer. These are the only navigation primitives the GitHub wiki natively supports</li>
+<li>Internal wiki links use `]` syntax. Cross-references between wiki pages use double-bracket notation: `]` or `]` for aliased display text</li>
+<li>Full rebuild is simpler than incremental. The wiki repo is wiped and rebuilt on every workflow run. At the current volume (tens of items), this takes under a second. It eliminates the need to track renames, deletions, or status changes — the completed directory is the authoritative source</li>
+<li>YAML front-matter must be stripped. Wiki readers should see the research content directly, not raw YAML. Stripping the front-matter block (everything between the opening and closing `---`) and using the parsed metadata for the index and sidebar is the correct approach</li>
+<li>The wiki must be enabled before the first push. GitHub wikis are disabled by default on new repositories. The owner must enable it once via Settings → Features → Wikis. After that, the automated workflow maintains it</li>
 </ol></div>
 
   <div class="item-content">

@@ -671,7 +671,16 @@ main {
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-03-knowledge-retention-active-recall" target="_blank" rel="noopener">wiki →</a>
   </div>
-    
+    <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Knowledge from completed research items decays without re-engagement, but slower than Ebbinghaus&#39;s rote-memorisation baseline — research writing involves deep semantic processing (Craik &amp; Lockhart levels of processing) that provides more durable initial encoding than passive reading. (confidence: high)</li>
+<li>Retrieval practice (active recall) produces stronger long-term retention than re-reading; applying a finding to a real decision produces the strongest retention. A periodic digest provides recognition-level recall; the conversational &quot;what do I know about X?&quot; interface provides desirable-difficulty active recall. (confidence: high)</li>
+<li>The current `research-prompt.md` contains no instruction to search `Research/completed/` before starting a new item — each agent session starts from zero with respect to prior research. A &quot;Prior Research&quot; step costs nothing and should be added immediately. (confidence: high)</li>
+<li>Spaced repetition scheduling principles (expanding review intervals: 7/30/90 days) apply at research item level as a pragmatic adaptation of SM-2, using fixed intervals rather than adaptive difficulty scaling. The Obsidian Spaced Repetition plugin demonstrates the whole-document review pattern for Markdown. (confidence: high)</li>
+<li>Cross-references in backlog items embed only filename, not the referenced item&#39;s key finding. Inlining the key conclusion at point of reference embeds prior research in active working context; this is a direct implementation of the Zettelkasten cross-linking principle. (confidence: high)</li>
+<li>A weekly GitHub Actions workflow selecting 3–5 completed items by time-since-review and posting them as a GitHub issue (label: `retention-digest`) is the lowest-friction passive delivery mechanism within the system&#39;s constraints. (confidence: high)</li>
+<li>The minimum effective re-engagement action per item is reading the executive summary + 2–3 key findings (~2–3 minutes). A &quot;Does this affect your current work?&quot; prompt in the digest converts recognition recall into prompted active recall, increasing retention benefit without additional friction. (confidence: medium)</li>
+<li>Synthesis outputs (cross-item) have higher initial encoding depth than individual items and should be assigned longer initial review intervals (30/90/180 days) in the digest, not shorter. (confidence: medium)</li>
+</ol></div>
+
   <div class="item-content">
     <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
 <p>What mechanisms ensure that knowledge from completed research items is retained, recalled when contextually relevant, and applied to decisions — rather than being archived indefinitely with no re-engagement pattern?</p>

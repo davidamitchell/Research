@@ -676,7 +676,7 @@ main {
 <li>Using vanilla `openai-whisper` with the `small` model on a CPU-only GitHub Actions runner, transcribing a 60-minute audio file takes approximately 72–120 minutes — not the &quot;3–5 minutes&quot; estimated in the original item, which appears to assume GPU availability</li>
 <li>`faster-whisper` with int8 quantization delivers 4–7x speedup over vanilla `openai-whisper` on CPU, reducing the same 60-min audio to ~7–15 minutes of runner time, making the approach economically viable on the free Actions tier</li>
 <li>The Whisper `small` model achieves 3.2–3.4% WER on clean English speech; `medium` achieves 2.7–2.9% WER — a 0.5–0.7 percentage point improvement that widens for noisy or accented audio but is modest for well-recorded English talks</li>
-<li>The `small` model requires ~461 MB download; `medium` requires ~1.5 GB</li>
+<li>The `small` model requires ~461 MB download; `medium` requires ~1.5 GB. Both should be cached via `actions/cache` to avoid re-downloading on every workflow run</li>
 <li>Option B (OpenAI Whisper API at `whisper-1`, $0.006/min) requires `OPENAI_API_KEY`, which is not in the AGENTS.md approved credentials table; it cannot be implemented without explicit owner approval</li>
 </ol></div>
 

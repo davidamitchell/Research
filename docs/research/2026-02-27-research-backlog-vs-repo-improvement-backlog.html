@@ -670,14 +670,14 @@ main {
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-02-27-research-backlog-vs-repo-improvement-backlog" target="_blank" rel="noopener">wiki →</a>
   </div>
-    <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Two-location separation works cleanly</li>
-<li>Header notes reinforce the boundary</li>
-<li>AGENTS.md enforces the constraint at the rules level</li>
-<li>Status conventions differ and are appropriate for each type</li>
-<li>Priority mechanisms differ appropriately</li>
-<li>Cross-references flow research → improvement, not the reverse</li>
-<li>`davidamitchell/Latest-developments-` uses a single `BACKLOG.md` with no research item tracking</li>
-<li>The `output:` field in the research item template is the formal cross-reference mechanism</li>
+    <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Two-location separation works cleanly. `Research/backlog/` holds research questions as individual dated `.md` files; `BACKLOG.md` holds code/tooling/process work as numbered items. The file system location alone encodes which type of work an item is — no labels or tags needed to distinguish them</li>
+<li>Header notes reinforce the boundary. `BACKLOG.md` opens with an explicit callout: &quot;This file tracks repo improvement work. For research item backlog, see `Research/backlog/`.&quot; `Research/README.md` has a dedicated section titled &quot;Separating Research Backlog from Repo Improvement Backlog&quot;. Both serve as onboarding guardrails for agents and humans</li>
+<li>AGENTS.md enforces the constraint at the rules level. The Non-Negotiable Constraints section lists &quot;Keep research backlog (`Research/backlog/`) separate from repo improvement backlog (`BACKLOG.md`)&quot; as a hard rule. This surfaces the convention in agent instructions before any file browsing is needed</li>
+<li>Status conventions differ and are appropriate for each type. Research items use front-matter `status: backlog | in-progress | completed` and move between directories. `BACKLOG.md` items use inline `status: open | done | archived`. The difference reflects that research items have richer lifecycle metadata (started/completed dates, outputs) while improvement items need only a quick status signal</li>
+<li>Priority mechanisms differ appropriately. Research items carry a `priority: high | medium | low` front-matter field, enabling programmatic sorting. `BACKLOG.md` items are ordered numerically and by epic; priority is conveyed by ordering, not a field. Research items benefit from explicit priority because the research loop processes them autonomously; `BACKLOG.md` items are typically worked by an agent in response to owner instruction</li>
+<li>Cross-references flow research → improvement, not the reverse. A research item can produce a `backlog-item` output type, which spawns a new numbered entry in `BACKLOG.md`. The reverse direction (a `BACKLOG.md` item referencing a research item) uses a prose note in the `Context` field (e.g., W-0020: &quot;Research item `Research/completed/2026-02-27-indexing-and-tracking-method.md` was completed first; findings directly informed the ADR.&quot;). This one-way convention prevents circular dependencies</li>
+<li>`davidamitchell/Latest-developments-` uses a single `BACKLOG.md` with no research item tracking. That repo is a pipeline project with no research function; its backlog is entirely improvement-type work organised as Epic/Slice tables. It does not provide a pattern to follow for the research/improvement split — it is simply a repo that has no need for the split</li>
+<li>The `output:` field in the research item template is the formal cross-reference mechanism. Setting `output: ` in a research item&#39;s front-matter signals that the research produced a repo improvement task, and the `## Output` section describes and links it. This makes the cross-reference machine-readable and searchable</li>
 </ol></div>
 
   <div class="item-content">

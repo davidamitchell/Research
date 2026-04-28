@@ -671,7 +671,16 @@ main {
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-02-27-research-output-types" target="_blank" rel="noopener">wiki →</a>
   </div>
-    
+    <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Five output types are enumerated consistently across three authoritative locations (`AGENTS.md`, `Research/README.md`, `Research/_template.md`): `skill`, `tool`, `agent`, `knowledge`, and `backlog-item`, with no discrepancies between the three sources</li>
+<li>`knowledge` is the default and universal output type because the completed research item itself — containing Findings, Evidence Map, and Key Findings — constitutes a structured knowledge artifact stored in `Research/completed/` and published to the GitHub wiki automatically by `publish-wiki.yml`</li>
+<li>`tool` outputs are stored in `src/` and have a documented 6-step handling procedure in `AGENTS.md`: create the Python file, write tests, register in the CLI, optionally write an ADR, and update `BACKLOG.md` and `PROGRESS.md`</li>
+<li>`skill` outputs are stored as named directories containing a `SKILL.md` file in `davidamitchell/Skills`; the repository currently has 13 skill directories, and the submodule sync to `.github/skills/` and `.claude/skills/` is automated via `sync-skills.yml`</li>
+<li>The `skill` output type is under-acted in the corpus: two completed items declare it in their front-matter, but neither contains a link to a newly created skill directory in `davidamitchell/Skills`, indicating the handling step has not been completed</li>
+<li>The `agent` output type has no documented storage location or handling procedure beyond its one-line definition in `AGENTS.md`; no completed research item has used this output type in 26 completed items</li>
+<li>`backlog-item` outputs spawn numbered W-XXXX entries in `BACKLOG.md` and are the second most common output type, appearing in 13 of 26 completed items; the handling convention (append entry, assign number, link from `## Output`) is well-understood and consistently applied</li>
+<li>No additional output types are warranted: &quot;dataset&quot; folds into `tool` or `knowledge`; &quot;prompt template&quot; folds into `skill` or `agent`; the five-type taxonomy has been stable since the repository&#39;s founding with no gaps requiring extension over 26 completed items</li>
+</ol></div>
+
   <div class="item-content">
     <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
 <p>What are the possible output types from a research item, and how should each type be handled, stored, and acted upon?</p>

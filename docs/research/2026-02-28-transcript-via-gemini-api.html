@@ -670,7 +670,16 @@ main {
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-02-28-transcript-via-gemini-api" target="_blank" rel="noopener">wiki →</a>
   </div>
-    
+    <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Gemini processes YouTube URLs server-side via Google&#39;s own infrastructure, so the GitHub Actions runner IP never contacts YouTube&#39;s CDN, completely bypassing the IP block that defeats `youtube-transcript-api`</li>
+<li>Gemini does not produce verbatim transcripts when given a YouTube URL: independent tests confirm the output is a paraphrased summary even when the prompt explicitly requests word-for-word transcription</li>
+<li>The `google-genai&gt;=1.0.0` SDK dependency already present in `davidamitchell/Latest-developments-` supports YouTube URL input via `types.FileData(file_uri=&lt;url&gt;)`; no SDK upgrade or additional package is required</li>
+<li>Gemini Flash models (2.0 Flash and later) offer up to 1,500 requests per day on the free tier with zero token cost, making them more suitable for research pipeline use than Gemini 1.5 Pro (50 RPD)</li>
+<li>The `GEMINI_API_KEY` from `davidamitchell/Latest-developments-` is reusable for any workflow running in that repo without additional credential setup, and the same key can be added to this repo&#39;s secrets for independent pipeline use</li>
+<li>Only public YouTube videos are accessible via `fileData.fileUri`; private and age-restricted content cannot be retrieved because Gemini&#39;s infrastructure has no YouTube authentication context for the caller</li>
+<li>The planned `src/fetchers/transcript_gemini.py` should be reframed as a video analysis fetcher whose output is labelled &quot;AI-generated analysis&quot; rather than &quot;transcript,&quot; to prevent citation errors from paraphrased output being treated as verbatim speech</li>
+<li>Gemini&#39;s paraphrased output is still useful for research purposes: it can extract key arguments, topic structure, speaker claims, and thematic organisation from videos that are otherwise inaccessible due to the IP block</li>
+</ol></div>
+
   <div class="item-content">
     <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
 <p>Can we use the Gemini API (already configured in <code>davidamitchell/Latest-developments-</code>) to

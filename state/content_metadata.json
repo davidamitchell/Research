@@ -1,5 +1,5 @@
 {
-  "extracted_at": "2026-04-28T19:32:14Z",
+  "extracted_at": "2026-04-28T21:27:53Z",
   "items": {
     "2026-04-28-uelgf-tooling-reference-architecture": {
       "named_concepts": [
@@ -245,7 +245,16 @@
         "https://davidamitchell.github.io/Research/research/2026-04-26-deployment-pipeline-citizen-development-governed-gate.html",
         "https://davidamitchell.github.io/Research/research/2026-03-10-agent-evaluation-cross-repo-analysis.html"
       ],
-      "key_claims": []
+      "key_claims": [
+        "Medium: Zheng et al. established the modern LLM-as-judge pattern in 2023 by showing that a strong judge model could approximate human preference on open-ended responses while explicitly naming bias modes that make naive deployment unsafe",
+        "High: Promptfoo, DeepEval, and Braintrust are the clearest current examples of judge-based evaluation being operationalised as a release checkpoint because each documents concrete Continuous Integration/Continuous Delivery (CI/CD) jobs, thresholds, and build-fail behavior",
+        "High: LangSmith and Braintrust show that the operational pattern is not limited to pre-merge regression tests, because judge-based scoring is also used on live traces for post-deployment regression detection and dataset expansion",
+        "Medium: Microsoft has moved beyond generic quality scoring by shipping Azure AI Foundry evaluators that judge task completion, task adherence, tool use, and other agent-process behaviors in addition to final-output quality",
+        "Medium: Copilot Studio now natively supports automated agent evaluation, including an LLM-based general-quality method and automation through Application Programming Interface (API) calls or connectors, which makes it pipeline-compatible even though the documented hard release gate still sits in surrounding pipeline or approval controls",
+        "High: A common documented implementation pattern is layered evaluation, where deterministic checks handle exact structure or executable correctness and judge-based checks handle semantic quality, safety, or task completion",
+        "Medium: Ragas, OpenAI Evals, and Pydantic Evals are better understood as programmable eval infrastructure than as documented release-gate products, because their official materials emphasize experiments, local runners, and code-defined evaluators rather than hosted promotion controls",
+        "Medium: The reviewed standards landscape formalises the obligation to evaluate, document, monitor, and govern Artificial Intelligence (AI) systems, while the examined official summaries do not explicitly specify LLM-as-judge as an auditable or required validation technique"
+      ]
     },
     "2026-04-28-alternative-pipeline-platforms-copilot-studio-agents": {
       "named_concepts": [

@@ -671,7 +671,16 @@ main {
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-08-servicenow-process-mapping" target="_blank" rel="noopener">wiki →</a>
   </div>
-    
+    <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>The Process Universe is an ITIL 4-aligned design-time reference library of process maps, KPIs, and RACI templates that ServiceNow ships with its platform; it provides a starting point for implementation but has no mechanism for keeping documentation current as organisations evolve their processes over time</li>
+<li>Flow Designer documents what the ServiceNow platform does automatically (event triggers, conditions, integrations), while Playbooks document what human agents must do step-by-step during case execution; neither tool produces a standalone BPMN-style process map that can serve as authoritative governance documentation independent of the platform</li>
+<li>The Workflow Editor — historically the ServiceNow tool closest to a conventional process flowchart — is in maintenance-only status and is not viable for new process documentation, leaving a gap in native capability for human-readable BPM-style process authoring</li>
+<li>Eighty percent of ITSM practitioners in a practitioner survey (CTMS/Ivanti LIVE, 100+ respondents) reported that their process diagrams do not accurately reflect how their teams work, with only 20% saying their diagrams closely match their real systems and tools</li>
+<li>The primary structural cause of process documentation decay is treating process mapping as a one-off implementation project deliverable rather than a continuously governed practice, with the absence of named process owners and change-triggered update requirements identified as the two most direct operational causes across multiple independent practitioner sources</li>
+<li>Fifty-six percent of ITSM professionals report lacking the time to keep process diagrams current, confirming that documentation maintenance must be embedded in change workflows as a mandatory step rather than left to discretionary effort by practitioners</li>
+<li>ServiceNow&#39;s recommended governance model for process documentation uses three boards (strategic, portfolio, technical) with named owners and RACI matrices per process, mandatory versioned documentation for every process change, and weekly/monthly/quarterly review cadences — with change-triggered updates as the more reliable decay-prevention mechanism compared to calendar-only reviews</li>
+<li>The minimum viable documentation approach uses out-of-box ITSM templates as the baseline, supplements with documentation of the local configuration delta, escalation/exception paths, and a RACI per process, and avoids over-customisation — which proportionally increases the maintenance burden</li>
+</ol></div>
+
   <div class="item-content">
     <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
 <p>What options exist within ServiceNow for documenting, mapping, and maintaining business and IT processes — and which approaches are sustainable enough in practice to stay meaningful, current, and actually used over time?</p>

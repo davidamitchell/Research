@@ -670,7 +670,16 @@ main {
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-03-05-llm-hallucination-mechanisms" target="_blank" rel="noopener">wiki →</a>
   </div>
-    
+    <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>The factuality/faithfulness taxonomy (Huang et al. 2023) supersedes the intrinsic/extrinsic taxonomy (Ji et al. 2023) for open-domain LLM deployment because it maps to the failure modes that matter: false claims vs. unfaithful outputs. (Confidence: high)</li>
+<li>Next-token prediction is calibrated against statistical fluency, not factual accuracy, making hallucination a structural feature of the pretraining objective rather than a correctable bug in data or fine-tuning. (Confidence: high)</li>
+<li>RLHF creates a structural conflict: it trains models on human approval signals, and in technical domains human raters cannot reliably distinguish accurate from plausible-sounding outputs, so RLHF systematically rewards agreeable hallucinations alongside legitimate improvements. (Confidence: high)</li>
+<li>Sycophancy is an empirically established RLHF-induced behaviour pattern in which models agree with false user premises, reverse prior correct answers under user pressure, and selectively emphasise information confirming user beliefs, making it the primary behavioural pathway from RLHF to hallucination. (Confidence: high, source: Perez et al. 2022/2023; Sharma et al. 2023)</li>
+<li>Fine-tuning LLMs on new knowledge (&quot;Unknown&quot; examples) reliably induces hallucination: Gekhman et al. (2024) found that models learn unknown examples much more slowly than known ones, and hallucination increases systematically once the model starts fitting unknown examples. (Confidence: high)</li>
+<li>RAG is the most widely deployed and effective mitigation for factuality hallucinations arising from knowledge gaps, but it does not address sycophancy, faithfulness hallucination, logical inconsistency, or hallucinations driven by internal model activation patterns rather than missing knowledge. (Confidence: high)</li>
+<li>All mainstream mitigation strategies (RAG, RLHF, Constitutional AI, CoT, SelfCheckGPT) operate either before generation (training-time) or after generation (post-generation verification), not on the internal state during a specific token generation event. (Confidence: high)</li>
+<li>Macroscopic explanations predict higher hallucination likelihood under specific conditions but cannot identify which specific generation will hallucinate or explain the sparse localisation of the effect, creating the explanatory gap that neuron-level investigation fills. (Confidence: high)</li>
+</ol></div>
+
   <div class="item-content">
     <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
 <p>What are the established types, root causes, and current mitigation strategies for hallucinations in large language models, and what does the macroscopic (training-level) view leave unexplained that motivates neuron-level investigation?</p>
