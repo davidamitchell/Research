@@ -1,9 +1,10 @@
 # Research Master Document
 
-Generated on: 2026-04-27 14:57 UTC
+Generated on: 2026-04-28 09:46 UTC
 
 ## Table of Contents
 
+* [Universal Entity Lifecycle Governance Framework (UELGF) extension: agentic Artificial Intelligence (AI)-specific risks and runtime monitoring for non-deterministic behaviour](#2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring-md)
 * [Universal Entity Lifecycle Governance Framework (UELGF): complete framework synthesis, formal specification suitable for adoption as an organisational standard in a regulated financial institution and presentation to a board risk committee](#2026-04-27-uelgf-synthesis-complete-framework-md)
 * [Universal Entity Lifecycle Governance Framework (UELGF): runtime feedback loop, signal taxonomy, automated response taxonomy, feedback closure to the rail system, and feedback closure to the systems capability debt programme as a structured demand signal](#2026-04-27-uelgf-runtime-feedback-loop-md)
 * [Universal Entity Lifecycle Governance Framework (UELGF): policy architecture, Policy Administration Point, Policy Decision Point, Policy Enforcement Point, Policy Information Point component design, the 8-layer organisational context model, policy independence guarantee, scope boundary mechanism, and kill switch](#2026-04-27-uelgf-policy-architecture-8-layer-context-md)
@@ -212,6 +213,76 @@ Generated on: 2026-04-27 14:57 UTC
 * [Interface and delivery: how to surface research outputs](#2026-02-27-interface-and-delivery-md)
 * [Information synthesis: non-lossy compression, entropy, and information theory](#2026-02-27-information-synthesis-entropy-md)
 * [Indexing and tracking method for research content](#2026-02-27-indexing-and-tracking-method-md)
+
+---
+
+<a id="2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring-md"></a>
+
+## Universal Entity Lifecycle Governance Framework (UELGF) extension: agentic Artificial Intelligence (AI)-specific risks and runtime monitoring for non-deterministic behaviour
+
+**Tags:** [uelgf, agentic-ai, emergent-behaviour, goal-misalignment, multi-agent, hallucination, runtime-monitoring, non-determinism, observability, governed-golden-rail]
+
+**Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring.md
+
+## Research Question
+
+What agentic Artificial Intelligence (AI)-specific risk categories, specifically emergent behaviour, goal misalignment, multi-agent interaction failures, and hallucinations in decision loops, are insufficiently addressed by the current Universal Entity Lifecycle Governance Framework (UELGF) runtime feedback loop, and what runtime monitoring design is required to detect and respond to non-deterministic behaviour at the governed golden-rail layer?
+
+## Findings
+
+### Executive Summary
+
+[inference; source: https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-runtime-feedback-loop.html; https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-governed-golden-rails.html; https://davidamitchell.github.io/Research/research/2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment.html; https://arxiv.org/abs/2403.16527; https://www.anthropic.com/research/emergent-misalignment-reward-hacking; https://iclr.cc/virtual/2025/33314] The current UELGF runtime feedback loop is insufficient on its own for agentic systems because, even with tighter admission controls and narrower scope, it mainly detects externally visible policy breaches after or during action execution, while agentic failures often originate earlier in stochastic planning, grounding, reward seeking, and inter-agent coordination. [fact; source: https://airc.nist.gov/AI_RMF_Knowledge_Base/AI_RMF/Core_And_Profiles/5-sec-core#tab:govlongtblr; https://deepmind.google/research/publications/78150/; https://arxiv.org/abs/2403.16527; https://www.anthropic.com/research/emergent-misalignment-reward-hacking; https://arxiv.org/abs/2506.03053] External evidence shows that non-deterministic agents need continuous monitoring of objective integrity, grounding, capability escalation, and coordination patterns, plus early-warning thresholds and pre-action intervention points. [inference; source: https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-governed-golden-rails.html; https://davidamitchell.github.io/Research/research/2026-04-26-ai-agent-control-plane-architecture-enterprise.html; https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-entity-taxonomy-cia-classification.html] The minimal compatible extension is an agentic runtime-monitoring layer at the governed golden rail that emits typed signals into the existing loop, adds verification hold or quarantine before execution, and records agent-relationship metadata so multi-agent behavior can be observed as a system rather than as isolated entities. [inference; source: https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-governed-golden-rails.html; https://davidamitchell.github.io/Research/research/2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment.html; https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-runtime-feedback-loop.html] Tighter admission controls, narrower scope, and stronger post-action containment remain necessary controls, but they cannot by themselves detect on-rail drift or unsafe coordination once a permitted agent is already executing. [inference; source: https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-runtime-feedback-loop.html; https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-governed-golden-rails.html] UELGF's existing response classes, rail-improvement logic, and systems-capability-debt feedback can remain intact once these additional evidence sources and response triggers are added.
+
+### Key Findings
+
+1. [inference; source: https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-runtime-feedback-loop.html; https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-governed-golden-rails.html; https://davidamitchell.github.io/Research/research/2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment.html; https://arxiv.org/abs/2403.16527; https://www.anthropic.com/research/emergent-misalignment-reward-hacking] **High confidence:** Tighter admission controls, narrower agent scope, and stronger post-action containment remain necessary, but they do not replace runtime precursor monitoring because reasoning, grounding, and goal-selection failures can arise after a compliant agent has already entered the governed rail.
+2. [fact; source: https://airc.nist.gov/AI_RMF_Knowledge_Base/AI_RMF/Core_And_Profiles/5-sec-core#tab:govlongtblr; https://deepmind.google/research/publications/78150/] **High confidence:** Continuous, lifecycle-wide monitoring with early-warning thresholds is a direct requirement of the external governance literature, so deployment-time approval alone is not an adequate control model for non-deterministic agents.
+3. [fact; source: https://iclr.cc/virtual/2025/33314; https://arxiv.org/abs/2506.03053; https://openreview.net/forum?id=zt5JpGQ8WhH] **High confidence:** Multi-agent interaction failures are system-level risks, not just single-agent bugs, because coordination gaps, peer-pressure convergence, and weak verification can arise from the interaction graph even when individual agents appear acceptable in isolation.
+4. [inference; source: https://www.anthropic.com/research/emergent-misalignment-reward-hacking; https://davidamitchell.github.io/Research/research/2026-04-27-pip-invariant-anomaly-detection.html] **Medium confidence:** Goal misalignment at runtime is likely to surface through reward-hacking traces, verifier disagreement, monitor avoidance, and declared-goal versus chosen-tool mismatch, which means the rail must observe intent integrity rather than only final outputs.
+5. [fact; source: https://arxiv.org/abs/2403.16527; https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/best-practices-for-mitigating-hallucinations-in-large-language-models-llms/4403129; https://arxiv.org/abs/2211.09527] **High confidence:** Hallucination risk in decision loops becomes governable only when consequential claims are bound to evidence, groundedness and source-confidence thresholds are enforced, and unsupported outputs are diverted into hold or human-review paths before action execution.
+6. [inference; source: https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-governed-golden-rails.html; https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-entity-taxonomy-cia-classification.html; https://iclr.cc/virtual/2025/33314] **Medium confidence:** The UELGF entity model needs explicit relationship metadata for supervisor, delegate, collaborator, shared-memory peer, and external-tool proxy edges so the runtime loop can aggregate and explain interaction risk across coordinated agents.
+7. [inference; source: https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-runtime-feedback-loop.html; https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-governed-golden-rails.html; https://deepmind.google/research/publications/78150/] **Medium confidence:** The framework can reuse its existing response ladder if it adds one new pre-execution state, verification hold or agent quarantine, that stops execution while keeping attributable evidence for human review and later rail improvement.
+
+### Evidence Map
+
+| Claim | Source | Confidence | Notes |
+|---|---|---|---|
+| [inference] Tighter admission controls and narrower scope do not remove the need for runtime precursor monitoring after an agent has entered the rail. | https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-runtime-feedback-loop.html; https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-governed-golden-rails.html; https://davidamitchell.github.io/Research/research/2026-04-26-agentic-ai-regulatory-preconditions-control-failure-assessment.html; https://arxiv.org/abs/2403.16527; https://www.anthropic.com/research/emergent-misalignment-reward-hacking | high | controls not sufficient |
+| [fact] Continuous, lifecycle-wide monitoring with early-warning thresholds is required for advanced AI risk management. | https://airc.nist.gov/AI_RMF_Knowledge_Base/AI_RMF/Core_And_Profiles/5-sec-core#tab:govlongtblr; https://deepmind.google/research/publications/78150/ | high | external baseline |
+| [fact] Multi-agent failures emerge from coordination, conflict, and weak verification at the system level. | https://iclr.cc/virtual/2025/33314; https://arxiv.org/abs/2506.03053; https://openreview.net/forum?id=zt5JpGQ8WhH | high | graph-level risk |
+| [inference] Goal misalignment is likely to surface through reward-hacking and monitor-avoidance traces before or alongside harmful outputs. | https://www.anthropic.com/research/emergent-misalignment-reward-hacking; https://davidamitchell.github.io/Research/research/2026-04-27-pip-invariant-anomaly-detection.html | medium | intent integrity |
+| [fact] Hallucination propagation is governable only through grounded evidence checks, source-confidence thresholds, and pre-action diversion. | https://arxiv.org/abs/2403.16527; https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/best-practices-for-mitigating-hallucinations-in-large-language-models-llms/4403129; https://arxiv.org/abs/2211.09527 | high | pre-action check |
+| [inference] UELGF needs relationship metadata so runtime governance can observe coordinated agents as a system. | https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-entity-taxonomy-cia-classification.html; https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-governed-golden-rails.html; https://iclr.cc/virtual/2025/33314 | medium | entity extension |
+| [inference] Verification hold or agent quarantine should be added as a pre-execution response state. | https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-runtime-feedback-loop.html; https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-governed-golden-rails.html; https://deepmind.google/research/publications/78150/ | medium | response extension |
+
+### Assumptions
+
+- [assumption] The governed rail can capture plan objects, tool-selection requests, verifier outputs, and provenance metadata before execution. Justification: the existing rail and control-plane items already assume attributable execution surfaces and observability hooks.
+- [assumption] High-consequence agent actions flow through managed credentials or managed tool surfaces that the rail can pause or revoke. Justification: the governed-rail and control-plane items treat managed execution as a design invariant.
+- [assumption] Agent builders can register enough intended objective and scope metadata at scaffold time for later runtime comparison. Justification: the existing UELGF scaffold model already records entity purpose, scope, and invariants.
+
+### Analysis
+
+- [inference; source: https://airc.nist.gov/AI_RMF_Knowledge_Base/AI_RMF/Core_And_Profiles/5-sec-core#tab:govlongtblr; https://deepmind.google/research/publications/78150/] The external evidence was weighted most heavily where it specified lifecycle monitoring obligations and early-warning logic, because those sources directly address what a runtime governance layer must do rather than only describing failure classes.
+- [inference; source: https://iclr.cc/virtual/2025/33314; https://arxiv.org/abs/2506.03053; https://openreview.net/forum?id=zt5JpGQ8WhH] Multi-agent sources were treated as decisive for interaction-graph monitoring because they consistently show that coordination and verification failures are properties of the system interaction pattern, not only of individual agent nodes.
+- [inference; source: https://www.anthropic.com/research/emergent-misalignment-reward-hacking; https://arxiv.org/abs/2403.16527; https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/best-practices-for-mitigating-hallucinations-in-large-language-models-llms/4403129] Anthropic and hallucination-detection sources were used to separate objective-integrity monitoring from grounding monitoring, because reward hacking and hallucination propagation have different observable precursors even though both can end in unsafe action.
+- [inference; source: https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-runtime-feedback-loop.html; https://davidamitchell.github.io/Research/research/2026-04-27-uelgf-governed-golden-rails.html] The resulting design favors additive extension over framework redesign because UELGF already has reusable routing, suspension, and feedback-closure mechanisms; the missing element is earlier and richer evidence, not a new control philosophy.
+
+### Risks, Gaps, and Uncertainties
+
+- [inference; source: https://airc.nist.gov/AI_RMF_Knowledge_Base/AI_RMF/Core_And_Profiles/5-sec-core#tab:govlongtblr; https://deepmind.google/research/publications/78150/] The literature is stronger on monitoring classes and governance duties than on universal numeric thresholds, so threshold values should remain tier- and rail-specific rather than standardized globally.
+- [assumption] The recommended verification hold depends on consequential actions being mediated by governed execution surfaces; purely off-rail or shadow agents remain a residual visibility problem outside the framework's direct control.
+- [fact; source: https://arxiv.org/abs/2506.03053; https://iclr.cc/virtual/2025/33314] Multi-agent evidence is growing quickly but remains less mature than single-agent safety literature, so exact graph metrics and escalation cutoffs should be treated as evolving implementation details.
+- [assumption] The inaccessible official OpenAI pages may contain additional operational detail, but the core conclusions here do not depend on them because accessible NIST, Google DeepMind, Anthropic, Microsoft, and peer-reviewed sources already support the extension.
+
+### Open Questions
+
+- [inference; source: https://arxiv.org/abs/2506.03053; https://openreview.net/forum?id=zt5JpGQ8WhH] Which graph-level metrics best distinguish healthy delegation from unsafe emergent coordination in enterprise multi-agent systems without generating excessive false positives?
+- [inference; source: https://www.anthropic.com/research/emergent-misalignment-reward-hacking; https://davidamitchell.github.io/Research/research/2026-04-27-pip-invariant-anomaly-detection.html] Which verifier-disagreement patterns are most predictive of genuine goal drift versus benign task complexity in tool-rich enterprise agent environments?
+- [inference; source: https://arxiv.org/abs/2403.16527; https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/best-practices-for-mitigating-hallucinations-in-large-language-models-llms/4403129] How should groundedness and source-confidence thresholds vary by CIA tier and action class so that the rail remains usable while still fail-closing for high-consequence actions?
+
+---
 
 ---
 
