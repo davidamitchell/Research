@@ -9,6 +9,13 @@ tags: [authorization, policy-as-code, compliance, nist, iso-27001, ai, governanc
 started: 2026-03-19T08:21:30+00:00
 completed: 2026-03-19T08:21:30+00:00
 output: [knowledge]
+cites: []          # slugs of items this item directly depends on or quotes
+related: []        # slugs of thematically connected items
+superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)
+supersedes: ~      # slug of an older item this one replaces (null if not applicable)
+item_type: primary # primary | synthesis
+confidence: medium # high | medium | low
+versions: []       # entries: {version: "1.0", sha: "<commit-hash>", changed: YYYY-MM-DD, progress: "<path>", summary: "<one-line>"}
 ---
 
 # Adaptive Policy-Based Authorization (APBA): compliance alignment with National Institute of Standards and Technology (NIST) Special Publication (SP) 800-53 and International Organization for Standardization (ISO) / International Electrotechnical Commission (IEC) 27001, and impact on Policy as Code (PaC) and Artificial Intelligence (AI)-generated authorization code

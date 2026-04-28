@@ -9,6 +9,13 @@ tags: [uelgf, governance, entity-lifecycle, governed-golden-rail, policy-engine,
 started: 2026-04-27T05:57:56+00:00
 completed: 2026-04-27T06:13:52+00:00
 output: [knowledge]
+cites: []          # slugs of items this item directly depends on or quotes
+related: []        # slugs of thematically connected items
+superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)
+supersedes: ~      # slug of an older item this one replaces (null if not applicable)
+item_type: primary # primary | synthesis
+confidence: medium # high | medium | low
+versions: []       # entries: {version: "1.0", sha: "<commit-hash>", changed: YYYY-MM-DD, progress: "<path>", summary: "<one-line>"}
 ---
 
 # Universal Entity Lifecycle Governance Framework (UELGF): foundational definitions, formal principles, and the inseparability of governance and acceleration in the governed golden rail

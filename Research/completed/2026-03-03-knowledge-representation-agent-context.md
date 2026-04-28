@@ -7,6 +7,13 @@ tags: [lse, lsa, knowledge-graphs, concept-maps, document-compression, context-m
 started: 2026-03-03T09:58:16+00:00
 completed: 2026-03-03T09:58:16+00:00
 output: [knowledge, backlog-item]
+cites: []          # slugs of items this item directly depends on or quotes
+related: []        # slugs of thematically connected items
+superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)
+supersedes: ~      # slug of an older item this one replaces (null if not applicable)
+item_type: primary # primary | synthesis
+confidence: medium # high | medium | low
+versions: []       # entries: {version: "1.0", sha: "<commit-hash>", changed: YYYY-MM-DD, progress: "<path>", summary: "<one-line>"}
 ---
 
 # Knowledge Representation for Agent Context: LSE, Knowledge Graphs, Concept Maps, and Document Compression for Large-Scale Context Management

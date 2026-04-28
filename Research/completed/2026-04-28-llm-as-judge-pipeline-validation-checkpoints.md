@@ -9,6 +9,13 @@ tags: [large-language-model-as-judge, evaluation, validation, pipeline, continuo
 started: 2026-04-28T19:05:27+00:00
 completed: 2026-04-28T19:34:02+00:00
 output: [knowledge]
+cites: []
+related: []
+superseded_by: ~
+supersedes: ~
+item_type: primary
+confidence: medium
+versions: []
 ---
 
 # Large Language Model (LLM)-as-judge as pipeline validation checkpoints: who is defining and operationalising this pattern

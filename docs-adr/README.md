@@ -23,6 +23,7 @@ Format: [MADR (Markdown Architectural Decision Records)](https://adr.github.io/m
 | [0010](0010-github-pages-static-site.md) | GitHub Pages static site as research delivery channel | Accepted | 2026-03-23 |
 | [0011](0011-git-index-staging-in-cli-file-moves.md) | Git-index staging in CLI file-move commands | Accepted | 2026-03-29 |
 | [0012](0012-research-loop-safety-control-value-uplift.md) | Research loop safety control value uplift | Accepted | 2026-04-27 |
+| [0013](0013-research-item-frontmatter-schema-extension.md) | Research item frontmatter schema extension (W-0044 to W-0049) | Accepted | 2026-04-28 |
 
 ---
 

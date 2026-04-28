@@ -9,6 +9,13 @@ tags: [uelgf, policy-architecture, pap, pdp, pep, pip, policy-independence, scop
 started: 2026-04-27T06:39:39+00:00
 completed: 2026-04-27T06:53:15+00:00
 output: [knowledge]
+cites: []          # slugs of items this item directly depends on or quotes
+related: []        # slugs of thematically connected items
+superseded_by: ~   # slug of a later item that overrides this one (null if not superseded)
+supersedes: ~      # slug of an older item this one replaces (null if not applicable)
+item_type: primary # primary | synthesis
+confidence: medium # high | medium | low
+versions: []       # entries: {version: "1.0", sha: "<commit-hash>", changed: YYYY-MM-DD, progress: "<path>", summary: "<one-line>"}
 ---
 
 # Universal Entity Lifecycle Governance Framework (UELGF): policy architecture, Policy Administration Point, Policy Decision Point, Policy Enforcement Point, Policy Information Point component design, the 8-layer organisational context model, policy independence guarantee, scope boundary mechanism, and kill switch
