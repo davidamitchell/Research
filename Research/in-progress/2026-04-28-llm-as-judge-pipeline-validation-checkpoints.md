@@ -1,5 +1,5 @@
 ---
-review_count: 1
+review_count: 2
 title: "Large Language Model (LLM)-as-judge as pipeline validation checkpoints: who is defining and operationalising this pattern"
 added: 2026-04-28T09:33:38+00:00
 status: reviewing
