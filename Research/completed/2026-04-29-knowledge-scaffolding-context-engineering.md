@@ -15,7 +15,12 @@ superseded_by: ~   # slug of a later item that overrides this one (null if not s
 supersedes: ~      # slug of an older item this one replaces (null if not applicable)
 item_type: primary # primary | synthesis
 confidence: medium # high | medium | low
-versions: []       # entries: {version: "1.0", sha: "<commit-hash>", changed: YYYY-MM-DD, progress: "<path>", summary: "<one-line>"}
+versions:
+  - version: "1.0"
+    sha: "80c05327d7737ff542a36948b72b292d83b28311"
+    changed: 2026-04-29
+    progress: "progress/2026-04-29-knowledge-scaffolding-context-engineering.md"
+    summary: "Initial completion"
 ---
 
 # Is knowledge scaffolding an established concept within context engineering for Large Language Models and AI agents, and how is it defined and implemented?
