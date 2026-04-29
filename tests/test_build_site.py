@@ -444,12 +444,157 @@ def test_extract_citation_label_org_no_year() -> None:
 
 
 def test_extract_citation_label_known_org() -> None:
-    """Microsoft domain produces 'Microsoft (n.d.)' when no year in display name."""
+    """Display name starting with 'Azure' is used as org (fallback-1b); URL is secondary."""
     label = _extract_citation_label(
         "Azure AI Foundry evaluation approach",
         "https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/",
     )
-    assert label == "Microsoft (n.d.)"
+    # Fallback-1b extracts first capitalised word (≥5 chars) from display name: "Azure"
+    assert label == "Azure (n.d.)"
+
+
+def test_extract_citation_label_url_domain_fallback() -> None:
+    """Short display names below 5-char threshold fall back to registrable domain."""
+    label = _extract_citation_label(
+        "Link rot research",
+        "https://en.wikipedia.org/wiki/Link_rot",
+    )
+    # "Link" is 4 chars — too short for fallback-1, so URL domain used
+    assert label == "Wikipedia (n.d.)"
+
+
+def test_extract_citation_label_country_code_tld() -> None:
+    """Country-code SLDs (.co.uk, .gov.au) are stripped to reach the registrable label."""
+    label_uk = _extract_citation_label(
+        "Bank of England DCGMA",
+        "https://www.bankofengland.co.uk/financial-stability",
+    )
+    # Display name "Bank" is 4 chars — fallback-1a/1b don't fire → URL domain used
+    assert label_uk == "Bankofengland (n.d.)"
+
+    label_au = _extract_citation_label(
+        "APRA Annual Report",
+        "https://www.apra.gov.au/annual-report",
+    )
+    # "APRA" is an all-caps acronym → fallback-1a fires (better than "Apra" from domain)
+    assert label_au == "APRA (n.d.)"
+
+
+def test_extract_citation_label_surname_initials_et_al() -> None:
+    """'Surname, Initial. et al. (YYYY)' at start of name → 'Surname et al. (YYYY)'."""
+    label = _extract_citation_label(
+        "Friston, K. et al. (2022). The free energy principle made simpler",
+        "https://arxiv.org/abs/2209.01947",
+    )
+    assert label == "Friston et al. (2022)"
+
+
+def test_extract_citation_label_surname_initials_single() -> None:
+    """'Surname, A.K. (YYYY). Title' → 'Surname (YYYY)'."""
+    label = _extract_citation_label(
+        "Seth, A.K. (2021). Anil Seth Finds Consciousness in Life's Push Against Entropy",
+        "https://www.quantamagazine.org/",
+    )
+    assert label == "Seth (2021)"
+
+
+def test_extract_citation_label_surname_etal_at_start() -> None:
+    """'Surname et al. (YYYY). Title' (no parens around full name) → 'Surname et al. (YYYY)'."""
+    label = _extract_citation_label(
+        "Adams et al. (2023). From Sparse to Dense: GPT-4 Summarization",
+        "https://arxiv.org/abs/2309.04269",
+    )
+    assert label == "Adams et al. (2023)"
+
+
+def test_extract_citation_label_acronym_full_name_before_colon() -> None:
+    """'FullName (ACRONYM): description (YYYY)' → 'ACRONYM (YYYY)'."""
+    label = _extract_citation_label(
+        "Bank for International Settlements (BIS): AI in financial risk management (2024)",
+        "https://www.bis.org/publ/work1293.htm",
+    )
+    assert label == "BIS (2024)"
+
+
+def test_extract_citation_label_org_colon_with_year() -> None:
+    """'OrgName: description (YYYY)' → 'OrgName (YYYY)'."""
+    label = _extract_citation_label(
+        "IAASB: Technology position papers and ISA revisions for AI use in audit (2023-2025)",
+        "https://www.iaasb.org/focus-areas/technology",
+    )
+    assert label == "IAASB (2023)"
+
+
+def test_extract_citation_label_org_colon_no_year() -> None:
+    """'OrgName: description' with no year → 'OrgName (n.d.)'."""
+    label = _extract_citation_label(
+        "Wikipedia: Free energy principle",
+        "https://en.wikipedia.org/wiki/Free_energy_principle",
+    )
+    assert label == "Wikipedia (n.d.)"
+
+
+def test_extract_citation_label_sqlite_preserves_case() -> None:
+    """Display-name fallback-1 preserves original casing (e.g. SQLite, not Sqlite)."""
+    label = _extract_citation_label("SQLite docs", "https://sqlite.org")
+    assert label == "SQLite (n.d.)"
+
+
+def test_extract_citation_label_openai_case() -> None:
+    """Display-name fallback-1 preserves mixed-case brand (OpenAI)."""
+    label = _extract_citation_label("OpenAI Whisper API", "https://platform.openai.com/")
+    assert label == "OpenAI (n.d.)"
+
+
+def test_extract_citation_label_no_display_name_uses_url() -> None:
+    """Empty display name falls through to URL-domain fallback."""
+    label = _extract_citation_label("", "https://arxiv.org/abs/2306.05685")
+    assert label == "Arxiv (n.d.)"
+
+
+def test_extract_citation_label_et_al_dash_separator() -> None:
+    """'Surname et al. — Title (YYYY)' → 'Surname et al. (YYYY)' via pattern-8."""
+    label = _extract_citation_label(
+        "Ke et al. — LightGBM paper (2017)",
+        "https://papers.nips.cc/paper_files/paper/2017/hash/6449f44a102fde848669bdd9eb6b76fa-Abstract.html",
+    )
+    assert label == "Ke et al. (2017)"
+
+
+def test_extract_citation_label_all_caps_acronym_with_year() -> None:
+    """All-caps acronym at start of display name → 'ACRONYM (YYYY)'."""
+    label = _extract_citation_label(
+        "IEEE DIKW 2025 Conference on Knowledge",
+        "https://ieeexplore.ieee.org/xpl/conhome/1234",
+    )
+    assert label == "IEEE (2025)"
+
+
+def test_extract_citation_label_fico_org_year() -> None:
+    """Short all-caps org with embedded year → 'FICO (YYYY)'."""
+    label = _extract_citation_label(
+        "FICO 2024 Bank Customer Experience Survey — Asia Pacific",
+        "https://www.fico.com/en/latest-thinking/article/bank-customer-experience-2024",
+    )
+    assert label == "FICO (2024)"
+
+
+def test_extract_citation_label_dora_comma_boundary() -> None:
+    """All-caps acronym before comma → 'DORA (YYYY)' (not blocked by comma boundary)."""
+    label = _extract_citation_label(
+        "DORA, Accelerate State of DevOps Report 2024",
+        "https://dora.dev/research/2024/dora-report/",
+    )
+    assert label == "DORA (2024)"
+
+
+def test_extract_citation_label_trailing_publisher_year() -> None:
+    """'Description — Publisher YEAR' at end → 'Publisher (YEAR)' via fallback-1c."""
+    label = _extract_citation_label(
+        "Word embeddings × knowledge graphs intersection — Springer 2024",
+        "https://link.springer.com/article/example",
+    )
+    assert label == "Springer (2024)"
 
 
 def test_render_source_links_uses_label_map() -> None:

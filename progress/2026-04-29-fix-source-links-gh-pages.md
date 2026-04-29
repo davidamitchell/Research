@@ -50,3 +50,41 @@ Before stripping brackets, collect any `https://` URLs from brackets containing 
 2. **What slowed down or went wrong?** Playwright MCP still locked; reinstalled `playwright` pip package each session.
 3. **What single change would prevent this next time?** Pre-install `playwright` as a dev dependency or in `copilot-setup-steps.yml`.
 4. **Is this a pattern?** Yes — Playwright not available across sessions. Worth adding to `copilot-setup-steps.yml`.
+
+---
+
+## Session 3 — 2026-04-29 (regex hardening, past-item analysis, backlog)
+
+**Work completed:**
+
+- **Audited all 2142 source entries across 215 completed research items** against the new `_extract_citation_label` regex — found 319 entries with years in display names; original code extracted 0% of years; session-2 code got to 75%.
+- **Hardened `_extract_citation_label`** with 5 new patterns and 3 improved fallbacks:
+  - Pattern 3: `Surname, Initials. et al. (YYYY)` at start → `Surname et al. (YYYY)`
+  - Pattern 4: `Surname, Initials. (YYYY)` at start → `Surname (YYYY)` (single author with initials)
+  - Pattern 5: `Surname et al. (YYYY)` at start (year outside parens) → `Surname et al. (YYYY)`
+  - Pattern 7: `Full Name (ACRONYM): description (YYYY)` → `ACRONYM (YYYY)` (e.g. BIS, NIST)
+  - Pattern 8: `OrgName: description` or `OrgName – title` → `OrgName (year or n.d.)` — now allows `et al.` in org (single dot OK), 35-char cap
+  - Fallback 1a: all-caps acronym at start (IEEE, FICO, APRA, DORA) → `ACRONYM (year or n.d.)`; relaxed boundary to `[^A-Za-z]` so `DORA, title` works
+  - Fallback 1b: first capitalised word ≥ 5 chars preserves brand casing (SQLite, OpenAI, DuckDB)
+  - Fallback 1c: last capitalised word + bare year at end-of-string → `Publisher (YEAR)` (for "Description — Springer 2024" style)
+  - Fallback 2: CC-SLD domain strip now handles `.co.uk`, `.gov.au`, `.ac.uk`, `.govt.nz` → uses `parts[-3]` as registrable label
+- **Final year-extraction rate: 89%** (up from 0%) across 319 eligible source entries
+- **Added 16 new tests** to `tests/test_build_site.py` covering all new patterns (53 tests total, all pass)
+- **Added W-0056** (bulk manual migration of source display names to canonical format)
+- **Added W-0057** (automated migration script for common legacy patterns)
+- `make check` clean; 330 tests pass; 1 pre-existing TAVILY skip
+
+**Patterns still falling through (11%):**
+- Multi-author `Surname, A. & Surname, B. (YYYY)` (no et al.) → URL domain
+- Year-first titles `2025 Edelman Trust Barometer — …` (start with digit) → URL domain
+- Bare non-capitalized display names starting with `$`, `arxiv.org`, etc. → URL domain
+These are tracked in W-0056/W-0057 for cleanup.
+
+## Mini-Retro
+
+1. **Did the process work?** Yes — data-first analysis (audit all 2142 entries) before writing code meant each regex change was targeted and tested against real patterns.
+2. **What slowed down or went wrong?** The initial `_extract_citation_label` only handled `(Surname et al., YYYY)` in parens — a minority pattern in the actual data. Real items use `Surname, K. (YYYY)` and `Surname et al. (YYYY)` much more.
+3. **What single change would prevent this next time?** Before writing any extraction regex, audit the actual data first (as done here). Add this to the `swe` skill checklist: "test regex against representative sample of real data before implementing".
+4. **Is this a pattern?** Yes — the same regex-over-sample issue appeared in `_extract_sources_from_line` in Session 1. The fix is always: look at the real data before writing the regex.
+5. **Does any documentation need updating?** `Research/_template.md` already updated in Session 2. W-0056/W-0057 added to BACKLOG.md.
+6. **Do the default instructions need updating?** No new conventions needed; existing "test against real data" principle is already implicit in the TDD rule.

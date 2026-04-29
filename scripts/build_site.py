@@ -2061,38 +2061,125 @@ def _render_claim(text: str) -> str:
 
 
 def _extract_citation_label(display_name: str, url: str) -> str:
-    """Extract a short Author (Year) label from a source display name and URL.
+    """Extract a short ``Author (Year)`` label from a source display name and URL.
 
-    Conforms to the inline-citation skill canonical form ``Author (Year)``:
+    Tries patterns in priority order, then falls back to the display-name's
+    first capitalised word, then to the registrable domain from the URL.
 
-    - ``Zheng et al. (2023)``        from "(Zheng et al., 2023)" in display_name
-    - ``Smith (2022)``               from "(Smith, 2022)" in display_name
-    - ``Promptfoo (n.d.)``           from domain when no year is found
+    Handled patterns (examples → output):
+    - ``"(Zheng et al., 2023)"``                         → ``Zheng et al. (2023)``
+    - ``"(Brooks, 1975)"``                               → ``Brooks (1975)``
+    - ``"Friston, K. et al. (2022). Title"``             → ``Friston et al. (2022)``
+    - ``"Seth, A.K. (2021). Title"``                     → ``Seth (2021)``
+    - ``"Adams et al. (2023). Title"``                   → ``Adams et al. (2023)``
+    - ``"RAPTOR (2024)"`` / ``"Brooks (1975)"``          → ``RAPTOR (2024)``
+    - ``"Bank for International Settlements (BIS): …"``  → ``BIS (year or n.d.)``
+    - ``"IAASB: Technology papers (2023–2025)"``         → ``IAASB (2023)``
+    - ``"SQLite docs"``                                  → ``SQLite (n.d.)``
+    - ``"learn.microsoft.com/…"``                        → ``Microsoft (n.d.)``
     """
-    # Pattern: (Surname et al., YYYY) or (Surname et al. YYYY) — capture surname only
-    m = re.search(r"\(([A-Z][A-Za-zÀ-ÿ]+)\s+et\s+al\.?,?\s*(\d{4})\)", display_name)
+    name = display_name.strip()
+
+    # ── 1. et al. inside parens anywhere: (Surname et al., YYYY)
+    m = re.search(r"\(([A-Z][A-Za-zÀ-ÿ\-]+)\s+et\s+al\.?,?\s*(\d{4})\)", name)
     if m:
         return f"{m.group(1)} et al. ({m.group(2)})"
 
-    # Pattern: (Surname, YYYY) — single author with year
-    m = re.search(r"\(([A-Z][A-Za-zÀ-ÿ\-]+),\s*(\d{4})\)", display_name)
+    # ── 2. Single surname + year inside parens anywhere: (Surname, YYYY)
+    m = re.search(r"\(([A-Z][A-Za-zÀ-ÿ\-]+),\s*(\d{4})\)", name)
     if m:
         return f"{m.group(1)} ({m.group(2)})"
 
-    # Pattern: bare year next to a known short author name already in display_name,
-    # e.g. "Brooks (1975)" → "Brooks (1975)"
-    m = re.search(r"([A-Z][A-Za-z]+)\s+\((\d{4})\)", display_name)
+    # ── 3. "Surname, Initials. et al. (YYYY)" at start
+    #   e.g. "Friston, K. et al. (2022). Title"
+    m = re.match(r"([A-Z][A-Za-zÀ-ÿ\-]+),\s+[A-Z][A-Za-z.]*\.?\s+et\s+al\.?\s*\((\d{4})\)", name)
+    if m:
+        return f"{m.group(1)} et al. ({m.group(2)})"
+
+    # ── 4. "Surname, Initials. (YYYY)" at start — single author with initials
+    #   e.g. "Seth, A.K. (2021). Title", "Manchak, JB (2025). Title"
+    m = re.match(r"([A-Z][A-Za-zÀ-ÿ\-]+),\s+[A-Z][A-Za-z.]*\.?\s*\((\d{4})\)", name)
     if m:
         return f"{m.group(1)} ({m.group(2)})"
 
-    # No year → derive org name from the registrable domain (strip common subdomains).
-    # e.g. learn.microsoft.com → "Microsoft", docs.promptfoo.dev → "Promptfoo"
+    # ── 5. "Surname et al. (YYYY)" at start (no initials, year outside parens)
+    #   e.g. "Adams et al. (2023). Title", "Zheng et al. (2023) Title"
+    m = re.match(r"([A-Z][A-Za-zÀ-ÿ\-]+)\s+et\s+al\.?\s*\((\d{4})\)", name)
+    if m:
+        return f"{m.group(1)} et al. ({m.group(2)})"
+
+    # ── 6. "Word (YYYY)" — identifier or short org name followed by bare year in parens
+    #   e.g. "RAPTOR (2024)", "Brooks (1975)", "Anthropic (2022)"
+    m = re.search(r"([A-Z][A-Za-z0-9\-]+)\s+\((\d{4})\)", name)
+    if m:
+        return f"{m.group(1)} ({m.group(2)})"
+
+    # ── 7. "Full Name (ACRONYM): …" — extract acronym from parens before colon
+    #   e.g. "Bank for International Settlements (BIS): Title (2024)"
+    m = re.search(r"\(([A-Z]{2,8})\)\s*:", name)
+    if m:
+        acronym = m.group(1)
+        year_m = re.search(r"\b(\d{4})\b", name)
+        year = year_m.group(1) if year_m else None
+        return f"{acronym} ({year})" if year else f"{acronym} (n.d.)"
+
+    # ── 8. "OrgName: description …" or "OrgName – title …" — org before separator
+    #   e.g. "IAASB: Technology papers (2023–2025)", "McKinsey: Report title"
+    #   e.g. "Ke et al. — LightGBM paper (2017)", "DORA — State of DevOps 2024"
+    #   Cap at 35 chars to avoid matching sentence-initial text as an org name.
+    #   Allow at most one period (covers "et al." abbreviation but blocks initials).
+    m = re.match(r"^(.{2,35}?)\s*(?::\s+|\s+[–—]\s+)", name)
+    if m:
+        org = m.group(1).strip(" -–—")
+        if re.match(r"^[A-Z]", org) and org.count(".") <= 1 and 2 <= len(org) <= 35:
+            year_m = re.search(r"\b(\d{4})\b", name)
+            year = year_m.group(1) if year_m else None
+            return f"{org} ({year})" if year else f"{org} (n.d.)"
+
+    # ── Fallback 1a: all-caps acronym at start of display name (e.g. IEEE, FICO, APRA).
+    #   Boundary allows space, comma, colon, dash, or end-of-string so "DORA, title"
+    #   and "IEEE 2025" both match while "IEEEsome" (no separator) does not.
+    if name:
+        acronym_m = re.match(r"^([A-Z]{2,10})(?:[\s,\-:;(]|$)", name)
+        if acronym_m:
+            org = acronym_m.group(1)
+            year_m = re.search(r"\b(\d{4})\b", name)
+            year = year_m.group(1) if year_m else None
+            return f"{org} ({year})" if year else f"{org} (n.d.)"
+
+    # ── Fallback 1b: first capitalised word from the display name.
+    #   Preserves original casing (e.g. "SQLite" not "Sqlite", "OpenAI" not "Openai").
+    #   Only fires when the word is >= 5 chars to avoid meaningless single-word labels.
+    if name:
+        cap_word = re.match(r"^([A-Z][A-Za-z0-9]{4,25})", name)
+        if cap_word:
+            org = cap_word.group(1)
+            year_m = re.search(r"\b(\d{4})\b", name)
+            year = year_m.group(1) if year_m else None
+            return f"{org} ({year})" if year else f"{org} (n.d.)"
+
+    # ── Fallback 1c: last capitalised word before a bare year at the end of the string.
+    #   Covers "Description — Publisher YEAR" patterns where the publisher is short.
+    #   e.g. "Knowledge graphs intersection — Springer 2024" → "Springer (2024)".
+    m = re.search(r"([A-Z][A-Za-z0-9]{3,25})\s+(\d{4})\s*$", name)
+    if m:
+        return f"{m.group(1)} ({m.group(2)})"
+
+    # ── Fallback 2: registrable domain from the URL.
+    #   Handles country-code second-level domains (.co.uk, .gov.au, .ac.uk, etc.)
+    #   so that e.g. bankofengland.co.uk → "Bankofengland" not "Co".
     host_m = re.search(r"https?://([^/]+)", url)
     if host_m:
         host = host_m.group(1)
         parts = host.split(".")
-        # Use second-level domain (penultimate label before the TLD)
-        org = parts[-2] if len(parts) >= 2 else parts[0]
+        cc_tlds = {"uk", "au", "nz", "jp", "in", "br", "de", "fr", "ca", "za", "sg", "eu"}
+        cc_slds = {"co", "gov", "org", "net", "edu", "ac", "govt", "com", "ltd", "sch"}
+        if len(parts) >= 3 and parts[-1] in cc_tlds and parts[-2] in cc_slds:
+            org = parts[-3]
+        elif len(parts) >= 2:
+            org = parts[-2]
+        else:
+            org = parts[0]
         return f"{org.capitalize()} (n.d.)"
     return "Source (n.d.)"
 
