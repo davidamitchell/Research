@@ -20,3 +20,33 @@ Before stripping brackets, collect any `https://` URLs from brackets containing 
 4. **Is this a pattern?** No — first occurrence of this specific gap.
 5. **Does any documentation need updating?** No — `scripts/` is already documented as the place to edit for site changes.
 6. **Do the default instructions need updating?** No.
+
+---
+
+## Session 2 — 2026-04-29 (citation skill conformance)
+
+**Follow-up work triggered by PR comment:**
+- Updated `.github/skills` submodule pointer to latest (adds `inline-citation` and `peer-reviewer` skills)
+- Reviewed `inline-citation` skill: canonical form `<a href="URL">Author (Year)</a>`
+- Updated `scripts/build_site.py`:
+  - Added `_extract_citation_label(display_name, url)`: extracts `Author (Year)` / `Org (n.d.)` from Sources section display names
+  - Updated `_render_source_links` to accept `url_to_label` dict and render conformant citation chips
+  - Updated `_render_key_claims` to thread `url_to_label` through
+  - Updated `build_item_page` to build `url_to_label` from `parse_source_refs` and pass it to `_render_key_claims`
+  - Updated CSS: `.claim-source-link` now uses teal border and colour so chips stand out as citations
+- Updated `Research/_template.md`:
+  - Sources section: documented `Author (Year)` display name format for papers and org-title format for documentation
+  - Key Findings section: clarified suffix style and noted that source URLs must match `## Sources` entries for citation rendering
+- Updated `research-prompt.md`:
+  - Added reference to `citation-discipline` and `inline-citation` skills in Step 4 companion checks
+  - Documents the canonical display name format for Sources entries
+- Added tests to `tests/test_build_site.py`:
+  - `test_extract_citation_label_et_al`, `test_extract_citation_label_single_author`, `test_extract_citation_label_org_no_year`, `test_extract_citation_label_known_org`
+  - `test_render_source_links_uses_label_map`, `test_render_source_links_fallback_without_label_map`, `test_render_source_links_deduplicates`
+- All 314 tests pass; 1 pre-existing TAVILY skip
+
+**Mini-Retro:**
+1. **Did the process work?** Yes — new skills were clear, changes were well-scoped and tested.
+2. **What slowed down or went wrong?** Playwright MCP still locked; reinstalled `playwright` pip package each session.
+3. **What single change would prevent this next time?** Pre-install `playwright` as a dev dependency or in `copilot-setup-steps.yml`.
+4. **Is this a pattern?** Yes — Playwright not available across sessions. Worth adding to `copilot-setup-steps.yml`.

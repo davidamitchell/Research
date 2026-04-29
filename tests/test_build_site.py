@@ -413,3 +413,64 @@ def test_strip_evidence_labels_plain_paragraph_unchanged() -> None:
     """Plain paragraphs without evidence labels are not modified."""
     text = "Three disciplines converge on the ~5-person limit for high-coordination teams."
     assert strip_evidence_labels(text) == text
+
+
+# ---------------------------------------------------------------------------
+# _extract_citation_label and _render_source_links
+# ---------------------------------------------------------------------------
+
+from build_site import _extract_citation_label, _render_source_links  # noqa: E402
+
+
+def test_extract_citation_label_et_al() -> None:
+    """Display name with '(Surname et al., YYYY)' produces 'Surname et al. (YYYY)'."""
+    label = _extract_citation_label(
+        "Judging LLM-as-a-Judge (Zheng et al., 2023)",
+        "https://arxiv.org/abs/2306.05685",
+    )
+    assert label == "Zheng et al. (2023)"
+
+
+def test_extract_citation_label_single_author() -> None:
+    """Display name with '(Surname, YYYY)' produces 'Surname (YYYY)'."""
+    label = _extract_citation_label("Some Title (Brooks, 1975)", "https://example.com/x")
+    assert label == "Brooks (1975)"
+
+
+def test_extract_citation_label_org_no_year() -> None:
+    """Display name without a year falls back to capitalised domain + (n.d.)."""
+    label = _extract_citation_label("Promptfoo CI/CD docs", "https://www.promptfoo.dev/docs/ci-cd/")
+    assert label == "Promptfoo (n.d.)"
+
+
+def test_extract_citation_label_known_org() -> None:
+    """Microsoft domain produces 'Microsoft (n.d.)' when no year in display name."""
+    label = _extract_citation_label(
+        "Azure AI Foundry evaluation approach",
+        "https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/",
+    )
+    assert label == "Microsoft (n.d.)"
+
+
+def test_render_source_links_uses_label_map() -> None:
+    """_render_source_links uses url_to_label when available."""
+    url = "https://arxiv.org/abs/2306.05685"
+    html = _render_source_links([url], {url: "Zheng et al. (2023)"})
+    assert "Zheng et al. (2023)" in html
+    assert 'href="https://arxiv.org/abs/2306.05685"' in html
+    assert 'class="claim-source-link"' in html
+
+
+def test_render_source_links_fallback_without_label_map() -> None:
+    """_render_source_links falls back to domain (n.d.) when url_to_label is empty."""
+    url = "https://www.promptfoo.dev/docs/integrations/ci-cd/"
+    html = _render_source_links([url])
+    assert "promptfoo" in html.lower() or "Promptfoo" in html
+    assert 'href="https://www.promptfoo.dev/docs/integrations/ci-cd/"' in html
+
+
+def test_render_source_links_deduplicates() -> None:
+    """Duplicate URLs produce only one link."""
+    url = "https://example.com/"
+    html = _render_source_links([url, url], {url: "Example (2024)"})
+    assert html.count("Example (2024)") == 1

@@ -628,9 +628,9 @@ main {
 .key-claims li:last-child { border-bottom: none; }
 .key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
 .key-claims a:hover { color: var(--text); }
-.claim-sources { display: inline-flex; flex-wrap: wrap; gap: 0.2em; margin-left: 0.5em; vertical-align: middle; }
-.claim-source-link { font-size: var(--text-xs); font-family: 'IBM Plex Mono', monospace; color: var(--text-muted); text-decoration: none; border: 1px solid var(--border); padding: 0.05em 0.35em; border-radius: 2px; white-space: nowrap; }
-.claim-source-link:hover { color: var(--teal); border-color: var(--teal); text-decoration: none; }
+.claim-sources { display: inline-flex; flex-wrap: wrap; gap: 0.25em; margin-left: 0.4em; vertical-align: middle; }
+.claim-source-link { font-size: var(--text-xs); font-family: 'IBM Plex Mono', monospace; color: var(--teal); text-decoration: none; border: 1px solid var(--teal); padding: 0.1em 0.4em; border-radius: 2px; white-space: nowrap; opacity: 0.8; }
+.claim-source-link:hover { opacity: 1; text-decoration: underline; }
 
 
 /* Relationship type pill */
@@ -2060,34 +2060,80 @@ def _render_claim(text: str) -> str:
     return "".join(parts)
 
 
-def _render_source_links(sources: list[str]) -> str:
-    """Render a compact inline list of source citation links from a list of URLs."""
+def _extract_citation_label(display_name: str, url: str) -> str:
+    """Extract a short Author (Year) label from a source display name and URL.
+
+    Conforms to the inline-citation skill canonical form ``Author (Year)``:
+
+    - ``Zheng et al. (2023)``        from "(Zheng et al., 2023)" in display_name
+    - ``Smith (2022)``               from "(Smith, 2022)" in display_name
+    - ``Promptfoo (n.d.)``           from domain when no year is found
+    """
+    # Pattern: (Surname et al., YYYY) or (Surname et al. YYYY) — capture surname only
+    m = re.search(r"\(([A-Z][A-Za-zÀ-ÿ]+)\s+et\s+al\.?,?\s*(\d{4})\)", display_name)
+    if m:
+        return f"{m.group(1)} et al. ({m.group(2)})"
+
+    # Pattern: (Surname, YYYY) — single author with year
+    m = re.search(r"\(([A-Z][A-Za-zÀ-ÿ\-]+),\s*(\d{4})\)", display_name)
+    if m:
+        return f"{m.group(1)} ({m.group(2)})"
+
+    # Pattern: bare year next to a known short author name already in display_name,
+    # e.g. "Brooks (1975)" → "Brooks (1975)"
+    m = re.search(r"([A-Z][A-Za-z]+)\s+\((\d{4})\)", display_name)
+    if m:
+        return f"{m.group(1)} ({m.group(2)})"
+
+    # No year → derive org name from the registrable domain (strip common subdomains).
+    # e.g. learn.microsoft.com → "Microsoft", docs.promptfoo.dev → "Promptfoo"
+    host_m = re.search(r"https?://([^/]+)", url)
+    if host_m:
+        host = host_m.group(1)
+        parts = host.split(".")
+        # Use second-level domain (penultimate label before the TLD)
+        org = parts[-2] if len(parts) >= 2 else parts[0]
+        return f"{org.capitalize()} (n.d.)"
+    return "Source (n.d.)"
+
+
+def _render_source_links(sources: list[str], url_to_label: dict[str, str] | None = None) -> str:
+    """Render inline citation links conforming to the inline-citation skill.
+
+    Each source is rendered as ``<a href="URL">Author (Year)</a>`` using the
+    label from *url_to_label* when available, otherwise falling back to a
+    domain-derived ``Org (n.d.)`` label.
+    """
     if not sources:
         return ""
+    labels = url_to_label or {}
     links = []
     seen: set[str] = set()
     for url in sources:
         if url in seen:
             continue
         seen.add(url)
-        domain_m = re.search(r"https?://([^/]+)", url)
-        domain = domain_m.group(1) if domain_m else url
-        # Trim leading www. for display
-        display = re.sub(r"^www\.", "", domain)
+        label = labels.get(url)
+        if not label:
+            # Fallback: derive org name from registrable domain
+            label = _extract_citation_label("", url)
         safe_url = url.replace('"', "&quot;")
         links.append(
             f'<a class="claim-source-link" href="{safe_url}"'
-            f' target="_blank" rel="noopener" title="{escape(url)}">{escape(display)}</a>'
+            f' target="_blank" rel="noopener" title="{escape(url)}">{escape(label)}</a>'
         )
     return f'<span class="claim-sources">{"".join(links)}</span>'
 
 
-def _render_key_claims(meta_claims: list) -> str:
+def _render_key_claims(meta_claims: list, url_to_label: dict[str, str] | None = None) -> str:
     """Render key claims block from pre-extracted claim objects.
 
     Each entry may be either:
       - a ``str``  (legacy format — no source links)
       - a ``dict`` with ``"text"`` and ``"sources"`` keys (current format)
+
+    *url_to_label* is a ``{url: "Author (Year)"}`` mapping built from the item's
+    Sources section; it is used to render conformant inline-citation anchors.
     """
     if not meta_claims:
         return ""
@@ -2101,7 +2147,7 @@ def _render_key_claims(meta_claims: list) -> str:
             sources = []
         rendered = _render_claim(text)
         if sources:
-            rendered += _render_source_links(sources)
+            rendered += _render_source_links(sources, url_to_label)
         return f"<li>{rendered}</li>\n"
 
     items_html = "".join(_render_item(c) for c in meta_claims)
@@ -2288,11 +2334,14 @@ def build_item_page(
     }.get(confidence, "badge-confidence-medium")
     confidence_badge = f'<span class="badge {conf_class}">{escape(confidence)}</span> '
 
-    # Key claims from pre-extracted metadata (clean, source-URL-free sentences)
-    key_claims_html = _render_key_claims(meta_claims or [])
-
-    # Build source refs for autolinking
+    # Build source refs for autolinking and citation label lookup
     source_refs = parse_source_refs(item.get("_sources_text", ""))
+
+    # Build url→"Author (Year)" label map from the Sources section display names
+    url_to_label = {url: _extract_citation_label(name, url) for name, url in source_refs.items()}
+
+    # Key claims from pre-extracted metadata (clean, source-URL-free sentences)
+    key_claims_html = _render_key_claims(meta_claims or [], url_to_label)
 
     sections_html = ""
     for section_name in SECTIONS_ORDERED:
