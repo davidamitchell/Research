@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "Is knowledge scaffolding an established concept within context engineering for Large Language Models and AI agents, and how is it defined and implemented?"
 added: 2026-04-29T02:36:48+00:00
 status: reviewing
