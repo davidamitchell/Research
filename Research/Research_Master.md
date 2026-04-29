@@ -1,6 +1,6 @@
 # Research Master Document
 
-Generated on: 2026-04-28 20:53 UTC
+Generated on: 2026-04-29 07:32 UTC
 
 ## Table of Contents
 
@@ -385,7 +385,7 @@ What explicit human oversight and accountability requirements, covering named hu
 
 ## Universal Entity Lifecycle Governance Framework (UELGF) extension: agentic Artificial Intelligence (AI)-specific risks and runtime monitoring for non-deterministic behaviour
 
-**Tags:** [uelgf, agentic-ai, emergent-behaviour, goal-misalignment, multi-agent, hallucination, runtime-monitoring, non-determinism, observability, governed-golden-rail]
+**Tags:** [uelgf, agentic-ai, emergent-behaviour, goal-misalignment, multi-agent, hallucinations, runtime-monitoring, non-determinism, observability, governed-golden-rail]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring.md
 
@@ -1214,7 +1214,7 @@ How should the UELGF formally specify the decommission lifecycle, including a co
 
 ## ServiceNow workflow orchestration and agentic Artificial Intelligence (AI) roadmap: what does ServiceNow currently provide for AI agent orchestration and governance, and what does their public roadmap indicate about future agentic AI capabilities?
 
-**Tags:** [servicenow, workflow-orchestration, agentic-ai, ai-agents, platform-roadmap, enterprise-ai, governance, creator-workflows, nowassist, ai-platform, maestro, cmdb, configuration-management-database, itom, itsm, enterprise-architecture]
+**Tags:** [servicenow, workflow-orchestration, agentic-ai, platform-roadmap, enterprise-ai, governance, creator-workflows, now-assist, ai-platform, maestro, cmdb, configuration-management-database, itom, itsm, enterprise-architecture]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-27-servicenow-orchestration-agentic-ai-roadmap.md
 
@@ -1299,7 +1299,7 @@ What workflow orchestration and governance capabilities does ServiceNow currentl
 
 ## Invariant-based anomaly detection in the Policy Information Point (PIP): detecting permanent-invariant suppression through transient operating context and the decision signal to the Policy Decision Point (PDP)
 
-**Tags:** [pbac, pip, pdp, invariant, anomaly-detection, agentic-ai, intent-alignment, prompt-injection, cynefin, bayesian-reasoning, reward-hacking, context-synthesis]
+**Tags:** [pbac, pip, pdp, invariants, anomaly-detection, agentic-ai, intent-alignment, prompt-injection, cynefin, bayesian-reasoning, reward-hacking, context-synthesis]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-27-pip-invariant-anomaly-detection.md
 
@@ -1772,7 +1772,7 @@ What frameworks - specifically the seven-layer enterprise stack and the Software
 
 ## Cryptographic preservation and runtime evaluation of original intent: a representation formalism for Getting Started phase intent that is simultaneously verifiable and semantically stable across the full operational lifecycle
 
-**Tags:** [pbac, pdp, pip, intent-preservation, cryptographic-binding, ricardian-contract, formal-specification, agentic-ai, lifecycle-governance, dikw, intent-driven-development, semantic-stability]
+**Tags:** [pbac, pdp, pip, intent-preservation, cryptographic-binding, ricardian-contracts, formal-specification, agentic-ai, lifecycle-governance, dikw, intent-driven-development, semantic-stability]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-27-cryptographic-intent-preservation-runtime-evaluation.md
 
@@ -1948,7 +1948,7 @@ impact: scoped               # metadata-only | scoped | invalidates
 
 ## What constraints do vendor platforms impose on governance, and how should enterprises design compensating controls for Artificial Intelligence (AI) and low-code systems?
 
-**Tags:** [vendor-governance, low-code, ai-platforms, compensating-controls, enterprise-governance, platform-limitations, multi-platform, microsoft-power-platform, salesforce]
+**Tags:** [vendor-governance, low-code, ai-platform, compensating-controls, enterprise-governance, platform-limitations, multi-platform, microsoft-power-platform, salesforce]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-vendor-platform-governance-constraints-compensating-controls.md
 
@@ -2188,7 +2188,7 @@ Does the synthesis of technical debt literature (Cunningham, Kruchten), systems 
 
 ## What is the strongest evidence-based argument that investing in software engineering capability rather than citizen development tooling is simultaneously the correct response to systems capability debt and the correct way to capture genuine Large Language Model value in a regulated financial institution?
 
-**Tags:** [software-engineering, engineering-investment, citizen-development, llm, large-language-models, formal-verification, ai-assisted-development, regulated-financial-services, systems-capability-debt, delivery-pipelines, deployment-architecture]
+**Tags:** [software-engineering, engineering-investment, citizen-development, llm, large-language-models, formal-verification, agentic-coding, regulated-financial-services, systems-capability-debt, delivery-pipelines, deployment-architecture]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-software-engineering-investment-case-llm.md
 
@@ -3925,7 +3925,7 @@ What is the cost, performance, and delivery impact of governance controls on AI 
 
 ## What identity and access management model is required for Artificial Intelligence (AI) agents and low-code artefacts operating within enterprise systems?
 
-**Tags:** [identity, access-management, machine-identity, ai-agents, low-code, credential-management, enterprise-iam, delegation, attribution]
+**Tags:** [identity, access-management, machine-identity, agentic-ai, low-code, credential-management, enterprise-iam, delegation, attribution]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-ai-agent-identity-access-management-enterprise.md
 
@@ -4004,7 +4004,7 @@ What identity and access management (IAM) model is required for non-human actors
 
 ## What control-plane architecture is required to manage Artificial Intelligence (AI) agents and low-code systems as distributed, semi-autonomous actors within enterprise environments?
 
-**Tags:** [control-plane, ai-agents, low-code, enterprise-architecture, policy-propagation, distributed-systems, governance-architecture, feedback-loops, ai-governance]
+**Tags:** [control-plane, agentic-ai, low-code, enterprise-architecture, policy-propagation, distributed-systems, governance-architecture, feedback-loops, ai-governance]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-ai-agent-control-plane-architecture-enterprise.md
 
@@ -4798,7 +4798,7 @@ What decision frameworks do enterprises use to route Artificial Intelligence (AI
 
 ## Enterprise AI platform operating models: organisational structure and ownership
 
-**Tags:** [ai-platforms, operating-model, organisation-design, governance, financial-services, conways-law, explore-exploit]
+**Tags:** [ai-platform, operating-model, organisational-design, governance, financial-services, conways-law, explore-exploit]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-22-enterprise-ai-platform-operating-models.md
 
@@ -4875,7 +4875,7 @@ What organisational structures do enterprises use to operate multiple Artificial
 
 ## Enterprise AI capability model for use-case maturity decisions
 
-**Tags:** [ai, enterprise, capability-model, maturity-framework, software-delivery]
+**Tags:** [agentic-ai, enterprise, capability-model, maturity-framework, software-delivery]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-22-enterprise-ai-capability-model.md
 
@@ -5049,7 +5049,7 @@ What technical patterns exist for automating governance assurance and change con
 
 ## Harness-level selection and use of tools, agents, skills, prompts, and instruction files
 
-**Tags:** [agent-harnesses, copilot, claude-code, codex, opencode, prompts, instructions, skills, tools, best-practices]
+**Tags:** [agent-tooling, copilot, claude-code, codex, opencode, prompts, instructions, skills, tools, best-practices]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-20-harness-selection-tools-agents-skills-prompts-instructions.md
 
@@ -5309,7 +5309,7 @@ Supporting questions:
 
 ## oh-my-codex and AI Agent Workflow Patterns: What Can We Leverage?
 
-**Tags:** [ai-agents, tooling, instructions, skills, workflow, codex, copilot, agents-md]
+**Tags:** [agentic-ai, tooling, instructions, skills, workflow, codex, copilot, agents-md]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-03-oh-my-codex-patterns.md
 
@@ -5394,7 +5394,7 @@ Cross-repo consistency is a second-order issue: the Multi-Agent-Testing, Agent-E
 
 ## Artificial Intelligence (AI)-assisted daily productivity digest: patterns, tooling, and automation approaches for personal task management
 
-**Tags:** [ai, productivity, automation, zapier, notion, slack, task-management, personal-assistant, memory-systems, messaging, ios, workflow]
+**Tags:** [agentic-ai, productivity, automation, zapier, notion, slack, task-management, personal-assistant, memory-system, messaging, ios, workflow]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-03-ai-workflow-todo-digest.md
 
@@ -5479,7 +5479,7 @@ Supporting questions:
 
 ## The shape of organisations when software is no longer the constraint
 
-**Tags:** [org-design, ai, software-cost, future-of-work, management, product-management, transaction-costs, agile, automation]
+**Tags:** [organisational-design, agentic-ai, software-cost, future-of-work, management, product-management, transaction-costs, agile, automation]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-02-org-shape-software-cost-zero.md
 
@@ -5717,7 +5717,7 @@ The DMCA response reveals a separate governance gap. Automated at-scale copyrigh
 
 ## Anthropic Claude Code leak: architecture, prompting, and hidden features
 
-**Tags:** [anthropic, claude, claude-code, leak, architecture, prompting, feature-flags, agents, npm, typescript, memory, tools]
+**Tags:** [anthropic, claude, claude-code, leak, architecture, prompting, feature-flags, agentic-ai, npm, typescript, memory, tools]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-02-anthropic-claude-code-leak-architecture-prompting-and-hidden-features.md
 
@@ -5806,7 +5806,7 @@ The Undercover Mode disclosure risk is the most ethically complex finding. Autom
 
 ## AI Funding and Capital Investment Landscape
 
-**Tags:** [ai, funding, investment, venture-capital, infrastructure, strategy]
+**Tags:** [agentic-ai, funding, investment, venture-capital, infrastructure, strategy]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-02-ai-funding-and-capital-investment-landscape.md
 
@@ -5890,7 +5890,7 @@ The Stargate Project represents a structural escalation: if OpenAI and SoftBank 
 
 ## AI company hiring strategies: what job ads and recent hires reveal about strategic direction
 
-**Tags:** [ai, hiring, strategy, competitive-intelligence, openai, anthropic, google-deepmind, meta-ai, xai, job-market, wayback-machine]
+**Tags:** [agentic-ai, hiring, strategy, competitive-intelligence, openai, anthropic, google-deepmind, meta-ai, xai, job-market, wayback-machine]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-02-ai-company-hiring-strategies.md
 
@@ -7018,7 +7018,7 @@ For AI deployment decisions, this analysis is immediately applicable. Cost savin
 
 ## Customer contact as strategic signal: why people call and whether they want self-service
 
-**Tags:** [customer-service, strategy, behavioral-economics, ai, self-service, customer-delight, rory-sutherland]
+**Tags:** [customer-service, strategy, behavioral-economics, agentic-ai, self-service, customer-delight, rory-sutherland]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-26-customer-contact-and-delight.md
 
@@ -7118,7 +7118,7 @@ Klarna's experience illustrates the boundary condition: AI automation works at s
 
 ## Cost reduction is not a strategy: the opportunity vs efficiency mindset
 
-**Tags:** [strategy, cost-reduction, ai, marketing, opportunity-mindset, behavioral-economics, rory-sutherland]
+**Tags:** [strategy, cost-reduction, agentic-ai, marketing, opportunity-mindset, behavioral-economics, rory-sutherland]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-26-cost-reduction-is-not-strategy.md
 
@@ -7215,7 +7215,7 @@ The AI implication is not a hypothetical: the dominant consulting framing alread
 
 ## Bureaucracy growth and the boomer generation hypothesis
 
-**Tags:** [bureaucracy, demographics, baby-boomers, HR, organizational-theory, management, workforce]
+**Tags:** [bureaucracy, demographics, baby-boomers, HR, organisational-theory, management, workforce]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-26-bureaucracy-growth-and-the-boomer-generation-hypothesis.md
 
@@ -7360,7 +7360,7 @@ The practical synthesis is a three-step programme: (1) use VSM to audit every co
 
 ## Public sentiment on AI in banking and high-trust institutions
 
-**Tags:** [ai, banking, customer-trust, apac, survey-data, architecture, financial-services, regulation]
+**Tags:** [agentic-ai, banking, customer-trust, apac, survey-data, architecture, financial-services, regulation]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-24-public-sentiment-on-ai-in-banking-and-high-trust-institutions.md
 
@@ -7443,7 +7443,7 @@ What does current (2024–2025) survey data reveal about customer sentiment towa
 
 ## The Software Factory: Organisational Transformation When the Cost of Quality Software Approaches Zero
 
-**Tags:** [software-factory, ai-native, organisations, theory-of-constraints, banking, cost-of-software]
+**Tags:** [software-factory, ai-native, organisation, theory-of-constraints, banking, cost-of-software]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-23-software-factory.md
 
@@ -7542,7 +7542,7 @@ If the cost of producing high-quality, standardised, integrated software is appr
 
 ## Agent orchestration patterns: lessons from Anvil, Max, and Burke Holland's multi-model orchestration gist
 
-**Tags:** [agents, orchestration, personal-assistant, multi-model, copilot-sdk, verification, adversarial-review, skills]
+**Tags:** [agentic-ai, orchestration, personal-assistant, multi-model, copilot-sdk, verification, adversarial-review, skills]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-23-agent-orchestration-anvil-max.md
 
@@ -7630,7 +7630,7 @@ Supporting questions:
 
 ## How to best use awesome-copilot in this repo and across personal repos
 
-**Tags:** [github-copilot, awesome-copilot, instructions, skills, agents, workflows, tooling, repo-setup]
+**Tags:** [github-copilot, awesome-copilot, instructions, skills, agentic-ai, workflow, tooling, repo-setup]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-22-using-awesome-copilot-across-repos.md
 
@@ -7862,7 +7862,7 @@ How can GitHub Actions (with GitHub Advanced Security (GHAS) and CodeQL already 
 
 ## Coding AI Agent Skills Survey: Existing Vendor and OSS Prompt Libraries for Software Engineering Domains
 
-**Tags:** [ai-agents, copilot, skills, prompts, software-engineering, dotnet, python, ddd, cqrs, clean-architecture, solid, api-design, testing, security, kafka, airflow, data-pipelines, data-visualisation, jupyter]
+**Tags:** [agentic-ai, copilot, skills, prompts, software-engineering, dotnet, python, ddd, cqrs, clean-architecture, solid, api-design, testing, security, kafka, airflow, data-pipelines, data-visualisation, jupyter]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-22-coding-ai-agent-skills-survey.md
 
@@ -8050,7 +8050,7 @@ What practical implementation approaches exist for automatically inspecting and 
 
 ## Applied context engineering: skills, workflows, and best practices for agent development
 
-**Tags:** [context-engineering, agent-skills, workflows, best-practices, multi-agent, memory-systems, tool-design, project-development, evaluation, production-agents, agents]
+**Tags:** [context-engineering, agent-skills, workflow, best-practices, multi-agent, memory-system, tool-design, project-development, evaluation, production-agents, agentic-ai]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-22-applied-context-engineering-agent-workflows.md
 
@@ -8150,7 +8150,7 @@ The multi-agent cost finding (15x tokens, 80% variance = usage) reconfigures the
 
 ## Artificial Intelligence (AI) agents as finishers and synthesisers: optimising AI agents to complement ideation-strong, execution-weak humans
 
-**Tags:** [agents, human-ai-collaboration, productivity, finishing, synthesis, orchestration, cognitive-styles]
+**Tags:** [agentic-ai, human-ai-collaboration, productivity, finishing, synthesis, orchestration, cognitive-styles]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-22-agents-as-finishers-and-synthesisers.md
 
@@ -8321,7 +8321,7 @@ Supporting questions:
 
 ## Dependency Mapping Across .NET Codebases, Terraform, Dynatrace, Confluence, Log Aggregation, and the Configuration and Service Data Model (CSDM)
 
-**Tags:** [dependency-mapping, dotnet, terraform, dynatrace, confluence, log-aggregation, csdm, architecture, discovery, agents, observability, infrastructure-as-code]
+**Tags:** [dependency-mapping, dotnet, terraform, dynatrace, confluence, log-aggregation, csdm, architecture, discovery, agentic-ai, observability, infrastructure-as-code]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-21-dependency-mapping-dotnet-terraform-dynatrace.md
 
@@ -8519,7 +8519,7 @@ This item treats enterprise Artificial Intelligence (AI) customisation as the co
 
 ## Stateless-agent assumption failure: causes, detection, and recovery patterns for orphaned state in multi-session agentic workflows
 
-**Tags:** [failure-modes, agentic-systems, operational-failures, layer-5, state-management, idempotency, checkpoint-resume, multi-session, workflow]
+**Tags:** [failure-modes, agentic-ai, operational-failures, layer-5, state-management, idempotency, checkpoint-resume, multi-session, workflow]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-18-stateless-agent-assumption-failure.md
 
@@ -8682,7 +8682,7 @@ Supporting questions:
 
 ## More formal proof engineering: Leanstral and Artificial Intelligence (AI)-assisted formal verification
 
-**Tags:** [formal-methods, formal-verification, lean, proof-engineering, ai-agents, guardrails, agent-autonomy, software-reliability, trustworthy-ai]
+**Tags:** [formal-methods, formal-verification, lean, proof-engineering, agentic-ai, guardrails, agent-autonomy, software-reliability, trustworthy-ai]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-18-formal-proof-engineering-leanstral.md
 
@@ -8767,7 +8767,7 @@ Supporting questions:
 
 ## Explore to exploit: the synthesis step that makes exploitation pay off
 
-**Tags:** [strategy, exploration, exploitation, synthesis, technology-adoption, portfolio, decision-making, organizational-learning]
+**Tags:** [strategy, exploration, exploitation, synthesis, technology-adoption, portfolio, decision-making, organisational-learning]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-18-explore-to-exploit-synthesis-gap.md
 
@@ -8856,7 +8856,7 @@ Supporting questions:
 
 ## Application Programming Interface (API) Context Hubs, Retrieval-Augmented Generation, and the Model Context Protocol: How Agents Discover and Use APIs
 
-**Tags:** [api-discovery, context-hub, rag, mcp, model-context-protocol, retrieval-augmented-generation, agents, tooling, ai-agents, api-integration]
+**Tags:** [api-discovery, context-hub, rag, mcp, model-context-protocol, retrieval-augmented-generation, agentic-ai, tooling, api-integration]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-18-api-context-hubs-rag-mcp.md
 
@@ -9031,7 +9031,7 @@ Supporting questions:
 
 ## Vision-Language Joint Embedding Predictive Architecture (VL-JEPA) and concept prediction: background and options for leveraging with frontier models
 
-**Tags:** [machine-learning, vision-language, jepa, meta, yann-lecun, concept-prediction, frontier-models, github-copilot, claude-code, agentic-coding, ai-architecture]
+**Tags:** [machine-learning, vision-language, jepa, meta, lecun, concept-prediction, frontier-models, github-copilot, claude-code, agentic-coding, ai-architecture]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-16-vl-jepa-concept-prediction.md
 
@@ -9112,7 +9112,7 @@ Supporting questions:
 
 ## Intent Driven Development: context and concept layering to bound the solution space
 
-**Tags:** [intent, software-engineering, test-driven-development, specification-driven-development, context-layering, agentic-coding, artificial-intelligence, developer-tooling, design-methodology]
+**Tags:** [intent, software-engineering, tdd, specification-driven-development, context-layering, agentic-coding, artificial-intelligence, developer-tooling, design-methodology]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-16-intent-driven-development.md
 
@@ -9197,7 +9197,7 @@ The unresolved issue is whether IDD is genuinely new or mainly a recombination o
 
 ## GitAgent and declarative agent definition: concepts, adoption, and cross-platform integration
 
-**Tags:** [agent, declarative-agent, gitagent, copilot, aws, azure, microsoft-365, git, ai-platform, multi-agent, agents, agentic-systems]
+**Tags:** [agentic-ai, declarative-agent, gitagent, copilot, aws, azure, microsoft-365, git, ai-platform, multi-agent]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-16-gitagent-declarative-agent-definition.md
 
@@ -9294,7 +9294,7 @@ Supporting questions:
 
 ## Adaptive Policy-Based Authorization (APBA): compliance alignment with National Institute of Standards and Technology (NIST) Special Publication (SP) 800-53 and International Organization for Standardization (ISO) / International Electrotechnical Commission (IEC) 27001, and impact on Policy as Code (PaC) and Artificial Intelligence (AI)-generated authorization code
 
-**Tags:** [authorization, policy-as-code, compliance, nist, iso-27001, ai, governance, least-privilege, access-control, iac]
+**Tags:** [authorization, policy-as-code, compliance, nist, iso-27001, agentic-ai, governance, least-privilege, access-control, iac]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-16-adaptive-policy-authorization-compliance.md
 
@@ -9372,7 +9372,7 @@ Supporting questions:
 
 ## Trusting Trust and AI Corpus Contamination
 
-**Tags:** [ai, epistemology, trust, corpus-contamination, prompt-injection, large-language-model, knowledge, security]
+**Tags:** [agentic-ai, epistemology, trust, corpus-contamination, prompt-injection, llm, knowledge, security]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-15-trusting-trust-ai-corpus-contamination.md
 
@@ -9618,7 +9618,7 @@ What capabilities do enterprise Software as a Service (SaaS) banking platforms (
 
 ## Prompt injection threat landscape: exploits, defences, and active research in agentic artificial intelligence (AI) systems
 
-**Tags:** [prompt-injection, security, llm, agents, adversarial, owasp, mitre-atlas, red-team, ai-governance]
+**Tags:** [prompt-injection, security, llm, agentic-ai, adversarial, owasp, mitre-atlas, red-team, ai-governance]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-15-prompt-injection-threat-landscape.md
 
@@ -10089,7 +10089,7 @@ The governance gap is the most important finding that the technical literature u
 
 ## Adam Smith, Organisational Design, Desire Paths, and AI Strategy
 
-**Tags:** [economics, adam-smith, org-design, desire-paths, ai-strategy, moral-philosophy, human-nature, behaviour, coase, institutional-economics]
+**Tags:** [economics, adam-smith, organisational-design, desire-paths, ai-strategy, moral-philosophy, human-nature, behaviour, coase, institutional-economics]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-15-adam-smith-org-design-desire-paths-ai.md
 
@@ -10292,7 +10292,7 @@ RWA tokenisation is the most structurally compelling driver [inference]: tokenis
 
 ## Reliable Software in the LLM Era
 
-**Tags:** [llm, formal-methods, reliability, software-engineering, quint, formal-verification, cognitive-debt, ai]
+**Tags:** [llm, formal-methods, reliability, software-engineering, quint, formal-verification, cognitive-debt, agentic-ai]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-14-reliable-software-llm-era.md
 
@@ -10603,7 +10603,7 @@ The correlation structure of IT cost uncertainties is the technically decisive i
 
 ## AI inverted the knowledge-work scarcity equation: volume is free, correctness is the scarce resource
 
-**Tags:** [correctness, quality, throughput, volume, ai, productivity, verification, shared-context, agentic-tarpit, procter-and-gamble-study]
+**Tags:** [correctness, quality, throughput, volume, agentic-ai, productivity, verification, shared-context, agentic-tarpit, procter-and-gamble-study]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-12-volume-vs-correctness-ai-era.md
 
@@ -10810,7 +10810,7 @@ The precision of the convergence on "5" is overstated in popular treatments. Bro
 
 ## SWAT technique in a fresh-context loop: reliability, drift, and the effect of web search and org RAG on blind-acceptance outcomes
 
-**Tags:** [swat, prompting-techniques, agentic-systems, rag, web-search, hallucination, context-window, loop-reliability, grounding]
+**Tags:** [swat, prompting-techniques, agentic-ai, rag, web-search, hallucinations, context-window, loop-reliability, grounding]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-12-swat-technique-loop-fresh-context.md
 
@@ -11063,7 +11063,7 @@ The MkDocs Material + Pagefind + GitHub Pages stack is therefore the correct bas
 
 ## Failure mode taxonomy: empirical frequency, causal mechanisms, detection signals, and cascade patterns in production agentic systems
 
-**Tags:** [failure-modes, taxonomy, hallucination, reward-hacking, prompt-injection, alignment, agentic-systems, owasp, safety, observability]
+**Tags:** [failure-modes, taxonomy, hallucinations, reward-hacking, prompt-injection, alignment, agentic-ai, owasp, safety, observability]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-12-failure-mode-taxonomy-expansion.md
 
@@ -11179,7 +11179,7 @@ Sycophancy classification is the item's most structurally significant contributi
 
 ## Exploration-synthesis gap: why people in explore mode fail to synthesise others' work, and whether agent synthesis can close the gap
 
-**Tags:** [cognition, exploration, synthesis, knowledge-sharing, incentives, ego, agentic-systems, organisational-behaviour, psychology]
+**Tags:** [cognition, exploration, synthesis, knowledge-sharing, incentives, ego, agentic-ai, organisational-behaviour, psychology]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-12-exploration-synthesis-gap.md
 
@@ -11278,7 +11278,7 @@ The regulatory convergence finding warrants separate investigation: if complianc
 
 ## AI amplified the coordination tax: the 5-person strike team as the structural unit of the AI era
 
-**Tags:** [team-size, ai, coordination-overhead, strike-team, organisational-design, productivity, ai-native]
+**Tags:** [team-size, agentic-ai, coordination-overhead, strike-team, organisational-design, productivity, ai-native]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-12-ai-team-size-strike-team-thesis.md
 
@@ -11530,7 +11530,7 @@ One interpretation of the Midjourney and Lovable data is: "small teams are only 
 
 ## Research loop evaluation rubric: LLM-as-judge specification for this repository's research loop agent
 
-**Tags:** [agents, evaluation, rubric, research-loop, llm-as-judge, regression, quality-gate, ci]
+**Tags:** [agentic-ai, evaluation, rubric, research-loop, llm-as-judge, regression, quality-gate, ci]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-10-research-loop-evaluation-rubric.md
 
@@ -11730,7 +11730,7 @@ The fitness function framing adds a practical layer the TCE literature alone doe
 
 ## Language designed for LLM agents to produce: addressing generation-layer failure modes in agentic systems
 
-**Tags:** [agentic-systems, programming-languages, dsl, failure-modes, intent-alignment, reward-hacking, formal-methods, output-language, llm-code-generation, structured-output]
+**Tags:** [agentic-ai, programming-languages, dsl, failure-modes, intent-alignment, reward-hacking, formal-methods, output-language, llm-code-generation, structured-output]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-10-language-for-llm-agent-output.md
 
@@ -11818,7 +11818,7 @@ The distinction between "language for orchestrating LLM agents" (designed by hum
 
 ## Formal intent specification and language choice for AI alignment in agentic coding systems
 
-**Tags:** [formal-methods, intent-alignment, reward-hacking, agentic-systems, programming-languages, type-theory, out-of-the-tar-pit]
+**Tags:** [formal-methods, intent-alignment, reward-hacking, agentic-ai, programming-languages, type-theory, out-of-the-tar-pit]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-10-formal-spec-intent-alignment-agentic-coding.md
 
@@ -11918,7 +11918,7 @@ Competing interpretations: one could argue that language choice is irrelevant if
 
 ## The DIKW pyramid: transformation functions from data to information to knowledge to wisdom
 
-**Tags:** [dikw, knowledge-management, epistemology, information-theory, wisdom, cognition, organisations, learning]
+**Tags:** [dikw, knowledge-management, epistemology, information-theory, wisdom, cognition, organisation, learning]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-10-dikw-transformation-functions.md
 
@@ -12017,7 +12017,7 @@ The K→W formalisation literature (virtue epistemology, proportional duty frame
 
 ## AI concept classification taxonomy: prompts, instructions, memory, failure modes, controls, and problem domains
 
-**Tags:** [taxonomy, classification, prompt-engineering, context-engineering, intent-engineering, memory, failure-modes, guardrails, skills, tools, agents, agentic-systems]
+**Tags:** [taxonomy, classification, prompt-engineering, context-engineering, intent-engineering, memory, failure-modes, guardrails, skills, tools, agentic-ai]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-10-ai-concept-classification-taxonomy.md
 
@@ -12118,7 +12118,7 @@ The controls-to-failures mapping is deliberately one-to-many: structural control
 
 ## Agent evaluation framework: cross-repo pattern analysis, commonality detection, and regression identification
 
-**Tags:** [agents, evaluation, benchmarking, cross-repo-analysis, pattern-analysis, agentic-systems, metrics, regression, effectiveness, taxonomy]
+**Tags:** [agentic-ai, evaluation, benchmarking, cross-repo-analysis, pattern-analysis, metrics, regression, effectiveness, taxonomy]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-10-agent-evaluation-cross-repo-analysis.md
 
@@ -12219,7 +12219,7 @@ For a research loop agent, the architectural implication is clear: the primary e
 
 ## Adversarial agents with shared goals: multi-perspective coverage across competencies and time horizons
 
-**Tags:** [multi-agent, adversarial-collaboration, competency-coverage, time-horizons, fitness-functions, organisational-design, red-team, quality-assurance, values-alignment, agents, agentic-systems]
+**Tags:** [multi-agent, adversarial-collaboration, competency-coverage, time-horizons, fitness-functions, organisational-design, red-team, quality-assurance, values-alignment, agentic-ai]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-10-adversarial-agents-shared-goals-multi-perspective.md
 
@@ -12584,7 +12584,7 @@ The evidence strongly supports treating the governance model (named owners, chan
 
 ## ServiceNow Platform Strategy: Holistic Integration of CSDM, Modules, Process, and AI
 
-**Tags:** [servicenow, platform-strategy, csdm, itsm, apm, spm, irm, grc, fso, ai, process-mapping, enterprise-architecture, tco]
+**Tags:** [servicenow, platform-strategy, csdm, itsm, apm, spm, irm, grc, fso, agentic-ai, process-mapping, enterprise-architecture, tco]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-servicenow-platform-strategy.md
 
@@ -12751,7 +12751,7 @@ For financial services firms in scope for DORA, the calculus has shifted materia
 
 ## ServiceNow AI: Knowledge Management, RAG Pipelines, and Agent Frameworks
 
-**Tags:** [servicenow, ai, now-assist, rag, knowledge-management, agent-frameworks, genai, llm, knowledge-base]
+**Tags:** [servicenow, agentic-ai, now-assist, rag, knowledge-management, agent-frameworks, genai, llm, knowledge-base]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-servicenow-ai-knowledge-rag-agents.md
 
@@ -13540,7 +13540,7 @@ Opinion: In a post-2025 context, BCR should be treated as informative rather tha
 
 ## AI coding harnesses: agent execution model, memory, and context management across commercial and OSS tools
 
-**Tags:** [ai-agents, coding, ide, anthropic, openai, cursor, opencode, aider, cline, context-management, memory, state-management, oss]
+**Tags:** [agentic-ai, coding, ide, anthropic, openai, cursor, opencode, aider, cline, context-management, memory, state-management, oss]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-08-ai-coding-harnesses-agent-philosophy.md
 
@@ -13803,7 +13803,7 @@ The vendor case studies (Praecipio retail client: $2M/year savings; financial se
 
 ## Swarm Intelligence, PCA, Genetic Algorithms, and Reinforcement Learning — advanced techniques for analytics teams
 
-**Tags:** [machine-learning, analytics, swarm-intelligence, pca, dimensionality-reduction, genetic-algorithms, evolutionary-computation, reinforcement-learning, optimisation, advanced-analytics]
+**Tags:** [machine-learning, analytics, swarm-intelligence, pca, dimensionality-reduction, genetic-algorithms, evolutionary-computation, reinforcement-learning, optimisation]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-05-swarm-pca-genetic-reinforcement-learning.md
 
@@ -14414,7 +14414,7 @@ The convergence of neuron-level (H-Neurons) and representation-level (RepE, ITI)
 
 ## General Agent Optimization Framework
 
-**Tags:** [ai-agents, optimization, benchmarks, dspy, evaluation, self-improvement, prompt-engineering, synthetic-data]
+**Tags:** [agentic-ai, optimization, benchmarks, dspy, evaluation, self-improvement, prompt-engineering, synthetic-data]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-05-general-agent-optimization-framework.md
 
@@ -14498,7 +14498,7 @@ Instruction drift is the central reliability risk of iterative prompt optimizati
 
 ## Emergent Patterns in Software Engineering Prompts and SDLC Guidance
 
-**Tags:** [ai-agents, prompts, sdlc, software-engineering, best-practices, prompt-engineering, developer-tooling]
+**Tags:** [agentic-ai, prompts, sdlc, software-engineering, best-practices, prompt-engineering, developer-tooling]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-04-sdlc-ai-prompt-patterns.md
 
@@ -14782,7 +14782,7 @@ The trade-off between drift detection sensitivity and false-positive rate is man
 
 ## ML techniques, algorithms, and advanced analytics — a systematic reference for analytics teams
 
-**Tags:** [machine-learning, analytics, algorithms, statistics, deep-learning, advanced-analytics, best-practices, model-selection]
+**Tags:** [machine-learning, analytics, algorithms, statistics, deep-learning, best-practices, model-selection]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-03-ml-techniques-and-algorithms.md
 
@@ -14969,7 +14969,7 @@ The `semantic-full-text-search` item is a prerequisite for contextual recall ("w
 
 ## Knowledge Representation for Agent Context: LSE, Knowledge Graphs, Concept Maps, and Document Compression for Large-Scale Context Management
 
-**Tags:** [lse, lsa, knowledge-graphs, concept-maps, document-compression, context-management, rag, agents, knowledge-layering, intent-alignment, graphrag]
+**Tags:** [lse, lsa, knowledge-graph, concept-maps, document-compression, context-management, rag, agentic-ai, knowledge-layering, intent-alignment, graphrag]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-03-knowledge-representation-agent-context.md
 
@@ -15164,7 +15164,7 @@ The `.gitignore` adjustment (adding `!state/links.json`) is small but critical. 
 
 ## Transaction Cost Economics: foundations and speculative integration with SWE, AI, knowledge management, and context engineering
 
-**Tags:** [transaction-costs, institutional-economics, coase, williamson, north, ostrom, munger, swe, ai-agents, knowledge-management, context-engineering]
+**Tags:** [transaction-costs, institutional-economics, coase, williamson, north, ostrom, munger, swe, agentic-ai, knowledge-management, context-engineering]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-02-transaction-costs.md
 
@@ -15648,7 +15648,7 @@ The PAT storage constraint is a real limitation but not a blocker. The security 
 
 ## An Integrative Framework for Agent Decision-Making: Aligning Knowledge Management, Intent Understanding, and Contextual Decision Frameworks
 
-**Tags:** [agents, decision-making, dikw, knowledge-management, intent, memory, context, alignment, governance, wisdom]
+**Tags:** [agentic-ai, decision-making, dikw, knowledge-management, intent, memory, context, alignment, governance, wisdom]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-02-integrative-framework-agent-decision-making.md
 
@@ -15855,7 +15855,7 @@ The grounding design (structural + instructional) is appropriate. Structural gro
 
 ## AI capability is not a data problem - why the data/analytics department is the wrong home for organisational AI
 
-**Tags:** [ai-strategy, architecture, data-platform, api-layer, agents, organisational-design, governance, mcp, zero-trust, identity]
+**Tags:** [ai-strategy, architecture, data-platform, api-layer, agentic-ai, organisational-design, governance, mcp, zero-trust, identity]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-02-ai-not-a-data-problem.md
 
@@ -15958,7 +15958,7 @@ Evidence sufficiency is high for the architectural claims (multiple independent 
 
 ## Agent Memory Management and Context Injection
 
-**Tags:** [memory, context-injection, rag, agents, knowledge-management, architecture, governance, dikw, obsidian, pkm, knowledge-graphs, embeddings, graph-of-thoughts, portability]
+**Tags:** [memory, context-injection, rag, agentic-ai, knowledge-management, architecture, governance, dikw, obsidian, pkm, knowledge-graph, embeddings, graph-of-thoughts, portability]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-02-agent-memory-management-context-injection.md
 
@@ -16261,7 +16261,7 @@ Both are regenerated on every rebuild.
 
 ## GitHub Specify, Ralph Loops, and Lisa Planning: Proof-Driven Development with AI Agents
 
-**Tags:** [proof-driven-development, ai-agents, ralph-loop, lisa-planning, specify, autonomous-development, github-copilot, software-engineering]
+**Tags:** [proof-driven-development, agentic-ai, ralph-loop, lisa-planning, specify, autonomous-development, github-copilot, software-engineering]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-01-github-specify-ralph-loop-lisa-planning.md
 
@@ -17084,7 +17084,7 @@ For Anil Seth's controlled hallucination thesis specifically: PP provides the me
 
 ## Jevons Paradox: efficiency gains, demand rebound, and the falling cost of software production
 
-**Tags:** [jevons-paradox, rebound-effect, economics, software-engineering, ai-coding, technology-forecasting]
+**Tags:** [jevons-paradox, rebound-effect, economics, software-engineering, agentic-coding, technology-forecasting]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-02-28-jevons-paradox.md
 
@@ -18952,7 +18952,7 @@ The email digest pattern from `Latest-developments-` is well-established but arc
 
 ## Information synthesis: non-lossy compression, entropy, and information theory
 
-**Tags:** [synthesis, information-theory, entropy, compression, ai]
+**Tags:** [synthesis, information-theory, entropy, compression, agentic-ai]
 
 **Origin:** https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-02-27-information-synthesis-entropy.md
 
