@@ -5,7 +5,7 @@ added: 2026-03-20T07:26:32+00:00
 status: completed
 priority: high
 blocks: []
-tags: [failure-modes, agentic-systems, operational-failures, layer-5, state-management, idempotency, checkpoint-resume, multi-session, workflow]
+tags: [failure-modes, agentic-ai, operational-failures, layer-5, state-management, idempotency, checkpoint-resume, multi-session, workflow]
 started: 2026-03-20T07:26:32+00:00
 completed: 2026-03-20T07:26:32+00:00
 output: [knowledge]

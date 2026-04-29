@@ -4,7 +4,7 @@ added: 2026-03-09T07:56:47+00:00
 status: completed
 priority: high
 blocks: []
-tags: [ai-agents, coding, ide, anthropic, openai, cursor, opencode, aider, cline, context-management, memory, state-management, oss]
+tags: [agentic-ai, coding, ide, anthropic, openai, cursor, opencode, aider, cline, context-management, memory, state-management, oss]
 started: 2026-03-09T07:56:47+00:00
 completed: 2026-03-09T07:56:47+00:00
 output: [knowledge]

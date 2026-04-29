@@ -4,7 +4,7 @@ added: 2026-03-14T07:48:55+00:00
 status: completed
 priority: high
 blocks: []
-tags: [agents, evaluation, rubric, research-loop, llm-as-judge, regression, quality-gate, ci]
+tags: [agentic-ai, evaluation, rubric, research-loop, llm-as-judge, regression, quality-gate, ci]
 started: 2026-03-14T07:48:55+00:00
 completed: 2026-03-14T07:48:55+00:00
 output: [knowledge, artefact]

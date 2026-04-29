@@ -4,7 +4,7 @@ added: 2026-03-10T19:50:15+00:00
 status: completed
 priority: high
 blocks: []
-tags: [dikw, knowledge-management, epistemology, information-theory, wisdom, cognition, organisations, learning]
+tags: [dikw, knowledge-management, epistemology, information-theory, wisdom, cognition, organisation, learning]
 started: 2026-03-10T19:50:15+00:00
 completed: 2026-03-10T19:50:15+00:00
 output: [knowledge]

@@ -5,7 +5,7 @@ added: 2026-04-26T18:31:29+00:00
 status: completed
 priority: high
 blocks: []
-tags: [software-engineering, engineering-investment, citizen-development, llm, large-language-models, formal-verification, ai-assisted-development, regulated-financial-services, systems-capability-debt, delivery-pipelines, deployment-architecture]
+tags: [software-engineering, engineering-investment, citizen-development, llm, large-language-models, formal-verification, agentic-coding, regulated-financial-services, systems-capability-debt, delivery-pipelines, deployment-architecture]
 started: 2026-04-27T08:25:26+00:00
 completed: 2026-04-27T08:50:09+00:00
 output: [knowledge]

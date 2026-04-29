@@ -4,7 +4,7 @@ added: 2026-03-14T11:58:48+00:00
 status: completed
 priority: high
 blocks: []
-tags: [correctness, quality, throughput, volume, ai, productivity, verification, shared-context, agentic-tarpit, procter-and-gamble-study]
+tags: [correctness, quality, throughput, volume, agentic-ai, productivity, verification, shared-context, agentic-tarpit, procter-and-gamble-study]
 started: 2026-03-14T11:58:48+00:00
 completed: 2026-03-14T11:58:48+00:00
 output: [knowledge]

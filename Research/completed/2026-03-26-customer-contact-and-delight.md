@@ -4,7 +4,7 @@ added: 2026-03-27T08:57:15+00:00
 status: completed
 priority: high
 blocks: []
-tags: [customer-service, strategy, behavioral-economics, ai, self-service, customer-delight, rory-sutherland]
+tags: [customer-service, strategy, behavioral-economics, agentic-ai, self-service, customer-delight, rory-sutherland]
 started: 2026-03-27T08:57:15+00:00
 completed: 2026-03-27T08:57:15+00:00
 output: [knowledge]

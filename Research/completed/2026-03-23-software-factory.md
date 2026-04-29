@@ -5,7 +5,7 @@ added: 2026-03-24T22:49:09+00:00
 status: completed
 priority: high
 blocks: []
-tags: [software-factory, ai-native, organisations, theory-of-constraints, banking, cost-of-software]
+tags: [software-factory, ai-native, organisation, theory-of-constraints, banking, cost-of-software]
 started: 2026-03-24T22:49:09+00:00
 completed: 2026-03-24T22:49:09+00:00
 output: [knowledge]

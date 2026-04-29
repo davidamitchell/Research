@@ -3,7 +3,7 @@ title: "An Integrative Framework for Agent Decision-Making: Aligning Knowledge M
 added: 2026-03-08T01:19:21+00:00
 status: completed
 priority: medium
-tags: [agents, decision-making, dikw, knowledge-management, intent, memory, context, alignment, governance, wisdom]
+tags: [agentic-ai, decision-making, dikw, knowledge-management, intent, memory, context, alignment, governance, wisdom]
 started: 2026-03-08T01:19:21+00:00
 completed: 2026-03-08T01:19:21+00:00
 output: [knowledge]

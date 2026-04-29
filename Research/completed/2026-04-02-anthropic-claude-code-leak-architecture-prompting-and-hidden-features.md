@@ -4,7 +4,7 @@ added: 2026-04-02T09:05:22+00:00
 status: completed
 priority: high
 blocks: []
-tags: [anthropic, claude, claude-code, leak, architecture, prompting, feature-flags, agents, npm, typescript, memory, tools]
+tags: [anthropic, claude, claude-code, leak, architecture, prompting, feature-flags, agentic-ai, npm, typescript, memory, tools]
 started: 2026-04-02T09:05:22+00:00
 completed: 2026-04-02T09:05:22+00:00
 output: [knowledge]

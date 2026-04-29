@@ -733,9 +733,9 @@ The `arxiv_mcp_server` MCP is configured in `.mcp.json` but the research prompt 
 
 ## W-0043
 
-status: open
+status: done
 created: 2026-04-27
-updated: 2026-04-27
+updated: 2026-04-28
 
 ### Outcome
 

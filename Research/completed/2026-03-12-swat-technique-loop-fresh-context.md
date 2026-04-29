@@ -4,7 +4,7 @@ added: 2026-03-14T23:57:17+00:00
 status: completed
 priority: medium
 blocks: []
-tags: [swat, prompting-techniques, agentic-systems, rag, web-search, hallucination, context-window, loop-reliability, grounding]
+tags: [swat, prompting-techniques, agentic-ai, rag, web-search, hallucinations, context-window, loop-reliability, grounding]
 started: 2026-03-14T23:57:17+00:00
 completed: 2026-03-14T23:57:17+00:00
 output: [knowledge]

@@ -5,7 +5,7 @@ added: 2026-03-24T23:08:35+00:00
 status: completed
 priority: high
 blocks: []
-tags: [ai, banking, customer-trust, apac, survey-data, architecture, financial-services, regulation]
+tags: [agentic-ai, banking, customer-trust, apac, survey-data, architecture, financial-services, regulation]
 started: 2026-03-24T23:08:35+00:00
 completed: 2026-03-24T23:08:35+00:00
 output: [knowledge]

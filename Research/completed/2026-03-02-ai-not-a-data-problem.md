@@ -3,7 +3,7 @@ title: "AI capability is not a data problem - why the data/analytics department 
 added: 2026-03-07T01:39:25+00:00
 status: completed
 priority: medium
-tags: [ai-strategy, architecture, data-platform, api-layer, agents, organisational-design, governance, mcp, zero-trust, identity]
+tags: [ai-strategy, architecture, data-platform, api-layer, agentic-ai, organisational-design, governance, mcp, zero-trust, identity]
 started: 2026-03-07T01:39:25+00:00
 completed: 2026-03-07T01:39:25+00:00
 output: [knowledge, backlog-item]

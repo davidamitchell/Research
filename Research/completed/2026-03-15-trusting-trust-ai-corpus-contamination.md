@@ -5,7 +5,7 @@ added: 2026-03-19T07:58:52+00:00
 status: completed
 priority: high  # low | medium | high
 blocks: []  # slugs (filename without .md) of backlog items that cannot start until this one is complete
-tags: [ai, epistemology, trust, corpus-contamination, prompt-injection, large-language-model, knowledge, security]
+tags: [agentic-ai, epistemology, trust, corpus-contamination, prompt-injection, llm, knowledge, security]
 started: 2026-03-19T07:58:52+00:00
 completed: 2026-03-19T07:58:52+00:00
 output: [knowledge]

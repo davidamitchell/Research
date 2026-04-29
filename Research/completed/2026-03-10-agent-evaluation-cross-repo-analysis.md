@@ -4,7 +4,7 @@ added: 2026-03-10T19:40:42+00:00
 status: completed
 priority: high
 blocks: []
-tags: [agents, evaluation, benchmarking, cross-repo-analysis, pattern-analysis, agentic-systems, metrics, regression, effectiveness, taxonomy]
+tags: [agentic-ai, evaluation, benchmarking, cross-repo-analysis, pattern-analysis, metrics, regression, effectiveness, taxonomy]
 started: 2026-03-10T19:40:42+00:00
 completed: 2026-03-10T19:40:42+00:00
 output: [knowledge, backlog-item]

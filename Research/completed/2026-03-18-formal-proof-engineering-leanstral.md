@@ -5,7 +5,7 @@ added: 2026-03-22T04:13:04+00:00
 status: completed
 priority: high  # low | medium | high
 blocks: []
-tags: [formal-methods, formal-verification, lean, proof-engineering, ai-agents, guardrails, agent-autonomy, software-reliability, trustworthy-ai]
+tags: [formal-methods, formal-verification, lean, proof-engineering, agentic-ai, guardrails, agent-autonomy, software-reliability, trustworthy-ai]
 started: 2026-03-22T04:13:04+00:00
 completed: 2026-03-22T04:13:04+00:00
 output: [knowledge]

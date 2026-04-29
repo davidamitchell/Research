@@ -5,7 +5,7 @@ added: 2026-04-27T04:15:46+00:00
 status: completed
 priority: medium
 blocks: [2026-04-27-governance-moat-prior-research-implications]
-tags: [servicenow, workflow-orchestration, agentic-ai, ai-agents, platform-roadmap, enterprise-ai, governance, creator-workflows, nowassist, ai-platform, maestro, cmdb, configuration-management-database, itom, itsm, enterprise-architecture]
+tags: [servicenow, workflow-orchestration, agentic-ai, platform-roadmap, enterprise-ai, governance, creator-workflows, now-assist, ai-platform, maestro, cmdb, configuration-management-database, itom, itsm, enterprise-architecture]
 started: 2026-04-27T13:07:40+00:00
 completed: 2026-04-27T13:40:47+00:00
 output: [knowledge]

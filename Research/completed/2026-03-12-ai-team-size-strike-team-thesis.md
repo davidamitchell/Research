@@ -4,7 +4,7 @@ added: 2026-03-14T10:22:40+00:00
 status: completed
 priority: high
 blocks: []
-tags: [team-size, ai, coordination-overhead, strike-team, organisational-design, productivity, ai-native]
+tags: [team-size, agentic-ai, coordination-overhead, strike-team, organisational-design, productivity, ai-native]
 started: 2026-03-14T10:22:40+00:00
 completed: 2026-03-14T10:22:40+00:00
 output: [knowledge]

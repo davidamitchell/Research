@@ -5,7 +5,7 @@ added: 2026-03-19T06:58:09+00:00
 status: completed
 priority: high
 blocks: []
-tags: [prompt-injection, security, llm, agents, adversarial, owasp, mitre-atlas, red-team, ai-governance]
+tags: [prompt-injection, security, llm, agentic-ai, adversarial, owasp, mitre-atlas, red-team, ai-governance]
 started: 2026-03-19T06:58:09+00:00
 completed: 2026-03-19T06:58:09+00:00
 output: [knowledge]
