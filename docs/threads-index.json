@@ -469,7 +469,7 @@
       "organisational-design"
     ],
     "concept_cluster": [],
-    "item_count": 22,
+    "item_count": 23,
     "items": [
       {
         "slug": "2026-02-28-ai-strategy",
@@ -579,6 +579,11 @@
       {
         "slug": "2026-04-28-uelgf-human-oversight-accountability-layer",
         "title": "Universal Entity Lifecycle Governance Framework (UELGF) extension: human oversight and accountability layer, named owners, escalation paths, and accountability alignment with emerging agentic Artificial Intelligence (AI) governance standards",
+        "added": "2026-04-28"
+      },
+      {
+        "slug": "2026-04-28-software-demand-shift-ai-coding-era",
+        "title": "Which software categories face declining demand versus increasing demand as Artificial Intelligence (AI) coding agents make custom software generation cheap?",
         "added": "2026-04-28"
       }
     ],
@@ -1155,6 +1160,116 @@
     "url": "/Research/threads/agentic-ai-governance-servicenow.html"
   },
   {
+    "slug": "agentic-ai-hallucinations-alignment",
+    "title": "agentic-ai / hallucinations / alignment",
+    "kind": "implicit",
+    "tag_cluster": [
+      "agentic-ai",
+      "hallucinations",
+      "alignment"
+    ],
+    "concept_cluster": [],
+    "item_count": 19,
+    "items": [
+      {
+        "slug": "2026-03-05-llm-hallucination-mechanisms",
+        "title": "LLM Hallucinations — Types, Causes, and Current Mitigation Approaches",
+        "added": "2026-03-05"
+      },
+      {
+        "slug": "2026-03-05-h-neurons-in-llms",
+        "title": "Hallucination-Associated Neurons (H-Neurons) in LLMs — Identification, Behavioural Impact, and Origins",
+        "added": "2026-03-05"
+      },
+      {
+        "slug": "2026-03-05-h-neurons-synthesis",
+        "title": "H-Neurons Synthesis — From Hallucination Mechanisms to Actionable LLM Reliability Engineering",
+        "added": "2026-03-05"
+      },
+      {
+        "slug": "2026-03-05-h-neuron-over-compliance",
+        "title": "Over-Compliance in LLMs — How H-Neurons Drive Sycophancy and What Interventions Are Possible",
+        "added": "2026-03-06"
+      },
+      {
+        "slug": "2026-03-05-h-neuron-pretraining-origins",
+        "title": "Pre-Training Origins of Hallucination-Associated Neurons — Implications for LLM Development",
+        "added": "2026-03-06"
+      },
+      {
+        "slug": "2026-03-02-integrative-framework-agent-decision-making",
+        "title": "An Integrative Framework for Agent Decision-Making: Aligning Knowledge Management, Intent Understanding, and Contextual Decision Frameworks",
+        "added": "2026-03-08"
+      },
+      {
+        "slug": "2026-03-10-formal-spec-intent-alignment-agentic-coding",
+        "title": "Formal intent specification and language choice for AI alignment in agentic coding systems",
+        "added": "2026-03-10"
+      },
+      {
+        "slug": "2026-03-10-ai-concept-classification-taxonomy",
+        "title": "AI concept classification taxonomy: prompts, instructions, memory, failure modes, controls, and problem domains",
+        "added": "2026-03-10"
+      },
+      {
+        "slug": "2026-03-10-agent-evaluation-cross-repo-analysis",
+        "title": "Agent evaluation framework: cross-repo pattern analysis, commonality detection, and regression identification",
+        "added": "2026-03-10"
+      },
+      {
+        "slug": "2026-03-10-language-for-llm-agent-output",
+        "title": "Language designed for LLM agents to produce: addressing generation-layer failure modes in agentic systems",
+        "added": "2026-03-11"
+      },
+      {
+        "slug": "2026-03-12-failure-mode-taxonomy-expansion",
+        "title": "Failure mode taxonomy: empirical frequency, causal mechanisms, detection signals, and cascade patterns in production agentic systems",
+        "added": "2026-03-14"
+      },
+      {
+        "slug": "2026-03-12-swat-technique-loop-fresh-context",
+        "title": "SWAT technique in a fresh-context loop: reliability, drift, and the effect of web search and org RAG on blind-acceptance outcomes",
+        "added": "2026-03-14"
+      },
+      {
+        "slug": "2026-03-15-prompt-injection-threat-landscape",
+        "title": "Prompt injection threat landscape: exploits, defences, and active research in agentic artificial intelligence (AI) systems",
+        "added": "2026-03-19"
+      },
+      {
+        "slug": "2026-03-15-trusting-trust-ai-corpus-contamination",
+        "title": "Trusting Trust and AI Corpus Contamination",
+        "added": "2026-03-19"
+      },
+      {
+        "slug": "2026-03-18-stateless-agent-assumption-failure",
+        "title": "Stateless-agent assumption failure: causes, detection, and recovery patterns for orphaned state in multi-session agentic workflows",
+        "added": "2026-03-20"
+      },
+      {
+        "slug": "2026-03-21-dependency-mapping-dotnet-terraform-dynatrace",
+        "title": "Dependency Mapping Across .NET Codebases, Terraform, Dynatrace, Confluence, Log Aggregation, and the Configuration and Service Data Model (CSDM)",
+        "added": "2026-03-22"
+      },
+      {
+        "slug": "2026-04-27-pip-invariant-anomaly-detection",
+        "title": "Invariant-based anomaly detection in the Policy Information Point (PIP): detecting permanent-invariant suppression through transient operating context and the decision signal to the Policy Decision Point (PDP)",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring",
+        "title": "Universal Entity Lifecycle Governance Framework (UELGF) extension: agentic Artificial Intelligence (AI)-specific risks and runtime monitoring for non-deterministic behaviour",
+        "added": "2026-04-28"
+      },
+      {
+        "slug": "2026-04-28-software-demand-shift-ai-coding-era",
+        "title": "Which software categories face declining demand versus increasing demand as Artificial Intelligence (AI) coding agents make custom software generation cheap?",
+        "added": "2026-04-28"
+      }
+    ],
+    "url": "/Research/threads/agentic-ai-hallucinations-alignment.html"
+  },
+  {
     "slug": "llm-agentic-ai-reliability",
     "title": "llm / agentic-ai / reliability",
     "kind": "implicit",
@@ -1258,111 +1373,6 @@
       }
     ],
     "url": "/Research/threads/llm-agentic-ai-reliability.html"
-  },
-  {
-    "slug": "agentic-ai-hallucinations-alignment",
-    "title": "agentic-ai / hallucinations / alignment",
-    "kind": "implicit",
-    "tag_cluster": [
-      "agentic-ai",
-      "hallucinations",
-      "alignment"
-    ],
-    "concept_cluster": [],
-    "item_count": 18,
-    "items": [
-      {
-        "slug": "2026-03-05-llm-hallucination-mechanisms",
-        "title": "LLM Hallucinations — Types, Causes, and Current Mitigation Approaches",
-        "added": "2026-03-05"
-      },
-      {
-        "slug": "2026-03-05-h-neurons-in-llms",
-        "title": "Hallucination-Associated Neurons (H-Neurons) in LLMs — Identification, Behavioural Impact, and Origins",
-        "added": "2026-03-05"
-      },
-      {
-        "slug": "2026-03-05-h-neurons-synthesis",
-        "title": "H-Neurons Synthesis — From Hallucination Mechanisms to Actionable LLM Reliability Engineering",
-        "added": "2026-03-05"
-      },
-      {
-        "slug": "2026-03-05-h-neuron-over-compliance",
-        "title": "Over-Compliance in LLMs — How H-Neurons Drive Sycophancy and What Interventions Are Possible",
-        "added": "2026-03-06"
-      },
-      {
-        "slug": "2026-03-05-h-neuron-pretraining-origins",
-        "title": "Pre-Training Origins of Hallucination-Associated Neurons — Implications for LLM Development",
-        "added": "2026-03-06"
-      },
-      {
-        "slug": "2026-03-02-integrative-framework-agent-decision-making",
-        "title": "An Integrative Framework for Agent Decision-Making: Aligning Knowledge Management, Intent Understanding, and Contextual Decision Frameworks",
-        "added": "2026-03-08"
-      },
-      {
-        "slug": "2026-03-10-formal-spec-intent-alignment-agentic-coding",
-        "title": "Formal intent specification and language choice for AI alignment in agentic coding systems",
-        "added": "2026-03-10"
-      },
-      {
-        "slug": "2026-03-10-ai-concept-classification-taxonomy",
-        "title": "AI concept classification taxonomy: prompts, instructions, memory, failure modes, controls, and problem domains",
-        "added": "2026-03-10"
-      },
-      {
-        "slug": "2026-03-10-agent-evaluation-cross-repo-analysis",
-        "title": "Agent evaluation framework: cross-repo pattern analysis, commonality detection, and regression identification",
-        "added": "2026-03-10"
-      },
-      {
-        "slug": "2026-03-10-language-for-llm-agent-output",
-        "title": "Language designed for LLM agents to produce: addressing generation-layer failure modes in agentic systems",
-        "added": "2026-03-11"
-      },
-      {
-        "slug": "2026-03-12-failure-mode-taxonomy-expansion",
-        "title": "Failure mode taxonomy: empirical frequency, causal mechanisms, detection signals, and cascade patterns in production agentic systems",
-        "added": "2026-03-14"
-      },
-      {
-        "slug": "2026-03-12-swat-technique-loop-fresh-context",
-        "title": "SWAT technique in a fresh-context loop: reliability, drift, and the effect of web search and org RAG on blind-acceptance outcomes",
-        "added": "2026-03-14"
-      },
-      {
-        "slug": "2026-03-15-prompt-injection-threat-landscape",
-        "title": "Prompt injection threat landscape: exploits, defences, and active research in agentic artificial intelligence (AI) systems",
-        "added": "2026-03-19"
-      },
-      {
-        "slug": "2026-03-15-trusting-trust-ai-corpus-contamination",
-        "title": "Trusting Trust and AI Corpus Contamination",
-        "added": "2026-03-19"
-      },
-      {
-        "slug": "2026-03-18-stateless-agent-assumption-failure",
-        "title": "Stateless-agent assumption failure: causes, detection, and recovery patterns for orphaned state in multi-session agentic workflows",
-        "added": "2026-03-20"
-      },
-      {
-        "slug": "2026-03-21-dependency-mapping-dotnet-terraform-dynatrace",
-        "title": "Dependency Mapping Across .NET Codebases, Terraform, Dynatrace, Confluence, Log Aggregation, and the Configuration and Service Data Model (CSDM)",
-        "added": "2026-03-22"
-      },
-      {
-        "slug": "2026-04-27-pip-invariant-anomaly-detection",
-        "title": "Invariant-based anomaly detection in the Policy Information Point (PIP): detecting permanent-invariant suppression through transient operating context and the decision signal to the Policy Decision Point (PDP)",
-        "added": "2026-04-27"
-      },
-      {
-        "slug": "2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring",
-        "title": "Universal Entity Lifecycle Governance Framework (UELGF) extension: agentic Artificial Intelligence (AI)-specific risks and runtime monitoring for non-deterministic behaviour",
-        "added": "2026-04-28"
-      }
-    ],
-    "url": "/Research/threads/agentic-ai-hallucinations-alignment.html"
   },
   {
     "slug": "agentic-ai-citizen-development-llm",
@@ -1565,6 +1575,101 @@
     "url": "/Research/threads/low-code-ai-governance-enterprise-governance.html"
   },
   {
+    "slug": "agentic-ai-uelgf-observability",
+    "title": "agentic-ai / uelgf / observability",
+    "kind": "implicit",
+    "tag_cluster": [
+      "agentic-ai",
+      "uelgf",
+      "observability"
+    ],
+    "concept_cluster": [],
+    "item_count": 16,
+    "items": [
+      {
+        "slug": "2026-03-10-adversarial-agents-shared-goals-multi-perspective",
+        "title": "Adversarial agents with shared goals: multi-perspective coverage across competencies and time horizons",
+        "added": "2026-03-10"
+      },
+      {
+        "slug": "2026-03-12-failure-mode-taxonomy-expansion",
+        "title": "Failure mode taxonomy: empirical frequency, causal mechanisms, detection signals, and cascade patterns in production agentic systems",
+        "added": "2026-03-14"
+      },
+      {
+        "slug": "2026-03-12-swat-technique-loop-fresh-context",
+        "title": "SWAT technique in a fresh-context loop: reliability, drift, and the effect of web search and org RAG on blind-acceptance outcomes",
+        "added": "2026-03-14"
+      },
+      {
+        "slug": "2026-03-16-gitagent-declarative-agent-definition",
+        "title": "GitAgent and declarative agent definition: concepts, adoption, and cross-platform integration",
+        "added": "2026-03-19"
+      },
+      {
+        "slug": "2026-03-21-dependency-mapping-dotnet-terraform-dynatrace",
+        "title": "Dependency Mapping Across .NET Codebases, Terraform, Dynatrace, Confluence, Log Aggregation, and the Configuration and Service Data Model (CSDM)",
+        "added": "2026-03-22"
+      },
+      {
+        "slug": "2026-03-22-applied-context-engineering-agent-workflows",
+        "title": "Applied context engineering: skills, workflows, and best practices for agent development",
+        "added": "2026-03-22"
+      },
+      {
+        "slug": "2026-04-27-uelgf-synthesis-complete-framework",
+        "title": "Universal Entity Lifecycle Governance Framework (UELGF): complete framework synthesis, formal specification suitable for adoption as an organisational standard in a regulated financial institution and presentation to a board risk committee",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-04-27-uelgf-runtime-feedback-loop",
+        "title": "Universal Entity Lifecycle Governance Framework (UELGF): runtime feedback loop, signal taxonomy, automated response taxonomy, feedback closure to the rail system, and feedback closure to the systems capability debt programme as a structured demand signal",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-04-27-uelgf-governed-golden-rails",
+        "title": "Universal Entity Lifecycle Governance Framework (UELGF): governed golden rail specifications: generative scaffold, persona-adapted interfaces, citizen development rails, and deviation handling",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-04-27-uelgf-foundational-definitions-principles",
+        "title": "Universal Entity Lifecycle Governance Framework (UELGF): foundational definitions, formal principles, and the inseparability of governance and acceleration in the governed golden rail",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-04-27-uelgf-entity-taxonomy-cia-classification",
+        "title": "Universal Entity Lifecycle Governance Framework (UELGF): canonical entity taxonomy and Confidentiality, Integrity, and Availability (CIA) classification system for determining governance intensity",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-04-27-governance-moat-prior-research-implications",
+        "title": "Governance-as-moat thesis and prior research implications: how does the argument that governance is the durable value layer in Artificial Intelligence (AI)-augmented enterprise stacks validate, challenge, or extend the AI governance architecture frameworks developed in the prior research programme?",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring",
+        "title": "Universal Entity Lifecycle Governance Framework (UELGF) extension: agentic Artificial Intelligence (AI)-specific risks and runtime monitoring for non-deterministic behaviour",
+        "added": "2026-04-28"
+      },
+      {
+        "slug": "2026-04-28-uelgf-tooling-reference-architecture",
+        "title": "Universal Entity Lifecycle Governance Framework (UELGF) extension: tooling specification and reference architecture for policy-as-code, observability, and Identity and Access Management (IAM) implementation",
+        "added": "2026-04-28"
+      },
+      {
+        "slug": "2026-04-28-uelgf-human-oversight-accountability-layer",
+        "title": "Universal Entity Lifecycle Governance Framework (UELGF) extension: human oversight and accountability layer, named owners, escalation paths, and accountability alignment with emerging agentic Artificial Intelligence (AI) governance standards",
+        "added": "2026-04-28"
+      },
+      {
+        "slug": "2026-04-28-software-demand-shift-ai-coding-era",
+        "title": "Which software categories face declining demand versus increasing demand as Artificial Intelligence (AI) coding agents make custom software generation cheap?",
+        "added": "2026-04-28"
+      }
+    ],
+    "url": "/Research/threads/agentic-ai-uelgf-observability.html"
+  },
+  {
     "slug": "agentic-ai-skills-workflow",
     "title": "agentic-ai / skills / workflow",
     "kind": "implicit",
@@ -1658,96 +1763,6 @@
       }
     ],
     "url": "/Research/threads/agentic-ai-skills-workflow.html"
-  },
-  {
-    "slug": "agentic-ai-uelgf-governed-golden-rail",
-    "title": "agentic-ai / uelgf / governed-golden-rail",
-    "kind": "implicit",
-    "tag_cluster": [
-      "agentic-ai",
-      "uelgf",
-      "governed-golden-rail"
-    ],
-    "concept_cluster": [],
-    "item_count": 15,
-    "items": [
-      {
-        "slug": "2026-03-10-adversarial-agents-shared-goals-multi-perspective",
-        "title": "Adversarial agents with shared goals: multi-perspective coverage across competencies and time horizons",
-        "added": "2026-03-10"
-      },
-      {
-        "slug": "2026-03-12-failure-mode-taxonomy-expansion",
-        "title": "Failure mode taxonomy: empirical frequency, causal mechanisms, detection signals, and cascade patterns in production agentic systems",
-        "added": "2026-03-14"
-      },
-      {
-        "slug": "2026-03-12-swat-technique-loop-fresh-context",
-        "title": "SWAT technique in a fresh-context loop: reliability, drift, and the effect of web search and org RAG on blind-acceptance outcomes",
-        "added": "2026-03-14"
-      },
-      {
-        "slug": "2026-03-16-gitagent-declarative-agent-definition",
-        "title": "GitAgent and declarative agent definition: concepts, adoption, and cross-platform integration",
-        "added": "2026-03-19"
-      },
-      {
-        "slug": "2026-03-21-dependency-mapping-dotnet-terraform-dynatrace",
-        "title": "Dependency Mapping Across .NET Codebases, Terraform, Dynatrace, Confluence, Log Aggregation, and the Configuration and Service Data Model (CSDM)",
-        "added": "2026-03-22"
-      },
-      {
-        "slug": "2026-03-22-applied-context-engineering-agent-workflows",
-        "title": "Applied context engineering: skills, workflows, and best practices for agent development",
-        "added": "2026-03-22"
-      },
-      {
-        "slug": "2026-04-27-uelgf-synthesis-complete-framework",
-        "title": "Universal Entity Lifecycle Governance Framework (UELGF): complete framework synthesis, formal specification suitable for adoption as an organisational standard in a regulated financial institution and presentation to a board risk committee",
-        "added": "2026-04-27"
-      },
-      {
-        "slug": "2026-04-27-uelgf-runtime-feedback-loop",
-        "title": "Universal Entity Lifecycle Governance Framework (UELGF): runtime feedback loop, signal taxonomy, automated response taxonomy, feedback closure to the rail system, and feedback closure to the systems capability debt programme as a structured demand signal",
-        "added": "2026-04-27"
-      },
-      {
-        "slug": "2026-04-27-uelgf-governed-golden-rails",
-        "title": "Universal Entity Lifecycle Governance Framework (UELGF): governed golden rail specifications: generative scaffold, persona-adapted interfaces, citizen development rails, and deviation handling",
-        "added": "2026-04-27"
-      },
-      {
-        "slug": "2026-04-27-uelgf-foundational-definitions-principles",
-        "title": "Universal Entity Lifecycle Governance Framework (UELGF): foundational definitions, formal principles, and the inseparability of governance and acceleration in the governed golden rail",
-        "added": "2026-04-27"
-      },
-      {
-        "slug": "2026-04-27-uelgf-entity-taxonomy-cia-classification",
-        "title": "Universal Entity Lifecycle Governance Framework (UELGF): canonical entity taxonomy and Confidentiality, Integrity, and Availability (CIA) classification system for determining governance intensity",
-        "added": "2026-04-27"
-      },
-      {
-        "slug": "2026-04-27-governance-moat-prior-research-implications",
-        "title": "Governance-as-moat thesis and prior research implications: how does the argument that governance is the durable value layer in Artificial Intelligence (AI)-augmented enterprise stacks validate, challenge, or extend the AI governance architecture frameworks developed in the prior research programme?",
-        "added": "2026-04-27"
-      },
-      {
-        "slug": "2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring",
-        "title": "Universal Entity Lifecycle Governance Framework (UELGF) extension: agentic Artificial Intelligence (AI)-specific risks and runtime monitoring for non-deterministic behaviour",
-        "added": "2026-04-28"
-      },
-      {
-        "slug": "2026-04-28-uelgf-tooling-reference-architecture",
-        "title": "Universal Entity Lifecycle Governance Framework (UELGF) extension: tooling specification and reference architecture for policy-as-code, observability, and Identity and Access Management (IAM) implementation",
-        "added": "2026-04-28"
-      },
-      {
-        "slug": "2026-04-28-uelgf-human-oversight-accountability-layer",
-        "title": "Universal Entity Lifecycle Governance Framework (UELGF) extension: human oversight and accountability layer, named owners, escalation paths, and accountability alignment with emerging agentic Artificial Intelligence (AI) governance standards",
-        "added": "2026-04-28"
-      }
-    ],
-    "url": "/Research/threads/agentic-ai-uelgf-governed-golden-rail.html"
   },
   {
     "slug": "governance-citizen-development-low-code",
@@ -2655,6 +2670,146 @@
     "url": "/Research/threads/agentic-ai-regulated-banking-pbac.html"
   },
   {
+    "slug": "agentic-ai-observability-saas",
+    "title": "agentic-ai / observability / saas",
+    "kind": "implicit",
+    "tag_cluster": [
+      "agentic-ai",
+      "observability",
+      "saas"
+    ],
+    "concept_cluster": [],
+    "item_count": 11,
+    "items": [
+      {
+        "slug": "2026-03-02-transaction-costs",
+        "title": "Transaction Cost Economics: foundations and speculative integration with SWE, AI, knowledge management, and context engineering",
+        "added": "2026-03-02"
+      },
+      {
+        "slug": "2026-03-02-ai-not-a-data-problem",
+        "title": "AI capability is not a data problem - why the data/analytics department is the wrong home for organisational AI",
+        "added": "2026-03-07"
+      },
+      {
+        "slug": "2026-03-12-failure-mode-taxonomy-expansion",
+        "title": "Failure mode taxonomy: empirical frequency, causal mechanisms, detection signals, and cascade patterns in production agentic systems",
+        "added": "2026-03-14"
+      },
+      {
+        "slug": "2026-03-15-saas-banking-invariants",
+        "title": "Invariants in Software as a Service (SaaS) Banking Software",
+        "added": "2026-03-19"
+      },
+      {
+        "slug": "2026-03-21-dependency-mapping-dotnet-terraform-dynatrace",
+        "title": "Dependency Mapping Across .NET Codebases, Terraform, Dynatrace, Confluence, Log Aggregation, and the Configuration and Service Data Model (CSDM)",
+        "added": "2026-03-22"
+      },
+      {
+        "slug": "2026-04-02-org-shape-software-cost-zero",
+        "title": "The shape of organisations when software is no longer the constraint",
+        "added": "2026-04-19"
+      },
+      {
+        "slug": "2026-04-26-deployment-pipeline-citizen-development-governed-gate",
+        "title": "Deployment pipeline as the only enforceable control gate for citizen-developed agents: DevOps literature support, low-code platform hook points, and architectural enforceability",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-26-ai-agent-identity-access-management-enterprise",
+        "title": "What identity and access management model is required for Artificial Intelligence (AI) agents and low-code artefacts operating within enterprise systems?",
+        "added": "2026-04-26"
+      },
+      {
+        "slug": "2026-04-27-uelgf-entity-taxonomy-cia-classification",
+        "title": "Universal Entity Lifecycle Governance Framework (UELGF): canonical entity taxonomy and Confidentiality, Integrity, and Availability (CIA) classification system for determining governance intensity",
+        "added": "2026-04-27"
+      },
+      {
+        "slug": "2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring",
+        "title": "Universal Entity Lifecycle Governance Framework (UELGF) extension: agentic Artificial Intelligence (AI)-specific risks and runtime monitoring for non-deterministic behaviour",
+        "added": "2026-04-28"
+      },
+      {
+        "slug": "2026-04-28-software-demand-shift-ai-coding-era",
+        "title": "Which software categories face declining demand versus increasing demand as Artificial Intelligence (AI) coding agents make custom software generation cheap?",
+        "added": "2026-04-28"
+      }
+    ],
+    "url": "/Research/threads/agentic-ai-observability-saas.html"
+  },
+  {
+    "slug": "agentic-ai-architecture-observability",
+    "title": "agentic-ai / architecture / observability",
+    "kind": "implicit",
+    "tag_cluster": [
+      "agentic-ai",
+      "architecture",
+      "observability"
+    ],
+    "concept_cluster": [],
+    "item_count": 11,
+    "items": [
+      {
+        "slug": "2026-03-02-agent-memory-management-context-injection",
+        "title": "Agent Memory Management and Context Injection",
+        "added": "2026-03-02"
+      },
+      {
+        "slug": "2026-03-02-ai-not-a-data-problem",
+        "title": "AI capability is not a data problem - why the data/analytics department is the wrong home for organisational AI",
+        "added": "2026-03-07"
+      },
+      {
+        "slug": "2026-03-08-servicenow-platform-strategy",
+        "title": "ServiceNow Platform Strategy: Holistic Integration of CSDM, Modules, Process, and AI",
+        "added": "2026-03-09"
+      },
+      {
+        "slug": "2026-03-12-failure-mode-taxonomy-expansion",
+        "title": "Failure mode taxonomy: empirical frequency, causal mechanisms, detection signals, and cascade patterns in production agentic systems",
+        "added": "2026-03-14"
+      },
+      {
+        "slug": "2026-03-21-dependency-mapping-dotnet-terraform-dynatrace",
+        "title": "Dependency Mapping Across .NET Codebases, Terraform, Dynatrace, Confluence, Log Aggregation, and the Configuration and Service Data Model (CSDM)",
+        "added": "2026-03-22"
+      },
+      {
+        "slug": "2026-03-22-coding-ai-agent-skills-survey",
+        "title": "Coding AI Agent Skills Survey: Existing Vendor and OSS Prompt Libraries for Software Engineering Domains",
+        "added": "2026-03-22"
+      },
+      {
+        "slug": "2026-03-22-compliance-scanning-gh-actions",
+        "title": "Compliance Scanning via GitHub Actions — Broad Policy as Code Across a Heterogeneous Stack",
+        "added": "2026-03-22"
+      },
+      {
+        "slug": "2026-03-24-public-sentiment-on-ai-in-banking-and-high-trust-institutions",
+        "title": "Public sentiment on AI in banking and high-trust institutions",
+        "added": "2026-03-24"
+      },
+      {
+        "slug": "2026-04-02-anthropic-claude-code-leak-architecture-prompting-and-hidden-features",
+        "title": "Anthropic Claude Code leak: architecture, prompting, and hidden features",
+        "added": "2026-04-02"
+      },
+      {
+        "slug": "2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring",
+        "title": "Universal Entity Lifecycle Governance Framework (UELGF) extension: agentic Artificial Intelligence (AI)-specific risks and runtime monitoring for non-deterministic behaviour",
+        "added": "2026-04-28"
+      },
+      {
+        "slug": "2026-04-28-software-demand-shift-ai-coding-era",
+        "title": "Which software categories face declining demand versus increasing demand as Artificial Intelligence (AI) coding agents make custom software generation cheap?",
+        "added": "2026-04-28"
+      }
+    ],
+    "url": "/Research/threads/agentic-ai-architecture-observability.html"
+  },
+  {
     "slug": "rag-knowledge-management-synthesis",
     "title": "rag / knowledge-management / synthesis",
     "kind": "implicit",
@@ -2865,13 +3020,13 @@
     "url": "/Research/threads/mobile-ios-memory-system.html"
   },
   {
-    "slug": "agentic-ai-architecture-dotnet",
-    "title": "agentic-ai / architecture / dotnet",
+    "slug": "agentic-ai-transaction-costs-knowledge-management",
+    "title": "agentic-ai / transaction-costs / knowledge-management",
     "kind": "implicit",
     "tag_cluster": [
       "agentic-ai",
-      "architecture",
-      "dotnet"
+      "transaction-costs",
+      "knowledge-management"
     ],
     "concept_cluster": [],
     "item_count": 10,
@@ -2882,52 +3037,52 @@
         "added": "2026-03-02"
       },
       {
-        "slug": "2026-03-02-ai-not-a-data-problem",
-        "title": "AI capability is not a data problem - why the data/analytics department is the wrong home for organisational AI",
-        "added": "2026-03-07"
+        "slug": "2026-03-02-transaction-costs",
+        "title": "Transaction Cost Economics: foundations and speculative integration with SWE, AI, knowledge management, and context engineering",
+        "added": "2026-03-02"
       },
       {
-        "slug": "2026-03-08-servicenow-platform-strategy",
-        "title": "ServiceNow Platform Strategy: Holistic Integration of CSDM, Modules, Process, and AI",
+        "slug": "2026-03-02-integrative-framework-agent-decision-making",
+        "title": "An Integrative Framework for Agent Decision-Making: Aligning Knowledge Management, Intent Understanding, and Contextual Decision Frameworks",
+        "added": "2026-03-08"
+      },
+      {
+        "slug": "2026-03-08-servicenow-ai-knowledge-rag-agents",
+        "title": "ServiceNow AI: Knowledge Management, RAG Pipelines, and Agent Frameworks",
         "added": "2026-03-09"
       },
       {
-        "slug": "2026-03-12-failure-mode-taxonomy-expansion",
-        "title": "Failure mode taxonomy: empirical frequency, causal mechanisms, detection signals, and cascade patterns in production agentic systems",
-        "added": "2026-03-14"
+        "slug": "2026-03-10-ai-concept-classification-taxonomy",
+        "title": "AI concept classification taxonomy: prompts, instructions, memory, failure modes, controls, and problem domains",
+        "added": "2026-03-10"
       },
       {
-        "slug": "2026-03-21-dependency-mapping-dotnet-terraform-dynatrace",
-        "title": "Dependency Mapping Across .NET Codebases, Terraform, Dynatrace, Confluence, Log Aggregation, and the Configuration and Service Data Model (CSDM)",
+        "slug": "2026-03-10-nature-of-the-firm-coase-organisations",
+        "title": "The Nature of the Firm: why organisations exist, their fitness functions, and invariants",
+        "added": "2026-03-13"
+      },
+      {
+        "slug": "2026-03-15-adam-smith-org-design-desire-paths-ai",
+        "title": "Adam Smith, Organisational Design, Desire Paths, and AI Strategy",
+        "added": "2026-03-16"
+      },
+      {
+        "slug": "2026-03-22-applied-context-engineering-agent-workflows",
+        "title": "Applied context engineering: skills, workflows, and best practices for agent development",
         "added": "2026-03-22"
       },
       {
-        "slug": "2026-03-22-coding-ai-agent-skills-survey",
-        "title": "Coding AI Agent Skills Survey: Existing Vendor and OSS Prompt Libraries for Software Engineering Domains",
-        "added": "2026-03-22"
+        "slug": "2026-04-02-org-shape-software-cost-zero",
+        "title": "The shape of organisations when software is no longer the constraint",
+        "added": "2026-04-19"
       },
       {
-        "slug": "2026-03-22-compliance-scanning-gh-actions",
-        "title": "Compliance Scanning via GitHub Actions — Broad Policy as Code Across a Heterogeneous Stack",
-        "added": "2026-03-22"
-      },
-      {
-        "slug": "2026-03-24-public-sentiment-on-ai-in-banking-and-high-trust-institutions",
-        "title": "Public sentiment on AI in banking and high-trust institutions",
-        "added": "2026-03-24"
-      },
-      {
-        "slug": "2026-04-02-anthropic-claude-code-leak-architecture-prompting-and-hidden-features",
-        "title": "Anthropic Claude Code leak: architecture, prompting, and hidden features",
-        "added": "2026-04-02"
-      },
-      {
-        "slug": "2026-04-28-uelgf-agentic-ai-specific-risks-runtime-monitoring",
-        "title": "Universal Entity Lifecycle Governance Framework (UELGF) extension: agentic Artificial Intelligence (AI)-specific risks and runtime monitoring for non-deterministic behaviour",
+        "slug": "2026-04-28-software-demand-shift-ai-coding-era",
+        "title": "Which software categories face declining demand versus increasing demand as Artificial Intelligence (AI) coding agents make custom software generation cheap?",
         "added": "2026-04-28"
       }
     ],
-    "url": "/Research/threads/agentic-ai-architecture-dotnet.html"
+    "url": "/Research/threads/agentic-ai-transaction-costs-knowledge-management.html"
   },
   {
     "slug": "llm-alignment-hallucinations",
@@ -3350,64 +3505,59 @@
     "url": "/Research/threads/alignment-llm-hallucinations.html"
   },
   {
-    "slug": "agentic-ai-knowledge-management-transaction-costs",
-    "title": "agentic-ai / knowledge-management / transaction-costs",
+    "slug": "agentic-ai-organisational-design-transaction-costs",
+    "title": "agentic-ai / organisational-design / transaction-costs",
     "kind": "implicit",
     "tag_cluster": [
       "agentic-ai",
-      "knowledge-management",
+      "organisational-design",
       "transaction-costs"
     ],
     "concept_cluster": [],
-    "item_count": 9,
+    "item_count": 8,
     "items": [
-      {
-        "slug": "2026-03-02-agent-memory-management-context-injection",
-        "title": "Agent Memory Management and Context Injection",
-        "added": "2026-03-02"
-      },
       {
         "slug": "2026-03-02-transaction-costs",
         "title": "Transaction Cost Economics: foundations and speculative integration with SWE, AI, knowledge management, and context engineering",
         "added": "2026-03-02"
       },
       {
-        "slug": "2026-03-02-integrative-framework-agent-decision-making",
-        "title": "An Integrative Framework for Agent Decision-Making: Aligning Knowledge Management, Intent Understanding, and Contextual Decision Frameworks",
-        "added": "2026-03-08"
+        "slug": "2026-03-02-ai-not-a-data-problem",
+        "title": "AI capability is not a data problem - why the data/analytics department is the wrong home for organisational AI",
+        "added": "2026-03-07"
       },
       {
-        "slug": "2026-03-08-servicenow-ai-knowledge-rag-agents",
-        "title": "ServiceNow AI: Knowledge Management, RAG Pipelines, and Agent Frameworks",
-        "added": "2026-03-09"
-      },
-      {
-        "slug": "2026-03-10-ai-concept-classification-taxonomy",
-        "title": "AI concept classification taxonomy: prompts, instructions, memory, failure modes, controls, and problem domains",
+        "slug": "2026-03-10-adversarial-agents-shared-goals-multi-perspective",
+        "title": "Adversarial agents with shared goals: multi-perspective coverage across competencies and time horizons",
         "added": "2026-03-10"
       },
       {
-        "slug": "2026-03-10-nature-of-the-firm-coase-organisations",
-        "title": "The Nature of the Firm: why organisations exist, their fitness functions, and invariants",
-        "added": "2026-03-13"
+        "slug": "2026-03-12-ai-team-size-strike-team-thesis",
+        "title": "AI amplified the coordination tax: the 5-person strike team as the structural unit of the AI era",
+        "added": "2026-03-14"
       },
       {
-        "slug": "2026-03-15-adam-smith-org-design-desire-paths-ai",
-        "title": "Adam Smith, Organisational Design, Desire Paths, and AI Strategy",
-        "added": "2026-03-16"
-      },
-      {
-        "slug": "2026-03-22-applied-context-engineering-agent-workflows",
-        "title": "Applied context engineering: skills, workflows, and best practices for agent development",
-        "added": "2026-03-22"
+        "slug": "2026-03-26-against-bureaucracy-dismantling-control-systems-to-focus-on-value-and-opportunit",
+        "title": "Against bureaucracy: dismantling control systems to focus on value and opportunity exploration",
+        "added": "2026-03-26"
       },
       {
         "slug": "2026-04-02-org-shape-software-cost-zero",
         "title": "The shape of organisations when software is no longer the constraint",
         "added": "2026-04-19"
+      },
+      {
+        "slug": "2026-04-03-ai-workflow-todo-digest",
+        "title": "Artificial Intelligence (AI)-assisted daily productivity digest: patterns, tooling, and automation approaches for personal task management",
+        "added": "2026-04-19"
+      },
+      {
+        "slug": "2026-04-28-software-demand-shift-ai-coding-era",
+        "title": "Which software categories face declining demand versus increasing demand as Artificial Intelligence (AI) coding agents make custom software generation cheap?",
+        "added": "2026-04-28"
       }
     ],
-    "url": "/Research/threads/agentic-ai-knowledge-management-transaction-costs.html"
+    "url": "/Research/threads/agentic-ai-organisational-design-transaction-costs.html"
   },
   {
     "slug": "rory-sutherland-behavioral-economics-strategy",
@@ -3738,56 +3888,6 @@
       }
     ],
     "url": "/Research/threads/agentic-ai-ai-strategy-financial-services.html"
-  },
-  {
-    "slug": "agentic-ai-organisational-design-management",
-    "title": "agentic-ai / organisational-design / management",
-    "kind": "implicit",
-    "tag_cluster": [
-      "agentic-ai",
-      "organisational-design",
-      "management"
-    ],
-    "concept_cluster": [],
-    "item_count": 7,
-    "items": [
-      {
-        "slug": "2026-03-02-transaction-costs",
-        "title": "Transaction Cost Economics: foundations and speculative integration with SWE, AI, knowledge management, and context engineering",
-        "added": "2026-03-02"
-      },
-      {
-        "slug": "2026-03-02-ai-not-a-data-problem",
-        "title": "AI capability is not a data problem - why the data/analytics department is the wrong home for organisational AI",
-        "added": "2026-03-07"
-      },
-      {
-        "slug": "2026-03-10-adversarial-agents-shared-goals-multi-perspective",
-        "title": "Adversarial agents with shared goals: multi-perspective coverage across competencies and time horizons",
-        "added": "2026-03-10"
-      },
-      {
-        "slug": "2026-03-12-ai-team-size-strike-team-thesis",
-        "title": "AI amplified the coordination tax: the 5-person strike team as the structural unit of the AI era",
-        "added": "2026-03-14"
-      },
-      {
-        "slug": "2026-03-26-against-bureaucracy-dismantling-control-systems-to-focus-on-value-and-opportunit",
-        "title": "Against bureaucracy: dismantling control systems to focus on value and opportunity exploration",
-        "added": "2026-03-26"
-      },
-      {
-        "slug": "2026-04-02-org-shape-software-cost-zero",
-        "title": "The shape of organisations when software is no longer the constraint",
-        "added": "2026-04-19"
-      },
-      {
-        "slug": "2026-04-03-ai-workflow-todo-digest",
-        "title": "Artificial Intelligence (AI)-assisted daily productivity digest: patterns, tooling, and automation approaches for personal task management",
-        "added": "2026-04-19"
-      }
-    ],
-    "url": "/Research/threads/agentic-ai-organisational-design-management.html"
   },
   {
     "slug": "strategy-behavioral-economics-rory-sutherland",
@@ -4340,13 +4440,13 @@
     "url": "/Research/threads/software-engineering-agentic-coding-developer-tooling.html"
   },
   {
-    "slug": "copilot-coding-coding-agent-claude-code",
-    "title": "copilot coding / coding agent / claude code",
+    "slug": "coding-agent-copilot-coding-claude-code",
+    "title": "coding agent / copilot coding / claude code",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "copilot coding",
       "coding agent",
+      "copilot coding",
       "claude code"
     ],
     "item_count": 5,
@@ -4377,7 +4477,7 @@
         "added": "2026-03-29"
       }
     ],
-    "url": "/Research/threads/copilot-coding-coding-agent-claude-code.html"
+    "url": "/Research/threads/coding-agent-copilot-coding-claude-code.html"
   },
   {
     "slug": "cost-allocation-financial-services-tbm-council",
@@ -4420,13 +4520,13 @@
     "url": "/Research/threads/cost-allocation-financial-services-tbm-council.html"
   },
   {
-    "slug": "copilot-coding-coding-agent-agents-md",
-    "title": "copilot coding / coding agent / agents md",
+    "slug": "coding-agent-copilot-coding-agents-md",
+    "title": "coding agent / copilot coding / agents md",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "copilot coding",
       "coding agent",
+      "copilot coding",
       "agents md"
     ],
     "item_count": 5,
@@ -4457,7 +4557,7 @@
         "added": "2026-03-29"
       }
     ],
-    "url": "/Research/threads/copilot-coding-coding-agent-agents-md.html"
+    "url": "/Research/threads/coding-agent-copilot-coding-agents-md.html"
   },
   {
     "slug": "youtube-transcripts-tooling",
@@ -4530,14 +4630,14 @@
     "url": "/Research/threads/ai-rmf-nist-ai-apra-cps.html"
   },
   {
-    "slug": "ai-rmf-nist-ai-copilot-studio",
-    "title": "ai rmf / nist ai / copilot studio",
+    "slug": "ai-rmf-nist-ai-environment-separation",
+    "title": "ai rmf / nist ai / environment separation",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
       "ai rmf",
       "nist ai",
-      "copilot studio"
+      "environment separation"
     ],
     "item_count": 4,
     "items": [
@@ -4562,7 +4662,7 @@
         "added": "2026-04-28"
       }
     ],
-    "url": "/Research/threads/ai-rmf-nist-ai-copilot-studio.html"
+    "url": "/Research/threads/ai-rmf-nist-ai-environment-separation.html"
   },
   {
     "slug": "agents-md-github-copilot-claude-code",
@@ -4660,6 +4760,36 @@
     "url": "/Research/threads/synthesis-exploration-decision-making.html"
   },
   {
+    "slug": "saas-banking-build-vs-buy",
+    "title": "saas / banking / build-vs-buy",
+    "kind": "implicit",
+    "tag_cluster": [
+      "saas",
+      "banking",
+      "build-vs-buy"
+    ],
+    "concept_cluster": [],
+    "item_count": 3,
+    "items": [
+      {
+        "slug": "2026-03-15-saas-banking-invariants",
+        "title": "Invariants in Software as a Service (SaaS) Banking Software",
+        "added": "2026-03-19"
+      },
+      {
+        "slug": "2026-03-24-public-sentiment-on-ai-in-banking-and-high-trust-institutions",
+        "title": "Public sentiment on AI in banking and high-trust institutions",
+        "added": "2026-03-24"
+      },
+      {
+        "slug": "2026-04-28-software-demand-shift-ai-coding-era",
+        "title": "Which software categories face declining demand versus increasing demand as Artificial Intelligence (AI) coding agents make custom software generation cheap?",
+        "added": "2026-04-28"
+      }
+    ],
+    "url": "/Research/threads/saas-banking-build-vs-buy.html"
+  },
+  {
     "slug": "evaluation-research-loop-prompt-engineering",
     "title": "evaluation / research-loop / prompt-engineering",
     "kind": "implicit",
@@ -4720,13 +4850,13 @@
     "url": "/Research/threads/llm-context-window-mcp.html"
   },
   {
-    "slug": "copilot-studio-power-platform-direct-publish",
-    "title": "copilot studio / power platform / direct publish",
+    "slug": "power-platform-copilot-studio-direct-publish",
+    "title": "power platform / copilot studio / direct publish",
     "kind": "concept",
     "tag_cluster": [],
     "concept_cluster": [
-      "copilot studio",
       "power platform",
+      "copilot studio",
       "direct publish"
     ],
     "item_count": 3,
@@ -4747,7 +4877,7 @@
         "added": "2026-04-28"
       }
     ],
-    "url": "/Research/threads/copilot-studio-power-platform-direct-publish.html"
+    "url": "/Research/threads/power-platform-copilot-studio-direct-publish.html"
   },
   {
     "slug": "ai-rmf-nist-ai-environment-separation",
