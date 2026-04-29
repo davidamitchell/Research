@@ -1,4 +1,5 @@
 ---
+review_count: 1
 title: "Which software categories face declining demand versus increasing demand as Artificial Intelligence (AI) coding agents make custom software generation cheap?"
 added: 2026-04-28T21:06:12+00:00
 status: reviewing
