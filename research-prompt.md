@@ -284,7 +284,9 @@ easily-detectable issues.
     "human-in-the-loop", "graph database", "active recall", or "spaced
     repetition". On first use, either replace the shorthand with plain
     language or bind it to an authoritative definition source. Do not assume a
-    reviewer will treat domain jargon as self-explanatory.
+    reviewer will treat domain jargon as self-explanatory. The expansion or
+    definition must appear in the audited prose itself on first use; placing it
+    only in `## Sources` does not satisfy review.
     If you intentionally keep a coined or internal design label because no
     authoritative definition exists, mark the first occurrence explicitly as
     `Definition needed:` and explain the nearest evidence-backed functional
@@ -300,7 +302,7 @@ easily-detectable issues.
     Analysis, must carry an inline `[fact]`, `[inference]`, or `[assumption]`
     label and bind its supporting source AFTER the claim text (suffix style).
     Use `Claim text. [inference; source: URL]` for prose and
-    `1. **Claim text.** (high confidence; source: URL)` for Key Findings.
+    `1. **Claim text.** ([inference]; high confidence; source: URL)` for Key Findings.
     Prefix-style labels placed before the claim (such as
     `[inference; source: URL] Claim text.`) are non-conforming.
     The Evidence Map alone is insufficient.
