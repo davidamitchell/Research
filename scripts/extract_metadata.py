@@ -278,9 +278,10 @@ STOPWORDS: frozenset[str] = frozenset(
 # Parsing helpers (duplicated from build_site.py to keep this script standalone)
 # ---------------------------------------------------------------------------
 
-# Prefixes that indicate a sentence is a confidence/label marker, not a claim.
-_KEY_CLAIMS_SKIP_PREFIXES = re.compile(
-    r"^(confidence:|(?:\[inference\])|(?:\[fact\])|(?:\[assumption\]))",
+# Regex to strip bold confidence-level prefixes from key-finding lines,
+# e.g. "**High confidence.**", "**Medium confidence:**", "**Low confidence.**"
+_CONFIDENCE_LABEL_RE = re.compile(
+    r"\*\*(high|medium|low)\s+confidence[.:]\*\*\s*",
     re.IGNORECASE,
 )
 
@@ -448,7 +449,13 @@ def _extract_key_claims_fallback(findings_text: str) -> list[str]:
 
 
 def extract_key_claims(findings_text: str) -> list[str]:
-    """Extract key claims from the ### Key Findings subsection."""
+    """Extract key claims from the ### Key Findings subsection.
+
+    Handles three bullet formats produced by the research loop:
+      1. ``1. **Claim text.** (confidence level)``  — older style
+      2. ``1. **High confidence.** [source; URL] Claim text``  — mid-era style
+      3. ``1. [source; URL] **Medium confidence:** Claim text``  — current style
+    """
     # Find ### Key Findings subsection
     kf_match = re.search(r"###\s+Key Findings\b(.*?)(?=\n###|\Z)", findings_text, re.DOTALL)
     if not kf_match:
@@ -458,32 +465,24 @@ def extract_key_claims(findings_text: str) -> list[str]:
     claims: list[str] = []
 
     for line in kf_text.split("\n"):
-        # Match lines starting with `N. **` or `- **`
-        if not re.match(r"^\s*(\d+\.\s+\*\*|-\s+\*\*)", line):
+        # Match any numbered or bulleted list item
+        if not re.match(r"^\s*(\d+\.\s+|-\s+)", line):
             continue
         # Strip list marker
         text = re.sub(r"^\s*\d+\.\s+", "", line)
         text = re.sub(r"^\s*-\s+", "", text)
-        # Strip bold markers
+        # Strip all [...] source/evidence brackets (handles multi-URL brackets).
+        # Brackets in Key Findings lines are never nested, so [^\]]* is sufficient.
+        text = re.sub(r"\[[^\]]*\]", "", text)
+        # Strip bold confidence-level prefixes, e.g. "**High confidence.**"
+        text = _CONFIDENCE_LABEL_RE.sub("", text)
+        # Strip any remaining bold markers
         text = re.sub(r"\*\*", "", text)
-        # Strip evidence labels
-        text = re.sub(
-            r"\[(fact|inference|assumption|high|medium|low)\]", "", text, flags=re.IGNORECASE
-        )
-        text = text.strip()
-        # Remove trailing "Sources: ..." or ". Source: ..."
-        text = re.sub(r"[\.\s]*Sources?:.*$", "", text, flags=re.IGNORECASE)
+        # Strip trailing parenthetical confidence labels, e.g. "(high confidence)"
+        text = re.sub(r"\s*\((high|medium|low)\s+confidence\)\s*$", "", text, flags=re.IGNORECASE)
         text = text.strip().rstrip(".")
-        # Split into sentences; skip leading sentences that are confidence/label prefixes
-        parts = re.split(r"\.\s+", text)
-        claim_text = ""
-        for part in parts:
-            candidate = part.strip()
-            if candidate and not _KEY_CLAIMS_SKIP_PREFIXES.match(candidate):
-                claim_text = candidate
-                break
-        if claim_text:
-            claims.append(claim_text)
+        if text:
+            claims.append(text)
         if len(claims) >= 8:
             break
 

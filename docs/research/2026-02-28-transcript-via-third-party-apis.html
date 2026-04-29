@@ -670,7 +670,16 @@ main {
     <span class="meta-sep">·</span>
     <a class="source-link" href="https://github.com/davidamitchell/Research/wiki/2026-02-28-transcript-via-third-party-apis" target="_blank" rel="noopener">wiki →</a>
   </div>
-    
+    <div class="key-claims"><div class="key-claims-label">key claims</div><ol><li>Supadata&#39;s transcript API fully insulates the GitHub Actions runner from YouTube&#39;s IP block because the runner contacts only `api.supadata.ai` via HTTPS while Supadata&#39;s own infrastructure handles all downstream YouTube requests</li>
+<li>Supadata returns verbatim or near-verbatim transcript output: in Native mode it reproduces YouTube&#39;s own caption text word-for-word; in Auto/Generate fallback mode it uses ASR-class (automatic speech recognition) models equivalent to Whisper, not language-model paraphrase</li>
+<li>AssemblyAI does not bypass YouTube&#39;s cloud IP block, because its `audio_url` parameter requires a direct link to a downloadable audio file and explicitly does not support YouTube watch-page URLs, meaning the caller must first download audio via `yt-dlp` on the GitHub Actions runner</li>
+<li>The original item&#39;s assumption that AssemblyAI accepts YouTube URLs directly via `audio_url` is incorrect, as confirmed by AssemblyAI&#39;s official FAQ, which explicitly states that YouTube URLs are not supported and that the audio must be downloaded first</li>
+<li>Kagi&#39;s Universal Summarizer accepts YouTube URLs directly and processes them server-side, bypassing the IP block, but its output is a structured summary rather than a verbatim transcript, and YouTube URL support is marked &quot;Experimental&quot; in Kagi&#39;s documentation</li>
+<li>Supadata&#39;s free tier provides 100 credits per month with no credit card required, and at a research use case volume of a few videos per month,  this free allocation is sufficient indefinitely without any paid upgrade</li>
+<li>Supadata&#39;s &quot;Auto&quot; mode is the recommended operational mode for the research workflow because it attempts to retrieve YouTube&#39;s native captions first and transparently falls back to AI (ASR-class) transcription when native captions are unavailable or blocked</li>
+<li>Integrating Supadata into the existing research tooling requires one new repository secret (`SUPADATA_API_KEY`) and one new fetcher function using the existing `httpx` client pattern; no additional Python dependency is required</li>
+</ol></div>
+
   <div class="item-content">
     <h2><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#00C3A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>Research Question</h2>
 <p>Can a third-party transcript API (<a href="https://www.assemblyai.com/docs/guides/transcribing-audio-with-a-url">AssemblyAI</a>, <a href="https://supadata.ai/documentation/youtube/get-transcript">Supadata</a>, Kagi, or similar) retrieve YouTube

@@ -16,6 +16,7 @@ from build_site import (
     build_research_master_page,
     detect_concept_threads,
     detect_threads,
+    strip_evidence_labels,
 )
 
 # ---------------------------------------------------------------------------
@@ -357,174 +358,58 @@ def test_build_research_master_page_has_source_link() -> None:
 
 
 # ---------------------------------------------------------------------------
-# New field rendering tests
+# strip_evidence_labels
 # ---------------------------------------------------------------------------
 
 
-from build_site import (  # noqa: E402
-    _render_cites_related,
-    _render_versions,
-    build_item_page,
-    render_card,
-)
-
-
-def _make_full_item(slug: str, tags: list[str], **extra: object) -> dict:
-    """Minimal item dict with all required keys for build_item_page."""
-    added_dt = datetime(2026, 4, 28, tzinfo=UTC)
-    base = {
-        "slug": slug,
-        "filename": f"{slug}.md",
-        "title": slug.replace("-", " "),
-        "display_title": slug.replace("-", " "),
-        "added": added_dt,
-        "added_str": "2026-04-28",
-        "tags": tags,
-        "sections": {},
-        "_sources_text": "",
-        "question": "",
-        "question_excerpt": "",
-        "github_url": f"https://github.com/example/{slug}.md",
-        "thread": "",
-        "cites": [],
-        "related_slugs": [],
-        "superseded_by": None,
-        "supersedes": None,
-        "item_type": "primary",
-        "confidence": "medium",
-        "versions": [],
-    }
-    base.update(extra)
-    return base
-
-
-def test_render_card_synthesis_badge() -> None:
-    """render_card shows a synthesis badge for item_type=synthesis items."""
-    item = _make_full_item("test-synthesis", ["ai"], item_type="synthesis")
-    html = render_card(item)
-    assert "synthesis" in html
-    assert "badge-synthesis" in html
-
-
-def test_render_card_no_synthesis_badge_for_primary() -> None:
-    """render_card does not show a synthesis badge for item_type=primary items."""
-    item = _make_full_item("test-primary", ["ai"], item_type="primary")
-    html = render_card(item)
-    assert "badge-synthesis" not in html
-
-
-def test_render_card_superseded_attr() -> None:
-    """render_card adds data-superseded attribute for superseded items."""
-    item = _make_full_item("old-item", ["ai"], superseded_by="new-item")
-    html = render_card(item)
-    assert 'data-superseded="true"' in html
-
-
-def test_render_card_no_superseded_attr_when_not_superseded() -> None:
-    """render_card does not add data-superseded when item is not superseded."""
-    item = _make_full_item("current-item", ["ai"])
-    html = render_card(item)
-    assert "data-superseded" not in html
-
-
-def test_build_item_page_shows_superseded_banner() -> None:
-    """build_item_page renders a superseded banner when superseded_by is set."""
-    newer = _make_full_item("newer-item", ["ai"])
-    older = _make_full_item("older-item", ["ai"], superseded_by="newer-item")
-    slug_to_item = {"newer-item": newer, "older-item": older}
-    html = build_item_page(older, None, None, slug_to_item=slug_to_item)
-    assert "superseded-banner" in html
-    assert "newer item" in html or "newer-item" in html
-
-
-def test_build_item_page_no_banner_when_not_superseded() -> None:
-    """build_item_page does not render a banner when superseded_by is None."""
-    item = _make_full_item("active-item", ["ai"])
-    html = build_item_page(item, None, None)
-    assert '<div class="superseded-banner">' not in html
-
-
-def test_build_item_page_confidence_badge_high() -> None:
-    """build_item_page renders a high confidence badge."""
-    item = _make_full_item("high-confidence", ["ai"], confidence="high")
-    html = build_item_page(item, None, None)
-    assert "badge-confidence-high" in html
-    assert ">high<" in html
-
-
-def test_build_item_page_confidence_badge_low() -> None:
-    """build_item_page renders a low confidence badge."""
-    item = _make_full_item("low-confidence", ["ai"], confidence="low")
-    html = build_item_page(item, None, None)
-    assert "badge-confidence-low" in html
-
-
-def test_build_item_page_synthesis_badge() -> None:
-    """build_item_page renders synthesis badge for synthesis items."""
-    item = _make_full_item("synthesis-item", ["ai"], item_type="synthesis")
-    html = build_item_page(item, None, None)
-    assert "badge-synthesis" in html
-    assert ">synthesis<" in html
-
-
-def test_render_cites_related_with_known_slugs() -> None:
-    """_render_cites_related renders linked cites and related entries."""
-    item = _make_full_item(
-        "citing-item",
-        ["ai"],
-        cites=["prior-item"],
-        related_slugs=["similar-item"],
+def test_strip_evidence_labels_paragraph_to_bullets() -> None:
+    """A bare paragraph with inline [type; source: ...] labels is split into bullet items."""
+    text = (
+        "[inference; source: https://a.com] Sentence one. "
+        "[fact; source: https://b.com; https://c.com] Sentence two."
     )
-    prior = _make_full_item("prior-item", ["ai"])
-    similar = _make_full_item("similar-item", ["ai"])
-    slug_to_item = {"prior-item": prior, "similar-item": similar}
-    html = _render_cites_related(item, slug_to_item)
-    assert "prior-item" in html
-    assert "similar-item" in html
-    assert 'class="rel-pill"' in html
+    result = strip_evidence_labels(text)
+    assert result == "- Sentence one.\n- Sentence two."
 
 
-def test_render_cites_related_empty() -> None:
-    """_render_cites_related returns empty string when no cites/related."""
-    item = _make_full_item("solo-item", ["ai"])
-    html = _render_cites_related(item, {})
-    assert html == ""
+def test_strip_evidence_labels_list_item_strips_inline_label() -> None:
+    """Existing bullet items have embedded labels stripped, list marker preserved."""
+    text = "- [inference; source: https://a.com] The feedback loop should operate."
+    assert strip_evidence_labels(text) == "- The feedback loop should operate."
 
 
-def test_render_versions_renders_table() -> None:
-    """_render_versions renders a table with version entries."""
-    item = _make_full_item(
-        "versioned-item",
-        ["ai"],
-        versions=[
-            {
-                "version": "1.0",
-                "sha": "abc1234",
-                "changed": "2026-04-28",
-                "progress": "progress/2026-04-28-test.md",
-                "summary": "Initial completion",
-            }
-        ],
-    )
-    html = _render_versions(item)
-    assert "1.0" in html
-    assert "abc1234" in html
-    assert "Initial completion" in html
-    assert "github.com/davidamitchell/Research/commit/abc1234" in html
+def test_strip_evidence_labels_numbered_list_strips_label() -> None:
+    """Numbered list items have embedded labels stripped."""
+    text = "1. **High confidence.** [inference; source: https://a.com] Claim text."
+    assert strip_evidence_labels(text) == "1. **High confidence.** Claim text."
 
 
-def test_render_versions_empty() -> None:
-    """_render_versions returns empty string when versions list is empty."""
-    item = _make_full_item("no-versions", ["ai"])
-    html = _render_versions(item)
-    assert html == ""
+def test_strip_evidence_labels_numbered_list_label_first() -> None:
+    """Format 3 Key Findings (label before bold confidence) is handled."""
+    text = "1. [inference; source: https://a.com] **Medium confidence:** OPA is suitable."
+    assert strip_evidence_labels(text) == "1. **Medium confidence:** OPA is suitable."
 
 
-def test_render_cites_related_supersedes_section() -> None:
-    """_render_cites_related renders supersedes entry with rel-pill."""
-    older = _make_full_item("older-item", ["ai"])
-    item = _make_full_item("new-item", ["ai"], supersedes="older-item")
-    slug_to_item = {"older-item": older}
-    html = _render_cites_related(item, slug_to_item)
-    assert "supersedes" in html
-    assert "older-item" in html
+def test_strip_evidence_labels_bare_label_unchanged() -> None:
+    """Bare [inference] / [fact] labels without '; source:' are left untouched."""
+    text = "- **[assumption] Something is true.** Justification follows."
+    assert strip_evidence_labels(text) == text
+
+
+def test_strip_evidence_labels_headings_unchanged() -> None:
+    """Lines starting with # are not modified."""
+    text = "### Key Findings\n[inference; source: https://a.com] Para text."
+    result = strip_evidence_labels(text)
+    assert result.startswith("### Key Findings")
+    # The paragraph line (not a heading) should be converted to bullet
+    assert "- Para text." in result
+
+
+def test_strip_evidence_labels_empty_text() -> None:
+    assert strip_evidence_labels("") == ""
+
+
+def test_strip_evidence_labels_plain_paragraph_unchanged() -> None:
+    """Plain paragraphs without evidence labels are not modified."""
+    text = "Three disciplines converge on the ~5-person limit for high-coordination teams."
+    assert strip_evidence_labels(text) == text

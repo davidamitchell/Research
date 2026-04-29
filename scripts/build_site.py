@@ -1096,6 +1096,64 @@ def strip_evidence_map_table(text: str) -> str:
     return "\n".join(result)
 
 
+# Regex for inline evidence source labels: [inference; source: ...], [fact; source: ...],
+# [assumption; source: ...].  Only matches the semicolon-source form, not bare [inference] /
+# [fact] / [assumption] labels used in older items which have a different meaning in context.
+_EVIDENCE_SOURCE_LABEL_RE = re.compile(
+    r"\[(?:inference|fact|assumption);\s*source:[^\]]+\]\s*",
+    re.IGNORECASE,
+)
+
+
+def strip_evidence_labels(text: str) -> str:
+    """Strip inline ``[type; source: ...]`` evidence labels from markdown section content.
+
+    Two cases handled:
+
+    1. A non-list paragraph line that *starts* with an evidence label is split on label
+       boundaries; each non-empty text fragment becomes a ``- `` bullet item so the
+       Executive Summary and Analysis sections render as readable lists.
+
+    2. All other lines (list items, headings, table rows, mixed-content lines) have
+       embedded labels stripped in-place, leaving the surrounding text intact.
+    """
+    lines = text.split("\n")
+    result: list[str] = []
+    for line in lines:
+        stripped = line.strip()
+        # Pass through blank lines, headings, and table rows unchanged.
+        if not stripped or stripped.startswith("#") or stripped.startswith("|"):
+            result.append(line)
+            continue
+
+        # Detect existing list / numbering prefix.
+        is_list_item = bool(re.match(r"^\s*(?:[-*+]|\d+\.)\s", line))
+
+        # Paragraph line that begins with an evidence label → convert to bullet list.
+        if not is_list_item and _EVIDENCE_SOURCE_LABEL_RE.match(stripped):
+            # Collect text segments that fall *after* each label.
+            segments: list[str] = []
+            last_end = 0
+            for m in _EVIDENCE_SOURCE_LABEL_RE.finditer(stripped):
+                pre = stripped[last_end : m.start()].strip()
+                if pre:
+                    segments.append(pre)
+                last_end = m.end()
+            post = stripped[last_end:].strip()
+            if post:
+                segments.append(post)
+            for seg in segments:
+                # Strip any residual nested labels within the segment.
+                seg = _EVIDENCE_SOURCE_LABEL_RE.sub("", seg).strip()
+                if seg:
+                    result.append(f"- {seg}")
+        else:
+            # List items and inline occurrences: strip labels in-place.
+            result.append(_EVIDENCE_SOURCE_LABEL_RE.sub("", line))
+
+    return "\n".join(result)
+
+
 def get_findings_excerpt(item: dict, max_chars: int = 200) -> str:
     """Return a short plain-text excerpt from the Findings section."""
     findings = item["sections"].get("Findings", "")
@@ -2198,6 +2256,7 @@ def build_item_page(
         if not content:
             continue
         content = strip_evidence_map_table(content)
+        content = strip_evidence_labels(content)
         rendered = md.render(content)
         rendered = autolink_html(rendered, source_refs)
         rendered = _STRAY_CLOSE_TAGS_RE.sub("", rendered)
