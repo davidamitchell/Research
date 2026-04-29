@@ -425,36 +425,53 @@ def extract_source_urls(sources_text: str, exclude_repo: str) -> list[str]:
     return result
 
 
-def _extract_key_claims_fallback(findings_text: str) -> list[str]:
+def _extract_sources_from_line(line: str) -> list[str]:
+    """Extract all https:// source URLs from [...] brackets that contain a 'source:' key."""
+    sources: list[str] = []
+    for bracket_match in re.finditer(r"\[([^\]]+)\]", line):
+        content = bracket_match.group(1)
+        if not re.search(r"\bsource\s*:", content, re.IGNORECASE):
+            continue
+        for url_match in re.finditer(r"https?://\S+", content):
+            url = url_match.group(0).rstrip(".,;)")
+            if url and url not in sources:
+                sources.append(url)
+    return sources
+
+
+def _extract_key_claims_fallback(findings_text: str) -> list[dict]:
     """Fallback: first sentence from * [inference] / * [fact] bullets in Executive Summary."""
     es_match = re.search(r"###\s+Executive Summary\b(.*?)(?=\n###|\Z)", findings_text, re.DOTALL)
     if not es_match:
         return []
     es_text = es_match.group(1)
-    claims: list[str] = []
+    claims: list[dict] = []
     for line in es_text.split("\n"):
         if not re.match(r"^\s*\*\s+\[(inference|fact)\]", line, re.IGNORECASE):
             continue
+        sources = _extract_sources_from_line(line)
         text = re.sub(r"^\s*\*\s+", "", line)
-        text = re.sub(r"\[(inference|fact)\]\s*", "", text, flags=re.IGNORECASE)
+        text = re.sub(r"\[(inference|fact)[^\]]*\]\s*", "", text, flags=re.IGNORECASE)
         text = text.strip()
         parts = re.split(r"\.\s+", text)
         if parts:
             text = parts[0].strip().rstrip(".")
         if text:
-            claims.append(text)
+            claims.append({"text": text, "sources": sources})
         if len(claims) >= 8:
             break
     return claims
 
 
-def extract_key_claims(findings_text: str) -> list[str]:
-    """Extract key claims from the ### Key Findings subsection.
+def extract_key_claims(findings_text: str) -> list[dict]:
+    """Extract key claims with source URLs from the ### Key Findings subsection.
 
     Handles three bullet formats produced by the research loop:
       1. ``1. **Claim text.** (confidence level)``  — older style
       2. ``1. **High confidence.** [source; URL] Claim text``  — mid-era style
       3. ``1. [source; URL] **Medium confidence:** Claim text``  — current style
+
+    Returns a list of dicts: ``{"text": str, "sources": [url, ...]}``.
     """
     # Find ### Key Findings subsection
     kf_match = re.search(r"###\s+Key Findings\b(.*?)(?=\n###|\Z)", findings_text, re.DOTALL)
@@ -462,12 +479,14 @@ def extract_key_claims(findings_text: str) -> list[str]:
         return _extract_key_claims_fallback(findings_text)
 
     kf_text = kf_match.group(1)
-    claims: list[str] = []
+    claims: list[dict] = []
 
     for line in kf_text.split("\n"):
         # Match any numbered or bulleted list item
         if not re.match(r"^\s*(\d+\.\s+|-\s+)", line):
             continue
+        # Capture source URLs before stripping brackets
+        sources = _extract_sources_from_line(line)
         # Strip list marker
         text = re.sub(r"^\s*\d+\.\s+", "", line)
         text = re.sub(r"^\s*-\s+", "", text)
@@ -482,7 +501,7 @@ def extract_key_claims(findings_text: str) -> list[str]:
         text = re.sub(r"\s*\((high|medium|low)\s+confidence\)\s*$", "", text, flags=re.IGNORECASE)
         text = text.strip().rstrip(".")
         if text:
-            claims.append(text)
+            claims.append({"text": text, "sources": sources})
         if len(claims) >= 8:
             break
 

@@ -628,6 +628,10 @@ main {
 .key-claims li:last-child { border-bottom: none; }
 .key-claims a { color: var(--teal); text-decoration: underline; word-break: break-all; }
 .key-claims a:hover { color: var(--text); }
+.claim-sources { display: inline-flex; flex-wrap: wrap; gap: 0.2em; margin-left: 0.5em; vertical-align: middle; }
+.claim-source-link { font-size: var(--text-xs); font-family: 'IBM Plex Mono', monospace; color: var(--text-muted); text-decoration: none; border: 1px solid var(--border); padding: 0.05em 0.35em; border-radius: 2px; white-space: nowrap; }
+.claim-source-link:hover { color: var(--teal); border-color: var(--teal); text-decoration: none; }
+
 
 /* Relationship type pill */
 .rel-pill { display: inline-block; padding: 0.15rem 0.5rem; background: transparent; border: 1px solid var(--border); color: var(--text-muted); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: lowercase; font-family: 'IBM Plex Mono', monospace; }
@@ -2056,11 +2060,51 @@ def _render_claim(text: str) -> str:
     return "".join(parts)
 
 
-def _render_key_claims(meta_claims: list[str]) -> str:
-    """Render key claims block from pre-extracted, clean claim sentences."""
+def _render_source_links(sources: list[str]) -> str:
+    """Render a compact inline list of source citation links from a list of URLs."""
+    if not sources:
+        return ""
+    links = []
+    seen: set[str] = set()
+    for url in sources:
+        if url in seen:
+            continue
+        seen.add(url)
+        domain_m = re.search(r"https?://([^/]+)", url)
+        domain = domain_m.group(1) if domain_m else url
+        # Trim leading www. for display
+        display = re.sub(r"^www\.", "", domain)
+        safe_url = url.replace('"', "&quot;")
+        links.append(
+            f'<a class="claim-source-link" href="{safe_url}"'
+            f' target="_blank" rel="noopener" title="{escape(url)}">{escape(display)}</a>'
+        )
+    return f'<span class="claim-sources">{"".join(links)}</span>'
+
+
+def _render_key_claims(meta_claims: list) -> str:
+    """Render key claims block from pre-extracted claim objects.
+
+    Each entry may be either:
+      - a ``str``  (legacy format — no source links)
+      - a ``dict`` with ``"text"`` and ``"sources"`` keys (current format)
+    """
     if not meta_claims:
         return ""
-    items_html = "".join(f"<li>{_render_claim(c)}</li>\n" for c in meta_claims)
+
+    def _render_item(claim: object) -> str:
+        if isinstance(claim, dict):
+            text = claim.get("text", "")
+            sources = claim.get("sources", [])
+        else:
+            text = str(claim)
+            sources = []
+        rendered = _render_claim(text)
+        if sources:
+            rendered += _render_source_links(sources)
+        return f"<li>{rendered}</li>\n"
+
+    items_html = "".join(_render_item(c) for c in meta_claims)
     return (
         '<div class="key-claims">'
         '<div class="key-claims-label">key claims</div>'

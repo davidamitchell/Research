@@ -24,10 +24,10 @@ def test_format1_extracts_claim_text() -> None:
 """
     claims = extract_key_claims(findings)
     assert len(claims) == 2
-    assert claims[0].startswith("Brooks (1975)")
-    assert "communication effort scales" in claims[0]
-    assert "confidence" not in claims[0].lower()
-    assert claims[1].startswith("Brooks does not identify 5")
+    assert claims[0]["text"].startswith("Brooks (1975)")
+    assert "communication effort scales" in claims[0]["text"]
+    assert "confidence" not in claims[0]["text"].lower()
+    assert claims[1]["text"].startswith("Brooks does not identify 5")
 
 
 def test_format1_strips_parenthetical_confidence() -> None:
@@ -38,7 +38,7 @@ def test_format1_strips_parenthetical_confidence() -> None:
 """
     claims = extract_key_claims(findings)
     assert len(claims) == 1
-    assert claims[0] == "Static extraction provides the highest-confidence declared edges"
+    assert claims[0]["text"] == "Static extraction provides the highest-confidence declared edges"
 
 
 # ---------------------------------------------------------------------------
@@ -56,10 +56,12 @@ def test_format2_extracts_claim_not_confidence_label() -> None:
 """
     claims = extract_key_claims(findings)
     assert len(claims) == 2
-    assert claims[0] == (
+    assert claims[0]["text"] == (
         "The best empirical evidence indicates citizen development sprawl begins as a workaround"
     )
-    assert claims[1] == "Governance architectures do not suppress automation demand"
+    assert claims[0]["sources"] == ["https://example.com/paper1.pdf"]
+    assert claims[1]["text"] == "Governance architectures do not suppress automation demand"
+    assert claims[1]["sources"] == ["https://example.com"]
 
 
 def test_format2_colon_variant() -> None:
@@ -71,11 +73,14 @@ def test_format2_colon_variant() -> None:
 """
     claims = extract_key_claims(findings)
     assert len(claims) == 1
-    assert claims[0] == "Shadow IT research identifies IT slowness as the recurring condition"
+    assert (
+        claims[0]["text"] == "Shadow IT research identifies IT slowness as the recurring condition"
+    )
+    assert claims[0]["sources"] == ["https://example.com"]
 
 
 def test_format2_multi_url_source_bracket() -> None:
-    """Multi-URL source brackets are stripped in full."""
+    """Multi-URL source brackets are stripped; all URLs are captured."""
     findings = """\
 ### Key Findings
 
@@ -83,7 +88,8 @@ def test_format2_multi_url_source_bracket() -> None:
 """
     claims = extract_key_claims(findings)
     assert len(claims) == 1
-    assert claims[0] == "The claim text survives intact"
+    assert claims[0]["text"] == "The claim text survives intact"
+    assert claims[0]["sources"] == ["https://a.com", "https://b.com", "https://c.com"]
 
 
 # ---------------------------------------------------------------------------
@@ -101,8 +107,12 @@ def test_format3_extracts_claim_text() -> None:
 """
     claims = extract_key_claims(findings)
     assert len(claims) == 2
-    assert claims[0] == "OPA is a well-supported default PDP runtime"
-    assert claims[1] == "The reference architecture should separate canonical policy authoring"
+    assert claims[0]["text"] == "OPA is a well-supported default PDP runtime"
+    assert claims[0]["sources"] == ["https://opentelemetry.io/docs/"]
+    assert (
+        claims[1]["text"] == "The reference architecture should separate canonical policy authoring"
+    )
+    assert claims[1]["sources"] == ["https://example.com"]
 
 
 def test_format3_multiple_source_urls() -> None:
@@ -112,7 +122,13 @@ def test_format3_multiple_source_urls() -> None:
 1. [inference; source: https://a.com; https://b.com; https://c.com; https://d.com] **High confidence:** Claim text here.
 """
     claims = extract_key_claims(findings)
-    assert claims == ["Claim text here"]
+    assert claims[0]["text"] == "Claim text here"
+    assert claims[0]["sources"] == [
+        "https://a.com",
+        "https://b.com",
+        "https://c.com",
+        "https://d.com",
+    ]
 
 
 # ---------------------------------------------------------------------------
@@ -132,7 +148,7 @@ def test_no_key_findings_section_falls_back() -> None:
     assert isinstance(claims, list)
     # Fallback should pull both bullet sentences
     assert len(claims) >= 1
-    assert any("Systems debt" in c or "Costs" in c for c in claims)
+    assert any("Systems debt" in c["text"] or "Costs" in c["text"] for c in claims)
 
 
 def test_empty_findings_returns_empty_list() -> None:
@@ -148,3 +164,15 @@ def test_max_eight_claims() -> None:
     findings = f"### Key Findings\n\n{bullets}\n"
     claims = extract_key_claims(findings)
     assert len(claims) <= 8
+
+
+def test_no_source_bracket_produces_empty_sources() -> None:
+    """Format 1 bullets with no source bracket produce an empty sources list."""
+    findings = """\
+### Key Findings
+
+1. **Plain claim with no source reference.** (high confidence)
+"""
+    claims = extract_key_claims(findings)
+    assert len(claims) == 1
+    assert claims[0]["sources"] == []
