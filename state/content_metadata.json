@@ -1,6 +1,85 @@
 {
-  "extracted_at": "2026-04-30T21:00:54Z",
+  "extracted_at": "2026-04-30T21:17:39Z",
   "items": {
+    "2026-04-30-ai-code-entropy-quality-metrics": {
+      "named_concepts": [
+        "artificial intelligence",
+        "intelligence ai",
+        "broader tooling",
+        "generated code",
+        "clone ratio",
+        "change coupling",
+        "architectural guardrails",
+        "process shifts",
+        "cognitive complexity",
+        "hotspot decline",
+        "repeated artificial",
+        "ai code",
+        "code generation",
+        "software entropy",
+        "code quality",
+        "less refactoring",
+        "guardrails matter",
+        "deep modules",
+        "locally generated",
+        "competing explanation"
+      ],
+      "source_urls": [
+        "https://pragprog.com/titles/tpp20/the-pragmatic-programmer-20th-anniversary-edition/",
+        "https://pragprog.com/tips/",
+        "https://web.stanford.edu/~ouster/cgi-bin/book.php",
+        "https://web.stanford.edu/~ouster/cgi-bin/cs190-winter18/lecture.php?topic=modularDesign",
+        "https://doi.org/10.1109/TSE.1976.233837",
+        "https://www.sonarsource.com/blog/cognitive-complexity-because-testability-understandability/",
+        "https://arxiv.org/abs/2108.09293",
+        "https://arxiv.org/abs/2206.15331",
+        "https://arxiv.org/abs/2304.10778",
+        "https://arxiv.org/abs/2303.08733",
+        "https://arxiv.org/abs/2506.04785",
+        "https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-code-quality/",
+        "https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/",
+        "https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/",
+        "https://www.gitclear.com/ai_assistant_code_quality_2025_research",
+        "https://codescene.com/blog/change-coupling-visualize-the-cost-of-change",
+        "https://codescene.com/improve-code-quality-and-software-stability",
+        "https://codescene.com/blog/measure-code-health-of-your-codebase",
+        "https://link.springer.com/article/10.1007/s42979-024-03608-4"
+      ],
+      "key_claims": [
+        {
+          "text": "Repeated Artificial Intelligence (AI) code generation does not reliably degrade short, bounded programming tasks, because randomized and benchmark studies show that GitHub Copilot can improve unit-test success, readability, maintainability, and review throughput under controlled conditions. (; medium confidence; source: https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/; https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-code-quality/; https://arxiv.org/abs/2304.10778)",
+          "sources": []
+        },
+        {
+          "text": "The strongest current evidence for software entropy appears at repository timescale, where GitClear's multi-year dataset shows more cloned code and less moved or refactored code, although that observational pattern does not isolate Artificial Intelligence (AI) from broader tooling and process shifts. (; low confidence; source: https://www.gitclear.com/ai_assistant_code_quality_2025_research; https://link.springer.com/article/10.1007/s42979-024-03608-4)",
+          "sources": []
+        },
+        {
+          "text": "Human review appears easier to overload than many teams assume in AI-assisted coding because security studies still find vulnerable suggestions at meaningful rates and human-AI collaboration studies show developers scrutinize Copilot suggestions less than human pair-programming input. (; medium confidence; source: https://arxiv.org/abs/2108.09293; https://arxiv.org/abs/2506.04785)",
+          "sources": []
+        },
+        {
+          "text": "John Ousterhout's deep-module model explains why architectural guardrails matter: when interfaces stay small and implementation complexity stays hidden, locally generated code is less able to leak design knowledge across the system and create compounding change costs. (; medium confidence; source: https://web.stanford.edu/~ouster/cgi-bin/cs190-winter18/lecture.php?topic=modularDesign; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-03-14-reliable-software-llm-era.md)",
+          "sources": []
+        },
+        {
+          "text": "The most sensitive early-warning metrics for AI-driven entropy are clone ratio, short-term churn, refactoring-share decline, and hotspot code-health decline, because they capture structural drift before defect counts or incident reports fully catch up. (; medium confidence; source: https://www.gitclear.com/ai_assistant_code_quality_2025_research; https://codescene.com/blog/measure-code-health-of-your-codebase; https://codescene.com/improve-code-quality-and-software-stability)",
+          "sources": []
+        },
+        {
+          "text": "Cognitive Complexity and change coupling are more useful maintainability indicators than cyclomatic complexity alone in this problem setting, because one measures human understandability and the other measures hidden cost-of-change relationships across commits rather than just control-flow branches. (; medium confidence; source: https://www.sonarsource.com/blog/cognitive-complexity-because-testability-understandability/; https://codescene.com/blog/change-coupling-visualize-the-cost-of-change; https://doi.org/10.1109/TSE.1976.233837)",
+          "sources": []
+        },
+        {
+          "text": "The evidence supports a threshold interpretation rather than a clean linear law, because hotspot decline, hidden coupling, and duplication reinforce each other until teams face markedly slower and less predictable change. (; low confidence; source: https://codescene.com/blog/measure-code-health-of-your-codebase; https://codescene.com/improve-code-quality-and-software-stability; https://www.gitclear.com/ai_assistant_code_quality_2025_research)",
+          "sources": []
+        },
+        {
+          "text": "The practical distinction between minimally guardrailed and guarded codebases is not that one uses AI and the other does not, but that guarded teams force generated code through interfaces, verifiers, and review loops that keep local gains from turning into system-level entropy. (; low confidence; source: https://github.blog/news-insights/research/does-github-copilot-improve-code-quality-heres-what-the-data-says/; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-llm-verifiability-asymmetry-code-world-action.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-software-engineering-investment-case-llm.md; https://github.com/davidamitchell/Research/blob/main/Research/completed/2026-04-26-systems-capability-debt-agentic-ai-risk-synthesis.md)",
+          "sources": []
+        }
+      ]
+    },
     "2026-04-29-knowledge-scaffolding-context-engineering": {
       "named_concepts": [
         "knowledge scaffolding",
