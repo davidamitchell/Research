@@ -15,7 +15,12 @@ superseded_by: ~
 supersedes: ~
 item_type: primary
 confidence: medium
-versions: []
+versions:
+  - version: "1.0"
+    sha: 02e771d6cbd0a627737ba93a82f578cffeb57dcf
+    changed: 2026-04-30
+    progress: progress/2026-04-30-grill-me-ai-alignment-shared-design.md
+    summary: "Initial completion"
 ---
 
 # Grill-Me technique: iterative structured interviewing for human and Artificial Intelligence (AI) alignment in code generation
